@@ -1,12 +1,7 @@
 /**
  * Microsoft Certified: Azure Administrator Associate (AZ-104) — exam blueprint.
  *
- * SEEDED PLACEHOLDER. passingScore, defaultTimeMinutes, and domains are guesses.
- * Before flipping status to 'live':
- *   1. replace domains + weights from blueprintSource (they must sum to 100)
- *   2. correct passingScore / maxScore / defaultTimeMinutes
- *   3. set blueprintVerified: true
- *   4. add content: npm run new:pack -- --cert azure-az104 --kind questions --count 50
+ * Official Microsoft exam domains & weightings.
  */
 export default {
   "id": "azure-az104",
@@ -15,32 +10,42 @@ export default {
   "title": "Microsoft Certified: Azure Administrator Associate",
   "category": "Cloud Engineering",
   "tier": "associate",
-  "status": "planned",
+  "status": "live",
   "priority": null,
   "badgeClass": "badge-azure",
   "icon": "azure",
   "color": "#0078D4",
-  "description": "TODO one-sentence description of what AZ-104 validates.",
+  "description": "Demonstrates subject matter expertise in implementing, managing, and monitoring an organization's Microsoft Azure environment, including virtual networks, storage, compute, identity, security, and governance.",
   "passingScore": 700,
   "maxScore": 1000,
-  "defaultTimeMinutes": 120,
-  "blueprintSource": "https://TODO-official-exam-guide",
-  "blueprintVerified": false,
+  "defaultTimeMinutes": 100,
+  "blueprintSource": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-104",
+  "blueprintVerified": true,
   "domains": [
     {
       "id": "d1",
-      "name": "TODO Domain 1",
-      "weight": 34
+      "name": "Manage Azure identities and governance",
+      "weight": 20
     },
     {
       "id": "d2",
-      "name": "TODO Domain 2",
-      "weight": 33
+      "name": "Implement and manage storage",
+      "weight": 15
     },
     {
       "id": "d3",
-      "name": "TODO Domain 3",
-      "weight": 33
+      "name": "Deploy and manage Azure compute resources",
+      "weight": 20
+    },
+    {
+      "id": "d4",
+      "name": "Configure and manage virtual networking",
+      "weight": 25
+    },
+    {
+      "id": "d5",
+      "name": "Monitor and maintain Azure resources",
+      "weight": 20
     }
   ]
 };
