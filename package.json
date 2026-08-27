@@ -1,0 +1,51 @@
+{
+  "name": "converge",
+  "version": "0.1.0",
+  "description": "Cloud, DevOps, Kubernetes, platform, FinOps, and security certification practice \u2014 exam simulation, adaptive quizzes, and spaced-repetition flashcards.",
+  "keywords": [
+    "certification",
+    "exam-prep",
+    "quiz",
+    "flashcards",
+    "spaced-repetition",
+    "aws",
+    "azure",
+    "gcp",
+    "kubernetes",
+    "devops",
+    "sre",
+    "platform-engineering",
+    "finops",
+    "devsecops"
+  ],
+  "license": "MIT",
+  "type": "module",
+  "private": false,
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "vite",
+    "start": "node server.js",
+    "build": "npm run build:content && npm run validate && vite build",
+    "preview": "vite preview",
+    "build:content": "node scripts/build-content-index.mjs",
+    "validate": "node scripts/validate-content.mjs",
+    "stats": "node scripts/content-stats.mjs",
+    "test": "node scripts/test-select.mjs && node scripts/test-lib.mjs && node scripts/test-loader.mjs && node scripts/test-storage-migration.mjs && node scripts/test-app.mjs && node scripts/test-scaffold.mjs && node scripts/test-server.mjs",
+    "check": "npm run backup && npm run build:content && npm run validate && npm run coverage",
+    "new:cert": "node scripts/new-cert.mjs",
+    "new:pack": "node scripts/new-pack.mjs",
+    "seed:catalog": "node scripts/seed-catalog.mjs",
+    "backup": "node scripts/backup-content.mjs",
+    "icons": "node scripts/build-brand-icons.mjs",
+    "audit": "npm audit --omit=dev --audit-level=low",
+    "coverage": "c8 npm test",
+    "coverage:summary": "node scripts/coverage-summary.mjs"
+  },
+  "devDependencies": {
+    "c8": "^12.0.0",
+    "simple-icons": "^16.28.0",
+    "vite": "^5.4.2"
+  }
+}
