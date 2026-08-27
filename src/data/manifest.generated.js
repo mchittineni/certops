@@ -215,26 +215,38 @@ export const CONTENT_MANIFEST = {
   },
   "azure-az104": {
     "questions": {
-      "total": 0,
+      "total": 250,
       "byDifficulty": {
-        "easy": 0,
-        "medium": 0,
-        "hard": 0
+        "easy": 100,
+        "medium": 100,
+        "hard": 50
       },
-      "byDomain": {},
-      "packs": 0,
-      "loadedPacks": 0
+      "byDomain": {
+        "d1": 50,
+        "d2": 50,
+        "d3": 50,
+        "d4": 50,
+        "d5": 50
+      },
+      "packs": 10,
+      "loadedPacks": 10
     },
     "flashcards": {
-      "total": 0,
+      "total": 250,
       "byDifficulty": {
-        "easy": 0,
-        "medium": 0,
-        "hard": 0
+        "easy": 100,
+        "medium": 100,
+        "hard": 50
       },
-      "byDomain": {},
-      "packs": 0,
-      "loadedPacks": 0
+      "byDomain": {
+        "d1": 50,
+        "d2": 50,
+        "d3": 50,
+        "d4": 50,
+        "d5": 50
+      },
+      "packs": 10,
+      "loadedPacks": 10
     }
   },
   "azure-az204": {
@@ -1304,7 +1316,7 @@ export const CONTENT_MANIFEST = {
 };
 
 export const CONTENT_TOTALS = {
-  "questions": 286,
-  "flashcards": 292,
+  "questions": 536,
+  "flashcards": 542,
   "certifications": 52
 };
