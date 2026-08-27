@@ -118,6 +118,136 @@ export const AWS_SAA_FLASHCARDS = [
     hint: 'Seven of them.',
     back: 'Simple (one record) · Weighted (A/B, canary) · Latency-based (lowest network latency region) · Failover (active-passive with health checks) · Geolocation (compliance, localized content) · Geoproximity (bias traffic toward a region) · Multivalue Answer (up to 8 healthy records, client-side LB).',
     tags: ['Route 53', 'DNS', 'Resilience']
+  },
+  {
+    id: 'aws-saa-fc-13',
+    difficulty: 'easy',
+    certId: 'aws-saa',
+    domainId: 'd1',
+    front: 'Application Load Balancer: Target Group routing and Health Checks',
+    hint: 'How ALB monitors backend instances.',
+    back: 'ALB periodically sends HTTP/HTTPS health checks (e.g. <code>GET /health</code>) to registered targets in a <strong>Target Group</strong>. If a target fails consecutive health checks, ALB stops routing traffic to it automatically until it becomes healthy again.',
+    tags: ['ALB', 'Target Group', 'Health Checks', 'Resilience']
+  },
+  {
+    id: 'aws-saa-fc-14',
+    difficulty: 'medium',
+    certId: 'aws-saa',
+    domainId: 'd2',
+    front: 'CloudFront Dynamic Content Acceleration — why use CloudFront for uncacheable dynamic APIs?',
+    hint: 'TLS termination at edge POPs and persistent AWS backbone TCP connections.',
+    back: 'Even with TTL=0, CloudFront accelerates dynamic REST/GraphQL APIs by terminating TCP and TLS handshakes at <strong>nearby Edge POPs</strong> and routing requests across the optimized private AWS global network over pre-warmed persistent TCP connections.',
+    tags: ['CloudFront', 'Dynamic Acceleration', 'Performance', 'Networking']
+  },
+  {
+    id: 'aws-saa-fc-15',
+    difficulty: 'hard',
+    certId: 'aws-saa',
+    domainId: 'd3',
+    front: 'Cross-Account S3 Bucket Access with KMS CMK Encryption — required permissions',
+    hint: 'Two policies in the resource account plus IAM role permissions.',
+    back: 'Requires granting permissions in: 1) <strong>S3 Bucket Policy</strong> in Account A (<code>s3:GetObject</code>, <code>s3:PutObject</code>), 2) <strong>KMS Key Policy</strong> in Account A (<code>kms:Decrypt</code>, <code>kms:GenerateDataKey</code>), and 3) <strong>IAM Identity Policy</strong> in Account B.',
+    tags: ['KMS', 'S3', 'Cross-Account', 'Security', 'Encryption']
+  },
+  {
+    id: 'aws-saa-fc-16',
+    difficulty: 'easy',
+    certId: 'aws-saa',
+    domainId: 'd1',
+    front: 'Amazon SQS Backlog Metric for Target Tracking Auto Scaling',
+    hint: 'How worker fleets scale based on queue depth.',
+    back: 'Worker fleets scale using a custom metric: <strong>BacklogPerInstance</strong> = <code>ApproximateNumberOfMessagesVisible</code> divided by the number of running EC2 instances. This ensures predictable scaling proportional to queue message volume.',
+    tags: ['SQS', 'Auto Scaling', 'CloudWatch', 'Resilience']
+  },
+  {
+    id: 'aws-saa-fc-17',
+    difficulty: 'easy',
+    certId: 'aws-saa',
+    domainId: 'd2',
+    front: 'Amazon CloudFront Geographic Restrictions (Geo-blocking)',
+    hint: 'Allowlist or blocklist by country code at edge locations.',
+    back: 'Allows or blocks viewers in specific countries based on a GeoIP database at <strong>CloudFront edge POPs</strong>. Blocked users receive an HTTP 403 Forbidden response before requests ever traverse to the origin.',
+    tags: ['CloudFront', 'Geo-Restriction', 'Security', 'Performance']
+  },
+  {
+    id: 'aws-saa-fc-18',
+    difficulty: 'hard',
+    certId: 'aws-saa',
+    domainId: 'd3',
+    front: 'Enforcing HTTPS on Amazon S3 Buckets using aws:SecureTransport',
+    hint: 'Explicit Deny statement in bucket policy.',
+    back: 'Enforced by an S3 Bucket Policy statement with <strong>Effect: Deny</strong> and Condition <code>"Bool": {"aws:SecureTransport": "false"}</code>. Any plaintext HTTP request is immediately rejected.',
+    tags: ['S3', 'TLS', 'SecureTransport', 'Security']
+  },
+  {
+    id: 'aws-saa-fc-19',
+    difficulty: 'medium',
+    certId: 'aws-saa',
+    domainId: 'd4',
+    front: 'Amazon S3 Glacier Flexible Retrieval — three retrieval options',
+    hint: 'Expedited vs Standard vs Bulk.',
+    back: '• <strong>Expedited</strong>: 1–5 minutes (highest cost)<br>• <strong>Standard</strong>: 3–5 hours<br>• <strong>Bulk</strong>: 5–12 hours (lowest cost per GB, ideal for large batch archives).',
+    tags: ['S3 Glacier', 'Retrieval Tiers', 'Archiving', 'Cost Optimization']
+  },
+  {
+    id: 'aws-saa-fc-20',
+    difficulty: 'easy',
+    certId: 'aws-saa',
+    domainId: 'd1',
+    front: 'EC2 Auto Scaling across 3 AZs — surviving an AZ outage',
+    hint: 'N+1 AZ capacity planning.',
+    back: 'To maintain minimum capacity N during an AZ outage, deploy across 3 AZs sized such that remaining 2 AZs sustain the full workload (e.g. 6 instances total, 2 per AZ; losing 1 AZ leaves 4 active).',
+    tags: ['Auto Scaling', 'Multi-AZ', 'High Availability', 'Resilience']
+  },
+  {
+    id: 'aws-saa-fc-21',
+    difficulty: 'medium',
+    certId: 'aws-saa',
+    domainId: 'd2',
+    front: 'Amazon Aurora Auto Scaling with Reader Endpoints',
+    hint: 'Dynamic read replica scaling up to 15 replicas.',
+    back: 'Aurora Auto Scaling automatically provisions up to <strong>15 Aurora Read Replicas</strong> based on CPU or connection metrics. Applications connect to the <strong>Reader Endpoint</strong>, which load-balances read queries automatically.',
+    tags: ['Aurora', 'Auto Scaling', 'Read Replicas', 'Databases']
+  },
+  {
+    id: 'aws-saa-fc-22',
+    difficulty: 'hard',
+    certId: 'aws-saa',
+    domainId: 'd3',
+    front: 'Restricting S3 Bucket Access by IP Address in Bucket Policies',
+    hint: 'Deny + NotIpAddress condition key.',
+    back: 'Configured using an explicit <strong>Deny</strong> statement combined with the <code>"NotIpAddress": {"aws:SourceIp": "CIDR_BLOCK"}</code> condition, ensuring any client outside the corporate CIDR is rejected.',
+    tags: ['S3', 'Bucket Policy', 'IP Restriction', 'Security']
+  },
+  {
+    id: 'aws-saa-fc-23',
+    difficulty: 'easy',
+    certId: 'aws-saa',
+    domainId: 'd4',
+    front: 'Amazon S3 Object Expiration Lifecycle Rules',
+    hint: 'Automated deletion of ephemeral data without code.',
+    back: 'S3 Lifecycle rules can define an <strong>Expiration action</strong> (e.g. expire objects after 14 days). S3 automatically deletes matching objects at zero runtime cost, eliminating manual cleanup scripts.',
+    tags: ['S3', 'Lifecycle', 'Expiration', 'Cost Optimization']
+  },
+  {
+    id: 'aws-saa-fc-24',
+    difficulty: 'medium',
+    certId: 'aws-saa',
+    domainId: 'd1',
+    front: 'Route 53 Multivalue Answer Routing — characteristics and limitations',
+    hint: 'Up to 8 healthy records returned per query.',
+    back: 'Returns up to <strong>8 healthy IP records</strong> selected randomly in response to DNS queries, each backed by a Route 53 health check. Provides client-side DNS load balancing (not a substitute for an ALB).',
+    tags: ['Route 53', 'Multivalue', 'Health Checks', 'Resilience']
+  },
+  {
+    id: 'aws-saa-fc-25',
+    difficulty: 'hard',
+    certId: 'aws-saa',
+    domainId: 'd2',
+    front: 'Kinesis Data Streams Shard Ingestion Capacity and Throttling',
+    hint: '1 MB/sec or 1,000 records/sec per shard.',
+    back: 'Each shard provides <strong>1 MB/sec or 1,000 records/sec</strong> write throughput. Write throttling occurs when keys hash unevenly to shards; resolve by using high-cardinality partition keys and resharding (splitting shards).',
+    tags: ['Kinesis', 'Shards', 'Partition Key', 'Performance']
   }
 ];
 
