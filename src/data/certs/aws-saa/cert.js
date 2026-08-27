@@ -25,7 +25,7 @@ export default {
   "maxScore": 1000,
   "defaultTimeMinutes": 65,
   "blueprintSource": "https://d1.awsstatic.com/training-and-certification/docs-sa-assoc/AWS-Certified-Solutions-Architect-Associate_Exam-Guide.pdf",
-  "blueprintVerified": false,
+  "blueprintVerified": true,
   "domains": [
     {
       "id": "d1",
