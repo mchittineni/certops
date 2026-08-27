@@ -1,0 +1,46 @@
+/**
+ * AWS Certified SysOps Administrator - Associate (SOA-C02) — exam blueprint.
+ *
+ * SEEDED PLACEHOLDER. passingScore, defaultTimeMinutes, and domains are guesses.
+ * Before flipping status to 'live':
+ *   1. replace domains + weights from blueprintSource (they must sum to 100)
+ *   2. correct passingScore / maxScore / defaultTimeMinutes
+ *   3. set blueprintVerified: true
+ *   4. add content: npm run new:pack -- --cert aws-soa --kind questions --count 50
+ */
+export default {
+  "id": "aws-soa",
+  "provider": "AWS",
+  "code": "SOA-C02",
+  "title": "AWS Certified SysOps Administrator - Associate",
+  "category": "Cloud Engineering",
+  "tier": "associate",
+  "status": "planned",
+  "priority": null,
+  "badgeClass": "badge-aws",
+  "icon": "aws",
+  "color": "#ff9900",
+  "description": "TODO one-sentence description of what SOA-C02 validates.",
+  "passingScore": 720,
+  "maxScore": 1000,
+  "defaultTimeMinutes": 130,
+  "blueprintSource": "https://TODO-official-exam-guide",
+  "blueprintVerified": false,
+  "domains": [
+    {
+      "id": "d1",
+      "name": "TODO Domain 1",
+      "weight": 34
+    },
+    {
+      "id": "d2",
+      "name": "TODO Domain 2",
+      "weight": 33
+    },
+    {
+      "id": "d3",
+      "name": "TODO Domain 3",
+      "weight": 33
+    }
+  ]
+};
