@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json.schemastore.org/c8rc.json",
+  "all": true,
+  "src": ["src"],
+  "include": ["src/**/*.js"],
+  "exclude": [
+    "src/data/certs/**",
+    "src/**/*.generated.js",
+    "src/views/brand-icons.local.js"
+  ],
+  "reporter": ["text", "lcov", "json-summary"],
+  "report-dir": "coverage",
+  "check-coverage": true,
+  "statements": 90,
+  "branches": 82,
+  "functions": 90,
+  "lines": 90
+}
