@@ -1,0 +1,50 @@
+Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
+
+Copyright (c) 2026 Manideep Chittineni and Converge contributors
+
+WHAT THIS COVERS
+
+The exam content — questions, scenarios, answer options, explanations, and
+flashcards:
+
+    src/data/certs/*/questions/*.js
+    src/data/certs/*/flashcards/*.js
+
+Certification blueprints (`src/data/certs/*/cert.js`) are factual descriptions
+of published exam guides and are covered by the MIT license with the rest of
+the software.
+
+YOU ARE FREE TO
+
+  * Share — copy and redistribute the content in any medium or format
+  * Adapt — remix, transform, and build upon it, for any purpose, including
+    commercially
+
+UNDER THESE TERMS
+
+  * Attribution — you must give appropriate credit to the Converge project,
+    link to this license, and indicate if changes were made.
+  * ShareAlike — if you remix or build upon the content, you must distribute
+    your contributions under this same license.
+  * No additional restrictions — you may not apply legal terms or
+    technological measures that legally restrict others from doing anything
+    this license permits.
+
+Full legal code: https://creativecommons.org/licenses/by-sa/4.0/legalcode
+Human-readable summary: https://creativecommons.org/licenses/by-sa/4.0/
+
+WHY SHARE-ALIKE FOR CONTENT
+
+Writing a good exam question — a realistic scenario, plausible distractors, and
+an explanation of why each wrong answer is wrong — is the expensive part of this
+project. ShareAlike means the bank can be reused freely, including in commercial
+training, as long as improvements stay available to everyone.
+
+NOT AFFILIATED WITH ANY CERTIFICATION BODY
+
+This content is independently written. It is not endorsed by, affiliated with,
+or derived from the confidential exam material of AWS, Microsoft, Google, the
+Linux Foundation, CNCF, HashiCorp, GitHub, Docker, the FinOps Foundation, the
+DevOps Institute, ISC2, OffSec, or any other certification body. Certification
+names and exam codes are trademarks of their respective owners and are used
+only to identify the exam a question prepares you for.

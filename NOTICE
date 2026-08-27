@@ -1,0 +1,38 @@
+Converge — third-party assets and trademarks
+
+FONTS (not redistributed; loaded from Google Fonts at runtime)
+
+  Chakra Petch     SIL Open Font License 1.1
+  Sora             SIL Open Font License 1.1
+  JetBrains Mono   SIL Open Font License 1.1
+
+BRAND ICONS
+
+  src/views/brand-icons.generated.js contains path data generated from
+  Simple Icons (https://simpleicons.org), released under CC0 1.0 Universal.
+  Regenerate with `npm run icons`.
+
+  Brand icons are the property of their respective owners. Simple Icons
+  distributes them for identification purposes; their inclusion here does not
+  imply endorsement.
+
+  AWS and Microsoft Azure marks are NOT included. Both were removed from Simple
+  Icons at the trademark owners' request, so Converge renders a lettermark in
+  the official brand colour instead. If you hold the rights to use those marks,
+  add the path data to src/views/brand-icons.local.js — it overrides the
+  lettermark automatically and is not committed with any vendor artwork.
+
+TRADEMARKS
+
+  AWS, Microsoft, Azure, Google Cloud, Kubernetes, CNCF, Terraform, HashiCorp,
+  GitHub, Docker, FinOps Foundation, DevOps Institute, ISC2, OffSec and all
+  certification names and exam codes are trademarks of their respective owners.
+  Converge is an independent project and is not endorsed by, sponsored by, or
+  affiliated with any of them. The names are used solely to identify which exam
+  a study module prepares you for — nominative fair use.
+
+DEV DEPENDENCIES
+
+  The shipped application has zero runtime dependencies. Build and test tooling
+  (vite, c8, simple-icons) is MIT/ISC licensed; see package-lock.json for the
+  resolved tree.

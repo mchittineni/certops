@@ -1,0 +1,73 @@
+# Dependencies — restored with `npm ci` from the committed lockfile.
+node_modules/
+.npm/
+.pnpm-store/
+.yarn/
+
+# Build output
+dist/
+dist-ssr/
+*.local
+
+# Vite / bundler caches
+.vite/
+node_modules/.vite/
+.cache/
+.temp/
+
+# Test and coverage output — regenerate with `npm run coverage`.
+coverage/
+.nyc_output/
+*.lcov
+lcov.info
+
+# Content snapshots taken automatically by `npm run check`.
+# These are local safety copies of src/data/certs; the packs themselves ARE committed.
+.content-backups/
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Environment and secrets. There is no backend and the app needs no secrets —
+# anything matching these patterns is a mistake, and gitleaks runs in CI as a backstop.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+secrets.json
+
+# Editors and IDEs
+.idea/
+.vscode/
+!.vscode/extensions.json
+*.swp
+*.swo
+*~
+.project
+.settings/
+
+# OS cruft
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Scratch space — never commit working notes or one-off scripts.
+scratchpad/
+tmp/
+*.tmp
+*.bak
+*.orig
+*.rej
