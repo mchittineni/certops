@@ -67,8 +67,30 @@ export const CONTENT_REGISTRY = {
     flashcards: []
   },
   'azure-az104': {
-    questions: [],
-    flashcards: []
+    questions: [
+      pack('./certs/azure-az104/questions/pack-1.js', () => import('./certs/azure-az104/questions/pack-1.js')),
+      pack('./certs/azure-az104/questions/pack-2.js', () => import('./certs/azure-az104/questions/pack-2.js')),
+      pack('./certs/azure-az104/questions/pack-3.js', () => import('./certs/azure-az104/questions/pack-3.js')),
+      pack('./certs/azure-az104/questions/pack-4.js', () => import('./certs/azure-az104/questions/pack-4.js')),
+      pack('./certs/azure-az104/questions/pack-5.js', () => import('./certs/azure-az104/questions/pack-5.js')),
+      pack('./certs/azure-az104/questions/pack-6.js', () => import('./certs/azure-az104/questions/pack-6.js')),
+      pack('./certs/azure-az104/questions/pack-7.js', () => import('./certs/azure-az104/questions/pack-7.js')),
+      pack('./certs/azure-az104/questions/pack-8.js', () => import('./certs/azure-az104/questions/pack-8.js')),
+      pack('./certs/azure-az104/questions/pack-9.js', () => import('./certs/azure-az104/questions/pack-9.js')),
+      pack('./certs/azure-az104/questions/pack-10.js', () => import('./certs/azure-az104/questions/pack-10.js'))
+    ],
+    flashcards: [
+      pack('./certs/azure-az104/flashcards/pack-1.js', () => import('./certs/azure-az104/flashcards/pack-1.js')),
+      pack('./certs/azure-az104/flashcards/pack-2.js', () => import('./certs/azure-az104/flashcards/pack-2.js')),
+      pack('./certs/azure-az104/flashcards/pack-3.js', () => import('./certs/azure-az104/flashcards/pack-3.js')),
+      pack('./certs/azure-az104/flashcards/pack-4.js', () => import('./certs/azure-az104/flashcards/pack-4.js')),
+      pack('./certs/azure-az104/flashcards/pack-5.js', () => import('./certs/azure-az104/flashcards/pack-5.js')),
+      pack('./certs/azure-az104/flashcards/pack-6.js', () => import('./certs/azure-az104/flashcards/pack-6.js')),
+      pack('./certs/azure-az104/flashcards/pack-7.js', () => import('./certs/azure-az104/flashcards/pack-7.js')),
+      pack('./certs/azure-az104/flashcards/pack-8.js', () => import('./certs/azure-az104/flashcards/pack-8.js')),
+      pack('./certs/azure-az104/flashcards/pack-9.js', () => import('./certs/azure-az104/flashcards/pack-9.js')),
+      pack('./certs/azure-az104/flashcards/pack-10.js', () => import('./certs/azure-az104/flashcards/pack-10.js'))
+    ]
   },
   'azure-az204': {
     questions: [],
