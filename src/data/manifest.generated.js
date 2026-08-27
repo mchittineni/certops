@@ -109,36 +109,36 @@ export const CONTENT_MANIFEST = {
   },
   "aws-saa": {
     "questions": {
-      "total": 11,
+      "total": 250,
       "byDifficulty": {
-        "easy": 3,
-        "medium": 5,
-        "hard": 3
+        "easy": 78,
+        "medium": 98,
+        "hard": 74
       },
       "byDomain": {
-        "d1": 4,
-        "d3": 3,
-        "d4": 2,
-        "d2": 2
+        "d1": 66,
+        "d3": 66,
+        "d4": 56,
+        "d2": 62
       },
-      "packs": 1,
-      "loadedPacks": 1
+      "packs": 10,
+      "loadedPacks": 10
     },
     "flashcards": {
-      "total": 12,
+      "total": 250,
       "byDifficulty": {
-        "easy": 3,
-        "medium": 7,
-        "hard": 2
+        "easy": 82,
+        "medium": 98,
+        "hard": 70
       },
       "byDomain": {
-        "d1": 4,
-        "d3": 3,
-        "d4": 2,
-        "d2": 3
+        "d1": 67,
+        "d3": 69,
+        "d4": 52,
+        "d2": 62
       },
-      "packs": 1,
-      "loadedPacks": 1
+      "packs": 10,
+      "loadedPacks": 10
     }
   },
   "aws-sap": {
@@ -1304,7 +1304,7 @@ export const CONTENT_MANIFEST = {
 };
 
 export const CONTENT_TOTALS = {
-  "questions": 47,
-  "flashcards": 54,
+  "questions": 286,
+  "flashcards": 292,
   "certifications": 52
 };

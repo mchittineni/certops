@@ -30,10 +30,28 @@ export const CONTENT_REGISTRY = {
   },
   'aws-saa': {
     questions: [
-      pack('./certs/aws-saa/questions/pack-1.js', () => import('./certs/aws-saa/questions/pack-1.js'))
+      pack('./certs/aws-saa/questions/pack-1.js', () => import('./certs/aws-saa/questions/pack-1.js')),
+      pack('./certs/aws-saa/questions/pack-2.js', () => import('./certs/aws-saa/questions/pack-2.js')),
+      pack('./certs/aws-saa/questions/pack-3.js', () => import('./certs/aws-saa/questions/pack-3.js')),
+      pack('./certs/aws-saa/questions/pack-4.js', () => import('./certs/aws-saa/questions/pack-4.js')),
+      pack('./certs/aws-saa/questions/pack-5.js', () => import('./certs/aws-saa/questions/pack-5.js')),
+      pack('./certs/aws-saa/questions/pack-6.js', () => import('./certs/aws-saa/questions/pack-6.js')),
+      pack('./certs/aws-saa/questions/pack-7.js', () => import('./certs/aws-saa/questions/pack-7.js')),
+      pack('./certs/aws-saa/questions/pack-8.js', () => import('./certs/aws-saa/questions/pack-8.js')),
+      pack('./certs/aws-saa/questions/pack-9.js', () => import('./certs/aws-saa/questions/pack-9.js')),
+      pack('./certs/aws-saa/questions/pack-10.js', () => import('./certs/aws-saa/questions/pack-10.js'))
     ],
     flashcards: [
-      pack('./certs/aws-saa/flashcards/pack-1.js', () => import('./certs/aws-saa/flashcards/pack-1.js'))
+      pack('./certs/aws-saa/flashcards/pack-1.js', () => import('./certs/aws-saa/flashcards/pack-1.js')),
+      pack('./certs/aws-saa/flashcards/pack-2.js', () => import('./certs/aws-saa/flashcards/pack-2.js')),
+      pack('./certs/aws-saa/flashcards/pack-3.js', () => import('./certs/aws-saa/flashcards/pack-3.js')),
+      pack('./certs/aws-saa/flashcards/pack-4.js', () => import('./certs/aws-saa/flashcards/pack-4.js')),
+      pack('./certs/aws-saa/flashcards/pack-5.js', () => import('./certs/aws-saa/flashcards/pack-5.js')),
+      pack('./certs/aws-saa/flashcards/pack-6.js', () => import('./certs/aws-saa/flashcards/pack-6.js')),
+      pack('./certs/aws-saa/flashcards/pack-7.js', () => import('./certs/aws-saa/flashcards/pack-7.js')),
+      pack('./certs/aws-saa/flashcards/pack-8.js', () => import('./certs/aws-saa/flashcards/pack-8.js')),
+      pack('./certs/aws-saa/flashcards/pack-9.js', () => import('./certs/aws-saa/flashcards/pack-9.js')),
+      pack('./certs/aws-saa/flashcards/pack-10.js', () => import('./certs/aws-saa/flashcards/pack-10.js'))
     ]
   },
   'aws-sap': {
