@@ -1,0 +1,59 @@
+name: Bug report (the app)
+description: Something in the app is broken or behaves wrongly.
+title: "[bug] "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What you did, what you expected, what happened instead.
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Where?
+      options:
+        - Exam simulation
+        - Practice & study
+        - Quick quiz
+        - Flashcards
+        - Question bank
+        - Daily challenge
+        - Catalogue / filters
+        - Results / progress
+        - Theme or layout
+        - Something else
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Browser and OS
+      placeholder: Firefox 130 on Windows 11
+    validations:
+      required: true
+  - type: dropdown
+    id: theme
+    attributes:
+      label: Theme
+      description: Layout and contrast bugs are often specific to one theme.
+      options:
+        - Light
+        - Dark
+        - System default
+        - Not relevant
+  - type: textarea
+    id: console
+    attributes:
+      label: Console errors
+      description: Anything red in the browser console. Paste as text.
+      render: text
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I checked this is not a content error (a wrong answer) — that has its own template.
+          required: true
