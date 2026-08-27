@@ -1,0 +1,46 @@
+name: Content error (wrong answer or explanation)
+description: A question is wrong, misleading, or out of date. This is the highest-priority issue type.
+title: "[content] "
+labels: ["content", "bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        A wrong answer teaches someone the wrong thing before an exam they paid for, so
+        these get fixed first. The question `id` is shown in the question bank next to
+        each item — including it turns this report into a one-line fix.
+  - type: input
+    id: question-id
+    attributes:
+      label: Question or flashcard id
+      placeholder: aws-saa-7
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What is wrong?
+      options:
+        - The marked answer is wrong
+        - The explanation is wrong or misleading
+        - The question is ambiguous — more than one option is defensible
+        - It is out of date (the service or exam guide changed)
+        - Typo or formatting
+        - The difficulty band is wrong
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What should it say instead?
+      description: Be specific — which option should be correct, or what the explanation should say.
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Official documentation that backs this up
+      description: A vendor docs or exam-guide URL. Required — content changes are only accepted with a source.
+      placeholder: https://docs.aws.amazon.com/...
+    validations:
+      required: true

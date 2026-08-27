@@ -1,0 +1,44 @@
+name: Certification request
+description: Ask for a certification that isn't in the catalogue, or for content on a planned one.
+title: "[cert] "
+labels: ["certification", "content"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        52 certifications are already scaffolded — check
+        [docs/CERTIFICATION-ROADMAP.md](../blob/main/docs/CERTIFICATION-ROADMAP.md) first.
+        If it is listed as `planned`, this issue is a request for *content*, which is
+        useful: it tells us what people actually want next.
+  - type: input
+    id: cert
+    attributes:
+      label: Certification name and exam code
+      placeholder: AWS Certified Machine Learning Engineer – Associate (MLA-C01)
+    validations:
+      required: true
+  - type: input
+    id: guide
+    attributes:
+      label: Official exam guide URL
+      description: The blueprint (domains and weights) has to come from here.
+      placeholder: https://aws.amazon.com/certification/...
+    validations:
+      required: true
+  - type: dropdown
+    id: status
+    attributes:
+      label: Is it already in the catalogue?
+      options:
+        - "Not in the catalogue at all"
+        - "Listed as planned — requesting content"
+        - "Not sure"
+    validations:
+      required: true
+  - type: checkboxes
+    id: help
+    attributes:
+      label: Can you help?
+      options:
+        - label: I could author some questions for it.
+        - label: I could verify the blueprint against the official exam guide.
