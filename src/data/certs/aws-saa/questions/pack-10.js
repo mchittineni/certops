@@ -1,0 +1,530 @@
+export const AWS_SAA_QUESTIONS_10 = [
+  {
+    id: 'aws-saa-226',
+    difficulty: 'easy',
+    certId: 'aws-saa',
+    domainId: 'd1',
+    domainName: 'Design Resilient Architectures',
+    title: 'Disaster Recovery for On-Premises Hyper-V and VMware with AWS DRS',
+    scenario: 'An enterprise with 100 on-premises Windows and Linux servers running across VMware and Hyper-V hypervisors requires a low-cost, continuous disaster recovery solution to Amazon EC2 with automated recovery drills and an RPO under 10 seconds.',
+    question: 'Which AWS service is specifically designed for ongoing server replication and automated recovery orchestration?',
+    options: [
+      { id: 'A', text: 'AWS Elastic Disaster Recovery (AWS DRS).' },
+      { id: 'B', text: 'AWS Application Migration Service (AWS MGN).' },
+      { id: 'C', text: 'AWS DataSync scheduled replication.' },
+      { id: 'D', text: 'Amazon S3 Glacier Flexible Retrieval.' }
+    ],
+    correctAnswers: ['A'],
+    type: 'single',
+    explanation: 'AWS Elastic Disaster Recovery (AWS DRS) is purpose-built for continuous disaster recovery, replicating on-premises physical, VMware, and Hyper-V servers at the block level into a low-cost AWS staging subnet with sub-second RPOs and sub-15 minute RTOs during recovery drills or actual disaster events. AWS MGN (B) is for one-time migrations. DataSync (C) is for file transfer. Glacier (D) is cold storage.',
+    referenceUrl: 'https://docs.aws.amazon.com/drs/latest/userguide/what-is-drs.html',
+    tags: ['AWS DRS', 'Disaster Recovery', 'VMware', 'Hyper-V', 'Resilience']
+  },
+  {
+    id: 'aws-saa-227',
+    difficulty: 'medium',
+    certId: 'aws-saa',
+    domainId: 'd1',
+    domainName: 'Design Resilient Architectures',
+    title: 'Multi-AZ Database Architecture with Amazon RDS Proxy and Automated Failover',
+    scenario: 'A transaction processing web application uses Amazon RDS for MySQL in a Multi-AZ deployment. During automated Multi-AZ failovers, database connection dropouts cause a 60-second application outage while client applications reconnect and rebuild connection pools.',
+    question: 'How can the Solutions Architect reduce application failover times by up to 66% and preserve client connections?',
+    options: [
+      { id: 'A', text: 'Deploy an Amazon RDS Proxy in front of the RDS Multi-AZ DB instance.' },
+      { id: 'B', text: 'Convert the database to an Amazon S3 static bucket.' },
+      { id: 'C', text: 'Increase the EC2 instance class size on the web servers.' },
+      { id: 'D', text: 'Deploy an AWS Transit Gateway between the web servers and database.' }
+    ],
+    correctAnswers: ['A'],
+    type: 'single',
+    explanation: 'Amazon RDS Proxy automatically maintains client application connections during database failovers, seamlessly switching traffic from the failed primary DB instance to the newly promoted standby instance in the background. This reduces application failover times by up to 66% while eliminating connection drop errors for client applications. S3 (B) is object storage. Web server instance sizing (C) and Transit Gateway (D) do not reduce database DNS failover propagation times.',
+    referenceUrl: 'https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy.html#rds-proxy-benefits',
+    tags: ['RDS Proxy', 'Multi-AZ', 'Failover', 'High Availability', 'Resilience']
+  },
+  {
+    id: 'aws-saa-228',
+    difficulty: 'hard',
+    certId: 'aws-saa',
+    domainId: 'd1',
+    domainName: 'Design Resilient Architectures',
+    title: 'Disaster Recovery for High-Throughput Event Streams: MSK (Managed Streaming for Apache Kafka) Multi-VPC and Cross-Cluster Replication',
+    scenario: 'An enterprise runs mission-critical event-driven microservices on an Amazon MSK (Managed Streaming for Apache Kafka) cluster in us-east-1. The disaster recovery mandate requires asynchronous mirror replication of Kafka topics to an MSK cluster in us-west-2 with automated partition offset synchronization.',
+    question: 'Which Amazon MSK feature automates cross-cluster topic replication across AWS regions?',
+    options: [
+      { id: 'A', text: 'Amazon MSK Replicator.' },
+      { id: 'B', text: 'S3 Cross-Region Replication (CRR).' },
+      { id: 'C', text: 'AWS DataSync Kafka agent.' },
+      { id: 'D', text: 'Amazon DynamoDB Streams.' }
+    ],
+    correctAnswers: ['A'],
+    type: 'single',
+    explanation: 'Amazon MSK Replicator is a fully managed feature that provides continuous, resilient cross-cluster and cross-Region replication for Amazon MSK clusters. It automatically replicates Kafka topics, consumer groups, schema registries, and partition offsets across clusters with built-in failover capabilities and zero infrastructure management. S3 CRR (B) is for S3 buckets. DataSync (C) does not replicate live Kafka cluster topics. DynamoDB Streams (D) captures DynamoDB table changes.',
+    referenceUrl: 'https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator.html',
+    tags: ['Amazon MSK', 'Apache Kafka', 'MSK Replicator', 'Multi-Region', 'Resilience']
+  },
+  {
+    id: 'aws-saa-229',
+    difficulty: 'easy',
+    certId: 'aws-saa',
+    domainId: 'd1',
+    domainName: 'Design Resilient Architectures',
+    title: 'Decoupled Serverless Architectures with Amazon SQS Dead-Letter Queue Alarm Monitoring',
+    scenario: 'An e-commerce order processing pipeline uses Amazon SQS standard queues with an attached Dead-Letter Queue (DLQ). The operations team needs automated notification via email whenever any failed messages land in the DLQ for immediate investigation.',
+    question: 'Which Amazon CloudWatch metric and alarm configuration alerts the team to DLQ messages?',
+    options: [
+      { id: 'A', text: 'Create an Amazon CloudWatch Alarm on the DLQ for `ApproximateNumberOfMessagesVisible` > 0 with an Amazon SNS email notification action.' },
+      { id: 'B', text: 'Create a CloudWatch Alarm on `SentMessageSize`.' },
+      { id: 'C', text: 'Configure an S3 Lifecycle rule on the DLQ.' },
+      { id: 'D', text: 'Enable SQS FIFO message deduplication.' }
+    ],
+    correctAnswers: ['A'],
+    type: 'single',
+    explanation: 'Monitoring `ApproximateNumberOfMessagesVisible` > 0 on an Amazon SQS Dead-Letter Queue (DLQ) triggers an alarm the moment any poison-pill or failed message is moved into the DLQ, alerting operators via Amazon SNS. `SentMessageSize` (B) monitors payload bytes, not failure counts. S3 lifecycle rules (C) apply to S3 buckets. FIFO deduplication (D) prevents duplicate messages within a 5-minute window.',
+    referenceUrl: 'https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html',
+    tags: ['SQS', 'DLQ', 'CloudWatch', 'SNS', 'Resilience']
+  },
+  {
+    id: 'aws-saa-230',
+    difficulty: 'medium',
+    certId: 'aws-saa',
+    domainId: 'd1',
+    domainName: 'Design Resilient Architectures',
+    title: 'Automating High-Availability Failover for Private DNS with Route 53 Resolver DNS Firewall',
+    scenario: 'An enterprise operates 50 VPCs connected via AWS Transit Gateway. Security compliance mandates blocking malware domain lookups, phishing domains, and malicious C2 callbacks from all EC2 instances across all VPCs without deploying DNS proxy instances.',
+    question: 'Which Route 53 feature provides managed, stateful domain name filtering for outbound VPC DNS queries?',
+    options: [
+      { id: 'A', text: 'Route 53 Resolver DNS Firewall with managed domain lists.' },
+      { id: 'B', text: 'Route 53 Geolocation routing records.' },
+      { id: 'C', text: 'Network ACLs on the VPC subnets.' },
+      { id: 'D', text: 'Security Groups attached to Route 53.' }
+    ],
+    correctAnswers: ['A'],
+    type: 'single',
+    explanation: 'Route 53 Resolver DNS Firewall is a managed firewall that allows configuring rule groups and domain lists (including AWS Managed domain lists for malware/botnets) to monitor and block outbound DNS queries originating from within VPCs before resolution occurs. Route 53 Geolocation (B) routes DNS based on client location. NACLs (C) filter by IP addresses, not domain names in DNS payloads. Security Groups (D) do not attach to Route 53 directly.',
+    referenceUrl: 'https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver-dns-firewall.html',
+    tags: ['Route 53 Resolver', 'DNS Firewall', 'Security', 'Resilience', 'Networking']
+  },
+  {
+    id: 'aws-saa-231',
+    difficulty: 'easy',
+    certId: 'aws-saa',
+    domainId: 'd2',
+    domainName: 'Design High-Performing Architectures',
+    title: 'Time-Series Data Ingestion and Analytics: Amazon Timestream for IoT Telemetry',
+    scenario: 'An industrial manufacturing plant collects sensor telemetry (temperature, pressure, vibration) from 50,000 factory machines every 10 seconds. The data needs to be ingested in real time, analyzed with SQL time-series queries, and automatically tiered from high-performance in-memory storage to cost-effective magnetic storage after 30 days.',
+    question: 'Which serverless time-series database is purpose-built for fast IoT telemetry ingestion and automated tiered retention?',
+    options: [
+      { id: 'A', text: 'Amazon Timestream.' },
+      { id: 'B', text: 'Amazon RDS for MySQL.' },
+      { id: 'C', text: 'Amazon Neptune.' },
+      { id: 'D', text: 'Amazon DocumentDB.' }
+    ],
+    correctAnswers: ['A'],
+    type: 'single',
+    explanation: 'Amazon Timestream is a fast, scalable, and serverless time-series database designed for IoT and operational applications. It can ingest trillions of events daily, process SQL queries with built-in time-series functions (interpolation, smoothing, approximation), and automatically tiers data between an in-memory store for recent data and a cost-effective magnetic store for historical data based on lifecycle policies. Relational databases (B), graph databases (C), and document stores (D) do not natively optimize time-series storage and automated memory-to-magnetic tiering.',
+    referenceUrl: 'https://docs.aws.amazon.com/timestream/latest/developerguide/what-is-timestream.html',
+    tags: ['Amazon Timestream', 'Time-Series', 'IoT', 'Performance']
+  },
+  {
+    id: 'aws-saa-232',
+    difficulty: 'medium',
+    certId: 'aws-saa',
+    domainId: 'd2',
+    domainName: 'Design High-Performing Architectures',
+    title: 'High-Throughput Global Edge Acceleration: AWS Global Accelerator with Anycast IP',
+    scenario: 'A multiplayer real-time gaming application operates UDP game servers hosted on Amazon EC2 instances across AWS regions in us-east-1, eu-west-1, and ap-southeast-1. Players require two static public Anycast IPv4 addresses for firewall allow-listing that automatically route gaming traffic to the closest healthy regional cluster.',
+    question: 'Which AWS service provides static anycast IP addresses and automated health-based routing across regions?',
+    options: [
+      { id: 'A', text: 'AWS Global Accelerator.' },
+      { id: 'B', text: 'Amazon CloudFront.' },
+      { id: 'C', text: 'Route 53 Simple routing.' },
+      { id: 'D', text: 'Amazon API Gateway.' }
+    ],
+    correctAnswers: ['A'],
+    type: 'single',
+    explanation: 'AWS Global Accelerator provides two static Anycast public IPv4 addresses that serve as global fixed entry points for your applications. It routes non-HTTP (TCP and UDP) and HTTP traffic over the congestion-free AWS private global network backbone to the closest healthy regional endpoint (ALB, NLB, EC2), automatically failing over between regions in seconds if an endpoint fails health checks. CloudFront (B) is an HTTP CDN and does not support arbitrary UDP game traffic. Route 53 (C) returns regional DNS IPs subject to client caching. API Gateway (D) is for HTTP REST APIs.',
+    referenceUrl: 'https://docs.aws.amazon.com/global-accelerator/latest/dg/what-is-global-accelerator.html',
+    tags: ['Global Accelerator', 'Anycast', 'UDP', 'Performance', 'Networking']
+  },
+  {
+    id: 'aws-saa-233',
+    difficulty: 'hard',
+    certId: 'aws-saa',
+    domainId: 'd2',
+    domainName: 'Design High-Performing Architectures',
+    title: 'High-Performance Hybrid Windows File Storage with Amazon FSx for Windows File Server Single-AZ vs Multi-AZ',
+    scenario: 'An enterprise runs a mission-critical SQL Server database cluster with Always On Failover Cluster Instances (FCI) on Amazon EC2. The database requires shared SMB file storage with continuous synchronous replication, sub-millisecond latencies, and automatic failover across Availability Zones.',
+    question: 'Which Amazon FSx for Windows File Server deployment option satisfies these Always On FCI requirements?',
+    options: [
+      { id: 'A', text: 'Amazon FSx for Windows File Server deployed in a Multi-AZ configuration using Microsoft DFS Namespaces.' },
+      { id: 'B', text: 'Amazon FSx for Windows File Server Single-AZ 1.' },
+      { id: 'C', text: 'Amazon Elastic File System (Amazon EFS) Single-AZ.' },
+      { id: 'D', text: 'Amazon S3 Standard with S3FS-FUSE.' }
+    ],
+    correctAnswers: ['A'],
+    type: 'single',
+    explanation: 'Amazon FSx for Windows File Server Multi-AZ deployment provides high availability and shared SMB file storage across multiple Availability Zones with automatic synchronous data replication and automated failover in seconds, making it the AWS-recommended shared storage for Windows Server Failover Clustering (WSFC) and SQL Server Always On FCIs. Single-AZ (B) is not resilient to AZ outages. EFS (C) does not support native Windows NTFS/SMB locks required for SQL Server FCIs. S3FS-FUSE (D) lacks Windows clustering compatibility.',
+    referenceUrl: 'https://docs.aws.amazon.com/fsx/latest/WindowsGuide/high-availability-multi-az.html',
+    tags: ['FSx for Windows', 'Multi-AZ', 'SQL Server', 'Storage', 'Performance']
+  },
+  {
+    id: 'aws-saa-234',
+    difficulty: 'medium',
+    certId: 'aws-saa',
+    domainId: 'd2',
+    domainName: 'Design High-Performing Architectures',
+    title: 'High-Throughput Analytics: Amazon Redshift Automated Materialized Views',
+    scenario: 'An Amazon Redshift data warehouse cluster executes heavy analytical queries joining 10 large tables repeatedly every 5 minutes for executive dashboarding. The queries take 45 seconds each, causing CPU saturation.',
+    question: 'Which Amazon Redshift database feature precomputes and stores query results and automatically updates them incrementally as underlying data changes?',
+    options: [
+      { id: 'A', text: 'Amazon Redshift Materialized Views with Automated Refresh.' },
+      { id: 'B', text: 'Amazon ElastiCache for Memcached.' },
+      { id: 'C', text: 'Amazon DynamoDB Global Tables.' },
+      { id: 'D', text: 'Amazon Athena Workgroups.' }
+    ],
+    correctAnswers: ['A'],
+    type: 'single',
+    explanation: 'Amazon Redshift Materialized Views precompute, store, and optimize the results of complex SQL queries containing joins, aggregations, and filters. With Automated Refresh enabled, Redshift automatically and incrementally updates the materialized view as data changes in the base tables, reducing query execution times from 45 seconds down to milliseconds. ElastiCache (B) cannot query Redshift SQL tables directly. DynamoDB (C) and Athena (D) are separate database engines.',
+    referenceUrl: 'https://docs.aws.amazon.com/redshift/latest/dg/materialized-view-overview.html',
+    tags: ['Redshift', 'Materialized Views', 'Data Warehouse', 'Performance']
+  },
+  {
+    id: 'aws-saa-235',
+    difficulty: 'hard',
+    certId: 'aws-saa',
+    domainId: 'd2',
+    domainName: 'Design High-Performing Architectures',
+    title: 'High-Throughput Microservices: AWS AppSync Pipeline Resolvers with Direct DynamoDB Batch Operations',
+    scenario: 'A mobile commerce application uses AWS AppSync GraphQL APIs. When a customer checks out, the GraphQL mutation must perform 3 sequential operations: 1) Verify user loyalty points in DynamoDB, 2) Process payment via an external HTTP REST endpoint, and 3) Deduct product inventory in DynamoDB, all within a single GraphQL execution.',
+    question: 'Which AWS AppSync resolver architecture executes multiple sequential operations across different data sources in a single mutation?',
+    options: [
+      { id: 'A', text: 'AWS AppSync Pipeline Resolvers composing multiple function resolvers (DynamoDB and HTTP data sources).' },
+      { id: 'B', text: 'AWS AppSync Unit Resolver with SQS queue.' },
+      { id: 'C', text: 'Amazon API Gateway WebSocket API.' },
+      { id: 'D', text: 'Amazon S3 Event Notifications.' }
+    ],
+    correctAnswers: ['A'],
+    type: 'single',
+    explanation: 'AWS AppSync Pipeline Resolvers allow developers to compose and execute multiple discrete functions (Function Resolvers) in a specific sequential order against different data sources (e.g. DynamoDB, Lambda, HTTP endpoints, OpenSearch) within a single GraphQL query or mutation, passing contextual payloads between steps. Unit Resolvers (B) execute against only a single data source. API Gateway WebSockets (C) and S3 Event Notifications (D) do not provide native GraphQL pipeline resolver composition.',
+    referenceUrl: 'https://docs.aws.amazon.com/appsync/latest/devguide/pipeline-resolvers.html',
+    tags: ['AppSync', 'Pipeline Resolvers', 'GraphQL', 'DynamoDB', 'Performance']
+  },
+  {
+    id: 'aws-saa-236',
+    difficulty: 'easy',
+    certId: 'aws-saa',
+    domainId: 'd3',
+    domainName: 'Design Secure Applications and Architectures',
+    title: 'Centralized Log Management and Tamper-Proof Auditing with AWS CloudTrail and S3 Bucket Lock',
+    scenario: 'A compliance mandate dictates that all AWS CloudTrail log files across 50 AWS accounts must be stored in a centralized S3 bucket in a dedicated Security Audit account. Log files must be cryptographically validated against tampering and protected from deletion for 7 years.',
+    question: 'Which combination of AWS CloudTrail and S3 features satisfies this tamper-proof audit mandate? (Choose TWO)',
+    options: [
+      { id: 'A', text: 'Enable AWS CloudTrail Log File Integrity Validation.' },
+      { id: 'B', text: 'Enable Amazon S3 Object Lock in Compliance Mode with a 7-year retention period on the central audit bucket.' },
+      { id: 'C', text: 'Enable S3 Transfer Acceleration on the central bucket.' },
+      { id: 'D', text: 'Deploy Amazon Inspector on the S3 bucket.' },
+      { id: 'E', text: 'Configure Route 53 DNSSEC on the CloudTrail endpoint.' }
+    ],
+    correctAnswers: ['A', 'B'],
+    type: 'multiple',
+    explanation: 'CloudTrail Log File Integrity Validation uses SHA-256 hashing and RSA digital signatures to generate digest files, allowing mathematical verification that log files have not been modified or deleted after delivery. Combining this with Amazon S3 Object Lock in Compliance Mode (strict WORM compliance) guarantees that no user (including root) can delete or alter audit logs for 7 years. S3 Transfer Acceleration (C) is for uploads. Inspector (D) scans EC2/ECR for software CVEs. DNSSEC (E) secures DNS lookups.',
+    referenceUrl: 'https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-log-file-validation-intro.html',
+    tags: ['CloudTrail', 'Log Integrity', 'S3 Object Lock', 'Compliance', 'Security']
+  },
+  {
+    id: 'aws-saa-237',
+    difficulty: 'medium',
+    certId: 'aws-saa',
+    domainId: 'd3',
+    domainName: 'Design Secure Applications and Architectures',
+    title: 'Securing Public VPC Ingress with AWS Network Firewall and Gateway Load Balancers (GWLB)',
+    scenario: 'An enterprise architecture requires routing all inbound public internet traffic through a cluster of third-party next-generation firewall (NGFW) virtual appliances running on EC2 instances before reaching web applications in spoke VPCs.',
+    question: 'Which AWS service transparently deploys, scales, and manages third-party virtual appliances in the traffic path using GENEVE protocol encapsulation?',
+    options: [
+      { id: 'A', text: 'AWS Gateway Load Balancer (GWLB) with GWLB endpoints (GWLBe).' },
+      { id: 'B', text: 'Application Load Balancer (ALB).' },
+      { id: 'C', text: 'Network Load Balancer (NLB).' },
+      { id: 'D', text: 'Classic Load Balancer (CLB).' }
+    ],
+    correctAnswers: ['A'],
+    type: 'single',
+    explanation: 'Gateway Load Balancer (GWLB) combines a transparent Layer 3 network gateway and a load balancer. It uses the GENEVE protocol (port 6081) to transparently route all IP traffic (bump-in-the-wire) through a fleet of third-party virtual security appliances (firewalls, IDS/IPS, deep packet inspection) while preserving original source and destination IP headers, and integrates with VPC route tables via GWLB Endpoints (GWLBe). ALBs (B) terminate Layer 7 HTTP connections. NLBs (C) operate at Layer 4 without GENEVE encapsulation. CLBs (D) are legacy.',
+    referenceUrl: 'https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/introduction.html',
+    tags: ['GWLB', 'Firewall', 'GENEVE', 'Networking', 'Security']
+  },
+  {
+    id: 'aws-saa-238',
+    difficulty: 'hard',
+    certId: 'aws-saa',
+    domainId: 'd3',
+    domainName: 'Design Secure Applications and Architectures',
+    title: 'Securing Microservices with AWS IAM Identity Center and Fine-Grained Permission Sets',
+    scenario: 'An organization with 100 AWS accounts in AWS Organizations needs to assign developer access based on their Active Directory job title and group membership. Developers in the "Data Engineering" group should automatically receive access to Athena and Redshift in Analytics accounts, but zero access to Production billing accounts.',
+    question: 'Which AWS service centrally defines and provisions fine-grained permission sets mapped to corporate identity groups?',
+    options: [
+      { id: 'A', text: 'AWS IAM Identity Center (Successor to AWS Single Sign-On) with Permission Sets.' },
+      { id: 'B', text: 'Individual IAM users created in each of the 100 AWS accounts.' },
+      { id: 'C', text: 'AWS Secrets Manager cross-account credential replication.' },
+      { id: 'D', text: 'Amazon Cognito Identity Pools.' }
+    ],
+    correctAnswers: ['A'],
+    type: 'single',
+    explanation: 'AWS IAM Identity Center allows administrators to centrally create Permission Sets (IAM policies and session attributes) and assign them to specific corporate IdP groups and users across specific AWS accounts in AWS Organizations. When users log into the AWS access portal, they see only their permitted accounts and roles. Creating 100 IAM users manually (B) results in severe credential sprawl and operational failure. Secrets Manager (C) manages secrets, not workforce SSO. Cognito (D) is for end-user app customers.',
+    referenceUrl: 'https://docs.aws.amazon.com/singlesignon/latest/userguide/permissionsetsconcept.html',
+    tags: ['IAM Identity Center', 'Permission Sets', 'AWS Organizations', 'Security']
+  },
+  {
+    id: 'aws-saa-239',
+    difficulty: 'medium',
+    certId: 'aws-saa',
+    domainId: 'd3',
+    domainName: 'Design Secure Applications and Architectures',
+    title: 'Securing Sensitive Container Images with Amazon ECR Enhanced Scanning and Inspector',
+    scenario: 'A continuous integration and continuous deployment (CI/CD) pipeline pushes container images to Amazon Elastic Container Registry (Amazon ECR). The security policy requires automated scanning of container operating system packages and programming language package dependencies (Python, Node.js, Java) for known CVEs immediately upon push and continuously thereafter.',
+    question: 'Which Amazon ECR scanning tier provides continuous vulnerability detection powered by Amazon Inspector?',
+    options: [
+      { id: 'A', text: 'Amazon ECR Enhanced Scanning (powered by Amazon Inspector).' },
+      { id: 'B', text: 'Amazon ECR Basic Scanning (powered by Clair).' },
+      { id: 'C', text: 'AWS WAF container scanning rules.' },
+      { id: 'D', text: 'Amazon GuardDuty S3 scanner.' }
+    ],
+    correctAnswers: ['A'],
+    type: 'single',
+    explanation: 'Amazon ECR Enhanced Scanning integrates natively with Amazon Inspector to provide continuous automated scanning of container images for vulnerabilities in both operating system packages and programming language packages (Python, Node.js, Java, Go, Ruby), re-evaluating images continuously as new CVEs are discovered. ECR Basic Scanning (B) scans only OS packages at push time (no continuous scanning or language package detection). AWS WAF (C) inspects web traffic. GuardDuty (D) is threat detection.',
+    referenceUrl: 'https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning-enhanced.html',
+    tags: ['ECR', 'Inspector', 'Enhanced Scanning', 'CVE', 'Security', 'Containers']
+  },
+  {
+    id: 'aws-saa-240',
+    difficulty: 'easy',
+    certId: 'aws-saa',
+    domainId: 'd3',
+    domainName: 'Design Secure Applications and Architectures',
+    title: 'Controlling Access to Amazon S3 Buckets with S3 Access Points',
+    scenario: 'A shared data lake S3 bucket is accessed by 20 different microservices and analytics teams, each requiring different read/write permissions. The single S3 bucket policy has exceeded the maximum 20 KB JSON policy size limit.',
+    question: 'Which Amazon S3 feature allows creating dedicated access hostnames with independent access control policies for different teams and applications?',
+    options: [
+      { id: 'A', text: 'Amazon S3 Access Points.' },
+      { id: 'B', text: 'Amazon S3 Cross-Region Replication.' },
+      { id: 'C', text: 'Amazon Route 53 Alias records.' },
+      { id: 'D', text: 'AWS DataSync endpoint rules.' }
+    ],
+    correctAnswers: ['A'],
+    type: 'single',
+    explanation: 'Amazon S3 Access Points are unique hostnames that you create that have dedicated access policies that describe how data can be accessed using that endpoint. By provisioning dedicated access points (e.g. `finance-read-ap`, `analytics-write-ap`) for different teams or VPCs, organizations decouple access management and avoid the 20 KB bucket policy size limit. CRR (B) is for replication. Route 53 (C) is DNS. DataSync (D) is for data transfer.',
+    referenceUrl: 'https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html',
+    tags: ['S3', 'Access Points', 'Security', 'Data Lake']
+  },
+  {
+    id: 'aws-saa-241',
+    difficulty: 'easy',
+    certId: 'aws-saa',
+    domainId: 'd4',
+    domainName: 'Design Cost-Optimized Architectures',
+    title: 'Cost-Optimized Compute: Spot Instances vs On-Demand for Elastic CI/CD Runners',
+    scenario: 'A software company runs hundreds of continuous integration (CI/CD) automated test builds on Amazon EC2 instances. Builds run for 10 minutes, are stateless, and if a build runner is terminated, the CI/CD controller automatically reschedules the build job.',
+    question: 'Which compute purchasing option minimizes CI/CD runner costs by up to 90%?',
+    options: [
+      { id: 'A', text: 'Amazon EC2 Spot Instances.' },
+      { id: 'B', text: '3-year All Upfront Reserved Instances.' },
+      { id: 'C', text: 'On-Demand Instances.' },
+      { id: 'D', text: 'Dedicated Hosts.' }
+    ],
+    correctAnswers: ['A'],
+    type: 'single',
+    explanation: 'Stateless, short-lived, restartable CI/CD build runners are the textbook use case for Amazon EC2 Spot Instances, reducing compute costs by up to 90% compared to On-Demand pricing. Reserved Instances (B) require multi-year commitments for continuous workloads. On-Demand (C) runs at full price. Dedicated Hosts (D) are for compliance licensing.',
+    referenceUrl: 'https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html',
+    tags: ['EC2', 'Spot Instances', 'CI/CD', 'Cost Optimization']
+  },
+  {
+    id: 'aws-saa-242',
+    difficulty: 'medium',
+    certId: 'aws-saa',
+    domainId: 'd4',
+    domainName: 'Design Cost-Optimized Architectures',
+    title: 'Cost-Optimized VPC Architecture: Shared VPCs via AWS RAM to Eliminate Redundant NAT Gateways',
+    scenario: 'An enterprise cloud architecture consists of 50 development AWS accounts in AWS Organizations. Deploying an individual VPC with a NAT Gateway in each account results in over $1,500/month in idle NAT Gateway hourly fees alone.',
+    question: 'How can the central network team consolidate network infrastructure to eliminate redundant NAT Gateway costs across accounts?',
+    options: [
+      { id: 'A', text: 'Create a central VPC in a Networking account and share private subnets with member accounts using AWS Resource Access Manager (AWS RAM) VPC Sharing.' },
+      { id: 'B', text: 'Deploy an AWS Direct Connect dedicated circuit in every account.' },
+      { id: 'C', text: 'Create a mesh of 50 VPC Peering connections.' },
+      { id: 'D', text: 'Assign Elastic IP addresses directly to all EC2 instances across all accounts.' }
+    ],
+    correctAnswers: ['A'],
+    type: 'single',
+    explanation: 'VPC Sharing (powered by AWS RAM) allows a central networking account to own the VPC, subnets, route tables, and a single shared set of NAT Gateways, while sharing subnets with participant member accounts in AWS Organizations. Developers launch EC2, RDS, and Lambda into shared subnets, eliminating 50 redundant NAT Gateways and saving thousands of dollars monthly. Direct Connect in each account (B) and peering meshes (C) multiply costs. Elastic IPs (D) turn private instances public.',
+    referenceUrl: 'https://docs.aws.amazon.com/vpc/latest/userguide/vpc-sharing.html',
+    tags: ['VPC Sharing', 'AWS RAM', 'NAT Gateway', 'Cost Optimization', 'FinOps']
+  },
+  {
+    id: 'aws-saa-243',
+    difficulty: 'hard',
+    certId: 'aws-saa',
+    domainId: 'd4',
+    domainName: 'Design Cost-Optimized Architectures',
+    title: 'Cost Optimization for Amazon Redshift: RA3 Nodes with Managed Storage vs Dense Storage (DS2)',
+    scenario: 'A company operates a legacy Amazon Redshift `dc2.8xlarge` cluster storing 100 TB of data. Computing CPU usage is only 15%, but storage is 95% full. To add more storage under the current node type, the team is forced to add expensive compute nodes.',
+    question: 'Which Amazon Redshift node type decouples compute scaling from storage capacity scaling by utilizing high-performance SSD caching and automated S3-backed managed storage?',
+    options: [
+      { id: 'A', text: 'Amazon Redshift RA3 node types (e.g. `ra3.4xlarge`, `ra3.16xlarge`).' },
+      { id: 'B', text: 'Amazon Redshift Dense Compute (DC2) nodes.' },
+      { id: 'C', text: 'Amazon RDS MySQL Multi-AZ.' },
+      { id: 'D', text: 'Amazon DynamoDB On-Demand.' }
+    ],
+    correctAnswers: ['A'],
+    type: 'single',
+    explanation: 'Amazon Redshift RA3 node types decouple compute capacity from storage capacity by using high-speed local NVMe SSDs for caching hot data and automatically offloading cold data to durable Amazon S3 managed storage (Redshift Managed Storage / RMS). This allows scaling and paying for compute (RA3 nodes) independently of storage (up to 128 TB per node in RMS), eliminating the need to over-provision expensive compute nodes just to gain storage space. DC2 nodes (B) couple compute and fixed SSD storage. RDS (C) is a relational database. DynamoDB (D) is NoSQL.',
+    referenceUrl: 'https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#working-with-clusters-ra3',
+    tags: ['Redshift', 'RA3', 'Redshift Managed Storage', 'Cost Optimization', 'Performance']
+  },
+  {
+    id: 'aws-saa-244',
+    difficulty: 'medium',
+    certId: 'aws-saa',
+    domainId: 'd4',
+    domainName: 'Design Cost-Optimized Architectures',
+    title: 'Cost-Effective Storage Architecture: Amazon EBS gp3 vs gp2 IOPS Tuning',
+    scenario: 'A high-throughput database on Amazon EC2 requires 10,000 IOPS and 500 MB/s throughput on an attached 500 GB EBS volume. Under gp2, achieving 10,000 IOPS required provisioning an expensive, oversized 3.3 TB volume (3 IOPS/GB).',
+    question: 'How does migrating to Amazon EBS gp3 optimize performance and cost?',
+    options: [
+      { id: 'A', text: 'Provision a 500 GB gp3 volume and independently configure 10,000 IOPS and 500 MB/s throughput, reducing storage cost by provisioning only the capacity needed.' },
+      { id: 'B', text: 'Convert the volume to Throughput Optimized HDD (st1).' },
+      { id: 'C', text: 'Switch to Cold HDD (sc1).' },
+      { id: 'D', text: 'Create a software RAID 0 array of gp2 volumes.' }
+    ],
+    correctAnswers: ['A'],
+    type: 'single',
+    explanation: 'Amazon EBS General Purpose SSD (gp3) volumes allow customers to provision IOPS (up to 64,000 IOPS) and throughput (up to 1,000 MB/s) independently of storage volume capacity at a 20% lower price per GB than gp2. This eliminates the need to over-provision unneeded storage capacity just to hit required IOPS targets. st1 (B) and sc1 (C) are magnetic HDDs with low random IOPS. RAID 0 on gp2 (D) still suffers from capacity over-provisioning costs.',
+    referenceUrl: 'https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html#gp3-ebs-volume-type',
+    tags: ['EBS', 'gp3', 'IOPS', 'Cost Optimization', 'Performance']
+  },
+  {
+    id: 'aws-saa-245',
+    difficulty: 'easy',
+    certId: 'aws-saa',
+    domainId: 'd4',
+    domainName: 'Design Cost-Optimized Architectures',
+    title: 'Tracking Unused AWS Resources with AWS Cost Explorer Rightsizing Recommendations',
+    scenario: 'A FinOps team wants to review automated recommendations for underutilized EC2 instances that can be downsized or stopped across all accounts in AWS Organizations.',
+    question: 'Which native AWS tool provides automated EC2 rightsizing recommendations based on 14-day utilization trends?',
+    options: [
+      { id: 'A', text: 'AWS Cost Explorer EC2 Rightsizing Recommendations.' },
+      { id: 'B', text: 'AWS CloudTrail.' },
+      { id: 'C', text: 'Amazon Inspector.' },
+      { id: 'D', text: 'Amazon GuardDuty.' }
+    ],
+    correctAnswers: ['A'],
+    type: 'single',
+    explanation: 'AWS Cost Explorer includes a built-in EC2 Rightsizing Recommendations feature that analyzes historical Amazon CloudWatch utilization metrics (CPU and memory via agent) over the last 14 days to identify underutilized, idle, or oversized EC2 instances, providing estimated monthly dollar savings for terminating or downsizing them. CloudTrail (B) logs API events. Inspector (C) scans for CVEs. GuardDuty (D) detects malicious behavior.',
+    referenceUrl: 'https://docs.aws.amazon.com/cost-management/latest/userguide/ce-rightsizing.html',
+    tags: ['Cost Explorer', 'Rightsizing', 'FinOps', 'Cost Optimization']
+  },
+  {
+    id: 'aws-saa-246',
+    difficulty: 'hard',
+    certId: 'aws-saa',
+    domainId: 'd1',
+    domainName: 'Design Resilient Architectures',
+    title: 'Disaster Recovery for High-Throughput Streaming: Amazon Kinesis Data Streams On-Demand Mode vs Provisioned Mode',
+    scenario: 'A logistics company operates an Amazon Kinesis Data Stream capturing package tracking scan events. Traffic is highly spiky and unpredictable, fluctuating from 2 MB/sec during the day to sudden bursts of 80 MB/sec when delivery vans upload data at distribution hubs.',
+    question: 'Which Kinesis capacity mode automatically scales shard throughput to accommodate unpredictable write bursts without capacity management or throttling?',
+    options: [
+      { id: 'A', text: 'Amazon Kinesis Data Streams On-Demand capacity mode.' },
+      { id: 'B', text: 'Amazon Kinesis Data Streams Provisioned capacity mode with 2 shards.' },
+      { id: 'C', text: 'Amazon SQS standard queue.' },
+      { id: 'D', text: 'Amazon EventBridge schema discovery.' }
+    ],
+    correctAnswers: ['A'],
+    type: 'single',
+    explanation: 'Amazon Kinesis Data Streams On-Demand capacity mode automatically accommodates unpredictable and spiky workloads by dynamically scaling stream throughput up to 200 MB/s write and 400 MB/s read with zero shard management, capacity planning, or provisioned throughput throttling errors, charging strictly per gigabyte of data ingested and retrieved. Provisioned mode (B) requires manually managing and splitting shards. SQS (C) does not provide ordered stream partitioning. EventBridge (D) is an event bus.',
+    referenceUrl: 'https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html#on-demand-mode',
+    tags: ['Kinesis', 'On-Demand', 'Streaming', 'Resilience', 'Performance']
+  },
+  {
+    id: 'aws-saa-247',
+    difficulty: 'medium',
+    certId: 'aws-saa',
+    domainId: 'd2',
+    domainName: 'Design High-Performing Architectures',
+    title: 'High-Performance Hybrid Windows File Storage with Amazon FSx for OpenZFS',
+    scenario: 'A high-frequency quantitative trading firm runs Linux-based financial modeling on EC2 instances requiring POSIX file storage with million-plus IOPS, sub-millisecond latencies, and instantaneous point-in-time snapshots.',
+    question: 'Which fully managed file system service is built on open-source OpenZFS to deliver high IOPS and low latency for Linux workloads?',
+    options: [
+      { id: 'A', text: 'Amazon FSx for OpenZFS.' },
+      { id: 'B', text: 'Amazon FSx for Windows File Server.' },
+      { id: 'C', text: 'AWS Storage Gateway Tape Gateway.' },
+      { id: 'D', text: 'Amazon S3 Standard-IA.' }
+    ],
+    correctAnswers: ['A'],
+    type: 'single',
+    explanation: 'Amazon FSx for OpenZFS is a fully managed file storage service built on the popular open-source OpenZFS file system. It delivers up to 1 million+ IOPS and sub-millisecond latencies, and supports near-instant ZFS snapshots, data cloning, and native Linux NFS (v3, v4.0, v4.1, v4.2) connectivity. FSx for Windows (B) is for SMB Windows workloads. Tape Gateway (C) is for virtual tape backup. S3 Standard-IA (D) is object storage.',
+    referenceUrl: 'https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/what-is-fsx-openzfs.html',
+    tags: ['FSx for OpenZFS', 'NFS', 'POSIX', 'Performance', 'Storage']
+  },
+  {
+    id: 'aws-saa-248',
+    difficulty: 'hard',
+    certId: 'aws-saa',
+    domainId: 'd3',
+    domainName: 'Design Secure Applications and Architectures',
+    title: 'Securing Sensitive API Integrations with AWS AppConfig Feature Flags and Secrets',
+    scenario: 'A continuous deployment pipeline needs to deploy application configuration changes and toggle feature flags across thousands of EC2 instances and Lambda functions in real time with automated validation, gradual percentage rollouts, and automatic rollback if CloudWatch alarms trigger.',
+    question: 'Which AWS service provides managed application configuration deployment with automated rollback guards?',
+    options: [
+      { id: 'A', text: 'AWS AppConfig (a capability of AWS Systems Manager).' },
+      { id: 'B', text: 'AWS CloudFormation StackSets.' },
+      { id: 'C', text: 'Amazon DynamoDB Global Tables.' },
+      { id: 'D', text: 'Amazon S3 Versioning.' }
+    ],
+    correctAnswers: ['A'],
+    type: 'single',
+    explanation: 'AWS AppConfig allows engineering teams to validate, deploy, and monitor application configurations and feature flags at runtime without restarting applications or deploying new code. It supports gradual deployment strategies (e.g. 10% per minute), syntactic and semantic schema validators, and automatic rollback if associated Amazon CloudWatch alarms detect application error spikes. CloudFormation StackSets (B) deploys infrastructure stacks. DynamoDB (C) is a database. S3 Versioning (D) manages object versions.',
+    referenceUrl: 'https://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html',
+    tags: ['AWS AppConfig', 'Feature Flags', 'Deployment', 'Security', 'Resilience']
+  },
+  {
+    id: 'aws-saa-249',
+    difficulty: 'easy',
+    certId: 'aws-saa',
+    domainId: 'd4',
+    domainName: 'Design Cost-Optimized Architectures',
+    title: 'Cost-Optimized Architecture: Amazon S3 Lifecycle Expiration vs Noncurrent Version Expiration',
+    scenario: 'A media backup system writes daily database dump files to a versioned Amazon S3 bucket. Old non-current object versions are retained indefinitely, resulting in a versioned bucket with 50 million non-current versions costing $10,000/month.',
+    question: 'Which S3 Lifecycle rule purges outdated versions after 30 days while keeping current versions active?',
+    options: [
+      { id: 'A', text: 'Configure an S3 Lifecycle rule with the `NoncurrentVersionExpiration` action set to expire noncurrent versions after 30 days.' },
+      { id: 'B', text: 'Configure an S3 Lifecycle rule with the standard `Expiration` action set to 30 days.' },
+      { id: 'C', text: 'Disable S3 Versioning on the bucket.' },
+      { id: 'D', text: 'Transition all objects to S3 Glacier Deep Archive.' }
+    ],
+    correctAnswers: ['A'],
+    type: 'single',
+    explanation: 'In Amazon S3 versioned buckets, the `NoncurrentVersionExpiration` action specifically targets and permanently deletes non-current (older) object versions after a specified number of days (e.g. 30 days), preventing non-current versions from accumulating endless storage costs while keeping the current live object version intact. Standard `Expiration` (B) creates a Delete Marker on the current version. Disabling versioning (C) suspends new version creation but leaves existing 50 million non-current versions stored. Glacier transition (D) still incurs storage fees.',
+    referenceUrl: 'https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-noncurrent-version-actions.html',
+    tags: ['S3', 'Lifecycle', 'Versioning', 'Noncurrent Versions', 'Cost Optimization']
+  },
+  {
+    id: 'aws-saa-250',
+    difficulty: 'medium',
+    certId: 'aws-saa',
+    domainId: 'd1',
+    domainName: 'Design Resilient Architectures',
+    title: 'Disaster Recovery for High-Volume Web Applications: Route 53 DNS Failover with CloudWatch Composite Alarms',
+    scenario: 'A financial platform runs on EC2 instances behind an Application Load Balancer in us-east-1. The disaster recovery plan requires automatic DNS failover to us-west-2 if BOTH the ALB HTTP health check fails AND application error rate metric in Amazon CloudWatch exceeds 5%.',
+    question: 'Which Amazon CloudWatch and Route 53 feature combines multiple metric alarms into a single unified health check condition?',
+    options: [
+      { id: 'A', text: 'Amazon CloudWatch Composite Alarms mapped to a Route 53 Calculated Health Check.' },
+      { id: 'B', text: 'Route 53 Simple Routing with standard metric alarm.' },
+      { id: 'C', text: 'AWS Shield Standard alarm.' },
+      { id: 'D', text: 'AWS Systems Manager Incident Manager rule.' }
+    ],
+    correctAnswers: ['A'],
+    type: 'single',
+    explanation: 'CloudWatch Composite Alarms combine multiple individual metric alarms using boolean logic rules (e.g. `ALARM(ALBHealthCheck) AND ALARM(ErrorRateHigh)`). Route 53 Calculated Health Checks (or alarms-based health checks) monitor the composite alarm to trigger DNS failover only when all composite conditions are met, eliminating false-positive failovers. Simple routing (B) lacks composite health check logic. Shield (C) is for DDoS. Incident Manager (D) notifies human on-call engineers.',
+    referenceUrl: 'https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-creating-values.html#health-checks-creating-values-calculated',
+    tags: ['Route 53', 'CloudWatch', 'Composite Alarms', 'Disaster Recovery', 'Resilience']
+  }
+];
+
+export default AWS_SAA_QUESTIONS_10;
