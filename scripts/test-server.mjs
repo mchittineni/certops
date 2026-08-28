@@ -91,8 +91,8 @@ try {
     const csp = (await fetch(base + '/')).headers.get('content-security-policy') || '';
     assert.match(csp, /default-src 'self'/);
     assert.match(csp, /script-src 'self'/);
-    assert.ok(csp.includes('https://fonts.googleapis.com'), 'CSP must include fonts.googleapis.com');
-    assert.ok(csp.includes('https://fonts.gstatic.com'), 'CSP must include fonts.gstatic.com');
+    assert.match(csp, /(?:^|\s)https:\/\/fonts\.googleapis\.com(?:\s|;|$)/);
+    assert.match(csp, /(?:^|\s)https:\/\/fonts\.gstatic\.com(?:\s|;|$)/);
     assert.match(csp, /frame-ancestors 'none'/);
     assert.match(csp, /object-src 'none'/);
     // A wildcard or an inline-script escape would defeat the whole policy.

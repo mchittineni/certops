@@ -68,14 +68,19 @@ function navbar() {
 function render() {
   const app = document.getElementById('app');
   const scrollTop = state.view === 'bank' ? window.scrollY : 0;
+  const isSearchActive = state.view === 'bank' ? Boolean(state.bank.search) : (state.view === 'home' ? Boolean(state.certSearch) : false);
+  const searchRole = state.view === 'bank' ? 'bank-search' : (state.view === 'home' ? 'cert-search' : null);
+  const searchLen = state.view === 'bank' ? state.bank.search.length : (state.view === 'home' ? state.certSearch.length : 0);
+
   app.innerHTML = `${navbar()}<main class="main-content">${viewContent()}</main>`;
   if (state.view === 'bank') window.scrollTo(0, scrollTop);
-  const search = app.querySelector('[data-role="bank-search"], [data-role="cert-search"]');
-  const currentSearchTerm = state.view === 'bank' ? state.bank.search : (state.view === 'home' ? state.certSearch : '');
-  if (search && currentSearchTerm) {
-    const end = currentSearchTerm.length;
-    search.focus();
-    search.setSelectionRange(end, end);
+
+  if (isSearchActive && searchRole) {
+    const input = app.querySelector(`[data-role="${searchRole}"]`);
+    if (input) {
+      input.focus();
+      input.setSelectionRange(searchLen, searchLen);
+    }
   }
 }
 
