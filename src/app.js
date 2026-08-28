@@ -517,11 +517,11 @@ document.getElementById('app').addEventListener('change', event => {
 document.getElementById('app').addEventListener('input', event => {
   const role = event.target.dataset.role;
   if (role === 'bank-search') {
-    state.bank.search = event.target.value;
+    state.bank.search = String(event.target.value || '');
     state.bank.page = 0;
     render();
   } else if (role === 'cert-search') {
-    state.certSearch = event.target.value;
+    state.certSearch = String(event.target.value || '');
     render();
   }
 });
