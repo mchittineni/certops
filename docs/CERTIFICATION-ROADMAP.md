@@ -15,13 +15,13 @@ npm run stats           # progress toward 500 questions per certification
 
 | | Certifications | Live | Questions |
 | --- | --- | --- | --- |
-| ☁️ Cloud Engineering | 13 | 5 | 526 |
+| ☁️ Cloud Engineering | 13 | 5 | 1,009 |
 | 🚀 DevOps & SRE | 11 | 0 | 0 |
 | ☸️ Kubernetes & Cloud Native | 7 | 1 | 10 |
 | 🏗️ Platform Engineering | 6 | 0 | 0 |
 | 💰 FinOps | 5 | 0 | 0 |
 | 🔐 DevSecOps & Security | 10 | 0 | 0 |
-| **Total** | **52** | **6** | **536** |
+| **Total** | **52** | **6** | **1,019** |
 
 Regenerate these numbers any time with `npm run stats`.
 
