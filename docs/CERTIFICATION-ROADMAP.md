@@ -15,13 +15,13 @@ npm run stats           # progress toward 500 questions per certification
 
 | | Certifications | Live | Questions |
 | --- | --- | --- | --- |
-| ☁️ Cloud Engineering | 13 | 4 | 37 |
+| ☁️ Cloud Engineering | 13 | 5 | 526 |
 | 🚀 DevOps & SRE | 11 | 0 | 0 |
 | ☸️ Kubernetes & Cloud Native | 7 | 1 | 10 |
 | 🏗️ Platform Engineering | 6 | 0 | 0 |
 | 💰 FinOps | 5 | 0 | 0 |
 | 🔐 DevSecOps & Security | 10 | 0 | 0 |
-| **Total** | **52** | **5** | **47** |
+| **Total** | **52** | **6** | **536** |
 
 Regenerate these numbers any time with `npm run stats`.
 
@@ -30,7 +30,7 @@ list but already carry authored content, so they were kept as foundational entry
 they are the natural first exam for someone with no certification yet. Delete their folders
 and re-run `npm run build:content` if you want a strict 50.
 
-**A live certification needs a verified blueprint.** The 47 `planned` entries carry
+**A live certification needs a verified blueprint.** The 46 `planned` entries carry
 *placeholder* domains and weights with `blueprintVerified: false`. Fixing that against the
 official exam guide is step 1 of
 [taking one live](#taking-one-certification-from-planned-to-live), and it is a genuinely
@@ -63,7 +63,7 @@ the ordering of the roadmap panel. Work down this list.
 
 ### ☁️ Cloud Engineering
 `aws-saa` SAA-C03 ✅ · `aws-sap` SAP-C02 · `aws-dva` DVA-C02 · `aws-soa` SOA-C02 ·
-`aws-ans` ANS-C01 · `azure-az104` AZ-104 · `azure-az204` AZ-204 · `azure-az305` AZ-305 ·
+`aws-ans` ANS-C01 · `azure-az104` AZ-104 ✅ · `azure-az204` AZ-204 · `azure-az305` AZ-305 ·
 `gcp-ace` GCP-ACE ✅ · `gcp-pca` GCP-PCA · `gcp-pmle` GCP-PMLE ·
 `aws-clf` CLF-C02 ✅ *(extra)* · `azure-az900` AZ-900 ✅ *(extra)*
 
