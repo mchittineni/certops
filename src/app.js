@@ -379,7 +379,9 @@ async function openFlashcards() {
 }
 
 async function openBank(certId) {
-  const target = certId || state.bank.certId || state.certId || CERTIFICATIONS[0].id;
+  const fallback = state.bank.certId || state.certId || CERTIFICATIONS[0].id;
+  const candidate = certId || fallback;
+  const target = CERTIFICATIONS.some(c => c.id === candidate) ? candidate : CERTIFICATIONS[0].id;
   state.view = 'bank';
   state.bank = { ...state.bank, certId: target, page: 0 };
   render();
