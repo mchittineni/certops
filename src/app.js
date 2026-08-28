@@ -1,5 +1,5 @@
 import { CERTIFICATIONS } from './data/catalog.generated.js';
-import { CONTENT_TOTALS, CONTENT_MANIFEST } from './data/manifest.generated.js';
+import { CONTENT_MANIFEST } from './data/manifest.generated.js';
 import { loadCertContent, getCachedCertContent, getCertById } from './data/loader.js';
 import { state, setTheme, stopTimer } from './state.js';
 import {
