@@ -45,7 +45,15 @@ export function getDailyResult(key = todayKey()) {
 export function recordDailyResult(result, key = todayKey()) {
   try {
     const all = JSON.parse(localStorage.getItem(KEY) || '{}');
-    all[key] = { correct: result.correct, total: result.total, percentage: result.percentage, at: Date.now() };
+    const correctCount = Number(result?.correct) || 0;
+    const totalCount = Number(result?.total) || 0;
+    const percentageScore = Number(result?.percentage) || 0;
+    all[key] = {
+      correct: correctCount,
+      total: totalCount,
+      percentage: percentageScore,
+      at: Date.now()
+    };
     localStorage.setItem(KEY, JSON.stringify(all));
   } catch {
     /* ignore */
