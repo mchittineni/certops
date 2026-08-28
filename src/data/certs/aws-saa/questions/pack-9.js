@@ -9,12 +9,12 @@ export const AWS_SAA_QUESTIONS_9 = [
     scenario: "An enterprise is setting up a new multi-account cloud environment for 50 business departments. The CISO mandates setting up automated landing zones, mandatory security guardrails (Service Control Policies and AWS Config rules), single sign-on federation, and centralized log archiving with minimal manual configuration.",
     question: "Which AWS service orchestrates the automated provisioning of well-architected multi-account landing zones and baseline guardrails?",
     options: [
-      { id: 'A', text: "Amazon Inspector." },
-      { id: 'B', text: "AWS CloudFormation StackSets only." },
-      { id: 'C', text: "AWS Control Tower." },
+      { id: 'A', text: "AWS CloudFormation StackSets only." },
+      { id: 'B', text: "AWS Control Tower." },
+      { id: 'C', text: "Amazon Inspector." },
       { id: 'D', text: "AWS Systems Manager Explorer." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "AWS Control Tower provides the easiest way to set up and govern a secure, multi-account AWS environment (landing zone) based on best practice blueprints. It automates account provisioning via Account Factory, applies mandatory preventative guardrails (SCPs) and detective guardrails (AWS Config rules), and centralizes logging with IAM Identity Center SSO. StackSets (B) deploys templates but lacks automated landing zone orchestration. Systems Manager Explorer (D) is an operations dashboard. Inspector (D) is a CVE scanner.",
     referenceUrl: "https://docs.aws.amazon.com/controltower/latest/userguide/what-is-control-tower.html",
@@ -30,12 +30,12 @@ export const AWS_SAA_QUESTIONS_9 = [
     scenario: "An international e-commerce application runs on Amazon Aurora MySQL Global Database with a primary DB cluster in us-east-1 and a secondary read-only cluster in eu-central-1. During an unexpected regional service disruption in us-east-1, the disaster recovery team must promote the eu-central-1 cluster to take full read/write traffic.",
     question: "What is the correct procedure to fail over and promote the secondary Aurora cluster during a disaster?",
     options: [
-      { id: 'A', text: "Modify the VPC route tables in us-east-1." },
-      { id: 'B', text: "Enable Aurora Auto Scaling on the primary cluster." },
-      { id: 'C', text: "Detach the secondary Aurora cluster from the Global Database and promote it to a standalone read/write regional database cluster." },
-      { id: 'D', text: "Restore the most recent daily snapshot in eu-central-1." }
+      { id: 'A', text: "Enable Aurora Auto Scaling on the primary cluster." },
+      { id: 'B', text: "Detach the secondary Aurora cluster from the Global Database and promote it to a standalone read/write regional database cluster." },
+      { id: 'C', text: "Restore the most recent daily snapshot in eu-central-1." },
+      { id: 'D', text: "Modify the VPC route tables in us-east-1." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "In an unplanned regional disaster scenario, the secondary Aurora cluster in eu-central-1 is detached from the Global Database and promoted to a standalone regional read/write cluster (completing in under 1–2 minutes with minimal data loss based on replication lag). Auto Scaling (B) cannot fix an offline region. Restoring a snapshot (C) takes hours and loses hours of recent data. Modifying VPC routes in the failed region (D) does not promote the secondary database.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-disaster-recovery.html#aurora-global-database-disaster-recovery.unplanned",
@@ -51,12 +51,12 @@ export const AWS_SAA_QUESTIONS_9 = [
     scenario: "An e-commerce order processing system requires delaying order fulfillment processing by exactly 15 minutes after customer checkout to allow users time to edit or cancel their orders before warehouse dispatch.",
     question: "Which SQS configuration introduces a 15-minute delay before messages become visible to consumer worker fleets?",
     options: [
-      { id: 'A', text: "Set ReceiveMessageWaitTimeSeconds to 900 seconds." },
-      { id: 'B', text: "Set the SQS Visibility Timeout to 900 seconds." },
-      { id: 'C', text: "Configure the Amazon SQS queue Delivery Delay (Delay Queue) parameter to 900 seconds (15 minutes)." },
+      { id: 'A', text: "Set the SQS Visibility Timeout to 900 seconds." },
+      { id: 'B', text: "Configure the Amazon SQS queue Delivery Delay (Delay Queue) parameter to 900 seconds (15 minutes)." },
+      { id: 'C', text: "Set ReceiveMessageWaitTimeSeconds to 900 seconds." },
       { id: 'D', text: "Set the SQS Message Retention Period to 900 seconds." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Amazon SQS Delay Queues postpone the delivery of new messages added to the queue for a specified delay interval (up to 15 minutes / 900 seconds). During the delay period, the message remains invisible to consumer worker fleets. Visibility Timeout (B) defines how long a message is hidden *after* being consumed. Message Retention (C) deletes messages after the interval. `ReceiveMessageWaitTimeSeconds` (D) configures long polling (max 20 seconds).",
     referenceUrl: "https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-delay-queues.html",
@@ -73,11 +73,11 @@ export const AWS_SAA_QUESTIONS_9 = [
     question: "Which Amazon OpenSearch cluster architecture satisfies these high-availability criteria?",
     options: [
       { id: 'A', text: "Deploy a single data node in 1 Availability Zone with automated daily snapshots." },
-      { id: 'B', text: "Deploy OpenSearch with 3 Availability Zones, 3 Dedicated Master Nodes, and at least 1 replica shard per primary shard." },
-      { id: 'C', text: "Deploy 2 data nodes in 1 AZ with 2 dedicated master nodes." },
-      { id: 'D', text: "Mount an Amazon EFS file system to an EC2 OpenSearch node." }
+      { id: 'B', text: "Mount an Amazon EFS file system to an EC2 OpenSearch node." },
+      { id: 'C', text: "Deploy OpenSearch with 3 Availability Zones, 3 Dedicated Master Nodes, and at least 1 replica shard per primary shard." },
+      { id: 'D', text: "Deploy 2 data nodes in 1 AZ with 2 dedicated master nodes." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "For production OpenSearch clusters, the AWS best practice is deploying across 3 Availability Zones with 3 Dedicated Master Nodes (to prevent split-brain issues) and configuring at least 1 replica shard per primary shard. This guarantees that if any single AZ fails, the remaining 2 AZs retain a complete copy of all data and maintain active cluster quorum. Single-AZ setups (B, C) have single points of failure. EFS (D) is not supported for OpenSearch internal cluster data.",
     referenceUrl: "https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html",
@@ -94,11 +94,11 @@ export const AWS_SAA_QUESTIONS_9 = [
     question: "Which Amazon RDS deployment option provides high-availability failover in under 35 seconds and readable standby DB instances?",
     options: [
       { id: 'A', text: "Amazon RDS Multi-AZ DB Instance deployment (one primary and one non-readable standby)." },
-      { id: 'B', text: "Amazon RDS Multi-AZ DB Cluster deployment (one primary writer and two readable standby instances across 3 AZs)." },
+      { id: 'B', text: "AWS Database Migration Service (DMS) continuous sync." },
       { id: 'C', text: "Amazon RDS Single-AZ instance with cross-region replication." },
-      { id: 'D', text: "AWS Database Migration Service (DMS) continuous sync." }
+      { id: 'D', text: "Amazon RDS Multi-AZ DB Cluster deployment (one primary writer and two readable standby instances across 3 AZs)." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "An Amazon RDS Multi-AZ DB Cluster deployment provisions one primary writer and two readable standby DB instances across three Availability Zones. It uses semi-synchronous replication with transaction commit confirmation, delivering typical automated failovers in under 35 seconds (faster than Multi-AZ DB instance) while allowing standby instances to serve read traffic via a cluster reader endpoint. Multi-AZ DB Instance (B) has a non-readable standby and 60–120 second failovers. Single-AZ (C) and DMS (D) lack automated sub-35s cluster failover.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html",
@@ -114,12 +114,12 @@ export const AWS_SAA_QUESTIONS_9 = [
     scenario: "A financial fraud investigation platform needs to navigate complex relationships and connections between bank accounts, phone numbers, IP addresses, and identities. Queries require traversing graph relationships 5 to 10 degrees deep with millisecond latencies.",
     question: "Which managed AWS graph database service is built specifically for property graph and RDF relationship queries?",
     options: [
-      { id: 'A', text: "Amazon Neptune." },
-      { id: 'B', text: "Amazon RDS for MySQL." },
-      { id: 'C', text: "Amazon DynamoDB." },
-      { id: 'D', text: "Amazon DocumentDB." }
+      { id: 'A', text: "Amazon DocumentDB." },
+      { id: 'B', text: "Amazon DynamoDB." },
+      { id: 'C', text: "Amazon Neptune." },
+      { id: 'D', text: "Amazon RDS for MySQL." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Amazon Neptune is a fast, reliable, fully managed graph database engine optimized for storing billions of relationships and querying graphs with millisecond latency using popular graph query languages (Apache TinkerPop Gremlin, openCypher, and W3C SPARQL). Relational databases (C) and document/key-value stores (B, D) degrade severely when executing multi-hop relationship recursive join queries.",
     referenceUrl: "https://docs.aws.amazon.com/neptune/latest/userguide/intro.html",
@@ -135,12 +135,12 @@ export const AWS_SAA_QUESTIONS_9 = [
     scenario: "A real-time financial data stream in Amazon Kinesis Data Streams has 10 independent downstream consumer applications (fraud detection, real-time metrics, ML scoring, audit logging, archiving). The consumers are experiencing read throughput throttling because standard consumers share the 2 MB/sec read limit per shard.",
     question: "Which Kinesis feature provides dedicated 2 MB/sec read throughput per shard for each consumer application?",
     options: [
-      { id: 'A', text: "Register the consumer applications using Kinesis Enhanced Fan-Out with HTTP/2 streaming." },
-      { id: 'B', text: "Convert the Kinesis Data Stream to an SQS FIFO queue." },
-      { id: 'C', text: "Increase the stream retention period to 365 days." },
-      { id: 'D', text: "Deploy an Amazon ElastiCache cluster in front of Kinesis." }
+      { id: 'A', text: "Increase the stream retention period to 365 days." },
+      { id: 'B', text: "Deploy an Amazon ElastiCache cluster in front of Kinesis." },
+      { id: 'C', text: "Convert the Kinesis Data Stream to an SQS FIFO queue." },
+      { id: 'D', text: "Register the consumer applications using Kinesis Enhanced Fan-Out with HTTP/2 streaming." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Kinesis Enhanced Fan-Out provisions dedicated 2 MB/sec read throughput per shard for each registered consumer application independently using HTTP/2 push delivery. This allows multiple consumer applications (up to 20 per stream) to read from the same stream in parallel without competing for read throughput or throttling each other. Retention period (B) stores data longer. SQS FIFO (C) has lower throughput caps and deletes messages on read. ElastiCache (D) cannot front Kinesis streams.",
     referenceUrl: "https://docs.aws.amazon.com/streams/latest/dev/enhanced-consumers.html",
@@ -156,12 +156,12 @@ export const AWS_SAA_QUESTIONS_9 = [
     scenario: "A gaming company is migrating a MongoDB database storing user inventories and JSON game states to AWS. The application requires full MongoDB 4.0/5.0 API compatibility, millisecond read/write latency, automatic storage scaling up to 128 TB, and 15 read replicas with automated failover.",
     question: "Which AWS managed database service provides MongoDB compatibility with a cloud-native decoupled storage architecture?",
     options: [
-      { id: 'A', text: "Amazon DynamoDB." },
-      { id: 'B', text: "Amazon RDS for MySQL." },
-      { id: 'C', text: "Amazon DocumentDB (with MongoDB compatibility)." },
-      { id: 'D', text: "Amazon Neptune." }
+      { id: 'A', text: "Amazon Neptune." },
+      { id: 'B', text: "Amazon DynamoDB." },
+      { id: 'C', text: "Amazon RDS for MySQL." },
+      { id: 'D', text: "Amazon DocumentDB (with MongoDB compatibility)." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Amazon DocumentDB is a fully managed document database service designed for JSON workloads with full MongoDB API compatibility. Built on a cloud-native distributed storage system that replicates 6 copies of data across 3 Availability Zones, it scales storage automatically up to 128 TB and supports up to 15 read replicas with sub-millisecond latencies. DynamoDB (B) uses a proprietary NoSQL API. RDS MySQL (C) is a relational database. Neptune (D) is a graph database.",
     referenceUrl: "https://docs.aws.amazon.com/documentdb/latest/developerguide/what-is.html",
@@ -199,9 +199,9 @@ export const AWS_SAA_QUESTIONS_9 = [
     question: "Which AWS feature caches cloud-hosted file systems on-premises with local NVMe SSD speeds?",
     options: [
       { id: 'A', text: "Amazon File Cache (or AWS Storage Gateway S3 File Gateway)." },
-      { id: 'B', text: "Amazon S3 Glacier Instant Retrieval." },
+      { id: 'B', text: "AWS DataSync scheduled batch transfers." },
       { id: 'C', text: "AWS Snowball Edge." },
-      { id: 'D', text: "AWS DataSync scheduled batch transfers." }
+      { id: 'D', text: "Amazon S3 Glacier Instant Retrieval." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -219,12 +219,12 @@ export const AWS_SAA_QUESTIONS_9 = [
     scenario: "A security operations center (SOC) needs automated detection and alerting whenever an unusual surge in write API calls (such as a sudden spike in `AuthorizeSecurityGroupIngress` or `CreateUser` calls) occurs in an AWS account.",
     question: "Which AWS CloudTrail feature continuously analyzes management event baselines and generates anomaly events?",
     options: [
-      { id: 'A', text: "AWS Config conformance packs." },
+      { id: 'A', text: "Amazon Inspector." },
       { id: 'B', text: "Amazon GuardDuty." },
-      { id: 'C', text: "AWS CloudTrail Insights." },
-      { id: 'D', text: "Amazon Inspector." }
+      { id: 'C', text: "AWS Config conformance packs." },
+      { id: 'D', text: "AWS CloudTrail Insights." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "AWS CloudTrail Insights continuously analyzes historical CloudTrail management events to establish a normal baseline of API call rates and error rates. When unusual spikes in API volume or abnormal error rate spikes occur (e.g. IAM permission brute-forcing or rapid resource modifications), CloudTrail Insights automatically generates an Insight event that can trigger Amazon EventBridge alerts. GuardDuty (B) monitors threat signatures across VPC/DNS/CloudTrail. AWS Config (C) audits resource configuration states. Inspector (D) scans for software vulnerabilities.",
     referenceUrl: "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-insights-events-with-cloudtrail.html",
@@ -240,10 +240,10 @@ export const AWS_SAA_QUESTIONS_9 = [
     scenario: "A company hosts a microservices REST API on Amazon API Gateway in Account A. The API must be accessible ONLY to requests originating from a specific VPC in Account B (`vpc-99887766`), while blocking all requests from the public internet and other VPCs.",
     question: "Which API Gateway security mechanism restricts API invocations strictly to a specific source VPC?",
     options: [
-      { id: 'A', text: "Attach a Security Group to the API Gateway REST API." },
-      { id: 'B', text: "Enable API Gateway Standard API Keys." },
+      { id: 'A', text: "Enable API Gateway Standard API Keys." },
+      { id: 'B', text: "Configure Route 53 Geolocation routing." },
       { id: 'C', text: "Configure an API Gateway Resource Policy with an `Allow` statement conditioned on `\"StringEquals\": {\"aws:sourceVpc\": \"vpc-99887766\"}`." },
-      { id: 'D', text: "Configure Route 53 Geolocation routing." }
+      { id: 'D', text: "Attach a Security Group to the API Gateway REST API." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -261,12 +261,12 @@ export const AWS_SAA_QUESTIONS_9 = [
     scenario: "A B2B financial exchange requires certificate-based mutual TLS (mTLS) authentication for all incoming client API connections to an Application Load Balancer. The ALB must verify the client's X.509 certificate against an enterprise Trust Store stored in Amazon S3 before establishing the connection.",
     question: "Which Application Load Balancer feature supports native client certificate verification without offloading to backend EC2 instances?",
     options: [
-      { id: 'A', text: "Network Load Balancer TCP passthrough." },
-      { id: 'B', text: "Application Load Balancer Mutual TLS (mTLS) with an S3-hosted Trust Store." },
+      { id: 'A', text: "Amazon CloudFront standard HTTPS listener." },
+      { id: 'B', text: "Network Load Balancer TCP passthrough." },
       { id: 'C', text: "AWS WAF client token inspection." },
-      { id: 'D', text: "Amazon CloudFront standard HTTPS listener." }
+      { id: 'D', text: "Application Load Balancer Mutual TLS (mTLS) with an S3-hosted Trust Store." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Application Load Balancers natively support Mutual TLS (mTLS) authentication. The ALB verifies client X.509 certificates during TLS handshake negotiation against a Trust Store (CA bundle and CRLs) stored in an Amazon S3 bucket, passing client certificate attributes to backend target groups via HTTP headers. NLB TCP passthrough (B) offloads all TLS processing to backend instances. AWS WAF (C) inspects HTTP payloads, not TLS handshakes. CloudFront standard HTTPS (D) does not terminate custom enterprise client mTLS trust stores directly.",
     referenceUrl: "https://docs.aws.amazon.com/elasticloadbalancing/latest/application/mutual-tls.html",
@@ -282,12 +282,12 @@ export const AWS_SAA_QUESTIONS_9 = [
     scenario: "Account A stores encrypted customer archives in Amazon S3 using a Customer Managed Key (CMK) in AWS KMS. An analytics application running on Amazon EMR in Account B needs temporary programmatic access to decrypt and read objects from the bucket during nightly batch jobs.",
     question: "Which AWS KMS feature allows programmatically delegating temporary, granular cryptographic permissions to external IAM principals?",
     options: [
-      { id: 'A', text: "Use SSE-S3 encryption." },
-      { id: 'B', text: "Export the KMS master private key to Account B." },
-      { id: 'C', text: "Make the KMS key public in AWS Organizations." },
-      { id: 'D', text: "Create an AWS KMS Grant on the CMK in Account A specifying Account B's EMR IAM role as the grantee principal." }
+      { id: 'A', text: "Create an AWS KMS Grant on the CMK in Account A specifying Account B's EMR IAM role as the grantee principal." },
+      { id: 'B', text: "Use SSE-S3 encryption." },
+      { id: 'C', text: "Export the KMS master private key to Account B." },
+      { id: 'D', text: "Make the KMS key public in AWS Organizations." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "An AWS KMS Grant is an advanced mechanism to programmatically delegate long-term or temporary granular permissions on a KMS Customer Managed Key to an IAM principal (grantee) without modifying the root KMS key policy. KMS master keys can never be exported (B). KMS keys cannot be made public (C). SSE-S3 (D) removes CMK encryption control.",
     referenceUrl: "https://docs.aws.amazon.com/kms/latest/developerguide/grants.html",
@@ -304,8 +304,8 @@ export const AWS_SAA_QUESTIONS_9 = [
     question: "Which AWS service performs mathematical provable security analysis to identify external resource exposure?",
     options: [
       { id: 'A', text: "AWS Systems Manager Patch Manager." },
-      { id: 'B', text: "AWS Shield Standard." },
-      { id: 'C', text: "Amazon Inspector." },
+      { id: 'B', text: "Amazon Inspector." },
+      { id: 'C', text: "AWS Shield Standard." },
       { id: 'D', text: "AWS IAM Access Analyzer." }
     ],
     correctAnswers: ['D'],
@@ -324,12 +324,12 @@ export const AWS_SAA_QUESTIONS_9 = [
     scenario: "An application writes 10 items per second to Amazon DynamoDB, where each item is 3.5 KB in size. The team needs to calculate the minimum provisioned Write Capacity Units (WCU) required to avoid write throttling.",
     question: "How many WCUs are required for this workload?",
     options: [
-      { id: 'A', text: "35 WCU." },
-      { id: 'B', text: "4 WCU." },
+      { id: 'A', text: "40 WCU (each 1 KB requires 1 WCU; 3.5 KB rounds up to 4 KB per item = 4 WCU per write * 10 writes/sec = 40 WCU)." },
+      { id: 'B', text: "35 WCU." },
       { id: 'C', text: "10 WCU." },
-      { id: 'D', text: "40 WCU (each 1 KB requires 1 WCU; 3.5 KB rounds up to 4 KB per item = 4 WCU per write * 10 writes/sec = 40 WCU)." }
+      { id: 'D', text: "4 WCU." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "In Amazon DynamoDB, 1 Write Capacity Unit (WCU) provides 1 write per second for items up to 1 KB in size. For items larger than 1 KB, the size is rounded up to the nearest 1 KB boundary: 3.5 KB rounds up to 4 KB (requiring 4 WCUs per item). Writing 10 items per second requires `4 WCU * 10 = 40 WCU`.",
     referenceUrl: "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html#ItemSizeCalculations.Writes",
@@ -345,12 +345,12 @@ export const AWS_SAA_QUESTIONS_9 = [
     scenario: "A company operates hundreds of Java microservices on Amazon EC2 `c5.2xlarge` instances (Intel x86). The engineering team wants to reduce EC2 compute costs by up to 20% and improve price-performance by 40% without changing application architecture.",
     question: "Which EC2 instance family upgrade delivers this price-performance improvement for cloud workloads?",
     options: [
-      { id: 'A', text: "Migrate to `c5a` (AMD) instance types only." },
-      { id: 'B', text: "Convert instances to Dedicated Hosts." },
-      { id: 'C', text: "Increase instance size to `c5.metal`." },
-      { id: 'D', text: "Migrate to AWS Graviton-based `c7g` / `c6g` (ARM64) instance types." }
+      { id: 'A', text: "Convert instances to Dedicated Hosts." },
+      { id: 'B', text: "Increase instance size to `c5.metal`." },
+      { id: 'C', text: "Migrate to AWS Graviton-based `c7g` / `c6g` (ARM64) instance types." },
+      { id: 'D', text: "Migrate to `c5a` (AMD) instance types only." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "AWS Graviton processors (custom ARM64 silicon built by AWS) deliver up to 40% better price-performance over comparable current-generation x86-based instances at a 20% lower hourly cost. Most Linux container, Java, Python, Node.js, and Go applications run seamlessly on Graviton ARM64 architecture with simple recompilation or container rebuild. Dedicated Hosts (C) and Metal instances (D) are significantly more expensive.",
     referenceUrl: "https://aws.amazon.com/ec2/graviton/",
@@ -366,12 +366,12 @@ export const AWS_SAA_QUESTIONS_9 = [
     scenario: "A research organization stores petabytes of scientific imaging data in Amazon S3. The data has completely unpredictable access patterns — some files are accessed frequently, while others are never accessed for months or years. The organization wants automated tiering down to Glacier Deep Archive price points without paying retrieval fees when data is accessed.",
     question: "Which Amazon S3 storage class configuration delivers automatic multi-tier archiving with zero retrieval fees?",
     options: [
-      { id: 'A', text: "Amazon S3 Standard with standard S3 Lifecycle rules." },
-      { id: 'B', text: "Amazon S3 One Zone-IA with Glacier flexible transitions." },
-      { id: 'C', text: "Amazon EBS gp3 Snapshots Archive." },
-      { id: 'D', text: "Amazon S3 Intelligent-Tiering with Archive Access and Deep Archive Access tiers opted-in." }
+      { id: 'A', text: "Amazon S3 Intelligent-Tiering with Archive Access and Deep Archive Access tiers opted-in." },
+      { id: 'B', text: "Amazon S3 Standard with standard S3 Lifecycle rules." },
+      { id: 'C', text: "Amazon S3 One Zone-IA with Glacier flexible transitions." },
+      { id: 'D', text: "Amazon EBS gp3 Snapshots Archive." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Amazon S3 Intelligent-Tiering automatically moves objects between access tiers: Frequent (0d), Infrequent (30d), Archive Instant (90d), and optional asynchronous Archive Access (90–730d) and Deep Archive Access (180–730d) tiers, providing storage cost savings down to Glacier Deep Archive rates ($0.00099/GB) with zero retrieval fees when objects are accessed. S3 Lifecycle transitions (B, C) incur retrieval fees and early deletion penalties when cold data is accessed. EBS (D) is block storage.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/intelligent-tiering.html",
@@ -387,12 +387,12 @@ export const AWS_SAA_QUESTIONS_9 = [
     scenario: "A retail company runs analytical SQL queries against a 20 TB data warehouse only during business hours (9:00 AM to 5:00 PM, Monday through Friday) and during monthly closing periods. Running a provisioned Redshift RA3 cluster 24/7 results in thousands of dollars in idle compute charges overnight and on weekends.",
     question: "Which Amazon Redshift deployment option automatically starts up, scales compute capacity up and down in RPU seconds, and shuts down during idle periods?",
     options: [
-      { id: 'A', text: "Amazon DynamoDB On-Demand." },
+      { id: 'A', text: "Amazon Redshift Serverless." },
       { id: 'B', text: "Amazon Redshift Provisioned `ra3.4xlarge` cluster." },
       { id: 'C', text: "Amazon RDS for MySQL single-AZ." },
-      { id: 'D', text: "Amazon Redshift Serverless." }
+      { id: 'D', text: "Amazon DynamoDB On-Demand." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Amazon Redshift Serverless automatically provisions, scales, and manages data warehouse capacity in Redshift Processing Units (RPUs), scaling capacity dynamically to match workload demands and automatically shutting down during idle periods, billing strictly for the compute seconds consumed. This eliminates 100% of idle weekend/nightly costs. Provisioned RA3 (B) charges continuously 24/7. RDS MySQL (C) is a transactional database. DynamoDB (D) cannot run data warehouse analytical SQL joins.",
     referenceUrl: "https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-whatis.html",
@@ -408,12 +408,12 @@ export const AWS_SAA_QUESTIONS_9 = [
     scenario: "A company operates shared web servers mounting an Amazon Elastic File System (Amazon EFS). The workload has unpredictable, spiky traffic with long idle periods and occasional bursts up to 500 MB/s. In the current Provisioned Throughput mode, the company pays high monthly fees for unused throughput.",
     question: "Which Amazon EFS throughput mode automatically scales throughput to meet spiky application demands while paying only for data read and written?",
     options: [
-      { id: 'A', text: "Amazon EFS Provisioned Throughput mode set to 500 MB/s." },
-      { id: 'B', text: "Amazon EBS io2 Block Express." },
-      { id: 'C', text: "Amazon S3 Standard." },
-      { id: 'D', text: "Amazon EFS Elastic Throughput mode." }
+      { id: 'A', text: "Amazon EBS io2 Block Express." },
+      { id: 'B', text: "Amazon EFS Elastic Throughput mode." },
+      { id: 'C', text: "Amazon EFS Provisioned Throughput mode set to 500 MB/s." },
+      { id: 'D', text: "Amazon S3 Standard." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Amazon EFS Elastic Throughput is designed for spiky and unpredictable workloads. It automatically provides the exact throughput required by the application (up to 3 GiB/s read and 1 GiB/s write per file system) with zero capacity provisioning or monitoring, billing strictly for the data read and written per GB. Provisioned Throughput (B) charges a continuous hourly rate for peak bandwidth even when idle. EBS io2 (C) is single-AZ block storage. S3 (D) is object storage.",
     referenceUrl: "https://docs.aws.amazon.com/efs/latest/ug/performance.html#throughput-modes",
@@ -429,12 +429,12 @@ export const AWS_SAA_QUESTIONS_9 = [
     scenario: "An enterprise connects on-premises networks to 100 VPCs across two AWS Regions using AWS Transit Gateways and Direct Connect. The network architect must ensure that traffic between isolated security domains (e.g. Production vs Development VPCs) is strictly segmented at the routing layer without inspecting traffic with expensive firewall instances.",
     question: "Which Transit Gateway feature isolates network traffic between different VPC groups using dedicated routing domains?",
     options: [
-      { id: 'A', text: "Security Groups applied to Transit Gateway attachments." },
-      { id: 'B', text: "VPC Peering connections between all VPCs." },
-      { id: 'C', text: "Route 53 Private Hosted Zones." },
-      { id: 'D', text: "Multiple AWS Transit Gateway Route Tables with specific route table associations and propagations." }
+      { id: 'A', text: "Multiple AWS Transit Gateway Route Tables with specific route table associations and propagations." },
+      { id: 'B', text: "Route 53 Private Hosted Zones." },
+      { id: 'C', text: "VPC Peering connections between all VPCs." },
+      { id: 'D', text: "Security Groups applied to Transit Gateway attachments." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "AWS Transit Gateway supports multiple distinct Transit Gateway Route Tables. By associating production VPC attachments with a Production TGW route table and development attachments with a Development TGW route table (and controlling route propagations), network traffic is completely segmented and isolated into virtual routing domains (VRFs) without deploying third-party firewalls. Transit Gateway attachments do not have Security Groups (B). VPC Peering (C) creates point-to-point meshes. Route 53 (D) is DNS.",
     referenceUrl: "https://docs.aws.amazon.com/vpc/latest/tgw/tgw-route-tables.html",
@@ -450,12 +450,12 @@ export const AWS_SAA_QUESTIONS_9 = [
     scenario: "A mobile application experiences millions of read requests per second on popular catalog items in Amazon DynamoDB. The team adds an Amazon DynamoDB Accelerator (DAX) cluster. The application requires high availability, automatic primary node failover, and read scaling across multiple Availability Zones.",
     question: "What is the recommended minimum DAX cluster node configuration for production high availability?",
     options: [
-      { id: 'A', text: "Deploy a single DAX node in 1 Availability Zone." },
-      { id: 'B', text: "Enable DynamoDB Global Tables without DAX." },
-      { id: 'C', text: "Deploy 2 DAX clusters in the same AZ." },
-      { id: 'D', text: "Deploy a DAX cluster with a minimum of 3 nodes across 3 Availability Zones (1 primary node and 2 read replicas)." }
+      { id: 'A', text: "Enable DynamoDB Global Tables without DAX." },
+      { id: 'B', text: "Deploy a single DAX node in 1 Availability Zone." },
+      { id: 'C', text: "Deploy a DAX cluster with a minimum of 3 nodes across 3 Availability Zones (1 primary node and 2 read replicas)." },
+      { id: 'D', text: "Deploy 2 DAX clusters in the same AZ." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "For production high availability, AWS recommends deploying a DAX cluster with at least 3 nodes across 3 different Availability Zones (1 primary node for writes/cache management and 2 read replicas for read scaling). If the primary node fails, DAX automatically promotes one of the read replicas to primary in seconds without cache downtime. Single node (B) is a single point of failure. Same-AZ clusters (C) fail if the AZ has an outage. Global Tables (D) replicates tables across regions, not in-memory microsecond read caching.",
     referenceUrl: "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster-architecture.html",
@@ -471,9 +471,9 @@ export const AWS_SAA_QUESTIONS_9 = [
     scenario: "A company wants to provide remote corporate employees secure access to internal private web applications hosted on AWS without requiring employees to connect to a corporate Virtual Private Network (VPN) client.",
     question: "Which AWS service implements Zero Trust network access by evaluating corporate identity provider claims and device security posture before granting application access?",
     options: [
-      { id: 'A', text: "AWS Direct Connect." },
+      { id: 'A', text: "AWS Site-to-Site VPN." },
       { id: 'B', text: "AWS Client VPN." },
-      { id: 'C', text: "AWS Site-to-Site VPN." },
+      { id: 'C', text: "AWS Direct Connect." },
       { id: 'D', text: "AWS Verified Access." }
     ],
     correctAnswers: ['D'],
@@ -492,12 +492,12 @@ export const AWS_SAA_QUESTIONS_9 = [
     scenario: "A development team needs to copy a 2 TB Amazon RDS PostgreSQL production database snapshot to a staging AWS account for monthly QA testing without paying high data transfer or storage duplication fees.",
     question: "What is the most cost-effective method to share an encrypted RDS database snapshot across AWS accounts?",
     options: [
-      { id: 'A', text: "Replicate the entire RDS cluster with active Multi-AZ." },
-      { id: 'B', text: "Export the database to Amazon S3 as CSV files and import with AWS DMS." },
-      { id: 'C', text: "Run an AWS DataSync task between the database instances." },
-      { id: 'D', text: "Share the encrypted RDS snapshot with the staging account using a shared Customer Managed Key (CMK), and restore directly in the staging account." }
+      { id: 'A', text: "Share the encrypted RDS snapshot with the staging account using a shared Customer Managed Key (CMK), and restore directly in the staging account." },
+      { id: 'B', text: "Replicate the entire RDS cluster with active Multi-AZ." },
+      { id: 'C', text: "Export the database to Amazon S3 as CSV files and import with AWS DMS." },
+      { id: 'D', text: "Run an AWS DataSync task between the database instances." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Amazon RDS allows sharing manual DB snapshots with other AWS accounts directly. By encrypting the snapshot with a Customer Managed KMS Key (CMK) and granting the staging account decrypt permissions in the KMS key policy, the staging account can restore a new database instance directly from the shared snapshot without costly data export pipelines or intermediate storage fees. S3 CSV exports (B) and DataSync (C) introduce compute, storage, and transformation overhead. Active Multi-AZ (D) is for high availability.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ShareSnapshot.html",
@@ -513,12 +513,12 @@ export const AWS_SAA_QUESTIONS_9 = [
     scenario: "A critical e-commerce storefront serves dynamic web content through Amazon CloudFront backed by a primary Application Load Balancer in us-east-1 and a disaster recovery standby ALB in us-west-2. If the primary ALB returns HTTP 500, 502, 503, or 504 server errors, CloudFront must immediately fail over to the secondary ALB without returning error pages to shoppers.",
     question: "Which Amazon CloudFront feature provides automated, sub-second origin failover on specific HTTP status codes?",
     options: [
-      { id: 'A', text: "Deploy an AWS Global Accelerator with standard health checks." },
-      { id: 'B', text: "Configure a CloudFront Origin Group with the primary and secondary ALBs and specify failover HTTP status codes (500, 502, 503, 504)." },
-      { id: 'C', text: "Configure custom error pages returning static S3 HTML." },
-      { id: 'D', text: "Create Route 53 Weighted DNS records pointing to both ALBs." }
+      { id: 'A', text: "Create Route 53 Weighted DNS records pointing to both ALBs." },
+      { id: 'B', text: "Deploy an AWS Global Accelerator with standard health checks." },
+      { id: 'C', text: "Configure a CloudFront Origin Group with the primary and secondary ALBs and specify failover HTTP status codes (500, 502, 503, 504)." },
+      { id: 'D', text: "Configure custom error pages returning static S3 HTML." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "CloudFront Origin Groups allow grouping a primary and a secondary origin together. If CloudFront receives specific HTTP error status codes (e.g. 500, 502, 503, 504) or a timeout from the primary origin, it automatically retries the request against the secondary origin in the origin group, providing seamless origin failover without showing error pages to users. Route 53 DNS (B) requires DNS TTL expiration. Global Accelerator (C) routes TCP/UDP traffic, not HTTP status code failover. Custom error pages (D) return static maintenance pages instead of live standby responses.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/high_availability_origin_failover.html",

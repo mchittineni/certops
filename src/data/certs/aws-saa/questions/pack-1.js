@@ -9,12 +9,12 @@ export const AWS_SAA_QUESTIONS = [
     scenario: "A company runs an e-commerce website on AWS using Amazon EC2 instances behind an Application Load Balancer (ALB) and an Amazon RDS for MySQL Multi-AZ DB instance. The marketing team plans a flash sale, and the application is expected to experience a 10x surge in read traffic, while write volume will remain moderate.",
     question: "Which architecture change is the MOST cost-effective and operationally efficient way to scale the database tier to handle the surge?",
     options: [
-      { id: 'A', text: "Create Amazon RDS Read Replicas in the same or multiple Availability Zones and update the application connection string to route read queries to the replica endpoints." },
-      { id: 'B', text: "Place an Amazon ElastiCache Redis cluster between the EC2 instances and modify RDS Multi-AZ to a single-AZ deployment during the flash sale to reduce latency." },
-      { id: 'C', text: "Scale up the RDS instance class to the largest db.m5 instance type and enable provisioned IOPS." },
+      { id: 'A', text: "Place an Amazon ElastiCache Redis cluster between the EC2 instances and modify RDS Multi-AZ to a single-AZ deployment during the flash sale to reduce latency." },
+      { id: 'B', text: "Scale up the RDS instance class to the largest db.m5 instance type and enable provisioned IOPS." },
+      { id: 'C', text: "Create Amazon RDS Read Replicas in the same or multiple Availability Zones and update the application connection string to route read queries to the replica endpoints." },
       { id: 'D', text: "Convert the RDS Multi-AZ DB instance to an Amazon DynamoDB table with on-demand capacity." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Amazon RDS Read Replicas provide horizontal read scalability for read-heavy database workloads. By offloading read queries to one or more Read Replicas, the primary DB instance can handle write operations without degradation. Converting to DynamoDB requires complete application rewriting (incorrect A), vertical scaling is expensive and doesn't distribute reads (incorrect C), and disabling Multi-AZ removes high availability (incorrect D).",
     referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html",
@@ -30,12 +30,12 @@ export const AWS_SAA_QUESTIONS = [
     scenario: "A financial company has an application running on Amazon EC2 instances within a private subnet. The application needs to upload sensitive customer transaction logs directly to an Amazon S3 bucket. Security compliance mandates that the data must not traverse the public internet, and EC2 instances must not have public IP addresses or NAT Gateway access to S3.",
     question: "Which solution meets these security and architectural requirements?",
     options: [
-      { id: 'A', text: "Assign Elastic IP addresses to all EC2 instances and restrict the S3 bucket policy using aws:SourceIp conditions." },
-      { id: 'B', text: "Deploy an AWS Direct Connect connection and route S3 traffic through an on-premises firewall." },
-      { id: 'C', text: "Attach an Internet Gateway to the VPC and configure an egress-only internet gateway for IPv4 S3 traffic." },
-      { id: 'D', text: "Create an Amazon S3 Gateway VPC Endpoint in the VPC and update the subnet route tables with a route targeting the gateway endpoint." }
+      { id: 'A', text: "Create an Amazon S3 Gateway VPC Endpoint in the VPC and update the subnet route tables with a route targeting the gateway endpoint." },
+      { id: 'B', text: "Assign Elastic IP addresses to all EC2 instances and restrict the S3 bucket policy using aws:SourceIp conditions." },
+      { id: 'C', text: "Deploy an AWS Direct Connect connection and route S3 traffic through an on-premises firewall." },
+      { id: 'D', text: "Attach an Internet Gateway to the VPC and configure an egress-only internet gateway for IPv4 S3 traffic." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "An Amazon S3 Gateway VPC Endpoint enables instances in a private subnet to securely communicate with Amazon S3 across the AWS private network backbone without requiring an Internet Gateway, NAT Gateway, or public IPs. It is configured as a target route in the VPC route table at no additional data transfer cost.",
     referenceUrl: "https://docs.aws.amazon.com/vpc/latest/privatelink/vpc-endpoints-s3.html",
@@ -51,13 +51,13 @@ export const AWS_SAA_QUESTIONS = [
     scenario: "A photo-sharing web application receives thousands of high-resolution images daily. Currently, the web tier processes thumbnail generation synchronously, causing slow HTTP response times and timeouts when large batches are uploaded simultaneously.",
     question: "How should a Solutions Architect redesign the architecture to decouple the web tier and ensure reliable processing? (Choose TWO)",
     options: [
-      { id: 'A', text: "Use an Amazon Kinesis Data Firehose delivery stream to write directly to Amazon EBS volumes attached to the web servers." },
-      { id: 'B', text: "Configure an Auto Scaling Group of worker EC2 instances (or AWS Lambda functions) that poll the SQS queue and process thumbnails asynchronously." },
-      { id: 'C', text: "Increase the HTTP timeout on the Application Load Balancer to 300 seconds." },
-      { id: 'D', text: "Replace the ALB with a Network Load Balancer (NLB) to handle TCP-level backpressure." },
-      { id: 'E', text: "Store the uploaded images in an Amazon S3 bucket and send a message containing image metadata to an Amazon SQS standard queue." }
+      { id: 'A', text: "Store the uploaded images in an Amazon S3 bucket and send a message containing image metadata to an Amazon SQS standard queue." },
+      { id: 'B', text: "Increase the HTTP timeout on the Application Load Balancer to 300 seconds." },
+      { id: 'C', text: "Configure an Auto Scaling Group of worker EC2 instances (or AWS Lambda functions) that poll the SQS queue and process thumbnails asynchronously." },
+      { id: 'D', text: "Use an Amazon Kinesis Data Firehose delivery stream to write directly to Amazon EBS volumes attached to the web servers." },
+      { id: 'E', text: "Replace the ALB with a Network Load Balancer (NLB) to handle TCP-level backpressure." }
     ],
-    correctAnswers: ['B', 'E'],
+    correctAnswers: ['A', 'C'],
     type: "multiple",
     explanation: "Decoupling via Amazon SQS and Amazon S3 creates an event-driven, fault-tolerant architecture. The web tier stores the raw image in S3, places a job message in SQS, and immediately responds to the user. Worker nodes or AWS Lambda functions asynchronously process images from the queue at their own pace without dropping requests.",
     referenceUrl: "https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/welcome.html",
@@ -73,8 +73,8 @@ export const AWS_SAA_QUESTIONS = [
     scenario: "A healthcare provider stores diagnostic imaging files in Amazon S3 Standard. Analysis shows the files are accessed frequently for the first 30 days, occasionally for the following 60 days, and then effectively never — but regulation requires they be retained for seven years and be retrievable within 12 hours.",
     question: "Which S3 Lifecycle configuration meets the requirements at the lowest cost?",
     options: [
-      { id: 'A', text: "Transition objects to S3 One Zone-Infrequent Access after 30 days and expire them after 7 years." },
-      { id: 'B', text: "Transition objects to S3 Glacier Deep Archive after 1 day and expire them after 7 years." },
+      { id: 'A', text: "Transition objects to S3 Glacier Deep Archive after 1 day and expire them after 7 years." },
+      { id: 'B', text: "Transition objects to S3 One Zone-Infrequent Access after 30 days and expire them after 7 years." },
       { id: 'C', text: "Keep all objects in S3 Standard and enable S3 Versioning with a 7-year noncurrent version expiration." },
       { id: 'D', text: "Transition objects to S3 Standard-Infrequent Access after 30 days, to S3 Glacier Deep Archive after 90 days, and expire them after 7 years." }
     ],
@@ -94,13 +94,13 @@ export const AWS_SAA_QUESTIONS = [
     scenario: "A SaaS company serves a single-page application from Amazon S3 and a REST API from an Application Load Balancer in us-east-1. Users in Europe and Asia report slow initial page loads and high API latency. The API is dynamic and cannot be cached, and the team also needs a static anycast IP address to give enterprise customers for firewall allow-listing.",
     question: "Which combination of services meets these requirements? (Choose TWO)",
     options: [
-      { id: 'A', text: "Enable S3 Transfer Acceleration on the bucket hosting the single-page application." },
-      { id: 'B', text: "Create Route 53 latency-based routing records pointing at the single us-east-1 load balancer." },
+      { id: 'A', text: "Create Route 53 latency-based routing records pointing at the single us-east-1 load balancer." },
+      { id: 'B', text: "Enable S3 Transfer Acceleration on the bucket hosting the single-page application." },
       { id: 'C', text: "Serve the single-page application through an Amazon CloudFront distribution with the S3 bucket as the origin." },
-      { id: 'D', text: "Put AWS Global Accelerator in front of the Application Load Balancer to route dynamic API traffic over the AWS backbone from static anycast IP addresses." },
-      { id: 'E', text: "Increase the Application Load Balancer idle timeout and enable HTTP keep-alive on the API." }
+      { id: 'D', text: "Increase the Application Load Balancer idle timeout and enable HTTP keep-alive on the API." },
+      { id: 'E', text: "Put AWS Global Accelerator in front of the Application Load Balancer to route dynamic API traffic over the AWS backbone from static anycast IP addresses." }
     ],
-    correctAnswers: ['C', 'D'],
+    correctAnswers: ['C', 'E'],
     type: "multiple",
     explanation: "CloudFront caches the static single-page application at edge locations, removing the round trip to us-east-1 for page loads. AWS Global Accelerator handles the dynamic, non-cacheable API: traffic enters the AWS backbone at the nearest edge and it provides two static anycast IP addresses for allow-listing — the specific requirement CloudFront does not satisfy. Latency-based routing (C) cannot help when only one regional endpoint exists. S3 Transfer Acceleration (D) optimises uploads to a bucket, not page delivery. Timeout tuning (E) does not reduce network distance.",
     referenceUrl: "https://docs.aws.amazon.com/global-accelerator/latest/dg/what-is-global-accelerator.html",
@@ -117,9 +117,9 @@ export const AWS_SAA_QUESTIONS = [
     question: "Which solution meets these requirements with the least operational overhead?",
     options: [
       { id: 'A', text: "Store the credential in AWS Secrets Manager with automatic rotation enabled for the RDS database, and grant the ECS task role permission to retrieve it at runtime." },
-      { id: 'B', text: "Encrypt the password with AWS KMS, commit the ciphertext to the container image, and rebuild the image monthly." },
+      { id: 'B', text: "Store the credential in a DynamoDB table encrypted with a customer managed key and have the application read it on each connection." },
       { id: 'C', text: "Store the credential in an SSM Parameter Store String parameter and write a scheduled Lambda function to overwrite it every 30 days." },
-      { id: 'D', text: "Store the credential in a DynamoDB table encrypted with a customer managed key and have the application read it on each connection." }
+      { id: 'D', text: "Encrypt the password with AWS KMS, commit the ciphertext to the container image, and rebuild the image monthly." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -137,12 +137,12 @@ export const AWS_SAA_QUESTIONS = [
     scenario: "A startup hosts the static assets (HTML, CSS, JavaScript, product images) for its marketing site and needs eleven nines of durability without managing any servers or file systems.",
     question: "Which AWS service should host these static assets?",
     options: [
-      { id: 'A', text: "Amazon S3 with static website hosting enabled." },
+      { id: 'A', text: "An Amazon EFS file system mounted by an Auto Scaling group of EC2 instances." },
       { id: 'B', text: "An Amazon EBS gp3 volume attached to a single EC2 instance running NGINX." },
-      { id: 'C', text: "An Amazon EFS file system mounted by an Auto Scaling group of EC2 instances." },
-      { id: 'D', text: "An Amazon RDS for PostgreSQL instance storing the files as BLOB columns." }
+      { id: 'C', text: "An Amazon RDS for PostgreSQL instance storing the files as BLOB columns." },
+      { id: 'D', text: "Amazon S3 with static website hosting enabled." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Amazon S3 provides 99.999999999% (11 nines) durability, serverless static website hosting, and virtually unlimited scale at object-storage prices. EBS is single-AZ block storage tied to one instance, EFS adds needless cost and servers for read-only static content, and storing web assets as database BLOBs is an anti-pattern.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html",
@@ -160,8 +160,8 @@ export const AWS_SAA_QUESTIONS = [
     options: [
       { id: 'A', text: "Attach an IAM role with an S3 read policy to the EC2 instance profile and let the SDK retrieve temporary credentials." },
       { id: 'B', text: "Store the IAM user access keys in the application config file and rotate them quarterly." },
-      { id: 'C', text: "Make the S3 bucket public and restrict access by the instance User-Agent header." },
-      { id: 'D', text: "Embed the root account access keys in an environment variable on the instance." }
+      { id: 'C', text: "Embed the root account access keys in an environment variable on the instance." },
+      { id: 'D', text: "Make the S3 bucket public and restrict access by the instance User-Agent header." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -180,11 +180,11 @@ export const AWS_SAA_QUESTIONS = [
     question: "Which EC2 purchasing option is the most cost-effective fit?",
     options: [
       { id: 'A', text: "Three-year all-upfront Reserved Instances sized for the nightly peak." },
-      { id: 'B', text: "On-Demand Instances launched and terminated by a scheduled Lambda function." },
-      { id: 'C', text: "Spot Instances in an Auto Scaling group with multiple instance types and capacity-optimized allocation." },
-      { id: 'D', text: "Dedicated Hosts to guarantee the transcoder license affinity." }
+      { id: 'B', text: "Spot Instances in an Auto Scaling group with multiple instance types and capacity-optimized allocation." },
+      { id: 'C', text: "Dedicated Hosts to guarantee the transcoder license affinity." },
+      { id: 'D', text: "On-Demand Instances launched and terminated by a scheduled Lambda function." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Spot Instances offer up to 90% off On-Demand and are ideal for fault-tolerant, checkpointed, restartable batch work. Reserved Instances waste money on an eight-hour-per-day workload, On-Demand is roughly 4-5x the Spot price, and Dedicated Hosts are only relevant to per-socket licensing or hard tenancy requirements.",
     referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html",
@@ -200,12 +200,12 @@ export const AWS_SAA_QUESTIONS = [
     scenario: "A web application stores user session state in an Amazon RDS for MySQL database. Under load, the database CPU saturates from millions of small, repetitive session lookups, while the actual transactional write volume is tiny.",
     question: "Which change most directly removes this read pressure with the least application redesign?",
     options: [
-      { id: 'A', text: "Enable RDS automated backups with a longer retention window." },
-      { id: 'B', text: "Enable RDS Multi-AZ so the standby can absorb the session reads." },
-      { id: 'C', text: "Move session state into an Amazon ElastiCache for Redis cluster and read sessions from the cache." },
+      { id: 'A', text: "Move session state into an Amazon ElastiCache for Redis cluster and read sessions from the cache." },
+      { id: 'B', text: "Enable RDS automated backups with a longer retention window." },
+      { id: 'C', text: "Enable RDS Multi-AZ so the standby can absorb the session reads." },
       { id: 'D', text: "Increase the RDS allocated storage to raise the provisioned IOPS ceiling." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Session state is small, hot, and ephemeral - the textbook use case for an in-memory store. ElastiCache for Redis serves sub-millisecond lookups and takes the read load off RDS entirely. A Multi-AZ standby serves no traffic, more IOPS does not fix a CPU bottleneck caused by query volume, and backups are unrelated to read performance.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/elasticache-use-cases.html",
@@ -221,13 +221,13 @@ export const AWS_SAA_QUESTIONS = [
     scenario: "A regulated payments platform runs on Amazon Aurora MySQL in eu-west-1. The business requires a recovery point objective of under one minute and a recovery time objective of under five minutes in a second AWS Region, without paying for a full duplicate of the application fleet during normal operation.",
     question: "Which combination of design choices meets the RPO and RTO at the lowest steady-state cost? (Choose TWO)",
     options: [
-      { id: 'A', text: "Use AWS Backup with a 24-hour backup plan and cross-Region copy as the sole replication mechanism." },
-      { id: 'B', text: "Rely on nightly Aurora automated snapshots copied cross-Region and restore on failover." },
-      { id: 'C', text: "Run a pilot-light stack in the secondary Region with the Auto Scaling group at zero desired capacity and Route 53 failover records backed by health checks." },
-      { id: 'D', text: "Deploy an Aurora global database with a secondary Region read replica cluster, promotable in about a minute." },
-      { id: 'E', text: "Run a full active-active multi-Region deployment with both Regions serving live write traffic." }
+      { id: 'A', text: "Deploy an Aurora global database with a secondary Region read replica cluster, promotable in about a minute." },
+      { id: 'B', text: "Run a full active-active multi-Region deployment with both Regions serving live write traffic." },
+      { id: 'C', text: "Rely on nightly Aurora automated snapshots copied cross-Region and restore on failover." },
+      { id: 'D', text: "Use AWS Backup with a 24-hour backup plan and cross-Region copy as the sole replication mechanism." },
+      { id: 'E', text: "Run a pilot-light stack in the secondary Region with the Auto Scaling group at zero desired capacity and Route 53 failover records backed by health checks." }
     ],
-    correctAnswers: ['C', 'D'],
+    correctAnswers: ['A', 'E'],
     type: "multiple",
     explanation: "An Aurora global database replicates with typical sub-second lag and supports managed planned failover or promotion in about a minute, satisfying the sub-minute RPO. Pairing it with a pilot-light application tier - infrastructure defined and images baked but scaled to zero - plus Route 53 health-check failover keeps steady-state cost low while still meeting a five-minute RTO. Snapshot-and-restore approaches (C, E) give an RPO measured in hours and an RTO measured in tens of minutes, and full active-active (D) meets the objectives but at roughly double the cost the question rules out.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html",
@@ -243,12 +243,12 @@ export const AWS_SAA_QUESTIONS = [
     scenario: "An organization is migrating two monolithic components to independent microservice fleets hosted on EC2 instances: an ordering service and an inventory service. Both services must be accessible under the same public domain name (`api.example.com/orders` and `api.example.com/inventory`).",
     question: "Which load balancing configuration routes incoming traffic based on request URL paths to the appropriate target group?",
     options: [
-      { id: 'A', text: "A Network Load Balancer with TCP port forwarding rules." },
-      { id: 'B', text: "An Application Load Balancer with listener path-based routing rules forwarding to distinct target groups." },
-      { id: 'C', text: "Route 53 Geolocation routing records." },
-      { id: 'D', text: "A Classic Load Balancer with sticky sessions." }
+      { id: 'A', text: "An Application Load Balancer with listener path-based routing rules forwarding to distinct target groups." },
+      { id: 'B', text: "A Classic Load Balancer with sticky sessions." },
+      { id: 'C', text: "A Network Load Balancer with TCP port forwarding rules." },
+      { id: 'D', text: "Route 53 Geolocation routing records." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Application Load Balancers operate at Layer 7 and support advanced content-based routing rules, including path-based routing (`/orders/*`, `/inventory/*`), host-based routing, and HTTP header routing to distinct target groups. Network Load Balancers (B) operate at Layer 4 (TCP/UDP) and cannot inspect HTTP URL paths. Classic Load Balancers (C) do not support path routing. Route 53 (D) resolves DNS names to IP addresses, not URL subpaths.",
     referenceUrl: "https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#path-conditions",
@@ -264,12 +264,12 @@ export const AWS_SAA_QUESTIONS = [
     scenario: "A dynamic news site running on EC2 instances behind an Application Load Balancer receives international traffic from South America and Asia. The web pages contain personalized, uncacheable real-time stock and weather widgets, causing high TCP handshake and TLS negotiation overhead for remote users.",
     question: "How can the Solutions Architect reduce dynamic response latency without serving stale cached content?",
     options: [
-      { id: 'A', text: "Deploy ElastiCache Redis in front of the Application Load Balancer." },
-      { id: 'B', text: "Deploy an Amazon CloudFront distribution with the ALB as origin, configure cache behavior with TTL set to 0, and forward all query strings and headers." },
+      { id: 'A', text: "Deploy an Amazon CloudFront distribution with the ALB as origin, configure cache behavior with TTL set to 0, and forward all query strings and headers." },
+      { id: 'B', text: "Switch from HTTP/2 to HTTP/1.0 on the Application Load Balancer." },
       { id: 'C', text: "Enable S3 Transfer Acceleration on the EC2 instances." },
-      { id: 'D', text: "Switch from HTTP/2 to HTTP/1.0 on the Application Load Balancer." }
+      { id: 'D', text: "Deploy ElastiCache Redis in front of the Application Load Balancer." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Even when caching is disabled (TTL = 0), Amazon CloudFront accelerates dynamic content by terminating client TCP and TLS handshakes at the nearest edge location (Edge POP) and routing requests over AWS optimized private global network fiber to the origin, reusing persistent TCP connections. ElastiCache (B) cannot sit directly in front of public ALBs. S3 Transfer Acceleration (C) is strictly for S3 bucket uploads. Downgrading to HTTP/1.0 (D) disables multiplexing and worsens latency.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/dynamic-content.html",
@@ -285,9 +285,9 @@ export const AWS_SAA_QUESTIONS = [
     scenario: "Account A hosts an Amazon S3 bucket encrypted with an AWS KMS Customer Managed Key (CMK). Applications running on EC2 instances in Account B must be granted permissions to read and upload objects to the S3 bucket in Account A.",
     question: "Which combination of policy updates is required to grant Account B access to the encrypted S3 bucket? (Choose TWO)",
     options: [
-      { id: 'A', text: "Update the S3 Bucket Policy in Account A to grant Account B access to `s3:GetObject` and `s3:PutObject`." },
+      { id: 'A', text: "Update the KMS Key Policy in Account A to allow Account B's IAM identity access to `kms:Decrypt` and `kms:GenerateDataKey`." },
       { id: 'B', text: "Enable S3 ACL public-read on all bucket objects." },
-      { id: 'C', text: "Update the KMS Key Policy in Account A to allow Account B's IAM identity access to `kms:Decrypt` and `kms:GenerateDataKey`." },
+      { id: 'C', text: "Update the S3 Bucket Policy in Account A to grant Account B access to `s3:GetObject` and `s3:PutObject`." },
       { id: 'D', text: "Change the KMS key in Account A to an AWS Managed key (`aws/s3`)." },
       { id: 'E', text: "Create an AWS Site-to-Site VPN connection between Account A and Account B." }
     ],
@@ -308,9 +308,9 @@ export const AWS_SAA_QUESTIONS = [
     question: "What is the MOST cost-effective serverless replacement architecture?",
     options: [
       { id: 'A', text: "Host the static websites in private Amazon S3 buckets fronted by Amazon CloudFront distributions with Origin Access Control (OAC)." },
-      { id: 'B', text: "Deploy the websites on an Amazon Aurora Serverless cluster." },
-      { id: 'C', text: "Migrate the websites to Amazon EFS mounted by single-node EC2 instances." },
-      { id: 'D', text: "Deploy each website to an Amazon Elastic Kubernetes Service (EKS) cluster." }
+      { id: 'B', text: "Deploy each website to an Amazon Elastic Kubernetes Service (EKS) cluster." },
+      { id: 'C', text: "Deploy the websites on an Amazon Aurora Serverless cluster." },
+      { id: 'D', text: "Migrate the websites to Amazon EFS mounted by single-node EC2 instances." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -328,12 +328,12 @@ export const AWS_SAA_QUESTIONS = [
     scenario: "A ticket sales platform experiences massive 20,000 requests-per-second spikes when concert tickets go on sale. Direct writes to the backend database cause connection exhaustion and server crashes.",
     question: "How should the architecture be decoupled to buffer traffic spikes safely?",
     options: [
-      { id: 'A', text: "Place an Application Load Balancer directly in front of the database." },
-      { id: 'B', text: "Upgrade the RDS database instance class to db.x2iedn.32xlarge." },
-      { id: 'C', text: "Insert an Amazon SQS standard queue between the web tier and worker fleet, and configure target tracking Auto Scaling based on the `ApproximateNumberOfMessagesVisible` metric." },
+      { id: 'A', text: "Insert an Amazon SQS standard queue between the web tier and worker fleet, and configure target tracking Auto Scaling based on the `ApproximateNumberOfMessagesVisible` metric." },
+      { id: 'B', text: "Place an Application Load Balancer directly in front of the database." },
+      { id: 'C', text: "Upgrade the RDS database instance class to db.x2iedn.32xlarge." },
       { id: 'D', text: "Enable Multi-AZ synchronous replication with automatic read splitting." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Buffering incoming orders in Amazon SQS prevents backend database overwhelm. Using target tracking Auto Scaling on the worker fleet based on queue backlog (`ApproximateNumberOfMessagesVisible` / `BacklogPerInstance`) ensures compute scales horizontally to drain the queue without dropping any orders. Vertical database scaling (B) is extremely costly and still vulnerable to connection exhaustion. ALBs (C) cannot front raw database ports. Multi-AZ (D) provides high availability, not write buffering.",
     referenceUrl: "https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-using-sqs-queue.html",
@@ -350,11 +350,11 @@ export const AWS_SAA_QUESTIONS = [
     question: "Which AWS service feature enforces country-based access restrictions at edge locations?",
     options: [
       { id: 'A', text: "Route 53 Geolocation routing policy returning zero DNS records for other countries." },
-      { id: 'B', text: "Security Group CIDR rules with European IP blocks." },
-      { id: 'C', text: "Amazon CloudFront Geographic Restrictions allowlist for France and Germany." },
-      { id: 'D', text: "Application Load Balancer IP condition rules." }
+      { id: 'B', text: "Application Load Balancer IP condition rules." },
+      { id: 'C', text: "Security Group CIDR rules with European IP blocks." },
+      { id: 'D', text: "Amazon CloudFront Geographic Restrictions allowlist for France and Germany." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Amazon CloudFront Geographic Restrictions (Geo-blocking) allow or block viewers in specific countries at CloudFront edge locations, returning an HTTP 403 Forbidden error before requests ever reach the origin. Route 53 Geolocation (B) routes DNS queries based on location but cannot block IP traffic or return HTTP 403 status codes. Security groups (C) filter by IP CIDRs, not dynamic country boundaries. ALB (D) processes requests at the regional origin rather than at edge POPs.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/georestrictions.html",
@@ -370,12 +370,12 @@ export const AWS_SAA_QUESTIONS = [
     scenario: "A compliance auditor requires proof that an Amazon S3 bucket holding financial reports strictly rejects any HTTP request that does not use SSL/TLS encryption (HTTPS).",
     question: "Which S3 Bucket Policy condition enforces in-transit encryption?",
     options: [
-      { id: 'A', text: "Enable S3 Default Encryption with SSE-S3." },
-      { id: 'B', text: "Add a Deny statement with the Condition `\"Bool\": {\"aws:SecureTransport\": \"false\"}`." },
-      { id: 'C', text: "Enable S3 Block Public Access." },
+      { id: 'A', text: "Add a Deny statement with the Condition `\"Bool\": {\"aws:SecureTransport\": \"false\"}`." },
+      { id: 'B', text: "Enable S3 Block Public Access." },
+      { id: 'C', text: "Enable S3 Default Encryption with SSE-S3." },
       { id: 'D', text: "Configure an AWS KMS Customer Managed Key policy with TLS 1.3 flags." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "To enforce SSL/TLS in-transit encryption on Amazon S3, an explicit `Deny` policy statement is configured with `\"Condition\": {\"Bool\": {\"aws:SecureTransport\": \"false\"}}`. Any non-HTTPS HTTP request evaluating `aws:SecureTransport` as false is immediately denied. SSE-S3 default encryption (B) encrypts data at rest, not in transit. Block Public Access (C) prevents public access permissions. KMS key policies (D) govern key usage, not S3 HTTP transport protocols.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html#example-bucket-policies-https-only",
@@ -391,8 +391,8 @@ export const AWS_SAA_QUESTIONS = [
     scenario: "A research facility needs to retrieve 50 TB of historical climate archives from Amazon S3 Glacier Flexible Retrieval for an annual report. The analytics team does not need the data for 24 hours and wants the absolute lowest retrieval cost.",
     question: "Which retrieval tier in S3 Glacier Flexible Retrieval provides the most cost-effective retrieval rate?",
     options: [
-      { id: 'A', text: "Expedited Retrieval (completes in 1 to 5 minutes)." },
-      { id: 'B', text: "Instant Retrieval (completes in milliseconds)." },
+      { id: 'A', text: "Instant Retrieval (completes in milliseconds)." },
+      { id: 'B', text: "Expedited Retrieval (completes in 1 to 5 minutes)." },
       { id: 'C', text: "Standard Retrieval (completes in 3 to 5 hours)." },
       { id: 'D', text: "Bulk Retrieval (completes in 5 to 12 hours at lowest cost or free in some tiers)." }
     ],
@@ -412,12 +412,12 @@ export const AWS_SAA_QUESTIONS = [
     scenario: "A web application must maintain high availability and survive the loss of an entire AWS Availability Zone without degrading capacity. The application requires a minimum of 4 running instances at all times.",
     question: "How should the Auto Scaling group and subnets be deployed across Availability Zones?",
     options: [
-      { id: 'A', text: "Deploy 2 instances in us-east-1 and 2 instances in eu-west-1." },
-      { id: 'B', text: "Deploy the Auto Scaling group in a single Availability Zone with 4 instances." },
-      { id: 'C', text: "Deploy the Auto Scaling group across 3 Availability Zones with a minimum of 6 instances (2 per AZ)." },
+      { id: 'A', text: "Deploy the Auto Scaling group across 3 Availability Zones with a minimum of 6 instances (2 per AZ)." },
+      { id: 'B', text: "Deploy 2 instances in us-east-1 and 2 instances in eu-west-1." },
+      { id: 'C', text: "Deploy the Auto Scaling group in a single Availability Zone with 4 instances." },
       { id: 'D', text: "Deploy 4 instances on a single EC2 Dedicated Host." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "To survive an AZ failure while keeping at least 4 instances running, deploying 6 instances across 3 AZs (2 per AZ) guarantees that if 1 AZ goes offline (losing 2 instances), 4 instances remain active across the remaining 2 AZs. Single AZ deployments (B) fail completely if that AZ experiences an outage. Multi-region deployments (C) add unnecessary latency and cross-region routing complexity for a single AZ resiliency requirement. Dedicated Hosts (D) represent a single physical hardware failure point.",
     referenceUrl: "https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-benefits.html#availability-zone-rebalancing",
@@ -434,11 +434,11 @@ export const AWS_SAA_QUESTIONS = [
     question: "Which architecture modification handles variable read query volume with automatic scaling and high availability?",
     options: [
       { id: 'A', text: "Deploy an additional Aurora Writer instance in another region." },
-      { id: 'B', text: "Convert the cluster to an Amazon RDS single-AZ instance." },
-      { id: 'C', text: "Configure Aurora Auto Scaling on Aurora Read Replicas with the Reader Endpoint used for application read traffic." },
-      { id: 'D', text: "Increase the Aurora storage volume from 500 GB to 10 TB." }
+      { id: 'B', text: "Increase the Aurora storage volume from 500 GB to 10 TB." },
+      { id: 'C', text: "Convert the cluster to an Amazon RDS single-AZ instance." },
+      { id: 'D', text: "Configure Aurora Auto Scaling on Aurora Read Replicas with the Reader Endpoint used for application read traffic." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Aurora Auto Scaling dynamically adds and removes Aurora Read Replicas (up to 15 replicas) based on target tracking metrics (like average CPU utilization or connection count). Applications connect to the Aurora Reader Endpoint, which load-balances read traffic across all available replicas automatically. Aurora writer instances are single-writer per region (B). Single-AZ RDS (C) decreases availability. Aurora storage scales automatically and storage capacity does not solve CPU read bottlenecks (D).",
     referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Performance.html#Aurora.Managing.Performance.Scaling",
@@ -454,12 +454,12 @@ export const AWS_SAA_QUESTIONS = [
     scenario: "A corporate intranet application requires that administrative document uploads to an Amazon S3 bucket originate ONLY from corporate office IP CIDR ranges (`198.51.100.0/24`). All other public internet access must be explicitly blocked.",
     question: "Which bucket policy statement condition enforces this IP allowlisting rule?",
     options: [
-      { id: 'A', text: "An Allow statement with the Condition `\"IpAddress\": {\"aws:SourceIp\": \"0.0.0.0/0\"}`." },
-      { id: 'B', text: "A Deny statement with the Condition `\"NotIpAddress\": {\"aws:SourceIp\": \"198.51.100.0/24\"}`." },
-      { id: 'C', text: "A Security Group attached directly to the S3 bucket." },
+      { id: 'A', text: "A Deny statement with the Condition `\"NotIpAddress\": {\"aws:SourceIp\": \"198.51.100.0/24\"}`." },
+      { id: 'B', text: "A Security Group attached directly to the S3 bucket." },
+      { id: 'C', text: "An Allow statement with the Condition `\"IpAddress\": {\"aws:SourceIp\": \"0.0.0.0/0\"}`." },
       { id: 'D', text: "A Network ACL applied to the Amazon S3 gateway." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The standard AWS pattern for IP restriction in resource policies is a `Deny` statement coupled with the `NotIpAddress` condition. Any request where `aws:SourceIp` is NOT in the allowed corporate CIDR (`198.51.100.0/24`) is explicitly denied. Allowing `0.0.0.0/0` (B) allows the entire internet. S3 buckets do not have Security Groups (C). NACLs (D) attach to VPC subnets, not S3.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html#example-bucket-policies-ip-restrict",
@@ -475,12 +475,12 @@ export const AWS_SAA_QUESTIONS = [
     scenario: "An application generates hundreds of temporary log CSV files daily in an Amazon S3 staging bucket. After 14 days, the processed logs are no longer required and should be permanently removed to prevent accumulating storage charges.",
     question: "What is the MOST operationally efficient method to automate log deletion after 14 days?",
     options: [
-      { id: 'A', text: "Create an AWS DataSync task to overwrite the bucket daily." },
-      { id: 'B', text: "Write a nightly AWS Lambda function that lists and deletes objects older than 14 days." },
-      { id: 'C', text: "Transition objects to S3 Glacier Instant Retrieval after 14 days." },
-      { id: 'D', text: "Configure an S3 Lifecycle rule with an object Expiration action set to 14 days after creation." }
+      { id: 'A', text: "Transition objects to S3 Glacier Instant Retrieval after 14 days." },
+      { id: 'B', text: "Create an AWS DataSync task to overwrite the bucket daily." },
+      { id: 'C', text: "Configure an S3 Lifecycle rule with an object Expiration action set to 14 days after creation." },
+      { id: 'D', text: "Write a nightly AWS Lambda function that lists and deletes objects older than 14 days." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Amazon S3 Lifecycle configuration policies provide native, automated object expiration. Setting an expiration action to 14 days ensures S3 automatically queues and deletes objects without writing custom Lambda code, maintaining cron jobs, or incurring invocation costs. Lambda deletion scripts (B) introduce runtime costs and pagination limits. Glacier Instant Retrieval (C) archives data and charges storage fees rather than deleting it. DataSync (D) is a transfer service.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-expire-general-considerations.html",
@@ -496,12 +496,12 @@ export const AWS_SAA_QUESTIONS = [
     scenario: "A company operates identical web application server fleets in us-east-1 and us-west-2. The company wants client DNS queries to receive up to 8 healthy web server IP addresses selected randomly, providing simple client-side load balancing and DNS-level fault tolerance.",
     question: "Which Route 53 routing policy returns multiple healthy records associated with Route 53 health checks?",
     options: [
-      { id: 'A', text: "Geoproximity Routing policy." },
+      { id: 'A', text: "Multivalue Answer Routing policy." },
       { id: 'B', text: "Failover Routing policy." },
       { id: 'C', text: "Simple Routing policy." },
-      { id: 'D', text: "Multivalue Answer Routing policy." }
+      { id: 'D', text: "Geoproximity Routing policy." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Route 53 Multivalue Answer Routing allows configuring up to 8 healthy records in response to DNS queries, associating each record with a Route 53 health check. If a web server fails health checks, Route 53 stops returning its IP address. Simple routing (B) returns all configured values without health checking. Failover (C) is strictly active-passive. Geoproximity (D) routes based on geographic location and biases.",
     referenceUrl: "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-multivalue.html",
@@ -517,8 +517,8 @@ export const AWS_SAA_QUESTIONS = [
     scenario: "An IoT telemetry stream running on Amazon Kinesis Data Streams experiences write throttling (`ProvisionedThroughputExceededException`). The stream has 4 shards, and devices are submitting records with device type (`sensorType`) as the partition key. There are only 2 distinct sensor types.",
     question: "What is causing the throttling, and how should the Solutions Architect resolve it?",
     options: [
-      { id: 'A', text: "The payload size exceeds 10 MB per record; resolve by enabling gzip." },
-      { id: 'B', text: "Kinesis Client Library (KCL) is reading too slowly; resolve by adding more consumer EC2 instances." },
+      { id: 'A', text: "Kinesis Client Library (KCL) is reading too slowly; resolve by adding more consumer EC2 instances." },
+      { id: 'B', text: "The payload size exceeds 10 MB per record; resolve by enabling gzip." },
       { id: 'C', text: "Kinesis Data Streams only supports 1 shard per AWS account; resolve by migrating to SQS." },
       { id: 'D', text: "The low cardinality of `sensorType` causes all data to hash to only 2 of the 4 shards; resolve by changing the partition key to a high-cardinality attribute like `deviceId` and resharding if necessary." }
     ],

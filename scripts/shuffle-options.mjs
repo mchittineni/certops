@@ -20,9 +20,9 @@ function getFiles(dir, match) {
 const files = getFiles('./src/data/certs', /pack-\d+\.js$/).filter(f => f.includes('/questions/'));
 
 function hashStr(str) {
-  let hash = 0;
+  let hash = 5381;
   for (let i = 0; i < str.length; i++) {
-    hash = ((hash << 5) - hash) + str.charCodeAt(i);
+    hash = ((hash << 5) + hash) + str.charCodeAt(i);
     hash |= 0;
   }
   return Math.abs(hash);
@@ -30,10 +30,10 @@ function hashStr(str) {
 
 function shuffleArray(arr, seed) {
   const a = arr.slice();
-  let s = seed;
+  let s = (seed ^ 0x5DEECE66) & 0xFFFFFFFF;
   for (let i = a.length - 1; i > 0; i--) {
-    s = (s * 9301 + 49297) % 233280;
-    const j = Math.floor((s / 233280) * (i + 1));
+    s = (Math.imul(s, 1103515245) + 12345) & 0x7FFFFFFF;
+    const j = Math.floor((s / 0x7FFFFFFF) * (i + 1));
     [a[i], a[j]] = [a[j], a[i]];
   }
   return a;
