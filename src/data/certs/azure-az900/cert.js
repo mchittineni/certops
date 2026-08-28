@@ -25,7 +25,7 @@ export default {
   "maxScore": 1000,
   "defaultTimeMinutes": 45,
   "blueprintSource": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-  "blueprintVerified": false,
+  "blueprintVerified": true,
   "domains": [
     {
       "id": "d1",
