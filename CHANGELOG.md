@@ -10,6 +10,12 @@ progress is tracked by `npm run stats` and in
 
 ## [Unreleased]
 
+### Content
+- Scaled **AWS Certified Solutions Architect – Associate (`aws-saa`)** question bank and flashcard deck to **250 questions** and **250 flashcards** across 10 modular packs.
+- Activated and verified **Microsoft Azure Administrator Associate (`azure-az104`)** blueprint, adding **250 exam questions** and **250 flashcards** across 10 modular packs.
+- Balanced and randomized option placement across all 536 questions in the bank to ensure even distribution across choices A, B, C, and D.
+- Added `scripts/shuffle-options.mjs` utility for maintaining balanced option positions.
+
 ## [0.1.0] — 2026-08-27
 
 First public release. The application is complete; the content bank is not — 47
