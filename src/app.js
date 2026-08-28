@@ -71,8 +71,9 @@ function render() {
   app.innerHTML = `${navbar()}<main class="main-content">${viewContent()}</main>`;
   if (state.view === 'bank') window.scrollTo(0, scrollTop);
   const search = app.querySelector('[data-role="bank-search"], [data-role="cert-search"]');
-  if (search && search.value) {
-    const end = search.value.length;
+  const currentSearchTerm = state.view === 'bank' ? state.bank.search : (state.view === 'home' ? state.certSearch : '');
+  if (search && currentSearchTerm) {
+    const end = currentSearchTerm.length;
     search.focus();
     search.setSelectionRange(end, end);
   }
