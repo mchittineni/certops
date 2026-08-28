@@ -88,11 +88,11 @@ try {
   });
 
   await check('the CSP allows exactly what the app needs and nothing more', async () => {
-    const csp = (await fetch(base + '/')).headers.get('content-security-policy');
+    const csp = (await fetch(base + '/')).headers.get('content-security-policy') || '';
     assert.match(csp, /default-src 'self'/);
     assert.match(csp, /script-src 'self'/);
-    assert.match(csp, /fonts\.googleapis\.com/);
-    assert.match(csp, /fonts\.gstatic\.com/);
+    assert.ok(csp.includes('https://fonts.googleapis.com'), 'CSP must include fonts.googleapis.com');
+    assert.ok(csp.includes('https://fonts.gstatic.com'), 'CSP must include fonts.gstatic.com');
     assert.match(csp, /frame-ancestors 'none'/);
     assert.match(csp, /object-src 'none'/);
     // A wildcard or an inline-script escape would defeat the whole policy.
