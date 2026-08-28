@@ -1,6 +1,6 @@
 import { countByDifficulty } from '../lib/select.js';
 import { deckStats, getCardState, BOX_INTERVALS_DAYS, MASTERED_BOX } from '../lib/srs.js';
-import { icon, difficultyFilter, difficultyPill, progressBar, escapeHtml, spinner } from './ui.js';
+import { icon, difficultyFilter, difficultyPill, progressBar, escapeHtml, sanitizeHtml, spinner } from './ui.js';
 import { providerIcon } from './brand.js';
 
 export function renderFlashcards(state, content) {
@@ -49,7 +49,7 @@ export function renderFlashcards(state, content) {
           </div>
           <div class="flashcard-face flashcard-back">
             <div class="flashcard-meta">${difficultyPill(card.difficulty)}<span class="flashcard-domain">${escapeHtml(domain ? domain.name : '')}</span></div>
-            <div class="flashcard-answer">${card.back}</div>
+            <div class="flashcard-answer">${sanitizeHtml(card.back)}</div>
             ${card.tags && card.tags.length ? `<div class="tag-row">${card.tags.map(t => `<span class="tag">${escapeHtml(t)}</span>`).join('')}</div>` : ''}
           </div>
         </div>

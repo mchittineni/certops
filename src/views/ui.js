@@ -26,6 +26,12 @@ export function escapeHtml(text) {
     .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 }
 
+export function sanitizeHtml(text) {
+  if (!text) return '';
+  return String(text)
+    .replace(/<(?!\/?(strong|em|code|kbd|br|ul|ol|li|p)\b)[^>]*>/gi, '');
+}
+
 export function difficultyPill(difficulty) {
   return `<span class="diff-pill diff-${difficulty}">${difficulty}</span>`;
 }
