@@ -25,7 +25,7 @@ export function renderBank(state, content) {
             const inCat = CERTIFICATIONS.filter(c => c.category === category && (CONTENT_MANIFEST[c.id]?.questions.total || 0) > 0);
             if (!inCat.length) return '';
             return `<optgroup label="${escapeHtml(category)}">${inCat.map(c => `
-              <option value="${c.id}" ${bank.certId === c.id ? 'selected' : ''}>${escapeHtml(c.code)} — ${escapeHtml(c.title)} (${CONTENT_MANIFEST[c.id].questions.total})</option>
+              <option value="${escapeHtml(c.id)}" ${bank.certId === c.id ? 'selected' : ''}>${escapeHtml(c.code)} — ${escapeHtml(c.title)} (${CONTENT_MANIFEST[c.id].questions.total})</option>
             `).join('')}</optgroup>`;
           }).join('')}
         </select>
@@ -74,7 +74,7 @@ export function renderBank(state, content) {
       <div class="bank-summary">
         <span><strong>${items.length}</strong> question${items.length === 1 ? '' : 's'} matched</span>
         ${pages > 1 ? `<span class="panel-note">page ${page + 1} of ${pages}</span>` : ''}
-        <button class="btn-secondary btn-tiny" data-action="open-cert" data-cert-id="${bank.certId}">${icon.play} Quiz this certification</button>
+        <button class="btn-secondary btn-tiny" data-action="open-cert" data-cert-id="${escapeHtml(bank.certId)}">${icon.play} Quiz this certification</button>
       </div>
 
       ${slice.length ? slice.map((q, i) => renderBankItem(q, page * bank.perPage + i + 1)).join('') : `
