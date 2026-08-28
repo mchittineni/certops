@@ -10,8 +10,8 @@ export const AZURE_AZ104_QUESTIONS_4 = [
     question: "Which Microsoft Entra governance feature automates recurring group membership certification?",
     options: [
       { id: 'A', text: "Microsoft Entra Terms of Use." },
-      { id: 'B', text: "Azure Resource Locks." },
-      { id: 'C', text: "Azure Policy initiative." },
+      { id: 'B', text: "Azure Policy initiative." },
+      { id: 'C', text: "Azure Resource Locks." },
       { id: 'D', text: "Microsoft Entra Access Reviews." }
     ],
     correctAnswers: ['D'],
@@ -30,12 +30,12 @@ export const AZURE_AZ104_QUESTIONS_4 = [
     scenario: "An administrator with the Owner role on an Azure subscription attempts to delete a resource group deployed by an Azure Blueprints assignment, but receives an access denied error citing a \"Deny Assignment\".",
     question: "Why does the Deny Assignment block the subscription Owner from deleting the resource?",
     options: [
-      { id: 'A', text: "The subscription has exceeded its resource quota." },
-      { id: 'B', text: "The Owner role does not have delete permissions by default." },
+      { id: 'A', text: "The Owner role does not have delete permissions by default." },
+      { id: 'B', text: "Deny Assignments take precedence over all RBAC role assignments, including the built-in Owner role." },
       { id: 'C', text: "The administrator must activate the User Access Administrator role first." },
-      { id: 'D', text: "Deny Assignments take precedence over all RBAC role assignments, including the built-in Owner role." }
+      { id: 'D', text: "The subscription has exceeded its resource quota." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Azure RBAC Deny Assignments (created by managed Azure systems like Azure Blueprints or Azure Managed Applications) explicitly block users from performing specific actions, even if an RBAC role assignment (such as Owner or Contributor) grants them permission. Deny assignments always take precedence over allow assignments.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/role-based-access-control/deny-assignments",
@@ -52,11 +52,11 @@ export const AZURE_AZ104_QUESTIONS_4 = [
     question: "Which section in the custom RBAC role definition defines permissions for the storage data plane?",
     options: [
       { id: 'A', text: "`NotActions` section specifying `Microsoft.Storage/storageAccounts/delete`." },
-      { id: 'B', text: "`Actions` section specifying `Microsoft.Storage/storageAccounts/*`." },
-      { id: 'C', text: "`AssignableScopes` set to the Microsoft Entra root." },
-      { id: 'D', text: "`DataActions` section specifying `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/*`." }
+      { id: 'B', text: "`AssignableScopes` set to the Microsoft Entra root." },
+      { id: 'C', text: "`DataActions` section specifying `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/*`." },
+      { id: 'D', text: "`Actions` section specifying `Microsoft.Storage/storageAccounts/*`." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Azure RBAC separates control plane operations (managing Azure resources themselves, specified under `Actions`) from data plane operations (reading/writing data inside storage blobs, queues, and Cosmos DB, specified under `DataActions`). Granting permissions under `DataActions` allows interacting with blob data without giving management control over the storage account.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/role-based-access-control/role-definitions#dataactions",
@@ -72,12 +72,12 @@ export const AZURE_AZ104_QUESTIONS_4 = [
     scenario: "An administrator needs to move an existing virtual machine and its associated managed OS disk and Network Interface (NIC) from `rg-development` to `rg-production` within the same subscription.",
     question: "What happens to the virtual machine and its resource IDs during the move operation?",
     options: [
-      { id: 'A', text: "The VM must be recreated and all disk data is lost." },
-      { id: 'B', text: "The VM private IP address must be changed." },
-      { id: 'C', text: "The VM is duplicated in both resource groups." },
-      { id: 'D', text: "The VM and resources move to `rg-production`, retaining all settings, but their resource ID paths update to reference `rg-production`." }
+      { id: 'A', text: "The VM and resources move to `rg-production`, retaining all settings, but their resource ID paths update to reference `rg-production`." },
+      { id: 'B', text: "The VM is duplicated in both resource groups." },
+      { id: 'C', text: "The VM private IP address must be changed." },
+      { id: 'D', text: "The VM must be recreated and all disk data is lost." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Moving resources between resource groups or subscriptions in Azure is a metadata-only pointer update in Azure Resource Manager. The virtual machine and its disks/NICs move without data loss or downtime (for supported resource types), while their Azure resource IDs update to reflect the new target resource group.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/move-resource-group-and-subscription",
@@ -93,12 +93,12 @@ export const AZURE_AZ104_QUESTIONS_4 = [
     scenario: "A company needs to automatically force a password change whenever Microsoft Entra ID detects that a user's credentials have been leaked on the dark web (High User Risk event).",
     question: "Which combination of Microsoft Entra features automates password remediation upon high user risk detection?",
     options: [
-      { id: 'A', text: "Azure Key Vault secret rotation." },
-      { id: 'B', text: "Azure Policy with Modify effect." },
+      { id: 'A', text: "Microsoft Entra ID Protection User Risk policy configured with \"Require password change\" grant control." },
+      { id: 'B', text: "Azure Key Vault secret rotation." },
       { id: 'C', text: "Administrative Units with dynamic device rules." },
-      { id: 'D', text: "Microsoft Entra ID Protection User Risk policy configured with \"Require password change\" grant control." }
+      { id: 'D', text: "Azure Policy with Modify effect." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Microsoft Entra ID Protection uses machine learning and threat intelligence to calculate **User Risk** (probability that an identity is compromised, such as leaked credentials). Configuring a User Risk policy in Conditional Access with \"Require password change\" forces the user to securely reset their password via SSPR before gaining access, remediating the risk automatically.",
     referenceUrl: "https://learn.microsoft.com/en-us/entra/id-governance/identity-protection-overview",
@@ -114,12 +114,12 @@ export const AZURE_AZ104_QUESTIONS_4 = [
     scenario: "A document management system writes PDF files to Azure Blob Storage. When an existing PDF blob is overwritten with an updated version, the previous version must be preserved automatically so users can view or restore previous versions.",
     question: "Which Azure Blob Storage feature automatically maintains previous versions of overwritten blobs?",
     options: [
-      { id: 'A', text: "Storage Account Resource Locks." },
-      { id: 'B', text: "Blob Soft Delete." },
-      { id: 'C', text: "Static Website Hosting." },
-      { id: 'D', text: "Blob Versioning." }
+      { id: 'A', text: "Static Website Hosting." },
+      { id: 'B', text: "Blob Versioning." },
+      { id: 'C', text: "Blob Soft Delete." },
+      { id: 'D', text: "Storage Account Resource Locks." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Blob Versioning automatically creates and stores a previous version of a blob whenever the blob is overwritten or modified. Users can view, download, or restore earlier versions of blobs at any time, maintaining an audit trail of document changes.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/blobs/versioning-overview",
@@ -157,11 +157,11 @@ export const AZURE_AZ104_QUESTIONS_4 = [
     question: "Which Azure service should be deployed in front of the static website storage container?",
     options: [
       { id: 'A', text: "Azure Network Security Group." },
-      { id: 'B', text: "Azure ExpressRoute." },
-      { id: 'C', text: "Azure Virtual Network NAT Gateway." },
-      { id: 'D', text: "Azure Front Door (or Azure CDN) with custom domain and managed SSL." }
+      { id: 'B', text: "Azure Front Door (or Azure CDN) with custom domain and managed SSL." },
+      { id: 'C', text: "Azure ExpressRoute." },
+      { id: 'D', text: "Azure Virtual Network NAT Gateway." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploying Azure Front Door or Azure CDN in front of an Azure Storage static website (`$web` container) provides edge caching, global latency reduction, custom domain mapping (`www.contoso.com`), and free automated SSL/TLS certificate provisioning and renewal. Static storage accounts alone cannot provide free managed custom domain SSL certs.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blob-static-website-custom-domain",
@@ -178,11 +178,11 @@ export const AZURE_AZ104_QUESTIONS_4 = [
     question: "Which storage redundancy configuration provides active read access to the secondary region endpoint?",
     options: [
       { id: 'A', text: "Zone-Redundant Storage (ZRS)." },
-      { id: 'B', text: "Locally Redundant Storage (LRS)." },
-      { id: 'C', text: "Standard Geo-Redundant Storage (GRS)." },
-      { id: 'D', text: "Read-Access Geo-Redundant Storage (RA-GRS) or RA-GZRS." }
+      { id: 'B', text: "Read-Access Geo-Redundant Storage (RA-GRS) or RA-GZRS." },
+      { id: 'C', text: "Locally Redundant Storage (LRS)." },
+      { id: 'D', text: "Standard Geo-Redundant Storage (GRS)." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Read-Access Geo-Redundant Storage (RA-GRS) and RA-GZRS provide a dedicated secondary read-only DNS endpoint (`&lt;accountname&gt;-secondary.blob.core.windows.net`), enabling applications to read data from the secondary region at any time without waiting for a customer-initiated or Microsoft-declared failover.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/common/storage-redundancy#read-access-to-data-in-the-secondary-region",
@@ -219,12 +219,12 @@ export const AZURE_AZ104_QUESTIONS_4 = [
     scenario: "A compliance regulator mandates that a financial institution's database virtual machines must run on physical hardware dedicated exclusively to their organization, ensuring no other Azure customer shares the underlying physical server host.",
     question: "Which Azure compute service provisions dedicated single-tenant physical hardware servers?",
     options: [
-      { id: 'A', text: "Azure App Service Isolated Plan." },
+      { id: 'A', text: "Azure Dedicated Host." },
       { id: 'B', text: "Azure Container Instances." },
-      { id: 'C', text: "Azure Dedicated Host." },
+      { id: 'C', text: "Azure App Service Isolated Plan." },
       { id: 'D', text: "Azure Virtual Machine Scale Sets." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Azure Dedicated Host provides physical server hardware dedicated to a single Azure customer subscription, ensuring that your virtual machines run on single-tenant hardware to satisfy strict regulatory compliance, physical hardware isolation, and server-level licensing requirements (such as Azure Hybrid Benefit for Windows/SQL Server per-core licensing).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machines/dedicated-hosts",
@@ -240,12 +240,12 @@ export const AZURE_AZ104_QUESTIONS_4 = [
     scenario: "A development team manages 100 non-production virtual machines that are used only between 08:00 and 18:00 on weekdays. The CFO wants to reduce monthly compute spend by automatically shutting down all dev VMs at 19:00 daily.",
     question: "Which built-in Azure Virtual Machine feature automates daily power-off without writing custom scripts?",
     options: [
-      { id: 'A', text: "Azure Policy with Deny effect." },
-      { id: 'B', text: "Azure Site Recovery." },
-      { id: 'C', text: "Azure VM Auto-Shutdown feature." },
-      { id: 'D', text: "Azure Resource Locks." }
+      { id: 'A', text: "Azure VM Auto-Shutdown feature." },
+      { id: 'B', text: "Azure Policy with Deny effect." },
+      { id: 'C', text: "Azure Resource Locks." },
+      { id: 'D', text: "Azure Site Recovery." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The Azure VM Auto-Shutdown feature is a built-in capability configured on individual virtual machines (or via Azure Policy at scale) that automatically deallocates the VM at a specified time daily, sending an optional notification via webhook or email prior to shutdown.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/manage-automation#auto-shutdown-for-vms",
@@ -261,10 +261,10 @@ export const AZURE_AZ104_QUESTIONS_4 = [
     scenario: "A company needs to bind a custom domain `api.contoso.com` to an Azure App Service web app. The company requires a valid SSL/TLS certificate bound with SNI, but wants Microsoft to handle certificate issuance, validation, and auto-renewal at zero additional cost.",
     question: "Which Azure App Service TLS certificate option provides free automated management?",
     options: [
-      { id: 'A', text: "IP-based SSL certificate with dedicated IPv4." },
+      { id: 'A', text: "Self-signed certificate uploaded to Key Vault." },
       { id: 'B', text: "App Service Managed Certificate (ASMC)." },
       { id: 'C', text: "App Service Certificate purchased via GoDaddy." },
-      { id: 'D', text: "Self-signed certificate uploaded to Key Vault." }
+      { id: 'D', text: "IP-based SSL certificate with dedicated IPv4." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -282,12 +282,12 @@ export const AZURE_AZ104_QUESTIONS_4 = [
     scenario: "An administrator manages an Azure Kubernetes Service (AKS) cluster. When pod workloads scale up and exceed the CPU/memory capacity of existing worker nodes, new worker node VMs must automatically be provisioned to join the cluster node pool.",
     question: "Which AKS feature automatically adjusts the number of virtual machine worker nodes in a node pool?",
     options: [
-      { id: 'A', text: "Azure Monitor Log Analytics workspace." },
-      { id: 'B', text: "AKS Cluster Autoscaler." },
-      { id: 'C', text: "Azure Bastion." },
-      { id: 'D', text: "Horizontal Pod Autoscaler (HPA)." }
+      { id: 'A', text: "Horizontal Pod Autoscaler (HPA)." },
+      { id: 'B', text: "Azure Bastion." },
+      { id: 'C', text: "Azure Monitor Log Analytics workspace." },
+      { id: 'D', text: "AKS Cluster Autoscaler." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The AKS Cluster Autoscaler monitors pods that cannot be scheduled on existing nodes due to resource constraints and automatically increases the number of VM nodes in the node pool (up to the configured maximum). Conversely, when nodes are underutilized, it safely scales down node capacity. Horizontal Pod Autoscaler (B) adjusts pod replicas, not VM worker nodes.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/aks/cluster-autoscaler",
@@ -324,10 +324,10 @@ export const AZURE_AZ104_QUESTIONS_4 = [
     scenario: "A company has three virtual networks: `VNet-A` is peered with `VNet-B`, and `VNet-B` is peered with `VNet-C`. There is no peering connection directly between `VNet-A` and `VNet-C`.",
     question: "By default, can virtual machines in `VNet-A` communicate with virtual machines in `VNet-C`?",
     options: [
-      { id: 'A', text: "Yes, if Network Security Groups permit port 80." },
+      { id: 'A', text: "Yes, because VNet Peering is fully transitive." },
       { id: 'B', text: "Yes, if all VNets are in the same resource group." },
       { id: 'C', text: "No, because VNet Peering is non-transitive by default." },
-      { id: 'D', text: "Yes, because VNet Peering is fully transitive." }
+      { id: 'D', text: "Yes, if Network Security Groups permit port 80." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -345,12 +345,12 @@ export const AZURE_AZ104_QUESTIONS_4 = [
     scenario: "An administrator creates a new, clean Network Security Group (NSG) without adding any custom security rules, and attaches it to a VM subnet.",
     question: "Which traffic is permitted by the built-in default NSG inbound rules?",
     options: [
-      { id: 'A', text: "Only RDP (port 3389) is permitted." },
-      { id: 'B', text: "All inbound traffic from within the Virtual Network (`AllowVNetInBound`) and Azure Load Balancers (`AllowAzureLoadBalancerInBound`) is allowed; all other inbound traffic is denied (`DenyAllInBound`)." },
+      { id: 'A', text: "All inbound traffic from within the Virtual Network (`AllowVNetInBound`) and Azure Load Balancers (`AllowAzureLoadBalancerInBound`) is allowed; all other inbound traffic is denied (`DenyAllInBound`)." },
+      { id: 'B', text: "Only RDP (port 3389) is permitted." },
       { id: 'C', text: "All inbound and outbound traffic is completely blocked." },
       { id: 'D', text: "All inbound traffic from the public internet is allowed by default." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Every NSG contains three immutable default inbound rules: 1) `AllowVNetInBound` (Priority 65000: allows intra-VNet and peered VNet traffic), 2) `AllowAzureLoadBalancerInBound` (Priority 65001: allows Azure load balancer health probes), and 3) `DenyAllInBound` (Priority 65500: blocks all other inbound traffic from internet/external). Default rules have low priority and can be overridden by custom rules (100–4096).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview#default-security-rules",
@@ -366,10 +366,10 @@ export const AZURE_AZ104_QUESTIONS_4 = [
     scenario: "An enterprise connects its on-premises corporate datacenter to Azure using an Azure ExpressRoute dedicated circuit. The network team mandates configuring a Site-to-Site VPN as an automated fallback path in case the ExpressRoute physical provider connection experiences a cut.",
     question: "Which Azure VPN Gateway configuration enables ExpressRoute and VPN coexistence in the same virtual network?",
     options: [
-      { id: 'A', text: "Deploy Azure Bastion in the GatewaySubnet." },
+      { id: 'A', text: "Deploy two `GatewaySubnet` subnets in the VNet." },
       { id: 'B', text: "Deploy an ExpressRoute Gateway and a Route-Based VPN Gateway in the `GatewaySubnet`, configuring both to advertise identical routes over BGP." },
-      { id: 'C', text: "Configure Policy-Based VPN with static routes only." },
-      { id: 'D', text: "Deploy two `GatewaySubnet` subnets in the VNet." }
+      { id: 'C', text: "Deploy Azure Bastion in the GatewaySubnet." },
+      { id: 'D', text: "Configure Policy-Based VPN with static routes only." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -387,12 +387,12 @@ export const AZURE_AZ104_QUESTIONS_4 = [
     scenario: "A subnet in `VNet-1` needs to reach a legacy server on-premises with IP `192.168.1.50`. The subnet route table has a System Route for `192.168.0.0/16` pointing to `Virtual network gateway`, and a custom User-Defined Route (UDR) for `192.168.1.0/24` pointing to a firewall appliance (`Virtual appliance` at `10.0.1.4`).",
     question: "How does Azure route packets destined for `192.168.1.50`?",
     options: [
-      { id: 'A', text: "Packets are routed to the `Virtual appliance` (`10.0.1.4`) because `192.168.1.0/24` is a longer prefix match (more specific route) than `192.168.0.0/16`." },
-      { id: 'B', text: "Packets are dropped due to routing conflict." },
-      { id: 'C', text: "Packets are load balanced equally between both paths." },
-      { id: 'D', text: "Packets are routed to the `Virtual network gateway` because system routes take precedence over UDRs." }
+      { id: 'A', text: "Packets are dropped due to routing conflict." },
+      { id: 'B', text: "Packets are load balanced equally between both paths." },
+      { id: 'C', text: "Packets are routed to the `Virtual network gateway` because system routes take precedence over UDRs." },
+      { id: 'D', text: "Packets are routed to the `Virtual appliance` (`10.0.1.4`) because `192.168.1.0/24` is a longer prefix match (more specific route) than `192.168.0.0/16`." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Azure routing uses Longest Prefix Match (LPM) to select route paths. The `/24` route (`192.168.1.0/24`) is more specific than the `/16` route (`192.168.0.0/16`), so Azure selects the `/24` User-Defined Route and forwards traffic to the Virtual Appliance. If two routes have identical prefix length, UDRs take precedence over BGP and system default routes.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-udr-overview#how-azure-selects-a-route",
@@ -409,9 +409,9 @@ export const AZURE_AZ104_QUESTIONS_4 = [
     question: "Which Azure networking resource should the provider create to expose their service privately?",
     options: [
       { id: 'A', text: "Azure Private Link Service attached to the Standard Load Balancer." },
-      { id: 'B', text: "Azure Virtual WAN." },
-      { id: 'C', text: "Azure Public Load Balancer with port forwarding." },
-      { id: 'D', text: "Azure VNet Peering with Gateway Transit." }
+      { id: 'B', text: "Azure Public Load Balancer with port forwarding." },
+      { id: 'C', text: "Azure VNet Peering with Gateway Transit." },
+      { id: 'D', text: "Azure Virtual WAN." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -430,9 +430,9 @@ export const AZURE_AZ104_QUESTIONS_4 = [
     question: "Which Application Insights deployment mode stores application telemetry directly in a Log Analytics workspace?",
     options: [
       { id: 'A', text: "Classic Application Insights (deprecated)." },
-      { id: 'B', text: "Azure Event Hubs stream only." },
+      { id: 'B', text: "Azure Storage Blob table." },
       { id: 'C', text: "Workspace-based Application Insights resource." },
-      { id: 'D', text: "Azure Storage Blob table." }
+      { id: 'D', text: "Azure Event Hubs stream only." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -450,12 +450,12 @@ export const AZURE_AZ104_QUESTIONS_4 = [
     scenario: "A network administrator is troubleshooting an intermittent application crash on an Azure Linux VM. The administrator needs to capture raw network packet traces (`.cap` / `.pcap` files) on the VM's network interface for 15 minutes and save the capture file directly to an Azure Storage Account container.",
     question: "Which Azure Network Watcher tool captures raw network packet streams remotely without logging into the VM?",
     options: [
-      { id: 'A', text: "IP Flow Verify." },
-      { id: 'B', text: "Security Group View." },
-      { id: 'C', text: "Azure Network Watcher Packet Capture." },
-      { id: 'D', text: "Next Hop verification." }
+      { id: 'A', text: "Security Group View." },
+      { id: 'B', text: "Azure Network Watcher Packet Capture." },
+      { id: 'C', text: "Next Hop verification." },
+      { id: 'D', text: "IP Flow Verify." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Network Watcher Packet Capture allows administrators to programmatically initiate and manage packet captures on virtual machines (via the Network Watcher VM extension) remotely. Captures can be filtered by IP, port, or protocol, run for specified time or byte limits, and output directly to an Azure Storage Account or local disk for Wireshark analysis.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/network-watcher/network-watcher-packet-capture-overview",
@@ -471,12 +471,12 @@ export const AZURE_AZ104_QUESTIONS_4 = [
     scenario: "A developer notices that an individual virtual machine `vm-web-01` became unresponsive. The developer needs to check whether the underlying physical host server hosting that specific VM experienced a hardware reboot.",
     question: "Which health tool in the Azure portal displays the operational health status and history of an individual Azure resource?",
     options: [
-      { id: 'A', text: "Azure Resource Health." },
+      { id: 'A', text: "Azure Status page (public)." },
       { id: 'B', text: "Azure Service Health." },
       { id: 'C', text: "Azure Advisor." },
-      { id: 'D', text: "Azure Status page (public)." }
+      { id: 'D', text: "Azure Resource Health." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Azure Resource Health provides diagnostic information about the health of specific individual Azure resources (such as a single VM, SQL DB, or App Service instance), indicating whether the resource is Available, Degraded, Unavailable, or Unknown due to platform events, host reboots, or customer actions. Service Health (B) tracks regional service-wide outages.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/service-health/resource-health-overview",
@@ -493,9 +493,9 @@ export const AZURE_AZ104_QUESTIONS_4 = [
     question: "How should the administrator configure the backup schedule in the Recovery Services Vault?",
     options: [
       { id: 'A', text: "Define a single Azure Backup Policy with configured Daily, Weekly, Monthly, and Yearly Grandfather-Father-Son (GFS) retention rules." },
-      { id: 'B', text: "Create 4 separate Recovery Services Vaults in different regions." },
+      { id: 'B', text: "Write a custom PowerShell script using Cron." },
       { id: 'C', text: "Enable Blob Lifecycle Management on the VM managed disks." },
-      { id: 'D', text: "Write a custom PowerShell script using Cron." }
+      { id: 'D', text: "Create 4 separate Recovery Services Vaults in different regions." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -513,12 +513,12 @@ export const AZURE_AZ104_QUESTIONS_4 = [
     scenario: "An operations engineer needs to generate a real-time line chart comparing the `Percentage CPU` and `Network In Total` metrics across 10 virtual machines in an Azure Virtual Machine Scale Set over the last 4 hours.",
     question: "Which tool within Azure Monitor provides interactive charting and metric aggregation?",
     options: [
-      { id: 'A', text: "Azure Monitor Metrics Explorer." },
+      { id: 'A', text: "Azure Network Watcher Topology." },
       { id: 'B', text: "Azure Cost Management." },
       { id: 'C', text: "Azure Activity Log." },
-      { id: 'D', text: "Azure Network Watcher Topology." }
+      { id: 'D', text: "Azure Monitor Metrics Explorer." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Azure Monitor Metrics Explorer is a component of the Azure portal that allows plotting charts, visually correlating trends, and investigating performance spikes in numerical time-series metrics emitted by Azure resources, with support for splitting, filtering, and pinning charts to Azure dashboards.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/metrics-getting-started",

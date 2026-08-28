@@ -9,12 +9,12 @@ export const AWS_SAA_QUESTIONS_6 = [
     scenario: "An enterprise must configure ongoing disaster recovery for 50 VMware virtual machines to AWS with an RPO of seconds and an RTO under 15 minutes. The company wants minimal compute costs during replication.",
     question: "Which AWS service replicates on-premises block storage continuously into low-cost staging subnets and launches instances on demand during failover?",
     options: [
-      { id: 'A', text: "AWS DataSync." },
+      { id: 'A', text: "AWS Backup with VADP connector." },
       { id: 'B', text: "AWS Application Migration Service (AWS MGN)." },
-      { id: 'C', text: "AWS Backup with VADP connector." },
-      { id: 'D', text: "AWS Elastic Disaster Recovery (AWS DRS)." }
+      { id: 'C', text: "AWS Elastic Disaster Recovery (AWS DRS)." },
+      { id: 'D', text: "AWS DataSync." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "AWS Elastic Disaster Recovery (AWS DRS) provides continuous, block-level server replication into a low-cost staging area in the target AWS Region, delivering sub-second RPOs and sub-15 minute RTOs during recovery drills or disaster events. AWS MGN (B) is for one-time migrations. DataSync (C) transfers files in batch. AWS Backup (D) performs snapshot-based backups, failing the continuous sub-second RPO requirement.",
     referenceUrl: "https://docs.aws.amazon.com/drs/latest/userguide/what-is-drs.html",
@@ -30,12 +30,12 @@ export const AWS_SAA_QUESTIONS_6 = [
     scenario: "A compliance policy requires maintaining a secondary copy of all financial transaction data within the same AWS geographical region under a separate isolated security audit AWS account with different KMS encryption keys.",
     question: "Which Amazon S3 replication feature satisfies this in-region multi-account requirement?",
     options: [
-      { id: 'A', text: "S3 Object Lock in Governance mode." },
-      { id: 'B', text: "S3 Cross-Region Replication (CRR) with Multi-Region Access Points." },
+      { id: 'A', text: "S3 Same-Region Replication (SRR) with cross-account ownership override and destination KMS CMK encryption." },
+      { id: 'B', text: "S3 Object Lock in Governance mode." },
       { id: 'C', text: "AWS DataSync scheduled hourly." },
-      { id: 'D', text: "S3 Same-Region Replication (SRR) with cross-account ownership override and destination KMS CMK encryption." }
+      { id: 'D', text: "S3 Cross-Region Replication (CRR) with Multi-Region Access Points." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Amazon S3 Same-Region Replication (SRR) automatically replicates objects between buckets in the same AWS Region, supporting cross-account destination buckets, changing object ownership to the destination account, and re-encrypting with a destination account KMS Customer Managed Key. CRR (B) replicates across different regions, violating the same-region mandate. DataSync (C) is batch-based without continuous event-driven replication. Object Lock (D) prevents object deletion but does not replicate data across accounts.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication-same-region.html",
@@ -51,12 +51,12 @@ export const AWS_SAA_QUESTIONS_6 = [
     scenario: "An international banking platform runs in an active-active multi-region configuration in us-east-1 and eu-west-1. The platform architect requires deterministic, manual traffic shifting switches (routing controls) that can safely drain traffic from an entire region within seconds during an outage without relying on DNS propagation TTLs.",
     question: "Which AWS service feature provides highly reliable, redundant routing controls across multiple regions?",
     options: [
-      { id: 'A', text: "Route 53 Simple DNS routing with 60-second TTL." },
-      { id: 'B', text: "Application Load Balancer weighted target groups." },
-      { id: 'C', text: "AWS Global Accelerator standard health checks." },
-      { id: 'D', text: "Amazon Route 53 Application Recovery Controller (Route 53 ARC) routing controls." }
+      { id: 'A', text: "Application Load Balancer weighted target groups." },
+      { id: 'B', text: "AWS Global Accelerator standard health checks." },
+      { id: 'C', text: "Amazon Route 53 Application Recovery Controller (Route 53 ARC) routing controls." },
+      { id: 'D', text: "Route 53 Simple DNS routing with 60-second TTL." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Amazon Route 53 Application Recovery Controller (Route 53 ARC) provides extreme five-region highly available cell-based routing controls (on/off switches) that integrate with Route 53 DNS and health checks to deterministically shift traffic away from impaired availability zones or entire AWS regions in seconds without being blocked by regional control planes or standard DNS TTL caching delays. Simple DNS (B) is subject to client DNS caching. Global Accelerator (C) relies on health checks rather than deterministic operator-controlled cell isolation. ALB target groups (D) are regional.",
     referenceUrl: "https://docs.aws.amazon.com/r53recovery/latest/dg/what-is-route-53-recovery.html",
@@ -72,9 +72,9 @@ export const AWS_SAA_QUESTIONS_6 = [
     scenario: "An e-commerce retailer experiences predictable, massive traffic increases every Friday between 18:00 and 22:00 UTC, as well as unpredictable viral social media surges throughout the week.",
     question: "Which combination of Auto Scaling policies accommodates both predictable peaks and unexpected spikes?",
     options: [
-      { id: 'A', text: "Simple scaling policies with 1-hour cooldown periods." },
-      { id: 'B', text: "Predictive scaling with fixed maximum capacity." },
-      { id: 'C', text: "Step scaling policies only." },
+      { id: 'A', text: "Step scaling policies only." },
+      { id: 'B', text: "Simple scaling policies with 1-hour cooldown periods." },
+      { id: 'C', text: "Predictive scaling with fixed maximum capacity." },
       { id: 'D', text: "Scheduled scaling actions for Friday evening peaks combined with Target Tracking scaling policies on average CPU utilization for unexpected surges." }
     ],
     correctAnswers: ['D'],
@@ -93,12 +93,12 @@ export const AWS_SAA_QUESTIONS_6 = [
     scenario: "A media company has an S3 bucket containing 100 million objects. The security team mandates that every object in the bucket must have a new compliance tag (`Confidentiality = High`) and be encrypted with a new KMS Customer Managed Key.",
     question: "Which Amazon S3 feature performs batch tagging and copy operations across billions of objects with automated progress tracking?",
     options: [
-      { id: 'A', text: "AWS DataSync continuous sync." },
+      { id: 'A', text: "Amazon S3 Batch Operations using an S3 Inventory report as the manifest." },
       { id: 'B', text: "AWS Lambda functions triggered by S3 Event Notifications." },
       { id: 'C', text: "An EC2 instance running a custom multi-threaded Python script using Boto3." },
-      { id: 'D', text: "Amazon S3 Batch Operations using an S3 Inventory report as the manifest." }
+      { id: 'D', text: "AWS DataSync continuous sync." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Amazon S3 Batch Operations is a managed feature that executes large-scale batch actions (such as object tagging, copying/re-encrypting, restoring from Glacier, and applying ACLs) across billions of objects in an S3 bucket using an S3 Inventory report or CSV manifest, with built-in audit logging, progress tracking, and retries. Event notifications (B) only trigger on newly created objects. EC2 custom scripts (C) require managing compute, handling rate limits, and failure handling. DataSync (D) is for data transfer between file systems and storage.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/batch-ops.html",
@@ -114,9 +114,9 @@ export const AWS_SAA_QUESTIONS_6 = [
     scenario: "A B2B supply chain company receives daily product catalogue CSV updates from 200 external vendors over Secure File Transfer Protocol (SFTP). The files must be stored directly in Amazon S3 for immediate processing by downstream analytics pipelines without managing on-premises SFTP servers.",
     question: "Which fully managed AWS service provides SFTP, FTPS, and FTP endpoints backed by Amazon S3?",
     options: [
-      { id: 'A', text: "AWS Storage Gateway File Gateway." },
-      { id: 'B', text: "Amazon S3 Multi-Region Access Points." },
-      { id: 'C', text: "Amazon EC2 running OpenSSH server." },
+      { id: 'A', text: "Amazon EC2 running OpenSSH server." },
+      { id: 'B', text: "AWS Storage Gateway File Gateway." },
+      { id: 'C', text: "Amazon S3 Multi-Region Access Points." },
       { id: 'D', text: "AWS Transfer Family." }
     ],
     correctAnswers: ['D'],
@@ -135,12 +135,12 @@ export const AWS_SAA_QUESTIONS_6 = [
     scenario: "A financial trading platform requires an in-memory database that delivers microsecond read latencies, single-digit millisecond write latencies, and guarantees zero data loss (RPO = 0) with a Multi-AZ transactional write-ahead transaction log across Availability Zones.",
     question: "Which Redis-compatible AWS service provides in-memory performance backed by an immutable Multi-AZ write-ahead log for primary transactional storage?",
     options: [
-      { id: 'A', text: "Amazon DynamoDB Accelerator (DAX)." },
-      { id: 'B', text: "Amazon Aurora PostgreSQL." },
-      { id: 'C', text: "Amazon ElastiCache for Redis." },
-      { id: 'D', text: "Amazon MemoryDB for Redis." }
+      { id: 'A', text: "Amazon ElastiCache for Redis." },
+      { id: 'B', text: "Amazon MemoryDB for Redis." },
+      { id: 'C', text: "Amazon Aurora PostgreSQL." },
+      { id: 'D', text: "Amazon DynamoDB Accelerator (DAX)." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Amazon MemoryDB for Redis is a Redis-compatible, durable in-memory database built on a custom Multi-AZ transactional write-ahead log. Unlike ElastiCache (which is an ephemeral cache where asynchronous replication can lose data on node failure), MemoryDB guarantees strong durability (RPO = 0) while delivering microsecond reads and single-digit millisecond writes as a primary transactional database. ElastiCache (B) is designed as a cache layer. DAX (C) is a cache for DynamoDB. Aurora (D) is a relational SQL engine.",
     referenceUrl: "https://docs.aws.amazon.com/memorydb/latest/devguide/what-is-memorydb-for-redis.html",
@@ -156,12 +156,12 @@ export const AWS_SAA_QUESTIONS_6 = [
     scenario: "A global single-page application hosted on Amazon CloudFront needs to dynamically route viewer API requests to different regional Application Load Balancers (us-east-1, eu-west-1, ap-southeast-1) based on viewer location, user tier, and request headers with minimum round-trip latency.",
     question: "Which CloudFront feature enables dynamic origin selection and request rewrite at edge locations closest to the user?",
     options: [
-      { id: 'A', text: "AWS Global Accelerator endpoint groups." },
+      { id: 'A', text: "Lambda@Edge on Origin Request events dynamically modifying the `request.origin` target." },
       { id: 'B', text: "Route 53 Geolocation DNS records." },
-      { id: 'C', text: "CloudFront Functions on Viewer Request events." },
-      { id: 'D', text: "Lambda@Edge on Origin Request events dynamically modifying the `request.origin` target." }
+      { id: 'C', text: "AWS Global Accelerator endpoint groups." },
+      { id: 'D', text: "CloudFront Functions on Viewer Request events." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Lambda@Edge functions triggered on CloudFront Origin Request events have access to modify the origin object (`request.origin.custom.domainName`), allowing dynamic routing to different backend load balancers based on headers, query strings, or country headers before fetching from the origin. CloudFront Functions (B) run on viewer request/response and cannot modify or override the origin destination. Route 53 (C) only controls DNS resolution for the CDN domain, not origin selection per HTTP request. Global Accelerator (D) routes at the transport layer, not per-request HTTP header routing.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-examples.html#lambda-examples-content-based-routing",
@@ -177,12 +177,12 @@ export const AWS_SAA_QUESTIONS_6 = [
     scenario: "An IoT data stream in Amazon Kinesis Data Streams has 10 shards. Increased vehicle device sales cause shard 3 and shard 7 to consistently throttle incoming writes (`ProvisionedThroughputExceededException`), while the remaining shards are under-utilized.",
     question: "Which operation should the Solutions Architect perform to resolve the hot shard throttling without doubling total stream costs?",
     options: [
-      { id: 'A', text: "Increase the stream retention period from 24 hours to 7 days." },
+      { id: 'A', text: "Enable Enhanced Fan-Out on the producer application." },
       { id: 'B', text: "Perform a Shard Merge operation on all shards." },
-      { id: 'C', text: "Enable Enhanced Fan-Out on the producer application." },
-      { id: 'D', text: "Perform a Shard Split operation on shards 3 and 7 to double capacity on the specific hot key ranges." }
+      { id: 'C', text: "Perform a Shard Split operation on shards 3 and 7 to double capacity on the specific hot key ranges." },
+      { id: 'D', text: "Increase the stream retention period from 24 hours to 7 days." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "In Amazon Kinesis Data Streams, a Shard Split operation splits a single hot shard into two child shards, doubling the provisioned throughput capacity (from 1 MB/s to 2 MB/s) for that specific partition hash key range without having to re-provision or double the entire cluster of shards. Shard Merge (B) combines two shards into one, reducing capacity. Retention period increases (C) affect storage duration, not write ingestion throughput. Enhanced Fan-Out (D) accelerates read consumers, not producer write ingestion.",
     referenceUrl: "https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-resharding-split.html",
@@ -198,12 +198,12 @@ export const AWS_SAA_QUESTIONS_6 = [
     scenario: "A microservices application captures database change events via DynamoDB Streams. These events must be filtered (only events where `status = \"APPROVED\"`), enriched with customer data via an AWS Lambda function, and pushed to an Amazon SQS standard queue for fulfillment, with zero custom glue code or infrastructure polling.",
     question: "Which AWS integration feature connects and orchestrates this point-to-point stream processing pipeline natively?",
     options: [
-      { id: 'A', text: "Amazon Kinesis Data Firehose with inline S3 delivery." },
-      { id: 'B', text: "AWS Step Functions Standard workflow polling DynamoDB every minute." },
-      { id: 'C', text: "Amazon SNS topic with cross-account subscription filters." },
-      { id: 'D', text: "Amazon EventBridge Pipes with DynamoDB Streams as source, built-in filter pattern, Lambda enrichment, and SQS target." }
+      { id: 'A', text: "Amazon SNS topic with cross-account subscription filters." },
+      { id: 'B', text: "Amazon EventBridge Pipes with DynamoDB Streams as source, built-in filter pattern, Lambda enrichment, and SQS target." },
+      { id: 'C', text: "Amazon Kinesis Data Firehose with inline S3 delivery." },
+      { id: 'D', text: "AWS Step Functions Standard workflow polling DynamoDB every minute." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Amazon EventBridge Pipes provides a simple, consistent, and serverless way to create point-to-point integrations between event producers (sources like DynamoDB Streams, Kinesis, SQS) and consumers (targets like SQS, Step Functions, Lambda, EventBridge bus) with built-in filtering, enrichment (via Lambda, API Destinations, Step Functions), and transformation without writing custom polling or glue code. Step Functions polling (B) introduces latency and state transition costs. Firehose (C) is for bulk data loading, not point-to-point SQS delivery. SNS (D) cannot read directly from DynamoDB Streams.",
     referenceUrl: "https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html",
@@ -219,12 +219,12 @@ export const AWS_SAA_QUESTIONS_6 = [
     scenario: "A financial institution must comply with SEC Rule 17a-4(f) mandates requiring that financial audit records stored in Amazon S3 must be stored in Write Once, Read Many (WORM) format. Once written, objects must not be deleted or overwritten by anyone, including the AWS account root user, for 7 years.",
     question: "Which S3 Object Lock retention mode enforces this strict immutable compliance mandate?",
     options: [
-      { id: 'A', text: "S3 Object Lock in Governance Mode." },
-      { id: 'B', text: "S3 Bucket Policy denying `s3:DeleteObject`." },
-      { id: 'C', text: "S3 Legal Hold with manual deletion triggers." },
-      { id: 'D', text: "S3 Object Lock in Compliance Mode with a 7-year retention period." }
+      { id: 'A', text: "S3 Bucket Policy denying `s3:DeleteObject`." },
+      { id: 'B', text: "S3 Object Lock in Governance Mode." },
+      { id: 'C', text: "S3 Object Lock in Compliance Mode with a 7-year retention period." },
+      { id: 'D', text: "S3 Legal Hold with manual deletion triggers." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "S3 Object Lock in Compliance Mode prevents an object version from being overwritten or deleted by any user, including the AWS account root user, for the duration of the retention period. It strictly adheres to SEC Rule 17a-4(f) WORM regulations. Governance Mode (B) allows users with the `s3:BypassGovernanceRetention` permission to delete objects. Legal Hold (C) does not have a fixed expiration timeframe. Bucket policies (D) can be modified or deleted by root or administrators.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-overview.html#object-lock-retention-modes",
@@ -240,12 +240,12 @@ export const AWS_SAA_QUESTIONS_6 = [
     scenario: "A SaaS provider hosts a proprietary analytics service in VPC A. Multiple customer enterprises need to securely access this analytics service from their own VPCs (VPC B, VPC C) over private IP addresses without establishing VPC peering, without IP address CIDR overlap conflicts, and without exposing the service to the public internet.",
     question: "Which architecture allows secure, scalable multi-tenant access across non-peered VPCs with overlapping CIDRs?",
     options: [
-      { id: 'A', text: "Configure AWS Site-to-Site VPN connections between each customer VPC and VPC A." },
-      { id: 'B', text: "Create an AWS PrivateLink VPC Endpoint Service fronted by a Network Load Balancer in VPC A, and have customers create Interface VPC Endpoints in their VPCs." },
-      { id: 'C', text: "Deploy an AWS Transit Gateway and configure inter-region peering." },
+      { id: 'A', text: "Deploy an AWS Transit Gateway and configure inter-region peering." },
+      { id: 'B', text: "Configure AWS Site-to-Site VPN connections between each customer VPC and VPC A." },
+      { id: 'C', text: "Create an AWS PrivateLink VPC Endpoint Service fronted by a Network Load Balancer in VPC A, and have customers create Interface VPC Endpoints in their VPCs." },
       { id: 'D', text: "Establish VPC Peering connections between VPC A and all customer VPCs with NAT translation." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "AWS PrivateLink (VPC Endpoint Service) allows service providers to expose services hosted behind a Network Load Balancer (NLB) privately to consumer VPCs. Consumers create Interface VPC Endpoints (ENIs with private IPs) in their own subnets. PrivateLink works seamlessly across AWS accounts and supports overlapping CIDR blocks without routing tables or peering meshes. VPC Peering (B) strictly fails if VPC CIDRs overlap. Transit Gateway (C) and VPN (D) also suffer from CIDR collision issues and require full network routing exposure.",
     referenceUrl: "https://docs.aws.amazon.com/vpc/latest/privatelink/endpoint-service.html",
@@ -282,12 +282,12 @@ export const AWS_SAA_QUESTIONS_6 = [
     scenario: "A security operations team needs to retain AWS CloudTrail management and data events for 7 years and execute complex SQL analytical queries to investigate past IAM privilege escalation events and detect unauthorized S3 bucket access patterns across all accounts in AWS Organizations.",
     question: "Which AWS service feature provides managed SQL querying and multi-year retention for CloudTrail events?",
     options: [
-      { id: 'A', text: "AWS CloudTrail Lake with an organization event data store." },
-      { id: 'B', text: "AWS Trusted Advisor security checks." },
-      { id: 'C', text: "Amazon GuardDuty findings export." },
-      { id: 'D', text: "Amazon CloudWatch Logs basic search." }
+      { id: 'A', text: "Amazon CloudWatch Logs basic search." },
+      { id: 'B', text: "Amazon GuardDuty findings export." },
+      { id: 'C', text: "AWS Trusted Advisor security checks." },
+      { id: 'D', text: "AWS CloudTrail Lake with an organization event data store." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "AWS CloudTrail Lake is a managed data lake that lets security teams aggregate, immutably store (up to 10 years), and query CloudTrail management and data events using standard ANSI SQL without building custom ETL pipelines, Athena tables, or S3 bucket schemas. CloudWatch Logs (B) is not cost-effective for 7-year multi-account SQL analytics. Trusted Advisor (C) provides high-level health checks. GuardDuty (D) exports threat detections, not full immutable CloudTrail audit event logs.",
     referenceUrl: "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake.html",
@@ -303,12 +303,12 @@ export const AWS_SAA_QUESTIONS_6 = [
     scenario: "A corporate web application running on Amazon EC2 behind an Application Load Balancer is intended for customers strictly within the United States and Canada. The security administrator must block all web requests originating from IP addresses outside these two countries.",
     question: "Which AWS WAF rule configuration achieves this geographical restriction?",
     options: [
-      { id: 'A', text: "Security Group inbound rules blocking non-US IP CIDR blocks." },
-      { id: 'B', text: "Route 53 Failover routing records." },
+      { id: 'A', text: "Route 53 Failover routing records." },
+      { id: 'B', text: "An AWS WAF Geo Match statement configured to block requests where the country of origin is NOT US or CA." },
       { id: 'C', text: "Network ACL rules with geographical country code filters." },
-      { id: 'D', text: "An AWS WAF Geo Match statement configured to block requests where the country of origin is NOT US or CA." }
+      { id: 'D', text: "Security Group inbound rules blocking non-US IP CIDR blocks." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "AWS WAF Geo Match statements inspect the originating IP address of web requests against an integrated GeoIP database and match on country codes. Setting a rule that denies/blocks requests whose country is not in the US or CA allowlist blocks international requests at the Application Load Balancer. Security groups (B) and NACLs (C) filter by IP addresses/CIDRs, not dynamic country codes. Route 53 (D) routes DNS queries, not web traffic enforcement.",
     referenceUrl: "https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-type-geo-match.html",
@@ -324,12 +324,12 @@ export const AWS_SAA_QUESTIONS_6 = [
     scenario: "A company stores 10 TB of active application files accessed hundreds of times per day, and 200 TB of compliance audit logs accessed once per year. The CFO mandates optimizing storage spend.",
     question: "Which storage class combination provides the lowest overall monthly cost while meeting access latency requirements?",
     options: [
-      { id: 'A', text: "All data in Amazon EBS gp3 volumes attached to stopped EC2 instances." },
-      { id: 'B', text: "Active files in Amazon S3 Standard; compliance logs in Amazon S3 Glacier Deep Archive." },
-      { id: 'C', text: "All data in Amazon S3 Standard-Infrequent Access (S3 Standard-IA)." },
-      { id: 'D', text: "Active files in Amazon S3 Glacier Instant Retrieval; compliance logs in S3 Standard." }
+      { id: 'A', text: "Active files in Amazon S3 Glacier Instant Retrieval; compliance logs in S3 Standard." },
+      { id: 'B', text: "All data in Amazon S3 Standard-Infrequent Access (S3 Standard-IA)." },
+      { id: 'C', text: "Active files in Amazon S3 Standard; compliance logs in Amazon S3 Glacier Deep Archive." },
+      { id: 'D', text: "All data in Amazon EBS gp3 volumes attached to stopped EC2 instances." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "S3 Standard has zero retrieval fees and millisecond performance, making it the most cost-effective tier for frequently accessed hot files (avoiding per-GB retrieval charges). S3 Glacier Deep Archive ($0.00099/GB/month) is the lowest cost storage class for compliance logs accessed once a year where 12-hour retrieval is acceptable. Glacier Instant Retrieval for hot files (B) incurs massive retrieval charges. Standard-IA for everything (C) incurs retrieval fees on the active files and is 10x more expensive than Glacier for the logs. EBS (D) is block storage with high hourly GB costs.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html",
@@ -345,12 +345,12 @@ export const AWS_SAA_QUESTIONS_6 = [
     scenario: "A web session tracking application writes millions of user session records daily to an Amazon DynamoDB table. Sessions expire after 48 hours and are never needed again. The table storage size is growing uncontrollably, leading to increasing monthly storage charges.",
     question: "What is the MOST cost-effective and automated way to purge expired session items from DynamoDB without consuming read/write capacity units?",
     options: [
-      { id: 'A', text: "Enable DynamoDB Time to Live (TTL) on an epoch timestamp attribute (`expiresAt`)." },
-      { id: 'B', text: "Configure an Amazon S3 Lifecycle expiration rule on the DynamoDB table." },
-      { id: 'C', text: "Recreate the DynamoDB table daily using an AWS CloudFormation template." },
-      { id: 'D', text: "Write a nightly AWS Lambda function that scans the table and executes `DeleteItem` calls." }
+      { id: 'A', text: "Write a nightly AWS Lambda function that scans the table and executes `DeleteItem` calls." },
+      { id: 'B', text: "Recreate the DynamoDB table daily using an AWS CloudFormation template." },
+      { id: 'C', text: "Enable DynamoDB Time to Live (TTL) on an epoch timestamp attribute (`expiresAt`)." },
+      { id: 'D', text: "Configure an Amazon S3 Lifecycle expiration rule on the DynamoDB table." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "DynamoDB Time to Live (TTL) is a fully managed feature that automatically identifies and deletes expired items from tables based on an epoch timestamp attribute at zero additional cost and without consuming table read or write throughput capacity units (RCU/WCU). Custom Lambda cleanup scripts (B) consume extensive RCUs and WCUs for scanning and deleting items, increasing costs. S3 lifecycle rules (C) apply to S3 buckets, not DynamoDB tables. Daily table recreation (D) causes service downtime.",
     referenceUrl: "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TTL.html",
@@ -367,9 +367,9 @@ export const AWS_SAA_QUESTIONS_6 = [
     question: "How should the network architecture be consolidated to optimize routing management and data transfer egress costs?",
     options: [
       { id: 'A', text: "Deploy an AWS Transit Gateway in us-east-1 and an AWS Transit Gateway in eu-west-1, establish a single Transit Gateway Inter-Region Peering attachment between them, and centralize egress NAT." },
-      { id: 'B', text: "Assign public Elastic IP addresses to all instances and communicate over public internet." },
-      { id: 'C', text: "Deploy AWS Direct Connect circuits between both AWS regions." },
-      { id: 'D', text: "Deploy AWS Site-to-Site VPN connections between every VPC pair." }
+      { id: 'B', text: "Deploy AWS Site-to-Site VPN connections between every VPC pair." },
+      { id: 'C', text: "Assign public Elastic IP addresses to all instances and communicate over public internet." },
+      { id: 'D', text: "Deploy AWS Direct Connect circuits between both AWS regions." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -388,11 +388,11 @@ export const AWS_SAA_QUESTIONS_6 = [
     question: "Which AWS compute architecture satisfies these batch processing requirements at the lowest cost?",
     options: [
       { id: 'A', text: "Amazon EMR cluster running 24/7 on On-Demand instances." },
-      { id: 'B', text: "AWS Lambda functions running for 45 minutes each." },
-      { id: 'C', text: "AWS Batch with an AWS Fargate Spot compute environment." },
-      { id: 'D', text: "AWS Batch with On-Demand EC2 instances in an Auto Scaling group." }
+      { id: 'B', text: "AWS Batch with an AWS Fargate Spot compute environment." },
+      { id: 'C', text: "AWS Batch with On-Demand EC2 instances in an Auto Scaling group." },
+      { id: 'D', text: "AWS Lambda functions running for 45 minutes each." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "AWS Batch with AWS Fargate Spot compute environments enables running containerized batch workloads serverlessly without managing any EC2 instances or cluster infrastructure, delivering up to 70% discounts compared to standard Fargate pricing. AWS Batch automatically handles job queues, dependencies, retries, and Spot provisioning. On-Demand EC2 (B) requires cluster management and runs at full price. AWS Lambda (C) has a hard 15-minute maximum execution timeout and cannot run 45-minute simulations. EMR (D) is for big data Spark/Hadoop, not generic container batch jobs.",
     referenceUrl: "https://docs.aws.amazon.com/batch/latest/userguide/fargate.html",
@@ -409,11 +409,11 @@ export const AWS_SAA_QUESTIONS_6 = [
     question: "Which agent and metric must be configured to capture detailed EC2 memory utilization in Amazon CloudWatch?",
     options: [
       { id: 'A', text: "Deploy the AWS Systems Manager Inventory scanner." },
-      { id: 'B', text: "Enable Detailed EC2 monitoring (1-minute intervals) without installing any agent." },
-      { id: 'C', text: "Install the unified Amazon CloudWatch Agent on all instances and collect `mem_used_percent`." },
+      { id: 'B', text: "Install the unified Amazon CloudWatch Agent on all instances and collect `mem_used_percent`." },
+      { id: 'C', text: "Enable Detailed EC2 monitoring (1-minute intervals) without installing any agent." },
       { id: 'D', text: "Enable basic EC2 monitoring in the AWS Management Console." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Standard and Detailed EC2 CloudWatch metrics only monitor hypervisor-level metrics (CPU utilization, disk I/O, network in/out). Because memory (RAM) is managed inside the guest operating system, capturing memory utilization (`mem_used_percent`) requires installing and configuring the unified Amazon CloudWatch Agent on the instances. Basic monitoring (B) and Detailed monitoring (C) cannot inspect guest OS memory. SSM Inventory (D) collects metadata (installed software, OS versions), not real-time memory metrics.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.html",
@@ -429,12 +429,12 @@ export const AWS_SAA_QUESTIONS_6 = [
     scenario: "An insurance claims processing system processes daily batches of 1 million PDF policy documents stored in Amazon S3. The processing steps include OCR scanning, fraud scoring, and database write. If any single document processing fails due to a corrupt PDF, the workflow must retry that item, send failures to a Dead-Letter Queue (DLQ), and continue processing all remaining documents without crashing the batch.",
     question: "Which serverless orchestration architecture provides high-concurrency document processing with item-level error isolation?",
     options: [
-      { id: 'A', text: "Amazon API Gateway WebSocket connection to client browsers." },
-      { id: 'B', text: "AWS Step Functions with a Distributed Map state iterating over S3 objects with catch blocks and item-level error handling." },
-      { id: 'C', text: "Amazon EMR cluster running a custom shell script." },
-      { id: 'D', text: "A single synchronous AWS Lambda function running in a loop over all 1 million files." }
+      { id: 'A', text: "A single synchronous AWS Lambda function running in a loop over all 1 million files." },
+      { id: 'B', text: "Amazon API Gateway WebSocket connection to client browsers." },
+      { id: 'C', text: "AWS Step Functions with a Distributed Map state iterating over S3 objects with catch blocks and item-level error handling." },
+      { id: 'D', text: "Amazon EMR cluster running a custom shell script." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "AWS Step Functions Distributed Map state can launch up to 10,000 concurrent child workflow executions to process large datasets (like millions of files in Amazon S3). It provides built-in concurrency control, error catching (`Catch`/`Retry`), and item-level failure isolation so individual corrupted documents do not fail the overall batch execution. A single Lambda loop (B) will timeout at 15 minutes and fail completely on errors. EMR shell scripts (C) lack native step-level error handling. API Gateway WebSockets (D) are for browser messaging.",
     referenceUrl: "https://docs.aws.amazon.com/step-functions/latest/dg/concepts-asl-use-map-state-distributed.html",
@@ -450,12 +450,12 @@ export const AWS_SAA_QUESTIONS_6 = [
     scenario: "A breaking news media organization needs to broadcast emergency push notifications to 10 million iOS and Android mobile app users within 60 seconds of a news event. The solution must support Apple Push Notification service (APNs) and Firebase Cloud Messaging (FCM).",
     question: "Which AWS service provides high-throughput direct mobile push notification fanout?",
     options: [
-      { id: 'A', text: "Amazon Simple Notification Service (Amazon SNS) Mobile Push." },
+      { id: 'A', text: "Amazon Simple Email Service (Amazon SES)." },
       { id: 'B', text: "Amazon Simple Queue Service (Amazon SQS)." },
       { id: 'C', text: "Amazon Connect." },
-      { id: 'D', text: "Amazon Simple Email Service (Amazon SES)." }
+      { id: 'D', text: "Amazon Simple Notification Service (Amazon SNS) Mobile Push." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Amazon SNS Mobile Push notifications enable publishing messages directly to mobile app endpoints on iOS (APNs), Android (FCM), and Windows. SNS scales horizontally to fan out millions of push notifications per second to mobile device tokens with high throughput and low latency. SQS (B) is a message pull queue, not a mobile push gateway. SES (C) sends emails. Amazon Connect (D) is an omnichannel contact center service.",
     referenceUrl: "https://docs.aws.amazon.com/sns/latest/dg/sns-mobile-application-as-subscriber.html",
@@ -471,13 +471,13 @@ export const AWS_SAA_QUESTIONS_6 = [
     scenario: "Corporate security policy mandates that any Amazon S3 bucket created without default server-side encryption must be automatically remediated within minutes by enabling default SSE-S3 encryption and notifying the security team via Amazon SNS.",
     question: "Which combination of AWS services implements continuous detection and automated remediation of non-compliant S3 buckets? (Choose TWO)",
     options: [
-      { id: 'A', text: "Enable Amazon Inspector S3 bucket scanner." },
-      { id: 'B', text: "Deploy the AWS Config managed rule `s3-bucket-server-side-encryption-enabled`." },
-      { id: 'C', text: "Configure an AWS Systems Manager Automation document as the automatic remediation action in AWS Config." },
-      { id: 'D', text: "Attach an IAM Permissions Boundary to all S3 buckets." },
+      { id: 'A', text: "Attach an IAM Permissions Boundary to all S3 buckets." },
+      { id: 'B', text: "Enable Amazon Inspector S3 bucket scanner." },
+      { id: 'C', text: "Deploy the AWS Config managed rule `s3-bucket-server-side-encryption-enabled`." },
+      { id: 'D', text: "Configure an AWS Systems Manager Automation document as the automatic remediation action in AWS Config." },
       { id: 'E', text: "Create an AWS Shield Advanced proactive engagement alert." }
     ],
-    correctAnswers: ['B', 'C'],
+    correctAnswers: ['C', 'D'],
     type: "multiple",
     explanation: "AWS Config continuously monitors resource configurations against compliance rules (such as `s3-bucket-server-side-encryption-enabled`). When a non-compliant bucket is detected, AWS Config triggers an automated remediation action using an AWS Systems Manager (SSM) Automation document (e.g. `AWS-EnableS3BucketEncryption`) to automatically remediate the issue without human intervention. Shield Advanced (C) protects against DDoS. Inspector (D) scans EC2/ECR for software CVEs. IAM boundaries (E) apply to IAM users/roles, not S3 buckets.",
     referenceUrl: "https://docs.aws.amazon.com/config/latest/developerguide/remediation.html",
@@ -493,9 +493,9 @@ export const AWS_SAA_QUESTIONS_6 = [
     scenario: "A regional supermarket chain operates an e-commerce website with customers strictly in North America and Europe. The marketing team wants to reduce Amazon CloudFront data egress and request costs by excluding expensive edge location POPs in Australia, Asia, and South America.",
     question: "Which Amazon CloudFront configuration reduces delivery costs by selecting specific geographic edge tiers?",
     options: [
-      { id: 'A', text: "Disable CloudFront Origin Shield." },
+      { id: 'A', text: "Configure CloudFront Price Class All." },
       { id: 'B', text: "Configure CloudFront Price Class 100 (North America and Europe edge locations only)." },
-      { id: 'C', text: "Configure CloudFront Price Class All." },
+      { id: 'C', text: "Disable CloudFront Origin Shield." },
       { id: 'D', text: "Enable CloudFront Geographic Restrictions." }
     ],
     correctAnswers: ['B'],
@@ -514,12 +514,12 @@ export const AWS_SAA_QUESTIONS_6 = [
     scenario: "An application runs in an Amazon ECS container task. The container needs to read secret credentials from AWS Secrets Manager and write business data to an Amazon DynamoDB table. Additionally, the ECS agent needs permissions to pull container images from Amazon ECR and send logs to CloudWatch Logs.",
     question: "How should IAM roles be assigned to the ECS task definition to adhere to the principle of least privilege?",
     options: [
-      { id: 'A', text: "Assign an IAM Task Execution Role with ECR and CloudWatch Logs permissions for the ECS container agent, and assign an IAM Task Role with DynamoDB and Secrets Manager permissions for the application container." },
-      { id: 'B', text: "Assign the IAM Task Role to the ECS Cluster Service Linked Role." },
-      { id: 'C', text: "Hardcode AWS access keys in the container Dockerfile." },
-      { id: 'D', text: "Attach an IAM instance profile directly to the underlying EC2 host with full administrative access." }
+      { id: 'A', text: "Hardcode AWS access keys in the container Dockerfile." },
+      { id: 'B', text: "Attach an IAM instance profile directly to the underlying EC2 host with full administrative access." },
+      { id: 'C', text: "Assign an IAM Task Execution Role with ECR and CloudWatch Logs permissions for the ECS container agent, and assign an IAM Task Role with DynamoDB and Secrets Manager permissions for the application container." },
+      { id: 'D', text: "Assign the IAM Task Role to the ECS Cluster Service Linked Role." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Amazon ECS differentiates between two distinct IAM roles: 1) **Task Execution Role**: used by the ECS container agent itself to pull images from ECR and send container logs to CloudWatch Logs, and 2) **Task Role**: assumed by the running application container code inside the task to access AWS services like DynamoDB and Secrets Manager. EC2 instance profiles (B) give all containers on that host shared permissions, violating least privilege. Hardcoding keys (C) violates security best practices. Service Linked Roles (D) manage ECS infrastructure, not application authorization.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html",

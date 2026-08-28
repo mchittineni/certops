@@ -9,12 +9,12 @@ export const AWS_SAA_QUESTIONS_2 = [
     scenario: "A web application is deployed on Amazon EC2 instances across three Availability Zones behind an Application Load Balancer (ALB). An Auto Scaling group maintains a minimum of 6 instances. The operations team notices that one Availability Zone has 4 instances while another has only 1, causing uneven CPU utilization across targets.",
     question: "Which configuration ensures uniform traffic distribution to all backend instances and balanced scaling across Availability Zones?",
     options: [
-      { id: 'A', text: "Convert the Application Load Balancer to a Network Load Balancer with round-robin DNS routing." },
-      { id: 'B', text: "Deploy separate Application Load Balancers in each Availability Zone and use Route 53 Weighted routing." },
-      { id: 'C', text: "Attach an Elastic IP address to each EC2 instance and enable sticky sessions with duration-based cookies." },
-      { id: 'D', text: "Enable Cross-Zone Load Balancing on the Application Load Balancer and ensure the Auto Scaling group is configured to use all three subnets." }
+      { id: 'A', text: "Deploy separate Application Load Balancers in each Availability Zone and use Route 53 Weighted routing." },
+      { id: 'B', text: "Attach an Elastic IP address to each EC2 instance and enable sticky sessions with duration-based cookies." },
+      { id: 'C', text: "Enable Cross-Zone Load Balancing on the Application Load Balancer and ensure the Auto Scaling group is configured to use all three subnets." },
+      { id: 'D', text: "Convert the Application Load Balancer to a Network Load Balancer with round-robin DNS routing." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Application Load Balancers have Cross-Zone Load Balancing enabled by default at the load balancer level, distributing incoming requests evenly across all registered targets in all enabled Availability Zones. Configuring the Auto Scaling group across all three subnets ensures the ASG automatically maintains a balanced number of instances across AZs. Converting to NLB (B) does not balance ASG instance distribution. Multiple ALBs with weighted DNS (C) adds unnecessary architecture complexity and cost. Elastic IPs and sticky sessions (D) actually increase traffic imbalance.",
     referenceUrl: "https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#cross-zone-load-balancing",
@@ -30,12 +30,12 @@ export const AWS_SAA_QUESTIONS_2 = [
     scenario: "An e-commerce order processing system uses Amazon SQS standard queues to ingest orders. Worker EC2 instances consume messages and process credit card charges. Occasionally, corrupted order payloads cause the consumer application to crash repeatedly, preventing normal messages from being processed in a timely manner.",
     question: "How should a Solutions Architect isolate corrupted messages without losing order data or stalling the worker queue?",
     options: [
-      { id: 'A', text: "Increase the Visibility Timeout of the source SQS queue to 12 hours." },
-      { id: 'B', text: "Convert the SQS standard queue to an Amazon SNS topic with message deduplication enabled." },
-      { id: 'C', text: "Configure an Amazon CloudWatch alarm to automatically purge the queue whenever message processing errors exceed 5%." },
-      { id: 'D', text: "Configure a Dead-Letter Queue (DLQ) on the source SQS queue and set a redrive policy with a maxReceiveCount threshold." }
+      { id: 'A', text: "Configure a Dead-Letter Queue (DLQ) on the source SQS queue and set a redrive policy with a maxReceiveCount threshold." },
+      { id: 'B', text: "Increase the Visibility Timeout of the source SQS queue to 12 hours." },
+      { id: 'C', text: "Convert the SQS standard queue to an Amazon SNS topic with message deduplication enabled." },
+      { id: 'D', text: "Configure an Amazon CloudWatch alarm to automatically purge the queue whenever message processing errors exceed 5%." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "A Dead-Letter Queue (DLQ) receives messages that cannot be processed successfully after a specified number of attempts (maxReceiveCount in the redrive policy). This isolates poison-pill messages for manual inspection and debugging while allowing the main worker queue to continue processing healthy messages. Increasing visibility timeout (B) exacerbates queue blocking. SNS topics (C) fan out messages rather than queuing work. Purging the queue (D) permanently destroys valid pending orders.",
     referenceUrl: "https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html",
@@ -51,12 +51,12 @@ export const AWS_SAA_QUESTIONS_2 = [
     scenario: "A compliance regulation requires a financial institution to maintain an exact, immutable copy of all transaction receipts in a secondary AWS Region located at least 500 miles away from the primary Region. New objects are written continuously to an S3 bucket in us-east-1.",
     question: "Which S3 feature should the Solutions Architect configure to meet this compliance requirement with minimal operational overhead?",
     options: [
-      { id: 'A', text: "Use S3 Multi-Region Access Points to write each object simultaneously to two regional buckets." },
-      { id: 'B', text: "Set up an AWS Lambda function triggered by S3 Event Notifications to copy objects using the AWS SDK." },
-      { id: 'C', text: "Create an AWS DataSync task scheduled to run hourly between the two regions." },
-      { id: 'D', text: "Enable S3 Versioning on source and destination buckets and configure S3 Cross-Region Replication (CRR)." }
+      { id: 'A', text: "Enable S3 Versioning on source and destination buckets and configure S3 Cross-Region Replication (CRR)." },
+      { id: 'B', text: "Use S3 Multi-Region Access Points to write each object simultaneously to two regional buckets." },
+      { id: 'C', text: "Set up an AWS Lambda function triggered by S3 Event Notifications to copy objects using the AWS SDK." },
+      { id: 'D', text: "Create an AWS DataSync task scheduled to run hourly between the two regions." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "S3 Cross-Region Replication (CRR) automatically and asynchronously replicates objects across buckets in different AWS Regions. Enabling S3 Versioning on both source and destination buckets is a prerequisite for CRR. Lambda event handlers (B) require maintaining custom code, retry logic, and failover mechanics. DataSync (C) is designed for batch migration rather than continuous real-time replication. S3 MRAP (D) provides global endpoints for routing but does not replicate objects synchronously on write.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication.html",
@@ -72,12 +72,12 @@ export const AWS_SAA_QUESTIONS_2 = [
     scenario: "An enterprise maintains 50 TB of shared departmental files on local NAS devices in an on-premises data center. The company needs a hybrid disaster recovery solution that allows on-premises users to access frequently used files with local sub-millisecond latency over SMB, while automatically backing up all files to Amazon S3.",
     question: "Which AWS storage service provides this capability?",
     options: [
-      { id: 'A', text: "AWS Storage Gateway in File Gateway (S3 File Gateway) mode." },
-      { id: 'B', text: "AWS Snowball Edge Storage Optimized device deployed permanently on-premises." },
+      { id: 'A', text: "AWS Snowball Edge Storage Optimized device deployed permanently on-premises." },
+      { id: 'B', text: "AWS Storage Gateway in Volume Gateway Stored mode." },
       { id: 'C', text: "Amazon FSx for Windows File Server deployed via AWS Direct Connect." },
-      { id: 'D', text: "AWS Storage Gateway in Volume Gateway Stored mode." }
+      { id: 'D', text: "AWS Storage Gateway in File Gateway (S3 File Gateway) mode." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "AWS S3 File Gateway provides an on-premises software appliance (or hardware appliance) that exposes SMB or NFS file shares. It caches hot files locally for low-latency access while asynchronously persisting all objects to Amazon S3 for durable, cost-effective cloud backup. Volume Gateway Stored mode (B) exposes iSCSI block volumes, not SMB file shares. FSx for Windows File Server (C) is hosted entirely in AWS, meaning all SMB access traverses the Direct Connect link with network latency. Snowball Edge (D) is intended for temporary data transfer or rugged edge compute, not long-term NAS caching.",
     referenceUrl: "https://docs.aws.amazon.com/filegateway/latest/filefsxw/what-is-file-fsxw.html",
@@ -93,12 +93,12 @@ export const AWS_SAA_QUESTIONS_2 = [
     scenario: "A company operates a primary web service in us-east-1 and a disaster recovery standby in us-west-2. The Solutions Architect must configure DNS routing so that user traffic is automatically directed to us-west-2 only if the primary endpoint in us-east-1 fails health checks.",
     question: "How should Amazon Route 53 be configured to achieve this automatic failover?",
     options: [
-      { id: 'A', text: "Create a Geolocation routing policy mapping US East traffic to us-east-1 and US West traffic to us-west-2." },
-      { id: 'B', text: "Configure a Weighted routing policy with weight 100 for us-east-1 and weight 0 for us-west-2." },
-      { id: 'C', text: "Create a Multivalue answer routing policy returning IP addresses for both regions." },
-      { id: 'D', text: "Create a Failover routing policy with the primary record pointing to us-east-1 associated with a Route 53 health check, and a secondary record pointing to us-west-2." }
+      { id: 'A', text: "Configure a Weighted routing policy with weight 100 for us-east-1 and weight 0 for us-west-2." },
+      { id: 'B', text: "Create a Multivalue answer routing policy returning IP addresses for both regions." },
+      { id: 'C', text: "Create a Failover routing policy with the primary record pointing to us-east-1 associated with a Route 53 health check, and a secondary record pointing to us-west-2." },
+      { id: 'D', text: "Create a Geolocation routing policy mapping US East traffic to us-east-1 and US West traffic to us-west-2." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Route 53 Failover routing is designed specifically for active-passive disaster recovery configurations. The primary record is associated with a health check monitoring the primary endpoint; when the health check fails, Route 53 stops responding with the primary IP/alias and returns the secondary standby record. Geolocation (B) routes based on client geography, not health. Weighted routing with weight 0 (C) never routes traffic to the secondary regardless of primary health. Multivalue routing (D) is active-active and distributes traffic across healthy endpoints.",
     referenceUrl: "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html",
@@ -114,12 +114,12 @@ export const AWS_SAA_QUESTIONS_2 = [
     scenario: "A Linux-based content management system running on an Auto Scaling group of EC2 instances requires a shared file system supporting POSIX permissions, concurrent read-write access from multiple instances across multiple Availability Zones, and automatic capacity scaling.",
     question: "Which AWS storage service is the MOST appropriate choice?",
     options: [
-      { id: 'A', text: "Amazon FSx for Windows File Server." },
-      { id: 'B', text: "Amazon Elastic Block Store (Amazon EBS) gp3 volumes." },
-      { id: 'C', text: "Amazon S3 mounted using S3FS-FUSE." },
-      { id: 'D', text: "Amazon Elastic File System (Amazon EFS)." }
+      { id: 'A', text: "Amazon S3 mounted using S3FS-FUSE." },
+      { id: 'B', text: "Amazon FSx for Windows File Server." },
+      { id: 'C', text: "Amazon Elastic File System (Amazon EFS)." },
+      { id: 'D', text: "Amazon Elastic Block Store (Amazon EBS) gp3 volumes." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Amazon EFS provides a serverless, fully managed POSIX-compliant NFS file system that can be concurrently mounted by hundreds of EC2 instances across multiple Availability Zones. Standard EBS volumes (B) can only attach to a single instance in a single AZ (EBS Multi-Attach is limited to io1/io2 in the same AZ without full POSIX lock coordination). S3FS-FUSE (C) is not a fully compliant POSIX file system and suffers from high latency and concurrency bottlenecks. FSx for Windows File Server (D) is designed for Windows SMB environments, not native Linux POSIX workloads.",
     referenceUrl: "https://docs.aws.amazon.com/efs/latest/ug/whatisefs.html",
@@ -135,12 +135,12 @@ export const AWS_SAA_QUESTIONS_2 = [
     scenario: "A mobile gaming leaderboard application uses Amazon DynamoDB. During global tournaments, read request volume spikes to millions of queries per second for the top 100 players. The database experiences read throttling, and the mobile app requires sub-millisecond response times.",
     question: "Which solution provides in-memory read acceleration without requiring code changes to the database queries?",
     options: [
-      { id: 'A', text: "Create a Global Secondary Index (GSI) with projected attributes for the player score." },
+      { id: 'A', text: "Enable Amazon DynamoDB Accelerator (DAX) and update the DynamoDB SDK client endpoint in the application." },
       { id: 'B', text: "Deploy an Amazon ElastiCache Memcached cluster and write custom cache invalidation logic in the application." },
       { id: 'C', text: "Increase the read capacity units (RCUs) on the DynamoDB table to 40,000." },
-      { id: 'D', text: "Enable Amazon DynamoDB Accelerator (DAX) and update the DynamoDB SDK client endpoint in the application." }
+      { id: 'D', text: "Create a Global Secondary Index (GSI) with projected attributes for the player score." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Amazon DynamoDB Accelerator (DAX) is a fully managed, highly available in-memory cache specifically built for DynamoDB. It delivers up to 10x read performance improvements from milliseconds to microseconds at millions of requests per second, and is API-compatible with DynamoDB so application queries do not need to be rewritten. ElastiCache Memcached (B) requires writing and maintaining manual caching and invalidation logic. Provisioning huge RCUs (C) is extremely costly and does not achieve microsecond latency. GSIs (D) help with query patterns but still operate at millisecond disk speeds.",
     referenceUrl: "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.html",
@@ -156,12 +156,12 @@ export const AWS_SAA_QUESTIONS_2 = [
     scenario: "A genomics research institution runs high-performance computing (HPC) simulations on AWS. The computational nodes require a POSIX-compliant shared file system capable of hundreds of gigabytes per second of throughput and millions of IOPS. Input datasets are stored in Amazon S3, and simulation output files must be synchronized back to S3 upon job completion.",
     question: "Which file storage architecture meets these extreme performance requirements?",
     options: [
-      { id: 'A', text: "Amazon FSx for Lustre linked to the input Amazon S3 bucket with a data repository association." },
+      { id: 'A', text: "Amazon EFS with Provisioned Throughput mode and Max I/O performance." },
       { id: 'B', text: "Amazon EBS io2 Block Express volumes in a RAID 0 array attached to an EC2 instance." },
-      { id: 'C', text: "AWS Storage Gateway File Gateway with local SSD cache." },
-      { id: 'D', text: "Amazon EFS with Provisioned Throughput mode and Max I/O performance." }
+      { id: 'C', text: "Amazon FSx for Lustre linked to the input Amazon S3 bucket with a data repository association." },
+      { id: 'D', text: "AWS Storage Gateway File Gateway with local SSD cache." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Amazon FSx for Lustre is purpose-built for HPC, machine learning, and video processing workloads needing massive throughput (hundreds of GB/s) and sub-millisecond latencies. It integrates natively with Amazon S3 via data repository associations, allowing seamless lazy-loading of S3 data into the Lustre file system and writing results back to S3. Amazon EFS (B) cannot match Lustre throughput levels for HPC workloads. EBS RAID 0 (C) is constrained to a single EC2 instance and lacks native S3 data synchronization. Storage Gateway (D) is designed for hybrid on-premises caching, not high-performance supercomputing.",
     referenceUrl: "https://docs.aws.amazon.com/fsx/latest/LustreGuide/what-is.html",
@@ -177,12 +177,12 @@ export const AWS_SAA_QUESTIONS_2 = [
     scenario: "A fintech startup runs a microservices API using Amazon API Gateway and AWS Lambda with a Java runtime. During sudden traffic bursts, end users experience unacceptable 4-second latencies caused by Java virtual machine initialization and VPC network interface attachment.",
     question: "Which configuration reduces API latency during unexpected traffic surges?",
     options: [
-      { id: 'A', text: "Switch API Gateway from an HTTP API to a Regional REST API with edge caching." },
-      { id: 'B', text: "Configure Provisioned Concurrency for the AWS Lambda function aliases." },
-      { id: 'C', text: "Migrate the Lambda functions out of the private VPC into the public AWS subnet." },
-      { id: 'D', text: "Increase the Lambda function timeout from 3 seconds to 15 minutes." }
+      { id: 'A', text: "Migrate the Lambda functions out of the private VPC into the public AWS subnet." },
+      { id: 'B', text: "Switch API Gateway from an HTTP API to a Regional REST API with edge caching." },
+      { id: 'C', text: "Increase the Lambda function timeout from 3 seconds to 15 minutes." },
+      { id: 'D', text: "Configure Provisioned Concurrency for the AWS Lambda function aliases." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "AWS Lambda Provisioned Concurrency pre-warms execution environments (initializing runtime and loading code ahead of time), ensuring that incoming requests are served with double-digit millisecond latencies without experiencing cold starts. Increasing timeout (B) only prevents execution cancellations, not initialization delay. Edge caching (C) only benefits cacheable GET requests, not dynamic API transactions. Removing VPC attachment (D) might compromise backend security and does not solve JVM runtime initialization overhead.",
     referenceUrl: "https://docs.aws.amazon.com/lambda/latest/dg/provisioned-concurrency.html",
@@ -198,13 +198,13 @@ export const AWS_SAA_QUESTIONS_2 = [
     scenario: "A connected vehicle platform receives real-time telemetry from 500,000 IoT devices sending data every 5 seconds. The architecture requires ingesting the streaming data in strict per-vehicle order, allowing multiple analytics applications to independently read the streams, and retaining the raw data stream for 7 days for replay capability.",
     question: "Which AWS architecture satisfies these streaming requirements? (Choose TWO)",
     options: [
-      { id: 'A', text: "Send device telemetry to an Amazon SQS FIFO queue with message deduplication IDs." },
-      { id: 'B', text: "Publish telemetry to an Amazon SNS topic subscribed to multiple Amazon S3 buckets." },
-      { id: 'C', text: "Ingest device telemetry into Amazon Kinesis Data Streams partitioned by vehicle ID." },
-      { id: 'D', text: "Use AWS Glue streaming ETL jobs writing directly to Amazon Athena tables." },
-      { id: 'E', text: "Configure consumer applications using Kinesis Client Library (KCL) with enhanced fan-out." }
+      { id: 'A', text: "Configure consumer applications using Kinesis Client Library (KCL) with enhanced fan-out." },
+      { id: 'B', text: "Ingest device telemetry into Amazon Kinesis Data Streams partitioned by vehicle ID." },
+      { id: 'C', text: "Send device telemetry to an Amazon SQS FIFO queue with message deduplication IDs." },
+      { id: 'D', text: "Publish telemetry to an Amazon SNS topic subscribed to multiple Amazon S3 buckets." },
+      { id: 'E', text: "Use AWS Glue streaming ETL jobs writing directly to Amazon Athena tables." }
     ],
-    correctAnswers: ['C', 'E'],
+    correctAnswers: ['A', 'B'],
     type: "multiple",
     explanation: "Amazon Kinesis Data Streams is built for massive real-time data streaming where order must be preserved per partition key (vehicle ID) and data must be replayable across a retention window (up to 365 days, configurable for 7 days). Kinesis Enhanced Fan-Out provides dedicated 2 MB/sec read throughput per shard to each independent consumer without competing with other readers. SQS FIFO (C) has strict throughput limits (up to 3,000 msg/s with batching) and deletes messages after consumption, preventing multi-consumer replay. SNS (D) does not buffer or retain historical streams. Athena (E) is an analytics query engine, not a stream ingestion pipeline.",
     referenceUrl: "https://docs.aws.amazon.com/streams/latest/dev/introduction.html",
@@ -220,12 +220,12 @@ export const AWS_SAA_QUESTIONS_2 = [
     scenario: "A DevOps engineer needs to configure automated deployment scripts running in Account A to deploy CloudFormation stacks and Amazon ECS tasks into Account B. Corporate security policy strictly forbids generating or storing long-lived IAM access keys.",
     question: "What is the MOST secure method to provide Account A access to Account B?",
     options: [
-      { id: 'A', text: "Configure VPC Peering between Account A and Account B and allow root access through the route tables." },
-      { id: 'B', text: "Create an IAM group in Account B and add Account A's AWS account root ID to the group." },
-      { id: 'C', text: "Create an IAM role in Account B with a trust policy allowing Account A, and configure Account A to assume the role using AWS STS." },
-      { id: 'D', text: "Create an IAM user in Account B, generate access keys, and store them encrypted in AWS Secrets Manager in Account A." }
+      { id: 'A', text: "Create an IAM role in Account B with a trust policy allowing Account A, and configure Account A to assume the role using AWS STS." },
+      { id: 'B', text: "Create an IAM user in Account B, generate access keys, and store them encrypted in AWS Secrets Manager in Account A." },
+      { id: 'C', text: "Configure VPC Peering between Account A and Account B and allow root access through the route tables." },
+      { id: 'D', text: "Create an IAM group in Account B and add Account A's AWS account root ID to the group." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Cross-account IAM roles with trust policies are the AWS-recommended standard for secure cross-account access. The principal in Account A assumes the role in Account B via the AWS Security Token Service (STS AssumeRole), receiving short-lived, automatically expiring credentials. Storing IAM user keys in Secrets Manager (B) still uses long-lived credentials. VPC Peering (C) connects network routes, not IAM permissions. IAM groups (D) cannot contain external AWS accounts.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross_account_with_roles.html",
@@ -241,12 +241,12 @@ export const AWS_SAA_QUESTIONS_2 = [
     scenario: "An enterprise uses AWS Organizations with 50 member accounts. The Chief Information Security Officer (CISO) mandates that no account administrator in any member account may disable AWS CloudTrail, delete security audit S3 buckets, or launch EC2 instances outside approved AWS regions.",
     question: "Which AWS service and feature enforces these guardrails across all accounts?",
     options: [
-      { id: 'A', text: "Service Control Policies (SCPs) applied to the Organization root or Organizational Units (OUs)." },
-      { id: 'B', text: "Amazon GuardDuty detectors with automated AWS Lambda containment functions." },
-      { id: 'C', text: "AWS Config conformance packs deployed with auto-remediation scripts." },
-      { id: 'D', text: "IAM permission boundaries attached to every IAM user in each individual member account." }
+      { id: 'A', text: "AWS Config conformance packs deployed with auto-remediation scripts." },
+      { id: 'B', text: "IAM permission boundaries attached to every IAM user in each individual member account." },
+      { id: 'C', text: "Amazon GuardDuty detectors with automated AWS Lambda containment functions." },
+      { id: 'D', text: "Service Control Policies (SCPs) applied to the Organization root or Organizational Units (OUs)." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Service Control Policies (SCPs) in AWS Organizations specify the maximum permissions for an organization or organizational unit (OU). SCPs act as centralized guardrails that even account root users and administrators in member accounts cannot override or disable. IAM permissions boundaries (B) must be manually applied per user and can be removed by account admins. AWS Config (C) detects and remediates compliance drift after the fact rather than preventing unauthorized actions centrally. GuardDuty (D) is a threat detection service, not an authorization policy engine.",
     referenceUrl: "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html",
@@ -262,13 +262,13 @@ export const AWS_SAA_QUESTIONS_2 = [
     scenario: "A popular media streaming website is hosted on Amazon EC2 instances behind an Application Load Balancer with Amazon CloudFront as the CDN. The security team must protect the site against HTTP flood Layer 7 DDoS attacks, SQL injection attempts in query strings, and bad bot scrapers.",
     question: "Which architectural combination provides this protection? (Choose TWO)",
     options: [
-      { id: 'A', text: "Associate AWS WAF with the CloudFront distribution and configure rate-based rules and AWS Managed Core/SQLi rule sets." },
-      { id: 'B', text: "Replace the Application Load Balancer with an Amazon API Gateway Private REST API." },
+      { id: 'A', text: "Deploy Amazon Inspector agents on all EC2 instances to block malicious inbound web requests." },
+      { id: 'B', text: "Associate AWS WAF with the CloudFront distribution and configure rate-based rules and AWS Managed Core/SQLi rule sets." },
       { id: 'C', text: "Subscribe the AWS account to AWS Shield Advanced for automated layer 7 DDoS mitigation and DDoS cost protection." },
-      { id: 'D', text: "Configure Security Groups on the ALB to deny traffic originating from suspicious autonomous system numbers (ASNs)." },
-      { id: 'E', text: "Deploy Amazon Inspector agents on all EC2 instances to block malicious inbound web requests." }
+      { id: 'D', text: "Replace the Application Load Balancer with an Amazon API Gateway Private REST API." },
+      { id: 'E', text: "Configure Security Groups on the ALB to deny traffic originating from suspicious autonomous system numbers (ASNs)." }
     ],
-    correctAnswers: ['A', 'C'],
+    correctAnswers: ['B', 'C'],
     type: "multiple",
     explanation: "AWS WAF associated with CloudFront inspects incoming web requests at edge locations, blocking SQL injection, common web vulnerabilities, and rate-limiting HTTP flood attacks before they reach the origin. AWS Shield Advanced provides 24/7 access to the AWS Shield Response Team (SRT), advanced DDoS detection, financial cost protection against traffic spikes during attacks, and automatic layer 7 DDoS mitigation. Amazon Inspector (C) scans for software vulnerabilities and OS misconfigurations, not live web traffic attacks. Security groups (D) filter by IP/CIDR/port, not ASNs or application payloads. API Gateway Private APIs (E) are accessible only from within a VPC, breaking public web accessibility.",
     referenceUrl: "https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html",
@@ -284,12 +284,12 @@ export const AWS_SAA_QUESTIONS_2 = [
     scenario: "A healthcare client stores sensitive medical records in an Amazon S3 bucket. Compliance mandates that data must be encrypted at rest using encryption keys where the customer retains full control over key rotation schedules, deletion policies, and independent IAM access auditing.",
     question: "Which encryption configuration satisfies these requirements?",
     options: [
-      { id: 'A', text: "Server-Side Encryption with Customer-Provided Keys (SSE-C)." },
-      { id: 'B', text: "Server-Side Encryption with AWS KMS Customer Managed Keys (SSE-KMS)." },
-      { id: 'C', text: "Client-side encryption using plain AWS Secrets Manager strings." },
-      { id: 'D', text: "Server-Side Encryption with Amazon S3-Managed Keys (SSE-S3)." }
+      { id: 'A', text: "Server-Side Encryption with Amazon S3-Managed Keys (SSE-S3)." },
+      { id: 'B', text: "Server-Side Encryption with Customer-Provided Keys (SSE-C)." },
+      { id: 'C', text: "Server-Side Encryption with AWS KMS Customer Managed Keys (SSE-KMS)." },
+      { id: 'D', text: "Client-side encryption using plain AWS Secrets Manager strings." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "AWS KMS Customer Managed Keys (CMKs) give customers complete control over key creation, rotation policies, key policies, IAM integration, disabling, and CloudTrail audit logging. SSE-S3 (B) uses AWS-owned and managed 256-bit AES keys without customer key policy control or rotation customization. SSE-C (C) requires the customer to store, manage, and send raw cryptographic keys with every single request over HTTPS, adding significant client-side operational burden and risk. Secrets Manager (D) is for credential storage, not object envelope encryption at scale.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html",
@@ -307,10 +307,10 @@ export const AWS_SAA_QUESTIONS_2 = [
     options: [
       { id: 'A', text: "AWS Identity and Access Management (IAM)." },
       { id: 'B', text: "AWS Directory Service for Microsoft Active Directory." },
-      { id: 'C', text: "Amazon Cognito User Pools." },
-      { id: 'D', text: "Amazon Cognito Identity Pools (Federated Identities)." }
+      { id: 'C', text: "Amazon Cognito Identity Pools (Federated Identities)." },
+      { id: 'D', text: "Amazon Cognito User Pools." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Amazon Cognito User Pools provide a managed user directory for sign-up, sign-in, self-service password reset, MFA, social federation, and JWT token issuance. Cognito Identity Pools (B) are used to exchange authentication tokens for temporary AWS IAM credentials to access AWS services directly. IAM (C) is meant for internal employees and AWS resources, not end-user consumer mobile app authentication directories. AWS Directory Service (D) manages enterprise Active Directory domains for Windows workloads.",
     referenceUrl: "https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html",
@@ -326,12 +326,12 @@ export const AWS_SAA_QUESTIONS_2 = [
     scenario: "A company operates hundreds of EC2 instances in private subnets that continuously upload terabytes of backup data to Amazon S3. The monthly AWS bill reveals thousands of dollars in NAT Gateway data processing charges for traffic directed to S3.",
     question: "How can the Solutions Architect eliminate these NAT Gateway data transfer charges?",
     options: [
-      { id: 'A', text: "Create an Amazon S3 Gateway VPC Endpoint and update the private subnet route tables." },
+      { id: 'A', text: "Deploy an AWS Transit Gateway and route S3 traffic across a peering connection." },
       { id: 'B', text: "Replace the NAT Gateway with a NAT instance running on a t4g.nano EC2 instance." },
-      { id: 'C', text: "Assign Elastic IP addresses directly to all private EC2 instances." },
-      { id: 'D', text: "Deploy an AWS Transit Gateway and route S3 traffic across a peering connection." }
+      { id: 'C', text: "Create an Amazon S3 Gateway VPC Endpoint and update the private subnet route tables." },
+      { id: 'D', text: "Assign Elastic IP addresses directly to all private EC2 instances." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Gateway VPC Endpoints for Amazon S3 allow instances in private subnets to communicate directly with S3 over the AWS internal network backbone without routing through a NAT Gateway or Internet Gateway. Gateway endpoints have zero hourly charges and zero data processing fees. Transit Gateway (B) incurs additional hourly attachment and per-GB processing charges. Assigning Elastic IPs (C) turns private instances into public instances, creating security compliance violations. A NAT instance (D) creates a bandwidth bottleneck, single point of failure, and operational overhead.",
     referenceUrl: "https://docs.aws.amazon.com/vpc/latest/privatelink/vpc-endpoints-s3.html",
@@ -389,12 +389,12 @@ export const AWS_SAA_QUESTIONS_2 = [
     scenario: "A big data analytics pipeline generates 10 TB of intermediate temporary scratch files daily during batch Spark processing on Amazon EC2. The temporary files are deleted after the 4-hour batch job finishes. If an instance terminates unexpectedly, the job can safely recompute the lost batch data.",
     question: "Which storage configuration provides the highest I/O performance at the lowest cost?",
     options: [
-      { id: 'A', text: "Multi-AZ Amazon S3 Standard bucket with S3 Transfer Acceleration enabled." },
-      { id: 'B', text: "EC2 Instance Store SSD storage included in storage-optimized instance types." },
-      { id: 'C', text: "Amazon EBS io2 Block Express volumes with 64,000 Provisioned IOPS." },
-      { id: 'D', text: "Amazon EFS file system configured with Provisioned Throughput." }
+      { id: 'A', text: "Amazon EBS io2 Block Express volumes with 64,000 Provisioned IOPS." },
+      { id: 'B', text: "Amazon EFS file system configured with Provisioned Throughput." },
+      { id: 'C', text: "EC2 Instance Store SSD storage included in storage-optimized instance types." },
+      { id: 'D', text: "Multi-AZ Amazon S3 Standard bucket with S3 Transfer Acceleration enabled." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "EC2 Instance Store provides ephemeral block-level storage physically attached to the host computer, delivering millions of IOPS and very low latency at zero additional cost (it is included in the instance hourly price). Since the analytics workload is temporary scratch data and restartable, instance store is the most cost-effective choice. EBS io2 volumes (B) are extremely expensive with high hourly IOPS charges. EFS (C) and S3 with Transfer Acceleration (D) introduce unnecessary network overhead and recurring storage fees for throwaway scratch data.",
     referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html",
@@ -410,12 +410,12 @@ export const AWS_SAA_QUESTIONS_2 = [
     scenario: "A software company hosts a testing environment for client staging. The application database uses Amazon Aurora MySQL. Usage occurs only during business hours (8 AM to 6 PM, Monday through Friday), with sporadic weekend client reviews and zero traffic overnight.",
     question: "Which database architecture optimizes cost without sacrificing automatic high availability or performance during active hours?",
     options: [
-      { id: 'A', text: "Amazon DynamoDB with provisioned capacity set to 10,000 WCU and 10,000 RCU." },
-      { id: 'B', text: "A provisioned db.r6g.4xlarge Multi-AZ cluster running 24/7 with auto-scaling read replicas." },
-      { id: 'C', text: "Amazon Aurora Serverless v2 with configured minimum and maximum Aurora Capacity Units (ACUs)." },
-      { id: 'D', text: "Amazon RDS for MySQL single-AZ instance stopped and started using AWS Systems Manager maintenance windows." }
+      { id: 'A', text: "A provisioned db.r6g.4xlarge Multi-AZ cluster running 24/7 with auto-scaling read replicas." },
+      { id: 'B', text: "Amazon Aurora Serverless v2 with configured minimum and maximum Aurora Capacity Units (ACUs)." },
+      { id: 'C', text: "Amazon RDS for MySQL single-AZ instance stopped and started using AWS Systems Manager maintenance windows." },
+      { id: 'D', text: "Amazon DynamoDB with provisioned capacity set to 10,000 WCU and 10,000 RCU." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Amazon Aurora Serverless v2 automatically scales database compute and memory capacity in fractions of a second based on application demand (measured in ACUs), scaling down to fractional capacity during idle periods and scaling up instantly when requests resume. This provides substantial cost savings during overnight and weekend idle periods while maintaining high availability. Running large provisioned clusters 24/7 (B) wastes thousands of dollars on idle hours. Stopping/starting RDS (C) causes long startup delays and cannot handle sporadic weekend access. DynamoDB (D) requires rewriting the relational MySQL application.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.html",
@@ -432,11 +432,11 @@ export const AWS_SAA_QUESTIONS_2 = [
     question: "Which Route 53 routing policy allows biasing traffic routing dynamically toward specific AWS regions or geographic locations?",
     options: [
       { id: 'A', text: "Route 53 Multivalue Answer policy." },
-      { id: 'B', text: "Route 53 Simple Routing policy." },
-      { id: 'C', text: "Route 53 Geoproximity Routing policy with configured routing bias values." },
+      { id: 'B', text: "Route 53 Geoproximity Routing policy with configured routing bias values." },
+      { id: 'C', text: "Route 53 Simple Routing policy." },
       { id: 'D', text: "Route 53 Failover Routing policy." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Route 53 Geoproximity Routing (configured via Route 53 Traffic Flow) lets you route traffic based on the geographic location of users and resources, and use bias values (from -99 to +99) to expand or shrink the geographic footprint served by a particular region. Simple (B), Failover (C), and Multivalue (D) do not support geographic bias tuning.",
     referenceUrl: "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geoproximity.html",
@@ -473,12 +473,12 @@ export const AWS_SAA_QUESTIONS_2 = [
     scenario: "An enterprise cloud architecture consists of 30 AWS accounts in AWS Organizations. A centralized Network Account owns the corporate AWS Transit Gateway. The infrastructure team must allow all 30 member accounts to attach their VPCs to the Transit Gateway without managing peering meshes.",
     question: "How should the Transit Gateway be shared securely across all AWS accounts in the organization?",
     options: [
-      { id: 'A', text: "Create cross-account IAM roles in each account and grant access to the Transit Gateway API." },
-      { id: 'B', text: "Share the AWS Transit Gateway with the entire AWS Organization using AWS Resource Access Manager (AWS RAM)." },
-      { id: 'C', text: "Create VPC peering connections between all member account VPCs." },
-      { id: 'D', text: "Establish 30 Site-to-Site VPN connections between each member account and the Network account." }
+      { id: 'A', text: "Establish 30 Site-to-Site VPN connections between each member account and the Network account." },
+      { id: 'B', text: "Create VPC peering connections between all member account VPCs." },
+      { id: 'C', text: "Create cross-account IAM roles in each account and grant access to the Transit Gateway API." },
+      { id: 'D', text: "Share the AWS Transit Gateway with the entire AWS Organization using AWS Resource Access Manager (AWS RAM)." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "AWS Resource Access Manager (AWS RAM) enables securely sharing AWS resources (including Transit Gateways, Subnets, and Route 53 Resolver rules) across AWS accounts within an AWS Organization. Once shared via RAM, member accounts can attach their VPCs directly to the Transit Gateway. IAM roles (B) do not provide cross-account VPC network attachments. VPNs (C) and VPC peering (D) introduce unnecessary cost, complexity, and network management overhead.",
     referenceUrl: "https://docs.aws.amazon.com/ram/latest/userguide/shareable.html",
@@ -494,12 +494,12 @@ export const AWS_SAA_QUESTIONS_2 = [
     scenario: "A startup is launching a new unpredictable mobile app. Traffic forecasts range from zero requests per minute overnight to unknown spikes during media launches.",
     question: "Which DynamoDB capacity mode is the MOST cost-effective and operationally efficient choice for completely unpredictable workloads?",
     options: [
-      { id: 'A', text: "DynamoDB On-Demand capacity mode." },
-      { id: 'B', text: "Amazon RDS Single-AZ with fixed storage." },
+      { id: 'A', text: "DynamoDB Provisioned capacity mode with Reserved Capacity." },
+      { id: 'B', text: "DynamoDB On-Demand capacity mode." },
       { id: 'C', text: "DynamoDB Provisioned capacity mode with 10,000 RCU/WCU." },
-      { id: 'D', text: "DynamoDB Provisioned capacity mode with Reserved Capacity." }
+      { id: 'D', text: "Amazon RDS Single-AZ with fixed storage." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "DynamoDB On-Demand capacity mode automatically accommodates unpredictable workloads without capacity planning, charging strictly per read/write request unit ($0 when idle). Provisioned mode with static over-provisioning (B) or Reserved Capacity (C) incurs high continuous hourly costs regardless of whether requests occur. RDS (D) is a relational database requiring manual instance sizing.",
     referenceUrl: "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html",
@@ -516,11 +516,11 @@ export const AWS_SAA_QUESTIONS_2 = [
     question: "Which S3 feature should be used to replicate existing historical objects across regions?",
     options: [
       { id: 'A', text: "Re-enable Cross-Region Replication with the overwrite flag." },
-      { id: 'B', text: "S3 Batch Replication using S3 Batch Operations." },
-      { id: 'C', text: "AWS Snowball offline migration." },
-      { id: 'D', text: "AWS DataSync manual copy script." }
+      { id: 'B', text: "AWS Snowball offline migration." },
+      { id: 'C', text: "AWS DataSync manual copy script." },
+      { id: 'D', text: "S3 Batch Replication using S3 Batch Operations." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "S3 Cross-Region Replication (CRR) automatically replicates new objects created *after* the replication rule is configured. To replicate existing objects that were stored in the bucket prior to enabling replication, S3 Batch Replication (powered by S3 Batch Operations) is used to perform a one-time replication job across the entire historical inventory. Re-enabling CRR (B) does not replicate existing objects. DataSync (C) and Snowball (D) are not native integrated S3 replication mechanisms.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-batch-replication-batch-ops.html",

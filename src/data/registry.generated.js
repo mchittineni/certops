@@ -14,10 +14,28 @@ export const CONTENT_REGISTRY = {
   },
   'aws-clf': {
     questions: [
-      pack('./certs/aws-clf/questions/pack-1.js', () => import('./certs/aws-clf/questions/pack-1.js'))
+      pack('./certs/aws-clf/questions/pack-1.js', () => import('./certs/aws-clf/questions/pack-1.js')),
+      pack('./certs/aws-clf/questions/pack-2.js', () => import('./certs/aws-clf/questions/pack-2.js')),
+      pack('./certs/aws-clf/questions/pack-3.js', () => import('./certs/aws-clf/questions/pack-3.js')),
+      pack('./certs/aws-clf/questions/pack-4.js', () => import('./certs/aws-clf/questions/pack-4.js')),
+      pack('./certs/aws-clf/questions/pack-5.js', () => import('./certs/aws-clf/questions/pack-5.js')),
+      pack('./certs/aws-clf/questions/pack-6.js', () => import('./certs/aws-clf/questions/pack-6.js')),
+      pack('./certs/aws-clf/questions/pack-7.js', () => import('./certs/aws-clf/questions/pack-7.js')),
+      pack('./certs/aws-clf/questions/pack-8.js', () => import('./certs/aws-clf/questions/pack-8.js')),
+      pack('./certs/aws-clf/questions/pack-9.js', () => import('./certs/aws-clf/questions/pack-9.js')),
+      pack('./certs/aws-clf/questions/pack-10.js', () => import('./certs/aws-clf/questions/pack-10.js'))
     ],
     flashcards: [
-      pack('./certs/aws-clf/flashcards/pack-1.js', () => import('./certs/aws-clf/flashcards/pack-1.js'))
+      pack('./certs/aws-clf/flashcards/pack-1.js', () => import('./certs/aws-clf/flashcards/pack-1.js')),
+      pack('./certs/aws-clf/flashcards/pack-2.js', () => import('./certs/aws-clf/flashcards/pack-2.js')),
+      pack('./certs/aws-clf/flashcards/pack-3.js', () => import('./certs/aws-clf/flashcards/pack-3.js')),
+      pack('./certs/aws-clf/flashcards/pack-4.js', () => import('./certs/aws-clf/flashcards/pack-4.js')),
+      pack('./certs/aws-clf/flashcards/pack-5.js', () => import('./certs/aws-clf/flashcards/pack-5.js')),
+      pack('./certs/aws-clf/flashcards/pack-6.js', () => import('./certs/aws-clf/flashcards/pack-6.js')),
+      pack('./certs/aws-clf/flashcards/pack-7.js', () => import('./certs/aws-clf/flashcards/pack-7.js')),
+      pack('./certs/aws-clf/flashcards/pack-8.js', () => import('./certs/aws-clf/flashcards/pack-8.js')),
+      pack('./certs/aws-clf/flashcards/pack-9.js', () => import('./certs/aws-clf/flashcards/pack-9.js')),
+      pack('./certs/aws-clf/flashcards/pack-10.js', () => import('./certs/aws-clf/flashcards/pack-10.js'))
     ]
   },
   'aws-dop': {
@@ -106,10 +124,28 @@ export const CONTENT_REGISTRY = {
   },
   'azure-az900': {
     questions: [
-      pack('./certs/azure-az900/questions/pack-1.js', () => import('./certs/azure-az900/questions/pack-1.js'))
+      pack('./certs/azure-az900/questions/pack-1.js', () => import('./certs/azure-az900/questions/pack-1.js')),
+      pack('./certs/azure-az900/questions/pack-2.js', () => import('./certs/azure-az900/questions/pack-2.js')),
+      pack('./certs/azure-az900/questions/pack-3.js', () => import('./certs/azure-az900/questions/pack-3.js')),
+      pack('./certs/azure-az900/questions/pack-4.js', () => import('./certs/azure-az900/questions/pack-4.js')),
+      pack('./certs/azure-az900/questions/pack-5.js', () => import('./certs/azure-az900/questions/pack-5.js')),
+      pack('./certs/azure-az900/questions/pack-6.js', () => import('./certs/azure-az900/questions/pack-6.js')),
+      pack('./certs/azure-az900/questions/pack-7.js', () => import('./certs/azure-az900/questions/pack-7.js')),
+      pack('./certs/azure-az900/questions/pack-8.js', () => import('./certs/azure-az900/questions/pack-8.js')),
+      pack('./certs/azure-az900/questions/pack-9.js', () => import('./certs/azure-az900/questions/pack-9.js')),
+      pack('./certs/azure-az900/questions/pack-10.js', () => import('./certs/azure-az900/questions/pack-10.js'))
     ],
     flashcards: [
-      pack('./certs/azure-az900/flashcards/pack-1.js', () => import('./certs/azure-az900/flashcards/pack-1.js'))
+      pack('./certs/azure-az900/flashcards/pack-1.js', () => import('./certs/azure-az900/flashcards/pack-1.js')),
+      pack('./certs/azure-az900/flashcards/pack-2.js', () => import('./certs/azure-az900/flashcards/pack-2.js')),
+      pack('./certs/azure-az900/flashcards/pack-3.js', () => import('./certs/azure-az900/flashcards/pack-3.js')),
+      pack('./certs/azure-az900/flashcards/pack-4.js', () => import('./certs/azure-az900/flashcards/pack-4.js')),
+      pack('./certs/azure-az900/flashcards/pack-5.js', () => import('./certs/azure-az900/flashcards/pack-5.js')),
+      pack('./certs/azure-az900/flashcards/pack-6.js', () => import('./certs/azure-az900/flashcards/pack-6.js')),
+      pack('./certs/azure-az900/flashcards/pack-7.js', () => import('./certs/azure-az900/flashcards/pack-7.js')),
+      pack('./certs/azure-az900/flashcards/pack-8.js', () => import('./certs/azure-az900/flashcards/pack-8.js')),
+      pack('./certs/azure-az900/flashcards/pack-9.js', () => import('./certs/azure-az900/flashcards/pack-9.js')),
+      pack('./certs/azure-az900/flashcards/pack-10.js', () => import('./certs/azure-az900/flashcards/pack-10.js'))
     ]
   },
   'cloud-economics': {

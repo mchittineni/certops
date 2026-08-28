@@ -27,36 +27,36 @@ export const CONTENT_MANIFEST = {
   },
   "aws-clf": {
     "questions": {
-      "total": 8,
+      "total": 250,
       "byDifficulty": {
-        "easy": 3,
-        "medium": 3,
-        "hard": 2
+        "easy": 122,
+        "medium": 111,
+        "hard": 17
       },
       "byDomain": {
-        "d1": 1,
-        "d4": 2,
-        "d3": 2,
-        "d2": 3
+        "d1": 30,
+        "d4": 36,
+        "d3": 130,
+        "d2": 54
       },
-      "packs": 1,
-      "loadedPacks": 1
+      "packs": 10,
+      "loadedPacks": 10
     },
     "flashcards": {
-      "total": 10,
+      "total": 250,
       "byDifficulty": {
-        "easy": 7,
-        "medium": 3,
-        "hard": 0
+        "easy": 90,
+        "medium": 85,
+        "hard": 75
       },
       "byDomain": {
-        "d1": 3,
-        "d2": 3,
-        "d4": 2,
-        "d3": 2
+        "d1": 60,
+        "d2": 68,
+        "d4": 58,
+        "d3": 64
       },
-      "packs": 1,
-      "loadedPacks": 1
+      "packs": 10,
+      "loadedPacks": 10
     }
   },
   "aws-dop": {
@@ -323,34 +323,34 @@ export const CONTENT_MANIFEST = {
   },
   "azure-az900": {
     "questions": {
-      "total": 9,
+      "total": 250,
       "byDifficulty": {
-        "easy": 3,
-        "medium": 3,
-        "hard": 3
+        "easy": 83,
+        "medium": 84,
+        "hard": 83
       },
       "byDomain": {
-        "d1": 2,
-        "d2": 4,
-        "d3": 3
+        "d1": 75,
+        "d2": 100,
+        "d3": 75
       },
-      "packs": 1,
-      "loadedPacks": 1
+      "packs": 10,
+      "loadedPacks": 10
     },
     "flashcards": {
-      "total": 10,
+      "total": 250,
       "byDifficulty": {
-        "easy": 4,
-        "medium": 5,
-        "hard": 1
+        "easy": 83,
+        "medium": 84,
+        "hard": 83
       },
       "byDomain": {
-        "d1": 2,
-        "d2": 4,
-        "d3": 4
+        "d1": 75,
+        "d2": 100,
+        "d3": 75
       },
-      "packs": 1,
-      "loadedPacks": 1
+      "packs": 10,
+      "loadedPacks": 10
     }
   },
   "cloud-economics": {
@@ -1316,7 +1316,7 @@ export const CONTENT_MANIFEST = {
 };
 
 export const CONTENT_TOTALS = {
-  "questions": 536,
-  "flashcards": 542,
+  "questions": 1019,
+  "flashcards": 1022,
   "certifications": 52
 };
