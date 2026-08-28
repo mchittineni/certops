@@ -11,10 +11,12 @@ progress is tracked by `npm run stats` and in
 ## [Unreleased]
 
 ### Content
+- Scaled **AWS Certified Cloud Practitioner (`aws-clf`)** question bank and flashcard deck to **250 questions** and **250 flashcards** across 10 modular packs with verified blueprint domains.
+- Scaled **Microsoft Azure Fundamentals (`azure-az900`)** question bank and flashcard deck to **250 questions** and **250 flashcards** across 10 modular packs with verified blueprint domains.
 - Scaled **AWS Certified Solutions Architect – Associate (`aws-saa`)** question bank and flashcard deck to **250 questions** and **250 flashcards** across 10 modular packs.
 - Activated and verified **Microsoft Azure Administrator Associate (`azure-az104`)** blueprint, adding **250 exam questions** and **250 flashcards** across 10 modular packs.
-- Balanced and randomized option placement across all 536 questions in the bank to ensure even distribution across choices A, B, C, and D.
-- Added `scripts/shuffle-options.mjs` utility for maintaining balanced option positions.
+- Balanced and randomized option placement across all 1,019 questions in the bank to ensure even distribution across choices A (250), B (259), C (242), and D (246).
+- Added `scripts/shuffle-options.mjs` utility for maintaining balanced option positions across question banks.
 
 ## [0.1.0] — 2026-08-27
 
