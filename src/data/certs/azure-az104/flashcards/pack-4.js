@@ -85,7 +85,7 @@ export const AZURE_AZ104_FLASHCARDS_4 = [
     certId: 'azure-az104',
     domainId: 'd2',
     front: 'Read-Access Geo-Redundant Storage (RA-GRS) Endpoint Architecture',
-    hint: 'Dedicated secondary DNS endpoint (<accountname>-secondary.blob.core.windows.net).',
+    hint: 'Dedicated secondary DNS endpoint (ACCOUNTNAME-secondary.blob.core.windows.net).',
     back: 'Provides a secondary read-only DNS endpoint (<code>&lt;name&gt;-secondary.blob.core.windows.net</code>) allowing applications to read data from the paired region at any time for high-read analytics or regional read resilience.',
     tags: ['Azure Storage', 'RA-GRS', 'Redundancy', 'High Availability']
   },
