@@ -25,9 +25,9 @@ every answer moves your difficulty band toward your actual level.
 | | |
 | --- | --- |
 | Certifications scaffolded | **52** across six disciplines |
-| Live (launchable, with content) | **6** — `aws-saa` `aws-clf` `azure-az104` `azure-az900` `gcp-ace` `k8s-cka` |
-| Questions authored | **1,019** of a 26,000 target (500 × 52) |
-| Flashcards authored | **1,022** |
+| Live (launchable, with content) | **9** — `aws-saa` `aws-clf` `azure-az104` `azure-az900` `github-actions` `finops-focp` `github-ghas` `gcp-ace` `k8s-cka` |
+| Questions authored | **1,944** of a 26,000 target (500 × 52) |
+| Flashcards authored | **1,772** |
 
 The 47 remaining certifications exist as folders with **placeholder blueprints** — they
 appear on the roadmap panel but cannot be launched. That is the honest state of things,
