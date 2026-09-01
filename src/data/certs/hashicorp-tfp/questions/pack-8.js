@@ -520,7 +520,7 @@ export const HASHICORP_TFP_QUESTIONS_8 = [
     ],
     correctAnswers: ['D'],
     type: "single",
-    explanation: "Terraform must record attribute values to detect drift, so secrets in state are managed through encryption, access control, and rotation rather than removed. Sensitivity marking affects display only, and state stores real values rather than hashes.",
+    explanation: "Terraform must record attribute values to detect drift, so a secret the provider generates is managed through encryption, access control, and rotation rather than removed. Sensitivity marking affects display only, and state stores real values rather than hashes. Write-only arguments do keep a value out of state, but they are input arguments a caller supplies - they cannot carry a value the provider itself generates.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/state/sensitive-data",
     tags: ["Secrets", "State", "Compliance"]
   }
