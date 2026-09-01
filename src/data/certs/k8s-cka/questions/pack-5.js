@@ -1,6 +1,6 @@
 export const K8S_CKA_QUESTIONS_5 = [
   {
-    id: "k8s-cka-q-p5-1",
+    id: "k8s-cka-86",
     difficulty: "medium",
     certId: "k8s-cka",
     domainId: "d2",
@@ -9,19 +9,19 @@ export const K8S_CKA_QUESTIONS_5 = [
     scenario: "A pod reports CreateContainerConfigError. The image is present on the node and the registry is reachable.",
     question: "Which cause fits that status?",
     options: [
-      { id: 'A', text: "The pod references a ConfigMap or Secret key that does not exist." },
+      { id: 'A', text: "The container exited non-zero on startup." },
       { id: 'B', text: "The registry credentials are wrong." },
-      { id: 'C', text: "The container exited non-zero on startup." },
+      { id: 'C', text: "The pod references a ConfigMap or Secret key that does not exist." },
       { id: 'D', text: "No node has enough memory for the pod." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "CreateContainerConfigError is raised when the kubelet cannot assemble the container configuration, almost always because a referenced ConfigMap, Secret, or key is missing. Bad credentials produce ImagePullBackOff, a non-zero exit produces CrashLoopBackOff, and insufficient memory leaves the pod Pending.",
     referenceUrl: "https://kubernetes.io/docs/tasks/debug/debug-application/",
     tags: ["Troubleshooting", "ConfigMap", "Secrets"]
   },
   {
-    id: "k8s-cka-q-p5-2",
+    id: "k8s-cka-87",
     difficulty: "hard",
     certId: "k8s-cka",
     domainId: "d4",
@@ -42,7 +42,7 @@ export const K8S_CKA_QUESTIONS_5 = [
     tags: ["etcd", "Quorum", "Disaster Recovery"]
   },
   {
-    id: "k8s-cka-q-p5-3",
+    id: "k8s-cka-88",
     difficulty: "easy",
     certId: "k8s-cka",
     domainId: "d5",
@@ -51,19 +51,19 @@ export const K8S_CKA_QUESTIONS_5 = [
     scenario: "A Service of type NodePort is created without specifying a nodePort value.",
     question: "From which range does the API server allocate the port by default?",
     options: [
-      { id: 'A', text: "30000-32767" },
-      { id: 'B', text: "1024-65535" },
-      { id: 'C', text: "8000-9000" },
-      { id: 'D', text: "10250-10259" }
+      { id: 'A', text: "10250-10259" },
+      { id: 'B', text: "30000-32767" },
+      { id: 'C', text: "1024-65535" },
+      { id: 'D', text: "8000-9000" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "The default service node port range is 30000-32767, configurable with the API server flag --service-node-port-range. The other ranges describe unprivileged ports generally, an arbitrary application range, and the kubelet and control plane component ports respectively.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/service/",
     tags: ["Services", "NodePort", "Networking"]
   },
   {
-    id: "k8s-cka-q-p5-4",
+    id: "k8s-cka-89",
     difficulty: "medium",
     certId: "k8s-cka",
     domainId: "d3",
@@ -72,19 +72,19 @@ export const K8S_CKA_QUESTIONS_5 = [
     scenario: "An HPA targeting 60 percent CPU utilisation reports \"unknown\" for the current metric and never scales.",
     question: "Which two conditions must be satisfied for CPU-based autoscaling? (Choose two.)",
     options: [
-      { id: 'A', text: "metrics-server must be installed and serving the Metrics API." },
-      { id: 'B', text: "The deployment must set a PodDisruptionBudget." },
-      { id: 'C', text: "The pods must run with a Guaranteed QoS class." },
-      { id: 'D', text: "The target pods must define CPU requests." }
+      { id: 'A', text: "The deployment must set a PodDisruptionBudget." },
+      { id: 'B', text: "metrics-server must be installed and serving the Metrics API." },
+      { id: 'C', text: "The target pods must define CPU requests." },
+      { id: 'D', text: "The pods must run with a Guaranteed QoS class." }
     ],
-    correctAnswers: ['A', 'D'],
+    correctAnswers: ['B', 'C'],
     type: "multiple",
     explanation: "Utilisation-based autoscaling is a percentage of the CPU request, so the pods must declare requests and metrics-server must supply live usage through the Metrics API. A PodDisruptionBudget governs evictions and has no role in autoscaling, and any QoS class works as long as requests exist.",
     referenceUrl: "https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/",
     tags: ["HPA", "Autoscaling", "Metrics"]
   },
   {
-    id: "k8s-cka-q-p5-5",
+    id: "k8s-cka-90",
     difficulty: "medium",
     certId: "k8s-cka",
     domainId: "d1",
@@ -94,8 +94,8 @@ export const K8S_CKA_QUESTIONS_5 = [
     question: "What happens to the PersistentVolumeClaims of the removed pods?",
     options: [
       { id: 'A', text: "They are retained by default and reattached to the pods when the StatefulSet scales back up." },
-      { id: 'B', text: "They are merged into the claim of the surviving replica." },
-      { id: 'C', text: "They are deleted with the pods and new empty volumes are created on scale-up." },
+      { id: 'B', text: "They are deleted with the pods and new empty volumes are created on scale-up." },
+      { id: 'C', text: "They are merged into the claim of the surviving replica." },
       { id: 'D', text: "They are marked Released and require manual rebinding." }
     ],
     correctAnswers: ['A'],
@@ -105,7 +105,7 @@ export const K8S_CKA_QUESTIONS_5 = [
     tags: ["StatefulSet", "Storage", "PVC"]
   },
   {
-    id: "k8s-cka-q-p5-6",
+    id: "k8s-cka-91",
     difficulty: "hard",
     certId: "k8s-cka",
     domainId: "d5",
@@ -114,19 +114,19 @@ export const K8S_CKA_QUESTIONS_5 = [
     scenario: "Pod X is selected by policy A, which allows ingress from namespace alpha, and by policy B, which allows ingress from namespace beta.",
     question: "What traffic can reach pod X?",
     options: [
-      { id: 'A', text: "Only traffic matching both selectors simultaneously." },
-      { id: 'B', text: "Traffic from alpha and from beta, because policies are additive." },
-      { id: 'C', text: "Only traffic from alpha, because the first policy wins." },
-      { id: 'D', text: "No traffic, because the two policies conflict." }
+      { id: 'A', text: "No traffic, because the two policies conflict." },
+      { id: 'B', text: "Only traffic from alpha, because the first policy wins." },
+      { id: 'C', text: "Only traffic matching both selectors simultaneously." },
+      { id: 'D', text: "Traffic from alpha and from beta, because policies are additive." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "NetworkPolicies are purely additive allow-lists: the union of every policy selecting a pod defines what is permitted, and there is no deny rule or ordering. Nothing conflicts, no policy takes precedence, and the rules are OR-ed rather than AND-ed.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/network-policies/",
     tags: ["NetworkPolicy", "Security", "Networking"]
   },
   {
-    id: "k8s-cka-q-p5-7",
+    id: "k8s-cka-92",
     difficulty: "easy",
     certId: "k8s-cka",
     domainId: "d4",
@@ -135,19 +135,19 @@ export const K8S_CKA_QUESTIONS_5 = [
     scenario: "An administrator needs to know the short names, API groups, and namespacing of every resource type the cluster serves, including custom resources.",
     question: "Which command shows that?",
     options: [
-      { id: 'A', text: "kubectl api-resources" },
-      { id: 'B', text: "kubectl cluster-info dump" },
-      { id: 'C', text: "kubectl get all -A" },
-      { id: 'D', text: "kubectl explain pod" }
+      { id: 'A', text: "kubectl explain pod" },
+      { id: 'B', text: "kubectl get all -A" },
+      { id: 'C', text: "kubectl cluster-info dump" },
+      { id: 'D', text: "kubectl api-resources" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "kubectl api-resources lists every served resource with its short name, API version, kind, and whether it is namespaced, including CRDs. kubectl get all covers only a small curated subset, explain documents one type schema, and cluster-info dump produces bulk diagnostic output.",
     referenceUrl: "https://kubernetes.io/docs/reference/kubectl/generated/kubectl_api-resources/",
     tags: ["kubectl", "API", "Discovery"]
   },
   {
-    id: "k8s-cka-q-p5-8",
+    id: "k8s-cka-93",
     difficulty: "medium",
     certId: "k8s-cka",
     domainId: "d2",
@@ -157,8 +157,8 @@ export const K8S_CKA_QUESTIONS_5 = [
     question: "Which misconfiguration best explains it?",
     options: [
       { id: 'A', text: "The Service targetPort does not match the port the container listens on." },
-      { id: 'B', text: "CoreDNS is not running." },
-      { id: 'C', text: "The Service is missing an ownerReference to the deployment." },
+      { id: 'B', text: "The Service is missing an ownerReference to the deployment." },
+      { id: 'C', text: "CoreDNS is not running." },
       { id: 'D', text: "The pod has no readiness probe." }
     ],
     correctAnswers: ['A'],
@@ -168,7 +168,7 @@ export const K8S_CKA_QUESTIONS_5 = [
     tags: ["Services", "Troubleshooting", "Networking"]
   },
   {
-    id: "k8s-cka-q-p5-9",
+    id: "k8s-cka-94",
     difficulty: "medium",
     certId: "k8s-cka",
     domainId: "d3",
@@ -177,19 +177,19 @@ export const K8S_CKA_QUESTIONS_5 = [
     scenario: "GPU nodes carry the label accelerator=nvidia-tesla. A training job must run only on those nodes, and should remain Pending if none are available.",
     question: "Which pod field expresses the hard requirement most simply?",
     options: [
-      { id: 'A', text: "nodeSelector: { accelerator: nvidia-tesla }" },
+      { id: 'A', text: "A toleration for the accelerator label" },
       { id: 'B', text: "nodeName: gpu-node-01" },
       { id: 'C', text: "preferredDuringSchedulingIgnoredDuringExecution node affinity on the label" },
-      { id: 'D', text: "A toleration for the accelerator label" }
+      { id: 'D', text: "nodeSelector: { accelerator: nvidia-tesla }" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "A nodeSelector is the simplest hard constraint: the scheduler considers only nodes carrying the label and leaves the pod Pending otherwise. Pinning nodeName bypasses the scheduler and targets one machine, the preferred affinity form is a soft hint that allows placement elsewhere, and tolerations relate to taints rather than labels.",
     referenceUrl: "https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/",
     tags: ["Scheduling", "nodeSelector", "Labels"]
   },
   {
-    id: "k8s-cka-q-p5-10",
+    id: "k8s-cka-95",
     difficulty: "hard",
     certId: "k8s-cka",
     domainId: "d1",
@@ -198,9 +198,9 @@ export const K8S_CKA_QUESTIONS_5 = [
     scenario: "A CSI driver is being installed and the manifests include a controller Deployment and a node DaemonSet.",
     question: "Which split of responsibilities is correct?",
     options: [
-      { id: 'A', text: "The node component talks to the storage API and the controller runs inside each pod." },
-      { id: 'B', text: "Both components perform identical work and one is a hot standby." },
-      { id: 'C', text: "The controller mounts volumes into pods and the node component provisions storage." },
+      { id: 'A', text: "Both components perform identical work and one is a hot standby." },
+      { id: 'B', text: "The controller mounts volumes into pods and the node component provisions storage." },
+      { id: 'C', text: "The node component talks to the storage API and the controller runs inside each pod." },
       { id: 'D', text: "The controller component handles provisioning, attaching, and snapshotting; the node component handles staging, mounting, and formatting on each node." }
     ],
     correctAnswers: ['D'],
@@ -210,7 +210,7 @@ export const K8S_CKA_QUESTIONS_5 = [
     tags: ["CSI", "Storage", "Architecture"]
   },
   {
-    id: "k8s-cka-q-p5-11",
+    id: "k8s-cka-96",
     difficulty: "easy",
     certId: "k8s-cka",
     domainId: "d2",
@@ -219,19 +219,19 @@ export const K8S_CKA_QUESTIONS_5 = [
     scenario: "An operator wants the YAML for a deployment as a starting point for editing, without creating anything in the cluster.",
     question: "Which command prints it?",
     options: [
-      { id: 'A', text: "kubectl explain deployment --recursive" },
-      { id: 'B', text: "kubectl apply -f - --dry-run=server" },
-      { id: 'C', text: "kubectl get deployment web -o yaml" },
-      { id: 'D', text: "kubectl create deployment web --image=nginx --dry-run=client -o yaml" }
+      { id: 'A', text: "kubectl get deployment web -o yaml" },
+      { id: 'B', text: "kubectl create deployment web --image=nginx --dry-run=client -o yaml" },
+      { id: 'C', text: "kubectl apply -f - --dry-run=server" },
+      { id: 'D', text: "kubectl explain deployment --recursive" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "A client-side dry run with -o yaml renders the object locally and sends nothing to the API server, which is the standard way to scaffold a manifest quickly. A server dry run still contacts the API server and needs input, get requires the object to already exist, and explain prints schema documentation rather than a manifest.",
     referenceUrl: "https://kubernetes.io/docs/reference/kubectl/conventions/",
     tags: ["kubectl", "Manifests", "Productivity"]
   },
   {
-    id: "k8s-cka-q-p5-12",
+    id: "k8s-cka-97",
     difficulty: "medium",
     certId: "k8s-cka",
     domainId: "d4",
@@ -252,7 +252,7 @@ export const K8S_CKA_QUESTIONS_5 = [
     tags: ["Audit", "API Server", "Security"]
   },
   {
-    id: "k8s-cka-q-p5-13",
+    id: "k8s-cka-98",
     difficulty: "medium",
     certId: "k8s-cka",
     domainId: "d5",
@@ -261,19 +261,19 @@ export const K8S_CKA_QUESTIONS_5 = [
     scenario: "A pod in namespace web resolves the short name api successfully even though the Service is api.web.svc.cluster.local.",
     question: "Why does the short name work?",
     options: [
-      { id: 'A', text: "CoreDNS creates an alias record for every short name." },
-      { id: 'B', text: "kube-proxy rewrites DNS queries for local Services." },
-      { id: 'C', text: "The pod /etc/resolv.conf contains search domains including web.svc.cluster.local, so short names are expanded." },
-      { id: 'D', text: "The kubelet injects a hosts file entry for every Service." }
+      { id: 'A', text: "kube-proxy rewrites DNS queries for local Services." },
+      { id: 'B', text: "CoreDNS creates an alias record for every short name." },
+      { id: 'C', text: "The kubelet injects a hosts file entry for every Service." },
+      { id: 'D', text: "The pod /etc/resolv.conf contains search domains including web.svc.cluster.local, so short names are expanded." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The kubelet writes a resolv.conf whose search list starts with the pod namespace, so an unqualified name is tried as api.web.svc.cluster.local first. CoreDNS serves the fully qualified names rather than aliases, kube-proxy does not touch DNS, and /etc/hosts contains only the pod own entries and any hostAliases.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/",
     tags: ["DNS", "Networking", "CoreDNS"]
   },
   {
-    id: "k8s-cka-q-p5-14",
+    id: "k8s-cka-99",
     difficulty: "hard",
     certId: "k8s-cka",
     domainId: "d3",
@@ -282,10 +282,10 @@ export const K8S_CKA_QUESTIONS_5 = [
     scenario: "A logging agent must start before the application container, keep running for the life of the pod, and not block pod completion in a Job.",
     question: "Which construct provides that in current Kubernetes?",
     options: [
-      { id: 'A', text: "A second regular container listed before the application container." },
+      { id: 'A', text: "A plain init container without a restart policy." },
       { id: 'B', text: "An init container with restartPolicy: Always, which Kubernetes treats as a sidecar." },
-      { id: 'C', text: "A plain init container without a restart policy." },
-      { id: 'D', text: "An ephemeral container added at pod creation time." }
+      { id: 'C', text: "An ephemeral container added at pod creation time." },
+      { id: 'D', text: "A second regular container listed before the application container." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -294,7 +294,7 @@ export const K8S_CKA_QUESTIONS_5 = [
     tags: ["Sidecar", "Init Containers", "Workloads"]
   },
   {
-    id: "k8s-cka-q-p5-15",
+    id: "k8s-cka-100",
     difficulty: "medium",
     certId: "k8s-cka",
     domainId: "d2",
@@ -303,19 +303,19 @@ export const K8S_CKA_QUESTIONS_5 = [
     scenario: "A deleted namespace has remained in Terminating for an hour. Its objects appear gone but the namespace will not disappear.",
     question: "What is the usual cause?",
     options: [
-      { id: 'A', text: "The namespace still has a ResourceQuota attached." },
-      { id: 'B', text: "etcd is out of disk space." },
-      { id: 'C', text: "A finalizer is waiting on a resource whose controller or aggregated API is unavailable." },
-      { id: 'D', text: "kube-proxy has not removed the Service rules yet." }
+      { id: 'A', text: "kube-proxy has not removed the Service rules yet." },
+      { id: 'B', text: "A finalizer is waiting on a resource whose controller or aggregated API is unavailable." },
+      { id: 'C', text: "etcd is out of disk space." },
+      { id: 'D', text: "The namespace still has a ResourceQuota attached." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Namespace deletion blocks on finalizers until every resource in it is cleaned up, and the common trigger is a custom resource whose controller or an aggregated APIService is down, visible in the namespace status conditions. Quotas are deleted like any other namespaced object, kube-proxy rules are not part of the finalization contract, and an etcd disk problem would break far more than one namespace.",
     referenceUrl: "https://kubernetes.io/docs/tasks/administer-cluster/namespaces/",
     tags: ["Namespaces", "Finalizers", "Troubleshooting"]
   },
   {
-    id: "k8s-cka-q-p5-16",
+    id: "k8s-cka-101",
     difficulty: "easy",
     certId: "k8s-cka",
     domainId: "d1",
@@ -324,19 +324,19 @@ export const K8S_CKA_QUESTIONS_5 = [
     scenario: "Claims that omit storageClassName should be provisioned by the StorageClass named standard.",
     question: "How is that class marked as the cluster default?",
     options: [
-      { id: 'A', text: "By naming it default." },
-      { id: 'B', text: "With the field spec.default: true." },
-      { id: 'C', text: "With the annotation storageclass.kubernetes.io/is-default-class: \"true\"." },
-      { id: 'D', text: "By listing it first alphabetically." }
+      { id: 'A', text: "With the annotation storageclass.kubernetes.io/is-default-class: \"true\"." },
+      { id: 'B', text: "By listing it first alphabetically." },
+      { id: 'C', text: "By naming it default." },
+      { id: 'D', text: "With the field spec.default: true." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The DefaultStorageClass admission plugin looks for the storageclass.kubernetes.io/is-default-class annotation and stamps that class onto claims with no class set. The object name, a non-existent spec field, and alphabetical order have no effect.",
     referenceUrl: "https://kubernetes.io/docs/tasks/administer-cluster/change-default-storage-class/",
     tags: ["StorageClass", "Storage", "Defaults"]
   },
   {
-    id: "k8s-cka-q-p5-17",
+    id: "k8s-cka-102",
     difficulty: "medium",
     certId: "k8s-cka",
     domainId: "d4",
@@ -346,18 +346,18 @@ export const K8S_CKA_QUESTIONS_5 = [
     question: "Which mechanism provides that limit?",
     options: [
       { id: 'A', text: "The ServiceAccount token volume projection." },
-      { id: 'B', text: "A default-deny NetworkPolicy in kube-system." },
-      { id: 'C', text: "The AlwaysPullImages admission plugin." },
-      { id: 'D', text: "The Node authorizer combined with the NodeRestriction admission plugin." }
+      { id: 'B', text: "The AlwaysPullImages admission plugin." },
+      { id: 'C', text: "The Node authorizer combined with the NodeRestriction admission plugin." },
+      { id: 'D', text: "A default-deny NetworkPolicy in kube-system." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "The Node authorizer grants each kubelet access only to the objects related to its own pods, and NodeRestriction additionally prevents it from modifying other node objects or their labels. AlwaysPullImages forces image pulls, NetworkPolicy filters traffic, and projected tokens improve token hygiene rather than restricting kubelet authority.",
     referenceUrl: "https://kubernetes.io/docs/reference/access-authn-authz/node/",
     tags: ["Security", "Authorization", "kubelet"]
   },
   {
-    id: "k8s-cka-q-p5-18",
+    id: "k8s-cka-103",
     difficulty: "medium",
     certId: "k8s-cka",
     domainId: "d5",
@@ -366,10 +366,10 @@ export const K8S_CKA_QUESTIONS_5 = [
     scenario: "A very large Service backs several thousand pods and the team is reviewing how membership is tracked.",
     question: "Why did Kubernetes introduce EndpointSlices?",
     options: [
-      { id: 'A', text: "EndpointSlices replace the need for kube-proxy." },
+      { id: 'A', text: "EndpointSlices allow Services to span clusters automatically." },
       { id: 'B', text: "A single Endpoints object holding thousands of addresses caused large, frequently rewritten objects; slices shard the membership into smaller chunks that scale and update more cheaply." },
       { id: 'C', text: "EndpointSlices add layer 7 routing that Endpoints lacked." },
-      { id: 'D', text: "EndpointSlices allow Services to span clusters automatically." }
+      { id: 'D', text: "EndpointSlices replace the need for kube-proxy." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -378,7 +378,7 @@ export const K8S_CKA_QUESTIONS_5 = [
     tags: ["EndpointSlices", "Scalability", "Services"]
   },
   {
-    id: "k8s-cka-q-p5-19",
+    id: "k8s-cka-104",
     difficulty: "hard",
     certId: "k8s-cka",
     domainId: "d2",
@@ -387,8 +387,8 @@ export const K8S_CKA_QUESTIONS_5 = [
     scenario: "kubectl commands take many seconds. The API server pod is running and etcd shows high disk latency in its metrics.",
     question: "Which conclusion is best supported?",
     options: [
-      { id: 'A', text: "CoreDNS needs more replicas." },
-      { id: 'B', text: "The scheduler is overloaded and should be scaled out." },
+      { id: 'A', text: "The scheduler is overloaded and should be scaled out." },
+      { id: 'B', text: "CoreDNS needs more replicas." },
       { id: 'C', text: "kube-proxy is throttling API traffic." },
       { id: 'D', text: "etcd write latency is the bottleneck, so faster disks or reduced write churn on the control plane are the fix." }
     ],
@@ -399,7 +399,7 @@ export const K8S_CKA_QUESTIONS_5 = [
     tags: ["etcd", "Performance", "Troubleshooting"]
   },
   {
-    id: "k8s-cka-q-p5-20",
+    id: "k8s-cka-105",
     difficulty: "easy",
     certId: "k8s-cka",
     domainId: "d3",
@@ -410,17 +410,17 @@ export const K8S_CKA_QUESTIONS_5 = [
     options: [
       { id: 'A', text: "Both belong in annotations for consistency." },
       { id: 'B', text: "The ticket URL belongs in a label and the environment in an annotation." },
-      { id: 'C', text: "The ticket URL belongs in an annotation; the environment belongs in a label." },
-      { id: 'D', text: "Both belong in labels so they can be selected." }
+      { id: 'C', text: "Both belong in labels so they can be selected." },
+      { id: 'D', text: "The ticket URL belongs in an annotation; the environment belongs in a label." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Labels are indexed identifying metadata used by selectors and are limited to 63 characters of restricted syntax, while annotations hold arbitrary non-identifying data such as URLs and are never used for selection. Putting a URL in a label breaks the value syntax, and putting the environment in an annotation makes it unselectable.",
     referenceUrl: "https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/",
     tags: ["Labels", "Annotations", "Objects"]
   },
   {
-    id: "k8s-cka-q-p5-21",
+    id: "k8s-cka-106",
     difficulty: "medium",
     certId: "k8s-cka",
     domainId: "d4",
@@ -430,18 +430,18 @@ export const K8S_CKA_QUESTIONS_5 = [
     question: "Which file is the right place?",
     options: [
       { id: 'A', text: "/etc/cni/net.d/10-flannel.conflist" },
-      { id: 'B', text: "/var/lib/kubelet/config.yaml, the KubeletConfiguration file the kubeadm-managed unit points at." },
-      { id: 'C', text: "/etc/kubernetes/manifests/kubelet.yaml" },
+      { id: 'B', text: "/etc/kubernetes/manifests/kubelet.yaml" },
+      { id: 'C', text: "/var/lib/kubelet/config.yaml, the KubeletConfiguration file the kubeadm-managed unit points at." },
       { id: 'D', text: "/etc/kubernetes/admin.conf" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "kubeadm writes a KubeletConfiguration to /var/lib/kubelet/config.yaml and the systemd drop-in points the kubelet at it, so persistent settings go there followed by a kubelet restart. The kubelet is not a static pod, admin.conf is a kubeconfig for cluster access, and the CNI conflist configures pod networking.",
     referenceUrl: "https://kubernetes.io/docs/tasks/administer-cluster/kubelet-config-file/",
     tags: ["kubelet", "Configuration", "kubeadm"]
   },
   {
-    id: "k8s-cka-q-p5-22",
+    id: "k8s-cka-107",
     difficulty: "medium",
     certId: "k8s-cka",
     domainId: "d1",
@@ -451,18 +451,18 @@ export const K8S_CKA_QUESTIONS_5 = [
     question: "Which objection is technically correct?",
     options: [
       { id: 'A', text: "hostPath volumes cannot be mounted read-write." },
-      { id: 'B', text: "hostPath requires a PersistentVolumeClaim to be created first." },
-      { id: 'C', text: "hostPath data is deleted when the pod restarts." },
-      { id: 'D', text: "hostPath exposes the node filesystem to the pod, is not portable across nodes, and is disallowed by the baseline and restricted Pod Security Standards." }
+      { id: 'B', text: "hostPath data is deleted when the pod restarts." },
+      { id: 'C', text: "hostPath exposes the node filesystem to the pod, is not portable across nodes, and is disallowed by the baseline and restricted Pod Security Standards." },
+      { id: 'D', text: "hostPath requires a PersistentVolumeClaim to be created first." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "hostPath gives a workload direct access to the node filesystem, which is both a privilege escalation path and a portability problem because the pod is tied to whatever node holds that data - which is why the baseline and restricted standards forbid it. It can be mounted read-write, it needs no claim, and its data persists on the node after the pod goes away.",
     referenceUrl: "https://kubernetes.io/docs/concepts/storage/volumes/",
     tags: ["hostPath", "Security", "Storage"]
   },
   {
-    id: "k8s-cka-q-p5-23",
+    id: "k8s-cka-108",
     difficulty: "hard",
     certId: "k8s-cka",
     domainId: "d5",
@@ -471,19 +471,19 @@ export const K8S_CKA_QUESTIONS_5 = [
     scenario: "A dual-stack cluster must expose a Service that answers on both an IPv4 and an IPv6 ClusterIP.",
     question: "Which Service setting achieves that?",
     options: [
-      { id: 'A', text: "ipFamilyPolicy: SingleStack with ipFamilies listing both families." },
+      { id: 'A', text: "ipFamilyPolicy: RequireDualStack with both IPv4 and IPv6 listed in ipFamilies." },
       { id: 'B', text: "externalTrafficPolicy: Local on an IPv6-only Service." },
-      { id: 'C', text: "Two Services with the same selector and different clusterIP values." },
-      { id: 'D', text: "ipFamilyPolicy: RequireDualStack with both IPv4 and IPv6 listed in ipFamilies." }
+      { id: 'C', text: "ipFamilyPolicy: SingleStack with ipFamilies listing both families." },
+      { id: 'D', text: "Two Services with the same selector and different clusterIP values." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "RequireDualStack asks the API server to allocate a ClusterIP from each family, and PreferDualStack degrades gracefully on a single-stack cluster. SingleStack allocates one address regardless of the ipFamilies list, two Services are a workaround rather than dual-stack, and externalTrafficPolicy concerns source IP preservation.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/dual-stack/",
     tags: ["Dual-Stack", "Services", "Networking"]
   },
   {
-    id: "k8s-cka-q-p5-24",
+    id: "k8s-cka-109",
     difficulty: "medium",
     certId: "k8s-cka",
     domainId: "d3",
@@ -492,19 +492,19 @@ export const K8S_CKA_QUESTIONS_5 = [
     scenario: "A deployment object must be removed for a migration while its running pods keep serving traffic until a replacement controller adopts them.",
     question: "Which command does that?",
     options: [
-      { id: 'A', text: "kubectl delete deployment web --force --grace-period=0" },
+      { id: 'A', text: "kubectl delete deployment web --cascade=orphan" },
       { id: 'B', text: "kubectl scale deployment web --replicas=0 then delete it" },
-      { id: 'C', text: "kubectl delete deployment web --cascade=foreground" },
-      { id: 'D', text: "kubectl delete deployment web --cascade=orphan" }
+      { id: 'C', text: "kubectl delete deployment web --force --grace-period=0" },
+      { id: 'D', text: "kubectl delete deployment web --cascade=foreground" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "--cascade=orphan deletes only the named object and leaves its dependents - the ReplicaSet and pods - running without an owner. Force deletion still cascades to dependents by default, foreground cascade explicitly waits for dependents to be deleted first, and scaling to zero removes exactly the pods that must keep serving.",
     referenceUrl: "https://kubernetes.io/docs/concepts/architecture/garbage-collection/",
     tags: ["Garbage Collection", "kubectl", "Workloads"]
   },
   {
-    id: "k8s-cka-q-p5-25",
+    id: "k8s-cka-110",
     difficulty: "medium",
     certId: "k8s-cka",
     domainId: "d2",
@@ -514,11 +514,11 @@ export const K8S_CKA_QUESTIONS_5 = [
     question: "Which commands do that?",
     options: [
       { id: 'A', text: "docker ps and docker logs, which always work with containerd." },
-      { id: 'B', text: "systemctl status containerd and journalctl -u containerd only." },
-      { id: 'C', text: "kubeadm inspect containers." },
-      { id: 'D', text: "crictl ps to list containers and crictl logs CONTAINER_ID to read output." }
+      { id: 'B', text: "kubeadm inspect containers." },
+      { id: 'C', text: "crictl ps to list containers and crictl logs CONTAINER_ID to read output." },
+      { id: 'D', text: "systemctl status containerd and journalctl -u containerd only." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "crictl speaks the CRI directly, so ps and logs work against containerd or CRI-O without the API server. The docker CLI does not manage containerd CRI containers on a dockershim-free cluster, the containerd journal shows daemon messages rather than per-container output, and kubeadm has no inspect containers command.",
     referenceUrl: "https://kubernetes.io/docs/tasks/debug/debug-cluster/crictl/",
