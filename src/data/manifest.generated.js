@@ -1237,21 +1237,21 @@ export const CONTENT_MANIFEST = {
   },
   "k8s-cka": {
     "questions": {
-      "total": 185,
+      "total": 210,
       "byDifficulty": {
-        "easy": 42,
-        "medium": 98,
-        "hard": 45
+        "easy": 47,
+        "medium": 112,
+        "hard": 51
       },
       "byDomain": {
-        "d5": 37,
-        "d1": 27,
-        "d3": 37,
-        "d2": 41,
-        "d4": 43
+        "d5": 42,
+        "d1": 31,
+        "d3": 42,
+        "d2": 46,
+        "d4": 49
       },
-      "packs": 8,
-      "loadedPacks": 8
+      "packs": 9,
+      "loadedPacks": 9
     },
     "flashcards": {
       "total": 12,
@@ -1346,7 +1346,7 @@ export const CONTENT_MANIFEST = {
 };
 
 export const CONTENT_TOTALS = {
-  "questions": 1944,
+  "questions": 1969,
   "flashcards": 1772,
   "certifications": 52
 };
