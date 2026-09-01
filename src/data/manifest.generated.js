@@ -1165,26 +1165,40 @@ export const CONTENT_MANIFEST = {
   },
   "hashicorp-tfp": {
     "questions": {
-      "total": 0,
+      "total": 250,
       "byDifficulty": {
-        "easy": 0,
-        "medium": 0,
-        "hard": 0
+        "easy": 50,
+        "medium": 133,
+        "hard": 67
       },
-      "byDomain": {},
-      "packs": 0,
-      "loadedPacks": 0
+      "byDomain": {
+        "d1": 51,
+        "d3": 46,
+        "d4": 40,
+        "d2": 43,
+        "d5": 40,
+        "d6": 30
+      },
+      "packs": 10,
+      "loadedPacks": 10
     },
     "flashcards": {
-      "total": 0,
+      "total": 250,
       "byDifficulty": {
-        "easy": 0,
-        "medium": 0,
-        "hard": 0
+        "easy": 53,
+        "medium": 134,
+        "hard": 63
       },
-      "byDomain": {},
-      "packs": 0,
-      "loadedPacks": 0
+      "byDomain": {
+        "d1": 51,
+        "d3": 47,
+        "d4": 40,
+        "d2": 42,
+        "d5": 38,
+        "d6": 32
+      },
+      "packs": 10,
+      "loadedPacks": 10
     }
   },
   "isc2-ccsp": {
@@ -1237,38 +1251,38 @@ export const CONTENT_MANIFEST = {
   },
   "k8s-cka": {
     "questions": {
-      "total": 210,
+      "total": 250,
       "byDifficulty": {
-        "easy": 47,
-        "medium": 112,
-        "hard": 51
+        "easy": 55,
+        "medium": 133,
+        "hard": 62
       },
       "byDomain": {
-        "d5": 42,
-        "d1": 31,
-        "d3": 42,
-        "d2": 46,
-        "d4": 49
+        "d5": 50,
+        "d1": 37,
+        "d3": 50,
+        "d2": 54,
+        "d4": 59
       },
-      "packs": 9,
-      "loadedPacks": 9
+      "packs": 11,
+      "loadedPacks": 11
     },
     "flashcards": {
-      "total": 12,
+      "total": 250,
       "byDifficulty": {
-        "easy": 4,
-        "medium": 5,
-        "hard": 3
+        "easy": 55,
+        "medium": 141,
+        "hard": 54
       },
       "byDomain": {
-        "d4": 4,
-        "d2": 3,
-        "d3": 2,
-        "d5": 2,
-        "d1": 1
+        "d4": 65,
+        "d2": 49,
+        "d3": 52,
+        "d5": 47,
+        "d1": 37
       },
-      "packs": 1,
-      "loadedPacks": 1
+      "packs": 11,
+      "loadedPacks": 11
     }
   },
   "k8s-ckad": {
@@ -1346,7 +1360,7 @@ export const CONTENT_MANIFEST = {
 };
 
 export const CONTENT_TOTALS = {
-  "questions": 1969,
-  "flashcards": 1772,
+  "questions": 2259,
+  "flashcards": 2260,
   "certifications": 52
 };
