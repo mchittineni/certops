@@ -10,9 +10,9 @@ export const AZURE_AZ104_QUESTIONS_2 = [
     question: "Which Microsoft Entra group membership type and query rule achieves this automation?",
     options: [
       { id: 'A', text: "Create a Security group with Dynamic User membership and rule `(user.department -eq \"Sales\")`." },
-      { id: 'B', text: "Create a Microsoft 365 group with static assignment." },
+      { id: 'B', text: "Create an Administrative Unit with dynamic device membership." },
       { id: 'C', text: "Create an Assigned group and assign the User Administrator role." },
-      { id: 'D', text: "Create an Administrative Unit with dynamic device membership." }
+      { id: 'D', text: "Create a Microsoft 365 group with static assignment." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -31,11 +31,11 @@ export const AZURE_AZ104_QUESTIONS_2 = [
     question: "Where should the Reader RBAC role be assigned to minimize administrative effort and leverage inheritance?",
     options: [
       { id: 'A', text: "Assign the Reader role at each Resource Group scope." },
-      { id: 'B', text: "Assign the Reader role individually on all 5 subscriptions." },
-      { id: 'C', text: "Assign the Reader role at the Root Management Group scope." },
-      { id: 'D', text: "Assign the Reader role at the `Production` Management Group scope." }
+      { id: 'B', text: "Assign the Reader role at the Root Management Group scope." },
+      { id: 'C', text: "Assign the Reader role at the `Production` Management Group scope." },
+      { id: 'D', text: "Assign the Reader role individually on all 5 subscriptions." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Azure RBAC permissions follow a strict top-down inheritance model: Management Group -> Subscription -> Resource Group -> Resource. Assigning the Reader role at the `Production` Management Group scope automatically grants read access to all subscriptions currently in that management group as well as any new subscriptions added in the future. Root scope (D) would grant access to non-production subscriptions too.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/management-groups/overview",
@@ -73,9 +73,9 @@ export const AZURE_AZ104_QUESTIONS_2 = [
     question: "Which Azure feature configures actual and forecasted budget spending threshold alerts?",
     options: [
       { id: 'A', text: "Azure Monitor Log Analytics workspace quotas." },
-      { id: 'B', text: "Azure Policy Allowed Resource Types." },
+      { id: 'B', text: "Azure Advisor Cost recommendations." },
       { id: 'C', text: "Azure Cost Management Budgets with Actual and Forecasted alert conditions." },
-      { id: 'D', text: "Azure Advisor Cost recommendations." }
+      { id: 'D', text: "Azure Policy Allowed Resource Types." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -93,12 +93,12 @@ export const AZURE_AZ104_QUESTIONS_2 = [
     scenario: "A cloud security officer needs to group 25 individual Azure Policy definitions related to CIS benchmark standards (e.g. enforcing HTTPS on storage, requiring encryption at rest, restricting public IPs) into a single logical collection that can be assigned to multiple subscriptions in one operation.",
     question: "Which Azure Policy artifact groups multiple policy definitions together?",
     options: [
-      { id: 'A', text: "An Azure RBAC Custom Role." },
-      { id: 'B', text: "An Azure Blueprint artifact." },
+      { id: 'A', text: "An Azure Policy Initiative (Policy Set definition)." },
+      { id: 'B', text: "An Azure RBAC Custom Role." },
       { id: 'C', text: "An Azure Resource Lock." },
-      { id: 'D', text: "An Azure Policy Initiative (Policy Set definition)." }
+      { id: 'D', text: "An Azure Blueprint artifact." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "An Azure Policy Initiative (also known as a Policy Set) is a collection of policy definitions grouped together toward a single overarching compliance goal (e.g. CIS benchmarks, PCI-DSS, or ISO 27001). Assigning an initiative simplifies governance by applying and tracking compliance for dozens of policies across management groups or subscriptions in a single assignment.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/initiative-definition-structure",
@@ -114,12 +114,12 @@ export const AZURE_AZ104_QUESTIONS_2 = [
     scenario: "A company stores 100 TB of medical imaging archives that are accessed less than once a year. The company requires the lowest possible storage capacity cost and accepts a retrieval delay of several hours when files are requested.",
     question: "Which Azure Blob Storage access tier provides the lowest storage cost per gigabyte?",
     options: [
-      { id: 'A', text: "Hot tier." },
+      { id: 'A', text: "Cold tier." },
       { id: 'B', text: "Cool tier." },
-      { id: 'C', text: "Cold tier." },
-      { id: 'D', text: "Archive tier." }
+      { id: 'C', text: "Archive tier." },
+      { id: 'D', text: "Hot tier." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "The Archive access tier has the lowest storage capacity cost per GB of all Azure Blob Storage tiers, but has the highest data access/retrieval costs and requires rehydrating blobs (which can take up to 15 hours for standard priority or under 1 hour for high priority) before data can be read. Hot (D) is for active data, Cool (C) for data accessed monthly, and Cold (B) for data accessed quarterly.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/blobs/access-tiers-overview",
@@ -136,10 +136,10 @@ export const AZURE_AZ104_QUESTIONS_2 = [
     question: "Which combination of network security settings must be configured? (Choose TWO)",
     options: [
       { id: 'A', text: "Configure an Azure Route Table with next hop `None`." },
-      { id: 'B', text: "Set Storage Account public network access to \"Enabled from all networks\"." },
-      { id: 'C', text: "Deploy an Azure Bastion host in `Subnet-Backend`." },
-      { id: 'D', text: "Enable the `Microsoft.Storage` Service Endpoint on `Subnet-Backend`." },
-      { id: 'E', text: "Configure the Storage Account firewall to \"Enabled from selected virtual networks and IP addresses\" and add `VNet-Prod/Subnet-Backend`." }
+      { id: 'B', text: "Deploy an Azure Bastion host in `Subnet-Backend`." },
+      { id: 'C', text: "Set Storage Account public network access to \"Enabled from all networks\"." },
+      { id: 'D', text: "Configure the Storage Account firewall to \"Enabled from selected virtual networks and IP addresses\" and add `VNet-Prod/Subnet-Backend`." },
+      { id: 'E', text: "Enable the `Microsoft.Storage` Service Endpoint on `Subnet-Backend`." }
     ],
     correctAnswers: ['D', 'E'],
     type: "multiple",
@@ -157,12 +157,12 @@ export const AZURE_AZ104_QUESTIONS_2 = [
     scenario: "An enterprise requires continuous, asynchronous replication of block blobs from container `media-source` in storage account `storprimary` (East US) to container `media-backup` in storage account `stordr` (West US).",
     question: "Which prerequisite features must be enabled on BOTH source and destination storage accounts before configuring Object Replication?",
     options: [
-      { id: 'A', text: "Storage Account Customer-Managed Keys only." },
+      { id: 'A', text: "NFS v3 protocol support." },
       { id: 'B', text: "Hierarchical Namespace (Azure Data Lake Gen2)." },
-      { id: 'C', text: "NFS v3 protocol support." },
-      { id: 'D', text: "Blob Versioning and Blob Change Feed." }
+      { id: 'C', text: "Blob Versioning and Blob Change Feed." },
+      { id: 'D', text: "Storage Account Customer-Managed Keys only." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Azure Blob Storage Object Replication asynchronously copies block blobs between a source storage account and a destination storage account. For Object Replication to work, both the source and destination storage accounts must have **Blob Versioning** and **Blob Change Feed** enabled (Change feed is required on the source account). Hierarchical namespace (D) does not support object replication.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/blobs/object-replication-overview#prerequisites",
@@ -178,12 +178,12 @@ export const AZURE_AZ104_QUESTIONS_2 = [
     scenario: "An administrator manages an Azure Storage Account with Geo-Redundant Storage (GRS) configured between East US (primary) and West US (secondary). Due to a severe local disaster in East US, the administrator must force failover to West US without waiting for Microsoft intervention.",
     question: "What is an important consequence of performing a customer-initiated storage account failover?",
     options: [
-      { id: 'A', text: "The storage account endpoints change their DNS domain name URLs." },
-      { id: 'B', text: "The secondary region becomes the new primary read/write endpoint, and the redundancy type is converted to Locally Redundant Storage (LRS)." },
+      { id: 'A', text: "The storage account access keys are permanently revoked." },
+      { id: 'B', text: "The storage account endpoints change their DNS domain name URLs." },
       { id: 'C', text: "All data is immediately deleted in the secondary region." },
-      { id: 'D', text: "The storage account access keys are permanently revoked." }
+      { id: 'D', text: "The secondary region becomes the new primary read/write endpoint, and the redundancy type is converted to Locally Redundant Storage (LRS)." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "When a customer initiates an unplanned storage account failover on a GRS/GZRS account, Azure updates DNS records so that the secondary region becomes the new primary read/write location. Because replication to the original primary is broken during failover, the storage account is automatically converted to **Locally Redundant Storage (LRS)** in the new primary region until the administrator reconfigures geo-redundancy.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/common/storage-initiate-account-failover",
@@ -199,12 +199,12 @@ export const AZURE_AZ104_QUESTIONS_2 = [
     scenario: "A system administrator needs to copy 5 TB of on-premises file data to an Azure Blob Storage container over the network, ensuring support for incremental synchronization and automated retry of failed transfers.",
     question: "Which Microsoft command-line utility is optimized for high-performance data transfer to Azure Storage?",
     options: [
-      { id: 'A', text: "PowerShell `Copy-Item`." },
+      { id: 'A', text: "AzCopy v10." },
       { id: 'B', text: "Robocopy without Azure agent." },
-      { id: 'C', text: "AzCopy v10." },
-      { id: 'D', text: "FTP command line." }
+      { id: 'C', text: "FTP command line." },
+      { id: 'D', text: "PowerShell `Copy-Item`." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "AzCopy (v10) is Microsoft's official command-line tool designed for high-performance, parallel data transfer into and out of Azure Blob, File, and Table storage. It supports `azcopy sync` for directional incremental synchronization, SAS token authentication, Microsoft Entra authentication, and automated resume of interrupted jobs. Robocopy (B) is for local/SMB shares. Standard FTP (C) is not an Azure Storage tool.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10",
@@ -221,9 +221,9 @@ export const AZURE_AZ104_QUESTIONS_2 = [
     question: "Which Azure VM size family provides the most cost-effective solution for workloads with low baseline CPU and bursting requirements?",
     options: [
       { id: 'A', text: "F-series (Compute Optimized VMs)." },
-      { id: 'B', text: "M-series (Memory Optimized VMs)." },
+      { id: 'B', text: "N-series (GPU enabled VMs)." },
       { id: 'C', text: "B-series (Burstable VMs)." },
-      { id: 'D', text: "N-series (GPU enabled VMs)." }
+      { id: 'D', text: "M-series (Memory Optimized VMs)." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -242,11 +242,11 @@ export const AZURE_AZ104_QUESTIONS_2 = [
     question: "How should the three virtual machines be deployed?",
     options: [
       { id: 'A', text: "Deploy all three VMs in a single Availability Set with 3 Fault Domains." },
-      { id: 'B', text: "Deploy each VM in a different Availability Zone (Zone 1, Zone 2, Zone 3) in the region." },
-      { id: 'C', text: "Deploy all three VMs in Proximity Placement Group." },
+      { id: 'B', text: "Deploy all three VMs in Proximity Placement Group." },
+      { id: 'C', text: "Deploy each VM in a different Availability Zone (Zone 1, Zone 2, Zone 3) in the region." },
       { id: 'D', text: "Deploy a single VM with Ultra SSD storage." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploying two or more VM instances across distinct Availability Zones within an Azure region provides the highest availability SLA (99.99% VM uptime) because each zone is an isolated physical datacenter with independent power, cooling, and networking. Availability Sets (B) protect only against rack-level failures within a single datacenter (99.95% SLA). Proximity Placement Groups (C) colocate VMs for low latency, increasing correlated datacenter risk.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/reliability/availability-zones-overview",
@@ -262,12 +262,12 @@ export const AZURE_AZ104_QUESTIONS_2 = [
     scenario: "A high-frequency algorithmic trading application runs across 4 Azure virtual machines. The application architecture requires microsecond network latency between the four VMs.",
     question: "Which Azure compute feature physically colocates VMs within the same datacenter to achieve the lowest possible network latency?",
     options: [
-      { id: 'A', text: "Azure Dedicated Host across regions." },
-      { id: 'B', text: "Proximity Placement Group (PPG)." },
-      { id: 'C', text: "Cross-Region Virtual Network Peering." },
-      { id: 'D', text: "Availability Zones." }
+      { id: 'A', text: "Cross-Region Virtual Network Peering." },
+      { id: 'B', text: "Availability Zones." },
+      { id: 'C', text: "Azure Dedicated Host across regions." },
+      { id: 'D', text: "Proximity Placement Group (PPG)." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "A Proximity Placement Group (PPG) is an Azure logical grouping construct used to ensure that Azure compute resources (VMs, VMSS) are physically located close to each other within the same physical datacenter, minimizing inter-VM network latency for latency-sensitive multi-tier workloads. Availability Zones (B) spread VMs across separate datacenters (increasing latency). Peering (C) connects networks.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machines/co-location",
@@ -304,12 +304,12 @@ export const AZURE_AZ104_QUESTIONS_2 = [
     scenario: "A company builds a microservice architecture composed of 10 microservices packaged in Docker containers. The microservices must scale automatically based on HTTP traffic and event triggers (via KEDA), scale down to zero instances when idle to save costs, and require no Kubernetes cluster management.",
     question: "Which Azure service provides managed serverless microservices with built-in KEDA scaling and scale-to-zero?",
     options: [
-      { id: 'A', text: "Azure Service Fabric." },
-      { id: 'B', text: "Azure Virtual Machines." },
-      { id: 'C', text: "Azure Container Apps (ACA)." },
-      { id: 'D', text: "Azure Kubernetes Service (AKS)." }
+      { id: 'A', text: "Azure Virtual Machines." },
+      { id: 'B', text: "Azure Service Fabric." },
+      { id: 'C', text: "Azure Kubernetes Service (AKS)." },
+      { id: 'D', text: "Azure Container Apps (ACA)." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Azure Container Apps (ACA) is a fully managed serverless container platform built on Kubernetes and open-source standards (Dapr, KEDA, Envoy). It allows running microservices and containerized jobs with built-in HTTP autoscaling, event-driven autoscaling via KEDA, and scale-to-zero capability without managing Kubernetes cluster infrastructure. AKS (B) requires managing node pools and clusters.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/container-apps/overview",
@@ -326,9 +326,9 @@ export const AZURE_AZ104_QUESTIONS_2 = [
     question: "When an HTTP request on port 80 arrives, how does Azure NSG evaluate the rules?",
     options: [
       { id: 'A', text: "The request is allowed because Rule 100 has a lower priority number (higher priority) and rule processing stops once a match is found." },
-      { id: 'B', text: "The request is denied because Rule 200 has a higher number." },
-      { id: 'C', text: "The request is denied because Deny rules always override Allow rules." },
-      { id: 'D', text: "The request is dropped by default rule 65500." }
+      { id: 'B', text: "The request is dropped by default rule 65500." },
+      { id: 'C', text: "The request is denied because Rule 200 has a higher number." },
+      { id: 'D', text: "The request is denied because Deny rules always override Allow rules." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -346,10 +346,10 @@ export const AZURE_AZ104_QUESTIONS_2 = [
     scenario: "An architect is selecting an Azure Load Balancer for an enterprise production workload across three Availability Zones. The architecture requires zone-redundant frontend IP configurations, support for backend pools with up to 1,000 instances, and secure-by-default behavior (closed until NSG rules allow traffic).",
     question: "Which Azure Load Balancer SKU satisfies these requirements?",
     options: [
-      { id: 'A', text: "Azure Basic Load Balancer." },
-      { id: 'B', text: "Azure Traffic Manager." },
+      { id: 'A', text: "Azure DNS Private Resolver." },
+      { id: 'B', text: "Azure Basic Load Balancer." },
       { id: 'C', text: "Azure Standard Load Balancer." },
-      { id: 'D', text: "Azure DNS Private Resolver." }
+      { id: 'D', text: "Azure Traffic Manager." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -367,12 +367,12 @@ export const AZURE_AZ104_QUESTIONS_2 = [
     scenario: "An e-commerce company operates a web platform where requests to `https://shop.contoso.com/images/*` must be routed to a storage backend pool, while requests to `https://shop.contoso.com/video/*` are routed to a video streaming VM pool, with centralized SSL/TLS termination at the load balancer.",
     question: "Which Layer 7 load balancing service and feature provides URL path-based routing and SSL offloading?",
     options: [
-      { id: 'A', text: "Azure Standard Network Load Balancer (NLB)." },
+      { id: 'A', text: "Azure Application Gateway with a Path-based routing rule." },
       { id: 'B', text: "Azure Traffic Manager with weighted routing." },
-      { id: 'C', text: "Azure Front Door Basic." },
-      { id: 'D', text: "Azure Application Gateway with a Path-based routing rule." }
+      { id: 'C', text: "Azure Standard Network Load Balancer (NLB)." },
+      { id: 'D', text: "Azure Front Door Basic." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Azure Application Gateway is a Layer 7 (HTTP/HTTPS) web traffic load balancer that provides advanced routing capabilities, including URL path-based routing (`/images/*` vs `/video/*`), cookie-based session affinity, SSL/TLS termination (offloading cryptographic overhead from backend VMs), and integrated Web Application Firewall (WAF). Standard Load Balancer (B) operates at Layer 4 (TCP/UDP) and cannot inspect HTTP URLs. Traffic Manager (C) is DNS-based.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/application-gateway/url-route-overview",
@@ -388,12 +388,12 @@ export const AZURE_AZ104_QUESTIONS_2 = [
     scenario: "A company creates an Azure Private DNS zone named `corp.internal`. Virtual machines deployed in `VNet-Dev` must be able to resolve each other by hostnames (e.g. `vm1.corp.internal`), and new VMs provisioned in `VNet-Dev` must have their DNS A records created automatically.",
     question: "What configuration link must be established between `corp.internal` and `VNet-Dev`?",
     options: [
-      { id: 'A', text: "Deploy an Azure Bastion host in `VNet-Dev`." },
-      { id: 'B', text: "Create a Virtual Network Link with Auto-Registration enabled." },
+      { id: 'A', text: "Create a Virtual Network Link with Auto-Registration disabled and create static A records." },
+      { id: 'B', text: "Deploy an Azure Bastion host in `VNet-Dev`." },
       { id: 'C', text: "Configure VNet Peering with Gateway Transit." },
-      { id: 'D', text: "Create a Virtual Network Link with Auto-Registration disabled and create static A records." }
+      { id: 'D', text: "Create a Virtual Network Link with Auto-Registration enabled." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "To automatically register and manage DNS records for virtual machines in an Azure Virtual Network, create a **Virtual Network Link** between the Private DNS Zone (`corp.internal`) and the virtual network (`VNet-Dev`), and check the **Enable auto-registration** box. Azure will automatically register and delete VM private IP DNS A records as VMs are deployed or deleted.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/dns/private-dns-autoregistration",
@@ -410,11 +410,11 @@ export const AZURE_AZ104_QUESTIONS_2 = [
     question: "Which Azure VPN Gateway type must be selected during gateway creation?",
     options: [
       { id: 'A', text: "Azure NAT Gateway." },
-      { id: 'B', text: "Route-based VPN Gateway." },
-      { id: 'C', text: "Policy-based (Static routing) VPN Gateway." },
-      { id: 'D', text: "Azure ExpressRoute Direct." }
+      { id: 'B', text: "Azure ExpressRoute Direct." },
+      { id: 'C', text: "Route-based VPN Gateway." },
+      { id: 'D', text: "Policy-based (Static routing) VPN Gateway." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Route-based VPN Gateways use any-to-any (wildcard) traffic selectors and support modern networking capabilities: IKEv2, Point-to-Site (P2S) VPNs, Multi-site VPNs, VNet-to-VNet connections, and dynamic routing using BGP. Policy-based VPN Gateways (B) only support IKEv1, single-tunnel S2S connections, and static IP prefix matching.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#vpntype",
@@ -430,9 +430,9 @@ export const AZURE_AZ104_QUESTIONS_2 = [
     scenario: "A distributed hybrid architecture requires continuous automated monitoring of network latency and packet loss between Azure virtual machines in West Europe and an on-premises database server over an ExpressRoute circuit, triggering alerts if packet loss exceeds 5%.",
     question: "Which Azure Network Watcher feature provides continuous unified hybrid network connectivity testing and latency tracking?",
     options: [
-      { id: 'A', text: "IP Flow Verify." },
-      { id: 'B', text: "VPN Diagnostics." },
-      { id: 'C', text: "NSG Flow Logs." },
+      { id: 'A', text: "VPN Diagnostics." },
+      { id: 'B', text: "NSG Flow Logs." },
+      { id: 'C', text: "IP Flow Verify." },
       { id: 'D', text: "Connection Monitor." }
     ],
     correctAnswers: ['D'],
@@ -451,12 +451,12 @@ export const AZURE_AZ104_QUESTIONS_2 = [
     scenario: "An administrator needs to receive an alert whenever more than 10 error events containing the string `\"Database connection timeout\"` appear in the `Syslog` table of an Azure Log Analytics workspace within a 15-minute window.",
     question: "Which Azure Monitor alert type evaluates KQL query output row counts?",
     options: [
-      { id: 'A', text: "Activity Log Alert rule." },
-      { id: 'B', text: "Log Search Alert rule with a KQL query measuring number of results." },
-      { id: 'C', text: "Metric Alert rule on VM CPU percentage." },
+      { id: 'A', text: "Log Search Alert rule with a KQL query measuring number of results." },
+      { id: 'B', text: "Metric Alert rule on VM CPU percentage." },
+      { id: 'C', text: "Activity Log Alert rule." },
       { id: 'D', text: "Azure Service Health Alert." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Log Search Alert rules execute a Kusto Query Language (KQL) query against an Azure Log Analytics workspace on a scheduled interval (e.g. every 5 minutes). If the number of records returned by the query exceeds the threshold (e.g. > 10 rows in a 15-minute period), the alert triggers an Action Group. Metric alerts (B) evaluate pre-aggregated numerical time-series metrics. Activity log alerts (C) track Azure plane operations.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-types#log-alerts",
@@ -472,12 +472,12 @@ export const AZURE_AZ104_QUESTIONS_2 = [
     scenario: "A company hosts a public e-commerce web application on Azure App Service. The DevOps team needs to test the URL `https://shop.contoso.com` every 5 minutes from 5 global geographical locations (e.g. US, Europe, Asia) and trigger alerts if the response status code is not HTTP 200.",
     question: "Which Application Insights feature performs automated synthetic global HTTP ping tests?",
     options: [
-      { id: 'A', text: "Azure Advisor Security checks." },
-      { id: 'B', text: "Azure Service Health maintenance notification." },
-      { id: 'C', text: "Azure Network Watcher Packet Capture." },
-      { id: 'D', text: "Application Insights Standard Availability Web Tests." }
+      { id: 'A', text: "Azure Service Health maintenance notification." },
+      { id: 'B', text: "Azure Advisor Security checks." },
+      { id: 'C', text: "Application Insights Standard Availability Web Tests." },
+      { id: 'D', text: "Azure Network Watcher Packet Capture." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Application Insights Availability Web Tests allow creating recurring synthetic HTTP/HTTPS ping tests that execute from multiple points of presence around the world. Tests validate URL availability, HTTP response codes, SSL certificate validity, and response time thresholds, triggering alerts when tests fail from multiple test locations.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/app/availability-overview",
@@ -494,12 +494,12 @@ export const AZURE_AZ104_QUESTIONS_2 = [
     question: "Which two Azure Backup security features satisfy these protection requirements? (Choose TWO)",
     options: [
       { id: 'A', text: "Enable Soft Delete on the Recovery Services Vault." },
-      { id: 'B', text: "Configure Multi-User Authorization (MUA) for Azure Backup using Resource Guard." },
-      { id: 'C', text: "Configure Azure File Sync cloud tiering." },
-      { id: 'D', text: "Deploy an Azure Bastion host." },
-      { id: 'E', text: "Disable Cross-Region Restore." }
+      { id: 'B', text: "Deploy an Azure Bastion host." },
+      { id: 'C', text: "Configure Multi-User Authorization (MUA) for Azure Backup using Resource Guard." },
+      { id: 'D', text: "Disable Cross-Region Restore." },
+      { id: 'E', text: "Configure Azure File Sync cloud tiering." }
     ],
-    correctAnswers: ['A', 'B'],
+    correctAnswers: ['A', 'C'],
     type: "multiple",
     explanation: "Soft Delete for Azure Backup retains deleted backup data for an additional 14 days in a soft-deleted state at no additional cost, allowing recovery from accidental or malicious deletion. Multi-User Authorization (MUA) for Azure Backup uses an Azure Resource Guard resource (owned by a separate security administrator) to require dual-authorization before any critical backup operation (disabling soft delete, deleting backups, changing policies) can execute.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/backup/backup-azure-security-feature-cloud",
@@ -515,12 +515,12 @@ export const AZURE_AZ104_QUESTIONS_2 = [
     scenario: "A production virtual machine was unexpectedly deleted at 02:00 AM. The security operations team needs to determine which user account or service principal executed the `Delete Virtual Machine` API call and from which IP address the request originated.",
     question: "Which Azure Monitor log source records all management plane write, update, and delete actions across Azure subscriptions?",
     options: [
-      { id: 'A', text: "Application Insights Live Metrics." },
-      { id: 'B', text: "Azure Monitor Metrics." },
-      { id: 'C', text: "Azure Network Watcher NSG Flow Logs." },
-      { id: 'D', text: "Azure Activity Log." }
+      { id: 'A', text: "Azure Activity Log." },
+      { id: 'B', text: "Azure Network Watcher NSG Flow Logs." },
+      { id: 'C', text: "Azure Monitor Metrics." },
+      { id: 'D', text: "Application Insights Live Metrics." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The Azure Activity Log is a platform log that provides insight into subscription-level events (the control plane). It records every create, update, or delete operation on Azure resources, capturing the timestamp, target resource ID, caller identity (user email or Service Principal), status, and caller IP address. NSG Flow Logs (B) record IP traffic. Metrics (C) record numerical performance.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/activity-log",

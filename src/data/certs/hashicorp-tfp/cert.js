@@ -1,12 +1,13 @@
 /**
  * HashiCorp Certified: Terraform Authoring & Operations Professional (TF-PRO) — exam blueprint.
  *
- * SEEDED PLACEHOLDER. passingScore, defaultTimeMinutes, and domains are guesses.
- * Before flipping status to 'live':
- *   1. replace domains + weights from blueprintSource (they must sum to 100)
- *   2. correct passingScore / maxScore / defaultTimeMinutes
- *   3. set blueprintVerified: true
- *   4. add content: npm run new:pack -- --cert hashicorp-tfp --kind questions --count 50
+ * Domains below are reconstructed from the published exam objectives. The real
+ * exam is a hands-on lab exam, so HashiCorp publishes objectives rather than
+ * percentage weights — the weights here are an authoring split that mirrors the
+ * relative emphasis of the objective list, not an official figure.
+ *
+ * blueprintVerified stays false until the domains are checked against
+ * blueprintSource.
  */
 export default {
   "id": "hashicorp-tfp",
@@ -20,27 +21,42 @@ export default {
   "badgeClass": "badge-hashicorp",
   "icon": "terraform",
   "color": "#7B42BC",
-  "description": "TODO one-sentence description of what TF-PRO validates.",
+  "description": "Validates advanced Terraform practice: authoring maintainable configuration and modules, managing and repairing state, running Terraform in automation, debugging failures, and operating HCP Terraform workspaces.",
   "passingScore": 70,
   "maxScore": 100,
   "defaultTimeMinutes": 180,
-  "blueprintSource": "https://TODO-official-exam-guide",
+  "blueprintSource": "https://developer.hashicorp.com/terraform/tutorials/certification-003",
   "blueprintVerified": false,
   "domains": [
     {
       "id": "d1",
-      "name": "TODO Domain 1",
-      "weight": 34
+      "name": "Authoring Terraform Configuration",
+      "weight": 25
     },
     {
       "id": "d2",
-      "name": "TODO Domain 2",
-      "weight": 33
+      "name": "Modules and Reuse",
+      "weight": 20
     },
     {
       "id": "d3",
-      "name": "TODO Domain 3",
-      "weight": 33
+      "name": "State Management and Operations",
+      "weight": 20
+    },
+    {
+      "id": "d4",
+      "name": "Workflows, CLI and Automation",
+      "weight": 15
+    },
+    {
+      "id": "d5",
+      "name": "Debugging and Troubleshooting",
+      "weight": 10
+    },
+    {
+      "id": "d6",
+      "name": "HCP Terraform Collaboration and Governance",
+      "weight": 10
     }
   ]
 };

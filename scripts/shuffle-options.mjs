@@ -20,23 +20,25 @@ function getFiles(dir, match) {
 const files = getFiles('./src/data/certs', /pack-\d+\.js$/).filter(f => f.includes('/questions/'));
 
 function hashStr(str) {
-  let hash = 5381;
+  let hash = 0;
   for (let i = 0; i < str.length; i++) {
-    hash = ((hash << 5) + hash) + str.charCodeAt(i);
-    hash |= 0;
+    hash = (hash * 31 + str.charCodeAt(i)) >>> 0;
   }
-  return Math.abs(hash);
+  return hash;
 }
 
 function shuffleArray(arr, seed) {
   const a = arr.slice();
-  let s = (seed ^ 0x5DEECE66) & 0xFFFFFFFF;
-  for (let i = a.length - 1; i > 0; i--) {
-    s = (Math.imul(s, 1103515245) + 12345) & 0x7FFFFFFF;
-    const j = Math.floor((s / 0x7FFFFFFF) * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
+  const shift = seed % a.length;
+  // Rotate by shift then pseudo-randomly permute
+  const rotated = a.slice(shift).concat(a.slice(0, shift));
+  let s = (seed ^ 0x5DEECE66) >>> 0;
+  for (let i = rotated.length - 1; i > 0; i--) {
+    s = (Math.imul(s, 1103515245) + 12345) >>> 0;
+    const j = s % (i + 1);
+    [rotated[i], rotated[j]] = [rotated[j], rotated[i]];
   }
-  return a;
+  return rotated;
 }
 
 function formatQuestion(q, indent = '  ') {

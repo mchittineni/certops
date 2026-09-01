@@ -9,12 +9,12 @@ export const AWS_CLF_QUESTIONS_8 = [
     scenario: "A web development team wants AWS to automatically apply minor and patch updates to the underlying operating system, web server, and language runtime during scheduled weekly maintenance windows.",
     question: "Which AWS Elastic Beanstalk feature automatically applies operating system and runtime platform patches?",
     options: [
-      { id: 'A', text: "Auto Scaling Lifecycle Hooks" },
-      { id: 'B', text: "AWS Systems Manager Patch Manager" },
-      { id: 'C', text: "AWS CodeDeploy" },
-      { id: 'D', text: "Managed Platform Updates" }
+      { id: 'A', text: "AWS Systems Manager Patch Manager" },
+      { id: 'B', text: "Managed Platform Updates" },
+      { id: 'C', text: "Auto Scaling Lifecycle Hooks" },
+      { id: 'D', text: "AWS CodeDeploy" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Elastic Beanstalk Managed Platform Updates automatically applies platform updates (operating system, web server, and application runtime patches) to your environment during a configurable weekly maintenance window with zero downtime.",
     referenceUrl: "https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-platform-update-managed.html",
@@ -30,12 +30,12 @@ export const AWS_CLF_QUESTIONS_8 = [
     scenario: "A developer has long-term IAM access keys configured in a local command-line script. A security policy requires rotating access keys periodically.",
     question: "What is the recommended AWS best practice for rotating IAM access keys safely without disrupting running services?",
     options: [
-      { id: 'A', text: "Create a second access key, update the application with the new key, verify functionality, deactivate the old key, and finally delete the old key." },
-      { id: 'B', text: "Delete the existing access key immediately and wait for error alerts." },
+      { id: 'A', text: "Share the root user access keys temporarily while updating the key." },
+      { id: 'B', text: "Create a second access key, update the application with the new key, verify functionality, deactivate the old key, and finally delete the old key." },
       { id: 'C', text: "Change the IAM user password, which automatically rotates the access keys." },
-      { id: 'D', text: "Share the root user access keys temporarily while updating the key." }
+      { id: 'D', text: "Delete the existing access key immediately and wait for error alerts." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Rotating access keys safely involves creating a second active key, deploying the new key to client configurations, testing functionality, deactivating the old key to confirm nothing broke, and then deleting the old key.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_RotateAccessKey",
@@ -51,12 +51,12 @@ export const AWS_CLF_QUESTIONS_8 = [
     scenario: "A software organization needs a secure, highly scalable, and managed artifact repository to store, publish, and share private software packages (npm, Maven, Gradle, pip, NuGet, PyPI).",
     question: "Which AWS service provides a fully managed software artifact repository for development packages?",
     options: [
-      { id: 'A', text: "Amazon Elastic Container Registry (ECR)" },
-      { id: 'B', text: "AWS CodeCommit" },
-      { id: 'C', text: "AWS CodeArtifact" },
-      { id: 'D', text: "Amazon S3" }
+      { id: 'A', text: "AWS CodeCommit" },
+      { id: 'B', text: "Amazon Elastic Container Registry (ECR)" },
+      { id: 'C', text: "Amazon S3" },
+      { id: 'D', text: "AWS CodeArtifact" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "AWS CodeArtifact is a fully managed artifact repository service that makes it easy for organizations of any size to securely store, publish, and share software packages used in their software development process.",
     referenceUrl: "https://docs.aws.amazon.com/codeartifact/latest/ug/welcome.html",
@@ -73,9 +73,9 @@ export const AWS_CLF_QUESTIONS_8 = [
     question: "Which AWS managed container image registry service stores, manages, and deploys Docker container images?",
     options: [
       { id: 'A', text: "Amazon Elastic Container Registry (Amazon ECR)" },
-      { id: 'B', text: "Amazon S3" },
+      { id: 'B', text: "AWS CodeArtifact" },
       { id: 'C', text: "Amazon Elastic Container Service (ECS)" },
-      { id: 'D', text: "AWS CodeArtifact" }
+      { id: 'D', text: "Amazon S3" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -93,12 +93,12 @@ export const AWS_CLF_QUESTIONS_8 = [
     scenario: "An enterprise is comparing cloud service delivery models. In one model, the cloud provider manages the physical hardware, virtualization, operating system, and runtime, allowing the customer to focus purely on application code.",
     question: "Which cloud service model provides a platform allowing customers to develop, run, and manage applications without the complexity of building and maintaining infrastructure?",
     options: [
-      { id: 'A', text: "Function as a Service (FaaS) alone" },
-      { id: 'B', text: "Infrastructure as a Service (IaaS)" },
+      { id: 'A', text: "Infrastructure as a Service (IaaS)" },
+      { id: 'B', text: "Platform as a Service (PaaS)" },
       { id: 'C', text: "Software as a Service (SaaS)" },
-      { id: 'D', text: "Platform as a Service (PaaS)" }
+      { id: 'D', text: "Function as a Service (FaaS) alone" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Platform as a Service (PaaS) removes the need for organizations to manage the underlying infrastructure (usually hardware and operating systems) and allows you to focus on the deployment and management of your applications.",
     referenceUrl: "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/types-of-cloud-computing.html",
@@ -114,12 +114,12 @@ export const AWS_CLF_QUESTIONS_8 = [
     scenario: "A customer discovers that an Amazon EC2 instance running in their account has been compromised due to an unpatched vulnerability in an open-source web application the customer installed.",
     question: "Under the AWS Shared Responsibility Model, who is responsible for remediating the vulnerable application code and restoring the EC2 instance?",
     options: [
-      { id: 'A', text: "The customer is solely responsible for remediating the application and operating system inside the EC2 instance." },
-      { id: 'B', text: "AWS is responsible because the instance runs in an AWS data centre." },
-      { id: 'C', text: "Remediation is shared equally with the physical facility staff." },
-      { id: 'D', text: "AWS Support will automatically re-write the vulnerable application code." }
+      { id: 'A', text: "AWS Support will automatically re-write the vulnerable application code." },
+      { id: 'B', text: "Remediation is shared equally with the physical facility staff." },
+      { id: 'C', text: "AWS is responsible because the instance runs in an AWS data centre." },
+      { id: 'D', text: "The customer is solely responsible for remediating the application and operating system inside the EC2 instance." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Under the Shared Responsibility Model, the customer is fully responsible for security IN the cloud, which includes installing application software patches, securing custom source code, configuring operating system firewalls, and managing application vulnerabilities.",
     referenceUrl: "https://aws.amazon.com/compliance/shared-responsibility-model/",
@@ -135,10 +135,10 @@ export const AWS_CLF_QUESTIONS_8 = [
     scenario: "A data storage architect needs to choose an object storage service designed to provide 99.999999999% (11 9s) of data durability across multiple Availability Zones.",
     question: "What level of data durability is Amazon S3 Standard designed to deliver for objects over a given year?",
     options: [
-      { id: 'A', text: "99.9% durability" },
-      { id: 'B', text: "99.99% durability" },
+      { id: 'A', text: "99.99% durability" },
+      { id: 'B', text: "95.0% durability" },
       { id: 'C', text: "99.999999999% (11 9s) durability" },
-      { id: 'D', text: "95.0% durability" }
+      { id: 'D', text: "99.9% durability" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -156,12 +156,12 @@ export const AWS_CLF_QUESTIONS_8 = [
     scenario: "A company generates secondary backup copies of data that can be easily recreated if lost. They want a low-cost infrequent access storage class that stores data in a single Availability Zone at a 20% lower storage cost than S3 Standard-IA.",
     question: "Which Amazon S3 storage class stores data in a single Availability Zone for non-critical, reproducible data?",
     options: [
-      { id: 'A', text: "S3 Standard-IA" },
-      { id: 'B', text: "S3 Glacier Instant Retrieval" },
-      { id: 'C', text: "S3 Intelligent-Tiering" },
-      { id: 'D', text: "S3 One Zone-IA" }
+      { id: 'A', text: "S3 One Zone-IA" },
+      { id: 'B', text: "S3 Intelligent-Tiering" },
+      { id: 'C', text: "S3 Glacier Instant Retrieval" },
+      { id: 'D', text: "S3 Standard-IA" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "S3 One Zone-IA is designed for data that is accessed less frequently but requires rapid access when needed. Unlike other S3 storage classes that store data in a minimum of three AZs, S3 One Zone-IA stores data in a single AZ at a lower cost.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html#sc-onezone-ia",
@@ -177,12 +177,12 @@ export const AWS_CLF_QUESTIONS_8 = [
     scenario: "A student experimenting with AWS Free Tier wants to receive automated email notifications whenever their usage reaches 85% of the monthly free tier limits.",
     question: "Which AWS billing setting can be enabled to receive notifications when usage approaches or exceeds Free Tier limits?",
     options: [
-      { id: 'A', text: "AWS Free Tier usage alerts in Billing Preferences" },
+      { id: 'A', text: "Amazon CloudWatch Logs" },
       { id: 'B', text: "AWS Cost Anomaly Detection" },
-      { id: 'C', text: "Amazon CloudWatch Logs" },
-      { id: 'D', text: "AWS Shield Advanced" }
+      { id: 'C', text: "AWS Shield Advanced" },
+      { id: 'D', text: "AWS Free Tier usage alerts in Billing Preferences" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "AWS Billing Preferences include an option to enable AWS Free Tier usage alerts, which automatically sends email alerts when your usage exceeds 85% of monthly Free Tier limits.",
     referenceUrl: "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/tracking-free-tier-usage.html",
@@ -198,12 +198,12 @@ export const AWS_CLF_QUESTIONS_8 = [
     scenario: "An enterprise sets up an organization with 50 member accounts. Finance requires that all AWS charges from every account be invoiced to and paid by the single Management Account.",
     question: "How does payment processing work in AWS Organizations with Consolidated Billing?",
     options: [
-      { id: 'A', text: "Each member account must have its own corporate credit card on file." },
-      { id: 'B', text: "Charges are split equally among member accounts regardless of usage." },
-      { id: 'C', text: "The Management (Payer) Account receives a single monthly consolidated invoice and is responsible for paying all charges incurred by all member accounts." },
-      { id: 'D', text: "Member accounts must pay AWS directly before charges appear in the management account." }
+      { id: 'A', text: "Member accounts must pay AWS directly before charges appear in the management account." },
+      { id: 'B', text: "The Management (Payer) Account receives a single monthly consolidated invoice and is responsible for paying all charges incurred by all member accounts." },
+      { id: 'C', text: "Charges are split equally among member accounts regardless of usage." },
+      { id: 'D', text: "Each member account must have its own corporate credit card on file." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "With consolidated billing in AWS Organizations, the management account (also known as the payer account) is billed for all charges incurred by the member accounts, receiving one consolidated monthly bill.",
     referenceUrl: "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/consolidated-billing.html",
@@ -219,10 +219,10 @@ export const AWS_CLF_QUESTIONS_8 = [
     scenario: "A security operations team wants automated anomaly detection that flags unusual surges in write API activity or rapid IAM permission modifications without writing custom CloudWatch metric filters.",
     question: "Which AWS CloudTrail feature uses machine learning to automatically detect unusual administrative API activity in your AWS account?",
     options: [
-      { id: 'A', text: "AWS Config" },
-      { id: 'B', text: "Amazon GuardDuty" },
+      { id: 'A', text: "Amazon GuardDuty" },
+      { id: 'B', text: "CloudTrail Event History" },
       { id: 'C', text: "CloudTrail Insights" },
-      { id: 'D', text: "CloudTrail Event History" }
+      { id: 'D', text: "AWS Config" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -240,12 +240,12 @@ export const AWS_CLF_QUESTIONS_8 = [
     scenario: "A company has existing server-bound software licenses (such as Microsoft Windows Server or SQL Server per-core licenses) that require visibility into physical socket and core counts on the underlying hardware.",
     question: "Which Amazon EC2 tenancy option provides a dedicated physical server with full socket and physical core visibility to support server-bound software licenses?",
     options: [
-      { id: 'A', text: "Dedicated Hosts" },
-      { id: 'B', text: "Reserved Instances" },
-      { id: 'C', text: "On-Demand Instances" },
-      { id: 'D', text: "Dedicated Instances" }
+      { id: 'A', text: "Dedicated Instances" },
+      { id: 'B', text: "On-Demand Instances" },
+      { id: 'C', text: "Reserved Instances" },
+      { id: 'D', text: "Dedicated Hosts" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Amazon EC2 Dedicated Hosts provide physical servers dedicated for your use with full visibility into sockets and physical cores, allowing you to bring your own server-bound software licenses (BYOL). Dedicated Instances provide dedicated hardware at the instance level without socket visibility.",
     referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html",
@@ -261,12 +261,12 @@ export const AWS_CLF_QUESTIONS_8 = [
     scenario: "A storage administrator takes daily snapshots of a 100 GB Amazon EBS volume. On day 2, only 5 GB of data has changed since the previous snapshot.",
     question: "How does Amazon EBS store subsequent snapshots of an EBS volume?",
     options: [
-      { id: 'A', text: "EBS snapshots save a full 100 GB copy every time." },
+      { id: 'A', text: "EBS snapshots are stored directly on EC2 instance store disks." },
       { id: 'B', text: "EBS snapshots overwrite previous snapshots automatically." },
-      { id: 'C', text: "EBS snapshots are stored directly on EC2 instance store disks." },
-      { id: 'D', text: "EBS snapshots are incremental, saving only the blocks that have changed since the most recent snapshot." }
+      { id: 'C', text: "EBS snapshots are incremental, saving only the blocks that have changed since the most recent snapshot." },
+      { id: 'D', text: "EBS snapshots save a full 100 GB copy every time." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Amazon EBS snapshots are incremental backups, meaning that only the blocks on the device that have changed after your most recent snapshot are saved, optimizing storage cost and performance.",
     referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html",
@@ -282,12 +282,12 @@ export const AWS_CLF_QUESTIONS_8 = [
     scenario: "An engineering director encourages software teams to test innovative product ideas quickly. If an idea fails, the virtual resources are terminated in minutes with minimal financial loss.",
     question: "How does cloud computing lower the cost of failure during experimental product development?",
     options: [
-      { id: 'A', text: "All development environments are permanently free of charge." },
-      { id: 'B', text: "Resources can be provisioned and decommissioned on demand with zero long-term hardware commitments." },
-      { id: 'C', text: "Hardware depreciates faster in the cloud." },
-      { id: 'D', text: "AWS refunds the cost of all failed business ideas." }
+      { id: 'A', text: "Resources can be provisioned and decommissioned on demand with zero long-term hardware commitments." },
+      { id: 'B', text: "All development environments are permanently free of charge." },
+      { id: 'C', text: "AWS refunds the cost of all failed business ideas." },
+      { id: 'D', text: "Hardware depreciates faster in the cloud." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "In the cloud, teams can rapidly spin up resources to test hypotheses and immediately tear them down if unsuccessful, paying only for the minutes or hours consumed. This minimizes the financial penalty of failed experiments.",
     referenceUrl: "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/six-advantages-of-cloud-computing.html",
@@ -324,12 +324,12 @@ export const AWS_CLF_QUESTIONS_8 = [
     scenario: "A high-performance analytics application needs temporary scratchpad storage with the lowest possible I/O latency. The team accepts that data will be lost when the EC2 instance is stopped or terminated.",
     question: "Which Amazon EC2 storage option provides temporary, block-level storage physically attached to the host server with ultra-low latency?",
     options: [
-      { id: 'A', text: "Amazon S3 Standard" },
+      { id: 'A', text: "Amazon EC2 Instance Store" },
       { id: 'B', text: "Amazon Elastic Block Store (EBS)" },
       { id: 'C', text: "Amazon Elastic File System (EFS)" },
-      { id: 'D', text: "Amazon EC2 Instance Store" }
+      { id: 'D', text: "Amazon S3 Standard" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "An instance store provides temporary (ephemeral) block-level storage for your instance located on disks that are physically attached to the host computer, delivering ultra-high IOPS and low latency for temporary scratchpad data.",
     referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html",
@@ -345,12 +345,12 @@ export const AWS_CLF_QUESTIONS_8 = [
     scenario: "A compliance policy requires critical financial documents uploaded to an S3 bucket in `us-east-1` to be automatically and asynchronously replicated to a secondary bucket in `eu-west-1` for geographic redundancy.",
     question: "Which Amazon S3 feature automatically replicates objects across buckets in different AWS Regions?",
     options: [
-      { id: 'A', text: "Amazon S3 Transfer Acceleration" },
-      { id: 'B', text: "Amazon S3 Cross-Region Replication (CRR)" },
-      { id: 'C', text: "Amazon S3 Same-Region Replication (SRR)" },
+      { id: 'A', text: "Amazon S3 Same-Region Replication (SRR)" },
+      { id: 'B', text: "Amazon S3 Transfer Acceleration" },
+      { id: 'C', text: "Amazon S3 Cross-Region Replication (CRR)" },
       { id: 'D', text: "AWS DataSync" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Amazon S3 Cross-Region Replication (CRR) is an S3 feature that automatically replicates objects across buckets in different AWS Regions for geographic compliance, lower latency access, and disaster recovery.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication.html",
@@ -366,12 +366,12 @@ export const AWS_CLF_QUESTIONS_8 = [
     scenario: "An enterprise is seeking an accredited professional consulting firm with verified AWS competencies to help design, migrate, and build their enterprise cloud architecture.",
     question: "Which global community of partners provides consulting, software, and migration services built on AWS?",
     options: [
-      { id: 'A', text: "AWS re:Post" },
-      { id: 'B', text: "AWS Partner Network (APN)" },
+      { id: 'A', text: "AWS Partner Network (APN)" },
+      { id: 'B', text: "AWS Marketplace" },
       { id: 'C', text: "AWS Developer Forum" },
-      { id: 'D', text: "AWS Marketplace" }
+      { id: 'D', text: "AWS re:Post" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The AWS Partner Network (APN) is a global community of partners that leverage AWS to build solutions and services for customers, including Consulting Partners and Independent Software Vendors (ISVs).",
     referenceUrl: "https://aws.amazon.com/partners/",
@@ -387,12 +387,12 @@ export const AWS_CLF_QUESTIONS_8 = [
     scenario: "A developer is troubleshooting an unexpected IAM policy syntax error and wants to search authoritative articles written by AWS Support engineers answering frequent technical questions.",
     question: "Which AWS resource contains answers to frequently asked technical questions written and verified by AWS Support engineers?",
     options: [
-      { id: 'A', text: "AWS Artifact" },
-      { id: 'B', text: "AWS Security Hub" },
-      { id: 'C', text: "AWS Knowledge Center / AWS re:Post" },
-      { id: 'D', text: "AWS Trust & Safety" }
+      { id: 'A', text: "AWS Knowledge Center / AWS re:Post" },
+      { id: 'B', text: "AWS Artifact" },
+      { id: 'C', text: "AWS Trust & Safety" },
+      { id: 'D', text: "AWS Security Hub" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The AWS Knowledge Center (and AWS re:Post community) is a curated repository of articles and videos written by AWS Support engineers that answer the most frequent technical questions asked by AWS customers.",
     referenceUrl: "https://repost.aws/",
@@ -408,12 +408,12 @@ export const AWS_CLF_QUESTIONS_8 = [
     scenario: "A financial ticketing application requires messages to be delivered exactly once and processed in the precise sequential order in which they were submitted.",
     question: "Which Amazon SQS queue type guarantees first-in-first-out delivery order and exactly-once processing?",
     options: [
-      { id: 'A', text: "Amazon SQS FIFO Queues" },
-      { id: 'B', text: "Amazon Kinesis Data Firehose" },
-      { id: 'C', text: "Amazon SQS Standard Queues" },
-      { id: 'D', text: "Amazon SNS Topics" }
+      { id: 'A', text: "Amazon Kinesis Data Firehose" },
+      { id: 'B', text: "Amazon SNS Topics" },
+      { id: 'C', text: "Amazon SQS FIFO Queues" },
+      { id: 'D', text: "Amazon SQS Standard Queues" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Amazon SQS FIFO (First-In-First-Out) queues guarantee that the order in which messages are sent and received is strictly preserved and that each message is delivered exactly once without duplicates.",
     referenceUrl: "https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html",
@@ -429,12 +429,12 @@ export const AWS_CLF_QUESTIONS_8 = [
     scenario: "A microservices application processes customer orders from an SQS queue. If a malformed message fails processing after 5 retry attempts, it should be isolated for manual debugging.",
     question: "Which Amazon SQS feature isolates messages that cannot be processed successfully after multiple retries?",
     options: [
-      { id: 'A', text: "FIFO Queue" },
-      { id: 'B', text: "Delay Queue" },
-      { id: 'C', text: "Visibility Timeout Extension" },
-      { id: 'D', text: "Dead-Letter Queue (DLQ)" }
+      { id: 'A', text: "Visibility Timeout Extension" },
+      { id: 'B', text: "Dead-Letter Queue (DLQ)" },
+      { id: 'C', text: "FIFO Queue" },
+      { id: 'D', text: "Delay Queue" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "A Dead-Letter Queue (DLQ) is an Amazon SQS queue that other queues can target for messages that cannot be processed successfully after a maximum receive count, isolating unprocessable messages for inspection.",
     referenceUrl: "https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html",
@@ -450,12 +450,12 @@ export const AWS_CLF_QUESTIONS_8 = [
     scenario: "A developer is designing a serverless data transformation job on AWS Lambda and needs to know the maximum execution time limit for a single Lambda function invocation.",
     question: "What is the maximum execution duration limit for an AWS Lambda function invocation?",
     options: [
-      { id: 'A', text: "1 hour (3600 seconds)" },
+      { id: 'A', text: "5 minutes (300 seconds)" },
       { id: 'B', text: "Unlimited execution duration" },
-      { id: 'C', text: "15 minutes (900 seconds)" },
-      { id: 'D', text: "5 minutes (300 seconds)" }
+      { id: 'C', text: "1 hour (3600 seconds)" },
+      { id: 'D', text: "15 minutes (900 seconds)" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "AWS Lambda functions have a maximum execution timeout limit of 15 minutes (900 seconds) per invocation. For longer-running batch jobs, AWS recommends AWS Fargate, Amazon ECS, or AWS Batch.",
     referenceUrl: "https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html",
@@ -493,9 +493,9 @@ export const AWS_CLF_QUESTIONS_8 = [
     question: "Which cloud service model describes complete, centrally hosted software applications delivered over the internet to end users?",
     options: [
       { id: 'A', text: "Function as a Service (FaaS)" },
-      { id: 'B', text: "Platform as a Service (PaaS)" },
+      { id: 'B', text: "Infrastructure as a Service (IaaS)" },
       { id: 'C', text: "Software as a Service (SaaS)" },
-      { id: 'D', text: "Infrastructure as a Service (IaaS)" }
+      { id: 'D', text: "Platform as a Service (PaaS)" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -513,12 +513,12 @@ export const AWS_CLF_QUESTIONS_8 = [
     scenario: "A company runs an enterprise application on Amazon RDS for MySQL. The database administrator wants to understand who is responsible for operating system patching on the database host.",
     question: "Under the Shared Responsibility Model for Amazon RDS, which party is responsible for patching the database operating system?",
     options: [
-      { id: 'A', text: "OS patching is the shared responsibility of third-party consulting partners." },
-      { id: 'B', text: "AWS is responsible for managing and patching the operating system hosting the RDS database." },
+      { id: 'A', text: "AWS is responsible for managing and patching the operating system hosting the RDS database." },
+      { id: 'B', text: "The customer must SSH into the RDS host to install OS security patches." },
       { id: 'C', text: "The operating system does not require patching in the cloud." },
-      { id: 'D', text: "The customer must SSH into the RDS host to install OS security patches." }
+      { id: 'D', text: "OS patching is the shared responsibility of third-party consulting partners." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Because Amazon RDS is a managed service, AWS manages the underlying operating system, virtualization hypervisor, hardware maintenance, and automated OS security patching. Customers manage database schema, table indexing, user access, and query tuning.",
     referenceUrl: "https://aws.amazon.com/compliance/shared-responsibility-model/",
