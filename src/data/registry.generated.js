@@ -367,7 +367,8 @@ export const CONTENT_REGISTRY = {
       pack('./certs/k8s-cka/questions/pack-5.js', () => import('./certs/k8s-cka/questions/pack-5.js')),
       pack('./certs/k8s-cka/questions/pack-6.js', () => import('./certs/k8s-cka/questions/pack-6.js')),
       pack('./certs/k8s-cka/questions/pack-7.js', () => import('./certs/k8s-cka/questions/pack-7.js')),
-      pack('./certs/k8s-cka/questions/pack-8.js', () => import('./certs/k8s-cka/questions/pack-8.js'))
+      pack('./certs/k8s-cka/questions/pack-8.js', () => import('./certs/k8s-cka/questions/pack-8.js')),
+      pack('./certs/k8s-cka/questions/pack-9.js', () => import('./certs/k8s-cka/questions/pack-9.js'))
     ],
     flashcards: [
       pack('./certs/k8s-cka/flashcards/pack-1.js', () => import('./certs/k8s-cka/flashcards/pack-1.js'))
