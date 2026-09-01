@@ -10,13 +10,13 @@ export const GCP_ACE_QUESTIONS = [
     question: "Which sequence of commands accomplishes this?",
     options: [
       { id: 'A', text: "gcloud container clusters resize CLUSTER --num-nodes=3, then kubectl apply -f service.yaml" },
-      { id: 'B', text: "kubectl run app --image=IMAGE, then kubectl expose pod app --type=ClusterIP --port=80" },
+      { id: 'B', text: "gcloud compute instances create-with-container app --container-image=IMAGE, repeated three times" },
       { id: 'C', text: "kubectl create deployment app --image=IMAGE --replicas=3, then kubectl expose deployment app --type=LoadBalancer --port=80 --target-port=8080" },
-      { id: 'D', text: "gcloud compute instances create-with-container app --container-image=IMAGE, repeated three times" }
+      { id: 'D', text: "kubectl run app --image=IMAGE, then kubectl expose pod app --type=ClusterIP --port=80" }
     ],
     correctAnswers: ['C'],
     type: "single",
-    explanation: "A Deployment manages the desired replica count and rolling updates, and a Service of type LoadBalancer provisions a Google Cloud external load balancer with a public IP. Creating individual container VMs (B) bypasses the cluster entirely, a bare pod behind a ClusterIP (C) is neither replicated nor publicly reachable, and resizing the node pool (D) changes cluster capacity rather than deploying the workload.",
+    explanation: "A Deployment manages the desired replica count and rolling updates, and a Service of type LoadBalancer provisions a Google Cloud external load balancer with a public IP. Creating individual container VMs bypasses the cluster entirely, a bare pod behind a ClusterIP is neither replicated nor publicly reachable, and resizing the node pool changes cluster capacity rather than deploying the workload.",
     referenceUrl: "https://cloud.google.com/kubernetes-engine/docs/how-to/exposing-apps",
     tags: ["GKE", "kubectl", "Deployment", "LoadBalancer"]
   },
@@ -30,14 +30,14 @@ export const GCP_ACE_QUESTIONS = [
     scenario: "An application service account must upload new objects to a Cloud Storage bucket and read them back. It must not be able to delete the bucket itself or change its IAM policy.",
     question: "Which predefined IAM role should be granted on the bucket?",
     options: [
-      { id: 'A', text: "roles/storage.objectAdmin" },
-      { id: 'B', text: "roles/storage.admin" },
+      { id: 'A', text: "roles/storage.objectViewer" },
+      { id: 'B', text: "roles/storage.objectAdmin" },
       { id: 'C', text: "roles/editor at the project level" },
-      { id: 'D', text: "roles/storage.objectViewer" }
+      { id: 'D', text: "roles/storage.admin" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
-    explanation: "roles/storage.objectAdmin grants full control over objects - create, read, list, and delete - without any permission over the bucket resource or its IAM policy, which is exactly the least-privilege fit. roles/storage.admin (B) adds bucket-level control including deletion, the project Editor basic role (C) is vastly over-privileged, and objectViewer (D) is read-only and cannot upload.",
+    explanation: "roles/storage.objectAdmin grants full control over objects - create, read, list, and delete - without any permission over the bucket resource or its IAM policy, which is exactly the least-privilege fit. roles/storage.admin adds bucket-level control including deletion, the project Editor basic role is vastly over-privileged, and objectViewer is read-only and cannot upload.",
     referenceUrl: "https://cloud.google.com/storage/docs/access-control/iam-roles",
     tags: ["IAM", "Cloud Storage", "Least Privilege", "Security"]
   },
@@ -51,14 +51,14 @@ export const GCP_ACE_QUESTIONS = [
     scenario: "An operations team must take daily backups of the persistent disks attached to a set of Compute Engine VMs and delete snapshots older than 14 days, without running any cron jobs or custom scripts.",
     question: "What should they configure?",
     options: [
-      { id: 'A', text: "A snapshot schedule (resource policy) attached to the persistent disks, with a 14-day retention policy." },
+      { id: 'A', text: "Managed instance group auto-healing with a 14-day health check window." },
       { id: 'B', text: "A Cloud Storage lifecycle rule on the bucket holding the disk images." },
-      { id: 'C', text: "A Cloud Scheduler job that invokes a Cloud Function calling the snapshots.insert API." },
-      { id: 'D', text: "Managed instance group auto-healing with a 14-day health check window." }
+      { id: 'C', text: "A snapshot schedule (resource policy) attached to the persistent disks, with a 14-day retention policy." },
+      { id: 'D', text: "A Cloud Scheduler job that invokes a Cloud Function calling the snapshots.insert API." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
-    explanation: "Compute Engine snapshot schedules are resource policies attached to a disk: they create snapshots on a defined cadence and delete them automatically once the retention period expires, with no code to maintain. Scheduler plus a Cloud Function (B) works but is exactly the custom automation the requirement excludes, Cloud Storage lifecycle rules (C) govern objects rather than disk snapshots, and auto-healing (D) recreates unhealthy instances and has nothing to do with backups.",
+    explanation: "Compute Engine snapshot schedules are resource policies attached to a disk: they create snapshots on a defined cadence and delete them automatically once the retention period expires, with no code to maintain. Scheduler plus a Cloud Function works but is exactly the custom automation the requirement excludes, Cloud Storage lifecycle rules govern objects rather than disk snapshots, and auto-healing recreates unhealthy instances and has nothing to do with backups.",
     referenceUrl: "https://cloud.google.com/compute/docs/disks/scheduled-snapshots",
     tags: ["Compute Engine", "Snapshots", "Backup", "Operations"]
   },
@@ -72,12 +72,12 @@ export const GCP_ACE_QUESTIONS = [
     scenario: "A team is onboarding to Google Cloud and must decide at which level of the resource hierarchy billing accounts are linked and APIs are enabled.",
     question: "Which resource is the unit of billing, quota, and API enablement in Google Cloud?",
     options: [
-      { id: 'A', text: "The VPC network." },
-      { id: 'B', text: "The organization." },
-      { id: 'C', text: "The project." },
-      { id: 'D', text: "The folder." }
+      { id: 'A', text: "The organization." },
+      { id: 'B', text: "The folder." },
+      { id: 'C', text: "The VPC network." },
+      { id: 'D', text: "The project." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "A Google Cloud project is the fundamental container: it is linked to exactly one billing account, owns per-service quotas, and is where individual APIs are enabled. Folders and the organization exist to group projects and apply inherited IAM and org policies; a VPC is a networking resource that lives inside a project.",
     referenceUrl: "https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy",
@@ -93,12 +93,12 @@ export const GCP_ACE_QUESTIONS = [
     scenario: "A company must retain audit logs for seven years to satisfy regulators. The logs are expected to be read at most once a year, and a retrieval latency of milliseconds is not required, but storage cost must be as low as possible.",
     question: "Which Cloud Storage class should be used?",
     options: [
-      { id: 'A', text: "Nearline." },
-      { id: 'B', text: "Archive." },
-      { id: 'C', text: "Coldline." },
+      { id: 'A', text: "Archive." },
+      { id: 'B', text: "Coldline." },
+      { id: 'C', text: "Nearline." },
       { id: 'D', text: "Standard." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Archive is the lowest-cost Cloud Storage class and is designed for data accessed less than once a year, with a 365-day minimum storage duration - a match for a seven-year regulatory retention requirement. Nearline (30-day minimum, monthly access) and Coldline (90-day minimum, quarterly access) cost more per GB stored, and Standard is for frequently accessed data.",
     referenceUrl: "https://cloud.google.com/storage/docs/storage-classes",
@@ -114,9 +114,9 @@ export const GCP_ACE_QUESTIONS = [
     scenario: "A platform team needs to run ad-hoc SQL analysis over two years of Cloud Logging data, but Cloud Logging retains _Default bucket logs for only 30 days.",
     question: "What is the correct way to retain and query these logs?",
     options: [
-      { id: 'A', text: "Increase the retention of the _Required log bucket to 730 days." },
+      { id: 'A', text: "Create a log-based metric and chart it in Cloud Monitoring for two years." },
       { id: 'B', text: "Create a log sink with a BigQuery dataset destination and an inclusion filter for the relevant log names." },
-      { id: 'C', text: "Create a log-based metric and chart it in Cloud Monitoring for two years." },
+      { id: 'C', text: "Increase the retention of the _Required log bucket to 730 days." },
       { id: 'D', text: "Schedule a Cloud Function to page through the Logging API and write CSV files to a Compute Engine persistent disk." }
     ],
     correctAnswers: ['B'],
@@ -135,14 +135,14 @@ export const GCP_ACE_QUESTIONS = [
     scenario: "An application running in a GKE cluster must call the Cloud Storage and Pub/Sub APIs. Security policy forbids creating or distributing service account JSON keys, and each of the three microservices in the cluster must have its own distinct set of permissions.",
     question: "Which approach satisfies both requirements?",
     options: [
-      { id: 'A', text: "Grant the Compute Engine default service account the Editor basic role at the project level." },
-      { id: 'B', text: "Create one Google service account, download its JSON key, and mount it as a Kubernetes Secret in all three deployments." },
-      { id: 'C', text: "Grant the node pool service account the union of all permissions the three microservices need." },
-      { id: 'D', text: "Enable Workload Identity on the cluster and bind each Kubernetes service account to a dedicated Google service account via an IAM policy on the workloadIdentityUser role." }
+      { id: 'A', text: "Grant the node pool service account the union of all permissions the three microservices need." },
+      { id: 'B', text: "Enable Workload Identity on the cluster and bind each Kubernetes service account to a dedicated Google service account via an IAM policy on the workloadIdentityUser role." },
+      { id: 'C', text: "Create one Google service account, download its JSON key, and mount it as a Kubernetes Secret in all three deployments." },
+      { id: 'D', text: "Grant the Compute Engine default service account the Editor basic role at the project level." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
-    explanation: "Workload Identity is the recommended GKE mechanism: a Kubernetes service account is bound to a Google service account through the iam.workloadIdentityUser role, and pods receive short-lived, automatically rotated credentials with no keys on disk. Options B and D collapse all three services onto one over-privileged identity, violating least privilege, and option C is exactly the key distribution the policy forbids.",
+    explanation: "Workload Identity is the recommended GKE mechanism: a Kubernetes service account is bound to a Google service account through the iam.workloadIdentityUser role, and pods receive short-lived, automatically rotated credentials with no keys on disk. Granting the default service account the Editor basic role, and giving the node pool service account the union of all three sets of permissions, both collapse the workloads onto one over-privileged identity and violate least privilege; downloading a JSON key and mounting it as a Secret is exactly the key distribution the policy forbids.",
     referenceUrl: "https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity",
     tags: ["Workload Identity", "GKE", "IAM", "Security"]
   },
@@ -157,11 +157,11 @@ export const GCP_ACE_QUESTIONS = [
     question: "Which migration target is appropriate?",
     options: [
       { id: 'A', text: "Bigtable with a multi-cluster routing app profile." },
-      { id: 'B', text: "Cloud Spanner with a multi-region instance configuration." },
-      { id: 'C', text: "Firestore in Native mode with multi-region replication." },
-      { id: 'D', text: "Cloud SQL with cross-region read replicas and application-side write routing." }
+      { id: 'B', text: "Cloud SQL with cross-region read replicas and application-side write routing." },
+      { id: 'C', text: "Cloud Spanner with a multi-region instance configuration." },
+      { id: 'D', text: "Firestore in Native mode with multi-region replication." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Cloud Spanner is the only Google Cloud database offering horizontally scalable relational writes with external (strong) consistency across regions and SQL semantics, which removes the need for application-level sharding. Cloud SQL read replicas scale reads only - the single primary remains the write ceiling. Firestore is a document store without full relational joins, and Bigtable offers no multi-row ACID transactions or SQL query surface for this workload.",
     referenceUrl: "https://cloud.google.com/spanner/docs/instance-configurations",
@@ -177,15 +177,15 @@ export const GCP_ACE_QUESTIONS = [
     scenario: "A team deploys a new revision of a Cloud Run service and wants to send 5% of production traffic to it, observe error rates for an hour, then complete the rollout - all without a redeploy and without the new revision receiving traffic the moment it is created.",
     question: "Which sequence achieves this? (Choose TWO)",
     options: [
-      { id: 'A', text: "Put an external HTTP(S) Load Balancer in front of two separate Cloud Run services and split traffic with a URL map weight." },
-      { id: 'B', text: "Scale the previous revision to zero instances so the new revision absorbs all requests gradually." },
-      { id: 'C', text: "Use gcloud run services update-traffic --to-revisions REVISION=5 and later --to-latest to finish the rollout." },
-      { id: 'D', text: "Deploy the revision with --no-traffic so it starts at 0% of traffic." },
-      { id: 'E', text: "Deploy the revision normally and rely on Cloud Run sending traffic to the newest revision only after health checks pass." }
+      { id: 'A', text: "Use gcloud run services update-traffic --to-revisions REVISION=5 and later --to-latest to finish the rollout." },
+      { id: 'B', text: "Deploy the revision with --no-traffic so it starts at 0% of traffic." },
+      { id: 'C', text: "Deploy the revision normally and rely on Cloud Run sending traffic to the newest revision only after health checks pass." },
+      { id: 'D', text: "Scale the previous revision to zero instances so the new revision absorbs all requests gradually." },
+      { id: 'E', text: "Put an external HTTP(S) Load Balancer in front of two separate Cloud Run services and split traffic with a URL map weight." }
     ],
-    correctAnswers: ['C', 'D'],
+    correctAnswers: ['A', 'B'],
     type: "multiple",
-    explanation: "Cloud Run has native revision-based traffic splitting. Deploying with --no-traffic creates the revision while leaving it at 0%, and update-traffic --to-revisions assigns an explicit percentage, letting you canary at 5% and later shift to 100% with --to-latest - all without redeploying. Cloud Run does not withhold traffic from the latest revision by default (C), a load balancer split (D) is a heavier alternative that duplicates the service, and scaling the old revision to zero (E) does not control traffic allocation.",
+    explanation: "Cloud Run has native revision-based traffic splitting. Deploying with --no-traffic creates the revision while leaving it at 0%, and update-traffic --to-revisions assigns an explicit percentage, letting you canary at 5% and later shift to 100% with --to-latest - all without redeploying. Cloud Run does not withhold traffic from the latest revision by default, a load balancer split is a heavier alternative that duplicates the service, and scaling the old revision to zero does not control traffic allocation.",
     referenceUrl: "https://cloud.google.com/run/docs/rollouts-rollbacks-traffic-migration",
     tags: ["Cloud Run", "Canary", "Traffic Splitting", "Deployment"]
   }
