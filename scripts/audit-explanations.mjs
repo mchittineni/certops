@@ -3,24 +3,42 @@
  * Audits question explanations for references to option letters.
  *
  * scripts/shuffle-options.mjs re-orders options and re-keys correctAnswers, so any
- * explanation that names a letter ("option B", "(C)") silently goes stale the next
- * time options are shuffled. This reports every such reference so it can be rewritten
- * to name the option's content instead.
+ * explanation that names a letter ("option B", "(C, E)", "(D is wrong)") silently goes
+ * stale the next time options are shuffled — and a stale reference does not merely read
+ * oddly, it tells the learner the correct answer is the wrong one. This reports every
+ * such reference so it can be rewritten to name the option's content instead.
  */
 import { loadAllContent, flatten } from './lib/content-io.mjs';
 
-/* Three forms, all case-sensitive on the letter so citations such as "17a-4(f)"
-   are not flagged:
-     prose         "option B", "choice C", "answers A and B"
-     parenthesised " (C)."
-     bare verdict  "(D is wrong)", "B is incorrect" — the form that reads as prose
-                   but still breaks the moment the shuffler re-orders the options. */
-const LETTER_REF = new RegExp([
-  /\b(?:[Oo]ption|[Cc]hoice|[Aa]nswer)s?\s+\(?([A-F])\)?\b/,
-  /\s\(([A-F])\)(?=[\s,.;:]|$)/,
-  /\(([A-F])\s+(?:is|are)\b[^)]*\)/,
-  /\b([A-F])\s+(?:is|are)\s+(?:wrong|incorrect|correct|right)/
-].map(r => r.source).join('|'), 'g');
+/* Prose form: "option B", "choice C", "answers A and B". Case-insensitive on the
+   keyword but the letter must be uppercase, so "options for..." is not a hit. */
+const PROSE = /\b(?:option|choice|answer)s?\s+\(?([A-F])\)?\b/g;
+
+/* Parenthesised form: " (C)." — a bare letter standing alone as a citation. */
+const BARE_PAREN = /\s\(([A-F])\)(?=[\s,.;:]|$)/g;
+
+/* Letter-list form: "(B, C)", "(incorrect A)", "(D is wrong)", "(C and E)".
+   Detected by tokenising the parenthesised text: it is a letter reference only when
+   every token is either a single uppercase A–F or one of a small qualifier vocabulary.
+   That admits "(B, C)" while rejecting prose such as "(an A/AAAA record with an alias
+   flag)", which the earlier regex-only approach could not separate. */
+const QUALIFIERS = new Set([
+  'incorrect', 'wrong', 'correct', 'right', 'and', 'or', 'is', 'are', 'not',
+  'option', 'options', 'choice', 'choices', 'answer', 'answers', 'both', 'all'
+]);
+const isLetter = t => /^[A-F]$/.test(t);
+
+function letterList(text) {
+  const hits = [];
+  for (const m of text.matchAll(/\(([^)]{1,60})\)/g)) {
+    const tokens = m[1].split(/[\s,;&/]+/).filter(Boolean);
+    if (!tokens.length) continue;
+    if (!tokens.some(isLetter)) continue;
+    if (!tokens.every(t => isLetter(t) || QUALIFIERS.has(t.toLowerCase().replace(/[.,;:]$/, '')))) continue;
+    hits.push(...tokens.filter(isLetter));
+  }
+  return hits;
+}
 
 const content = await loadAllContent();
 let total = 0, flagged = 0;
@@ -30,11 +48,14 @@ for (const [certId, entry] of Object.entries(content)) {
   for (const { item, pack } of flatten(entry.questionPacks)) {
     total++;
     const text = String(item.explanation || '');
-    const hits = [...text.matchAll(LETTER_REF)].map(m => m.slice(1).find(Boolean).toUpperCase());
+    const hits = [
+      ...[...text.matchAll(PROSE)].map(m => m[1]),
+      ...[...text.matchAll(BARE_PAREN)].map(m => m[1]),
+      ...letterList(text)
+    ];
     if (!hits.length) continue;
     flagged++;
-    byCert[certId] = byCert[certId] || [];
-    byCert[certId].push({ id: item.id, pack, hits: [...new Set(hits)].join(',') });
+    (byCert[certId] ||= []).push({ id: item.id, pack, hits: [...new Set(hits)].join(',') });
   }
 }
 
