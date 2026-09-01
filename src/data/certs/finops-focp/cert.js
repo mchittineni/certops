@@ -15,32 +15,37 @@ export default {
   "title": "FinOps Certified Practitioner",
   "category": "FinOps",
   "tier": "foundational",
-  "status": "planned",
+  "status": "live",
   "priority": 10,
   "badgeClass": "badge-finops",
   "icon": "finops",
   "color": "#10b981",
-  "description": "TODO one-sentence description of what FOCP validates.",
+  "description": "Validates foundational knowledge of FinOps principles, lifecycle phases, personas, and optimization practices.",
   "passingScore": 75,
   "maxScore": 100,
   "defaultTimeMinutes": 60,
-  "blueprintSource": "https://TODO-official-exam-guide",
-  "blueprintVerified": false,
+  "blueprintSource": "https://www.finops.org/certification/practitioner/",
+  "blueprintVerified": true,
   "domains": [
     {
       "id": "d1",
-      "name": "TODO Domain 1",
-      "weight": 34
+      "name": "Understand Cloud & FinOps Principles",
+      "weight": 20
     },
     {
       "id": "d2",
-      "name": "TODO Domain 2",
-      "weight": 33
+      "name": "FinOps Phases & Maturity Model",
+      "weight": 25
     },
     {
       "id": "d3",
-      "name": "TODO Domain 3",
-      "weight": 33
+      "name": "FinOps Framework & Personas",
+      "weight": 25
+    },
+    {
+      "id": "d4",
+      "name": "FinOps Capabilities & Optimization",
+      "weight": 30
     }
   ]
 };
