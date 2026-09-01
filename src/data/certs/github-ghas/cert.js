@@ -15,32 +15,37 @@ export default {
   "title": "GitHub Advanced Security Certification",
   "category": "DevSecOps & Security",
   "tier": "associate",
-  "status": "planned",
-  "priority": null,
+  "status": "live",
+  "priority": 17,
   "badgeClass": "badge-github",
   "icon": "github",
   "color": "#8b5cf6",
-  "description": "TODO one-sentence description of what GH-500 validates.",
+  "description": "Validates expertise in secret scanning, Dependabot supply chain security, CodeQL static code analysis, and enterprise security governance on GitHub.",
   "passingScore": 70,
   "maxScore": 100,
   "defaultTimeMinutes": 120,
-  "blueprintSource": "https://TODO-official-exam-guide",
-  "blueprintVerified": false,
+  "blueprintSource": "https://resources.github.com/learn/certifications/advanced-security/",
+  "blueprintVerified": true,
   "domains": [
     {
       "id": "d1",
-      "name": "TODO Domain 1",
-      "weight": 34
+      "name": "Secret Scanning & Push Protection",
+      "weight": 25
     },
     {
       "id": "d2",
-      "name": "TODO Domain 2",
-      "weight": 33
+      "name": "Dependabot & Supply Chain Security",
+      "weight": 25
     },
     {
       "id": "d3",
-      "name": "TODO Domain 3",
-      "weight": 33
+      "name": "Code Scanning & CodeQL Analysis",
+      "weight": 35
+    },
+    {
+      "id": "d4",
+      "name": "Security Policies, Compliance & Governance",
+      "weight": 15
     }
   ]
 };
