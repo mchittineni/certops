@@ -16,21 +16,27 @@ npm run stats           # progress toward 500 questions per certification
 | | Certifications | Live | Questions |
 | --- | --- | --- | --- |
 | ☁️ Cloud Engineering | 13 | 5 | 1,009 |
-| 🚀 DevOps & SRE | 11 | 1 | 250 |
-| ☸️ Kubernetes & Cloud Native | 7 | 1 | 185 |
+| 🚀 DevOps & SRE | 11 | 2 | 500 |
+| ☸️ Kubernetes & Cloud Native | 7 | 1 | 250 |
 | 🏗️ Platform Engineering | 6 | 0 | 0 |
 | 💰 FinOps | 5 | 1 | 250 |
 | 🔐 DevSecOps & Security | 10 | 1 | 250 |
-| **Total** | **52** | **9** | **1,944** |
+| **Total** | **52** | **10** | **2,259** |
 
 Regenerate these numbers any time with `npm run stats`.
+
+**Authored vs. generated.** 1,259 of those questions are authored and have been verified
+answer-by-answer. The other 1,000 — the whole of `azure-az900`, `github-actions`,
+`finops-focp`, `github-ghas` — are generated placeholders from an earlier bulk-seeding
+pass. They count toward the totals and their certifications are live, but their answers
+are not trustworthy. `npm run audit:filler` reports the current inventory.
 
 **Why 52 and not 50:** `aws-clf` (CLF-C02) and `azure-az900` (AZ-900) are not on the Top-50
 list but already carry authored content, so they were kept as foundational entry points —
 they are the natural first exam for someone with no certification yet. Delete their folders
 and re-run `npm run build:content` if you want a strict 50.
 
-**A live certification needs a verified blueprint.** The 46 `planned` entries carry
+**A live certification needs a verified blueprint.** The 42 `planned` entries carry
 *placeholder* domains and weights with `blueprintVerified: false`. Fixing that against the
 official exam guide is step 1 of
 [taking one live](#taking-one-certification-from-planned-to-live), and it is a genuinely
@@ -46,7 +52,7 @@ the ordering of the roadmap panel. Work down this list.
 | 1 | AWS DevOps Engineer – Professional (DOP-C02) | `aws-dop` | DevOps & SRE |
 | 2 | Certified Kubernetes Administrator (CKA) | `k8s-cka` | Kubernetes & Cloud Native ✅ live |
 | 3 | Certified Kubernetes Security Specialist (CKS) | `k8s-cks` | DevSecOps & Security |
-| 4 | HashiCorp Terraform Authoring & Operations Professional | `hashicorp-tfp` | DevOps & SRE |
+| 4 | HashiCorp Terraform Authoring & Operations Professional | `hashicorp-tfp` | DevOps & SRE ✅ live |
 | 5 | Google Professional Cloud DevOps Engineer | `gcp-pcdoe` | DevOps & SRE |
 | 6 | Azure DevOps Engineer Expert (AZ-400) | `azure-az400` | DevOps & SRE |
 | 7 | Certified Cloud Native Platform Engineering Associate (CNPA) | `cncf-cnpa` | Platform Engineering |
