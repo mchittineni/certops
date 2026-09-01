@@ -458,7 +458,7 @@ export const AWS_SAA_QUESTIONS_4 = [
     ],
     correctAnswers: ['A'],
     type: "single",
-    explanation: "For an API receiving only 200 requests/day taking 50ms each, total monthly compute duration is only 10 seconds. AWS Lambda offers 1 million free requests and 3.2 million seconds of compute time per month in the AWS Free Tier. Fronting Lambda with an API Gateway HTTP API costs pennies ($1.00 per million requests), bringing total monthly spend to near $0. Running EC2 instances and an ALB 24/7 (B, C, D) costs $30–$50+/month regardless of traffic volume.",
+    explanation: "For an API receiving only 200 requests/day taking 50ms each, total monthly compute duration is only 10 seconds. AWS Lambda offers 1 million free requests and 3.2 million seconds of compute time per month in the AWS Free Tier. Fronting Lambda with an API Gateway HTTP API costs pennies ($1.00 per million requests), bringing total monthly spend to near $0. Every option that keeps EC2 instances and a load balancer running 24/7 - ECS on Graviton, Reserved Instances, or swapping the ALB for an NLB - costs $30–$50+/month regardless of traffic volume.",
     referenceUrl: "https://aws.amazon.com/lambda/pricing/",
     tags: ["Lambda", "API Gateway", "Serverless", "Cost Optimization"]
   },
