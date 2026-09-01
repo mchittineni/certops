@@ -16,7 +16,7 @@ export default {
   "title": "HashiCorp Certified: Terraform Authoring & Operations Professional",
   "category": "DevOps & SRE",
   "tier": "professional",
-  "status": "planned",
+  "status": "live",
   "priority": 4,
   "badgeClass": "badge-hashicorp",
   "icon": "terraform",
