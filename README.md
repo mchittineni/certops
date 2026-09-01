@@ -25,11 +25,15 @@ every answer moves your difficulty band toward your actual level.
 | | |
 | --- | --- |
 | Certifications scaffolded | **52** across six disciplines |
-| Live (launchable, with content) | **9** — `aws-saa` `aws-clf` `azure-az104` `azure-az900` `github-actions` `finops-focp` `github-ghas` `gcp-ace` `k8s-cka` |
-| Questions authored | **1,944** of a 26,000 target (500 × 52) |
-| Flashcards authored | **1,772** |
+| Live (launchable, with content) | **10** — `aws-saa` `aws-clf` `azure-az104` `azure-az900` `github-actions` `finops-focp` `github-ghas` `gcp-ace` `k8s-cka` `hashicorp-tfp` |
+| Questions authored | **2,259** of a 26,000 target (500 × 52) |
+| Flashcards authored | **2,260** |
 
-The 47 remaining certifications exist as folders with **placeholder blueprints** — they
+Run
+`npm run audit:filler` for the current inventory — those banks are listed as live but
+their answers are not trustworthy until the items are rewritten.
+
+The 42 remaining certifications exist as folders with **placeholder blueprints** — they
 appear on the roadmap panel but cannot be launched. That is the honest state of things,
 and it is exactly where contributions land: see [CONTRIBUTING.md](CONTRIBUTING.md).
 
@@ -118,12 +122,19 @@ npm run check         # backup → regenerate index → validate → test with c
                       # Run before every commit. If it passes, CI passes.
 
 npm run build:content # regenerate catalog/registry/manifest from the filesystem
-npm run validate      # schema, duplicate, markup, and coverage gate (--verbose expands planned certs)
+npm run validate      # schema, duplicate, markup, option-letter, and coverage gate
+                      # (--verbose expands planned certs)
 npm test              # selection · libraries · loader · migration · app flows · scaffolds · server
 npm run coverage      # the same suite under c8, thresholds from .c8rc.json enforced
 npm run audit         # fail on any advisory in the shipped (production) dependency tree
 npm run stats         # progress toward 500 questions per certification
 npm run backup        # snapshot all authored content to .content-backups/
+
+npm run audit:explanations  # fail if any explanation names an option letter (part of validate)
+npm run audit:answers       # flag questions whose explanation argues against its own keyed answer
+npm run audit:filler        # inventory generated placeholder content (reports, never fails)
+npm run fix:explanations    # strip parenthesised option-letter references in bulk
+npm run shuffle             # re-randomise option order and re-key answers across every pack
 npm run build         # build:content → validate → vite build
 
 npm run new:cert -- --id aws-dop --provider AWS --code DOP-C02 \

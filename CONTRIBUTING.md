@@ -31,6 +31,13 @@ and specific to the concept being tested. The validator rejects non-HTTPS.
 *and* why each wrong option is wrong. A question that only reveals the answer letter
 teaches recall, not architecture, and will be sent back in review.
 
+**Never name an option letter in an explanation.** Write "a NodePort Service maps ports
+rather than paths", not "option B is wrong". `npm run shuffle` re-orders options and
+re-keys answers from option text, so a letter reference becomes false the next time it
+runs — and a stale one tells the learner the correct answer is the wrong one. This is a
+build failure, not a style preference: `npm run validate` rejects `option B`, `(C)`, and
+`(B, C)` / `(D is wrong)` forms alike.
+
 **One pack per pull request.** A pack is ≤150 items and is the natural review unit.
 A PR touching five packs across three certifications cannot be reviewed carefully.
 
