@@ -9,14 +9,14 @@ export const AWS_SAA_QUESTIONS_7 = [
     scenario: "A bug in a consumer application caused 10,000 valid customer order messages to fail processing and land in an Amazon SQS Dead-Letter Queue (DLQ). The bug in the application code has been fixed and deployed.",
     question: "How should the operations team redrive the messages from the DLQ back to the primary source queue for reprocessing with zero data loss?",
     options: [
-      { id: 'A', text: "Use the SQS Dead-Letter Queue Redrive feature in the AWS Management Console or AWS CLI to move messages back to the source queue." },
-      { id: 'B', text: "Increase the visibility timeout of the DLQ to 14 days." },
-      { id: 'C', text: "Purge the Dead-Letter Queue and ask customers to resubmit orders." },
+      { id: 'A', text: "Increase the visibility timeout of the DLQ to 14 days." },
+      { id: 'B', text: "Purge the Dead-Letter Queue and ask customers to resubmit orders." },
+      { id: 'C', text: "Use the SQS Dead-Letter Queue Redrive feature in the AWS Management Console or AWS CLI to move messages back to the source queue." },
       { id: 'D', text: "Write a manual custom script to delete messages from the DLQ and insert them into DynamoDB." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
-    explanation: "Amazon SQS Dead-Letter Queue Redrive is a native managed capability that allows operators to easily redrive and move messages from a DLQ back to their original source queue (or a custom queue) in bulk, with automated progress inspection and zero message loss. Purging the queue (B) permanently deletes orders. Manual scripts (C) add unnecessary development effort and risk message corruption. Increasing visibility timeout (D) does not move messages back for processing.",
+    explanation: "Amazon SQS Dead-Letter Queue Redrive is a native managed capability that allows operators to easily redrive and move messages from a DLQ back to their original source queue (or a custom queue) in bulk, with automated progress inspection and zero message loss. Purging the queue permanently deletes orders. Manual scripts add unnecessary development effort and risk message corruption. Increasing visibility timeout does not move messages back for processing.",
     referenceUrl: "https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html#sqs-dlq-redrive",
     tags: ["SQS", "DLQ", "Redrive", "Resilience"]
   },
@@ -30,14 +30,14 @@ export const AWS_SAA_QUESTIONS_7 = [
     scenario: "A global media streaming platform hosts backend application stacks in us-east-1 (for North American users) and eu-west-1 (for European users). If the entire us-east-1 region fails health checks, North American users must automatically fail over to eu-west-1.",
     question: "Which Route 53 configuration provides region-specific geolocation routing with automated failover to the secondary region?",
     options: [
-      { id: 'A', text: "Configure Route 53 Weighted routing with weight 50 on each region." },
-      { id: 'B', text: "Deploy an Application Load Balancer spanning across both AWS regions." },
-      { id: 'C', text: "Create Route 53 Geolocation records for North America and Europe associated with endpoint health checks, and configure a default record pointing to eu-west-1." },
-      { id: 'D', text: "Use Route 53 Simple routing with round-robin DNS records." }
+      { id: 'A', text: "Use Route 53 Simple routing with round-robin DNS records." },
+      { id: 'B', text: "Configure Route 53 Weighted routing with weight 50 on each region." },
+      { id: 'C', text: "Deploy an Application Load Balancer spanning across both AWS regions." },
+      { id: 'D', text: "Create Route 53 Geolocation records for North America and Europe associated with endpoint health checks, and configure a default record pointing to eu-west-1." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
-    explanation: "Route 53 Geolocation routing maps users in specific continents/countries to their local regional endpoints. By associating health checks with the regional records and configuring a Default fallback record pointing to the secondary healthy region, Route 53 automatically fails over traffic if the primary regional endpoint becomes unhealthy. Simple routing (B) does not support health checking or geographic mapping. ALBs cannot span across multiple regions (C). Weighted routing (D) distributes traffic randomly by weight regardless of user geography.",
+    explanation: "Route 53 Geolocation routing maps users in specific continents/countries to their local regional endpoints. By associating health checks with the regional records and configuring a Default fallback record pointing to the secondary healthy region, Route 53 automatically fails over traffic if the primary regional endpoint becomes unhealthy. Simple routing does not support health checking or geographic mapping. ALBs cannot span across multiple regions. Weighted routing distributes traffic randomly by weight regardless of user geography.",
     referenceUrl: "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geo.html",
     tags: ["Route 53", "Geolocation", "Health Checks", "Disaster Recovery", "Resilience"]
   },
@@ -51,14 +51,14 @@ export const AWS_SAA_QUESTIONS_7 = [
     scenario: "An enterprise connects its on-premises corporate headquarters to an AWS Transit Gateway using a 10 Gbps AWS Direct Connect dedicated connection. The network engineering team mandates a cost-effective automated failover path using IPsec VPN over the public internet in the event the physical Direct Connect circuit experiences a fiber cut.",
     question: "How should the routing be configured on the on-premises BGP routers to prefer Direct Connect and automatically fail over to the Site-to-Site VPN?",
     options: [
-      { id: 'A', text: "Deploy a separate Direct Connect connection to the VPN gateway." },
+      { id: 'A', text: "Advertise identical prefixes over both BGP sessions, ensuring Direct Connect routes have a shorter AS PATH or higher Local Preference than the VPN routes." },
       { id: 'B', text: "Use Route 53 Multivalue Answer routing to switch IP paths." },
       { id: 'C', text: "Configure static routes on the on-premises firewall with equal metric weights." },
-      { id: 'D', text: "Advertise identical prefixes over both BGP sessions, ensuring Direct Connect routes have a shorter AS PATH or higher Local Preference than the VPN routes." }
+      { id: 'D', text: "Deploy a separate Direct Connect connection to the VPN gateway." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
-    explanation: "When configuring an AWS Site-to-Site VPN as a backup to AWS Direct Connect on an AWS Transit Gateway or Virtual Private Gateway, BGP (Border Gateway Protocol) is configured over both connections. In AWS routing logic, Direct Connect routes are automatically preferred over VPN routes for the same prefix, and on-premises routers prefer Direct Connect by setting a higher BGP Local Preference or shorter AS-PATH on the Direct Connect BGP session. Equal metric static routes (B) cause asymmetric routing and packet drops. Deploying another DX (C) increases cost. Route 53 (D) manages DNS names, not private BGP IP network routing.",
+    explanation: "When configuring an AWS Site-to-Site VPN as a backup to AWS Direct Connect on an AWS Transit Gateway or Virtual Private Gateway, BGP (Border Gateway Protocol) is configured over both connections. In AWS routing logic, Direct Connect routes are automatically preferred over VPN routes for the same prefix, and on-premises routers prefer Direct Connect by setting a higher BGP Local Preference or shorter AS-PATH on the Direct Connect BGP session. Equal metric static routes cause asymmetric routing and packet drops. Deploying another DX increases cost. Route 53 manages DNS names, not private BGP IP network routing.",
     referenceUrl: "https://docs.aws.amazon.com/whitepapers/latest/hybrid-connectivity/aws-direct-connect-with-vpn-backup.html",
     tags: ["Direct Connect", "VPN", "Transit Gateway", "BGP", "Resilience"]
   },
@@ -72,14 +72,14 @@ export const AWS_SAA_QUESTIONS_7 = [
     scenario: "A web application currently stores user session state locally on the hard disk of individual EC2 instances. This architecture prevents the team from enabling EC2 Auto Scaling, because terminating an instance logs out active users.",
     question: "How should the architecture be refactored to make the web tier completely stateless and allow dynamic auto scaling?",
     options: [
-      { id: 'A', text: "Offload user session state to an Amazon ElastiCache for Redis cluster and configure the web servers to read/write sessions to the shared cache." },
-      { id: 'B', text: "Store user sessions in local EC2 Instance Store volumes." },
-      { id: 'C', text: "Attach a shared Amazon EBS gp3 volume with Multi-Attach to all instances." },
-      { id: 'D', text: "Enable ALB sticky sessions with 24-hour cookie expiration." }
+      { id: 'A', text: "Enable ALB sticky sessions with 24-hour cookie expiration." },
+      { id: 'B', text: "Attach a shared Amazon EBS gp3 volume with Multi-Attach to all instances." },
+      { id: 'C', text: "Store user sessions in local EC2 Instance Store volumes." },
+      { id: 'D', text: "Offload user session state to an Amazon ElastiCache for Redis cluster and configure the web servers to read/write sessions to the shared cache." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
-    explanation: "Moving session state out of local instance memory/storage into an external shared in-memory datastore like Amazon ElastiCache for Redis makes the web tier completely stateless. Any instance in the Auto Scaling group can handle any incoming request, and instances can scale in or out without terminating user sessions. Sticky sessions (B) still tie users to specific instances, causing session loss if an instance is terminated. EBS Multi-Attach (C) is limited to clustered block storage, not session state. Instance store (D) is ephemeral and lost on termination.",
+    explanation: "Moving session state out of local instance memory/storage into an external shared in-memory datastore like Amazon ElastiCache for Redis makes the web tier completely stateless. Any instance in the Auto Scaling group can handle any incoming request, and instances can scale in or out without terminating user sessions. Sticky sessions still tie users to specific instances, causing session loss if an instance is terminated. EBS Multi-Attach is limited to clustered block storage, not session state. Instance store is ephemeral and lost on termination.",
     referenceUrl: "https://docs.aws.amazon.com/whitepapers/latest/architecting-for-the-cloud/stateless-applications.html",
     tags: ["ElastiCache", "Stateless", "Auto Scaling", "ALB", "Resilience"]
   },
@@ -93,14 +93,14 @@ export const AWS_SAA_QUESTIONS_7 = [
     scenario: "An airline booking application coordinates bookings across three independent microservices: Flight Reservation, Hotel Booking, and Payment Processing. If the Payment Processing service fails, the system must automatically execute compensating transactions (cancel flight reservation, cancel hotel booking) to maintain data consistency.",
     question: "Which architectural design pattern and AWS service coordinates these distributed transactions and compensating rollbacks?",
     options: [
-      { id: 'A', text: "Amazon EventBridge rule with direct S3 event archiving." },
-      { id: 'B', text: "Amazon SQS standard queue with worker EC2 instances." },
+      { id: 'A', text: "Amazon SQS standard queue with worker EC2 instances." },
+      { id: 'B', text: "Amazon RDS for MySQL with Two-Phase Commit (2PC)." },
       { id: 'C', text: "AWS Step Functions state machine implementing the Saga Pattern with compensating catch tasks." },
-      { id: 'D', text: "Amazon RDS for MySQL with Two-Phase Commit (2PC)." }
+      { id: 'D', text: "Amazon EventBridge rule with direct S3 event archiving." }
     ],
     correctAnswers: ['C'],
     type: "single",
-    explanation: "The Saga Pattern is the established architectural pattern for managing distributed transactions across microservices. AWS Step Functions coordinates the sequence of microservice API calls; if a step fails, Step Functions catches the error and executes defined compensating workflow steps in reverse order (e.g. canceling reservations) to restore distributed data consistency. SQS (B) lacks native compensation rollback logic. 2PC on RDS (C) does not span decoupled microservices across heterogeneous databases. EventBridge (D) routes events without transaction rollback state management.",
+    explanation: "The Saga Pattern is the established architectural pattern for managing distributed transactions across microservices. AWS Step Functions coordinates the sequence of microservice API calls; if a step fails, Step Functions catches the error and executes defined compensating workflow steps in reverse order (e.g. canceling reservations) to restore distributed data consistency. SQS lacks native compensation rollback logic. 2PC on RDS does not span decoupled microservices across heterogeneous databases. EventBridge routes events without transaction rollback state management.",
     referenceUrl: "https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/implement-the-saga-pattern-in-aws-step-functions.html",
     tags: ["Step Functions", "Saga Pattern", "Distributed Transactions", "Resilience"]
   },
@@ -114,14 +114,14 @@ export const AWS_SAA_QUESTIONS_7 = [
     scenario: "A real-time collaborative document editing application requires a managed GraphQL API that supports real-time WebSocket subscriptions, offline data synchronization for mobile clients, and direct resolvers to Amazon DynamoDB without managing backend Node.js servers.",
     question: "Which AWS service provides managed GraphQL APIs with native real-time subscriptions and DynamoDB data sources?",
     options: [
-      { id: 'A', text: "AWS AppSync." },
-      { id: 'B', text: "Amazon API Gateway REST API." },
-      { id: 'C', text: "AWS Step Functions." },
-      { id: 'D', text: "Application Load Balancer." }
+      { id: 'A', text: "Application Load Balancer." },
+      { id: 'B', text: "AWS Step Functions." },
+      { id: 'C', text: "Amazon API Gateway REST API." },
+      { id: 'D', text: "AWS AppSync." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
-    explanation: "AWS AppSync is a fully managed GraphQL and Pub/Sub API service that simplifies application development with real-time data synchronization via WebSockets, built-in offline programming support, and direct integration with Amazon DynamoDB, AWS Lambda, OpenSearch, and HTTP endpoints via pipeline resolvers. API Gateway REST API (B) is designed for REST endpoints, not native GraphQL schemas and subscriptions. ALBs (C) balance HTTP/HTTPS traffic. Step Functions (D) is a workflow engine.",
+    explanation: "AWS AppSync is a fully managed GraphQL and Pub/Sub API service that simplifies application development with real-time data synchronization via WebSockets, built-in offline programming support, and direct integration with Amazon DynamoDB, AWS Lambda, OpenSearch, and HTTP endpoints via pipeline resolvers. API Gateway REST API is designed for REST endpoints, not native GraphQL schemas and subscriptions. ALBs balance HTTP/HTTPS traffic. Step Functions is a workflow engine.",
     referenceUrl: "https://docs.aws.amazon.com/appsync/latest/devguide/what-is-appsync.html",
     tags: ["AppSync", "GraphQL", "DynamoDB", "WebSockets", "Performance"]
   },
@@ -135,14 +135,14 @@ export const AWS_SAA_QUESTIONS_7 = [
     scenario: "A high-security microservices application runs on Amazon ECS. Security mandates that every individual ECS task must have its own dedicated Elastic Network Interface (ENI), its own private IP address, and its own dedicated Security Group attached to isolate network traffic.",
     question: "Which ECS task networking mode satisfies these network isolation requirements?",
     options: [
-      { id: 'A', text: "`bridge` networking mode (Docker bridge)." },
-      { id: 'B', text: "`none` networking mode." },
-      { id: 'C', text: "`host` networking mode." },
-      { id: 'D', text: "`awsvpc` networking mode." }
+      { id: 'A', text: "`awsvpc` networking mode." },
+      { id: 'B', text: "`bridge` networking mode (Docker bridge)." },
+      { id: 'C', text: "`none` networking mode." },
+      { id: 'D', text: "`host` networking mode." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
-    explanation: "The `awsvpc` network mode assigns a dedicated Elastic Network Interface (ENI) and a primary private IPv4 address from the VPC subnet to each running ECS task (or Fargate task). This gives each task full VPC networking capabilities, including dedicated Security Groups, VPC Flow Logs, and direct IP routability. `bridge` mode (B) uses the Docker bridge on the host with port mapping. `host` mode (C) ties containers directly to the EC2 host network stack without per-task Security Groups. `none` mode (D) disables external container networking.",
+    explanation: "The `awsvpc` network mode assigns a dedicated Elastic Network Interface (ENI) and a primary private IPv4 address from the VPC subnet to each running ECS task (or Fargate task). This gives each task full VPC networking capabilities, including dedicated Security Groups, VPC Flow Logs, and direct IP routability. `bridge` mode uses the Docker bridge on the host with port mapping. `host` mode ties containers directly to the EC2 host network stack without per-task Security Groups. `none` mode disables external container networking.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking-modes.html",
     tags: ["ECS", "Networking", "awsvpc", "Security", "Containers"]
   },
@@ -157,13 +157,13 @@ export const AWS_SAA_QUESTIONS_7 = [
     question: "Which Direct Connect features provide link bundling and hardware-level encryption?",
     options: [
       { id: 'A', text: "AWS Site-to-Site VPN over an Internet Gateway." },
-      { id: 'B', text: "AWS Transit Gateway peering with Equal-Cost Multi-Path (ECMP)." },
-      { id: 'C', text: "Direct Connect Link Aggregation Group (LAG) with IEEE 802.1AE MACsec encryption enabled." },
+      { id: 'B', text: "Direct Connect Link Aggregation Group (LAG) with IEEE 802.1AE MACsec encryption enabled." },
+      { id: 'C', text: "AWS Transit Gateway peering with Equal-Cost Multi-Path (ECMP)." },
       { id: 'D', text: "Route 53 Weighted routing over dual public VIFs." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
-    explanation: "A Direct Connect Link Aggregation Group (LAG) combines multiple physical Direct Connect connections (up to 32 connections) at the same AWS Direct Connect endpoint into a single logical managed connection, increasing aggregated bandwidth. MACsec (IEEE 802.1AE) provides native line-rate hardware encryption on 10 Gbps and 100 Gbps Direct Connect links without CPU encryption overhead. Standard IPsec VPN (B) caps bandwidth at 1.25 Gbps per tunnel. Transit Gateway ECMP (C) balances across tunnels, but does not bundle physical Layer 2 links. Route 53 (D) is DNS.",
+    explanation: "A Direct Connect Link Aggregation Group (LAG) combines multiple physical Direct Connect connections (up to 32 connections) at the same AWS Direct Connect endpoint into a single logical managed connection, increasing aggregated bandwidth. MACsec (IEEE 802.1AE) provides native line-rate hardware encryption on 10 Gbps and 100 Gbps Direct Connect links without CPU encryption overhead. Standard IPsec VPN caps bandwidth at 1.25 Gbps per tunnel. Transit Gateway ECMP balances across tunnels, but does not bundle physical Layer 2 links. Route 53 is DNS.",
     referenceUrl: "https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-lag.html",
     tags: ["Direct Connect", "LAG", "MACsec", "Encryption", "Performance"]
   },
@@ -177,14 +177,14 @@ export const AWS_SAA_QUESTIONS_7 = [
     scenario: "A media rendering pipeline processes hundreds of short 5-minute video clips submitted by users. The rendering jobs require high CPU capacity and can tolerate occasional interruptions because progress is checkpointed to Amazon S3.",
     question: "Which compute environment configuration in AWS Batch delivers maximum performance at minimum cost?",
     options: [
-      { id: 'A', text: "Amazon EMR with On-Demand Core nodes." },
+      { id: 'A', text: "AWS Lambda functions configured with 128 MB RAM." },
       { id: 'B', text: "A managed AWS Batch Compute Environment using Spot Instances with the `SPOT_CAPACITY_OPTIMIZED` allocation strategy." },
-      { id: 'C', text: "AWS Lambda functions configured with 128 MB RAM." },
-      { id: 'D', text: "An AWS Batch compute environment configured with On-Demand `m5.metal` instances running 24/7." }
+      { id: 'C', text: "An AWS Batch compute environment configured with On-Demand `m5.metal` instances running 24/7." },
+      { id: 'D', text: "Amazon EMR with On-Demand Core nodes." }
     ],
     correctAnswers: ['B'],
     type: "single",
-    explanation: "AWS Batch managed compute environments using Spot Instances with `SPOT_CAPACITY_OPTIMIZED` dynamically provision EC2 Spot instances from the pools with the highest available capacity, minimizing interruption rates while slashing compute costs by up to 90% compared to On-Demand. On-Demand metal instances (B) are extremely expensive and idle when no jobs are queued. Lambda (C) with 128 MB lacks CPU performance for video rendering. EMR (D) is designed for big data Spark/Hadoop processing.",
+    explanation: "AWS Batch managed compute environments using Spot Instances with `SPOT_CAPACITY_OPTIMIZED` dynamically provision EC2 Spot instances from the pools with the highest available capacity, minimizing interruption rates while slashing compute costs by up to 90% compared to On-Demand. On-Demand metal instances are extremely expensive and idle when no jobs are queued. Lambda with 128 MB lacks CPU performance for video rendering. EMR is designed for big data Spark/Hadoop processing.",
     referenceUrl: "https://docs.aws.amazon.com/batch/latest/userguide/spot_fleet_allocation_strategies.html",
     tags: ["AWS Batch", "Spot Instances", "Cost Optimization", "Performance"]
   },
@@ -198,14 +198,14 @@ export const AWS_SAA_QUESTIONS_7 = [
     scenario: "An IoT telemetry analytics platform queries petabytes of time-series sensor data in Amazon S3 using Amazon Athena. The data is partitioned by `year`, `month`, `day`, and `hour`. Over time, the AWS Glue Data Catalog contains over 1 million partitions, causing Athena queries to take over 2 minutes just to execute `GetPartitions` metadata calls before querying the data.",
     question: "Which Amazon Athena feature speeds up query execution by calculating partition locations in memory without querying the Glue Catalog?",
     options: [
-      { id: 'A', text: "AWS Glue Crawler scheduled to run every 5 minutes." },
+      { id: 'A', text: "Amazon Redshift Spectrum with local tables." },
       { id: 'B', text: "Amazon S3 Transfer Acceleration." },
       { id: 'C', text: "Amazon Athena Partition Projection." },
-      { id: 'D', text: "Amazon Redshift Spectrum with local tables." }
+      { id: 'D', text: "AWS Glue Crawler scheduled to run every 5 minutes." }
     ],
     correctAnswers: ['C'],
     type: "single",
-    explanation: "Athena Partition Projection allows table properties to specify partition patterns and ranges (e.g. date ranges or integer IDs). Instead of making expensive remote metadata calls (`GetPartitions`) against the AWS Glue Data Catalog for tables with hundreds of thousands of partitions, Athena calculates partition paths dynamically in memory, reducing query planning time from minutes to milliseconds. Glue Crawlers (B) worsen metadata bloat in the catalog. S3 Transfer Acceleration (C) is for file uploads. Redshift Spectrum (D) still queries the Glue Catalog for partition metadata.",
+    explanation: "Athena Partition Projection allows table properties to specify partition patterns and ranges (e.g. date ranges or integer IDs). Instead of making expensive remote metadata calls (`GetPartitions`) against the AWS Glue Data Catalog for tables with hundreds of thousands of partitions, Athena calculates partition paths dynamically in memory, reducing query planning time from minutes to milliseconds. Glue Crawlers worsen metadata bloat in the catalog. S3 Transfer Acceleration is for file uploads. Redshift Spectrum still queries the Glue Catalog for partition metadata.",
     referenceUrl: "https://docs.aws.amazon.com/athena/latest/ug/partition-projection.html",
     tags: ["Athena", "Partition Projection", "Data Lake", "Performance"]
   },
@@ -219,14 +219,14 @@ export const AWS_SAA_QUESTIONS_7 = [
     scenario: "An enterprise microservices platform deployed across multiple VPCs requires private SSL/TLS certificates issued for internal service domain names (`service.internal.corp`). The security policy prohibits using public Certificate Authorities for internal DNS names and mandates automated certificate renewal.",
     question: "Which AWS service provisions and manages private Certificate Authorities and private TLS certificates?",
     options: [
-      { id: 'A', text: "AWS Private Certificate Authority (AWS Private CA) integrated with AWS Certificate Manager (ACM)." },
-      { id: 'B', text: "AWS Secrets Manager storing self-signed OpenSSL certificates." },
-      { id: 'C', text: "AWS Certificate Manager (ACM) public certificates." },
+      { id: 'A', text: "AWS Secrets Manager storing self-signed OpenSSL certificates." },
+      { id: 'B', text: "AWS Certificate Manager (ACM) public certificates." },
+      { id: 'C', text: "AWS Private Certificate Authority (AWS Private CA) integrated with AWS Certificate Manager (ACM)." },
       { id: 'D', text: "AWS KMS Asymmetric Keys." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
-    explanation: "AWS Private CA (formerly ACM Private CA) is a managed private certificate authority service that allows organizations to create internal root and subordinate CAs to issue private X.509 certificates for internal microservices, EC2 instances, containers, and IoT devices. Integrating with ACM provides automated certificate renewal and seamless deployment to ALBs and API Gateways. ACM public certs (B) cannot validate private internal domain names. Secrets Manager (C) requires manual renewal logic. KMS asymmetric keys (D) perform digital signing, not full X.509 PKI certificate lifecycle management.",
+    explanation: "AWS Private CA (formerly ACM Private CA) is a managed private certificate authority service that allows organizations to create internal root and subordinate CAs to issue private X.509 certificates for internal microservices, EC2 instances, containers, and IoT devices. Integrating with ACM provides automated certificate renewal and seamless deployment to ALBs and API Gateways. ACM public certs cannot validate private internal domain names. Secrets Manager requires manual renewal logic. KMS asymmetric keys perform digital signing, not full X.509 PKI certificate lifecycle management.",
     referenceUrl: "https://docs.aws.amazon.com/privateca/latest/userguide/PcaWelcome.html",
     tags: ["AWS Private CA", "ACM", "TLS/SSL", "Security", "PKI"]
   },
@@ -240,14 +240,14 @@ export const AWS_SAA_QUESTIONS_7 = [
     scenario: "An IoT telemetry system writes 100 million sensor records daily to an Amazon S3 bucket encrypted with an AWS KMS Customer Managed Key (CMK). The monthly AWS bill shows thousands of dollars in KMS `kms:GenerateDataKey` and `kms:Decrypt` API call requests.",
     question: "Which Amazon S3 encryption setting reduces KMS API request charges by up to 99% without lowering security posture?",
     options: [
-      { id: 'A', text: "Enable Amazon S3 Bucket Keys on the S3 bucket." },
-      { id: 'B', text: "Disable KMS key rotation." },
-      { id: 'C', text: "Switch to SSE-S3 encryption." },
-      { id: 'D', text: "Create an S3 Gateway VPC Endpoint." }
+      { id: 'A', text: "Create an S3 Gateway VPC Endpoint." },
+      { id: 'B', text: "Enable Amazon S3 Bucket Keys on the S3 bucket." },
+      { id: 'C', text: "Disable KMS key rotation." },
+      { id: 'D', text: "Switch to SSE-S3 encryption." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
-    explanation: "Amazon S3 Bucket Keys decrease the cost of SSE-KMS by creating a bucket-level short-lived intermediate data key. S3 uses this intermediate key to encrypt objects within the bucket, reducing the frequency of KMS API requests from 1 request per object to 1 request per bucket key session, cutting KMS API costs by up to 99% while maintaining KMS CMK encryption security. Switching to SSE-S3 (B) removes Customer Managed Key control. Key rotation (C) does not affect request frequency. VPC endpoints (D) remove NAT costs, not KMS API call costs.",
+    explanation: "Amazon S3 Bucket Keys decrease the cost of SSE-KMS by creating a bucket-level short-lived intermediate data key. S3 uses this intermediate key to encrypt objects within the bucket, reducing the frequency of KMS API requests from 1 request per object to 1 request per bucket key session, cutting KMS API costs by up to 99% while maintaining KMS CMK encryption security. Switching to SSE-S3 removes Customer Managed Key control. Key rotation does not affect request frequency. VPC endpoints remove NAT costs, not KMS API call costs.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-key.html",
     tags: ["S3", "Bucket Keys", "KMS", "Cost Optimization", "Security"]
   },
@@ -261,15 +261,15 @@ export const AWS_SAA_QUESTIONS_7 = [
     scenario: "An enterprise needs to ensure that under no circumstances can an AWS account administrator or root user in any member account delete Amazon S3 compliance audit buckets or detach the AWS Organization CloudTrail trail.",
     question: "Which combination of security controls enforces this absolute deletion restriction across member accounts? (Choose TWO)",
     options: [
-      { id: 'A', text: "Deploy Amazon GuardDuty in automated containment mode." },
-      { id: 'B', text: "Apply an AWS Organizations Service Control Policy (SCP) to the organization root with an explicit `Deny` on `s3:DeleteBucket` and `cloudtrail:DeleteTrail`." },
-      { id: 'C', text: "Enable S3 MFA Delete on the compliance audit buckets in the source account." },
-      { id: 'D', text: "Attach IAM Permissions Boundaries to all IAM users in the master account." },
-      { id: 'E', text: "Create an AWS WAF rate-based rule denying DELETE requests." }
+      { id: 'A', text: "Create an AWS WAF rate-based rule denying DELETE requests." },
+      { id: 'B', text: "Deploy Amazon GuardDuty in automated containment mode." },
+      { id: 'C', text: "Apply an AWS Organizations Service Control Policy (SCP) to the organization root with an explicit `Deny` on `s3:DeleteBucket` and `cloudtrail:DeleteTrail`." },
+      { id: 'D', text: "Enable S3 MFA Delete on the compliance audit buckets in the source account." },
+      { id: 'E', text: "Attach IAM Permissions Boundaries to all IAM users in the master account." }
     ],
-    correctAnswers: ['B', 'C'],
+    correctAnswers: ['C', 'D'],
     type: "multiple",
-    explanation: "Service Control Policies (SCPs) define the maximum permissions for member accounts in AWS Organizations; an explicit `Deny` on `s3:DeleteBucket` and `cloudtrail:DeleteTrail` cannot be overridden by any administrator or root account in a member account. S3 MFA Delete adds hardware MFA token authorization requirements before any permanent object version deletion or bucket versioning suspension can execute. Boundaries (C) do not restrict the root user. WAF (D) inspects HTTP traffic to web apps, not AWS management APIs. GuardDuty (E) detects threats after the fact.",
+    explanation: "Service Control Policies (SCPs) define the maximum permissions for member accounts in AWS Organizations; an explicit `Deny` on `s3:DeleteBucket` and `cloudtrail:DeleteTrail` cannot be overridden by any administrator or root account in a member account. S3 MFA Delete adds hardware MFA token authorization requirements before any permanent object version deletion or bucket versioning suspension can execute. Boundaries do not restrict the root user. WAF inspects HTTP traffic to web apps, not AWS management APIs. GuardDuty detects threats after the fact.",
     referenceUrl: "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html",
     tags: ["SCP", "MFA Delete", "S3", "CloudTrail", "Security", "Governance"]
   },
@@ -283,14 +283,14 @@ export const AWS_SAA_QUESTIONS_7 = [
     scenario: "A central security account manages a single third-party API licensing secret in AWS Secrets Manager. Multiple application microservices running across 10 member AWS accounts in AWS Organizations need to read this secret at runtime without duplicating the secret in every account.",
     question: "How should the Solutions Architect share the secret across accounts with minimum management overhead?",
     options: [
-      { id: 'A', text: "Create an S3 bucket with public read permissions to host the secret." },
-      { id: 'B', text: "Store the secret in an SSM Parameter Store String parameter." },
+      { id: 'A', text: "Store the secret in an SSM Parameter Store String parameter." },
+      { id: 'B', text: "Replicate the secret to all 10 member accounts using AWS Step Functions." },
       { id: 'C', text: "Attach a Resource-based policy to the secret in the central security account allowing read permissions to the member account IAM roles, and grant KMS decrypt permissions on the CMK." },
-      { id: 'D', text: "Replicate the secret to all 10 member accounts using AWS Step Functions." }
+      { id: 'D', text: "Create an S3 bucket with public read permissions to host the secret." }
     ],
     correctAnswers: ['C'],
     type: "single",
-    explanation: "AWS Secrets Manager supports resource-based policies attached directly to secrets, enabling cross-account secret sharing without duplicating secrets or establishing complex pipelines. The secret resource policy grants `secretsmanager:GetSecretValue` to the IAM principals in the member accounts, and the KMS key policy on the Customer Managed Key grants `kms:Decrypt` to the member accounts. Step Functions replication (B) creates data synchronization drift and secret sprawl. Public S3 (C) violates all security standards. Parameter Store String parameters (D) are unencrypted and account-isolated.",
+    explanation: "AWS Secrets Manager supports resource-based policies attached directly to secrets, enabling cross-account secret sharing without duplicating secrets or establishing complex pipelines. The secret resource policy grants `secretsmanager:GetSecretValue` to the IAM principals in the member accounts, and the KMS key policy on the Customer Managed Key grants `kms:Decrypt` to the member accounts. Step Functions replication creates data synchronization drift and secret sprawl. Public S3 violates all security standards. Parameter Store String parameters are unencrypted and account-isolated.",
     referenceUrl: "https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html",
     tags: ["Secrets Manager", "Cross-Account", "KMS", "Security"]
   },
@@ -306,12 +306,12 @@ export const AWS_SAA_QUESTIONS_7 = [
     options: [
       { id: 'A', text: "Create an IAM user for every patient with a 15-minute session policy." },
       { id: 'B', text: "Generate Amazon S3 Presigned URLs or CloudFront Signed URLs with a 15-minute expiration time." },
-      { id: 'C', text: "Make the S3 bucket public and configure an S3 Lifecycle rule to delete objects after 15 minutes." },
-      { id: 'D', text: "Use AWS Secrets Manager to store the files as base64 strings." }
+      { id: 'C', text: "Use AWS Secrets Manager to store the files as base64 strings." },
+      { id: 'D', text: "Make the S3 bucket public and configure an S3 Lifecycle rule to delete objects after 15 minutes." }
     ],
     correctAnswers: ['B'],
     type: "single",
-    explanation: "Amazon S3 Presigned URLs and CloudFront Signed URLs allow secure, temporary access to private objects. The application generates a cryptographic URL containing signature and expiration parameters (e.g. 15 minutes); once the timestamp passes, S3/CloudFront strictly rejects access without requiring the patient to have an AWS account or IAM credentials. Public buckets (B) expose sensitive patient health data. Creating IAM users for patients (C) is unscalable and violates IAM best practices. Secrets Manager (D) is not an object storage service.",
+    explanation: "Amazon S3 Presigned URLs and CloudFront Signed URLs allow secure, temporary access to private objects. The application generates a cryptographic URL containing signature and expiration parameters (e.g. 15 minutes); once the timestamp passes, S3/CloudFront strictly rejects access without requiring the patient to have an AWS account or IAM credentials. Public buckets expose sensitive patient health data. Creating IAM users for patients is unscalable and violates IAM best practices. Secrets Manager is not an object storage service.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-presigned-url.html",
     tags: ["Presigned URLs", "CloudFront", "S3", "Security", "Compliance"]
   },
@@ -325,14 +325,14 @@ export const AWS_SAA_QUESTIONS_7 = [
     scenario: "A company retains monthly compliance EBS volume snapshots for 5 years. The snapshots are accessed less than once a year and require up to 24 to 72 hours for retrieval when needed.",
     question: "Which EBS feature reduces snapshot storage costs by up to 75% for long-term compliance archives?",
     options: [
-      { id: 'A', text: "Amazon S3 Standard storage." },
-      { id: 'B', text: "AWS DataSync transfer to EFS Infrequent Access." },
-      { id: 'C', text: "Amazon EBS Snapshots Archive tier." },
-      { id: 'D', text: "Amazon EBS gp3 volume conversion." }
+      { id: 'A', text: "Amazon EBS Snapshots Archive tier." },
+      { id: 'B', text: "Amazon S3 Standard storage." },
+      { id: 'C', text: "Amazon EBS gp3 volume conversion." },
+      { id: 'D', text: "AWS DataSync transfer to EFS Infrequent Access." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
-    explanation: "Amazon EBS Snapshots Archive tier provides a low-cost storage tier for rarely accessed, full point-in-time EBS snapshots that must be retained for 90 days or longer, reducing EBS snapshot storage costs by up to 75% compared to standard EBS snapshot storage. Snapshots can be restored to the standard tier within 24 to 72 hours. gp3 conversion (B) is for live active block volumes. DataSync to EFS (C) is designed for file systems. S3 Standard (D) is significantly more expensive than EBS Snapshots Archive.",
+    explanation: "Amazon EBS Snapshots Archive tier provides a low-cost storage tier for rarely accessed, full point-in-time EBS snapshots that must be retained for 90 days or longer, reducing EBS snapshot storage costs by up to 75% compared to standard EBS snapshot storage. Snapshots can be restored to the standard tier within 24 to 72 hours. gp3 conversion is for live active block volumes. DataSync to EFS is designed for file systems. S3 Standard is significantly more expensive than EBS Snapshots Archive.",
     referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-snapshots-archive.html",
     tags: ["EBS", "Snapshots Archive", "Cost Optimization", "Compliance"]
   },
@@ -347,13 +347,13 @@ export const AWS_SAA_QUESTIONS_7 = [
     question: "Which Savings Plan commitment provides flexibility across compute types, instance families, and AWS regions?",
     options: [
       { id: 'A', text: "EC2 Instance Savings Plans (tied to a specific instance family in a specific region)." },
-      { id: 'B', text: "Compute Savings Plans (applies automatically to EC2, Fargate, and Lambda regardless of region, instance family, or OS)." },
-      { id: 'C', text: "Standard Reserved Instances." },
-      { id: 'D', text: "Amazon DynamoDB Reserved Capacity." }
+      { id: 'B', text: "Standard Reserved Instances." },
+      { id: 'C', text: "Amazon DynamoDB Reserved Capacity." },
+      { id: 'D', text: "Compute Savings Plans (applies automatically to EC2, Fargate, and Lambda regardless of region, instance family, or OS)." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
-    explanation: "Compute Savings Plans offer the greatest flexibility (up to 66% discount) and apply automatically to Amazon EC2 usage regardless of instance family, size, OS, or AWS region, as well as AWS Fargate and AWS Lambda usage. This makes Compute Savings Plans ideal for organizations undergoing serverless or cross-region migrations. EC2 Instance Savings Plans (B) and Standard RIs (C) lock commitments into specific instance families in a specific region and cannot cover Fargate or Lambda. DynamoDB Reserved Capacity (D) applies to DynamoDB database capacity.",
+    explanation: "Compute Savings Plans offer the greatest flexibility (up to 66% discount) and apply automatically to Amazon EC2 usage regardless of instance family, size, OS, or AWS region, as well as AWS Fargate and AWS Lambda usage. This makes Compute Savings Plans ideal for organizations undergoing serverless or cross-region migrations. EC2 Instance Savings Plans and Standard RIs lock commitments into specific instance families in a specific region and cannot cover Fargate or Lambda. DynamoDB Reserved Capacity applies to DynamoDB database capacity.",
     referenceUrl: "https://docs.aws.amazon.com/savingsplans/latest/userguide/what-is-savings-plans.html",
     tags: ["Savings Plans", "Compute Savings Plans", "Cost Optimization", "FinOps"]
   },
@@ -367,14 +367,14 @@ export const AWS_SAA_QUESTIONS_7 = [
     scenario: "A digital media startup serves 100 TB of downloadable software installer files per month directly from Amazon S3 over the public internet to global users. The monthly bill shows significant AWS data egress charges ($0.09 per GB from S3).",
     question: "How can the Solutions Architect reduce data egress costs while improving download speeds for global users?",
     options: [
-      { id: 'A', text: "Deploy an Amazon CloudFront distribution in front of the Amazon S3 bucket, utilizing lower CloudFront data transfer out pricing tiers and edge caching." },
-      { id: 'B', text: "Configure Route 53 Multivalue Answer routing." },
+      { id: 'A', text: "Configure Route 53 Multivalue Answer routing." },
+      { id: 'B', text: "Deploy an Amazon CloudFront distribution in front of the Amazon S3 bucket, utilizing lower CloudFront data transfer out pricing tiers and edge caching." },
       { id: 'C', text: "Deploy an AWS Transit Gateway in us-east-1." },
       { id: 'D', text: "Enable S3 Transfer Acceleration on the bucket." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
-    explanation: "Data transfer from Amazon S3 to Amazon CloudFront is completely free ($0.00 per GB). Furthermore, CloudFront data transfer out to the internet is discounted compared to raw S3 data transfer out, and cached downloads at edge POPs avoid repetitive origin requests and reduce global download latency. S3 Transfer Acceleration (B) incurs an additional speed fee and is designed for fast uploads to S3, not outbound egress cost reduction. Transit Gateway (C) adds hourly and per-GB processing charges. Route 53 (D) is DNS.",
+    explanation: "Data transfer from Amazon S3 to Amazon CloudFront is completely free ($0.00 per GB). Furthermore, CloudFront data transfer out to the internet is discounted compared to raw S3 data transfer out, and cached downloads at edge POPs avoid repetitive origin requests and reduce global download latency. S3 Transfer Acceleration incurs an additional speed fee and is designed for fast uploads to S3, not outbound egress cost reduction. Transit Gateway adds hourly and per-GB processing charges. Route 53 is DNS.",
     referenceUrl: "https://aws.amazon.com/cloudfront/pricing/",
     tags: ["CloudFront", "S3", "Data Egress", "Cost Optimization"]
   },
@@ -388,14 +388,14 @@ export const AWS_SAA_QUESTIONS_7 = [
     scenario: "An e-commerce payment platform running on Amazon Aurora PostgreSQL performs over 500 million I/O operations per day. The current standard Aurora storage pricing incurs significant variable monthly I/O charges that exceed storage capacity costs.",
     question: "Which Aurora configuration provides predictable pricing and up to 40% cost savings for I/O-intensive workloads?",
     options: [
-      { id: 'A', text: "Switch to Amazon RDS for MySQL single-AZ." },
-      { id: 'B', text: "Deploy an Amazon ElastiCache cluster with write-through caching." },
-      { id: 'C', text: "Switch the cluster storage configuration to Amazon Aurora I/O-Optimized." },
-      { id: 'D', text: "Increase provisioned storage to 10 TB." }
+      { id: 'A', text: "Switch the cluster storage configuration to Amazon Aurora I/O-Optimized." },
+      { id: 'B', text: "Switch to Amazon RDS for MySQL single-AZ." },
+      { id: 'C', text: "Increase provisioned storage to 10 TB." },
+      { id: 'D', text: "Deploy an Amazon ElastiCache cluster with write-through caching." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
-    explanation: "Amazon Aurora I/O-Optimized is a cluster storage configuration that includes zero charges for read and write I/O operations, delivering up to 40% cost savings for I/O-intensive applications with predictable pricing. Aurora Standard charges per million I/O requests, which can become expensive for high-throughput transactional OLTP systems. Single-AZ RDS MySQL (B) lowers availability and performance. Increasing provisioned storage (C) does not eliminate Aurora Standard I/O charges. ElastiCache (D) reduces reads, but does not eliminate transactional write I/O charges on Aurora.",
+    explanation: "Amazon Aurora I/O-Optimized is a cluster storage configuration that includes zero charges for read and write I/O operations, delivering up to 40% cost savings for I/O-intensive applications with predictable pricing. Aurora Standard charges per million I/O requests, which can become expensive for high-throughput transactional OLTP systems. Single-AZ RDS MySQL lowers availability and performance. Increasing provisioned storage does not eliminate Aurora Standard I/O charges. ElastiCache reduces reads, but does not eliminate transactional write I/O charges on Aurora.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Storage.StorageTypes.html#Aurora.Storage.StorageTypes.IO-Optimized",
     tags: ["Aurora", "IO-Optimized", "Cost Optimization", "Databases"]
   },
@@ -410,13 +410,13 @@ export const AWS_SAA_QUESTIONS_7 = [
     question: "Which AWS service provides automated cost-optimization inspection checks for idle cloud resources?",
     options: [
       { id: 'A', text: "AWS CloudTrail." },
-      { id: 'B', text: "Amazon GuardDuty." },
+      { id: 'B', text: "AWS Trusted Advisor (Cost Optimization checks)." },
       { id: 'C', text: "Amazon Inspector." },
-      { id: 'D', text: "AWS Trusted Advisor (Cost Optimization checks)." }
+      { id: 'D', text: "Amazon GuardDuty." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
-    explanation: "AWS Trusted Advisor scans your AWS environment and provides actionable recommendations across five categories: Cost Optimization (identifying unattached EBS volumes, idle Elastic IPs, idle DB instances), Security, Fault Tolerance, Performance, and Service Limits. CloudTrail (B) records API calls. Inspector (C) scans for software vulnerabilities. GuardDuty (D) detects malicious threat activity.",
+    explanation: "AWS Trusted Advisor scans your AWS environment and provides actionable recommendations across five categories: Cost Optimization (identifying unattached EBS volumes, idle Elastic IPs, idle DB instances), Security, Fault Tolerance, Performance, and Service Limits. CloudTrail records API calls. Inspector scans for software vulnerabilities. GuardDuty detects malicious threat activity.",
     referenceUrl: "https://docs.aws.amazon.com/awssupport/latest/user/trusted-advisor-check-reference.html#cost-optimization",
     tags: ["Trusted Advisor", "FinOps", "Cost Optimization", "Waste Reduction"]
   },
@@ -430,14 +430,14 @@ export const AWS_SAA_QUESTIONS_7 = [
     scenario: "An autonomous vehicle development team runs computer vision model training using Amazon FSx for Lustre. The raw training image repository is stored in Amazon S3. The team needs all newly generated processed feature vectors written to the FSx for Lustre file system to be continuously and automatically synchronized back to Amazon S3 for durable long-term storage.",
     question: "Which Amazon FSx for Lustre feature automates synchronization of file changes back to the linked S3 bucket?",
     options: [
-      { id: 'A', text: "Enable FSx for Lustre Data Repository Auto-Export." },
-      { id: 'B', text: "Write a cron job using the AWS CLI `aws s3 sync` command." },
-      { id: 'C', text: "Configure S3 Cross-Region Replication on the mount point." },
+      { id: 'A', text: "Write a cron job using the AWS CLI `aws s3 sync` command." },
+      { id: 'B', text: "Configure S3 Cross-Region Replication on the mount point." },
+      { id: 'C', text: "Enable FSx for Lustre Data Repository Auto-Export." },
       { id: 'D', text: "Schedule an AWS DataSync task to run every 10 minutes." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
-    explanation: "Amazon FSx for Lustre Data Repository Auto-Export automatically and asynchronously exports changes (new files, modified files, and deleted files) from the FSx for Lustre file system back to the linked Amazon S3 bucket data repository as files are written. DataSync (B) and custom `aws s3 sync` cron jobs (C) are batch-based, add compute overhead, and can miss in-flight file changes. CRR (D) operates between S3 buckets, not directly on mounted POSIX file systems.",
+    explanation: "Amazon FSx for Lustre Data Repository Auto-Export automatically and asynchronously exports changes (new files, modified files, and deleted files) from the FSx for Lustre file system back to the linked Amazon S3 bucket data repository as files are written. DataSync and custom `aws s3 sync` cron jobs are batch-based, add compute overhead, and can miss in-flight file changes. CRR operates between S3 buckets, not directly on mounted POSIX file systems.",
     referenceUrl: "https://docs.aws.amazon.com/fsx/latest/LustreGuide/auto-export.html",
     tags: ["FSx for Lustre", "S3", "Data Repository", "Resilience", "HPC"]
   },
@@ -452,13 +452,13 @@ export const AWS_SAA_QUESTIONS_7 = [
     question: "Which AWS service performs stateful streaming SQL and Apache Flink analytics on real-time data streams?",
     options: [
       { id: 'A', text: "Amazon Athena." },
-      { id: 'B', text: "Amazon QuickSight." },
-      { id: 'C', text: "AWS Glue Batch ETL jobs." },
-      { id: 'D', text: "Amazon Managed Service for Apache Flink (formerly Amazon Kinesis Data Analytics)." }
+      { id: 'B', text: "Amazon Managed Service for Apache Flink (formerly Amazon Kinesis Data Analytics)." },
+      { id: 'C', text: "Amazon QuickSight." },
+      { id: 'D', text: "AWS Glue Batch ETL jobs." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
-    explanation: "Amazon Managed Service for Apache Flink (formerly Kinesis Data Analytics) enables building stateful, real-time streaming analytics applications using SQL, Java, Scala, or Python against Amazon Kinesis Data Streams and Apache Kafka. It natively supports complex time-based windowing (tumbling, sliding, session windows) with sub-second event processing latencies. Athena (B) is for interactive SQL on at-rest S3 data. Glue batch jobs (C) run on scheduled intervals. QuickSight (D) is a business intelligence dashboard tool.",
+    explanation: "Amazon Managed Service for Apache Flink (formerly Kinesis Data Analytics) enables building stateful, real-time streaming analytics applications using SQL, Java, Scala, or Python against Amazon Kinesis Data Streams and Apache Kafka. It natively supports complex time-based windowing (tumbling, sliding, session windows) with sub-second event processing latencies. Athena is for interactive SQL on at-rest S3 data. Glue batch jobs run on scheduled intervals. QuickSight is a business intelligence dashboard tool.",
     referenceUrl: "https://docs.aws.amazon.com/kinesisanalytics/latest/java/what-is.html",
     tags: ["Kinesis Data Analytics", "Apache Flink", "Streaming", "Performance"]
   },
@@ -472,15 +472,15 @@ export const AWS_SAA_QUESTIONS_7 = [
     scenario: "An enterprise web portal deployed behind an Application Load Balancer experiences Layer 7 application attacks including cross-site scripting (XSS), SQL injection, and HTTP flood requests. The security team mandates inspecting incoming HTTP request bodies and headers, rate-limiting aggressive clients, and blocking known malicious IP addresses.",
     question: "Which combination of AWS WAF components protects the application? (Choose TWO)",
     options: [
-      { id: 'A', text: "Deploy an AWS Shield Standard rule on the EC2 instances directly." },
-      { id: 'B', text: "Configure Network ACL rules to inspect HTTP request bodies." },
-      { id: 'C', text: "Add an AWS WAF Rate-Based Rule with an IP block action for clients exceeding 1,000 requests in a 5-minute window." },
-      { id: 'D', text: "Create an AWS WAF Web ACL associated with the Application Load Balancer and enable AWS Managed Rules for Core Rule Set (CRS) and SQL database (SQLi)." },
+      { id: 'A', text: "Configure Network ACL rules to inspect HTTP request bodies." },
+      { id: 'B', text: "Create an AWS WAF Web ACL associated with the Application Load Balancer and enable AWS Managed Rules for Core Rule Set (CRS) and SQL database (SQLi)." },
+      { id: 'C', text: "Deploy an AWS Shield Standard rule on the EC2 instances directly." },
+      { id: 'D', text: "Add an AWS WAF Rate-Based Rule with an IP block action for clients exceeding 1,000 requests in a 5-minute window." },
       { id: 'E', text: "Deploy Amazon GuardDuty in blocking mode on the VPC route table." }
     ],
-    correctAnswers: ['C', 'D'],
+    correctAnswers: ['B', 'D'],
     type: "multiple",
-    explanation: "AWS WAF Web ACLs attach directly to Application Load Balancers, CloudFront distributions, or API Gateways to inspect Layer 7 traffic. Using AWS Managed Rule groups (Core Rule Set and SQLi) protects against common web vulnerabilities like XSS and SQL injection. Adding Rate-Based Rules automatically tracks and blocks IP addresses that send excessive HTTP requests over a 5-minute evaluation window. Shield Standard (C) mitigates Layer 3/4 attacks automatically and has no custom rules. NACLs (D) cannot inspect HTTP request payloads. GuardDuty (E) does not inline-block on route tables.",
+    explanation: "AWS WAF Web ACLs attach directly to Application Load Balancers, CloudFront distributions, or API Gateways to inspect Layer 7 traffic. Using AWS Managed Rule groups (Core Rule Set and SQLi) protects against common web vulnerabilities like XSS and SQL injection. Adding Rate-Based Rules automatically tracks and blocks IP addresses that send excessive HTTP requests over a 5-minute evaluation window. Shield Standard mitigates Layer 3/4 attacks automatically and has no custom rules. NACLs cannot inspect HTTP request payloads. GuardDuty does not inline-block on route tables.",
     referenceUrl: "https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html",
     tags: ["AWS WAF", "Web ACL", "Rate Limiting", "SQLi", "Security", "ALB"]
   },
@@ -495,13 +495,13 @@ export const AWS_SAA_QUESTIONS_7 = [
     question: "How should the Solutions Architect optimize EFS storage costs automatically without application modifications?",
     options: [
       { id: 'A', text: "Enable Amazon EFS Lifecycle Management to automatically transition files to the EFS Infrequent Access (EFS IA) storage tier after 14 days of no access." },
-      { id: 'B', text: "Deploy Amazon FSx for Windows File Server with HDD storage." },
+      { id: 'B', text: "Write a nightly cron job to compress older files using gzip." },
       { id: 'C', text: "Migrate the file system to Amazon EBS gp3 volumes." },
-      { id: 'D', text: "Write a nightly cron job to compress older files using gzip." }
+      { id: 'D', text: "Deploy Amazon FSx for Windows File Server with HDD storage." }
     ],
     correctAnswers: ['A'],
     type: "single",
-    explanation: "Amazon EFS Lifecycle Management automatically moves files that have not been accessed for a configurable period (e.g. 14 days) to the EFS Infrequent Access (IA) storage tier, reducing storage costs by up to 92% compared to EFS Standard. File access remains transparent to application containers without changing file paths or mount points. EBS gp3 (B) cannot be shared concurrently across hundreds of Linux containers. Custom compression scripts (C) add operational overhead. FSx for Windows (D) is for SMB Windows environments, not native Linux containers.",
+    explanation: "Amazon EFS Lifecycle Management automatically moves files that have not been accessed for a configurable period (e.g. 14 days) to the EFS Infrequent Access (IA) storage tier, reducing storage costs by up to 92% compared to EFS Standard. File access remains transparent to application containers without changing file paths or mount points. EBS gp3 cannot be shared concurrently across hundreds of Linux containers. Custom compression scripts add operational overhead. FSx for Windows is for SMB Windows environments, not native Linux containers.",
     referenceUrl: "https://docs.aws.amazon.com/efs/latest/ug/lifecycle-management-efs.html",
     tags: ["EFS", "Lifecycle Management", "Infrequent Access", "Cost Optimization"]
   },
@@ -515,14 +515,14 @@ export const AWS_SAA_QUESTIONS_7 = [
     scenario: "An application hosted on Amazon ECS tasks needs to call an external payment gateway API using an encrypted third-party API key and client secret. The security officer mandates that credentials must never be stored in plain text in source code repositories, container images, or task definitions.",
     question: "What is the AWS-recommended architecture for injecting secrets securely into container tasks?",
     options: [
-      { id: 'A', text: "Hardcode the API secret in the container Dockerfile environment variables." },
-      { id: 'B', text: "Store the API credentials in AWS Secrets Manager and reference the secret ARN in the `secrets` section of the ECS task definition, granting the ECS Task Execution Role permission to retrieve the secret." },
-      { id: 'C', text: "Pass the secret in plaintext through the ECS task definition `environment` key-value pairs." },
-      { id: 'D', text: "Store the credentials in an Amazon S3 public bucket." }
+      { id: 'A', text: "Pass the secret in plaintext through the ECS task definition `environment` key-value pairs." },
+      { id: 'B', text: "Store the credentials in an Amazon S3 public bucket." },
+      { id: 'C', text: "Store the API credentials in AWS Secrets Manager and reference the secret ARN in the `secrets` section of the ECS task definition, granting the ECS Task Execution Role permission to retrieve the secret." },
+      { id: 'D', text: "Hardcode the API secret in the container Dockerfile environment variables." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
-    explanation: "Amazon ECS natively integrates with AWS Secrets Manager and AWS Systems Manager Parameter Store. By specifying the secret ARN in the `secrets` block of the container definition, the ECS agent retrieves the secret value securely at task launch using the Task Execution Role and exposes it as an environment variable inside the running container, keeping the secret out of task definitions and source code. Plaintext Dockerfile envs (B), public S3 buckets (C), and plain ECS environment strings (D) expose credentials in plaintext to anyone with view access.",
+    explanation: "Amazon ECS natively integrates with AWS Secrets Manager and AWS Systems Manager Parameter Store. By specifying the secret ARN in the `secrets` block of the container definition, the ECS agent retrieves the secret value securely at task launch using the Task Execution Role and exposes it as an environment variable inside the running container, keeping the secret out of task definitions and source code. Plaintext Dockerfile envs, public S3 buckets, and plain ECS environment strings expose credentials in plaintext to anyone with view access.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html",
     tags: ["ECS", "Secrets Manager", "Task Execution Role", "Security", "Containers"]
   }
