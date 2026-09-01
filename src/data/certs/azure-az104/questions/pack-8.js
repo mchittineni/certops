@@ -75,11 +75,11 @@ export const AZURE_AZ104_QUESTIONS_8 = [
       { id: 'A', text: "Password and username only." },
       { id: 'B', text: "Azure Storage SAS tokens." },
       { id: 'C', text: "Azure Bastion RDP session." },
-      { id: 'D', text: "Microsoft Authenticator app notification/code, SMS text message, Email, Security questions, and FIDO2 security keys." }
+      { id: 'D', text: "Microsoft Authenticator app notification/code, SMS text message or voice call, Email, Office phone, and Security questions." }
     ],
     correctAnswers: ['D'],
     type: "single",
-    explanation: "Microsoft Entra SSPR supports multiple secure authentication methods: Microsoft Authenticator app (push notifications and verification codes), Mobile phone (SMS or voice call), Office phone, Alternate email address, Security questions, and FIDO2 hardware security keys.",
+    explanation: "Microsoft Entra SSPR supports multiple secure authentication methods: Microsoft Authenticator app (push notifications and verification codes), Mobile phone (SMS or voice call), Office phone, Alternate email address, and Security questions. FIDO2 security keys are supported for multifactor authentication and passwordless sign-in, but are not an SSPR method.",
     referenceUrl: "https://learn.microsoft.com/en-us/entra/identity/authentication/concept-authentication-methods",
     tags: ["Entra ID", "SSPR", "Authentication Methods", "Identity"]
   },
