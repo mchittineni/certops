@@ -103,7 +103,7 @@ function validateFlashcard(c, where, cert) {
   if (!cert.domains.some(d => d.id === c.domainId)) err(where, `domainId "${c.domainId}" is not a domain of ${cert.id}`);
   if (String(c.back).length < 40) warn(where, 'back of card is shorter than 40 characters');
   checkUnfilled(c, where, cert, ['front', 'back']);
-  checkMarkup(c, where, ['front', 'back']);
+  checkMarkup(c, where, ['front', 'hint', 'back']);
 }
 
 const TIERS = ['foundational', 'associate', 'professional', 'specialty'];

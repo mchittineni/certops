@@ -19,12 +19,24 @@ function getFiles(dir, match) {
 
 const files = getFiles('./src/data/certs', /pack-\d+\.js$/).filter(f => f.includes('/questions/'));
 
+/**
+ * Seeds must decorrelate for sequential ids ("cert-1", "cert-2", ...). A plain
+ * polynomial hash leaves neighbouring ids one bit apart, which made the derived
+ * permutations correlate and pushed the answer distribution off balance. The
+ * murmur3-style avalanche finalizer below spreads those low-bit differences
+ * across the whole word.
+ */
 function hashStr(str) {
   let hash = 0;
   for (let i = 0; i < str.length; i++) {
-    hash = (hash * 31 + str.charCodeAt(i)) >>> 0;
+    hash = (Math.imul(hash, 31) + str.charCodeAt(i)) >>> 0;
   }
-  return hash;
+  hash ^= hash >>> 16;
+  hash = Math.imul(hash, 0x85ebca6b) >>> 0;
+  hash ^= hash >>> 13;
+  hash = Math.imul(hash, 0xc2b2ae35) >>> 0;
+  hash ^= hash >>> 16;
+  return hash >>> 0;
 }
 
 function shuffleArray(arr, seed) {
@@ -35,7 +47,9 @@ function shuffleArray(arr, seed) {
   let s = (seed ^ 0x5DEECE66) >>> 0;
   for (let i = rotated.length - 1; i > 0; i--) {
     s = (Math.imul(s, 1103515245) + 12345) >>> 0;
-    const j = s % (i + 1);
+    // Take the high bits: the low bits of an LCG cycle with a very short period,
+    // which biased small ranges such as the 4 options of a typical question.
+    const j = (s >>> 16) % (i + 1);
     [rotated[i], rotated[j]] = [rotated[j], rotated[i]];
   }
   return rotated;
