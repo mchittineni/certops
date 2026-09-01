@@ -16,7 +16,7 @@ export const AZURE_AZ104_QUESTIONS_2 = [
     ],
     correctAnswers: ['D'],
     type: "single",
-    explanation: "Microsoft Entra Dynamic User Groups automatically add or remove users based on attribute-based rules (e.g. `(user.department -eq \"Sales\")`). When user attributes are updated in Entra ID, dynamic group membership is recalculated automatically. Assigned groups (B, D) require manual addition/removal of members.",
+    explanation: "Microsoft Entra Dynamic User Groups automatically add or remove users based on attribute-based rules (e.g. `(user.department -eq \"Sales\")`). When user attributes are updated in Entra ID, dynamic group membership is recalculated automatically. Assigned groups and statically assigned Microsoft 365 groups both require manual addition and removal of members, and an Administrative Unit with dynamic device membership targets devices rather than users.",
     referenceUrl: "https://learn.microsoft.com/en-us/entra/identity/users/groups-dynamic-membership",
     tags: ["Entra ID", "Dynamic Groups", "Automation", "Identity"]
   },

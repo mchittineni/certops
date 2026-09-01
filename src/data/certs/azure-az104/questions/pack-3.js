@@ -394,7 +394,7 @@ export const AZURE_AZ104_QUESTIONS_3 = [
     ],
     correctAnswers: ['D'],
     type: "single",
-    explanation: "Azure Standard Public IP addresses are always **Static** in their allocation method, support Availability Zones (zonal or zone-redundant), and are required when associating with Azure Standard Load Balancers or secure VM frontends. Basic Public IPs (B, C) are legacy and cannot attach to Standard Load Balancers.",
+    explanation: "Azure Standard Public IP addresses are always **Static** in their allocation method, support Availability Zones (zonal or zone-redundant), and are required when associating with Azure Standard Load Balancers or secure VM frontends. Basic SKU public IPs, whether static or dynamic, are legacy and cannot attach to Standard Load Balancers.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/public-ip-addresses",
     tags: ["Public IP", "Standard SKU", "Networking"]
   },
