@@ -347,8 +347,30 @@ export const CONTENT_REGISTRY = {
     flashcards: []
   },
   'hashicorp-tfp': {
-    questions: [],
-    flashcards: []
+    questions: [
+      pack('./certs/hashicorp-tfp/questions/pack-1.js', () => import('./certs/hashicorp-tfp/questions/pack-1.js')),
+      pack('./certs/hashicorp-tfp/questions/pack-2.js', () => import('./certs/hashicorp-tfp/questions/pack-2.js')),
+      pack('./certs/hashicorp-tfp/questions/pack-3.js', () => import('./certs/hashicorp-tfp/questions/pack-3.js')),
+      pack('./certs/hashicorp-tfp/questions/pack-4.js', () => import('./certs/hashicorp-tfp/questions/pack-4.js')),
+      pack('./certs/hashicorp-tfp/questions/pack-5.js', () => import('./certs/hashicorp-tfp/questions/pack-5.js')),
+      pack('./certs/hashicorp-tfp/questions/pack-6.js', () => import('./certs/hashicorp-tfp/questions/pack-6.js')),
+      pack('./certs/hashicorp-tfp/questions/pack-7.js', () => import('./certs/hashicorp-tfp/questions/pack-7.js')),
+      pack('./certs/hashicorp-tfp/questions/pack-8.js', () => import('./certs/hashicorp-tfp/questions/pack-8.js')),
+      pack('./certs/hashicorp-tfp/questions/pack-9.js', () => import('./certs/hashicorp-tfp/questions/pack-9.js')),
+      pack('./certs/hashicorp-tfp/questions/pack-10.js', () => import('./certs/hashicorp-tfp/questions/pack-10.js'))
+    ],
+    flashcards: [
+      pack('./certs/hashicorp-tfp/flashcards/pack-1.js', () => import('./certs/hashicorp-tfp/flashcards/pack-1.js')),
+      pack('./certs/hashicorp-tfp/flashcards/pack-2.js', () => import('./certs/hashicorp-tfp/flashcards/pack-2.js')),
+      pack('./certs/hashicorp-tfp/flashcards/pack-3.js', () => import('./certs/hashicorp-tfp/flashcards/pack-3.js')),
+      pack('./certs/hashicorp-tfp/flashcards/pack-4.js', () => import('./certs/hashicorp-tfp/flashcards/pack-4.js')),
+      pack('./certs/hashicorp-tfp/flashcards/pack-5.js', () => import('./certs/hashicorp-tfp/flashcards/pack-5.js')),
+      pack('./certs/hashicorp-tfp/flashcards/pack-6.js', () => import('./certs/hashicorp-tfp/flashcards/pack-6.js')),
+      pack('./certs/hashicorp-tfp/flashcards/pack-7.js', () => import('./certs/hashicorp-tfp/flashcards/pack-7.js')),
+      pack('./certs/hashicorp-tfp/flashcards/pack-8.js', () => import('./certs/hashicorp-tfp/flashcards/pack-8.js')),
+      pack('./certs/hashicorp-tfp/flashcards/pack-9.js', () => import('./certs/hashicorp-tfp/flashcards/pack-9.js')),
+      pack('./certs/hashicorp-tfp/flashcards/pack-10.js', () => import('./certs/hashicorp-tfp/flashcards/pack-10.js'))
+    ]
   },
   'isc2-ccsp': {
     questions: [],
@@ -368,10 +390,22 @@ export const CONTENT_REGISTRY = {
       pack('./certs/k8s-cka/questions/pack-6.js', () => import('./certs/k8s-cka/questions/pack-6.js')),
       pack('./certs/k8s-cka/questions/pack-7.js', () => import('./certs/k8s-cka/questions/pack-7.js')),
       pack('./certs/k8s-cka/questions/pack-8.js', () => import('./certs/k8s-cka/questions/pack-8.js')),
-      pack('./certs/k8s-cka/questions/pack-9.js', () => import('./certs/k8s-cka/questions/pack-9.js'))
+      pack('./certs/k8s-cka/questions/pack-9.js', () => import('./certs/k8s-cka/questions/pack-9.js')),
+      pack('./certs/k8s-cka/questions/pack-10.js', () => import('./certs/k8s-cka/questions/pack-10.js')),
+      pack('./certs/k8s-cka/questions/pack-11.js', () => import('./certs/k8s-cka/questions/pack-11.js'))
     ],
     flashcards: [
-      pack('./certs/k8s-cka/flashcards/pack-1.js', () => import('./certs/k8s-cka/flashcards/pack-1.js'))
+      pack('./certs/k8s-cka/flashcards/pack-1.js', () => import('./certs/k8s-cka/flashcards/pack-1.js')),
+      pack('./certs/k8s-cka/flashcards/pack-2.js', () => import('./certs/k8s-cka/flashcards/pack-2.js')),
+      pack('./certs/k8s-cka/flashcards/pack-3.js', () => import('./certs/k8s-cka/flashcards/pack-3.js')),
+      pack('./certs/k8s-cka/flashcards/pack-4.js', () => import('./certs/k8s-cka/flashcards/pack-4.js')),
+      pack('./certs/k8s-cka/flashcards/pack-5.js', () => import('./certs/k8s-cka/flashcards/pack-5.js')),
+      pack('./certs/k8s-cka/flashcards/pack-6.js', () => import('./certs/k8s-cka/flashcards/pack-6.js')),
+      pack('./certs/k8s-cka/flashcards/pack-7.js', () => import('./certs/k8s-cka/flashcards/pack-7.js')),
+      pack('./certs/k8s-cka/flashcards/pack-8.js', () => import('./certs/k8s-cka/flashcards/pack-8.js')),
+      pack('./certs/k8s-cka/flashcards/pack-9.js', () => import('./certs/k8s-cka/flashcards/pack-9.js')),
+      pack('./certs/k8s-cka/flashcards/pack-10.js', () => import('./certs/k8s-cka/flashcards/pack-10.js')),
+      pack('./certs/k8s-cka/flashcards/pack-11.js', () => import('./certs/k8s-cka/flashcards/pack-11.js'))
     ]
   },
   'k8s-ckad': {
