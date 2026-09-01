@@ -9,14 +9,14 @@ export const AZURE_AZ104_QUESTIONS_1 = [
     scenario: "An organization uses Microsoft Entra ID (formerly Azure AD) synchronized with on-premises Active Directory Domain Services (AD DS) via Microsoft Entra Connect. The IT administrator wants users to reset their passwords in the cloud and have the new password immediately written back to on-premises AD DS.",
     question: "Which Microsoft Entra feature must be enabled in Microsoft Entra Connect and the Entra admin center?",
     options: [
-      { id: 'A', text: "Privileged Identity Management (PIM)." },
-      { id: 'B', text: "Microsoft Entra Application Proxy." },
-      { id: 'C', text: "Microsoft Entra Password Protection in audit mode only." },
-      { id: 'D', text: "Self-Service Password Reset (SSPR) with Password Writeback enabled." }
+      { id: 'A', text: "Self-Service Password Reset (SSPR) with Password Writeback enabled." },
+      { id: 'B', text: "Microsoft Entra Password Protection in audit mode only." },
+      { id: 'C', text: "Microsoft Entra Application Proxy." },
+      { id: 'D', text: "Privileged Identity Management (PIM)." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
-    explanation: "Password Writeback is a feature of Microsoft Entra Connect that allows cloud-based password resets via Self-Service Password Reset (SSPR) to be written back to an existing on-premises Active Directory directory in real time. Password Protection (B) bans weak passwords. Application Proxy (C) provides remote access to on-premises web apps. PIM (D) manages just-in-time privileged access.",
+    explanation: "Password Writeback is a feature of Microsoft Entra Connect that allows cloud-based password resets via Self-Service Password Reset (SSPR) to be written back to an existing on-premises Active Directory directory in real time. Password Protection bans weak passwords. Application Proxy provides remote access to on-premises web apps. PIM manages just-in-time privileged access.",
     referenceUrl: "https://learn.microsoft.com/en-us/entra/identity/authentication/tutorial-enable-sspr-writeback",
     tags: ["Entra ID", "SSPR", "Password Writeback", "Identity"]
   },
@@ -30,14 +30,14 @@ export const AZURE_AZ104_QUESTIONS_1 = [
     scenario: "An administrator needs to create a custom Azure Role-Based Access Control (RBAC) role named \"VM Operator\" that allows starting and restarting virtual machines in resource groups, but explicitly denies the ability to delete virtual machines or modify network interfaces.",
     question: "How should the JSON custom role definition be configured?",
     options: [
-      { id: 'A', text: "Assign the built-in Contributor role at the Resource Group scope." },
-      { id: 'B', text: "Include `Microsoft.Compute/virtualMachines/*` in `Actions`, add `Microsoft.Compute/virtualMachines/delete` in `NotActions`, and specify the subscription in `AssignableScopes`." },
+      { id: 'A', text: "Include `Microsoft.Compute/virtualMachines/*` in `Actions`, add `Microsoft.Compute/virtualMachines/delete` in `NotActions`, and specify the subscription in `AssignableScopes`." },
+      { id: 'B', text: "Assign the built-in Contributor role at the Resource Group scope." },
       { id: 'C', text: "Include `*` in `Actions` and configure an Azure Policy with a Deny effect." },
       { id: 'D', text: "Add `Microsoft.Compute/virtualMachines/delete` to `Actions` with an explicit deny statement." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
-    explanation: "In Azure RBAC custom role definitions, `Actions` specifies permitted operations, while `NotActions` subtracts specific permissions from the `Actions` list. Specifying `Microsoft.Compute/virtualMachines/*` under `Actions` and `Microsoft.Compute/virtualMachines/delete` under `NotActions` allows all VM actions except deletion. `AssignableScopes` specifies where the custom role can be assigned. Azure RBAC does not support standalone \"Deny\" statements in custom role JSON (C). Contributor (D) allows VM deletion.",
+    explanation: "In Azure RBAC custom role definitions, `Actions` specifies permitted operations, while `NotActions` subtracts specific permissions from the `Actions` list. Specifying `Microsoft.Compute/virtualMachines/*` under `Actions` and `Microsoft.Compute/virtualMachines/delete` under `NotActions` allows all VM actions except deletion. `AssignableScopes` specifies where the custom role can be assigned. Azure RBAC does not support standalone \"Deny\" statements in custom role JSON. Contributor allows VM deletion.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/role-based-access-control/custom-roles",
     tags: ["Azure RBAC", "Custom Roles", "Governance", "NotActions"]
   },
@@ -51,14 +51,14 @@ export const AZURE_AZ104_QUESTIONS_1 = [
     scenario: "An enterprise deploys an Azure Policy definition with a `Modify` effect that automatically configures diagnostic settings on all newly created Azure Key Vaults. However, 150 existing Key Vaults created prior to policy assignment remain non-compliant.",
     question: "How should the administrator bring the existing non-compliant Key Vaults into compliance?",
     options: [
-      { id: 'A', text: "Change the policy effect from `Modify` to `Deny`." },
+      { id: 'A', text: "Manually delete and recreate the 150 Key Vaults." },
       { id: 'B', text: "Deploy an Azure Resource Lock on the subscriptions." },
       { id: 'C', text: "Create a Remediation Task in Azure Policy for the policy assignment using a managed identity with appropriate RBAC permissions." },
-      { id: 'D', text: "Manually delete and recreate the 150 Key Vaults." }
+      { id: 'D', text: "Change the policy effect from `Modify` to `Deny`." }
     ],
     correctAnswers: ['C'],
     type: "single",
-    explanation: "When policies with `deployIfNotExists` or `modify` effects are assigned, they only evaluate and modify resources created or updated after assignment. To fix pre-existing non-compliant resources, you must manually trigger an Azure Policy Remediation Task. The remediation task uses a managed identity assigned to the policy assignment with sufficient RBAC permissions to update the existing resources. Changing to Deny (C) blocks future non-compliant requests but does not alter existing resources.",
+    explanation: "When policies with `deployIfNotExists` or `modify` effects are assigned, they only evaluate and modify resources created or updated after assignment. To fix pre-existing non-compliant resources, you must manually trigger an Azure Policy Remediation Task. The remediation task uses a managed identity assigned to the policy assignment with sufficient RBAC permissions to update the existing resources. Changing to Deny blocks future non-compliant requests but does not alter existing resources.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/policy/how-to/remediate-resources",
     tags: ["Azure Policy", "Remediation", "Governance", "Managed Identity"]
   },
@@ -72,14 +72,14 @@ export const AZURE_AZ104_QUESTIONS_1 = [
     scenario: "A company wants to protect a critical production database resource group. Administrators must be able to read and modify database records and server configurations, but no one (including subscription Owners) should be able to delete any resources within the resource group.",
     question: "Which type of Azure Resource Lock should be applied at the Resource Group scope?",
     options: [
-      { id: 'A', text: "A `ReadOnly` (Read-Only) lock." },
-      { id: 'B', text: "A Microsoft Entra Administrative Unit lock." },
-      { id: 'C', text: "An Azure Policy with `AuditIfNotExists`." },
-      { id: 'D', text: "A `CanNotDelete` (Delete) lock." }
+      { id: 'A', text: "An Azure Policy with `AuditIfNotExists`." },
+      { id: 'B', text: "A `CanNotDelete` (Delete) lock." },
+      { id: 'C', text: "A `ReadOnly` (Read-Only) lock." },
+      { id: 'D', text: "A Microsoft Entra Administrative Unit lock." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
-    explanation: "A `CanNotDelete` (Delete) lock allows authorized users to read and modify resource configurations, but prevents any user from deleting the resource. A `ReadOnly` lock (B) prevents both modification and deletion (making resources completely read-only, which would block modifying database configurations). Resource locks override RBAC permissions for all users until the lock is explicitly removed.",
+    explanation: "A `CanNotDelete` (Delete) lock allows authorized users to read and modify resource configurations, but prevents any user from deleting the resource. A `ReadOnly` lock prevents both modification and deletion (making resources completely read-only, which would block modifying database configurations). Resource locks override RBAC permissions for all users until the lock is explicitly removed.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/lock-resources",
     tags: ["Resource Locks", "CanNotDelete", "Governance", "ARM"]
   },
@@ -94,13 +94,13 @@ export const AZURE_AZ104_QUESTIONS_1 = [
     question: "Which Microsoft Entra ID feature should the administrator use to scope administrative permissions to specific subsets of users?",
     options: [
       { id: 'A', text: "Create an Administrative Unit (AU), add German users and groups to the AU, and assign the User Administrator role scoped to the Administrative Unit." },
-      { id: 'B', text: "Deploy Azure Management Groups with subscription RBAC." },
-      { id: 'C', text: "Assign the Helpdesk Administrator role at the Tenant root scope." },
+      { id: 'B', text: "Assign the Helpdesk Administrator role at the Tenant root scope." },
+      { id: 'C', text: "Deploy Azure Management Groups with subscription RBAC." },
       { id: 'D', text: "Create separate Microsoft Entra ID tenants for each country." }
     ],
     correctAnswers: ['A'],
     type: "single",
-    explanation: "Microsoft Entra Administrative Units (AUs) let you subdivide your organization into smaller administrative containers (e.g. by region, department, or business unit) and delegate Microsoft Entra directory roles (such as User Administrator or Helpdesk Administrator) scoped strictly to the members of that Administrative Unit. Separate tenants (B) introduce complex multi-tenant sprawl. Tenant root roles (C) grant global permissions over all users worldwide. Management Groups (D) apply to Azure subscription resources, not Microsoft Entra directory users.",
+    explanation: "Microsoft Entra Administrative Units (AUs) let you subdivide your organization into smaller administrative containers (e.g. by region, department, or business unit) and delegate Microsoft Entra directory roles (such as User Administrator or Helpdesk Administrator) scoped strictly to the members of that Administrative Unit. Separate tenants introduce complex multi-tenant sprawl. Tenant root roles grant global permissions over all users worldwide. Management Groups apply to Azure subscription resources, not Microsoft Entra directory users.",
     referenceUrl: "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/administrative-units",
     tags: ["Entra ID", "Administrative Units", "Delegation", "Identity"]
   },
@@ -114,14 +114,14 @@ export const AZURE_AZ104_QUESTIONS_1 = [
     scenario: "A healthcare company requires that patient records stored in Azure Blob Storage survive the loss of an entire physical datacentre facility within the primary region, as well as an entire regional outage by replicating asynchronously to a secondary paired Azure region.",
     question: "Which Azure Storage redundancy option satisfies these high availability and disaster recovery requirements?",
     options: [
-      { id: 'A', text: "Geo-redundant storage (GRS)." },
+      { id: 'A', text: "Zone-redundant storage (ZRS)." },
       { id: 'B', text: "Geo-zone-redundant storage (GZRS)." },
-      { id: 'C', text: "Locally redundant storage (LRS)." },
-      { id: 'D', text: "Zone-redundant storage (ZRS)." }
+      { id: 'C', text: "Geo-redundant storage (GRS)." },
+      { id: 'D', text: "Locally redundant storage (LRS)." }
     ],
     correctAnswers: ['B'],
     type: "single",
-    explanation: "Geo-zone-redundant storage (GZRS) combines high availability within the primary region (copying data synchronously across 3 Azure Availability Zones like ZRS) with cross-region disaster recovery protection (replicating asynchronously to a secondary paired region using LRS). LRS (B) protects only within a single datacentre. ZRS (C) protects against datacentre loss within a region but has no secondary region replication. GRS (D) uses LRS (single datacentre) in the primary region.",
+    explanation: "Geo-zone-redundant storage (GZRS) combines high availability within the primary region (copying data synchronously across 3 Azure Availability Zones like ZRS) with cross-region disaster recovery protection (replicating asynchronously to a secondary paired region using LRS). LRS protects only within a single datacentre. ZRS protects against datacentre loss within a region but has no secondary region replication. GRS uses LRS (single datacentre) in the primary region.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/common/storage-redundancy",
     tags: ["Azure Storage", "GZRS", "Redundancy", "Disaster Recovery"]
   },
@@ -135,14 +135,14 @@ export const AZURE_AZ104_QUESTIONS_1 = [
     scenario: "An organization stores transaction logs in Azure Blob Storage. Logs must remain in the Hot tier for 30 days, automatically move to the Cool tier if not modified for 30 days, move to the Archive tier after 90 days, and be permanently deleted after 365 days.",
     question: "Which Azure Storage feature automates data movement and deletion across access tiers based on age rules?",
     options: [
-      { id: 'A', text: "Azure Blob Storage Object Replication." },
-      { id: 'B', text: "Azure Blob Storage Lifecycle Management policy rules." },
+      { id: 'A', text: "Azure Backup vault retention schedule." },
+      { id: 'B', text: "Azure Blob Storage Object Replication." },
       { id: 'C', text: "Azure File Sync Cloud Tiering." },
-      { id: 'D', text: "Azure Backup vault retention schedule." }
+      { id: 'D', text: "Azure Blob Storage Lifecycle Management policy rules." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
-    explanation: "Azure Blob Storage Lifecycle Management offers a rule-based policy engine that automatically transitions blobs to cooler storage tiers (Hot -> Cool -> Cold -> Archive) or deletes them at the end of their lifecycle based on conditions such as `daysAfterModificationGreaterThan` or `daysAfterLastAccessTimeGreaterThan`. Object Replication (B) copies blobs across accounts. File Sync Cloud Tiering (D) manages on-premises cache for Azure Files.",
+    explanation: "Azure Blob Storage Lifecycle Management offers a rule-based policy engine that automatically transitions blobs to cooler storage tiers (Hot -> Cool -> Cold -> Archive) or deletes them at the end of their lifecycle based on conditions such as `daysAfterModificationGreaterThan` or `daysAfterLastAccessTimeGreaterThan`. Object Replication copies blobs across accounts. File Sync Cloud Tiering manages on-premises cache for Azure Files.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/blobs/lifecycle-management-overview",
     tags: ["Blob Storage", "Lifecycle Management", "Storage Tiers", "Cost Optimization"]
   },
@@ -156,12 +156,12 @@ export const AZURE_AZ104_QUESTIONS_1 = [
     scenario: "A branch office has a Windows Server 2022 file server with a 4 TB local drive that is 95% full. The administrator configures Azure File Sync with an Azure file share. The company wants frequently accessed files cached locally on the Windows Server, while cold files are tiered to Azure Files, maintaining at least 20% free disk space on the local volume.",
     question: "Which Azure File Sync configuration setting enables this hybrid caching behavior?",
     options: [
-      { id: 'A', text: "Configure Blob Storage Object Immutability." },
-      { id: 'B', text: "Enable Cloud Tiering on the Server Endpoint and set the Volume Free Space policy to 20%." },
-      { id: 'C', text: "Deploy an Azure Storage Data Box Gateway." },
-      { id: 'D', text: "Enable Soft Delete on the Azure File share." }
+      { id: 'A', text: "Deploy an Azure Storage Data Box Gateway." },
+      { id: 'B', text: "Enable Soft Delete on the Azure File share." },
+      { id: 'C', text: "Enable Cloud Tiering on the Server Endpoint and set the Volume Free Space policy to 20%." },
+      { id: 'D', text: "Configure Blob Storage Object Immutability." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Cloud Tiering is an optional feature of Azure File Sync where frequently accessed files are cached locally on the Windows Server (Server Endpoint) while infrequently accessed files are tiered to the Azure file share in the cloud. Setting the Volume Free Space policy to 20% instructs Azure File Sync to automatically recall/tier files so that at least 20% of the local volume remains free at all times.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/file-sync/file-sync-cloud-tiering-overview",
@@ -177,14 +177,14 @@ export const AZURE_AZ104_QUESTIONS_1 = [
     scenario: "A web application generates temporary download links for private files stored in Azure Blob Storage. The security architect mandates that temporary download tokens must be revocable immediately in the event of a security breach, without regenerating the master storage account access keys.",
     question: "How should the Shared Access Signatures (SAS) be generated to allow immediate revocation?",
     options: [
-      { id: 'A', text: "Make the blob container publicly accessible with Anonymous read access." },
-      { id: 'B', text: "Create an ad-hoc User Delegation SAS with a 30-day expiration." },
-      { id: 'C', text: "Create a Service SAS associated with a Stored Access Policy on the blob container." },
+      { id: 'A', text: "Create an ad-hoc User Delegation SAS with a 30-day expiration." },
+      { id: 'B', text: "Create a Service SAS associated with a Stored Access Policy on the blob container." },
+      { id: 'C', text: "Make the blob container publicly accessible with Anonymous read access." },
       { id: 'D', text: "Create an Account SAS signed with the primary storage account key." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
-    explanation: "A Service SAS associated with a Stored Access Policy (defined on a blob container or file share) provides the ability to revoke or modify permissions of issued SAS tokens at any time simply by deleting or modifying the Stored Access Policy, without rotating the storage account access keys. An Account SAS (B) or ad-hoc SAS cannot be revoked without rotating account keys. User Delegation SAS (C) is revoked by revoking user OAuth tokens, but does not use container policies.",
+    explanation: "A Service SAS associated with a Stored Access Policy (defined on a blob container or file share) provides the ability to revoke or modify permissions of issued SAS tokens at any time simply by deleting or modifying the Stored Access Policy, without rotating the storage account access keys. An Account SAS or ad-hoc SAS cannot be revoked without rotating account keys. User Delegation SAS is revoked by revoking user OAuth tokens, but does not use container policies.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/common/storage-sas-overview#stored-access-policy",
     tags: ["Azure Storage", "SAS", "Stored Access Policy", "Security"]
   },
@@ -198,14 +198,14 @@ export const AZURE_AZ104_QUESTIONS_1 = [
     scenario: "A financial institution must comply with SEC Rule 17a-4 regulations requiring that audit logs written to Azure Blob Storage cannot be overwritten or deleted by any user or administrator for 7 years.",
     question: "Which Azure Blob Storage feature provides WORM (Write Once, Read Many) compliance protection?",
     options: [
-      { id: 'A', text: "Azure Blob Soft Delete with a 7-day retention period." },
-      { id: 'B', text: "Immutable Blob Storage with a Time-Based Retention policy in locked compliance mode." },
-      { id: 'C', text: "Azure Backup vault snapshot copy." },
-      { id: 'D', text: "Azure Storage Account Resource Lock set to ReadOnly." }
+      { id: 'A', text: "Immutable Blob Storage with a Time-Based Retention policy in locked compliance mode." },
+      { id: 'B', text: "Azure Blob Soft Delete with a 7-day retention period." },
+      { id: 'C', text: "Azure Storage Account Resource Lock set to ReadOnly." },
+      { id: 'D', text: "Azure Backup vault snapshot copy." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
-    explanation: "Immutable storage for Azure Blob Storage provides Write Once, Read Many (WORM) storage where blobs can be created and read, but cannot be modified or deleted. Locking a Time-Based Retention policy makes the policy irreversible and strictly compliant with SEC Rule 17a-4, preventing even subscription administrators or Microsoft support from deleting data before the retention period expires. Soft delete (B) allows deletion and recovery within days. Resource locks (C) can be removed by subscription Owners.",
+    explanation: "Immutable storage for Azure Blob Storage provides Write Once, Read Many (WORM) storage where blobs can be created and read, but cannot be modified or deleted. Locking a Time-Based Retention policy makes the policy irreversible and strictly compliant with SEC Rule 17a-4, preventing even subscription administrators or Microsoft support from deleting data before the retention period expires. Soft delete allows deletion and recovery within days. Resource locks can be removed by subscription Owners.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/blobs/immutable-storage-overview",
     tags: ["Blob Storage", "Immutable Storage", "WORM", "Compliance"]
   },
@@ -219,12 +219,12 @@ export const AZURE_AZ104_QUESTIONS_1 = [
     scenario: "An administrator deploys three web server virtual machines in an Azure Availability Set in a region without Availability Zones. The availability set is configured with 3 Fault Domains (FD) and 5 Update Domains (UD).",
     question: "What protection do Fault Domains and Update Domains provide?",
     options: [
-      { id: 'A', text: "Fault Domains protect against physical hardware, power, and switch failures; Update Domains ensure VMs are rebooted in separate batches during scheduled platform maintenance." },
-      { id: 'B', text: "Fault Domains distribute VMs across geographic regions; Update Domains manage OS patch versions." },
-      { id: 'C', text: "Fault Domains manage CPU throttling; Update Domains manage disk encryption." },
-      { id: 'D', text: "Fault Domains replicate data to secondary regions; Update Domains handle auto-scaling." }
+      { id: 'A', text: "Fault Domains distribute VMs across geographic regions; Update Domains manage OS patch versions." },
+      { id: 'B', text: "Fault Domains manage CPU throttling; Update Domains manage disk encryption." },
+      { id: 'C', text: "Fault Domains replicate data to secondary regions; Update Domains handle auto-scaling." },
+      { id: 'D', text: "Fault Domains protect against physical hardware, power, and switch failures; Update Domains ensure VMs are rebooted in separate batches during scheduled platform maintenance." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "In Azure Availability Sets, Fault Domains (FD) represent physical racks sharing common power sources and network switches (protecting against unplanned hardware outages). Update Domains (UD) represent logical groups of underlying hardware that are sequenced during planned Azure platform maintenance, ensuring only one update domain is rebooted at a time so at least one VM instance remains running.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview",
@@ -240,14 +240,14 @@ export const AZURE_AZ104_QUESTIONS_1 = [
     scenario: "A DevOps team needs to deploy an auto-scaling cluster of virtual machines on Azure. The architecture requires mixing Spot VMs and On-Demand VMs, specifying multiple different VM sizes (e.g. D4s_v5 and D8s_v5) within the same scale set, and attaching individual VMs to existing Availability Zones.",
     question: "Which VMSS orchestration mode supports heterogeneous VM sizes and individual VM management?",
     options: [
-      { id: 'A', text: "Uniform orchestration mode (`orchestrationMode: Uniform`)." },
-      { id: 'B', text: "Azure App Service Plan scaling." },
-      { id: 'C', text: "Flexible orchestration mode (`orchestrationMode: Flexible`)." },
-      { id: 'D', text: "Azure Dedicated Host group." }
+      { id: 'A', text: "Flexible orchestration mode (`orchestrationMode: Flexible`)." },
+      { id: 'B', text: "Uniform orchestration mode (`orchestrationMode: Uniform`)." },
+      { id: 'C', text: "Azure Dedicated Host group." },
+      { id: 'D', text: "Azure App Service Plan scaling." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
-    explanation: "Flexible orchestration mode in Azure Virtual Machine Scale Sets (VMSS) enables managing heterogeneous VM sizes, mixing Spot and On-Demand instances, deploying across multiple availability zones, and managing individual VM instances with standard VM APIs while retaining autoscaling capabilities. Uniform mode (B) uses identical VM models and is optimized for homogeneous large-scale workloads.",
+    explanation: "Flexible orchestration mode in Azure Virtual Machine Scale Sets (VMSS) enables managing heterogeneous VM sizes, mixing Spot and On-Demand instances, deploying across multiple availability zones, and managing individual VM instances with standard VM APIs while retaining autoscaling capabilities. Uniform mode uses identical VM models and is optimized for homogeneous large-scale workloads.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/orchestration-modes",
     tags: ["VMSS", "Flexible Orchestration", "Compute", "Auto Scaling"]
   },
@@ -263,10 +263,10 @@ export const AZURE_AZ104_QUESTIONS_1 = [
     options: [
       { id: 'A', text: "HTTP 2.0 configuration toggle." },
       { id: 'B', text: "Framework runtime versions and virtual directory paths." },
-      { id: 'C', text: "General application source code and content files." },
-      { id: 'D', text: "App settings marked as \"Deployment slot setting\" (slot-pinned), custom domain names, and SSL certificate bindings." }
+      { id: 'C', text: "App settings marked as \"Deployment slot setting\" (slot-pinned), custom domain names, and SSL certificate bindings." },
+      { id: 'D', text: "General application source code and content files." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "During an Azure App Service slot swap, application content, frameworks, and unpinned configuration settings swap between the staging slot and production. However, settings marked as \"Deployment slot setting\" (slot-sticky), Custom domain names, SSL certificate bindings, Publishing endpoints, and VNet integration settings stick to the specific slot and do not swap, preventing production domain disruption.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/app-service/deploy-staging-slots#which-settings-are-swapped",
@@ -303,14 +303,14 @@ export const AZURE_AZ104_QUESTIONS_1 = [
     scenario: "A developer needs to run a simple, short-lived Docker container task that processes image files for 5 minutes and shuts down. The solution must launch in seconds, bill per second of execution, and require zero virtual machine or Kubernetes cluster management.",
     question: "Which Azure compute service is best suited for running isolated serverless container jobs?",
     options: [
-      { id: 'A', text: "Azure Container Instances (ACI)." },
-      { id: 'B', text: "Azure Kubernetes Service (AKS)." },
-      { id: 'C', text: "Azure Virtual Machines." },
-      { id: 'D', text: "Azure Dedicated Hosts." }
+      { id: 'A', text: "Azure Dedicated Hosts." },
+      { id: 'B', text: "Azure Container Instances (ACI)." },
+      { id: 'C', text: "Azure Kubernetes Service (AKS)." },
+      { id: 'D', text: "Azure Virtual Machines." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
-    explanation: "Azure Container Instances (ACI) is a serverless container solution that enables running Docker containers on-demand in seconds without provisioning or managing underlying VMs or Kubernetes clusters, billing strictly for the compute seconds (CPU and memory) consumed. AKS (B) requires managing cluster nodes and control planes. VMs (C) and Dedicated Hosts (D) require full OS and VM lifecycle management.",
+    explanation: "Azure Container Instances (ACI) is a serverless container solution that enables running Docker containers on-demand in seconds without provisioning or managing underlying VMs or Kubernetes clusters, billing strictly for the compute seconds (CPU and memory) consumed. AKS requires managing cluster nodes and control planes. VMs and Dedicated Hosts require full OS and VM lifecycle management.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/container-instances/container-instances-overview",
     tags: ["ACI", "Containers", "Serverless", "Compute"]
   },
@@ -324,13 +324,13 @@ export const AZURE_AZ104_QUESTIONS_1 = [
     scenario: "A company deploys a Hub-and-Spoke network topology in Azure. The Hub VNet contains an Azure VPN Gateway connected to the on-premises corporate office. The Spoke VNet needs to communicate with on-premises through the Hub VPN Gateway over a VNet Peering connection.",
     question: "Which two peering settings must be configured on the Hub and Spoke VNets? (Choose TWO)",
     options: [
-      { id: 'A', text: "Deploy an Azure Bastion host in the Spoke VNet." },
-      { id: 'B', text: "Enable \"Use the remote virtual network's gateways\" on the Spoke VNet peering to Hub." },
+      { id: 'A', text: "Disable virtual network peering and deploy an ExpressRoute circuit." },
+      { id: 'B', text: "Deploy an Azure Bastion host in the Spoke VNet." },
       { id: 'C', text: "Enable \"Allow gateway transit\" on the Spoke VNet peering." },
-      { id: 'D', text: "Enable \"Allow gateway transit\" on the Hub VNet peering to Spoke." },
-      { id: 'E', text: "Disable virtual network peering and deploy an ExpressRoute circuit." }
+      { id: 'D', text: "Enable \"Use the remote virtual network's gateways\" on the Spoke VNet peering to Hub." },
+      { id: 'E', text: "Enable \"Allow gateway transit\" on the Hub VNet peering to Spoke." }
     ],
-    correctAnswers: ['B', 'D'],
+    correctAnswers: ['D', 'E'],
     type: "multiple",
     explanation: "To route traffic from a Spoke VNet through a VPN/ExpressRoute gateway located in a peered Hub VNet, you must: 1) Enable \"Allow gateway transit\" on the Hub VNet peering configuration, and 2) Enable \"Use remote virtual network's gateways\" (or Use remote gateway) on the Spoke VNet peering configuration. Spoke VNets cannot have both a local gateway and use a remote gateway simultaneously.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview#gateway-transit-and-on-premises-connectivity",
@@ -346,12 +346,12 @@ export const AZURE_AZ104_QUESTIONS_1 = [
     scenario: "An administrator manages 20 database virtual machines in the same subnet with dynamically changing private IP addresses. The web servers must be allowed to connect to database VMs on port 1433 (SQL), while blocking all other traffic, without updating NSG rules every time a database VM is added or its IP changes.",
     question: "How should the administrator configure the Network Security Group to group database VMs logically?",
     options: [
-      { id: 'A', text: "Deploy an Azure Firewall in front of each individual database VM." },
-      { id: 'B', text: "Create individual NSG rules with hardcoded static IP addresses for each database VM." },
-      { id: 'C', text: "Assign public IP addresses to all database VMs." },
-      { id: 'D', text: "Create an Application Security Group (ASG) named `asg-sql`, assign the database VM network interfaces to `asg-sql`, and configure an NSG inbound rule with `asg-sql` as the destination." }
+      { id: 'A', text: "Create an Application Security Group (ASG) named `asg-sql`, assign the database VM network interfaces to `asg-sql`, and configure an NSG inbound rule with `asg-sql` as the destination." },
+      { id: 'B', text: "Assign public IP addresses to all database VMs." },
+      { id: 'C', text: "Create individual NSG rules with hardcoded static IP addresses for each database VM." },
+      { id: 'D', text: "Deploy an Azure Firewall in front of each individual database VM." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Application Security Groups (ASGs) allow grouping virtual machine network interfaces (NICs) based on application workload semantics (e.g. `asg-web`, `asg-sql`) rather than explicit IP addresses. By specifying the ASG as the source or destination in NSG security rules, newly provisioned VMs assigned to the ASG automatically inherit the correct security filtering without updating NSG rule IP definitions.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-network/application-security-groups",
@@ -367,14 +367,14 @@ export const AZURE_AZ104_QUESTIONS_1 = [
     scenario: "An enterprise mandates that all outbound internet traffic from VMs in the `Frontend-Subnet` must be routed through a central firewall Network Virtual Appliance (NVA) at IP `10.0.1.4` located in the `Firewall-Subnet`.",
     question: "Which route configuration should be added to the custom Route Table associated with `Frontend-Subnet`?",
     options: [
-      { id: 'A', text: "Address prefix: `0.0.0.0/0`, Next hop type: `Virtual appliance`, Next hop IP address: `10.0.1.4`." },
+      { id: 'A', text: "Address prefix: `10.0.1.0/24`, Next hop type: `Virtual network gateway`." },
       { id: 'B', text: "Address prefix: `0.0.0.0/0`, Next hop type: `Internet`." },
       { id: 'C', text: "Address prefix: `0.0.0.0/0`, Next hop type: `None`." },
-      { id: 'D', text: "Address prefix: `10.0.1.0/24`, Next hop type: `Virtual network gateway`." }
+      { id: 'D', text: "Address prefix: `0.0.0.0/0`, Next hop type: `Virtual appliance`, Next hop IP address: `10.0.1.4`." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
-    explanation: "To force outbound internet traffic from a subnet through a firewall/NVA, create a User-Defined Route (UDR) in a custom Route Table with the default route address prefix `0.0.0.0/0`, set the next hop type to `Virtual appliance`, and specify the private IP address of the firewall appliance (`10.0.1.4`). Next hop `Internet` (B) sends traffic directly to Azure public internet routing. Next hop `None` (D) drops packets (blackholes traffic).",
+    explanation: "To force outbound internet traffic from a subnet through a firewall/NVA, create a User-Defined Route (UDR) in a custom Route Table with the default route address prefix `0.0.0.0/0`, set the next hop type to `Virtual appliance`, and specify the private IP address of the firewall appliance (`10.0.1.4`). Next hop `Internet` sends traffic directly to Azure public internet routing. Next hop `None` drops packets (blackholes traffic).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-udr-overview",
     tags: ["UDR", "Route Tables", "NVA", "Forced Tunneling", "Networking"]
   },
@@ -389,11 +389,11 @@ export const AZURE_AZ104_QUESTIONS_1 = [
     question: "Which managed Azure service provides browser-based TLS-encrypted RDP and SSH access to private VMs?",
     options: [
       { id: 'A', text: "Azure Network Watcher." },
-      { id: 'B', text: "Azure Application Gateway with WAF." },
-      { id: 'C', text: "Azure Bastion deployed in a dedicated `AzureBastionSubnet`." },
+      { id: 'B', text: "Azure Bastion deployed in a dedicated `AzureBastionSubnet`." },
+      { id: 'C', text: "Azure Application Gateway with WAF." },
       { id: 'D', text: "Azure VPN Gateway Point-to-Site." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Azure Bastion is a fully managed PaaS service provisioned inside a dedicated subnet named `AzureBastionSubnet` (minimum `/26` prefix). It provides secure and seamless RDP/SSH connectivity directly from the Azure portal over TLS (port 443) to private VMs without exposing VMs to public IP addresses or opening port 3389/22 on NSGs.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/bastion/bastion-overview",
@@ -409,14 +409,14 @@ export const AZURE_AZ104_QUESTIONS_1 = [
     scenario: "A company needs to connect private Azure VMs to an Azure SQL Database securely. The security team mandates that traffic must travel over private IP addresses within the VNet subnet, and all public internet access to the Azure SQL Database logical server must be completely disabled.",
     question: "Which technology should be implemented to assign a private IP from the VNet to the PaaS database service?",
     options: [
-      { id: 'A', text: "Azure Private Endpoint (Azure Private Link)." },
-      { id: 'B', text: "Azure Virtual Network Service Endpoint." },
+      { id: 'A', text: "Azure Virtual Network Service Endpoint." },
+      { id: 'B', text: "Azure Private Endpoint (Azure Private Link)." },
       { id: 'C', text: "Azure NAT Gateway." },
       { id: 'D', text: "Azure Public Load Balancer." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
-    explanation: "Azure Private Endpoint (Private Link) creates a private network interface (NIC) with a private IP address assigned directly from your VNet subnet to access a specific Azure PaaS service (e.g. Azure SQL, Storage). This completely isolates the service, allowing public network access to be disabled. Service Endpoints (B) optimize routing to public PaaS IP ranges over the Azure backbone, but the PaaS endpoint still retains a public IP address.",
+    explanation: "Azure Private Endpoint (Private Link) creates a private network interface (NIC) with a private IP address assigned directly from your VNet subnet to access a specific Azure PaaS service (e.g. Azure SQL, Storage). This completely isolates the service, allowing public network access to be disabled. Service Endpoints optimize routing to public PaaS IP ranges over the Azure backbone, but the PaaS endpoint still retains a public IP address.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/private-link/private-endpoint-overview",
     tags: ["Private Endpoint", "Private Link", "Service Endpoints", "Networking", "Security"]
   },
@@ -432,12 +432,12 @@ export const AZURE_AZ104_QUESTIONS_1 = [
     options: [
       { id: 'A', text: "Azure Network Watcher packet capture." },
       { id: 'B', text: "Azure Log Analytics workspace using Kusto Query Language (KQL)." },
-      { id: 'C', text: "Azure Service Health dashboard." },
-      { id: 'D', text: "Azure Advisor recommendations." }
+      { id: 'C', text: "Azure Advisor recommendations." },
+      { id: 'D', text: "Azure Service Health dashboard." }
     ],
     correctAnswers: ['B'],
     type: "single",
-    explanation: "Azure Log Analytics workspaces collect and aggregate telemetry and log data from Azure resources, VMs, and applications. Administrators write Kusto Query Language (KQL) queries to perform complex filtering, aggregation, and time-series analysis on collected log tables (e.g. `Syslog`, `Event`, `Heartbeat`). Network Watcher (B) is for packet capture. Advisor (C) provides best-practice recommendations.",
+    explanation: "Azure Log Analytics workspaces collect and aggregate telemetry and log data from Azure resources, VMs, and applications. Administrators write Kusto Query Language (KQL) queries to perform complex filtering, aggregation, and time-series analysis on collected log tables (e.g. `Syslog`, `Event`, `Heartbeat`). Network Watcher is for packet capture. Advisor provides best-practice recommendations.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-overview",
     tags: ["Azure Monitor", "Log Analytics", "KQL", "Logging"]
   },
@@ -452,13 +452,13 @@ export const AZURE_AZ104_QUESTIONS_1 = [
     question: "Which feature must be enabled on the Recovery Services Vault to enable secondary region restores?",
     options: [
       { id: 'A', text: "Cross-Region Restore (CRR)." },
-      { id: 'B', text: "Azure Site Recovery (ASR) replication only." },
-      { id: 'C', text: "Immutable Vault protection." },
-      { id: 'D', text: "Soft Delete for VMs." }
+      { id: 'B', text: "Soft Delete for VMs." },
+      { id: 'C', text: "Azure Site Recovery (ASR) replication only." },
+      { id: 'D', text: "Immutable Vault protection." }
     ],
     correctAnswers: ['A'],
     type: "single",
-    explanation: "Cross-Region Restore (CRR) is a feature of Azure Backup Recovery Services Vaults configured with GRS storage. When CRR is enabled, backup data is available in the secondary paired region at all times, allowing administrators to initiate VM restores directly in the secondary region without waiting for Microsoft to declare an official primary region disaster failover. Soft Delete (B) protects against accidental backup deletion.",
+    explanation: "Cross-Region Restore (CRR) is a feature of Azure Backup Recovery Services Vaults configured with GRS storage. When CRR is enabled, backup data is available in the secondary paired region at all times, allowing administrators to initiate VM restores directly in the secondary region without waiting for Microsoft to declare an official primary region disaster failover. Soft Delete protects against accidental backup deletion.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/backup/backup-azure-arm-restore-vms#cross-region-restore",
     tags: ["Azure Backup", "Cross-Region Restore", "Recovery Services Vault", "Disaster Recovery"]
   },
@@ -472,12 +472,12 @@ export const AZURE_AZ104_QUESTIONS_1 = [
     scenario: "A company needs to configure disaster recovery for 50 Azure IaaS VMs running in North Europe to fail over to West Europe with an RPO under 15 minutes and an RTO under 30 minutes during a regional outage.",
     question: "What is the correct sequence of steps to configure Azure Site Recovery for Azure VM replication?",
     options: [
-      { id: 'A', text: "Create a Recovery Services Vault in North Europe and enable Azure Backup." },
+      { id: 'A', text: "Create a Recovery Services Vault in West Europe; enable replication on the North Europe VMs targeting the West Europe vault, target VNet, and cache storage account." },
       { id: 'B', text: "Configure VNet Peering between North Europe and West Europe with Gateway Transit." },
       { id: 'C', text: "Deploy an Azure File Sync server endpoint in West Europe." },
-      { id: 'D', text: "Create a Recovery Services Vault in West Europe; enable replication on the North Europe VMs targeting the West Europe vault, target VNet, and cache storage account." }
+      { id: 'D', text: "Create a Recovery Services Vault in North Europe and enable Azure Backup." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "For Azure-to-Azure disaster recovery using Azure Site Recovery (ASR), the Recovery Services Vault must be created in the **target disaster recovery region** (West Europe). When enabling replication on the source VMs in North Europe, ASR configures target resource groups, target virtual networks, target storage accounts, and an interim cache storage account in the source region for replication streaming.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-tutorial-enable-replication",
@@ -494,13 +494,13 @@ export const AZURE_AZ104_QUESTIONS_1 = [
     question: "Which Azure Network Watcher tool tests packet filtering and reports the exact blocking NSG rule name?",
     options: [
       { id: 'A', text: "Connection Monitor." },
-      { id: 'B', text: "IP Flow Verify." },
-      { id: 'C', text: "Packet Capture." },
+      { id: 'B', text: "Packet Capture." },
+      { id: 'C', text: "IP Flow Verify." },
       { id: 'D', text: "VPN Troubleshoot." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
-    explanation: "IP Flow Verify in Azure Network Watcher checks whether a packet is allowed or denied to or from a virtual machine based on 5-tuple packet parameters (Source IP, Destination IP, Source Port, Destination Port, Protocol). If the packet is denied, IP Flow Verify identifies the exact Network Security Group (NSG) and rule name that blocked the traffic. Packet Capture (B) records raw PCAP traffic. Connection Monitor (C) tracks continuous round-trip latency.",
+    explanation: "IP Flow Verify in Azure Network Watcher checks whether a packet is allowed or denied to or from a virtual machine based on 5-tuple packet parameters (Source IP, Destination IP, Source Port, Destination Port, Protocol). If the packet is denied, IP Flow Verify identifies the exact Network Security Group (NSG) and rule name that blocked the traffic. Packet Capture records raw PCAP traffic. Connection Monitor tracks continuous round-trip latency.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/network-watcher/diagnose-vm-network-traffic-filtering-problem",
     tags: ["Network Watcher", "IP Flow Verify", "NSG", "Troubleshooting"]
   },
@@ -514,14 +514,14 @@ export const AZURE_AZ104_QUESTIONS_1 = [
     scenario: "An operations team needs to receive an SMS and email notification whenever average CPU utilization across any VM in a production resource group exceeds 85% for 5 consecutive minutes, and automatically trigger an Azure Automation runbook to scale compute.",
     question: "Which components of Azure Monitor must be configured to achieve this alerting workflow?",
     options: [
-      { id: 'A', text: "An Azure Monitor Metric Alert rule with an Action Group containing Email/SMS receivers and an Automation Runbook action." },
-      { id: 'B', text: "An Azure Resource Lock on the resource group." },
-      { id: 'C', text: "Azure Log Analytics workspace retention policy." },
-      { id: 'D', text: "An Azure Service Health alert with a webhook only." }
+      { id: 'A', text: "An Azure Service Health alert with a webhook only." },
+      { id: 'B', text: "An Azure Monitor Metric Alert rule with an Action Group containing Email/SMS receivers and an Automation Runbook action." },
+      { id: 'C', text: "An Azure Resource Lock on the resource group." },
+      { id: 'D', text: "Azure Log Analytics workspace retention policy." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
-    explanation: "In Azure Monitor, Metric Alert rules evaluate numerical resource metrics (such as `Percentage CPU > 85%` over a 5-minute aggregation window). When triggered, the alert invokes an **Action Group**, which orchestrates notification receivers (Email, SMS, Push, Voice) and automated remediation actions (Azure Automation runbooks, Azure Functions, Logic Apps, or Webhooks). Service Health (B) tracks platform service outages.",
+    explanation: "In Azure Monitor, Metric Alert rules evaluate numerical resource metrics (such as `Percentage CPU > 85%` over a 5-minute aggregation window). When triggered, the alert invokes an **Action Group**, which orchestrates notification receivers (Email, SMS, Push, Voice) and automated remediation actions (Azure Automation runbooks, Azure Functions, Logic Apps, or Webhooks). Service Health tracks platform service outages.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/action-groups",
     tags: ["Azure Monitor", "Metric Alerts", "Action Groups", "Automation"]
   }

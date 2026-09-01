@@ -9,10 +9,10 @@ export const AZURE_AZ104_QUESTIONS_9 = [
     scenario: "An enterprise is migrating legacy Windows applications to Azure Virtual Machines. The applications require legacy Kerberos/NTLM authentication, LDAP binds, and Active Directory Group Policy Objects (GPOs), but the company does not want to manage domain controller IaaS VMs.",
     question: "Which managed Azure service provides domain join, LDAP, and GPO support without managing Windows Server domain controllers?",
     options: [
-      { id: 'A', text: "Azure Key Vault." },
+      { id: 'A', text: "Microsoft Entra Application Proxy." },
       { id: 'B', text: "Microsoft Entra Domain Services (Entra DS)." },
       { id: 'C', text: "Microsoft Entra Connect." },
-      { id: 'D', text: "Microsoft Entra Application Proxy." }
+      { id: 'D', text: "Azure Key Vault." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -31,11 +31,11 @@ export const AZURE_AZ104_QUESTIONS_9 = [
     question: "Which Azure Cost Management feature uses machine learning to identify unexpected spending spikes?",
     options: [
       { id: 'A', text: "Azure Advisor cost scorecard." },
-      { id: 'B', text: "Cost Anomaly Alerts in Microsoft Cost Management." },
-      { id: 'C', text: "Azure Resource Locks." },
-      { id: 'D', text: "Azure Activity Log alerts." }
+      { id: 'B', text: "Azure Activity Log alerts." },
+      { id: 'C', text: "Cost Anomaly Alerts in Microsoft Cost Management." },
+      { id: 'D', text: "Azure Resource Locks." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Cost Anomaly Detection in Microsoft Cost Management automatically identifies unexpected changes in daily cloud usage patterns using machine learning algorithms. When an anomaly is detected, Azure sends an email notification with details on which resource or service caused the spending surge.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/manage-anomaly-alerts",
@@ -51,12 +51,12 @@ export const AZURE_AZ104_QUESTIONS_9 = [
     scenario: "An enterprise mandates that whenever any resource is created or updated in a subscription, it must inherit the `CostCenter` tag value from its parent resource group if the resource does not already have a `CostCenter` tag.",
     question: "Which Azure Policy effect dynamically adds or updates resource tags during deployment without blocking the creation request?",
     options: [
-      { id: 'A', text: "`Disabled` effect." },
-      { id: 'B', text: "`Modify` effect with `addOrReplace` tag operations." },
+      { id: 'A', text: "`Modify` effect with `addOrReplace` tag operations." },
+      { id: 'B', text: "`Disabled` effect." },
       { id: 'C', text: "`Audit` effect." },
       { id: 'D', text: "`Deny` effect." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The `Modify` effect in Azure Policy is used to add, update, or remove properties or tags on resources during creation or update operations. Using a `Modify` policy with an `addOrReplace` operation dynamically injects the missing tag value before the resource provider processes the deployment.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effect-modify",
@@ -72,8 +72,8 @@ export const AZURE_AZ104_QUESTIONS_9 = [
     scenario: "An enterprise has an internal legacy web application hosted on an on-premises IIS server. Remote workers need to access this web application securely from the internet using their Microsoft Entra credentials and MFA, without deploying a VPN or opening inbound perimeter firewall ports.",
     question: "Which Microsoft Entra service provides secure reverse proxy access to on-premises web applications?",
     options: [
-      { id: 'A', text: "Microsoft Entra Connect." },
-      { id: 'B', text: "Azure Bastion." },
+      { id: 'A', text: "Azure Bastion." },
+      { id: 'B', text: "Microsoft Entra Connect." },
       { id: 'C', text: "Azure ExpressRoute." },
       { id: 'D', text: "Microsoft Entra Application Proxy." }
     ],
@@ -93,12 +93,12 @@ export const AZURE_AZ104_QUESTIONS_9 = [
     scenario: "A Managed Service Provider (MSP) manages Azure cloud infrastructure for 30 different customer organizations. The MSP engineers need to manage customer subscriptions using their own MSP corporate Entra credentials without switching directory tenants or managing guest accounts in customer directories.",
     question: "Which Azure management technology enables cross-tenant delegated access and centralized monitoring for service providers?",
     options: [
-      { id: 'A', text: "Azure Blueprints." },
-      { id: 'B', text: "Microsoft Entra B2B Guest accounts." },
-      { id: 'C', text: "Azure Lighthouse." },
-      { id: 'D', text: "Azure ExpressRoute." }
+      { id: 'A', text: "Azure Lighthouse." },
+      { id: 'B', text: "Azure ExpressRoute." },
+      { id: 'C', text: "Azure Blueprints." },
+      { id: 'D', text: "Microsoft Entra B2B Guest accounts." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Azure Lighthouse enables multi-tenant management with cross-tenant delegated access. Customers project subscriptions or resource groups to the service provider's tenant, allowing MSP engineers to execute RBAC actions, deploy templates, and monitor resources directly from their own tenant context without guest user sprawl.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/lighthouse/overview",
@@ -114,12 +114,12 @@ export const AZURE_AZ104_QUESTIONS_9 = [
     scenario: "A developer takes a read-only point-in-time snapshot of an Azure block blob before executing a data transformation script.",
     question: "What happens to the blob snapshot if the original base blob is later updated or modified?",
     options: [
-      { id: 'A', text: "The base blob is locked and cannot be edited." },
-      { id: 'B', text: "The snapshot is automatically deleted." },
-      { id: 'C', text: "The snapshot remains completely unchanged as a read-only historical copy; only modified delta blocks incur additional storage charges." },
-      { id: 'D', text: "The snapshot is updated to match the base blob." }
+      { id: 'A', text: "The snapshot is updated to match the base blob." },
+      { id: 'B', text: "The snapshot remains completely unchanged as a read-only historical copy; only modified delta blocks incur additional storage charges." },
+      { id: 'C', text: "The base blob is locked and cannot be edited." },
+      { id: 'D', text: "The snapshot is automatically deleted." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "A blob snapshot is a read-only point-in-time copy of a blob. When the base blob is updated, Azure Storage tracks block changes incrementally, charging only for the unique delta blocks modified after the snapshot was created, preserving the snapshot state indefinitely until explicitly deleted.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/blobs/snapshots-overview",
@@ -157,11 +157,11 @@ export const AZURE_AZ104_QUESTIONS_9 = [
     question: "Which feature must be enabled on the storage account to support standard file shares up to 100 TiB?",
     options: [
       { id: 'A', text: "Convert to Locally Redundant Storage (LRS)." },
-      { id: 'B', text: "Enable Blob Versioning." },
+      { id: 'B', text: "Enable Large File Shares (100 TiB support) on the storage account." },
       { id: 'C', text: "Enable Hierarchical Namespace." },
-      { id: 'D', text: "Enable Large File Shares (100 TiB support) on the storage account." }
+      { id: 'D', text: "Enable Blob Versioning." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Enabling **Large File Shares** on a standard General-Purpose v2 storage account increases the maximum file share capacity limit from 5 TiB to **100 TiB**, while increasing IOPS (up to 20,000 IOPS) and throughput limits (up to 300 MB/s). Note that large file shares on standard accounts cannot be converted to GRS/GZRS.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/files/storage-files-how-to-create-large-file-share",
@@ -177,12 +177,12 @@ export const AZURE_AZ104_QUESTIONS_9 = [
     scenario: "A security architect mandates that application clients accessing Azure Blob Storage must use temporary Shared Access Signatures (SAS) secured and validated directly via Microsoft Entra ID credentials, avoiding the exposure of master storage account keys.",
     question: "Which SAS token type is signed using Microsoft Entra ID credentials?",
     options: [
-      { id: 'A', text: "User Delegation SAS." },
-      { id: 'B', text: "Stored Access Policy SAS." },
-      { id: 'C', text: "Service SAS." },
-      { id: 'D', text: "Account SAS." }
+      { id: 'A', text: "Service SAS." },
+      { id: 'B', text: "User Delegation SAS." },
+      { id: 'C', text: "Account SAS." },
+      { id: 'D', text: "Stored Access Policy SAS." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "A **User Delegation SAS** is secured with Microsoft Entra ID credentials rather than storage account keys. An Entra identity requests a user delegation key from Azure Storage, which is then used to sign the SAS token, ensuring superior security, fine-grained RBAC logging, and eliminating access key exposure.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blob-user-delegation-sas-create",
@@ -198,9 +198,9 @@ export const AZURE_AZ104_QUESTIONS_9 = [
     scenario: "A security audit application needs an ordered, immutable, read-only log of all blob creation, modification, and deletion events occurring across an Azure Storage Account for compliance replay.",
     question: "Which Azure Blob Storage feature provides an immutable transaction log of all blob changes?",
     options: [
-      { id: 'A', text: "Blob Versioning." },
+      { id: 'A', text: "Blob Soft Delete." },
       { id: 'B', text: "Blob Change Feed." },
-      { id: 'C', text: "Blob Soft Delete." },
+      { id: 'C', text: "Blob Versioning." },
       { id: 'D', text: "Azure Queue Storage." }
     ],
     correctAnswers: ['B'],
@@ -219,12 +219,12 @@ export const AZURE_AZ104_QUESTIONS_9 = [
     scenario: "An enterprise database running on an Azure Virtual Machine requires sub-millisecond disk latency, 80,000 IOPS, and 2,000 MB/s throughput with the ability to dynamically adjust IOPS and throughput on the fly without restarting the VM.",
     question: "Which Azure managed disk type provides the highest performance with dynamically adjustable IOPS and throughput?",
     options: [
-      { id: 'A', text: "Azure Ultra Disk Storage (or Premium SSD v2)." },
-      { id: 'B', text: "Standard SSD Managed Disks." },
-      { id: 'C', text: "Standard HDD Managed Disks." },
-      { id: 'D', text: "Premium SSD (v1) P30." }
+      { id: 'A', text: "Premium SSD (v1) P30." },
+      { id: 'B', text: "Azure Ultra Disk Storage (or Premium SSD v2)." },
+      { id: 'C', text: "Standard SSD Managed Disks." },
+      { id: 'D', text: "Standard HDD Managed Disks." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Azure **Ultra Disk Storage** (and Premium SSD v2) delivers extreme performance (up to 160,000 IOPS and 4,000 MB/s throughput) with sub-millisecond latency. Ultra Disks allow administrators to independently configure and dynamically scale IOPS and throughput without taking the disk offline or restarting the VM.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types#ultra-disks",
@@ -240,10 +240,10 @@ export const AZURE_AZ104_QUESTIONS_9 = [
     scenario: "A DevOps team needs to configure an auto-scaling Virtual Machine Scale Set that automatically deploys new VM instances using the latest version of a golden Linux image published to an Azure Compute Gallery.",
     question: "How should the VMSS image reference be configured in ARM/Bicep template?",
     options: [
-      { id: 'A', text: "Hardcode the VHD URL of a storage blob." },
+      { id: 'A', text: "Deploy a Custom Script Extension on each instance." },
       { id: 'B', text: "Attach an Azure Bastion host." },
       { id: 'C', text: "Reference the Compute Gallery Image Definition ID with version set to `latest`." },
-      { id: 'D', text: "Deploy a Custom Script Extension on each instance." }
+      { id: 'D', text: "Hardcode the VHD URL of a storage blob." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -261,12 +261,12 @@ export const AZURE_AZ104_QUESTIONS_9 = [
     scenario: "An administrator deploys a custom Docker container web application to Azure App Service for Linux. The container image is hosted in a private Azure Container Registry (ACR) with admin credentials disabled.",
     question: "How should Azure App Service authenticate to pull the container image from ACR securely?",
     options: [
-      { id: 'A', text: "Enable a System-assigned Managed Identity on the App Service web app and grant it the `AcrPull` role on the Azure Container Registry." },
-      { id: 'B', text: "Store the ACR admin password in plain text in App Settings." },
+      { id: 'A', text: "Store the ACR admin password in plain text in App Settings." },
+      { id: 'B', text: "Enable a System-assigned Managed Identity on the App Service web app and grant it the `AcrPull` role on the Azure Container Registry." },
       { id: 'C', text: "Make the Azure Container Registry public." },
       { id: 'D', text: "Deploy an Azure Bastion host." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "The recommended, secure way for Azure App Service to pull images from a private Azure Container Registry (ACR) is using **Managed Identity**. Assign a System-assigned Managed Identity to the App Service web app and grant it the built-in `AcrPull` RBAC role on the ACR instance, eliminating all credential management.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/app-service/tutorial-custom-container?pivots=container-linux#enable-managed-identity-and-pull-image",
@@ -284,8 +284,8 @@ export const AZURE_AZ104_QUESTIONS_9 = [
     options: [
       { id: 'A', text: "Assign a Dynamic Public IP." },
       { id: 'B', text: "Enable IP Forwarding (`EnableIPForwarding: true`) on the VM Network Interface." },
-      { id: 'C', text: "Enable Azure Bastion." },
-      { id: 'D', text: "Enable Accelerated Networking only." }
+      { id: 'C', text: "Enable Accelerated Networking only." },
+      { id: 'D', text: "Enable Azure Bastion." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -304,11 +304,11 @@ export const AZURE_AZ104_QUESTIONS_9 = [
     question: "How does Azure Container Apps integrate with Azure Key Vault secrets?",
     options: [
       { id: 'A', text: "Create an SAS token." },
-      { id: 'B', text: "Store secrets in an unencrypted storage blob." },
-      { id: 'C', text: "Configure Container Apps secrets with Key Vault references using a Managed Identity." },
-      { id: 'D', text: "Hardcode secrets in the Dockerfile." }
+      { id: 'B', text: "Hardcode secrets in the Dockerfile." },
+      { id: 'C', text: "Store secrets in an unencrypted storage blob." },
+      { id: 'D', text: "Configure Container Apps secrets with Key Vault references using a Managed Identity." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Azure Container Apps natively supports **Key Vault references**. By granting the Container App's Managed Identity read permissions on Azure Key Vault secrets, the Container App can reference the secret URL, injecting the value securely into container environment variables without storing secrets in plaintext.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/container-apps/manage-secrets?tabs=azure-portal#key-vault-references",
@@ -324,12 +324,12 @@ export const AZURE_AZ104_QUESTIONS_9 = [
     scenario: "A database cluster deployed on Azure virtual machines requires high network throughput (up to 30 Gbps) and ultra-low latency with near-zero CPU overhead.",
     question: "Which networking feature enables Single Root I/O Virtualization (SR-IOV) directly to the VM network interface?",
     options: [
-      { id: 'A', text: "IP Forwarding." },
-      { id: 'B', text: "Accelerated Networking." },
-      { id: 'C', text: "VNet Peering." },
-      { id: 'D', text: "Service Endpoints." }
+      { id: 'A', text: "Accelerated Networking." },
+      { id: 'B', text: "Service Endpoints." },
+      { id: 'C', text: "IP Forwarding." },
+      { id: 'D', text: "VNet Peering." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Accelerated Networking enables Single Root I/O Virtualization (SR-IOV) on supported Azure VM sizes, bypassing the virtual switch in the hypervisor and establishing a direct path to the physical network card. This drastically reduces latency, jitter, and host CPU utilization while maximizing network throughput.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-network/accelerated-networking-overview",
@@ -345,12 +345,12 @@ export const AZURE_AZ104_QUESTIONS_9 = [
     scenario: "An e-commerce shopping cart web application running on Azure virtual machines behind an Azure Application Gateway requires that once a user begins a session, all subsequent HTTP requests are routed to the same backend server using gateway-managed cookies.",
     question: "Which feature on the Application Gateway backend HTTP settings maintains sticky user sessions?",
     options: [
-      { id: 'A', text: "Basic Load Balancer distribution mode." },
-      { id: 'B', text: "Cookie-based affinity (Session Affinity) enabled." },
+      { id: 'A', text: "Path-based routing." },
+      { id: 'B', text: "Basic Load Balancer distribution mode." },
       { id: 'C', text: "Connection draining only." },
-      { id: 'D', text: "Path-based routing." }
+      { id: 'D', text: "Cookie-based affinity (Session Affinity) enabled." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Azure Application Gateway supports **Cookie-based affinity**. When enabled in the backend HTTP settings, the Application Gateway inserts a gateway-managed cookie (`ApplicationGatewayAffinity`) into the HTTP response, directing all subsequent requests from that client browser to the exact same backend server instance.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/application-gateway/application-gateway-probe-overview",
@@ -366,12 +366,12 @@ export const AZURE_AZ104_QUESTIONS_9 = [
     scenario: "An enterprise is migrating from classic NSG Flow Logs to Azure VNet Flow Logs to monitor all IP network flows across entire virtual networks (including subnets, NICs, and network gateways) with packet drop analysis and integration with Azure Log Analytics.",
     question: "Which feature provides unified flow logging for entire virtual networks?",
     options: [
-      { id: 'A', text: "Azure Virtual Network Flow Logs (VNet Flow Logs)." },
-      { id: 'B', text: "Azure Activity Log." },
-      { id: 'C', text: "IP Flow Verify point-in-time checks." },
+      { id: 'A', text: "IP Flow Verify point-in-time checks." },
+      { id: 'B', text: "Azure Virtual Network Flow Logs (VNet Flow Logs)." },
+      { id: 'C', text: "Azure Activity Log." },
       { id: 'D', text: "Azure Service Health." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Azure VNet Flow Logs is the next-generation flow logging capability that records IP traffic across entire virtual networks, subnets, and network interfaces. When paired with Traffic Analytics, it visualizes network traffic, detects anomalous flows, and identifies top talkers directly in Log Analytics.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/network-watcher/vnet-flow-logs-overview",
@@ -387,12 +387,12 @@ export const AZURE_AZ104_QUESTIONS_9 = [
     scenario: "A company hosts a web service on Azure Traffic Manager or Azure Front Door. The DNS administrator needs to map the zone apex root domain (`contoso.com`, without `www`) directly to the Azure Traffic Manager profile FQDN.",
     question: "Which DNS record type in Azure Public DNS supports pointing apex root domains directly to Azure resources?",
     options: [
-      { id: 'A', text: "Standard CNAME record." },
-      { id: 'B', text: "Azure DNS Alias Record (pointing to Traffic Manager / Front Door)." },
-      { id: 'C', text: "MX record." },
-      { id: 'D', text: "PTR record." }
+      { id: 'A', text: "Azure DNS Alias Record (pointing to Traffic Manager / Front Door)." },
+      { id: 'B', text: "PTR record." },
+      { id: 'C', text: "Standard CNAME record." },
+      { id: 'D', text: "MX record." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Standard DNS RFCs prohibit creating CNAME records at the zone apex (`contoso.com`). Azure DNS solves this by supporting **Alias Records** (an A/AAAA record with an alias flag) that dynamically points directly to Azure Traffic Manager profiles, Azure Front Door, or Azure Public IPs at the zone apex.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/dns/dns-alias-overview",
@@ -408,12 +408,12 @@ export const AZURE_AZ104_QUESTIONS_9 = [
     scenario: "An organization uses an Azure ExpressRoute circuit to connect its on-premises data center. The team needs private connectivity to Azure Virtual Machines in IaaS VNets, as well as private connectivity to Microsoft 365 and Azure Storage PaaS services.",
     question: "Which ExpressRoute peering configuration corresponds to these two connectivity targets?",
     options: [
-      { id: 'A', text: "Microsoft Peering for IaaS VNets; Azure Private Peering for PaaS services." },
-      { id: 'B', text: "Public Peering for all workloads." },
-      { id: 'C', text: "Azure Private Peering for IaaS VNets; Microsoft Peering for PaaS services and Microsoft 365." },
-      { id: 'D', text: "Point-to-Site VPN for all workloads." }
+      { id: 'A', text: "Point-to-Site VPN for all workloads." },
+      { id: 'B', text: "Azure Private Peering for IaaS VNets; Microsoft Peering for PaaS services and Microsoft 365." },
+      { id: 'C', text: "Public Peering for all workloads." },
+      { id: 'D', text: "Microsoft Peering for IaaS VNets; Azure Private Peering for PaaS services." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "ExpressRoute offers two active peering types: 1) **Azure Private Peering**: connects directly to private virtual networks (IaaS VMs), and 2) **Microsoft Peering**: connects directly to public Microsoft PaaS services (Azure Storage, Azure SQL) and Microsoft 365 services over the dedicated circuit.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/expressroute/expressroute-circuit-peerings",
@@ -429,12 +429,12 @@ export const AZURE_AZ104_QUESTIONS_9 = [
     scenario: "An enterprise ingests 500 GB of telemetry daily into an Azure Log Analytics workspace. For compliance, raw event streams must be continuously archived in real time to an Azure Storage Account and forwarded to an Azure Event Hub without building custom polling scripts.",
     question: "Which Azure Log Analytics feature continuously streams table logs to external destinations upon ingestion?",
     options: [
-      { id: 'A', text: "Azure Activity Log export." },
-      { id: 'B', text: "Log Analytics Workspace Data Export." },
-      { id: 'C', text: "Azure Backup vault snapshot." },
+      { id: 'A', text: "Log Analytics Workspace Data Export." },
+      { id: 'B', text: "Azure Backup vault snapshot." },
+      { id: 'C', text: "Azure Activity Log export." },
       { id: 'D', text: "Azure Service Health notifications." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Log Analytics Workspace Data Export provides continuous, real-time streaming of selected table data as it is ingested into the workspace, exporting raw JSON directly to Azure Storage Accounts (for cheap 10-year archival) or Azure Event Hubs (for third-party SIEM processing).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/logs/logs-data-export",
@@ -450,12 +450,12 @@ export const AZURE_AZ104_QUESTIONS_9 = [
     scenario: "A newly appointed network administrator needs to generate a visual, interactive graphical diagram of all virtual networks, subnets, virtual machines, network interfaces, and NSGs deployed across a resource group.",
     question: "Which Azure Network Watcher tool generates dynamic graphical network diagrams?",
     options: [
-      { id: 'A', text: "IP Flow Verify." },
-      { id: 'B', text: "Network Watcher Topology." },
+      { id: 'A', text: "VPN Troubleshoot." },
+      { id: 'B', text: "IP Flow Verify." },
       { id: 'C', text: "Packet Capture." },
-      { id: 'D', text: "VPN Troubleshoot." }
+      { id: 'D', text: "Network Watcher Topology." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The **Topology** feature in Azure Network Watcher generates interactive graphical maps displaying all network resources and their interconnectivity within a resource group or virtual network, allowing administrators to visually inspect routing, peering, and subnet associations.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/network-watcher/view-network-topology",
@@ -473,10 +473,10 @@ export const AZURE_AZ104_QUESTIONS_9 = [
     options: [
       { id: 'A', text: "30 to 365 days." },
       { id: 'B', text: "1 to 30 days." },
-      { id: 'C', text: "1 to 5 days." },
-      { id: 'D', text: "1 hour only." }
+      { id: 'C', text: "1 hour only." },
+      { id: 'D', text: "1 to 5 days." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "In standard Azure VM backup policies, the **Instant Restore** snapshot retention is configurable between **1 and 5 days** (default is 2 days). Snapshots retained during this window provide instant restore capabilities without waiting for data transfer from the vault.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/backup/backup-azure-vms-first-look-arm#instant-restore",
@@ -492,9 +492,9 @@ export const AZURE_AZ104_QUESTIONS_9 = [
     scenario: "An application streams custom JSON telemetry logs to Azure Log Analytics via the Logs Ingestion API. Before logs are written to the workspace table, the security policy requires masking sensitive credit card number columns using a KQL transformation statement.",
     question: "Which Azure Monitor component executes inline KQL transformation and data masking during log ingestion?",
     options: [
-      { id: 'A', text: "Azure Resource Lock." },
+      { id: 'A', text: "Azure Policy definition." },
       { id: 'B', text: "Azure Service Health." },
-      { id: 'C', text: "Azure Policy definition." },
+      { id: 'C', text: "Azure Resource Lock." },
       { id: 'D', text: "Data Collection Rule (DCR) with an ingestion transformation KQL query (`transformKql`)." }
     ],
     correctAnswers: ['D'],
@@ -515,10 +515,10 @@ export const AZURE_AZ104_QUESTIONS_9 = [
     options: [
       { id: 'A', text: "Azure Advisor security check." },
       { id: 'B', text: "Application Insights availability test." },
-      { id: 'C', text: "Metric Alert rule on VM CPU." },
-      { id: 'D', text: "Activity Log Alert rule monitoring the `Create role assignment` administrative operation." }
+      { id: 'C', text: "Activity Log Alert rule monitoring the `Create role assignment` administrative operation." },
+      { id: 'D', text: "Metric Alert rule on VM CPU." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Activity Log Alert rules monitor subscription-level control plane operations recorded in the Azure Activity Log. Creating an alert rule matching the `Microsoft.Authorization/roleAssignments/write` operation triggers an Action Group whenever new role assignments are created.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-activity-log",
