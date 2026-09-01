@@ -237,8 +237,30 @@ export const CONTENT_REGISTRY = {
     flashcards: []
   },
   'finops-focp': {
-    questions: [],
-    flashcards: []
+    questions: [
+      pack('./certs/finops-focp/questions/pack-1.js', () => import('./certs/finops-focp/questions/pack-1.js')),
+      pack('./certs/finops-focp/questions/pack-2.js', () => import('./certs/finops-focp/questions/pack-2.js')),
+      pack('./certs/finops-focp/questions/pack-3.js', () => import('./certs/finops-focp/questions/pack-3.js')),
+      pack('./certs/finops-focp/questions/pack-4.js', () => import('./certs/finops-focp/questions/pack-4.js')),
+      pack('./certs/finops-focp/questions/pack-5.js', () => import('./certs/finops-focp/questions/pack-5.js')),
+      pack('./certs/finops-focp/questions/pack-6.js', () => import('./certs/finops-focp/questions/pack-6.js')),
+      pack('./certs/finops-focp/questions/pack-7.js', () => import('./certs/finops-focp/questions/pack-7.js')),
+      pack('./certs/finops-focp/questions/pack-8.js', () => import('./certs/finops-focp/questions/pack-8.js')),
+      pack('./certs/finops-focp/questions/pack-9.js', () => import('./certs/finops-focp/questions/pack-9.js')),
+      pack('./certs/finops-focp/questions/pack-10.js', () => import('./certs/finops-focp/questions/pack-10.js'))
+    ],
+    flashcards: [
+      pack('./certs/finops-focp/flashcards/pack-1.js', () => import('./certs/finops-focp/flashcards/pack-1.js')),
+      pack('./certs/finops-focp/flashcards/pack-2.js', () => import('./certs/finops-focp/flashcards/pack-2.js')),
+      pack('./certs/finops-focp/flashcards/pack-3.js', () => import('./certs/finops-focp/flashcards/pack-3.js')),
+      pack('./certs/finops-focp/flashcards/pack-4.js', () => import('./certs/finops-focp/flashcards/pack-4.js')),
+      pack('./certs/finops-focp/flashcards/pack-5.js', () => import('./certs/finops-focp/flashcards/pack-5.js')),
+      pack('./certs/finops-focp/flashcards/pack-6.js', () => import('./certs/finops-focp/flashcards/pack-6.js')),
+      pack('./certs/finops-focp/flashcards/pack-7.js', () => import('./certs/finops-focp/flashcards/pack-7.js')),
+      pack('./certs/finops-focp/flashcards/pack-8.js', () => import('./certs/finops-focp/flashcards/pack-8.js')),
+      pack('./certs/finops-focp/flashcards/pack-9.js', () => import('./certs/finops-focp/flashcards/pack-9.js')),
+      pack('./certs/finops-focp/flashcards/pack-10.js', () => import('./certs/finops-focp/flashcards/pack-10.js'))
+    ]
   },
   'finops-professional': {
     questions: [],
@@ -269,12 +291,56 @@ export const CONTENT_REGISTRY = {
     flashcards: []
   },
   'github-actions': {
-    questions: [],
-    flashcards: []
+    questions: [
+      pack('./certs/github-actions/questions/pack-1.js', () => import('./certs/github-actions/questions/pack-1.js')),
+      pack('./certs/github-actions/questions/pack-2.js', () => import('./certs/github-actions/questions/pack-2.js')),
+      pack('./certs/github-actions/questions/pack-3.js', () => import('./certs/github-actions/questions/pack-3.js')),
+      pack('./certs/github-actions/questions/pack-4.js', () => import('./certs/github-actions/questions/pack-4.js')),
+      pack('./certs/github-actions/questions/pack-5.js', () => import('./certs/github-actions/questions/pack-5.js')),
+      pack('./certs/github-actions/questions/pack-6.js', () => import('./certs/github-actions/questions/pack-6.js')),
+      pack('./certs/github-actions/questions/pack-7.js', () => import('./certs/github-actions/questions/pack-7.js')),
+      pack('./certs/github-actions/questions/pack-8.js', () => import('./certs/github-actions/questions/pack-8.js')),
+      pack('./certs/github-actions/questions/pack-9.js', () => import('./certs/github-actions/questions/pack-9.js')),
+      pack('./certs/github-actions/questions/pack-10.js', () => import('./certs/github-actions/questions/pack-10.js'))
+    ],
+    flashcards: [
+      pack('./certs/github-actions/flashcards/pack-1.js', () => import('./certs/github-actions/flashcards/pack-1.js')),
+      pack('./certs/github-actions/flashcards/pack-2.js', () => import('./certs/github-actions/flashcards/pack-2.js')),
+      pack('./certs/github-actions/flashcards/pack-3.js', () => import('./certs/github-actions/flashcards/pack-3.js')),
+      pack('./certs/github-actions/flashcards/pack-4.js', () => import('./certs/github-actions/flashcards/pack-4.js')),
+      pack('./certs/github-actions/flashcards/pack-5.js', () => import('./certs/github-actions/flashcards/pack-5.js')),
+      pack('./certs/github-actions/flashcards/pack-6.js', () => import('./certs/github-actions/flashcards/pack-6.js')),
+      pack('./certs/github-actions/flashcards/pack-7.js', () => import('./certs/github-actions/flashcards/pack-7.js')),
+      pack('./certs/github-actions/flashcards/pack-8.js', () => import('./certs/github-actions/flashcards/pack-8.js')),
+      pack('./certs/github-actions/flashcards/pack-9.js', () => import('./certs/github-actions/flashcards/pack-9.js')),
+      pack('./certs/github-actions/flashcards/pack-10.js', () => import('./certs/github-actions/flashcards/pack-10.js'))
+    ]
   },
   'github-ghas': {
-    questions: [],
-    flashcards: []
+    questions: [
+      pack('./certs/github-ghas/questions/pack-1.js', () => import('./certs/github-ghas/questions/pack-1.js')),
+      pack('./certs/github-ghas/questions/pack-2.js', () => import('./certs/github-ghas/questions/pack-2.js')),
+      pack('./certs/github-ghas/questions/pack-3.js', () => import('./certs/github-ghas/questions/pack-3.js')),
+      pack('./certs/github-ghas/questions/pack-4.js', () => import('./certs/github-ghas/questions/pack-4.js')),
+      pack('./certs/github-ghas/questions/pack-5.js', () => import('./certs/github-ghas/questions/pack-5.js')),
+      pack('./certs/github-ghas/questions/pack-6.js', () => import('./certs/github-ghas/questions/pack-6.js')),
+      pack('./certs/github-ghas/questions/pack-7.js', () => import('./certs/github-ghas/questions/pack-7.js')),
+      pack('./certs/github-ghas/questions/pack-8.js', () => import('./certs/github-ghas/questions/pack-8.js')),
+      pack('./certs/github-ghas/questions/pack-9.js', () => import('./certs/github-ghas/questions/pack-9.js')),
+      pack('./certs/github-ghas/questions/pack-10.js', () => import('./certs/github-ghas/questions/pack-10.js'))
+    ],
+    flashcards: [
+      pack('./certs/github-ghas/flashcards/pack-1.js', () => import('./certs/github-ghas/flashcards/pack-1.js')),
+      pack('./certs/github-ghas/flashcards/pack-2.js', () => import('./certs/github-ghas/flashcards/pack-2.js')),
+      pack('./certs/github-ghas/flashcards/pack-3.js', () => import('./certs/github-ghas/flashcards/pack-3.js')),
+      pack('./certs/github-ghas/flashcards/pack-4.js', () => import('./certs/github-ghas/flashcards/pack-4.js')),
+      pack('./certs/github-ghas/flashcards/pack-5.js', () => import('./certs/github-ghas/flashcards/pack-5.js')),
+      pack('./certs/github-ghas/flashcards/pack-6.js', () => import('./certs/github-ghas/flashcards/pack-6.js')),
+      pack('./certs/github-ghas/flashcards/pack-7.js', () => import('./certs/github-ghas/flashcards/pack-7.js')),
+      pack('./certs/github-ghas/flashcards/pack-8.js', () => import('./certs/github-ghas/flashcards/pack-8.js')),
+      pack('./certs/github-ghas/flashcards/pack-9.js', () => import('./certs/github-ghas/flashcards/pack-9.js')),
+      pack('./certs/github-ghas/flashcards/pack-10.js', () => import('./certs/github-ghas/flashcards/pack-10.js'))
+    ]
   },
   'hashicorp-tfa': {
     questions: [],
@@ -294,7 +360,14 @@ export const CONTENT_REGISTRY = {
   },
   'k8s-cka': {
     questions: [
-      pack('./certs/k8s-cka/questions/pack-1.js', () => import('./certs/k8s-cka/questions/pack-1.js'))
+      pack('./certs/k8s-cka/questions/pack-1.js', () => import('./certs/k8s-cka/questions/pack-1.js')),
+      pack('./certs/k8s-cka/questions/pack-2.js', () => import('./certs/k8s-cka/questions/pack-2.js')),
+      pack('./certs/k8s-cka/questions/pack-3.js', () => import('./certs/k8s-cka/questions/pack-3.js')),
+      pack('./certs/k8s-cka/questions/pack-4.js', () => import('./certs/k8s-cka/questions/pack-4.js')),
+      pack('./certs/k8s-cka/questions/pack-5.js', () => import('./certs/k8s-cka/questions/pack-5.js')),
+      pack('./certs/k8s-cka/questions/pack-6.js', () => import('./certs/k8s-cka/questions/pack-6.js')),
+      pack('./certs/k8s-cka/questions/pack-7.js', () => import('./certs/k8s-cka/questions/pack-7.js')),
+      pack('./certs/k8s-cka/questions/pack-8.js', () => import('./certs/k8s-cka/questions/pack-8.js'))
     ],
     flashcards: [
       pack('./certs/k8s-cka/flashcards/pack-1.js', () => import('./certs/k8s-cka/flashcards/pack-1.js'))

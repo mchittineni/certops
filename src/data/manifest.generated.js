@@ -883,26 +883,36 @@ export const CONTENT_MANIFEST = {
   },
   "finops-focp": {
     "questions": {
-      "total": 0,
+      "total": 250,
       "byDifficulty": {
-        "easy": 0,
-        "medium": 0,
-        "hard": 0
+        "easy": 83,
+        "medium": 84,
+        "hard": 83
       },
-      "byDomain": {},
-      "packs": 0,
-      "loadedPacks": 0
+      "byDomain": {
+        "d1": 50,
+        "d2": 63,
+        "d3": 62,
+        "d4": 75
+      },
+      "packs": 10,
+      "loadedPacks": 10
     },
     "flashcards": {
-      "total": 0,
+      "total": 250,
       "byDifficulty": {
-        "easy": 0,
-        "medium": 0,
-        "hard": 0
+        "easy": 83,
+        "medium": 84,
+        "hard": 83
       },
-      "byDomain": {},
-      "packs": 0,
-      "loadedPacks": 0
+      "byDomain": {
+        "d1": 50,
+        "d2": 63,
+        "d3": 62,
+        "d4": 75
+      },
+      "packs": 10,
+      "loadedPacks": 10
     }
   },
   "finops-professional": {
@@ -1063,50 +1073,70 @@ export const CONTENT_MANIFEST = {
   },
   "github-actions": {
     "questions": {
-      "total": 0,
+      "total": 250,
       "byDifficulty": {
-        "easy": 0,
-        "medium": 0,
-        "hard": 0
+        "easy": 83,
+        "medium": 84,
+        "hard": 83
       },
-      "byDomain": {},
-      "packs": 0,
-      "loadedPacks": 0
+      "byDomain": {
+        "d1": 100,
+        "d2": 63,
+        "d3": 37,
+        "d4": 50
+      },
+      "packs": 10,
+      "loadedPacks": 10
     },
     "flashcards": {
-      "total": 0,
+      "total": 250,
       "byDifficulty": {
-        "easy": 0,
-        "medium": 0,
-        "hard": 0
+        "easy": 83,
+        "medium": 84,
+        "hard": 83
       },
-      "byDomain": {},
-      "packs": 0,
-      "loadedPacks": 0
+      "byDomain": {
+        "d1": 100,
+        "d2": 63,
+        "d3": 37,
+        "d4": 50
+      },
+      "packs": 10,
+      "loadedPacks": 10
     }
   },
   "github-ghas": {
     "questions": {
-      "total": 0,
+      "total": 250,
       "byDifficulty": {
-        "easy": 0,
-        "medium": 0,
-        "hard": 0
+        "easy": 83,
+        "medium": 84,
+        "hard": 83
       },
-      "byDomain": {},
-      "packs": 0,
-      "loadedPacks": 0
+      "byDomain": {
+        "d1": 62,
+        "d2": 63,
+        "d3": 88,
+        "d4": 37
+      },
+      "packs": 10,
+      "loadedPacks": 10
     },
     "flashcards": {
-      "total": 0,
+      "total": 250,
       "byDifficulty": {
-        "easy": 0,
-        "medium": 0,
-        "hard": 0
+        "easy": 83,
+        "medium": 84,
+        "hard": 83
       },
-      "byDomain": {},
-      "packs": 0,
-      "loadedPacks": 0
+      "byDomain": {
+        "d1": 62,
+        "d2": 63,
+        "d3": 88,
+        "d4": 37
+      },
+      "packs": 10,
+      "loadedPacks": 10
     }
   },
   "hashicorp-tfa": {
@@ -1207,21 +1237,21 @@ export const CONTENT_MANIFEST = {
   },
   "k8s-cka": {
     "questions": {
-      "total": 10,
+      "total": 185,
       "byDifficulty": {
-        "easy": 3,
-        "medium": 4,
-        "hard": 3
+        "easy": 42,
+        "medium": 98,
+        "hard": 45
       },
       "byDomain": {
-        "d5": 2,
-        "d1": 1,
-        "d3": 2,
-        "d2": 2,
-        "d4": 3
+        "d5": 37,
+        "d1": 27,
+        "d3": 37,
+        "d2": 41,
+        "d4": 43
       },
-      "packs": 1,
-      "loadedPacks": 1
+      "packs": 8,
+      "loadedPacks": 8
     },
     "flashcards": {
       "total": 12,
@@ -1316,7 +1346,7 @@ export const CONTENT_MANIFEST = {
 };
 
 export const CONTENT_TOTALS = {
-  "questions": 1019,
-  "flashcards": 1022,
+  "questions": 1944,
+  "flashcards": 1772,
   "certifications": 52
 };

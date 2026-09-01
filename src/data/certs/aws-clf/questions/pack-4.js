@@ -10,11 +10,11 @@ export const AWS_CLF_QUESTIONS_4 = [
     question: "Which cloud benefit refers to reducing the time required to make technology resources available to developers?",
     options: [
       { id: 'A', text: "Economies of scale" },
-      { id: 'B', text: "Stop guessing capacity" },
-      { id: 'C', text: "Speed and agility" },
-      { id: 'D', text: "Trade capital expense for variable expense" }
+      { id: 'B', text: "Speed and agility" },
+      { id: 'C', text: "Trade capital expense for variable expense" },
+      { id: 'D', text: "Stop guessing capacity" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "In a cloud computing environment, new IT resources are only a click away, which means that you reduce the time to make those resources available to your developers from weeks to just minutes, dramatically increasing agility.",
     referenceUrl: "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/six-advantages-of-cloud-computing.html",
@@ -31,11 +31,11 @@ export const AWS_CLF_QUESTIONS_4 = [
     question: "Which AWS CloudTrail feature cryptographically validates whether log files remained unchanged after delivery?",
     options: [
       { id: 'A', text: "Amazon S3 Object Lock in Governance Mode" },
-      { id: 'B', text: "CloudTrail Log File Integrity Validation" },
+      { id: 'B', text: "AWS KMS envelope encryption" },
       { id: 'C', text: "AWS CloudWatch Logs Insights" },
-      { id: 'D', text: "AWS KMS envelope encryption" }
+      { id: 'D', text: "CloudTrail Log File Integrity Validation" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "CloudTrail log file integrity validation uses industry-standard algorithms (SHA-256 and RSA) to generate digest files, allowing you to mathematically verify that log files were not tampered with after delivery to S3.",
     referenceUrl: "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-log-file-validation-intro.html",
@@ -52,11 +52,11 @@ export const AWS_CLF_QUESTIONS_4 = [
     question: "Which Amazon S3 feature preserves, retrieves, and restores every version of every object stored in an S3 bucket?",
     options: [
       { id: 'A', text: "S3 Transfer Acceleration" },
-      { id: 'B', text: "S3 Lifecycle Configuration" },
-      { id: 'C', text: "S3 Versioning" },
-      { id: 'D', text: "S3 Object Replication" }
+      { id: 'B', text: "S3 Versioning" },
+      { id: 'C', text: "S3 Object Replication" },
+      { id: 'D', text: "S3 Lifecycle Configuration" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "S3 Versioning keeps multiple variants of an object in the same bucket, allowing you to preserve, retrieve, and restore every version of every object, protecting against accidental overwrites and deletes.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/Versioning.html",
@@ -73,11 +73,11 @@ export const AWS_CLF_QUESTIONS_4 = [
     question: "Which Amazon EBS feature enables attaching a single Provisioned IOPS volume to multiple EC2 instances simultaneously?",
     options: [
       { id: 'A', text: "Amazon FSx for Lustre" },
-      { id: 'B', text: "Amazon Elastic File System (EFS)" },
-      { id: 'C', text: "EBS Snapshot Sharing" },
-      { id: 'D', text: "Amazon EBS Multi-Attach" }
+      { id: 'B', text: "EBS Snapshot Sharing" },
+      { id: 'C', text: "Amazon EBS Multi-Attach" },
+      { id: 'D', text: "Amazon Elastic File System (EFS)" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Amazon EBS Multi-Attach enables you to attach a single Provisioned IOPS SSD (io1 or io2) volume to up to 16 Linux EC2 instances in the same Availability Zone to support clustered applications.",
     referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes-multi.html",
@@ -93,12 +93,12 @@ export const AWS_CLF_QUESTIONS_4 = [
     scenario: "A regulatory mandate requires an enterprise to have complete control over encryption keys, including defining key access policies, custom rotation schedules, and immediate key disabling in case of a breach.",
     question: "Which type of KMS key provides full customer administrative control over access policies, alias management, and key rotation?",
     options: [
-      { id: 'A', text: "AWS Owned Keys" },
-      { id: 'B', text: "Customer Managed Keys (CMK)" },
-      { id: 'C', text: "AWS Managed Keys" },
-      { id: 'D', text: "CloudHSM Root Keys" }
+      { id: 'A', text: "CloudHSM Root Keys" },
+      { id: 'B', text: "AWS Managed Keys" },
+      { id: 'C', text: "AWS Owned Keys" },
+      { id: 'D', text: "Customer Managed Keys (CMK)" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Customer Managed Keys (CMKs) are KMS keys that you create, own, and manage in your AWS account. You have full control over their key policies, IAM permissions, rotation schedules, and lifecycle.",
     referenceUrl: "https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk",
@@ -115,11 +115,11 @@ export const AWS_CLF_QUESTIONS_4 = [
     question: "How is internet data transfer billed by AWS in this scenario?",
     options: [
       { id: 'A', text: "Inbound data transfer is billed; outbound data transfer is free." },
-      { id: 'B', text: "Both inbound and outbound data transfers are billed at identical per-gigabyte rates." },
-      { id: 'C', text: "Both inbound and outbound data transfers are completely free." },
-      { id: 'D', text: "Inbound data transfer from the internet is free; outbound data transfer to the internet is billed per gigabyte." }
+      { id: 'B', text: "Inbound data transfer from the internet is free; outbound data transfer to the internet is billed per gigabyte." },
+      { id: 'C', text: "Both inbound and outbound data transfers are billed at identical per-gigabyte rates." },
+      { id: 'D', text: "Both inbound and outbound data transfers are completely free." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "As a general rule across AWS services, inbound data transfer from the public internet into AWS is free ($0.00/GB). Outbound data transfer from AWS to the public internet is billed per gigabyte above free tier allowances.",
     referenceUrl: "https://aws.amazon.com/pricing/",
@@ -135,12 +135,12 @@ export const AWS_CLF_QUESTIONS_4 = [
     scenario: "A database administrator deletes an Amazon RDS instance that is no longer needed. They want to ensure a point-in-time backup remains available indefinitely even after the RDS instance is deleted.",
     question: "What happens to automated RDS snapshots when a DB instance is deleted, and how can a permanent backup be retained?",
     options: [
-      { id: 'A', text: "Automated snapshots are deleted with the instance; creating a manual DB snapshot preserves the backup indefinitely." },
-      { id: 'B', text: "Amazon RDS automatically converts all automated snapshots into S3 Glacier archives." },
-      { id: 'C', text: "Automated snapshots are retained for 10 years automatically." },
-      { id: 'D', text: "Manual snapshots are deleted automatically after 35 days." }
+      { id: 'A', text: "Manual snapshots are deleted automatically after 35 days." },
+      { id: 'B', text: "Automated snapshots are deleted with the instance; creating a manual DB snapshot preserves the backup indefinitely." },
+      { id: 'C', text: "Amazon RDS automatically converts all automated snapshots into S3 Glacier archives." },
+      { id: 'D', text: "Automated snapshots are retained for 10 years automatically." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Automated snapshots are tied to the lifetime of the RDS instance and are deleted when the instance is deleted unless you retain them or create a manual snapshot. Manual DB snapshots are retained until you explicitly delete them.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html",
@@ -156,12 +156,12 @@ export const AWS_CLF_QUESTIONS_4 = [
     scenario: "Global clients located in Australia, Europe, and Asia need to upload large video files to a centralized Amazon S3 bucket located in the US East (N. Virginia) Region as quickly as possible.",
     question: "Which Amazon S3 feature uses AWS Edge Locations to accelerate long-distance uploads into S3 buckets?",
     options: [
-      { id: 'A', text: "AWS Direct Connect" },
-      { id: 'B', text: "Amazon S3 Transfer Acceleration" },
-      { id: 'C', text: "Amazon CloudFront Signed URLs" },
-      { id: 'D', text: "Amazon S3 Cross-Region Replication" }
+      { id: 'A', text: "Amazon S3 Transfer Acceleration" },
+      { id: 'B', text: "Amazon S3 Cross-Region Replication" },
+      { id: 'C', text: "AWS Direct Connect" },
+      { id: 'D', text: "Amazon CloudFront Signed URLs" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Amazon S3 Transfer Acceleration enables fast, easy, and secure transfers of files over long distances between your client and an S3 bucket by routing traffic through AWS Edge Locations over the optimized AWS private network backbone.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/transfer-acceleration.html",
@@ -177,12 +177,12 @@ export const AWS_CLF_QUESTIONS_4 = [
     scenario: "An enterprise requires stateful Layer 3-7 network traffic inspection, intrusion prevention system (IPS) rule evaluation, and domain name filtering for all VPC traffic entering and leaving via an Internet Gateway.",
     question: "Which managed AWS security service provides stateful network firewall protection and IPS inspection across VPCs?",
     options: [
-      { id: 'A', text: "Security Groups" },
-      { id: 'B', text: "Network ACLs" },
-      { id: 'C', text: "AWS Network Firewall" },
-      { id: 'D', text: "AWS WAF" }
+      { id: 'A', text: "Network ACLs" },
+      { id: 'B', text: "AWS WAF" },
+      { id: 'C', text: "Security Groups" },
+      { id: 'D', text: "AWS Network Firewall" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "AWS Network Firewall is a stateful, fully managed network firewall and intrusion detection and prevention service for your virtual private clouds (VPCs), supporting 5-tuple filtering, IPS rules, and domain filtering.",
     referenceUrl: "https://docs.aws.amazon.com/network-firewall/latest/developerguide/what-is-aws-network-firewall.html",
@@ -199,11 +199,11 @@ export const AWS_CLF_QUESTIONS_4 = [
     question: "Which type of Amazon Route 53 hosted zone resolves DNS queries strictly within one or more specified VPCs?",
     options: [
       { id: 'A', text: "Global Hosted Zone" },
-      { id: 'B', text: "Private Hosted Zone" },
-      { id: 'C', text: "Dynamic Hosted Zone" },
-      { id: 'D', text: "Public Hosted Zone" }
+      { id: 'B', text: "Public Hosted Zone" },
+      { id: 'C', text: "Private Hosted Zone" },
+      { id: 'D', text: "Dynamic Hosted Zone" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "An Amazon Route 53 Private Hosted Zone is a container that holds information about how you want Route 53 to respond to DNS queries for a domain and its subdomains within one or more VPCs that you associate with the zone.",
     referenceUrl: "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zones-private.html",
@@ -219,12 +219,12 @@ export const AWS_CLF_QUESTIONS_4 = [
     scenario: "A corporation has 80 Amazon VPCs and 5 on-premises data centres and wants to connect them together without creating complex, mesh VPC peering connections between every pair.",
     question: "Which AWS service acts as a centralized cloud router to interconnect thousands of VPCs and on-premises networks in a hub-and-spoke topology?",
     options: [
-      { id: 'A', text: "VPC Peering" },
-      { id: 'B', text: "Internet Gateway" },
-      { id: 'C', text: "AWS Direct Connect Gateway" },
-      { id: 'D', text: "AWS Transit Gateway" }
+      { id: 'A', text: "AWS Direct Connect Gateway" },
+      { id: 'B', text: "AWS Transit Gateway" },
+      { id: 'C', text: "Internet Gateway" },
+      { id: 'D', text: "VPC Peering" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "AWS Transit Gateway connects Amazon VPCs and on-premises networks to a single central hub, simplifying network topology and eliminating the need for complex full-mesh peering relationships.",
     referenceUrl: "https://docs.aws.amazon.com/vpc/latest/tgw/what-is-transit-gateway.html",
@@ -240,12 +240,12 @@ export const AWS_CLF_QUESTIONS_4 = [
     scenario: "A project manager is preparing a budget proposal for a new mobile backend and needs to estimate the monthly cost of 10 EC2 instances, 2 RDS databases, and 5 TB of S3 storage before provisioning resources.",
     question: "Which AWS tool enables modeling and estimating monthly architectural costs before creating resources?",
     options: [
-      { id: 'A', text: "AWS Pricing Calculator" },
-      { id: 'B', text: "AWS Cost and Usage Report" },
-      { id: 'C', text: "AWS Budgets" },
-      { id: 'D', text: "AWS Cost Explorer" }
+      { id: 'A', text: "AWS Cost and Usage Report" },
+      { id: 'B', text: "AWS Cost Explorer" },
+      { id: 'C', text: "AWS Pricing Calculator" },
+      { id: 'D', text: "AWS Budgets" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "AWS Pricing Calculator is a web-based planning tool that allows you to explore AWS services and create detailed cost estimates for your architecture use cases before deploying resources.",
     referenceUrl: "https://calculator.aws/",
@@ -261,10 +261,10 @@ export const AWS_CLF_QUESTIONS_4 = [
     scenario: "An enterprise wants a cost-effective disaster recovery strategy where a minimal version of the core environment (such as an idle RDS replica) runs continuously in a secondary Region, while compute instances are launched only if a disaster occurs.",
     question: "Which disaster recovery strategy maintains a minimal core environment running in the recovery Region that can be quickly scaled up during a failover?",
     options: [
-      { id: 'A', text: "Backup and Restore" },
-      { id: 'B', text: "Warm Standby" },
+      { id: 'A', text: "Warm Standby" },
+      { id: 'B', text: "Multi-Region Active-Active" },
       { id: 'C', text: "Pilot Light" },
-      { id: 'D', text: "Multi-Region Active-Active" }
+      { id: 'D', text: "Backup and Restore" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -282,12 +282,12 @@ export const AWS_CLF_QUESTIONS_4 = [
     scenario: "A government agency requires dedicated, single-tenant, FIPS 140-2 Level 3 validated physical cryptographic hardware devices where the customer retains exclusive administrative control over encryption keys.",
     question: "Which AWS service provides dedicated physical Hardware Security Modules (HSMs) in the AWS Cloud?",
     options: [
-      { id: 'A', text: "AWS Certificate Manager" },
-      { id: 'B', text: "AWS CloudHSM" },
+      { id: 'A', text: "AWS KMS" },
+      { id: 'B', text: "AWS Certificate Manager" },
       { id: 'C', text: "AWS Secrets Manager" },
-      { id: 'D', text: "AWS KMS" }
+      { id: 'D', text: "AWS CloudHSM" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "AWS CloudHSM is a cloud-based hardware security module (HSM) that enables you to easily generate and use your own encryption keys on dedicated, single-tenant, FIPS 140-2 Level 3 validated hardware under your exclusive control.",
     referenceUrl: "https://docs.aws.amazon.com/cloudhsm/latest/userguide/introduction.html",
@@ -303,12 +303,12 @@ export const AWS_CLF_QUESTIONS_4 = [
     scenario: "A healthcare provider must store patient records in Amazon S3 in a Write Once, Read Many (WORM) format to prevent objects from being deleted or overwritten for a mandatory 7-year retention period.",
     question: "Which Amazon S3 feature prevents object deletion and modification during a specified retention period?",
     options: [
-      { id: 'A', text: "Amazon S3 Object Lock" },
+      { id: 'A', text: "S3 Bucket Policies" },
       { id: 'B', text: "AWS Backup Vault Lock" },
-      { id: 'C', text: "S3 Bucket Policies" },
-      { id: 'D', text: "S3 Versioning alone" }
+      { id: 'C', text: "S3 Versioning alone" },
+      { id: 'D', text: "Amazon S3 Object Lock" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Amazon S3 Object Lock enables you to store objects using a WORM model to prevent an object from being deleted or overwritten for a fixed amount of time or indefinitely, complying with regulatory mandates such as SEC Rule 17a-4.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html",
@@ -324,10 +324,10 @@ export const AWS_CLF_QUESTIONS_4 = [
     scenario: "An image processing company wants to store raw photos in S3 Standard for 30 days, move them to S3 Standard-IA for 60 days, and finally transition them to S3 Glacier Flexible Retrieval before permanent deletion after 1 year.",
     question: "Which Amazon S3 feature automates object transitions between storage classes based on predefined age rules?",
     options: [
-      { id: 'A', text: "S3 Intelligent-Tiering" },
-      { id: 'B', text: "S3 Storage Lens" },
+      { id: 'A', text: "S3 Storage Lens" },
+      { id: 'B', text: "S3 Batch Operations" },
       { id: 'C', text: "S3 Lifecycle Management" },
-      { id: 'D', text: "S3 Batch Operations" }
+      { id: 'D', text: "S3 Intelligent-Tiering" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -345,12 +345,12 @@ export const AWS_CLF_QUESTIONS_4 = [
     scenario: "An organization with 40 AWS accounts wants to provide its employees with centralized single sign-on (SSO) access to all accounts and third-party SAML 2.0 applications using their corporate Okta or Microsoft Active Directory credentials.",
     question: "Which AWS service provides centralized identity and single sign-on access management across multiple AWS accounts?",
     options: [
-      { id: 'A', text: "AWS Secrets Manager" },
-      { id: 'B', text: "AWS IAM Identity Center" },
-      { id: 'C', text: "Amazon Cognito" },
-      { id: 'D', text: "AWS Directory Service" }
+      { id: 'A', text: "AWS Directory Service" },
+      { id: 'B', text: "Amazon Cognito" },
+      { id: 'C', text: "AWS IAM Identity Center" },
+      { id: 'D', text: "AWS Secrets Manager" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "AWS IAM Identity Center (successor to AWS Single Sign-On) helps you securely create or connect your workforce identities and manage their access centrally across AWS accounts and cloud applications.",
     referenceUrl: "https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html",
@@ -366,12 +366,12 @@ export const AWS_CLF_QUESTIONS_4 = [
     scenario: "A mobile development team needs a service that provides user sign-up, sign-in, social login (Google, Apple, Facebook), and user profile management for their consumer mobile app.",
     question: "Which AWS service provides user directories, authentication, and token issuance for web and mobile applications?",
     options: [
-      { id: 'A', text: "AWS Directory Service" },
-      { id: 'B', text: "Amazon Cognito User Pools" },
-      { id: 'C', text: "AWS IAM" },
-      { id: 'D', text: "Amazon Cognito Identity Pools" }
+      { id: 'A', text: "Amazon Cognito Identity Pools" },
+      { id: 'B', text: "AWS IAM" },
+      { id: 'C', text: "Amazon Cognito User Pools" },
+      { id: 'D', text: "AWS Directory Service" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Amazon Cognito User Pools are user directories that provide sign-up and sign-in options for web and mobile application users, including built-in support for Multi-Factor Authentication (MFA) and social identity federation.",
     referenceUrl: "https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html",
@@ -387,12 +387,12 @@ export const AWS_CLF_QUESTIONS_4 = [
     scenario: "A storage administrator needs a centralized analytics dashboard across all S3 buckets in an AWS Organization to identify cost-optimization opportunities, uncover non-encrypted buckets, and monitor activity trends.",
     question: "Which Amazon S3 analytics feature provides organization-wide visibility into object storage usage and activity metrics with actionable recommendations?",
     options: [
-      { id: 'A', text: "Amazon S3 Storage Lens" },
-      { id: 'B', text: "Amazon S3 Inventory" },
-      { id: 'C', text: "Amazon CloudWatch Metrics" },
-      { id: 'D', text: "AWS Trusted Advisor" }
+      { id: 'A', text: "Amazon CloudWatch Metrics" },
+      { id: 'B', text: "AWS Trusted Advisor" },
+      { id: 'C', text: "Amazon S3 Inventory" },
+      { id: 'D', text: "Amazon S3 Storage Lens" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Amazon S3 Storage Lens provides organization-wide visibility into object storage usage and activity trends, generating contextual insights and actionable recommendations to optimize storage costs and apply security best practices.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html",
@@ -408,12 +408,12 @@ export const AWS_CLF_QUESTIONS_4 = [
     scenario: "A finance manager wants machine learning algorithms to continuously analyze billing trends and automatically alert the team when unexpected spending anomalies occur in an account.",
     question: "Which AWS Cost Management service uses machine learning to identify unexpected cost spikes and root causes?",
     options: [
-      { id: 'A', text: "AWS Budgets" },
-      { id: 'B', text: "AWS Cost Explorer" },
-      { id: 'C', text: "AWS Pricing Calculator" },
-      { id: 'D', text: "AWS Cost Anomaly Detection" }
+      { id: 'A', text: "AWS Cost Anomaly Detection" },
+      { id: 'B', text: "AWS Pricing Calculator" },
+      { id: 'C', text: "AWS Cost Explorer" },
+      { id: 'D', text: "AWS Budgets" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "AWS Cost Anomaly Detection uses advanced machine learning models to identify unexpected spending spikes and their root causes, sending automated alerts to help prevent unexpected bills.",
     referenceUrl: "https://docs.aws.amazon.com/cost-management/latest/userguide/CostAnomalyDetection.html",
@@ -429,12 +429,12 @@ export const AWS_CLF_QUESTIONS_4 = [
     scenario: "An enterprise workflow involves calling multiple microservices, executing AWS Lambda functions in sequence, handling errors, and inserting conditional retry logic based on execution outputs.",
     question: "Which AWS service allows you to visually orchestrate and coordinate distributed microservices and serverless components using state machines?",
     options: [
-      { id: 'A', text: "AWS Step Functions" },
-      { id: 'B', text: "Amazon SQS" },
-      { id: 'C', text: "AWS EventBridge" },
-      { id: 'D', text: "Amazon SNS" }
+      { id: 'A', text: "Amazon SNS" },
+      { id: 'B', text: "AWS EventBridge" },
+      { id: 'C', text: "Amazon SQS" },
+      { id: 'D', text: "AWS Step Functions" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "AWS Step Functions is a low-code visual workflow service used to orchestrate AWS services, automate business processes, and build serverless applications with state machines.",
     referenceUrl: "https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html",
@@ -450,12 +450,12 @@ export const AWS_CLF_QUESTIONS_4 = [
     scenario: "A development team wants to create, publish, maintain, monitor, and secure REST and WebSocket APIs at any scale to act as a front door for applications running on AWS Lambda.",
     question: "Which fully managed AWS service acts as an entry point for applications to access backend services and Lambda functions?",
     options: [
-      { id: 'A', text: "Amazon API Gateway" },
-      { id: 'B', text: "Amazon CloudFront" },
-      { id: 'C', text: "Amazon Route 53" },
-      { id: 'D', text: "Application Load Balancer" }
+      { id: 'A', text: "Application Load Balancer" },
+      { id: 'B', text: "Amazon Route 53" },
+      { id: 'C', text: "Amazon CloudFront" },
+      { id: 'D', text: "Amazon API Gateway" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Amazon API Gateway is a fully managed service that makes it easy for developers to create, publish, maintain, monitor, and secure APIs at any scale, handling traffic management, CORS, authorization, and throttling.",
     referenceUrl: "https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html",
@@ -471,9 +471,9 @@ export const AWS_CLF_QUESTIONS_4 = [
     scenario: "A security engineer mandates that administrators must be able to securely connect to private Amazon EC2 instances via an interactive browser shell without opening inbound SSH port 22 or managing bastion hosts.",
     question: "Which AWS Systems Manager capability allows secure shell access to EC2 instances without requiring inbound firewall ports or public IP addresses?",
     options: [
-      { id: 'A', text: "EC2 Instance Connect" },
+      { id: 'A', text: "AWS Client VPN" },
       { id: 'B', text: "AWS Systems Manager Session Manager" },
-      { id: 'C', text: "AWS Client VPN" },
+      { id: 'C', text: "EC2 Instance Connect" },
       { id: 'D', text: "AWS Direct Connect" }
     ],
     correctAnswers: ['B'],
@@ -513,12 +513,12 @@ export const AWS_CLF_QUESTIONS_4 = [
     scenario: "A Chief Financial Officer (CFO) and Chief Risk Officer (CRO) are establishing cloud cost governance policies, risk management oversight, and service portfolio management standards.",
     question: "Which perspective of the AWS Cloud Adoption Framework (AWS CAF) focuses on program management, financial management, and license management governance?",
     options: [
-      { id: 'A', text: "Governance Perspective" },
-      { id: 'B', text: "Business Perspective" },
-      { id: 'C', text: "Platform Perspective" },
-      { id: 'D', text: "Security Perspective" }
+      { id: 'A', text: "Security Perspective" },
+      { id: 'B', text: "Platform Perspective" },
+      { id: 'C', text: "Business Perspective" },
+      { id: 'D', text: "Governance Perspective" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The Governance Perspective of the AWS CAF provides capabilities to help orchestrate cloud initiatives while maximizing organizational benefits and minimizing transformation-related risks through cost management, license management, and portfolio management.",
     referenceUrl: "https://aws.amazon.com/professional-services/CAF/",

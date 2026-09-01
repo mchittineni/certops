@@ -31,9 +31,9 @@ export const GCP_ACE_QUESTIONS = [
     question: "Which predefined IAM role should be granted on the bucket?",
     options: [
       { id: 'A', text: "roles/storage.objectAdmin" },
-      { id: 'B', text: "roles/storage.objectViewer" },
+      { id: 'B', text: "roles/storage.admin" },
       { id: 'C', text: "roles/editor at the project level" },
-      { id: 'D', text: "roles/storage.admin" }
+      { id: 'D', text: "roles/storage.objectViewer" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -72,10 +72,10 @@ export const GCP_ACE_QUESTIONS = [
     scenario: "A team is onboarding to Google Cloud and must decide at which level of the resource hierarchy billing accounts are linked and APIs are enabled.",
     question: "Which resource is the unit of billing, quota, and API enablement in Google Cloud?",
     options: [
-      { id: 'A', text: "The organization." },
-      { id: 'B', text: "The folder." },
+      { id: 'A', text: "The VPC network." },
+      { id: 'B', text: "The organization." },
       { id: 'C', text: "The project." },
-      { id: 'D', text: "The VPC network." }
+      { id: 'D', text: "The folder." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -114,12 +114,12 @@ export const GCP_ACE_QUESTIONS = [
     scenario: "A platform team needs to run ad-hoc SQL analysis over two years of Cloud Logging data, but Cloud Logging retains _Default bucket logs for only 30 days.",
     question: "What is the correct way to retain and query these logs?",
     options: [
-      { id: 'A', text: "Create a log sink with a BigQuery dataset destination and an inclusion filter for the relevant log names." },
-      { id: 'B', text: "Schedule a Cloud Function to page through the Logging API and write CSV files to a Compute Engine persistent disk." },
-      { id: 'C', text: "Increase the retention of the _Required log bucket to 730 days." },
-      { id: 'D', text: "Create a log-based metric and chart it in Cloud Monitoring for two years." }
+      { id: 'A', text: "Increase the retention of the _Required log bucket to 730 days." },
+      { id: 'B', text: "Create a log sink with a BigQuery dataset destination and an inclusion filter for the relevant log names." },
+      { id: 'C', text: "Create a log-based metric and chart it in Cloud Monitoring for two years." },
+      { id: 'D', text: "Schedule a Cloud Function to page through the Logging API and write CSV files to a Compute Engine persistent disk." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "A log sink routes matching entries to BigQuery, where they become queryable tables with whatever retention the dataset defines - the standard pattern for long-term log analytics. The _Required bucket has a fixed 400-day retention that cannot be changed, log-based metrics store only aggregated time-series numbers rather than log content, and hand-rolling an export to a persistent disk reinvents the sink with more operational risk.",
     referenceUrl: "https://cloud.google.com/logging/docs/export/configure_export_v2",
@@ -157,11 +157,11 @@ export const GCP_ACE_QUESTIONS = [
     question: "Which migration target is appropriate?",
     options: [
       { id: 'A', text: "Bigtable with a multi-cluster routing app profile." },
-      { id: 'B', text: "Cloud SQL with cross-region read replicas and application-side write routing." },
-      { id: 'C', text: "Cloud Spanner with a multi-region instance configuration." },
-      { id: 'D', text: "Firestore in Native mode with multi-region replication." }
+      { id: 'B', text: "Cloud Spanner with a multi-region instance configuration." },
+      { id: 'C', text: "Firestore in Native mode with multi-region replication." },
+      { id: 'D', text: "Cloud SQL with cross-region read replicas and application-side write routing." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Cloud Spanner is the only Google Cloud database offering horizontally scalable relational writes with external (strong) consistency across regions and SQL semantics, which removes the need for application-level sharding. Cloud SQL read replicas scale reads only - the single primary remains the write ceiling. Firestore is a document store without full relational joins, and Bigtable offers no multi-row ACID transactions or SQL query surface for this workload.",
     referenceUrl: "https://cloud.google.com/spanner/docs/instance-configurations",
@@ -178,12 +178,12 @@ export const GCP_ACE_QUESTIONS = [
     question: "Which sequence achieves this? (Choose TWO)",
     options: [
       { id: 'A', text: "Put an external HTTP(S) Load Balancer in front of two separate Cloud Run services and split traffic with a URL map weight." },
-      { id: 'B', text: "Deploy the revision normally and rely on Cloud Run sending traffic to the newest revision only after health checks pass." },
-      { id: 'C', text: "Scale the previous revision to zero instances so the new revision absorbs all requests gradually." },
-      { id: 'D', text: "Use gcloud run services update-traffic --to-revisions REVISION=5 and later --to-latest to finish the rollout." },
-      { id: 'E', text: "Deploy the revision with --no-traffic so it starts at 0% of traffic." }
+      { id: 'B', text: "Scale the previous revision to zero instances so the new revision absorbs all requests gradually." },
+      { id: 'C', text: "Use gcloud run services update-traffic --to-revisions REVISION=5 and later --to-latest to finish the rollout." },
+      { id: 'D', text: "Deploy the revision with --no-traffic so it starts at 0% of traffic." },
+      { id: 'E', text: "Deploy the revision normally and rely on Cloud Run sending traffic to the newest revision only after health checks pass." }
     ],
-    correctAnswers: ['D', 'E'],
+    correctAnswers: ['C', 'D'],
     type: "multiple",
     explanation: "Cloud Run has native revision-based traffic splitting. Deploying with --no-traffic creates the revision while leaving it at 0%, and update-traffic --to-revisions assigns an explicit percentage, letting you canary at 5% and later shift to 100% with --to-latest - all without redeploying. Cloud Run does not withhold traffic from the latest revision by default (C), a load balancer split (D) is a heavier alternative that duplicates the service, and scaling the old revision to zero (E) does not control traffic allocation.",
     referenceUrl: "https://cloud.google.com/run/docs/rollouts-rollbacks-traffic-migration",
