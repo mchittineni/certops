@@ -9,12 +9,12 @@ export const GITHUB_ACTIONS_QUESTIONS_1 = [
     scenario: "A DevOps engineering team is implementing enterprise automation with GitHub Actions for scenario #1, requiring robust workflow triggers, dependency caching, matrix builds, or secure runner infrastructure.",
     question: "Which GitHub Actions syntax, workflow configuration, or runner strategy best meets requirement #1?",
     options: [
-      { id: 'A', text: "Option A: Standard GitHub Actions recommended practice for Author and maintain workflows matching official GH-200 guidelines." },
-      { id: 'B', text: "Option B: Legacy unauthenticated shell script execution on ephemeral runners." },
-      { id: 'C', text: "Option D: Disabling step-level error handling and concurrency cancellations." },
-      { id: 'D', text: "Option C: Storing plain-text authentication tokens directly inside workflow YAML files." }
+      { id: 'A', text: "Option B: Legacy unauthenticated shell script execution on ephemeral runners." },
+      { id: 'B', text: "Option C: Storing plain-text authentication tokens directly inside workflow YAML files." },
+      { id: 'C', text: "Option A: Standard GitHub Actions recommended practice for Author and maintain workflows matching official GH-200 guidelines." },
+      { id: 'D', text: "Option D: Disabling step-level error handling and concurrency cancellations." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Comprehensive GitHub Actions GH-200 explanation for topic #1: Demonstrates best practices in YAML workflow authoring, context expressions, environment secrets, custom action development (JavaScript/Docker/Composite), self-hosted runner scale-sets, and OIDC federated authentication with cloud providers.",
     referenceUrl: "https://docs.github.com/en/actions",
@@ -30,12 +30,12 @@ export const GITHUB_ACTIONS_QUESTIONS_1 = [
     scenario: "A DevOps engineering team is implementing enterprise automation with GitHub Actions for scenario #2, requiring robust workflow triggers, dependency caching, matrix builds, or secure runner infrastructure.",
     question: "Which GitHub Actions syntax, workflow configuration, or runner strategy best meets requirement #2?",
     options: [
-      { id: 'A', text: "Option A: Standard GitHub Actions recommended practice for Author and maintain workflows matching official GH-200 guidelines." },
-      { id: 'B', text: "Option D: Disabling step-level error handling and concurrency cancellations." },
-      { id: 'C', text: "Option C: Storing plain-text authentication tokens directly inside workflow YAML files." },
-      { id: 'D', text: "Option B: Legacy unauthenticated shell script execution on ephemeral runners." }
+      { id: 'A', text: "Option C: Storing plain-text authentication tokens directly inside workflow YAML files." },
+      { id: 'B', text: "Option B: Legacy unauthenticated shell script execution on ephemeral runners." },
+      { id: 'C', text: "Option A: Standard GitHub Actions recommended practice for Author and maintain workflows matching official GH-200 guidelines." },
+      { id: 'D', text: "Option D: Disabling step-level error handling and concurrency cancellations." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Comprehensive GitHub Actions GH-200 explanation for topic #2: Demonstrates best practices in YAML workflow authoring, context expressions, environment secrets, custom action development (JavaScript/Docker/Composite), self-hosted runner scale-sets, and OIDC federated authentication with cloud providers.",
     referenceUrl: "https://docs.github.com/en/actions",
@@ -52,11 +52,11 @@ export const GITHUB_ACTIONS_QUESTIONS_1 = [
     question: "Which GitHub Actions syntax, workflow configuration, or runner strategy best meets requirement #3?",
     options: [
       { id: 'A', text: "Option D: Disabling step-level error handling and concurrency cancellations." },
-      { id: 'B', text: "Option A: Standard GitHub Actions recommended practice for Author and maintain workflows matching official GH-200 guidelines." },
+      { id: 'B', text: "Option C: Storing plain-text authentication tokens directly inside workflow YAML files." },
       { id: 'C', text: "Option B: Legacy unauthenticated shell script execution on ephemeral runners." },
-      { id: 'D', text: "Option C: Storing plain-text authentication tokens directly inside workflow YAML files." }
+      { id: 'D', text: "Option A: Standard GitHub Actions recommended practice for Author and maintain workflows matching official GH-200 guidelines." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Comprehensive GitHub Actions GH-200 explanation for topic #3: Demonstrates best practices in YAML workflow authoring, context expressions, environment secrets, custom action development (JavaScript/Docker/Composite), self-hosted runner scale-sets, and OIDC federated authentication with cloud providers.",
     referenceUrl: "https://docs.github.com/en/actions",
@@ -72,12 +72,12 @@ export const GITHUB_ACTIONS_QUESTIONS_1 = [
     scenario: "A DevOps engineering team is implementing enterprise automation with GitHub Actions for scenario #4, requiring robust workflow triggers, dependency caching, matrix builds, or secure runner infrastructure.",
     question: "Which GitHub Actions syntax, workflow configuration, or runner strategy best meets requirement #4?",
     options: [
-      { id: 'A', text: "Option C: Storing plain-text authentication tokens directly inside workflow YAML files." },
-      { id: 'B', text: "Option D: Disabling step-level error handling and concurrency cancellations." },
-      { id: 'C', text: "Option A: Standard GitHub Actions recommended practice for Author and maintain workflows matching official GH-200 guidelines." },
-      { id: 'D', text: "Option B: Legacy unauthenticated shell script execution on ephemeral runners." }
+      { id: 'A', text: "Option D: Disabling step-level error handling and concurrency cancellations." },
+      { id: 'B', text: "Option B: Legacy unauthenticated shell script execution on ephemeral runners." },
+      { id: 'C', text: "Option C: Storing plain-text authentication tokens directly inside workflow YAML files." },
+      { id: 'D', text: "Option A: Standard GitHub Actions recommended practice for Author and maintain workflows matching official GH-200 guidelines." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Comprehensive GitHub Actions GH-200 explanation for topic #4: Demonstrates best practices in YAML workflow authoring, context expressions, environment secrets, custom action development (JavaScript/Docker/Composite), self-hosted runner scale-sets, and OIDC federated authentication with cloud providers.",
     referenceUrl: "https://docs.github.com/en/actions",
@@ -93,12 +93,12 @@ export const GITHUB_ACTIONS_QUESTIONS_1 = [
     scenario: "A DevOps engineering team is implementing enterprise automation with GitHub Actions for scenario #5, requiring robust workflow triggers, dependency caching, matrix builds, or secure runner infrastructure.",
     question: "Which GitHub Actions syntax, workflow configuration, or runner strategy best meets requirement #5?",
     options: [
-      { id: 'A', text: "Option A: Standard GitHub Actions recommended practice for Author and maintain workflows matching official GH-200 guidelines." },
-      { id: 'B', text: "Option B: Legacy unauthenticated shell script execution on ephemeral runners." },
-      { id: 'C', text: "Option D: Disabling step-level error handling and concurrency cancellations." },
-      { id: 'D', text: "Option C: Storing plain-text authentication tokens directly inside workflow YAML files." }
+      { id: 'A', text: "Option D: Disabling step-level error handling and concurrency cancellations." },
+      { id: 'B', text: "Option A: Standard GitHub Actions recommended practice for Author and maintain workflows matching official GH-200 guidelines." },
+      { id: 'C', text: "Option C: Storing plain-text authentication tokens directly inside workflow YAML files." },
+      { id: 'D', text: "Option B: Legacy unauthenticated shell script execution on ephemeral runners." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Comprehensive GitHub Actions GH-200 explanation for topic #5: Demonstrates best practices in YAML workflow authoring, context expressions, environment secrets, custom action development (JavaScript/Docker/Composite), self-hosted runner scale-sets, and OIDC federated authentication with cloud providers.",
     referenceUrl: "https://docs.github.com/en/actions",
@@ -114,12 +114,12 @@ export const GITHUB_ACTIONS_QUESTIONS_1 = [
     scenario: "A DevOps engineering team is implementing enterprise automation with GitHub Actions for scenario #6, requiring robust workflow triggers, dependency caching, matrix builds, or secure runner infrastructure.",
     question: "Which GitHub Actions syntax, workflow configuration, or runner strategy best meets requirement #6?",
     options: [
-      { id: 'A', text: "Option A: Standard GitHub Actions recommended practice for Author and maintain workflows matching official GH-200 guidelines." },
-      { id: 'B', text: "Option D: Disabling step-level error handling and concurrency cancellations." },
-      { id: 'C', text: "Option C: Storing plain-text authentication tokens directly inside workflow YAML files." },
-      { id: 'D', text: "Option B: Legacy unauthenticated shell script execution on ephemeral runners." }
+      { id: 'A', text: "Option D: Disabling step-level error handling and concurrency cancellations." },
+      { id: 'B', text: "Option C: Storing plain-text authentication tokens directly inside workflow YAML files." },
+      { id: 'C', text: "Option B: Legacy unauthenticated shell script execution on ephemeral runners." },
+      { id: 'D', text: "Option A: Standard GitHub Actions recommended practice for Author and maintain workflows matching official GH-200 guidelines." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Comprehensive GitHub Actions GH-200 explanation for topic #6: Demonstrates best practices in YAML workflow authoring, context expressions, environment secrets, custom action development (JavaScript/Docker/Composite), self-hosted runner scale-sets, and OIDC federated authentication with cloud providers.",
     referenceUrl: "https://docs.github.com/en/actions",
@@ -135,12 +135,12 @@ export const GITHUB_ACTIONS_QUESTIONS_1 = [
     scenario: "A DevOps engineering team is implementing enterprise automation with GitHub Actions for scenario #7, requiring robust workflow triggers, dependency caching, matrix builds, or secure runner infrastructure.",
     question: "Which GitHub Actions syntax, workflow configuration, or runner strategy best meets requirement #7?",
     options: [
-      { id: 'A', text: "Option D: Disabling step-level error handling and concurrency cancellations." },
-      { id: 'B', text: "Option A: Standard GitHub Actions recommended practice for Author and maintain workflows matching official GH-200 guidelines." },
-      { id: 'C', text: "Option B: Legacy unauthenticated shell script execution on ephemeral runners." },
-      { id: 'D', text: "Option C: Storing plain-text authentication tokens directly inside workflow YAML files." }
+      { id: 'A', text: "Option C: Storing plain-text authentication tokens directly inside workflow YAML files." },
+      { id: 'B', text: "Option B: Legacy unauthenticated shell script execution on ephemeral runners." },
+      { id: 'C', text: "Option A: Standard GitHub Actions recommended practice for Author and maintain workflows matching official GH-200 guidelines." },
+      { id: 'D', text: "Option D: Disabling step-level error handling and concurrency cancellations." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Comprehensive GitHub Actions GH-200 explanation for topic #7: Demonstrates best practices in YAML workflow authoring, context expressions, environment secrets, custom action development (JavaScript/Docker/Composite), self-hosted runner scale-sets, and OIDC federated authentication with cloud providers.",
     referenceUrl: "https://docs.github.com/en/actions",
@@ -157,11 +157,11 @@ export const GITHUB_ACTIONS_QUESTIONS_1 = [
     question: "Which GitHub Actions syntax, workflow configuration, or runner strategy best meets requirement #8?",
     options: [
       { id: 'A', text: "Option C: Storing plain-text authentication tokens directly inside workflow YAML files." },
-      { id: 'B', text: "Option D: Disabling step-level error handling and concurrency cancellations." },
-      { id: 'C', text: "Option A: Standard GitHub Actions recommended practice for Author and maintain workflows matching official GH-200 guidelines." },
-      { id: 'D', text: "Option B: Legacy unauthenticated shell script execution on ephemeral runners." }
+      { id: 'B', text: "Option A: Standard GitHub Actions recommended practice for Author and maintain workflows matching official GH-200 guidelines." },
+      { id: 'C', text: "Option B: Legacy unauthenticated shell script execution on ephemeral runners." },
+      { id: 'D', text: "Option D: Disabling step-level error handling and concurrency cancellations." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Comprehensive GitHub Actions GH-200 explanation for topic #8: Demonstrates best practices in YAML workflow authoring, context expressions, environment secrets, custom action development (JavaScript/Docker/Composite), self-hosted runner scale-sets, and OIDC federated authentication with cloud providers.",
     referenceUrl: "https://docs.github.com/en/actions",
@@ -178,11 +178,11 @@ export const GITHUB_ACTIONS_QUESTIONS_1 = [
     question: "Which GitHub Actions syntax, workflow configuration, or runner strategy best meets requirement #9?",
     options: [
       { id: 'A', text: "Option B: Legacy unauthenticated shell script execution on ephemeral runners." },
-      { id: 'B', text: "Option C: Storing plain-text authentication tokens directly inside workflow YAML files." },
-      { id: 'C', text: "Option D: Disabling step-level error handling and concurrency cancellations." },
-      { id: 'D', text: "Option A: Standard GitHub Actions recommended practice for Author and maintain workflows matching official GH-200 guidelines." }
+      { id: 'B', text: "Option A: Standard GitHub Actions recommended practice for Author and maintain workflows matching official GH-200 guidelines." },
+      { id: 'C', text: "Option C: Storing plain-text authentication tokens directly inside workflow YAML files." },
+      { id: 'D', text: "Option D: Disabling step-level error handling and concurrency cancellations." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Comprehensive GitHub Actions GH-200 explanation for topic #9: Demonstrates best practices in YAML workflow authoring, context expressions, environment secrets, custom action development (JavaScript/Docker/Composite), self-hosted runner scale-sets, and OIDC federated authentication with cloud providers.",
     referenceUrl: "https://docs.github.com/en/actions",
@@ -199,11 +199,11 @@ export const GITHUB_ACTIONS_QUESTIONS_1 = [
     question: "Which GitHub Actions syntax, workflow configuration, or runner strategy best meets requirement #10?",
     options: [
       { id: 'A', text: "Option C: Storing plain-text authentication tokens directly inside workflow YAML files." },
-      { id: 'B', text: "Option B: Legacy unauthenticated shell script execution on ephemeral runners." },
-      { id: 'C', text: "Option A: Standard GitHub Actions recommended practice for Author and maintain workflows matching official GH-200 guidelines." },
-      { id: 'D', text: "Option D: Disabling step-level error handling and concurrency cancellations." }
+      { id: 'B', text: "Option A: Standard GitHub Actions recommended practice for Author and maintain workflows matching official GH-200 guidelines." },
+      { id: 'C', text: "Option D: Disabling step-level error handling and concurrency cancellations." },
+      { id: 'D', text: "Option B: Legacy unauthenticated shell script execution on ephemeral runners." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Comprehensive GitHub Actions GH-200 explanation for topic #10: Demonstrates best practices in YAML workflow authoring, context expressions, environment secrets, custom action development (JavaScript/Docker/Composite), self-hosted runner scale-sets, and OIDC federated authentication with cloud providers.",
     referenceUrl: "https://docs.github.com/en/actions",
@@ -219,12 +219,12 @@ export const GITHUB_ACTIONS_QUESTIONS_1 = [
     scenario: "A DevOps engineering team is implementing enterprise automation with GitHub Actions for scenario #11, requiring robust workflow triggers, dependency caching, matrix builds, or secure runner infrastructure.",
     question: "Which GitHub Actions syntax, workflow configuration, or runner strategy best meets requirement #11?",
     options: [
-      { id: 'A', text: "Option C: Storing plain-text authentication tokens directly inside workflow YAML files." },
-      { id: 'B', text: "Option D: Disabling step-level error handling and concurrency cancellations." },
-      { id: 'C', text: "Option A: Standard GitHub Actions recommended practice for Author and maintain workflows matching official GH-200 guidelines." },
-      { id: 'D', text: "Option B: Legacy unauthenticated shell script execution on ephemeral runners." }
+      { id: 'A', text: "Option A: Standard GitHub Actions recommended practice for Author and maintain workflows matching official GH-200 guidelines." },
+      { id: 'B', text: "Option B: Legacy unauthenticated shell script execution on ephemeral runners." },
+      { id: 'C', text: "Option D: Disabling step-level error handling and concurrency cancellations." },
+      { id: 'D', text: "Option C: Storing plain-text authentication tokens directly inside workflow YAML files." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Comprehensive GitHub Actions GH-200 explanation for topic #11: Demonstrates best practices in YAML workflow authoring, context expressions, environment secrets, custom action development (JavaScript/Docker/Composite), self-hosted runner scale-sets, and OIDC federated authentication with cloud providers.",
     referenceUrl: "https://docs.github.com/en/actions",
@@ -240,12 +240,12 @@ export const GITHUB_ACTIONS_QUESTIONS_1 = [
     scenario: "A DevOps engineering team is implementing enterprise automation with GitHub Actions for scenario #12, requiring robust workflow triggers, dependency caching, matrix builds, or secure runner infrastructure.",
     question: "Which GitHub Actions syntax, workflow configuration, or runner strategy best meets requirement #12?",
     options: [
-      { id: 'A', text: "Option A: Standard GitHub Actions recommended practice for Author and maintain workflows matching official GH-200 guidelines." },
-      { id: 'B', text: "Option C: Storing plain-text authentication tokens directly inside workflow YAML files." },
-      { id: 'C', text: "Option B: Legacy unauthenticated shell script execution on ephemeral runners." },
-      { id: 'D', text: "Option D: Disabling step-level error handling and concurrency cancellations." }
+      { id: 'A', text: "Option B: Legacy unauthenticated shell script execution on ephemeral runners." },
+      { id: 'B', text: "Option D: Disabling step-level error handling and concurrency cancellations." },
+      { id: 'C', text: "Option C: Storing plain-text authentication tokens directly inside workflow YAML files." },
+      { id: 'D', text: "Option A: Standard GitHub Actions recommended practice for Author and maintain workflows matching official GH-200 guidelines." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Comprehensive GitHub Actions GH-200 explanation for topic #12: Demonstrates best practices in YAML workflow authoring, context expressions, environment secrets, custom action development (JavaScript/Docker/Composite), self-hosted runner scale-sets, and OIDC federated authentication with cloud providers.",
     referenceUrl: "https://docs.github.com/en/actions",
@@ -261,10 +261,10 @@ export const GITHUB_ACTIONS_QUESTIONS_1 = [
     scenario: "A DevOps engineering team is implementing enterprise automation with GitHub Actions for scenario #13, requiring robust workflow triggers, dependency caching, matrix builds, or secure runner infrastructure.",
     question: "Which GitHub Actions syntax, workflow configuration, or runner strategy best meets requirement #13?",
     options: [
-      { id: 'A', text: "Option C: Storing plain-text authentication tokens directly inside workflow YAML files." },
-      { id: 'B', text: "Option D: Disabling step-level error handling and concurrency cancellations." },
+      { id: 'A', text: "Option B: Legacy unauthenticated shell script execution on ephemeral runners." },
+      { id: 'B', text: "Option C: Storing plain-text authentication tokens directly inside workflow YAML files." },
       { id: 'C', text: "Option A: Standard GitHub Actions recommended practice for Author and maintain workflows matching official GH-200 guidelines." },
-      { id: 'D', text: "Option B: Legacy unauthenticated shell script execution on ephemeral runners." }
+      { id: 'D', text: "Option D: Disabling step-level error handling and concurrency cancellations." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -282,10 +282,10 @@ export const GITHUB_ACTIONS_QUESTIONS_1 = [
     scenario: "A DevOps engineering team is implementing enterprise automation with GitHub Actions for scenario #14, requiring robust workflow triggers, dependency caching, matrix builds, or secure runner infrastructure.",
     question: "Which GitHub Actions syntax, workflow configuration, or runner strategy best meets requirement #14?",
     options: [
-      { id: 'A', text: "Option B: Legacy unauthenticated shell script execution on ephemeral runners." },
+      { id: 'A', text: "Option C: Storing plain-text authentication tokens directly inside workflow YAML files." },
       { id: 'B', text: "Option D: Disabling step-level error handling and concurrency cancellations." },
       { id: 'C', text: "Option A: Standard GitHub Actions recommended practice for Author and maintain workflows matching official GH-200 guidelines." },
-      { id: 'D', text: "Option C: Storing plain-text authentication tokens directly inside workflow YAML files." }
+      { id: 'D', text: "Option B: Legacy unauthenticated shell script execution on ephemeral runners." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -324,12 +324,12 @@ export const GITHUB_ACTIONS_QUESTIONS_1 = [
     scenario: "A DevOps engineering team is implementing enterprise automation with GitHub Actions for scenario #16, requiring robust workflow triggers, dependency caching, matrix builds, or secure runner infrastructure.",
     question: "Which GitHub Actions syntax, workflow configuration, or runner strategy best meets requirement #16?",
     options: [
-      { id: 'A', text: "Option A: Standard GitHub Actions recommended practice for Author and maintain workflows matching official GH-200 guidelines." },
+      { id: 'A', text: "Option D: Disabling step-level error handling and concurrency cancellations." },
       { id: 'B', text: "Option B: Legacy unauthenticated shell script execution on ephemeral runners." },
-      { id: 'C', text: "Option D: Disabling step-level error handling and concurrency cancellations." },
-      { id: 'D', text: "Option C: Storing plain-text authentication tokens directly inside workflow YAML files." }
+      { id: 'C', text: "Option C: Storing plain-text authentication tokens directly inside workflow YAML files." },
+      { id: 'D', text: "Option A: Standard GitHub Actions recommended practice for Author and maintain workflows matching official GH-200 guidelines." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Comprehensive GitHub Actions GH-200 explanation for topic #16: Demonstrates best practices in YAML workflow authoring, context expressions, environment secrets, custom action development (JavaScript/Docker/Composite), self-hosted runner scale-sets, and OIDC federated authentication with cloud providers.",
     referenceUrl: "https://docs.github.com/en/actions",
@@ -345,10 +345,10 @@ export const GITHUB_ACTIONS_QUESTIONS_1 = [
     scenario: "A DevOps engineering team is implementing enterprise automation with GitHub Actions for scenario #17, requiring robust workflow triggers, dependency caching, matrix builds, or secure runner infrastructure.",
     question: "Which GitHub Actions syntax, workflow configuration, or runner strategy best meets requirement #17?",
     options: [
-      { id: 'A', text: "Option C: Storing plain-text authentication tokens directly inside workflow YAML files." },
-      { id: 'B', text: "Option D: Disabling step-level error handling and concurrency cancellations." },
+      { id: 'A', text: "Option D: Disabling step-level error handling and concurrency cancellations." },
+      { id: 'B', text: "Option B: Legacy unauthenticated shell script execution on ephemeral runners." },
       { id: 'C', text: "Option A: Standard GitHub Actions recommended practice for Author and maintain workflows matching official GH-200 guidelines." },
-      { id: 'D', text: "Option B: Legacy unauthenticated shell script execution on ephemeral runners." }
+      { id: 'D', text: "Option C: Storing plain-text authentication tokens directly inside workflow YAML files." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -366,12 +366,12 @@ export const GITHUB_ACTIONS_QUESTIONS_1 = [
     scenario: "A DevOps engineering team is implementing enterprise automation with GitHub Actions for scenario #18, requiring robust workflow triggers, dependency caching, matrix builds, or secure runner infrastructure.",
     question: "Which GitHub Actions syntax, workflow configuration, or runner strategy best meets requirement #18?",
     options: [
-      { id: 'A', text: "Option A: Standard GitHub Actions recommended practice for Author and maintain workflows matching official GH-200 guidelines." },
-      { id: 'B', text: "Option B: Legacy unauthenticated shell script execution on ephemeral runners." },
-      { id: 'C', text: "Option D: Disabling step-level error handling and concurrency cancellations." },
-      { id: 'D', text: "Option C: Storing plain-text authentication tokens directly inside workflow YAML files." }
+      { id: 'A', text: "Option C: Storing plain-text authentication tokens directly inside workflow YAML files." },
+      { id: 'B', text: "Option D: Disabling step-level error handling and concurrency cancellations." },
+      { id: 'C', text: "Option A: Standard GitHub Actions recommended practice for Author and maintain workflows matching official GH-200 guidelines." },
+      { id: 'D', text: "Option B: Legacy unauthenticated shell script execution on ephemeral runners." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Comprehensive GitHub Actions GH-200 explanation for topic #18: Demonstrates best practices in YAML workflow authoring, context expressions, environment secrets, custom action development (JavaScript/Docker/Composite), self-hosted runner scale-sets, and OIDC federated authentication with cloud providers.",
     referenceUrl: "https://docs.github.com/en/actions",
@@ -387,12 +387,12 @@ export const GITHUB_ACTIONS_QUESTIONS_1 = [
     scenario: "A DevOps engineering team is implementing enterprise automation with GitHub Actions for scenario #19, requiring robust workflow triggers, dependency caching, matrix builds, or secure runner infrastructure.",
     question: "Which GitHub Actions syntax, workflow configuration, or runner strategy best meets requirement #19?",
     options: [
-      { id: 'A', text: "Option D: Disabling step-level error handling and concurrency cancellations." },
-      { id: 'B', text: "Option B: Legacy unauthenticated shell script execution on ephemeral runners." },
-      { id: 'C', text: "Option A: Standard GitHub Actions recommended practice for Author and maintain workflows matching official GH-200 guidelines." },
-      { id: 'D', text: "Option C: Storing plain-text authentication tokens directly inside workflow YAML files." }
+      { id: 'A', text: "Option B: Legacy unauthenticated shell script execution on ephemeral runners." },
+      { id: 'B', text: "Option A: Standard GitHub Actions recommended practice for Author and maintain workflows matching official GH-200 guidelines." },
+      { id: 'C', text: "Option C: Storing plain-text authentication tokens directly inside workflow YAML files." },
+      { id: 'D', text: "Option D: Disabling step-level error handling and concurrency cancellations." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Comprehensive GitHub Actions GH-200 explanation for topic #19: Demonstrates best practices in YAML workflow authoring, context expressions, environment secrets, custom action development (JavaScript/Docker/Composite), self-hosted runner scale-sets, and OIDC federated authentication with cloud providers.",
     referenceUrl: "https://docs.github.com/en/actions",
@@ -408,8 +408,8 @@ export const GITHUB_ACTIONS_QUESTIONS_1 = [
     scenario: "A DevOps engineering team is implementing enterprise automation with GitHub Actions for scenario #20, requiring robust workflow triggers, dependency caching, matrix builds, or secure runner infrastructure.",
     question: "Which GitHub Actions syntax, workflow configuration, or runner strategy best meets requirement #20?",
     options: [
-      { id: 'A', text: "Option B: Legacy unauthenticated shell script execution on ephemeral runners." },
-      { id: 'B', text: "Option C: Storing plain-text authentication tokens directly inside workflow YAML files." },
+      { id: 'A', text: "Option C: Storing plain-text authentication tokens directly inside workflow YAML files." },
+      { id: 'B', text: "Option B: Legacy unauthenticated shell script execution on ephemeral runners." },
       { id: 'C', text: "Option A: Standard GitHub Actions recommended practice for Author and maintain workflows matching official GH-200 guidelines." },
       { id: 'D', text: "Option D: Disabling step-level error handling and concurrency cancellations." }
     ],
@@ -450,12 +450,12 @@ export const GITHUB_ACTIONS_QUESTIONS_1 = [
     scenario: "A DevOps engineering team is implementing enterprise automation with GitHub Actions for scenario #22, requiring robust workflow triggers, dependency caching, matrix builds, or secure runner infrastructure.",
     question: "Which GitHub Actions syntax, workflow configuration, or runner strategy best meets requirement #22?",
     options: [
-      { id: 'A', text: "Option D: Disabling step-level error handling and concurrency cancellations." },
-      { id: 'B', text: "Option A: Standard GitHub Actions recommended practice for Author and maintain workflows matching official GH-200 guidelines." },
-      { id: 'C', text: "Option B: Legacy unauthenticated shell script execution on ephemeral runners." },
-      { id: 'D', text: "Option C: Storing plain-text authentication tokens directly inside workflow YAML files." }
+      { id: 'A', text: "Option A: Standard GitHub Actions recommended practice for Author and maintain workflows matching official GH-200 guidelines." },
+      { id: 'B', text: "Option D: Disabling step-level error handling and concurrency cancellations." },
+      { id: 'C', text: "Option C: Storing plain-text authentication tokens directly inside workflow YAML files." },
+      { id: 'D', text: "Option B: Legacy unauthenticated shell script execution on ephemeral runners." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Comprehensive GitHub Actions GH-200 explanation for topic #22: Demonstrates best practices in YAML workflow authoring, context expressions, environment secrets, custom action development (JavaScript/Docker/Composite), self-hosted runner scale-sets, and OIDC federated authentication with cloud providers.",
     referenceUrl: "https://docs.github.com/en/actions",
@@ -471,12 +471,12 @@ export const GITHUB_ACTIONS_QUESTIONS_1 = [
     scenario: "A DevOps engineering team is implementing enterprise automation with GitHub Actions for scenario #23, requiring robust workflow triggers, dependency caching, matrix builds, or secure runner infrastructure.",
     question: "Which GitHub Actions syntax, workflow configuration, or runner strategy best meets requirement #23?",
     options: [
-      { id: 'A', text: "Option A: Standard GitHub Actions recommended practice for Author and maintain workflows matching official GH-200 guidelines." },
-      { id: 'B', text: "Option C: Storing plain-text authentication tokens directly inside workflow YAML files." },
-      { id: 'C', text: "Option B: Legacy unauthenticated shell script execution on ephemeral runners." },
-      { id: 'D', text: "Option D: Disabling step-level error handling and concurrency cancellations." }
+      { id: 'A', text: "Option D: Disabling step-level error handling and concurrency cancellations." },
+      { id: 'B', text: "Option B: Legacy unauthenticated shell script execution on ephemeral runners." },
+      { id: 'C', text: "Option C: Storing plain-text authentication tokens directly inside workflow YAML files." },
+      { id: 'D', text: "Option A: Standard GitHub Actions recommended practice for Author and maintain workflows matching official GH-200 guidelines." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Comprehensive GitHub Actions GH-200 explanation for topic #23: Demonstrates best practices in YAML workflow authoring, context expressions, environment secrets, custom action development (JavaScript/Docker/Composite), self-hosted runner scale-sets, and OIDC federated authentication with cloud providers.",
     referenceUrl: "https://docs.github.com/en/actions",
@@ -492,10 +492,10 @@ export const GITHUB_ACTIONS_QUESTIONS_1 = [
     scenario: "A DevOps engineering team is implementing enterprise automation with GitHub Actions for scenario #24, requiring robust workflow triggers, dependency caching, matrix builds, or secure runner infrastructure.",
     question: "Which GitHub Actions syntax, workflow configuration, or runner strategy best meets requirement #24?",
     options: [
-      { id: 'A', text: "Option B: Legacy unauthenticated shell script execution on ephemeral runners." },
+      { id: 'A', text: "Option C: Storing plain-text authentication tokens directly inside workflow YAML files." },
       { id: 'B', text: "Option A: Standard GitHub Actions recommended practice for Author and maintain workflows matching official GH-200 guidelines." },
-      { id: 'C', text: "Option D: Disabling step-level error handling and concurrency cancellations." },
-      { id: 'D', text: "Option C: Storing plain-text authentication tokens directly inside workflow YAML files." }
+      { id: 'C', text: "Option B: Legacy unauthenticated shell script execution on ephemeral runners." },
+      { id: 'D', text: "Option D: Disabling step-level error handling and concurrency cancellations." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -513,12 +513,12 @@ export const GITHUB_ACTIONS_QUESTIONS_1 = [
     scenario: "A DevOps engineering team is implementing enterprise automation with GitHub Actions for scenario #25, requiring robust workflow triggers, dependency caching, matrix builds, or secure runner infrastructure.",
     question: "Which GitHub Actions syntax, workflow configuration, or runner strategy best meets requirement #25?",
     options: [
-      { id: 'A', text: "Option B: Legacy unauthenticated shell script execution on ephemeral runners." },
-      { id: 'B', text: "Option A: Standard GitHub Actions recommended practice for Author and maintain workflows matching official GH-200 guidelines." },
-      { id: 'C', text: "Option C: Storing plain-text authentication tokens directly inside workflow YAML files." },
+      { id: 'A', text: "Option C: Storing plain-text authentication tokens directly inside workflow YAML files." },
+      { id: 'B', text: "Option B: Legacy unauthenticated shell script execution on ephemeral runners." },
+      { id: 'C', text: "Option A: Standard GitHub Actions recommended practice for Author and maintain workflows matching official GH-200 guidelines." },
       { id: 'D', text: "Option D: Disabling step-level error handling and concurrency cancellations." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Comprehensive GitHub Actions GH-200 explanation for topic #25: Demonstrates best practices in YAML workflow authoring, context expressions, environment secrets, custom action development (JavaScript/Docker/Composite), self-hosted runner scale-sets, and OIDC federated authentication with cloud providers.",
     referenceUrl: "https://docs.github.com/en/actions",
