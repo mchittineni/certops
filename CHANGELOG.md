@@ -11,15 +11,68 @@ progress is tracked by `npm run stats` and in
 ## [Unreleased]
 
 ### Content
-- Scaled **GitHub Actions Certification (`github-actions` / GH-200)** question bank and flashcard deck to **250 questions** and **250 flashcards** across 10 modular packs with verified blueprint domains.
-- Scaled **FinOps Certified Practitioner (`finops-focp` / FOCP)** question bank and flashcard deck to **250 questions** and **250 flashcards** across 10 modular packs with verified blueprint domains.
-- Scaled **GitHub Advanced Security Certification (`github-ghas` / GH-500)** question bank and flashcard deck to **250 questions** and **250 flashcards** across 10 modular packs with verified blueprint domains.
-- Scaled **AWS Certified Cloud Practitioner (`aws-clf`)** question bank and flashcard deck to **250 questions** and **250 flashcards** across 10 modular packs with verified blueprint domains.
-- Scaled **Microsoft Azure Fundamentals (`azure-az900`)** question bank and flashcard deck to **250 questions** and **250 flashcards** across 10 modular packs with verified blueprint domains.
 - Scaled **AWS Certified Solutions Architect – Associate (`aws-saa`)** question bank and flashcard deck to **250 questions** and **250 flashcards** across 10 modular packs.
 - Activated and verified **Microsoft Azure Administrator Associate (`azure-az104`)** blueprint, adding **250 exam questions** and **250 flashcards** across 10 modular packs.
-- Balanced and randomized option placement across all 1,944 questions in the bank to ensure even distribution across choices A (531), B (495), C (509), and D (382).
-- Added `scripts/shuffle-options.mjs` utility for maintaining balanced option positions across question banks.
+- Scaled **AWS Certified Cloud Practitioner (`aws-clf`)**, **Microsoft Azure Fundamentals (`azure-az900`)**, **GitHub Actions (`github-actions` / GH-200)**, **FinOps Certified Practitioner (`finops-focp`)**, and **GitHub Advanced Security (`github-ghas` / GH-500)** to **250 questions** and **250 flashcards** each across 10 modular packs. Note that the last four of these, plus most `aws-clf` flashcards, are generated placeholders rather than authored content — see **Known gaps** below.
+- Added `scripts/shuffle-options.mjs` to keep answer positions evenly distributed across the bank.
+- Activated **HashiCorp Terraform Authoring and Operations Professional (`hashicorp-tfp`)**
+  with a reconstructed six-domain blueprint, **250 questions** and **250 flashcards** across
+  10 packs. `blueprintVerified` is deliberately left `false`: the exam publishes objectives
+  rather than percentage weights, so the domain split is an authoring judgement pending
+  confirmation against HashiCorp's exam guide.
+- Scaled **Certified Kubernetes Administrator (`k8s-cka`)** from 10 to **250 questions** and
+  from 12 to **250 flashcards** across 11 packs.
+- Renumbered all new content onto the project-wide sequential id convention
+  (`<certId>-<n>`, `<certId>-fc-<n>`).
+
+### Fixed
+- **Stale option-letter references in 825 explanations.** `npm run shuffle` re-keys answers
+  from option text, so any explanation naming a letter goes false the next time it runs.
+  Several were actively wrong — `aws-saa-11`, `aws-saa-218` and `az-104-26` each cited their
+  own keyed answer as an incorrect option, and `k8s-cka-14` described the correct answer as
+  the thing to avoid. 814 were repaired mechanically and the remainder by hand.
+- **Two RNG bias defects in `scripts/shuffle-options.mjs`.** The seed hash left neighbouring
+  sequential ids one bit apart, and the LCG's low bits were sampled for a range of 4 — a
+  cycle far too short to be uniform there. `hashicorp-tfp` had 240 of 241 answers on A; a
+  single shuffle then produced C:122 / D:0. Fixed with a murmur3 finalizer on the seed and
+  by taking the LCG's high bits. Distribution is now A:538 B:600 C:548 D:534.
+- Flashcard `hint` fields were never markup-checked, so an unescaped `<accountname>`
+  placeholder in `az-104-84` would have vanished at render time.
+- `az-104-179` listed FIDO2 security keys as a Self-Service Password Reset method. FIDO2 is
+  supported for multifactor and passwordless sign-in, not for password reset.
+- Three angle-bracket placeholders that parsed as HTML tags (`module.<name>.<output>`,
+  `terraform-<PROVIDER>-<NAME>`, `system:node:<nodeName>`).
+
+### Added
+- `npm run audit:explanations` — fails the build on any explanation that names an option
+  letter, in prose (`option B`), bare citation (`(C)`), or list (`(B, C)`, `(D is wrong)`)
+  form. Wired into `npm run validate`, so the defect class above cannot return.
+- `npm run audit:answers` — reports questions whose explanation argues against its own
+  keyed answer, by token overlap. Reporting only; false positives are expected.
+- `npm run audit:filler` — inventories generated placeholder content. Currently **1,000
+  questions and 1,225 flashcards across 5 live certifications** whose answers cannot be
+  verified because the questions have no substance.
+- `npm run fix:explanations` — bulk-strips parenthesised option-letter references.
+- `npm run shuffle` — exposed as a script rather than an ad-hoc invocation.
+
+### Verified
+- Every one of the **1,259 authored questions** was read against its options, key, and
+  explanation across `aws-clf`, `aws-saa`, `azure-az104`, `gcp-ace`, `hashicorp-tfp`, and
+  `k8s-cka`. The defects listed under **Fixed** are what that pass found.
+
+### Known gaps
+- **1,000 questions and 1,225 flashcards across 5 live certifications are generated
+  placeholders**, not authored content: `azure-az900`, `github-actions`, `finops-focp`,
+  `github-ghas`, and `aws-clf` flashcards 26–250. They read like
+  *"Which service best addresses requirement #77?"* with an option labelled
+  *"(Optimal recommended solution)"*. Their answers cannot be verified, and they break
+  under `npm run shuffle` because the option text hard-codes a letter. `npm run audit:filler`
+  reports the current inventory. These banks are live and should be rewritten before they
+  are trusted.
+- Domain distribution drifts from blueprint weights in the two newest banks — CKA
+  Troubleshooting has 54 questions against a 30% weight (~75 expected), Storage 37 against
+  ~25; TF-PRO Debugging has 40 against ~25. Exam simulation will repeat within the
+  under-filled domains more than intended.
 
 ## [0.1.0] — 2026-08-27
 
