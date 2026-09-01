@@ -9,12 +9,12 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #1 requiring enterprise architecture alignment with Microsoft best practices.",
     question: "Which Microsoft Azure service or architectural principle best addresses requirement #1?",
     options: [
-      { id: 'A', text: "Option A: Azure core capability for Describe Cloud Concepts (Optimal recommended solution)." },
+      { id: 'A', text: "Option C: Unmanaged manual scripting without high availability." },
       { id: 'B', text: "Option D: Standalone virtual machine without redundancy." },
-      { id: 'C', text: "Option C: Unmanaged manual scripting without high availability." },
-      { id: 'D', text: "Option B: Legacy on-premises hardware approach." }
+      { id: 'C', text: "Option B: Legacy on-premises hardware approach." },
+      { id: 'D', text: "Option A: Azure core capability for Describe Cloud Concepts (Optimal recommended solution)." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #1: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
@@ -30,12 +30,12 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #2 requiring enterprise architecture alignment with Microsoft best practices.",
     question: "Which Microsoft Azure service or architectural principle best addresses requirement #2?",
     options: [
-      { id: 'A', text: "Option D: Standalone virtual machine without redundancy." },
-      { id: 'B', text: "Option A: Azure core capability for Describe Cloud Concepts (Optimal recommended solution)." },
-      { id: 'C', text: "Option B: Legacy on-premises hardware approach." },
-      { id: 'D', text: "Option C: Unmanaged manual scripting without high availability." }
+      { id: 'A', text: "Option C: Unmanaged manual scripting without high availability." },
+      { id: 'B', text: "Option D: Standalone virtual machine without redundancy." },
+      { id: 'C', text: "Option A: Azure core capability for Describe Cloud Concepts (Optimal recommended solution)." },
+      { id: 'D', text: "Option B: Legacy on-premises hardware approach." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #2: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
@@ -51,8 +51,8 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #3 requiring enterprise architecture alignment with Microsoft best practices.",
     question: "Which Microsoft Azure service or architectural principle best addresses requirement #3?",
     options: [
-      { id: 'A', text: "Option C: Unmanaged manual scripting without high availability." },
-      { id: 'B', text: "Option D: Standalone virtual machine without redundancy." },
+      { id: 'A', text: "Option D: Standalone virtual machine without redundancy." },
+      { id: 'B', text: "Option C: Unmanaged manual scripting without high availability." },
       { id: 'C', text: "Option B: Legacy on-premises hardware approach." },
       { id: 'D', text: "Option A: Azure core capability for Describe Cloud Concepts (Optimal recommended solution)." }
     ],
@@ -73,11 +73,11 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     question: "Which Microsoft Azure service or architectural principle best addresses requirement #4?",
     options: [
       { id: 'A', text: "Option B: Legacy on-premises hardware approach." },
-      { id: 'B', text: "Option D: Standalone virtual machine without redundancy." },
-      { id: 'C', text: "Option A: Azure core capability for Describe Cloud Concepts (Optimal recommended solution)." },
+      { id: 'B', text: "Option A: Azure core capability for Describe Cloud Concepts (Optimal recommended solution)." },
+      { id: 'C', text: "Option D: Standalone virtual machine without redundancy." },
       { id: 'D', text: "Option C: Unmanaged manual scripting without high availability." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #4: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
@@ -94,8 +94,8 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     question: "Which Microsoft Azure service or architectural principle best addresses requirement #5?",
     options: [
       { id: 'A', text: "Option A: Azure core capability for Describe Cloud Concepts (Optimal recommended solution)." },
-      { id: 'B', text: "Option D: Standalone virtual machine without redundancy." },
-      { id: 'C', text: "Option C: Unmanaged manual scripting without high availability." },
+      { id: 'B', text: "Option C: Unmanaged manual scripting without high availability." },
+      { id: 'C', text: "Option D: Standalone virtual machine without redundancy." },
       { id: 'D', text: "Option B: Legacy on-premises hardware approach." }
     ],
     correctAnswers: ['A'],
@@ -114,12 +114,12 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #6 requiring enterprise architecture alignment with Microsoft best practices.",
     question: "Which Microsoft Azure service or architectural principle best addresses requirement #6?",
     options: [
-      { id: 'A', text: "Option C: Unmanaged manual scripting without high availability." },
+      { id: 'A', text: "Option A: Azure core capability for Describe Cloud Concepts (Optimal recommended solution)." },
       { id: 'B', text: "Option D: Standalone virtual machine without redundancy." },
-      { id: 'C', text: "Option A: Azure core capability for Describe Cloud Concepts (Optimal recommended solution)." },
-      { id: 'D', text: "Option B: Legacy on-premises hardware approach." }
+      { id: 'C', text: "Option B: Legacy on-premises hardware approach." },
+      { id: 'D', text: "Option C: Unmanaged manual scripting without high availability." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #6: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
@@ -135,12 +135,12 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #7 requiring enterprise architecture alignment with Microsoft best practices.",
     question: "Which Microsoft Azure service or architectural principle best addresses requirement #7?",
     options: [
-      { id: 'A', text: "Option A: Azure core capability for Describe Cloud Concepts (Optimal recommended solution)." },
-      { id: 'B', text: "Option C: Unmanaged manual scripting without high availability." },
-      { id: 'C', text: "Option D: Standalone virtual machine without redundancy." },
-      { id: 'D', text: "Option B: Legacy on-premises hardware approach." }
+      { id: 'A', text: "Option C: Unmanaged manual scripting without high availability." },
+      { id: 'B', text: "Option B: Legacy on-premises hardware approach." },
+      { id: 'C', text: "Option A: Azure core capability for Describe Cloud Concepts (Optimal recommended solution)." },
+      { id: 'D', text: "Option D: Standalone virtual machine without redundancy." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #7: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
@@ -156,12 +156,12 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #8 requiring enterprise architecture alignment with Microsoft best practices.",
     question: "Which Microsoft Azure service or architectural principle best addresses requirement #8?",
     options: [
-      { id: 'A', text: "Option C: Unmanaged manual scripting without high availability." },
-      { id: 'B', text: "Option A: Azure core capability for Describe Cloud Concepts (Optimal recommended solution)." },
-      { id: 'C', text: "Option D: Standalone virtual machine without redundancy." },
-      { id: 'D', text: "Option B: Legacy on-premises hardware approach." }
+      { id: 'A', text: "Option B: Legacy on-premises hardware approach." },
+      { id: 'B', text: "Option C: Unmanaged manual scripting without high availability." },
+      { id: 'C', text: "Option A: Azure core capability for Describe Cloud Concepts (Optimal recommended solution)." },
+      { id: 'D', text: "Option D: Standalone virtual machine without redundancy." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #8: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
@@ -177,12 +177,12 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #9 requiring enterprise architecture alignment with Microsoft best practices.",
     question: "Which Microsoft Azure service or architectural principle best addresses requirement #9?",
     options: [
-      { id: 'A', text: "Option A: Azure core capability for Describe Cloud Concepts (Optimal recommended solution)." },
+      { id: 'A', text: "Option B: Legacy on-premises hardware approach." },
       { id: 'B', text: "Option C: Unmanaged manual scripting without high availability." },
       { id: 'C', text: "Option D: Standalone virtual machine without redundancy." },
-      { id: 'D', text: "Option B: Legacy on-premises hardware approach." }
+      { id: 'D', text: "Option A: Azure core capability for Describe Cloud Concepts (Optimal recommended solution)." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #9: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
@@ -198,12 +198,12 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #10 requiring enterprise architecture alignment with Microsoft best practices.",
     question: "Which Microsoft Azure service or architectural principle best addresses requirement #10?",
     options: [
-      { id: 'A', text: "Option C: Unmanaged manual scripting without high availability." },
-      { id: 'B', text: "Option B: Legacy on-premises hardware approach." },
-      { id: 'C', text: "Option A: Azure core capability for Describe Cloud Concepts (Optimal recommended solution)." },
-      { id: 'D', text: "Option D: Standalone virtual machine without redundancy." }
+      { id: 'A', text: "Option B: Legacy on-premises hardware approach." },
+      { id: 'B', text: "Option D: Standalone virtual machine without redundancy." },
+      { id: 'C', text: "Option C: Unmanaged manual scripting without high availability." },
+      { id: 'D', text: "Option A: Azure core capability for Describe Cloud Concepts (Optimal recommended solution)." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #10: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
@@ -219,12 +219,12 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #11 requiring enterprise architecture alignment with Microsoft best practices.",
     question: "Which Microsoft Azure service or architectural principle best addresses requirement #11?",
     options: [
-      { id: 'A', text: "Option C: Unmanaged manual scripting without high availability." },
-      { id: 'B', text: "Option B: Legacy on-premises hardware approach." },
-      { id: 'C', text: "Option D: Standalone virtual machine without redundancy." },
-      { id: 'D', text: "Option A: Azure core capability for Describe Cloud Concepts (Optimal recommended solution)." }
+      { id: 'A', text: "Option A: Azure core capability for Describe Cloud Concepts (Optimal recommended solution)." },
+      { id: 'B', text: "Option D: Standalone virtual machine without redundancy." },
+      { id: 'C', text: "Option C: Unmanaged manual scripting without high availability." },
+      { id: 'D', text: "Option B: Legacy on-premises hardware approach." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #11: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
@@ -241,11 +241,11 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     question: "Which Microsoft Azure service or architectural principle best addresses requirement #12?",
     options: [
       { id: 'A', text: "Option C: Unmanaged manual scripting without high availability." },
-      { id: 'B', text: "Option B: Legacy on-premises hardware approach." },
-      { id: 'C', text: "Option D: Standalone virtual machine without redundancy." },
-      { id: 'D', text: "Option A: Azure core capability for Describe Cloud Concepts (Optimal recommended solution)." }
+      { id: 'B', text: "Option A: Azure core capability for Describe Cloud Concepts (Optimal recommended solution)." },
+      { id: 'C', text: "Option B: Legacy on-premises hardware approach." },
+      { id: 'D', text: "Option D: Standalone virtual machine without redundancy." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #12: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
@@ -262,11 +262,11 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     question: "Which Microsoft Azure service or architectural principle best addresses requirement #13?",
     options: [
       { id: 'A', text: "Option B: Legacy on-premises hardware approach." },
-      { id: 'B', text: "Option A: Azure core capability for Describe Cloud Concepts (Optimal recommended solution)." },
+      { id: 'B', text: "Option D: Standalone virtual machine without redundancy." },
       { id: 'C', text: "Option C: Unmanaged manual scripting without high availability." },
-      { id: 'D', text: "Option D: Standalone virtual machine without redundancy." }
+      { id: 'D', text: "Option A: Azure core capability for Describe Cloud Concepts (Optimal recommended solution)." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #13: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
@@ -303,12 +303,12 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #15 requiring enterprise architecture alignment with Microsoft best practices.",
     question: "Which Microsoft Azure service or architectural principle best addresses requirement #15?",
     options: [
-      { id: 'A', text: "Option A: Azure core capability for Describe Cloud Concepts (Optimal recommended solution)." },
-      { id: 'B', text: "Option B: Legacy on-premises hardware approach." },
-      { id: 'C', text: "Option D: Standalone virtual machine without redundancy." },
-      { id: 'D', text: "Option C: Unmanaged manual scripting without high availability." }
+      { id: 'A', text: "Option C: Unmanaged manual scripting without high availability." },
+      { id: 'B', text: "Option D: Standalone virtual machine without redundancy." },
+      { id: 'C', text: "Option B: Legacy on-premises hardware approach." },
+      { id: 'D', text: "Option A: Azure core capability for Describe Cloud Concepts (Optimal recommended solution)." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #15: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
@@ -324,12 +324,12 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #16 requiring enterprise architecture alignment with Microsoft best practices.",
     question: "Which Microsoft Azure service or architectural principle best addresses requirement #16?",
     options: [
-      { id: 'A', text: "Option D: Standalone virtual machine without redundancy." },
-      { id: 'B', text: "Option C: Unmanaged manual scripting without high availability." },
-      { id: 'C', text: "Option A: Azure core capability for Describe Cloud Concepts (Optimal recommended solution)." },
-      { id: 'D', text: "Option B: Legacy on-premises hardware approach." }
+      { id: 'A', text: "Option C: Unmanaged manual scripting without high availability." },
+      { id: 'B', text: "Option A: Azure core capability for Describe Cloud Concepts (Optimal recommended solution)." },
+      { id: 'C', text: "Option B: Legacy on-premises hardware approach." },
+      { id: 'D', text: "Option D: Standalone virtual machine without redundancy." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #16: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
@@ -346,11 +346,11 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     question: "Which Microsoft Azure service or architectural principle best addresses requirement #17?",
     options: [
       { id: 'A', text: "Option B: Legacy on-premises hardware approach." },
-      { id: 'B', text: "Option D: Standalone virtual machine without redundancy." },
-      { id: 'C', text: "Option A: Azure core capability for Describe Cloud Concepts (Optimal recommended solution)." },
-      { id: 'D', text: "Option C: Unmanaged manual scripting without high availability." }
+      { id: 'B', text: "Option A: Azure core capability for Describe Cloud Concepts (Optimal recommended solution)." },
+      { id: 'C', text: "Option C: Unmanaged manual scripting without high availability." },
+      { id: 'D', text: "Option D: Standalone virtual machine without redundancy." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #17: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
@@ -366,12 +366,12 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #18 requiring enterprise architecture alignment with Microsoft best practices.",
     question: "Which Microsoft Azure service or architectural principle best addresses requirement #18?",
     options: [
-      { id: 'A', text: "Option D: Standalone virtual machine without redundancy." },
+      { id: 'A', text: "Option B: Legacy on-premises hardware approach." },
       { id: 'B', text: "Option C: Unmanaged manual scripting without high availability." },
-      { id: 'C', text: "Option B: Legacy on-premises hardware approach." },
-      { id: 'D', text: "Option A: Azure core capability for Describe Cloud Concepts (Optimal recommended solution)." }
+      { id: 'C', text: "Option A: Azure core capability for Describe Cloud Concepts (Optimal recommended solution)." },
+      { id: 'D', text: "Option D: Standalone virtual machine without redundancy." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #18: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
@@ -387,12 +387,12 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #19 requiring enterprise architecture alignment with Microsoft best practices.",
     question: "Which Microsoft Azure service or architectural principle best addresses requirement #19?",
     options: [
-      { id: 'A', text: "Option A: Azure core capability for Describe Cloud Concepts (Optimal recommended solution)." },
-      { id: 'B', text: "Option D: Standalone virtual machine without redundancy." },
-      { id: 'C', text: "Option B: Legacy on-premises hardware approach." },
-      { id: 'D', text: "Option C: Unmanaged manual scripting without high availability." }
+      { id: 'A', text: "Option B: Legacy on-premises hardware approach." },
+      { id: 'B', text: "Option C: Unmanaged manual scripting without high availability." },
+      { id: 'C', text: "Option A: Azure core capability for Describe Cloud Concepts (Optimal recommended solution)." },
+      { id: 'D', text: "Option D: Standalone virtual machine without redundancy." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #19: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
@@ -408,12 +408,12 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #20 requiring enterprise architecture alignment with Microsoft best practices.",
     question: "Which Microsoft Azure service or architectural principle best addresses requirement #20?",
     options: [
-      { id: 'A', text: "Option C: Unmanaged manual scripting without high availability." },
-      { id: 'B', text: "Option A: Azure core capability for Describe Cloud Concepts (Optimal recommended solution)." },
+      { id: 'A', text: "Option A: Azure core capability for Describe Cloud Concepts (Optimal recommended solution)." },
+      { id: 'B', text: "Option C: Unmanaged manual scripting without high availability." },
       { id: 'C', text: "Option D: Standalone virtual machine without redundancy." },
       { id: 'D', text: "Option B: Legacy on-premises hardware approach." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #20: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
@@ -429,12 +429,12 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #21 requiring enterprise architecture alignment with Microsoft best practices.",
     question: "Which Microsoft Azure service or architectural principle best addresses requirement #21?",
     options: [
-      { id: 'A', text: "Option B: Legacy on-premises hardware approach." },
-      { id: 'B', text: "Option D: Standalone virtual machine without redundancy." },
-      { id: 'C', text: "Option C: Unmanaged manual scripting without high availability." },
-      { id: 'D', text: "Option A: Azure core capability for Describe Cloud Concepts (Optimal recommended solution)." }
+      { id: 'A', text: "Option C: Unmanaged manual scripting without high availability." },
+      { id: 'B', text: "Option A: Azure core capability for Describe Cloud Concepts (Optimal recommended solution)." },
+      { id: 'C', text: "Option B: Legacy on-premises hardware approach." },
+      { id: 'D', text: "Option D: Standalone virtual machine without redundancy." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #21: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
@@ -450,12 +450,12 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #22 requiring enterprise architecture alignment with Microsoft best practices.",
     question: "Which Microsoft Azure service or architectural principle best addresses requirement #22?",
     options: [
-      { id: 'A', text: "Option C: Unmanaged manual scripting without high availability." },
-      { id: 'B', text: "Option A: Azure core capability for Describe Cloud Concepts (Optimal recommended solution)." },
-      { id: 'C', text: "Option D: Standalone virtual machine without redundancy." },
-      { id: 'D', text: "Option B: Legacy on-premises hardware approach." }
+      { id: 'A', text: "Option A: Azure core capability for Describe Cloud Concepts (Optimal recommended solution)." },
+      { id: 'B', text: "Option D: Standalone virtual machine without redundancy." },
+      { id: 'C', text: "Option B: Legacy on-premises hardware approach." },
+      { id: 'D', text: "Option C: Unmanaged manual scripting without high availability." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #22: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
@@ -471,12 +471,12 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #23 requiring enterprise architecture alignment with Microsoft best practices.",
     question: "Which Microsoft Azure service or architectural principle best addresses requirement #23?",
     options: [
-      { id: 'A', text: "Option B: Legacy on-premises hardware approach." },
-      { id: 'B', text: "Option A: Azure core capability for Describe Cloud Concepts (Optimal recommended solution)." },
-      { id: 'C', text: "Option C: Unmanaged manual scripting without high availability." },
-      { id: 'D', text: "Option D: Standalone virtual machine without redundancy." }
+      { id: 'A', text: "Option A: Azure core capability for Describe Cloud Concepts (Optimal recommended solution)." },
+      { id: 'B', text: "Option C: Unmanaged manual scripting without high availability." },
+      { id: 'C', text: "Option D: Standalone virtual machine without redundancy." },
+      { id: 'D', text: "Option B: Legacy on-premises hardware approach." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #23: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
@@ -492,12 +492,12 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #24 requiring enterprise architecture alignment with Microsoft best practices.",
     question: "Which Microsoft Azure service or architectural principle best addresses requirement #24?",
     options: [
-      { id: 'A', text: "Option B: Legacy on-premises hardware approach." },
-      { id: 'B', text: "Option C: Unmanaged manual scripting without high availability." },
-      { id: 'C', text: "Option A: Azure core capability for Describe Cloud Concepts (Optimal recommended solution)." },
-      { id: 'D', text: "Option D: Standalone virtual machine without redundancy." }
+      { id: 'A', text: "Option D: Standalone virtual machine without redundancy." },
+      { id: 'B', text: "Option A: Azure core capability for Describe Cloud Concepts (Optimal recommended solution)." },
+      { id: 'C', text: "Option C: Unmanaged manual scripting without high availability." },
+      { id: 'D', text: "Option B: Legacy on-premises hardware approach." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #24: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
@@ -513,12 +513,12 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #25 requiring enterprise architecture alignment with Microsoft best practices.",
     question: "Which Microsoft Azure service or architectural principle best addresses requirement #25?",
     options: [
-      { id: 'A', text: "Option B: Legacy on-premises hardware approach." },
-      { id: 'B', text: "Option C: Unmanaged manual scripting without high availability." },
-      { id: 'C', text: "Option A: Azure core capability for Describe Cloud Concepts (Optimal recommended solution)." },
-      { id: 'D', text: "Option D: Standalone virtual machine without redundancy." }
+      { id: 'A', text: "Option A: Azure core capability for Describe Cloud Concepts (Optimal recommended solution)." },
+      { id: 'B', text: "Option B: Legacy on-premises hardware approach." },
+      { id: 'C', text: "Option D: Standalone virtual machine without redundancy." },
+      { id: 'D', text: "Option C: Unmanaged manual scripting without high availability." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #25: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
