@@ -72,11 +72,55 @@ module fetches ~250 KB for that certification only.
 - **markup that must never reach `innerHTML`** — `<script>`, `<iframe>`, `<object>`,
   `<embed>`, `<link>`, `<style>`, `<svg>`, `<form>`, `<meta>`, `<base>`, any `on*=`
   handler, and `javascript:` / `data:text/html` URLs
-- any HTML tag outside the allow-list `em strong code kbd br ul ol li p`
+- any HTML tag outside the allow-list `em strong code kbd br ul ol li p` — checked on
+  question `scenario`/`question`/`options`/`explanation` **and** on flashcard
+  `front`/`hint`/`back`
+- **any explanation that names an option letter** — see below
 
 And warns on: a difficulty band with zero questions, a domain with zero questions,
 multi-answer questions that don't say "Choose TWO", thin explanations, and progress
 below the 500-per-certification target.
+
+### Why explanations must never name an option letter
+
+`npm run shuffle` re-orders every question's options and re-keys `correctAnswers` from
+the option *text*. That keeps answer positions evenly distributed across A–D, but it
+means an explanation that says "option B is wrong" or "(C, E)" becomes false the moment
+it runs — and a stale letter reference does not merely read oddly, it tells the learner
+the correct answer is the wrong one. Explanations must describe an option by its
+content, never its position.
+
+`npm run audit:explanations` runs inside `npm run validate` and fails the build on three
+forms:
+
+| Form | Example |
+| --- | --- |
+| prose | `option B`, `choice C`, `answers A and B` |
+| bare citation | `… is unsupported (C).` |
+| letter list | `(B, C)`, `(incorrect A)`, `(D is wrong)` |
+
+The third form is detected by tokenising each parenthesised group: it counts as a letter
+reference only when *every* token is either a single uppercase A–F or a qualifier word
+(`wrong`, `incorrect`, `and`, `is`, …). That is what lets it flag `(B, C)` while leaving
+prose such as `(an A/AAAA record with an alias flag)` alone.
+
+`npm run fix:explanations` strips the bare-citation form in bulk; the prose and
+letter-list forms need a human rewrite, because only a human knows what the letter was
+pointing at.
+
+Two further audits exist that report rather than gate:
+
+- `npm run audit:answers` scores the token overlap between each option and the
+  explanation, and flags questions where a distractor out-scores the keyed answer. It
+  produces false positives by design — a good explanation spends more words rebutting
+  distractors than restating the answer — so treat every hit as a prompt to read the
+  question, not as a defect.
+- `npm run audit:filler` inventories generated placeholder content: items whose text
+  matches patterns like `best addresses requirement #77` or an option labelled
+  `(Optimal recommended solution)`. Their answers cannot be verified because the
+  questions have no substance, and they break under the shuffler because the option text
+  hard-codes a letter. This audit never fails the build — deleting a quarter of the bank
+  is a decision, not a lint rule.
 
 Run `npm run check` before every commit — it backs up content, regenerates the index,
 validates, and runs the test suite under coverage thresholds. CI runs the same gates, plus
