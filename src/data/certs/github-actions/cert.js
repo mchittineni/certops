@@ -15,32 +15,37 @@ export default {
   "title": "GitHub Actions Certification",
   "category": "DevOps & SRE",
   "tier": "associate",
-  "status": "planned",
-  "priority": null,
+  "status": "live",
+  "priority": 16,
   "badgeClass": "badge-github",
   "icon": "github",
   "color": "#8b5cf6",
-  "description": "TODO one-sentence description of what GH-200 validates.",
+  "description": "Demonstrates comprehensive expertise in automating CI/CD workflows, authoring custom actions, and governing secure GitHub Actions deployments.",
   "passingScore": 70,
   "maxScore": 100,
   "defaultTimeMinutes": 120,
-  "blueprintSource": "https://TODO-official-exam-guide",
-  "blueprintVerified": false,
+  "blueprintSource": "https://resources.github.com/learn/certifications/actions/",
+  "blueprintVerified": true,
   "domains": [
     {
       "id": "d1",
-      "name": "TODO Domain 1",
-      "weight": 34
+      "name": "Author and maintain workflows",
+      "weight": 40
     },
     {
       "id": "d2",
-      "name": "TODO Domain 2",
-      "weight": 33
+      "name": "Consume workflows and manage GitHub Actions",
+      "weight": 25
     },
     {
       "id": "d3",
-      "name": "TODO Domain 3",
-      "weight": 33
+      "name": "Author and maintain actions",
+      "weight": 15
+    },
+    {
+      "id": "d4",
+      "name": "Manage enterprise runners, secrets, and governance",
+      "weight": 20
     }
   ]
 };
