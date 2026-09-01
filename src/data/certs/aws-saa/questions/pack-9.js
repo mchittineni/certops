@@ -79,7 +79,7 @@ export const AWS_SAA_QUESTIONS_9 = [
     ],
     correctAnswers: ['A'],
     type: "single",
-    explanation: "For production OpenSearch clusters, the AWS best practice is deploying across 3 Availability Zones with 3 Dedicated Master Nodes (to prevent split-brain issues) and configuring at least 1 replica shard per primary shard. This guarantees that if any single AZ fails, the remaining 2 AZs retain a complete copy of all data and maintain active cluster quorum. Single-AZ setups (B, C) have single points of failure. EFS is not supported for OpenSearch internal cluster data.",
+    explanation: "For production OpenSearch clusters, the AWS best practice is deploying across 3 Availability Zones with 3 Dedicated Master Nodes (to prevent split-brain issues) and configuring at least 1 replica shard per primary shard. This guarantees that if any single AZ fails, the remaining 2 AZs retain a complete copy of all data and maintain active cluster quorum. Single-AZ setups, whether one data node or two, have single points of failure. EFS is not supported for OpenSearch internal cluster data.",
     referenceUrl: "https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html",
     tags: ["OpenSearch", "Multi-AZ", "Dedicated Master", "High Availability", "Resilience"]
   },
@@ -121,7 +121,7 @@ export const AWS_SAA_QUESTIONS_9 = [
     ],
     correctAnswers: ['A'],
     type: "single",
-    explanation: "Amazon Neptune is a fast, reliable, fully managed graph database engine optimized for storing billions of relationships and querying graphs with millisecond latency using popular graph query languages (Apache TinkerPop Gremlin, openCypher, and W3C SPARQL). Relational databases and document/key-value stores (B, D) degrade severely when executing multi-hop relationship recursive join queries.",
+    explanation: "Amazon Neptune is a fast, reliable, fully managed graph database engine optimized for storing billions of relationships and querying graphs with millisecond latency using popular graph query languages (Apache TinkerPop Gremlin, openCypher, and W3C SPARQL). Relational databases and document or key-value stores degrade severely when executing multi-hop recursive relationship queries.",
     referenceUrl: "https://docs.aws.amazon.com/neptune/latest/userguide/intro.html",
     tags: ["Amazon Neptune", "Graph Database", "Fraud Detection", "Performance"]
   },
@@ -373,7 +373,7 @@ export const AWS_SAA_QUESTIONS_9 = [
     ],
     correctAnswers: ['C'],
     type: "single",
-    explanation: "Amazon S3 Intelligent-Tiering automatically moves objects between access tiers: Frequent (0d), Infrequent (30d), Archive Instant (90d), and optional asynchronous Archive Access (90–730d) and Deep Archive Access (180–730d) tiers, providing storage cost savings down to Glacier Deep Archive rates ($0.00099/GB) with zero retrieval fees when objects are accessed. S3 Lifecycle transitions (B, C) incur retrieval fees and early deletion penalties when cold data is accessed. EBS is block storage.",
+    explanation: "Amazon S3 Intelligent-Tiering automatically moves objects between access tiers: Frequent (0d), Infrequent (30d), Archive Instant (90d), and optional asynchronous Archive Access (90–730d) and Deep Archive Access (180–730d) tiers, providing storage cost savings down to Glacier Deep Archive rates ($0.00099/GB) with zero retrieval fees when objects are accessed. Manual S3 Lifecycle transitions - whether from One Zone-IA or from S3 Standard - incur retrieval fees and early deletion penalties when cold data is accessed. EBS is block storage.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/intelligent-tiering.html",
     tags: ["S3 Intelligent-Tiering", "Deep Archive", "Cost Optimization", "Storage"]
   },

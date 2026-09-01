@@ -16,7 +16,7 @@ export const AWS_SAA_QUESTIONS = [
     ],
     correctAnswers: ['C'],
     type: "single",
-    explanation: "Amazon RDS Read Replicas provide horizontal read scalability for read-heavy database workloads. By offloading read queries to one or more Read Replicas, the primary DB instance can handle write operations without degradation. Converting to DynamoDB requires complete application rewriting (incorrect A), vertical scaling is expensive and doesn't distribute reads (incorrect C), and disabling Multi-AZ removes high availability (incorrect D).",
+    explanation: "Amazon RDS Read Replicas provide horizontal read scalability for read-heavy database workloads. By offloading read queries to one or more Read Replicas, the primary DB instance can handle write operations without degradation. Converting to DynamoDB requires a complete application rewrite, scaling up the instance class is expensive and still does not distribute reads across nodes, and dropping to single-AZ removes high availability.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html",
     tags: ["RDS", "Read Replicas", "Multi-AZ", "Scalability", "Databases"]
   },
@@ -229,7 +229,7 @@ export const AWS_SAA_QUESTIONS = [
     ],
     correctAnswers: ['C', 'E'],
     type: "multiple",
-    explanation: "An Aurora global database replicates with typical sub-second lag and supports managed planned failover or promotion in about a minute, satisfying the sub-minute RPO. Pairing it with a pilot-light application tier - infrastructure defined and images baked but scaled to zero - plus Route 53 health-check failover keeps steady-state cost low while still meeting a five-minute RTO. Snapshot-and-restore approaches (C, E) give an RPO measured in hours and an RTO measured in tens of minutes, and full active-active meets the objectives but at roughly double the cost the question rules out.",
+    explanation: "An Aurora global database replicates with typical sub-second lag and supports managed planned failover or promotion in about a minute, satisfying the sub-minute RPO. Pairing it with a pilot-light application tier - infrastructure defined and images baked but scaled to zero - plus Route 53 health-check failover keeps steady-state cost low while still meeting a five-minute RTO. Snapshot-and-restore approaches - cross-Region automated snapshots, or AWS Backup on a 24-hour plan - give an RPO measured in hours and an RTO measured in tens of minutes, and full active-active meets the objectives but at roughly double the cost the question rules out.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html",
     tags: ["Aurora Global Database", "Disaster Recovery", "Route 53", "RTO/RPO"]
   },
