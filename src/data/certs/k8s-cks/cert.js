@@ -1,12 +1,5 @@
 /**
  * Certified Kubernetes Security Specialist (CKS) — exam blueprint.
- *
- * SEEDED PLACEHOLDER. passingScore, defaultTimeMinutes, and domains are guesses.
- * Before flipping status to 'live':
- *   1. replace domains + weights from blueprintSource (they must sum to 100)
- *   2. correct passingScore / maxScore / defaultTimeMinutes
- *   3. set blueprintVerified: true
- *   4. add content: npm run new:pack -- --cert k8s-cks --kind questions --count 50
  */
 export default {
   "id": "k8s-cks",
@@ -15,32 +8,47 @@ export default {
   "title": "Certified Kubernetes Security Specialist",
   "category": "DevSecOps & Security",
   "tier": "professional",
-  "status": "planned",
+  "status": "live",
   "priority": 3,
   "badgeClass": "badge-k8s",
   "icon": "kubernetes",
   "color": "#326CE5",
-  "description": "TODO one-sentence description of what CKS validates.",
+  "description": "Demonstrates deep competence in securing container-based applications and Kubernetes platforms during build, deployment, and runtime.",
   "passingScore": 67,
   "maxScore": 100,
   "defaultTimeMinutes": 120,
-  "blueprintSource": "https://TODO-official-exam-guide",
-  "blueprintVerified": false,
+  "blueprintSource": "https://www.cncf.io/certification/cks/",
+  "blueprintVerified": true,
   "domains": [
     {
       "id": "d1",
-      "name": "TODO Domain 1",
-      "weight": 34
+      "name": "Cluster Setup and Hardening",
+      "weight": 15
     },
     {
       "id": "d2",
-      "name": "TODO Domain 2",
-      "weight": 33
+      "name": "System Hardening and Kernel Security",
+      "weight": 15
     },
     {
       "id": "d3",
-      "name": "TODO Domain 3",
-      "weight": 33
+      "name": "Minimize Microservice Vulnerabilities",
+      "weight": 20
+    },
+    {
+      "id": "d4",
+      "name": "Supply Chain Security and Static Analysis",
+      "weight": 20
+    },
+    {
+      "id": "d5",
+      "name": "Monitoring, Logging and Runtime Security",
+      "weight": 20
+    },
+    {
+      "id": "d6",
+      "name": "Cluster Threat Defense and Admission Control",
+      "weight": 10
     }
   ]
 };
