@@ -119,10 +119,10 @@ await check('choosing a role renders an ordered path with a reason per step', ()
 });
 
 await check('a path shows roadmap steps without offering to start them', () => {
-  dom.click('set-role', { roleId: 'security-engineer' });
+  dom.click('set-role', { roleId: 'solutions-architect' });
   const html = dom.html();
-  // GHAS is live; CKS and CCSP are still on the roadmap, and the path shows both kinds.
-  assert.ok(html.includes('data-cert-id="github-ghas"'), 'the ready step is launchable');
+  // SAA is live; AZ-305 and SAP are still on the roadmap, and the path shows both kinds.
+  assert.ok(html.includes('data-cert-id="aws-saa"'), 'the ready step is launchable');
   assert.ok(html.includes('role-step planned'), 'roadmap steps are marked');
   assert.ok(html.includes('roadmap-pill'), 'roadmap steps say so instead of offering a button');
 });
@@ -174,8 +174,8 @@ await check('every role path names certifications that exist in the catalog', ()
 await check('planned certifications are on the roadmap but not launchable', () => {
   const html = dom.html();
   assert.ok(html.includes('roadmap-chip'), 'roadmap chips render');
-  assert.ok(html.includes('CKS') || html.includes('CNPA'), 'planned certifications are listed');
-  assert.ok(!html.includes('data-action="open-cert" data-cert-id="k8s-cks"'), 'planned certs must not be launchable');
+  assert.ok(html.includes('SAP-C02') || html.includes('AZ-305'), 'planned certifications are listed');
+  assert.ok(!html.includes('data-action="open-cert" data-cert-id="aws-sap"'), 'planned certs must not be launchable');
 });
 
 await check('a chunk that fails to load shows an error view, and recovers on retry', async () => {
