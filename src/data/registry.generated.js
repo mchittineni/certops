@@ -38,11 +38,23 @@ export const CONTENT_REGISTRY = {
       pack('./certs/aws-clf/flashcards/pack-10.js', () => import('./certs/aws-clf/flashcards/pack-10.js'))
     ]
   },
+  'aws-dbs': {
+    questions: [],
+    flashcards: []
+  },
   'aws-dop': {
     questions: [],
     flashcards: []
   },
   'aws-dva': {
+    questions: [],
+    flashcards: []
+  },
+  'aws-mla': {
+    questions: [],
+    flashcards: []
+  },
+  'aws-mls': {
     questions: [],
     flashcards: []
   },
@@ -81,6 +93,14 @@ export const CONTENT_REGISTRY = {
     flashcards: []
   },
   'aws-soa': {
+    questions: [],
+    flashcards: []
+  },
+  'azure-ai-apps-agents': {
+    questions: [],
+    flashcards: []
+  },
+  'azure-ai102': {
     questions: [],
     flashcards: []
   },
@@ -148,6 +168,10 @@ export const CONTENT_REGISTRY = {
       pack('./certs/azure-az900/flashcards/pack-10.js', () => import('./certs/azure-az900/flashcards/pack-10.js'))
     ]
   },
+  'azure-sc500': {
+    questions: [],
+    flashcards: []
+  },
   'cloud-economics': {
     questions: [],
     flashcards: []
@@ -165,6 +189,10 @@ export const CONTENT_REGISTRY = {
     flashcards: []
   },
   'cncf-cgoa': {
+    questions: [],
+    flashcards: []
+  },
+  'cncf-ckne': {
     questions: [],
     flashcards: []
   },
@@ -192,11 +220,19 @@ export const CONTENT_REGISTRY = {
     questions: [],
     flashcards: []
   },
+  'cncf-opa': {
+    questions: [],
+    flashcards: []
+  },
   'cncf-otca': {
     questions: [],
     flashcards: []
   },
   'cncf-pca': {
+    questions: [],
+    flashcards: []
+  },
+  'databricks-genai': {
     questions: [],
     flashcards: []
   },
@@ -225,6 +261,10 @@ export const CONTENT_REGISTRY = {
     flashcards: []
   },
   'doi-sre-practitioner': {
+    questions: [],
+    flashcards: []
+  },
+  'finops-ai-value': {
     questions: [],
     flashcards: []
   },
@@ -262,7 +302,15 @@ export const CONTENT_REGISTRY = {
       pack('./certs/finops-focp/flashcards/pack-10.js', () => import('./certs/finops-focp/flashcards/pack-10.js'))
     ]
   },
+  'finops-focus': {
+    questions: [],
+    flashcards: []
+  },
   'finops-professional': {
+    questions: [],
+    flashcards: []
+  },
+  'finops-tech-value': {
     questions: [],
     flashcards: []
   },
@@ -278,11 +326,23 @@ export const CONTENT_REGISTRY = {
     questions: [],
     flashcards: []
   },
+  'gcp-pcdbe': {
+    questions: [],
+    flashcards: []
+  },
   'gcp-pcdoe': {
     questions: [],
     flashcards: []
   },
+  'gcp-pcne': {
+    questions: [],
+    flashcards: []
+  },
   'gcp-pcse': {
+    questions: [],
+    flashcards: []
+  },
+  'gcp-pde': {
     questions: [],
     flashcards: []
   },
@@ -371,6 +431,10 @@ export const CONTENT_REGISTRY = {
       pack('./certs/hashicorp-tfp/flashcards/pack-9.js', () => import('./certs/hashicorp-tfp/flashcards/pack-9.js')),
       pack('./certs/hashicorp-tfp/flashcards/pack-10.js', () => import('./certs/hashicorp-tfp/flashcards/pack-10.js'))
     ]
+  },
+  'hashicorp-vault': {
+    questions: [],
+    flashcards: []
   },
   'isc2-ccsp': {
     questions: [],
