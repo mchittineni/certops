@@ -1,6 +1,6 @@
 import { isCorrect, LEVELS } from '../lib/select.js';
 import { icon, difficultyPill, escapeHtml } from './ui.js';
-import { providerIcon } from './brand.js';
+import { certIcon } from './brand.js';
 
 const MODE_LABEL = { exam: 'EXAM SIMULATION', practice: 'PRACTICE MODE', quick: 'QUICK QUIZ', daily: 'DAILY CHALLENGE' };
 
@@ -51,7 +51,7 @@ export function renderQuiz(state) {
       <div class="quiz-main">
         <div class="quiz-top-bar">
           <div class="exam-badge-group">
-            <span class="provider-badge ${cert.badgeClass}">${cert.groupByCert ? '' : providerIcon(cert.provider, { size: 15, tone: 'inherit' })} ${escapeHtml(cert.code)}</span>
+            <span class="provider-badge ${cert.badgeClass}">${cert.groupByCert ? '' : certIcon(cert, { size: 15, tone: 'inherit' })} ${escapeHtml(cert.code)}</span>
             <span class="quiz-counter">Question ${currentIndex + 1} of ${total}</span>
             <span class="mode-chip">${MODE_LABEL[quiz.mode]}</span>
             ${quiz.difficulty === 'adaptive'

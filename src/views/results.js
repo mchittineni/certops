@@ -1,5 +1,5 @@
 import { icon, progressBar, difficultyPill, escapeHtml } from './ui.js';
-import { providerIcon } from './brand.js';
+import { certIcon } from './brand.js';
 
 /** Score a finished session — also the shape written to attempt history. */
 export function scoreSession(quiz) {
@@ -61,7 +61,7 @@ export function renderResults(state) {
 
   return `
     <div class="results-card">
-      <span class="provider-badge ${cert.badgeClass}">${cert.groupByCert ? '' : providerIcon(cert.provider, { size: 15, tone: 'inherit' })} ${escapeHtml(cert.provider)} • ${escapeHtml(cert.code)}</span>
+      <span class="provider-badge ${cert.badgeClass}">${cert.groupByCert ? '' : certIcon(cert, { size: 15, tone: 'inherit' })} ${escapeHtml(cert.provider)} • ${escapeHtml(cert.code)}</span>
       <h1>${escapeHtml(cert.title)}</h1>
       <p class="results-sub">
         ${{ quick: 'Quick quiz', practice: 'Practice session', daily: 'Daily challenge', exam: 'Exam simulation' }[r.mode] || 'Session'} ·
