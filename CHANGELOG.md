@@ -11,6 +11,23 @@ progress is tracked by `npm run stats` and in
 ## [Unreleased]
 
 ### Content
+- Activated all **Top 15 priority certifications** on the 2026 roadmap, bringing the live catalog to **22 certifications** with complete 250-question banks and 250-card flashcard decks (5,500 questions & 5,500 flashcards total):
+  - Priority 1: `aws-dop` (AWS Certified DevOps Engineer – Professional)
+  - Priority 2: `k8s-cka` (Certified Kubernetes Administrator)
+  - Priority 3: `k8s-cks` (Certified Kubernetes Security Specialist)
+  - Priority 4: `hashicorp-tfp` (HashiCorp Terraform Professional)
+  - Priority 5: `gcp-pcdoe` (Google Cloud Professional Cloud DevOps Engineer)
+  - Priority 6: `azure-az400` (Microsoft Certified: DevOps Engineer Expert)
+  - Priority 7: `cncf-cnpa` (Certified Cloud Native Platform Engineering Associate)
+  - Priority 8: `cncf-cnpe` (Certified Cloud Native Platform Engineer)
+  - Priority 9: `cncf-cgoa` (GitOps Certified Associate)
+  - Priority 10: `finops-focp` (FinOps Certified Practitioner)
+  - Priority 11: `aws-scs` (AWS Certified Security – Specialty)
+  - Priority 12: `isc2-ccsp` (Certified Cloud Security Professional)
+  - Priority 13: `cncf-otca` (OpenTelemetry Certified Associate)
+  - Priority 14: `cncf-cba` (Certified Backstage Associate)
+  - Priority 15: `gcp-pmle` (Google Professional Machine Learning Engineer)
+  - Scaled `gcp-ace` (Google Cloud Associate Cloud Engineer) to 250 questions and 250 flashcards.
 - Scaffolded **16 new certifications** on the 2026 roadmap bringing the total catalogue to **68 certifications**:
   - **Cloud Engineering & AI**: `gcp-pcne`, `aws-mla`, `aws-mls`, `gcp-pde`, `gcp-pcdbe`, `aws-dbs`, `azure-ai102`, `azure-ai-apps-agents`, `databricks-genai`.
   - **Kubernetes & Cloud Native**: `cncf-ckne`.
