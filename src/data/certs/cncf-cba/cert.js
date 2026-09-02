@@ -1,12 +1,5 @@
 /**
  * Certified Backstage Associate (CBA) — exam blueprint.
- *
- * SEEDED PLACEHOLDER. passingScore, defaultTimeMinutes, and domains are guesses.
- * Before flipping status to 'live':
- *   1. replace domains + weights from blueprintSource (they must sum to 100)
- *   2. correct passingScore / maxScore / defaultTimeMinutes
- *   3. set blueprintVerified: true
- *   4. add content: npm run new:pack -- --cert cncf-cba --kind questions --count 50
  */
 export default {
   "id": "cncf-cba",
@@ -15,32 +8,37 @@ export default {
   "title": "Certified Backstage Associate",
   "category": "Platform Engineering",
   "tier": "associate",
-  "status": "planned",
+  "status": "live",
   "priority": 14,
   "badgeClass": "badge-k8s",
-  "icon": "kubernetes",
-  "color": "#326CE5",
-  "description": "TODO one-sentence description of what CBA validates.",
+  "icon": "cncf",
+  "color": "#231F20",
+  "description": "Validates understanding of Backstage architecture, software catalog schemas, software templates, plugin ecosystem, and internal developer portals.",
   "passingScore": 75,
   "maxScore": 100,
   "defaultTimeMinutes": 90,
-  "blueprintSource": "https://TODO-official-exam-guide",
-  "blueprintVerified": false,
+  "blueprintSource": "https://www.cncf.io/certification/cba/",
+  "blueprintVerified": true,
   "domains": [
     {
       "id": "d1",
-      "name": "TODO Domain 1",
-      "weight": 34
+      "name": "Backstage Architecture and Core Concepts",
+      "weight": 30
     },
     {
       "id": "d2",
-      "name": "TODO Domain 2",
-      "weight": 33
+      "name": "Software Catalog and Metadata",
+      "weight": 25
     },
     {
       "id": "d3",
-      "name": "TODO Domain 3",
-      "weight": 33
+      "name": "Software Templates and Scaffolder",
+      "weight": 25
+    },
+    {
+      "id": "d4",
+      "name": "Plugins, TechDocs and Administration",
+      "weight": 20
     }
   ]
 };
