@@ -94,7 +94,9 @@ export function providerIcon(provider, { size = 20, tone = 'brand' } = {}) {
   if (brand.kind === 'lettermark') {
     return `<span class="brand-mark brand-lettermark" style="${brandStyle(brand.hex, size, tone)};font-size:${Math.round(size * 0.42)}px" role="img" aria-label="${label}">${escapeHtml(brand.initials)}</span>`;
   }
-  return `<span class="brand-mark" style="${brandStyle(brand.hex, size, tone)}" role="img" aria-label="${label}">
+  const isFallbackProvider = provider === 'AWS' || provider === 'Microsoft Azure';
+  const extraClass = isFallbackProvider ? ' brand-lettermark' : '';
+  return `<span class="brand-mark${extraClass}" style="${brandStyle(brand.hex, size, tone)}" role="img" aria-label="${label}">
     <svg viewBox="0 0 24 24" width="${size}" height="${size}" fill="currentColor" aria-hidden="true" focusable="false"><path d="${brand.path}"></path></svg>
   </span>`;
 }
@@ -109,16 +111,54 @@ export function brandMark(slug, { size = 20, tone = 'brand' } = {}) {
 }
 
 /**
- * Discipline icons. Kubernetes & Cloud Native uses the official Kubernetes
- * mark because the track is named after it; the rest are neutral glyphs,
- * since a discipline is not a brand.
+ * Official technology or provider mark for a specific certification.
+ * If the cert has a recognized technology slug in BRAND_ICONS (e.g., terraform,
+ * kubernetes, argo, opentelemetry, backstage, github, docker, databricks),
+ * that official technology mark is prioritized over the broad provider mark.
  */
-const DISCIPLINE_GLYPHS = {
-  'Cloud Engineering': '<path d="M17.5 19a4.5 4.5 0 0 0 .3-8.99A6 6 0 0 0 6.1 11.2A3.9 3.9 0 0 0 6.5 19z"></path>',
-  'DevOps & SRE': '<path d="M8 12a4 4 0 1 1 4 4 6 6 0 0 0-8 0 4 4 0 0 1 4-4z"></path><path d="M16 12a4 4 0 1 0-4-4 6 6 0 0 1 8 0 4 4 0 0 0-4 4z"></path>',
-  'Platform Engineering': '<path d="M12 3l9 5-9 5-9-5 9-5z"></path><path d="M3 13l9 5 9-5"></path>',
-  'FinOps': '<ellipse cx="12" cy="6.5" rx="7" ry="3"></ellipse><path d="M5 6.5v5c0 1.7 3.1 3 7 3s7-1.3 7-3v-5"></path><path d="M5 11.5v5c0 1.7 3.1 3 7 3s7-1.3 7-3v-5"></path>',
-  'DevSecOps & Security': '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9.5 12.5l1.8 1.8 3.4-3.6"></path>'
+export function certIcon(cert, { size = 20, tone = 'brand' } = {}) {
+  if (!cert) return '';
+  if (cert.icon && BRAND_ICONS[cert.icon]) {
+    return brandMark(cert.icon, { size, tone });
+  }
+  if (cert.icon === 'aws' && LOCAL_BRAND_ICONS['AWS']) {
+    return providerIcon('AWS', { size, tone });
+  }
+  if (cert.icon === 'azure' && LOCAL_BRAND_ICONS['Microsoft Azure']) {
+    return providerIcon('Microsoft Azure', { size, tone });
+  }
+  if (cert.icon === 'finops' && LOCAL_BRAND_ICONS['FinOps Foundation']) {
+    return providerIcon('FinOps Foundation', { size, tone });
+  }
+  return providerIcon(cert.provider, { size, tone });
+}
+
+/**
+ * Discipline icons and branding. Kubernetes & Cloud Native uses the official
+ * Kubernetes mark because the track is named after it; the rest have curated
+ * discipline glyphs styled in their track colors.
+ */
+const DISCIPLINE_CONFIG = {
+  'Cloud Engineering': {
+    color: '#0284c7',
+    glyph: '<path d="M6.5 19a4.5 4.5 0 0 1-.4-8.98A6 6 0 0 1 17.8 8.1 4.5 4.5 0 0 1 17.5 19z"></path><path d="M12 13v5m-2.5-2.5 2.5 2.5 2.5-2.5"></path>'
+  },
+  'DevOps & SRE': {
+    color: '#8b5cf6',
+    glyph: '<path d="M8 12a4 4 0 1 1 4 4 6 6 0 0 0-8 0 4 4 0 0 1 4-4z"></path><path d="M16 12a4 4 0 1 0-4-4 6 6 0 0 1 8 0 4 4 0 0 0-4 4z"></path>'
+  },
+  'Platform Engineering': {
+    color: '#6366f1',
+    glyph: '<path d="m12 2 9 4.9v10.2L12 22 3 17.1V6.9zm0 0v10m9-5.1-9 5.1m-9-5.1 9 5.1"></path>'
+  },
+  'FinOps': {
+    color: '#10b981',
+    glyph: '<circle cx="12" cy="12" r="9"></circle><path d="M14.8 9A2 2 0 0 0 13 8h-2a2 2 0 0 0 0 4h2a2 2 0 0 1 0 4h-2a2 2 0 0 1-1.8-1"></path><path d="M12 6v2m0 8v2"></path>'
+  },
+  'DevSecOps & Security': {
+    color: '#ef4444',
+    glyph: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path>'
+  }
 };
 
 /**
@@ -165,9 +205,9 @@ export function roleIcon(roleId, { size = 22 } = {}) {
 
 export function disciplineIcon(category, { size = 22 } = {}) {
   if (category === 'Kubernetes & Cloud Native') return brandMark('kubernetes', { size });
-  const glyph = DISCIPLINE_GLYPHS[category];
-  if (!glyph) return '';
-  return `<span class="brand-mark discipline-glyph" style="width:${size}px;height:${size}px" aria-hidden="true">
-    <svg viewBox="0 0 24 24" width="${size}" height="${size}" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${glyph}</svg>
+  const conf = DISCIPLINE_CONFIG[category];
+  if (!conf) return '';
+  return `<span class="brand-mark discipline-glyph" style="--disc-color:${conf.color};color:${conf.color};width:${size}px;height:${size}px" aria-hidden="true">
+    <svg viewBox="0 0 24 24" width="${size}" height="${size}" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${conf.glyph}</svg>
   </span>`;
 }

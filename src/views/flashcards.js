@@ -1,7 +1,7 @@
 import { countByDifficulty } from '../lib/select.js';
 import { deckStats, getCardState, BOX_INTERVALS_DAYS, MASTERED_BOX } from '../lib/srs.js';
 import { icon, difficultyFilter, difficultyPill, progressBar, escapeHtml, sanitizeHtml, spinner } from './ui.js';
-import { providerIcon } from './brand.js';
+import { certIcon } from './brand.js';
 
 export function renderFlashcards(state, content) {
   const cert = state.quiz.cert;
@@ -81,7 +81,7 @@ function renderDeckSummary(state, content, filterCounts, stats) {
       <button class="btn-ghost" data-action="open-cert" data-cert-id="${cert.id}">${icon.back} ${escapeHtml(cert.code)} module</button>
 
       <div class="panel">
-        <div class="panel-head"><h2>${providerIcon(cert.provider, { size: 22 })} ${reviewed ? 'Deck complete' : 'Flashcard deck'}</h2><span class="panel-note">${escapeHtml(cert.title)}</span></div>
+        <div class="panel-head"><h2>${certIcon(cert, { size: 22 })} ${reviewed ? 'Deck complete' : 'Flashcard deck'}</h2><span class="panel-note">${escapeHtml(cert.title)}</span></div>
 
         ${reviewed ? `
           <div class="stat-row">

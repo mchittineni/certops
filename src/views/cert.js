@@ -3,7 +3,7 @@ import { countByDifficulty, recommendedCount, DIFFICULTY_OPTIONS } from '../lib/
 import { deckStats } from '../lib/srs.js';
 import { getCertSummary, getDifficultyAccuracy } from '../lib/progress.js';
 import { icon, difficultyFilter, difficultyBlurb, progressBar, escapeHtml, spinner } from './ui.js';
-import { providerIcon } from './brand.js';
+import { certIcon } from './brand.js';
 
 /**
  * The certification study module — the page the whole app now hangs off.
@@ -65,7 +65,7 @@ export function renderCertModule(state, content) {
         <div class="module-header-main">
           <div class="cert-header">
             <div class="cert-brand">
-              ${providerIcon(cert.provider, { size: 30 })}
+              ${certIcon(cert, { size: 30 })}
               <span class="cert-brand-name">${escapeHtml(cert.provider)}</span>
             </div>
             <span class="cert-code">${escapeHtml(cert.code)}</span>

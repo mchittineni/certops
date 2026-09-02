@@ -2,7 +2,7 @@ import { CERTIFICATIONS, CATEGORIES } from '../data/catalog.generated.js';
 import { CONTENT_MANIFEST } from '../data/manifest.generated.js';
 import { countByDifficulty } from '../lib/select.js';
 import { icon, difficultyFilter, difficultyPill, escapeHtml, spinner } from './ui.js';
-import { providerIcon } from './brand.js';
+import { certIcon } from './brand.js';
 
 /**
  * The bank loads one certification at a time and paginates, so it stays fast
@@ -15,7 +15,7 @@ export function renderBank(state, content) {
   const header = `
     <div class="bank-head">
       <div>
-        <h1>${cert ? `${providerIcon(cert.provider, { size: 24 })} ` : ''}Question Bank</h1>
+        <h1>${cert ? `${certIcon(cert, { size: 24 })} ` : ''}Question Bank</h1>
         <p class="panel-note">Search every scenario, answer, and explanation. Filter by certification, difficulty, and domain.</p>
       </div>
       <div class="bank-cert-select">

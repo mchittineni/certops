@@ -3,7 +3,7 @@ import { CONTENT_MANIFEST, CONTENT_TOTALS } from '../data/manifest.generated.js'
 import { getCertSummary, getAttempts } from '../lib/progress.js';
 import { getDailyResult, dailyStreak, DAILY_SIZE } from '../lib/daily.js';
 import { icon, progressBar, escapeHtml } from './ui.js';
-import { providerIcon, disciplineIcon, roleIcon } from './brand.js';
+import { providerIcon, certIcon, disciplineIcon, roleIcon } from './brand.js';
 import { ROLES, ROLE_BY_ID, roleCertIds } from '../data/roles.js';
 
 const CATEGORY_BLURB = {
@@ -215,7 +215,7 @@ function renderCertCard(cert) {
       <div>
         <div class="cert-header">
           <div class="cert-brand">
-            ${providerIcon(cert.provider, { size: 26 })}
+            ${certIcon(cert, { size: 26 })}
             <span class="cert-brand-name">${escapeHtml(cert.provider)}</span>
           </div>
           <span class="cert-code">${escapeHtml(cert.code)}</span>
@@ -304,7 +304,7 @@ function renderRoadmap(planned) {
 
       ${priorities.length ? `
         <div class="priority-strip">
-          ${priorities.map(c => `<span class="priority-item"><span class="priority-rank">#${c.priority}</span> ${providerIcon(c.provider, { size: 15 })} ${escapeHtml(c.code)}</span>`).join('')}
+          ${priorities.map(c => `<span class="priority-item"><span class="priority-rank">#${c.priority}</span> ${certIcon(c, { size: 15 })} ${escapeHtml(c.code)}</span>`).join('')}
         </div>
       ` : ''}
 
@@ -313,7 +313,7 @@ function renderRoadmap(planned) {
           <div class="roadmap-column">
             <h4>${disciplineIcon(category, { size: 16 })} ${escapeHtml(category)} <span class="panel-note">${list.length}</span></h4>
             <div class="roadmap-chips">
-              ${list.map(c => `<span class="roadmap-chip" title="${escapeHtml(c.title)}">${providerIcon(c.provider, { size: 14 })} ${escapeHtml(c.code)}</span>`).join('')}
+              ${list.map(c => `<span class="roadmap-chip" title="${escapeHtml(c.title)}">${certIcon(c, { size: 14 })} ${escapeHtml(c.code)}</span>`).join('')}
             </div>
           </div>
         `).join('')}
@@ -420,7 +420,7 @@ function renderRoleStep(step, index) {
       <span class="role-step-num" aria-hidden="true">${index + 1}</span>
       <div class="role-step-body">
         <div class="role-step-head">
-          <span class="role-step-brand">${providerIcon(cert.provider, { size: 20 })}</span>
+          <span class="role-step-brand">${certIcon(cert, { size: 20 })}</span>
           <h4>${escapeHtml(cert.title)}</h4>
           <span class="cert-code">${escapeHtml(cert.code)}</span>
           <span class="tier-chip tier-${cert.tier}">${TIER_LABEL[cert.tier] || cert.tier}</span>
