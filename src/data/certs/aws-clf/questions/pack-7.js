@@ -9,10 +9,10 @@ export const AWS_CLF_QUESTIONS_7 = [
     scenario: "A microservices application experiences intermittent latency spikes across distributed calls spanning API Gateway, Lambda, and DynamoDB. Developers need a service map and trace visualizer.",
     question: "Which AWS developer service analyzes and debugs production distributed applications by tracing request flows across microservices?",
     options: [
-      { id: 'A', text: "AWS AppSync" },
-      { id: 'B', text: "Amazon CloudWatch" },
+      { id: 'A', text: "Amazon CloudWatch" },
+      { id: 'B', text: "AWS CloudTrail" },
       { id: 'C', text: "AWS X-Ray" },
-      { id: 'D', text: "AWS CloudTrail" }
+      { id: 'D', text: "AWS AppSync" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -30,12 +30,12 @@ export const AWS_CLF_QUESTIONS_7 = [
     scenario: "A mobile development team needs a managed GraphQL API that provides real-time data subscriptions, offline data synchronization, and unified access to DynamoDB, Lambda, and OpenSearch.",
     question: "Which AWS service creates serverless GraphQL APIs with real-time updates and offline mobile sync?",
     options: [
-      { id: 'A', text: "Amazon API Gateway" },
-      { id: 'B', text: "Amazon EventBridge" },
-      { id: 'C', text: "Amazon SNS" },
-      { id: 'D', text: "AWS AppSync" }
+      { id: 'A', text: "AWS AppSync" },
+      { id: 'B', text: "Amazon SNS" },
+      { id: 'C', text: "Amazon EventBridge" },
+      { id: 'D', text: "Amazon API Gateway" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "AWS AppSync is an enterprise-level, fully managed GraphQL and Pub/Sub API service that simplifies application development by securely connecting applications to data and events.",
     referenceUrl: "https://docs.aws.amazon.com/appsync/latest/devguide/what-is-appsync.html",
@@ -93,12 +93,12 @@ export const AWS_CLF_QUESTIONS_7 = [
     scenario: "A fintech team runs Apache Kafka clusters on-premises for stream processing and wants a fully managed Kafka service on AWS that manages Apache Kafka infrastructure and ZooKeeper/KRaft.",
     question: "Which AWS service provides fully managed Apache Kafka clusters for streaming data ingestion?",
     options: [
-      { id: 'A', text: "Amazon Kinesis Data Streams" },
-      { id: 'B', text: "Amazon Managed Streaming for Apache Kafka (Amazon MSK)" },
-      { id: 'C', text: "Amazon MQ" },
+      { id: 'A', text: "Amazon MQ" },
+      { id: 'B', text: "Amazon Kinesis Data Streams" },
+      { id: 'C', text: "Amazon Managed Streaming for Apache Kafka (Amazon MSK)" },
       { id: 'D', text: "Amazon SQS" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Amazon MSK is a fully managed service that makes it easy to build and run applications that use Apache Kafka to process streaming data with native open-source compatibility.",
     referenceUrl: "https://docs.aws.amazon.com/msk/latest/developerguide/what-is-msk.html",
@@ -114,12 +114,12 @@ export const AWS_CLF_QUESTIONS_7 = [
     scenario: "An enterprise migrating traditional enterprise messaging applications to the cloud requires industry-standard messaging protocols (JMS, AMQP, MQTT, STOMP) without rewriting code for Amazon SQS.",
     question: "Which AWS managed message broker service supports Apache ActiveMQ and RabbitMQ?",
     options: [
-      { id: 'A', text: "Amazon SNS" },
-      { id: 'B', text: "Amazon MQ" },
+      { id: 'A', text: "Amazon SQS" },
+      { id: 'B', text: "Amazon SNS" },
       { id: 'C', text: "Amazon EventBridge" },
-      { id: 'D', text: "Amazon SQS" }
+      { id: 'D', text: "Amazon MQ" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Amazon MQ is a managed message broker service for Apache ActiveMQ and RabbitMQ that makes it easy to migrate to a message broker in the cloud without rewriting existing messaging applications.",
     referenceUrl: "https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/welcome.html",
@@ -156,12 +156,12 @@ export const AWS_CLF_QUESTIONS_7 = [
     scenario: "An enterprise wants to automate the creation and governance of a secure, compliant multi-account AWS environment with pre-configured Service Control Policies (guardrails) and AWS IAM Identity Center.",
     question: "Which AWS service automates the setup of a well-architected multi-account landing zone?",
     options: [
-      { id: 'A', text: "AWS Control Tower" },
-      { id: 'B', text: "AWS Systems Manager" },
-      { id: 'C', text: "AWS Organizations alone" },
-      { id: 'D', text: "AWS CloudFormation alone" }
+      { id: 'A', text: "AWS Systems Manager" },
+      { id: 'B', text: "AWS Control Tower" },
+      { id: 'C', text: "AWS CloudFormation alone" },
+      { id: 'D', text: "AWS Organizations alone" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "AWS Control Tower provides the easiest way to set up and govern a secure, multi-account AWS environment (landing zone), establishing a blueprint that integrates AWS Organizations, IAM Identity Center, and preventative/detective guardrails.",
     referenceUrl: "https://docs.aws.amazon.com/controltower/latest/userguide/what-is-control-tower.html",
@@ -177,12 +177,12 @@ export const AWS_CLF_QUESTIONS_7 = [
     scenario: "A cloud governance team wants to allow developers to self-service provision approved EC2, RDS, and S3 architectures from a curated catalog while enforcing organizational compliance and tagging rules.",
     question: "Which AWS service allows organizations to create and manage catalogs of approved IT services that are governed for use on AWS?",
     options: [
-      { id: 'A', text: "AWS Marketplace" },
-      { id: 'B', text: "AWS Service Catalog" },
-      { id: 'C', text: "AWS Systems Manager" },
+      { id: 'A', text: "AWS Systems Manager" },
+      { id: 'B', text: "AWS Marketplace" },
+      { id: 'C', text: "AWS Service Catalog" },
       { id: 'D', text: "AWS CloudFormation" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "AWS Service Catalog allows organizations to create and manage catalogs of IT services that are approved for use on AWS, enabling users to quickly deploy approved products with consistent governance.",
     referenceUrl: "https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html",
@@ -198,12 +198,12 @@ export const AWS_CLF_QUESTIONS_7 = [
     scenario: "An architect is designing an asynchronous messaging architecture where independent components communicate via queues so that the failure or latency of one service does not bring down the entire application.",
     question: "Which architectural design principle is demonstrated by using message queues (Amazon SQS) between components?",
     options: [
-      { id: 'A', text: "Vertical Scaling" },
-      { id: 'B', text: "Loose Coupling" },
+      { id: 'A', text: "Monolithic Architecture" },
+      { id: 'B', text: "Vertical Scaling" },
       { id: 'C', text: "Tight Coupling" },
-      { id: 'D', text: "Monolithic Architecture" }
+      { id: 'D', text: "Loose Coupling" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Loose coupling breaks interdependencies between components so that failures in one component are isolated and do not cascade to other parts of the application, increasing overall resilience and scalability.",
     referenceUrl: "https://docs.aws.amazon.com/whitepapers/latest/architecting-for-the-cloud-aws-best-practices/loose-coupling-sets-you-free.html",
@@ -240,12 +240,12 @@ export const AWS_CLF_QUESTIONS_7 = [
     scenario: "An engineering team wants to run controlled chaos engineering experiments (e.g. simulating AZ outages, latency injection, and CPU spikes) to test application resiliency in production.",
     question: "Which AWS managed service provides a fully managed chaos engineering platform to run fault injection experiments on AWS workloads?",
     options: [
-      { id: 'A', text: "AWS Fault Injection Simulator (AWS FIS)" },
-      { id: 'B', text: "AWS Trusted Advisor" },
-      { id: 'C', text: "AWS CloudWatch Synthetics" },
-      { id: 'D', text: "Amazon Inspector" }
+      { id: 'A', text: "Amazon Inspector" },
+      { id: 'B', text: "AWS CloudWatch Synthetics" },
+      { id: 'C', text: "AWS Trusted Advisor" },
+      { id: 'D', text: "AWS Fault Injection Simulator (AWS FIS)" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "AWS Fault Injection Simulator (AWS FIS) is a fully managed service for running fault injection experiments on AWS to improve workload resilience, uncover hidden bugs, and validate recovery mechanisms.",
     referenceUrl: "https://docs.aws.amazon.com/fis/latest/userguide/what-is.html",
@@ -261,12 +261,12 @@ export const AWS_CLF_QUESTIONS_7 = [
     scenario: "A DevOps engineer needs to quickly search and filter error logs across 10 million log lines delivered by 50 Lambda functions using a purpose-built interactive query syntax.",
     question: "Which Amazon CloudWatch feature enables interactive search and analysis of log data using query syntax?",
     options: [
-      { id: 'A', text: "CloudWatch Logs Insights" },
-      { id: 'B', text: "Amazon Athena" },
-      { id: 'C', text: "AWS CloudTrail" },
-      { id: 'D', text: "CloudWatch Alarms" }
+      { id: 'A', text: "AWS CloudTrail" },
+      { id: 'B', text: "CloudWatch Alarms" },
+      { id: 'C', text: "CloudWatch Logs Insights" },
+      { id: 'D', text: "Amazon Athena" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "CloudWatch Logs Insights enables you to interactively search and analyze your log data in Amazon CloudWatch Logs with a powerful query language that supports aggregations and visualizations.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AnalyzingLogData.html",
@@ -303,12 +303,12 @@ export const AWS_CLF_QUESTIONS_7 = [
     scenario: "A company wants to evaluate Amazon SageMaker and Amazon Redshift for 60 days before making a financial commitment.",
     question: "Which AWS Free Tier category provides short-term trial offers starting from the date a service is first activated?",
     options: [
-      { id: 'A', text: "Free Trials" },
-      { id: 'B', text: "12 Months Free" },
-      { id: 'C', text: "Reserved Instance Credits" },
-      { id: 'D', text: "Always Free" }
+      { id: 'A', text: "Always Free" },
+      { id: 'B', text: "Reserved Instance Credits" },
+      { id: 'C', text: "12 Months Free" },
+      { id: 'D', text: "Free Trials" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Free Trials are short-term trial offers that activate from the time you first start using a specific service (such as 2 months of Amazon Redshift or Amazon SageMaker free trial).",
     referenceUrl: "https://aws.amazon.com/free/",
@@ -345,12 +345,12 @@ export const AWS_CLF_QUESTIONS_7 = [
     scenario: "A CISO wants a single master switch at the AWS account level that guarantees no current or future Amazon S3 buckets can ever be made publicly accessible via bucket policies or ACLs.",
     question: "Which Amazon S3 feature provides centralized centralized control to block public access across all buckets in an account?",
     options: [
-      { id: 'A', text: "AWS WAF" },
+      { id: 'A', text: "Amazon S3 Block Public Access" },
       { id: 'B', text: "IAM Access Analyzer" },
-      { id: 'C', text: "AWS KMS Key Policies" },
-      { id: 'D', text: "Amazon S3 Block Public Access" }
+      { id: 'C', text: "AWS WAF" },
+      { id: 'D', text: "AWS KMS Key Policies" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Amazon S3 Block Public Access provides settings for access points, buckets, and accounts to help you manage public access to S3 resources, overriding permissive policies and ACLs.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html",
@@ -408,12 +408,12 @@ export const AWS_CLF_QUESTIONS_7 = [
     scenario: "An architect needs to deploy 5 critical application servers where each instance must strictly reside on distinct underlying physical hardware racks with independent power and network feeds inside an AZ.",
     question: "Which Amazon EC2 Placement Group strategy strictly places each instance on distinct physical hardware racks?",
     options: [
-      { id: 'A', text: "Spread Placement Group" },
-      { id: 'B', text: "Multi-AZ Group" },
+      { id: 'A', text: "Multi-AZ Group" },
+      { id: 'B', text: "Partition Placement Group" },
       { id: 'C', text: "Cluster Placement Group" },
-      { id: 'D', text: "Partition Placement Group" }
+      { id: 'D', text: "Spread Placement Group" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "A Spread Placement Group strictly places a small group of instances across distinct underlying hardware racks (each with its own network and power source) to reduce correlated hardware failures.",
     referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html#placement-groups-spread",
@@ -430,11 +430,11 @@ export const AWS_CLF_QUESTIONS_7 = [
     question: "What term describes adding more instances of smaller size behind a load balancer rather than increasing the size of a single server?",
     options: [
       { id: 'A', text: "Dynamic Tiering" },
-      { id: 'B', text: "Vertical Scaling (Scaling Up)" },
-      { id: 'C', text: "Horizontal Scaling (Scaling Out)" },
-      { id: 'D', text: "Instance Re-sizing" }
+      { id: 'B', text: "Horizontal Scaling (Scaling Out)" },
+      { id: 'C', text: "Instance Re-sizing" },
+      { id: 'D', text: "Vertical Scaling (Scaling Up)" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Horizontal Scaling (scaling out/in) involves adding or removing resources (such as adding multiple EC2 instances to an Auto Scaling group), which improves fault tolerance and avoids single-instance resource ceilings.",
     referenceUrl: "https://docs.aws.amazon.com/whitepapers/latest/architecting-for-the-cloud-aws-best-practices/scaling.html",
@@ -450,12 +450,12 @@ export const AWS_CLF_QUESTIONS_7 = [
     scenario: "A global enterprise requires a relational database that replicates data across multiple AWS Regions with sub-second replication latency and enables fast disaster recovery failover in under 1 minute.",
     question: "Which database feature provides multi-region relational database replication with sub-second cross-region read latency?",
     options: [
-      { id: 'A', text: "Amazon Aurora Global Database" },
+      { id: 'A', text: "Amazon RDS Multi-AZ" },
       { id: 'B', text: "Amazon DynamoDB Local Secondary Indexes" },
-      { id: 'C', text: "Amazon RDS Multi-AZ" },
-      { id: 'D', text: "AWS Database Migration Service" }
+      { id: 'C', text: "AWS Database Migration Service" },
+      { id: 'D', text: "Amazon Aurora Global Database" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Amazon Aurora Global Database spans multiple AWS Regions, enabling low-latency global reads and fast cross-region disaster recovery with typical storage-level replication latency under 1 second.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html",

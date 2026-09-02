@@ -10,11 +10,11 @@ export const FINOPS_FOCP_QUESTIONS_4 = [
     question: "Which FinOps principle, phase activity, or capability best addresses requirement #76?",
     options: [
       { id: 'A', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'B', text: "Option A: Official FinOps Foundation standard practice for FinOps Phases & Maturity Model driving cloud financial accountability." },
-      { id: 'C', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'D', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." }
+      { id: 'B', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
+      { id: 'C', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
+      { id: 'D', text: "Option A: Official FinOps Foundation standard practice for FinOps Phases & Maturity Model driving cloud financial accountability." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #76: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
     referenceUrl: "https://www.finops.org/framework/",
@@ -30,12 +30,12 @@ export const FINOPS_FOCP_QUESTIONS_4 = [
     scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #77.",
     question: "Which FinOps principle, phase activity, or capability best addresses requirement #77?",
     options: [
-      { id: 'A', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'B', text: "Option A: Official FinOps Foundation standard practice for FinOps Phases & Maturity Model driving cloud financial accountability." },
+      { id: 'A', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
+      { id: 'B', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
       { id: 'C', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'D', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." }
+      { id: 'D', text: "Option A: Official FinOps Foundation standard practice for FinOps Phases & Maturity Model driving cloud financial accountability." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #77: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
     referenceUrl: "https://www.finops.org/framework/",
@@ -51,12 +51,12 @@ export const FINOPS_FOCP_QUESTIONS_4 = [
     scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #78.",
     question: "Which FinOps principle, phase activity, or capability best addresses requirement #78?",
     options: [
-      { id: 'A', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'B', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'C', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'D', text: "Option A: Official FinOps Foundation standard practice for FinOps Phases & Maturity Model driving cloud financial accountability." }
+      { id: 'A', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
+      { id: 'B', text: "Option A: Official FinOps Foundation standard practice for FinOps Phases & Maturity Model driving cloud financial accountability." },
+      { id: 'C', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
+      { id: 'D', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #78: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
     referenceUrl: "https://www.finops.org/framework/",
@@ -72,12 +72,12 @@ export const FINOPS_FOCP_QUESTIONS_4 = [
     scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #79.",
     question: "Which FinOps principle, phase activity, or capability best addresses requirement #79?",
     options: [
-      { id: 'A', text: "Option A: Official FinOps Foundation standard practice for FinOps Phases & Maturity Model driving cloud financial accountability." },
-      { id: 'B', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'C', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'D', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." }
+      { id: 'A', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
+      { id: 'B', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
+      { id: 'C', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
+      { id: 'D', text: "Option A: Official FinOps Foundation standard practice for FinOps Phases & Maturity Model driving cloud financial accountability." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #79: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
     referenceUrl: "https://www.finops.org/framework/",
@@ -135,12 +135,12 @@ export const FINOPS_FOCP_QUESTIONS_4 = [
     scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #82.",
     question: "Which FinOps principle, phase activity, or capability best addresses requirement #82?",
     options: [
-      { id: 'A', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'B', text: "Option A: Official FinOps Foundation standard practice for FinOps Phases & Maturity Model driving cloud financial accountability." },
-      { id: 'C', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'D', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." }
+      { id: 'A', text: "Option A: Official FinOps Foundation standard practice for FinOps Phases & Maturity Model driving cloud financial accountability." },
+      { id: 'B', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
+      { id: 'C', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
+      { id: 'D', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #82: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
     referenceUrl: "https://www.finops.org/framework/",
@@ -198,12 +198,12 @@ export const FINOPS_FOCP_QUESTIONS_4 = [
     scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #85.",
     question: "Which FinOps principle, phase activity, or capability best addresses requirement #85?",
     options: [
-      { id: 'A', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
+      { id: 'A', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
       { id: 'B', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'C', text: "Option A: Official FinOps Foundation standard practice for FinOps Phases & Maturity Model driving cloud financial accountability." },
-      { id: 'D', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." }
+      { id: 'C', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
+      { id: 'D', text: "Option A: Official FinOps Foundation standard practice for FinOps Phases & Maturity Model driving cloud financial accountability." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #85: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
     referenceUrl: "https://www.finops.org/framework/",
@@ -261,12 +261,12 @@ export const FINOPS_FOCP_QUESTIONS_4 = [
     scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #88.",
     question: "Which FinOps principle, phase activity, or capability best addresses requirement #88?",
     options: [
-      { id: 'A', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'B', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'C', text: "Option A: Official FinOps Foundation standard practice for FinOps Phases & Maturity Model driving cloud financial accountability." },
+      { id: 'A', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
+      { id: 'B', text: "Option A: Official FinOps Foundation standard practice for FinOps Phases & Maturity Model driving cloud financial accountability." },
+      { id: 'C', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
       { id: 'D', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #88: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
     referenceUrl: "https://www.finops.org/framework/",
@@ -324,12 +324,12 @@ export const FINOPS_FOCP_QUESTIONS_4 = [
     scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #91.",
     question: "Which FinOps principle, phase activity, or capability best addresses requirement #91?",
     options: [
-      { id: 'A', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'B', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
+      { id: 'A', text: "Option A: Official FinOps Foundation standard practice for FinOps Phases & Maturity Model driving cloud financial accountability." },
+      { id: 'B', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
       { id: 'C', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'D', text: "Option A: Official FinOps Foundation standard practice for FinOps Phases & Maturity Model driving cloud financial accountability." }
+      { id: 'D', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #91: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
     referenceUrl: "https://www.finops.org/framework/",
@@ -366,12 +366,12 @@ export const FINOPS_FOCP_QUESTIONS_4 = [
     scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #93.",
     question: "Which FinOps principle, phase activity, or capability best addresses requirement #93?",
     options: [
-      { id: 'A', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'B', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'C', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'D', text: "Option A: Official FinOps Foundation standard practice for FinOps Phases & Maturity Model driving cloud financial accountability." }
+      { id: 'A', text: "Option A: Official FinOps Foundation standard practice for FinOps Phases & Maturity Model driving cloud financial accountability." },
+      { id: 'B', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
+      { id: 'C', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
+      { id: 'D', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #93: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
     referenceUrl: "https://www.finops.org/framework/",
@@ -387,12 +387,12 @@ export const FINOPS_FOCP_QUESTIONS_4 = [
     scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #94.",
     question: "Which FinOps principle, phase activity, or capability best addresses requirement #94?",
     options: [
-      { id: 'A', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'B', text: "Option A: Official FinOps Foundation standard practice for FinOps Phases & Maturity Model driving cloud financial accountability." },
-      { id: 'C', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'D', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." }
+      { id: 'A', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
+      { id: 'B', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
+      { id: 'C', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
+      { id: 'D', text: "Option A: Official FinOps Foundation standard practice for FinOps Phases & Maturity Model driving cloud financial accountability." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #94: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
     referenceUrl: "https://www.finops.org/framework/",
@@ -471,12 +471,12 @@ export const FINOPS_FOCP_QUESTIONS_4 = [
     scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #98.",
     question: "Which FinOps principle, phase activity, or capability best addresses requirement #98?",
     options: [
-      { id: 'A', text: "Option A: Official FinOps Foundation standard practice for FinOps Phases & Maturity Model driving cloud financial accountability." },
-      { id: 'B', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'C', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'D', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." }
+      { id: 'A', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
+      { id: 'B', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
+      { id: 'C', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
+      { id: 'D', text: "Option A: Official FinOps Foundation standard practice for FinOps Phases & Maturity Model driving cloud financial accountability." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #98: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
     referenceUrl: "https://www.finops.org/framework/",
@@ -493,11 +493,11 @@ export const FINOPS_FOCP_QUESTIONS_4 = [
     question: "Which FinOps principle, phase activity, or capability best addresses requirement #99?",
     options: [
       { id: 'A', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'B', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'C', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'D', text: "Option A: Official FinOps Foundation standard practice for FinOps Phases & Maturity Model driving cloud financial accountability." }
+      { id: 'B', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
+      { id: 'C', text: "Option A: Official FinOps Foundation standard practice for FinOps Phases & Maturity Model driving cloud financial accountability." },
+      { id: 'D', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #99: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
     referenceUrl: "https://www.finops.org/framework/",
@@ -513,12 +513,12 @@ export const FINOPS_FOCP_QUESTIONS_4 = [
     scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #100.",
     question: "Which FinOps principle, phase activity, or capability best addresses requirement #100?",
     options: [
-      { id: 'A', text: "Option A: Official FinOps Foundation standard practice for FinOps Phases & Maturity Model driving cloud financial accountability." },
-      { id: 'B', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'C', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'D', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." }
+      { id: 'A', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
+      { id: 'B', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
+      { id: 'C', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
+      { id: 'D', text: "Option A: Official FinOps Foundation standard practice for FinOps Phases & Maturity Model driving cloud financial accountability." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #100: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
     referenceUrl: "https://www.finops.org/framework/",

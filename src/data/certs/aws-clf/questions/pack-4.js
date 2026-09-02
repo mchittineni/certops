@@ -9,12 +9,12 @@ export const AWS_CLF_QUESTIONS_4 = [
     scenario: "A startup product team can spin up hundreds of testing environments in minutes to experiment with new features and shut them down immediately after testing.",
     question: "Which cloud benefit refers to reducing the time required to make technology resources available to developers?",
     options: [
-      { id: 'A', text: "Stop guessing capacity" },
-      { id: 'B', text: "Speed and agility" },
-      { id: 'C', text: "Trade capital expense for variable expense" },
-      { id: 'D', text: "Economies of scale" }
+      { id: 'A', text: "Economies of scale" },
+      { id: 'B', text: "Trade capital expense for variable expense" },
+      { id: 'C', text: "Speed and agility" },
+      { id: 'D', text: "Stop guessing capacity" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "In a cloud computing environment, new IT resources are only a click away, which means that you reduce the time to make those resources available to your developers from weeks to just minutes, dramatically increasing agility.",
     referenceUrl: "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/six-advantages-of-cloud-computing.html",
@@ -30,12 +30,12 @@ export const AWS_CLF_QUESTIONS_4 = [
     scenario: "A financial compliance officer must ensure that security audit log files delivered to Amazon S3 have not been modified, deleted, or forged after delivery.",
     question: "Which AWS CloudTrail feature cryptographically validates whether log files remained unchanged after delivery?",
     options: [
-      { id: 'A', text: "AWS CloudWatch Logs Insights" },
-      { id: 'B', text: "Amazon S3 Object Lock in Governance Mode" },
-      { id: 'C', text: "AWS KMS envelope encryption" },
-      { id: 'D', text: "CloudTrail Log File Integrity Validation" }
+      { id: 'A', text: "Amazon S3 Object Lock in Governance Mode" },
+      { id: 'B', text: "AWS CloudWatch Logs Insights" },
+      { id: 'C', text: "CloudTrail Log File Integrity Validation" },
+      { id: 'D', text: "AWS KMS envelope encryption" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "CloudTrail log file integrity validation uses industry-standard algorithms (SHA-256 and RSA) to generate digest files, allowing you to mathematically verify that log files were not tampered with after delivery to S3.",
     referenceUrl: "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-log-file-validation-intro.html",
@@ -135,12 +135,12 @@ export const AWS_CLF_QUESTIONS_4 = [
     scenario: "A database administrator deletes an Amazon RDS instance that is no longer needed. They want to ensure a point-in-time backup remains available indefinitely even after the RDS instance is deleted.",
     question: "What happens to automated RDS snapshots when a DB instance is deleted, and how can a permanent backup be retained?",
     options: [
-      { id: 'A', text: "Amazon RDS automatically converts all automated snapshots into S3 Glacier archives." },
-      { id: 'B', text: "Automated snapshots are deleted with the instance; creating a manual DB snapshot preserves the backup indefinitely." },
-      { id: 'C', text: "Automated snapshots are retained for 10 years automatically." },
-      { id: 'D', text: "Manual snapshots are deleted automatically after 35 days." }
+      { id: 'A', text: "Automated snapshots are deleted with the instance; creating a manual DB snapshot preserves the backup indefinitely." },
+      { id: 'B', text: "Amazon RDS automatically converts all automated snapshots into S3 Glacier archives." },
+      { id: 'C', text: "Manual snapshots are deleted automatically after 35 days." },
+      { id: 'D', text: "Automated snapshots are retained for 10 years automatically." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Automated snapshots are tied to the lifetime of the RDS instance and are deleted when the instance is deleted unless you retain them or create a manual snapshot. Manual DB snapshots are retained until you explicitly delete them.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html",
@@ -220,11 +220,11 @@ export const AWS_CLF_QUESTIONS_4 = [
     question: "Which AWS service acts as a centralized cloud router to interconnect thousands of VPCs and on-premises networks in a hub-and-spoke topology?",
     options: [
       { id: 'A', text: "AWS Direct Connect Gateway" },
-      { id: 'B', text: "Internet Gateway" },
-      { id: 'C', text: "AWS Transit Gateway" },
-      { id: 'D', text: "VPC Peering" }
+      { id: 'B', text: "VPC Peering" },
+      { id: 'C', text: "Internet Gateway" },
+      { id: 'D', text: "AWS Transit Gateway" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "AWS Transit Gateway connects Amazon VPCs and on-premises networks to a single central hub, simplifying network topology and eliminating the need for complex full-mesh peering relationships.",
     referenceUrl: "https://docs.aws.amazon.com/vpc/latest/tgw/what-is-transit-gateway.html",
@@ -261,12 +261,12 @@ export const AWS_CLF_QUESTIONS_4 = [
     scenario: "An enterprise wants a cost-effective disaster recovery strategy where a minimal version of the core environment (such as an idle RDS replica) runs continuously in a secondary Region, while compute instances are launched only if a disaster occurs.",
     question: "Which disaster recovery strategy maintains a minimal core environment running in the recovery Region that can be quickly scaled up during a failover?",
     options: [
-      { id: 'A', text: "Multi-Region Active-Active" },
-      { id: 'B', text: "Backup and Restore" },
+      { id: 'A', text: "Pilot Light" },
+      { id: 'B', text: "Multi-Region Active-Active" },
       { id: 'C', text: "Warm Standby" },
-      { id: 'D', text: "Pilot Light" }
+      { id: 'D', text: "Backup and Restore" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "In a Pilot Light disaster recovery strategy, core elements (such as databases and data replication) are kept active in the DR Region, while other compute resources (EC2 instances) are provisioned and scaled out only when needed during an outage.",
     referenceUrl: "https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html",
@@ -282,12 +282,12 @@ export const AWS_CLF_QUESTIONS_4 = [
     scenario: "A government agency requires dedicated, single-tenant, FIPS 140-2 Level 3 validated physical cryptographic hardware devices where the customer retains exclusive administrative control over encryption keys.",
     question: "Which AWS service provides dedicated physical Hardware Security Modules (HSMs) in the AWS Cloud?",
     options: [
-      { id: 'A', text: "AWS Certificate Manager" },
+      { id: 'A', text: "AWS CloudHSM" },
       { id: 'B', text: "AWS Secrets Manager" },
-      { id: 'C', text: "AWS KMS" },
-      { id: 'D', text: "AWS CloudHSM" }
+      { id: 'C', text: "AWS Certificate Manager" },
+      { id: 'D', text: "AWS KMS" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "AWS CloudHSM is a cloud-based hardware security module (HSM) that enables you to easily generate and use your own encryption keys on dedicated, single-tenant, FIPS 140-2 Level 3 validated hardware under your exclusive control.",
     referenceUrl: "https://docs.aws.amazon.com/cloudhsm/latest/userguide/introduction.html",
@@ -324,12 +324,12 @@ export const AWS_CLF_QUESTIONS_4 = [
     scenario: "An image processing company wants to store raw photos in S3 Standard for 30 days, move them to S3 Standard-IA for 60 days, and finally transition them to S3 Glacier Flexible Retrieval before permanent deletion after 1 year.",
     question: "Which Amazon S3 feature automates object transitions between storage classes based on predefined age rules?",
     options: [
-      { id: 'A', text: "S3 Intelligent-Tiering" },
-      { id: 'B', text: "S3 Batch Operations" },
-      { id: 'C', text: "S3 Lifecycle Management" },
-      { id: 'D', text: "S3 Storage Lens" }
+      { id: 'A', text: "S3 Storage Lens" },
+      { id: 'B', text: "S3 Lifecycle Management" },
+      { id: 'C', text: "S3 Batch Operations" },
+      { id: 'D', text: "S3 Intelligent-Tiering" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "S3 Lifecycle Management enables you to define lifecycle configuration rules to automatically transition objects to more cost-effective storage classes or expire them after specific retention periods.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html",
@@ -345,12 +345,12 @@ export const AWS_CLF_QUESTIONS_4 = [
     scenario: "An organization with 40 AWS accounts wants to provide its employees with centralized single sign-on (SSO) access to all accounts and third-party SAML 2.0 applications using their corporate Okta or Microsoft Active Directory credentials.",
     question: "Which AWS service provides centralized identity and single sign-on access management across multiple AWS accounts?",
     options: [
-      { id: 'A', text: "AWS Directory Service" },
-      { id: 'B', text: "AWS IAM Identity Center" },
-      { id: 'C', text: "AWS Secrets Manager" },
-      { id: 'D', text: "Amazon Cognito" }
+      { id: 'A', text: "AWS Secrets Manager" },
+      { id: 'B', text: "Amazon Cognito" },
+      { id: 'C', text: "AWS Directory Service" },
+      { id: 'D', text: "AWS IAM Identity Center" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "AWS IAM Identity Center (successor to AWS Single Sign-On) helps you securely create or connect your workforce identities and manage their access centrally across AWS accounts and cloud applications.",
     referenceUrl: "https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html",
@@ -366,12 +366,12 @@ export const AWS_CLF_QUESTIONS_4 = [
     scenario: "A mobile development team needs a service that provides user sign-up, sign-in, social login (Google, Apple, Facebook), and user profile management for their consumer mobile app.",
     question: "Which AWS service provides user directories, authentication, and token issuance for web and mobile applications?",
     options: [
-      { id: 'A', text: "Amazon Cognito Identity Pools" },
-      { id: 'B', text: "AWS Directory Service" },
+      { id: 'A', text: "Amazon Cognito User Pools" },
+      { id: 'B', text: "Amazon Cognito Identity Pools" },
       { id: 'C', text: "AWS IAM" },
-      { id: 'D', text: "Amazon Cognito User Pools" }
+      { id: 'D', text: "AWS Directory Service" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Amazon Cognito User Pools are user directories that provide sign-up and sign-in options for web and mobile application users, including built-in support for Multi-Factor Authentication (MFA) and social identity federation.",
     referenceUrl: "https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html",
@@ -387,12 +387,12 @@ export const AWS_CLF_QUESTIONS_4 = [
     scenario: "A storage administrator needs a centralized analytics dashboard across all S3 buckets in an AWS Organization to identify cost-optimization opportunities, uncover non-encrypted buckets, and monitor activity trends.",
     question: "Which Amazon S3 analytics feature provides organization-wide visibility into object storage usage and activity metrics with actionable recommendations?",
     options: [
-      { id: 'A', text: "AWS Trusted Advisor" },
-      { id: 'B', text: "Amazon CloudWatch Metrics" },
-      { id: 'C', text: "Amazon S3 Inventory" },
-      { id: 'D', text: "Amazon S3 Storage Lens" }
+      { id: 'A', text: "Amazon S3 Inventory" },
+      { id: 'B', text: "Amazon S3 Storage Lens" },
+      { id: 'C', text: "AWS Trusted Advisor" },
+      { id: 'D', text: "Amazon CloudWatch Metrics" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Amazon S3 Storage Lens provides organization-wide visibility into object storage usage and activity trends, generating contextual insights and actionable recommendations to optimize storage costs and apply security best practices.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html",
@@ -429,12 +429,12 @@ export const AWS_CLF_QUESTIONS_4 = [
     scenario: "An enterprise workflow involves calling multiple microservices, executing AWS Lambda functions in sequence, handling errors, and inserting conditional retry logic based on execution outputs.",
     question: "Which AWS service allows you to visually orchestrate and coordinate distributed microservices and serverless components using state machines?",
     options: [
-      { id: 'A', text: "AWS EventBridge" },
-      { id: 'B', text: "Amazon SQS" },
-      { id: 'C', text: "AWS Step Functions" },
+      { id: 'A', text: "Amazon SQS" },
+      { id: 'B', text: "AWS Step Functions" },
+      { id: 'C', text: "AWS EventBridge" },
       { id: 'D', text: "Amazon SNS" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "AWS Step Functions is a low-code visual workflow service used to orchestrate AWS services, automate business processes, and build serverless applications with state machines.",
     referenceUrl: "https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html",
@@ -471,12 +471,12 @@ export const AWS_CLF_QUESTIONS_4 = [
     scenario: "A security engineer mandates that administrators must be able to securely connect to private Amazon EC2 instances via an interactive browser shell without opening inbound SSH port 22 or managing bastion hosts.",
     question: "Which AWS Systems Manager capability allows secure shell access to EC2 instances without requiring inbound firewall ports or public IP addresses?",
     options: [
-      { id: 'A', text: "AWS Direct Connect" },
-      { id: 'B', text: "EC2 Instance Connect" },
-      { id: 'C', text: "AWS Systems Manager Session Manager" },
-      { id: 'D', text: "AWS Client VPN" }
+      { id: 'A', text: "AWS Systems Manager Session Manager" },
+      { id: 'B', text: "AWS Client VPN" },
+      { id: 'C', text: "AWS Direct Connect" },
+      { id: 'D', text: "EC2 Instance Connect" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "AWS Systems Manager Session Manager provides secure and auditable instance management without needing to open inbound ports, maintain bastion hosts, or manage SSH keys.",
     referenceUrl: "https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager.html",
@@ -492,12 +492,12 @@ export const AWS_CLF_QUESTIONS_4 = [
     scenario: "An enterprise wants to deploy an intelligent enterprise search service powered by machine learning to allow employees to find documentation across internal wikis, S3 buckets, and SharePoint using natural language questions.",
     question: "Which AWS service provides an intelligent document search service powered by machine learning?",
     options: [
-      { id: 'A', text: "Amazon OpenSearch Service" },
+      { id: 'A', text: "Amazon Kendra" },
       { id: 'B', text: "Amazon Textract" },
-      { id: 'C', text: "Amazon Comprehend" },
-      { id: 'D', text: "Amazon Kendra" }
+      { id: 'C', text: "Amazon OpenSearch Service" },
+      { id: 'D', text: "Amazon Comprehend" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Amazon Kendra is an intelligent search service powered by machine learning that enables organizations to provide natural language search capabilities across structured and unstructured content repositories.",
     referenceUrl: "https://docs.aws.amazon.com/kendra/latest/dg/what-is-kendra.html",

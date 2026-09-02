@@ -9,12 +9,12 @@ export const AWS_CLF_QUESTIONS_9 = [
     scenario: "An enterprise wants to establish a disaster recovery target in a secondary AWS Region for critical EC2 instances with continuous asynchronous replication and automated non-disruptive DR drills.",
     question: "Which AWS service enables automated continuous server replication for disaster recovery with non-disruptive testing?",
     options: [
-      { id: 'A', text: "AWS Snowcone" },
-      { id: 'B', text: "AWS DataSync" },
+      { id: 'A', text: "AWS DataSync" },
+      { id: 'B', text: "AWS Elastic Disaster Recovery (AWS DRS)" },
       { id: 'C', text: "AWS Backup" },
-      { id: 'D', text: "AWS Elastic Disaster Recovery (AWS DRS)" }
+      { id: 'D', text: "AWS Snowcone" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "AWS Elastic Disaster Recovery (AWS DRS) provides continuous, block-level replication of servers into a low-cost staging area in your target AWS Region and allows non-disruptive DR drill testing.",
     referenceUrl: "https://docs.aws.amazon.com/drs/latest/userguide/what-is-drs.html",
@@ -72,12 +72,12 @@ export const AWS_CLF_QUESTIONS_9 = [
     scenario: "A production database running on an Amazon EC2 instance is running out of disk space on its attached 500 GB gp3 EBS volume. The database must remain online and accessible during the volume expansion.",
     question: "How can an administrator increase the size of an attached Amazon EBS volume without stopping the EC2 instance or detaching the volume?",
     options: [
-      { id: 'A', text: "EBS volume sizes cannot be increased once created." },
-      { id: 'B', text: "Use Amazon EBS Elastic Volumes to modify the volume size and IOPS dynamically while the volume is in use." },
-      { id: 'C', text: "Stop the EC2 instance, detach the volume, resize it, and reattach it." },
-      { id: 'D', text: "Create a new EBS volume and migrate data manually." }
+      { id: 'A', text: "Use Amazon EBS Elastic Volumes to modify the volume size and IOPS dynamically while the volume is in use." },
+      { id: 'B', text: "EBS volume sizes cannot be increased once created." },
+      { id: 'C', text: "Create a new EBS volume and migrate data manually." },
+      { id: 'D', text: "Stop the EC2 instance, detach the volume, resize it, and reattach it." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Amazon EBS Elastic Volumes allows you to increase volume size, adjust provisioned IOPS, or change the volume type dynamically without detaching the volume or restarting the instance.",
     referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modify-volume.html",
@@ -93,12 +93,12 @@ export const AWS_CLF_QUESTIONS_9 = [
     scenario: "A finance manager is auditing the monthly invoice for Amazon S3 storage usage.",
     question: "Which components are primary cost drivers for Amazon S3 billing?",
     options: [
-      { id: 'A', text: "Storage volume (GB-months), request counts (PUT, GET), and outbound data transfer." },
+      { id: 'A', text: "The number of S3 buckets created in an account." },
       { id: 'B', text: "Inbound data transfer from the public internet." },
-      { id: 'C', text: "The number of S3 buckets created in an account." },
-      { id: 'D', text: "The number of IAM users accessing the bucket." }
+      { id: 'C', text: "The number of IAM users accessing the bucket." },
+      { id: 'D', text: "Storage volume (GB-months), request counts (PUT, GET), and outbound data transfer." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Amazon S3 pricing is determined primarily by: storage volume consumed per month (GB/month), number and type of requests (PUT, COPY, POST, LIST, GET), data retrieval fees (for cold tiers), and outbound data transfer.",
     referenceUrl: "https://aws.amazon.com/s3/pricing/",
@@ -115,11 +115,11 @@ export const AWS_CLF_QUESTIONS_9 = [
     question: "How does AWS Secrets Manager perform automated rotation of database credentials?",
     options: [
       { id: 'A', text: "It emails the database administrator a new random password every 30 days." },
-      { id: 'B', text: "It requires AWS CloudHSM to manually rotate passwords." },
-      { id: 'C', text: "It restarts the database instance on a monthly schedule." },
-      { id: 'D', text: "It invokes a built-in AWS Lambda rotation function that updates both the database secret and the database server credentials synchronously." }
+      { id: 'B', text: "It invokes a built-in AWS Lambda rotation function that updates both the database secret and the database server credentials synchronously." },
+      { id: 'C', text: "It requires AWS CloudHSM to manually rotate passwords." },
+      { id: 'D', text: "It restarts the database instance on a monthly schedule." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "AWS Secrets Manager uses an AWS Lambda function to update credentials on both the target database server and in the Secrets Manager secret automatically according to your rotation schedule.",
     referenceUrl: "https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html",
@@ -156,12 +156,12 @@ export const AWS_CLF_QUESTIONS_9 = [
     scenario: "A healthcare provider must store patient health records strictly within German national borders to comply with European and national data sovereignty regulations.",
     question: "Which factor dictates the selection of a specific AWS Region for deploying workloads with strict data residency requirements?",
     options: [
-      { id: 'A', text: "Data residency and legal compliance requirements" },
-      { id: 'B', text: "Availability of AWS Snowcone devices" },
-      { id: 'C', text: "The number of IAM users in the account" },
-      { id: 'D', text: "The tier of AWS Support plan purchased" }
+      { id: 'A', text: "The number of IAM users in the account" },
+      { id: 'B', text: "The tier of AWS Support plan purchased" },
+      { id: 'C', text: "Data residency and legal compliance requirements" },
+      { id: 'D', text: "Availability of AWS Snowcone devices" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "When choosing an AWS Region, primary factors include: legal compliance and data residency requirements (keeping data inside specific national boundaries), proximity to end users (latency), service availability, and cost.",
     referenceUrl: "https://aws.amazon.com/about-aws/global-infrastructure/regions_az/",
@@ -198,12 +198,12 @@ export const AWS_CLF_QUESTIONS_9 = [
     scenario: "An architecture processes streaming IoT records by invoking a serverless Lambda function automatically whenever new batches of records arrive in an Amazon Kinesis Data Stream.",
     question: "Which AWS Lambda capability continuously polls streaming services and invokes Lambda functions with batches of records?",
     options: [
-      { id: 'A', text: "CloudWatch Alarms" },
-      { id: 'B', text: "API Gateway HTTP API" },
-      { id: 'C', text: "Event Source Mapping" },
-      { id: 'D', text: "Amazon SNS Subscription" }
+      { id: 'A', text: "API Gateway HTTP API" },
+      { id: 'B', text: "CloudWatch Alarms" },
+      { id: 'C', text: "Amazon SNS Subscription" },
+      { id: 'D', text: "Event Source Mapping" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "An Event Source Mapping is a Lambda resource that reads from an event source (such as Amazon Kinesis, DynamoDB Streams, or Amazon SQS) and invokes a Lambda function with batches of records.",
     referenceUrl: "https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html",
@@ -261,12 +261,12 @@ export const AWS_CLF_QUESTIONS_9 = [
     scenario: "An organization's security administrator configures IAM user accounts, password complexity rules, and MFA enforcement for all cloud engineers.",
     question: "Under the AWS Shared Responsibility Model, who is responsible for managing IAM user identities and access privileges?",
     options: [
-      { id: 'A', text: "The customer is solely responsible for IAM user creation, password policies, and credential security." },
-      { id: 'B', text: "AWS Support manages IAM users on behalf of the customer." },
-      { id: 'C', text: "IAM management is automatically outsourced to third-party identity providers." },
-      { id: 'D', text: "AWS is responsible for resetting user passwords." }
+      { id: 'A', text: "AWS is responsible for resetting user passwords." },
+      { id: 'B', text: "IAM management is automatically outsourced to third-party identity providers." },
+      { id: 'C', text: "AWS Support manages IAM users on behalf of the customer." },
+      { id: 'D', text: "The customer is solely responsible for IAM user creation, password policies, and credential security." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Identity and Access Management (IAM) is entirely the customer's responsibility (Security IN the cloud). Customers manage user accounts, group memberships, policy assignments, and MFA enforcement.",
     referenceUrl: "https://aws.amazon.com/compliance/shared-responsibility-model/",
@@ -283,11 +283,11 @@ export const AWS_CLF_QUESTIONS_9 = [
     question: "Which Amazon CloudFront feature restricts access to private content using temporary cryptographic tokens?",
     options: [
       { id: 'A', text: "S3 Block Public Access" },
-      { id: 'B', text: "Security Groups" },
-      { id: 'C', text: "CloudFront Signed URLs and Signed Cookies" },
-      { id: 'D', text: "AWS WAF alone" }
+      { id: 'B', text: "CloudFront Signed URLs and Signed Cookies" },
+      { id: 'C', text: "AWS WAF alone" },
+      { id: 'D', text: "Security Groups" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "CloudFront Signed URLs and Signed Cookies allow you to control who can access your content by requiring clients to provide a valid signature generated with a trusted key pair, ideal for private subscription content.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html",
@@ -345,12 +345,12 @@ export const AWS_CLF_QUESTIONS_9 = [
     scenario: "A system administrator tags an EC2 instance with `Environment = Production` to track production server costs in monthly billing reports.",
     question: "In AWS resource tagging, what do `Environment` and `Production` represent?",
     options: [
-      { id: 'A', text: "Both are AWS Organization OU names." },
-      { id: 'B', text: "`Environment` is the tag value, and `Production` is the tag key." },
-      { id: 'C', text: "`Environment` is the tag key, and `Production` is the tag value." },
-      { id: 'D', text: "Both are IAM policy variables." }
+      { id: 'A', text: "`Environment` is the tag key, and `Production` is the tag value." },
+      { id: 'B', text: "Both are IAM policy variables." },
+      { id: 'C', text: "Both are AWS Organization OU names." },
+      { id: 'D', text: "`Environment` is the tag value, and `Production` is the tag key." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "A tag in AWS is a label consisting of a customer-defined tag key (e.g. `Environment`) and an optional tag value (e.g. `Production`) used to organize and track costs for AWS resources.",
     referenceUrl: "https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html",
@@ -366,12 +366,12 @@ export const AWS_CLF_QUESTIONS_9 = [
     scenario: "An online store database experiences slow response times during sales because read reporting queries saturate the database CPU, while high availability failover is already configured.",
     question: "What is the primary architectural purpose of an Amazon RDS Read Replica compared to a Multi-AZ deployment?",
     options: [
-      { id: 'A', text: "Read Replicas encrypt data at rest, whereas Multi-AZ encrypts data in transit." },
-      { id: 'B', text: "Read Replicas provide automated disaster failover, whereas Multi-AZ scales write throughput." },
-      { id: 'C', text: "Read Replicas scale read throughput horizontally by offloading read traffic, whereas Multi-AZ provides synchronous high availability and automatic failover." },
-      { id: 'D', text: "Read Replicas convert relational data into NoSQL format." }
+      { id: 'A', text: "Read Replicas convert relational data into NoSQL format." },
+      { id: 'B', text: "Read Replicas scale read throughput horizontally by offloading read traffic, whereas Multi-AZ provides synchronous high availability and automatic failover." },
+      { id: 'C', text: "Read Replicas provide automated disaster failover, whereas Multi-AZ scales write throughput." },
+      { id: 'D', text: "Read Replicas encrypt data at rest, whereas Multi-AZ encrypts data in transit." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "RDS Read Replicas use asynchronous replication to provide horizontal read scaling for read-heavy workloads. RDS Multi-AZ uses synchronous replication to provide high availability and automatic failover, but the standby cannot serve read traffic.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html",
@@ -408,12 +408,12 @@ export const AWS_CLF_QUESTIONS_9 = [
     scenario: "A real-time voice-over-IP (VoIP) application needs to ingest UDP traffic from mobile clients worldwide and route it across the congestion-free AWS private network backbone to Application Load Balancers in two AWS Regions.",
     question: "Which AWS networking service provides static anycast IP addresses to onboard TCP/UDP traffic onto the AWS global network close to users?",
     options: [
-      { id: 'A', text: "Amazon Route 53" },
-      { id: 'B', text: "AWS Global Accelerator" },
+      { id: 'A', text: "AWS Direct Connect" },
+      { id: 'B', text: "Amazon Route 53" },
       { id: 'C', text: "Amazon CloudFront" },
-      { id: 'D', text: "AWS Direct Connect" }
+      { id: 'D', text: "AWS Global Accelerator" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "AWS Global Accelerator provides two static anycast IP addresses that route traffic over the AWS global private network backbone directly to optimal regional endpoints for TCP and UDP protocols.",
     referenceUrl: "https://docs.aws.amazon.com/global-accelerator/latest/dg/what-is-global-accelerator.html",
@@ -429,12 +429,12 @@ export const AWS_CLF_QUESTIONS_9 = [
     scenario: "A software team wants to deploy a Docker containerized web application using an automated platform that manages provisioning, load balancing, and health monitoring.",
     question: "Which AWS deployment service supports deploying custom Docker containers as a managed platform?",
     options: [
-      { id: 'A', text: "Amazon Route 53" },
-      { id: 'B', text: "AWS Elastic Beanstalk" },
-      { id: 'C', text: "Amazon CloudFront" },
-      { id: 'D', text: "AWS CodeCommit" }
+      { id: 'A', text: "AWS CodeCommit" },
+      { id: 'B', text: "Amazon CloudFront" },
+      { id: 'C', text: "AWS Elastic Beanstalk" },
+      { id: 'D', text: "Amazon Route 53" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "AWS Elastic Beanstalk supports single-container and multi-container Docker environments alongside runtime platforms like Node.js, Python, Java, and .NET, automating infrastructure management.",
     referenceUrl: "https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/docker.html",
@@ -450,12 +450,12 @@ export const AWS_CLF_QUESTIONS_9 = [
     scenario: "An architect explains the difference between building high availability within a Region and designing a multi-region disaster recovery plan.",
     question: "What is the primary difference between High Availability (HA) and Disaster Recovery (DR)?",
     options: [
-      { id: 'A', text: "HA focuses on continuous operational uptime and automatic fault handling within a Region (e.g. across AZs), whereas DR focuses on restoring operations after a major catastrophic Regional failure." },
-      { id: 'B', text: "HA is manual, whereas DR is always fully automated." },
-      { id: 'C', text: "HA is free, whereas DR requires Enterprise Support." },
+      { id: 'A', text: "HA is free, whereas DR requires Enterprise Support." },
+      { id: 'B', text: "HA focuses on continuous operational uptime and automatic fault handling within a Region (e.g. across AZs), whereas DR focuses on restoring operations after a major catastrophic Regional failure." },
+      { id: 'C', text: "HA is manual, whereas DR is always fully automated." },
       { id: 'D', text: "HA applies only to databases, whereas DR applies only to compute." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "High Availability ensures systems operate continuously without failing during routine localized component failures (typically across multiple AZs). Disaster Recovery focuses on business continuity and data restoration following a major catastrophic disaster (typically multi-Region).",
     referenceUrl: "https://docs.aws.amazon.com/whitepapers/latest/real-time-communication-on-aws/high-availability-and-fault-tolerance.html",

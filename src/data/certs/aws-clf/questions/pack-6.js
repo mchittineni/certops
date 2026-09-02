@@ -9,12 +9,12 @@ export const AWS_CLF_QUESTIONS_6 = [
     scenario: "A software team migrating a document-oriented JSON application from on-premises MongoDB to AWS requires a fully managed, scalable, and highly available document database service.",
     question: "Which AWS database service provides native compatibility with MongoDB workloads and JSON document data?",
     options: [
-      { id: 'A', text: "Amazon Neptune" },
-      { id: 'B', text: "Amazon DocumentDB (with MongoDB compatibility)" },
-      { id: 'C', text: "Amazon RDS for PostgreSQL" },
-      { id: 'D', text: "Amazon DynamoDB" }
+      { id: 'A', text: "Amazon DynamoDB" },
+      { id: 'B', text: "Amazon RDS for PostgreSQL" },
+      { id: 'C', text: "Amazon DocumentDB (with MongoDB compatibility)" },
+      { id: 'D', text: "Amazon Neptune" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Amazon DocumentDB (with MongoDB compatibility) is a fully managed native JSON document database service that supports MongoDB workloads, decoupling compute and storage with 6-way multi-AZ replication.",
     referenceUrl: "https://docs.aws.amazon.com/documentdb/latest/developerguide/what-is.html",
@@ -51,12 +51,12 @@ export const AWS_CLF_QUESTIONS_6 = [
     scenario: "A supply chain organization requires a centralized, transparent, immutable, and cryptographically verifiable transaction log that records every state change with no ability to delete or alter past history.",
     question: "Which AWS ledger database provides a cryptographically verifiable transaction log owned by a central authority?",
     options: [
-      { id: 'A', text: "Amazon DynamoDB" },
-      { id: 'B', text: "Amazon Quantum Ledger Database (Amazon QLDB)" },
-      { id: 'C', text: "Amazon Managed Blockchain" },
-      { id: 'D', text: "AWS CloudTrail" }
+      { id: 'A', text: "AWS CloudTrail" },
+      { id: 'B', text: "Amazon Managed Blockchain" },
+      { id: 'C', text: "Amazon Quantum Ledger Database (Amazon QLDB)" },
+      { id: 'D', text: "Amazon DynamoDB" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Amazon QLDB is a fully managed ledger database that provides a transparent, immutable, and cryptographically verifiable transaction log owned by a central trusted authority.",
     referenceUrl: "https://docs.aws.amazon.com/qldb/latest/developerguide/what-is.html",
@@ -136,9 +136,9 @@ export const AWS_CLF_QUESTIONS_6 = [
     question: "Which perspective of the AWS Cloud Adoption Framework (AWS CAF) focuses on delivering cloud infrastructure solutions, migrating workloads, and modernizing platforms?",
     options: [
       { id: 'A', text: "Platform Perspective" },
-      { id: 'B', text: "People Perspective" },
-      { id: 'C', text: "Business Perspective" },
-      { id: 'D', text: "Security Perspective" }
+      { id: 'B', text: "Business Perspective" },
+      { id: 'C', text: "Security Perspective" },
+      { id: 'D', text: "People Perspective" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -177,12 +177,12 @@ export const AWS_CLF_QUESTIONS_6 = [
     scenario: "An enterprise wants a cost-effective cloud-based disaster recovery solution that continuously replicates physical and virtual on-premises servers into AWS EBS volumes with minimal compute running during standby.",
     question: "Which AWS service provides automated block-level continuous replication of on-premises servers for rapid disaster recovery into AWS?",
     options: [
-      { id: 'A', text: "AWS Snowball Edge" },
+      { id: 'A', text: "AWS Elastic Disaster Recovery (AWS DRS)" },
       { id: 'B', text: "AWS Backup" },
-      { id: 'C', text: "AWS Elastic Disaster Recovery (AWS DRS)" },
-      { id: 'D', text: "AWS DataSync" }
+      { id: 'C', text: "AWS DataSync" },
+      { id: 'D', text: "AWS Snowball Edge" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "AWS Elastic Disaster Recovery (AWS DRS) minimizes downtime and data loss by providing fast, reliable recovery of physical, virtual, and cloud-based servers into AWS at low cost.",
     referenceUrl: "https://docs.aws.amazon.com/drs/latest/userguide/what-is-drs.html",
@@ -198,12 +198,12 @@ export const AWS_CLF_QUESTIONS_6 = [
     scenario: "An operations team needs a centralized backup service to automate and manage policy-based backups across Amazon EBS, Amazon RDS, Amazon DynamoDB, and Amazon EFS.",
     question: "Which AWS managed service provides centralized policy-based backup automation across multiple AWS services?",
     options: [
-      { id: 'A', text: "AWS DataSync" },
-      { id: 'B', text: "AWS Backup" },
-      { id: 'C', text: "Amazon S3 Lifecycle" },
-      { id: 'D', text: "AWS Storage Gateway" }
+      { id: 'A', text: "Amazon S3 Lifecycle" },
+      { id: 'B', text: "AWS Storage Gateway" },
+      { id: 'C', text: "AWS DataSync" },
+      { id: 'D', text: "AWS Backup" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "AWS Backup is a cost-effective, fully managed, policy-based service that simplifies data protection at scale across AWS services and hybrid workloads, supporting compliance auditing.",
     referenceUrl: "https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html",
@@ -240,12 +240,12 @@ export const AWS_CLF_QUESTIONS_6 = [
     scenario: "An on-premises branch office needs local SMB/NFS file share access for users, with local caching for low latency, while storing all files durable in an Amazon S3 bucket.",
     question: "Which AWS Storage Gateway type provides seamless on-premises file share access backed directly by Amazon S3?",
     options: [
-      { id: 'A', text: "Volume Gateway" },
-      { id: 'B', text: "Tape Gateway" },
-      { id: 'C', text: "Amazon S3 File Gateway" },
+      { id: 'A', text: "Tape Gateway" },
+      { id: 'B', text: "Amazon S3 File Gateway" },
+      { id: 'C', text: "Volume Gateway" },
       { id: 'D', text: "AWS DataSync" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Amazon S3 File Gateway presents a file interface that enables you to store files as objects in Amazon S3 using the industry-standard NFS and SMB protocols, with a local cache for fast access.",
     referenceUrl: "https://docs.aws.amazon.com/filegateway/latest/filecontent/what-is-file-s3.html",
@@ -261,12 +261,12 @@ export const AWS_CLF_QUESTIONS_6 = [
     scenario: "An organization needs to transfer 50 TB of research files from an on-premises Network Attached Storage (NAS) array to Amazon EFS over an AWS Direct Connect connection with automated bandwidth throttling and data integrity verification.",
     question: "Which AWS service automates and accelerates online data transfers between on-premises storage and AWS storage services?",
     options: [
-      { id: 'A', text: "AWS DataSync" },
-      { id: 'B', text: "AWS Snowball Edge" },
-      { id: 'C', text: "AWS Storage Gateway" },
-      { id: 'D', text: "AWS Transfer Family" }
+      { id: 'A', text: "AWS Storage Gateway" },
+      { id: 'B', text: "AWS Transfer Family" },
+      { id: 'C', text: "AWS DataSync" },
+      { id: 'D', text: "AWS Snowball Edge" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "AWS DataSync is an online data transfer and discovery service that simplifies, automates, and accelerates moving data between on-premises storage systems and AWS storage services up to 10x faster.",
     referenceUrl: "https://docs.aws.amazon.com/datasync/latest/userguide/what-is-datasync.html",
@@ -282,12 +282,12 @@ export const AWS_CLF_QUESTIONS_6 = [
     scenario: "A financial organization needs to allow business partners to securely upload invoices via SFTP (SSH File Transfer Protocol) directly into Amazon S3 buckets without managing SFTP server infrastructure.",
     question: "Which fully managed AWS service provides secure SFTP, FTPS, and FTP endpoints backed by Amazon S3 and Amazon EFS?",
     options: [
-      { id: 'A', text: "Amazon S3 Transfer Acceleration" },
-      { id: 'B', text: "AWS DataSync" },
-      { id: 'C', text: "AWS Storage Gateway" },
-      { id: 'D', text: "AWS Transfer Family" }
+      { id: 'A', text: "AWS Transfer Family" },
+      { id: 'B', text: "AWS Storage Gateway" },
+      { id: 'C', text: "AWS DataSync" },
+      { id: 'D', text: "Amazon S3 Transfer Acceleration" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "AWS Transfer Family is a fully managed service that enables the transfer of files directly into and out of Amazon S3 or Amazon EFS using SFTP, FTPS, and FTP protocols.",
     referenceUrl: "https://docs.aws.amazon.com/transfer/latest/userguide/what-is-aws-transfer-family.html",
@@ -345,12 +345,12 @@ export const AWS_CLF_QUESTIONS_6 = [
     scenario: "A company wants to lift-and-shift 50 physical and VMware Windows and Linux virtual servers into Amazon EC2 with minimal cutover downtime.",
     question: "Which primary AWS service is recommended for lift-and-shift server migration to AWS?",
     options: [
-      { id: 'A', text: "AWS Application Migration Service (AWS MGN)" },
-      { id: 'B', text: "AWS Elastic Beanstalk" },
-      { id: 'C', text: "AWS Database Migration Service (DMS)" },
-      { id: 'D', text: "AWS DataSync" }
+      { id: 'A', text: "AWS Elastic Beanstalk" },
+      { id: 'B', text: "AWS Application Migration Service (AWS MGN)" },
+      { id: 'C', text: "AWS DataSync" },
+      { id: 'D', text: "AWS Database Migration Service (DMS)" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "AWS Application Migration Service (AWS MGN) is the primary migration service recommended for lift-and-shift migrations to AWS, automatically replicating physical, virtual, and cloud servers into AWS.",
     referenceUrl: "https://docs.aws.amazon.com/mgn/latest/ug/what-is-application-migration-service.html",
@@ -366,12 +366,12 @@ export const AWS_CLF_QUESTIONS_6 = [
     scenario: "A team needs to migrate an on-premises Oracle database to Amazon Aurora PostgreSQL. Because the database engines differ, the schema must be converted before migrating data.",
     question: "Which combination of AWS tools converts heterogeneous database schemas and performs ongoing replication with minimal downtime?",
     options: [
-      { id: 'A', text: "AWS Snowball Edge with Amazon RDS" },
-      { id: 'B', text: "AWS Schema Conversion Tool (SCT) with AWS Database Migration Service (AWS DMS)" },
-      { id: 'C', text: "AWS Application Migration Service (MGN) alone" },
-      { id: 'D', text: "AWS DataSync with Amazon S3" }
+      { id: 'A', text: "AWS Schema Conversion Tool (SCT) with AWS Database Migration Service (AWS DMS)" },
+      { id: 'B', text: "AWS Snowball Edge with Amazon RDS" },
+      { id: 'C', text: "AWS DataSync with Amazon S3" },
+      { id: 'D', text: "AWS Application Migration Service (MGN) alone" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "AWS SCT converts heterogeneous database schemas (e.g. Oracle to PostgreSQL), while AWS DMS migrates data and performs Change Data Capture (CDC) to keep the target database in sync with minimal downtime.",
     referenceUrl: "https://docs.aws.amazon.com/dms/latest/userguide/Welcome.html",
@@ -408,12 +408,12 @@ export const AWS_CLF_QUESTIONS_6 = [
     scenario: "A mid-sized company with production workloads needs designated Technical Account Manager (TAM) access, 30-minute response time for production down cases, and consultative architecture guidance at a lower cost than full Enterprise Support.",
     question: "Which AWS Support Plan bridges the gap between Business Support and Enterprise Support with a 30-minute response SLA?",
     options: [
-      { id: 'A', text: "Basic Support" },
-      { id: 'B', text: "Business Support" },
-      { id: 'C', text: "Developer Support" },
-      { id: 'D', text: "Enterprise On-Ramp Support" }
+      { id: 'A', text: "Business Support" },
+      { id: 'B', text: "Basic Support" },
+      { id: 'C', text: "Enterprise On-Ramp Support" },
+      { id: 'D', text: "Developer Support" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Enterprise On-Ramp is an AWS Support plan tailored for customers migrating production workloads, providing a pool of Technical Account Managers (TAMs) and a 30-minute response time SLA for critical issues.",
     referenceUrl: "https://aws.amazon.com/premiumsupport/plans/enterprise-on-ramp/",

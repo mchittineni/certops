@@ -52,9 +52,9 @@ export const GITHUB_ACTIONS_QUESTIONS_9 = [
     question: "What is the quickest way to find out from within the workflow?",
     options: [
       { id: 'A', text: "Add a temporary step that prints the context serialised with toJSON, taking care that the output may contain untrusted data and should not be interpolated into a command." },
-      { id: 'B', text: "Enable debug logging, which is the only way to see payload contents." },
-      { id: 'C', text: "Download the event payload artifact, which the runner uploads for every run." },
-      { id: 'D', text: "Print the context reference directly, which the runner expands into a readable structure." }
+      { id: 'B', text: "Print the context reference directly, which the runner expands into a readable structure." },
+      { id: 'C', text: "Enable debug logging, which is the only way to see payload contents." },
+      { id: 'D', text: "Download the event payload artifact, which the runner uploads for every run." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -93,12 +93,12 @@ export const GITHUB_ACTIONS_QUESTIONS_9 = [
     scenario: "A workflow needs a command-line tool that is published only as a container image. Installing it on the runner takes minutes, and the team does not want to author an action just to invoke it once.",
     question: "Which step form invokes the image directly?",
     options: [
-      { id: 'A', text: "A step whose uses value is the image name alone, which the runner resolves against the default registry." },
-      { id: 'B', text: "A run step invoking the container runtime by hand, since only actions may be referenced with uses." },
+      { id: 'A', text: "A step whose uses value is a docker reference to the published image, with args supplied through the with block." },
+      { id: 'B', text: "A step whose uses value is the image name alone, which the runner resolves against the default registry." },
       { id: 'C', text: "A job container key, which is the only way to use an image without authoring an action." },
-      { id: 'D', text: "A step whose uses value is a docker reference to the published image, with args supplied through the with block." }
+      { id: 'D', text: "A run step invoking the container runtime by hand, since only actions may be referenced with uses." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "A step may reference a published container image directly with a docker scheme reference, and the runner executes it as a container action without any metadata file being authored. A bare image name is interpreted as a repository reference rather than an image, a job container replaces the environment for every step rather than running one tool, and invoking the runtime by hand works but is exactly the boilerplate the supported form removes.",
     referenceUrl: "https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions",
@@ -114,12 +114,12 @@ export const GITHUB_ACTIONS_QUESTIONS_9 = [
     scenario: "The language version is declared both in a repository version file used by local development and as a literal in three workflows. The two drift apart and a recent incident was traced to CI testing a different version from the one developers use.",
     question: "Which change removes the duplication?",
     options: [
-      { id: 'A', text: "Move the version into a repository configuration variable and reference it from the workflows and from a local script." },
-      { id: 'B', text: "Pin the workflows to the latest version so they always match whatever developers install." },
-      { id: 'C', text: "Use the setup action option that reads the version from the existing version file, so the repository file is the single source for both local development and CI." },
+      { id: 'A', text: "Use the setup action option that reads the version from the existing version file, so the repository file is the single source for both local development and CI." },
+      { id: 'B', text: "Move the version into a repository configuration variable and reference it from the workflows and from a local script." },
+      { id: 'C', text: "Pin the workflows to the latest version so they always match whatever developers install." },
       { id: 'D', text: "Add a workflow that fails when the two values differ, leaving both declarations in place." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Language setup actions accept a version file input, so pointing them at the file developers already use makes one artifact authoritative for both environments and removes the possibility of drift. A configuration variable creates a third place that local tooling must be taught about, tracking the latest version reintroduces the mismatch whenever a developer lags, and a consistency check detects the drift rather than preventing it.",
     referenceUrl: "https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs",
@@ -135,12 +135,12 @@ export const GITHUB_ACTIONS_QUESTIONS_9 = [
     scenario: "A step that publishes to an external registry fails roughly one time in twenty with a transient network error. The team wants an automatic retry for this step alone, without re-running the whole job.",
     question: "What is available?",
     options: [
-      { id: 'A', text: "The continue-on-error setting, which retries the step before reporting a result." },
+      { id: 'A', text: "There is no built-in step retry, so the retry must be implemented in the step script or by a community action, and it should be scoped narrowly so genuine failures are not retried into a much longer run." },
       { id: 'B', text: "A retries key on the step, which defaults to zero and can be raised." },
-      { id: 'C', text: "A strategy block on the step with an attempts value." },
-      { id: 'D', text: "There is no built-in step retry, so the retry must be implemented in the step script or by a community action, and it should be scoped narrowly so genuine failures are not retried into a much longer run." }
+      { id: 'C', text: "The continue-on-error setting, which retries the step before reporting a result." },
+      { id: 'D', text: "A strategy block on the step with an attempts value." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The workflow syntax offers no step-level retry, so retrying is done inside the script with a loop and a backoff or by an action that wraps the command, and the practical caution is to keep the retried region small and bounded because retrying a deterministic failure only multiplies the time to feedback. There is no retries key, no step strategy block, and continue-on-error tolerates a failure rather than retrying it.",
     referenceUrl: "https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions",
@@ -177,12 +177,12 @@ export const GITHUB_ACTIONS_QUESTIONS_9 = [
     scenario: "A step downloads a prebuilt binary. The matrix now includes an ARM-based runner alongside the existing x64 ones, and the step downloads the wrong build there.",
     question: "Which context value should select the download?",
     options: [
-      { id: 'A', text: "The runner.name value, parsed for a hardware suffix." },
-      { id: 'B', text: "The runner.arch value, alongside runner.os, which together identify the platform the job is executing on." },
-      { id: 'C', text: "The github.repository_visibility value, which correlates with runner hardware." },
-      { id: 'D', text: "The matrix.os value alone, since the operating system determines the architecture." }
+      { id: 'A', text: "The github.repository_visibility value, which correlates with runner hardware." },
+      { id: 'B', text: "The matrix.os value alone, since the operating system determines the architecture." },
+      { id: 'C', text: "The runner.name value, parsed for a hardware suffix." },
+      { id: 'D', text: "The runner.arch value, alongside runner.os, which together identify the platform the job is executing on." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The runner context reports both the operating system and the processor architecture, and a download decision needs both because the same operating system now exists on more than one architecture. Repository visibility is unrelated, the operating system no longer implies the architecture, and parsing a runner name is a fragile substitute for a value the platform already provides.",
     referenceUrl: "https://docs.github.com/en/actions/learn-github-actions/contexts",
@@ -220,9 +220,9 @@ export const GITHUB_ACTIONS_QUESTIONS_9 = [
     question: "What is the constraint and the usual design response?",
     options: [
       { id: 'A', text: "A workflow_dispatch trigger supports at most ten inputs, so the design should collapse related options into a smaller number of inputs or move configuration into the repository where it can be reviewed." },
-      { id: 'B', text: "Inputs are limited only in total character length, so shortening the descriptions resolves it." },
-      { id: 'C', text: "There is no input limit; the rejection must come from a duplicate input name." },
-      { id: 'D', text: "The limit is ten inputs per workflow file across all triggers combined, so the schedule trigger must be removed." }
+      { id: 'B', text: "There is no input limit; the rejection must come from a duplicate input name." },
+      { id: 'C', text: "The limit is ten inputs per workflow file across all triggers combined, so the schedule trigger must be removed." },
+      { id: 'D', text: "Inputs are limited only in total character length, so shortening the descriptions resolves it." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -240,12 +240,12 @@ export const GITHUB_ACTIONS_QUESTIONS_9 = [
     scenario: "A calling workflow grants its job contents: read only. The reusable workflow it calls declares a permissions block requesting packages: write, and the run fails when the called workflow tries to publish.",
     question: "What is the rule?",
     options: [
-      { id: 'A', text: "A called workflow permissions block replaces the caller entirely, so the failure must have another cause." },
-      { id: 'B', text: "A called workflow always receives the repository default permissions regardless of either block." },
-      { id: 'C', text: "Permissions cannot be declared in a reusable workflow at all, so the block is ignored." },
-      { id: 'D', text: "A called workflow can hold the same permissions as the caller or fewer, never more, so the caller must grant the scope for the called workflow to use it." }
+      { id: 'A', text: "Permissions cannot be declared in a reusable workflow at all, so the block is ignored." },
+      { id: 'B', text: "A called workflow can hold the same permissions as the caller or fewer, never more, so the caller must grant the scope for the called workflow to use it." },
+      { id: 'C', text: "A called workflow permissions block replaces the caller entirely, so the failure must have another cause." },
+      { id: 'D', text: "A called workflow always receives the repository default permissions regardless of either block." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Token scope flows downward and can only narrow, so a reusable workflow cannot grant itself an authority the caller did not hold, which keeps the calling repository in control of what its token can do. This means the caller must add the scope for the called workflow to use it. The called block does not override the caller, defaults do not reassert themselves, and reusable workflows may certainly declare permissions.",
     referenceUrl: "https://docs.github.com/en/actions/using-workflows/reusing-workflows",
@@ -261,12 +261,12 @@ export const GITHUB_ACTIONS_QUESTIONS_9 = [
     scenario: "Production deployments must be blocked until the organization change management platform confirms an approved change record exists. The team does not want to poll from inside the workflow, and wants the gate to hold even if someone edits the workflow file.",
     question: "Which capability fits?",
     options: [
-      { id: 'A', text: "A required status check on the branch naming the change management system." },
-      { id: 'B', text: "A custom deployment protection rule provided by a GitHub App, which the environment consults and which approves or rejects the pending deployment out of band." },
-      { id: 'C', text: "A wait timer long enough for the change record to be approved manually." },
-      { id: 'D', text: "A first step in the deployment job that calls the change management API and exits non-zero when no record exists." }
+      { id: 'A', text: "A first step in the deployment job that calls the change management API and exits non-zero when no record exists." },
+      { id: 'B', text: "A wait timer long enough for the change record to be approved manually." },
+      { id: 'C', text: "A custom deployment protection rule provided by a GitHub App, which the environment consults and which approves or rejects the pending deployment out of band." },
+      { id: 'D', text: "A required status check on the branch naming the change management system." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Environments accept custom protection rules implemented by a GitHub App, so the deployment is held while the external system is consulted and released or rejected by that system, and because the rule lives on the environment it cannot be bypassed by editing the workflow. A first step inside the job is exactly the bypassable in-workflow check being avoided, branch status checks gate merging rather than deployment, and a timer waits without verifying anything.",
     referenceUrl: "https://docs.github.com/en/actions/deployment/protecting-deployments/creating-custom-deployment-protection-rules",
@@ -324,12 +324,12 @@ export const GITHUB_ACTIONS_QUESTIONS_9 = [
     scenario: "An operator dispatches a production deployment against the wrong version and needs it stopped immediately, then wants the run record kept for the incident review rather than removed.",
     question: "Which actions are appropriate?",
     options: [
-      { id: 'A', text: "Re-run the workflow with the correct version, which supersedes the incorrect run." },
-      { id: 'B', text: "Cancel the run from the run page or with the API cancel endpoint, which stops the jobs and records a cancelled conclusion that remains in the history." },
+      { id: 'A', text: "Cancel the run from the run page or with the API cancel endpoint, which stops the jobs and records a cancelled conclusion that remains in the history." },
+      { id: 'B', text: "Delete the run, which stops the jobs and is the only immediate control available." },
       { id: 'C', text: "Disable the workflow, which cancels runs already in progress." },
-      { id: 'D', text: "Delete the run, which stops the jobs and is the only immediate control available." }
+      { id: 'D', text: "Re-run the workflow with the correct version, which supersedes the incorrect run." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Cancelling stops the in-flight jobs, allows any cleanup conditioned appropriately to execute, and leaves a run recorded with a cancelled conclusion, which is what an incident review needs. Deleting a run removes the very evidence being preserved, disabling a workflow prevents future runs rather than stopping current ones, and starting another run does not stop the first.",
     referenceUrl: "https://docs.github.com/en/actions/managing-workflow-runs/canceling-a-workflow",
@@ -345,12 +345,12 @@ export const GITHUB_ACTIONS_QUESTIONS_9 = [
     scenario: "A composite action has an input named api-url. A run step inside the action reads the conventional prefixed environment variable for that input and finds it empty, although the caller clearly passed a value.",
     question: "What is the situation?",
     options: [
-      { id: 'A', text: "The value is present but masked, which is why it appears empty." },
+      { id: 'A', text: "Run steps inside a composite action do not receive inputs as prefixed environment variables, so the value must be read from the inputs context, or bound explicitly to a variable in the step env block." },
       { id: 'B', text: "The prefix convention uses lowercase inside composite actions, so the variable name is simply wrong." },
-      { id: 'C', text: "Run steps inside a composite action do not receive inputs as prefixed environment variables, so the value must be read from the inputs context, or bound explicitly to a variable in the step env block." },
-      { id: 'D', text: "Composite actions receive inputs only if they declare a default, which this input lacks." }
+      { id: 'C', text: "Composite actions receive inputs only if they declare a default, which this input lacks." },
+      { id: 'D', text: "The value is present but masked, which is why it appears empty." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The prefixed environment variable convention applies to JavaScript and container actions, whereas a composite action exposes its inputs through the inputs context, so a run step either interpolates that context or binds it to a variable of its own choosing in the step env block. The prefix casing is not the issue, a default is not a precondition for receiving a value, and an ordinary input is not masked.",
     referenceUrl: "https://docs.github.com/en/actions/creating-actions/creating-a-composite-action",
@@ -366,12 +366,12 @@ export const GITHUB_ACTIONS_QUESTIONS_9 = [
     scenario: "A container action must invoke its entry point with a flag whose value comes from a declared input, and the author wants that visible in the metadata rather than parsed inside the container.",
     question: "How is that written?",
     options: [
-      { id: 'A', text: "Declare a command key listing the flag, since args does not accept expressions." },
-      { id: 'B', text: "List the flag and an expression referencing the input as entries in the args list of the runs block." },
-      { id: 'C', text: "Args cannot reference inputs, so the entry point must read the prefixed environment variable." },
-      { id: 'D', text: "Add the input name to the entrypoint string, which the runner substitutes." }
+      { id: 'A', text: "Add the input name to the entrypoint string, which the runner substitutes." },
+      { id: 'B', text: "Args cannot reference inputs, so the entry point must read the prefixed environment variable." },
+      { id: 'C', text: "List the flag and an expression referencing the input as entries in the args list of the runs block." },
+      { id: 'D', text: "Declare a command key listing the flag, since args does not accept expressions." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "The args list of a container action accepts expressions, so an input can be threaded onto the command line declaratively and the interface remains visible to anyone reading the metadata. The entrypoint names the executable rather than templating arguments, there is no command key, and while reading the prefixed environment variable also works it is not the only route and is the very thing the author wanted to avoid.",
     referenceUrl: "https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions",
@@ -450,12 +450,12 @@ export const GITHUB_ACTIONS_QUESTIONS_9 = [
     scenario: "An organization secret must be usable by every private and internal repository, present and future, but must never be available to the organization public repositories.",
     question: "Which visibility setting expresses that?",
     options: [
-      { id: 'A', text: "The all repositories visibility, since public repositories are excluded from organization secrets automatically." },
-      { id: 'B', text: "The private repositories visibility, which grants access to private and internal repositories without enumerating them and without including public ones." },
+      { id: 'A', text: "The private repositories visibility, which grants access to private and internal repositories without enumerating them and without including public ones." },
+      { id: 'B', text: "The selected repositories visibility, listing every current private repository." },
       { id: 'C', text: "The all repositories visibility, relying on public repositories not referencing the secret." },
-      { id: 'D', text: "The selected repositories visibility, listing every current private repository." }
+      { id: 'D', text: "The all repositories visibility, since public repositories are excluded from organization secrets automatically." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Organization secrets offer a visibility scoped to private and internal repositories, which satisfies the requirement without a list that would need maintaining as repositories are created. Enumerating repositories works today and drifts tomorrow, and granting access to all repositories genuinely includes public ones, so relying on them not referencing the secret is a convention rather than a control.",
     referenceUrl: "https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions",
@@ -492,12 +492,12 @@ export const GITHUB_ACTIONS_QUESTIONS_9 = [
     scenario: "A platform workflow must open pull requests in twenty repositories. It currently uses a personal access token belonging to a staff engineer, which broke when that person changed teams and will break again when they leave.",
     question: "Which credential model is appropriate?",
     options: [
-      { id: 'A', text: "The automatic token, granted organization-wide scope through a permissions block." },
+      { id: 'A', text: "A GitHub App installed on the repositories with only the permissions it needs, from which the workflow mints a short-lived installation token, so the identity belongs to the organization rather than to a person." },
       { id: 'B', text: "A personal access token on a shared machine account, with the password held in a team vault." },
-      { id: 'C', text: "A fine-grained personal access token owned by the team lead, rotated annually." },
-      { id: 'D', text: "A GitHub App installed on the repositories with only the permissions it needs, from which the workflow mints a short-lived installation token, so the identity belongs to the organization rather than to a person." }
+      { id: 'C', text: "The automatic token, granted organization-wide scope through a permissions block." },
+      { id: 'D', text: "A fine-grained personal access token owned by the team lead, rotated annually." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "A GitHub App is an organization-owned identity with granular permissions whose installation tokens are short-lived and minted per run, which removes the dependency on any individual and shrinks the standing credential to nothing. A shared machine account is still a person-shaped credential with a long-lived secret and unclear ownership, the automatic token cannot be extended beyond its own repository, and a personal token owned by a different individual reproduces the original problem.",
     referenceUrl: "https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-as-a-github-app-installation",
