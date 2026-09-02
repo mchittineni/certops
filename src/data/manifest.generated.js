@@ -85,26 +85,40 @@ export const CONTENT_MANIFEST = {
   },
   "aws-dop": {
     "questions": {
-      "total": 0,
+      "total": 250,
       "byDifficulty": {
-        "easy": 0,
-        "medium": 0,
-        "hard": 0
+        "easy": 67,
+        "medium": 133,
+        "hard": 50
       },
-      "byDomain": {},
-      "packs": 0,
-      "loadedPacks": 0
+      "byDomain": {
+        "d1": 42,
+        "d2": 42,
+        "d3": 42,
+        "d4": 42,
+        "d5": 41,
+        "d6": 41
+      },
+      "packs": 10,
+      "loadedPacks": 10
     },
     "flashcards": {
-      "total": 0,
+      "total": 250,
       "byDifficulty": {
-        "easy": 0,
-        "medium": 0,
-        "hard": 0
+        "easy": 67,
+        "medium": 133,
+        "hard": 50
       },
-      "byDomain": {},
-      "packs": 0,
-      "loadedPacks": 0
+      "byDomain": {
+        "d1": 42,
+        "d2": 42,
+        "d3": 42,
+        "d4": 42,
+        "d5": 41,
+        "d6": 41
+      },
+      "packs": 10,
+      "loadedPacks": 10
     }
   },
   "aws-dva": {
@@ -239,26 +253,40 @@ export const CONTENT_MANIFEST = {
   },
   "aws-scs": {
     "questions": {
-      "total": 0,
+      "total": 250,
       "byDifficulty": {
-        "easy": 0,
-        "medium": 0,
-        "hard": 0
+        "easy": 67,
+        "medium": 133,
+        "hard": 50
       },
-      "byDomain": {},
-      "packs": 0,
-      "loadedPacks": 0
+      "byDomain": {
+        "d1": 42,
+        "d2": 42,
+        "d3": 42,
+        "d4": 42,
+        "d5": 41,
+        "d6": 41
+      },
+      "packs": 10,
+      "loadedPacks": 10
     },
     "flashcards": {
-      "total": 0,
+      "total": 250,
       "byDifficulty": {
-        "easy": 0,
-        "medium": 0,
-        "hard": 0
+        "easy": 67,
+        "medium": 133,
+        "hard": 50
       },
-      "byDomain": {},
-      "packs": 0,
-      "loadedPacks": 0
+      "byDomain": {
+        "d1": 42,
+        "d2": 42,
+        "d3": 42,
+        "d4": 42,
+        "d5": 41,
+        "d6": 41
+      },
+      "packs": 10,
+      "loadedPacks": 10
     }
   },
   "aws-soa": {
@@ -419,26 +447,38 @@ export const CONTENT_MANIFEST = {
   },
   "azure-az400": {
     "questions": {
-      "total": 0,
+      "total": 250,
       "byDifficulty": {
-        "easy": 0,
-        "medium": 0,
-        "hard": 0
+        "easy": 67,
+        "medium": 133,
+        "hard": 50
       },
-      "byDomain": {},
-      "packs": 0,
-      "loadedPacks": 0
+      "byDomain": {
+        "d1": 50,
+        "d2": 50,
+        "d3": 50,
+        "d4": 50,
+        "d5": 50
+      },
+      "packs": 10,
+      "loadedPacks": 10
     },
     "flashcards": {
-      "total": 0,
+      "total": 250,
       "byDifficulty": {
-        "easy": 0,
-        "medium": 0,
-        "hard": 0
+        "easy": 67,
+        "medium": 133,
+        "hard": 50
       },
-      "byDomain": {},
-      "packs": 0,
-      "loadedPacks": 0
+      "byDomain": {
+        "d1": 50,
+        "d2": 50,
+        "d3": 50,
+        "d4": 50,
+        "d5": 50
+      },
+      "packs": 10,
+      "loadedPacks": 10
     }
   },
   "azure-az900": {
@@ -547,26 +587,36 @@ export const CONTENT_MANIFEST = {
   },
   "cncf-cba": {
     "questions": {
-      "total": 0,
+      "total": 250,
       "byDifficulty": {
-        "easy": 0,
-        "medium": 0,
-        "hard": 0
+        "easy": 67,
+        "medium": 133,
+        "hard": 50
       },
-      "byDomain": {},
-      "packs": 0,
-      "loadedPacks": 0
+      "byDomain": {
+        "d1": 63,
+        "d2": 63,
+        "d3": 62,
+        "d4": 62
+      },
+      "packs": 10,
+      "loadedPacks": 10
     },
     "flashcards": {
-      "total": 0,
+      "total": 250,
       "byDifficulty": {
-        "easy": 0,
-        "medium": 0,
-        "hard": 0
+        "easy": 67,
+        "medium": 133,
+        "hard": 50
       },
-      "byDomain": {},
-      "packs": 0,
-      "loadedPacks": 0
+      "byDomain": {
+        "d1": 63,
+        "d2": 63,
+        "d3": 62,
+        "d4": 62
+      },
+      "packs": 10,
+      "loadedPacks": 10
     }
   },
   "cncf-cca": {
@@ -595,26 +645,36 @@ export const CONTENT_MANIFEST = {
   },
   "cncf-cgoa": {
     "questions": {
-      "total": 0,
+      "total": 250,
       "byDifficulty": {
-        "easy": 0,
-        "medium": 0,
-        "hard": 0
+        "easy": 67,
+        "medium": 133,
+        "hard": 50
       },
-      "byDomain": {},
-      "packs": 0,
-      "loadedPacks": 0
+      "byDomain": {
+        "d1": 63,
+        "d2": 63,
+        "d3": 62,
+        "d4": 62
+      },
+      "packs": 10,
+      "loadedPacks": 10
     },
     "flashcards": {
-      "total": 0,
+      "total": 250,
       "byDifficulty": {
-        "easy": 0,
-        "medium": 0,
-        "hard": 0
+        "easy": 67,
+        "medium": 133,
+        "hard": 50
       },
-      "byDomain": {},
-      "packs": 0,
-      "loadedPacks": 0
+      "byDomain": {
+        "d1": 63,
+        "d2": 63,
+        "d3": 62,
+        "d4": 62
+      },
+      "packs": 10,
+      "loadedPacks": 10
     }
   },
   "cncf-ckne": {
@@ -643,50 +703,70 @@ export const CONTENT_MANIFEST = {
   },
   "cncf-cnpa": {
     "questions": {
-      "total": 0,
+      "total": 250,
       "byDifficulty": {
-        "easy": 0,
-        "medium": 0,
-        "hard": 0
+        "easy": 67,
+        "medium": 133,
+        "hard": 50
       },
-      "byDomain": {},
-      "packs": 0,
-      "loadedPacks": 0
+      "byDomain": {
+        "d1": 63,
+        "d2": 63,
+        "d3": 62,
+        "d4": 62
+      },
+      "packs": 10,
+      "loadedPacks": 10
     },
     "flashcards": {
-      "total": 0,
+      "total": 250,
       "byDifficulty": {
-        "easy": 0,
-        "medium": 0,
-        "hard": 0
+        "easy": 67,
+        "medium": 133,
+        "hard": 50
       },
-      "byDomain": {},
-      "packs": 0,
-      "loadedPacks": 0
+      "byDomain": {
+        "d1": 63,
+        "d2": 63,
+        "d3": 62,
+        "d4": 62
+      },
+      "packs": 10,
+      "loadedPacks": 10
     }
   },
   "cncf-cnpe": {
     "questions": {
-      "total": 0,
+      "total": 250,
       "byDifficulty": {
-        "easy": 0,
-        "medium": 0,
-        "hard": 0
+        "easy": 67,
+        "medium": 133,
+        "hard": 50
       },
-      "byDomain": {},
-      "packs": 0,
-      "loadedPacks": 0
+      "byDomain": {
+        "d1": 63,
+        "d2": 63,
+        "d3": 62,
+        "d4": 62
+      },
+      "packs": 10,
+      "loadedPacks": 10
     },
     "flashcards": {
-      "total": 0,
+      "total": 250,
       "byDifficulty": {
-        "easy": 0,
-        "medium": 0,
-        "hard": 0
+        "easy": 67,
+        "medium": 133,
+        "hard": 50
       },
-      "byDomain": {},
-      "packs": 0,
-      "loadedPacks": 0
+      "byDomain": {
+        "d1": 63,
+        "d2": 63,
+        "d3": 62,
+        "d4": 62
+      },
+      "packs": 10,
+      "loadedPacks": 10
     }
   },
   "cncf-ica": {
@@ -811,26 +891,36 @@ export const CONTENT_MANIFEST = {
   },
   "cncf-otca": {
     "questions": {
-      "total": 0,
+      "total": 250,
       "byDifficulty": {
-        "easy": 0,
-        "medium": 0,
-        "hard": 0
+        "easy": 67,
+        "medium": 133,
+        "hard": 50
       },
-      "byDomain": {},
-      "packs": 0,
-      "loadedPacks": 0
+      "byDomain": {
+        "d1": 63,
+        "d2": 63,
+        "d3": 62,
+        "d4": 62
+      },
+      "packs": 10,
+      "loadedPacks": 10
     },
     "flashcards": {
-      "total": 0,
+      "total": 250,
       "byDifficulty": {
-        "easy": 0,
-        "medium": 0,
-        "hard": 0
+        "easy": 67,
+        "medium": 133,
+        "hard": 50
       },
-      "byDomain": {},
-      "packs": 0,
-      "loadedPacks": 0
+      "byDomain": {
+        "d1": 63,
+        "d2": 63,
+        "d3": 62,
+        "d4": 62
+      },
+      "packs": 10,
+      "loadedPacks": 10
     }
   },
   "cncf-pca": {
@@ -1229,38 +1319,38 @@ export const CONTENT_MANIFEST = {
   },
   "gcp-ace": {
     "questions": {
-      "total": 9,
+      "total": 250,
       "byDifficulty": {
-        "easy": 3,
-        "medium": 3,
-        "hard": 3
+        "easy": 67,
+        "medium": 133,
+        "hard": 50
       },
       "byDomain": {
-        "d3": 2,
-        "d5": 2,
-        "d4": 2,
-        "d1": 1,
-        "d2": 2
+        "d1": 50,
+        "d2": 50,
+        "d3": 50,
+        "d4": 50,
+        "d5": 50
       },
-      "packs": 1,
-      "loadedPacks": 1
+      "packs": 10,
+      "loadedPacks": 10
     },
     "flashcards": {
-      "total": 10,
+      "total": 250,
       "byDifficulty": {
-        "easy": 3,
-        "medium": 5,
-        "hard": 2
+        "easy": 67,
+        "medium": 133,
+        "hard": 50
       },
       "byDomain": {
-        "d1": 2,
-        "d5": 2,
-        "d3": 2,
-        "d2": 3,
-        "d4": 1
+        "d1": 50,
+        "d2": 50,
+        "d3": 50,
+        "d4": 50,
+        "d5": 50
       },
-      "packs": 1,
-      "loadedPacks": 1
+      "packs": 10,
+      "loadedPacks": 10
     }
   },
   "gcp-pca": {
@@ -1313,26 +1403,38 @@ export const CONTENT_MANIFEST = {
   },
   "gcp-pcdoe": {
     "questions": {
-      "total": 0,
+      "total": 250,
       "byDifficulty": {
-        "easy": 0,
-        "medium": 0,
-        "hard": 0
+        "easy": 67,
+        "medium": 133,
+        "hard": 50
       },
-      "byDomain": {},
-      "packs": 0,
-      "loadedPacks": 0
+      "byDomain": {
+        "d1": 50,
+        "d2": 50,
+        "d3": 50,
+        "d4": 50,
+        "d5": 50
+      },
+      "packs": 10,
+      "loadedPacks": 10
     },
     "flashcards": {
-      "total": 0,
+      "total": 250,
       "byDifficulty": {
-        "easy": 0,
-        "medium": 0,
-        "hard": 0
+        "easy": 67,
+        "medium": 133,
+        "hard": 50
       },
-      "byDomain": {},
-      "packs": 0,
-      "loadedPacks": 0
+      "byDomain": {
+        "d1": 50,
+        "d2": 50,
+        "d3": 50,
+        "d4": 50,
+        "d5": 50
+      },
+      "packs": 10,
+      "loadedPacks": 10
     }
   },
   "gcp-pcne": {
@@ -1409,26 +1511,36 @@ export const CONTENT_MANIFEST = {
   },
   "gcp-pmle": {
     "questions": {
-      "total": 0,
+      "total": 250,
       "byDifficulty": {
-        "easy": 0,
-        "medium": 0,
-        "hard": 0
+        "easy": 67,
+        "medium": 133,
+        "hard": 50
       },
-      "byDomain": {},
-      "packs": 0,
-      "loadedPacks": 0
+      "byDomain": {
+        "d1": 63,
+        "d2": 63,
+        "d3": 62,
+        "d4": 62
+      },
+      "packs": 10,
+      "loadedPacks": 10
     },
     "flashcards": {
-      "total": 0,
+      "total": 250,
       "byDifficulty": {
-        "easy": 0,
-        "medium": 0,
-        "hard": 0
+        "easy": 67,
+        "medium": 133,
+        "hard": 50
       },
-      "byDomain": {},
-      "packs": 0,
-      "loadedPacks": 0
+      "byDomain": {
+        "d1": 63,
+        "d2": 63,
+        "d3": 62,
+        "d4": 62
+      },
+      "packs": 10,
+      "loadedPacks": 10
     }
   },
   "github-actions": {
@@ -1587,26 +1699,40 @@ export const CONTENT_MANIFEST = {
   },
   "isc2-ccsp": {
     "questions": {
-      "total": 0,
+      "total": 250,
       "byDifficulty": {
-        "easy": 0,
-        "medium": 0,
-        "hard": 0
+        "easy": 67,
+        "medium": 133,
+        "hard": 50
       },
-      "byDomain": {},
-      "packs": 0,
-      "loadedPacks": 0
+      "byDomain": {
+        "d1": 42,
+        "d2": 42,
+        "d3": 42,
+        "d4": 42,
+        "d5": 41,
+        "d6": 41
+      },
+      "packs": 10,
+      "loadedPacks": 10
     },
     "flashcards": {
-      "total": 0,
+      "total": 250,
       "byDifficulty": {
-        "easy": 0,
-        "medium": 0,
-        "hard": 0
+        "easy": 67,
+        "medium": 133,
+        "hard": 50
       },
-      "byDomain": {},
-      "packs": 0,
-      "loadedPacks": 0
+      "byDomain": {
+        "d1": 42,
+        "d2": 42,
+        "d3": 42,
+        "d4": 42,
+        "d5": 41,
+        "d6": 41
+      },
+      "packs": 10,
+      "loadedPacks": 10
     }
   },
   "isc2-cissp": {
@@ -1695,26 +1821,40 @@ export const CONTENT_MANIFEST = {
   },
   "k8s-cks": {
     "questions": {
-      "total": 0,
+      "total": 250,
       "byDifficulty": {
-        "easy": 0,
-        "medium": 0,
-        "hard": 0
+        "easy": 67,
+        "medium": 133,
+        "hard": 50
       },
-      "byDomain": {},
-      "packs": 0,
-      "loadedPacks": 0
+      "byDomain": {
+        "d1": 42,
+        "d2": 42,
+        "d3": 42,
+        "d4": 42,
+        "d5": 41,
+        "d6": 41
+      },
+      "packs": 10,
+      "loadedPacks": 10
     },
     "flashcards": {
-      "total": 0,
+      "total": 250,
       "byDifficulty": {
-        "easy": 0,
-        "medium": 0,
-        "hard": 0
+        "easy": 67,
+        "medium": 133,
+        "hard": 50
       },
-      "byDomain": {},
-      "packs": 0,
-      "loadedPacks": 0
+      "byDomain": {
+        "d1": 42,
+        "d2": 42,
+        "d3": 42,
+        "d4": 42,
+        "d5": 41,
+        "d6": 41
+      },
+      "packs": 10,
+      "loadedPacks": 10
     }
   },
   "offsec-oscp": {
@@ -1744,7 +1884,7 @@ export const CONTENT_MANIFEST = {
 };
 
 export const CONTENT_TOTALS = {
-  "questions": 2259,
-  "flashcards": 2260,
+  "questions": 5500,
+  "flashcards": 5500,
   "certifications": 68
 };
