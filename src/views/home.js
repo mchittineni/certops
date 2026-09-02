@@ -3,7 +3,8 @@ import { CONTENT_MANIFEST, CONTENT_TOTALS } from '../data/manifest.generated.js'
 import { getCertSummary, getAttempts } from '../lib/progress.js';
 import { getDailyResult, dailyStreak, DAILY_SIZE } from '../lib/daily.js';
 import { icon, progressBar, escapeHtml } from './ui.js';
-import { providerIcon, disciplineIcon } from './brand.js';
+import { providerIcon, disciplineIcon, roleIcon } from './brand.js';
+import { ROLES, ROLE_BY_ID, roleCertIds } from '../data/roles.js';
 
 const CATEGORY_BLURB = {
   'Cloud Engineering': 'Architect, deploy, and operate on AWS, Azure, and Google Cloud.',
@@ -20,12 +21,13 @@ export function renderHome(state) {
   const live = CERTIFICATIONS.filter(c => c.status === 'live');
   const planned = CERTIFICATIONS.filter(c => c.status === 'planned');
   const filtered = applyFilters(state, live);
-  const filtersActive = state.category !== 'all' || state.provider !== 'all' || state.tier !== 'all' || state.certSearch.trim() !== '';
+  const filtersActive = state.category !== 'all' || state.provider !== 'all' || state.tier !== 'all' || state.certSearch.trim() !== '' || state.roleFilter;
 
   return `
     ${renderHero(state)}
     ${renderBenefits()}
     ${renderDailyCard(live)}
+    ${renderRolePaths(state)}
     ${renderCategoryGrid(state, live, planned)}
     ${renderCatalog(state, filtered, filtersActive)}
     ${renderFeatures()}
@@ -36,6 +38,10 @@ export function renderHome(state) {
 
 function applyFilters(state, live) {
   let certs = live;
+  if (state.roleFilter && state.role) {
+    const wanted = new Set(roleCertIds(state.role));
+    certs = certs.filter(c => wanted.has(c.id));
+  }
   if (state.category !== 'all') certs = certs.filter(c => c.category === state.category);
   if (state.provider !== 'all') certs = certs.filter(c => c.provider === state.provider);
   if (state.tier !== 'all') certs = certs.filter(c => c.tier === state.tier);
@@ -332,5 +338,109 @@ function renderFooter() {
         </div>
       </div>
     </footer>
+  `;
+}
+
+/**
+ * Role paths.
+ *
+ * A role is an ordered route rather than another filter, so the value is in the
+ * sequence and the per-step rationale. Steps naming a `planned` certification are
+ * still shown: the route has to read as a whole even where the content is not
+ * written yet, and hiding those steps would make short paths look like the plan.
+ */
+function renderRolePaths(state) {
+  const active = state.role ? ROLE_BY_ID[state.role] : null;
+
+  const chips = ROLES.map(role => `
+    <button class="role-chip ${state.role === role.id ? 'active' : ''}"
+            data-action="set-role" data-role-id="${role.id}"
+            aria-pressed="${state.role === role.id}">
+      <span class="role-chip-icon">${roleIcon(role.id, { size: 22 })}</span>
+      <span class="role-chip-text">
+        <strong>${escapeHtml(role.title)}</strong>
+        <em>${escapeHtml(role.blurb)}</em>
+      </span>
+    </button>
+  `).join('');
+
+  return `
+    <section class="section role-section" id="roles">
+      <div class="section-head">
+        <h2>Start from your role</h2>
+        <p>Pick what you do and get an ordered route, with a reason for every step — not just a filtered list.</p>
+      </div>
+
+      <div class="role-chips" role="group" aria-label="Choose a role">${chips}</div>
+
+      ${active ? renderRolePath(state, active) : `
+        <p class="role-hint">Nothing selected — the full catalogue is below. Choosing a role remembers itself on this device.</p>
+      `}
+    </section>
+  `;
+}
+
+function renderRolePath(state, role) {
+  const steps = role.path.map((step, i) => renderRoleStep(step, i));
+  const certs = role.path.map(s => CERTIFICATIONS.find(c => c.id === s.certId)).filter(Boolean);
+  const ready = certs.filter(c => c.status === 'live').length;
+  const questions = certs.reduce((sum, c) => sum + (CONTENT_MANIFEST[c.id]?.questions.total || 0), 0);
+
+  return `
+    <div class="role-path-wrap">
+      <div class="role-path-head">
+        <div>
+          <h3>${escapeHtml(role.title)} path</h3>
+          <p class="panel-note">
+            ${ready} of ${role.path.length} ready now · ${questions} question${questions === 1 ? '' : 's'} across the ready steps
+          </p>
+        </div>
+        <div class="role-path-actions">
+          <button class="btn-ghost btn-tiny ${state.roleFilter ? 'active' : ''}" data-action="toggle-role-filter" aria-pressed="${!!state.roleFilter}">
+            ${state.roleFilter ? 'Showing only this path' : 'Filter catalogue to this path'}
+          </button>
+          <button class="btn-ghost btn-tiny" data-action="clear-role">Clear role</button>
+        </div>
+      </div>
+      <ol class="role-path">${steps.join('')}</ol>
+    </div>
+  `;
+}
+
+function renderRoleStep(step, index) {
+  const cert = CERTIFICATIONS.find(c => c.id === step.certId);
+  if (!cert) return '';
+
+  const live = cert.status === 'live';
+  const stats = CONTENT_MANIFEST[cert.id] || { questions: { total: 0 } };
+  const summary = live ? getCertSummary(cert.id) : null;
+
+  return `
+    <li class="role-step ${live ? '' : 'planned'}">
+      <span class="role-step-num" aria-hidden="true">${index + 1}</span>
+      <div class="role-step-body">
+        <div class="role-step-head">
+          <span class="role-step-brand">${providerIcon(cert.provider, { size: 20 })}</span>
+          <h4>${escapeHtml(cert.title)}</h4>
+          <span class="cert-code">${escapeHtml(cert.code)}</span>
+          <span class="tier-chip tier-${cert.tier}">${TIER_LABEL[cert.tier] || cert.tier}</span>
+        </div>
+        <p class="role-step-why">${escapeHtml(step.why)}</p>
+        ${summary ? `
+          <div class="role-step-progress">
+            <span class="panel-note">Best ${summary.best.percentage}% over ${summary.attempts} attempt${summary.attempts === 1 ? '' : 's'}</span>
+            ${progressBar(summary.best.percentage, summary.best.passed ? 'good' : '')}
+          </div>
+        ` : ''}
+      </div>
+      <div class="role-step-action">
+        ${live
+          ? `<button class="btn-primary btn-tiny" data-action="open-cert" data-cert-id="${cert.id}">
+               ${summary ? 'Practise again' : 'Start'}
+             </button>
+             <span class="panel-note">${stats.questions.total} question${stats.questions.total === 1 ? '' : 's'}</span>`
+          : `<span class="roadmap-pill">On the roadmap</span>`}
+      </div>
+    </li>
   `;
 }

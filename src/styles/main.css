@@ -1729,3 +1729,199 @@ kbd,
 .question-scenario,
 .explanation-text,
 .flashcard-answer { max-width: 68ch; }
+
+/* ---------------------------------------------------------------------------
+   Role paths
+
+   A role is an ordered route, so the step number and the connecting rule carry
+   real meaning and are the one decorative element worth keeping on mobile.
+   Everything else collapses to a single column below 720px.
+   --------------------------------------------------------------------------- */
+
+.role-chips {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.role-chip {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  text-align: left;
+  padding: 0.85rem 0.95rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  color: var(--text-main);
+  transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
+}
+
+.role-chip:hover {
+  border-color: var(--border-strong);
+  background: var(--bg-card-hover);
+  transform: translateY(-1px);
+}
+
+.role-chip:focus-visible {
+  outline: none;
+  border-color: var(--border-focus);
+  box-shadow: var(--shadow-glow);
+}
+
+.role-chip.active {
+  border-color: var(--accent-blue);
+  background: var(--tint-accent);
+}
+
+.role-chip-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--role-color, var(--accent-blue)) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--role-color, var(--accent-blue)) 28%, transparent);
+  color: var(--role-color, var(--accent-blue));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.role-chip:hover .role-chip-icon {
+  transform: scale(1.06);
+  background: color-mix(in srgb, var(--role-color, var(--accent-blue)) 22%, transparent);
+}
+
+.role-chip.active .role-chip-icon {
+  background: var(--role-color, var(--accent-blue));
+  color: #ffffff;
+  border-color: var(--role-color, var(--accent-blue));
+  box-shadow: 0 2px 8px color-mix(in srgb, var(--role-color, var(--accent-blue)) 35%, transparent);
+}
+
+.role-glyph { color: inherit; }
+.role-chip-text { display: flex; flex-direction: column; gap: 0.2rem; min-width: 0; }
+.role-chip-text strong { font-size: 0.95rem; font-weight: 600; }
+.role-chip-text em {
+  font-style: normal;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.role-hint { font-size: 0.88rem; color: var(--text-muted); }
+
+.role-path-wrap {
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  background: var(--bg-card);
+  box-shadow: var(--shadow-card);
+  padding: 1.25rem;
+}
+
+.role-path-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.role-path-head h3 { font-size: 1.05rem; margin-bottom: 0.2rem; }
+.role-path-actions { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.role-path-actions .btn-ghost.active { color: var(--accent-blue); background: var(--tint-accent); }
+
+.role-path { list-style: none; margin: 0; padding: 0; }
+
+.role-step {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0.9rem;
+  align-items: start;
+  padding: 1rem 0;
+  border-top: 1px solid var(--border-subtle);
+  position: relative;
+}
+
+.role-step:first-child { border-top: none; padding-top: 0.25rem; }
+.role-step.planned { opacity: 0.72; }
+
+.role-step-num {
+  display: grid;
+  place-items: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--tint-accent);
+  color: var(--accent-blue);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.role-step.planned .role-step-num { background: var(--bg-glass); color: var(--text-faint); }
+
+.role-step-body { min-width: 0; }
+
+.role-step-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 0.35rem;
+}
+
+.role-step-brand { display: inline-flex; flex-shrink: 0; }
+.role-step-head h4 { font-size: 0.95rem; font-weight: 600; margin: 0; }
+
+.role-step-why {
+  font-size: 0.86rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  max-width: 68ch;
+  margin: 0;
+}
+
+.role-step-progress { margin-top: 0.5rem; display: flex; flex-direction: column; gap: 0.3rem; max-width: 22rem; }
+
+.role-step-action {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.3rem;
+  flex-shrink: 0;
+}
+
+.roadmap-pill {
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  background: var(--bg-glass);
+  border: 1px solid var(--border-subtle);
+  white-space: nowrap;
+}
+
+@media (max-width: 720px) {
+  .role-chips { grid-template-columns: 1fr; }
+  .role-step { grid-template-columns: auto 1fr; }
+  .role-step-action {
+    grid-column: 2;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.6rem;
+    margin-top: 0.6rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .role-chip { transition: none; }
+  .role-chip:hover { transform: none; }
+}

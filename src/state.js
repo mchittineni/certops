@@ -8,6 +8,8 @@ export const state = {
   provider: 'all',
   tier: 'all',
   certSearch: '',
+  role: localStorage.getItem(KEYS.role) || null,   // active role path, see data/roles.js
+  roleFilter: false,       // when true, the catalogue is narrowed to the active role's path
   theme: localStorage.getItem(KEYS.theme) || 'light',
   certId: null,
   loading: false,
@@ -55,6 +57,14 @@ export const state = {
 
   results: null
 };
+
+export function setRole(roleId) {
+  state.role = roleId;
+  try {
+    if (roleId) localStorage.setItem(KEYS.role, roleId);
+    else localStorage.removeItem(KEYS.role);
+  } catch { /* ignore */ }
+}
 
 export function setTheme(theme) {
   state.theme = theme;

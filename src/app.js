@@ -1,7 +1,7 @@
 import { CERTIFICATIONS } from './data/catalog.generated.js';
 import { CONTENT_MANIFEST } from './data/manifest.generated.js';
 import { loadCertContent, getCachedCertContent, getCertById } from './data/loader.js';
-import { state, setTheme, stopTimer } from './state.js';
+import { state, setTheme, stopTimer, setRole } from './state.js';
 import {
   buildSession, filterByDifficulty, drawAdaptive, nextAdaptiveLevel,
   isCorrect, recommendedCount
@@ -405,8 +405,19 @@ const actions = {
     state.provider = 'all';
     state.tier = 'all';
     state.certSearch = '';
+    state.roleFilter = false;
     render();
   },
+
+  // Selecting the active role again clears it, matching the other filter chips.
+  'set-role': el => {
+    const next = el.dataset.roleId;
+    setRole(state.role === next ? null : next);
+    if (!state.role) state.roleFilter = false;
+    render();
+  },
+  'clear-role': () => { setRole(null); state.roleFilter = false; render(); },
+  'toggle-role-filter': () => { state.roleFilter = !state.roleFilter; render(); },
   'start-daily': () => startDaily(),
   'open-cert': el => openCert(el.dataset.certId || state.certId),
   'open-bank': el => openBank(el.dataset.certId),

@@ -10,7 +10,8 @@ export const KEYS = {
   theme: 'converge_theme',
   history: 'converge_history',
   srs: 'converge_flashcard_srs',
-  daily: 'converge_daily'
+  daily: 'converge_daily',
+  role: 'converge_role'
 };
 
 const LEGACY = {
