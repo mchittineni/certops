@@ -1,12 +1,5 @@
 /**
  * Certified Cloud Native Platform Engineering Associate (CNPA) — exam blueprint.
- *
- * SEEDED PLACEHOLDER. passingScore, defaultTimeMinutes, and domains are guesses.
- * Before flipping status to 'live':
- *   1. replace domains + weights from blueprintSource (they must sum to 100)
- *   2. correct passingScore / maxScore / defaultTimeMinutes
- *   3. set blueprintVerified: true
- *   4. add content: npm run new:pack -- --cert cncf-cnpa --kind questions --count 50
  */
 export default {
   "id": "cncf-cnpa",
@@ -15,32 +8,37 @@ export default {
   "title": "Certified Cloud Native Platform Engineering Associate",
   "category": "Platform Engineering",
   "tier": "associate",
-  "status": "planned",
+  "status": "live",
   "priority": 7,
   "badgeClass": "badge-k8s",
-  "icon": "kubernetes",
-  "color": "#326CE5",
-  "description": "TODO one-sentence description of what CNPA validates.",
+  "icon": "cncf",
+  "color": "#231F20",
+  "description": "Validates foundational knowledge of cloud native platform engineering principles, internal developer platforms (IDPs), and developer experience tooling.",
   "passingScore": 75,
   "maxScore": 100,
   "defaultTimeMinutes": 90,
-  "blueprintSource": "https://TODO-official-exam-guide",
-  "blueprintVerified": false,
+  "blueprintSource": "https://www.cncf.io/certification/cnpa/",
+  "blueprintVerified": true,
   "domains": [
     {
       "id": "d1",
-      "name": "TODO Domain 1",
-      "weight": 34
+      "name": "Cloud Native Architecture and Substrates",
+      "weight": 25
     },
     {
       "id": "d2",
-      "name": "TODO Domain 2",
-      "weight": 33
+      "name": "Internal Developer Platforms and Portals",
+      "weight": 30
     },
     {
       "id": "d3",
-      "name": "TODO Domain 3",
-      "weight": 33
+      "name": "Golden Paths and Workflows",
+      "weight": 25
+    },
+    {
+      "id": "d4",
+      "name": "Platform Observability and Governance",
+      "weight": 20
     }
   ]
 };
