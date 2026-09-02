@@ -30,12 +30,12 @@ export const AWS_SAA_QUESTIONS_10 = [
     scenario: "A transaction processing web application uses Amazon RDS for MySQL in a Multi-AZ deployment. During automated Multi-AZ failovers, database connection dropouts cause a 60-second application outage while client applications reconnect and rebuild connection pools.",
     question: "How can the Solutions Architect reduce application failover times by up to 66% and preserve client connections?",
     options: [
-      { id: 'A', text: "Convert the database to an Amazon S3 static bucket." },
-      { id: 'B', text: "Deploy an AWS Transit Gateway between the web servers and database." },
-      { id: 'C', text: "Deploy an Amazon RDS Proxy in front of the RDS Multi-AZ DB instance." },
-      { id: 'D', text: "Increase the EC2 instance class size on the web servers." }
+      { id: 'A', text: "Increase the EC2 instance class size on the web servers." },
+      { id: 'B', text: "Deploy an Amazon RDS Proxy in front of the RDS Multi-AZ DB instance." },
+      { id: 'C', text: "Deploy an AWS Transit Gateway between the web servers and database." },
+      { id: 'D', text: "Convert the database to an Amazon S3 static bucket." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Amazon RDS Proxy automatically maintains client application connections during database failovers, seamlessly switching traffic from the failed primary DB instance to the newly promoted standby instance in the background. This reduces application failover times by up to 66% while eliminating connection drop errors for client applications. S3 is object storage. Web server instance sizing and Transit Gateway do not reduce database DNS failover propagation times.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy.html#rds-proxy-benefits",
@@ -51,12 +51,12 @@ export const AWS_SAA_QUESTIONS_10 = [
     scenario: "An enterprise runs mission-critical event-driven microservices on an Amazon MSK (Managed Streaming for Apache Kafka) cluster in us-east-1. The disaster recovery mandate requires asynchronous mirror replication of Kafka topics to an MSK cluster in us-west-2 with automated partition offset synchronization.",
     question: "Which Amazon MSK feature automates cross-cluster topic replication across AWS regions?",
     options: [
-      { id: 'A', text: "Amazon DynamoDB Streams." },
-      { id: 'B', text: "Amazon MSK Replicator." },
-      { id: 'C', text: "S3 Cross-Region Replication (CRR)." },
-      { id: 'D', text: "AWS DataSync Kafka agent." }
+      { id: 'A', text: "S3 Cross-Region Replication (CRR)." },
+      { id: 'B', text: "AWS DataSync Kafka agent." },
+      { id: 'C', text: "Amazon DynamoDB Streams." },
+      { id: 'D', text: "Amazon MSK Replicator." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Amazon MSK Replicator is a fully managed feature that provides continuous, resilient cross-cluster and cross-Region replication for Amazon MSK clusters. It automatically replicates Kafka topics, consumer groups, schema registries, and partition offsets across clusters with built-in failover capabilities and zero infrastructure management. S3 CRR is for S3 buckets. DataSync does not replicate live Kafka cluster topics. DynamoDB Streams captures DynamoDB table changes.",
     referenceUrl: "https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator.html",
@@ -73,9 +73,9 @@ export const AWS_SAA_QUESTIONS_10 = [
     question: "Which Amazon CloudWatch metric and alarm configuration alerts the team to DLQ messages?",
     options: [
       { id: 'A', text: "Create an Amazon CloudWatch Alarm on the DLQ for `ApproximateNumberOfMessagesVisible` > 0 with an Amazon SNS email notification action." },
-      { id: 'B', text: "Enable SQS FIFO message deduplication." },
-      { id: 'C', text: "Create a CloudWatch Alarm on `SentMessageSize`." },
-      { id: 'D', text: "Configure an S3 Lifecycle rule on the DLQ." }
+      { id: 'B', text: "Configure an S3 Lifecycle rule on the DLQ." },
+      { id: 'C', text: "Enable SQS FIFO message deduplication." },
+      { id: 'D', text: "Create a CloudWatch Alarm on `SentMessageSize`." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -114,12 +114,12 @@ export const AWS_SAA_QUESTIONS_10 = [
     scenario: "An industrial manufacturing plant collects sensor telemetry (temperature, pressure, vibration) from 50,000 factory machines every 10 seconds. The data needs to be ingested in real time, analyzed with SQL time-series queries, and automatically tiered from high-performance in-memory storage to cost-effective magnetic storage after 30 days.",
     question: "Which serverless time-series database is purpose-built for fast IoT telemetry ingestion and automated tiered retention?",
     options: [
-      { id: 'A', text: "Amazon Timestream." },
-      { id: 'B', text: "Amazon RDS for MySQL." },
-      { id: 'C', text: "Amazon Neptune." },
+      { id: 'A', text: "Amazon Neptune." },
+      { id: 'B', text: "Amazon Timestream." },
+      { id: 'C', text: "Amazon RDS for MySQL." },
       { id: 'D', text: "Amazon DocumentDB." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Amazon Timestream is a fast, scalable, and serverless time-series database designed for IoT and operational applications. It can ingest trillions of events daily, process SQL queries with built-in time-series functions (interpolation, smoothing, approximation), and automatically tiers data between an in-memory store for recent data and a cost-effective magnetic store for historical data based on lifecycle policies. Relational databases, graph databases, and document stores do not natively optimize time-series storage and automated memory-to-magnetic tiering.",
     referenceUrl: "https://docs.aws.amazon.com/timestream/latest/developerguide/what-is-timestream.html",
@@ -135,12 +135,12 @@ export const AWS_SAA_QUESTIONS_10 = [
     scenario: "A multiplayer real-time gaming application operates UDP game servers hosted on Amazon EC2 instances across AWS regions in us-east-1, eu-west-1, and ap-southeast-1. Players require two static public Anycast IPv4 addresses for firewall allow-listing that automatically route gaming traffic to the closest healthy regional cluster.",
     question: "Which AWS service provides static anycast IP addresses and automated health-based routing across regions?",
     options: [
-      { id: 'A', text: "Amazon API Gateway." },
-      { id: 'B', text: "Route 53 Simple routing." },
-      { id: 'C', text: "Amazon CloudFront." },
-      { id: 'D', text: "AWS Global Accelerator." }
+      { id: 'A', text: "Route 53 Simple routing." },
+      { id: 'B', text: "Amazon API Gateway." },
+      { id: 'C', text: "AWS Global Accelerator." },
+      { id: 'D', text: "Amazon CloudFront." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "AWS Global Accelerator provides two static Anycast public IPv4 addresses that serve as global fixed entry points for your applications. It routes non-HTTP (TCP and UDP) and HTTP traffic over the congestion-free AWS private global network backbone to the closest healthy regional endpoint (ALB, NLB, EC2), automatically failing over between regions in seconds if an endpoint fails health checks. CloudFront is an HTTP CDN and does not support arbitrary UDP game traffic. Route 53 returns regional DNS IPs subject to client caching. API Gateway is for HTTP REST APIs.",
     referenceUrl: "https://docs.aws.amazon.com/global-accelerator/latest/dg/what-is-global-accelerator.html",
@@ -156,12 +156,12 @@ export const AWS_SAA_QUESTIONS_10 = [
     scenario: "An enterprise runs a mission-critical SQL Server database cluster with Always On Failover Cluster Instances (FCI) on Amazon EC2. The database requires shared SMB file storage with continuous synchronous replication, sub-millisecond latencies, and automatic failover across Availability Zones.",
     question: "Which Amazon FSx for Windows File Server deployment option satisfies these Always On FCI requirements?",
     options: [
-      { id: 'A', text: "Amazon FSx for Windows File Server deployed in a Multi-AZ configuration using Microsoft DFS Namespaces." },
-      { id: 'B', text: "Amazon S3 Standard with S3FS-FUSE." },
-      { id: 'C', text: "Amazon Elastic File System (Amazon EFS) Single-AZ." },
-      { id: 'D', text: "Amazon FSx for Windows File Server Single-AZ 1." }
+      { id: 'A', text: "Amazon S3 Standard with S3FS-FUSE." },
+      { id: 'B', text: "Amazon FSx for Windows File Server deployed in a Multi-AZ configuration using Microsoft DFS Namespaces." },
+      { id: 'C', text: "Amazon FSx for Windows File Server Single-AZ 1." },
+      { id: 'D', text: "Amazon Elastic File System (Amazon EFS) Single-AZ." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Amazon FSx for Windows File Server Multi-AZ deployment provides high availability and shared SMB file storage across multiple Availability Zones with automatic synchronous data replication and automated failover in seconds, making it the AWS-recommended shared storage for Windows Server Failover Clustering (WSFC) and SQL Server Always On FCIs. Single-AZ is not resilient to AZ outages. EFS does not support native Windows NTFS/SMB locks required for SQL Server FCIs. S3FS-FUSE lacks Windows clustering compatibility.",
     referenceUrl: "https://docs.aws.amazon.com/fsx/latest/WindowsGuide/high-availability-multi-az.html",
@@ -177,12 +177,12 @@ export const AWS_SAA_QUESTIONS_10 = [
     scenario: "An Amazon Redshift data warehouse cluster executes heavy analytical queries joining 10 large tables repeatedly every 5 minutes for executive dashboarding. The queries take 45 seconds each, causing CPU saturation.",
     question: "Which Amazon Redshift database feature precomputes and stores query results and automatically updates them incrementally as underlying data changes?",
     options: [
-      { id: 'A', text: "Amazon Redshift Materialized Views with Automated Refresh." },
-      { id: 'B', text: "Amazon ElastiCache for Memcached." },
-      { id: 'C', text: "Amazon Athena Workgroups." },
+      { id: 'A', text: "Amazon ElastiCache for Memcached." },
+      { id: 'B', text: "Amazon Athena Workgroups." },
+      { id: 'C', text: "Amazon Redshift Materialized Views with Automated Refresh." },
       { id: 'D', text: "Amazon DynamoDB Global Tables." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Amazon Redshift Materialized Views precompute, store, and optimize the results of complex SQL queries containing joins, aggregations, and filters. With Automated Refresh enabled, Redshift automatically and incrementally updates the materialized view as data changes in the base tables, reducing query execution times from 45 seconds down to milliseconds. ElastiCache cannot query Redshift SQL tables directly. DynamoDB and Athena are separate database engines.",
     referenceUrl: "https://docs.aws.amazon.com/redshift/latest/dg/materialized-view-overview.html",
@@ -368,11 +368,11 @@ export const AWS_SAA_QUESTIONS_10 = [
     question: "Which Amazon Redshift node type decouples compute scaling from storage capacity scaling by utilizing high-performance SSD caching and automated S3-backed managed storage?",
     options: [
       { id: 'A', text: "Amazon RDS MySQL Multi-AZ." },
-      { id: 'B', text: "Amazon Redshift RA3 node types (e.g. `ra3.4xlarge`, `ra3.16xlarge`)." },
-      { id: 'C', text: "Amazon Redshift Dense Compute (DC2) nodes." },
-      { id: 'D', text: "Amazon DynamoDB On-Demand." }
+      { id: 'B', text: "Amazon DynamoDB On-Demand." },
+      { id: 'C', text: "Amazon Redshift RA3 node types (e.g. `ra3.4xlarge`, `ra3.16xlarge`)." },
+      { id: 'D', text: "Amazon Redshift Dense Compute (DC2) nodes." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Amazon Redshift RA3 node types decouple compute capacity from storage capacity by using high-speed local NVMe SSDs for caching hot data and automatically offloading cold data to durable Amazon S3 managed storage (Redshift Managed Storage / RMS). This allows scaling and paying for compute (RA3 nodes) independently of storage (up to 128 TB per node in RMS), eliminating the need to over-provision expensive compute nodes just to gain storage space. DC2 nodes couple compute and fixed SSD storage. RDS is a relational database. DynamoDB is NoSQL.",
     referenceUrl: "https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#working-with-clusters-ra3",
@@ -389,9 +389,9 @@ export const AWS_SAA_QUESTIONS_10 = [
     question: "How does migrating to Amazon EBS gp3 optimize performance and cost?",
     options: [
       { id: 'A', text: "Provision a 500 GB gp3 volume and independently configure 10,000 IOPS and 500 MB/s throughput, reducing storage cost by provisioning only the capacity needed." },
-      { id: 'B', text: "Convert the volume to Throughput Optimized HDD (st1)." },
-      { id: 'C', text: "Create a software RAID 0 array of gp2 volumes." },
-      { id: 'D', text: "Switch to Cold HDD (sc1)." }
+      { id: 'B', text: "Switch to Cold HDD (sc1)." },
+      { id: 'C', text: "Convert the volume to Throughput Optimized HDD (st1)." },
+      { id: 'D', text: "Create a software RAID 0 array of gp2 volumes." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -430,12 +430,12 @@ export const AWS_SAA_QUESTIONS_10 = [
     scenario: "A logistics company operates an Amazon Kinesis Data Stream capturing package tracking scan events. Traffic is highly spiky and unpredictable, fluctuating from 2 MB/sec during the day to sudden bursts of 80 MB/sec when delivery vans upload data at distribution hubs.",
     question: "Which Kinesis capacity mode automatically scales shard throughput to accommodate unpredictable write bursts without capacity management or throttling?",
     options: [
-      { id: 'A', text: "Amazon EventBridge schema discovery." },
-      { id: 'B', text: "Amazon Kinesis Data Streams On-Demand capacity mode." },
+      { id: 'A', text: "Amazon Kinesis Data Streams On-Demand capacity mode." },
+      { id: 'B', text: "Amazon SQS standard queue." },
       { id: 'C', text: "Amazon Kinesis Data Streams Provisioned capacity mode with 2 shards." },
-      { id: 'D', text: "Amazon SQS standard queue." }
+      { id: 'D', text: "Amazon EventBridge schema discovery." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Amazon Kinesis Data Streams On-Demand capacity mode automatically accommodates unpredictable and spiky workloads by dynamically scaling stream throughput up to 200 MB/s write and 400 MB/s read with zero shard management, capacity planning, or provisioned throughput throttling errors, charging strictly per gigabyte of data ingested and retrieved. Provisioned mode requires manually managing and splitting shards. SQS does not provide ordered stream partitioning. EventBridge is an event bus.",
     referenceUrl: "https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html#on-demand-mode",
@@ -451,12 +451,12 @@ export const AWS_SAA_QUESTIONS_10 = [
     scenario: "A high-frequency quantitative trading firm runs Linux-based financial modeling on EC2 instances requiring POSIX file storage with million-plus IOPS, sub-millisecond latencies, and instantaneous point-in-time snapshots.",
     question: "Which fully managed file system service is built on open-source OpenZFS to deliver high IOPS and low latency for Linux workloads?",
     options: [
-      { id: 'A', text: "AWS Storage Gateway Tape Gateway." },
+      { id: 'A', text: "Amazon S3 Standard-IA." },
       { id: 'B', text: "Amazon FSx for Windows File Server." },
-      { id: 'C', text: "Amazon S3 Standard-IA." },
-      { id: 'D', text: "Amazon FSx for OpenZFS." }
+      { id: 'C', text: "Amazon FSx for OpenZFS." },
+      { id: 'D', text: "AWS Storage Gateway Tape Gateway." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Amazon FSx for OpenZFS is a fully managed file storage service built on the popular open-source OpenZFS file system. It delivers up to 1 million+ IOPS and sub-millisecond latencies, and supports near-instant ZFS snapshots, data cloning, and native Linux NFS (v3, v4.0, v4.1, v4.2) connectivity. FSx for Windows is for SMB Windows workloads. Tape Gateway is for virtual tape backup. S3 Standard-IA is object storage.",
     referenceUrl: "https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/what-is-fsx-openzfs.html",
@@ -472,12 +472,12 @@ export const AWS_SAA_QUESTIONS_10 = [
     scenario: "A continuous deployment pipeline needs to deploy application configuration changes and toggle feature flags across thousands of EC2 instances and Lambda functions in real time with automated validation, gradual percentage rollouts, and automatic rollback if CloudWatch alarms trigger.",
     question: "Which AWS service provides managed application configuration deployment with automated rollback guards?",
     options: [
-      { id: 'A', text: "AWS CloudFormation StackSets." },
-      { id: 'B', text: "Amazon DynamoDB Global Tables." },
-      { id: 'C', text: "AWS AppConfig (a capability of AWS Systems Manager)." },
-      { id: 'D', text: "Amazon S3 Versioning." }
+      { id: 'A', text: "Amazon DynamoDB Global Tables." },
+      { id: 'B', text: "AWS CloudFormation StackSets." },
+      { id: 'C', text: "Amazon S3 Versioning." },
+      { id: 'D', text: "AWS AppConfig (a capability of AWS Systems Manager)." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "AWS AppConfig allows engineering teams to validate, deploy, and monitor application configurations and feature flags at runtime without restarting applications or deploying new code. It supports gradual deployment strategies (e.g. 10% per minute), syntactic and semantic schema validators, and automatic rollback if associated Amazon CloudWatch alarms detect application error spikes. CloudFormation StackSets deploys infrastructure stacks. DynamoDB is a database. S3 Versioning manages object versions.",
     referenceUrl: "https://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html",
@@ -494,11 +494,11 @@ export const AWS_SAA_QUESTIONS_10 = [
     question: "Which S3 Lifecycle rule purges outdated versions after 30 days while keeping current versions active?",
     options: [
       { id: 'A', text: "Transition all objects to S3 Glacier Deep Archive." },
-      { id: 'B', text: "Disable S3 Versioning on the bucket." },
-      { id: 'C', text: "Configure an S3 Lifecycle rule with the `NoncurrentVersionExpiration` action set to expire noncurrent versions after 30 days." },
-      { id: 'D', text: "Configure an S3 Lifecycle rule with the standard `Expiration` action set to 30 days." }
+      { id: 'B', text: "Configure an S3 Lifecycle rule with the `NoncurrentVersionExpiration` action set to expire noncurrent versions after 30 days." },
+      { id: 'C', text: "Configure an S3 Lifecycle rule with the standard `Expiration` action set to 30 days." },
+      { id: 'D', text: "Disable S3 Versioning on the bucket." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "In Amazon S3 versioned buckets, the `NoncurrentVersionExpiration` action specifically targets and permanently deletes non-current (older) object versions after a specified number of days (e.g. 30 days), preventing non-current versions from accumulating endless storage costs while keeping the current live object version intact. Standard `Expiration` creates a Delete Marker on the current version. Disabling versioning suspends new version creation but leaves existing 50 million non-current versions stored. Glacier transition still incurs storage fees.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-noncurrent-version-actions.html",
@@ -514,12 +514,12 @@ export const AWS_SAA_QUESTIONS_10 = [
     scenario: "A financial platform runs on EC2 instances behind an Application Load Balancer in us-east-1. The disaster recovery plan requires automatic DNS failover to us-west-2 if BOTH the ALB HTTP health check fails AND application error rate metric in Amazon CloudWatch exceeds 5%.",
     question: "Which Amazon CloudWatch and Route 53 feature combines multiple metric alarms into a single unified health check condition?",
     options: [
-      { id: 'A', text: "AWS Systems Manager Incident Manager rule." },
+      { id: 'A', text: "Amazon CloudWatch Composite Alarms mapped to a Route 53 Calculated Health Check." },
       { id: 'B', text: "AWS Shield Standard alarm." },
-      { id: 'C', text: "Amazon CloudWatch Composite Alarms mapped to a Route 53 Calculated Health Check." },
-      { id: 'D', text: "Route 53 Simple Routing with standard metric alarm." }
+      { id: 'C', text: "Route 53 Simple Routing with standard metric alarm." },
+      { id: 'D', text: "AWS Systems Manager Incident Manager rule." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "CloudWatch Composite Alarms combine multiple individual metric alarms using boolean logic rules (e.g. `ALARM(ALBHealthCheck) AND ALARM(ErrorRateHigh)`). Route 53 Calculated Health Checks (or alarms-based health checks) monitor the composite alarm to trigger DNS failover only when all composite conditions are met, eliminating false-positive failovers. Simple routing lacks composite health check logic. Shield is for DDoS. Incident Manager notifies human on-call engineers.",
     referenceUrl: "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-creating-values.html#health-checks-creating-values-calculated",

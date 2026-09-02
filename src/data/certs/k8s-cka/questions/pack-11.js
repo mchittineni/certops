@@ -9,12 +9,12 @@ export const K8S_CKA_QUESTIONS_11 = [
     scenario: "A pod in the web namespace references a Secret that exists only in the data namespace, and the pod stays in ContainerCreating.",
     question: "What is wrong?",
     options: [
-      { id: 'A', text: "RBAC must grant the pod ServiceAccount read access across namespaces." },
-      { id: 'B', text: "Secrets are namespaced and a pod can only mount Secrets from its own namespace, so the Secret must be created in web." },
-      { id: 'C', text: "The Secret must be marked shared: true." },
+      { id: 'A', text: "Secrets are namespaced and a pod can only mount Secrets from its own namespace, so the Secret must be created in web." },
+      { id: 'B', text: "The Secret must be marked shared: true." },
+      { id: 'C', text: "RBAC must grant the pod ServiceAccount read access across namespaces." },
       { id: 'D', text: "The kubelet needs a cluster-wide Secret cache enabled." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Secret and ConfigMap references in a pod spec resolve within the pod own namespace, so cross-namespace mounting is simply not possible and the object must be replicated or created locally. There is no shared flag, and RBAC governs API access by clients rather than kubelet volume resolution.",
     referenceUrl: "https://kubernetes.io/docs/concepts/configuration/secret/",
@@ -30,12 +30,12 @@ export const K8S_CKA_QUESTIONS_11 = [
     scenario: "A cluster with three control plane nodes and twenty workers must be upgraded one minor version with minimal disruption.",
     question: "Which order is correct?",
     options: [
-      { id: 'A', text: "Control plane nodes last, after every worker reports the new version." },
-      { id: 'B', text: "First control plane node with kubeadm upgrade apply, remaining control plane nodes with kubeadm upgrade node, then workers one at a time with drain, kubeadm upgrade node, kubelet upgrade, and uncordon." },
-      { id: 'C', text: "All nodes simultaneously to minimise the maintenance window." },
-      { id: 'D', text: "All workers first, then the control plane nodes together." }
+      { id: 'A', text: "All nodes simultaneously to minimise the maintenance window." },
+      { id: 'B', text: "All workers first, then the control plane nodes together." },
+      { id: 'C', text: "Control plane nodes last, after every worker reports the new version." },
+      { id: 'D', text: "First control plane node with kubeadm upgrade apply, remaining control plane nodes with kubeadm upgrade node, then workers one at a time with drain, kubeadm upgrade node, kubelet upgrade, and uncordon." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The version skew policy requires the control plane to lead, so the first control plane node runs upgrade apply, the others run upgrade node, and workers follow one at a time so capacity and disruption budgets are respected. Upgrading workers first would leave kubelets newer than the API server, which is unsupported.",
     referenceUrl: "https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade/",
@@ -52,11 +52,11 @@ export const K8S_CKA_QUESTIONS_11 = [
     question: "Which answer is correct?",
     options: [
       { id: 'A', text: "A bare pod cannot mount volumes." },
-      { id: 'B', text: "A Deployment is required for a pod to receive an IP address." },
-      { id: 'C', text: "A Deployment runs faster because it bypasses the scheduler." },
-      { id: 'D', text: "A Deployment adds a controller that maintains the desired replica count, replaces failed pods, and manages rolling updates and rollbacks; a bare pod is never recreated once it dies." }
+      { id: 'B', text: "A Deployment runs faster because it bypasses the scheduler." },
+      { id: 'C', text: "A Deployment adds a controller that maintains the desired replica count, replaces failed pods, and manages rolling updates and rollbacks; a bare pod is never recreated once it dies." },
+      { id: 'D', text: "A Deployment is required for a pod to receive an IP address." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "The value of a Deployment is the reconciliation loop and revision management around the pod template; without one, a pod deleted by a node failure simply stays gone. Both go through the scheduler, both can mount volumes, and every pod gets an IP from the CNI plugin.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/deployment/",
@@ -93,12 +93,12 @@ export const K8S_CKA_QUESTIONS_11 = [
     scenario: "A namespace was deleted by mistake. Its PVCs are gone but the PersistentVolumes used a Retain policy and still hold the data.",
     question: "How is the data recovered?",
     options: [
-      { id: 'A', text: "Delete the PVs so they are recreated with the data intact." },
-      { id: 'B', text: "Clear the stale claimRef on each Released PV so it becomes Available, then create a matching PVC in the recreated namespace to bind to it." },
-      { id: 'C', text: "Restore etcd from a snapshot, which restores the volume data." },
+      { id: 'A', text: "Restore etcd from a snapshot, which restores the volume data." },
+      { id: 'B', text: "Delete the PVs so they are recreated with the data intact." },
+      { id: 'C', text: "Clear the stale claimRef on each Released PV so it becomes Available, then create a matching PVC in the recreated namespace to bind to it." },
       { id: 'D', text: "Recreate the namespace, and the PVCs rebind automatically." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Retain keeps both the volume and its data but leaves the PV Released with a claimRef pointing at the deleted claim, so removing that reference makes it Available for a new matching claim. Deleting the PV risks the backing volume, PVCs are not recreated automatically, and etcd holds metadata rather than volume contents.",
     referenceUrl: "https://kubernetes.io/docs/concepts/storage/persistent-volumes/",
@@ -114,12 +114,12 @@ export const K8S_CKA_QUESTIONS_11 = [
     scenario: "A workload does not talk to the Kubernetes API at all, but its pods still mount a ServiceAccount token by default.",
     question: "Which change reduces exposure?",
     options: [
-      { id: 'A', text: "Set automountServiceAccountToken: false on the pod spec or the ServiceAccount." },
-      { id: 'B', text: "Set the pod securityContext runAsNonRoot." },
-      { id: 'C', text: "Delete the default ServiceAccount from the namespace." },
+      { id: 'A', text: "Set the pod securityContext runAsNonRoot." },
+      { id: 'B', text: "Delete the default ServiceAccount from the namespace." },
+      { id: 'C', text: "Set automountServiceAccountToken: false on the pod spec or the ServiceAccount." },
       { id: 'D', text: "Add a NetworkPolicy denying egress to the API server, which removes the token." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Disabling automount stops the token being projected into the pod at all, which is the correct hardening for a workload that never calls the API. Deleting the default ServiceAccount breaks pod admission, running as non-root is unrelated to token exposure, and a network policy blocks reachability without removing the credential.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/",
@@ -135,12 +135,12 @@ export const K8S_CKA_QUESTIONS_11 = [
     scenario: "Before scheduling a large workload, an operator wants to see how much CPU and memory each node has already committed through requests.",
     question: "Which command shows allocated requests and limits per node?",
     options: [
-      { id: 'A', text: "kubectl describe node NODE, which lists Allocated resources with request and limit totals." },
-      { id: 'B', text: "kubectl get pods -A --field-selector spec.nodeName=NODE -o name." },
-      { id: 'C', text: "kubectl get node NODE -o wide." },
-      { id: 'D', text: "kubectl top node NODE, which shows requests." }
+      { id: 'A', text: "kubectl get node NODE -o wide." },
+      { id: 'B', text: "kubectl top node NODE, which shows requests." },
+      { id: 'C', text: "kubectl describe node NODE, which lists Allocated resources with request and limit totals." },
+      { id: 'D', text: "kubectl get pods -A --field-selector spec.nodeName=NODE -o name." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "describe node prints an Allocated resources section summing the requests and limits of the pods on that node against its allocatable capacity, which is what scheduling depends on. kubectl top shows actual live usage rather than requests, and the other commands list identity or pod names without totals.",
     referenceUrl: "https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
@@ -156,12 +156,12 @@ export const K8S_CKA_QUESTIONS_11 = [
     scenario: "A cluster-critical agent must survive scheduling pressure and never be preempted in favour of ordinary workloads.",
     question: "Which mechanism expresses that?",
     options: [
-      { id: 'A', text: "Set prevent_preemption: true on the pod." },
-      { id: 'B', text: "Assign a PriorityClass with a high value, such as one of the built-in system-cluster-critical or system-node-critical classes where appropriate." },
-      { id: 'C', text: "Add a PodDisruptionBudget with minAvailable 1." },
-      { id: 'D', text: "Set the pod QoS class to BestEffort." }
+      { id: 'A', text: "Set the pod QoS class to BestEffort." },
+      { id: 'B', text: "Add a PodDisruptionBudget with minAvailable 1." },
+      { id: 'C', text: "Assign a PriorityClass with a high value, such as one of the built-in system-cluster-critical or system-node-critical classes where appropriate." },
+      { id: 'D', text: "Set prevent_preemption: true on the pod." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Preemption compares pod priority values, so a high PriorityClass keeps a critical pod safe and lets it displace others when capacity is scarce; the built-in system classes exist for genuinely cluster-critical components. There is no prevent_preemption field, a PDB governs voluntary evictions rather than scheduler preemption, and BestEffort is the first class evicted under node pressure.",
     referenceUrl: "https://kubernetes.io/docs/concepts/scheduling-eviction/pod-priority-preemption/",
@@ -240,12 +240,12 @@ export const K8S_CKA_QUESTIONS_11 = [
     scenario: "A Job shows one pod Running indefinitely. The container includes a native sidecar proxy alongside the main workload, which exits successfully.",
     question: "Which detail matters?",
     options: [
-      { id: 'A', text: "Jobs never complete when they contain more than one container." },
-      { id: 'B', text: "backoffLimit must be set to 0 for a Job to complete." },
-      { id: 'C', text: "A sidecar declared as an init container with restartPolicy Always is excluded from Job completion, whereas an ordinary long-running container in the pod would keep the Job from finishing." },
+      { id: 'A', text: "backoffLimit must be set to 0 for a Job to complete." },
+      { id: 'B', text: "A sidecar declared as an init container with restartPolicy Always is excluded from Job completion, whereas an ordinary long-running container in the pod would keep the Job from finishing." },
+      { id: 'C', text: "Jobs never complete when they contain more than one container." },
       { id: 'D', text: "The Job needs completions set to 0." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "A pod is only Succeeded when all its regular containers have terminated, so a plain sidecar hangs a Job forever; native sidecars - init containers with restartPolicy Always - were introduced precisely so they do not count toward completion. Multi-container Jobs are otherwise fine, and neither a zero backoffLimit nor zero completions is meaningful here.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/pods/sidecar-containers/",
@@ -282,12 +282,12 @@ export const K8S_CKA_QUESTIONS_11 = [
     scenario: "A Service must be reachable only by pods inside the cluster, with no possibility of external exposure.",
     question: "Which configuration is appropriate?",
     options: [
-      { id: 'A', text: "A NodePort Service with a firewall rule on each node." },
-      { id: 'B', text: "An ExternalName Service pointing at the ClusterIP." },
+      { id: 'A', text: "A ClusterIP Service, optionally with internalTrafficPolicy and a NetworkPolicy restricting which pods may connect." },
+      { id: 'B', text: "A NodePort Service with a firewall rule on each node." },
       { id: 'C', text: "A LoadBalancer Service with an empty loadBalancerSourceRanges list." },
-      { id: 'D', text: "A ClusterIP Service, optionally with internalTrafficPolicy and a NetworkPolicy restricting which pods may connect." }
+      { id: 'D', text: "An ExternalName Service pointing at the ClusterIP." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "ClusterIP is the default and only exposes a virtual IP reachable from inside the cluster, with NetworkPolicy narrowing which pods may reach it. NodePort and LoadBalancer both create external surface that then has to be defended, and ExternalName is a DNS alias with no access control.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/service/",
@@ -303,12 +303,12 @@ export const K8S_CKA_QUESTIONS_11 = [
     scenario: "A cluster is restored from an etcd snapshot taken two hours earlier, using the original PKI directory.",
     question: "What is the expected state afterwards?",
     options: [
-      { id: 'A', text: "Only Secrets and ConfigMaps are restored; workloads are unaffected." },
-      { id: 'B', text: "API objects revert to the snapshot, so anything created in those two hours is gone from the cluster view even though the real cloud resources and running containers may still exist and must be reconciled." },
-      { id: 'C', text: "The restore is transparent because kubelets resynchronise their local state into etcd." },
-      { id: 'D', text: "Both the API objects and the underlying infrastructure roll back to the snapshot time." }
+      { id: 'A', text: "API objects revert to the snapshot, so anything created in those two hours is gone from the cluster view even though the real cloud resources and running containers may still exist and must be reconciled." },
+      { id: 'B', text: "Only Secrets and ConfigMaps are restored; workloads are unaffected." },
+      { id: 'C', text: "Both the API objects and the underlying infrastructure roll back to the snapshot time." },
+      { id: 'D', text: "The restore is transparent because kubelets resynchronise their local state into etcd." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "An etcd restore rewinds the cluster metadata only, so objects created after the snapshot vanish while their real-world effects - running containers, provisioned volumes, cloud load balancers - persist and become orphaned until reconciled. Kubelets do not push their pods back into etcd; the API server is the sole writer.",
     referenceUrl: "https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/",

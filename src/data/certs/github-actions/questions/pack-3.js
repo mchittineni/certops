@@ -9,12 +9,12 @@ export const GITHUB_ACTIONS_QUESTIONS_3 = [
     scenario: "A publish workflow must run when a tag matching a version pattern is pushed, and must not run for pushes to any branch, including the default branch.",
     question: "Which trigger definition is correct?",
     options: [
-      { id: 'A', text: "A push trigger on all branches, with a job-level if comparing github.event.ref to the version pattern using a glob." },
-      { id: 'B', text: "A push trigger with a tags filter carrying the version pattern and no branches filter." },
+      { id: 'A', text: "A push trigger with a tags filter carrying the version pattern and no branches filter." },
+      { id: 'B', text: "A push trigger with both a branches filter of the default branch and a tags filter." },
       { id: 'C', text: "A create trigger, with a job-level if comparing github.ref_type to tag." },
-      { id: 'D', text: "A push trigger with both a branches filter of the default branch and a tags filter." }
+      { id: 'D', text: "A push trigger on all branches, with a job-level if comparing github.event.ref to the version pattern using a glob." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "A push trigger that declares only a tags filter matches tag pushes whose name fits the pattern and matches no branch push at all, which is exactly the requirement. Adding a branches filter widens the trigger to include branch pushes because the two filters are alternatives rather than a conjunction, the create event fires for branches and tags and gives a weaker contract, and filtering inside the job still starts a run and consumes minutes for every branch push.",
     referenceUrl: "https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions",
@@ -30,12 +30,12 @@ export const GITHUB_ACTIONS_QUESTIONS_3 = [
     scenario: "A matrix runs the test suite on six platform combinations. When one combination fails the others are cancelled immediately, so the team learns about one broken platform per run and needs several rounds to find them all.",
     question: "Which change lets a single run report every failing combination?",
     options: [
-      { id: 'A', text: "Split the matrix into six separate jobs joined by needs." },
+      { id: 'A', text: "Set strategy.fail-fast to false so a failing combination no longer cancels its siblings." },
       { id: 'B', text: "Set continue-on-error to true on the test step in every combination." },
-      { id: 'C', text: "Set strategy.fail-fast to false so a failing combination no longer cancels its siblings." },
-      { id: 'D', text: "Raise strategy.max-parallel so all six combinations start before any can fail." }
+      { id: 'C', text: "Raise strategy.max-parallel so all six combinations start before any can fail." },
+      { id: 'D', text: "Split the matrix into six separate jobs joined by needs." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Matrix jobs default to fail-fast behaviour, where the first failure cancels the remaining combinations, and turning it off lets every combination run to completion so one run surfaces all the failures while still failing overall. Marking the step continue-on-error would report the run as successful and hide the breakage, max-parallel affects scheduling rather than cancellation, and hand-splitting the matrix loses the matrix entirely.",
     referenceUrl: "https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs",
@@ -94,9 +94,9 @@ export const GITHUB_ACTIONS_QUESTIONS_3 = [
     question: "How is that produced?",
     options: [
       { id: 'A', text: "Append markdown to the file path held in GITHUB_STEP_SUMMARY from a step." },
-      { id: 'B', text: "Upload the table as an artifact named summary, which the run page renders inline." },
-      { id: 'C', text: "Emit a notice workflow command containing the markdown table." },
-      { id: 'D', text: "Set a job output containing the markdown, which the run page renders." }
+      { id: 'B', text: "Emit a notice workflow command containing the markdown table." },
+      { id: 'C', text: "Set a job output containing the markdown, which the run page renders." },
+      { id: 'D', text: "Upload the table as an artifact named summary, which the run page renders inline." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -114,12 +114,12 @@ export const GITHUB_ACTIONS_QUESTIONS_3 = [
     scenario: "A step should execute only when the run is for a branch whose name begins with release/. The team wants the check written as a workflow expression rather than a shell test, so that the step is visibly skipped rather than silently exiting.",
     question: "Which expression belongs in the step condition?",
     options: [
-      { id: 'A', text: "A call to format passing github.ref_name and a wildcard pattern." },
-      { id: 'B', text: "A comparison of github.ref to the literal string release/, which matches by prefix." },
-      { id: 'C', text: "A call to hashFiles passing the branch name." },
-      { id: 'D', text: "A call to startsWith passing github.ref and the fully qualified ref prefix for release branches." }
+      { id: 'A', text: "A call to startsWith passing github.ref and the fully qualified ref prefix for release branches." },
+      { id: 'B', text: "A call to hashFiles passing the branch name." },
+      { id: 'C', text: "A comparison of github.ref to the literal string release/, which matches by prefix." },
+      { id: 'D', text: "A call to format passing github.ref_name and a wildcard pattern." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Workflow expressions provide startsWith, endsWith and contains for string tests, and startsWith against the fully qualified ref is the direct way to express a branch-name prefix in a step condition so the user interface shows the step as skipped. Equality compares the whole string rather than a prefix, format builds a string rather than testing one, and hashFiles computes a digest of files for cache keys.",
     referenceUrl: "https://docs.github.com/en/actions/learn-github-actions/expressions",
@@ -135,12 +135,12 @@ export const GITHUB_ACTIONS_QUESTIONS_3 = [
     scenario: "A workflow using ubuntu-latest passed on Friday and failed on Monday with no commits in between. The failure is a missing system package that the image previously included. The team needs both an immediate unblock and a way to learn about such changes in advance.",
     question: "Which pair of responses is appropriate?",
     options: [
-      { id: 'A', text: "Add a retry loop around the failing step, since hosted image contents vary run to run." },
-      { id: 'B', text: "Switch to a self-hosted runner, which is the only way to control installed packages." },
-      { id: 'C', text: "Clear the Actions cache for the repository, which holds the previous image contents." },
-      { id: 'D', text: "Pin runs-on to the specific Ubuntu image version to regain a known-good environment, and install the package explicitly so the workflow no longer depends on undocumented image contents." }
+      { id: 'A', text: "Clear the Actions cache for the repository, which holds the previous image contents." },
+      { id: 'B', text: "Pin runs-on to the specific Ubuntu image version to regain a known-good environment, and install the package explicitly so the workflow no longer depends on undocumented image contents." },
+      { id: 'C', text: "Add a retry loop around the failing step, since hosted image contents vary run to run." },
+      { id: 'D', text: "Switch to a self-hosted runner, which is the only way to control installed packages." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "The latest label tracks a moving image whose preinstalled software changes on a published schedule, so pinning to an explicit image version restores a predictable environment while installing the dependency explicitly removes the hidden reliance entirely. Image contents do not vary randomly between runs so retrying will not help, self-hosted runners are a heavier answer than declaring a dependency, and the Actions cache stores workflow data rather than the runner image.",
     referenceUrl: "https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners",
@@ -198,12 +198,12 @@ export const GITHUB_ACTIONS_QUESTIONS_3 = [
     scenario: "A workflow uploads binaries to a distribution service. It must run when a maintainer publishes a release, and must not run while the release is still being drafted and edited.",
     question: "Which trigger is correct?",
     options: [
-      { id: 'A', text: "A release trigger with no types filter, which defaults to published only." },
-      { id: 'B', text: "A push trigger with a tags filter, which fires at the same moment as publication." },
-      { id: 'C', text: "A release trigger with a types filter of published." },
-      { id: 'D', text: "A create trigger, which fires when a release is created." }
+      { id: 'A', text: "A create trigger, which fires when a release is created." },
+      { id: 'B', text: "A release trigger with a types filter of published." },
+      { id: 'C', text: "A push trigger with a tags filter, which fires at the same moment as publication." },
+      { id: 'D', text: "A release trigger with no types filter, which defaults to published only." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "The release event carries several activity types including created, edited, prereleased and published, so naming published explicitly is what restricts the workflow to the moment a maintainer makes the release public. Omitting the types filter subscribes to a broader set rather than published alone, the create event covers branch and tag creation rather than releases, and a tag push happens when the tag is written which for a draft release is before publication.",
     referenceUrl: "https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows",
@@ -219,12 +219,12 @@ export const GITHUB_ACTIONS_QUESTIONS_3 = [
     scenario: "A team tries to call a shared workflow by adding a uses key to a step inside an existing job, pointing at the shared file path. The workflow fails to parse.",
     question: "What is the correct form?",
     options: [
-      { id: 'A', text: "The uses key belongs on a step, but the reference must omit the .github/workflows portion of the path." },
-      { id: 'B', text: "A reusable workflow is referenced by a workflow_call entry in the calling workflow triggers." },
-      { id: 'C', text: "The uses key belongs on the job itself, referencing owner, repository, the path under .github/workflows, and a ref, with no steps in that job." },
-      { id: 'D', text: "A reusable workflow is referenced by adding its name to the needs list of the calling job." }
+      { id: 'A', text: "A reusable workflow is referenced by adding its name to the needs list of the calling job." },
+      { id: 'B', text: "The uses key belongs on the job itself, referencing owner, repository, the path under .github/workflows, and a ref, with no steps in that job." },
+      { id: 'C', text: "A reusable workflow is referenced by a workflow_call entry in the calling workflow triggers." },
+      { id: 'D', text: "The uses key belongs on a step, but the reference must omit the .github/workflows portion of the path." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Calling a reusable workflow replaces the body of a job, so the uses key sits at job level with a full reference of owner, repository, the file path including its directory and a ref, and that job declares with and secrets rather than steps. A step-level uses invokes an action instead, needs expresses ordering between jobs in the same workflow, and workflow_call is the trigger the called workflow declares rather than something the caller writes.",
     referenceUrl: "https://docs.github.com/en/actions/using-workflows/reusing-workflows",
@@ -261,12 +261,12 @@ export const GITHUB_ACTIONS_QUESTIONS_3 = [
     scenario: "A platform team maintains an action in a private repository. Workflows in other private repositories of the same organization reference it and fail because the action cannot be found, even though the workflows run with a valid token.",
     question: "Which setting resolves this?",
     options: [
-      { id: 'A', text: "In the action repository Actions settings, enable access so its actions and workflows may be used by other repositories in the organization." },
-      { id: 'B', text: "Add each consuming repository as a collaborator on the action repository." },
-      { id: 'C', text: "Grant the consuming workflows a permissions block with contents: read for the action repository." },
-      { id: 'D', text: "Make the action repository public, which is the only way to share an action." }
+      { id: 'A', text: "Grant the consuming workflows a permissions block with contents: read for the action repository." },
+      { id: 'B', text: "Make the action repository public, which is the only way to share an action." },
+      { id: 'C', text: "In the action repository Actions settings, enable access so its actions and workflows may be used by other repositories in the organization." },
+      { id: 'D', text: "Add each consuming repository as a collaborator on the action repository." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "A private repository must opt in by enabling Actions access sharing, after which its actions and reusable workflows resolve for the permitted repositories in the organization or enterprise without any change to the consuming workflows. Making the repository public is unnecessary and exposes the source, collaborator grants apply to people and teams rather than to workflow resolution, and a permissions block scopes the token for the current repository rather than granting cross-repository action access.",
     referenceUrl: "https://docs.github.com/en/actions/creating-actions/sharing-actions-and-workflows-with-your-organization",
@@ -282,12 +282,12 @@ export const GITHUB_ACTIONS_QUESTIONS_3 = [
     scenario: "A maintainer notices that pull requests from people who have never contributed before show workflows in a pending state with a message about approval, while pull requests from regular contributors run immediately.",
     question: "What is happening?",
     options: [
-      { id: 'A', text: "Branch protection is requiring a review of the code before any status check may start." },
-      { id: 'B', text: "A repository or organization setting requires approval before workflows run for first-time contributors, and a maintainer approves each run from the pull request checks area." },
+      { id: 'A', text: "A repository or organization setting requires approval before workflows run for first-time contributors, and a maintainer approves each run from the pull request checks area." },
+      { id: 'B', text: "The repository has exhausted its concurrent job allowance, so new contributors are queued last." },
       { id: 'C', text: "Workflows never run for contributors without write access, and the pending state is permanent." },
-      { id: 'D', text: "The repository has exhausted its concurrent job allowance, so new contributors are queued last." }
+      { id: 'D', text: "Branch protection is requiring a review of the code before any status check may start." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Fork pull request settings can require manual approval before workflows run, defaulting to first-time contributors, which prevents an unknown account from consuming minutes or probing the workflow before a maintainer has looked at the change; a maintainer releases each run from the checks area. Queueing would not single out new accounts, workflows do run for contributors without write access once approved, and branch protection gates merging rather than starting checks.",
     referenceUrl: "https://docs.github.com/en/actions/managing-workflow-runs/approving-workflow-runs-from-public-forks",
@@ -303,12 +303,12 @@ export const GITHUB_ACTIONS_QUESTIONS_3 = [
     scenario: "An incident review needs to establish which commit was last deployed to the staging environment, when, and who approved it. The deployment jobs all declare the staging environment.",
     question: "Where is that recorded?",
     options: [
-      { id: 'A', text: "The artifact retention list for the repository." },
-      { id: 'B', text: "The environment deployment history, reachable from the repository Environments page, which lists deployments with their commit, time and approvals." },
-      { id: 'C', text: "The Insights dependency graph for the deployed commit." },
-      { id: 'D', text: "The Actions cache entries for the staging key prefix." }
+      { id: 'A', text: "The Actions cache entries for the staging key prefix." },
+      { id: 'B', text: "The Insights dependency graph for the deployed commit." },
+      { id: 'C', text: "The environment deployment history, reachable from the repository Environments page, which lists deployments with their commit, time and approvals." },
+      { id: 'D', text: "The artifact retention list for the repository." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Declaring an environment on a job creates a deployment record, and the Environments page keeps a history showing the commit, the run, the time and any approvals that gated it, which is exactly the audit trail an incident review needs. Cache entries hold build inputs, artifact retention describes storage lifetimes, and the dependency graph describes what a commit depends on rather than where it ran.",
     referenceUrl: "https://docs.github.com/en/actions/deployment/managing-your-deployments/viewing-deployment-history",
@@ -324,12 +324,12 @@ export const GITHUB_ACTIONS_QUESTIONS_3 = [
     scenario: "Two pull requests merge within a minute of each other. Both deployment runs start and race, and the second overwrites part of what the first was still applying. The team wants the second run to wait rather than be cancelled, so both changes land in order.",
     question: "Which configuration expresses that?",
     options: [
-      { id: 'A', text: "A max-parallel value of one on the deployment matrix." },
-      { id: 'B', text: "A concurrency block with a group naming the environment and cancel-in-progress set to false, so a second run queues until the first completes." },
-      { id: 'C', text: "A concurrency block with cancel-in-progress set to true, which is the safe default for deployments." },
+      { id: 'A', text: "A concurrency block with a group naming the environment and cancel-in-progress set to false, so a second run queues until the first completes." },
+      { id: 'B', text: "A concurrency block with cancel-in-progress set to true, which is the safe default for deployments." },
+      { id: 'C', text: "A max-parallel value of one on the deployment matrix." },
       { id: 'D', text: "A needs relationship between the two workflow runs." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "A concurrency group serialises runs that share the same group name, and leaving cancel-in-progress off makes a later run wait for the running one instead of superseding it, which is what a deployment that must not be interrupted requires. Cancelling in progress would abort a half-applied deployment, max-parallel only orders jobs within one run, and needs cannot express a relationship between separate runs.",
     referenceUrl: "https://docs.github.com/en/actions/using-jobs/using-concurrency",
@@ -345,12 +345,12 @@ export const GITHUB_ACTIONS_QUESTIONS_3 = [
     scenario: "An auditor needs the complete logs of a workflow run from two months ago as evidence. Retention for the repository is set to ninety days and the run is approaching that boundary.",
     question: "What should be done?",
     options: [
-      { id: 'A', text: "Pin the run from the Actions tab, which exempts it from retention." },
+      { id: 'A', text: "Download the run logs archive from the run page, or fetch it through the API or CLI, and store it in the evidence system." },
       { id: 'B', text: "Re-run the workflow so a fresh copy of the logs is created with a new retention window." },
-      { id: 'C', text: "Download the run logs archive from the run page, or fetch it through the API or CLI, and store it in the evidence system." },
-      { id: 'D', text: "Increase the repository retention setting, which extends retention for runs already recorded." }
+      { id: 'C', text: "Increase the repository retention setting, which extends retention for runs already recorded." },
+      { id: 'D', text: "Pin the run from the Actions tab, which exempts it from retention." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Logs for a completed run can be downloaded as an archive from the run page or retrieved programmatically, and moving that archive into a system with the required retention is the way to preserve evidence beyond the platform window. Re-running produces logs of a new execution rather than the historical one under audit, retention changes apply going forward rather than resurrecting expiry dates for existing runs, and there is no pinning mechanism that exempts a run.",
     referenceUrl: "https://docs.github.com/en/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs",
@@ -367,9 +367,9 @@ export const GITHUB_ACTIONS_QUESTIONS_3 = [
     question: "What is the correct design?",
     options: [
       { id: 'A', text: "Declare the token as an input on the action and have the calling workflow pass the secret to it through the with block." },
-      { id: 'B', text: "Read the token from an environment variable that the runner populates from repository secrets automatically." },
-      { id: 'C', text: "Reference the secret through the env context instead of the secrets context." },
-      { id: 'D', text: "Declare the token under a secrets block in action.yml, mirroring reusable workflow syntax." }
+      { id: 'B', text: "Declare the token under a secrets block in action.yml, mirroring reusable workflow syntax." },
+      { id: 'C', text: "Read the token from an environment variable that the runner populates from repository secrets automatically." },
+      { id: 'D', text: "Reference the secret through the env context instead of the secrets context." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -387,12 +387,12 @@ export const GITHUB_ACTIONS_QUESTIONS_3 = [
     scenario: "An author is writing a Docker container action and wants to read an input named api-url from inside the container without adding it to the args list.",
     question: "Where does the value appear?",
     options: [
-      { id: 'A', text: "As an environment variable whose name is the input name uppercased with non-alphanumeric characters replaced by underscores, prefixed with INPUT_." },
-      { id: 'B', text: "As the first positional argument, since undeclared args default to the input order." },
-      { id: 'C', text: "In a file named inputs.json placed in the container working directory by the runner." },
+      { id: 'A', text: "In a file named inputs.json placed in the container working directory by the runner." },
+      { id: 'B', text: "As an environment variable whose name is the input name uppercased with non-alphanumeric characters replaced by underscores, prefixed with INPUT_." },
+      { id: 'C', text: "As the first positional argument, since undeclared args default to the input order." },
       { id: 'D', text: "Only through the args list, because container actions have no other input channel." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "The runner exposes every declared input to the action as an environment variable built by uppercasing the input name, replacing separators such as hyphens with underscores and adding an INPUT_ prefix, which is why an input can be read without being threaded through args. No inputs file is written, inputs are not silently mapped onto positional arguments, and the args list is a convenience on top of the environment variables rather than the only channel.",
     referenceUrl: "https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions",
@@ -429,12 +429,12 @@ export const GITHUB_ACTIONS_QUESTIONS_3 = [
     scenario: "A self-hosted virtual machine is being decommissioned. The administrator wants the runner removed from the organization so that no job is ever dispatched to it, and wants the machine credentials invalidated in the process.",
     question: "What is the correct procedure?",
     options: [
-      { id: 'A', text: "Power off the machine, since an unreachable runner is dropped from the pool after a short timeout." },
-      { id: 'B', text: "Delete the runner labels, which prevents any job from matching it." },
-      { id: 'C', text: "Run the runner configuration script with the remove operation using a removal token, which deregisters the runner and deletes its local credentials, then destroy the machine." },
+      { id: 'A', text: "Run the runner configuration script with the remove operation using a removal token, which deregisters the runner and deletes its local credentials, then destroy the machine." },
+      { id: 'B', text: "Power off the machine, since an unreachable runner is dropped from the pool after a short timeout." },
+      { id: 'C', text: "Delete the runner labels, which prevents any job from matching it." },
       { id: 'D', text: "Rotate the organization registration token, which invalidates every previously registered runner." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The supported removal path runs the configuration script in remove mode with a short-lived removal token, which both deregisters the runner and clears the credential file it stored locally, leaving nothing usable on the disposed machine. Powering off leaves the registration in place and jobs may still be queued to it, removing labels does not remove the runner or its credentials, and rotating a registration token affects new registrations rather than existing runners.",
     referenceUrl: "https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/removing-self-hosted-runners",
@@ -492,10 +492,10 @@ export const GITHUB_ACTIONS_QUESTIONS_3 = [
     scenario: "An organization configures OpenID Connect against a cloud provider. A reviewer warns that the trust policy currently matches any repository in the organization, so a workflow in an unrelated repository could assume the production deployment role.",
     question: "How is the trust narrowed correctly?",
     options: [
-      { id: 'A', text: "Restrict the id-token permission to the deployment job, which is sufficient because no other job can then request a token." },
+      { id: 'A', text: "Store the role identifier in an environment secret, so only the deployment job knows which role to assume." },
       { id: 'B', text: "Tighten the subject condition in the cloud trust policy to match the specific repository and the specific branch or environment claim carried in the token." },
-      { id: 'C', text: "Move the deployment workflow to a private repository, since the subject claim distinguishes visibility." },
-      { id: 'D', text: "Store the role identifier in an environment secret, so only the deployment job knows which role to assume." }
+      { id: 'C', text: "Restrict the id-token permission to the deployment job, which is sufficient because no other job can then request a token." },
+      { id: 'D', text: "Move the deployment workflow to a private repository, since the subject claim distinguishes visibility." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -514,9 +514,9 @@ export const GITHUB_ACTIONS_QUESTIONS_3 = [
     question: "Which option fits?",
     options: [
       { id: 'A', text: "Configure larger GitHub-hosted runners at organization level, place them in a runner group limited to those repositories, and target them by their label in runs-on." },
-      { id: 'B', text: "Run the job in a container with a higher CPU limit, which raises the machine size." },
-      { id: 'C', text: "Register self-hosted runners on larger cloud instances, which is the only way to exceed the standard size." },
-      { id: 'D', text: "Add a resources block to the job requesting additional cores from the standard hosted pool." }
+      { id: 'B', text: "Add a resources block to the job requesting additional cores from the standard hosted pool." },
+      { id: 'C', text: "Run the job in a container with a higher CPU limit, which raises the machine size." },
+      { id: 'D', text: "Register self-hosted runners on larger cloud instances, which is the only way to exceed the standard size." }
     ],
     correctAnswers: ['A'],
     type: "single",

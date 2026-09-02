@@ -10,9 +10,9 @@ export const HASHICORP_TFP_QUESTIONS_7 = [
     question: "What is the current idiom?",
     options: [
       { id: 'A', text: "Write var.name directly; wrapping a single reference in a template string is redundant and terraform fmt style guidance discourages it." },
-      { id: 'B', text: "Wrap it in the tostring function." },
-      { id: 'C', text: "Interpolation is required for all variable references." },
-      { id: 'D', text: "Use ${{ var.name }} instead." }
+      { id: 'B', text: "Interpolation is required for all variable references." },
+      { id: 'C', text: "Use ${{ var.name }} instead." },
+      { id: 'D', text: "Wrap it in the tostring function." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -51,12 +51,12 @@ export const HASHICORP_TFP_QUESTIONS_7 = [
     scenario: "An operator wants only the state addresses belonging to a particular module.",
     question: "Which invocation narrows the list?",
     options: [
-      { id: 'A', text: "terraform show module.network" },
-      { id: 'B', text: "terraform state list --filter=module.network" },
+      { id: 'A', text: "terraform state list module.network" },
+      { id: 'B', text: "terraform show module.network" },
       { id: 'C', text: "terraform state show module.network" },
-      { id: 'D', text: "terraform state list module.network" }
+      { id: 'D', text: "terraform state list --filter=module.network" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "state list accepts an address prefix and prints only the matching resources, which is the quickest way to scope a large state. There is no filter flag, show renders whole state or a plan, and state show expects a single full resource address.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/state/list",
@@ -114,12 +114,12 @@ export const HASHICORP_TFP_QUESTIONS_7 = [
     scenario: "A security team must review who changed workspace settings and who applied runs across the organisation over the last quarter.",
     question: "Which source provides that?",
     options: [
-      { id: 'A', text: "The organisation audit trail, streamed or exported for retention, complemented by per-workspace run history." },
-      { id: 'B', text: "The state file history alone." },
-      { id: 'C', text: "Provider debug logs." },
-      { id: 'D', text: "The private registry publication log." }
+      { id: 'A', text: "The state file history alone." },
+      { id: 'B', text: "The organisation audit trail, streamed or exported for retention, complemented by per-workspace run history." },
+      { id: 'C', text: "The private registry publication log." },
+      { id: 'D', text: "Provider debug logs." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Audit trails record administrative and run events across the organisation and can be exported for long-term retention, with run history giving the per-workspace detail. State history shows what changed rather than who changed settings, registry logs cover module publication, and provider logs are local diagnostics.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cloud-docs/api-docs/audit-trails",
@@ -198,12 +198,12 @@ export const HASHICORP_TFP_QUESTIONS_7 = [
     scenario: "A team currently applies production changes from individual workstations with personal credentials.",
     question: "Which risks does moving to a central runner address?",
     options: [
-      { id: 'A', text: "Only the speed of the apply." },
-      { id: 'B', text: "Inconsistent tool and provider versions, unaudited use of personal credentials, no shared run history, and no enforced review or policy gate." },
-      { id: 'C', text: "Nothing, provided everyone uses the same Terraform version." },
-      { id: 'D', text: "Only the cost of cloud API calls." }
+      { id: 'A', text: "Nothing, provided everyone uses the same Terraform version." },
+      { id: 'B', text: "Only the cost of cloud API calls." },
+      { id: 'C', text: "Only the speed of the apply." },
+      { id: 'D', text: "Inconsistent tool and provider versions, unaudited use of personal credentials, no shared run history, and no enforced review or policy gate." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Centralised execution standardises versions, replaces personal credentials with a scoped machine identity, and creates the audit trail and gating that laptop applies lack. Matching versions alone leaves credentials, auditability, and enforcement unsolved.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cloud-docs/run/remote-operations",
@@ -240,12 +240,12 @@ export const HASHICORP_TFP_QUESTIONS_7 = [
     scenario: "A module input must always be supplied by the caller, and a run that omits it should fail rather than prompt in automation.",
     question: "How is that achieved?",
     options: [
-      { id: 'A', text: "Declare the variable with no default, and run with -input=false so a missing value is an error instead of a prompt." },
-      { id: 'B', text: "Declare it with required = true." },
-      { id: 'C', text: "Declare it as sensitive, which forces the caller to supply it." },
-      { id: 'D', text: "Declare it with default = null, which makes it required." }
+      { id: 'A', text: "Declare it as sensitive, which forces the caller to supply it." },
+      { id: 'B', text: "Declare it with default = null, which makes it required." },
+      { id: 'C', text: "Declare the variable with no default, and run with -input=false so a missing value is an error instead of a prompt." },
+      { id: 'D', text: "Declare it with required = true." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Omitting the default makes a variable required, and disabling input turns the interactive prompt into a hard error, which is what automation needs. A null default makes the variable optional with a null value, there is no required argument, and sensitivity is unrelated to whether a value must be supplied.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/values/variables",
@@ -345,10 +345,10 @@ export const HASHICORP_TFP_QUESTIONS_7 = [
     scenario: "Twenty firewall rules differ only in port, protocol, and description, and the current configuration repeats a nearly identical block twenty times.",
     question: "Which refactor is idiomatic?",
     options: [
-      { id: 'A', text: "Wrap the twenty blocks in a module and call it once." },
+      { id: 'A', text: "Generate the HCL with a shell script before each run." },
       { id: 'B', text: "Move the rule data into a map local or variable and create the rules with for_each, so the data and the resource shape are separate." },
-      { id: 'C', text: "Generate the HCL with a shell script before each run." },
-      { id: 'D', text: "Use count with twenty conditional expressions." }
+      { id: 'C', text: "Use count with twenty conditional expressions." },
+      { id: 'D', text: "Wrap the twenty blocks in a module and call it once." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -366,12 +366,12 @@ export const HASHICORP_TFP_QUESTIONS_7 = [
     scenario: "A plan completes cleanly and the apply fails immediately with an authorisation error from the cloud.",
     question: "Why can plan pass while apply fails?",
     options: [
-      { id: 'A', text: "Apply uses a different provider version." },
-      { id: 'B', text: "Plan does not contact the provider at all." },
+      { id: 'A', text: "Plan mostly performs read operations, so an identity with read but not write permissions can plan successfully and only fail when the write is attempted." },
+      { id: 'B', text: "Apply uses a different provider version." },
       { id: 'C', text: "The plan file caches credentials that then expire." },
-      { id: 'D', text: "Plan mostly performs read operations, so an identity with read but not write permissions can plan successfully and only fail when the write is attempted." }
+      { id: 'D', text: "Plan does not contact the provider at all." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The two phases exercise different permissions - reads during refresh and planning, writes during apply - so a read-only identity produces exactly this pattern. Plan does contact providers, both phases use the same provider version, and plan files do not store credentials.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/apply",
@@ -408,12 +408,12 @@ export const HASHICORP_TFP_QUESTIONS_7 = [
     scenario: "A state file has grown to hundreds of megabytes, plans are slow, and the backend occasionally times out.",
     question: "Which remedy addresses the cause?",
     options: [
-      { id: 'A', text: "Switch to the local backend, which has no size limit." },
-      { id: 'B', text: "Compress the state file in the backend." },
-      { id: 'C', text: "Split the configuration into several states along ownership and lifecycle boundaries, and remove resources that no longer need Terraform management." },
-      { id: 'D', text: "Increase the backend timeout and continue." }
+      { id: 'A', text: "Compress the state file in the backend." },
+      { id: 'B', text: "Switch to the local backend, which has no size limit." },
+      { id: 'C', text: "Increase the backend timeout and continue." },
+      { id: 'D', text: "Split the configuration into several states along ownership and lifecycle boundaries, and remove resources that no longer need Terraform management." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "State size is a symptom of too many resources in one configuration, so the durable fix is decomposition rather than tolerating a slow, fragile monolith. Compression and longer timeouts postpone the problem, and a local backend abandons collaboration and locking.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/modules/develop/composition",
@@ -450,12 +450,12 @@ export const HASHICORP_TFP_QUESTIONS_7 = [
     scenario: "A provider offers both an inline rule block on a security group and a standalone rule resource, and a team plans to manage some rules from another configuration.",
     question: "Which choice is correct and why?",
     options: [
-      { id: 'A', text: "Use the standalone rule resource, because mixing inline blocks with externally managed rules causes each apply to remove rules it does not know about." },
-      { id: 'B', text: "Use inline blocks, because they plan faster." },
-      { id: 'C', text: "Use both forms together for redundancy." },
-      { id: 'D', text: "It makes no difference to behaviour." }
+      { id: 'A', text: "Use inline blocks, because they plan faster." },
+      { id: 'B', text: "Use the standalone rule resource, because mixing inline blocks with externally managed rules causes each apply to remove rules it does not know about." },
+      { id: 'C', text: "It makes no difference to behaviour." },
+      { id: 'D', text: "Use both forms together for redundancy." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Inline blocks make the parent resource authoritative over the whole set, so anything added elsewhere is deleted on the next apply; standalone rule resources allow shared ownership. Using both forms on the same group is explicitly warned against because they fight, and the difference is behavioural rather than cosmetic.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/resources/behavior",
@@ -492,12 +492,12 @@ export const HASHICORP_TFP_QUESTIONS_7 = [
     scenario: "A destroy plan for one small configuration lists resources the team believed belonged to another stack.",
     question: "What is the most likely cause and the safe response?",
     options: [
-      { id: 'A', text: "Terraform destroys resources by tag, so the tags overlap." },
-      { id: 'B', text: "The working directory is pointed at the wrong state - a wrong backend key, workspace, or cloud workspace - so stop, confirm the backend and workspace, and inspect state before running anything." },
-      { id: 'C', text: "The plan is showing resources from data sources." },
-      { id: 'D', text: "Destroy always includes every resource in the account." }
+      { id: 'A', text: "The plan is showing resources from data sources." },
+      { id: 'B', text: "Destroy always includes every resource in the account." },
+      { id: 'C', text: "Terraform destroys resources by tag, so the tags overlap." },
+      { id: 'D', text: "The working directory is pointed at the wrong state - a wrong backend key, workspace, or cloud workspace - so stop, confirm the backend and workspace, and inspect state before running anything." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "A destroy plan covers exactly what is in the current state, so an unexpectedly large list almost always means the wrong state is selected - verifying the backend configuration and workspace before proceeding is the safe move. Terraform does not act on tags, data sources are read-only and are not destroyed, and destroy never reaches beyond managed state.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/destroy",

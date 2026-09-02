@@ -30,12 +30,12 @@ export const K8S_CKA_QUESTIONS_6 = [
     scenario: "After applying a new image, an operator wants the shell to block until the rollout finishes or fails.",
     question: "Which command does that?",
     options: [
-      { id: 'A', text: "kubectl get deployment web --watch-only" },
-      { id: 'B', text: "kubectl wait --for=condition=Ready deployment/web" },
-      { id: 'C', text: "kubectl rollout history deployment/web" },
-      { id: 'D', text: "kubectl rollout status deployment/web" }
+      { id: 'A', text: "kubectl rollout status deployment/web" },
+      { id: 'B', text: "kubectl rollout history deployment/web" },
+      { id: 'C', text: "kubectl wait --for=condition=Ready deployment/web" },
+      { id: 'D', text: "kubectl get deployment web --watch-only" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "kubectl rollout status blocks and streams progress until the deployment is complete or its progress deadline is exceeded, returning a non-zero exit code on failure. The watch flag streams object changes without a completion verdict, history lists past revisions, and Deployments expose Available and Progressing conditions rather than Ready.",
     referenceUrl: "https://kubernetes.io/docs/reference/kubectl/generated/kubectl_rollout/",
@@ -51,12 +51,12 @@ export const K8S_CKA_QUESTIONS_6 = [
     scenario: "A LoadBalancer Service uses externalTrafficPolicy: Local. Three of five nodes run a backend pod, and the cloud load balancer sends equal traffic to all five nodes.",
     question: "What happens to the traffic and how is it normally avoided?",
     options: [
-      { id: 'A', text: "Traffic is dropped permanently and the Service must be recreated as Cluster policy." },
-      { id: 'B', text: "Nodes with no local backend fail the load balancer health check and are removed from rotation, so traffic reaches only nodes running a pod." },
-      { id: 'C', text: "kube-proxy schedules a new pod onto each node automatically." },
-      { id: 'D', text: "Traffic to nodes without a pod is forwarded to other nodes with SNAT applied." }
+      { id: 'A', text: "kube-proxy schedules a new pod onto each node automatically." },
+      { id: 'B', text: "Traffic to nodes without a pod is forwarded to other nodes with SNAT applied." },
+      { id: 'C', text: "Traffic is dropped permanently and the Service must be recreated as Cluster policy." },
+      { id: 'D', text: "Nodes with no local backend fail the load balancer health check and are removed from rotation, so traffic reaches only nodes running a pod." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "With Local policy, kube-proxy only serves the Service on nodes that host a ready backend and fails the load balancer health check elsewhere, so the load balancer stops sending traffic there while client IPs are preserved. Forwarding with SNAT is the Cluster policy behaviour, the situation is self-correcting rather than permanent, and kube-proxy never creates pods.",
     referenceUrl: "https://kubernetes.io/docs/tutorials/services/source-ip/",
@@ -72,9 +72,9 @@ export const K8S_CKA_QUESTIONS_6 = [
     scenario: "Hardening requires readOnlyRootFilesystem: true, but the application must still write temporary files to /tmp.",
     question: "Which change keeps both requirements?",
     options: [
-      { id: 'A', text: "Run the container as root so it can write anywhere." },
-      { id: 'B', text: "Grant the container the SYS_ADMIN capability." },
-      { id: 'C', text: "Set readOnlyRootFilesystem: false only for that container." },
+      { id: 'A', text: "Grant the container the SYS_ADMIN capability." },
+      { id: 'B', text: "Set readOnlyRootFilesystem: false only for that container." },
+      { id: 'C', text: "Run the container as root so it can write anywhere." },
       { id: 'D', text: "Mount an emptyDir volume at /tmp while keeping the root filesystem read-only." }
     ],
     correctAnswers: ['D'],
@@ -93,12 +93,12 @@ export const K8S_CKA_QUESTIONS_6 = [
     scenario: "A monitoring DaemonSet must also run on control plane nodes, which carry the NoSchedule control plane taint.",
     question: "What is required?",
     options: [
-      { id: 'A', text: "Set hostNetwork: true on the DaemonSet." },
-      { id: 'B', text: "Give the DaemonSet a nodeSelector for the control plane label." },
-      { id: 'C', text: "Add a toleration for node-role.kubernetes.io/control-plane with effect NoSchedule to the DaemonSet pod template." },
+      { id: 'A', text: "Give the DaemonSet a nodeSelector for the control plane label." },
+      { id: 'B', text: "Add a toleration for node-role.kubernetes.io/control-plane with effect NoSchedule to the DaemonSet pod template." },
+      { id: 'C', text: "Set hostNetwork: true on the DaemonSet." },
       { id: 'D', text: "Remove the taint from the control plane nodes." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "A toleration lets DaemonSet pods be placed on the tainted control plane nodes while keeping ordinary workloads off them. Removing the taint opens those nodes to every workload, hostNetwork changes the network namespace rather than schedulability, and a nodeSelector alone still loses to the taint.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/",
@@ -114,12 +114,12 @@ export const K8S_CKA_QUESTIONS_6 = [
     scenario: "An application needs a short-lived, audience-scoped token to authenticate to an external service, rather than a long-lived Secret-based ServiceAccount token.",
     question: "Which mechanism provides it?",
     options: [
-      { id: 'A', text: "The automountServiceAccountToken field set to true." },
-      { id: 'B', text: "A ConfigMap containing the token value." },
-      { id: 'C', text: "A projected volume with a serviceAccountToken source specifying audience and expirationSeconds." },
+      { id: 'A', text: "A projected volume with a serviceAccountToken source specifying audience and expirationSeconds." },
+      { id: 'B', text: "The automountServiceAccountToken field set to true." },
+      { id: 'C', text: "A ConfigMap containing the token value." },
       { id: 'D', text: "A Secret of type kubernetes.io/service-account-token mounted manually." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Projected ServiceAccount tokens are issued by the TokenRequest API with a caller-specified audience and expiry, and the kubelet rotates them in place. A legacy token Secret is long-lived and not audience-bound, ConfigMaps are the wrong place for credentials, and automount only controls whether the default token is mounted at all.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/",
@@ -136,11 +136,11 @@ export const K8S_CKA_QUESTIONS_6 = [
     question: "Which command is a reasonable one-liner?",
     options: [
       { id: 'A', text: "kubectl get svc api -o jsonpath={.spec.clusterIP}" },
-      { id: 'B', text: "kubectl run tmp --rm -it --image=busybox --restart=Never -- nslookup api.web.svc.cluster.local" },
-      { id: 'C', text: "kubectl describe configmap coredns -n kube-system" },
-      { id: 'D', text: "nslookup api.web.svc.cluster.local from the workstation" }
+      { id: 'B', text: "kubectl describe configmap coredns -n kube-system" },
+      { id: 'C', text: "nslookup api.web.svc.cluster.local from the workstation" },
+      { id: 'D', text: "kubectl run tmp --rm -it --image=busybox --restart=Never -- nslookup api.web.svc.cluster.local" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "A throwaway pod resolves the name using the cluster DNS configuration, which is the only place cluster.local names are valid, and --rm cleans it up afterwards. The workstation resolver knows nothing about cluster.local, reading the ClusterIP does not exercise DNS, and describing the Corefile shows configuration rather than resolution behaviour.",
     referenceUrl: "https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/",
@@ -178,9 +178,9 @@ export const K8S_CKA_QUESTIONS_6 = [
     question: "Which pod field governs that window?",
     options: [
       { id: 'A', text: "terminationGracePeriodSeconds: 60" },
-      { id: 'B', text: "progressDeadlineSeconds: 60" },
-      { id: 'C', text: "activeDeadlineSeconds: 60" },
-      { id: 'D', text: "minReadySeconds: 60" }
+      { id: 'B', text: "activeDeadlineSeconds: 60" },
+      { id: 'C', text: "minReadySeconds: 60" },
+      { id: 'D', text: "progressDeadlineSeconds: 60" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,12 +198,12 @@ export const K8S_CKA_QUESTIONS_6 = [
     scenario: "A team wants point-in-time copies of a CSI-backed PersistentVolume that can be used to create new claims, using Kubernetes APIs rather than provider tooling.",
     question: "Which objects are involved?",
     options: [
-      { id: 'A', text: "A CronJob running tar against the mounted volume." },
-      { id: 'B', text: "A VolumeSnapshotClass, a VolumeSnapshot referencing the source PVC, and a new PVC with dataSource pointing at the snapshot." },
+      { id: 'A', text: "A PersistentVolumeClaim with accessMode ReadOnlyMany." },
+      { id: 'B', text: "A CronJob running tar against the mounted volume." },
       { id: 'C', text: "A StorageClass with reclaimPolicy: Retain and a cloned PersistentVolume." },
-      { id: 'D', text: "A PersistentVolumeClaim with accessMode ReadOnlyMany." }
+      { id: 'D', text: "A VolumeSnapshotClass, a VolumeSnapshot referencing the source PVC, and a new PVC with dataSource pointing at the snapshot." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The CSI snapshot API uses a VolumeSnapshotClass to select the driver, a VolumeSnapshot bound to a VolumeSnapshotContent for the point-in-time copy, and a new PVC with a dataSource referencing the snapshot to restore it. Retaining a PV is not a snapshot, filesystem tar jobs are outside the storage API and rarely crash-consistent, and access modes do not create copies.",
     referenceUrl: "https://kubernetes.io/docs/concepts/storage/volume-snapshots/",
@@ -220,11 +220,11 @@ export const K8S_CKA_QUESTIONS_6 = [
     question: "Why is kubectl apply preferred over kubectl create here?",
     options: [
       { id: 'A', text: "apply deletes and recreates the object each time." },
-      { id: 'B', text: "create cannot read YAML files." },
-      { id: 'C', text: "apply bypasses admission control, so it is faster." },
-      { id: 'D', text: "apply performs a declarative create-or-update and records the configuration so later changes converge, while create fails if the object already exists." }
+      { id: 'B', text: "apply bypasses admission control, so it is faster." },
+      { id: 'C', text: "apply performs a declarative create-or-update and records the configuration so later changes converge, while create fails if the object already exists." },
+      { id: 'D', text: "create cannot read YAML files." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "apply is the declarative verb: it creates the object if absent and merges changes if present, which is what a repeatedly-run pipeline needs. Both verbs pass admission control, create reads YAML perfectly well, and apply patches in place rather than recreating.",
     referenceUrl: "https://kubernetes.io/docs/tasks/manage-kubernetes-objects/declarative-config/",
@@ -282,12 +282,12 @@ export const K8S_CKA_QUESTIONS_6 = [
     scenario: "A PDB with minAvailable: 2 was configured, yet all three replicas went down when a node hardware failure occurred.",
     question: "Why did the budget not help?",
     options: [
-      { id: 'A', text: "minAvailable must be expressed as a percentage to be honoured." },
-      { id: 'B', text: "PDBs require a matching PriorityClass to take effect." },
-      { id: 'C', text: "PodDisruptionBudgets only constrain voluntary disruptions made through the eviction API; involuntary failures such as hardware faults are not blocked." },
-      { id: 'D', text: "The PDB applies only to StatefulSets." }
+      { id: 'A', text: "The PDB applies only to StatefulSets." },
+      { id: 'B', text: "PodDisruptionBudgets only constrain voluntary disruptions made through the eviction API; involuntary failures such as hardware faults are not blocked." },
+      { id: 'C', text: "PDBs require a matching PriorityClass to take effect." },
+      { id: 'D', text: "minAvailable must be expressed as a percentage to be honoured." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "A PDB is consulted by the eviction API during voluntary actions such as drains and cluster autoscaler scale-down; a node dying is an involuntary disruption that no budget can prevent, which is why spreading replicas across nodes and zones matters. Absolute counts are valid, PDBs work with any controller, and no PriorityClass is required.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/pods/disruptions/",
@@ -303,12 +303,12 @@ export const K8S_CKA_QUESTIONS_6 = [
     scenario: "A CRD named backups.example.com is added, and users holding the built-in view ClusterRole should automatically gain read access to it without editing that ClusterRole.",
     question: "How is that achieved?",
     options: [
-      { id: 'A', text: "Edit the view ClusterRole and add the new rules directly." },
-      { id: 'B', text: "Add the CRD to the default ServiceAccount RoleBinding." },
-      { id: 'C', text: "Create a ClusterRole with get, list, and watch on backups and label it rbac.authorization.k8s.io/aggregate-to-view: \"true\"." },
-      { id: 'D', text: "Set aggregation: view in the CRD spec." }
+      { id: 'A', text: "Set aggregation: view in the CRD spec." },
+      { id: 'B', text: "Create a ClusterRole with get, list, and watch on backups and label it rbac.authorization.k8s.io/aggregate-to-view: \"true\"." },
+      { id: 'C', text: "Add the CRD to the default ServiceAccount RoleBinding." },
+      { id: 'D', text: "Edit the view ClusterRole and add the new rules directly." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "ClusterRole aggregation collects the rules of every ClusterRole matching the aggregation label selector into the target role, so a labelled add-on role extends view automatically. Editing the built-in role is overwritten on upgrade, a ServiceAccount binding grants nothing to human users, and CRDs have no aggregation field.",
     referenceUrl: "https://kubernetes.io/docs/reference/access-authn-authz/rbac/",
@@ -324,12 +324,12 @@ export const K8S_CKA_QUESTIONS_6 = [
     scenario: "A pod in namespace app references a PVC named data, and an identical PVC named data exists in namespace other.",
     question: "Which claim is used?",
     options: [
-      { id: 'A', text: "Neither; the pod must reference the PersistentVolume directly." },
+      { id: 'A', text: "The claim in namespace app, because PVCs are namespaced and a pod can only reference one in its own namespace." },
       { id: 'B', text: "Whichever claim was created first, because PVC names are cluster-unique." },
-      { id: 'C', text: "The claim in namespace app, because PVCs are namespaced and a pod can only reference one in its own namespace." },
-      { id: 'D', text: "Both, because the claims are merged." }
+      { id: 'C', text: "Both, because the claims are merged." },
+      { id: 'D', text: "Neither; the pod must reference the PersistentVolume directly." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "PersistentVolumeClaims are namespaced objects and a pod resolves the name inside its own namespace, so the same claim name can safely exist in many namespaces. PVC names are not cluster-unique, claims are never merged, and pods reference claims rather than PersistentVolumes.",
     referenceUrl: "https://kubernetes.io/docs/concepts/storage/persistent-volumes/",
@@ -345,10 +345,10 @@ export const K8S_CKA_QUESTIONS_6 = [
     scenario: "A Service must front a database running outside the cluster at a fixed IP address, while pods keep using a normal in-cluster Service name.",
     question: "How is that modelled?",
     options: [
-      { id: 'A', text: "Create a NetworkPolicy allowing egress to the database." },
+      { id: 'A', text: "Create a headless Service with a podSelector for the database." },
       { id: 'B', text: "Create a Service with no selector and a matching EndpointSlice or Endpoints object holding the external address." },
-      { id: 'C', text: "Create a headless Service with a podSelector for the database." },
-      { id: 'D', text: "Create a LoadBalancer Service and set its clusterIP to the external address." }
+      { id: 'C', text: "Create a LoadBalancer Service and set its clusterIP to the external address." },
+      { id: 'D', text: "Create a NetworkPolicy allowing egress to the database." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -367,9 +367,9 @@ export const K8S_CKA_QUESTIONS_6 = [
     question: "Where should the investigation start?",
     options: [
       { id: 'A', text: "The kube-controller-manager, because the deployment controller creates the ReplicaSet and it is evidently not running or not leader." },
-      { id: 'B', text: "The CNI plugin configuration." },
-      { id: 'C', text: "The kubelet on each worker node." },
-      { id: 'D', text: "The Service selector for the deployment." }
+      { id: 'B', text: "The Service selector for the deployment." },
+      { id: 'C', text: "The CNI plugin configuration." },
+      { id: 'D', text: "The kubelet on each worker node." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,12 +408,12 @@ export const K8S_CKA_QUESTIONS_6 = [
     scenario: "An administrator needs to regenerate only the kubeconfig files on a control plane node without touching the rest of the installation.",
     question: "Which capability supports that?",
     options: [
-      { id: 'A', text: "kubeadm reset --kubeconfig-only" },
-      { id: 'B', text: "kubeadm init phase kubeconfig all, which runs one phase of the init workflow in isolation." },
+      { id: 'A', text: "kubeadm join --control-plane --skip-phases=all" },
+      { id: 'B', text: "kubeadm reset --kubeconfig-only" },
       { id: 'C', text: "kubectl config regenerate" },
-      { id: 'D', text: "kubeadm join --control-plane --skip-phases=all" }
+      { id: 'D', text: "kubeadm init phase kubeconfig all, which runs one phase of the init workflow in isolation." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "kubeadm exposes its init workflow as individually runnable phases, so the kubeconfig phase can be re-run alone to rebuild admin.conf and the component kubeconfigs. There is no kubeconfig-only reset flag, join adds nodes rather than regenerating files, and kubectl has no regenerate subcommand.",
     referenceUrl: "https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm-init-phase/",
@@ -429,12 +429,12 @@ export const K8S_CKA_QUESTIONS_6 = [
     scenario: "A very large cluster suffers API server load from thousands of watches on ConfigMaps that never change after creation.",
     question: "Which setting reduces that load and what is the tradeoff?",
     options: [
-      { id: 'A', text: "Set immutable: true, which encrypts the data at rest." },
-      { id: 'B', text: "Convert the ConfigMaps to Secrets, which are not watched." },
+      { id: 'A', text: "Convert the ConfigMaps to Secrets, which are not watched." },
+      { id: 'B', text: "Set immutable: true, which stops the kubelet watching for changes; the object can then only be replaced, not updated." },
       { id: 'C', text: "Add the annotation kubernetes.io/no-watch: \"true\"." },
-      { id: 'D', text: "Set immutable: true, which stops the kubelet watching for changes; the object can then only be replaced, not updated." }
+      { id: 'D', text: "Set immutable: true, which encrypts the data at rest." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Marking a ConfigMap or Secret immutable lets the kubelet stop watching it, cutting API server load significantly at scale, at the cost of having to delete and recreate the object to change it. Immutability is unrelated to encryption, there is no no-watch annotation, and Secrets are watched just like ConfigMaps.",
     referenceUrl: "https://kubernetes.io/docs/concepts/configuration/configmap/",
@@ -450,12 +450,12 @@ export const K8S_CKA_QUESTIONS_6 = [
     scenario: "A cluster runs Services with thousands of endpoints and operators observe growing latency when kube-proxy reprograms rules.",
     question: "Why might IPVS mode help?",
     options: [
-      { id: 'A', text: "IPVS eliminates the need for EndpointSlices." },
-      { id: 'B', text: "IPVS removes the need for a CNI plugin." },
-      { id: 'C', text: "IPVS provides layer 7 routing for HTTP Services." },
-      { id: 'D', text: "IPVS uses a hash table for lookups and scales better as the number of Services and endpoints grows, whereas iptables rule chains grow linearly and are slower to reprogram." }
+      { id: 'A', text: "IPVS removes the need for a CNI plugin." },
+      { id: 'B', text: "IPVS eliminates the need for EndpointSlices." },
+      { id: 'C', text: "IPVS uses a hash table for lookups and scales better as the number of Services and endpoints grows, whereas iptables rule chains grow linearly and are slower to reprogram." },
+      { id: 'D', text: "IPVS provides layer 7 routing for HTTP Services." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "IPVS was added precisely for scale: kernel hash-based lookups and cheaper updates instead of long sequential iptables chains, plus several load balancing algorithms. It does not replace the CNI plugin, it operates at layer 4 rather than layer 7, and endpoint tracking still uses EndpointSlices.",
     referenceUrl: "https://kubernetes.io/docs/reference/networking/virtual-ips/",
@@ -472,11 +472,11 @@ export const K8S_CKA_QUESTIONS_6 = [
     question: "Which two checks are appropriate? (Choose two.)",
     options: [
       { id: 'A', text: "kubectl top nodes to read component CPU usage." },
-      { id: 'B', text: "kubectl get componentstatuses, which is the current recommended API." },
-      { id: 'C', text: "kubectl get pods -n kube-system to see the static pod status." },
-      { id: 'D', text: "kubectl get --raw /livez?verbose against the API server." }
+      { id: 'B', text: "kubectl get --raw /livez?verbose against the API server." },
+      { id: 'C', text: "kubectl get componentstatuses, which is the current recommended API." },
+      { id: 'D', text: "kubectl get pods -n kube-system to see the static pod status." }
     ],
-    correctAnswers: ['C', 'D'],
+    correctAnswers: ['B', 'D'],
     type: "multiple",
     explanation: "Static control plane pods are mirrored into kube-system so their status and logs are visible through kubectl, and the /livez and /readyz health endpoints give a verbose per-check verdict. componentstatuses is deprecated and unreliable, and kubectl top reports node and pod resource usage rather than component health.",
     referenceUrl: "https://kubernetes.io/docs/reference/using-api/health-checks/",
@@ -492,12 +492,12 @@ export const K8S_CKA_QUESTIONS_6 = [
     scenario: "A Job with backoffLimit: 4 runs a task that exits non-zero every time.",
     question: "What is the outcome?",
     options: [
-      { id: 'A', text: "The Job retries with exponential backoff and is marked Failed after the retry budget is exhausted." },
+      { id: 'A', text: "The Job retries forever until manually deleted." },
       { id: 'B', text: "The Job is suspended and waits for an operator to resume it." },
-      { id: 'C', text: "The Job retries forever until manually deleted." },
-      { id: 'D', text: "The Job is marked Complete because the pods ran." }
+      { id: 'C', text: "The Job is marked Complete because the pods ran." },
+      { id: 'D', text: "The Job retries with exponential backoff and is marked Failed after the retry budget is exhausted." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "backoffLimit caps the number of retries, each delayed by an increasing backoff, after which the Job controller records a Failed condition and stops creating pods. Retries are bounded, a non-zero exit is never a completion, and suspension is an explicit spec.suspend setting.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/job/",
@@ -513,12 +513,12 @@ export const K8S_CKA_QUESTIONS_6 = [
     scenario: "The same application manifests must be deployed to staging and production with different replica counts and image tags, without duplicating the YAML.",
     question: "Which native kubectl capability supports that?",
     options: [
-      { id: 'A', text: "kubectl replace with environment variables expanded by the shell." },
-      { id: 'B', text: "kubectl apply --prune against a single manifest." },
-      { id: 'C', text: "kubectl apply -f with a --set flag for each value." },
-      { id: 'D', text: "kubectl apply -k with a base plus per-environment Kustomize overlays that patch replicas and images." }
+      { id: 'A', text: "kubectl apply --prune against a single manifest." },
+      { id: 'B', text: "kubectl replace with environment variables expanded by the shell." },
+      { id: 'C', text: "kubectl apply -k with a base plus per-environment Kustomize overlays that patch replicas and images." },
+      { id: 'D', text: "kubectl apply -f with a --set flag for each value." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Kustomize is built into kubectl and applies strategic-merge or JSON patches from an overlay onto a shared base, which is exactly the shared-manifest-with-per-environment-differences case. kubectl has no --set flag, --prune deletes objects no longer in the manifest set, and shell substitution is a fragile templating hack rather than a supported mechanism.",
     referenceUrl: "https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/",

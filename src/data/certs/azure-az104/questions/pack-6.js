@@ -51,12 +51,12 @@ export const AZURE_AZ104_QUESTIONS_6 = [
     scenario: "A cloud governance team manages 200 Azure subscriptions across 5 Management Groups. The team needs to immediately query all running virtual machines across all 200 subscriptions that have a public IP address attached and are missing the `Owner` tag, returning results in under 5 seconds.",
     question: "Which Azure service provides high-speed, cross-subscription resource inventory exploration using KQL?",
     options: [
-      { id: 'A', text: "Azure Log Analytics workspace." },
-      { id: 'B', text: "Azure Advisor scorecard." },
-      { id: 'C', text: "Azure Resource Graph (ARG) Explorer." },
-      { id: 'D', text: "Azure Activity Log." }
+      { id: 'A', text: "Azure Resource Graph (ARG) Explorer." },
+      { id: 'B', text: "Azure Activity Log." },
+      { id: 'C', text: "Azure Log Analytics workspace." },
+      { id: 'D', text: "Azure Advisor scorecard." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Azure Resource Graph (ARG) is an Azure service designed to extend Azure Resource Management by providing efficient and performant resource exploration with the ability to query at scale across all subscriptions and management groups using KQL. It indexes resource properties and relationships in real time, executing cross-subscription queries in milliseconds without making individual slow ARM REST API calls.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/resource-graph/overview",
@@ -72,12 +72,12 @@ export const AZURE_AZ104_QUESTIONS_6 = [
     scenario: "An enterprise needs to prevent all employees from setting passwords containing common weak strings (such as \"Company2024!\", \"Password123\", or local sports team names) both when changing passwords in Microsoft Entra ID and in on-premises Active Directory.",
     question: "Which Microsoft Entra feature enforces global and custom banned password dictionaries?",
     options: [
-      { id: 'A', text: "Microsoft Entra Password Protection with a Custom Banned Password List." },
+      { id: 'A', text: "Azure Key Vault password generator." },
       { id: 'B', text: "Self-Service Password Reset without agents." },
-      { id: 'C', text: "Azure Policy with Audit effect." },
-      { id: 'D', text: "Azure Key Vault password generator." }
+      { id: 'C', text: "Microsoft Entra Password Protection with a Custom Banned Password List." },
+      { id: 'D', text: "Azure Policy with Audit effect." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Microsoft Entra Password Protection detects and blocks known weak passwords using a dynamically updated Global Banned Password list (managed by Microsoft) and an optional Custom Banned Password list (configured with company-specific terms). Deploying the Entra Password Protection agent to on-premises domain controllers extends these protections to on-premises AD DS.",
     referenceUrl: "https://learn.microsoft.com/en-us/entra/identity/authentication/concept-password-ban-bad",
@@ -93,12 +93,12 @@ export const AZURE_AZ104_QUESTIONS_6 = [
     scenario: "A company issues digital employment credentials to remote workers that workers can store in their Microsoft Authenticator mobile digital wallet and present cryptographically to third-party verification partners without integrating the partner into the corporate directory.",
     question: "Which Microsoft Entra service provides verifiable credentials based on open decentralized identity standards?",
     options: [
-      { id: 'A', text: "Microsoft Entra Verified ID." },
+      { id: 'A', text: "Microsoft Entra Domain Services." },
       { id: 'B', text: "Microsoft Entra Application Proxy." },
-      { id: 'C', text: "Microsoft Entra Domain Services." },
-      { id: 'D', text: "Microsoft Entra Connect." }
+      { id: 'C', text: "Microsoft Entra Connect." },
+      { id: 'D', text: "Microsoft Entra Verified ID." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Microsoft Entra Verified ID is a managed verifiable credentials service based on open decentralized identity (DID) standards. Organizations issue cryptographically signed digital credentials (such as employment proof, education, or certifications) that users hold in digital wallets and share with verifiers securely without disclosing excess personal data.",
     referenceUrl: "https://learn.microsoft.com/en-us/entra/verified-id/decentralized-identifier-overview",
@@ -177,12 +177,12 @@ export const AZURE_AZ104_QUESTIONS_6 = [
     scenario: "A B2B integration requires external partners to upload transaction data files to an Azure Blob Storage container over SFTP (SSH File Transfer Protocol) using SSH key authentication, without managing third-party SFTP server VMs.",
     question: "Which native Azure Blob Storage feature provides managed multi-protocol SFTP endpoints?",
     options: [
-      { id: 'A', text: "Deploy an Azure Linux VM running OpenSSH in front of Blob storage." },
-      { id: 'B', text: "Configure Azure File Sync with an SFTP plugin." },
-      { id: 'C', text: "Enable SFTP support on the Azure Storage Account with local user credentials and SSH keys." },
+      { id: 'A', text: "Enable SFTP support on the Azure Storage Account with local user credentials and SSH keys." },
+      { id: 'B', text: "Deploy an Azure Linux VM running OpenSSH in front of Blob storage." },
+      { id: 'C', text: "Configure Azure File Sync with an SFTP plugin." },
       { id: 'D', text: "Create an Azure Queue Storage endpoint." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Azure Blob Storage natively supports SFTP (SSH File Transfer Protocol). Enabling SFTP on a hierarchical namespace-enabled storage account allows creating Local Users with password or SSH public key authentication, assigning container permissions and home directories, and transferring files directly into Blob containers over port 22 with zero VM management.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/blobs/secure-file-transfer-protocol-support",
@@ -240,12 +240,12 @@ export const AZURE_AZ104_QUESTIONS_6 = [
     scenario: "A Linux virtual machine fails during kernel boot with a filesystem mounting error (`fsck`). SSH, network interfaces, and guest agent services are completely unresponsive.",
     question: "Which Azure portal feature provides bidirectional text-based serial console access to the VM hardware serial port (COM1/ttyS0)?",
     options: [
-      { id: 'A', text: "Azure Bastion." },
-      { id: 'B', text: "Azure Serial Console." },
-      { id: 'C', text: "Azure Remote Desktop." },
-      { id: 'D', text: "Azure Network Watcher IP Flow Verify." }
+      { id: 'A', text: "Azure Serial Console." },
+      { id: 'B', text: "Azure Bastion." },
+      { id: 'C', text: "Azure Network Watcher IP Flow Verify." },
+      { id: 'D', text: "Azure Remote Desktop." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Azure Serial Console provides direct, bidirectional text console access to the physical COM1/ttyS0 serial port of Azure virtual machines and VM scale sets directly in the Azure portal, functioning independently of the guest OS network stack, IP configuration, or VM guest agent.",
     referenceUrl: "https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/serial-console-overview",
@@ -345,12 +345,12 @@ export const AZURE_AZ104_QUESTIONS_6 = [
     scenario: "A company hosts two separate web applications (`contoso.com` and `fabrikam.com`) on the same Azure Application Gateway instance using a single public IP address, routing traffic to different backend pools based on the requested domain name in the HTTP request.",
     question: "Which Application Gateway listener type supports routing multiple domain names on a shared frontend IP?",
     options: [
-      { id: 'A', text: "TCP listener." },
-      { id: 'B', text: "Multi-site (Multiple sites) listener specifying host names." },
-      { id: 'C', text: "Basic listener." },
+      { id: 'A', text: "Multi-site (Multiple sites) listener specifying host names." },
+      { id: 'B', text: "Basic listener." },
+      { id: 'C', text: "TCP listener." },
       { id: 'D', text: "Path-based routing rule only." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Multi-site listeners on Azure Application Gateway allow hosting multiple domain names (e.g. `contoso.com` and `fabrikam.com`) on the same Application Gateway frontend IP and port by matching the HTTP Host header or TLS Server Name Indication (SNI) extension to route traffic to independent backend pools.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/application-gateway/multiple-site-overview",
@@ -430,11 +430,11 @@ export const AZURE_AZ104_QUESTIONS_6 = [
     question: "Which Azure Monitor feature temporarily suppresses alert notifications during planned maintenance windows without disabling individual alert rules?",
     options: [
       { id: 'A', text: "Disabling all Metric Alert rules manually." },
-      { id: 'B', text: "Alert Processing Rules configured with \"Suppress notifications\" during the scheduled time window." },
-      { id: 'C', text: "Deleting the Action Group during the maintenance window." },
-      { id: 'D', text: "Azure Resource Locks." }
+      { id: 'B', text: "Deleting the Action Group during the maintenance window." },
+      { id: 'C', text: "Azure Resource Locks." },
+      { id: 'D', text: "Alert Processing Rules configured with \"Suppress notifications\" during the scheduled time window." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Alert Processing Rules in Azure Monitor evaluate fired alerts and can modify their behavior or suppress notifications (preventing emails, SMS, or webhook actions from dispatching) during specific recurring maintenance schedules (e.g. Sundays 01:00–05:00) without disabling the underlying alert rules or clearing alert history.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-processing-rules",
@@ -450,12 +450,12 @@ export const AZURE_AZ104_QUESTIONS_6 = [
     scenario: "A company needs to ensure that backup recovery points stored in an Azure Recovery Services Vault cannot be modified, deleted, or have their retention periods reduced by any user, administrator, or compromised credential, even if the tenant is attacked by ransomware.",
     question: "Which Azure Backup feature provides irreversible WORM compliance locking on the backup vault?",
     options: [
-      { id: 'A', text: "Soft Delete with 14-day retention." },
+      { id: 'A', text: "Azure Resource Lock set to ReadOnly." },
       { id: 'B', text: "Azure Storage Account SAS token." },
-      { id: 'C', text: "Azure Backup Immutable Vault with Immutable Lock enabled." },
-      { id: 'D', text: "Azure Resource Lock set to ReadOnly." }
+      { id: 'C', text: "Soft Delete with 14-day retention." },
+      { id: 'D', text: "Azure Backup Immutable Vault with Immutable Lock enabled." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Azure Backup Immutable Vault prevents any operations that could lead to the loss of recovery points. Once an Immutable Vault is locked, the lock is **irreversible**: no user (including subscription Owners or Microsoft support) can disable immutability or delete backup data before the retention period expires.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/backup/backup-azure-immutable-vault-concept",
@@ -471,12 +471,12 @@ export const AZURE_AZ104_QUESTIONS_6 = [
     scenario: "An enterpriseLog Analytics workspace ingests 100 GB of security logs daily. The company needs logs queryable in interactive Log Analytics search for 90 days, but must retain historical raw log data for 7 years (2,555 days) to satisfy financial compliance at minimal cost.",
     question: "How should the administrator configure Log Analytics data retention?",
     options: [
-      { id: 'A', text: "Export logs to local text files daily." },
-      { id: 'B', text: "Deploy an Azure Bastion host." },
-      { id: 'C', text: "Set Interactive retention to 90 days and set Total retention (Archive) to 2,555 days (7 years)." },
+      { id: 'A', text: "Set Interactive retention to 90 days and set Total retention (Archive) to 2,555 days (7 years)." },
+      { id: 'B', text: "Export logs to local text files daily." },
+      { id: 'C', text: "Deploy an Azure Bastion host." },
       { id: 'D', text: "Set Interactive retention to 2,555 days." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Azure Log Analytics workspaces support two retention periods: **Interactive retention** (where data is immediately searchable via fast KQL queries, e.g. 90 days) and **Total retention / Archive** (where data beyond interactive retention is moved to low-cost long-term archive storage for up to 12 years).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/logs/data-retention-archive",
@@ -513,12 +513,12 @@ export const AZURE_AZ104_QUESTIONS_6 = [
     scenario: "A web application experiences an abnormal surge in HTTP 500 server response failures and page load degradation following a new software build release.",
     question: "Which Application Insights feature automatically analyzes telemetry patterns using proactive machine learning to detect performance anomalies without user-configured threshold rules?",
     options: [
-      { id: 'A', text: "Smart Detection." },
-      { id: 'B', text: "Azure Advisor Cost alerts." },
-      { id: 'C', text: "Availability Web Tests." },
+      { id: 'A', text: "Availability Web Tests." },
+      { id: 'B', text: "Smart Detection." },
+      { id: 'C', text: "Azure Advisor Cost alerts." },
       { id: 'D', text: "Activity Log alerts." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Application Insights Smart Detection uses proactive machine learning algorithms to automatically monitor telemetry emitted by your web applications, detecting anomalies such as failure rate spikes, memory leaks, slow page loads, and abnormal response duration trends out-of-the-box without requiring manual threshold configuration.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/app/proactive-diagnostics",

@@ -30,12 +30,12 @@ export const GITHUB_GHAS_QUESTIONS_2 = [
     scenario: "A repository contains a fixtures directory of deliberately fake credentials used by an integration test suite. Every one produces a secret scanning alert and the queue is dominated by them.",
     question: "Which configuration removes them at source?",
     options: [
-      { id: 'A', text: "A secret scanning configuration file in the .github directory listing the fixtures path under paths-ignore, so alerts are not generated for content there." },
-      { id: 'B', text: "A gitignore entry for the fixtures directory." },
-      { id: 'C', text: "Resolving each alert as used in tests, which teaches the scanner to skip the directory in future." },
-      { id: 'D', text: "A custom pattern that matches the fixtures format and marks it inactive." }
+      { id: 'A', text: "A custom pattern that matches the fixtures format and marks it inactive." },
+      { id: 'B', text: "Resolving each alert as used in tests, which teaches the scanner to skip the directory in future." },
+      { id: 'C', text: "A gitignore entry for the fixtures directory." },
+      { id: 'D', text: "A secret scanning configuration file in the .github directory listing the fixtures path under paths-ignore, so alerts are not generated for content there." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Secret scanning honours a configuration file that can exclude paths from alerting, which is the supported way to keep a known fixtures directory out of the queue while leaving the rest of the repository covered, and it is worth reviewing such exclusions periodically since anything inside becomes invisible. Version control ignore rules do not affect scanning of committed content, resolving alerts is a per-alert action with no learning behaviour, and custom patterns add detections.",
     referenceUrl: "https://docs.github.com/en/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/excluding-folders-and-files-from-secret-scanning",
@@ -51,12 +51,12 @@ export const GITHUB_GHAS_QUESTIONS_2 = [
     scenario: "An organization wants to catch passwords and connection strings that follow no vendor-specific format, and asks what changes if the non-provider pattern detection is enabled.",
     question: "Which expectation is correct?",
     options: [
-      { id: 'A', text: "Detection widens to generic credential shapes such as passwords in connection strings, at the cost of a noticeably higher false positive rate, so it is usually piloted on a subset of repositories with a triage plan before wider rollout." },
+      { id: 'A', text: "It only affects push protection and does not create alerts." },
       { id: 'B', text: "Detection widens with no change in false positive rate, because the same validation applies as for partner patterns." },
-      { id: 'C', text: "It replaces partner pattern detection with a broader generic engine." },
-      { id: 'D', text: "It only affects push protection and does not create alerts." }
+      { id: 'C', text: "Detection widens to generic credential shapes such as passwords in connection strings, at the cost of a noticeably higher false positive rate, so it is usually piloted on a subset of repositories with a triage plan before wider rollout." },
+      { id: 'D', text: "It replaces partner pattern detection with a broader generic engine." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Partner patterns are precise because a vendor-defined format and often a validity check back them, whereas generic credential shapes are inherently ambiguous, so enabling them finds real exposures that would otherwise be missed while producing considerably more noise, which is why a staged rollout with triage capacity is the usual approach. Validity checking does not apply in the same way, partner detection continues alongside it, and it produces alerts as well as informing blocks.",
     referenceUrl: "https://docs.github.com/en/code-security/secret-scanning/introduction/supported-secret-scanning-patterns",
@@ -177,12 +177,12 @@ export const GITHUB_GHAS_QUESTIONS_2 = [
     scenario: "A project built with a tool whose full dependency set is only known after resolution shows only its directly declared dependencies in the graph, so alerts miss vulnerable transitive packages.",
     question: "Which mechanism completes the picture?",
     options: [
-      { id: 'A', text: "Submit the resolved dependency set from the build using the dependency submission API, typically through an action for that build tool, so the graph reflects what the build actually resolves." },
-      { id: 'B', text: "Commit a generated lockfile listing every transitive dependency, which is the only supported route." },
+      { id: 'A', text: "Nothing is needed, because the graph always resolves transitive dependencies from the manifest." },
+      { id: 'B', text: "Submit the resolved dependency set from the build using the dependency submission API, typically through an action for that build tool, so the graph reflects what the build actually resolves." },
       { id: 'C', text: "Enable deep scanning in the dependency graph settings." },
-      { id: 'D', text: "Nothing is needed, because the graph always resolves transitive dependencies from the manifest." }
+      { id: 'D', text: "Commit a generated lockfile listing every transitive dependency, which is the only supported route." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "For ecosystems where the complete set is only determined at build time, the dependency submission API lets the build report what it resolved so the graph and therefore alerting reflect reality rather than the declared manifest alone. Committing a lockfile helps where the ecosystem produces one but is not the general answer, there is no deep scanning setting, and the graph cannot always infer transitive resolution from a manifest.",
     referenceUrl: "https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api",
@@ -261,12 +261,12 @@ export const GITHUB_GHAS_QUESTIONS_2 = [
     scenario: "A reviewer asks why CodeQL reports an injection in code where the dangerous call and the untrusted input are in different files and different functions, when a text-based linter finds nothing.",
     question: "Which explanation is correct?",
     options: [
-      { id: 'A', text: "CodeQL builds a queryable database representing the code and its semantics and uses data flow and taint tracking to connect a source of untrusted input to a sensitive sink across function and file boundaries." },
-      { id: 'B', text: "CodeQL applies a larger library of regular expressions than a linter, which is what allows cross-file matches." },
-      { id: 'C', text: "CodeQL executes the program with instrumented inputs and observes which reach the sink." },
-      { id: 'D', text: "CodeQL compares the code against a database of known vulnerable code snippets." }
+      { id: 'A', text: "CodeQL compares the code against a database of known vulnerable code snippets." },
+      { id: 'B', text: "CodeQL executes the program with instrumented inputs and observes which reach the sink." },
+      { id: 'C', text: "CodeQL applies a larger library of regular expressions than a linter, which is what allows cross-file matches." },
+      { id: 'D', text: "CodeQL builds a queryable database representing the code and its semantics and uses data flow and taint tracking to connect a source of untrusted input to a sensitive sink across function and file boundaries." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The analysis extracts a relational representation of the program and reasons about it with queries, so tracking tainted data from where it enters to where it is used is a graph problem rather than a text problem, which is why the two ends can be far apart in the source. It is not regular expression matching at a larger scale, it is static rather than executing the program, and it reasons about the code rather than comparing it to snippets.",
     referenceUrl: "https://docs.github.com/en/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql",
@@ -282,12 +282,12 @@ export const GITHUB_GHAS_QUESTIONS_2 = [
     scenario: "A repository uploads results from CodeQL and from a separate container scanner for the same commit. Each upload appears to replace the previous one, so only the most recent tool findings are ever visible.",
     question: "What is missing?",
     options: [
-      { id: 'A', text: "A distinct category on each upload, which identifies the analysis so results from different tools or configurations coexist for the same commit instead of superseding one another." },
-      { id: 'B', text: "A distinct commit for each upload, since one commit can carry only one analysis." },
-      { id: 'C', text: "A separate branch for each tool, which is the only way to keep results apart." },
-      { id: 'D', text: "A merged SARIF file combining both tools, since multiple uploads are not supported." }
+      { id: 'A', text: "A separate branch for each tool, which is the only way to keep results apart." },
+      { id: 'B', text: "A merged SARIF file combining both tools, since multiple uploads are not supported." },
+      { id: 'C', text: "A distinct category on each upload, which identifies the analysis so results from different tools or configurations coexist for the same commit instead of superseding one another." },
+      { id: 'D', text: "A distinct commit for each upload, since one commit can carry only one analysis." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Code scanning identifies an analysis by its category so that several tools, languages or configurations can report against the same commit, and uploads sharing a category are treated as successive runs of the same analysis, which is exactly the overwriting behaviour described. Multiple analyses per commit are supported, so neither extra commits, extra branches nor pre-merging the files is necessary.",
     referenceUrl: "https://docs.github.com/en/code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github",
@@ -345,12 +345,12 @@ export const GITHUB_GHAS_QUESTIONS_2 = [
     scenario: "Analysis of a very large codebase fails intermittently with out-of-memory errors, and when it completes it takes over two hours, which is longer than the team wants for a scheduled run.",
     question: "Which adjustments are appropriate?",
     options: [
-      { id: 'A', text: "Give the analysis a larger runner, tune the memory and thread options the analysis step exposes, narrow the scope with path filters or build configuration where parts of the tree need not be analysed, and consider moving the exhaustive run to a schedule with a narrower analysis on pull requests." },
-      { id: 'B', text: "Reduce the query suite to the default and accept that large codebases cannot be analysed on a schedule." },
-      { id: 'C', text: "Split the SARIF upload into smaller files, which reduces analysis memory use." },
+      { id: 'A', text: "Split the SARIF upload into smaller files, which reduces analysis memory use." },
+      { id: 'B', text: "Give the analysis a larger runner, tune the memory and thread options the analysis step exposes, narrow the scope with path filters or build configuration where parts of the tree need not be analysed, and consider moving the exhaustive run to a schedule with a narrower analysis on pull requests." },
+      { id: 'C', text: "Reduce the query suite to the default and accept that large codebases cannot be analysed on a schedule." },
       { id: 'D', text: "Disable the dependency graph, which competes with CodeQL for runner memory." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Analysis cost scales with the size of the database and the breadth of the queries, so the levers are machine size, the memory and thread settings the analysis exposes, reducing what is extracted, and separating a fast pull request analysis from an exhaustive scheduled one. Narrowing the suite is one part of that rather than a concession that scheduling is impossible, upload file size is unrelated to analysis memory, and the dependency graph does not run on the runner.",
     referenceUrl: "https://docs.github.com/en/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/recommended-hardware-resources-for-running-codeql",
@@ -366,12 +366,12 @@ export const GITHUB_GHAS_QUESTIONS_2 = [
     scenario: "A developer opens a code scanning alert and sees a sequence of numbered steps linking a request parameter through several functions to a database call, and is unsure what the sequence represents.",
     question: "What is it, and how should it be used?",
     options: [
-      { id: 'A', text: "It is the data flow path the analysis found from an untrusted source to a sensitive sink, and it should be used to decide where to break the flow, typically by validating or parameterising at a point on that path." },
-      { id: 'B', text: "It is the call stack captured when the analysis executed the code, showing the runtime sequence." },
-      { id: 'C', text: "It is a list of every function that mentions the variable name, in file order." },
-      { id: 'D', text: "It is a suggested refactoring produced by the analysis, which should be applied as shown." }
+      { id: 'A', text: "It is a list of every function that mentions the variable name, in file order." },
+      { id: 'B', text: "It is a suggested refactoring produced by the analysis, which should be applied as shown." },
+      { id: 'C', text: "It is the data flow path the analysis found from an untrusted source to a sensitive sink, and it should be used to decide where to break the flow, typically by validating or parameterising at a point on that path." },
+      { id: 'D', text: "It is the call stack captured when the analysis executed the code, showing the runtime sequence." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "The path is the chain of steps by which tainted data reaches the sink, and its value to a reviewer is that it identifies the candidate places to intervene as well as making the finding auditable rather than an unexplained assertion. The analysis is static so there is no captured call stack, the path is based on data flow rather than name occurrences, and it describes the problem rather than prescribing a fix.",
     referenceUrl: "https://docs.github.com/en/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts",
@@ -387,12 +387,12 @@ export const GITHUB_GHAS_QUESTIONS_2 = [
     scenario: "A repository configured with default setup gains a substantial component written in a language it did not previously contain. The team wonders whether they must migrate to advanced setup to have it analysed.",
     question: "What happens?",
     options: [
-      { id: 'A', text: "Default setup detects the languages present and updates the analysed set, so a newly added supported language is picked up without migrating, and the configured languages can also be reviewed and adjusted." },
-      { id: 'B', text: "Default setup analyses only the languages present when it was enabled, so any addition requires migrating to advanced setup." },
-      { id: 'C', text: "Default setup analyses every supported language regardless of whether it is present, so nothing changes." },
-      { id: 'D', text: "Default setup disables itself when an unexpected language appears, and must be re-enabled manually." }
+      { id: 'A', text: "Default setup analyses every supported language regardless of whether it is present, so nothing changes." },
+      { id: 'B', text: "Default setup disables itself when an unexpected language appears, and must be re-enabled manually." },
+      { id: 'C', text: "Default setup detects the languages present and updates the analysed set, so a newly added supported language is picked up without migrating, and the configured languages can also be reviewed and adjusted." },
+      { id: 'D', text: "Default setup analyses only the languages present when it was enabled, so any addition requires migrating to advanced setup." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Default setup is managed rather than frozen, detecting the languages in the repository and keeping the analysed set current, which is a large part of why it exists, and the selection remains visible and adjustable in the settings. It is not pinned to the languages present at enablement, it does not analyse languages that are absent, and it does not disable itself.",
     referenceUrl: "https://docs.github.com/en/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning",
@@ -429,12 +429,12 @@ export const GITHUB_GHAS_QUESTIONS_2 = [
     scenario: "An organization uploads results from an infrastructure scanner and a container scanner. In the alert list the findings are hard to attribute and filtering by tool does not behave as expected.",
     question: "Which properties of the uploaded results matter?",
     options: [
-      { id: 'A', text: "The tool name and version recorded in the SARIF, together with a stable rule identifier per check and a distinct category per analysis, which together drive attribution, filtering and alert tracking across runs." },
-      { id: 'B', text: "Only the severity of each result, since attribution is derived from the uploading workflow name." },
+      { id: 'A', text: "Only the severity of each result, since attribution is derived from the uploading workflow name." },
+      { id: 'B', text: "Nothing in the file; attribution is configured in the repository security settings." },
       { id: 'C', text: "Only the file path of each result, since alerts are grouped by location." },
-      { id: 'D', text: "Nothing in the file; attribution is configured in the repository security settings." }
+      { id: 'D', text: "The tool name and version recorded in the SARIF, together with a stable rule identifier per check and a distinct category per analysis, which together drive attribution, filtering and alert tracking across runs." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Attribution and alert tracking come from the results themselves, where the tool identity, a stable rule identifier and a distinct category let the platform group findings, filter by tool and recognise the same finding across runs rather than treating each upload as new alerts. Severity, location alone and repository settings do not supply that identity, and unstable rule identifiers are a common cause of alerts churning.",
     referenceUrl: "https://docs.github.com/en/code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning",
@@ -471,12 +471,12 @@ export const GITHUB_GHAS_QUESTIONS_2 = [
     scenario: "Finance asks what enabling the security features on eighty more private repositories will cost. Many of the same engineers already commit to repositories where the features are enabled.",
     question: "Which understanding should shape the estimate?",
     options: [
-      { id: 'A', text: "Consumption is driven by unique committers to repositories with the features enabled rather than by repository count, so an engineer already counted elsewhere does not add again, and the increment depends on how many committers are new to the enabled set." },
-      { id: 'B', text: "Consumption is per repository, so eighty repositories cost eighty units regardless of who commits." },
+      { id: 'A', text: "Consumption is per alert raised, so the estimate depends on how vulnerable the code is." },
+      { id: 'B', text: "Consumption is driven by unique committers to repositories with the features enabled rather than by repository count, so an engineer already counted elsewhere does not add again, and the increment depends on how many committers are new to the enabled set." },
       { id: 'C', text: "Consumption is per commit, so the estimate should be based on historical commit volume." },
-      { id: 'D', text: "Consumption is per alert raised, so the estimate depends on how vulnerable the code is." }
+      { id: 'D', text: "Consumption is per repository, so eighty repositories cost eighty units regardless of who commits." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Licensing counts the distinct people committing to repositories where the features are on, so the same engineer active across many enabled repositories is counted once, which means the marginal cost of enabling more repositories is driven by committers who are not already in the set rather than by the number of repositories. It is not priced per repository, per commit or per alert.",
     referenceUrl: "https://docs.github.com/en/billing/managing-billing-for-your-products/about-billing-for-github-advanced-security",
@@ -513,12 +513,12 @@ export const GITHUB_GHAS_QUESTIONS_2 = [
     scenario: "An auditor does not want a screenshot showing that push protection is enabled today. They want evidence that it was enabled throughout the audit period and that every bypass was reviewed.",
     question: "Which sources satisfy that?",
     options: [
-      { id: 'A', text: "The audit log, which records enablement and configuration changes with actor and timestamp and records push protection bypasses, streamed to external storage so the retention covers the whole audit period." },
-      { id: 'B', text: "The security overview coverage view, which shows the current state and is sufficient as historical evidence." },
-      { id: 'C', text: "The list of currently open and closed secret scanning alerts." },
-      { id: 'D', text: "A scheduled workflow that records the setting daily into a repository file." }
+      { id: 'A', text: "The security overview coverage view, which shows the current state and is sufficient as historical evidence." },
+      { id: 'B', text: "The audit log, which records enablement and configuration changes with actor and timestamp and records push protection bypasses, streamed to external storage so the retention covers the whole audit period." },
+      { id: 'C', text: "A scheduled workflow that records the setting daily into a repository file." },
+      { id: 'D', text: "The list of currently open and closed secret scanning alerts." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Continuity of a control is a question about events over time rather than present state, and the audit log is the record of when settings changed, who changed them and when a bypass occurred, with streaming to external storage ensuring the record outlives the platform retention window. Coverage views and alert lists describe the present, and a self-reported daily file is weaker evidence than the platform own immutable log.",
     referenceUrl: "https://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise",

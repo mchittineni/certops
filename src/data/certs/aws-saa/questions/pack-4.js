@@ -9,12 +9,12 @@ export const AWS_SAA_QUESTIONS_4 = [
     scenario: "A company needs to lift-and-shift 200 on-premises VMware virtual machines to Amazon EC2 with minimal cutover downtime and continuous block-level data replication.",
     question: "Which AWS service is recommended as the primary migration tool for lift-and-shift server migrations?",
     options: [
-      { id: 'A', text: "AWS Application Migration Service (AWS MGN)." },
+      { id: 'A', text: "AWS Snowball Edge Compute Optimized." },
       { id: 'B', text: "AWS Database Migration Service (AWS DMS)." },
-      { id: 'C', text: "AWS DataSync." },
-      { id: 'D', text: "AWS Snowball Edge Compute Optimized." }
+      { id: 'C', text: "AWS Application Migration Service (AWS MGN)." },
+      { id: 'D', text: "AWS DataSync." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "AWS Application Migration Service (AWS MGN) is the primary AWS service for lift-and-shift migrations, performing continuous non-disruptive block-level replication of physical, virtual, and cloud servers to AWS staging areas with sub-minute cutovers. AWS DMS is for database migrations. DataSync is for file and object storage transfers. Snowball Edge is physical offline data transfer hardware.",
     referenceUrl: "https://docs.aws.amazon.com/mgn/latest/ug/what-is-application-migration-service.html",
@@ -30,12 +30,12 @@ export const AWS_SAA_QUESTIONS_4 = [
     scenario: "A multinational SaaS enterprise runs an Amazon Aurora PostgreSQL Global Database with the primary cluster in us-east-1 and a secondary cluster in eu-west-1. The team conducts bi-annual business continuity drills to switch primary write operations to eu-west-1 without any data loss.",
     question: "Which Aurora Global Database feature facilitates this zero-data-loss scheduled operational switchover?",
     options: [
-      { id: 'A', text: "Unplanned Detach and Promote." },
+      { id: 'A', text: "Manual Snapshot Cross-Region Copy and Restore." },
       { id: 'B', text: "AWS DMS Ongoing Replication Task." },
-      { id: 'C', text: "Managed Planned Failover." },
-      { id: 'D', text: "Manual Snapshot Cross-Region Copy and Restore." }
+      { id: 'C', text: "Unplanned Detach and Promote." },
+      { id: 'D', text: "Managed Planned Failover." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Managed Planned Failover for Aurora Global Databases synchronizes secondary clusters with the primary cluster before switching roles, ensuring zero data loss (RPO = 0) and completing the failover within minutes while preserving the global database topology. Unplanned Detach/Promote is for emergency regional outages where potential replication lag data loss is accepted. Snapshot copy takes hours. DMS is not required for native Aurora Global replication.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-disaster-recovery.html#aurora-global-database-disaster-recovery.planned",
@@ -93,12 +93,12 @@ export const AWS_SAA_QUESTIONS_4 = [
     scenario: "A stock trading platform receives trade orders that must be processed in exact chronological order per stock ticker symbol (e.g. all AAPL orders in sequence, all TSLA orders in sequence). Multiple workers must process different stock tickers in parallel without bottlenecking each other.",
     question: "Which SQS configuration achieves ordered per-stock processing while scaling throughput across workers?",
     options: [
-      { id: 'A', text: "Use an Amazon SNS FIFO topic with deduplication IDs set to random UUIDs." },
-      { id: 'B', text: "Use an Amazon SQS FIFO queue and set the `MessageGroupId` to the stock ticker symbol." },
+      { id: 'A', text: "Use an Amazon SQS standard queue and sort messages in application memory." },
+      { id: 'B', text: "Use an Amazon SNS FIFO topic with deduplication IDs set to random UUIDs." },
       { id: 'C', text: "Create a separate Amazon SQS standard queue for every individual customer." },
-      { id: 'D', text: "Use an Amazon SQS standard queue and sort messages in application memory." }
+      { id: 'D', text: "Use an Amazon SQS FIFO queue and set the `MessageGroupId` to the stock ticker symbol." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "In Amazon SQS FIFO queues, setting the `MessageGroupId` ensures strict sequential ordering within each individual group (stock ticker), while allowing separate message groups (different tickers) to be consumed and processed simultaneously in parallel by multiple worker instances. SQS standard queues do not guarantee ordering. Creating thousands of separate queues introduces severe management overhead. Random UUID deduplication IDs do not guarantee grouping or chronological sequencing.",
     referenceUrl: "https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagegroupid-property.html",
@@ -156,12 +156,12 @@ export const AWS_SAA_QUESTIONS_4 = [
     scenario: "A fleet of web servers generates 5 TB of Apache access logs daily. The data engineering team requires a serverless ingestion pipeline that buffers the incoming streaming logs, transforms them into Apache Parquet format, and loads them automatically into an Amazon S3 data lake and Amazon Redshift data warehouse without managing streaming infrastructure.",
     question: "Which AWS service is specifically designed for this streaming extract, transform, and load (ETL) pipeline?",
     options: [
-      { id: 'A', text: "Amazon SQS standard queue with worker EC2 instances running Apache Kafka." },
-      { id: 'B', text: "AWS Glue ETL batch jobs scheduled every 24 hours." },
-      { id: 'C', text: "Amazon Kinesis Data Firehose with inline AWS Lambda data transformation and Parquet conversion." },
-      { id: 'D', text: "Amazon CloudWatch Logs subscription filter writing directly to Amazon Redshift." }
+      { id: 'A', text: "Amazon Kinesis Data Firehose with inline AWS Lambda data transformation and Parquet conversion." },
+      { id: 'B', text: "Amazon CloudWatch Logs subscription filter writing directly to Amazon Redshift." },
+      { id: 'C', text: "Amazon SQS standard queue with worker EC2 instances running Apache Kafka." },
+      { id: 'D', text: "AWS Glue ETL batch jobs scheduled every 24 hours." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Amazon Kinesis Data Firehose is a fully managed, serverless delivery stream that captures, transforms (via AWS Lambda), converts record formats to columnar Apache Parquet/ORC, and delivers streaming data directly to destinations like Amazon S3, Amazon Redshift, OpenSearch, and Splunk without managing servers. SQS + Kafka requires significant server provisioning and management. Daily Glue batch jobs do not provide real-time streaming ingestion. CloudWatch Logs cannot stream directly to Redshift without Firehose or Lambda.",
     referenceUrl: "https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html",
@@ -177,12 +177,12 @@ export const AWS_SAA_QUESTIONS_4 = [
     scenario: "A multiplayer mobile gaming company operates real-time game servers hosted on EC2 instances in us-east-1. Global gamers in Europe and Asia report high packet loss and latency spikes over the public internet. The game protocol uses custom UDP traffic that cannot be cached.",
     question: "Which AWS networking service improves UDP performance by routing global client traffic onto the private AWS global network backbone closest to the user?",
     options: [
-      { id: 'A', text: "AWS Direct Connect." },
+      { id: 'A', text: "Amazon CloudFront." },
       { id: 'B', text: "Amazon Route 53 Latency-based Routing." },
-      { id: 'C', text: "Amazon CloudFront." },
-      { id: 'D', text: "AWS Global Accelerator." }
+      { id: 'C', text: "AWS Global Accelerator." },
+      { id: 'D', text: "AWS Direct Connect." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "AWS Global Accelerator uses static Anycast IP addresses and AWS edge locations to onboard non-HTTP (TCP and UDP) traffic onto the congestion-free AWS private global network as close to the user as possible, routing directly to application endpoints (ALB, NLB, EC2) with significant jitter and latency reduction. Amazon CloudFront is a content delivery network built for HTTP/HTTPS/WebSocket traffic and does not support arbitrary UDP game traffic. Route 53 only resolves DNS and still routes UDP packets over the public internet. Direct Connect connects on-premises data centers, not end-user mobile devices.",
     referenceUrl: "https://docs.aws.amazon.com/global-accelerator/latest/dg/what-is-global-accelerator.html",
@@ -240,12 +240,12 @@ export const AWS_SAA_QUESTIONS_4 = [
     scenario: "A data warehouse runs on an Amazon Redshift cluster storing 10 TB of active customer dimensional data. The analytics team frequently needs to join this active data with 500 TB of historical log files stored in Apache Parquet format in an Amazon S3 data lake without having to scale up and load all 500 TB into the Redshift cluster storage.",
     question: "Which Redshift capability allows querying exabytes of data directly in S3 without loading it into the cluster?",
     options: [
-      { id: 'A', text: "Amazon Redshift Auto-Copy from S3." },
-      { id: 'B', text: "Amazon EMR Presto cluster." },
+      { id: 'A', text: "Amazon Redshift Spectrum." },
+      { id: 'B', text: "Amazon Redshift Auto-Copy from S3." },
       { id: 'C', text: "AWS Glue DataBrew." },
-      { id: 'D', text: "Amazon Redshift Spectrum." }
+      { id: 'D', text: "Amazon EMR Presto cluster." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Amazon Redshift Spectrum enables running SQL queries directly against exabytes of structured and semi-structured data stored in Amazon S3 data lakes without loading or transforming data into Redshift tables. It scales query processing across thousands of serverless nodes, allowing fast joins between local Redshift tables and massive external S3 tables defined in the AWS Glue Data Catalog. Redshift Auto-Copy physically loads data into local storage. DataBrew is a visual data preparation tool. EMR Presto requires managing an external cluster.",
     referenceUrl: "https://docs.aws.amazon.com/redshift/latest/dg/c-getting-started-using-spectrum.html",
@@ -282,10 +282,10 @@ export const AWS_SAA_QUESTIONS_4 = [
     scenario: "A security compliance officer needs a single unified dashboard to continuously aggregate, organize, and prioritize security findings across 100 AWS accounts from Amazon GuardDuty, Amazon Inspector, Amazon Macie, and AWS IAM Access Analyzer, evaluated against CIS AWS Foundations Benchmarks.",
     question: "Which AWS service fulfills this centralized security posture management requirement?",
     options: [
-      { id: 'A', text: "AWS CloudTrail Lake." },
-      { id: 'B', text: "AWS Systems Manager Explorer." },
+      { id: 'A', text: "AWS Systems Manager Explorer." },
+      { id: 'B', text: "Amazon CloudWatch Logs Insights." },
       { id: 'C', text: "AWS Security Hub." },
-      { id: 'D', text: "Amazon CloudWatch Logs Insights." }
+      { id: 'D', text: "AWS CloudTrail Lake." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -304,11 +304,11 @@ export const AWS_SAA_QUESTIONS_4 = [
     question: "Which access control strategy scales permissions dynamically based on resource and identity tags?",
     options: [
       { id: 'A', text: "IAM Permissions Boundaries hardcoded with project manager IAM usernames." },
-      { id: 'B', text: "Attribute-Based Access Control (ABAC) using `aws:PrincipalTag` and `aws:ResourceTag` IAM policy condition keys." },
-      { id: 'C', text: "AWS Organizations Service Control Policies with hardcoded resource ARNs." },
-      { id: 'D', text: "Role-Based Access Control (RBAC) with individual IAM groups created for every single project." }
+      { id: 'B', text: "AWS Organizations Service Control Policies with hardcoded resource ARNs." },
+      { id: 'C', text: "Role-Based Access Control (RBAC) with individual IAM groups created for every single project." },
+      { id: 'D', text: "Attribute-Based Access Control (ABAC) using `aws:PrincipalTag` and `aws:ResourceTag` IAM policy condition keys." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Attribute-Based Access Control (ABAC) is an authorization strategy that defines permissions based on tags attached to IAM principals and AWS resources. By writing IAM policy conditions comparing `aws:PrincipalTag/Project` to `aws:ResourceTag/Project`, access is granted dynamically as new resources and users are tagged, eliminating the need to modify policies when new projects or employees are added. Traditional RBAC requires creating and maintaining distinct policies and groups per project, creating operational overhead. Hardcoded SCPs and boundaries do not scale dynamically with project tags.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction_attribute-based-access-control.html",
@@ -366,12 +366,12 @@ export const AWS_SAA_QUESTIONS_4 = [
     scenario: "A company operates Amazon EC2 instances in a private subnet that access an enterprise Amazon S3 bucket (`finance-company-bucket`) via a Gateway VPC Endpoint. Corporate security is concerned that a rogue employee or compromised instance could upload proprietary data to a personal external S3 bucket.",
     question: "How can the Solutions Architect restrict outbound S3 access from the VPC to ONLY the corporate bucket?",
     options: [
-      { id: 'A', text: "Attach an Endpoint Policy to the Gateway VPC Endpoint specifying `Action: \"s3:*\"` and `Resource: \"arn:aws:s3:::finance-company-bucket/*\"`." },
-      { id: 'B', text: "Configure a Security Group rule denying outbound traffic to IP address `0.0.0.0/0`." },
-      { id: 'C', text: "Enable S3 Block Public Access on the corporate bucket." },
-      { id: 'D', text: "Attach an S3 Bucket Policy to `finance-company-bucket` granting access to the VPC." }
+      { id: 'A', text: "Enable S3 Block Public Access on the corporate bucket." },
+      { id: 'B', text: "Attach an S3 Bucket Policy to `finance-company-bucket` granting access to the VPC." },
+      { id: 'C', text: "Attach an Endpoint Policy to the Gateway VPC Endpoint specifying `Action: \"s3:*\"` and `Resource: \"arn:aws:s3:::finance-company-bucket/*\"`." },
+      { id: 'D', text: "Configure a Security Group rule denying outbound traffic to IP address `0.0.0.0/0`." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "A VPC Endpoint Policy is an IAM resource policy attached directly to the VPC Endpoint (Gateway or Interface) that controls what actions principals inside the VPC can perform on what target AWS resources. Restricting the endpoint policy `Resource` to only `arn:aws:s3:::finance-company-bucket/*` ensures that any attempt to write or read from any other S3 bucket (such as personal external buckets) from within that VPC is denied at the network boundary. Bucket policies protect the corporate bucket but do not stop instances from communicating with external buckets. Security groups cannot filter specific S3 bucket ARNs. S3 Block Public Access controls public access into the bucket, not outbound exfiltration.",
     referenceUrl: "https://docs.aws.amazon.com/vpc/latest/privatelink/vpc-endpoints-access.html",
@@ -388,11 +388,11 @@ export const AWS_SAA_QUESTIONS_4 = [
     question: "Which S3 Lifecycle rule automatically cleans up incomplete multipart uploads to prevent unnecessary storage charges?",
     options: [
       { id: 'A', text: "Enable S3 Versioning with a 7-day noncurrent version expiration." },
-      { id: 'B', text: "Configure an S3 Lifecycle rule with the action `AbortIncompleteMultipartUpload` set to delete incomplete parts after 7 days." },
-      { id: 'C', text: "Transition all objects to S3 Glacier Flexible Retrieval immediately upon upload." },
-      { id: 'D', text: "Use AWS Lambda to list and delete partial objects via an hourly cron job." }
+      { id: 'B', text: "Transition all objects to S3 Glacier Flexible Retrieval immediately upon upload." },
+      { id: 'C', text: "Use AWS Lambda to list and delete partial objects via an hourly cron job." },
+      { id: 'D', text: "Configure an S3 Lifecycle rule with the action `AbortIncompleteMultipartUpload` set to delete incomplete parts after 7 days." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "When multipart uploads are started but never completed or aborted, the uploaded parts remain stored in Amazon S3 and incur standard storage fees even though they do not appear in standard bucket listings. Configuring an S3 Lifecycle rule with `AbortIncompleteMultipartUpload` automatically detects and deletes these abandoned parts after a specified number of days (e.g. 7 days) with zero maintenance. S3 Versioning does not manage incomplete multipart uploads. Custom Lambda scripts add unnecessary overhead. Transitioning to Glacier does not solve incomplete multipart storage accumulation.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/mpu-abort-incomplete-mpu-lifecycle-config.html",
@@ -408,12 +408,12 @@ export const AWS_SAA_QUESTIONS_4 = [
     scenario: "A bioinformatics laboratory runs 12-hour genomics analysis jobs using Apache Spark on Amazon EC2. The workload is completely stateless, checkpoints progress to Amazon S3 every 15 minutes, and can tolerate node terminations. The lab director mandates reducing compute costs by at least 70%.",
     question: "Which compute deployment strategy provides the maximum cost savings for this workload?",
     options: [
-      { id: 'A', text: "Deploy an EC2 Spot Fleet across multiple instance types and Availability Zones using the `capacity-optimized` allocation strategy." },
+      { id: 'A', text: "Deploy Dedicated Hosts with Bring Your Own License (BYOL)." },
       { id: 'B', text: "Launch On-Demand Instances in a Cluster placement group." },
-      { id: 'C', text: "Purchase 3-year All Upfront Reserved Instances for the maximum anticipated capacity." },
-      { id: 'D', text: "Deploy Dedicated Hosts with Bring Your Own License (BYOL)." }
+      { id: 'C', text: "Deploy an EC2 Spot Fleet across multiple instance types and Availability Zones using the `capacity-optimized` allocation strategy." },
+      { id: 'D', text: "Purchase 3-year All Upfront Reserved Instances for the maximum anticipated capacity." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Amazon EC2 Spot Instances offer up to 90% discounts compared to On-Demand pricing. For fault-tolerant, checkpointed big data workloads, launching a Spot Fleet across multiple instance types (e.g. r5, m5, c5) and Availability Zones using the `capacity-optimized` allocation strategy minimizes interruption probability while delivering massive cost savings. Reserved Instances waste money during non-running periods and require long-term commitments. On-Demand instances run at full price. Dedicated Hosts are the most expensive EC2 tier, designed for per-socket compliance licensing.",
     referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-allocation-strategy.html",
@@ -429,13 +429,13 @@ export const AWS_SAA_QUESTIONS_4 = [
     scenario: "A company with 500 microservices notices that its Amazon CloudWatch bill has grown significantly. Investigation reveals that applications are emitting custom metrics with high-cardinality dimensions, and all application log groups are configured with the default \"Never Expire\" retention policy.",
     question: "Which actions will reduce CloudWatch costs without losing operational visibility? (Choose TWO)",
     options: [
-      { id: 'A', text: "Reduce the number of custom metric dimensions and aggregate high-cardinality events before publishing to CloudWatch Metrics." },
-      { id: 'B', text: "Switch all CloudWatch Alarms from Standard resolution to High-Resolution 1-second evaluation." },
+      { id: 'A', text: "Switch all CloudWatch Alarms from Standard resolution to High-Resolution 1-second evaluation." },
+      { id: 'B', text: "Disable basic 5-minute CloudWatch metrics on all EC2 instances." },
       { id: 'C', text: "Configure CloudWatch Logs retention policies on all log groups to expire logs after 30 or 90 days, or export older logs to S3 Standard-IA / Glacier for long-term compliance." },
-      { id: 'D', text: "Disable basic 5-minute CloudWatch metrics on all EC2 instances." },
+      { id: 'D', text: "Reduce the number of custom metric dimensions and aggregate high-cardinality events before publishing to CloudWatch Metrics." },
       { id: 'E', text: "Stream all logs directly into Amazon DynamoDB tables with provisioned write capacity." }
     ],
-    correctAnswers: ['A', 'C'],
+    correctAnswers: ['C', 'D'],
     type: "multiple",
     explanation: "CloudWatch charges for log storage per GB; setting retention policies (e.g. 30/90 days) and archiving compliance logs to S3 Glacier dramatically cuts storage spend. CloudWatch also charges per custom metric; each unique dimension combination is billed as a separate custom metric, so reducing high-cardinality dimensions prevents metric explosion and cost inflation. Basic 5-minute EC2 metrics are free of charge. High-resolution alarms are more expensive. Storing logs in DynamoDB is significantly more expensive than CloudWatch or S3.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_billing.html",

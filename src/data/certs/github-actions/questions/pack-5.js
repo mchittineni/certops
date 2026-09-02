@@ -72,12 +72,12 @@ export const GITHUB_ACTIONS_QUESTIONS_5 = [
     scenario: "A workflow can be started manually with an optional release notes URL, or automatically by another trigger where no such value exists. A step needs either the supplied value or a default documentation link, chosen inside the expression rather than in shell code.",
     question: "Which expression idiom applies?",
     options: [
-      { id: 'A', text: "The format function with the input as the only argument, which substitutes a default when empty." },
-      { id: 'B', text: "The coalesce function, which is provided for exactly this purpose." },
-      { id: 'C', text: "A ternary conditional operator, which workflow expressions support directly." },
-      { id: 'D', text: "The logical or operator between the input reference and the default literal, which yields the first value that is not false or empty." }
+      { id: 'A', text: "A ternary conditional operator, which workflow expressions support directly." },
+      { id: 'B', text: "The logical or operator between the input reference and the default literal, which yields the first value that is not false or empty." },
+      { id: 'C', text: "The format function with the input as the only argument, which substitutes a default when empty." },
+      { id: 'D', text: "The coalesce function, which is provided for exactly this purpose." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Workflow expressions evaluate the logical or operator by returning the first operand that is truthy, so placing the optional value before a literal default produces the fallback behaviour in one expression. The format function builds a string from a template and does not substitute defaults, there is no coalesce function in the expression language, and there is no ternary operator, which is why the or idiom is the conventional substitute.",
     referenceUrl: "https://docs.github.com/en/actions/learn-github-actions/expressions",
@@ -93,12 +93,12 @@ export const GITHUB_ACTIONS_QUESTIONS_5 = [
     scenario: "A step needs a scratch directory that exists on Linux, macOS and Windows runners, is writable, and is cleaned up by the platform after the job. Hard-coding a Unix temporary path breaks the Windows leg of the matrix.",
     question: "Which context value should be used?",
     options: [
-      { id: 'A', text: "The runner.tool_cache value, which is provided for scratch data." },
-      { id: 'B', text: "The runner.temp value, which points at a platform-appropriate temporary directory that is cleaned up at the end of the job." },
-      { id: 'C', text: "A relative path, because the working directory is identical on every platform." },
-      { id: 'D', text: "The github.workspace value, which is the correct location for temporary files." }
+      { id: 'A', text: "The github.workspace value, which is the correct location for temporary files." },
+      { id: 'B', text: "A relative path, because the working directory is identical on every platform." },
+      { id: 'C', text: "The runner.temp value, which points at a platform-appropriate temporary directory that is cleaned up at the end of the job." },
+      { id: 'D', text: "The runner.tool_cache value, which is provided for scratch data." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "The runner context exposes a temp path that resolves to a writable, platform-appropriate scratch location which the runner empties at the end of the job, which is exactly what portable temporary work needs. The workspace holds the checked-out repository and its contents may be uploaded or inspected, the tool cache is a shared location for installed toolchains that should not be polluted, and relative paths do not address the platform difference at all.",
     referenceUrl: "https://docs.github.com/en/actions/learn-github-actions/contexts",
@@ -114,12 +114,12 @@ export const GITHUB_ACTIONS_QUESTIONS_5 = [
     scenario: "A custom linter prints findings to standard output. The team wants each finding to appear as an inline annotation attached to the offending file and line in the pull request diff, without adopting a third-party reporting action.",
     question: "What should the step emit?",
     options: [
-      { id: 'A', text: "A non-zero exit code, from which the platform infers the failing file." },
-      { id: 'B', text: "An error workflow command carrying file, line and column properties along with the message." },
+      { id: 'A', text: "An error workflow command carrying file, line and column properties along with the message." },
+      { id: 'B', text: "A line appended to GITHUB_STEP_SUMMARY containing a link to the file and line." },
       { id: 'C', text: "A job output named annotations holding a JSON array of findings." },
-      { id: 'D', text: "A line appended to GITHUB_STEP_SUMMARY containing a link to the file and line." }
+      { id: 'D', text: "A non-zero exit code, from which the platform infers the failing file." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Workflow commands for notice, warning and error accept file, line and column properties, and the platform renders those as annotations positioned in the diff, which is the built-in path from a plain command-line tool to inline feedback. A step summary produces a block on the run page rather than diff annotations, job outputs are data passed between jobs, and an exit code conveys failure without any location information.",
     referenceUrl: "https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions",
@@ -136,9 +136,9 @@ export const GITHUB_ACTIONS_QUESTIONS_5 = [
     question: "How is the shorter lifetime applied to just that artifact?",
     options: [
       { id: 'A', text: "Pass a retention-days input to the upload step for the debug bundle, which may shorten but not exceed the configured maximum." },
-      { id: 'B', text: "Upload the debug bundle to the cache instead, which expires sooner." },
-      { id: 'C', text: "Add a scheduled workflow that deletes the artifact through the API after two days." },
-      { id: 'D', text: "Prefix the artifact name with a marker that the platform interprets as short-lived." }
+      { id: 'B', text: "Prefix the artifact name with a marker that the platform interprets as short-lived." },
+      { id: 'C', text: "Upload the debug bundle to the cache instead, which expires sooner." },
+      { id: 'D', text: "Add a scheduled workflow that deletes the artifact through the API after two days." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -156,12 +156,12 @@ export const GITHUB_ACTIONS_QUESTIONS_5 = [
     scenario: "A workflow declares a boolean input named dry-run. A step condition compares the value from the event payload to the string false, and the branch is taken even when the person starting the run leaves the box unticked.",
     question: "What is going wrong?",
     options: [
-      { id: 'A', text: "The default for a boolean input is true when unspecified, so a default of false must be declared." },
-      { id: 'B', text: "Conditions cannot evaluate booleans, so the comparison must be moved into a shell test." },
-      { id: 'C', text: "Reading the value from the event payload yields a string, where any non-empty string is truthy, so the condition should compare the typed value from the inputs context instead." },
-      { id: 'D', text: "Boolean inputs are not supported by workflow_dispatch, so the value is always the literal string true." }
+      { id: 'A', text: "Conditions cannot evaluate booleans, so the comparison must be moved into a shell test." },
+      { id: 'B', text: "The default for a boolean input is true when unspecified, so a default of false must be declared." },
+      { id: 'C', text: "Boolean inputs are not supported by workflow_dispatch, so the value is always the literal string true." },
+      { id: 'D', text: "Reading the value from the event payload yields a string, where any non-empty string is truthy, so the condition should compare the typed value from the inputs context instead." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Values reached through the event payload arrive as strings, so a false boolean becomes the non-empty text false which is truthy in an expression, whereas the inputs context preserves the declared type and compares correctly. Boolean inputs are supported by manual dispatch, an unspecified default is not implicitly true, and conditions evaluate booleans perfectly well once the typed value is used.",
     referenceUrl: "https://docs.github.com/en/actions/learn-github-actions/contexts",
@@ -177,12 +177,12 @@ export const GITHUB_ACTIONS_QUESTIONS_5 = [
     scenario: "A matrix declares an os dimension listing three runner labels. Each generated job must execute on the runner named by its own matrix entry rather than on a single fixed platform.",
     question: "How is runs-on written?",
     options: [
-      { id: 'A', text: "As ubuntu-latest, with a container key selecting the operating system per combination." },
+      { id: 'A', text: "As an expression referencing the os value of the matrix context." },
       { id: 'B', text: "As the literal string matrix.os, which the runner resolves at dispatch." },
-      { id: 'C', text: "As an expression referencing the os value of the matrix context." },
-      { id: 'D', text: "As a list of all three labels, from which the runner picks the matching one." }
+      { id: 'C', text: "As a list of all three labels, from which the runner picks the matching one." },
+      { id: 'D', text: "As ubuntu-latest, with a container key selecting the operating system per combination." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The matrix context is available in runs-on, so an expression reading the os value gives each generated job its own runner label, which is the standard cross-platform pattern. A bare literal is treated as a runner label and never matches, supplying a list requires a runner carrying all the labels at once rather than choosing among them, and containers cannot change the host operating system.",
     referenceUrl: "https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs",
@@ -240,12 +240,12 @@ export const GITHUB_ACTIONS_QUESTIONS_5 = [
     scenario: "A cache entry was saved containing a corrupted dependency tree. Every run now restores the bad entry and fails, and because the lockfile has not changed the key is identical each time.",
     question: "What is the most direct remedy?",
     options: [
-      { id: 'A', text: "Set the cache action to read-only mode permanently." },
-      { id: 'B', text: "Delete the offending cache entry from the repository caches view, or with the GitHub CLI cache commands, so the next run repopulates it." },
-      { id: 'C', text: "Delete the workflow run that created the entry, which removes its caches." },
-      { id: 'D', text: "Wait for the entry to be evicted, which happens within an hour of a failed restore." }
+      { id: 'A', text: "Wait for the entry to be evicted, which happens within an hour of a failed restore." },
+      { id: 'B', text: "Delete the workflow run that created the entry, which removes its caches." },
+      { id: 'C', text: "Delete the offending cache entry from the repository caches view, or with the GitHub CLI cache commands, so the next run repopulates it." },
+      { id: 'D', text: "Set the cache action to read-only mode permanently." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Caches are listed and individually deletable from the repository interface and from the command line, which removes the bad entry so the next run misses, rebuilds and saves a clean one. Eviction is driven by age and total size rather than by restore failures so waiting is unreliable, disabling saving forever gives up the speed benefit, and deleting a run does not delete the caches it wrote. Bumping a version segment inside the key is the common alternative when deletion is not available.",
     referenceUrl: "https://docs.github.com/en/actions/using-workflows/caching-dependencies-to-speed-up-workflows",
@@ -346,9 +346,9 @@ export const GITHUB_ACTIONS_QUESTIONS_5 = [
     question: "What is the correct reference?",
     options: [
       { id: 'A', text: "A path built from github.action_path, which resolves to the directory the action was checked out into on the runner." },
-      { id: 'B', text: "An absolute path under the runner tool cache, where actions are staged." },
-      { id: 'C', text: "A path built from github.workspace, which contains the action files during execution." },
-      { id: 'D', text: "A path relative to the consuming repository root, since actions are copied into it." }
+      { id: 'B', text: "A path built from github.workspace, which contains the action files during execution." },
+      { id: 'C', text: "A path relative to the consuming repository root, since actions are copied into it." },
+      { id: 'D', text: "An absolute path under the runner tool cache, where actions are staged." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -387,12 +387,12 @@ export const GITHUB_ACTIONS_QUESTIONS_5 = [
     scenario: "A JavaScript action detects an invalid configuration. It currently logs a message and returns normally, so the step is reported as successful and the workflow continues with bad configuration.",
     question: "What should the action do instead?",
     options: [
-      { id: 'A', text: "Write the message to standard error, which the runner treats as a failure." },
-      { id: 'B', text: "Call core.setFailed with the message, which records the error and sets a failing exit code for the step." },
-      { id: 'C', text: "Call core.warning with the message, which fails the step when the workflow runs in strict mode." },
+      { id: 'A', text: "Call core.setFailed with the message, which records the error and sets a failing exit code for the step." },
+      { id: 'B', text: "Call core.warning with the message, which fails the step when the workflow runs in strict mode." },
+      { id: 'C', text: "Write the message to standard error, which the runner treats as a failure." },
       { id: 'D', text: "Set an output named failed to true, which the runner inspects after the step." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The toolkit function setFailed records an error annotation and sets the process exit code so the runner marks the step as failed, which is how an action signals an unrecoverable problem. A warning is informational and never fails a step, there is no strict mode that changes that, writing to standard error is ordinary logging rather than a failure signal, and outputs are data the runner does not interpret.",
     referenceUrl: "https://docs.github.com/en/actions/creating-actions/creating-a-javascript-action",
@@ -408,12 +408,12 @@ export const GITHUB_ACTIONS_QUESTIONS_5 = [
     scenario: "An author wants a container action based on a widely used published image, but the image entry point starts a long-running server whereas the action needs to run a one-shot command and exit.",
     question: "How is that expressed in the action metadata?",
     options: [
-      { id: 'A', text: "Wrap the image in a composite action, which is the only way to change how a container starts." },
-      { id: 'B', text: "Set the image to the published reference and add a command key, which container actions use instead of entrypoint." },
-      { id: 'C', text: "Set the image to the published reference and declare an entrypoint in the runs block, which overrides the entry point baked into the image, with args supplying the parameters." },
-      { id: 'D', text: "Fork the image and rebuild it with a different entry point, because metadata cannot override it." }
+      { id: 'A', text: "Set the image to the published reference and add a command key, which container actions use instead of entrypoint." },
+      { id: 'B', text: "Wrap the image in a composite action, which is the only way to change how a container starts." },
+      { id: 'C', text: "Fork the image and rebuild it with a different entry point, because metadata cannot override it." },
+      { id: 'D', text: "Set the image to the published reference and declare an entrypoint in the runs block, which overrides the entry point baked into the image, with args supplying the parameters." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "A Docker container action may name an already published image and supply its own entrypoint and args in the runs block, which override what the image declares and let an existing image be repurposed without rebuilding it. Forking and rebuilding is unnecessary work, the metadata key is entrypoint rather than command, and a composite action cannot change how a container image starts.",
     referenceUrl: "https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions",
@@ -429,12 +429,12 @@ export const GITHUB_ACTIONS_QUESTIONS_5 = [
     scenario: "A cloud trust policy matches the subject claim for a specific repository and the main branch. The team now deploys from several release branches and from a reusable workflow, and keeping the trust policy in step with branch names has become error-prone.",
     question: "Which approach is more robust?",
     options: [
-      { id: 'A', text: "Customise the subject claim for the repository so it is built from the deployment environment rather than the branch, and have the trust policy match that environment, which then also gates on the environment protection rules." },
-      { id: 'B', text: "Switch back to a long-lived access key, since claim management is the weakness of federated access." },
-      { id: 'C', text: "Issue a separate role per branch and select the role with an expression at run time." },
-      { id: 'D', text: "Match on a wildcard covering every branch in the repository, since the repository portion of the claim is the real boundary." }
+      { id: 'A', text: "Issue a separate role per branch and select the role with an expression at run time." },
+      { id: 'B', text: "Match on a wildcard covering every branch in the repository, since the repository portion of the claim is the real boundary." },
+      { id: 'C', text: "Customise the subject claim for the repository so it is built from the deployment environment rather than the branch, and have the trust policy match that environment, which then also gates on the environment protection rules." },
+      { id: 'D', text: "Switch back to a long-lived access key, since claim management is the weakness of federated access." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "The subject claim template is customisable per repository, and binding it to the environment rather than the branch ties cloud access to a construct that carries reviewers and branch policies of its own, so the trust relationship stops depending on branch names. A wildcard across all branches would let any branch, including one a contributor pushes, assume the role, reverting to static keys discards the benefit entirely, and a role per branch multiplies the maintenance rather than removing it.",
     referenceUrl: "https://docs.github.com/en/actions/security-for-github-actions/security-hardening-your-deployments/about-security-hardening-with-openid-connect",
@@ -450,12 +450,12 @@ export const GITHUB_ACTIONS_QUESTIONS_5 = [
     scenario: "An enterprise operates one hardened runner fleet. Three of its eight organizations should be able to use the fleet, and the platform team wants to manage it in one place rather than registering runners separately in each organization.",
     question: "Which arrangement fits?",
     options: [
-      { id: 'A', text: "Register the runners at enterprise level, which automatically makes them available to every organization with no further configuration." },
-      { id: 'B', text: "Register the runners at enterprise level in a runner group whose access is granted to the three organizations, which may then further restrict it to particular repositories." },
-      { id: 'C', text: "Register the runners in one organization and add the other two as collaborators on that organization." },
-      { id: 'D', text: "Register the runners three times, once per organization, pointing at the same machines." }
+      { id: 'A', text: "Register the runners in one organization and add the other two as collaborators on that organization." },
+      { id: 'B', text: "Register the runners three times, once per organization, pointing at the same machines." },
+      { id: 'C', text: "Register the runners at enterprise level, which automatically makes them available to every organization with no further configuration." },
+      { id: 'D', text: "Register the runners at enterprise level in a runner group whose access is granted to the three organizations, which may then further restrict it to particular repositories." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Runners registered at the enterprise level live in enterprise runner groups whose access is granted to selected organizations, and each of those organizations can narrow it further to specific repositories, which is exactly the single fleet with layered access described. Organizations do not have collaborators, registering the same machines repeatedly creates conflicting registrations, and enterprise groups grant access to selected organizations rather than to all of them by default.",
     referenceUrl: "https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups",
@@ -513,12 +513,12 @@ export const GITHUB_ACTIONS_QUESTIONS_5 = [
     scenario: "An organization secret named REGISTRY_TOKEN is available to a repository, and that repository also defines a repository secret with the same name holding a different value. A workflow references the name.",
     question: "Which value does the workflow receive?",
     options: [
-      { id: 'A', text: "The organization secret, because organization settings override repository settings." },
-      { id: 'B', text: "Neither, because a name collision makes the reference ambiguous and the workflow fails." },
-      { id: 'C', text: "The repository secret, because the more specific scope takes precedence over the organization secret of the same name." },
+      { id: 'A', text: "The repository secret, because the more specific scope takes precedence over the organization secret of the same name." },
+      { id: 'B', text: "The organization secret, because organization settings override repository settings." },
+      { id: 'C', text: "Neither, because a name collision makes the reference ambiguous and the workflow fails." },
       { id: 'D', text: "Both concatenated, in the order organization then repository." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Secrets resolve from the narrowest applicable scope outward, so an environment secret beats a repository secret, which in turn beats an organization secret of the same name, which lets a repository deliberately override an inherited default. A collision does not fail the run and values are certainly never combined, so relying on this precedence is legitimate but the shadowing is easy to miss and is worth an explicit comment.",
     referenceUrl: "https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions",

@@ -9,12 +9,12 @@ export const GITHUB_ACTIONS_QUESTIONS_1 = [
     scenario: "A CI workflow takes eleven minutes. Developers push several commits in quick succession to the same pull request branch, and every push starts another run, so four runs of the same branch execute at once and exhaust the concurrency allowance.",
     question: "Which workflow configuration ensures that only the newest run for a branch continues and older in-progress runs are cancelled?",
     options: [
-      { id: 'A', text: "Add a concurrency block with group set to a value derived from the workflow and github.ref, and cancel-in-progress set to true." },
-      { id: 'B', text: "Set strategy.fail-fast to true on the build job." },
-      { id: 'C', text: "Add an if condition comparing github.run_number to the repository default branch." },
-      { id: 'D', text: "Set timeout-minutes to a value lower than the average run duration." }
+      { id: 'A', text: "Set strategy.fail-fast to true on the build job." },
+      { id: 'B', text: "Add a concurrency block with group set to a value derived from the workflow and github.ref, and cancel-in-progress set to true." },
+      { id: 'C', text: "Set timeout-minutes to a value lower than the average run duration." },
+      { id: 'D', text: "Add an if condition comparing github.run_number to the repository default branch." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "A concurrency block assigns runs to a named group and cancel-in-progress terminates any run already executing in that group when a new one starts, which is exactly the supersede behaviour wanted per branch. The fail-fast strategy only cancels sibling jobs within a single matrix run, timeout-minutes kills long runs regardless of whether a newer one exists, and run_number carries no cancellation semantics.",
     referenceUrl: "https://docs.github.com/en/actions/using-jobs/using-concurrency",
@@ -30,12 +30,12 @@ export const GITHUB_ACTIONS_QUESTIONS_1 = [
     scenario: "A release workflow uses the built-in GITHUB_TOKEN to push a version bump commit back to the repository. The push step fails with a permission error even though the repository allows workflows to create and approve pull requests.",
     question: "What is the correct way to let this workflow push the commit?",
     options: [
-      { id: 'A', text: "Create a personal access token and store it as an organization variable." },
-      { id: 'B', text: "Add a permissions block granting contents: write at the workflow or job level." },
-      { id: 'C', text: "Set the job to run on a self-hosted runner so it inherits the repository owner permissions." },
-      { id: 'D', text: "Add the actions/checkout step with persist-credentials set to false." }
+      { id: 'A', text: "Add a permissions block granting contents: write at the workflow or job level." },
+      { id: 'B', text: "Create a personal access token and store it as an organization variable." },
+      { id: 'C', text: "Add the actions/checkout step with persist-credentials set to false." },
+      { id: 'D', text: "Set the job to run on a self-hosted runner so it inherits the repository owner permissions." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The automatic GITHUB_TOKEN receives a default permission set that is read-only in repositories configured for restricted defaults, and a permissions block raises the specific scope needed, here contents: write for pushing. A personal access token would work but replaces a scoped ephemeral credential with a long-lived one, persist-credentials: false removes the token from the git config entirely, and runner type has no bearing on token scope.",
     referenceUrl: "https://docs.github.com/en/actions/security-for-github-actions/security-guides/automatic-token-authentication",
@@ -52,11 +52,11 @@ export const GITHUB_ACTIONS_QUESTIONS_1 = [
     question: "Which matrix key removes just that one combination?",
     options: [
       { id: 'A', text: "An include entry listing the five wanted combinations." },
-      { id: 'B', text: "An exclude entry naming node-version 16 together with os windows-latest." },
-      { id: 'C', text: "A max-parallel value of five." },
-      { id: 'D', text: "A continue-on-error setting scoped to the windows-latest runner." }
+      { id: 'B', text: "A max-parallel value of five." },
+      { id: 'C', text: "A continue-on-error setting scoped to the windows-latest runner." },
+      { id: 'D', text: "An exclude entry naming node-version 16 together with os windows-latest." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The exclude key removes matrix combinations that match every property listed in the entry, so naming both the Node version and the operating system deletes precisely that one job and leaves the other five expanded normally. An include entry adds combinations or extends existing ones rather than pruning them, continue-on-error still runs the job and merely tolerates its failure, and max-parallel limits how many jobs execute simultaneously without changing which exist.",
     referenceUrl: "https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs",
@@ -72,10 +72,10 @@ export const GITHUB_ACTIONS_QUESTIONS_1 = [
     scenario: "A build job computes an image tag from the commit metadata. A later deploy job in the same workflow, declared with needs on the build job, has to use that exact tag. The two jobs run on different runners.",
     question: "Which mechanism makes the tag available to the deploy job?",
     options: [
-      { id: 'A', text: "Write the tag to the file referenced by GITHUB_ENV, which is shared across all jobs in the workflow." },
+      { id: 'A', text: "Store the tag in a repository secret from the build job and read the secret in the deploy job." },
       { id: 'B', text: "Write the tag to the file referenced by GITHUB_OUTPUT in a step with an id, declare a job-level outputs mapping, and read it through the needs context in the deploy job." },
-      { id: 'C', text: "Store the tag in a repository secret from the build job and read the secret in the deploy job." },
-      { id: 'D', text: "Write the tag to an environment variable with export so later jobs inherit it." }
+      { id: 'C', text: "Write the tag to an environment variable with export so later jobs inherit it." },
+      { id: 'D', text: "Write the tag to the file referenced by GITHUB_ENV, which is shared across all jobs in the workflow." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -114,12 +114,12 @@ export const GITHUB_ACTIONS_QUESTIONS_1 = [
     scenario: "A maintainer wants pull requests from forks to run a workflow that needs a repository secret to post coverage results. The current workflow triggers on pull_request, where secrets are unavailable to fork contributions.",
     question: "Why is switching the trigger to pull_request_target and checking out the pull request head considered dangerous?",
     options: [
-      { id: 'A', text: "pull_request_target runs in the context of the base repository with access to secrets and a writable token, so checking out and executing untrusted fork code lets a contributor exfiltrate those secrets." },
-      { id: 'B', text: "pull_request_target cannot be combined with a permissions block, so the token always has full write access." },
+      { id: 'A', text: "pull_request_target cannot be combined with a permissions block, so the token always has full write access." },
+      { id: 'B', text: "pull_request_target does not provide the pull request number, so the coverage comment cannot be posted." },
       { id: 'C', text: "pull_request_target only fires when the pull request is merged, so coverage would be reported too late." },
-      { id: 'D', text: "pull_request_target does not provide the pull request number, so the coverage comment cannot be posted." }
+      { id: 'D', text: "pull_request_target runs in the context of the base repository with access to secrets and a writable token, so checking out and executing untrusted fork code lets a contributor exfiltrate those secrets." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The pull_request_target event evaluates the workflow from the base branch and grants the run the base repository secrets and an elevated token, which is safe only while the run does not execute contributor-controlled code. Explicitly checking out the pull request head and then building or testing it hands that trusted context to arbitrary code from the fork. The event does expose the pull request payload, fires on open and update rather than only on merge, and honours a permissions block normally.",
     referenceUrl: "https://docs.github.com/en/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions",
@@ -135,12 +135,12 @@ export const GITHUB_ACTIONS_QUESTIONS_1 = [
     scenario: "An operations team wants to start a deployment workflow manually from the Actions tab and pick a target environment from a fixed list of staging or production before the run begins.",
     question: "Which trigger configuration provides that prompt?",
     options: [
-      { id: 'A', text: "A schedule trigger with two cron entries, one per environment." },
+      { id: 'A', text: "An environment protection rule requiring a reviewer to select the target." },
       { id: 'B', text: "A repository_dispatch trigger with a client payload." },
-      { id: 'C', text: "An environment protection rule requiring a reviewer to select the target." },
-      { id: 'D', text: "A workflow_dispatch trigger declaring an input of type choice with the two allowed options." }
+      { id: 'C', text: "A workflow_dispatch trigger declaring an input of type choice with the two allowed options." },
+      { id: 'D', text: "A schedule trigger with two cron entries, one per environment." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "The workflow_dispatch trigger adds a Run workflow button in the user interface, and an input declared with type choice renders as a dropdown limited to the listed options, which the run then reads from the inputs context. The repository_dispatch event is driven by an API call rather than the interface, schedules start runs on a timer with no prompt, and environment reviewers approve a deployment that is already targeted rather than choosing its target.",
     referenceUrl: "https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows",
@@ -177,12 +177,12 @@ export const GITHUB_ACTIONS_QUESTIONS_1 = [
     scenario: "A workflow provisions a temporary test environment, runs an integration job against it, then tears it down. When the integration job fails, the teardown job is skipped and the environment leaks.",
     question: "What must be added to the teardown job so it runs whether the integration job succeeded or failed?",
     options: [
-      { id: 'A', text: "A continue-on-error setting on the integration job, which is enough on its own to let dependents run." },
-      { id: 'B', text: "An if condition evaluating always(), because a job with needs is skipped by default once an upstream job fails." },
-      { id: 'C', text: "A timeout-minutes value on the teardown job." },
-      { id: 'D', text: "Removal of the needs keyword so the teardown job is independent." }
+      { id: 'A', text: "An if condition evaluating always(), because a job with needs is skipped by default once an upstream job fails." },
+      { id: 'B', text: "A continue-on-error setting on the integration job, which is enough on its own to let dependents run." },
+      { id: 'C', text: "Removal of the needs keyword so the teardown job is independent." },
+      { id: 'D', text: "A timeout-minutes value on the teardown job." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "A job that declares needs carries an implicit success condition on its dependencies, so an upstream failure skips it; supplying an if condition of always() replaces that implicit check and forces execution regardless of upstream result while preserving the ordering. Marking the integration job continue-on-error would report it as successful and hide real failures, dropping needs would let teardown race the integration job, and a timeout does not affect whether the job starts.",
     referenceUrl: "https://docs.github.com/en/actions/using-jobs/using-conditions-to-control-job-execution",
@@ -219,10 +219,10 @@ export const GITHUB_ACTIONS_QUESTIONS_1 = [
     scenario: "Eleven repositories in an organization each maintain a near-identical deployment workflow. The platform team wants one authoritative definition that each repository calls, passing its own service name and inheriting the organization secrets.",
     question: "Which approach fits this requirement?",
     options: [
-      { id: 'A', text: "Add the workflow to the organization .github repository, which applies it to every repository automatically." },
+      { id: 'A', text: "Copy the workflow into each repository and keep the copies aligned with a Dependabot configuration." },
       { id: 'B', text: "Define the shared file with a workflow_call trigger and inputs, then reference it from each repository with the uses keyword at job level, passing secrets: inherit." },
-      { id: 'C', text: "Publish the workflow as a composite action and reference it as a step in each repository." },
-      { id: 'D', text: "Copy the workflow into each repository and keep the copies aligned with a Dependabot configuration." }
+      { id: 'C', text: "Add the workflow to the organization .github repository, which applies it to every repository automatically." },
+      { id: 'D', text: "Publish the workflow as a composite action and reference it as a step in each repository." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -240,12 +240,12 @@ export const GITHUB_ACTIONS_QUESTIONS_1 = [
     scenario: "A security review finds that workflows reference a community action using a floating major version tag. The reviewer notes that whoever controls the action repository can move that tag to new code at any time, which would execute in every workflow that references it.",
     question: "Which measures address that specific supply chain risk? (Choose two.)",
     options: [
-      { id: 'A', text: "Move the workflow onto self-hosted runners so the action executes inside the corporate network." },
+      { id: 'A', text: "Replace the version tag with the main branch so the newest code is always used." },
       { id: 'B', text: "Configure Dependabot with the github-actions ecosystem so pinned references are proposed for update in reviewable pull requests." },
-      { id: 'C', text: "Replace the version tag with the main branch so the newest code is always used." },
-      { id: 'D', text: "Reference the action by its full commit SHA rather than a tag or branch." }
+      { id: 'C', text: "Reference the action by its full commit SHA rather than a tag or branch." },
+      { id: 'D', text: "Move the workflow onto self-hosted runners so the action executes inside the corporate network." }
     ],
-    correctAnswers: ['B', 'D'],
+    correctAnswers: ['B', 'C'],
     type: "multiple",
     explanation: "A full commit SHA is immutable, so the exact code reviewed is the code that runs even if the upstream tag is repointed, and enabling the github-actions ecosystem in Dependabot keeps those pins from going stale by raising update pull requests that a human approves. Running on self-hosted runners changes where untrusted code executes without changing what executes, and in fact widens the blast radius, while tracking a branch removes the pin entirely and makes the problem worse.",
     referenceUrl: "https://docs.github.com/en/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions",
@@ -261,12 +261,12 @@ export const GITHUB_ACTIONS_QUESTIONS_1 = [
     scenario: "A team debates where to put two kinds of files: the package manager download directory, which is identical across most runs, and the signed installer that a release engineer must download and inspect after the run finishes.",
     question: "Which placement is correct?",
     options: [
-      { id: 'A', text: "The dependency directory belongs in the cache and the installer belongs in an artifact." },
-      { id: 'B', text: "The installer belongs in the cache and the dependency directory belongs in an artifact." },
+      { id: 'A', text: "The installer belongs in the cache and the dependency directory belongs in an artifact." },
+      { id: 'B', text: "Both belong in the cache, because the cache persists across workflow runs." },
       { id: 'C', text: "Both belong in artifacts, because artifacts are the only storage retained after a run." },
-      { id: 'D', text: "Both belong in the cache, because the cache persists across workflow runs." }
+      { id: 'D', text: "The dependency directory belongs in the cache and the installer belongs in an artifact." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The cache is an optimisation for regenerable inputs that are reused between runs, keyed by content and evicted without warning, which suits a dependency directory. Artifacts are durable run outputs with a retention period that people and later jobs download, which suits a release installer. Putting a deliverable in the cache risks silent eviction, and pushing a large regenerable dependency tree into artifacts wastes retention storage and is not restored automatically.",
     referenceUrl: "https://docs.github.com/en/actions/using-workflows/caching-dependencies-to-speed-up-workflows",
@@ -282,12 +282,12 @@ export const GITHUB_ACTIONS_QUESTIONS_1 = [
     scenario: "A calling workflow invokes a reusable workflow that builds a container and determines its digest. A subsequent job in the calling workflow needs that digest to sign the image.",
     question: "How does the calling workflow obtain the digest?",
     options: [
-      { id: 'A', text: "The calling workflow reads the digest from the env context, which reusable workflows populate for their caller." },
-      { id: 'B', text: "The reusable workflow declares an outputs block mapping a job output, and the calling workflow reads it from the needs context of the calling job." },
-      { id: 'C', text: "The digest can only be transferred by uploading it as an artifact and downloading it in the caller." },
-      { id: 'D', text: "The reusable workflow writes the digest to GITHUB_ENV, which propagates to the caller." }
+      { id: 'A', text: "The reusable workflow declares an outputs block mapping a job output, and the calling workflow reads it from the needs context of the calling job." },
+      { id: 'B', text: "The calling workflow reads the digest from the env context, which reusable workflows populate for their caller." },
+      { id: 'C', text: "The reusable workflow writes the digest to GITHUB_ENV, which propagates to the caller." },
+      { id: 'D', text: "The digest can only be transferred by uploading it as an artifact and downloading it in the caller." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "A reusable workflow exposes values through a top-level outputs block whose entries reference the outputs of its own jobs, and the calling workflow reads them through the needs context of the job that used it, exactly as it would for a normal job output. Neither the env context nor GITHUB_ENV crosses the boundary between a called workflow and its caller, and while an artifact would technically work it is an unnecessary detour for a short string.",
     referenceUrl: "https://docs.github.com/en/actions/using-workflows/reusing-workflows",
@@ -303,12 +303,12 @@ export const GITHUB_ACTIONS_QUESTIONS_1 = [
     scenario: "A workflow run contains eight jobs. Two of them failed because of a transient registry outage that has since been resolved. Re-running the entire workflow would take twenty-five minutes and repeat six jobs that already passed.",
     question: "What is the appropriate action?",
     options: [
-      { id: 'A', text: "Cancel the run and start it again from the workflow_dispatch button." },
-      { id: 'B', text: "Push an empty commit to trigger a fresh run of the whole workflow." },
-      { id: 'C', text: "Use Re-run failed jobs on the run, which re-executes the failed jobs and their dependents while reusing the successful results." },
+      { id: 'A', text: "Use Re-run failed jobs on the run, which re-executes the failed jobs and their dependents while reusing the successful results." },
+      { id: 'B', text: "Cancel the run and start it again from the workflow_dispatch button." },
+      { id: 'C', text: "Push an empty commit to trigger a fresh run of the whole workflow." },
       { id: 'D', text: "Edit the workflow to add continue-on-error to the two failing jobs and commit the change." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Re-running failed jobs starts a new attempt of the same run that executes only the jobs that failed plus anything depending on them, carrying forward the successful jobs and keeping the original run context such as the commit and event payload. An empty commit or a fresh dispatch repeats all eight jobs, and adding continue-on-error would mask genuine failures rather than retry a transient one.",
     referenceUrl: "https://docs.github.com/en/actions/managing-workflow-runs/re-running-workflows-and-jobs",
@@ -345,10 +345,10 @@ export const GITHUB_ACTIONS_QUESTIONS_1 = [
     scenario: "An engineer writes an action.yml with runs.using set to composite and a steps list containing a single run step. Every workflow that references the action fails immediately with a validation error before the step executes.",
     question: "What is the most likely cause?",
     options: [
-      { id: 'A', text: "The action.yml is missing a branding block, which is required for composite actions." },
+      { id: 'A', text: "Composite actions require runs.using to name a specific runtime version rather than the word composite." },
       { id: 'B', text: "The run step omits the shell key, which is mandatory for every run step in a composite action." },
-      { id: 'C', text: "Composite actions require runs.using to name a specific runtime version rather than the word composite." },
-      { id: 'D', text: "Composite actions cannot contain run steps, only uses steps." }
+      { id: 'C', text: "Composite actions cannot contain run steps, only uses steps." },
+      { id: 'D', text: "The action.yml is missing a branding block, which is required for composite actions." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -366,12 +366,12 @@ export const GITHUB_ACTIONS_QUESTIONS_1 = [
     scenario: "A JavaScript action computes a semantic version string. The workflow step that uses the action has an id and needs to reference the version in a later step through the steps context.",
     question: "What must the action do, and what must action.yml declare?",
     options: [
-      { id: 'A', text: "Call core.exportVariable and declare the name under inputs in action.yml." },
-      { id: 'B', text: "Print the value to standard output; the runner captures the last line as the step output automatically." },
-      { id: 'C', text: "Call core.setOutput from the toolkit and declare a matching entry under outputs in action.yml." },
+      { id: 'A', text: "Call core.setOutput from the toolkit and declare a matching entry under outputs in action.yml." },
+      { id: 'B', text: "Call core.exportVariable and declare the name under inputs in action.yml." },
+      { id: 'C', text: "Print the value to standard output; the runner captures the last line as the step output automatically." },
       { id: 'D', text: "Write the value to a file named outputs.json in the workspace root." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The toolkit function core.setOutput records a named output for the step, and declaring the same name under outputs in action.yml documents it and makes it part of the action contract, after which a workflow reads it through the steps context using the step id. Standard output is only logged, core.exportVariable sets an environment variable for later steps rather than a step output, inputs describe values passed in, and no outputs.json convention exists.",
     referenceUrl: "https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions",
@@ -408,10 +408,10 @@ export const GITHUB_ACTIONS_QUESTIONS_1 = [
     scenario: "An action is at version 1.4.2. The maintainer wants consumers who reference the major version to pick up backward-compatible fixes without editing their workflows, while consumers who need reproducibility can pin exactly.",
     question: "Which release practice supports both audiences?",
     options: [
-      { id: 'A', text: "Ask consumers to reference the default branch, and cut a tag only for breaking changes." },
+      { id: 'A', text: "Publish each release as a separate repository named after its version." },
       { id: 'B', text: "Publish an immutable tag for each release and additionally maintain a moving major version tag that is repointed to the newest compatible release." },
-      { id: 'C', text: "Publish each release as a separate repository named after its version." },
-      { id: 'D', text: "Publish only immutable tags for each patch release and tell consumers to update their references on every release." }
+      { id: 'C', text: "Publish only immutable tags for each patch release and tell consumers to update their references on every release." },
+      { id: 'D', text: "Ask consumers to reference the default branch, and cut a tag only for breaking changes." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -429,12 +429,12 @@ export const GITHUB_ACTIONS_QUESTIONS_1 = [
     scenario: "A deployment workflow authenticates to a cloud provider with a static access key pair stored as repository secrets. Security requires that no long-lived cloud credential exists in GitHub, while the workflow keeps its ability to deploy.",
     question: "Which configuration meets that requirement?",
     options: [
-      { id: 'A', text: "Configure OpenID Connect trust between the cloud provider and GitHub, grant the job id-token: write, and exchange the short-lived token for a scoped cloud role." },
-      { id: 'B', text: "Rotate the access key pair automatically every twenty-four hours with a scheduled workflow." },
-      { id: 'C', text: "Move the access key pair from repository secrets to organization secrets scoped to selected repositories." },
+      { id: 'A', text: "Move the access key pair from repository secrets to organization secrets scoped to selected repositories." },
+      { id: 'B', text: "Configure OpenID Connect trust between the cloud provider and GitHub, grant the job id-token: write, and exchange the short-lived token for a scoped cloud role." },
+      { id: 'C', text: "Rotate the access key pair automatically every twenty-four hours with a scheduled workflow." },
       { id: 'D', text: "Store the access key pair in an environment secret protected by required reviewers." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "OpenID Connect lets the cloud provider trust GitHub as an identity provider and issue short-lived credentials for a specific repository, branch or environment claim, so no static key is stored anywhere in GitHub. Rotation shortens the exposure window but a valid long-lived key still exists, and moving the same key to organization or environment scope changes who can read it rather than eliminating it.",
     referenceUrl: "https://docs.github.com/en/actions/security-for-github-actions/security-hardening-your-deployments/about-security-hardening-with-openid-connect",
@@ -450,12 +450,12 @@ export const GITHUB_ACTIONS_QUESTIONS_1 = [
     scenario: "An organization operates self-hosted runners with access to a production network. Only the four repositories that deploy production services may use them; every other repository must fall back to hosted runners.",
     question: "Which mechanism enforces that?",
     options: [
-      { id: 'A', text: "Apply a unique label to the runners and ask teams not to reference that label." },
-      { id: 'B', text: "Set an organization ruleset that blocks the runs-on key in non-production repositories." },
+      { id: 'A', text: "Set an organization ruleset that blocks the runs-on key in non-production repositories." },
+      { id: 'B', text: "Place the runners in a runner group whose access is limited to the selected repositories." },
       { id: 'C', text: "Register the runners at repository level in all four repositories individually and delete the organization registration." },
-      { id: 'D', text: "Place the runners in a runner group whose access is limited to the selected repositories." }
+      { id: 'D', text: "Apply a unique label to the runners and ask teams not to reference that label." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Runner groups are the access control boundary for self-hosted runners, and limiting a group to selected repositories means jobs from any other repository cannot be routed to those runners regardless of the labels they request. Labels are routing hints with no authorisation behaviour, per-repository registration would work but multiplies the fleet and administration for the same effect, and rulesets govern branch and tag operations rather than the runs-on key.",
     referenceUrl: "https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups",
@@ -471,12 +471,12 @@ export const GITHUB_ACTIONS_QUESTIONS_1 = [
     scenario: "A team proposes attaching persistent self-hosted runners to a public repository so that fork pull requests build on hardware the team controls. Security objects that a fork contributor could run arbitrary code on those machines and that state could persist between jobs.",
     question: "Which responses genuinely reduce that risk? (Choose two.)",
     options: [
-      { id: 'A', text: "Grant the workflow a read-only GITHUB_TOKEN, which prevents the job from executing contributor code." },
-      { id: 'B', text: "Require approval for first-time contributors, which by itself makes persistent self-hosted runners safe for public repositories." },
-      { id: 'C', text: "Use ephemeral runners, so each runner processes a single job and is then discarded along with anything the job left behind." },
-      { id: 'D', text: "Keep fork pull requests on GitHub-hosted runners and reserve the self-hosted pool for trusted internal repositories." }
+      { id: 'A', text: "Keep fork pull requests on GitHub-hosted runners and reserve the self-hosted pool for trusted internal repositories." },
+      { id: 'B', text: "Use ephemeral runners, so each runner processes a single job and is then discarded along with anything the job left behind." },
+      { id: 'C', text: "Require approval for first-time contributors, which by itself makes persistent self-hosted runners safe for public repositories." },
+      { id: 'D', text: "Grant the workflow a read-only GITHUB_TOKEN, which prevents the job from executing contributor code." }
     ],
-    correctAnswers: ['C', 'D'],
+    correctAnswers: ['A', 'B'],
     type: "multiple",
     explanation: "The documented guidance is that persistent self-hosted runners should not serve public repositories, because a fork contribution can execute arbitrary code and leave artefacts, credentials or tooling behind for the next job. Keeping untrusted contributions on disposable hosted runners removes the exposure, and ephemeral registration removes the persistence by discarding the runner after one job. Approval gates reduce how often untrusted code runs but do not change what it can do once approved, and token scope constrains API access without preventing code execution on the machine.",
     referenceUrl: "https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners",
@@ -492,12 +492,12 @@ export const GITHUB_ACTIONS_QUESTIONS_1 = [
     scenario: "A shared artifact registry token is currently duplicated as a repository secret in nine repositories. Rotating it means nine edits, and two of the nine should no longer have access at all.",
     question: "Which change centralises the credential while preserving the access boundary?",
     options: [
-      { id: 'A', text: "Commit the token to a private repository and check it out during each workflow run." },
-      { id: 'B', text: "Create an environment secret in one repository and reference it from the other six." },
-      { id: 'C', text: "Create an organization variable holding the token so every repository can read it." },
-      { id: 'D', text: "Create an organization secret with its repository access set to the seven approved repositories." }
+      { id: 'A', text: "Create an organization secret with its repository access set to the seven approved repositories." },
+      { id: 'B', text: "Create an organization variable holding the token so every repository can read it." },
+      { id: 'C', text: "Create an environment secret in one repository and reference it from the other six." },
+      { id: 'D', text: "Commit the token to a private repository and check it out during each workflow run." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "An organization secret is stored once and can be scoped to selected repositories, so rotation is a single edit and the two repositories being removed simply fall outside the access list. Variables are stored and displayed in plain text and must never hold a credential, environment secrets are scoped to environments within the repository that defines them and cannot be referenced from other repositories, and committing a token to any repository exposes it in history.",
     referenceUrl: "https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions",
@@ -513,12 +513,12 @@ export const GITHUB_ACTIONS_QUESTIONS_1 = [
     scenario: "An enterprise wants workflows to use actions authored inside the enterprise plus a small reviewed list of third-party actions, and to block everything else in the Marketplace without reviewing each workflow file by hand.",
     question: "Which policy configuration achieves this?",
     options: [
-      { id: 'A', text: "Set the Actions permissions policy to allow enterprise actions plus specified actions, and populate the allow list with the reviewed third-party references." },
-      { id: 'B', text: "Require a CODEOWNERS review on the workflows directory in every repository." },
-      { id: 'C', text: "Disable Actions entirely for the enterprise and re-enable it per repository as requests arrive." },
+      { id: 'A', text: "Require a CODEOWNERS review on the workflows directory in every repository." },
+      { id: 'B', text: "Disable Actions entirely for the enterprise and re-enable it per repository as requests arrive." },
+      { id: 'C', text: "Set the Actions permissions policy to allow enterprise actions plus specified actions, and populate the allow list with the reviewed third-party references." },
       { id: 'D', text: "Enable secret scanning push protection, which blocks workflows that reference unapproved actions." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "The Actions permissions policy supports allowing actions created within the enterprise together with an explicit allow list of external references, which the platform enforces at run time so an unapproved action fails regardless of what a workflow file says. Disabling Actions wholesale blocks legitimate work and pushes review into a ticket queue, CODEOWNERS is a human review gate that can be bypassed by anyone with admin rights and does not enforce at run time, and push protection detects committed credentials rather than action references.",
     referenceUrl: "https://docs.github.com/en/enterprise-cloud@latest/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise",

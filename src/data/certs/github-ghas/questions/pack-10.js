@@ -9,10 +9,10 @@ export const GITHUB_GHAS_QUESTIONS_10 = [
     scenario: "A DevSecOps engineering team is securing the software supply chain and application codebase using GitHub Advanced Security (GHAS) for scenario #226.",
     question: "Which GHAS feature, CodeQL query configuration, Dependabot setting, or security policy best addresses requirement #226?",
     options: [
-      { id: 'A', text: "Option C: Suppressing all Dependabot security vulnerability alerts across default branches." },
-      { id: 'B', text: "Option D: Disabling static code analysis (CodeQL) on pull request reviews." },
+      { id: 'A', text: "Option B: Allowing secret push protection bypasses without logging or security audit alerts." },
+      { id: 'B', text: "Option C: Suppressing all Dependabot security vulnerability alerts across default branches." },
       { id: 'C', text: "Option A: Official GHAS security standard practice for Security Policies, Compliance & Governance conforming to GH-500 exam requirements." },
-      { id: 'D', text: "Option B: Allowing secret push protection bypasses without logging or security audit alerts." }
+      { id: 'D', text: "Option D: Disabling static code analysis (CodeQL) on pull request reviews." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -51,12 +51,12 @@ export const GITHUB_GHAS_QUESTIONS_10 = [
     scenario: "A DevSecOps engineering team is securing the software supply chain and application codebase using GitHub Advanced Security (GHAS) for scenario #228.",
     question: "Which GHAS feature, CodeQL query configuration, Dependabot setting, or security policy best addresses requirement #228?",
     options: [
-      { id: 'A', text: "Option C: Suppressing all Dependabot security vulnerability alerts across default branches." },
-      { id: 'B', text: "Option A: Official GHAS security standard practice for Security Policies, Compliance & Governance conforming to GH-500 exam requirements." },
-      { id: 'C', text: "Option B: Allowing secret push protection bypasses without logging or security audit alerts." },
-      { id: 'D', text: "Option D: Disabling static code analysis (CodeQL) on pull request reviews." }
+      { id: 'A', text: "Option A: Official GHAS security standard practice for Security Policies, Compliance & Governance conforming to GH-500 exam requirements." },
+      { id: 'B', text: "Option C: Suppressing all Dependabot security vulnerability alerts across default branches." },
+      { id: 'C', text: "Option D: Disabling static code analysis (CodeQL) on pull request reviews." },
+      { id: 'D', text: "Option B: Allowing secret push protection bypasses without logging or security audit alerts." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Comprehensive GitHub Advanced Security GH-500 explanation for topic #228: Evaluates secret scanning with push protection, custom secret patterns, Dependabot security/version updates, dependency graph and SBOM exports, CodeQL semantic analysis, SARIF upload integration, custom CodeQL query suites, and enterprise security configurations.",
     referenceUrl: "https://docs.github.com/en/code-security",
@@ -72,12 +72,12 @@ export const GITHUB_GHAS_QUESTIONS_10 = [
     scenario: "A DevSecOps engineering team is securing the software supply chain and application codebase using GitHub Advanced Security (GHAS) for scenario #229.",
     question: "Which GHAS feature, CodeQL query configuration, Dependabot setting, or security policy best addresses requirement #229?",
     options: [
-      { id: 'A', text: "Option A: Official GHAS security standard practice for Security Policies, Compliance & Governance conforming to GH-500 exam requirements." },
+      { id: 'A', text: "Option B: Allowing secret push protection bypasses without logging or security audit alerts." },
       { id: 'B', text: "Option D: Disabling static code analysis (CodeQL) on pull request reviews." },
-      { id: 'C', text: "Option C: Suppressing all Dependabot security vulnerability alerts across default branches." },
-      { id: 'D', text: "Option B: Allowing secret push protection bypasses without logging or security audit alerts." }
+      { id: 'C', text: "Option A: Official GHAS security standard practice for Security Policies, Compliance & Governance conforming to GH-500 exam requirements." },
+      { id: 'D', text: "Option C: Suppressing all Dependabot security vulnerability alerts across default branches." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Comprehensive GitHub Advanced Security GH-500 explanation for topic #229: Evaluates secret scanning with push protection, custom secret patterns, Dependabot security/version updates, dependency graph and SBOM exports, CodeQL semantic analysis, SARIF upload integration, custom CodeQL query suites, and enterprise security configurations.",
     referenceUrl: "https://docs.github.com/en/code-security",
@@ -93,12 +93,12 @@ export const GITHUB_GHAS_QUESTIONS_10 = [
     scenario: "A DevSecOps engineering team is securing the software supply chain and application codebase using GitHub Advanced Security (GHAS) for scenario #230.",
     question: "Which GHAS feature, CodeQL query configuration, Dependabot setting, or security policy best addresses requirement #230?",
     options: [
-      { id: 'A', text: "Option C: Suppressing all Dependabot security vulnerability alerts across default branches." },
-      { id: 'B', text: "Option D: Disabling static code analysis (CodeQL) on pull request reviews." },
-      { id: 'C', text: "Option A: Official GHAS security standard practice for Security Policies, Compliance & Governance conforming to GH-500 exam requirements." },
-      { id: 'D', text: "Option B: Allowing secret push protection bypasses without logging or security audit alerts." }
+      { id: 'A', text: "Option A: Official GHAS security standard practice for Security Policies, Compliance & Governance conforming to GH-500 exam requirements." },
+      { id: 'B', text: "Option B: Allowing secret push protection bypasses without logging or security audit alerts." },
+      { id: 'C', text: "Option C: Suppressing all Dependabot security vulnerability alerts across default branches." },
+      { id: 'D', text: "Option D: Disabling static code analysis (CodeQL) on pull request reviews." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Comprehensive GitHub Advanced Security GH-500 explanation for topic #230: Evaluates secret scanning with push protection, custom secret patterns, Dependabot security/version updates, dependency graph and SBOM exports, CodeQL semantic analysis, SARIF upload integration, custom CodeQL query suites, and enterprise security configurations.",
     referenceUrl: "https://docs.github.com/en/code-security",
@@ -178,11 +178,11 @@ export const GITHUB_GHAS_QUESTIONS_10 = [
     question: "Which GHAS feature, CodeQL query configuration, Dependabot setting, or security policy best addresses requirement #234?",
     options: [
       { id: 'A', text: "Option D: Disabling static code analysis (CodeQL) on pull request reviews." },
-      { id: 'B', text: "Option A: Official GHAS security standard practice for Security Policies, Compliance & Governance conforming to GH-500 exam requirements." },
-      { id: 'C', text: "Option B: Allowing secret push protection bypasses without logging or security audit alerts." },
-      { id: 'D', text: "Option C: Suppressing all Dependabot security vulnerability alerts across default branches." }
+      { id: 'B', text: "Option B: Allowing secret push protection bypasses without logging or security audit alerts." },
+      { id: 'C', text: "Option C: Suppressing all Dependabot security vulnerability alerts across default branches." },
+      { id: 'D', text: "Option A: Official GHAS security standard practice for Security Policies, Compliance & Governance conforming to GH-500 exam requirements." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Comprehensive GitHub Advanced Security GH-500 explanation for topic #234: Evaluates secret scanning with push protection, custom secret patterns, Dependabot security/version updates, dependency graph and SBOM exports, CodeQL semantic analysis, SARIF upload integration, custom CodeQL query suites, and enterprise security configurations.",
     referenceUrl: "https://docs.github.com/en/code-security",
@@ -219,12 +219,12 @@ export const GITHUB_GHAS_QUESTIONS_10 = [
     scenario: "A DevSecOps engineering team is securing the software supply chain and application codebase using GitHub Advanced Security (GHAS) for scenario #236.",
     question: "Which GHAS feature, CodeQL query configuration, Dependabot setting, or security policy best addresses requirement #236?",
     options: [
-      { id: 'A', text: "Option B: Allowing secret push protection bypasses without logging or security audit alerts." },
-      { id: 'B', text: "Option D: Disabling static code analysis (CodeQL) on pull request reviews." },
-      { id: 'C', text: "Option A: Official GHAS security standard practice for Security Policies, Compliance & Governance conforming to GH-500 exam requirements." },
+      { id: 'A', text: "Option D: Disabling static code analysis (CodeQL) on pull request reviews." },
+      { id: 'B', text: "Option A: Official GHAS security standard practice for Security Policies, Compliance & Governance conforming to GH-500 exam requirements." },
+      { id: 'C', text: "Option B: Allowing secret push protection bypasses without logging or security audit alerts." },
       { id: 'D', text: "Option C: Suppressing all Dependabot security vulnerability alerts across default branches." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Comprehensive GitHub Advanced Security GH-500 explanation for topic #236: Evaluates secret scanning with push protection, custom secret patterns, Dependabot security/version updates, dependency graph and SBOM exports, CodeQL semantic analysis, SARIF upload integration, custom CodeQL query suites, and enterprise security configurations.",
     referenceUrl: "https://docs.github.com/en/code-security",
@@ -240,12 +240,12 @@ export const GITHUB_GHAS_QUESTIONS_10 = [
     scenario: "A DevSecOps engineering team is securing the software supply chain and application codebase using GitHub Advanced Security (GHAS) for scenario #237.",
     question: "Which GHAS feature, CodeQL query configuration, Dependabot setting, or security policy best addresses requirement #237?",
     options: [
-      { id: 'A', text: "Option C: Suppressing all Dependabot security vulnerability alerts across default branches." },
-      { id: 'B', text: "Option B: Allowing secret push protection bypasses without logging or security audit alerts." },
-      { id: 'C', text: "Option A: Official GHAS security standard practice for Security Policies, Compliance & Governance conforming to GH-500 exam requirements." },
+      { id: 'A', text: "Option B: Allowing secret push protection bypasses without logging or security audit alerts." },
+      { id: 'B', text: "Option A: Official GHAS security standard practice for Security Policies, Compliance & Governance conforming to GH-500 exam requirements." },
+      { id: 'C', text: "Option C: Suppressing all Dependabot security vulnerability alerts across default branches." },
       { id: 'D', text: "Option D: Disabling static code analysis (CodeQL) on pull request reviews." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Comprehensive GitHub Advanced Security GH-500 explanation for topic #237: Evaluates secret scanning with push protection, custom secret patterns, Dependabot security/version updates, dependency graph and SBOM exports, CodeQL semantic analysis, SARIF upload integration, custom CodeQL query suites, and enterprise security configurations.",
     referenceUrl: "https://docs.github.com/en/code-security",
@@ -282,12 +282,12 @@ export const GITHUB_GHAS_QUESTIONS_10 = [
     scenario: "A DevSecOps engineering team is securing the software supply chain and application codebase using GitHub Advanced Security (GHAS) for scenario #239.",
     question: "Which GHAS feature, CodeQL query configuration, Dependabot setting, or security policy best addresses requirement #239?",
     options: [
-      { id: 'A', text: "Option D: Disabling static code analysis (CodeQL) on pull request reviews." },
+      { id: 'A', text: "Option A: Official GHAS security standard practice for Security Policies, Compliance & Governance conforming to GH-500 exam requirements." },
       { id: 'B', text: "Option C: Suppressing all Dependabot security vulnerability alerts across default branches." },
-      { id: 'C', text: "Option B: Allowing secret push protection bypasses without logging or security audit alerts." },
-      { id: 'D', text: "Option A: Official GHAS security standard practice for Security Policies, Compliance & Governance conforming to GH-500 exam requirements." }
+      { id: 'C', text: "Option D: Disabling static code analysis (CodeQL) on pull request reviews." },
+      { id: 'D', text: "Option B: Allowing secret push protection bypasses without logging or security audit alerts." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Comprehensive GitHub Advanced Security GH-500 explanation for topic #239: Evaluates secret scanning with push protection, custom secret patterns, Dependabot security/version updates, dependency graph and SBOM exports, CodeQL semantic analysis, SARIF upload integration, custom CodeQL query suites, and enterprise security configurations.",
     referenceUrl: "https://docs.github.com/en/code-security",
@@ -303,12 +303,12 @@ export const GITHUB_GHAS_QUESTIONS_10 = [
     scenario: "A DevSecOps engineering team is securing the software supply chain and application codebase using GitHub Advanced Security (GHAS) for scenario #240.",
     question: "Which GHAS feature, CodeQL query configuration, Dependabot setting, or security policy best addresses requirement #240?",
     options: [
-      { id: 'A', text: "Option A: Official GHAS security standard practice for Security Policies, Compliance & Governance conforming to GH-500 exam requirements." },
+      { id: 'A', text: "Option B: Allowing secret push protection bypasses without logging or security audit alerts." },
       { id: 'B', text: "Option D: Disabling static code analysis (CodeQL) on pull request reviews." },
-      { id: 'C', text: "Option C: Suppressing all Dependabot security vulnerability alerts across default branches." },
-      { id: 'D', text: "Option B: Allowing secret push protection bypasses without logging or security audit alerts." }
+      { id: 'C', text: "Option A: Official GHAS security standard practice for Security Policies, Compliance & Governance conforming to GH-500 exam requirements." },
+      { id: 'D', text: "Option C: Suppressing all Dependabot security vulnerability alerts across default branches." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Comprehensive GitHub Advanced Security GH-500 explanation for topic #240: Evaluates secret scanning with push protection, custom secret patterns, Dependabot security/version updates, dependency graph and SBOM exports, CodeQL semantic analysis, SARIF upload integration, custom CodeQL query suites, and enterprise security configurations.",
     referenceUrl: "https://docs.github.com/en/code-security",
@@ -324,12 +324,12 @@ export const GITHUB_GHAS_QUESTIONS_10 = [
     scenario: "A DevSecOps engineering team is securing the software supply chain and application codebase using GitHub Advanced Security (GHAS) for scenario #241.",
     question: "Which GHAS feature, CodeQL query configuration, Dependabot setting, or security policy best addresses requirement #241?",
     options: [
-      { id: 'A', text: "Option A: Official GHAS security standard practice for Security Policies, Compliance & Governance conforming to GH-500 exam requirements." },
-      { id: 'B', text: "Option D: Disabling static code analysis (CodeQL) on pull request reviews." },
-      { id: 'C', text: "Option B: Allowing secret push protection bypasses without logging or security audit alerts." },
-      { id: 'D', text: "Option C: Suppressing all Dependabot security vulnerability alerts across default branches." }
+      { id: 'A', text: "Option D: Disabling static code analysis (CodeQL) on pull request reviews." },
+      { id: 'B', text: "Option A: Official GHAS security standard practice for Security Policies, Compliance & Governance conforming to GH-500 exam requirements." },
+      { id: 'C', text: "Option C: Suppressing all Dependabot security vulnerability alerts across default branches." },
+      { id: 'D', text: "Option B: Allowing secret push protection bypasses without logging or security audit alerts." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Comprehensive GitHub Advanced Security GH-500 explanation for topic #241: Evaluates secret scanning with push protection, custom secret patterns, Dependabot security/version updates, dependency graph and SBOM exports, CodeQL semantic analysis, SARIF upload integration, custom CodeQL query suites, and enterprise security configurations.",
     referenceUrl: "https://docs.github.com/en/code-security",
@@ -345,12 +345,12 @@ export const GITHUB_GHAS_QUESTIONS_10 = [
     scenario: "A DevSecOps engineering team is securing the software supply chain and application codebase using GitHub Advanced Security (GHAS) for scenario #242.",
     question: "Which GHAS feature, CodeQL query configuration, Dependabot setting, or security policy best addresses requirement #242?",
     options: [
-      { id: 'A', text: "Option C: Suppressing all Dependabot security vulnerability alerts across default branches." },
-      { id: 'B', text: "Option D: Disabling static code analysis (CodeQL) on pull request reviews." },
-      { id: 'C', text: "Option A: Official GHAS security standard practice for Security Policies, Compliance & Governance conforming to GH-500 exam requirements." },
-      { id: 'D', text: "Option B: Allowing secret push protection bypasses without logging or security audit alerts." }
+      { id: 'A', text: "Option A: Official GHAS security standard practice for Security Policies, Compliance & Governance conforming to GH-500 exam requirements." },
+      { id: 'B', text: "Option B: Allowing secret push protection bypasses without logging or security audit alerts." },
+      { id: 'C', text: "Option C: Suppressing all Dependabot security vulnerability alerts across default branches." },
+      { id: 'D', text: "Option D: Disabling static code analysis (CodeQL) on pull request reviews." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Comprehensive GitHub Advanced Security GH-500 explanation for topic #242: Evaluates secret scanning with push protection, custom secret patterns, Dependabot security/version updates, dependency graph and SBOM exports, CodeQL semantic analysis, SARIF upload integration, custom CodeQL query suites, and enterprise security configurations.",
     referenceUrl: "https://docs.github.com/en/code-security",
@@ -366,12 +366,12 @@ export const GITHUB_GHAS_QUESTIONS_10 = [
     scenario: "A DevSecOps engineering team is securing the software supply chain and application codebase using GitHub Advanced Security (GHAS) for scenario #243.",
     question: "Which GHAS feature, CodeQL query configuration, Dependabot setting, or security policy best addresses requirement #243?",
     options: [
-      { id: 'A', text: "Option C: Suppressing all Dependabot security vulnerability alerts across default branches." },
-      { id: 'B', text: "Option D: Disabling static code analysis (CodeQL) on pull request reviews." },
-      { id: 'C', text: "Option A: Official GHAS security standard practice for Security Policies, Compliance & Governance conforming to GH-500 exam requirements." },
-      { id: 'D', text: "Option B: Allowing secret push protection bypasses without logging or security audit alerts." }
+      { id: 'A', text: "Option A: Official GHAS security standard practice for Security Policies, Compliance & Governance conforming to GH-500 exam requirements." },
+      { id: 'B', text: "Option B: Allowing secret push protection bypasses without logging or security audit alerts." },
+      { id: 'C', text: "Option C: Suppressing all Dependabot security vulnerability alerts across default branches." },
+      { id: 'D', text: "Option D: Disabling static code analysis (CodeQL) on pull request reviews." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Comprehensive GitHub Advanced Security GH-500 explanation for topic #243: Evaluates secret scanning with push protection, custom secret patterns, Dependabot security/version updates, dependency graph and SBOM exports, CodeQL semantic analysis, SARIF upload integration, custom CodeQL query suites, and enterprise security configurations.",
     referenceUrl: "https://docs.github.com/en/code-security",
@@ -408,12 +408,12 @@ export const GITHUB_GHAS_QUESTIONS_10 = [
     scenario: "A DevSecOps engineering team is securing the software supply chain and application codebase using GitHub Advanced Security (GHAS) for scenario #245.",
     question: "Which GHAS feature, CodeQL query configuration, Dependabot setting, or security policy best addresses requirement #245?",
     options: [
-      { id: 'A', text: "Option A: Official GHAS security standard practice for Security Policies, Compliance & Governance conforming to GH-500 exam requirements." },
-      { id: 'B', text: "Option D: Disabling static code analysis (CodeQL) on pull request reviews." },
-      { id: 'C', text: "Option B: Allowing secret push protection bypasses without logging or security audit alerts." },
-      { id: 'D', text: "Option C: Suppressing all Dependabot security vulnerability alerts across default branches." }
+      { id: 'A', text: "Option B: Allowing secret push protection bypasses without logging or security audit alerts." },
+      { id: 'B', text: "Option C: Suppressing all Dependabot security vulnerability alerts across default branches." },
+      { id: 'C', text: "Option A: Official GHAS security standard practice for Security Policies, Compliance & Governance conforming to GH-500 exam requirements." },
+      { id: 'D', text: "Option D: Disabling static code analysis (CodeQL) on pull request reviews." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Comprehensive GitHub Advanced Security GH-500 explanation for topic #245: Evaluates secret scanning with push protection, custom secret patterns, Dependabot security/version updates, dependency graph and SBOM exports, CodeQL semantic analysis, SARIF upload integration, custom CodeQL query suites, and enterprise security configurations.",
     referenceUrl: "https://docs.github.com/en/code-security",
@@ -492,12 +492,12 @@ export const GITHUB_GHAS_QUESTIONS_10 = [
     scenario: "A DevSecOps engineering team is securing the software supply chain and application codebase using GitHub Advanced Security (GHAS) for scenario #249.",
     question: "Which GHAS feature, CodeQL query configuration, Dependabot setting, or security policy best addresses requirement #249?",
     options: [
-      { id: 'A', text: "Option A: Official GHAS security standard practice for Security Policies, Compliance & Governance conforming to GH-500 exam requirements." },
-      { id: 'B', text: "Option B: Allowing secret push protection bypasses without logging or security audit alerts." },
-      { id: 'C', text: "Option D: Disabling static code analysis (CodeQL) on pull request reviews." },
-      { id: 'D', text: "Option C: Suppressing all Dependabot security vulnerability alerts across default branches." }
+      { id: 'A', text: "Option C: Suppressing all Dependabot security vulnerability alerts across default branches." },
+      { id: 'B', text: "Option D: Disabling static code analysis (CodeQL) on pull request reviews." },
+      { id: 'C', text: "Option B: Allowing secret push protection bypasses without logging or security audit alerts." },
+      { id: 'D', text: "Option A: Official GHAS security standard practice for Security Policies, Compliance & Governance conforming to GH-500 exam requirements." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Comprehensive GitHub Advanced Security GH-500 explanation for topic #249: Evaluates secret scanning with push protection, custom secret patterns, Dependabot security/version updates, dependency graph and SBOM exports, CodeQL semantic analysis, SARIF upload integration, custom CodeQL query suites, and enterprise security configurations.",
     referenceUrl: "https://docs.github.com/en/code-security",
@@ -513,12 +513,12 @@ export const GITHUB_GHAS_QUESTIONS_10 = [
     scenario: "A DevSecOps engineering team is securing the software supply chain and application codebase using GitHub Advanced Security (GHAS) for scenario #250.",
     question: "Which GHAS feature, CodeQL query configuration, Dependabot setting, or security policy best addresses requirement #250?",
     options: [
-      { id: 'A', text: "Option C: Suppressing all Dependabot security vulnerability alerts across default branches." },
-      { id: 'B', text: "Option B: Allowing secret push protection bypasses without logging or security audit alerts." },
-      { id: 'C', text: "Option A: Official GHAS security standard practice for Security Policies, Compliance & Governance conforming to GH-500 exam requirements." },
+      { id: 'A', text: "Option A: Official GHAS security standard practice for Security Policies, Compliance & Governance conforming to GH-500 exam requirements." },
+      { id: 'B', text: "Option C: Suppressing all Dependabot security vulnerability alerts across default branches." },
+      { id: 'C', text: "Option B: Allowing secret push protection bypasses without logging or security audit alerts." },
       { id: 'D', text: "Option D: Disabling static code analysis (CodeQL) on pull request reviews." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Comprehensive GitHub Advanced Security GH-500 explanation for topic #250: Evaluates secret scanning with push protection, custom secret patterns, Dependabot security/version updates, dependency graph and SBOM exports, CodeQL semantic analysis, SARIF upload integration, custom CodeQL query suites, and enterprise security configurations.",
     referenceUrl: "https://docs.github.com/en/code-security",
