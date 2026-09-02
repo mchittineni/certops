@@ -23,7 +23,8 @@ const PROVIDER_SLUGS = {
   'HashiCorp': 'hashicorp',
   'GitHub': 'github',
   'Docker': 'docker',
-  'ISC2': 'isc2'
+  'ISC2': 'isc2',
+  'Databricks': 'databricks'
 };
 
 /** extra marks used for certification-specific badges and the discipline grid */
