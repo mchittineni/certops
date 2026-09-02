@@ -1,7 +1,7 @@
-export const GCP_ACE_FLASHCARDS_1 = [
+export const GCP_ACE_FLASHCARDS_6 = [
   {
-    "id": "gcp-ace-fc-1",
-    "difficulty": "medium",
+    "id": "gcp-ace-fc-126",
+    "difficulty": "easy",
     "certId": "gcp-ace",
     "domainId": "d1",
     "front": "In GCP-ACE (Setting up a cloud solution environment), how does Creating projects and configuring Cloud Identity organization hierarchy function and what architectural trade-offs does it address?",
@@ -13,7 +13,7 @@ export const GCP_ACE_FLASHCARDS_1 = [
     ]
   },
   {
-    "id": "gcp-ace-fc-2",
+    "id": "gcp-ace-fc-127",
     "difficulty": "medium",
     "certId": "gcp-ace",
     "domainId": "d2",
@@ -26,8 +26,8 @@ export const GCP_ACE_FLASHCARDS_1 = [
     ]
   },
   {
-    "id": "gcp-ace-fc-3",
-    "difficulty": "easy",
+    "id": "gcp-ace-fc-128",
+    "difficulty": "medium",
     "certId": "gcp-ace",
     "domainId": "d3",
     "front": "In GCP-ACE (Deploying and implementing a cloud solution), how does Deploying Compute Engine instances and managed instance groups MIGs function and what architectural trade-offs does it address?",
@@ -39,8 +39,8 @@ export const GCP_ACE_FLASHCARDS_1 = [
     ]
   },
   {
-    "id": "gcp-ace-fc-4",
-    "difficulty": "medium",
+    "id": "gcp-ace-fc-129",
+    "difficulty": "easy",
     "certId": "gcp-ace",
     "domainId": "d4",
     "front": "In GCP-ACE (Ensuring successful operation of a cloud solution), how does Managing Compute Engine VM lifecycle and snapshot schedules function and what architectural trade-offs does it address?",
@@ -52,7 +52,7 @@ export const GCP_ACE_FLASHCARDS_1 = [
     ]
   },
   {
-    "id": "gcp-ace-fc-5",
+    "id": "gcp-ace-fc-130",
     "difficulty": "hard",
     "certId": "gcp-ace",
     "domainId": "d5",
@@ -65,8 +65,8 @@ export const GCP_ACE_FLASHCARDS_1 = [
     ]
   },
   {
-    "id": "gcp-ace-fc-6",
-    "difficulty": "easy",
+    "id": "gcp-ace-fc-131",
+    "difficulty": "medium",
     "certId": "gcp-ace",
     "domainId": "d1",
     "front": "In GCP-ACE (Setting up a cloud solution environment), how does Managing Cloud Billing accounts, export budgets, and spending alerts function and what architectural trade-offs does it address?",
@@ -78,8 +78,8 @@ export const GCP_ACE_FLASHCARDS_1 = [
     ]
   },
   {
-    "id": "gcp-ace-fc-7",
-    "difficulty": "medium",
+    "id": "gcp-ace-fc-132",
+    "difficulty": "easy",
     "certId": "gcp-ace",
     "domainId": "d2",
     "front": "In GCP-ACE (Planning and configuring a cloud solution), how does Planning Compute Engine machine types, persistent disks, and preemptible VMs function and what architectural trade-offs does it address?",
@@ -91,7 +91,7 @@ export const GCP_ACE_FLASHCARDS_1 = [
     ]
   },
   {
-    "id": "gcp-ace-fc-8",
+    "id": "gcp-ace-fc-133",
     "difficulty": "medium",
     "certId": "gcp-ace",
     "domainId": "d3",
@@ -104,8 +104,8 @@ export const GCP_ACE_FLASHCARDS_1 = [
     ]
   },
   {
-    "id": "gcp-ace-fc-9",
-    "difficulty": "easy",
+    "id": "gcp-ace-fc-134",
+    "difficulty": "medium",
     "certId": "gcp-ace",
     "domainId": "d4",
     "front": "In GCP-ACE (Ensuring successful operation of a cloud solution), how does Configuring Cloud Monitoring uptime checks, alert policies, and dashboards function and what architectural trade-offs does it address?",
@@ -117,7 +117,7 @@ export const GCP_ACE_FLASHCARDS_1 = [
     ]
   },
   {
-    "id": "gcp-ace-fc-10",
+    "id": "gcp-ace-fc-135",
     "difficulty": "hard",
     "certId": "gcp-ace",
     "domainId": "d5",
@@ -130,7 +130,7 @@ export const GCP_ACE_FLASHCARDS_1 = [
     ]
   },
   {
-    "id": "gcp-ace-fc-11",
+    "id": "gcp-ace-fc-136",
     "difficulty": "medium",
     "certId": "gcp-ace",
     "domainId": "d1",
@@ -143,8 +143,8 @@ export const GCP_ACE_FLASHCARDS_1 = [
     ]
   },
   {
-    "id": "gcp-ace-fc-12",
-    "difficulty": "easy",
+    "id": "gcp-ace-fc-137",
+    "difficulty": "medium",
     "certId": "gcp-ace",
     "domainId": "d2",
     "front": "In GCP-ACE (Planning and configuring a cloud solution), how does Selecting Cloud Storage classes Standard, Nearline, Coldline, and Archive function and what architectural trade-offs does it address?",
@@ -156,8 +156,8 @@ export const GCP_ACE_FLASHCARDS_1 = [
     ]
   },
   {
-    "id": "gcp-ace-fc-13",
-    "difficulty": "medium",
+    "id": "gcp-ace-fc-138",
+    "difficulty": "easy",
     "certId": "gcp-ace",
     "domainId": "d3",
     "front": "In GCP-ACE (Deploying and implementing a cloud solution), how does Deploying serverless container workloads with Cloud Run services function and what architectural trade-offs does it address?",
@@ -169,7 +169,7 @@ export const GCP_ACE_FLASHCARDS_1 = [
     ]
   },
   {
-    "id": "gcp-ace-fc-14",
+    "id": "gcp-ace-fc-139",
     "difficulty": "medium",
     "certId": "gcp-ace",
     "domainId": "d4",
@@ -182,7 +182,7 @@ export const GCP_ACE_FLASHCARDS_1 = [
     ]
   },
   {
-    "id": "gcp-ace-fc-15",
+    "id": "gcp-ace-fc-140",
     "difficulty": "hard",
     "certId": "gcp-ace",
     "domainId": "d5",
@@ -195,8 +195,8 @@ export const GCP_ACE_FLASHCARDS_1 = [
     ]
   },
   {
-    "id": "gcp-ace-fc-16",
-    "difficulty": "medium",
+    "id": "gcp-ace-fc-141",
+    "difficulty": "easy",
     "certId": "gcp-ace",
     "domainId": "d1",
     "front": "In GCP-ACE (Setting up a cloud solution environment), how does IAM pre-defined and custom roles across resource hierarchy function and what architectural trade-offs does it address?",
@@ -208,7 +208,7 @@ export const GCP_ACE_FLASHCARDS_1 = [
     ]
   },
   {
-    "id": "gcp-ace-fc-17",
+    "id": "gcp-ace-fc-142",
     "difficulty": "medium",
     "certId": "gcp-ace",
     "domainId": "d2",
@@ -221,8 +221,8 @@ export const GCP_ACE_FLASHCARDS_1 = [
     ]
   },
   {
-    "id": "gcp-ace-fc-18",
-    "difficulty": "easy",
+    "id": "gcp-ace-fc-143",
+    "difficulty": "medium",
     "certId": "gcp-ace",
     "domainId": "d3",
     "front": "In GCP-ACE (Deploying and implementing a cloud solution), how does Configuring Cloud VPC firewall rules, Cloud NAT, and private Google access function and what architectural trade-offs does it address?",
@@ -234,8 +234,8 @@ export const GCP_ACE_FLASHCARDS_1 = [
     ]
   },
   {
-    "id": "gcp-ace-fc-19",
-    "difficulty": "medium",
+    "id": "gcp-ace-fc-144",
+    "difficulty": "easy",
     "certId": "gcp-ace",
     "domainId": "d4",
     "front": "In GCP-ACE (Ensuring successful operation of a cloud solution), how does Viewing and filtering billing reports and cost breakdown analysis function and what architectural trade-offs does it address?",
@@ -247,7 +247,7 @@ export const GCP_ACE_FLASHCARDS_1 = [
     ]
   },
   {
-    "id": "gcp-ace-fc-20",
+    "id": "gcp-ace-fc-145",
     "difficulty": "hard",
     "certId": "gcp-ace",
     "domainId": "d5",
@@ -260,8 +260,8 @@ export const GCP_ACE_FLASHCARDS_1 = [
     ]
   },
   {
-    "id": "gcp-ace-fc-21",
-    "difficulty": "easy",
+    "id": "gcp-ace-fc-146",
+    "difficulty": "medium",
     "certId": "gcp-ace",
     "domainId": "d1",
     "front": "In GCP-ACE (Setting up a cloud solution environment), how does Enabling Google Cloud APIs and managing service accounts function and what architectural trade-offs does it address?",
@@ -273,8 +273,8 @@ export const GCP_ACE_FLASHCARDS_1 = [
     ]
   },
   {
-    "id": "gcp-ace-fc-22",
-    "difficulty": "medium",
+    "id": "gcp-ace-fc-147",
+    "difficulty": "easy",
     "certId": "gcp-ace",
     "domainId": "d2",
     "front": "In GCP-ACE (Planning and configuring a cloud solution), how does Planning VPC networks, subnets, and IP address allocation function and what architectural trade-offs does it address?",
@@ -286,7 +286,7 @@ export const GCP_ACE_FLASHCARDS_1 = [
     ]
   },
   {
-    "id": "gcp-ace-fc-23",
+    "id": "gcp-ace-fc-148",
     "difficulty": "medium",
     "certId": "gcp-ace",
     "domainId": "d3",
@@ -299,8 +299,8 @@ export const GCP_ACE_FLASHCARDS_1 = [
     ]
   },
   {
-    "id": "gcp-ace-fc-24",
-    "difficulty": "easy",
+    "id": "gcp-ace-fc-149",
+    "difficulty": "medium",
     "certId": "gcp-ace",
     "domainId": "d4",
     "front": "In GCP-ACE (Ensuring successful operation of a cloud solution), how does Managing GKE cluster upgrades and node pool autoscaling function and what architectural trade-offs does it address?",
@@ -312,7 +312,7 @@ export const GCP_ACE_FLASHCARDS_1 = [
     ]
   },
   {
-    "id": "gcp-ace-fc-25",
+    "id": "gcp-ace-fc-150",
     "difficulty": "hard",
     "certId": "gcp-ace",
     "domainId": "d5",
@@ -326,4 +326,4 @@ export const GCP_ACE_FLASHCARDS_1 = [
   }
 ];
 
-export default GCP_ACE_FLASHCARDS_1;
+export default GCP_ACE_FLASHCARDS_6;

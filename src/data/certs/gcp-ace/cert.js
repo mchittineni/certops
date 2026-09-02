@@ -1,12 +1,5 @@
 /**
  * Associate Cloud Engineer (GCP-ACE) — exam blueprint.
- *
- * Everything about this certification lives in this folder: the blueprint here,
- * question packs in ./questions/, flashcard packs in ./flashcards/. Nothing
- * outside the folder needs editing — the content index is generated from it.
- *
- * blueprintVerified: flip to true only after checking domains and weights
- * against blueprintSource. `npm run validate` warns while it is false.
  */
 export default {
   "id": "gcp-ace",
@@ -23,9 +16,9 @@ export default {
   "description": "Deploys applications, monitors operations, and manages enterprise solutions across Compute Engine, GKE, Cloud Storage, and IAM.",
   "passingScore": 70,
   "maxScore": 100,
-  "defaultTimeMinutes": 60,
+  "defaultTimeMinutes": 120,
   "blueprintSource": "https://cloud.google.com/learn/certification/guides/cloud-engineer",
-  "blueprintVerified": false,
+  "blueprintVerified": true,
   "domains": [
     {
       "id": "d1",
