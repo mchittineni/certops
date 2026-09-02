@@ -96,6 +96,9 @@ export function providerIcon(provider, { size = 20, tone = 'brand' } = {}) {
   }
   const isFallbackProvider = provider === 'AWS' || provider === 'Microsoft Azure';
   const extraClass = isFallbackProvider ? ' brand-lettermark' : '';
+  if (brand.renderSvg) {
+    return `<span class="brand-mark${extraClass}" style="${brandStyle(brand.hex, size, tone)}" role="img" aria-label="${label}">${brand.renderSvg(size, tone)}</span>`;
+  }
   return `<span class="brand-mark${extraClass}" style="${brandStyle(brand.hex, size, tone)}" role="img" aria-label="${label}">
     <svg viewBox="0 0 24 24" width="${size}" height="${size}" fill="currentColor" aria-hidden="true" focusable="false"><path d="${brand.path}"></path></svg>
   </span>`;
@@ -103,6 +106,9 @@ export function providerIcon(provider, { size = 20, tone = 'brand' } = {}) {
 
 /** Brand mark for a slug, used where a specific technology is the subject. */
 export function brandMark(slug, { size = 20, tone = 'brand' } = {}) {
+  if (slug === 'googlecloud' && LOCAL_BRAND_ICONS['Google Cloud']) {
+    return providerIcon('Google Cloud', { size, tone });
+  }
   const icon = BRAND_ICONS[slug];
   if (!icon) return '';
   return `<span class="brand-mark" style="${brandStyle(icon.hex, size, tone)}" role="img" aria-label="${escapeHtml(icon.title)}">
@@ -118,17 +124,20 @@ export function brandMark(slug, { size = 20, tone = 'brand' } = {}) {
  */
 export function certIcon(cert, { size = 20, tone = 'brand' } = {}) {
   if (!cert) return '';
-  if (cert.icon && BRAND_ICONS[cert.icon]) {
-    return brandMark(cert.icon, { size, tone });
+  if (cert.icon === 'googlecloud' || cert.provider === 'Google Cloud') {
+    return providerIcon('Google Cloud', { size, tone });
   }
-  if (cert.icon === 'aws' && LOCAL_BRAND_ICONS['AWS']) {
+  if (cert.icon === 'aws' || cert.provider === 'AWS') {
     return providerIcon('AWS', { size, tone });
   }
-  if (cert.icon === 'azure' && LOCAL_BRAND_ICONS['Microsoft Azure']) {
+  if (cert.icon === 'azure' || cert.provider === 'Microsoft Azure') {
     return providerIcon('Microsoft Azure', { size, tone });
   }
-  if (cert.icon === 'finops' && LOCAL_BRAND_ICONS['FinOps Foundation']) {
+  if (cert.icon === 'finops' || cert.provider === 'FinOps Foundation') {
     return providerIcon('FinOps Foundation', { size, tone });
+  }
+  if (cert.icon && BRAND_ICONS[cert.icon]) {
+    return brandMark(cert.icon, { size, tone });
   }
   return providerIcon(cert.provider, { size, tone });
 }
