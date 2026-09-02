@@ -1593,6 +1593,18 @@ button {
 @supports not (background: color-mix(in srgb, red 10%, transparent)) {
   .brand-lettermark { background: var(--tint-neutral); border: 1px solid var(--border-subtle); }
 }
+.brand-mark:has(svg),
+.brand-mark.brand-lettermark:has(svg) {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+}
+.aws-letters {
+  fill: #232f3e;
+}
+[data-theme="dark"] .aws-letters {
+  fill: #f3f4f6;
+}
 .discipline-glyph { color: var(--accent-blue); }
 
 /* provider badge becomes a mark + label pair */
