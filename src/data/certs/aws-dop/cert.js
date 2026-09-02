@@ -1,12 +1,5 @@
 /**
  * AWS Certified DevOps Engineer - Professional (DOP-C02) — exam blueprint.
- *
- * SEEDED PLACEHOLDER. passingScore, defaultTimeMinutes, and domains are guesses.
- * Before flipping status to 'live':
- *   1. replace domains + weights from blueprintSource (they must sum to 100)
- *   2. correct passingScore / maxScore / defaultTimeMinutes
- *   3. set blueprintVerified: true
- *   4. add content: npm run new:pack -- --cert aws-dop --kind questions --count 50
  */
 export default {
   "id": "aws-dop",
@@ -15,32 +8,47 @@ export default {
   "title": "AWS Certified DevOps Engineer - Professional",
   "category": "DevOps & SRE",
   "tier": "professional",
-  "status": "planned",
+  "status": "live",
   "priority": 1,
   "badgeClass": "badge-aws",
   "icon": "aws",
   "color": "#ff9900",
-  "description": "TODO one-sentence description of what DOP-C02 validates.",
+  "description": "Validates advanced technical skills in provisioning, operating, and managing distributed application systems and CI/CD automation on AWS.",
   "passingScore": 750,
   "maxScore": 1000,
   "defaultTimeMinutes": 180,
-  "blueprintSource": "https://TODO-official-exam-guide",
-  "blueprintVerified": false,
+  "blueprintSource": "https://aws.amazon.com/certification/certified-devops-engineer-professional/",
+  "blueprintVerified": true,
   "domains": [
     {
       "id": "d1",
-      "name": "TODO Domain 1",
-      "weight": 34
+      "name": "SDLC Automation",
+      "weight": 22
     },
     {
       "id": "d2",
-      "name": "TODO Domain 2",
-      "weight": 33
+      "name": "Configuration Management and Infrastructure as Code",
+      "weight": 17
     },
     {
       "id": "d3",
-      "name": "TODO Domain 3",
-      "weight": 33
+      "name": "Resilient Cloud Solutions",
+      "weight": 15
+    },
+    {
+      "id": "d4",
+      "name": "Monitoring and Logging",
+      "weight": 15
+    },
+    {
+      "id": "d5",
+      "name": "Incident and Event Response",
+      "weight": 14
+    },
+    {
+      "id": "d6",
+      "name": "Security and Compliance",
+      "weight": 17
     }
   ]
 };
