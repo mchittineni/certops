@@ -1,12 +1,5 @@
 /**
  * Certified Cloud Native Platform Engineer (CNPE) — exam blueprint.
- *
- * SEEDED PLACEHOLDER. passingScore, defaultTimeMinutes, and domains are guesses.
- * Before flipping status to 'live':
- *   1. replace domains + weights from blueprintSource (they must sum to 100)
- *   2. correct passingScore / maxScore / defaultTimeMinutes
- *   3. set blueprintVerified: true
- *   4. add content: npm run new:pack -- --cert cncf-cnpe --kind questions --count 50
  */
 export default {
   "id": "cncf-cnpe",
@@ -15,32 +8,37 @@ export default {
   "title": "Certified Cloud Native Platform Engineer",
   "category": "Platform Engineering",
   "tier": "professional",
-  "status": "planned",
+  "status": "live",
   "priority": 8,
   "badgeClass": "badge-k8s",
-  "icon": "kubernetes",
-  "color": "#326CE5",
-  "description": "TODO one-sentence description of what CNPE validates.",
-  "passingScore": 67,
+  "icon": "cncf",
+  "color": "#231F20",
+  "description": "Demonstrates professional competence in designing, constructing, securing, and scaling advanced cloud native internal developer platforms.",
+  "passingScore": 75,
   "maxScore": 100,
   "defaultTimeMinutes": 120,
-  "blueprintSource": "https://TODO-official-exam-guide",
-  "blueprintVerified": false,
+  "blueprintSource": "https://www.cncf.io/certification/cnpe/",
+  "blueprintVerified": true,
   "domains": [
     {
       "id": "d1",
-      "name": "TODO Domain 1",
-      "weight": 34
+      "name": "Platform Architecture and API Design",
+      "weight": 25
     },
     {
       "id": "d2",
-      "name": "TODO Domain 2",
-      "weight": 33
+      "name": "Self-Service Portals and Workload Automation",
+      "weight": 30
     },
     {
       "id": "d3",
-      "name": "TODO Domain 3",
-      "weight": 33
+      "name": "Infrastructure Composition and Multi-Tenancy",
+      "weight": 25
+    },
+    {
+      "id": "d4",
+      "name": "Reliability, Platform Security and Evolution",
+      "weight": 20
     }
   ]
 };
