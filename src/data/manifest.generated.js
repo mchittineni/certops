@@ -59,6 +59,30 @@ export const CONTENT_MANIFEST = {
       "loadedPacks": 10
     }
   },
+  "aws-dbs": {
+    "questions": {
+      "total": 0,
+      "byDifficulty": {
+        "easy": 0,
+        "medium": 0,
+        "hard": 0
+      },
+      "byDomain": {},
+      "packs": 0,
+      "loadedPacks": 0
+    },
+    "flashcards": {
+      "total": 0,
+      "byDifficulty": {
+        "easy": 0,
+        "medium": 0,
+        "hard": 0
+      },
+      "byDomain": {},
+      "packs": 0,
+      "loadedPacks": 0
+    }
+  },
   "aws-dop": {
     "questions": {
       "total": 0,
@@ -84,6 +108,54 @@ export const CONTENT_MANIFEST = {
     }
   },
   "aws-dva": {
+    "questions": {
+      "total": 0,
+      "byDifficulty": {
+        "easy": 0,
+        "medium": 0,
+        "hard": 0
+      },
+      "byDomain": {},
+      "packs": 0,
+      "loadedPacks": 0
+    },
+    "flashcards": {
+      "total": 0,
+      "byDifficulty": {
+        "easy": 0,
+        "medium": 0,
+        "hard": 0
+      },
+      "byDomain": {},
+      "packs": 0,
+      "loadedPacks": 0
+    }
+  },
+  "aws-mla": {
+    "questions": {
+      "total": 0,
+      "byDifficulty": {
+        "easy": 0,
+        "medium": 0,
+        "hard": 0
+      },
+      "byDomain": {},
+      "packs": 0,
+      "loadedPacks": 0
+    },
+    "flashcards": {
+      "total": 0,
+      "byDifficulty": {
+        "easy": 0,
+        "medium": 0,
+        "hard": 0
+      },
+      "byDomain": {},
+      "packs": 0,
+      "loadedPacks": 0
+    }
+  },
+  "aws-mls": {
     "questions": {
       "total": 0,
       "byDifficulty": {
@@ -190,6 +262,54 @@ export const CONTENT_MANIFEST = {
     }
   },
   "aws-soa": {
+    "questions": {
+      "total": 0,
+      "byDifficulty": {
+        "easy": 0,
+        "medium": 0,
+        "hard": 0
+      },
+      "byDomain": {},
+      "packs": 0,
+      "loadedPacks": 0
+    },
+    "flashcards": {
+      "total": 0,
+      "byDifficulty": {
+        "easy": 0,
+        "medium": 0,
+        "hard": 0
+      },
+      "byDomain": {},
+      "packs": 0,
+      "loadedPacks": 0
+    }
+  },
+  "azure-ai-apps-agents": {
+    "questions": {
+      "total": 0,
+      "byDifficulty": {
+        "easy": 0,
+        "medium": 0,
+        "hard": 0
+      },
+      "byDomain": {},
+      "packs": 0,
+      "loadedPacks": 0
+    },
+    "flashcards": {
+      "total": 0,
+      "byDifficulty": {
+        "easy": 0,
+        "medium": 0,
+        "hard": 0
+      },
+      "byDomain": {},
+      "packs": 0,
+      "loadedPacks": 0
+    }
+  },
+  "azure-ai102": {
     "questions": {
       "total": 0,
       "byDifficulty": {
@@ -353,6 +473,30 @@ export const CONTENT_MANIFEST = {
       "loadedPacks": 10
     }
   },
+  "azure-sc500": {
+    "questions": {
+      "total": 0,
+      "byDifficulty": {
+        "easy": 0,
+        "medium": 0,
+        "hard": 0
+      },
+      "byDomain": {},
+      "packs": 0,
+      "loadedPacks": 0
+    },
+    "flashcards": {
+      "total": 0,
+      "byDifficulty": {
+        "easy": 0,
+        "medium": 0,
+        "hard": 0
+      },
+      "byDomain": {},
+      "packs": 0,
+      "loadedPacks": 0
+    }
+  },
   "cloud-economics": {
     "questions": {
       "total": 0,
@@ -450,6 +594,30 @@ export const CONTENT_MANIFEST = {
     }
   },
   "cncf-cgoa": {
+    "questions": {
+      "total": 0,
+      "byDifficulty": {
+        "easy": 0,
+        "medium": 0,
+        "hard": 0
+      },
+      "byDomain": {},
+      "packs": 0,
+      "loadedPacks": 0
+    },
+    "flashcards": {
+      "total": 0,
+      "byDifficulty": {
+        "easy": 0,
+        "medium": 0,
+        "hard": 0
+      },
+      "byDomain": {},
+      "packs": 0,
+      "loadedPacks": 0
+    }
+  },
+  "cncf-ckne": {
     "questions": {
       "total": 0,
       "byDifficulty": {
@@ -617,6 +785,30 @@ export const CONTENT_MANIFEST = {
       "loadedPacks": 0
     }
   },
+  "cncf-opa": {
+    "questions": {
+      "total": 0,
+      "byDifficulty": {
+        "easy": 0,
+        "medium": 0,
+        "hard": 0
+      },
+      "byDomain": {},
+      "packs": 0,
+      "loadedPacks": 0
+    },
+    "flashcards": {
+      "total": 0,
+      "byDifficulty": {
+        "easy": 0,
+        "medium": 0,
+        "hard": 0
+      },
+      "byDomain": {},
+      "packs": 0,
+      "loadedPacks": 0
+    }
+  },
   "cncf-otca": {
     "questions": {
       "total": 0,
@@ -642,6 +834,30 @@ export const CONTENT_MANIFEST = {
     }
   },
   "cncf-pca": {
+    "questions": {
+      "total": 0,
+      "byDifficulty": {
+        "easy": 0,
+        "medium": 0,
+        "hard": 0
+      },
+      "byDomain": {},
+      "packs": 0,
+      "loadedPacks": 0
+    },
+    "flashcards": {
+      "total": 0,
+      "byDifficulty": {
+        "easy": 0,
+        "medium": 0,
+        "hard": 0
+      },
+      "byDomain": {},
+      "packs": 0,
+      "loadedPacks": 0
+    }
+  },
+  "databricks-genai": {
     "questions": {
       "total": 0,
       "byDifficulty": {
@@ -833,6 +1049,30 @@ export const CONTENT_MANIFEST = {
       "loadedPacks": 0
     }
   },
+  "finops-ai-value": {
+    "questions": {
+      "total": 0,
+      "byDifficulty": {
+        "easy": 0,
+        "medium": 0,
+        "hard": 0
+      },
+      "byDomain": {},
+      "packs": 0,
+      "loadedPacks": 0
+    },
+    "flashcards": {
+      "total": 0,
+      "byDifficulty": {
+        "easy": 0,
+        "medium": 0,
+        "hard": 0
+      },
+      "byDomain": {},
+      "packs": 0,
+      "loadedPacks": 0
+    }
+  },
   "finops-csp": {
     "questions": {
       "total": 0,
@@ -915,7 +1155,55 @@ export const CONTENT_MANIFEST = {
       "loadedPacks": 10
     }
   },
+  "finops-focus": {
+    "questions": {
+      "total": 0,
+      "byDifficulty": {
+        "easy": 0,
+        "medium": 0,
+        "hard": 0
+      },
+      "byDomain": {},
+      "packs": 0,
+      "loadedPacks": 0
+    },
+    "flashcards": {
+      "total": 0,
+      "byDifficulty": {
+        "easy": 0,
+        "medium": 0,
+        "hard": 0
+      },
+      "byDomain": {},
+      "packs": 0,
+      "loadedPacks": 0
+    }
+  },
   "finops-professional": {
+    "questions": {
+      "total": 0,
+      "byDifficulty": {
+        "easy": 0,
+        "medium": 0,
+        "hard": 0
+      },
+      "byDomain": {},
+      "packs": 0,
+      "loadedPacks": 0
+    },
+    "flashcards": {
+      "total": 0,
+      "byDifficulty": {
+        "easy": 0,
+        "medium": 0,
+        "hard": 0
+      },
+      "byDomain": {},
+      "packs": 0,
+      "loadedPacks": 0
+    }
+  },
+  "finops-tech-value": {
     "questions": {
       "total": 0,
       "byDifficulty": {
@@ -999,6 +1287,30 @@ export const CONTENT_MANIFEST = {
       "loadedPacks": 0
     }
   },
+  "gcp-pcdbe": {
+    "questions": {
+      "total": 0,
+      "byDifficulty": {
+        "easy": 0,
+        "medium": 0,
+        "hard": 0
+      },
+      "byDomain": {},
+      "packs": 0,
+      "loadedPacks": 0
+    },
+    "flashcards": {
+      "total": 0,
+      "byDifficulty": {
+        "easy": 0,
+        "medium": 0,
+        "hard": 0
+      },
+      "byDomain": {},
+      "packs": 0,
+      "loadedPacks": 0
+    }
+  },
   "gcp-pcdoe": {
     "questions": {
       "total": 0,
@@ -1023,7 +1335,55 @@ export const CONTENT_MANIFEST = {
       "loadedPacks": 0
     }
   },
+  "gcp-pcne": {
+    "questions": {
+      "total": 0,
+      "byDifficulty": {
+        "easy": 0,
+        "medium": 0,
+        "hard": 0
+      },
+      "byDomain": {},
+      "packs": 0,
+      "loadedPacks": 0
+    },
+    "flashcards": {
+      "total": 0,
+      "byDifficulty": {
+        "easy": 0,
+        "medium": 0,
+        "hard": 0
+      },
+      "byDomain": {},
+      "packs": 0,
+      "loadedPacks": 0
+    }
+  },
   "gcp-pcse": {
+    "questions": {
+      "total": 0,
+      "byDifficulty": {
+        "easy": 0,
+        "medium": 0,
+        "hard": 0
+      },
+      "byDomain": {},
+      "packs": 0,
+      "loadedPacks": 0
+    },
+    "flashcards": {
+      "total": 0,
+      "byDifficulty": {
+        "easy": 0,
+        "medium": 0,
+        "hard": 0
+      },
+      "byDomain": {},
+      "packs": 0,
+      "loadedPacks": 0
+    }
+  },
+  "gcp-pde": {
     "questions": {
       "total": 0,
       "byDifficulty": {
@@ -1075,9 +1435,9 @@ export const CONTENT_MANIFEST = {
     "questions": {
       "total": 250,
       "byDifficulty": {
-        "easy": 83,
-        "medium": 84,
-        "hard": 83
+        "easy": 41,
+        "medium": 151,
+        "hard": 58
       },
       "byDomain": {
         "d1": 100,
@@ -1109,15 +1469,15 @@ export const CONTENT_MANIFEST = {
     "questions": {
       "total": 250,
       "byDifficulty": {
-        "easy": 83,
-        "medium": 84,
-        "hard": 83
+        "easy": 55,
+        "medium": 124,
+        "hard": 71
       },
       "byDomain": {
-        "d1": 62,
-        "d2": 63,
-        "d3": 88,
-        "d4": 37
+        "d1": 30,
+        "d2": 30,
+        "d3": 133,
+        "d4": 57
       },
       "packs": 10,
       "loadedPacks": 10
@@ -1199,6 +1559,30 @@ export const CONTENT_MANIFEST = {
       },
       "packs": 10,
       "loadedPacks": 10
+    }
+  },
+  "hashicorp-vault": {
+    "questions": {
+      "total": 0,
+      "byDifficulty": {
+        "easy": 0,
+        "medium": 0,
+        "hard": 0
+      },
+      "byDomain": {},
+      "packs": 0,
+      "loadedPacks": 0
+    },
+    "flashcards": {
+      "total": 0,
+      "byDifficulty": {
+        "easy": 0,
+        "medium": 0,
+        "hard": 0
+      },
+      "byDomain": {},
+      "packs": 0,
+      "loadedPacks": 0
     }
   },
   "isc2-ccsp": {
@@ -1362,5 +1746,5 @@ export const CONTENT_MANIFEST = {
 export const CONTENT_TOTALS = {
   "questions": 2259,
   "flashcards": 2260,
-  "certifications": 52
+  "certifications": 68
 };

@@ -2,14 +2,23 @@
 // Run `npm run build:content` after adding, removing, or renaming content.
 import CERT_AWS_CLF from './certs/aws-clf/cert.js';
 import CERT_AWS_DVA from './certs/aws-dva/cert.js';
+import CERT_AWS_MLA from './certs/aws-mla/cert.js';
 import CERT_AWS_SAA from './certs/aws-saa/cert.js';
 import CERT_AWS_SOA from './certs/aws-soa/cert.js';
 import CERT_AWS_SAP from './certs/aws-sap/cert.js';
 import CERT_AWS_ANS from './certs/aws-ans/cert.js';
+import CERT_AWS_DBS from './certs/aws-dbs/cert.js';
+import CERT_AWS_MLS from './certs/aws-mls/cert.js';
+import CERT_DATABRICKS_GENAI from './certs/databricks-genai/cert.js';
 import CERT_GCP_ACE from './certs/gcp-ace/cert.js';
 import CERT_GCP_PCA from './certs/gcp-pca/cert.js';
+import CERT_GCP_PCDBE from './certs/gcp-pcdbe/cert.js';
+import CERT_GCP_PCNE from './certs/gcp-pcne/cert.js';
+import CERT_GCP_PDE from './certs/gcp-pde/cert.js';
 import CERT_GCP_PMLE from './certs/gcp-pmle/cert.js';
 import CERT_AZURE_AZ900 from './certs/azure-az900/cert.js';
+import CERT_AZURE_AI102 from './certs/azure-ai102/cert.js';
+import CERT_AZURE_AI_APPS_AGENTS from './certs/azure-ai-apps-agents/cert.js';
 import CERT_AZURE_AZ104 from './certs/azure-az104/cert.js';
 import CERT_AZURE_AZ204 from './certs/azure-az204/cert.js';
 import CERT_AZURE_AZ305 from './certs/azure-az305/cert.js';
@@ -31,6 +40,7 @@ import CERT_CNCF_OTCA from './certs/cncf-otca/cert.js';
 import CERT_CNCF_PCA from './certs/cncf-pca/cert.js';
 import CERT_K8S_CKA from './certs/k8s-cka/cert.js';
 import CERT_K8S_CKAD from './certs/k8s-ckad/cert.js';
+import CERT_CNCF_CKNE from './certs/cncf-ckne/cert.js';
 import CERT_CNCF_CBA from './certs/cncf-cba/cert.js';
 import CERT_CNCF_CCA from './certs/cncf-cca/cert.js';
 import CERT_CNCF_CNPA from './certs/cncf-cnpa/cert.js';
@@ -38,33 +48,48 @@ import CERT_CNCF_ICA from './certs/cncf-ica/cert.js';
 import CERT_CNCF_KCA from './certs/cncf-kca/cert.js';
 import CERT_CNCF_CNPE from './certs/cncf-cnpe/cert.js';
 import CERT_FINOPS_FOCP from './certs/finops-focp/cert.js';
+import CERT_FINOPS_FOCUS from './certs/finops-focus/cert.js';
+import CERT_FINOPS_AI_VALUE from './certs/finops-ai-value/cert.js';
+import CERT_FINOPS_TECH_VALUE from './certs/finops-tech-value/cert.js';
 import CERT_FINOPS_PROFESSIONAL from './certs/finops-professional/cert.js';
 import CERT_FINOPS_ENGINEER from './certs/finops-engineer/cert.js';
 import CERT_FINOPS_CSP from './certs/finops-csp/cert.js';
 import CERT_CLOUD_ECONOMICS from './certs/cloud-economics/cert.js';
 import CERT_AWS_SCS from './certs/aws-scs/cert.js';
+import CERT_CNCF_OPA from './certs/cncf-opa/cert.js';
 import CERT_CNCF_KCSA from './certs/cncf-kcsa/cert.js';
 import CERT_K8S_CKS from './certs/k8s-cks/cert.js';
 import CERT_DOI_DEVSECOPS_FOUNDATION from './certs/doi-devsecops-foundation/cert.js';
 import CERT_DOI_DEVSECOPS_PRACTITIONER from './certs/doi-devsecops-practitioner/cert.js';
 import CERT_GITHUB_GHAS from './certs/github-ghas/cert.js';
 import CERT_GCP_PCSE from './certs/gcp-pcse/cert.js';
+import CERT_HASHICORP_VAULT from './certs/hashicorp-vault/cert.js';
 import CERT_ISC2_CCSP from './certs/isc2-ccsp/cert.js';
 import CERT_ISC2_CISSP from './certs/isc2-cissp/cert.js';
+import CERT_AZURE_SC500 from './certs/azure-sc500/cert.js';
 import CERT_OFFSEC_OSCP from './certs/offsec-oscp/cert.js';
 
 /** Every certification blueprint. Small and eagerly loaded — questions are not. */
 export const CERTIFICATIONS = [
   CERT_AWS_CLF,
   CERT_AWS_DVA,
+  CERT_AWS_MLA,
   CERT_AWS_SAA,
   CERT_AWS_SOA,
   CERT_AWS_SAP,
   CERT_AWS_ANS,
+  CERT_AWS_DBS,
+  CERT_AWS_MLS,
+  CERT_DATABRICKS_GENAI,
   CERT_GCP_ACE,
   CERT_GCP_PCA,
+  CERT_GCP_PCDBE,
+  CERT_GCP_PCNE,
+  CERT_GCP_PDE,
   CERT_GCP_PMLE,
   CERT_AZURE_AZ900,
+  CERT_AZURE_AI102,
+  CERT_AZURE_AI_APPS_AGENTS,
   CERT_AZURE_AZ104,
   CERT_AZURE_AZ204,
   CERT_AZURE_AZ305,
@@ -86,6 +111,7 @@ export const CERTIFICATIONS = [
   CERT_CNCF_PCA,
   CERT_K8S_CKA,
   CERT_K8S_CKAD,
+  CERT_CNCF_CKNE,
   CERT_CNCF_CBA,
   CERT_CNCF_CCA,
   CERT_CNCF_CNPA,
@@ -93,19 +119,25 @@ export const CERTIFICATIONS = [
   CERT_CNCF_KCA,
   CERT_CNCF_CNPE,
   CERT_FINOPS_FOCP,
+  CERT_FINOPS_FOCUS,
+  CERT_FINOPS_AI_VALUE,
+  CERT_FINOPS_TECH_VALUE,
   CERT_FINOPS_PROFESSIONAL,
   CERT_FINOPS_ENGINEER,
   CERT_FINOPS_CSP,
   CERT_CLOUD_ECONOMICS,
   CERT_AWS_SCS,
+  CERT_CNCF_OPA,
   CERT_CNCF_KCSA,
   CERT_K8S_CKS,
   CERT_DOI_DEVSECOPS_FOUNDATION,
   CERT_DOI_DEVSECOPS_PRACTITIONER,
   CERT_GITHUB_GHAS,
   CERT_GCP_PCSE,
+  CERT_HASHICORP_VAULT,
   CERT_ISC2_CCSP,
   CERT_ISC2_CISSP,
+  CERT_AZURE_SC500,
   CERT_OFFSEC_OSCP
 ];
 
@@ -122,6 +154,7 @@ export const CATEGORIES = [
 
 export const PROVIDERS = [
   "AWS",
+  "Databricks",
   "Google Cloud",
   "Microsoft Azure",
   "DevOps Institute",
