@@ -24,9 +24,9 @@ every answer moves your difficulty band toward your actual level.
 
 | | |
 | --- | --- |
-| Certifications scaffolded | **52** across six disciplines |
+| Certifications scaffolded | **68** across six disciplines |
 | Live (launchable, with content) | **10** — `aws-saa` `aws-clf` `azure-az104` `azure-az900` `github-actions` `finops-focp` `github-ghas` `gcp-ace` `k8s-cka` `hashicorp-tfp` |
-| Questions authored | **2,259** of a 26,000 target (500 × 52) |
+| Questions authored | **2,259** of a 34,000 target (500 × 68) |
 | Flashcards authored | **2,260** |
 
 Run

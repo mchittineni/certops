@@ -11,6 +11,11 @@ progress is tracked by `npm run stats` and in
 ## [Unreleased]
 
 ### Content
+- Scaffolded **16 new certifications** on the 2026 roadmap bringing the total catalogue to **68 certifications**:
+  - **Cloud Engineering & AI**: `gcp-pcne`, `aws-mla`, `aws-mls`, `gcp-pde`, `gcp-pcdbe`, `aws-dbs`, `azure-ai102`, `azure-ai-apps-agents`, `databricks-genai`.
+  - **Kubernetes & Cloud Native**: `cncf-ckne`.
+  - **DevSecOps & Security**: `hashicorp-vault`, `cncf-opa`, `azure-sc500`.
+  - **FinOps**: `finops-focus`, `finops-ai-value`, `finops-tech-value`.
 - Scaled **AWS Certified Solutions Architect – Associate (`aws-saa`)** question bank and flashcard deck to **250 questions** and **250 flashcards** across 10 modular packs.
 - Activated and verified **Microsoft Azure Administrator Associate (`azure-az104`)** blueprint, adding **250 exam questions** and **250 flashcards** across 10 modular packs.
 - Scaled **AWS Certified Cloud Practitioner (`aws-clf`)**, **Microsoft Azure Fundamentals (`azure-az900`)**, **GitHub Actions (`github-actions` / GH-200)**, **FinOps Certified Practitioner (`finops-focp`)**, and **GitHub Advanced Security (`github-ghas` / GH-500)** to **250 questions** and **250 flashcards** each across 10 modular packs. Note that the last four of these, plus most `aws-clf` flashcards, are generated placeholders rather than authored content — see **Known gaps** below.
