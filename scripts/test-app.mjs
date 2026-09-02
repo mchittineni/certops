@@ -5,6 +5,8 @@ import { installDomShim } from './lib/dom-shim.mjs';
 
 const dom = installDomShim();
 const { state } = await import('../src/state.js');
+const { ROLES, ROLE_BY_ID, roleCertIds } = await import('../src/data/roles.js');
+const { CERTIFICATIONS } = await import('../src/data/catalog.generated.js');
 await import('../src/app.js');
 
 const tick = () => new Promise(r => setTimeout(r, 30));
@@ -88,6 +90,85 @@ await check('clear-filters resets every filter at once', () => {
   assert.strictEqual(state.tier, 'all');
   assert.strictEqual(state.provider, 'all');
   assert.strictEqual(state.certSearch, '');
+});
+
+await check('the role picker offers every role with a house-style mark', () => {
+  const html = dom.html();
+  assert.ok(html.includes('Start from your role'), 'role section heading');
+  assert.ok(html.includes('data-action="set-role"'), 'role chips');
+  for (const role of ROLES) {
+    assert.ok(html.includes(`data-role-id="${role.id}"`), `${role.id} chip missing`);
+    assert.ok(html.includes(role.title), `${role.title} label missing`);
+  }
+  assert.ok(html.includes('role-glyph'), 'roles must use SVG marks rather than emoji');
+  assert.ok(html.includes('aria-pressed="false"'), 'unselected chips report their state');
+});
+
+await check('choosing a role renders an ordered path with a reason per step', () => {
+  dom.click('set-role', { roleId: 'devops-engineer' });
+  assert.strictEqual(state.role, 'devops-engineer');
+  const html = dom.html();
+  assert.ok(html.includes('Site Reliability') || html.includes('DevOps Engineer path'), 'path heading');
+  assert.ok(html.includes('<ol class="role-path">'), 'the path is an ordered list');
+  const role = ROLE_BY_ID['devops-engineer'];
+  for (const step of role.path) {
+    assert.ok(html.includes(step.why), `missing rationale for ${step.certId}`);
+  }
+  assert.ok(html.includes('role-step-num'), 'steps are numbered');
+  assert.ok(html.includes('aria-pressed="true"'), 'the chosen chip reports its state');
+});
+
+await check('a path shows roadmap steps without offering to start them', () => {
+  dom.click('set-role', { roleId: 'security-engineer' });
+  const html = dom.html();
+  // GHAS is live; CKS and CCSP are still on the roadmap, and the path shows both kinds.
+  assert.ok(html.includes('data-cert-id="github-ghas"'), 'the ready step is launchable');
+  assert.ok(html.includes('role-step planned'), 'roadmap steps are marked');
+  assert.ok(html.includes('roadmap-pill'), 'roadmap steps say so instead of offering a button');
+});
+
+await check('the role filter narrows the catalogue and is cleared with the role', () => {
+  dom.click('set-role', { roleId: 'finops' });
+  dom.click('toggle-role-filter');
+  assert.strictEqual(state.roleFilter, true);
+  let html = dom.html();
+  assert.ok(html.includes('data-cert-id="finops-focp"'), 'FinOps Practitioner is on the path');
+  assert.ok(!html.includes('data-cert-id="k8s-cka"'), 'CKA is not on the FinOps path');
+  dom.click('clear-role');
+  assert.strictEqual(state.role, null);
+  assert.strictEqual(state.roleFilter, false, 'clearing the role also drops its filter');
+  html = dom.html();
+  assert.ok(html.includes('data-cert-id="k8s-cka"'), 'the full catalogue returns');
+});
+
+await check('clicking the active role clears it, like the other filter chips', () => {
+  dom.click('set-role', { roleId: 'sre' });
+  dom.click('toggle-role-filter');
+  dom.click('set-role', { roleId: 'sre' });
+  assert.strictEqual(state.role, null);
+  assert.strictEqual(state.roleFilter, false, 'the stale filter must not survive the role');
+  assert.ok(dom.html().includes('data-cert-id="aws-saa"'), 'catalogue is unfiltered again');
+});
+
+await check('clear-filters also drops an active role filter', () => {
+  dom.click('set-role', { roleId: 'cloud-engineer' });
+  dom.click('toggle-role-filter');
+  dom.click('clear-filters');
+  assert.strictEqual(state.roleFilter, false);
+  assert.strictEqual(state.role, 'cloud-engineer', 'the chosen role itself is a preference, not a filter');
+  dom.click('clear-role');
+});
+
+await check('every role path names certifications that exist in the catalog', () => {
+  const ids = new Set(CERTIFICATIONS.map(c => c.id));
+  for (const role of ROLES) {
+    assert.ok(role.path.length >= 3, `${role.id} should be a route, not a pair`);
+    for (const step of role.path) {
+      assert.ok(ids.has(step.certId), `${role.id} points at unknown certification ${step.certId}`);
+      assert.ok(step.why && step.why.length > 30, `${role.id}/${step.certId} needs a real rationale`);
+    }
+    assert.deepStrictEqual(roleCertIds(role.id), role.path.map(s => s.certId), 'roleCertIds preserves order');
+  }
 });
 
 await check('planned certifications are on the roadmap but not launchable', () => {
