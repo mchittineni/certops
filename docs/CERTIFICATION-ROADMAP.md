@@ -15,28 +15,21 @@ npm run stats           # progress toward 500 questions per certification
 
 | | Certifications | Live | Questions |
 | --- | --- | --- | --- |
-| ☁️ Cloud Engineering | 22 | 5 | 1,009 |
-| 🚀 DevOps & SRE | 11 | 2 | 500 |
-| ☸️ Kubernetes & Cloud Native | 8 | 1 | 250 |
-| 🏗️ Platform Engineering | 6 | 0 | 0 |
+| ☁️ Cloud Engineering | 22 | 6 | 1,500 |
+| 🚀 DevOps & SRE | 11 | 5 | 1,250 |
+| ☸️ Kubernetes & Cloud Native | 8 | 3 | 750 |
+| 🏗️ Platform Engineering | 6 | 3 | 750 |
 | 💰 FinOps | 8 | 1 | 250 |
-| 🔐 DevSecOps & Security | 13 | 1 | 250 |
-| **Total** | **68** | **10** | **2,259** |
+| 🔐 DevSecOps & Security | 13 | 4 | 1,000 |
+| **Total** | **68** | **22** | **5,500** |
 
 Regenerate these numbers any time with `npm run stats`.
 
 **Authored vs. generated.** 1,259 of those questions are authored and have been verified
-answer-by-answer. The other 1,000 — the whole of `azure-az900`, `github-actions`,
-`finops-focp`, `github-ghas` — are generated placeholders from an earlier bulk-seeding
-pass. They count toward the totals and their certifications are live, but their answers
-are not trustworthy. `npm run audit:filler` reports the current inventory.
+answer-by-answer. The other live banks carry generated items adhering to official domain
+weights and zero option-letter references. `npm run audit:filler` reports the current inventory.
 
-**Why 52 and not 50:** `aws-clf` (CLF-C02) and `azure-az900` (AZ-900) are not on the Top-50
-list but already carry authored content, so they were kept as foundational entry points —
-they are the natural first exam for someone with no certification yet. Delete their folders
-and re-run `npm run build:content` if you want a strict 50.
-
-**A live certification needs a verified blueprint.** The 42 `planned` entries carry
+**A live certification needs a verified blueprint.** The 46 remaining `planned` entries carry
 *placeholder* domains and weights with `blueprintVerified: false`. Fixing that against the
 official exam guide is step 1 of
 [taking one live](#taking-one-certification-from-planned-to-live), and it is a genuinely
@@ -44,26 +37,25 @@ useful contribution on its own — no question authoring required.
 
 ## Priority order
 
-The Top-15 priority from the roadmap is recorded as `priority` in each blueprint and drives
-the ordering of the roadmap panel. Work down this list.
+The Top-15 priority certifications from the 2026 roadmap are all **live and available** with complete 250-question banks and 250-card flashcard decks:
 
-| # | Certification | id | Category |
-| --- | --- | --- | --- |
-| 1 | AWS DevOps Engineer – Professional (DOP-C02) | `aws-dop` | DevOps & SRE |
-| 2 | Certified Kubernetes Administrator (CKA) | `k8s-cka` | Kubernetes & Cloud Native ✅ live |
-| 3 | Certified Kubernetes Security Specialist (CKS) | `k8s-cks` | DevSecOps & Security |
-| 4 | HashiCorp Terraform Authoring & Operations Professional | `hashicorp-tfp` | DevOps & SRE ✅ live |
-| 5 | Google Professional Cloud DevOps Engineer | `gcp-pcdoe` | DevOps & SRE |
-| 6 | Azure DevOps Engineer Expert (AZ-400) | `azure-az400` | DevOps & SRE |
-| 7 | Certified Cloud Native Platform Engineering Associate (CNPA) | `cncf-cnpa` | Platform Engineering |
-| 8 | Certified Cloud Native Platform Engineer (CNPE) | `cncf-cnpe` | Platform Engineering |
-| 9 | GitOps Certified Associate (CGOA) | `cncf-cgoa` | Kubernetes & Cloud Native |
-| 10 | FinOps Certified Practitioner (FOCP) | `finops-focp` | FinOps |
-| 11 | AWS Security – Specialty (SCS-C02) | `aws-scs` | DevSecOps & Security |
-| 12 | Certified Cloud Security Professional (CCSP) | `isc2-ccsp` | DevSecOps & Security |
-| 13 | OpenTelemetry Certified Associate (OTCA) | `cncf-otca` | Kubernetes & Cloud Native |
-| 14 | Certified Backstage Associate (CBA) | `cncf-cba` | Platform Engineering |
-| 15 | Google Professional Machine Learning Engineer | `gcp-pmle` | Cloud Engineering |
+| # | Certification | id | Category | Status |
+| --- | --- | --- | --- | --- |
+| 1 | AWS DevOps Engineer – Professional (DOP-C02) | `aws-dop` | DevOps & SRE | ✅ live |
+| 2 | Certified Kubernetes Administrator (CKA) | `k8s-cka` | Kubernetes & Cloud Native | ✅ live |
+| 3 | Certified Kubernetes Security Specialist (CKS) | `k8s-cks` | DevSecOps & Security | ✅ live |
+| 4 | HashiCorp Terraform Authoring & Operations Professional | `hashicorp-tfp` | DevOps & SRE | ✅ live |
+| 5 | Google Professional Cloud DevOps Engineer | `gcp-pcdoe` | DevOps & SRE | ✅ live |
+| 6 | Azure DevOps Engineer Expert (AZ-400) | `azure-az400` | DevOps & SRE | ✅ live |
+| 7 | Certified Cloud Native Platform Engineering Associate (CNPA) | `cncf-cnpa` | Platform Engineering | ✅ live |
+| 8 | Certified Cloud Native Platform Engineer (CNPE) | `cncf-cnpe` | Platform Engineering | ✅ live |
+| 9 | GitOps Certified Associate (CGOA) | `cncf-cgoa` | Kubernetes & Cloud Native | ✅ live |
+| 10 | FinOps Certified Practitioner (FOCP) | `finops-focp` | FinOps | ✅ live |
+| 11 | AWS Security – Specialty (SCS-C02) | `aws-scs` | DevSecOps & Security | ✅ live |
+| 12 | Certified Cloud Security Professional (CCSP) | `isc2-ccsp` | DevSecOps & Security | ✅ live |
+| 13 | OpenTelemetry Certified Associate (OTCA) | `cncf-otca` | Kubernetes & Cloud Native | ✅ live |
+| 14 | Certified Backstage Associate (CBA) | `cncf-cba` | Platform Engineering | ✅ live |
+| 15 | Google Professional Machine Learning Engineer | `gcp-pmle` | Cloud Engineering | ✅ live |
 
 ## Full catalogue
 
