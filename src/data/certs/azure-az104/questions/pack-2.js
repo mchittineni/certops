@@ -51,12 +51,12 @@ export const AZURE_AZ104_QUESTIONS_2 = [
     scenario: "To satisfy security compliance, members of the cloud engineering team must not hold permanent Owner or Contributor rights on production subscriptions. Engineers must request role activation on-demand for up to 4 hours, requiring MFA and approval from the IT Director.",
     question: "Which Microsoft Entra feature implements just-in-time, approval-based role activation?",
     options: [
-      { id: 'A', text: "Azure RBAC permanent Active role assignments." },
-      { id: 'B', text: "Azure Policy with Audit effect." },
-      { id: 'C', text: "Microsoft Entra Privileged Identity Management (PIM) with Eligible role assignments." },
-      { id: 'D', text: "Conditional Access policies in report-only mode." }
+      { id: 'A', text: "Conditional Access policies in report-only mode." },
+      { id: 'B', text: "Microsoft Entra Privileged Identity Management (PIM) with Eligible role assignments." },
+      { id: 'C', text: "Azure Policy with Audit effect." },
+      { id: 'D', text: "Azure RBAC permanent Active role assignments." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Microsoft Entra Privileged Identity Management (PIM) provides time-bound, just-in-time (JIT) access to privileged Azure and Microsoft Entra roles. By assigning users as **Eligible** (instead of permanently Active), engineers must explicitly activate the role, satisfy MFA requirements, provide business justification, and obtain designated approver sign-off before permissions are temporarily activated for a maximum duration (e.g. 4 hours).",
     referenceUrl: "https://learn.microsoft.com/en-us/entra/id-governance/privileged-identity-management/pim-configure",
@@ -93,10 +93,10 @@ export const AZURE_AZ104_QUESTIONS_2 = [
     scenario: "A cloud security officer needs to group 25 individual Azure Policy definitions related to CIS benchmark standards (e.g. enforcing HTTPS on storage, requiring encryption at rest, restricting public IPs) into a single logical collection that can be assigned to multiple subscriptions in one operation.",
     question: "Which Azure Policy artifact groups multiple policy definitions together?",
     options: [
-      { id: 'A', text: "An Azure Blueprint artifact." },
+      { id: 'A', text: "An Azure Resource Lock." },
       { id: 'B', text: "An Azure Policy Initiative (Policy Set definition)." },
-      { id: 'C', text: "An Azure Resource Lock." },
-      { id: 'D', text: "An Azure RBAC Custom Role." }
+      { id: 'C', text: "An Azure RBAC Custom Role." },
+      { id: 'D', text: "An Azure Blueprint artifact." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -115,9 +115,9 @@ export const AZURE_AZ104_QUESTIONS_2 = [
     question: "Which Azure Blob Storage access tier provides the lowest storage cost per gigabyte?",
     options: [
       { id: 'A', text: "Archive tier." },
-      { id: 'B', text: "Cold tier." },
-      { id: 'C', text: "Hot tier." },
-      { id: 'D', text: "Cool tier." }
+      { id: 'B', text: "Hot tier." },
+      { id: 'C', text: "Cool tier." },
+      { id: 'D', text: "Cold tier." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -135,13 +135,13 @@ export const AZURE_AZ104_QUESTIONS_2 = [
     scenario: "A security policy requires that an Azure Storage Account containing sensitive financial records must block all access from the public internet, allowing connections ONLY from virtual machines residing in `VNet-Prod/Subnet-Backend`.",
     question: "Which combination of network security settings must be configured? (Choose TWO)",
     options: [
-      { id: 'A', text: "Set Storage Account public network access to \"Enabled from all networks\"." },
+      { id: 'A', text: "Deploy an Azure Bastion host in `Subnet-Backend`." },
       { id: 'B', text: "Configure the Storage Account firewall to \"Enabled from selected virtual networks and IP addresses\" and add `VNet-Prod/Subnet-Backend`." },
-      { id: 'C', text: "Enable the `Microsoft.Storage` Service Endpoint on `Subnet-Backend`." },
-      { id: 'D', text: "Deploy an Azure Bastion host in `Subnet-Backend`." },
+      { id: 'C', text: "Set Storage Account public network access to \"Enabled from all networks\"." },
+      { id: 'D', text: "Enable the `Microsoft.Storage` Service Endpoint on `Subnet-Backend`." },
       { id: 'E', text: "Configure an Azure Route Table with next hop `None`." }
     ],
-    correctAnswers: ['B', 'C'],
+    correctAnswers: ['B', 'D'],
     type: "multiple",
     explanation: "To restrict an Azure Storage Account to a specific VNet subnet using Service Endpoints: 1) Enable the `Microsoft.Storage` Service Endpoint on the target subnet (`Subnet-Backend`), and 2) Configure the storage account firewall settings to allow traffic only from \"Selected networks\" and add `VNet-Prod/Subnet-Backend`. This blocks all public internet access while routing subnet traffic securely over the Azure backbone.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security",
@@ -178,12 +178,12 @@ export const AZURE_AZ104_QUESTIONS_2 = [
     scenario: "An administrator manages an Azure Storage Account with Geo-Redundant Storage (GRS) configured between East US (primary) and West US (secondary). Due to a severe local disaster in East US, the administrator must force failover to West US without waiting for Microsoft intervention.",
     question: "What is an important consequence of performing a customer-initiated storage account failover?",
     options: [
-      { id: 'A', text: "The storage account access keys are permanently revoked." },
-      { id: 'B', text: "All data is immediately deleted in the secondary region." },
-      { id: 'C', text: "The storage account endpoints change their DNS domain name URLs." },
-      { id: 'D', text: "The secondary region becomes the new primary read/write endpoint, and the redundancy type is converted to Locally Redundant Storage (LRS)." }
+      { id: 'A', text: "The storage account endpoints change their DNS domain name URLs." },
+      { id: 'B', text: "The secondary region becomes the new primary read/write endpoint, and the redundancy type is converted to Locally Redundant Storage (LRS)." },
+      { id: 'C', text: "The storage account access keys are permanently revoked." },
+      { id: 'D', text: "All data is immediately deleted in the secondary region." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "When a customer initiates an unplanned storage account failover on a GRS/GZRS account, Azure updates DNS records so that the secondary region becomes the new primary read/write location. Because replication to the original primary is broken during failover, the storage account is automatically converted to **Locally Redundant Storage (LRS)** in the new primary region until the administrator reconfigures geo-redundancy.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/common/storage-initiate-account-failover",
@@ -220,12 +220,12 @@ export const AZURE_AZ104_QUESTIONS_2 = [
     scenario: "An organization is migrating an internal QA testing web server that experiences low baseline CPU utilization (around 10%) for most of the day, with occasional short spikes up to 90% when automated test suites run.",
     question: "Which Azure VM size family provides the most cost-effective solution for workloads with low baseline CPU and bursting requirements?",
     options: [
-      { id: 'A', text: "B-series (Burstable VMs)." },
-      { id: 'B', text: "M-series (Memory Optimized VMs)." },
-      { id: 'C', text: "F-series (Compute Optimized VMs)." },
-      { id: 'D', text: "N-series (GPU enabled VMs)." }
+      { id: 'A', text: "N-series (GPU enabled VMs)." },
+      { id: 'B', text: "F-series (Compute Optimized VMs)." },
+      { id: 'C', text: "M-series (Memory Optimized VMs)." },
+      { id: 'D', text: "B-series (Burstable VMs)." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Azure B-series VMs are burstable virtual machines that accumulate CPU credits when running below their baseline performance and use these credits to burst up to 100% CPU when demand spikes, delivering maximum cost savings for development, testing, and low-traffic web servers. F-series is for sustained high-CPU compute. M-series is for heavy in-memory databases. N-series is for GPU graphics/AI workloads.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/b-series-burstable",
@@ -304,12 +304,12 @@ export const AZURE_AZ104_QUESTIONS_2 = [
     scenario: "A company builds a microservice architecture composed of 10 microservices packaged in Docker containers. The microservices must scale automatically based on HTTP traffic and event triggers (via KEDA), scale down to zero instances when idle to save costs, and require no Kubernetes cluster management.",
     question: "Which Azure service provides managed serverless microservices with built-in KEDA scaling and scale-to-zero?",
     options: [
-      { id: 'A', text: "Azure Kubernetes Service (AKS)." },
-      { id: 'B', text: "Azure Container Apps (ACA)." },
-      { id: 'C', text: "Azure Service Fabric." },
-      { id: 'D', text: "Azure Virtual Machines." }
+      { id: 'A', text: "Azure Container Apps (ACA)." },
+      { id: 'B', text: "Azure Kubernetes Service (AKS)." },
+      { id: 'C', text: "Azure Virtual Machines." },
+      { id: 'D', text: "Azure Service Fabric." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Azure Container Apps (ACA) is a fully managed serverless container platform built on Kubernetes and open-source standards (Dapr, KEDA, Envoy). It allows running microservices and containerized jobs with built-in HTTP autoscaling, event-driven autoscaling via KEDA, and scale-to-zero capability without managing Kubernetes cluster infrastructure. AKS requires managing node pools and clusters.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/container-apps/overview",
@@ -325,12 +325,12 @@ export const AZURE_AZ104_QUESTIONS_2 = [
     scenario: "A Network Security Group (NSG) attached to a subnet contains two inbound rules: Rule 100 allows TCP port 80 from Any source. Rule 200 denies TCP port 80 from Any source.",
     question: "When an HTTP request on port 80 arrives, how does Azure NSG evaluate the rules?",
     options: [
-      { id: 'A', text: "The request is denied because Rule 200 has a higher number." },
-      { id: 'B', text: "The request is dropped by default rule 65500." },
-      { id: 'C', text: "The request is allowed because Rule 100 has a lower priority number (higher priority) and rule processing stops once a match is found." },
-      { id: 'D', text: "The request is denied because Deny rules always override Allow rules." }
+      { id: 'A', text: "The request is dropped by default rule 65500." },
+      { id: 'B', text: "The request is denied because Rule 200 has a higher number." },
+      { id: 'C', text: "The request is denied because Deny rules always override Allow rules." },
+      { id: 'D', text: "The request is allowed because Rule 100 has a lower priority number (higher priority) and rule processing stops once a match is found." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "In Azure Network Security Groups (NSGs), security rules are evaluated sequentially in order of **priority** from lowest number (100) to highest number (4096). Once traffic matches a rule, processing stops and that action (Allow or Deny) is immediately applied. Since Rule 100 has lower number (higher priority) than Rule 200, the traffic matches Rule 100 and is allowed.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview#security-rules",
@@ -346,12 +346,12 @@ export const AZURE_AZ104_QUESTIONS_2 = [
     scenario: "An architect is selecting an Azure Load Balancer for an enterprise production workload across three Availability Zones. The architecture requires zone-redundant frontend IP configurations, support for backend pools with up to 1,000 instances, and secure-by-default behavior (closed until NSG rules allow traffic).",
     question: "Which Azure Load Balancer SKU satisfies these requirements?",
     options: [
-      { id: 'A', text: "Azure Basic Load Balancer." },
-      { id: 'B', text: "Azure DNS Private Resolver." },
-      { id: 'C', text: "Azure Standard Load Balancer." },
-      { id: 'D', text: "Azure Traffic Manager." }
+      { id: 'A', text: "Azure DNS Private Resolver." },
+      { id: 'B', text: "Azure Basic Load Balancer." },
+      { id: 'C', text: "Azure Traffic Manager." },
+      { id: 'D', text: "Azure Standard Load Balancer." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Azure Standard Load Balancer supports Availability Zones (zone-redundant frontends), backend pool sizes up to 1,000 instances, HA Ports rules, TCP/HTTP/HTTPS health probes, and is secure by default (requires NSG to allow traffic). Basic Load Balancer is retired/legacy, has no AZ support, is open to internet by default, and caps backend pools at 300 instances. Traffic Manager is DNS-based routing.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/load-balancer/skus",
@@ -367,10 +367,10 @@ export const AZURE_AZ104_QUESTIONS_2 = [
     scenario: "An e-commerce company operates a web platform where requests to `https://shop.contoso.com/images/*` must be routed to a storage backend pool, while requests to `https://shop.contoso.com/video/*` are routed to a video streaming VM pool, with centralized SSL/TLS termination at the load balancer.",
     question: "Which Layer 7 load balancing service and feature provides URL path-based routing and SSL offloading?",
     options: [
-      { id: 'A', text: "Azure Front Door Basic." },
-      { id: 'B', text: "Azure Standard Network Load Balancer (NLB)." },
+      { id: 'A', text: "Azure Traffic Manager with weighted routing." },
+      { id: 'B', text: "Azure Front Door Basic." },
       { id: 'C', text: "Azure Application Gateway with a Path-based routing rule." },
-      { id: 'D', text: "Azure Traffic Manager with weighted routing." }
+      { id: 'D', text: "Azure Standard Network Load Balancer (NLB)." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -410,11 +410,11 @@ export const AZURE_AZ104_QUESTIONS_2 = [
     question: "Which Azure VPN Gateway type must be selected during gateway creation?",
     options: [
       { id: 'A', text: "Policy-based (Static routing) VPN Gateway." },
-      { id: 'B', text: "Azure NAT Gateway." },
-      { id: 'C', text: "Route-based VPN Gateway." },
-      { id: 'D', text: "Azure ExpressRoute Direct." }
+      { id: 'B', text: "Azure ExpressRoute Direct." },
+      { id: 'C', text: "Azure NAT Gateway." },
+      { id: 'D', text: "Route-based VPN Gateway." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Route-based VPN Gateways use any-to-any (wildcard) traffic selectors and support modern networking capabilities: IKEv2, Point-to-Site (P2S) VPNs, Multi-site VPNs, VNet-to-VNet connections, and dynamic routing using BGP. Policy-based VPN Gateways only support IKEv1, single-tunnel S2S connections, and static IP prefix matching.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#vpntype",
@@ -472,10 +472,10 @@ export const AZURE_AZ104_QUESTIONS_2 = [
     scenario: "A company hosts a public e-commerce web application on Azure App Service. The DevOps team needs to test the URL `https://shop.contoso.com` every 5 minutes from 5 global geographical locations (e.g. US, Europe, Asia) and trigger alerts if the response status code is not HTTP 200.",
     question: "Which Application Insights feature performs automated synthetic global HTTP ping tests?",
     options: [
-      { id: 'A', text: "Azure Network Watcher Packet Capture." },
-      { id: 'B', text: "Azure Service Health maintenance notification." },
+      { id: 'A', text: "Azure Advisor Security checks." },
+      { id: 'B', text: "Azure Network Watcher Packet Capture." },
       { id: 'C', text: "Application Insights Standard Availability Web Tests." },
-      { id: 'D', text: "Azure Advisor Security checks." }
+      { id: 'D', text: "Azure Service Health maintenance notification." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -494,12 +494,12 @@ export const AZURE_AZ104_QUESTIONS_2 = [
     question: "Which two Azure Backup security features satisfy these protection requirements? (Choose TWO)",
     options: [
       { id: 'A', text: "Enable Soft Delete on the Recovery Services Vault." },
-      { id: 'B', text: "Configure Multi-User Authorization (MUA) for Azure Backup using Resource Guard." },
-      { id: 'C', text: "Deploy an Azure Bastion host." },
-      { id: 'D', text: "Disable Cross-Region Restore." },
-      { id: 'E', text: "Configure Azure File Sync cloud tiering." }
+      { id: 'B', text: "Deploy an Azure Bastion host." },
+      { id: 'C', text: "Configure Multi-User Authorization (MUA) for Azure Backup using Resource Guard." },
+      { id: 'D', text: "Configure Azure File Sync cloud tiering." },
+      { id: 'E', text: "Disable Cross-Region Restore." }
     ],
-    correctAnswers: ['A', 'B'],
+    correctAnswers: ['A', 'C'],
     type: "multiple",
     explanation: "Soft Delete for Azure Backup retains deleted backup data for an additional 14 days in a soft-deleted state at no additional cost, allowing recovery from accidental or malicious deletion. Multi-User Authorization (MUA) for Azure Backup uses an Azure Resource Guard resource (owned by a separate security administrator) to require dual-authorization before any critical backup operation (disabling soft delete, deleting backups, changing policies) can execute.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/backup/backup-azure-security-feature-cloud",
@@ -516,9 +516,9 @@ export const AZURE_AZ104_QUESTIONS_2 = [
     question: "Which Azure Monitor log source records all management plane write, update, and delete actions across Azure subscriptions?",
     options: [
       { id: 'A', text: "Azure Activity Log." },
-      { id: 'B', text: "Azure Monitor Metrics." },
-      { id: 'C', text: "Application Insights Live Metrics." },
-      { id: 'D', text: "Azure Network Watcher NSG Flow Logs." }
+      { id: 'B', text: "Azure Network Watcher NSG Flow Logs." },
+      { id: 'C', text: "Azure Monitor Metrics." },
+      { id: 'D', text: "Application Insights Live Metrics." }
     ],
     correctAnswers: ['A'],
     type: "single",

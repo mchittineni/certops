@@ -9,12 +9,12 @@ export const AZURE_AZ104_QUESTIONS_3 = [
     scenario: "A company mandates that all members of the \"Finance Users\" group must perform Multi-Factor Authentication (MFA) whenever accessing the Azure Portal from outside the corporate trusted IP network range.",
     question: "Which Microsoft Entra security feature enforces this context-based access requirement?",
     options: [
-      { id: 'A', text: "Azure RBAC role assignment with reader permissions." },
-      { id: 'B', text: "Azure Policy definition with a Deny effect." },
+      { id: 'A', text: "Microsoft Entra Conditional Access policy targeting the group, cloud app, and configured Named Locations." },
+      { id: 'B', text: "Azure RBAC role assignment with reader permissions." },
       { id: 'C', text: "Microsoft Entra ID Password Protection." },
-      { id: 'D', text: "Microsoft Entra Conditional Access policy targeting the group, cloud app, and configured Named Locations." }
+      { id: 'D', text: "Azure Policy definition with a Deny effect." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Microsoft Entra Conditional Access policies evaluate real-time signals (user/group identity, device platform, client application, and location based on IP Named Locations) to enforce automated access controls (such as Grant with Require MFA or Block access). Azure Policy governs resource deployment. Password Protection blocks common weak passwords.",
     referenceUrl: "https://learn.microsoft.com/en-us/entra/identity/conditional-access/overview",
@@ -30,10 +30,10 @@ export const AZURE_AZ104_QUESTIONS_3 = [
     scenario: "An administrator needs to grant a project lead the ability to manage user access and role assignments on a development subscription, but must ensure the project lead cannot create, modify, or delete any actual Azure resources (such as VMs, storage, or networks).",
     question: "Which built-in Azure RBAC role should be assigned to the project lead?",
     options: [
-      { id: 'A', text: "Owner." },
-      { id: 'B', text: "Reader." },
+      { id: 'A', text: "Contributor." },
+      { id: 'B', text: "Owner." },
       { id: 'C', text: "User Access Administrator." },
-      { id: 'D', text: "Contributor." }
+      { id: 'D', text: "Reader." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -72,12 +72,12 @@ export const AZURE_AZ104_QUESTIONS_3 = [
     scenario: "An external consultant with an email address `consultant@externalpartner.com` needs access to collaborate on an Azure project within your organization's Microsoft Entra tenant.",
     question: "How should the administrator grant the external consultant access to the tenant?",
     options: [
-      { id: 'A', text: "Create a new local member user in Microsoft Entra ID with the consultant's external password." },
-      { id: 'B', text: "Deploy Microsoft Entra Connect on the external partner's domain." },
-      { id: 'C', text: "Assign an Azure Resource Lock to the consultant's email." },
-      { id: 'D', text: "Send a Microsoft Entra B2B Guest User invitation to `consultant@externalpartner.com`." }
+      { id: 'A', text: "Assign an Azure Resource Lock to the consultant's email." },
+      { id: 'B', text: "Send a Microsoft Entra B2B Guest User invitation to `consultant@externalpartner.com`." },
+      { id: 'C', text: "Create a new local member user in Microsoft Entra ID with the consultant's external password." },
+      { id: 'D', text: "Deploy Microsoft Entra Connect on the external partner's domain." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Microsoft Entra B2B collaboration allows you to securely invite external users as Guest accounts into your tenant. The external user authenticates with their own corporate or personal credentials (in their home identity provider), eliminating the need to manage their external passwords or synchronize external directories.",
     referenceUrl: "https://learn.microsoft.com/en-us/entra/external-id/what-is-b2b",
@@ -94,11 +94,11 @@ export const AZURE_AZ104_QUESTIONS_3 = [
     question: "Which Azure Policy effect must be used to block non-compliant deployments?",
     options: [
       { id: 'A', text: "`Audit` effect." },
-      { id: 'B', text: "`AuditIfNotExists` effect." },
-      { id: 'C', text: "`Disabled` effect." },
-      { id: 'D', text: "`Deny` effect." }
+      { id: 'B', text: "`Deny` effect." },
+      { id: 'C', text: "`AuditIfNotExists` effect." },
+      { id: 'D', text: "`Disabled` effect." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "The `Deny` effect in Azure Policy evaluates requests before they reach the Azure Resource Manager resource provider; if the resource definition fails the policy condition (e.g. missing `Environment` tag), Azure Resource Manager immediately rejects and terminates the deployment request. `Audit` allows deployment while logging non-compliance. `AuditIfNotExists` audits after deployment.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effect-deny",
@@ -114,9 +114,9 @@ export const AZURE_AZ104_QUESTIONS_3 = [
     scenario: "An architect is provisioning a new Azure Storage Account to support Blob storage, Azure Files SMB shares, Azure Queues, and Table storage with full support for access tiering (Hot, Cool, Cold, Archive) and lifecycle management.",
     question: "Which storage account kind should be deployed for all modern general-purpose workloads?",
     options: [
-      { id: 'A', text: "BlobStorage (legacy)." },
-      { id: 'B', text: "General-purpose v1 (legacy)." },
-      { id: 'C', text: "BlockBlobStorage Premium only." },
+      { id: 'A', text: "BlockBlobStorage Premium only." },
+      { id: 'B', text: "BlobStorage (legacy)." },
+      { id: 'C', text: "General-purpose v1 (legacy)." },
       { id: 'D', text: "General-purpose v2 (standard general-purpose v2)." }
     ],
     correctAnswers: ['D'],
@@ -135,12 +135,12 @@ export const AZURE_AZ104_QUESTIONS_3 = [
     scenario: "An engineering team needs to mount an Azure file share onto a cluster of Linux virtual machines running in an Azure Virtual Network. The application requires full POSIX file system compliance, hard links, and symlinks.",
     question: "Which Azure Files configuration satisfies these POSIX Linux requirements?",
     options: [
-      { id: 'A', text: "Azure Queue Storage." },
-      { id: 'B', text: "Azure Blob Storage with FTP endpoint." },
-      { id: 'C', text: "Premium file share with the NFS v4.1 protocol enabled." },
-      { id: 'D', text: "Standard file share with SMB 3.0 protocol." }
+      { id: 'A', text: "Premium file share with the NFS v4.1 protocol enabled." },
+      { id: 'B', text: "Standard file share with SMB 3.0 protocol." },
+      { id: 'C', text: "Azure Queue Storage." },
+      { id: 'D', text: "Azure Blob Storage with FTP endpoint." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Azure Files supports NFS (Network File System) v4.1 file shares exclusively on **Premium** file storage accounts. NFS v4.1 provides native POSIX compliance (case sensitivity, POSIX permissions, hard links, symbolic links) required by enterprise Linux workloads. Standard Azure Files supports SMB only.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/files/files-nfs-protocol",
@@ -156,9 +156,9 @@ export const AZURE_AZ104_QUESTIONS_3 = [
     scenario: "A compliance mandate dictates that all data stored in an Azure Storage Account must be encrypted at rest using a Customer-Managed Key (CMK) stored in Azure Key Vault, and key rotation must happen without downtime.",
     question: "What identity configuration is required on the storage account to allow it to read encryption keys from Azure Key Vault?",
     options: [
-      { id: 'A', text: "Create an SAS token with write permissions on Key Vault." },
-      { id: 'B', text: "Store the storage account primary access key in Key Vault secrets." },
-      { id: 'C', text: "Make the Key Vault publicly accessible without authentication." },
+      { id: 'A', text: "Make the Key Vault publicly accessible without authentication." },
+      { id: 'B', text: "Create an SAS token with write permissions on Key Vault." },
+      { id: 'C', text: "Store the storage account primary access key in Key Vault secrets." },
       { id: 'D', text: "Enable a System-assigned or User-assigned Managed Identity on the Storage Account and grant it Key Vault Crypto Service Encryption User permissions." }
     ],
     correctAnswers: ['D'],
@@ -177,12 +177,12 @@ export const AZURE_AZ104_QUESTIONS_3 = [
     scenario: "An application developer accidentally executed a script that deleted 5,000 blobs from a production container. The container has Blob Soft Delete enabled with a 14-day retention period.",
     question: "How should the administrator restore the deleted blobs to active status?",
     options: [
-      { id: 'A', text: "Use the Azure portal or Azure CLI/PowerShell to list soft-deleted blobs and execute the `Undelete` operation on the blobs." },
-      { id: 'B', text: "Create a new Storage Account and run AzCopy." },
-      { id: 'C', text: "Rehydrate the blobs from the Archive tier." },
-      { id: 'D', text: "Restore the storage account from a daily Azure Backup snapshot." }
+      { id: 'A', text: "Restore the storage account from a daily Azure Backup snapshot." },
+      { id: 'B', text: "Rehydrate the blobs from the Archive tier." },
+      { id: 'C', text: "Create a new Storage Account and run AzCopy." },
+      { id: 'D', text: "Use the Azure portal or Azure CLI/PowerShell to list soft-deleted blobs and execute the `Undelete` operation on the blobs." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "When Blob Soft Delete is enabled, deleted blobs or blob snapshots are retained in a soft-deleted state for the configured retention period (e.g. 14 days). Administrators can filter and view soft-deleted blobs in the Azure portal, CLI, or SDKs and call the `Undelete` operation to restore them immediately to active status without loss of data or metadata.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/blobs/soft-delete-blob-overview",
@@ -219,12 +219,12 @@ export const AZURE_AZ104_QUESTIONS_3 = [
     scenario: "A security officer needs to understand the difference between default Azure managed disk encryption and Azure Disk Encryption (ADE).",
     question: "Which statement accurately describes Azure Server-Side Encryption (SSE) with Platform-Managed Keys (PMK)?",
     options: [
-      { id: 'A', text: "SSE requires installing BitLocker or DM-Crypt inside the guest OS." },
-      { id: 'B', text: "SSE requires deploying an Azure Key Vault." },
-      { id: 'C', text: "SSE only encrypts temporary instance disks." },
-      { id: 'D', text: "SSE with PMK is enabled by default on all Azure managed OS and data disks, encrypting data at rest at the storage service layer with zero configuration." }
+      { id: 'A', text: "SSE only encrypts temporary instance disks." },
+      { id: 'B', text: "SSE with PMK is enabled by default on all Azure managed OS and data disks, encrypting data at rest at the storage service layer with zero configuration." },
+      { id: 'C', text: "SSE requires installing BitLocker or DM-Crypt inside the guest OS." },
+      { id: 'D', text: "SSE requires deploying an Azure Key Vault." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Azure Server-Side Encryption (SSE) is enabled by default for all Azure managed disks (OS disks and data disks) using 256-bit AES encryption at the Azure storage layer with platform-managed keys (PMK) with zero customer overhead. In contrast, Azure Disk Encryption (ADE) uses BitLocker (Windows) or DM-Crypt (Linux) inside the guest OS and requires Azure Key Vault.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machines/disk-encryption",
@@ -261,12 +261,12 @@ export const AZURE_AZ104_QUESTIONS_3 = [
     scenario: "A DevOps team uses Azure Bicep to deploy a production environment consisting of a Virtual Network, 3 subnets, and 5 Virtual Machines. The team runs the deployment script twice in succession without modifying the Bicep template.",
     question: "How does Azure Resource Manager handle the second deployment under Incremental mode?",
     options: [
-      { id: 'A', text: "The deployment fails immediately with an object conflict error." },
-      { id: 'B', text: "Azure Resource Manager creates a duplicate set of 5 new VMs." },
-      { id: 'C', text: "Azure Resource Manager evaluates the deployment idempotently, leaving unchanged resources unmodified and making no changes." },
+      { id: 'A', text: "Azure Resource Manager creates a duplicate set of 5 new VMs." },
+      { id: 'B', text: "Azure Resource Manager evaluates the deployment idempotently, leaving unchanged resources unmodified and making no changes." },
+      { id: 'C', text: "The deployment fails immediately with an object conflict error." },
       { id: 'D', text: "Azure Resource Manager deletes all resources and recreates them." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Azure Resource Manager (ARM) deployments in **Incremental mode** (the default mode) are idempotent. If a resource declared in the template or Bicep file already exists in the resource group with the exact same properties, Azure Resource Manager leaves it unchanged, ensuring safe, repeatable automated deployments without duplicate resource creation or unexpected downtime.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview",
@@ -303,12 +303,12 @@ export const AZURE_AZ104_QUESTIONS_3 = [
     scenario: "A developer builds an event-driven serverless background function in Azure Functions that processes messages from an Azure Service Bus queue. The function runs for 10 seconds per execution, runs occasionally throughout the day, and requires zero hosting cost when idle.",
     question: "Which Azure Functions hosting plan is the most cost-effective for occasional, event-driven compute?",
     options: [
-      { id: 'A', text: "Functions Premium plan." },
-      { id: 'B', text: "App Service (Dedicated) plan." },
-      { id: 'C', text: "Consumption plan." },
-      { id: 'D', text: "Azure Dedicated Host." }
+      { id: 'A', text: "Azure Dedicated Host." },
+      { id: 'B', text: "Consumption plan." },
+      { id: 'C', text: "App Service (Dedicated) plan." },
+      { id: 'D', text: "Functions Premium plan." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "The Azure Functions Consumption hosting plan is the true serverless option: compute resources are added and removed dynamically based on incoming events, scaling to zero when no events are processing, and billing strictly for execution time (gigabyte-seconds) and total execution count (with 1 million free executions per month). Dedicated and Premium plans charge ongoing hourly rates.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-functions/functions-scale",
@@ -366,12 +366,12 @@ export const AZURE_AZ104_QUESTIONS_3 = [
     scenario: "An enterprise runs a pool of 50 backend virtual machines in a private subnet. The VMs need to initiate outbound connections to software update repositories on the internet, but must never accept unsolicited inbound connections. The team frequently encounters SNAT port exhaustion when relying on default outbound access.",
     question: "Which Azure networking resource provides dedicated, scalable outbound SNAT capacity for subnets without inbound exposure?",
     options: [
-      { id: 'A', text: "Deploy an Azure Virtual Network NAT Gateway (Azure NAT Gateway) attached to the subnet." },
-      { id: 'B', text: "Configure a User-Defined Route with Next Hop `Internet`." },
-      { id: 'C', text: "Assign Instance-Level Public IPs to all 50 VMs." },
-      { id: 'D', text: "Deploy an Azure Basic Load Balancer." }
+      { id: 'A', text: "Assign Instance-Level Public IPs to all 50 VMs." },
+      { id: 'B', text: "Deploy an Azure Basic Load Balancer." },
+      { id: 'C', text: "Deploy an Azure Virtual Network NAT Gateway (Azure NAT Gateway) attached to the subnet." },
+      { id: 'D', text: "Configure a User-Defined Route with Next Hop `Internet`." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Azure Virtual Network NAT Gateway is a fully managed, highly resilient outbound-only network translation service. When associated with a subnet, it provides dynamic SNAT port allocation (up to 64,000 concurrent flows per public IP, scalable up to 16 public IPs) to eliminate SNAT port exhaustion, while strictly prohibiting inbound internet traffic.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-network/nat-gateway/nat-overview",
@@ -387,9 +387,9 @@ export const AZURE_AZ104_QUESTIONS_3 = [
     scenario: "An administrator needs to associate a public IP address with a new Standard Load Balancer frontend and an Azure Virtual Machine located in Availability Zone 1.",
     question: "Which SKU and allocation method must be selected for the Public IP address?",
     options: [
-      { id: 'A', text: "Basic SKU with Dynamic IP allocation." },
-      { id: 'B', text: "Premium SKU with Anycast allocation." },
-      { id: 'C', text: "Basic SKU with Static IP allocation." },
+      { id: 'A', text: "Basic SKU with Static IP allocation." },
+      { id: 'B', text: "Basic SKU with Dynamic IP allocation." },
+      { id: 'C', text: "Premium SKU with Anycast allocation." },
       { id: 'D', text: "Standard SKU with Static IP allocation." }
     ],
     correctAnswers: ['D'],
@@ -408,12 +408,12 @@ export const AZURE_AZ104_QUESTIONS_3 = [
     scenario: "A multinational bank requires a dedicated private connection between its on-premises corporate headquarters and Azure with guaranteed bandwidth (up to 10 Gbps), lower latency, and higher reliability than typical internet-based IPsec VPNs.",
     question: "Which Azure hybrid networking service provides dedicated private fiber connectivity without traversing the public internet?",
     options: [
-      { id: 'A', text: "Azure Point-to-Site VPN Gateway." },
-      { id: 'B', text: "Azure Site-to-Site VPN Gateway." },
-      { id: 'C', text: "Azure Virtual Network Peering." },
-      { id: 'D', text: "Azure ExpressRoute." }
+      { id: 'A', text: "Azure Virtual Network Peering." },
+      { id: 'B', text: "Azure ExpressRoute." },
+      { id: 'C', text: "Azure Point-to-Site VPN Gateway." },
+      { id: 'D', text: "Azure Site-to-Site VPN Gateway." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Azure ExpressRoute creates private, dedicated connections between your on-premises datacenters and Azure through a connectivity provider (colocation facility or telecom). ExpressRoute connections do not traverse the public internet, offering higher security, enterprise reliability, consistent latency, and high bandwidth (up to 100 Gbps). Site-to-Site VPN encrypts tunnels over the public internet.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/expressroute/expressroute-introduction",
@@ -429,12 +429,12 @@ export const AZURE_AZ104_QUESTIONS_3 = [
     scenario: "An enterprise is deploying a centralized log collection strategy across 500 Windows and Linux virtual machines in Azure and on-premises using Azure Arc. The team requires Data Collection Rules (DCRs) to filter out debug events at the VM agent level before data ingestion to reduce Log Analytics storage costs.",
     question: "Which unified agent and configuration mechanism supports Data Collection Rules (DCRs)?",
     options: [
-      { id: 'A', text: "Azure Diagnostics Extension (WAD/LAD)." },
-      { id: 'B', text: "Azure Network Watcher Agent." },
-      { id: 'C', text: "Legacy Microsoft Monitoring Agent (MMA)." },
-      { id: 'D', text: "Azure Monitor Agent (AMA) configured with Data Collection Rules (DCRs)." }
+      { id: 'A', text: "Legacy Microsoft Monitoring Agent (MMA)." },
+      { id: 'B', text: "Azure Monitor Agent (AMA) configured with Data Collection Rules (DCRs)." },
+      { id: 'C', text: "Azure Diagnostics Extension (WAD/LAD)." },
+      { id: 'D', text: "Azure Network Watcher Agent." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "The Azure Monitor Agent (AMA) is Microsoft's unified logging agent replacing legacy agents (MMA, OMS, Telegraf). AMA uses **Data Collection Rules (DCRs)** to define exactly which data to collect, filter, and route (including filtering event log IDs locally before ingestion), reducing ingestion volume and log management costs across Azure VMs, VMSS, and Azure Arc servers.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/agents/azure-monitor-agent-overview",
@@ -450,12 +450,12 @@ export const AZURE_AZ104_QUESTIONS_3 = [
     scenario: "A security operations center (SOC) needs to visualize IP traffic patterns, identify top communicating virtual machines, detect traffic communicating with known malicious external IP addresses, and analyze allowed vs denied NSG flows.",
     question: "Which combination of Azure Network Watcher features provides deep graphical traffic insights?",
     options: [
-      { id: 'A', text: "NSG Flow Logs enabled with Traffic Analytics connected to a Log Analytics workspace." },
+      { id: 'A', text: "IP Flow Verify point-in-time checks." },
       { id: 'B', text: "Azure Service Health notifications." },
-      { id: 'C', text: "IP Flow Verify point-in-time checks." },
-      { id: 'D', text: "Application Insights Profiler." }
+      { id: 'C', text: "Application Insights Profiler." },
+      { id: 'D', text: "NSG Flow Logs enabled with Traffic Analytics connected to a Log Analytics workspace." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "NSG Flow Logs captures metadata on IP traffic passing through Network Security Groups and writes logs to a storage account. Enabling **Traffic Analytics** processes the flow logs, enriches them with Microsoft threat intelligence, and feeds them into an Azure Log Analytics workspace to provide rich graphical dashboards of traffic flows, top talkers, open ports, and malicious IPs.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/network-watcher/traffic-analytics",
@@ -472,9 +472,9 @@ export const AZURE_AZ104_QUESTIONS_3 = [
     question: "Which built-in Azure service provides automated recommendations across the 5 pillars of the Well-Architected Framework?",
     options: [
       { id: 'A', text: "Azure Advisor." },
-      { id: 'B', text: "Azure Blueprints." },
-      { id: 'C', text: "Azure Resource Graph." },
-      { id: 'D', text: "Azure Service Health." }
+      { id: 'B', text: "Azure Service Health." },
+      { id: 'C', text: "Azure Blueprints." },
+      { id: 'D', text: "Azure Resource Graph." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -514,11 +514,11 @@ export const AZURE_AZ104_QUESTIONS_3 = [
     question: "Which dashboard and alert mechanism in Azure notifies teams about regional platform service interruptions?",
     options: [
       { id: 'A', text: "Azure Resource Health on a single VM." },
-      { id: 'B', text: "Azure Service Health alerts targeting Service Issues in the West Europe region." },
-      { id: 'C', text: "Application Insights live metrics." },
-      { id: 'D', text: "Azure Network Watcher packet capture." }
+      { id: 'B', text: "Application Insights live metrics." },
+      { id: 'C', text: "Azure Network Watcher packet capture." },
+      { id: 'D', text: "Azure Service Health alerts targeting Service Issues in the West Europe region." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Azure Service Health provides a personalized view of the health of Azure services and regions you use. It categorizes events into **Service Issues** (active platform outages), **Planned Maintenance** (scheduled platform updates), and **Health Advisories**, allowing administrators to create alerts that notify teams via email, SMS, or webhooks during regional service disruptions.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/service-health/service-health-overview",

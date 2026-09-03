@@ -93,12 +93,12 @@ export const AZURE_AZ104_QUESTIONS_5 = [
     scenario: "A company acquires a subsidiary with an existing Azure subscription. The administrator needs to transfer the billing ownership and associate the subscription with the parent company's Microsoft Entra ID tenant.",
     question: "What happens to existing Azure RBAC role assignments when a subscription is transferred to a new Microsoft Entra tenant?",
     options: [
-      { id: 'A', text: "All virtual machines and storage accounts are permanently deleted." },
-      { id: 'B', text: "All existing Azure RBAC role assignments and user permissions are permanently removed." },
-      { id: 'C', text: "All RBAC role assignments are automatically migrated to the new tenant." },
-      { id: 'D', text: "The subscription enters a read-only state for 30 days." }
+      { id: 'A', text: "The subscription enters a read-only state for 30 days." },
+      { id: 'B', text: "All RBAC role assignments are automatically migrated to the new tenant." },
+      { id: 'C', text: "All existing Azure RBAC role assignments and user permissions are permanently removed." },
+      { id: 'D', text: "All virtual machines and storage accounts are permanently deleted." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "When you transfer an Azure subscription to a different Microsoft Entra directory (tenant), all existing Azure RBAC role assignments, user access, and system-assigned managed identities are permanently removed because security principals do not exist across different tenant boundaries. The resources themselves remain intact, but permissions must be reassigned in the target tenant.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/billing-subscription-transfer",
@@ -114,12 +114,12 @@ export const AZURE_AZ104_QUESTIONS_5 = [
     scenario: "A company policy mandates rotating Azure Storage Account master access keys every 90 days. Multiple production applications currently connect using `key1`.",
     question: "How should the administrator rotate the storage keys with zero application downtime?",
     options: [
-      { id: 'A', text: "Regenerate both `key1` and `key2` simultaneously." },
-      { id: 'B', text: "Convert the storage account to LRS." },
-      { id: 'C', text: "Delete the storage account and recreate it." },
-      { id: 'D', text: "Update application connection strings to use `key2`, regenerate `key1`, update applications to use the new `key1`, and then regenerate `key2`." }
+      { id: 'A', text: "Convert the storage account to LRS." },
+      { id: 'B', text: "Regenerate both `key1` and `key2` simultaneously." },
+      { id: 'C', text: "Update application connection strings to use `key2`, regenerate `key1`, update applications to use the new `key1`, and then regenerate `key2`." },
+      { id: 'D', text: "Delete the storage account and recreate it." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Storage accounts provide two 512-bit access keys (`key1` and `key2`) to enable zero-downtime key rotation: 1) Point applications to the secondary key (`key2`), 2) Regenerate the primary key (`key1`), 3) Point applications back to the new `key1`, and 4) Regenerate the secondary key (`key2`).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/common/storage-account-keys-manage#manually-rotate-access-keys",
@@ -135,12 +135,12 @@ export const AZURE_AZ104_QUESTIONS_5 = [
     scenario: "An Azure file share is backed up daily to an Azure Recovery Services Vault. An administrator needs to restore a 200 GB folder that was deleted 2 hours ago.",
     question: "How does Azure Backup for Azure Files achieve near-instantaneous folder restores?",
     options: [
-      { id: 'A', text: "Azure Backup downloads the backup archive from cold secondary storage." },
+      { id: 'A', text: "Azure Backup restores directly from the local Azure File Share snapshot without transferring data over the network." },
       { id: 'B', text: "Azure Backup requires creating a new storage account." },
-      { id: 'C', text: "Azure Backup restores directly from the local Azure File Share snapshot without transferring data over the network." },
-      { id: 'D', text: "Azure Backup converts the file share into a VM managed disk." }
+      { id: 'C', text: "Azure Backup converts the file share into a VM managed disk." },
+      { id: 'D', text: "Azure Backup downloads the backup archive from cold secondary storage." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Azure Backup for Azure Files orchestrates native Azure File share snapshots located directly within the storage account. Because snapshots live alongside the primary data, restores operate instantly as local pointer reversions without transferring large files across the network.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/backup/azure-file-share-restore-overview",
@@ -156,12 +156,12 @@ export const AZURE_AZ104_QUESTIONS_5 = [
     scenario: "An enterprise is migrating 100 TB of file shares from multiple on-premises NFS storage servers to Azure Blob Storage and Azure Files. The migration must run continuously in the background, syncing incremental delta changes over several weeks before final cutover.",
     question: "Which fully managed hybrid migration service orchestrates distributed agent migration jobs to Azure Storage?",
     options: [
-      { id: 'A', text: "Azure Storage Mover." },
-      { id: 'B', text: "Azure Import/Export Service." },
-      { id: 'C', text: "Azure Bastion." },
-      { id: 'D', text: "Azure Data Box Heavy." }
+      { id: 'A', text: "Azure Bastion." },
+      { id: 'B', text: "Azure Data Box Heavy." },
+      { id: 'C', text: "Azure Storage Mover." },
+      { id: 'D', text: "Azure Import/Export Service." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Azure Storage Mover is a fully managed cloud migration service that automates migrating files and folders from on-premises NFS/SMB storage to Azure Storage containers and file shares using lightweight virtual machine migration agents, with centralized cloud orchestration and incremental syncing.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage-mover/overview",
@@ -198,12 +198,12 @@ export const AZURE_AZ104_QUESTIONS_5 = [
     scenario: "A critical legal discovery request requires restoring 50 GB of archived PDF documents from the Azure Blob Archive tier to the Hot tier as quickly as possible (in under 1 hour).",
     question: "Which rehydration priority setting should the administrator select?",
     options: [
-      { id: 'A', text: "Cold tier transition." },
-      { id: 'B', text: "Soft Delete undelete." },
-      { id: 'C', text: "Standard priority rehydration." },
-      { id: 'D', text: "High priority rehydration." }
+      { id: 'A', text: "Soft Delete undelete." },
+      { id: 'B', text: "Cold tier transition." },
+      { id: 'C', text: "High priority rehydration." },
+      { id: 'D', text: "Standard priority rehydration." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "When rehydrating a blob from the Archive tier, **High priority** rehydration prioritizes the request ahead of standard queues, typically retrieving blobs smaller than 10 GB in under 1 hour (at a higher rehydration cost). Standard priority rehydration can take up to 15 hours.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/blobs/archive-rehydrate-overview#rehydration-priority",
@@ -219,10 +219,10 @@ export const AZURE_AZ104_QUESTIONS_5 = [
     scenario: "An administrator attaches a new 1 TB Premium SSD Managed Data Disk to a running Windows Server Azure Virtual Machine. After attaching the disk in the Azure portal, the drive letter does not appear in Windows File Explorer.",
     question: "Which administrative step must be performed inside the Windows guest operating system?",
     options: [
-      { id: 'A', text: "Enable Azure Disk Encryption." },
+      { id: 'A', text: "Restart the virtual machine from the Azure portal." },
       { id: 'B', text: "Open Disk Management, bring the disk Online, Initialize the disk (GPT), create a New Simple Volume, and format with NTFS." },
-      { id: 'C', text: "Recreate the VM Network Interface." },
-      { id: 'D', text: "Restart the virtual machine from the Azure portal." }
+      { id: 'C', text: "Enable Azure Disk Encryption." },
+      { id: 'D', text: "Recreate the VM Network Interface." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -240,12 +240,12 @@ export const AZURE_AZ104_QUESTIONS_5 = [
     scenario: "An organization runs batch media rendering tasks on Azure Virtual Machines. The workload is fault-tolerant and can tolerate VM termination with 30 seconds notice when Azure requires the compute capacity back.",
     question: "Which VM purchasing model and eviction policy delivers up to 90% cost savings for interruptible compute?",
     options: [
-      { id: 'A', text: "Azure Spot Virtual Machines with the Eviction Policy set to `Deallocate` (or `Delete`)." },
-      { id: 'B', text: "Pay-As-You-Go Standard Instances." },
-      { id: 'C', text: "3-year Reserved VM Instances." },
-      { id: 'D', text: "Dedicated Hosts." }
+      { id: 'A', text: "Pay-As-You-Go Standard Instances." },
+      { id: 'B', text: "Azure Spot Virtual Machines with the Eviction Policy set to `Deallocate` (or `Delete`)." },
+      { id: 'C', text: "Dedicated Hosts." },
+      { id: 'D', text: "3-year Reserved VM Instances." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Azure Spot Virtual Machines allow taking advantage of unused Azure compute capacity at significant discounts (up to 90% off Pay-As-You-Go rates). When Azure needs the capacity back, the infrastructure gives a 30-second eviction notice and evicts the VM according to the chosen eviction policy (`Deallocate` or `Delete`).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machines/spot-vms",
@@ -262,9 +262,9 @@ export const AZURE_AZ104_QUESTIONS_5 = [
     question: "Which Azure feature allows executing a shell script inside the VM to reset firewall rules without requiring network connectivity to port 22?",
     options: [
       { id: 'A', text: "Azure Virtual Machine Run Command (using `RunShellScript`)." },
-      { id: 'B', text: "Azure Bastion RDP session." },
-      { id: 'C', text: "Azure Key Vault secret retrieval." },
-      { id: 'D', text: "Azure Network Watcher IP Flow Verify." }
+      { id: 'B', text: "Azure Key Vault secret retrieval." },
+      { id: 'C', text: "Azure Network Watcher IP Flow Verify." },
+      { id: 'D', text: "Azure Bastion RDP session." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -282,10 +282,10 @@ export const AZURE_AZ104_QUESTIONS_5 = [
     scenario: "A web application on Azure App Service occasionally experiences memory leaks that cause high memory consumption (>90% RAM) and slow response times. The operations team wants App Service to automatically restart the application process whenever memory consumption exceeds 1.5 GB for 5 minutes.",
     question: "Which Azure App Service feature configures automated process restarts based on error or memory conditions?",
     options: [
-      { id: 'A', text: "App Service Custom Script extension." },
-      { id: 'B', text: "Azure Resource Locks." },
+      { id: 'A', text: "Azure Resource Locks." },
+      { id: 'B', text: "Azure Policy with Modify effect." },
       { id: 'C', text: "App Service Auto-Heal rules in Diagnose and Solve Problems." },
-      { id: 'D', text: "Azure Policy with Modify effect." }
+      { id: 'D', text: "App Service Custom Script extension." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -450,12 +450,12 @@ export const AZURE_AZ104_QUESTIONS_5 = [
     scenario: "An enterprise database running on Azure IaaS VMs requires multiple application-consistent backups per day (every 4 hours) with instant snapshot retention for up to 30 days and support for Ultra Disks and Premium SSD v2.",
     question: "Which Azure VM Backup policy type supports multiple daily backups and instant snapshot retention up to 30 days?",
     options: [
-      { id: 'A', text: "Standard Backup Policy (Legacy)." },
-      { id: 'B', text: "Blob Lifecycle Policy." },
-      { id: 'C', text: "Enhanced Backup Policy." },
+      { id: 'A', text: "Enhanced Backup Policy." },
+      { id: 'B', text: "Standard Backup Policy (Legacy)." },
+      { id: 'C', text: "Blob Lifecycle Policy." },
       { id: 'D', text: "Azure File Sync." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Enhanced Backup Policies in Azure Backup support modern IaaS VM requirements: multiple backups per day (up to hourly backups), instant snapshot retention up to 30 days, support for Trusted Launch VMs, and support for VMs with Ultra Disks and Premium SSD v2. Standard policies are limited to 1 backup per day and 5-day instant retention.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/backup/backup-azure-vms-enhanced-policy",
@@ -472,11 +472,11 @@ export const AZURE_AZ104_QUESTIONS_5 = [
     question: "Which Azure Monitor feature provides interactive data analysis and canvas reporting?",
     options: [
       { id: 'A', text: "Azure Activity Log." },
-      { id: 'B', text: "Azure Monitor Workbooks." },
-      { id: 'C', text: "Azure Network Watcher topology." },
-      { id: 'D', text: "Azure Advisor security scorecard." }
+      { id: 'B', text: "Azure Advisor security scorecard." },
+      { id: 'C', text: "Azure Monitor Workbooks." },
+      { id: 'D', text: "Azure Network Watcher topology." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Azure Monitor Workbooks provide a flexible canvas for data analysis and the creation of rich visual reports within the Azure portal. Workbooks can tap into multiple data sources across Azure (Metrics, Logs, Resource Graph, Alerts) and combine them into unified interactive visualizations.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/visualize/workbooks-overview",
@@ -492,12 +492,12 @@ export const AZURE_AZ104_QUESTIONS_5 = [
     scenario: "An enterprise needs to conduct a disaster recovery compliance drill for virtual machines replicating via Azure Site Recovery to a secondary region. The drill must validate application functionality and database consistency without causing downtime in production and without interrupting ongoing replication.",
     question: "Which ASR operation tests disaster recovery in an isolated network without impacting production?",
     options: [
-      { id: 'A', text: "Disable replication and recreate the VMs." },
-      { id: 'B', text: "Perform an Unplanned Failover." },
-      { id: 'C', text: "Perform a Test Failover to an isolated, non-production virtual network." },
+      { id: 'A', text: "Perform an Unplanned Failover." },
+      { id: 'B', text: "Perform a Test Failover to an isolated, non-production virtual network." },
+      { id: 'C', text: "Disable replication and recreate the VMs." },
       { id: 'D', text: "Perform a Planned Failover." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Azure Site Recovery (ASR) Test Failover allows organizations to run disaster recovery drills without impacting ongoing replication, data loss, or production downtime. Test failover launches temporary test VMs in an isolated virtual network in the secondary region; after testing, executing \"Cleanup test failover\" automatically deletes the test VMs.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/site-recovery/site-recovery-test-failover-to-azure",
