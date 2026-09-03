@@ -1,528 +1,1003 @@
 export const AWS_SCS_QUESTIONS_1 = [
   {
-    id: "aws-scs-1",
-    difficulty: "medium",
-    certId: "aws-scs",
-    domainId: "d1",
-    domainName: "Threat Detection and Incident Response",
-    title: "Amazon GuardDuty threat intelligence and anomalous activity findings: Operational Strategy (Part 1)",
-    scenario: "A multinational fintech banking platform is evaluating AWS Certified Security - Specialty practices specifically regarding Amazon GuardDuty threat intelligence and anomalous activity findings. The engineering group is remediating compliance audit findings regarding unauthorized configuration drift across staging and production for service tier #1.",
-    question: "What is the recommended implementation strategy to satisfy these technical requirements according to official best practices? (Focus: Amazon GuardDuty threat intelligence and anomalous activity findings in Threat Detection and Incident Response)",
-    options: [
-      { id: 'A', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'B', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'C', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'D', text: "Deploy native automation for amazon guardduty threat intelligence and anomalous activity findings utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." }
+    "id": "aws-scs-1",
+    "difficulty": "hard",
+    "certId": "aws-scs",
+    "domainId": "d1",
+    "domainName": "Threat Detection and Incident Response",
+    "title": "Remediating a Compromised EC2 Instance Forensic Workflow",
+    "scenario": "Amazon GuardDuty generates a high-severity finding (UnauthorizedAccess:EC2/TorIPCaller) indicating that an Amazon EC2 web server instance is communicating with known Tor exit nodes and may be actively compromised. Security response policy requires isolating the instance immediately while preserving volatile system memory for forensic analysis.",
+    "question": "Which incident response sequence should the security team execute?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Immediately terminate the EC2 instance using the AWS CLI and delete its attached root EBS volumes to stop data exfiltration"
+      },
+      {
+        "id": "B",
+        "text": "Reboot the instance to clear malware from memory and assign a new public Elastic IP address"
+      },
+      {
+        "id": "C",
+        "text": "Add a deny-all rule to the VPC Network ACL for the entire subnet, disconnecting all other healthy workloads"
+      },
+      {
+        "id": "D",
+        "text": "Tag the instance, modify its security group to remove all inbound/outbound rules and attach an isolation security group that allows inbound forensic analysis from a secure bastion, create an EBS volume snapshot of all attached volumes, and capture volatile RAM using an SSM Automation document or kernel module prior to stopping"
+      }
     ],
-    correctAnswers: ['D'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for amazon guardduty threat intelligence and anomalous activity findings provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Threat", "Architecture"]
+    "correctAnswers": [
+      "D"
+    ],
+    "type": "single",
+    "explanation": "When responding to an EC2 compromise, volatile memory (RAM) and disk state must be preserved for forensic chain of custody before terminating or rebooting the instance. Isolating the instance via a restrictive security group containing only authorized forensic access, taking point-in-time EBS snapshots, and collecting memory dumps satisfies incident response best practices without impacting adjacent workloads.",
+    "referenceUrl": "https://docs.aws.amazon.com/whitepapers/latest/aws-security-incident-response-guide/containment.html",
+    "tags": [
+      "Incident Response",
+      "GuardDuty",
+      "Forensics",
+      "EC2"
+    ]
   },
   {
-    id: "aws-scs-2",
-    difficulty: "medium",
-    certId: "aws-scs",
-    domainId: "d2",
-    domainName: "Security Logging and Monitoring",
-    title: "AWS CloudTrail multi-region organization trails and log validation: Operational Strategy (Part 2)",
-    scenario: "A healthcare telemedicine network is evaluating AWS Certified Security - Specialty practices specifically regarding AWS CloudTrail multi-region organization trails and log validation. The engineering group must minimize mean time to recovery (MTTR) and prevent cascading failures during regional outages for service tier #2.",
-    question: "Which configuration provides the most cost-effective and secure solution to achieve these criteria? (Focus: AWS CloudTrail multi-region organization trails and log validation in Security Logging and Monitoring)",
-    options: [
-      { id: 'A', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'B', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'D', text: "Deploy native automation for aws cloudtrail multi-region organization trails and log validation utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." }
+    "id": "aws-scs-2",
+    "difficulty": "medium",
+    "certId": "aws-scs",
+    "domainId": "d1",
+    "domainName": "Threat Detection and Incident Response",
+    "title": "Automated GuardDuty Finding Remediation via EventBridge",
+    "scenario": "An enterprise requires that whenever Amazon GuardDuty detects cryptocurrency mining activity (CryptoCurrency:EC2/BitcoinTool.B!) on any EC2 instance across any member account, the instance must be automatically stopped and an emergency alert sent to the SOC on-call engineer within 60 seconds.",
+    "question": "Which event-driven architecture satisfies this requirement?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Create an AWS Config managed rule that evaluates instance CPU utilization every hour"
+      },
+      {
+        "id": "B",
+        "text": "Configure Amazon CloudWatch Logs metric filters on VPC Flow Logs to reboot instances"
+      },
+      {
+        "id": "C",
+        "text": "Write a cron job running on an on-premises server that calls aws guardduty list-findings every 30 minutes"
+      },
+      {
+        "id": "D",
+        "text": "Configure an Amazon EventBridge rule that filters for GuardDuty findings of type CryptoCurrency:EC2/BitcoinTool.B!, targeting an AWS Systems Manager Automation runbook (AWS-StopEC2Instance) and an Amazon SNS topic for SOC notification"
+      }
     ],
-    correctAnswers: ['D'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for aws cloudtrail multi-region organization trails and log validation provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Security", "Architecture"]
+    "correctAnswers": [
+      "D"
+    ],
+    "type": "single",
+    "explanation": "Amazon GuardDuty findings are published in real time to Amazon EventBridge (formerly CloudWatch Events). EventBridge rules matching specific finding types can automatically trigger remediation workflows using AWS Systems Manager Automation documents or AWS Lambda functions while alerting responders via Amazon SNS.",
+    "referenceUrl": "https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html",
+    "tags": [
+      "GuardDuty",
+      "EventBridge",
+      "Automation",
+      "Incident Response"
+    ]
   },
   {
-    id: "aws-scs-3",
-    difficulty: "easy",
-    certId: "aws-scs",
-    domainId: "d3",
-    domainName: "Infrastructure Security",
-    title: "AWS WAF web ACL rule groups defending against SQL injection and XSS: Operational Strategy (Part 3)",
-    scenario: "A high-throughput e-commerce retailer is evaluating AWS Certified Security - Specialty practices specifically regarding AWS WAF web ACL rule groups defending against SQL injection and XSS. The engineering group is migrating mission-critical workloads while enforcing strict organizational security guardrails for service tier #3.",
-    question: "Which architectural approach fulfills these operational objectives while maintaining reliability and minimal engineering overhead? (Focus: AWS WAF web ACL rule groups defending against SQL injection and XSS in Infrastructure Security)",
-    options: [
-      { id: 'A', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'B', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'C', text: "Deploy native automation for aws waf web acl rule groups defending against sql injection and xss utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'D', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." }
+    "id": "aws-scs-3",
+    "difficulty": "easy",
+    "certId": "aws-scs",
+    "domainId": "d1",
+    "domainName": "Threat Detection and Incident Response",
+    "title": "Threat Detection Scenario #1",
+    "scenario": "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
+    "question": "Which threat detection architecture best satisfies objective #1?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Relying on end-user email reports as the sole source of threat intelligence"
+      },
+      {
+        "id": "B",
+        "text": "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge"
+      },
+      {
+        "id": "C",
+        "text": "Granting public SSH ingress to all instances to enable rapid external forensic inspection"
+      },
+      {
+        "id": "D",
+        "text": "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees"
+      }
     ],
-    correctAnswers: ['C'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for aws waf web acl rule groups defending against sql injection and xss provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Infrastructure", "Architecture"]
+    "correctAnswers": [
+      "B"
+    ],
+    "type": "single",
+    "explanation": "Threat detection and incident response in AWS combines GuardDuty intelligent threat monitoring, Security Hub central posture aggregation, Detective graph forensics, and EventBridge auto-remediation.",
+    "referenceUrl": "https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html",
+    "tags": [
+      "Security Hub",
+      "GuardDuty",
+      "Detective",
+      "Incident Response"
+    ]
   },
   {
-    id: "aws-scs-4",
-    difficulty: "medium",
-    certId: "aws-scs",
-    domainId: "d4",
-    domainName: "Identity and Access Management",
-    title: "IAM policy evaluation logic explicit deny, SCPs, boundaries, and identity: Operational Strategy (Part 4)",
-    scenario: "A global streaming entertainment platform is evaluating AWS Certified Security - Specialty practices specifically regarding IAM policy evaluation logic explicit deny, SCPs, boundaries, and identity. The engineering group needs to eliminate manual operational toil and enforce declarative infrastructure reconciliation for service tier #4.",
-    question: "How should the engineering team configure the platform to ensure resilient, automated operation without manual intervention? (Focus: IAM policy evaluation logic explicit deny, SCPs, boundaries, and identity in Identity and Access Management)",
-    options: [
-      { id: 'A', text: "Deploy native automation for iam policy evaluation logic explicit deny, scps, boundaries, and identity utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'B', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'C', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'D', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." }
+    "id": "aws-scs-4",
+    "difficulty": "medium",
+    "certId": "aws-scs",
+    "domainId": "d1",
+    "domainName": "Threat Detection and Incident Response",
+    "title": "Threat Detection Scenario #2",
+    "scenario": "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
+    "question": "Which threat detection architecture best satisfies objective #2?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Relying on end-user email reports as the sole source of threat intelligence"
+      },
+      {
+        "id": "B",
+        "text": "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge"
+      },
+      {
+        "id": "C",
+        "text": "Granting public SSH ingress to all instances to enable rapid external forensic inspection"
+      },
+      {
+        "id": "D",
+        "text": "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees"
+      }
     ],
-    correctAnswers: ['A'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for iam policy evaluation logic explicit deny, scps, boundaries, and identity provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Identity", "Architecture"]
+    "correctAnswers": [
+      "B"
+    ],
+    "type": "single",
+    "explanation": "Threat detection and incident response in AWS combines GuardDuty intelligent threat monitoring, Security Hub central posture aggregation, Detective graph forensics, and EventBridge auto-remediation.",
+    "referenceUrl": "https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html",
+    "tags": [
+      "Security Hub",
+      "GuardDuty",
+      "Detective",
+      "Incident Response"
+    ]
   },
   {
-    id: "aws-scs-5",
-    difficulty: "hard",
-    certId: "aws-scs",
-    domainId: "d5",
-    domainName: "Data Protection",
-    title: "AWS KMS envelope encryption with customer managed symmetric keys: Operational Strategy (Part 5)",
-    scenario: "An algorithmic trading exchange is evaluating AWS Certified Security - Specialty practices specifically regarding AWS KMS envelope encryption with customer managed symmetric keys. The engineering group is implementing automated canary analysis with instant rollback capabilities triggered by error budget burn rates for service tier #5.",
-    question: "Which design pattern should be implemented to ensure continuous compliance, automated validation, and high availability? (Focus: AWS KMS envelope encryption with customer managed symmetric keys in Data Protection)",
-    options: [
-      { id: 'A', text: "Deploy native automation for aws kms envelope encryption with customer managed symmetric keys utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'B', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'C', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'D', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." }
+    "id": "aws-scs-5",
+    "difficulty": "hard",
+    "certId": "aws-scs",
+    "domainId": "d1",
+    "domainName": "Threat Detection and Incident Response",
+    "title": "Threat Detection Scenario #3",
+    "scenario": "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
+    "question": "Which threat detection architecture best satisfies objective #3?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees"
+      },
+      {
+        "id": "B",
+        "text": "Relying on end-user email reports as the sole source of threat intelligence"
+      },
+      {
+        "id": "C",
+        "text": "Granting public SSH ingress to all instances to enable rapid external forensic inspection"
+      },
+      {
+        "id": "D",
+        "text": "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge"
+      }
     ],
-    correctAnswers: ['A'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for aws kms envelope encryption with customer managed symmetric keys provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Data", "Architecture"]
+    "correctAnswers": [
+      "D"
+    ],
+    "type": "single",
+    "explanation": "Threat detection and incident response in AWS combines GuardDuty intelligent threat monitoring, Security Hub central posture aggregation, Detective graph forensics, and EventBridge auto-remediation.",
+    "referenceUrl": "https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html",
+    "tags": [
+      "Security Hub",
+      "GuardDuty",
+      "Detective",
+      "Incident Response"
+    ]
   },
   {
-    id: "aws-scs-6",
-    difficulty: "easy",
-    certId: "aws-scs",
-    domainId: "d6",
-    domainName: "Management and Security Governance",
-    title: "AWS Config managed rules and conformance packs auditing compliance: Operational Strategy (Part 6)",
-    scenario: "A logistics and supply chain optimization service is evaluating AWS Certified Security - Specialty practices specifically regarding AWS Config managed rules and conformance packs auditing compliance. The engineering group must enforce zero-trust identity boundaries and cryptographic verification across all service endpoints for service tier #6.",
-    question: "What is the recommended implementation strategy to satisfy these technical requirements according to official best practices? (Focus: AWS Config managed rules and conformance packs auditing compliance in Management and Security Governance)",
-    options: [
-      { id: 'A', text: "Deploy native automation for aws config managed rules and conformance packs auditing compliance utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'B', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'C', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'D', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." }
+    "id": "aws-scs-6",
+    "difficulty": "easy",
+    "certId": "aws-scs",
+    "domainId": "d1",
+    "domainName": "Threat Detection and Incident Response",
+    "title": "Threat Detection Scenario #4",
+    "scenario": "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
+    "question": "Which threat detection architecture best satisfies objective #4?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge"
+      },
+      {
+        "id": "B",
+        "text": "Granting public SSH ingress to all instances to enable rapid external forensic inspection"
+      },
+      {
+        "id": "C",
+        "text": "Relying on end-user email reports as the sole source of threat intelligence"
+      },
+      {
+        "id": "D",
+        "text": "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees"
+      }
     ],
-    correctAnswers: ['A'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for aws config managed rules and conformance packs auditing compliance provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Management", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "Threat detection and incident response in AWS combines GuardDuty intelligent threat monitoring, Security Hub central posture aggregation, Detective graph forensics, and EventBridge auto-remediation.",
+    "referenceUrl": "https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html",
+    "tags": [
+      "Security Hub",
+      "GuardDuty",
+      "Detective",
+      "Incident Response"
+    ]
   },
   {
-    id: "aws-scs-7",
-    difficulty: "medium",
-    certId: "aws-scs",
-    domainId: "d1",
-    domainName: "Threat Detection and Incident Response",
-    title: "AWS Security Hub centralized posture management and compliance checks: Operational Strategy (Part 7)",
-    scenario: "An IoT industrial telematics infrastructure is evaluating AWS Certified Security - Specialty practices specifically regarding AWS Security Hub centralized posture management and compliance checks. The engineering group needs to optimize cloud expenditure and implement real-time cost attribution across engineering teams for service tier #7.",
-    question: "Which configuration provides the most cost-effective and secure solution to achieve these criteria? (Focus: AWS Security Hub centralized posture management and compliance checks in Threat Detection and Incident Response)",
-    options: [
-      { id: 'A', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'B', text: "Deploy native automation for aws security hub centralized posture management and compliance checks utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'D', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." }
+    "id": "aws-scs-7",
+    "difficulty": "medium",
+    "certId": "aws-scs",
+    "domainId": "d1",
+    "domainName": "Threat Detection and Incident Response",
+    "title": "Threat Detection Scenario #5",
+    "scenario": "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
+    "question": "Which threat detection architecture best satisfies objective #5?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge"
+      },
+      {
+        "id": "B",
+        "text": "Relying on end-user email reports as the sole source of threat intelligence"
+      },
+      {
+        "id": "C",
+        "text": "Granting public SSH ingress to all instances to enable rapid external forensic inspection"
+      },
+      {
+        "id": "D",
+        "text": "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees"
+      }
     ],
-    correctAnswers: ['B'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for aws security hub centralized posture management and compliance checks provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Threat", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "Threat detection and incident response in AWS combines GuardDuty intelligent threat monitoring, Security Hub central posture aggregation, Detective graph forensics, and EventBridge auto-remediation.",
+    "referenceUrl": "https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html",
+    "tags": [
+      "Security Hub",
+      "GuardDuty",
+      "Detective",
+      "Incident Response"
+    ]
   },
   {
-    id: "aws-scs-8",
-    difficulty: "medium",
-    certId: "aws-scs",
-    domainId: "d2",
-    domainName: "Security Logging and Monitoring",
-    title: "VPC Flow Logs capturing accepted and rejected network traffic: Operational Strategy (Part 8)",
-    scenario: "A multi-tenant enterprise SaaS provider is evaluating AWS Certified Security - Specialty practices specifically regarding VPC Flow Logs capturing accepted and rejected network traffic. The engineering group is resolving cross-account network latency bottlenecks and transient connection timeouts for service tier #8.",
-    question: "Which architectural approach fulfills these operational objectives while maintaining reliability and minimal engineering overhead? (Focus: VPC Flow Logs capturing accepted and rejected network traffic in Security Logging and Monitoring)",
-    options: [
-      { id: 'A', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'B', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'C', text: "Deploy native automation for vpc flow logs capturing accepted and rejected network traffic utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
+    "id": "aws-scs-8",
+    "difficulty": "hard",
+    "certId": "aws-scs",
+    "domainId": "d1",
+    "domainName": "Threat Detection and Incident Response",
+    "title": "Threat Detection Scenario #6",
+    "scenario": "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
+    "question": "Which threat detection architecture best satisfies objective #6?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Relying on end-user email reports as the sole source of threat intelligence"
+      },
+      {
+        "id": "B",
+        "text": "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees"
+      },
+      {
+        "id": "C",
+        "text": "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge"
+      },
+      {
+        "id": "D",
+        "text": "Granting public SSH ingress to all instances to enable rapid external forensic inspection"
+      }
     ],
-    correctAnswers: ['C'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for vpc flow logs capturing accepted and rejected network traffic provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Security", "Architecture"]
+    "correctAnswers": [
+      "C"
+    ],
+    "type": "single",
+    "explanation": "Threat detection and incident response in AWS combines GuardDuty intelligent threat monitoring, Security Hub central posture aggregation, Detective graph forensics, and EventBridge auto-remediation.",
+    "referenceUrl": "https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html",
+    "tags": [
+      "Security Hub",
+      "GuardDuty",
+      "Detective",
+      "Incident Response"
+    ]
   },
   {
-    id: "aws-scs-9",
-    difficulty: "easy",
-    certId: "aws-scs",
-    domainId: "d3",
-    domainName: "Infrastructure Security",
-    title: "AWS Shield Advanced DDoS mitigation and cost protection: Operational Strategy (Part 9)",
-    scenario: "A public sector aerospace engineering department is evaluating AWS Certified Security - Specialty practices specifically regarding AWS Shield Advanced DDoS mitigation and cost protection. The engineering group must establish centralized audit logging and automated incident containment for security operations for service tier #9.",
-    question: "How should the engineering team configure the platform to ensure resilient, automated operation without manual intervention? (Focus: AWS Shield Advanced DDoS mitigation and cost protection in Infrastructure Security)",
-    options: [
-      { id: 'A', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'B', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'C', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'D', text: "Deploy native automation for aws shield advanced ddos mitigation and cost protection utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." }
+    "id": "aws-scs-9",
+    "difficulty": "easy",
+    "certId": "aws-scs",
+    "domainId": "d1",
+    "domainName": "Threat Detection and Incident Response",
+    "title": "Threat Detection Scenario #7",
+    "scenario": "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
+    "question": "Which threat detection architecture best satisfies objective #7?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Relying on end-user email reports as the sole source of threat intelligence"
+      },
+      {
+        "id": "B",
+        "text": "Granting public SSH ingress to all instances to enable rapid external forensic inspection"
+      },
+      {
+        "id": "C",
+        "text": "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge"
+      },
+      {
+        "id": "D",
+        "text": "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees"
+      }
     ],
-    correctAnswers: ['D'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for aws shield advanced ddos mitigation and cost protection provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Infrastructure", "Architecture"]
+    "correctAnswers": [
+      "C"
+    ],
+    "type": "single",
+    "explanation": "Threat detection and incident response in AWS combines GuardDuty intelligent threat monitoring, Security Hub central posture aggregation, Detective graph forensics, and EventBridge auto-remediation.",
+    "referenceUrl": "https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html",
+    "tags": [
+      "Security Hub",
+      "GuardDuty",
+      "Detective",
+      "Incident Response"
+    ]
   },
   {
-    id: "aws-scs-10",
-    difficulty: "hard",
-    certId: "aws-scs",
-    domainId: "d4",
-    domainName: "Identity and Access Management",
-    title: "IAM permission boundaries delegating safe role creation to teams: Operational Strategy (Part 10)",
-    scenario: "An automotive connected-vehicle fleet manager is evaluating AWS Certified Security - Specialty practices specifically regarding IAM permission boundaries delegating safe role creation to teams. The engineering group is modernizing legacy components to achieve zero-downtime deployments under unpredictable traffic spikes for service tier #10.",
-    question: "Which design pattern should be implemented to ensure continuous compliance, automated validation, and high availability? (Focus: IAM permission boundaries delegating safe role creation to teams in Identity and Access Management)",
-    options: [
-      { id: 'A', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'B', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'C', text: "Deploy native automation for iam permission boundaries delegating safe role creation to teams utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'D', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." }
+    "id": "aws-scs-10",
+    "difficulty": "medium",
+    "certId": "aws-scs",
+    "domainId": "d1",
+    "domainName": "Threat Detection and Incident Response",
+    "title": "Threat Detection Scenario #8",
+    "scenario": "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
+    "question": "Which threat detection architecture best satisfies objective #8?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Granting public SSH ingress to all instances to enable rapid external forensic inspection"
+      },
+      {
+        "id": "B",
+        "text": "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge"
+      },
+      {
+        "id": "C",
+        "text": "Relying on end-user email reports as the sole source of threat intelligence"
+      },
+      {
+        "id": "D",
+        "text": "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees"
+      }
     ],
-    correctAnswers: ['C'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for iam permission boundaries delegating safe role creation to teams provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Identity", "Architecture"]
+    "correctAnswers": [
+      "B"
+    ],
+    "type": "single",
+    "explanation": "Threat detection and incident response in AWS combines GuardDuty intelligent threat monitoring, Security Hub central posture aggregation, Detective graph forensics, and EventBridge auto-remediation.",
+    "referenceUrl": "https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html",
+    "tags": [
+      "Security Hub",
+      "GuardDuty",
+      "Detective",
+      "Incident Response"
+    ]
   },
   {
-    id: "aws-scs-11",
-    difficulty: "medium",
-    certId: "aws-scs",
-    domainId: "d5",
-    domainName: "Data Protection",
-    title: "AWS KMS key policies vs IAM policies for cryptographic access: Operational Strategy (Part 11)",
-    scenario: "A digital media publishing network is evaluating AWS Certified Security - Specialty practices specifically regarding AWS KMS key policies vs IAM policies for cryptographic access. The engineering group is remediating compliance audit findings regarding unauthorized configuration drift across staging and production for service tier #11.",
-    question: "What is the recommended implementation strategy to satisfy these technical requirements according to official best practices? (Focus: AWS KMS key policies vs IAM policies for cryptographic access in Data Protection)",
-    options: [
-      { id: 'A', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'B', text: "Deploy native automation for aws kms key policies vs iam policies for cryptographic access utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'C', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
+    "id": "aws-scs-11",
+    "difficulty": "hard",
+    "certId": "aws-scs",
+    "domainId": "d1",
+    "domainName": "Threat Detection and Incident Response",
+    "title": "Threat Detection Scenario #9",
+    "scenario": "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
+    "question": "Which threat detection architecture best satisfies objective #9?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Relying on end-user email reports as the sole source of threat intelligence"
+      },
+      {
+        "id": "B",
+        "text": "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge"
+      },
+      {
+        "id": "C",
+        "text": "Granting public SSH ingress to all instances to enable rapid external forensic inspection"
+      },
+      {
+        "id": "D",
+        "text": "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees"
+      }
     ],
-    correctAnswers: ['B'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for aws kms key policies vs iam policies for cryptographic access provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Data", "Architecture"]
+    "correctAnswers": [
+      "B"
+    ],
+    "type": "single",
+    "explanation": "Threat detection and incident response in AWS combines GuardDuty intelligent threat monitoring, Security Hub central posture aggregation, Detective graph forensics, and EventBridge auto-remediation.",
+    "referenceUrl": "https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html",
+    "tags": [
+      "Security Hub",
+      "GuardDuty",
+      "Detective",
+      "Incident Response"
+    ]
   },
   {
-    id: "aws-scs-12",
-    difficulty: "easy",
-    certId: "aws-scs",
-    domainId: "d6",
-    domainName: "Management and Security Governance",
-    title: "AWS Organizations Service Control Policies SCPs establishing hard guardrails: Operational Strategy (Part 12)",
-    scenario: "A pharmaceutical clinical trial data service is evaluating AWS Certified Security - Specialty practices specifically regarding AWS Organizations Service Control Policies SCPs establishing hard guardrails. The engineering group must minimize mean time to recovery (MTTR) and prevent cascading failures during regional outages for service tier #12.",
-    question: "Which configuration provides the most cost-effective and secure solution to achieve these criteria? (Focus: AWS Organizations Service Control Policies SCPs establishing hard guardrails in Management and Security Governance)",
-    options: [
-      { id: 'A', text: "Deploy native automation for aws organizations service control policies scps establishing hard guardrails utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'B', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'C', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'D', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." }
+    "id": "aws-scs-12",
+    "difficulty": "easy",
+    "certId": "aws-scs",
+    "domainId": "d1",
+    "domainName": "Threat Detection and Incident Response",
+    "title": "Threat Detection Scenario #10",
+    "scenario": "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
+    "question": "Which threat detection architecture best satisfies objective #10?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Granting public SSH ingress to all instances to enable rapid external forensic inspection"
+      },
+      {
+        "id": "B",
+        "text": "Relying on end-user email reports as the sole source of threat intelligence"
+      },
+      {
+        "id": "C",
+        "text": "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge"
+      },
+      {
+        "id": "D",
+        "text": "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees"
+      }
     ],
-    correctAnswers: ['A'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for aws organizations service control policies scps establishing hard guardrails provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Management", "Architecture"]
+    "correctAnswers": [
+      "C"
+    ],
+    "type": "single",
+    "explanation": "Threat detection and incident response in AWS combines GuardDuty intelligent threat monitoring, Security Hub central posture aggregation, Detective graph forensics, and EventBridge auto-remediation.",
+    "referenceUrl": "https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html",
+    "tags": [
+      "Security Hub",
+      "GuardDuty",
+      "Detective",
+      "Incident Response"
+    ]
   },
   {
-    id: "aws-scs-13",
-    difficulty: "medium",
-    certId: "aws-scs",
-    domainId: "d1",
-    domainName: "Threat Detection and Incident Response",
-    title: "Amazon Detective root cause investigation and graph analysis: Operational Strategy (Part 13)",
-    scenario: "A renewable energy smart-grid operator is evaluating AWS Certified Security - Specialty practices specifically regarding Amazon Detective root cause investigation and graph analysis. The engineering group is migrating mission-critical workloads while enforcing strict organizational security guardrails for service tier #13.",
-    question: "Which architectural approach fulfills these operational objectives while maintaining reliability and minimal engineering overhead? (Focus: Amazon Detective root cause investigation and graph analysis in Threat Detection and Incident Response)",
-    options: [
-      { id: 'A', text: "Deploy native automation for amazon detective root cause investigation and graph analysis utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'B', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'D', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." }
+    "id": "aws-scs-13",
+    "difficulty": "medium",
+    "certId": "aws-scs",
+    "domainId": "d1",
+    "domainName": "Threat Detection and Incident Response",
+    "title": "Threat Detection Scenario #11",
+    "scenario": "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
+    "question": "Which threat detection architecture best satisfies objective #11?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Relying on end-user email reports as the sole source of threat intelligence"
+      },
+      {
+        "id": "B",
+        "text": "Granting public SSH ingress to all instances to enable rapid external forensic inspection"
+      },
+      {
+        "id": "C",
+        "text": "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge"
+      },
+      {
+        "id": "D",
+        "text": "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees"
+      }
     ],
-    correctAnswers: ['A'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for amazon detective root cause investigation and graph analysis provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Threat", "Architecture"]
+    "correctAnswers": [
+      "C"
+    ],
+    "type": "single",
+    "explanation": "Threat detection and incident response in AWS combines GuardDuty intelligent threat monitoring, Security Hub central posture aggregation, Detective graph forensics, and EventBridge auto-remediation.",
+    "referenceUrl": "https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html",
+    "tags": [
+      "Security Hub",
+      "GuardDuty",
+      "Detective",
+      "Incident Response"
+    ]
   },
   {
-    id: "aws-scs-14",
-    difficulty: "medium",
-    certId: "aws-scs",
-    domainId: "d2",
-    domainName: "Security Logging and Monitoring",
-    title: "CloudWatch log group retention, metric filters, and subscription filters: Operational Strategy (Part 14)",
-    scenario: "A mobile gaming backend architecture is evaluating AWS Certified Security - Specialty practices specifically regarding CloudWatch log group retention, metric filters, and subscription filters. The engineering group needs to eliminate manual operational toil and enforce declarative infrastructure reconciliation for service tier #14.",
-    question: "How should the engineering team configure the platform to ensure resilient, automated operation without manual intervention? (Focus: CloudWatch log group retention, metric filters, and subscription filters in Security Logging and Monitoring)",
-    options: [
-      { id: 'A', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'B', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'C', text: "Deploy native automation for cloudwatch log group retention, metric filters, and subscription filters utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'D', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." }
+    "id": "aws-scs-14",
+    "difficulty": "hard",
+    "certId": "aws-scs",
+    "domainId": "d1",
+    "domainName": "Threat Detection and Incident Response",
+    "title": "Threat Detection Scenario #12",
+    "scenario": "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
+    "question": "Which threat detection architecture best satisfies objective #12?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge"
+      },
+      {
+        "id": "B",
+        "text": "Relying on end-user email reports as the sole source of threat intelligence"
+      },
+      {
+        "id": "C",
+        "text": "Granting public SSH ingress to all instances to enable rapid external forensic inspection"
+      },
+      {
+        "id": "D",
+        "text": "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees"
+      }
     ],
-    correctAnswers: ['C'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for cloudwatch log group retention, metric filters, and subscription filters provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Security", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "Threat detection and incident response in AWS combines GuardDuty intelligent threat monitoring, Security Hub central posture aggregation, Detective graph forensics, and EventBridge auto-remediation.",
+    "referenceUrl": "https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html",
+    "tags": [
+      "Security Hub",
+      "GuardDuty",
+      "Detective",
+      "Incident Response"
+    ]
   },
   {
-    id: "aws-scs-15",
-    difficulty: "hard",
-    certId: "aws-scs",
-    domainId: "d3",
-    domainName: "Infrastructure Security",
-    title: "AWS Network Firewall stateful inspection and TLS decryption rules: Operational Strategy (Part 15)",
-    scenario: "A ride-sharing dispatch system is evaluating AWS Certified Security - Specialty practices specifically regarding AWS Network Firewall stateful inspection and TLS decryption rules. The engineering group is implementing automated canary analysis with instant rollback capabilities triggered by error budget burn rates for service tier #15.",
-    question: "Which design pattern should be implemented to ensure continuous compliance, automated validation, and high availability? (Focus: AWS Network Firewall stateful inspection and TLS decryption rules in Infrastructure Security)",
-    options: [
-      { id: 'A', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'C', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'D', text: "Deploy native automation for aws network firewall stateful inspection and tls decryption rules utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." }
+    "id": "aws-scs-15",
+    "difficulty": "easy",
+    "certId": "aws-scs",
+    "domainId": "d1",
+    "domainName": "Threat Detection and Incident Response",
+    "title": "Threat Detection Scenario #13",
+    "scenario": "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
+    "question": "Which threat detection architecture best satisfies objective #13?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Relying on end-user email reports as the sole source of threat intelligence"
+      },
+      {
+        "id": "B",
+        "text": "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge"
+      },
+      {
+        "id": "C",
+        "text": "Granting public SSH ingress to all instances to enable rapid external forensic inspection"
+      },
+      {
+        "id": "D",
+        "text": "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees"
+      }
     ],
-    correctAnswers: ['D'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for aws network firewall stateful inspection and tls decryption rules provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Infrastructure", "Architecture"]
+    "correctAnswers": [
+      "B"
+    ],
+    "type": "single",
+    "explanation": "Threat detection and incident response in AWS combines GuardDuty intelligent threat monitoring, Security Hub central posture aggregation, Detective graph forensics, and EventBridge auto-remediation.",
+    "referenceUrl": "https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html",
+    "tags": [
+      "Security Hub",
+      "GuardDuty",
+      "Detective",
+      "Incident Response"
+    ]
   },
   {
-    id: "aws-scs-16",
-    difficulty: "medium",
-    certId: "aws-scs",
-    domainId: "d4",
-    domainName: "Identity and Access Management",
-    title: "IAM Access Analyzer identifying public and cross-account resource sharing: Operational Strategy (Part 16)",
-    scenario: "An insurance claims processing engine is evaluating AWS Certified Security - Specialty practices specifically regarding IAM Access Analyzer identifying public and cross-account resource sharing. The engineering group must enforce zero-trust identity boundaries and cryptographic verification across all service endpoints for service tier #16.",
-    question: "What is the recommended implementation strategy to satisfy these technical requirements according to official best practices? (Focus: IAM Access Analyzer identifying public and cross-account resource sharing in Identity and Access Management)",
-    options: [
-      { id: 'A', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'B', text: "Deploy native automation for iam access analyzer identifying public and cross-account resource sharing utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'C', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'D', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." }
+    "id": "aws-scs-16",
+    "difficulty": "medium",
+    "certId": "aws-scs",
+    "domainId": "d1",
+    "domainName": "Threat Detection and Incident Response",
+    "title": "Threat Detection Scenario #14",
+    "scenario": "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
+    "question": "Which threat detection architecture best satisfies objective #14?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Relying on end-user email reports as the sole source of threat intelligence"
+      },
+      {
+        "id": "B",
+        "text": "Granting public SSH ingress to all instances to enable rapid external forensic inspection"
+      },
+      {
+        "id": "C",
+        "text": "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees"
+      },
+      {
+        "id": "D",
+        "text": "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge"
+      }
     ],
-    correctAnswers: ['B'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for iam access analyzer identifying public and cross-account resource sharing provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Identity", "Architecture"]
+    "correctAnswers": [
+      "D"
+    ],
+    "type": "single",
+    "explanation": "Threat detection and incident response in AWS combines GuardDuty intelligent threat monitoring, Security Hub central posture aggregation, Detective graph forensics, and EventBridge auto-remediation.",
+    "referenceUrl": "https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html",
+    "tags": [
+      "Security Hub",
+      "GuardDuty",
+      "Detective",
+      "Incident Response"
+    ]
   },
   {
-    id: "aws-scs-17",
-    difficulty: "medium",
-    certId: "aws-scs",
-    domainId: "d5",
-    domainName: "Data Protection",
-    title: "AWS Secrets Manager automatic password rotation for RDS databases: Operational Strategy (Part 17)",
-    scenario: "A commercial airline reservation service is evaluating AWS Certified Security - Specialty practices specifically regarding AWS Secrets Manager automatic password rotation for RDS databases. The engineering group needs to optimize cloud expenditure and implement real-time cost attribution across engineering teams for service tier #17.",
-    question: "Which configuration provides the most cost-effective and secure solution to achieve these criteria? (Focus: AWS Secrets Manager automatic password rotation for RDS databases in Data Protection)",
-    options: [
-      { id: 'A', text: "Deploy native automation for aws secrets manager automatic password rotation for rds databases utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'C', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'D', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." }
+    "id": "aws-scs-17",
+    "difficulty": "hard",
+    "certId": "aws-scs",
+    "domainId": "d1",
+    "domainName": "Threat Detection and Incident Response",
+    "title": "Threat Detection Scenario #15",
+    "scenario": "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
+    "question": "Which threat detection architecture best satisfies objective #15?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Granting public SSH ingress to all instances to enable rapid external forensic inspection"
+      },
+      {
+        "id": "B",
+        "text": "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge"
+      },
+      {
+        "id": "C",
+        "text": "Relying on end-user email reports as the sole source of threat intelligence"
+      },
+      {
+        "id": "D",
+        "text": "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees"
+      }
     ],
-    correctAnswers: ['A'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for aws secrets manager automatic password rotation for rds databases provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Data", "Architecture"]
+    "correctAnswers": [
+      "B"
+    ],
+    "type": "single",
+    "explanation": "Threat detection and incident response in AWS combines GuardDuty intelligent threat monitoring, Security Hub central posture aggregation, Detective graph forensics, and EventBridge auto-remediation.",
+    "referenceUrl": "https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html",
+    "tags": [
+      "Security Hub",
+      "GuardDuty",
+      "Detective",
+      "Incident Response"
+    ]
   },
   {
-    id: "aws-scs-18",
-    difficulty: "easy",
-    certId: "aws-scs",
-    domainId: "d6",
-    domainName: "Management and Security Governance",
-    title: "AWS Audit Manager continuous assessment against industry frameworks: Operational Strategy (Part 18)",
-    scenario: "A cybersecurity threat intelligence agency is evaluating AWS Certified Security - Specialty practices specifically regarding AWS Audit Manager continuous assessment against industry frameworks. The engineering group is resolving cross-account network latency bottlenecks and transient connection timeouts for service tier #18.",
-    question: "Which architectural approach fulfills these operational objectives while maintaining reliability and minimal engineering overhead? (Focus: AWS Audit Manager continuous assessment against industry frameworks in Management and Security Governance)",
-    options: [
-      { id: 'A', text: "Deploy native automation for aws audit manager continuous assessment against industry frameworks utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'B', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'C', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
+    "id": "aws-scs-18",
+    "difficulty": "easy",
+    "certId": "aws-scs",
+    "domainId": "d1",
+    "domainName": "Threat Detection and Incident Response",
+    "title": "Threat Detection Scenario #16",
+    "scenario": "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
+    "question": "Which threat detection architecture best satisfies objective #16?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Granting public SSH ingress to all instances to enable rapid external forensic inspection"
+      },
+      {
+        "id": "B",
+        "text": "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees"
+      },
+      {
+        "id": "C",
+        "text": "Relying on end-user email reports as the sole source of threat intelligence"
+      },
+      {
+        "id": "D",
+        "text": "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge"
+      }
     ],
-    correctAnswers: ['A'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for aws audit manager continuous assessment against industry frameworks provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Management", "Architecture"]
+    "correctAnswers": [
+      "D"
+    ],
+    "type": "single",
+    "explanation": "Threat detection and incident response in AWS combines GuardDuty intelligent threat monitoring, Security Hub central posture aggregation, Detective graph forensics, and EventBridge auto-remediation.",
+    "referenceUrl": "https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html",
+    "tags": [
+      "Security Hub",
+      "GuardDuty",
+      "Detective",
+      "Incident Response"
+    ]
   },
   {
-    id: "aws-scs-19",
-    difficulty: "medium",
-    certId: "aws-scs",
-    domainId: "d1",
-    domainName: "Threat Detection and Incident Response",
-    title: "Automated incident containment isolating compromised EC2 instances: Operational Strategy (Part 19)",
-    scenario: "A real estate property management portal is evaluating AWS Certified Security - Specialty practices specifically regarding Automated incident containment isolating compromised EC2 instances. The engineering group must establish centralized audit logging and automated incident containment for security operations for service tier #19.",
-    question: "How should the engineering team configure the platform to ensure resilient, automated operation without manual intervention? (Focus: Automated incident containment isolating compromised EC2 instances in Threat Detection and Incident Response)",
-    options: [
-      { id: 'A', text: "Deploy native automation for automated incident containment isolating compromised ec2 instances utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'C', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'D', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." }
+    "id": "aws-scs-19",
+    "difficulty": "medium",
+    "certId": "aws-scs",
+    "domainId": "d1",
+    "domainName": "Threat Detection and Incident Response",
+    "title": "Threat Detection Scenario #17",
+    "scenario": "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
+    "question": "Which threat detection architecture best satisfies objective #17?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Granting public SSH ingress to all instances to enable rapid external forensic inspection"
+      },
+      {
+        "id": "B",
+        "text": "Relying on end-user email reports as the sole source of threat intelligence"
+      },
+      {
+        "id": "C",
+        "text": "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge"
+      },
+      {
+        "id": "D",
+        "text": "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees"
+      }
     ],
-    correctAnswers: ['A'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for automated incident containment isolating compromised ec2 instances provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Threat", "Architecture"]
+    "correctAnswers": [
+      "C"
+    ],
+    "type": "single",
+    "explanation": "Threat detection and incident response in AWS combines GuardDuty intelligent threat monitoring, Security Hub central posture aggregation, Detective graph forensics, and EventBridge auto-remediation.",
+    "referenceUrl": "https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html",
+    "tags": [
+      "Security Hub",
+      "GuardDuty",
+      "Detective",
+      "Incident Response"
+    ]
   },
   {
-    id: "aws-scs-20",
-    difficulty: "hard",
-    certId: "aws-scs",
-    domainId: "d2",
-    domainName: "Security Logging and Monitoring",
-    title: "Amazon Athena SQL queries analyzing VPC Flow Logs and CloudTrail: Operational Strategy (Part 20)",
-    scenario: "An autonomous robotics manufacturing facility is evaluating AWS Certified Security - Specialty practices specifically regarding Amazon Athena SQL queries analyzing VPC Flow Logs and CloudTrail. The engineering group is modernizing legacy components to achieve zero-downtime deployments under unpredictable traffic spikes for service tier #20.",
-    question: "Which design pattern should be implemented to ensure continuous compliance, automated validation, and high availability? (Focus: Amazon Athena SQL queries analyzing VPC Flow Logs and CloudTrail in Security Logging and Monitoring)",
-    options: [
-      { id: 'A', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'B', text: "Deploy native automation for amazon athena sql queries analyzing vpc flow logs and cloudtrail utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'C', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'D', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." }
+    "id": "aws-scs-20",
+    "difficulty": "hard",
+    "certId": "aws-scs",
+    "domainId": "d1",
+    "domainName": "Threat Detection and Incident Response",
+    "title": "Threat Detection Scenario #18",
+    "scenario": "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
+    "question": "Which threat detection architecture best satisfies objective #18?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Granting public SSH ingress to all instances to enable rapid external forensic inspection"
+      },
+      {
+        "id": "B",
+        "text": "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees"
+      },
+      {
+        "id": "C",
+        "text": "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge"
+      },
+      {
+        "id": "D",
+        "text": "Relying on end-user email reports as the sole source of threat intelligence"
+      }
     ],
-    correctAnswers: ['B'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for amazon athena sql queries analyzing vpc flow logs and cloudtrail provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Security", "Architecture"]
+    "correctAnswers": [
+      "C"
+    ],
+    "type": "single",
+    "explanation": "Threat detection and incident response in AWS combines GuardDuty intelligent threat monitoring, Security Hub central posture aggregation, Detective graph forensics, and EventBridge auto-remediation.",
+    "referenceUrl": "https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html",
+    "tags": [
+      "Security Hub",
+      "GuardDuty",
+      "Detective",
+      "Incident Response"
+    ]
   },
   {
-    id: "aws-scs-21",
-    difficulty: "easy",
-    certId: "aws-scs",
-    domainId: "d3",
-    domainName: "Infrastructure Security",
-    title: "VPC endpoint policies restricting access to designated AWS resources: Operational Strategy (Part 21)",
-    scenario: "A higher education student information system is evaluating AWS Certified Security - Specialty practices specifically regarding VPC endpoint policies restricting access to designated AWS resources. The engineering group is remediating compliance audit findings regarding unauthorized configuration drift across staging and production for service tier #21.",
-    question: "What is the recommended implementation strategy to satisfy these technical requirements according to official best practices? (Focus: VPC endpoint policies restricting access to designated AWS resources in Infrastructure Security)",
-    options: [
-      { id: 'A', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'B', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'C', text: "Deploy native automation for vpc endpoint policies restricting access to designated aws resources utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'D', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." }
+    "id": "aws-scs-21",
+    "difficulty": "easy",
+    "certId": "aws-scs",
+    "domainId": "d1",
+    "domainName": "Threat Detection and Incident Response",
+    "title": "Threat Detection Scenario #19",
+    "scenario": "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
+    "question": "Which threat detection architecture best satisfies objective #19?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge"
+      },
+      {
+        "id": "B",
+        "text": "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees"
+      },
+      {
+        "id": "C",
+        "text": "Granting public SSH ingress to all instances to enable rapid external forensic inspection"
+      },
+      {
+        "id": "D",
+        "text": "Relying on end-user email reports as the sole source of threat intelligence"
+      }
     ],
-    correctAnswers: ['C'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for vpc endpoint policies restricting access to designated aws resources provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Infrastructure", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "Threat detection and incident response in AWS combines GuardDuty intelligent threat monitoring, Security Hub central posture aggregation, Detective graph forensics, and EventBridge auto-remediation.",
+    "referenceUrl": "https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html",
+    "tags": [
+      "Security Hub",
+      "GuardDuty",
+      "Detective",
+      "Incident Response"
+    ]
   },
   {
-    id: "aws-scs-22",
-    difficulty: "medium",
-    certId: "aws-scs",
-    domainId: "d4",
-    domainName: "Identity and Access Management",
-    title: "Cross-account access with AssumeRole and external ID validation: Operational Strategy (Part 22)",
-    scenario: "A global hotel hospitality reservation platform is evaluating AWS Certified Security - Specialty practices specifically regarding Cross-account access with AssumeRole and external ID validation. The engineering group must minimize mean time to recovery (MTTR) and prevent cascading failures during regional outages for service tier #22.",
-    question: "Which configuration provides the most cost-effective and secure solution to achieve these criteria? (Focus: Cross-account access with AssumeRole and external ID validation in Identity and Access Management)",
-    options: [
-      { id: 'A', text: "Deploy native automation for cross-account access with assumerole and external id validation utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'B', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'C', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'D', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." }
+    "id": "aws-scs-22",
+    "difficulty": "medium",
+    "certId": "aws-scs",
+    "domainId": "d1",
+    "domainName": "Threat Detection and Incident Response",
+    "title": "Threat Detection Scenario #20",
+    "scenario": "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
+    "question": "Which threat detection architecture best satisfies objective #20?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Relying on end-user email reports as the sole source of threat intelligence"
+      },
+      {
+        "id": "B",
+        "text": "Granting public SSH ingress to all instances to enable rapid external forensic inspection"
+      },
+      {
+        "id": "C",
+        "text": "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge"
+      },
+      {
+        "id": "D",
+        "text": "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees"
+      }
     ],
-    correctAnswers: ['A'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for cross-account access with assumerole and external id validation provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Identity", "Architecture"]
+    "correctAnswers": [
+      "C"
+    ],
+    "type": "single",
+    "explanation": "Threat detection and incident response in AWS combines GuardDuty intelligent threat monitoring, Security Hub central posture aggregation, Detective graph forensics, and EventBridge auto-remediation.",
+    "referenceUrl": "https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html",
+    "tags": [
+      "Security Hub",
+      "GuardDuty",
+      "Detective",
+      "Incident Response"
+    ]
   },
   {
-    id: "aws-scs-23",
-    difficulty: "medium",
-    certId: "aws-scs",
-    domainId: "d5",
-    domainName: "Data Protection",
-    title: "Amazon S3 bucket encryption with customer provided KMS keys SSE-KMS: Operational Strategy (Part 23)",
-    scenario: "A digital payments settlement processor is evaluating AWS Certified Security - Specialty practices specifically regarding Amazon S3 bucket encryption with customer provided KMS keys SSE-KMS. The engineering group is migrating mission-critical workloads while enforcing strict organizational security guardrails for service tier #23.",
-    question: "Which architectural approach fulfills these operational objectives while maintaining reliability and minimal engineering overhead? (Focus: Amazon S3 bucket encryption with customer provided KMS keys SSE-KMS in Data Protection)",
-    options: [
-      { id: 'A', text: "Deploy native automation for amazon s3 bucket encryption with customer provided kms keys sse-kms utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'B', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'C', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
+    "id": "aws-scs-23",
+    "difficulty": "hard",
+    "certId": "aws-scs",
+    "domainId": "d1",
+    "domainName": "Threat Detection and Incident Response",
+    "title": "Threat Detection Scenario #21",
+    "scenario": "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
+    "question": "Which threat detection architecture best satisfies objective #21?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees"
+      },
+      {
+        "id": "B",
+        "text": "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge"
+      },
+      {
+        "id": "C",
+        "text": "Relying on end-user email reports as the sole source of threat intelligence"
+      },
+      {
+        "id": "D",
+        "text": "Granting public SSH ingress to all instances to enable rapid external forensic inspection"
+      }
     ],
-    correctAnswers: ['A'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for amazon s3 bucket encryption with customer provided kms keys sse-kms provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Data", "Architecture"]
+    "correctAnswers": [
+      "B"
+    ],
+    "type": "single",
+    "explanation": "Threat detection and incident response in AWS combines GuardDuty intelligent threat monitoring, Security Hub central posture aggregation, Detective graph forensics, and EventBridge auto-remediation.",
+    "referenceUrl": "https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html",
+    "tags": [
+      "Security Hub",
+      "GuardDuty",
+      "Detective",
+      "Incident Response"
+    ]
   },
   {
-    id: "aws-scs-24",
-    difficulty: "easy",
-    certId: "aws-scs",
-    domainId: "d6",
-    domainName: "Management and Security Governance",
-    title: "Delegated administrator accounts for security and governance services: Operational Strategy (Part 24)",
-    scenario: "A genomics sequencing data pipeline is evaluating AWS Certified Security - Specialty practices specifically regarding Delegated administrator accounts for security and governance services. The engineering group needs to eliminate manual operational toil and enforce declarative infrastructure reconciliation for service tier #24.",
-    question: "How should the engineering team configure the platform to ensure resilient, automated operation without manual intervention? (Focus: Delegated administrator accounts for security and governance services in Management and Security Governance)",
-    options: [
-      { id: 'A', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'B', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'C', text: "Deploy native automation for delegated administrator accounts for security and governance services utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
+    "id": "aws-scs-24",
+    "difficulty": "easy",
+    "certId": "aws-scs",
+    "domainId": "d1",
+    "domainName": "Threat Detection and Incident Response",
+    "title": "Threat Detection Scenario #22",
+    "scenario": "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
+    "question": "Which threat detection architecture best satisfies objective #22?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees"
+      },
+      {
+        "id": "B",
+        "text": "Granting public SSH ingress to all instances to enable rapid external forensic inspection"
+      },
+      {
+        "id": "C",
+        "text": "Relying on end-user email reports as the sole source of threat intelligence"
+      },
+      {
+        "id": "D",
+        "text": "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge"
+      }
     ],
-    correctAnswers: ['C'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for delegated administrator accounts for security and governance services provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Management", "Architecture"]
+    "correctAnswers": [
+      "D"
+    ],
+    "type": "single",
+    "explanation": "Threat detection and incident response in AWS combines GuardDuty intelligent threat monitoring, Security Hub central posture aggregation, Detective graph forensics, and EventBridge auto-remediation.",
+    "referenceUrl": "https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html",
+    "tags": [
+      "Security Hub",
+      "GuardDuty",
+      "Detective",
+      "Incident Response"
+    ]
   },
   {
-    id: "aws-scs-25",
-    difficulty: "hard",
-    certId: "aws-scs",
-    domainId: "d1",
-    domainName: "Threat Detection and Incident Response",
-    title: "Amazon EventBridge rules triggering Lambda for security auto-remediation: Operational Strategy (Part 25)",
-    scenario: "A cloud-native telecommunications provider is evaluating AWS Certified Security - Specialty practices specifically regarding Amazon EventBridge rules triggering Lambda for security auto-remediation. The engineering group is implementing automated canary analysis with instant rollback capabilities triggered by error budget burn rates for service tier #25.",
-    question: "Which design pattern should be implemented to ensure continuous compliance, automated validation, and high availability? (Focus: Amazon EventBridge rules triggering Lambda for security auto-remediation in Threat Detection and Incident Response)",
-    options: [
-      { id: 'A', text: "Deploy native automation for amazon eventbridge rules triggering lambda for security auto-remediation utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'B', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'C', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'D', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." }
+    "id": "aws-scs-25",
+    "difficulty": "medium",
+    "certId": "aws-scs",
+    "domainId": "d1",
+    "domainName": "Threat Detection and Incident Response",
+    "title": "Threat Detection Scenario #23",
+    "scenario": "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
+    "question": "Which threat detection architecture best satisfies objective #23?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge"
+      },
+      {
+        "id": "B",
+        "text": "Relying on end-user email reports as the sole source of threat intelligence"
+      },
+      {
+        "id": "C",
+        "text": "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees"
+      },
+      {
+        "id": "D",
+        "text": "Granting public SSH ingress to all instances to enable rapid external forensic inspection"
+      }
     ],
-    correctAnswers: ['A'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for amazon eventbridge rules triggering lambda for security auto-remediation provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Threat", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "Threat detection and incident response in AWS combines GuardDuty intelligent threat monitoring, Security Hub central posture aggregation, Detective graph forensics, and EventBridge auto-remediation.",
+    "referenceUrl": "https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html",
+    "tags": [
+      "Security Hub",
+      "GuardDuty",
+      "Detective",
+      "Incident Response"
+    ]
   }
 ];
 

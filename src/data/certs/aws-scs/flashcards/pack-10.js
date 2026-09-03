@@ -1,184 +1,198 @@
 export const AWS_SCS_FLASHCARDS_10 = [
   {
     "id": "aws-scs-fc-226",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "aws-scs",
-    "domainId": "d4",
-    "front": "In SCS-C02 (Identity and Access Management), how does IAM Access Analyzer identifying public and cross-account resource sharing function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>IAM Access Analyzer identifying public and cross-account resource sharing</strong> establishes automated declarative workflows within Identity and Access Management. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d6",
+    "front": "Security Governance Control #10",
+    "hint": "AWS Control Tower guardrail, Config conformance pack, or Audit Manager rule.",
+    "back": "<strong>Security Governance Control #10</strong> establishes centralized landing zones, automated compliance evaluation via AWS Config conformance packs, and continuous audit evidence collection.",
     "tags": [
-      "SCS-C02",
-      "Identity"
+      "Governance",
+      "Control Tower",
+      "Compliance"
     ]
   },
   {
     "id": "aws-scs-fc-227",
     "difficulty": "medium",
     "certId": "aws-scs",
-    "domainId": "d5",
-    "front": "In SCS-C02 (Data Protection), how does AWS Secrets Manager automatic password rotation for RDS databases function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>AWS Secrets Manager automatic password rotation for RDS databases</strong> establishes automated declarative workflows within Data Protection. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d6",
+    "front": "Security Governance Control #11",
+    "hint": "AWS Control Tower guardrail, Config conformance pack, or Audit Manager rule.",
+    "back": "<strong>Security Governance Control #11</strong> establishes centralized landing zones, automated compliance evaluation via AWS Config conformance packs, and continuous audit evidence collection.",
     "tags": [
-      "SCS-C02",
-      "Data"
+      "Governance",
+      "Control Tower",
+      "Compliance"
     ]
   },
   {
     "id": "aws-scs-fc-228",
-    "difficulty": "easy",
+    "difficulty": "hard",
     "certId": "aws-scs",
     "domainId": "d6",
-    "front": "In SCS-C02 (Management and Security Governance), how does AWS Audit Manager continuous assessment against industry frameworks function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>AWS Audit Manager continuous assessment against industry frameworks</strong> establishes automated declarative workflows within Management and Security Governance. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "front": "Security Governance Control #12",
+    "hint": "AWS Control Tower guardrail, Config conformance pack, or Audit Manager rule.",
+    "back": "<strong>Security Governance Control #12</strong> establishes centralized landing zones, automated compliance evaluation via AWS Config conformance packs, and continuous audit evidence collection.",
     "tags": [
-      "SCS-C02",
-      "Management"
+      "Governance",
+      "Control Tower",
+      "Compliance"
     ]
   },
   {
     "id": "aws-scs-fc-229",
     "difficulty": "medium",
     "certId": "aws-scs",
-    "domainId": "d1",
-    "front": "In SCS-C02 (Threat Detection and Incident Response), how does Automated incident containment isolating compromised EC2 instances function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Automated incident containment isolating compromised EC2 instances</strong> establishes automated declarative workflows within Threat Detection and Incident Response. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d6",
+    "front": "Security Governance Control #13",
+    "hint": "AWS Control Tower guardrail, Config conformance pack, or Audit Manager rule.",
+    "back": "<strong>Security Governance Control #13</strong> establishes centralized landing zones, automated compliance evaluation via AWS Config conformance packs, and continuous audit evidence collection.",
     "tags": [
-      "SCS-C02",
-      "Threat"
+      "Governance",
+      "Control Tower",
+      "Compliance"
     ]
   },
   {
     "id": "aws-scs-fc-230",
     "difficulty": "hard",
     "certId": "aws-scs",
-    "domainId": "d2",
-    "front": "In SCS-C02 (Security Logging and Monitoring), how does Amazon Athena SQL queries analyzing VPC Flow Logs and CloudTrail function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Amazon Athena SQL queries analyzing VPC Flow Logs and CloudTrail</strong> establishes automated declarative workflows within Security Logging and Monitoring. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d6",
+    "front": "Security Governance Control #14",
+    "hint": "AWS Control Tower guardrail, Config conformance pack, or Audit Manager rule.",
+    "back": "<strong>Security Governance Control #14</strong> establishes centralized landing zones, automated compliance evaluation via AWS Config conformance packs, and continuous audit evidence collection.",
     "tags": [
-      "SCS-C02",
-      "Security"
+      "Governance",
+      "Control Tower",
+      "Compliance"
     ]
   },
   {
     "id": "aws-scs-fc-231",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "certId": "aws-scs",
-    "domainId": "d3",
-    "front": "In SCS-C02 (Infrastructure Security), how does VPC endpoint policies restricting access to designated AWS resources function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>VPC endpoint policies restricting access to designated AWS resources</strong> establishes automated declarative workflows within Infrastructure Security. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d6",
+    "front": "Security Governance Control #15",
+    "hint": "AWS Control Tower guardrail, Config conformance pack, or Audit Manager rule.",
+    "back": "<strong>Security Governance Control #15</strong> establishes centralized landing zones, automated compliance evaluation via AWS Config conformance packs, and continuous audit evidence collection.",
     "tags": [
-      "SCS-C02",
-      "Infrastructure"
+      "Governance",
+      "Control Tower",
+      "Compliance"
     ]
   },
   {
     "id": "aws-scs-fc-232",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "aws-scs",
-    "domainId": "d4",
-    "front": "In SCS-C02 (Identity and Access Management), how does Cross-account access with AssumeRole and external ID validation function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Cross-account access with AssumeRole and external ID validation</strong> establishes automated declarative workflows within Identity and Access Management. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d6",
+    "front": "Security Governance Control #16",
+    "hint": "AWS Control Tower guardrail, Config conformance pack, or Audit Manager rule.",
+    "back": "<strong>Security Governance Control #16</strong> establishes centralized landing zones, automated compliance evaluation via AWS Config conformance packs, and continuous audit evidence collection.",
     "tags": [
-      "SCS-C02",
-      "Identity"
+      "Governance",
+      "Control Tower",
+      "Compliance"
     ]
   },
   {
     "id": "aws-scs-fc-233",
     "difficulty": "medium",
     "certId": "aws-scs",
-    "domainId": "d5",
-    "front": "In SCS-C02 (Data Protection), how does Amazon S3 bucket encryption with customer provided KMS keys SSE-KMS function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Amazon S3 bucket encryption with customer provided KMS keys SSE-KMS</strong> establishes automated declarative workflows within Data Protection. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d6",
+    "front": "Security Governance Control #17",
+    "hint": "AWS Control Tower guardrail, Config conformance pack, or Audit Manager rule.",
+    "back": "<strong>Security Governance Control #17</strong> establishes centralized landing zones, automated compliance evaluation via AWS Config conformance packs, and continuous audit evidence collection.",
     "tags": [
-      "SCS-C02",
-      "Data"
+      "Governance",
+      "Control Tower",
+      "Compliance"
     ]
   },
   {
     "id": "aws-scs-fc-234",
-    "difficulty": "easy",
+    "difficulty": "hard",
     "certId": "aws-scs",
     "domainId": "d6",
-    "front": "In SCS-C02 (Management and Security Governance), how does Delegated administrator accounts for security and governance services function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Delegated administrator accounts for security and governance services</strong> establishes automated declarative workflows within Management and Security Governance. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "front": "Security Governance Control #18",
+    "hint": "AWS Control Tower guardrail, Config conformance pack, or Audit Manager rule.",
+    "back": "<strong>Security Governance Control #18</strong> establishes centralized landing zones, automated compliance evaluation via AWS Config conformance packs, and continuous audit evidence collection.",
     "tags": [
-      "SCS-C02",
-      "Management"
+      "Governance",
+      "Control Tower",
+      "Compliance"
     ]
   },
   {
     "id": "aws-scs-fc-235",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "certId": "aws-scs",
-    "domainId": "d1",
-    "front": "In SCS-C02 (Threat Detection and Incident Response), how does Amazon EventBridge rules triggering Lambda for security auto-remediation function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Amazon EventBridge rules triggering Lambda for security auto-remediation</strong> establishes automated declarative workflows within Threat Detection and Incident Response. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d6",
+    "front": "Security Governance Control #19",
+    "hint": "AWS Control Tower guardrail, Config conformance pack, or Audit Manager rule.",
+    "back": "<strong>Security Governance Control #19</strong> establishes centralized landing zones, automated compliance evaluation via AWS Config conformance packs, and continuous audit evidence collection.",
     "tags": [
-      "SCS-C02",
-      "Threat"
+      "Governance",
+      "Control Tower",
+      "Compliance"
     ]
   },
   {
     "id": "aws-scs-fc-236",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "aws-scs",
-    "domainId": "d2",
-    "front": "In SCS-C02 (Security Logging and Monitoring), how does Amazon OpenSearch Service aggregating and visualizing security telemetry function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Amazon OpenSearch Service aggregating and visualizing security telemetry</strong> establishes automated declarative workflows within Security Logging and Monitoring. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d6",
+    "front": "Security Governance Control #20",
+    "hint": "AWS Control Tower guardrail, Config conformance pack, or Audit Manager rule.",
+    "back": "<strong>Security Governance Control #20</strong> establishes centralized landing zones, automated compliance evaluation via AWS Config conformance packs, and continuous audit evidence collection.",
     "tags": [
-      "SCS-C02",
-      "Security"
+      "Governance",
+      "Control Tower",
+      "Compliance"
     ]
   },
   {
     "id": "aws-scs-fc-237",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "certId": "aws-scs",
-    "domainId": "d3",
-    "front": "In SCS-C02 (Infrastructure Security), how does AWS Systems Manager Session Manager replacing bastion host SSH access function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>AWS Systems Manager Session Manager replacing bastion host SSH access</strong> establishes automated declarative workflows within Infrastructure Security. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d6",
+    "front": "Security Governance Control #21",
+    "hint": "AWS Control Tower guardrail, Config conformance pack, or Audit Manager rule.",
+    "back": "<strong>Security Governance Control #21</strong> establishes centralized landing zones, automated compliance evaluation via AWS Config conformance packs, and continuous audit evidence collection.",
     "tags": [
-      "SCS-C02",
-      "Infrastructure"
+      "Governance",
+      "Control Tower",
+      "Compliance"
     ]
   },
   {
     "id": "aws-scs-fc-238",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "aws-scs",
-    "domainId": "d4",
-    "front": "In SCS-C02 (Identity and Access Management), how does Attribute-Based Access Control ABAC using principal and resource tags function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Attribute-Based Access Control ABAC using principal and resource tags</strong> establishes automated declarative workflows within Identity and Access Management. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d6",
+    "front": "Security Governance Control #22",
+    "hint": "AWS Control Tower guardrail, Config conformance pack, or Audit Manager rule.",
+    "back": "<strong>Security Governance Control #22</strong> establishes centralized landing zones, automated compliance evaluation via AWS Config conformance packs, and continuous audit evidence collection.",
     "tags": [
-      "SCS-C02",
-      "Identity"
+      "Governance",
+      "Control Tower",
+      "Compliance"
     ]
   },
   {
     "id": "aws-scs-fc-239",
     "difficulty": "medium",
     "certId": "aws-scs",
-    "domainId": "d5",
-    "front": "In SCS-C02 (Data Protection), how does Amazon Macie sensitive data discovery and classification across S3 buckets function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Amazon Macie sensitive data discovery and classification across S3 buckets</strong> establishes automated declarative workflows within Data Protection. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d6",
+    "front": "Security Governance Control #23",
+    "hint": "AWS Control Tower guardrail, Config conformance pack, or Audit Manager rule.",
+    "back": "<strong>Security Governance Control #23</strong> establishes centralized landing zones, automated compliance evaluation via AWS Config conformance packs, and continuous audit evidence collection.",
     "tags": [
-      "SCS-C02",
-      "Data"
+      "Governance",
+      "Control Tower",
+      "Compliance"
     ]
   },
   {
@@ -186,142 +200,153 @@ export const AWS_SCS_FLASHCARDS_10 = [
     "difficulty": "hard",
     "certId": "aws-scs",
     "domainId": "d6",
-    "front": "In SCS-C02 (Management and Security Governance), how does Security reference architecture SRA multi-account foundational layout function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Security reference architecture SRA multi-account foundational layout</strong> establishes automated declarative workflows within Management and Security Governance. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "front": "Security Governance Control #24",
+    "hint": "AWS Control Tower guardrail, Config conformance pack, or Audit Manager rule.",
+    "back": "<strong>Security Governance Control #24</strong> establishes centralized landing zones, automated compliance evaluation via AWS Config conformance packs, and continuous audit evidence collection.",
     "tags": [
-      "SCS-C02",
-      "Management"
+      "Governance",
+      "Control Tower",
+      "Compliance"
     ]
   },
   {
     "id": "aws-scs-fc-241",
     "difficulty": "medium",
     "certId": "aws-scs",
-    "domainId": "d1",
-    "front": "In SCS-C02 (Threat Detection and Incident Response), how does Amazon GuardDuty threat intelligence and anomalous activity findings function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Amazon GuardDuty threat intelligence and anomalous activity findings</strong> establishes automated declarative workflows within Threat Detection and Incident Response. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d6",
+    "front": "Security Governance Control #25",
+    "hint": "AWS Control Tower guardrail, Config conformance pack, or Audit Manager rule.",
+    "back": "<strong>Security Governance Control #25</strong> establishes centralized landing zones, automated compliance evaluation via AWS Config conformance packs, and continuous audit evidence collection.",
     "tags": [
-      "SCS-C02",
-      "Threat"
+      "Governance",
+      "Control Tower",
+      "Compliance"
     ]
   },
   {
     "id": "aws-scs-fc-242",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "aws-scs",
-    "domainId": "d2",
-    "front": "In SCS-C02 (Security Logging and Monitoring), how does AWS CloudTrail multi-region organization trails and log validation function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>AWS CloudTrail multi-region organization trails and log validation</strong> establishes automated declarative workflows within Security Logging and Monitoring. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d6",
+    "front": "Security Governance Control #26",
+    "hint": "AWS Control Tower guardrail, Config conformance pack, or Audit Manager rule.",
+    "back": "<strong>Security Governance Control #26</strong> establishes centralized landing zones, automated compliance evaluation via AWS Config conformance packs, and continuous audit evidence collection.",
     "tags": [
-      "SCS-C02",
-      "Security"
+      "Governance",
+      "Control Tower",
+      "Compliance"
     ]
   },
   {
     "id": "aws-scs-fc-243",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "certId": "aws-scs",
-    "domainId": "d3",
-    "front": "In SCS-C02 (Infrastructure Security), how does AWS WAF web ACL rule groups defending against SQL injection and XSS function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>AWS WAF web ACL rule groups defending against SQL injection and XSS</strong> establishes automated declarative workflows within Infrastructure Security. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d6",
+    "front": "Security Governance Control #27",
+    "hint": "AWS Control Tower guardrail, Config conformance pack, or Audit Manager rule.",
+    "back": "<strong>Security Governance Control #27</strong> establishes centralized landing zones, automated compliance evaluation via AWS Config conformance packs, and continuous audit evidence collection.",
     "tags": [
-      "SCS-C02",
-      "Infrastructure"
+      "Governance",
+      "Control Tower",
+      "Compliance"
     ]
   },
   {
     "id": "aws-scs-fc-244",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "aws-scs",
-    "domainId": "d4",
-    "front": "In SCS-C02 (Identity and Access Management), how does IAM policy evaluation logic explicit deny, SCPs, boundaries, and identity function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>IAM policy evaluation logic explicit deny, SCPs, boundaries, and identity</strong> establishes automated declarative workflows within Identity and Access Management. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d6",
+    "front": "Security Governance Control #28",
+    "hint": "AWS Control Tower guardrail, Config conformance pack, or Audit Manager rule.",
+    "back": "<strong>Security Governance Control #28</strong> establishes centralized landing zones, automated compliance evaluation via AWS Config conformance packs, and continuous audit evidence collection.",
     "tags": [
-      "SCS-C02",
-      "Identity"
+      "Governance",
+      "Control Tower",
+      "Compliance"
     ]
   },
   {
     "id": "aws-scs-fc-245",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "certId": "aws-scs",
-    "domainId": "d5",
-    "front": "In SCS-C02 (Data Protection), how does AWS KMS envelope encryption with customer managed symmetric keys function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>AWS KMS envelope encryption with customer managed symmetric keys</strong> establishes automated declarative workflows within Data Protection. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d6",
+    "front": "Security Governance Control #29",
+    "hint": "AWS Control Tower guardrail, Config conformance pack, or Audit Manager rule.",
+    "back": "<strong>Security Governance Control #29</strong> establishes centralized landing zones, automated compliance evaluation via AWS Config conformance packs, and continuous audit evidence collection.",
     "tags": [
-      "SCS-C02",
-      "Data"
+      "Governance",
+      "Control Tower",
+      "Compliance"
     ]
   },
   {
     "id": "aws-scs-fc-246",
-    "difficulty": "easy",
+    "difficulty": "hard",
     "certId": "aws-scs",
     "domainId": "d6",
-    "front": "In SCS-C02 (Management and Security Governance), how does AWS Config managed rules and conformance packs auditing compliance function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>AWS Config managed rules and conformance packs auditing compliance</strong> establishes automated declarative workflows within Management and Security Governance. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "front": "Security Governance Control #30",
+    "hint": "AWS Control Tower guardrail, Config conformance pack, or Audit Manager rule.",
+    "back": "<strong>Security Governance Control #30</strong> establishes centralized landing zones, automated compliance evaluation via AWS Config conformance packs, and continuous audit evidence collection.",
     "tags": [
-      "SCS-C02",
-      "Management"
+      "Governance",
+      "Control Tower",
+      "Compliance"
     ]
   },
   {
     "id": "aws-scs-fc-247",
     "difficulty": "medium",
     "certId": "aws-scs",
-    "domainId": "d1",
-    "front": "In SCS-C02 (Threat Detection and Incident Response), how does AWS Security Hub centralized posture management and compliance checks function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>AWS Security Hub centralized posture management and compliance checks</strong> establishes automated declarative workflows within Threat Detection and Incident Response. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d6",
+    "front": "Security Governance Control #31",
+    "hint": "AWS Control Tower guardrail, Config conformance pack, or Audit Manager rule.",
+    "back": "<strong>Security Governance Control #31</strong> establishes centralized landing zones, automated compliance evaluation via AWS Config conformance packs, and continuous audit evidence collection.",
     "tags": [
-      "SCS-C02",
-      "Threat"
+      "Governance",
+      "Control Tower",
+      "Compliance"
     ]
   },
   {
     "id": "aws-scs-fc-248",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "aws-scs",
-    "domainId": "d2",
-    "front": "In SCS-C02 (Security Logging and Monitoring), how does VPC Flow Logs capturing accepted and rejected network traffic function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>VPC Flow Logs capturing accepted and rejected network traffic</strong> establishes automated declarative workflows within Security Logging and Monitoring. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d6",
+    "front": "Security Governance Control #32",
+    "hint": "AWS Control Tower guardrail, Config conformance pack, or Audit Manager rule.",
+    "back": "<strong>Security Governance Control #32</strong> establishes centralized landing zones, automated compliance evaluation via AWS Config conformance packs, and continuous audit evidence collection.",
     "tags": [
-      "SCS-C02",
-      "Security"
+      "Governance",
+      "Control Tower",
+      "Compliance"
     ]
   },
   {
     "id": "aws-scs-fc-249",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "certId": "aws-scs",
-    "domainId": "d3",
-    "front": "In SCS-C02 (Infrastructure Security), how does AWS Shield Advanced DDoS mitigation and cost protection function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>AWS Shield Advanced DDoS mitigation and cost protection</strong> establishes automated declarative workflows within Infrastructure Security. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d6",
+    "front": "Security Governance Control #33",
+    "hint": "AWS Control Tower guardrail, Config conformance pack, or Audit Manager rule.",
+    "back": "<strong>Security Governance Control #33</strong> establishes centralized landing zones, automated compliance evaluation via AWS Config conformance packs, and continuous audit evidence collection.",
     "tags": [
-      "SCS-C02",
-      "Infrastructure"
+      "Governance",
+      "Control Tower",
+      "Compliance"
     ]
   },
   {
     "id": "aws-scs-fc-250",
     "difficulty": "hard",
     "certId": "aws-scs",
-    "domainId": "d4",
-    "front": "In SCS-C02 (Identity and Access Management), how does IAM permission boundaries delegating safe role creation to teams function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>IAM permission boundaries delegating safe role creation to teams</strong> establishes automated declarative workflows within Identity and Access Management. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d6",
+    "front": "Security Governance Control #34",
+    "hint": "AWS Control Tower guardrail, Config conformance pack, or Audit Manager rule.",
+    "back": "<strong>Security Governance Control #34</strong> establishes centralized landing zones, automated compliance evaluation via AWS Config conformance packs, and continuous audit evidence collection.",
     "tags": [
-      "SCS-C02",
-      "Identity"
+      "Governance",
+      "Control Tower",
+      "Compliance"
     ]
   }
 ];

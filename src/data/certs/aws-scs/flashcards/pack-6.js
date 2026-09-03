@@ -1,327 +1,353 @@
 export const AWS_SCS_FLASHCARDS_6 = [
   {
     "id": "aws-scs-fc-126",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "certId": "aws-scs",
-    "domainId": "d6",
-    "front": "In SCS-C02 (Management and Security Governance), how does AWS Config managed rules and conformance packs auditing compliance function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>AWS Config managed rules and conformance packs auditing compliance</strong> establishes automated declarative workflows within Management and Security Governance. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d3",
+    "front": "Infrastructure Defense Pattern #43",
+    "hint": "Network firewall rule, PrivateLink routing, or perimeter shield control.",
+    "back": "<strong>Infrastructure Defense Pattern #43</strong> implements defense in depth across VPC boundaries, inspection networks, and application load balancers.",
     "tags": [
-      "SCS-C02",
-      "Management"
+      "Infrastructure",
+      "Security",
+      "VPC"
     ]
   },
   {
     "id": "aws-scs-fc-127",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "aws-scs",
-    "domainId": "d1",
-    "front": "In SCS-C02 (Threat Detection and Incident Response), how does AWS Security Hub centralized posture management and compliance checks function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>AWS Security Hub centralized posture management and compliance checks</strong> establishes automated declarative workflows within Threat Detection and Incident Response. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d3",
+    "front": "Infrastructure Defense Pattern #44",
+    "hint": "Network firewall rule, PrivateLink routing, or perimeter shield control.",
+    "back": "<strong>Infrastructure Defense Pattern #44</strong> implements defense in depth across VPC boundaries, inspection networks, and application load balancers.",
     "tags": [
-      "SCS-C02",
-      "Threat"
+      "Infrastructure",
+      "Security",
+      "VPC"
     ]
   },
   {
     "id": "aws-scs-fc-128",
     "difficulty": "medium",
     "certId": "aws-scs",
-    "domainId": "d2",
-    "front": "In SCS-C02 (Security Logging and Monitoring), how does VPC Flow Logs capturing accepted and rejected network traffic function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>VPC Flow Logs capturing accepted and rejected network traffic</strong> establishes automated declarative workflows within Security Logging and Monitoring. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d3",
+    "front": "Infrastructure Defense Pattern #45",
+    "hint": "Network firewall rule, PrivateLink routing, or perimeter shield control.",
+    "back": "<strong>Infrastructure Defense Pattern #45</strong> implements defense in depth across VPC boundaries, inspection networks, and application load balancers.",
     "tags": [
-      "SCS-C02",
-      "Security"
+      "Infrastructure",
+      "Security",
+      "VPC"
     ]
   },
   {
     "id": "aws-scs-fc-129",
-    "difficulty": "easy",
+    "difficulty": "hard",
     "certId": "aws-scs",
     "domainId": "d3",
-    "front": "In SCS-C02 (Infrastructure Security), how does AWS Shield Advanced DDoS mitigation and cost protection function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>AWS Shield Advanced DDoS mitigation and cost protection</strong> establishes automated declarative workflows within Infrastructure Security. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "front": "Infrastructure Defense Pattern #46",
+    "hint": "Network firewall rule, PrivateLink routing, or perimeter shield control.",
+    "back": "<strong>Infrastructure Defense Pattern #46</strong> implements defense in depth across VPC boundaries, inspection networks, and application load balancers.",
     "tags": [
-      "SCS-C02",
-      "Infrastructure"
+      "Infrastructure",
+      "Security",
+      "VPC"
     ]
   },
   {
     "id": "aws-scs-fc-130",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "certId": "aws-scs",
-    "domainId": "d4",
-    "front": "In SCS-C02 (Identity and Access Management), how does IAM permission boundaries delegating safe role creation to teams function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>IAM permission boundaries delegating safe role creation to teams</strong> establishes automated declarative workflows within Identity and Access Management. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d3",
+    "front": "Infrastructure Defense Pattern #47",
+    "hint": "Network firewall rule, PrivateLink routing, or perimeter shield control.",
+    "back": "<strong>Infrastructure Defense Pattern #47</strong> implements defense in depth across VPC boundaries, inspection networks, and application load balancers.",
     "tags": [
-      "SCS-C02",
-      "Identity"
+      "Infrastructure",
+      "Security",
+      "VPC"
     ]
   },
   {
     "id": "aws-scs-fc-131",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "aws-scs",
-    "domainId": "d5",
-    "front": "In SCS-C02 (Data Protection), how does AWS KMS key policies vs IAM policies for cryptographic access function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>AWS KMS key policies vs IAM policies for cryptographic access</strong> establishes automated declarative workflows within Data Protection. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d4",
+    "front": "IAM Permissions Boundaries: Delegated Administration",
+    "hint": "Allowing developers to create roles without escalating privileges.",
+    "back": "A <strong>Permissions Boundary</strong> sets the absolute ceiling of permissions an IAM policy can grant. By requiring development leads to attach a specific permissions boundary whenever they create new IAM roles (enforced via <code>iam:PermissionsBoundary</code> conditions), teams safely delegate role administration without risking privilege escalation.",
     "tags": [
-      "SCS-C02",
-      "Data"
+      "IAM",
+      "Permissions Boundaries",
+      "Governance"
     ]
   },
   {
     "id": "aws-scs-fc-132",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "certId": "aws-scs",
-    "domainId": "d6",
-    "front": "In SCS-C02 (Management and Security Governance), how does AWS Organizations Service Control Policies SCPs establishing hard guardrails function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>AWS Organizations Service Control Policies SCPs establishing hard guardrails</strong> establishes automated declarative workflows within Management and Security Governance. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d4",
+    "front": "External ID in IAM Role Trust Policies",
+    "hint": "Defeating the 'confused deputy' problem in multi-tenant SaaS.",
+    "back": "When a third-party SaaS vendor assumes an IAM role in your account, require an <strong>sts:ExternalId</strong> condition in the role trust policy. This prevents an attacker from tricking the SaaS vendor into using its legitimate role assumption permissions against a different customer account.",
     "tags": [
-      "SCS-C02",
-      "Management"
+      "IAM",
+      "External ID",
+      "Confused Deputy",
+      "Cross-Account"
     ]
   },
   {
     "id": "aws-scs-fc-133",
     "difficulty": "medium",
     "certId": "aws-scs",
-    "domainId": "d1",
-    "front": "In SCS-C02 (Threat Detection and Incident Response), how does Amazon Detective root cause investigation and graph analysis function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Amazon Detective root cause investigation and graph analysis</strong> establishes automated declarative workflows within Threat Detection and Incident Response. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d4",
+    "front": "IAM & Access Policy Rule #1",
+    "hint": "Service Control Policy, ABAC tag evaluation, or session policy constraint.",
+    "back": "<strong>IAM & Access Policy Rule #1</strong> enforces least privilege, federated single sign-on with IAM Identity Center, and automated policy validation with IAM Access Analyzer.",
     "tags": [
-      "SCS-C02",
-      "Threat"
+      "IAM",
+      "Access Control",
+      "Security"
     ]
   },
   {
     "id": "aws-scs-fc-134",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "aws-scs",
-    "domainId": "d2",
-    "front": "In SCS-C02 (Security Logging and Monitoring), how does CloudWatch log group retention, metric filters, and subscription filters function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>CloudWatch log group retention, metric filters, and subscription filters</strong> establishes automated declarative workflows within Security Logging and Monitoring. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d4",
+    "front": "IAM & Access Policy Rule #2",
+    "hint": "Service Control Policy, ABAC tag evaluation, or session policy constraint.",
+    "back": "<strong>IAM & Access Policy Rule #2</strong> enforces least privilege, federated single sign-on with IAM Identity Center, and automated policy validation with IAM Access Analyzer.",
     "tags": [
-      "SCS-C02",
+      "IAM",
+      "Access Control",
       "Security"
     ]
   },
   {
     "id": "aws-scs-fc-135",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "certId": "aws-scs",
-    "domainId": "d3",
-    "front": "In SCS-C02 (Infrastructure Security), how does AWS Network Firewall stateful inspection and TLS decryption rules function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>AWS Network Firewall stateful inspection and TLS decryption rules</strong> establishes automated declarative workflows within Infrastructure Security. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d4",
+    "front": "IAM & Access Policy Rule #3",
+    "hint": "Service Control Policy, ABAC tag evaluation, or session policy constraint.",
+    "back": "<strong>IAM & Access Policy Rule #3</strong> enforces least privilege, federated single sign-on with IAM Identity Center, and automated policy validation with IAM Access Analyzer.",
     "tags": [
-      "SCS-C02",
-      "Infrastructure"
+      "IAM",
+      "Access Control",
+      "Security"
     ]
   },
   {
     "id": "aws-scs-fc-136",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "aws-scs",
     "domainId": "d4",
-    "front": "In SCS-C02 (Identity and Access Management), how does IAM Access Analyzer identifying public and cross-account resource sharing function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>IAM Access Analyzer identifying public and cross-account resource sharing</strong> establishes automated declarative workflows within Identity and Access Management. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "front": "IAM & Access Policy Rule #4",
+    "hint": "Service Control Policy, ABAC tag evaluation, or session policy constraint.",
+    "back": "<strong>IAM & Access Policy Rule #4</strong> enforces least privilege, federated single sign-on with IAM Identity Center, and automated policy validation with IAM Access Analyzer.",
     "tags": [
-      "SCS-C02",
-      "Identity"
+      "IAM",
+      "Access Control",
+      "Security"
     ]
   },
   {
     "id": "aws-scs-fc-137",
     "difficulty": "medium",
     "certId": "aws-scs",
-    "domainId": "d5",
-    "front": "In SCS-C02 (Data Protection), how does AWS Secrets Manager automatic password rotation for RDS databases function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>AWS Secrets Manager automatic password rotation for RDS databases</strong> establishes automated declarative workflows within Data Protection. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d4",
+    "front": "IAM & Access Policy Rule #5",
+    "hint": "Service Control Policy, ABAC tag evaluation, or session policy constraint.",
+    "back": "<strong>IAM & Access Policy Rule #5</strong> enforces least privilege, federated single sign-on with IAM Identity Center, and automated policy validation with IAM Access Analyzer.",
     "tags": [
-      "SCS-C02",
-      "Data"
+      "IAM",
+      "Access Control",
+      "Security"
     ]
   },
   {
     "id": "aws-scs-fc-138",
-    "difficulty": "easy",
+    "difficulty": "hard",
     "certId": "aws-scs",
-    "domainId": "d6",
-    "front": "In SCS-C02 (Management and Security Governance), how does AWS Audit Manager continuous assessment against industry frameworks function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>AWS Audit Manager continuous assessment against industry frameworks</strong> establishes automated declarative workflows within Management and Security Governance. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d4",
+    "front": "IAM & Access Policy Rule #6",
+    "hint": "Service Control Policy, ABAC tag evaluation, or session policy constraint.",
+    "back": "<strong>IAM & Access Policy Rule #6</strong> enforces least privilege, federated single sign-on with IAM Identity Center, and automated policy validation with IAM Access Analyzer.",
     "tags": [
-      "SCS-C02",
-      "Management"
+      "IAM",
+      "Access Control",
+      "Security"
     ]
   },
   {
     "id": "aws-scs-fc-139",
     "difficulty": "medium",
     "certId": "aws-scs",
-    "domainId": "d1",
-    "front": "In SCS-C02 (Threat Detection and Incident Response), how does Automated incident containment isolating compromised EC2 instances function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Automated incident containment isolating compromised EC2 instances</strong> establishes automated declarative workflows within Threat Detection and Incident Response. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d4",
+    "front": "IAM & Access Policy Rule #7",
+    "hint": "Service Control Policy, ABAC tag evaluation, or session policy constraint.",
+    "back": "<strong>IAM & Access Policy Rule #7</strong> enforces least privilege, federated single sign-on with IAM Identity Center, and automated policy validation with IAM Access Analyzer.",
     "tags": [
-      "SCS-C02",
-      "Threat"
+      "IAM",
+      "Access Control",
+      "Security"
     ]
   },
   {
     "id": "aws-scs-fc-140",
     "difficulty": "hard",
     "certId": "aws-scs",
-    "domainId": "d2",
-    "front": "In SCS-C02 (Security Logging and Monitoring), how does Amazon Athena SQL queries analyzing VPC Flow Logs and CloudTrail function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Amazon Athena SQL queries analyzing VPC Flow Logs and CloudTrail</strong> establishes automated declarative workflows within Security Logging and Monitoring. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d4",
+    "front": "IAM & Access Policy Rule #8",
+    "hint": "Service Control Policy, ABAC tag evaluation, or session policy constraint.",
+    "back": "<strong>IAM & Access Policy Rule #8</strong> enforces least privilege, federated single sign-on with IAM Identity Center, and automated policy validation with IAM Access Analyzer.",
     "tags": [
-      "SCS-C02",
+      "IAM",
+      "Access Control",
       "Security"
     ]
   },
   {
     "id": "aws-scs-fc-141",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "certId": "aws-scs",
-    "domainId": "d3",
-    "front": "In SCS-C02 (Infrastructure Security), how does VPC endpoint policies restricting access to designated AWS resources function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>VPC endpoint policies restricting access to designated AWS resources</strong> establishes automated declarative workflows within Infrastructure Security. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d4",
+    "front": "IAM & Access Policy Rule #9",
+    "hint": "Service Control Policy, ABAC tag evaluation, or session policy constraint.",
+    "back": "<strong>IAM & Access Policy Rule #9</strong> enforces least privilege, federated single sign-on with IAM Identity Center, and automated policy validation with IAM Access Analyzer.",
     "tags": [
-      "SCS-C02",
-      "Infrastructure"
+      "IAM",
+      "Access Control",
+      "Security"
     ]
   },
   {
     "id": "aws-scs-fc-142",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "aws-scs",
     "domainId": "d4",
-    "front": "In SCS-C02 (Identity and Access Management), how does Cross-account access with AssumeRole and external ID validation function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Cross-account access with AssumeRole and external ID validation</strong> establishes automated declarative workflows within Identity and Access Management. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "front": "IAM & Access Policy Rule #10",
+    "hint": "Service Control Policy, ABAC tag evaluation, or session policy constraint.",
+    "back": "<strong>IAM & Access Policy Rule #10</strong> enforces least privilege, federated single sign-on with IAM Identity Center, and automated policy validation with IAM Access Analyzer.",
     "tags": [
-      "SCS-C02",
-      "Identity"
+      "IAM",
+      "Access Control",
+      "Security"
     ]
   },
   {
     "id": "aws-scs-fc-143",
     "difficulty": "medium",
     "certId": "aws-scs",
-    "domainId": "d5",
-    "front": "In SCS-C02 (Data Protection), how does Amazon S3 bucket encryption with customer provided KMS keys SSE-KMS function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Amazon S3 bucket encryption with customer provided KMS keys SSE-KMS</strong> establishes automated declarative workflows within Data Protection. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d4",
+    "front": "IAM & Access Policy Rule #11",
+    "hint": "Service Control Policy, ABAC tag evaluation, or session policy constraint.",
+    "back": "<strong>IAM & Access Policy Rule #11</strong> enforces least privilege, federated single sign-on with IAM Identity Center, and automated policy validation with IAM Access Analyzer.",
     "tags": [
-      "SCS-C02",
-      "Data"
+      "IAM",
+      "Access Control",
+      "Security"
     ]
   },
   {
     "id": "aws-scs-fc-144",
-    "difficulty": "easy",
+    "difficulty": "hard",
     "certId": "aws-scs",
-    "domainId": "d6",
-    "front": "In SCS-C02 (Management and Security Governance), how does Delegated administrator accounts for security and governance services function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Delegated administrator accounts for security and governance services</strong> establishes automated declarative workflows within Management and Security Governance. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d4",
+    "front": "IAM & Access Policy Rule #12",
+    "hint": "Service Control Policy, ABAC tag evaluation, or session policy constraint.",
+    "back": "<strong>IAM & Access Policy Rule #12</strong> enforces least privilege, federated single sign-on with IAM Identity Center, and automated policy validation with IAM Access Analyzer.",
     "tags": [
-      "SCS-C02",
-      "Management"
+      "IAM",
+      "Access Control",
+      "Security"
     ]
   },
   {
     "id": "aws-scs-fc-145",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "certId": "aws-scs",
-    "domainId": "d1",
-    "front": "In SCS-C02 (Threat Detection and Incident Response), how does Amazon EventBridge rules triggering Lambda for security auto-remediation function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Amazon EventBridge rules triggering Lambda for security auto-remediation</strong> establishes automated declarative workflows within Threat Detection and Incident Response. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d4",
+    "front": "IAM & Access Policy Rule #13",
+    "hint": "Service Control Policy, ABAC tag evaluation, or session policy constraint.",
+    "back": "<strong>IAM & Access Policy Rule #13</strong> enforces least privilege, federated single sign-on with IAM Identity Center, and automated policy validation with IAM Access Analyzer.",
     "tags": [
-      "SCS-C02",
-      "Threat"
+      "IAM",
+      "Access Control",
+      "Security"
     ]
   },
   {
     "id": "aws-scs-fc-146",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "aws-scs",
-    "domainId": "d2",
-    "front": "In SCS-C02 (Security Logging and Monitoring), how does Amazon OpenSearch Service aggregating and visualizing security telemetry function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Amazon OpenSearch Service aggregating and visualizing security telemetry</strong> establishes automated declarative workflows within Security Logging and Monitoring. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d4",
+    "front": "IAM & Access Policy Rule #14",
+    "hint": "Service Control Policy, ABAC tag evaluation, or session policy constraint.",
+    "back": "<strong>IAM & Access Policy Rule #14</strong> enforces least privilege, federated single sign-on with IAM Identity Center, and automated policy validation with IAM Access Analyzer.",
     "tags": [
-      "SCS-C02",
+      "IAM",
+      "Access Control",
       "Security"
     ]
   },
   {
     "id": "aws-scs-fc-147",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "certId": "aws-scs",
-    "domainId": "d3",
-    "front": "In SCS-C02 (Infrastructure Security), how does AWS Systems Manager Session Manager replacing bastion host SSH access function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>AWS Systems Manager Session Manager replacing bastion host SSH access</strong> establishes automated declarative workflows within Infrastructure Security. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d4",
+    "front": "IAM & Access Policy Rule #15",
+    "hint": "Service Control Policy, ABAC tag evaluation, or session policy constraint.",
+    "back": "<strong>IAM & Access Policy Rule #15</strong> enforces least privilege, federated single sign-on with IAM Identity Center, and automated policy validation with IAM Access Analyzer.",
     "tags": [
-      "SCS-C02",
-      "Infrastructure"
+      "IAM",
+      "Access Control",
+      "Security"
     ]
   },
   {
     "id": "aws-scs-fc-148",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "aws-scs",
     "domainId": "d4",
-    "front": "In SCS-C02 (Identity and Access Management), how does Attribute-Based Access Control ABAC using principal and resource tags function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Attribute-Based Access Control ABAC using principal and resource tags</strong> establishes automated declarative workflows within Identity and Access Management. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "front": "IAM & Access Policy Rule #16",
+    "hint": "Service Control Policy, ABAC tag evaluation, or session policy constraint.",
+    "back": "<strong>IAM & Access Policy Rule #16</strong> enforces least privilege, federated single sign-on with IAM Identity Center, and automated policy validation with IAM Access Analyzer.",
     "tags": [
-      "SCS-C02",
-      "Identity"
+      "IAM",
+      "Access Control",
+      "Security"
     ]
   },
   {
     "id": "aws-scs-fc-149",
     "difficulty": "medium",
     "certId": "aws-scs",
-    "domainId": "d5",
-    "front": "In SCS-C02 (Data Protection), how does Amazon Macie sensitive data discovery and classification across S3 buckets function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Amazon Macie sensitive data discovery and classification across S3 buckets</strong> establishes automated declarative workflows within Data Protection. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d4",
+    "front": "IAM & Access Policy Rule #17",
+    "hint": "Service Control Policy, ABAC tag evaluation, or session policy constraint.",
+    "back": "<strong>IAM & Access Policy Rule #17</strong> enforces least privilege, federated single sign-on with IAM Identity Center, and automated policy validation with IAM Access Analyzer.",
     "tags": [
-      "SCS-C02",
-      "Data"
+      "IAM",
+      "Access Control",
+      "Security"
     ]
   },
   {
     "id": "aws-scs-fc-150",
     "difficulty": "hard",
     "certId": "aws-scs",
-    "domainId": "d6",
-    "front": "In SCS-C02 (Management and Security Governance), how does Security reference architecture SRA multi-account foundational layout function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Security reference architecture SRA multi-account foundational layout</strong> establishes automated declarative workflows within Management and Security Governance. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d4",
+    "front": "IAM & Access Policy Rule #18",
+    "hint": "Service Control Policy, ABAC tag evaluation, or session policy constraint.",
+    "back": "<strong>IAM & Access Policy Rule #18</strong> enforces least privilege, federated single sign-on with IAM Identity Center, and automated policy validation with IAM Access Analyzer.",
     "tags": [
-      "SCS-C02",
-      "Management"
+      "IAM",
+      "Access Control",
+      "Security"
     ]
   }
 ];
