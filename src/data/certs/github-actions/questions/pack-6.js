@@ -30,12 +30,12 @@ export const GITHUB_ACTIONS_QUESTIONS_6 = [
     scenario: "A workflow should run on pushes to every branch except those beginning with sandbox/. An author adds both a branches filter listing a wildcard for everything and a branches-ignore filter for the sandbox prefix, and the workflow is rejected.",
     question: "What is the rule, and what is the correct expression?",
     options: [
-      { id: 'A', text: "The two filters cannot both be used for the same event, so the intent should be written with branches-ignore alone naming the sandbox prefix." },
-      { id: 'B', text: "The two filters cannot both be used, so the intent should be written with branches alone listing every branch name explicitly." },
+      { id: 'A', text: "The two filters cannot both be used, so the intent should be written with branches alone listing every branch name explicitly." },
+      { id: 'B', text: "The filters may be combined only when each names a literal branch rather than a pattern." },
       { id: 'C', text: "The filters may be combined but branches-ignore must be listed first, so reordering fixes it." },
-      { id: 'D', text: "The filters may be combined only when each names a literal branch rather than a pattern." }
+      { id: 'D', text: "The two filters cannot both be used for the same event, so the intent should be written with branches-ignore alone naming the sandbox prefix." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "For a single event a workflow may use branches or branches-ignore but not both, and since the requirement is an exclusion from everything, branches-ignore carrying the sandbox pattern expresses it directly. Enumerating every branch is unmaintainable and breaks as soon as someone creates a new one, and neither ordering nor avoiding patterns makes the combination legal.",
     referenceUrl: "https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions",
@@ -72,12 +72,12 @@ export const GITHUB_ACTIONS_QUESTIONS_6 = [
     scenario: "A discovery job emits a JSON array of changed services. On documentation-only pull requests the array is empty, and the team wants the downstream build job simply not to run rather than failing or running once with no input.",
     question: "What happens, and what should accompany it?",
     options: [
-      { id: 'A', text: "An empty matrix array produces no jobs, so the build job is reported as skipped; any job that depends on it should use a status check function if it must still run." },
-      { id: 'B', text: "An empty matrix array fails the run with a strategy error, so the discovery job must emit a placeholder entry." },
-      { id: 'C', text: "An empty matrix array produces one job with all matrix values unset, which must be guarded by a step condition." },
+      { id: 'A', text: "An empty matrix array produces one job with all matrix values unset, which must be guarded by a step condition." },
+      { id: 'B', text: "An empty matrix array produces no jobs, so the build job is reported as skipped; any job that depends on it should use a status check function if it must still run." },
+      { id: 'C', text: "An empty matrix array fails the run with a strategy error, so the discovery job must emit a placeholder entry." },
       { id: 'D', text: "An empty matrix array is treated as a single wildcard job that builds everything." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Expanding a matrix over an empty array generates zero jobs and the job appears as skipped, which is the desired behaviour here, but that skipped state propagates to anything declaring needs on it, so a dependent that must still run needs an explicit status check function in its condition. The run is not failed, no placeholder job is generated, and there is no wildcard interpretation.",
     referenceUrl: "https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs",
@@ -93,12 +93,12 @@ export const GITHUB_ACTIONS_QUESTIONS_6 = [
     scenario: "An administrator defines a non-sensitive configuration variable at organization level holding the internal artifact registry hostname. A workflow needs to read it.",
     question: "Which context exposes it?",
     options: [
-      { id: 'A', text: "The vars context, which exposes configuration variables defined at organization, repository and environment level." },
-      { id: 'B', text: "The secrets context, which exposes both secrets and variables." },
-      { id: 'C', text: "The env context, which is populated automatically from organization variables." },
+      { id: 'A', text: "The secrets context, which exposes both secrets and variables." },
+      { id: 'B', text: "The env context, which is populated automatically from organization variables." },
+      { id: 'C', text: "The vars context, which exposes configuration variables defined at organization, repository and environment level." },
       { id: 'D', text: "The github context, under an organization property." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configuration variables are read through the vars context, which resolves organization, repository and environment definitions with the narrower scope winning, and they are stored and displayed in plain text because they are meant for non-sensitive settings. The secrets context exposes only secrets, the env context reflects variables the workflow itself has set, and the github context describes the event and repository rather than configuration.",
     referenceUrl: "https://docs.github.com/en/actions/learn-github-actions/variables",
@@ -114,12 +114,12 @@ export const GITHUB_ACTIONS_QUESTIONS_6 = [
     scenario: "A run fails inside an action with a message that gives no useful detail. The maintainer wants the runner internal diagnostics and the step-level tracing for a single investigation, without permanently changing the workflow.",
     question: "Which approach provides it?",
     options: [
-      { id: 'A', text: "Download the run logs archive, which always contains the debug streams whether or not debugging was enabled." },
-      { id: 'B', text: "Increase the artifact retention period, which causes the runner to keep diagnostic files." },
-      { id: 'C', text: "Add a verbose flag to every step, which is the only supported mechanism." },
-      { id: 'D', text: "Re-run the jobs with the debug logging option enabled, or set the step and runner debug flags as repository secrets or variables for a broader investigation." }
+      { id: 'A', text: "Increase the artifact retention period, which causes the runner to keep diagnostic files." },
+      { id: 'B', text: "Download the run logs archive, which always contains the debug streams whether or not debugging was enabled." },
+      { id: 'C', text: "Re-run the jobs with the debug logging option enabled, or set the step and runner debug flags as repository secrets or variables for a broader investigation." },
+      { id: 'D', text: "Add a verbose flag to every step, which is the only supported mechanism." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "The re-run dialog offers a debug logging option that turns on runner and step diagnostics for that attempt, and the same behaviour can be enabled more broadly by setting the two documented debug flags as secrets or variables, which is the intended path for a one-off investigation. Per-step verbose flags only affect the tool being run, the standard log archive contains what was captured rather than streams that were never enabled, and retention governs storage lifetime rather than verbosity.",
     referenceUrl: "https://docs.github.com/en/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging",
@@ -156,12 +156,12 @@ export const GITHUB_ACTIONS_QUESTIONS_6 = [
     scenario: "The Actions list shows every run of a deployment workflow with the same workflow name, so operators cannot tell which environment and version each row deployed without opening it.",
     question: "Which key changes what the list displays?",
     options: [
-      { id: 'A', text: "The run-name key at workflow level, which accepts an expression and sets the title shown for each run." },
-      { id: 'B', text: "The name key at workflow level, which is re-evaluated per run." },
+      { id: 'A', text: "The name key at workflow level, which is re-evaluated per run." },
+      { id: 'B', text: "A title property added to GITHUB_STEP_SUMMARY, which the list reads." },
       { id: 'C', text: "The job name key, which replaces the run title when there is a single job." },
-      { id: 'D', text: "A title property added to GITHUB_STEP_SUMMARY, which the list reads." }
+      { id: 'D', text: "The run-name key at workflow level, which accepts an expression and sets the title shown for each run." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The run-name key sits alongside the workflow name and accepts an expression evaluated for each run, so a title can incorporate the environment, the version or the actor and make the run list readable at a glance. The workflow name is a static label for the workflow itself, job names appear within a run rather than as its title, and the step summary is content on the run page.",
     referenceUrl: "https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions",
@@ -177,12 +177,12 @@ export const GITHUB_ACTIONS_QUESTIONS_6 = [
     scenario: "A job builds a static site from files already in the workspace and never calls the API. A hardening review asks that this job hold no token privileges whatsoever, so a compromised dependency cannot use the token.",
     question: "How is that written?",
     options: [
-      { id: 'A', text: "Setting permissions to contents: none, which is the only scope that can be removed." },
-      { id: 'B', text: "An empty permissions mapping on the job, which disables every scope of the automatic token for that job." },
-      { id: 'C', text: "Setting the job to run on a self-hosted runner, which is not issued a token." },
-      { id: 'D', text: "Omitting the permissions key, which defaults to no permissions." }
+      { id: 'A', text: "Omitting the permissions key, which defaults to no permissions." },
+      { id: 'B', text: "Setting the job to run on a self-hosted runner, which is not issued a token." },
+      { id: 'C', text: "An empty permissions mapping on the job, which disables every scope of the automatic token for that job." },
+      { id: 'D', text: "Setting permissions to contents: none, which is the only scope that can be removed." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Supplying an empty permissions mapping sets every scope of the automatic token to none for that job, which is the documented way to run with no API access at all. Omitting the key inherits the workflow or repository default rather than dropping everything, listing a single scope leaves the others at their default, and runner type does not change whether a token is issued.",
     referenceUrl: "https://docs.github.com/en/actions/using-jobs/assigning-permissions-to-jobs",
@@ -240,12 +240,12 @@ export const GITHUB_ACTIONS_QUESTIONS_6 = [
     scenario: "A support engineer needs the packaged build from a specific completed run, from a terminal on a machine with no browser, in order to reproduce a customer issue.",
     question: "Which approach is appropriate?",
     options: [
-      { id: 'A', text: "Use the GitHub CLI run download command with the run identifier, optionally naming the artifact." },
-      { id: 'B', text: "Re-run the workflow with an added step that copies the build to a shared drive." },
+      { id: 'A', text: "Re-run the workflow with an added step that copies the build to a shared drive." },
+      { id: 'B', text: "Artifacts are only downloadable from the run page in a browser." },
       { id: 'C', text: "Read the artifact contents out of the run logs, where they are recorded." },
-      { id: 'D', text: "Artifacts are only downloadable from the run page in a browser." }
+      { id: 'D', text: "Use the GitHub CLI run download command with the run identifier, optionally naming the artifact." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The command line offers a run download command that retrieves artifacts from a nominated run, which is the direct answer for a terminal-only environment and is also scriptable. Re-running produces a different build and changes the thing being investigated, logs contain output text rather than artifact bytes, and artifacts are reachable through both the API and the command line as well as the browser.",
     referenceUrl: "https://docs.github.com/en/actions/using-workflows/storing-workflow-data-as-artifacts",
@@ -282,12 +282,12 @@ export const GITHUB_ACTIONS_QUESTIONS_6 = [
     scenario: "Operations wants a fifteen-minute gap between a staging deployment succeeding and the production job starting, so that automated monitoring has time to raise an alert, with no human required to click anything when all is well.",
     question: "Which environment protection rule provides that?",
     options: [
-      { id: 'A', text: "A wait timer on the production environment, which delays the job by the configured number of minutes before it proceeds." },
+      { id: 'A', text: "A concurrency group with a fifteen-minute cooldown property." },
       { id: 'B', text: "Required reviewers on the production environment, with the reviewers instructed to wait fifteen minutes." },
-      { id: 'C', text: "A concurrency group with a fifteen-minute cooldown property." },
-      { id: 'D', text: "A step that sleeps for fifteen minutes at the start of the production job." }
+      { id: 'C', text: "A step that sleeps for fifteen minutes at the start of the production job." },
+      { id: 'D', text: "A wait timer on the production environment, which delays the job by the configured number of minutes before it proceeds." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "A wait timer is a deployment protection rule that holds the job for a configured number of minutes and then releases it automatically, which is exactly an unattended soak period. Required reviewers introduce a person where none is wanted, concurrency has no cooldown property, and a sleeping step burns billed runner minutes for the whole delay while achieving the same wait.",
     referenceUrl: "https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment",
@@ -303,12 +303,12 @@ export const GITHUB_ACTIONS_QUESTIONS_6 = [
     scenario: "A contributor discovers that pushing a branch and starting a manual dispatch from it lets them run the deployment job against production. The team wants only the default branch and release branches to be able to deploy there.",
     question: "Which control enforces that?",
     options: [
-      { id: 'A', text: "A deployment branch policy on the production environment restricting which branches and tags may deploy to it." },
-      { id: 'B', text: "A job condition comparing github.ref to the permitted branch names." },
-      { id: 'C', text: "Branch protection on the release branches requiring review." },
+      { id: 'A', text: "Branch protection on the release branches requiring review." },
+      { id: 'B', text: "A deployment branch policy on the production environment restricting which branches and tags may deploy to it." },
+      { id: 'C', text: "A job condition comparing github.ref to the permitted branch names." },
       { id: 'D', text: "Removing the workflow_dispatch trigger so deployments are automatic only." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "An environment can restrict which branches and tags are allowed to deploy to it, and because the rule lives on the environment rather than in the workflow file it holds even if someone edits the workflow on their own branch. A job condition is enforced by the very file the contributor controls, branch protection governs merging into those branches, and removing manual dispatch loses a legitimate capability while leaving other paths open.",
     referenceUrl: "https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment",
@@ -324,12 +324,12 @@ export const GITHUB_ACTIONS_QUESTIONS_6 = [
     scenario: "A calling repository holds fifteen secrets. It must invoke a shared reusable workflow that legitimately needs exactly one of them, and a reviewer objects to the current use of blanket inheritance.",
     question: "What should the calling job do?",
     options: [
-      { id: 'A', text: "Move the fourteen unrelated secrets to organization level, which excludes them from inheritance." },
-      { id: 'B', text: "Pass the secret through the with block instead, which avoids the secrets context entirely." },
-      { id: 'C', text: "Keep secrets: inherit, since the called workflow can only read secrets it declares in its workflow_call block anyway, making the two equivalent." },
-      { id: 'D', text: "Replace secrets: inherit with an explicit secrets mapping passing only the single secret the called workflow declares." }
+      { id: 'A', text: "Pass the secret through the with block instead, which avoids the secrets context entirely." },
+      { id: 'B', text: "Move the fourteen unrelated secrets to organization level, which excludes them from inheritance." },
+      { id: 'C', text: "Replace secrets: inherit with an explicit secrets mapping passing only the single secret the called workflow declares." },
+      { id: 'D', text: "Keep secrets: inherit, since the called workflow can only read secrets it declares in its workflow_call block anyway, making the two equivalent." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "An explicit secrets mapping passes exactly the named values and nothing else, which is the least-privilege form and makes the dependency visible at the call site. Blanket inheritance forwards the caller secrets wholesale to the called workflow, so a change to that workflow could begin using others without the caller noticing, which is precisely the reviewer concern. Organization secrets available to the repository are inherited too, and routing a secret through with places it in a channel meant for non-sensitive inputs.",
     referenceUrl: "https://docs.github.com/en/actions/using-workflows/reusing-workflows",
@@ -387,12 +387,12 @@ export const GITHUB_ACTIONS_QUESTIONS_6 = [
     scenario: "A JavaScript action needs to establish a network tunnel before its main logic runs and, importantly, before any of the other steps that come after it in the job, so those steps also benefit from the tunnel.",
     question: "Which metadata entry supports that?",
     options: [
-      { id: 'A', text: "A pre entry in the runs block naming a script the runner executes before the main entry point, with pre-if controlling when it applies." },
-      { id: 'B', text: "A setup entry in the runs block, executed once per job." },
-      { id: 'C', text: "A first-run flag on the main entry point." },
+      { id: 'A', text: "A first-run flag on the main entry point." },
+      { id: 'B', text: "A pre entry in the runs block naming a script the runner executes before the main entry point, with pre-if controlling when it applies." },
+      { id: 'C', text: "A setup entry in the runs block, executed once per job." },
       { id: 'D', text: "There is no such feature; the caller must add a separate setup step before the action." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "A JavaScript action may declare pre and post scripts around its main entry point, with the pre script executed at the start and pre-if narrowing when it applies, which is how an action prepares state that the rest of the job relies on. There is no setup key or first-run flag in the schema, and requiring the caller to add a separate step is exactly the boilerplate the feature removes.",
     referenceUrl: "https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions",
@@ -492,12 +492,12 @@ export const GITHUB_ACTIONS_QUESTIONS_6 = [
     scenario: "A compliance programme requires seven years of records for changes to Actions policies, runner registrations and secret management. The platform audit log retains events for a shorter period.",
     question: "Which capability meets the requirement?",
     options: [
-      { id: 'A', text: "Configure audit log streaming to an external destination such as object storage or a log platform, which delivers events continuously so retention is governed by the destination." },
-      { id: 'B', text: "Increase the audit log retention setting to the required number of years." },
+      { id: 'A', text: "Rely on workflow run logs, which capture the same governance events." },
+      { id: 'B', text: "Configure audit log streaming to an external destination such as object storage or a log platform, which delivers events continuously so retention is governed by the destination." },
       { id: 'C', text: "Export the audit log by hand each quarter from the web interface." },
-      { id: 'D', text: "Rely on workflow run logs, which capture the same governance events." }
+      { id: 'D', text: "Increase the audit log retention setting to the required number of years." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Audit log streaming pushes events continuously to a customer-controlled destination, which moves retention out of the platform window and into a system the organization already governs, and it removes the gap risk inherent in periodic manual exports. Retention within the platform is not configurable to arbitrary lengths, quarterly manual exports are fragile and easy to miss, and workflow run logs record job execution rather than administrative changes.",
     referenceUrl: "https://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise",
@@ -513,12 +513,12 @@ export const GITHUB_ACTIONS_QUESTIONS_6 = [
     scenario: "A platform team builds its own autoscaler rather than adopting the Kubernetes controller. Each runner must accept exactly one job and then exit, and no long-lived registration credential should be stored on the instance image.",
     question: "Which registration approach fits?",
     options: [
-      { id: 'A', text: "Generate a just-in-time runner configuration through the API for each instance, which encodes a single-use ephemeral registration the runner consumes at start-up." },
+      { id: 'A', text: "Register a persistent runner and have the last step of every job restart the host." },
       { id: 'B', text: "Bake a registration token into the instance image and rotate the image weekly." },
-      { id: 'C', text: "Register each instance interactively with a personal access token held in the instance metadata." },
-      { id: 'D', text: "Register a persistent runner and have the last step of every job restart the host." }
+      { id: 'C', text: "Generate a just-in-time runner configuration through the API for each instance, which encodes a single-use ephemeral registration the runner consumes at start-up." },
+      { id: 'D', text: "Register each instance interactively with a personal access token held in the instance metadata." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Just-in-time configuration is generated per instance through the API and produces a runner that registers, takes one job and exits, so nothing reusable is stored on the image and the ephemeral guarantee is enforced by the registration itself. Baking a token into an image leaves a credential on disk with a long window, a personal access token in instance metadata is a broader credential in a readable place, and restarting after a persistent job still leaves the registration and any leftover state.",
     referenceUrl: "https://docs.github.com/en/rest/actions/self-hosted-runners",
