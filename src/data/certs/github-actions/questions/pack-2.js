@@ -9,12 +9,12 @@ export const GITHUB_ACTIONS_QUESTIONS_2 = [
     scenario: "A workflow defines LOG_LEVEL as info at workflow level, warn at job level, and debug on one particular step. A script inside that step prints the value.",
     question: "What does the script print, and why?",
     options: [
-      { id: 'A', text: "warn, because job-level env always takes priority over step-level env." },
+      { id: 'A', text: "debug, because the most specific scope wins and step-level env overrides job and workflow level." },
       { id: 'B', text: "info, because workflow-level variables are applied last and override narrower scopes." },
-      { id: 'C', text: "debug, because the most specific scope wins and step-level env overrides job and workflow level." },
+      { id: 'C', text: "warn, because job-level env always takes priority over step-level env." },
       { id: 'D', text: "The workflow fails to parse, because a variable may only be defined at one level." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Environment variables resolve from the narrowest scope outward, so a step-level env entry shadows the same name at job level, which in turn shadows workflow level. Defining a name at several levels is legal and is the intended way to set a default and override it in one place, so the workflow parses normally and the step sees its own value.",
     referenceUrl: "https://docs.github.com/en/actions/learn-github-actions/variables",
@@ -31,9 +31,9 @@ export const GITHUB_ACTIONS_QUESTIONS_2 = [
     question: "Which technique makes it available?",
     options: [
       { id: 'A', text: "Append a NAME=value line to the file path held in GITHUB_ENV, which the runner applies to every subsequent step in the job." },
-      { id: 'B', text: "Write the value to GITHUB_PATH, which the runner converts into an environment variable." },
-      { id: 'C', text: "Use export in the first step, because all steps in a job share one shell session." },
-      { id: 'D', text: "Add the value to the workflow-level env block using an expression that reads the earlier step." }
+      { id: 'B', text: "Use export in the first step, because all steps in a job share one shell session." },
+      { id: 'C', text: "Add the value to the workflow-level env block using an expression that reads the earlier step." },
+      { id: 'D', text: "Write the value to GITHUB_PATH, which the runner converts into an environment variable." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -73,9 +73,9 @@ export const GITHUB_ACTIONS_QUESTIONS_2 = [
     question: "Which workflow feature fits?",
     options: [
       { id: 'A', text: "A services block on the job declaring a postgres container image with health check options." },
-      { id: 'B', text: "A composite action that starts the database in the background with a run step." },
-      { id: 'C', text: "A container key on the job, which runs the database image as the job container." },
-      { id: 'D', text: "A separate job running the database, with the test job declaring needs on it." }
+      { id: 'B', text: "A container key on the job, which runs the database image as the job container." },
+      { id: 'C', text: "A separate job running the database, with the test job declaring needs on it." },
+      { id: 'D', text: "A composite action that starts the database in the background with a run step." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -95,10 +95,10 @@ export const GITHUB_ACTIONS_QUESTIONS_2 = [
     options: [
       { id: 'A', text: "The build job uses a wildcard in the matrix value, which the runner expands against the workspace." },
       { id: 'B', text: "The discovery job writes the service list to an artifact and the build job sets its matrix from the downloaded file." },
-      { id: 'C', text: "The discovery job emits a JSON array as a job output, and the build job sets its matrix using fromJSON on that output read through the needs context." },
-      { id: 'D', text: "Dynamic matrices are not supported, so the workflow must enumerate every possible service and skip the ones that did not change." }
+      { id: 'C', text: "Dynamic matrices are not supported, so the workflow must enumerate every possible service and skip the ones that did not change." },
+      { id: 'D', text: "The discovery job emits a JSON array as a job output, and the build job sets its matrix using fromJSON on that output read through the needs context." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The matrix is evaluated when the job is created, before any of its steps run, so the values must arrive through an expression, and the supported pattern is a JSON array emitted as a job output and converted with fromJSON in the dependent job. An artifact is only readable from inside a step, which is far too late to shape the matrix, no wildcard expansion exists for matrix values, and enumerating everything defeats the purpose and still creates skipped jobs.",
     referenceUrl: "https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs",
@@ -114,12 +114,12 @@ export const GITHUB_ACTIONS_QUESTIONS_2 = [
     scenario: "A job produces a large diagnostics bundle. Uploading it on every run wastes artifact storage, but when the compile step fails the team needs it. Simply adding the upload step causes it to be skipped after a failure.",
     question: "Which condition on the upload step gives the wanted behaviour?",
     options: [
-      { id: 'A', text: "if evaluating failure(), which is true when a previous step in the job has failed." },
-      { id: 'B', text: "if evaluating cancelled(), which covers any non-successful outcome." },
-      { id: 'C', text: "continue-on-error set to true on the upload step." },
+      { id: 'A', text: "if evaluating cancelled(), which covers any non-successful outcome." },
+      { id: 'B', text: "continue-on-error set to true on the upload step." },
+      { id: 'C', text: "if evaluating failure(), which is true when a previous step in the job has failed." },
       { id: 'D', text: "if evaluating success(), which is the default and therefore explicit." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Steps carry an implicit success condition, so once a step fails the remainder are skipped unless a status check function overrides it, and failure() is true precisely when an earlier step in the job has failed. The success() function reproduces the default and still skips, continue-on-error changes how a step failure is reported rather than whether a later step runs, and cancelled() is true only when the run was cancelled.",
     referenceUrl: "https://docs.github.com/en/actions/learn-github-actions/expressions",
@@ -136,9 +136,9 @@ export const GITHUB_ACTIONS_QUESTIONS_2 = [
     question: "Which configuration provides both the pause and the credential boundary?",
     options: [
       { id: 'A', text: "An environment named production carrying required reviewers and holding the credentials as environment secrets, referenced by the job through the environment key." },
-      { id: 'B', text: "A repository ruleset requiring two approving reviews on the pull request." },
-      { id: 'C', text: "An if condition on the job comparing github.actor to the two release manager usernames." },
-      { id: 'D', text: "A manual workflow_dispatch trigger that only the release managers have permission to start." }
+      { id: 'B', text: "An if condition on the job comparing github.actor to the two release manager usernames." },
+      { id: 'C', text: "A manual workflow_dispatch trigger that only the release managers have permission to start." },
+      { id: 'D', text: "A repository ruleset requiring two approving reviews on the pull request." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -156,10 +156,10 @@ export const GITHUB_ACTIONS_QUESTIONS_2 = [
     scenario: "All twelve run steps in a job operate on code in the frontend subdirectory, and each currently begins with a change-directory command that a contributor keeps forgetting to add.",
     question: "Which key removes the repetition?",
     options: [
-      { id: 'A', text: "A with block on the job passing path set to frontend." },
+      { id: 'A', text: "A workflow-level env entry named WORKING_DIRECTORY set to frontend." },
       { id: 'B', text: "A defaults block on the job setting run.working-directory to frontend." },
-      { id: 'C', text: "A checkout step configured with sparse-checkout set to frontend." },
-      { id: 'D', text: "A workflow-level env entry named WORKING_DIRECTORY set to frontend." }
+      { id: 'C', text: "A with block on the job passing path set to frontend." },
+      { id: 'D', text: "A checkout step configured with sparse-checkout set to frontend." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -177,12 +177,12 @@ export const GITHUB_ACTIONS_QUESTIONS_2 = [
     scenario: "A step reads a secret, derives a session token from it by calling an authentication endpoint, and prints diagnostic output. The original secret is redacted in the log but the derived session token appears in full.",
     question: "Why does this happen and how is it addressed?",
     options: [
-      { id: 'A', text: "Redaction only applies to secrets, and a value computed at run time must be registered with the add-mask workflow command to be redacted." },
-      { id: 'B', text: "Derived values are always redacted, so the visible token proves the secret itself was logged earlier in the run." },
+      { id: 'A', text: "Redaction failed because the token exceeds the length limit for masked values, so the token must be shortened." },
+      { id: 'B', text: "Redaction only applies to secrets, and a value computed at run time must be registered with the add-mask workflow command to be redacted." },
       { id: 'C', text: "The job needs its permissions block reduced, which enables redaction of derived values." },
-      { id: 'D', text: "Redaction failed because the token exceeds the length limit for masked values, so the token must be shortened." }
+      { id: 'D', text: "Derived values are always redacted, so the visible token proves the secret itself was logged earlier in the run." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "The runner maintains a register of strings to scrub from log output, populated from the secrets a job can see, and it has no way to know that some newly computed string is sensitive. Emitting an add-mask workflow command for the derived token adds it to that register so later occurrences are replaced. Masking is not governed by value length or by the token permissions block, and derived values are not covered automatically.",
     referenceUrl: "https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions",
@@ -198,12 +198,12 @@ export const GITHUB_ACTIONS_QUESTIONS_2 = [
     scenario: "A workflow triggered by issue_comment implements a slash command for pull requests. It currently fires for comments on plain issues too, where the command makes no sense and the run fails when it tries to read the pull request.",
     question: "Which condition restricts the run correctly?",
     options: [
-      { id: 'A', text: "A job-level if checking that github.event_name equals pull_request." },
-      { id: 'B', text: "Adding a types filter of created to the issue_comment trigger." },
-      { id: 'C', text: "Replacing the trigger with pull_request_review_comment, which covers comments in the pull request conversation." },
-      { id: 'D', text: "A job-level if checking that the github.event.issue.pull_request property is present, which distinguishes a pull request comment from an issue comment." }
+      { id: 'A', text: "A job-level if checking that the github.event.issue.pull_request property is present, which distinguishes a pull request comment from an issue comment." },
+      { id: 'B', text: "A job-level if checking that github.event_name equals pull_request." },
+      { id: 'C', text: "Adding a types filter of created to the issue_comment trigger." },
+      { id: 'D', text: "Replacing the trigger with pull_request_review_comment, which covers comments in the pull request conversation." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The issue_comment event covers both issues and pull requests because a pull request is an issue with extra data, and the payload carries a pull_request property only in the latter case, so testing for its presence is the documented discriminator. The event name is issue_comment rather than pull_request in every case here, pull_request_review_comment fires for inline comments on the diff rather than conversation comments, and a types filter selects create versus edit rather than the parent kind.",
     referenceUrl: "https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows",
@@ -219,12 +219,12 @@ export const GITHUB_ACTIONS_QUESTIONS_2 = [
     scenario: "A platform team wants a curated security scanning workflow to appear as a suggested option when anyone in the organization opens the Actions tab of a repository and chooses to create a new workflow.",
     question: "Where must the workflow be published?",
     options: [
-      { id: 'A', text: "In the Marketplace as a published action with the workflow category." },
-      { id: 'B', text: "In a repository named starter-workflows owned by the organization." },
-      { id: 'C', text: "In the workflow-templates directory of the organization .github repository, alongside a properties JSON file describing it." },
-      { id: 'D', text: "In the .github/workflows directory of the organization .github repository, from where it is copied automatically." }
+      { id: 'A', text: "In the .github/workflows directory of the organization .github repository, from where it is copied automatically." },
+      { id: 'B', text: "In the workflow-templates directory of the organization .github repository, alongside a properties JSON file describing it." },
+      { id: 'C', text: "In the Marketplace as a published action with the workflow category." },
+      { id: 'D', text: "In a repository named starter-workflows owned by the organization." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Starter workflows live in a workflow-templates directory inside the organization .github repository, each paired with a properties file that supplies the name, description and categories used when the suggestion is rendered. The .github/workflows directory of that repository holds workflows that run against the repository itself, no starter-workflows repository name is special for an organization, and the Marketplace distributes actions rather than workflow suggestions.",
     referenceUrl: "https://docs.github.com/en/actions/using-workflows/creating-starter-workflows-for-your-organization",
@@ -261,12 +261,12 @@ export const GITHUB_ACTIONS_QUESTIONS_2 = [
     scenario: "A maintainer wants the README to display whether the CI workflow is currently passing on the default branch, updated automatically without any extra automation.",
     question: "What should be added?",
     options: [
-      { id: 'A', text: "A required status check configured in branch protection, which renders in the README automatically." },
-      { id: 'B', text: "A repository custom property set from the workflow using the API." },
-      { id: 'C', text: "A scheduled workflow that rewrites a status line in the README after every run." },
-      { id: 'D', text: "A workflow status badge image, whose URL is generated from the workflow page and can be filtered by branch and event." }
+      { id: 'A', text: "A scheduled workflow that rewrites a status line in the README after every run." },
+      { id: 'B', text: "A workflow status badge image, whose URL is generated from the workflow page and can be filtered by branch and event." },
+      { id: 'C', text: "A repository custom property set from the workflow using the API." },
+      { id: 'D', text: "A required status check configured in branch protection, which renders in the README automatically." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "GitHub serves a badge image for each workflow that reflects the latest conclusion and accepts branch and event query parameters, and the workflow page offers a copyable snippet, so a single markdown image line keeps the README current with no automation. Rewriting the README from a workflow adds commit noise and race conditions, required status checks gate merges rather than render anywhere, and custom properties are repository metadata not shown in the README.",
     referenceUrl: "https://docs.github.com/en/actions/monitoring-and-troubleshooting-workflows/adding-a-workflow-status-badge",
@@ -282,10 +282,10 @@ export const GITHUB_ACTIONS_QUESTIONS_2 = [
     scenario: "Branch protection requires a check named build before merging. The workflow has been changed so that the build job is skipped when only documentation changes, and documentation-only pull requests now sit unmergeable forever waiting for a check that will never report.",
     question: "Which approach resolves this while keeping the protection meaningful?",
     options: [
-      { id: 'A', text: "Convert build into a composite action so branch protection resolves it differently." },
+      { id: 'A', text: "Remove build from the required checks list and rely on reviewers noticing failures." },
       { id: 'B', text: "Keep the job always running but exit early with a success when only documentation changed, so the check always reports a conclusion." },
-      { id: 'C', text: "Remove build from the required checks list and rely on reviewers noticing failures." },
-      { id: 'D', text: "Add paths-ignore for the documentation directory to the workflow trigger, so the check is not expected." }
+      { id: 'C', text: "Add paths-ignore for the documentation directory to the workflow trigger, so the check is not expected." },
+      { id: 'D', text: "Convert build into a composite action so branch protection resolves it differently." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -303,12 +303,12 @@ export const GITHUB_ACTIONS_QUESTIONS_2 = [
     scenario: "A release script running on an engineer laptop must start a workflow that declares a workflow_dispatch trigger, passing an input value, and then poll for the resulting run.",
     question: "Which approach is appropriate?",
     options: [
-      { id: 'A', text: "Push an empty commit with a specially formatted message that the workflow parses." },
-      { id: 'B', text: "Open the Actions tab in a headless browser and submit the form." },
-      { id: 'C', text: "Use the GitHub CLI workflow run command, or the equivalent REST endpoint for creating a workflow dispatch event, passing the input as a field." },
-      { id: 'D', text: "Send a repository_dispatch event, which is the only programmatic way to start any workflow." }
+      { id: 'A', text: "Use the GitHub CLI workflow run command, or the equivalent REST endpoint for creating a workflow dispatch event, passing the input as a field." },
+      { id: 'B', text: "Send a repository_dispatch event, which is the only programmatic way to start any workflow." },
+      { id: 'C', text: "Push an empty commit with a specially formatted message that the workflow parses." },
+      { id: 'D', text: "Open the Actions tab in a headless browser and submit the form." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "A workflow_dispatch trigger is startable from the API and from the GitHub CLI, both of which accept the declared inputs and return enough information to locate the run afterwards, which is the supported automation path. Commit-message conventions are fragile and pollute history, browser automation is unnecessary given a documented endpoint, and repository_dispatch is a separate custom event that a workflow must explicitly subscribe to rather than the only option.",
     referenceUrl: "https://docs.github.com/en/rest/actions/workflows",
@@ -324,12 +324,12 @@ export const GITHUB_ACTIONS_QUESTIONS_2 = [
     scenario: "A scheduled workflow is failing every hour because of an outage at a third-party provider. The team wants the noise to stop today but intends to resume the workflow unchanged once the provider recovers, and does not want the change to appear as a code edit.",
     question: "What is the cleanest action?",
     options: [
-      { id: 'A', text: "Disable the workflow from its page in the Actions tab, then enable it again later." },
-      { id: 'B', text: "Delete the workflow file and restore it from git history afterwards." },
-      { id: 'C', text: "Comment out the schedule trigger and commit the change." },
+      { id: 'A', text: "Comment out the schedule trigger and commit the change." },
+      { id: 'B', text: "Disable the workflow from its page in the Actions tab, then enable it again later." },
+      { id: 'C', text: "Delete the workflow file and restore it from git history afterwards." },
       { id: 'D', text: "Set the repository Actions permissions to disabled for the duration." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "The Actions tab exposes a disable control per workflow that stops it being triggered while leaving the file untouched, and re-enabling restores the previous behaviour with no diff and no history churn. Editing or deleting the file changes the repository for a temporary operational reason, and disabling Actions across the repository would also stop every unrelated workflow such as pull request validation.",
     referenceUrl: "https://docs.github.com/en/actions/using-workflows/disabling-and-enabling-a-workflow",
@@ -345,12 +345,12 @@ export const GITHUB_ACTIONS_QUESTIONS_2 = [
     scenario: "An action needs a target environment name from every caller and a retry count that should fall back to three when unspecified. The author wants the platform to reject a workflow that omits the environment name.",
     question: "How should action.yml declare these two inputs?",
     options: [
-      { id: 'A', text: "Declare the environment under outputs so the caller must bind it, and the retry under inputs." },
+      { id: 'A', text: "Mark the environment input required true, and give the retry input a default of three." },
       { id: 'B', text: "Declare only the retry input, and read the environment name from an environment variable the caller must export." },
-      { id: 'C', text: "Mark the environment input required true, and give the retry input a default of three." },
+      { id: 'C', text: "Declare the environment under outputs so the caller must bind it, and the retry under inputs." },
       { id: 'D', text: "Give both inputs a default, and validate the environment name inside the action code." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The metadata file supports a required flag that makes omitting an input an error and a default value that is substituted when a caller says nothing, which expresses exactly this contract declaratively. Defaulting both and validating in code moves a contract violation from configuration time to run time, outputs describe values the action produces, and relying on an undocumented environment variable hides the dependency from anyone reading the action metadata.",
     referenceUrl: "https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions",
@@ -366,12 +366,12 @@ export const GITHUB_ACTIONS_QUESTIONS_2 = [
     scenario: "A JavaScript action starts a tunnel process that must be torn down at the end of the job, including when a later step in the job fails. Putting the teardown in the action main entry point does not help because main returns while the tunnel is still needed.",
     question: "Which metadata feature solves this?",
     options: [
-      { id: 'A', text: "A separate teardown job with an if condition of always()." },
-      { id: 'B', text: "A cleanup key under runs, which the runner calls after the final step." },
-      { id: 'C', text: "A trap registered in the shell by the action, which the runner preserves across steps." },
-      { id: 'D', text: "A post entry under runs, naming a script the runner executes at the end of the job, with post-if available to control when it runs." }
+      { id: 'A', text: "A post entry under runs, naming a script the runner executes at the end of the job, with post-if available to control when it runs." },
+      { id: 'B', text: "A trap registered in the shell by the action, which the runner preserves across steps." },
+      { id: 'C', text: "A separate teardown job with an if condition of always()." },
+      { id: 'D', text: "A cleanup key under runs, which the runner calls after the final step." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "A JavaScript action can name a post script that the runner registers when the action first executes and then runs during the job cleanup phase, by default even if the job failed, with post-if narrowing that condition. There is no cleanup key in the metadata schema, a separate job runs on a different runner and cannot see the tunnel process, and a shell trap dies with the step that set it.",
     referenceUrl: "https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions",
@@ -387,12 +387,12 @@ export const GITHUB_ACTIONS_QUESTIONS_2 = [
     scenario: "A team has a working action in a public repository. The metadata file sits in a subdirectory next to three other actions in the same repository, and the team wants to publish one of them to the Marketplace.",
     question: "Which change is required before the action can be listed?",
     options: [
-      { id: 'A', text: "Add a workflow that runs the action, because the Marketplace validates behaviour before listing." },
-      { id: 'B', text: "Convert the action to a Docker container action, because only container actions are listable." },
-      { id: 'C', text: "Move the action so its metadata file sits at the root of its own repository, since a listing maps to a single action at the repository root." },
+      { id: 'A', text: "Convert the action to a Docker container action, because only container actions are listable." },
+      { id: 'B', text: "Move the action so its metadata file sits at the root of its own repository, since a listing maps to a single action at the repository root." },
+      { id: 'C', text: "Add a workflow that runs the action, because the Marketplace validates behaviour before listing." },
       { id: 'D', text: "Transfer the repository to an organization, because personal accounts cannot publish." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Publishing requires the action metadata file to be in the root directory of a public repository and permits one listed action per repository, so an action living beside siblings in subdirectories must be split out before it can be listed, typically alongside a unique name and a release to reference. Every action type is eligible, the Marketplace does not execute the action to validate it, and individual accounts may publish.",
     referenceUrl: "https://docs.github.com/en/actions/creating-actions/publishing-actions-in-github-marketplace",
@@ -408,12 +408,12 @@ export const GITHUB_ACTIONS_QUESTIONS_2 = [
     scenario: "Workflows using an internally maintained JavaScript action show an annotation warning that the action uses a deprecated Node runtime and will stop working. The action code itself runs correctly today.",
     question: "Which change addresses the warning?",
     options: [
-      { id: 'A', text: "Change runs.using to composite, which removes any runtime dependency." },
+      { id: 'A', text: "Update the runs.using value in action.yml to the supported Node major version and verify the bundled code runs on it." },
       { id: 'B', text: "Add a setup-node step before the action in every consuming workflow to select the runtime." },
-      { id: 'C', text: "Update the runs.using value in action.yml to the supported Node major version and verify the bundled code runs on it." },
+      { id: 'C', text: "Change runs.using to composite, which removes any runtime dependency." },
       { id: 'D', text: "Recompile the action bundle, which embeds the runtime version." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The runs.using value declares which Node runtime the runner should use to execute a JavaScript action, so the deprecation is resolved by raising it to the supported major version in the metadata and confirming the bundle is compatible. A setup-node step configures the runtime for the workflow steps rather than the one the runner uses to host the action, the bundle does not carry a runtime declaration, and switching to composite would be a rewrite rather than a version bump.",
     referenceUrl: "https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions",
@@ -431,8 +431,8 @@ export const GITHUB_ACTIONS_QUESTIONS_2 = [
     options: [
       { id: 'A', text: "As encrypted values committed to the repository and decrypted at run time with a single master repository secret." },
       { id: 'B', text: "As environment secrets, one per environment, so a job only receives the credential of the environment it declares." },
-      { id: 'C', text: "As three repository secrets with names prefixed by the target, and a naming convention enforced in review." },
-      { id: 'D', text: "As three organization secrets scoped to the repository." }
+      { id: 'C', text: "As three organization secrets scoped to the repository." },
+      { id: 'D', text: "As three repository secrets with names prefixed by the target, and a naming convention enforced in review." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -450,12 +450,12 @@ export const GITHUB_ACTIONS_QUESTIONS_2 = [
     scenario: "A self-hosted fleet of fixed virtual machines is idle overnight and saturated each afternoon, when jobs queue for twenty minutes. The platform team already runs Kubernetes and wants runner capacity to track the queue automatically.",
     question: "Which approach fits?",
     options: [
-      { id: 'A', text: "Increase the max-parallel value in the matrix strategy of the busiest workflows." },
-      { id: 'B', text: "Add the runners to a runner group, which enables automatic scaling for that group." },
+      { id: 'A', text: "Deploy Actions Runner Controller with a runner scale set, so ephemeral runner pods are created in response to queued jobs and removed afterwards." },
+      { id: 'B', text: "Increase the max-parallel value in the matrix strategy of the busiest workflows." },
       { id: 'C', text: "Register more persistent runners sized for the afternoon peak and accept the overnight idle cost." },
-      { id: 'D', text: "Deploy Actions Runner Controller with a runner scale set, so ephemeral runner pods are created in response to queued jobs and removed afterwards." }
+      { id: 'D', text: "Add the runners to a runner group, which enables automatic scaling for that group." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Actions Runner Controller runs in Kubernetes and reconciles a runner scale set against the number of queued jobs, starting ephemeral runner pods on demand and removing them when work drains, which matches both the elasticity and the existing platform. Raising max-parallel asks for more concurrency without providing capacity to serve it, statically sizing for peak is the cost problem being solved, and runner groups control access rather than scale.",
     referenceUrl: "https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller",
@@ -471,12 +471,12 @@ export const GITHUB_ACTIONS_QUESTIONS_2 = [
     scenario: "A fleet contains both ordinary runners and a handful with GPUs. Only the model training job should land on the GPU machines, and it must not start on an ordinary runner even when one is free.",
     question: "How is that expressed?",
     options: [
-      { id: 'A', text: "Place the GPU runners in their own runner group and set runs-on to the group name." },
-      { id: 'B', text: "Set the runs-on value to the hostname of one of the GPU machines." },
-      { id: 'C', text: "Apply a custom label such as gpu to those runners and set runs-on to a list containing self-hosted and that label." },
-      { id: 'D', text: "Give the GPU runners a higher priority value so the scheduler prefers them." }
+      { id: 'A', text: "Apply a custom label such as gpu to those runners and set runs-on to a list containing self-hosted and that label." },
+      { id: 'B', text: "Place the GPU runners in their own runner group and set runs-on to the group name." },
+      { id: 'C', text: "Give the GPU runners a higher priority value so the scheduler prefers them." },
+      { id: 'D', text: "Set the runs-on value to the hostname of one of the GPU machines." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Labels are the routing mechanism for self-hosted runners, and giving runs-on a list means the job is dispatched only to a runner carrying every label in it, so combining self-hosted with a hardware label pins the job to that subset. Runners have no priority field, runner groups control which repositories may use a set of runners rather than acting as a runs-on target, and targeting a single hostname would remove redundancy even if it were supported.",
     referenceUrl: "https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/using-labels-with-self-hosted-runners",
@@ -492,12 +492,12 @@ export const GITHUB_ACTIONS_QUESTIONS_2 = [
     scenario: "An organization previously restricted workflows to an allow list of actions. A review finds the setting now permits all actions, and nobody admits to changing it. The team needs to know which account made the change and when.",
     question: "Which source answers that?",
     options: [
-      { id: 'A', text: "The workflow run history, which records the policy in effect for each run." },
-      { id: 'B', text: "The commit history of the .github repository." },
-      { id: 'C', text: "The organization audit log, filtered to the Actions policy events, which records the actor, action and timestamp." },
-      { id: 'D', text: "The security overview, which lists configuration drift across repositories." }
+      { id: 'A', text: "The security overview, which lists configuration drift across repositories." },
+      { id: 'B', text: "The organization audit log, filtered to the Actions policy events, which records the actor, action and timestamp." },
+      { id: 'C', text: "The commit history of the .github repository." },
+      { id: 'D', text: "The workflow run history, which records the policy in effect for each run." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "The audit log is the record of administrative and configuration events, including changes to Actions permissions policies, and it captures the acting account and timestamp needed for this investigation. Run history reflects the outcome of a policy rather than who set it, organization Actions policy is stored as a setting rather than in the .github repository, and the security overview summarises code security findings rather than Actions governance changes.",
     referenceUrl: "https://docs.github.com/en/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization",
