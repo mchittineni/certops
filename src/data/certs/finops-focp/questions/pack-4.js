@@ -9,12 +9,12 @@ export const FINOPS_FOCP_QUESTIONS_4 = [
     scenario: "An enterprise is advancing its cloud financial lifecycle practices across Inform, Optimize, and Operate phases.",
     question: "Which action or milestone indicates progression in FinOps capability maturity for scenario #11?",
     options: [
-      { id: 'A', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" },
-      { id: 'B', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" },
-      { id: 'C', text: "Manually approving every virtual machine restart through a central procurement board" },
-      { id: 'D', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" }
+      { id: 'A', text: "Manually approving every virtual machine restart through a central procurement board" },
+      { id: 'B', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" },
+      { id: 'C', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" },
+      { id: 'D', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Progressing through the FinOps maturity model requires moving away from reactive, manual spreadsheets toward automated, near-real-time visibility, proactive anomaly detection, and decentralized engineering accountability.",
     referenceUrl: "https://www.finops.org/framework/maturity-model/",
@@ -30,12 +30,12 @@ export const FINOPS_FOCP_QUESTIONS_4 = [
     scenario: "An enterprise is advancing its cloud financial lifecycle practices across Inform, Optimize, and Operate phases.",
     question: "Which action or milestone indicates progression in FinOps capability maturity for scenario #12?",
     options: [
-      { id: 'A', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" },
+      { id: 'A', text: "Manually approving every virtual machine restart through a central procurement board" },
       { id: 'B', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" },
-      { id: 'C', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" },
-      { id: 'D', text: "Manually approving every virtual machine restart through a central procurement board" }
+      { id: 'C', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" },
+      { id: 'D', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Progressing through the FinOps maturity model requires moving away from reactive, manual spreadsheets toward automated, near-real-time visibility, proactive anomaly detection, and decentralized engineering accountability.",
     referenceUrl: "https://www.finops.org/framework/maturity-model/",
@@ -51,12 +51,12 @@ export const FINOPS_FOCP_QUESTIONS_4 = [
     scenario: "An enterprise is advancing its cloud financial lifecycle practices across Inform, Optimize, and Operate phases.",
     question: "Which action or milestone indicates progression in FinOps capability maturity for scenario #13?",
     options: [
-      { id: 'A', text: "Manually approving every virtual machine restart through a central procurement board" },
-      { id: 'B', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" },
-      { id: 'C', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" },
-      { id: 'D', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" }
+      { id: 'A', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" },
+      { id: 'B', text: "Manually approving every virtual machine restart through a central procurement board" },
+      { id: 'C', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" },
+      { id: 'D', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Progressing through the FinOps maturity model requires moving away from reactive, manual spreadsheets toward automated, near-real-time visibility, proactive anomaly detection, and decentralized engineering accountability.",
     referenceUrl: "https://www.finops.org/framework/maturity-model/",
@@ -72,12 +72,12 @@ export const FINOPS_FOCP_QUESTIONS_4 = [
     scenario: "An enterprise is advancing its cloud financial lifecycle practices across Inform, Optimize, and Operate phases.",
     question: "Which action or milestone indicates progression in FinOps capability maturity for scenario #14?",
     options: [
-      { id: 'A', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" },
-      { id: 'B', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" },
-      { id: 'C', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" },
-      { id: 'D', text: "Manually approving every virtual machine restart through a central procurement board" }
+      { id: 'A', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" },
+      { id: 'B', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" },
+      { id: 'C', text: "Manually approving every virtual machine restart through a central procurement board" },
+      { id: 'D', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Progressing through the FinOps maturity model requires moving away from reactive, manual spreadsheets toward automated, near-real-time visibility, proactive anomaly detection, and decentralized engineering accountability.",
     referenceUrl: "https://www.finops.org/framework/maturity-model/",
@@ -94,8 +94,8 @@ export const FINOPS_FOCP_QUESTIONS_4 = [
     question: "Which action or milestone indicates progression in FinOps capability maturity for scenario #15?",
     options: [
       { id: 'A', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" },
-      { id: 'B', text: "Manually approving every virtual machine restart through a central procurement board" },
-      { id: 'C', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" },
+      { id: 'B', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" },
+      { id: 'C', text: "Manually approving every virtual machine restart through a central procurement board" },
       { id: 'D', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" }
     ],
     correctAnswers: ['A'],
@@ -115,11 +115,11 @@ export const FINOPS_FOCP_QUESTIONS_4 = [
     question: "Which action or milestone indicates progression in FinOps capability maturity for scenario #16?",
     options: [
       { id: 'A', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" },
-      { id: 'B', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" },
-      { id: 'C', text: "Manually approving every virtual machine restart through a central procurement board" },
-      { id: 'D', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" }
+      { id: 'B', text: "Manually approving every virtual machine restart through a central procurement board" },
+      { id: 'C', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" },
+      { id: 'D', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Progressing through the FinOps maturity model requires moving away from reactive, manual spreadsheets toward automated, near-real-time visibility, proactive anomaly detection, and decentralized engineering accountability.",
     referenceUrl: "https://www.finops.org/framework/maturity-model/",
@@ -135,12 +135,12 @@ export const FINOPS_FOCP_QUESTIONS_4 = [
     scenario: "An enterprise is advancing its cloud financial lifecycle practices across Inform, Optimize, and Operate phases.",
     question: "Which action or milestone indicates progression in FinOps capability maturity for scenario #17?",
     options: [
-      { id: 'A', text: "Manually approving every virtual machine restart through a central procurement board" },
-      { id: 'B', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" },
-      { id: 'C', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" },
-      { id: 'D', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" }
+      { id: 'A', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" },
+      { id: 'B', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" },
+      { id: 'C', text: "Manually approving every virtual machine restart through a central procurement board" },
+      { id: 'D', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Progressing through the FinOps maturity model requires moving away from reactive, manual spreadsheets toward automated, near-real-time visibility, proactive anomaly detection, and decentralized engineering accountability.",
     referenceUrl: "https://www.finops.org/framework/maturity-model/",
@@ -156,12 +156,12 @@ export const FINOPS_FOCP_QUESTIONS_4 = [
     scenario: "An enterprise is advancing its cloud financial lifecycle practices across Inform, Optimize, and Operate phases.",
     question: "Which action or milestone indicates progression in FinOps capability maturity for scenario #18?",
     options: [
-      { id: 'A', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" },
-      { id: 'B', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" },
-      { id: 'C', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" },
-      { id: 'D', text: "Manually approving every virtual machine restart through a central procurement board" }
+      { id: 'A', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" },
+      { id: 'B', text: "Manually approving every virtual machine restart through a central procurement board" },
+      { id: 'C', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" },
+      { id: 'D', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Progressing through the FinOps maturity model requires moving away from reactive, manual spreadsheets toward automated, near-real-time visibility, proactive anomaly detection, and decentralized engineering accountability.",
     referenceUrl: "https://www.finops.org/framework/maturity-model/",
@@ -177,8 +177,8 @@ export const FINOPS_FOCP_QUESTIONS_4 = [
     scenario: "An enterprise is advancing its cloud financial lifecycle practices across Inform, Optimize, and Operate phases.",
     question: "Which action or milestone indicates progression in FinOps capability maturity for scenario #19?",
     options: [
-      { id: 'A', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" },
-      { id: 'B', text: "Manually approving every virtual machine restart through a central procurement board" },
+      { id: 'A', text: "Manually approving every virtual machine restart through a central procurement board" },
+      { id: 'B', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" },
       { id: 'C', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" },
       { id: 'D', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" }
     ],
@@ -198,12 +198,12 @@ export const FINOPS_FOCP_QUESTIONS_4 = [
     scenario: "An enterprise is advancing its cloud financial lifecycle practices across Inform, Optimize, and Operate phases.",
     question: "Which action or milestone indicates progression in FinOps capability maturity for scenario #20?",
     options: [
-      { id: 'A', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" },
+      { id: 'A', text: "Manually approving every virtual machine restart through a central procurement board" },
       { id: 'B', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" },
-      { id: 'C', text: "Manually approving every virtual machine restart through a central procurement board" },
-      { id: 'D', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" }
+      { id: 'C', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" },
+      { id: 'D', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Progressing through the FinOps maturity model requires moving away from reactive, manual spreadsheets toward automated, near-real-time visibility, proactive anomaly detection, and decentralized engineering accountability.",
     referenceUrl: "https://www.finops.org/framework/maturity-model/",
@@ -219,12 +219,12 @@ export const FINOPS_FOCP_QUESTIONS_4 = [
     scenario: "An enterprise is advancing its cloud financial lifecycle practices across Inform, Optimize, and Operate phases.",
     question: "Which action or milestone indicates progression in FinOps capability maturity for scenario #21?",
     options: [
-      { id: 'A', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" },
-      { id: 'B', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" },
-      { id: 'C', text: "Manually approving every virtual machine restart through a central procurement board" },
-      { id: 'D', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" }
+      { id: 'A', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" },
+      { id: 'B', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" },
+      { id: 'C', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" },
+      { id: 'D', text: "Manually approving every virtual machine restart through a central procurement board" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Progressing through the FinOps maturity model requires moving away from reactive, manual spreadsheets toward automated, near-real-time visibility, proactive anomaly detection, and decentralized engineering accountability.",
     referenceUrl: "https://www.finops.org/framework/maturity-model/",
@@ -261,12 +261,12 @@ export const FINOPS_FOCP_QUESTIONS_4 = [
     scenario: "An enterprise is advancing its cloud financial lifecycle practices across Inform, Optimize, and Operate phases.",
     question: "Which action or milestone indicates progression in FinOps capability maturity for scenario #23?",
     options: [
-      { id: 'A', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" },
+      { id: 'A', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" },
       { id: 'B', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" },
-      { id: 'C', text: "Manually approving every virtual machine restart through a central procurement board" },
-      { id: 'D', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" }
+      { id: 'C', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" },
+      { id: 'D', text: "Manually approving every virtual machine restart through a central procurement board" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Progressing through the FinOps maturity model requires moving away from reactive, manual spreadsheets toward automated, near-real-time visibility, proactive anomaly detection, and decentralized engineering accountability.",
     referenceUrl: "https://www.finops.org/framework/maturity-model/",
@@ -283,11 +283,11 @@ export const FINOPS_FOCP_QUESTIONS_4 = [
     question: "Which action or milestone indicates progression in FinOps capability maturity for scenario #24?",
     options: [
       { id: 'A', text: "Manually approving every virtual machine restart through a central procurement board" },
-      { id: 'B', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" },
+      { id: 'B', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" },
       { id: 'C', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" },
-      { id: 'D', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" }
+      { id: 'D', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Progressing through the FinOps maturity model requires moving away from reactive, manual spreadsheets toward automated, near-real-time visibility, proactive anomaly detection, and decentralized engineering accountability.",
     referenceUrl: "https://www.finops.org/framework/maturity-model/",
@@ -303,12 +303,12 @@ export const FINOPS_FOCP_QUESTIONS_4 = [
     scenario: "An enterprise is advancing its cloud financial lifecycle practices across Inform, Optimize, and Operate phases.",
     question: "Which action or milestone indicates progression in FinOps capability maturity for scenario #25?",
     options: [
-      { id: 'A', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" },
-      { id: 'B', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" },
-      { id: 'C', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" },
-      { id: 'D', text: "Manually approving every virtual machine restart through a central procurement board" }
+      { id: 'A', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" },
+      { id: 'B', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" },
+      { id: 'C', text: "Manually approving every virtual machine restart through a central procurement board" },
+      { id: 'D', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Progressing through the FinOps maturity model requires moving away from reactive, manual spreadsheets toward automated, near-real-time visibility, proactive anomaly detection, and decentralized engineering accountability.",
     referenceUrl: "https://www.finops.org/framework/maturity-model/",
@@ -324,12 +324,12 @@ export const FINOPS_FOCP_QUESTIONS_4 = [
     scenario: "An enterprise is advancing its cloud financial lifecycle practices across Inform, Optimize, and Operate phases.",
     question: "Which action or milestone indicates progression in FinOps capability maturity for scenario #26?",
     options: [
-      { id: 'A', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" },
-      { id: 'B', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" },
+      { id: 'A', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" },
+      { id: 'B', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" },
       { id: 'C', text: "Manually approving every virtual machine restart through a central procurement board" },
-      { id: 'D', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" }
+      { id: 'D', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Progressing through the FinOps maturity model requires moving away from reactive, manual spreadsheets toward automated, near-real-time visibility, proactive anomaly detection, and decentralized engineering accountability.",
     referenceUrl: "https://www.finops.org/framework/maturity-model/",
@@ -347,10 +347,10 @@ export const FINOPS_FOCP_QUESTIONS_4 = [
     options: [
       { id: 'A', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" },
       { id: 'B', text: "Manually approving every virtual machine restart through a central procurement board" },
-      { id: 'C', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" },
-      { id: 'D', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" }
+      { id: 'C', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" },
+      { id: 'D', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Progressing through the FinOps maturity model requires moving away from reactive, manual spreadsheets toward automated, near-real-time visibility, proactive anomaly detection, and decentralized engineering accountability.",
     referenceUrl: "https://www.finops.org/framework/maturity-model/",
@@ -367,11 +367,11 @@ export const FINOPS_FOCP_QUESTIONS_4 = [
     question: "Which action or milestone indicates progression in FinOps capability maturity for scenario #28?",
     options: [
       { id: 'A', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" },
-      { id: 'B', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" },
-      { id: 'C', text: "Manually approving every virtual machine restart through a central procurement board" },
-      { id: 'D', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" }
+      { id: 'B', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" },
+      { id: 'C', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" },
+      { id: 'D', text: "Manually approving every virtual machine restart through a central procurement board" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Progressing through the FinOps maturity model requires moving away from reactive, manual spreadsheets toward automated, near-real-time visibility, proactive anomaly detection, and decentralized engineering accountability.",
     referenceUrl: "https://www.finops.org/framework/maturity-model/",
@@ -408,12 +408,12 @@ export const FINOPS_FOCP_QUESTIONS_4 = [
     scenario: "An enterprise is advancing its cloud financial lifecycle practices across Inform, Optimize, and Operate phases.",
     question: "Which action or milestone indicates progression in FinOps capability maturity for scenario #30?",
     options: [
-      { id: 'A', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" },
-      { id: 'B', text: "Manually approving every virtual machine restart through a central procurement board" },
-      { id: 'C', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" },
-      { id: 'D', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" }
+      { id: 'A', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" },
+      { id: 'B', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" },
+      { id: 'C', text: "Manually approving every virtual machine restart through a central procurement board" },
+      { id: 'D', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Progressing through the FinOps maturity model requires moving away from reactive, manual spreadsheets toward automated, near-real-time visibility, proactive anomaly detection, and decentralized engineering accountability.",
     referenceUrl: "https://www.finops.org/framework/maturity-model/",
@@ -430,11 +430,11 @@ export const FINOPS_FOCP_QUESTIONS_4 = [
     question: "Which action or milestone indicates progression in FinOps capability maturity for scenario #31?",
     options: [
       { id: 'A', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" },
-      { id: 'B', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" },
+      { id: 'B', text: "Manually approving every virtual machine restart through a central procurement board" },
       { id: 'C', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" },
-      { id: 'D', text: "Manually approving every virtual machine restart through a central procurement board" }
+      { id: 'D', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Progressing through the FinOps maturity model requires moving away from reactive, manual spreadsheets toward automated, near-real-time visibility, proactive anomaly detection, and decentralized engineering accountability.",
     referenceUrl: "https://www.finops.org/framework/maturity-model/",
@@ -450,12 +450,12 @@ export const FINOPS_FOCP_QUESTIONS_4 = [
     scenario: "An enterprise is advancing its cloud financial lifecycle practices across Inform, Optimize, and Operate phases.",
     question: "Which action or milestone indicates progression in FinOps capability maturity for scenario #32?",
     options: [
-      { id: 'A', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" },
-      { id: 'B', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" },
+      { id: 'A', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" },
+      { id: 'B', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" },
       { id: 'C', text: "Manually approving every virtual machine restart through a central procurement board" },
       { id: 'D', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Progressing through the FinOps maturity model requires moving away from reactive, manual spreadsheets toward automated, near-real-time visibility, proactive anomaly detection, and decentralized engineering accountability.",
     referenceUrl: "https://www.finops.org/framework/maturity-model/",
@@ -472,11 +472,11 @@ export const FINOPS_FOCP_QUESTIONS_4 = [
     question: "Which action or milestone indicates progression in FinOps capability maturity for scenario #33?",
     options: [
       { id: 'A', text: "Manually approving every virtual machine restart through a central procurement board" },
-      { id: 'B', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" },
-      { id: 'C', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" },
-      { id: 'D', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" }
+      { id: 'B', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" },
+      { id: 'C', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" },
+      { id: 'D', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Progressing through the FinOps maturity model requires moving away from reactive, manual spreadsheets toward automated, near-real-time visibility, proactive anomaly detection, and decentralized engineering accountability.",
     referenceUrl: "https://www.finops.org/framework/maturity-model/",
@@ -492,12 +492,12 @@ export const FINOPS_FOCP_QUESTIONS_4 = [
     scenario: "An enterprise is advancing its cloud financial lifecycle practices across Inform, Optimize, and Operate phases.",
     question: "Which action or milestone indicates progression in FinOps capability maturity for scenario #34?",
     options: [
-      { id: 'A', text: "Manually approving every virtual machine restart through a central procurement board" },
-      { id: 'B', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" },
-      { id: 'C', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" },
-      { id: 'D', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" }
+      { id: 'A', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" },
+      { id: 'B', text: "Manually approving every virtual machine restart through a central procurement board" },
+      { id: 'C', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" },
+      { id: 'D', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Progressing through the FinOps maturity model requires moving away from reactive, manual spreadsheets toward automated, near-real-time visibility, proactive anomaly detection, and decentralized engineering accountability.",
     referenceUrl: "https://www.finops.org/framework/maturity-model/",
@@ -513,12 +513,12 @@ export const FINOPS_FOCP_QUESTIONS_4 = [
     scenario: "An enterprise is advancing its cloud financial lifecycle practices across Inform, Optimize, and Operate phases.",
     question: "Which action or milestone indicates progression in FinOps capability maturity for scenario #35?",
     options: [
-      { id: 'A', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" },
-      { id: 'B', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" },
-      { id: 'C', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" },
-      { id: 'D', text: "Manually approving every virtual machine restart through a central procurement board" }
+      { id: 'A', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" },
+      { id: 'B', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" },
+      { id: 'C', text: "Manually approving every virtual machine restart through a central procurement board" },
+      { id: 'D', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Progressing through the FinOps maturity model requires moving away from reactive, manual spreadsheets toward automated, near-real-time visibility, proactive anomaly detection, and decentralized engineering accountability.",
     referenceUrl: "https://www.finops.org/framework/maturity-model/",
