@@ -9,12 +9,12 @@ export const K8S_CKA_QUESTIONS_2 = [
     scenario: "After a kubeadm init, the control plane components run as pods that the kubelet starts directly, without the scheduler being involved.",
     question: "Which directory does the kubelet watch for those manifests by default on a kubeadm cluster?",
     options: [
-      { id: 'A', text: "/etc/systemd/system/kubelet.service.d" },
-      { id: 'B', text: "/etc/kubernetes/pki" },
-      { id: 'C', text: "/etc/kubernetes/manifests" },
-      { id: 'D', text: "/var/lib/kubelet/pods" }
+      { id: 'A', text: "/var/lib/kubelet/pods" },
+      { id: 'B', text: "/etc/kubernetes/manifests" },
+      { id: 'C', text: "/etc/kubernetes/pki" },
+      { id: 'D', text: "/etc/systemd/system/kubelet.service.d" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "kubeadm sets staticPodPath to /etc/kubernetes/manifests in the kubelet configuration, and the kubelet starts any pod manifest dropped there without the API server or scheduler. /var/lib/kubelet/pods holds runtime pod directories, /etc/kubernetes/pki holds cluster certificates, and the systemd drop-in directory configures the kubelet service itself.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/static-pod/",
@@ -114,12 +114,12 @@ export const K8S_CKA_QUESTIONS_2 = [
     scenario: "An administrator must take a point-in-time backup of a stacked etcd on a kubeadm control plane node, using the client certificates in /etc/kubernetes/pki/etcd.",
     question: "Which command produces the snapshot?",
     options: [
-      { id: 'A', text: "kubectl get all --all-namespaces -o yaml > /opt/snap.yaml" },
-      { id: 'B', text: "cp -r /var/lib/etcd /opt/snap.db while etcd is running" },
-      { id: 'C', text: "ETCDCTL_API=3 etcdctl snapshot save /opt/snap.db --endpoints=https://127.0.0.1:2379 --cacert=/etc/kubernetes/pki/etcd/ca.crt --cert=/etc/kubernetes/pki/etcd/server.crt --key=/etc/kubernetes/pki/etcd/server.key" },
-      { id: 'D', text: "ETCDCTL_API=3 etcdctl snapshot restore /opt/snap.db" }
+      { id: 'A', text: "ETCDCTL_API=3 etcdctl snapshot save /opt/snap.db --endpoints=https://127.0.0.1:2379 --cacert=/etc/kubernetes/pki/etcd/ca.crt --cert=/etc/kubernetes/pki/etcd/server.crt --key=/etc/kubernetes/pki/etcd/server.key" },
+      { id: 'B', text: "ETCDCTL_API=3 etcdctl snapshot restore /opt/snap.db" },
+      { id: 'C', text: "kubectl get all --all-namespaces -o yaml > /opt/snap.yaml" },
+      { id: 'D', text: "cp -r /var/lib/etcd /opt/snap.db while etcd is running" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "snapshot save against the local etcd endpoint with the CA, client certificate, and key is the supported way to capture a consistent point-in-time backup. Exporting objects with kubectl misses cluster state that lives only in etcd and is not point-in-time, snapshot restore is the recovery half of the workflow, and copying the data directory of a running etcd yields a torn, unusable copy.",
     referenceUrl: "https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/",
@@ -156,12 +156,12 @@ export const K8S_CKA_QUESTIONS_2 = [
     scenario: "A StatefulSet named db with three replicas in the data namespace needs stable per-pod DNS names so peers can address each other individually rather than through a load-balanced VIP.",
     question: "Which Service configuration provides per-pod DNS records?",
     options: [
-      { id: 'A', text: "A NodePort Service with externalTrafficPolicy: Local." },
-      { id: 'B', text: "A ClusterIP Service with sessionAffinity: ClientIP." },
-      { id: 'C', text: "A Service with clusterIP: None referenced as the StatefulSet serviceName." },
-      { id: 'D', text: "An ExternalName Service pointing at the pod IP addresses." }
+      { id: 'A', text: "A Service with clusterIP: None referenced as the StatefulSet serviceName." },
+      { id: 'B', text: "An ExternalName Service pointing at the pod IP addresses." },
+      { id: 'C', text: "A NodePort Service with externalTrafficPolicy: Local." },
+      { id: 'D', text: "A ClusterIP Service with sessionAffinity: ClientIP." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "A headless Service (clusterIP: None) makes CoreDNS return the pod A records directly, and naming it as the StatefulSet serviceName produces stable names of the form db-0.db.data.svc.cluster.local. Session affinity still routes through a single VIP, NodePort exposes the Service externally without per-pod names, and ExternalName only emits a CNAME to an external hostname.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/",
@@ -177,12 +177,12 @@ export const K8S_CKA_QUESTIONS_2 = [
     scenario: "A deployment was updated to an image with a fatal bug. The previous revision was healthy and the rollout history is intact.",
     question: "Which command returns the deployment to the previous revision?",
     options: [
-      { id: 'A', text: "kubectl rollout pause deployment/api" },
-      { id: 'B', text: "kubectl delete deployment/api and reapply the manifest" },
-      { id: 'C', text: "kubectl rollout undo deployment/api" },
-      { id: 'D', text: "kubectl rollout restart deployment/api" }
+      { id: 'A', text: "kubectl rollout restart deployment/api" },
+      { id: 'B', text: "kubectl rollout undo deployment/api" },
+      { id: 'C', text: "kubectl delete deployment/api and reapply the manifest" },
+      { id: 'D', text: "kubectl rollout pause deployment/api" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "kubectl rollout undo rolls the deployment back to the prior revision recorded in its ReplicaSet history, optionally to a specific --to-revision. rollout restart re-creates pods on the same broken image, pause only stops further rollout progress, and deleting the deployment causes an outage and loses the revision history.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/deployment/",
@@ -199,11 +199,11 @@ export const K8S_CKA_QUESTIONS_2 = [
     question: "Which combination grants exactly that?",
     options: [
       { id: 'A', text: "A Role with pods/list in the build namespace plus a RoleBinding to the ServiceAccount." },
-      { id: 'B', text: "A ClusterRole with pods/list plus a RoleBinding in the build namespace." },
-      { id: 'C', text: "A ClusterRole with pods/list plus a ClusterRoleBinding to the ServiceAccount." },
-      { id: 'D', text: "A Role with pods/list plus a ClusterRoleBinding to the ServiceAccount." }
+      { id: 'B', text: "A Role with pods/list plus a ClusterRoleBinding to the ServiceAccount." },
+      { id: 'C', text: "A ClusterRole with pods/list plus a RoleBinding in the build namespace." },
+      { id: 'D', text: "A ClusterRole with pods/list plus a ClusterRoleBinding to the ServiceAccount." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Cluster-wide permission requires a ClusterRole bound with a ClusterRoleBinding; the binding kind decides the scope. A Role plus RoleBinding is limited to one namespace, a ClusterRole bound with a RoleBinding grants the permissions only inside that binding namespace, and a ClusterRoleBinding cannot reference a namespaced Role at all.",
     referenceUrl: "https://kubernetes.io/docs/reference/access-authn-authz/rbac/",
@@ -240,12 +240,12 @@ export const K8S_CKA_QUESTIONS_2 = [
     scenario: "A node is under memory pressure and the kubelet must evict pods. Pod A sets equal CPU and memory requests and limits, pod B sets requests lower than limits, and pod C sets neither requests nor limits.",
     question: "Which pod does the kubelet evict first?",
     options: [
-      { id: 'A', text: "Pod C, because it is BestEffort." },
-      { id: 'B', text: "Pod A, because Guaranteed pods hold the most reserved memory." },
-      { id: 'C', text: "Pod B, because Burstable pods exceed their requests." },
-      { id: 'D', text: "The kubelet evicts them in pod creation order regardless of class." }
+      { id: 'A', text: "Pod A, because Guaranteed pods hold the most reserved memory." },
+      { id: 'B', text: "Pod C, because it is BestEffort." },
+      { id: 'C', text: "The kubelet evicts them in pod creation order regardless of class." },
+      { id: 'D', text: "Pod B, because Burstable pods exceed their requests." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Pod C is BestEffort - no requests or limits - and BestEffort pods are evicted first under node memory pressure, followed by Burstable pods exceeding their requests, with Guaranteed pods last. Pod A is Guaranteed because requests equal limits, pod B is Burstable, and eviction ranks by QoS class and usage above requests rather than by creation time.",
     referenceUrl: "https://kubernetes.io/docs/concepts/scheduling-eviction/node-pressure-eviction/",
@@ -261,12 +261,12 @@ export const K8S_CKA_QUESTIONS_2 = [
     scenario: "A pod in the web namespace must reach a Service named cache that lives in the data namespace, using the cluster DNS suffix cluster.local.",
     question: "Which fully qualified name resolves to that Service?",
     options: [
-      { id: 'A', text: "svc.cache.data.cluster.local" },
-      { id: 'B', text: "cache.web.svc.cluster.local" },
-      { id: 'C', text: "cache.data.svc.cluster.local" },
-      { id: 'D', text: "data.cache.pod.cluster.local" }
+      { id: 'A', text: "cache.web.svc.cluster.local" },
+      { id: 'B', text: "svc.cache.data.cluster.local" },
+      { id: 'C', text: "data.cache.pod.cluster.local" },
+      { id: 'D', text: "cache.data.svc.cluster.local" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Service records follow the pattern service.namespace.svc.cluster-domain, so the cache Service in the data namespace is cache.data.svc.cluster.local. The form cache.web.svc.cluster.local points at the wrong namespace, the pod subdomain is used for pod IP records rather than Services, and the remaining variant scrambles the label order.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/",
@@ -304,11 +304,11 @@ export const K8S_CKA_QUESTIONS_2 = [
     question: "Which sequence is correct for the first control plane node?",
     options: [
       { id: 'A', text: "Drain every worker first, then upgrade the control plane binaries in any order." },
-      { id: 'B', text: "Run kubeadm upgrade node on the control plane, then upgrade the kubeadm binary." },
-      { id: 'C', text: "Upgrade the kubelet, then run kubeadm upgrade apply, then upgrade the kubeadm binary." },
-      { id: 'D', text: "Upgrade the kubeadm binary, run kubeadm upgrade plan and apply, then drain the node and upgrade kubelet and kubectl, then uncordon." }
+      { id: 'B', text: "Upgrade the kubeadm binary, run kubeadm upgrade plan and apply, then drain the node and upgrade kubelet and kubectl, then uncordon." },
+      { id: 'C', text: "Run kubeadm upgrade node on the control plane, then upgrade the kubeadm binary." },
+      { id: 'D', text: "Upgrade the kubelet, then run kubeadm upgrade apply, then upgrade the kubeadm binary." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "The documented order upgrades the kubeadm binary first, uses kubeadm upgrade plan and apply to move the control plane components, and only then drains the node to upgrade kubelet and kubectl before uncordoning. Upgrading the kubelet ahead of kubeadm inverts the dependency, workers are upgraded after the control plane rather than before, and kubeadm upgrade node is the command for additional control plane nodes and workers, not the first one.",
     referenceUrl: "https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade/",
@@ -324,12 +324,12 @@ export const K8S_CKA_QUESTIONS_2 = [
     scenario: "An administrator edited /etc/kubernetes/manifests/kube-apiserver.yaml on the single control plane node and now every kubectl command fails with a connection refused error.",
     question: "Which approach diagnoses the problem?",
     options: [
-      { id: 'A', text: "Inspect the container runtime directly with crictl ps -a and crictl logs, plus the kubelet journal." },
-      { id: 'B', text: "Run kubectl logs -n kube-system kube-apiserver-cp01." },
-      { id: 'C', text: "Delete the API server pod with kubectl so the kubelet re-creates it." },
-      { id: 'D', text: "Restart etcd and wait for the API server to re-register." }
+      { id: 'A', text: "Run kubectl logs -n kube-system kube-apiserver-cp01." },
+      { id: 'B', text: "Inspect the container runtime directly with crictl ps -a and crictl logs, plus the kubelet journal." },
+      { id: 'C', text: "Restart etcd and wait for the API server to re-register." },
+      { id: 'D', text: "Delete the API server pod with kubectl so the kubelet re-creates it." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "With the API server down, every kubectl path is unavailable, so diagnosis has to happen on the node: crictl lists the exited API server container and its logs show the manifest error, and journalctl -u kubelet shows the kubelet failing to start the static pod. Reading logs or deleting the pod with kubectl both require a working API server, and restarting etcd does not fix an invalid API server manifest.",
     referenceUrl: "https://kubernetes.io/docs/tasks/debug/debug-cluster/",
@@ -346,11 +346,11 @@ export const K8S_CKA_QUESTIONS_2 = [
     question: "Which workload resource fits?",
     options: [
       { id: 'A', text: "A StatefulSet with one replica per node." },
-      { id: 'B', text: "A CronJob scheduled on every node." },
-      { id: 'C', text: "A DaemonSet." },
-      { id: 'D', text: "A Deployment with replicas equal to the current node count." }
+      { id: 'B', text: "A Deployment with replicas equal to the current node count." },
+      { id: 'C', text: "A CronJob scheduled on every node." },
+      { id: 'D', text: "A DaemonSet." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "A DaemonSet places one pod on every eligible node and automatically adds pods to nodes that join later. A Deployment with a fixed replica count neither guarantees one pod per node nor adapts to new nodes, StatefulSets provide ordered identity rather than per-node placement, and CronJobs are time-triggered batch workloads.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/",
@@ -387,12 +387,12 @@ export const K8S_CKA_QUESTIONS_2 = [
     scenario: "A team is mapping which control plane component enforces each placement mechanism so they know where to look when a pod does not land where expected.",
     question: "Which of these are enforced by kube-scheduler when placing a pod? (Choose two.)",
     options: [
-      { id: 'A', text: "Node affinity rules on the pod spec." },
-      { id: 'B', text: "ResourceQuota limits on a namespace." },
-      { id: 'C', text: "Restarting containers that exit non-zero." },
-      { id: 'D', text: "Taints with the NoSchedule effect." }
+      { id: 'A', text: "ResourceQuota limits on a namespace." },
+      { id: 'B', text: "Node affinity rules on the pod spec." },
+      { id: 'C', text: "Taints with the NoSchedule effect." },
+      { id: 'D', text: "Restarting containers that exit non-zero." }
     ],
-    correctAnswers: ['A', 'D'],
+    correctAnswers: ['B', 'C'],
     type: "multiple",
     explanation: "Node affinity and NoSchedule taints are both scheduling predicates evaluated by kube-scheduler when it selects a node for a pending pod. ResourceQuota is enforced by an admission controller in the API server before the object is ever persisted, and restarting exited containers is the kubelet job on the node.",
     referenceUrl: "https://kubernetes.io/docs/concepts/scheduling-eviction/kube-scheduler/",
@@ -429,12 +429,12 @@ export const K8S_CKA_QUESTIONS_2 = [
     scenario: "An operator wants to see live CPU and memory usage of the pods in the api namespace to find which one is driving node pressure. The metrics-server is installed.",
     question: "Which command shows that?",
     options: [
-      { id: 'A', text: "kubectl logs -n api --all-containers" },
-      { id: 'B', text: "kubectl describe namespace api" },
-      { id: 'C', text: "kubectl get pods -n api -o wide" },
-      { id: 'D', text: "kubectl top pods -n api" }
+      { id: 'A', text: "kubectl get pods -n api -o wide" },
+      { id: 'B', text: "kubectl top pods -n api" },
+      { id: 'C', text: "kubectl logs -n api --all-containers" },
+      { id: 'D', text: "kubectl describe namespace api" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "kubectl top pods reads live CPU and memory samples from the Metrics API served by metrics-server. describe namespace shows quotas and limit ranges rather than live usage, get -o wide adds node and IP columns only, and logs show application output with no resource data.",
     referenceUrl: "https://kubernetes.io/docs/reference/kubectl/generated/kubectl_top/",
@@ -450,12 +450,12 @@ export const K8S_CKA_QUESTIONS_2 = [
     scenario: "A five-replica quorum-based service must never drop below three available replicas while administrators drain nodes for maintenance.",
     question: "Which object enforces that during voluntary disruptions?",
     options: [
-      { id: 'A', text: "A PodDisruptionBudget with minAvailable: 3." },
-      { id: 'B', text: "A priorityClassName with a high value." },
-      { id: 'C', text: "A ResourceQuota limiting pods to five." },
-      { id: 'D', text: "A HorizontalPodAutoscaler with minReplicas: 3." }
+      { id: 'A', text: "A HorizontalPodAutoscaler with minReplicas: 3." },
+      { id: 'B', text: "A ResourceQuota limiting pods to five." },
+      { id: 'C', text: "A priorityClassName with a high value." },
+      { id: 'D', text: "A PodDisruptionBudget with minAvailable: 3." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "A PodDisruptionBudget with minAvailable: 3 makes the eviction API refuse evictions that would take availability below three, which is exactly what blocks an unsafe drain. ResourceQuota caps object counts, an HPA governs scaling decisions rather than evictions, and a PriorityClass affects preemption and scheduling order rather than disruption budgets.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/pods/disruptions/",
@@ -471,12 +471,12 @@ export const K8S_CKA_QUESTIONS_2 = [
     scenario: "A freshly joined worker node stays NotReady and its kubelet log repeats \"network plugin is not ready: cni config uninitialized\". Pods scheduled there stay in ContainerCreating.",
     question: "What is the correct remedy?",
     options: [
-      { id: 'A', text: "Recreate the pods with hostNetwork: true permanently." },
-      { id: 'B', text: "Install or repair the cluster CNI plugin so a config appears in /etc/cni/net.d." },
+      { id: 'A', text: "Install or repair the cluster CNI plugin so a config appears in /etc/cni/net.d." },
+      { id: 'B', text: "Set the kubelet flag --fail-swap-on=false." },
       { id: 'C', text: "Restart kube-proxy on the control plane node." },
-      { id: 'D', text: "Set the kubelet flag --fail-swap-on=false." }
+      { id: 'D', text: "Recreate the pods with hostNetwork: true permanently." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The kubelet reports the node NotReady until a CNI configuration file exists in /etc/cni/net.d and the plugin binaries are present, so installing the cluster CNI - usually by letting its DaemonSet run on the node - is the fix. kube-proxy programs Service rules rather than pod networking, hostNetwork is a workaround that bypasses the problem, and the swap flag addresses a different startup failure.",
     referenceUrl: "https://kubernetes.io/docs/concepts/cluster-administration/addons/",
@@ -492,12 +492,12 @@ export const K8S_CKA_QUESTIONS_2 = [
     scenario: "A disaster recovery plan must identify the single source of truth that has to be backed up to restore the cluster objects.",
     question: "Which component holds that state?",
     options: [
-      { id: 'A', text: "kube-proxy" },
-      { id: 'B', text: "etcd" },
-      { id: 'C', text: "kubelet" },
-      { id: 'D', text: "kube-controller-manager" }
+      { id: 'A', text: "etcd" },
+      { id: 'B', text: "kube-proxy" },
+      { id: 'C', text: "kube-controller-manager" },
+      { id: 'D', text: "kubelet" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "etcd is the consistent key-value store where the API server persists every Kubernetes object, so an etcd snapshot is what a restore depends on. The controller manager runs reconciliation loops without storing state, the kubelet manages pods on one node, and kube-proxy programs Service traffic rules.",
     referenceUrl: "https://kubernetes.io/docs/concepts/architecture/",
