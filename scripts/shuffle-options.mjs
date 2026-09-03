@@ -39,20 +39,23 @@ function hashStr(str) {
   return hash >>> 0;
 }
 
+function mulberry32(a) {
+  return function() {
+    let t = a += 0x6D2B79F5;
+    t = Math.imul(t ^ t >>> 15, t | 1);
+    t ^= t + Math.imul(t ^ t >>> 7, t | 61);
+    return ((t ^ t >>> 14) >>> 0) / 4294967296;
+  };
+}
+
 function shuffleArray(arr, seed) {
   const a = arr.slice();
-  const shift = seed % a.length;
-  // Rotate by shift then pseudo-randomly permute
-  const rotated = a.slice(shift).concat(a.slice(0, shift));
-  let s = (seed ^ 0x5DEECE66) >>> 0;
-  for (let i = rotated.length - 1; i > 0; i--) {
-    s = (Math.imul(s, 1103515245) + 12345) >>> 0;
-    // Take the high bits: the low bits of an LCG cycle with a very short period,
-    // which biased small ranges such as the 4 options of a typical question.
-    const j = (s >>> 16) % (i + 1);
-    [rotated[i], rotated[j]] = [rotated[j], rotated[i]];
+  const rng = mulberry32(seed);
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(rng() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
   }
-  return rotated;
+  return a;
 }
 
 function formatQuestion(q, indent = '  ') {
