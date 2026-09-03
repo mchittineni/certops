@@ -5,83 +5,83 @@ export const AZURE_AZ900_QUESTIONS_10 = [
     certId: "azure-az900",
     domainId: "d3",
     domainName: "Describe Azure Management and Governance",
-    title: "Azure AZ-900 Mastery Topic #226: Management & Governance",
-    scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #226 requiring enterprise architecture alignment with Microsoft best practices.",
-    question: "Which Microsoft Azure service or architectural principle best addresses requirement #226?",
+    title: "Azure Management Scenario #11",
+    scenario: "A cloud operations team is configuring monitoring, policy governance, and cost management controls across an enterprise Azure environment.",
+    question: "Which Azure management service or governance practice best satisfies scenario requirement #11?",
     options: [
-      { id: 'A', text: "Option D: Standalone virtual machine without redundancy." },
-      { id: 'B', text: "Option C: Unmanaged manual scripting without high availability." },
-      { id: 'C', text: "Option B: Legacy on-premises hardware approach." },
-      { id: 'D', text: "Option A: Azure core capability for Describe Azure Management and Governance (Optimal recommended solution)." }
+      { id: 'A', text: "Applying Azure Policy initiatives and Microsoft Cost Management budget alerts across management groups" },
+      { id: 'B', text: "Granting all developers permanent Owner permissions across the root management group" },
+      { id: 'C', text: "Disabling Azure Monitor logging to reduce storage consumption" },
+      { id: 'D', text: "Managing resources individually without tags, policies, or spending thresholds" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
-    explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #226: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
-    referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-    tags: ["Azure", "AZ-900", "Fundamentals", "Describe Azure Management and Governance"]
+    explanation: "Azure governance best practices recommend assigning Azure Policy initiatives and automated budget alerts at management group and subscription scopes to ensure consistent compliance, least-privilege security, and cost accountability across all workloads.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/management-groups/overview",
+    tags: ["Governance", "Management", "Best Practices"]
   },
   {
     id: "az-900-227",
-    difficulty: "easy",
-    certId: "azure-az900",
-    domainId: "d3",
-    domainName: "Describe Azure Management and Governance",
-    title: "Azure AZ-900 Mastery Topic #227: Management & Governance",
-    scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #227 requiring enterprise architecture alignment with Microsoft best practices.",
-    question: "Which Microsoft Azure service or architectural principle best addresses requirement #227?",
-    options: [
-      { id: 'A', text: "Option D: Standalone virtual machine without redundancy." },
-      { id: 'B', text: "Option B: Legacy on-premises hardware approach." },
-      { id: 'C', text: "Option A: Azure core capability for Describe Azure Management and Governance (Optimal recommended solution)." },
-      { id: 'D', text: "Option C: Unmanaged manual scripting without high availability." }
-    ],
-    correctAnswers: ['C'],
-    type: "single",
-    explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #227: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
-    referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-    tags: ["Azure", "AZ-900", "Fundamentals", "Describe Azure Management and Governance"]
-  },
-  {
-    id: "az-900-228",
     difficulty: "hard",
     certId: "azure-az900",
     domainId: "d3",
     domainName: "Describe Azure Management and Governance",
-    title: "Azure AZ-900 Mastery Topic #228: Management & Governance",
-    scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #228 requiring enterprise architecture alignment with Microsoft best practices.",
-    question: "Which Microsoft Azure service or architectural principle best addresses requirement #228?",
+    title: "Azure Management Scenario #12",
+    scenario: "A cloud operations team is configuring monitoring, policy governance, and cost management controls across an enterprise Azure environment.",
+    question: "Which Azure management service or governance practice best satisfies scenario requirement #12?",
     options: [
-      { id: 'A', text: "Option D: Standalone virtual machine without redundancy." },
-      { id: 'B', text: "Option B: Legacy on-premises hardware approach." },
-      { id: 'C', text: "Option C: Unmanaged manual scripting without high availability." },
-      { id: 'D', text: "Option A: Azure core capability for Describe Azure Management and Governance (Optimal recommended solution)." }
-    ],
-    correctAnswers: ['D'],
-    type: "single",
-    explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #228: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
-    referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-    tags: ["Azure", "AZ-900", "Fundamentals", "Describe Azure Management and Governance"]
-  },
-  {
-    id: "az-900-229",
-    difficulty: "easy",
-    certId: "azure-az900",
-    domainId: "d3",
-    domainName: "Describe Azure Management and Governance",
-    title: "Azure AZ-900 Mastery Topic #229: Management & Governance",
-    scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #229 requiring enterprise architecture alignment with Microsoft best practices.",
-    question: "Which Microsoft Azure service or architectural principle best addresses requirement #229?",
-    options: [
-      { id: 'A', text: "Option C: Unmanaged manual scripting without high availability." },
-      { id: 'B', text: "Option D: Standalone virtual machine without redundancy." },
-      { id: 'C', text: "Option A: Azure core capability for Describe Azure Management and Governance (Optimal recommended solution)." },
-      { id: 'D', text: "Option B: Legacy on-premises hardware approach." }
+      { id: 'A', text: "Managing resources individually without tags, policies, or spending thresholds" },
+      { id: 'B', text: "Disabling Azure Monitor logging to reduce storage consumption" },
+      { id: 'C', text: "Applying Azure Policy initiatives and Microsoft Cost Management budget alerts across management groups" },
+      { id: 'D', text: "Granting all developers permanent Owner permissions across the root management group" }
     ],
     correctAnswers: ['C'],
     type: "single",
-    explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #229: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
-    referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-    tags: ["Azure", "AZ-900", "Fundamentals", "Describe Azure Management and Governance"]
+    explanation: "Azure governance best practices recommend assigning Azure Policy initiatives and automated budget alerts at management group and subscription scopes to ensure consistent compliance, least-privilege security, and cost accountability across all workloads.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/management-groups/overview",
+    tags: ["Governance", "Management", "Best Practices"]
+  },
+  {
+    id: "az-900-228",
+    difficulty: "medium",
+    certId: "azure-az900",
+    domainId: "d3",
+    domainName: "Describe Azure Management and Governance",
+    title: "Azure Management Scenario #13",
+    scenario: "A cloud operations team is configuring monitoring, policy governance, and cost management controls across an enterprise Azure environment.",
+    question: "Which Azure management service or governance practice best satisfies scenario requirement #13?",
+    options: [
+      { id: 'A', text: "Granting all developers permanent Owner permissions across the root management group" },
+      { id: 'B', text: "Disabling Azure Monitor logging to reduce storage consumption" },
+      { id: 'C', text: "Applying Azure Policy initiatives and Microsoft Cost Management budget alerts across management groups" },
+      { id: 'D', text: "Managing resources individually without tags, policies, or spending thresholds" }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Azure governance best practices recommend assigning Azure Policy initiatives and automated budget alerts at management group and subscription scopes to ensure consistent compliance, least-privilege security, and cost accountability across all workloads.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/management-groups/overview",
+    tags: ["Governance", "Management", "Best Practices"]
+  },
+  {
+    id: "az-900-229",
+    difficulty: "hard",
+    certId: "azure-az900",
+    domainId: "d3",
+    domainName: "Describe Azure Management and Governance",
+    title: "Azure Management Scenario #14",
+    scenario: "A cloud operations team is configuring monitoring, policy governance, and cost management controls across an enterprise Azure environment.",
+    question: "Which Azure management service or governance practice best satisfies scenario requirement #14?",
+    options: [
+      { id: 'A', text: "Applying Azure Policy initiatives and Microsoft Cost Management budget alerts across management groups" },
+      { id: 'B', text: "Disabling Azure Monitor logging to reduce storage consumption" },
+      { id: 'C', text: "Granting all developers permanent Owner permissions across the root management group" },
+      { id: 'D', text: "Managing resources individually without tags, policies, or spending thresholds" }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Azure governance best practices recommend assigning Azure Policy initiatives and automated budget alerts at management group and subscription scopes to ensure consistent compliance, least-privilege security, and cost accountability across all workloads.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/management-groups/overview",
+    tags: ["Governance", "Management", "Best Practices"]
   },
   {
     id: "az-900-230",
@@ -89,20 +89,20 @@ export const AZURE_AZ900_QUESTIONS_10 = [
     certId: "azure-az900",
     domainId: "d3",
     domainName: "Describe Azure Management and Governance",
-    title: "Azure AZ-900 Mastery Topic #230: Management & Governance",
-    scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #230 requiring enterprise architecture alignment with Microsoft best practices.",
-    question: "Which Microsoft Azure service or architectural principle best addresses requirement #230?",
+    title: "Azure Management Scenario #15",
+    scenario: "A cloud operations team is configuring monitoring, policy governance, and cost management controls across an enterprise Azure environment.",
+    question: "Which Azure management service or governance practice best satisfies scenario requirement #15?",
     options: [
-      { id: 'A', text: "Option A: Azure core capability for Describe Azure Management and Governance (Optimal recommended solution)." },
-      { id: 'B', text: "Option D: Standalone virtual machine without redundancy." },
-      { id: 'C', text: "Option C: Unmanaged manual scripting without high availability." },
-      { id: 'D', text: "Option B: Legacy on-premises hardware approach." }
+      { id: 'A', text: "Applying Azure Policy initiatives and Microsoft Cost Management budget alerts across management groups" },
+      { id: 'B', text: "Disabling Azure Monitor logging to reduce storage consumption" },
+      { id: 'C', text: "Granting all developers permanent Owner permissions across the root management group" },
+      { id: 'D', text: "Managing resources individually without tags, policies, or spending thresholds" }
     ],
     correctAnswers: ['A'],
     type: "single",
-    explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #230: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
-    referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-    tags: ["Azure", "AZ-900", "Fundamentals", "Describe Azure Management and Governance"]
+    explanation: "Azure governance best practices recommend assigning Azure Policy initiatives and automated budget alerts at management group and subscription scopes to ensure consistent compliance, least-privilege security, and cost accountability across all workloads.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/management-groups/overview",
+    tags: ["Governance", "Management", "Best Practices"]
   },
   {
     id: "az-900-231",
@@ -110,20 +110,20 @@ export const AZURE_AZ900_QUESTIONS_10 = [
     certId: "azure-az900",
     domainId: "d3",
     domainName: "Describe Azure Management and Governance",
-    title: "Azure AZ-900 Mastery Topic #231: Management & Governance",
-    scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #231 requiring enterprise architecture alignment with Microsoft best practices.",
-    question: "Which Microsoft Azure service or architectural principle best addresses requirement #231?",
+    title: "Azure Management Scenario #16",
+    scenario: "A cloud operations team is configuring monitoring, policy governance, and cost management controls across an enterprise Azure environment.",
+    question: "Which Azure management service or governance practice best satisfies scenario requirement #16?",
     options: [
-      { id: 'A', text: "Option A: Azure core capability for Describe Azure Management and Governance (Optimal recommended solution)." },
-      { id: 'B', text: "Option D: Standalone virtual machine without redundancy." },
-      { id: 'C', text: "Option B: Legacy on-premises hardware approach." },
-      { id: 'D', text: "Option C: Unmanaged manual scripting without high availability." }
+      { id: 'A', text: "Granting all developers permanent Owner permissions across the root management group" },
+      { id: 'B', text: "Managing resources individually without tags, policies, or spending thresholds" },
+      { id: 'C', text: "Disabling Azure Monitor logging to reduce storage consumption" },
+      { id: 'D', text: "Applying Azure Policy initiatives and Microsoft Cost Management budget alerts across management groups" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
-    explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #231: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
-    referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-    tags: ["Azure", "AZ-900", "Fundamentals", "Describe Azure Management and Governance"]
+    explanation: "Azure governance best practices recommend assigning Azure Policy initiatives and automated budget alerts at management group and subscription scopes to ensure consistent compliance, least-privilege security, and cost accountability across all workloads.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/management-groups/overview",
+    tags: ["Governance", "Management", "Best Practices"]
   },
   {
     id: "az-900-232",
@@ -131,83 +131,83 @@ export const AZURE_AZ900_QUESTIONS_10 = [
     certId: "azure-az900",
     domainId: "d3",
     domainName: "Describe Azure Management and Governance",
-    title: "Azure AZ-900 Mastery Topic #232: Management & Governance",
-    scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #232 requiring enterprise architecture alignment with Microsoft best practices.",
-    question: "Which Microsoft Azure service or architectural principle best addresses requirement #232?",
+    title: "Azure Management Scenario #17",
+    scenario: "A cloud operations team is configuring monitoring, policy governance, and cost management controls across an enterprise Azure environment.",
+    question: "Which Azure management service or governance practice best satisfies scenario requirement #17?",
     options: [
-      { id: 'A', text: "Option B: Legacy on-premises hardware approach." },
-      { id: 'B', text: "Option C: Unmanaged manual scripting without high availability." },
-      { id: 'C', text: "Option D: Standalone virtual machine without redundancy." },
-      { id: 'D', text: "Option A: Azure core capability for Describe Azure Management and Governance (Optimal recommended solution)." }
+      { id: 'A', text: "Disabling Azure Monitor logging to reduce storage consumption" },
+      { id: 'B', text: "Granting all developers permanent Owner permissions across the root management group" },
+      { id: 'C', text: "Managing resources individually without tags, policies, or spending thresholds" },
+      { id: 'D', text: "Applying Azure Policy initiatives and Microsoft Cost Management budget alerts across management groups" }
     ],
     correctAnswers: ['D'],
     type: "single",
-    explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #232: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
-    referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-    tags: ["Azure", "AZ-900", "Fundamentals", "Describe Azure Management and Governance"]
+    explanation: "Azure governance best practices recommend assigning Azure Policy initiatives and automated budget alerts at management group and subscription scopes to ensure consistent compliance, least-privilege security, and cost accountability across all workloads.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/management-groups/overview",
+    tags: ["Governance", "Management", "Best Practices"]
   },
   {
     id: "az-900-233",
-    difficulty: "easy",
-    certId: "azure-az900",
-    domainId: "d3",
-    domainName: "Describe Azure Management and Governance",
-    title: "Azure AZ-900 Mastery Topic #233: Management & Governance",
-    scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #233 requiring enterprise architecture alignment with Microsoft best practices.",
-    question: "Which Microsoft Azure service or architectural principle best addresses requirement #233?",
-    options: [
-      { id: 'A', text: "Option A: Azure core capability for Describe Azure Management and Governance (Optimal recommended solution)." },
-      { id: 'B', text: "Option C: Unmanaged manual scripting without high availability." },
-      { id: 'C', text: "Option B: Legacy on-premises hardware approach." },
-      { id: 'D', text: "Option D: Standalone virtual machine without redundancy." }
-    ],
-    correctAnswers: ['A'],
-    type: "single",
-    explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #233: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
-    referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-    tags: ["Azure", "AZ-900", "Fundamentals", "Describe Azure Management and Governance"]
-  },
-  {
-    id: "az-900-234",
     difficulty: "hard",
     certId: "azure-az900",
     domainId: "d3",
     domainName: "Describe Azure Management and Governance",
-    title: "Azure AZ-900 Mastery Topic #234: Management & Governance",
-    scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #234 requiring enterprise architecture alignment with Microsoft best practices.",
-    question: "Which Microsoft Azure service or architectural principle best addresses requirement #234?",
+    title: "Azure Management Scenario #18",
+    scenario: "A cloud operations team is configuring monitoring, policy governance, and cost management controls across an enterprise Azure environment.",
+    question: "Which Azure management service or governance practice best satisfies scenario requirement #18?",
     options: [
-      { id: 'A', text: "Option D: Standalone virtual machine without redundancy." },
-      { id: 'B', text: "Option A: Azure core capability for Describe Azure Management and Governance (Optimal recommended solution)." },
-      { id: 'C', text: "Option B: Legacy on-premises hardware approach." },
-      { id: 'D', text: "Option C: Unmanaged manual scripting without high availability." }
+      { id: 'A', text: "Managing resources individually without tags, policies, or spending thresholds" },
+      { id: 'B', text: "Disabling Azure Monitor logging to reduce storage consumption" },
+      { id: 'C', text: "Applying Azure Policy initiatives and Microsoft Cost Management budget alerts across management groups" },
+      { id: 'D', text: "Granting all developers permanent Owner permissions across the root management group" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
-    explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #234: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
-    referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-    tags: ["Azure", "AZ-900", "Fundamentals", "Describe Azure Management and Governance"]
+    explanation: "Azure governance best practices recommend assigning Azure Policy initiatives and automated budget alerts at management group and subscription scopes to ensure consistent compliance, least-privilege security, and cost accountability across all workloads.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/management-groups/overview",
+    tags: ["Governance", "Management", "Best Practices"]
   },
   {
-    id: "az-900-235",
-    difficulty: "easy",
+    id: "az-900-234",
+    difficulty: "medium",
     certId: "azure-az900",
     domainId: "d3",
     domainName: "Describe Azure Management and Governance",
-    title: "Azure AZ-900 Mastery Topic #235: Management & Governance",
-    scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #235 requiring enterprise architecture alignment with Microsoft best practices.",
-    question: "Which Microsoft Azure service or architectural principle best addresses requirement #235?",
+    title: "Azure Management Scenario #19",
+    scenario: "A cloud operations team is configuring monitoring, policy governance, and cost management controls across an enterprise Azure environment.",
+    question: "Which Azure management service or governance practice best satisfies scenario requirement #19?",
     options: [
-      { id: 'A', text: "Option C: Unmanaged manual scripting without high availability." },
-      { id: 'B', text: "Option A: Azure core capability for Describe Azure Management and Governance (Optimal recommended solution)." },
-      { id: 'C', text: "Option B: Legacy on-premises hardware approach." },
-      { id: 'D', text: "Option D: Standalone virtual machine without redundancy." }
+      { id: 'A', text: "Granting all developers permanent Owner permissions across the root management group" },
+      { id: 'B', text: "Applying Azure Policy initiatives and Microsoft Cost Management budget alerts across management groups" },
+      { id: 'C', text: "Managing resources individually without tags, policies, or spending thresholds" },
+      { id: 'D', text: "Disabling Azure Monitor logging to reduce storage consumption" }
     ],
     correctAnswers: ['B'],
     type: "single",
-    explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #235: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
-    referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-    tags: ["Azure", "AZ-900", "Fundamentals", "Describe Azure Management and Governance"]
+    explanation: "Azure governance best practices recommend assigning Azure Policy initiatives and automated budget alerts at management group and subscription scopes to ensure consistent compliance, least-privilege security, and cost accountability across all workloads.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/management-groups/overview",
+    tags: ["Governance", "Management", "Best Practices"]
+  },
+  {
+    id: "az-900-235",
+    difficulty: "hard",
+    certId: "azure-az900",
+    domainId: "d3",
+    domainName: "Describe Azure Management and Governance",
+    title: "Azure Management Scenario #20",
+    scenario: "A cloud operations team is configuring monitoring, policy governance, and cost management controls across an enterprise Azure environment.",
+    question: "Which Azure management service or governance practice best satisfies scenario requirement #20?",
+    options: [
+      { id: 'A', text: "Applying Azure Policy initiatives and Microsoft Cost Management budget alerts across management groups" },
+      { id: 'B', text: "Disabling Azure Monitor logging to reduce storage consumption" },
+      { id: 'C', text: "Granting all developers permanent Owner permissions across the root management group" },
+      { id: 'D', text: "Managing resources individually without tags, policies, or spending thresholds" }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Azure governance best practices recommend assigning Azure Policy initiatives and automated budget alerts at management group and subscription scopes to ensure consistent compliance, least-privilege security, and cost accountability across all workloads.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/management-groups/overview",
+    tags: ["Governance", "Management", "Best Practices"]
   },
   {
     id: "az-900-236",
@@ -215,20 +215,20 @@ export const AZURE_AZ900_QUESTIONS_10 = [
     certId: "azure-az900",
     domainId: "d3",
     domainName: "Describe Azure Management and Governance",
-    title: "Azure AZ-900 Mastery Topic #236: Management & Governance",
-    scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #236 requiring enterprise architecture alignment with Microsoft best practices.",
-    question: "Which Microsoft Azure service or architectural principle best addresses requirement #236?",
+    title: "Azure Management Scenario #21",
+    scenario: "A cloud operations team is configuring monitoring, policy governance, and cost management controls across an enterprise Azure environment.",
+    question: "Which Azure management service or governance practice best satisfies scenario requirement #21?",
     options: [
-      { id: 'A', text: "Option C: Unmanaged manual scripting without high availability." },
-      { id: 'B', text: "Option B: Legacy on-premises hardware approach." },
-      { id: 'C', text: "Option A: Azure core capability for Describe Azure Management and Governance (Optimal recommended solution)." },
-      { id: 'D', text: "Option D: Standalone virtual machine without redundancy." }
+      { id: 'A', text: "Managing resources individually without tags, policies, or spending thresholds" },
+      { id: 'B', text: "Applying Azure Policy initiatives and Microsoft Cost Management budget alerts across management groups" },
+      { id: 'C', text: "Disabling Azure Monitor logging to reduce storage consumption" },
+      { id: 'D', text: "Granting all developers permanent Owner permissions across the root management group" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
-    explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #236: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
-    referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-    tags: ["Azure", "AZ-900", "Fundamentals", "Describe Azure Management and Governance"]
+    explanation: "Azure governance best practices recommend assigning Azure Policy initiatives and automated budget alerts at management group and subscription scopes to ensure consistent compliance, least-privilege security, and cost accountability across all workloads.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/management-groups/overview",
+    tags: ["Governance", "Management", "Best Practices"]
   },
   {
     id: "az-900-237",
@@ -236,20 +236,20 @@ export const AZURE_AZ900_QUESTIONS_10 = [
     certId: "azure-az900",
     domainId: "d3",
     domainName: "Describe Azure Management and Governance",
-    title: "Azure AZ-900 Mastery Topic #237: Management & Governance",
-    scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #237 requiring enterprise architecture alignment with Microsoft best practices.",
-    question: "Which Microsoft Azure service or architectural principle best addresses requirement #237?",
+    title: "Azure Management Scenario #22",
+    scenario: "A cloud operations team is configuring monitoring, policy governance, and cost management controls across an enterprise Azure environment.",
+    question: "Which Azure management service or governance practice best satisfies scenario requirement #22?",
     options: [
-      { id: 'A', text: "Option A: Azure core capability for Describe Azure Management and Governance (Optimal recommended solution)." },
-      { id: 'B', text: "Option D: Standalone virtual machine without redundancy." },
-      { id: 'C', text: "Option B: Legacy on-premises hardware approach." },
-      { id: 'D', text: "Option C: Unmanaged manual scripting without high availability." }
+      { id: 'A', text: "Applying Azure Policy initiatives and Microsoft Cost Management budget alerts across management groups" },
+      { id: 'B', text: "Disabling Azure Monitor logging to reduce storage consumption" },
+      { id: 'C', text: "Managing resources individually without tags, policies, or spending thresholds" },
+      { id: 'D', text: "Granting all developers permanent Owner permissions across the root management group" }
     ],
     correctAnswers: ['A'],
     type: "single",
-    explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #237: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
-    referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-    tags: ["Azure", "AZ-900", "Fundamentals", "Describe Azure Management and Governance"]
+    explanation: "Azure governance best practices recommend assigning Azure Policy initiatives and automated budget alerts at management group and subscription scopes to ensure consistent compliance, least-privilege security, and cost accountability across all workloads.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/management-groups/overview",
+    tags: ["Governance", "Management", "Best Practices"]
   },
   {
     id: "az-900-238",
@@ -257,83 +257,83 @@ export const AZURE_AZ900_QUESTIONS_10 = [
     certId: "azure-az900",
     domainId: "d3",
     domainName: "Describe Azure Management and Governance",
-    title: "Azure AZ-900 Mastery Topic #238: Management & Governance",
-    scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #238 requiring enterprise architecture alignment with Microsoft best practices.",
-    question: "Which Microsoft Azure service or architectural principle best addresses requirement #238?",
+    title: "Azure Management Scenario #23",
+    scenario: "A cloud operations team is configuring monitoring, policy governance, and cost management controls across an enterprise Azure environment.",
+    question: "Which Azure management service or governance practice best satisfies scenario requirement #23?",
     options: [
-      { id: 'A', text: "Option B: Legacy on-premises hardware approach." },
-      { id: 'B', text: "Option C: Unmanaged manual scripting without high availability." },
-      { id: 'C', text: "Option A: Azure core capability for Describe Azure Management and Governance (Optimal recommended solution)." },
-      { id: 'D', text: "Option D: Standalone virtual machine without redundancy." }
+      { id: 'A', text: "Granting all developers permanent Owner permissions across the root management group" },
+      { id: 'B', text: "Managing resources individually without tags, policies, or spending thresholds" },
+      { id: 'C', text: "Disabling Azure Monitor logging to reduce storage consumption" },
+      { id: 'D', text: "Applying Azure Policy initiatives and Microsoft Cost Management budget alerts across management groups" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
-    explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #238: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
-    referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-    tags: ["Azure", "AZ-900", "Fundamentals", "Describe Azure Management and Governance"]
+    explanation: "Azure governance best practices recommend assigning Azure Policy initiatives and automated budget alerts at management group and subscription scopes to ensure consistent compliance, least-privilege security, and cost accountability across all workloads.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/management-groups/overview",
+    tags: ["Governance", "Management", "Best Practices"]
   },
   {
     id: "az-900-239",
-    difficulty: "easy",
-    certId: "azure-az900",
-    domainId: "d3",
-    domainName: "Describe Azure Management and Governance",
-    title: "Azure AZ-900 Mastery Topic #239: Management & Governance",
-    scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #239 requiring enterprise architecture alignment with Microsoft best practices.",
-    question: "Which Microsoft Azure service or architectural principle best addresses requirement #239?",
-    options: [
-      { id: 'A', text: "Option D: Standalone virtual machine without redundancy." },
-      { id: 'B', text: "Option C: Unmanaged manual scripting without high availability." },
-      { id: 'C', text: "Option A: Azure core capability for Describe Azure Management and Governance (Optimal recommended solution)." },
-      { id: 'D', text: "Option B: Legacy on-premises hardware approach." }
-    ],
-    correctAnswers: ['C'],
-    type: "single",
-    explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #239: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
-    referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-    tags: ["Azure", "AZ-900", "Fundamentals", "Describe Azure Management and Governance"]
-  },
-  {
-    id: "az-900-240",
     difficulty: "hard",
     certId: "azure-az900",
     domainId: "d3",
     domainName: "Describe Azure Management and Governance",
-    title: "Azure AZ-900 Mastery Topic #240: Management & Governance",
-    scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #240 requiring enterprise architecture alignment with Microsoft best practices.",
-    question: "Which Microsoft Azure service or architectural principle best addresses requirement #240?",
+    title: "Azure Management Scenario #24",
+    scenario: "A cloud operations team is configuring monitoring, policy governance, and cost management controls across an enterprise Azure environment.",
+    question: "Which Azure management service or governance practice best satisfies scenario requirement #24?",
     options: [
-      { id: 'A', text: "Option A: Azure core capability for Describe Azure Management and Governance (Optimal recommended solution)." },
-      { id: 'B', text: "Option D: Standalone virtual machine without redundancy." },
-      { id: 'C', text: "Option B: Legacy on-premises hardware approach." },
-      { id: 'D', text: "Option C: Unmanaged manual scripting without high availability." }
+      { id: 'A', text: "Granting all developers permanent Owner permissions across the root management group" },
+      { id: 'B', text: "Disabling Azure Monitor logging to reduce storage consumption" },
+      { id: 'C', text: "Managing resources individually without tags, policies, or spending thresholds" },
+      { id: 'D', text: "Applying Azure Policy initiatives and Microsoft Cost Management budget alerts across management groups" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
-    explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #240: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
-    referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-    tags: ["Azure", "AZ-900", "Fundamentals", "Describe Azure Management and Governance"]
+    explanation: "Azure governance best practices recommend assigning Azure Policy initiatives and automated budget alerts at management group and subscription scopes to ensure consistent compliance, least-privilege security, and cost accountability across all workloads.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/management-groups/overview",
+    tags: ["Governance", "Management", "Best Practices"]
   },
   {
-    id: "az-900-241",
-    difficulty: "easy",
+    id: "az-900-240",
+    difficulty: "medium",
     certId: "azure-az900",
     domainId: "d3",
     domainName: "Describe Azure Management and Governance",
-    title: "Azure AZ-900 Mastery Topic #241: Management & Governance",
-    scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #241 requiring enterprise architecture alignment with Microsoft best practices.",
-    question: "Which Microsoft Azure service or architectural principle best addresses requirement #241?",
+    title: "Azure Management Scenario #25",
+    scenario: "A cloud operations team is configuring monitoring, policy governance, and cost management controls across an enterprise Azure environment.",
+    question: "Which Azure management service or governance practice best satisfies scenario requirement #25?",
     options: [
-      { id: 'A', text: "Option B: Legacy on-premises hardware approach." },
-      { id: 'B', text: "Option A: Azure core capability for Describe Azure Management and Governance (Optimal recommended solution)." },
-      { id: 'C', text: "Option D: Standalone virtual machine without redundancy." },
-      { id: 'D', text: "Option C: Unmanaged manual scripting without high availability." }
+      { id: 'A', text: "Granting all developers permanent Owner permissions across the root management group" },
+      { id: 'B', text: "Disabling Azure Monitor logging to reduce storage consumption" },
+      { id: 'C', text: "Managing resources individually without tags, policies, or spending thresholds" },
+      { id: 'D', text: "Applying Azure Policy initiatives and Microsoft Cost Management budget alerts across management groups" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
-    explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #241: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
-    referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-    tags: ["Azure", "AZ-900", "Fundamentals", "Describe Azure Management and Governance"]
+    explanation: "Azure governance best practices recommend assigning Azure Policy initiatives and automated budget alerts at management group and subscription scopes to ensure consistent compliance, least-privilege security, and cost accountability across all workloads.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/management-groups/overview",
+    tags: ["Governance", "Management", "Best Practices"]
+  },
+  {
+    id: "az-900-241",
+    difficulty: "hard",
+    certId: "azure-az900",
+    domainId: "d3",
+    domainName: "Describe Azure Management and Governance",
+    title: "Azure Management Scenario #26",
+    scenario: "A cloud operations team is configuring monitoring, policy governance, and cost management controls across an enterprise Azure environment.",
+    question: "Which Azure management service or governance practice best satisfies scenario requirement #26?",
+    options: [
+      { id: 'A', text: "Granting all developers permanent Owner permissions across the root management group" },
+      { id: 'B', text: "Managing resources individually without tags, policies, or spending thresholds" },
+      { id: 'C', text: "Disabling Azure Monitor logging to reduce storage consumption" },
+      { id: 'D', text: "Applying Azure Policy initiatives and Microsoft Cost Management budget alerts across management groups" }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Azure governance best practices recommend assigning Azure Policy initiatives and automated budget alerts at management group and subscription scopes to ensure consistent compliance, least-privilege security, and cost accountability across all workloads.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/management-groups/overview",
+    tags: ["Governance", "Management", "Best Practices"]
   },
   {
     id: "az-900-242",
@@ -341,20 +341,20 @@ export const AZURE_AZ900_QUESTIONS_10 = [
     certId: "azure-az900",
     domainId: "d3",
     domainName: "Describe Azure Management and Governance",
-    title: "Azure AZ-900 Mastery Topic #242: Management & Governance",
-    scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #242 requiring enterprise architecture alignment with Microsoft best practices.",
-    question: "Which Microsoft Azure service or architectural principle best addresses requirement #242?",
+    title: "Azure Management Scenario #27",
+    scenario: "A cloud operations team is configuring monitoring, policy governance, and cost management controls across an enterprise Azure environment.",
+    question: "Which Azure management service or governance practice best satisfies scenario requirement #27?",
     options: [
-      { id: 'A', text: "Option D: Standalone virtual machine without redundancy." },
-      { id: 'B', text: "Option C: Unmanaged manual scripting without high availability." },
-      { id: 'C', text: "Option B: Legacy on-premises hardware approach." },
-      { id: 'D', text: "Option A: Azure core capability for Describe Azure Management and Governance (Optimal recommended solution)." }
+      { id: 'A', text: "Disabling Azure Monitor logging to reduce storage consumption" },
+      { id: 'B', text: "Applying Azure Policy initiatives and Microsoft Cost Management budget alerts across management groups" },
+      { id: 'C', text: "Managing resources individually without tags, policies, or spending thresholds" },
+      { id: 'D', text: "Granting all developers permanent Owner permissions across the root management group" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
-    explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #242: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
-    referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-    tags: ["Azure", "AZ-900", "Fundamentals", "Describe Azure Management and Governance"]
+    explanation: "Azure governance best practices recommend assigning Azure Policy initiatives and automated budget alerts at management group and subscription scopes to ensure consistent compliance, least-privilege security, and cost accountability across all workloads.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/management-groups/overview",
+    tags: ["Governance", "Management", "Best Practices"]
   },
   {
     id: "az-900-243",
@@ -362,20 +362,20 @@ export const AZURE_AZ900_QUESTIONS_10 = [
     certId: "azure-az900",
     domainId: "d3",
     domainName: "Describe Azure Management and Governance",
-    title: "Azure AZ-900 Mastery Topic #243: Management & Governance",
-    scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #243 requiring enterprise architecture alignment with Microsoft best practices.",
-    question: "Which Microsoft Azure service or architectural principle best addresses requirement #243?",
+    title: "Azure Management Scenario #28",
+    scenario: "A cloud operations team is configuring monitoring, policy governance, and cost management controls across an enterprise Azure environment.",
+    question: "Which Azure management service or governance practice best satisfies scenario requirement #28?",
     options: [
-      { id: 'A', text: "Option A: Azure core capability for Describe Azure Management and Governance (Optimal recommended solution)." },
-      { id: 'B', text: "Option C: Unmanaged manual scripting without high availability." },
-      { id: 'C', text: "Option D: Standalone virtual machine without redundancy." },
-      { id: 'D', text: "Option B: Legacy on-premises hardware approach." }
+      { id: 'A', text: "Granting all developers permanent Owner permissions across the root management group" },
+      { id: 'B', text: "Applying Azure Policy initiatives and Microsoft Cost Management budget alerts across management groups" },
+      { id: 'C', text: "Managing resources individually without tags, policies, or spending thresholds" },
+      { id: 'D', text: "Disabling Azure Monitor logging to reduce storage consumption" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
-    explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #243: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
-    referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-    tags: ["Azure", "AZ-900", "Fundamentals", "Describe Azure Management and Governance"]
+    explanation: "Azure governance best practices recommend assigning Azure Policy initiatives and automated budget alerts at management group and subscription scopes to ensure consistent compliance, least-privilege security, and cost accountability across all workloads.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/management-groups/overview",
+    tags: ["Governance", "Management", "Best Practices"]
   },
   {
     id: "az-900-244",
@@ -383,83 +383,83 @@ export const AZURE_AZ900_QUESTIONS_10 = [
     certId: "azure-az900",
     domainId: "d3",
     domainName: "Describe Azure Management and Governance",
-    title: "Azure AZ-900 Mastery Topic #244: Management & Governance",
-    scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #244 requiring enterprise architecture alignment with Microsoft best practices.",
-    question: "Which Microsoft Azure service or architectural principle best addresses requirement #244?",
+    title: "Azure Management Scenario #29",
+    scenario: "A cloud operations team is configuring monitoring, policy governance, and cost management controls across an enterprise Azure environment.",
+    question: "Which Azure management service or governance practice best satisfies scenario requirement #29?",
     options: [
-      { id: 'A', text: "Option D: Standalone virtual machine without redundancy." },
-      { id: 'B', text: "Option C: Unmanaged manual scripting without high availability." },
-      { id: 'C', text: "Option A: Azure core capability for Describe Azure Management and Governance (Optimal recommended solution)." },
-      { id: 'D', text: "Option B: Legacy on-premises hardware approach." }
+      { id: 'A', text: "Disabling Azure Monitor logging to reduce storage consumption" },
+      { id: 'B', text: "Applying Azure Policy initiatives and Microsoft Cost Management budget alerts across management groups" },
+      { id: 'C', text: "Managing resources individually without tags, policies, or spending thresholds" },
+      { id: 'D', text: "Granting all developers permanent Owner permissions across the root management group" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
-    explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #244: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
-    referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-    tags: ["Azure", "AZ-900", "Fundamentals", "Describe Azure Management and Governance"]
+    explanation: "Azure governance best practices recommend assigning Azure Policy initiatives and automated budget alerts at management group and subscription scopes to ensure consistent compliance, least-privilege security, and cost accountability across all workloads.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/management-groups/overview",
+    tags: ["Governance", "Management", "Best Practices"]
   },
   {
     id: "az-900-245",
-    difficulty: "easy",
-    certId: "azure-az900",
-    domainId: "d3",
-    domainName: "Describe Azure Management and Governance",
-    title: "Azure AZ-900 Mastery Topic #245: Management & Governance",
-    scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #245 requiring enterprise architecture alignment with Microsoft best practices.",
-    question: "Which Microsoft Azure service or architectural principle best addresses requirement #245?",
-    options: [
-      { id: 'A', text: "Option A: Azure core capability for Describe Azure Management and Governance (Optimal recommended solution)." },
-      { id: 'B', text: "Option D: Standalone virtual machine without redundancy." },
-      { id: 'C', text: "Option C: Unmanaged manual scripting without high availability." },
-      { id: 'D', text: "Option B: Legacy on-premises hardware approach." }
-    ],
-    correctAnswers: ['A'],
-    type: "single",
-    explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #245: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
-    referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-    tags: ["Azure", "AZ-900", "Fundamentals", "Describe Azure Management and Governance"]
-  },
-  {
-    id: "az-900-246",
     difficulty: "hard",
     certId: "azure-az900",
     domainId: "d3",
     domainName: "Describe Azure Management and Governance",
-    title: "Azure AZ-900 Mastery Topic #246: Management & Governance",
-    scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #246 requiring enterprise architecture alignment with Microsoft best practices.",
-    question: "Which Microsoft Azure service or architectural principle best addresses requirement #246?",
+    title: "Azure Management Scenario #30",
+    scenario: "A cloud operations team is configuring monitoring, policy governance, and cost management controls across an enterprise Azure environment.",
+    question: "Which Azure management service or governance practice best satisfies scenario requirement #30?",
     options: [
-      { id: 'A', text: "Option A: Azure core capability for Describe Azure Management and Governance (Optimal recommended solution)." },
-      { id: 'B', text: "Option D: Standalone virtual machine without redundancy." },
-      { id: 'C', text: "Option C: Unmanaged manual scripting without high availability." },
-      { id: 'D', text: "Option B: Legacy on-premises hardware approach." }
-    ],
-    correctAnswers: ['A'],
-    type: "single",
-    explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #246: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
-    referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-    tags: ["Azure", "AZ-900", "Fundamentals", "Describe Azure Management and Governance"]
-  },
-  {
-    id: "az-900-247",
-    difficulty: "easy",
-    certId: "azure-az900",
-    domainId: "d3",
-    domainName: "Describe Azure Management and Governance",
-    title: "Azure AZ-900 Mastery Topic #247: Management & Governance",
-    scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #247 requiring enterprise architecture alignment with Microsoft best practices.",
-    question: "Which Microsoft Azure service or architectural principle best addresses requirement #247?",
-    options: [
-      { id: 'A', text: "Option D: Standalone virtual machine without redundancy." },
-      { id: 'B', text: "Option A: Azure core capability for Describe Azure Management and Governance (Optimal recommended solution)." },
-      { id: 'C', text: "Option C: Unmanaged manual scripting without high availability." },
-      { id: 'D', text: "Option B: Legacy on-premises hardware approach." }
+      { id: 'A', text: "Managing resources individually without tags, policies, or spending thresholds" },
+      { id: 'B', text: "Applying Azure Policy initiatives and Microsoft Cost Management budget alerts across management groups" },
+      { id: 'C', text: "Granting all developers permanent Owner permissions across the root management group" },
+      { id: 'D', text: "Disabling Azure Monitor logging to reduce storage consumption" }
     ],
     correctAnswers: ['B'],
     type: "single",
-    explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #247: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
-    referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-    tags: ["Azure", "AZ-900", "Fundamentals", "Describe Azure Management and Governance"]
+    explanation: "Azure governance best practices recommend assigning Azure Policy initiatives and automated budget alerts at management group and subscription scopes to ensure consistent compliance, least-privilege security, and cost accountability across all workloads.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/management-groups/overview",
+    tags: ["Governance", "Management", "Best Practices"]
+  },
+  {
+    id: "az-900-246",
+    difficulty: "medium",
+    certId: "azure-az900",
+    domainId: "d3",
+    domainName: "Describe Azure Management and Governance",
+    title: "Azure Management Scenario #31",
+    scenario: "A cloud operations team is configuring monitoring, policy governance, and cost management controls across an enterprise Azure environment.",
+    question: "Which Azure management service or governance practice best satisfies scenario requirement #31?",
+    options: [
+      { id: 'A', text: "Managing resources individually without tags, policies, or spending thresholds" },
+      { id: 'B', text: "Disabling Azure Monitor logging to reduce storage consumption" },
+      { id: 'C', text: "Granting all developers permanent Owner permissions across the root management group" },
+      { id: 'D', text: "Applying Azure Policy initiatives and Microsoft Cost Management budget alerts across management groups" }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Azure governance best practices recommend assigning Azure Policy initiatives and automated budget alerts at management group and subscription scopes to ensure consistent compliance, least-privilege security, and cost accountability across all workloads.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/management-groups/overview",
+    tags: ["Governance", "Management", "Best Practices"]
+  },
+  {
+    id: "az-900-247",
+    difficulty: "hard",
+    certId: "azure-az900",
+    domainId: "d3",
+    domainName: "Describe Azure Management and Governance",
+    title: "Azure Management Scenario #32",
+    scenario: "A cloud operations team is configuring monitoring, policy governance, and cost management controls across an enterprise Azure environment.",
+    question: "Which Azure management service or governance practice best satisfies scenario requirement #32?",
+    options: [
+      { id: 'A', text: "Disabling Azure Monitor logging to reduce storage consumption" },
+      { id: 'B', text: "Applying Azure Policy initiatives and Microsoft Cost Management budget alerts across management groups" },
+      { id: 'C', text: "Granting all developers permanent Owner permissions across the root management group" },
+      { id: 'D', text: "Managing resources individually without tags, policies, or spending thresholds" }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Azure governance best practices recommend assigning Azure Policy initiatives and automated budget alerts at management group and subscription scopes to ensure consistent compliance, least-privilege security, and cost accountability across all workloads.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/management-groups/overview",
+    tags: ["Governance", "Management", "Best Practices"]
   },
   {
     id: "az-900-248",
@@ -467,20 +467,20 @@ export const AZURE_AZ900_QUESTIONS_10 = [
     certId: "azure-az900",
     domainId: "d3",
     domainName: "Describe Azure Management and Governance",
-    title: "Azure AZ-900 Mastery Topic #248: Management & Governance",
-    scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #248 requiring enterprise architecture alignment with Microsoft best practices.",
-    question: "Which Microsoft Azure service or architectural principle best addresses requirement #248?",
+    title: "Azure Management Scenario #33",
+    scenario: "A cloud operations team is configuring monitoring, policy governance, and cost management controls across an enterprise Azure environment.",
+    question: "Which Azure management service or governance practice best satisfies scenario requirement #33?",
     options: [
-      { id: 'A', text: "Option B: Legacy on-premises hardware approach." },
-      { id: 'B', text: "Option C: Unmanaged manual scripting without high availability." },
-      { id: 'C', text: "Option A: Azure core capability for Describe Azure Management and Governance (Optimal recommended solution)." },
-      { id: 'D', text: "Option D: Standalone virtual machine without redundancy." }
+      { id: 'A', text: "Disabling Azure Monitor logging to reduce storage consumption" },
+      { id: 'B', text: "Managing resources individually without tags, policies, or spending thresholds" },
+      { id: 'C', text: "Applying Azure Policy initiatives and Microsoft Cost Management budget alerts across management groups" },
+      { id: 'D', text: "Granting all developers permanent Owner permissions across the root management group" }
     ],
     correctAnswers: ['C'],
     type: "single",
-    explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #248: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
-    referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-    tags: ["Azure", "AZ-900", "Fundamentals", "Describe Azure Management and Governance"]
+    explanation: "Azure governance best practices recommend assigning Azure Policy initiatives and automated budget alerts at management group and subscription scopes to ensure consistent compliance, least-privilege security, and cost accountability across all workloads.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/management-groups/overview",
+    tags: ["Governance", "Management", "Best Practices"]
   },
   {
     id: "az-900-249",
@@ -488,20 +488,20 @@ export const AZURE_AZ900_QUESTIONS_10 = [
     certId: "azure-az900",
     domainId: "d3",
     domainName: "Describe Azure Management and Governance",
-    title: "Azure AZ-900 Mastery Topic #249: Management & Governance",
-    scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #249 requiring enterprise architecture alignment with Microsoft best practices.",
-    question: "Which Microsoft Azure service or architectural principle best addresses requirement #249?",
+    title: "Azure Management Scenario #34",
+    scenario: "A cloud operations team is configuring monitoring, policy governance, and cost management controls across an enterprise Azure environment.",
+    question: "Which Azure management service or governance practice best satisfies scenario requirement #34?",
     options: [
-      { id: 'A', text: "Option C: Unmanaged manual scripting without high availability." },
-      { id: 'B', text: "Option D: Standalone virtual machine without redundancy." },
-      { id: 'C', text: "Option A: Azure core capability for Describe Azure Management and Governance (Optimal recommended solution)." },
-      { id: 'D', text: "Option B: Legacy on-premises hardware approach." }
+      { id: 'A', text: "Managing resources individually without tags, policies, or spending thresholds" },
+      { id: 'B', text: "Disabling Azure Monitor logging to reduce storage consumption" },
+      { id: 'C', text: "Granting all developers permanent Owner permissions across the root management group" },
+      { id: 'D', text: "Applying Azure Policy initiatives and Microsoft Cost Management budget alerts across management groups" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
-    explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #249: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
-    referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-    tags: ["Azure", "AZ-900", "Fundamentals", "Describe Azure Management and Governance"]
+    explanation: "Azure governance best practices recommend assigning Azure Policy initiatives and automated budget alerts at management group and subscription scopes to ensure consistent compliance, least-privilege security, and cost accountability across all workloads.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/management-groups/overview",
+    tags: ["Governance", "Management", "Best Practices"]
   },
   {
     id: "az-900-250",
@@ -509,20 +509,20 @@ export const AZURE_AZ900_QUESTIONS_10 = [
     certId: "azure-az900",
     domainId: "d3",
     domainName: "Describe Azure Management and Governance",
-    title: "Azure AZ-900 Mastery Topic #250: Management & Governance",
-    scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #250 requiring enterprise architecture alignment with Microsoft best practices.",
-    question: "Which Microsoft Azure service or architectural principle best addresses requirement #250?",
+    title: "Azure Management Scenario #35",
+    scenario: "A cloud operations team is configuring monitoring, policy governance, and cost management controls across an enterprise Azure environment.",
+    question: "Which Azure management service or governance practice best satisfies scenario requirement #35?",
     options: [
-      { id: 'A', text: "Option C: Unmanaged manual scripting without high availability." },
-      { id: 'B', text: "Option D: Standalone virtual machine without redundancy." },
-      { id: 'C', text: "Option B: Legacy on-premises hardware approach." },
-      { id: 'D', text: "Option A: Azure core capability for Describe Azure Management and Governance (Optimal recommended solution)." }
+      { id: 'A', text: "Disabling Azure Monitor logging to reduce storage consumption" },
+      { id: 'B', text: "Applying Azure Policy initiatives and Microsoft Cost Management budget alerts across management groups" },
+      { id: 'C', text: "Granting all developers permanent Owner permissions across the root management group" },
+      { id: 'D', text: "Managing resources individually without tags, policies, or spending thresholds" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
-    explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #250: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
-    referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-    tags: ["Azure", "AZ-900", "Fundamentals", "Describe Azure Management and Governance"]
+    explanation: "Azure governance best practices recommend assigning Azure Policy initiatives and automated budget alerts at management group and subscription scopes to ensure consistent compliance, least-privilege security, and cost accountability across all workloads.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/management-groups/overview",
+    tags: ["Governance", "Management", "Best Practices"]
   }
 ];
 

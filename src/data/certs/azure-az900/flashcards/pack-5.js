@@ -1,253 +1,328 @@
 export const AZURE_AZ900_FLASHCARDS_5 = [
   {
-    id: "azure-az900-fc-101",
-    difficulty: "easy",
-    certId: "azure-az900",
-    domainId: "d2",
-    front: "What is the core principle of Azure Topic #101 in Describe Azure Architecture and Services?",
-    hint: "Key fundamental concept tested on the Microsoft AZ-900 exam.",
-    back: "Detailed explanation for AZ-900 card #101: Describes Microsoft Azure architecture, cloud economics, governance policies, and service level agreements (SLAs).",
-    tags: ["Azure", "AZ-900", "Flashcards", "Describe Azure Architecture and Services"]
+    "id": "azure-az900-fc-101",
+    "difficulty": "medium",
+    "certId": "azure-az900",
+    "domainId": "d2",
+    "front": "Azure Architectural Service #1",
+    "hint": "Core component of Microsoft Azure cloud architecture.",
+    "back": "<strong>Azure Architectural Service #1</strong> provides scalable, managed infrastructure supporting secure networking, resilient compute, and low-latency data access aligned with Microsoft Well-Architected Framework guidelines.",
+    "tags": [
+      "Azure Services",
+      "Architecture"
+    ]
   },
   {
-    id: "azure-az900-fc-102",
-    difficulty: "hard",
-    certId: "azure-az900",
-    domainId: "d2",
-    front: "What is the core principle of Azure Topic #102 in Describe Azure Architecture and Services?",
-    hint: "Key fundamental concept tested on the Microsoft AZ-900 exam.",
-    back: "Detailed explanation for AZ-900 card #102: Describes Microsoft Azure architecture, cloud economics, governance policies, and service level agreements (SLAs).",
-    tags: ["Azure", "AZ-900", "Flashcards", "Describe Azure Architecture and Services"]
+    "id": "azure-az900-fc-102",
+    "difficulty": "hard",
+    "certId": "azure-az900",
+    "domainId": "d2",
+    "front": "Azure Architectural Service #2",
+    "hint": "Core component of Microsoft Azure cloud architecture.",
+    "back": "<strong>Azure Architectural Service #2</strong> provides scalable, managed infrastructure supporting secure networking, resilient compute, and low-latency data access aligned with Microsoft Well-Architected Framework guidelines.",
+    "tags": [
+      "Azure Services",
+      "Architecture"
+    ]
   },
   {
-    id: "azure-az900-fc-103",
-    difficulty: "easy",
-    certId: "azure-az900",
-    domainId: "d2",
-    front: "What is the core principle of Azure Topic #103 in Describe Azure Architecture and Services?",
-    hint: "Key fundamental concept tested on the Microsoft AZ-900 exam.",
-    back: "Detailed explanation for AZ-900 card #103: Describes Microsoft Azure architecture, cloud economics, governance policies, and service level agreements (SLAs).",
-    tags: ["Azure", "AZ-900", "Flashcards", "Describe Azure Architecture and Services"]
+    "id": "azure-az900-fc-103",
+    "difficulty": "medium",
+    "certId": "azure-az900",
+    "domainId": "d2",
+    "front": "Azure Architectural Service #3",
+    "hint": "Core component of Microsoft Azure cloud architecture.",
+    "back": "<strong>Azure Architectural Service #3</strong> provides scalable, managed infrastructure supporting secure networking, resilient compute, and low-latency data access aligned with Microsoft Well-Architected Framework guidelines.",
+    "tags": [
+      "Azure Services",
+      "Architecture"
+    ]
   },
   {
-    id: "azure-az900-fc-104",
-    difficulty: "medium",
-    certId: "azure-az900",
-    domainId: "d2",
-    front: "What is the core principle of Azure Topic #104 in Describe Azure Architecture and Services?",
-    hint: "Key fundamental concept tested on the Microsoft AZ-900 exam.",
-    back: "Detailed explanation for AZ-900 card #104: Describes Microsoft Azure architecture, cloud economics, governance policies, and service level agreements (SLAs).",
-    tags: ["Azure", "AZ-900", "Flashcards", "Describe Azure Architecture and Services"]
+    "id": "azure-az900-fc-104",
+    "difficulty": "hard",
+    "certId": "azure-az900",
+    "domainId": "d2",
+    "front": "Azure Architectural Service #4",
+    "hint": "Core component of Microsoft Azure cloud architecture.",
+    "back": "<strong>Azure Architectural Service #4</strong> provides scalable, managed infrastructure supporting secure networking, resilient compute, and low-latency data access aligned with Microsoft Well-Architected Framework guidelines.",
+    "tags": [
+      "Azure Services",
+      "Architecture"
+    ]
   },
   {
-    id: "azure-az900-fc-105",
-    difficulty: "hard",
-    certId: "azure-az900",
-    domainId: "d2",
-    front: "What is the core principle of Azure Topic #105 in Describe Azure Architecture and Services?",
-    hint: "Key fundamental concept tested on the Microsoft AZ-900 exam.",
-    back: "Detailed explanation for AZ-900 card #105: Describes Microsoft Azure architecture, cloud economics, governance policies, and service level agreements (SLAs).",
-    tags: ["Azure", "AZ-900", "Flashcards", "Describe Azure Architecture and Services"]
+    "id": "azure-az900-fc-105",
+    "difficulty": "medium",
+    "certId": "azure-az900",
+    "domainId": "d2",
+    "front": "Azure Architectural Service #5",
+    "hint": "Core component of Microsoft Azure cloud architecture.",
+    "back": "<strong>Azure Architectural Service #5</strong> provides scalable, managed infrastructure supporting secure networking, resilient compute, and low-latency data access aligned with Microsoft Well-Architected Framework guidelines.",
+    "tags": [
+      "Azure Services",
+      "Architecture"
+    ]
   },
   {
-    id: "azure-az900-fc-106",
-    difficulty: "medium",
-    certId: "azure-az900",
-    domainId: "d2",
-    front: "What is the core principle of Azure Topic #106 in Describe Azure Architecture and Services?",
-    hint: "Key fundamental concept tested on the Microsoft AZ-900 exam.",
-    back: "Detailed explanation for AZ-900 card #106: Describes Microsoft Azure architecture, cloud economics, governance policies, and service level agreements (SLAs).",
-    tags: ["Azure", "AZ-900", "Flashcards", "Describe Azure Architecture and Services"]
+    "id": "azure-az900-fc-106",
+    "difficulty": "hard",
+    "certId": "azure-az900",
+    "domainId": "d2",
+    "front": "Azure Architectural Service #6",
+    "hint": "Core component of Microsoft Azure cloud architecture.",
+    "back": "<strong>Azure Architectural Service #6</strong> provides scalable, managed infrastructure supporting secure networking, resilient compute, and low-latency data access aligned with Microsoft Well-Architected Framework guidelines.",
+    "tags": [
+      "Azure Services",
+      "Architecture"
+    ]
   },
   {
-    id: "azure-az900-fc-107",
-    difficulty: "easy",
-    certId: "azure-az900",
-    domainId: "d2",
-    front: "What is the core principle of Azure Topic #107 in Describe Azure Architecture and Services?",
-    hint: "Key fundamental concept tested on the Microsoft AZ-900 exam.",
-    back: "Detailed explanation for AZ-900 card #107: Describes Microsoft Azure architecture, cloud economics, governance policies, and service level agreements (SLAs).",
-    tags: ["Azure", "AZ-900", "Flashcards", "Describe Azure Architecture and Services"]
+    "id": "azure-az900-fc-107",
+    "difficulty": "medium",
+    "certId": "azure-az900",
+    "domainId": "d2",
+    "front": "Azure Architectural Service #7",
+    "hint": "Core component of Microsoft Azure cloud architecture.",
+    "back": "<strong>Azure Architectural Service #7</strong> provides scalable, managed infrastructure supporting secure networking, resilient compute, and low-latency data access aligned with Microsoft Well-Architected Framework guidelines.",
+    "tags": [
+      "Azure Services",
+      "Architecture"
+    ]
   },
   {
-    id: "azure-az900-fc-108",
-    difficulty: "hard",
-    certId: "azure-az900",
-    domainId: "d2",
-    front: "What is the core principle of Azure Topic #108 in Describe Azure Architecture and Services?",
-    hint: "Key fundamental concept tested on the Microsoft AZ-900 exam.",
-    back: "Detailed explanation for AZ-900 card #108: Describes Microsoft Azure architecture, cloud economics, governance policies, and service level agreements (SLAs).",
-    tags: ["Azure", "AZ-900", "Flashcards", "Describe Azure Architecture and Services"]
+    "id": "azure-az900-fc-108",
+    "difficulty": "hard",
+    "certId": "azure-az900",
+    "domainId": "d2",
+    "front": "Azure Architectural Service #8",
+    "hint": "Core component of Microsoft Azure cloud architecture.",
+    "back": "<strong>Azure Architectural Service #8</strong> provides scalable, managed infrastructure supporting secure networking, resilient compute, and low-latency data access aligned with Microsoft Well-Architected Framework guidelines.",
+    "tags": [
+      "Azure Services",
+      "Architecture"
+    ]
   },
   {
-    id: "azure-az900-fc-109",
-    difficulty: "easy",
-    certId: "azure-az900",
-    domainId: "d2",
-    front: "What is the core principle of Azure Topic #109 in Describe Azure Architecture and Services?",
-    hint: "Key fundamental concept tested on the Microsoft AZ-900 exam.",
-    back: "Detailed explanation for AZ-900 card #109: Describes Microsoft Azure architecture, cloud economics, governance policies, and service level agreements (SLAs).",
-    tags: ["Azure", "AZ-900", "Flashcards", "Describe Azure Architecture and Services"]
+    "id": "azure-az900-fc-109",
+    "difficulty": "medium",
+    "certId": "azure-az900",
+    "domainId": "d2",
+    "front": "Azure Architectural Service #9",
+    "hint": "Core component of Microsoft Azure cloud architecture.",
+    "back": "<strong>Azure Architectural Service #9</strong> provides scalable, managed infrastructure supporting secure networking, resilient compute, and low-latency data access aligned with Microsoft Well-Architected Framework guidelines.",
+    "tags": [
+      "Azure Services",
+      "Architecture"
+    ]
   },
   {
-    id: "azure-az900-fc-110",
-    difficulty: "medium",
-    certId: "azure-az900",
-    domainId: "d2",
-    front: "What is the core principle of Azure Topic #110 in Describe Azure Architecture and Services?",
-    hint: "Key fundamental concept tested on the Microsoft AZ-900 exam.",
-    back: "Detailed explanation for AZ-900 card #110: Describes Microsoft Azure architecture, cloud economics, governance policies, and service level agreements (SLAs).",
-    tags: ["Azure", "AZ-900", "Flashcards", "Describe Azure Architecture and Services"]
+    "id": "azure-az900-fc-110",
+    "difficulty": "hard",
+    "certId": "azure-az900",
+    "domainId": "d2",
+    "front": "Azure Architectural Service #10",
+    "hint": "Core component of Microsoft Azure cloud architecture.",
+    "back": "<strong>Azure Architectural Service #10</strong> provides scalable, managed infrastructure supporting secure networking, resilient compute, and low-latency data access aligned with Microsoft Well-Architected Framework guidelines.",
+    "tags": [
+      "Azure Services",
+      "Architecture"
+    ]
   },
   {
-    id: "azure-az900-fc-111",
-    difficulty: "hard",
-    certId: "azure-az900",
-    domainId: "d2",
-    front: "What is the core principle of Azure Topic #111 in Describe Azure Architecture and Services?",
-    hint: "Key fundamental concept tested on the Microsoft AZ-900 exam.",
-    back: "Detailed explanation for AZ-900 card #111: Describes Microsoft Azure architecture, cloud economics, governance policies, and service level agreements (SLAs).",
-    tags: ["Azure", "AZ-900", "Flashcards", "Describe Azure Architecture and Services"]
+    "id": "azure-az900-fc-111",
+    "difficulty": "medium",
+    "certId": "azure-az900",
+    "domainId": "d2",
+    "front": "Azure Architectural Service #11",
+    "hint": "Core component of Microsoft Azure cloud architecture.",
+    "back": "<strong>Azure Architectural Service #11</strong> provides scalable, managed infrastructure supporting secure networking, resilient compute, and low-latency data access aligned with Microsoft Well-Architected Framework guidelines.",
+    "tags": [
+      "Azure Services",
+      "Architecture"
+    ]
   },
   {
-    id: "azure-az900-fc-112",
-    difficulty: "medium",
-    certId: "azure-az900",
-    domainId: "d2",
-    front: "What is the core principle of Azure Topic #112 in Describe Azure Architecture and Services?",
-    hint: "Key fundamental concept tested on the Microsoft AZ-900 exam.",
-    back: "Detailed explanation for AZ-900 card #112: Describes Microsoft Azure architecture, cloud economics, governance policies, and service level agreements (SLAs).",
-    tags: ["Azure", "AZ-900", "Flashcards", "Describe Azure Architecture and Services"]
+    "id": "azure-az900-fc-112",
+    "difficulty": "hard",
+    "certId": "azure-az900",
+    "domainId": "d2",
+    "front": "Azure Architectural Service #12",
+    "hint": "Core component of Microsoft Azure cloud architecture.",
+    "back": "<strong>Azure Architectural Service #12</strong> provides scalable, managed infrastructure supporting secure networking, resilient compute, and low-latency data access aligned with Microsoft Well-Architected Framework guidelines.",
+    "tags": [
+      "Azure Services",
+      "Architecture"
+    ]
   },
   {
-    id: "azure-az900-fc-113",
-    difficulty: "easy",
-    certId: "azure-az900",
-    domainId: "d2",
-    front: "What is the core principle of Azure Topic #113 in Describe Azure Architecture and Services?",
-    hint: "Key fundamental concept tested on the Microsoft AZ-900 exam.",
-    back: "Detailed explanation for AZ-900 card #113: Describes Microsoft Azure architecture, cloud economics, governance policies, and service level agreements (SLAs).",
-    tags: ["Azure", "AZ-900", "Flashcards", "Describe Azure Architecture and Services"]
+    "id": "azure-az900-fc-113",
+    "difficulty": "medium",
+    "certId": "azure-az900",
+    "domainId": "d2",
+    "front": "Azure Architectural Service #13",
+    "hint": "Core component of Microsoft Azure cloud architecture.",
+    "back": "<strong>Azure Architectural Service #13</strong> provides scalable, managed infrastructure supporting secure networking, resilient compute, and low-latency data access aligned with Microsoft Well-Architected Framework guidelines.",
+    "tags": [
+      "Azure Services",
+      "Architecture"
+    ]
   },
   {
-    id: "azure-az900-fc-114",
-    difficulty: "hard",
-    certId: "azure-az900",
-    domainId: "d2",
-    front: "What is the core principle of Azure Topic #114 in Describe Azure Architecture and Services?",
-    hint: "Key fundamental concept tested on the Microsoft AZ-900 exam.",
-    back: "Detailed explanation for AZ-900 card #114: Describes Microsoft Azure architecture, cloud economics, governance policies, and service level agreements (SLAs).",
-    tags: ["Azure", "AZ-900", "Flashcards", "Describe Azure Architecture and Services"]
+    "id": "azure-az900-fc-114",
+    "difficulty": "hard",
+    "certId": "azure-az900",
+    "domainId": "d2",
+    "front": "Azure Architectural Service #14",
+    "hint": "Core component of Microsoft Azure cloud architecture.",
+    "back": "<strong>Azure Architectural Service #14</strong> provides scalable, managed infrastructure supporting secure networking, resilient compute, and low-latency data access aligned with Microsoft Well-Architected Framework guidelines.",
+    "tags": [
+      "Azure Services",
+      "Architecture"
+    ]
   },
   {
-    id: "azure-az900-fc-115",
-    difficulty: "easy",
-    certId: "azure-az900",
-    domainId: "d2",
-    front: "What is the core principle of Azure Topic #115 in Describe Azure Architecture and Services?",
-    hint: "Key fundamental concept tested on the Microsoft AZ-900 exam.",
-    back: "Detailed explanation for AZ-900 card #115: Describes Microsoft Azure architecture, cloud economics, governance policies, and service level agreements (SLAs).",
-    tags: ["Azure", "AZ-900", "Flashcards", "Describe Azure Architecture and Services"]
+    "id": "azure-az900-fc-115",
+    "difficulty": "medium",
+    "certId": "azure-az900",
+    "domainId": "d2",
+    "front": "Azure Architectural Service #15",
+    "hint": "Core component of Microsoft Azure cloud architecture.",
+    "back": "<strong>Azure Architectural Service #15</strong> provides scalable, managed infrastructure supporting secure networking, resilient compute, and low-latency data access aligned with Microsoft Well-Architected Framework guidelines.",
+    "tags": [
+      "Azure Services",
+      "Architecture"
+    ]
   },
   {
-    id: "azure-az900-fc-116",
-    difficulty: "medium",
-    certId: "azure-az900",
-    domainId: "d2",
-    front: "What is the core principle of Azure Topic #116 in Describe Azure Architecture and Services?",
-    hint: "Key fundamental concept tested on the Microsoft AZ-900 exam.",
-    back: "Detailed explanation for AZ-900 card #116: Describes Microsoft Azure architecture, cloud economics, governance policies, and service level agreements (SLAs).",
-    tags: ["Azure", "AZ-900", "Flashcards", "Describe Azure Architecture and Services"]
+    "id": "azure-az900-fc-116",
+    "difficulty": "hard",
+    "certId": "azure-az900",
+    "domainId": "d2",
+    "front": "Azure Architectural Service #16",
+    "hint": "Core component of Microsoft Azure cloud architecture.",
+    "back": "<strong>Azure Architectural Service #16</strong> provides scalable, managed infrastructure supporting secure networking, resilient compute, and low-latency data access aligned with Microsoft Well-Architected Framework guidelines.",
+    "tags": [
+      "Azure Services",
+      "Architecture"
+    ]
   },
   {
-    id: "azure-az900-fc-117",
-    difficulty: "hard",
-    certId: "azure-az900",
-    domainId: "d2",
-    front: "What is the core principle of Azure Topic #117 in Describe Azure Architecture and Services?",
-    hint: "Key fundamental concept tested on the Microsoft AZ-900 exam.",
-    back: "Detailed explanation for AZ-900 card #117: Describes Microsoft Azure architecture, cloud economics, governance policies, and service level agreements (SLAs).",
-    tags: ["Azure", "AZ-900", "Flashcards", "Describe Azure Architecture and Services"]
+    "id": "azure-az900-fc-117",
+    "difficulty": "medium",
+    "certId": "azure-az900",
+    "domainId": "d2",
+    "front": "Azure Architectural Service #17",
+    "hint": "Core component of Microsoft Azure cloud architecture.",
+    "back": "<strong>Azure Architectural Service #17</strong> provides scalable, managed infrastructure supporting secure networking, resilient compute, and low-latency data access aligned with Microsoft Well-Architected Framework guidelines.",
+    "tags": [
+      "Azure Services",
+      "Architecture"
+    ]
   },
   {
-    id: "azure-az900-fc-118",
-    difficulty: "medium",
-    certId: "azure-az900",
-    domainId: "d2",
-    front: "What is the core principle of Azure Topic #118 in Describe Azure Architecture and Services?",
-    hint: "Key fundamental concept tested on the Microsoft AZ-900 exam.",
-    back: "Detailed explanation for AZ-900 card #118: Describes Microsoft Azure architecture, cloud economics, governance policies, and service level agreements (SLAs).",
-    tags: ["Azure", "AZ-900", "Flashcards", "Describe Azure Architecture and Services"]
+    "id": "azure-az900-fc-118",
+    "difficulty": "hard",
+    "certId": "azure-az900",
+    "domainId": "d2",
+    "front": "Azure Architectural Service #18",
+    "hint": "Core component of Microsoft Azure cloud architecture.",
+    "back": "<strong>Azure Architectural Service #18</strong> provides scalable, managed infrastructure supporting secure networking, resilient compute, and low-latency data access aligned with Microsoft Well-Architected Framework guidelines.",
+    "tags": [
+      "Azure Services",
+      "Architecture"
+    ]
   },
   {
-    id: "azure-az900-fc-119",
-    difficulty: "easy",
-    certId: "azure-az900",
-    domainId: "d2",
-    front: "What is the core principle of Azure Topic #119 in Describe Azure Architecture and Services?",
-    hint: "Key fundamental concept tested on the Microsoft AZ-900 exam.",
-    back: "Detailed explanation for AZ-900 card #119: Describes Microsoft Azure architecture, cloud economics, governance policies, and service level agreements (SLAs).",
-    tags: ["Azure", "AZ-900", "Flashcards", "Describe Azure Architecture and Services"]
+    "id": "azure-az900-fc-119",
+    "difficulty": "medium",
+    "certId": "azure-az900",
+    "domainId": "d2",
+    "front": "Azure Architectural Service #19",
+    "hint": "Core component of Microsoft Azure cloud architecture.",
+    "back": "<strong>Azure Architectural Service #19</strong> provides scalable, managed infrastructure supporting secure networking, resilient compute, and low-latency data access aligned with Microsoft Well-Architected Framework guidelines.",
+    "tags": [
+      "Azure Services",
+      "Architecture"
+    ]
   },
   {
-    id: "azure-az900-fc-120",
-    difficulty: "hard",
-    certId: "azure-az900",
-    domainId: "d2",
-    front: "What is the core principle of Azure Topic #120 in Describe Azure Architecture and Services?",
-    hint: "Key fundamental concept tested on the Microsoft AZ-900 exam.",
-    back: "Detailed explanation for AZ-900 card #120: Describes Microsoft Azure architecture, cloud economics, governance policies, and service level agreements (SLAs).",
-    tags: ["Azure", "AZ-900", "Flashcards", "Describe Azure Architecture and Services"]
+    "id": "azure-az900-fc-120",
+    "difficulty": "hard",
+    "certId": "azure-az900",
+    "domainId": "d2",
+    "front": "Azure Architectural Service #20",
+    "hint": "Core component of Microsoft Azure cloud architecture.",
+    "back": "<strong>Azure Architectural Service #20</strong> provides scalable, managed infrastructure supporting secure networking, resilient compute, and low-latency data access aligned with Microsoft Well-Architected Framework guidelines.",
+    "tags": [
+      "Azure Services",
+      "Architecture"
+    ]
   },
   {
-    id: "azure-az900-fc-121",
-    difficulty: "easy",
-    certId: "azure-az900",
-    domainId: "d2",
-    front: "What is the core principle of Azure Topic #121 in Describe Azure Architecture and Services?",
-    hint: "Key fundamental concept tested on the Microsoft AZ-900 exam.",
-    back: "Detailed explanation for AZ-900 card #121: Describes Microsoft Azure architecture, cloud economics, governance policies, and service level agreements (SLAs).",
-    tags: ["Azure", "AZ-900", "Flashcards", "Describe Azure Architecture and Services"]
+    "id": "azure-az900-fc-121",
+    "difficulty": "medium",
+    "certId": "azure-az900",
+    "domainId": "d2",
+    "front": "Azure Architectural Service #21",
+    "hint": "Core component of Microsoft Azure cloud architecture.",
+    "back": "<strong>Azure Architectural Service #21</strong> provides scalable, managed infrastructure supporting secure networking, resilient compute, and low-latency data access aligned with Microsoft Well-Architected Framework guidelines.",
+    "tags": [
+      "Azure Services",
+      "Architecture"
+    ]
   },
   {
-    id: "azure-az900-fc-122",
-    difficulty: "medium",
-    certId: "azure-az900",
-    domainId: "d2",
-    front: "What is the core principle of Azure Topic #122 in Describe Azure Architecture and Services?",
-    hint: "Key fundamental concept tested on the Microsoft AZ-900 exam.",
-    back: "Detailed explanation for AZ-900 card #122: Describes Microsoft Azure architecture, cloud economics, governance policies, and service level agreements (SLAs).",
-    tags: ["Azure", "AZ-900", "Flashcards", "Describe Azure Architecture and Services"]
+    "id": "azure-az900-fc-122",
+    "difficulty": "hard",
+    "certId": "azure-az900",
+    "domainId": "d2",
+    "front": "Azure Architectural Service #22",
+    "hint": "Core component of Microsoft Azure cloud architecture.",
+    "back": "<strong>Azure Architectural Service #22</strong> provides scalable, managed infrastructure supporting secure networking, resilient compute, and low-latency data access aligned with Microsoft Well-Architected Framework guidelines.",
+    "tags": [
+      "Azure Services",
+      "Architecture"
+    ]
   },
   {
-    id: "azure-az900-fc-123",
-    difficulty: "hard",
-    certId: "azure-az900",
-    domainId: "d2",
-    front: "What is the core principle of Azure Topic #123 in Describe Azure Architecture and Services?",
-    hint: "Key fundamental concept tested on the Microsoft AZ-900 exam.",
-    back: "Detailed explanation for AZ-900 card #123: Describes Microsoft Azure architecture, cloud economics, governance policies, and service level agreements (SLAs).",
-    tags: ["Azure", "AZ-900", "Flashcards", "Describe Azure Architecture and Services"]
+    "id": "azure-az900-fc-123",
+    "difficulty": "medium",
+    "certId": "azure-az900",
+    "domainId": "d2",
+    "front": "Azure Architectural Service #23",
+    "hint": "Core component of Microsoft Azure cloud architecture.",
+    "back": "<strong>Azure Architectural Service #23</strong> provides scalable, managed infrastructure supporting secure networking, resilient compute, and low-latency data access aligned with Microsoft Well-Architected Framework guidelines.",
+    "tags": [
+      "Azure Services",
+      "Architecture"
+    ]
   },
   {
-    id: "azure-az900-fc-124",
-    difficulty: "medium",
-    certId: "azure-az900",
-    domainId: "d2",
-    front: "What is the core principle of Azure Topic #124 in Describe Azure Architecture and Services?",
-    hint: "Key fundamental concept tested on the Microsoft AZ-900 exam.",
-    back: "Detailed explanation for AZ-900 card #124: Describes Microsoft Azure architecture, cloud economics, governance policies, and service level agreements (SLAs).",
-    tags: ["Azure", "AZ-900", "Flashcards", "Describe Azure Architecture and Services"]
+    "id": "azure-az900-fc-124",
+    "difficulty": "hard",
+    "certId": "azure-az900",
+    "domainId": "d2",
+    "front": "Azure Architectural Service #24",
+    "hint": "Core component of Microsoft Azure cloud architecture.",
+    "back": "<strong>Azure Architectural Service #24</strong> provides scalable, managed infrastructure supporting secure networking, resilient compute, and low-latency data access aligned with Microsoft Well-Architected Framework guidelines.",
+    "tags": [
+      "Azure Services",
+      "Architecture"
+    ]
   },
   {
-    id: "azure-az900-fc-125",
-    difficulty: "easy",
-    certId: "azure-az900",
-    domainId: "d2",
-    front: "What is the core principle of Azure Topic #125 in Describe Azure Architecture and Services?",
-    hint: "Key fundamental concept tested on the Microsoft AZ-900 exam.",
-    back: "Detailed explanation for AZ-900 card #125: Describes Microsoft Azure architecture, cloud economics, governance policies, and service level agreements (SLAs).",
-    tags: ["Azure", "AZ-900", "Flashcards", "Describe Azure Architecture and Services"]
+    "id": "azure-az900-fc-125",
+    "difficulty": "medium",
+    "certId": "azure-az900",
+    "domainId": "d2",
+    "front": "Azure Architectural Service #25",
+    "hint": "Core component of Microsoft Azure cloud architecture.",
+    "back": "<strong>Azure Architectural Service #25</strong> provides scalable, managed infrastructure supporting secure networking, resilient compute, and low-latency data access aligned with Microsoft Well-Architected Framework guidelines.",
+    "tags": [
+      "Azure Services",
+      "Architecture"
+    ]
   }
 ];
 
