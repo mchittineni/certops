@@ -3,39 +3,39 @@ export const K8S_CKS_FLASHCARDS_7 = [
     "id": "k8s-cks-fc-151",
     "difficulty": "medium",
     "certId": "k8s-cks",
-    "domainId": "d1",
-    "front": "In CKS (Cluster Setup and Hardening), how does CIS Kubernetes Benchmark assessment with kube-bench function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>CIS Kubernetes Benchmark assessment with kube-bench</strong> establishes automated declarative workflows within Cluster Setup and Hardening. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d4",
+    "front": "Cosign Keyless Verification Flags: Which two flags verify GitHub Actions signers?",
+    "hint": "--certificate-identity-regexp and --certificate-oidc-issuer.",
+    "back": "Use <strong>--certificate-identity-regexp</strong> (matching the expected workflow path) and <strong>--certificate-oidc-issuer</strong> (e.g., <code>https://token.actions.githubusercontent.com</code>).",
     "tags": [
       "CKS",
-      "Cluster"
+      "Supply"
     ]
   },
   {
     "id": "k8s-cks-fc-152",
     "difficulty": "medium",
     "certId": "k8s-cks",
-    "domainId": "d2",
-    "front": "In CKS (System Hardening and Kernel Security), how does AppArmor profile enforcement via container annotations function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>AppArmor profile enforcement via container annotations</strong> establishes automated declarative workflows within System Hardening and Kernel Security. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d4",
+    "front": "BuildKit Secret Mounts: How do you use tokens in Docker builds without leaking them into layers?",
+    "hint": "RUN --mount=type=secret.",
+    "back": "Use <strong>RUN --mount=type=secret,id=mysecret</strong>. The secret is temporarily mounted in memory during the RUN step and is never committed to image layers or history.",
     "tags": [
       "CKS",
-      "System"
+      "Supply"
     ]
   },
   {
     "id": "k8s-cks-fc-153",
-    "difficulty": "easy",
+    "difficulty": "hard",
     "certId": "k8s-cks",
-    "domainId": "d3",
-    "front": "In CKS (Minimize Microservice Vulnerabilities), how does Pod Security Standards enforce baseline and restricted profiles function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Pod Security Standards enforce baseline and restricted profiles</strong> establishes automated declarative workflows within Minimize Microservice Vulnerabilities. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d4",
+    "front": "Eliminating sudo in Containers: Why should sudo be removed from images?",
+    "hint": "Eliminates setuid binaries and local privilege escalation vectors.",
+    "back": "Containers run as specific users and do not need <code>sudo</code>. Keeping it leaves a high-risk setuid binary that can be leveraged for privilege escalation exploits.",
     "tags": [
       "CKS",
-      "Minimize"
+      "Supply"
     ]
   },
   {
@@ -43,9 +43,9 @@ export const K8S_CKS_FLASHCARDS_7 = [
     "difficulty": "medium",
     "certId": "k8s-cks",
     "domainId": "d4",
-    "front": "In CKS (Supply Chain Security and Static Analysis), how does Container image vulnerability scanning with Trivy in CI function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Container image vulnerability scanning with Trivy in CI</strong> establishes automated declarative workflows within Supply Chain Security and Static Analysis. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "front": "Dockerfile USER Instruction: Where should the USER instruction be placed?",
+    "hint": "In the final runtime stage before ENTRYPOINT.",
+    "back": "Declare <strong>USER &lt;unprivileged-user&gt;</strong> in the final stage before <code>ENTRYPOINT</code>. This ensures the container defaults to unprivileged execution at runtime.",
     "tags": [
       "CKS",
       "Supply"
@@ -53,77 +53,77 @@ export const K8S_CKS_FLASHCARDS_7 = [
   },
   {
     "id": "k8s-cks-fc-155",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "certId": "k8s-cks",
-    "domainId": "d5",
-    "front": "In CKS (Monitoring, Logging and Runtime Security), how does Falco runtime security rules detecting shell spawns in pods function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Falco runtime security rules detecting shell spawns in pods</strong> establishes automated declarative workflows within Monitoring, Logging and Runtime Security. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d4",
+    "front": ".trivyignore: How do you document accepted vulnerability risks in Trivy?",
+    "hint": "List CVE IDs in .trivyignore file with expiration dates.",
+    "back": "Add the CVE identifier to a <strong>.trivyignore</strong> file with comments and optional expiration dates, suppressing specific known non-exploitable findings during CI.",
     "tags": [
       "CKS",
-      "Monitoring,"
+      "Supply"
     ]
   },
   {
     "id": "k8s-cks-fc-156",
     "difficulty": "easy",
     "certId": "k8s-cks",
-    "domainId": "d6",
-    "front": "In CKS (Cluster Threat Defense and Admission Control), how does ValidatingWebhookConfiguration for policy admission enforcement function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>ValidatingWebhookConfiguration for policy admission enforcement</strong> establishes automated declarative workflows within Cluster Threat Defense and Admission Control. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d4",
+    "front": "Gatekeeper Digest Enforcement: How does Rego verify image digests?",
+    "hint": "Checks contains(image, '@sha256:').",
+    "back": "The Rego policy checks that every container image string contains <strong>@sha256:</strong>, denying admission to any manifest specifying mutable tags.",
     "tags": [
       "CKS",
-      "Cluster"
+      "Supply"
     ]
   },
   {
     "id": "k8s-cks-fc-157",
     "difficulty": "medium",
     "certId": "k8s-cks",
-    "domainId": "d1",
-    "front": "In CKS (Cluster Setup and Hardening), how does NetworkPolicy default-deny ingress and egress rules function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>NetworkPolicy default-deny ingress and egress rules</strong> establishes automated declarative workflows within Cluster Setup and Hardening. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d4",
+    "front": "CNCF Notation / Notary: Where are OCI-native signatures stored?",
+    "hint": "Directly in the OCI registry alongside the image.",
+    "back": "Signatures are stored as <strong>OCI artifacts</strong> directly in the container registry, traveling natively with images when replicated across environments.",
     "tags": [
       "CKS",
-      "Cluster"
+      "Supply"
     ]
   },
   {
     "id": "k8s-cks-fc-158",
     "difficulty": "medium",
     "certId": "k8s-cks",
-    "domainId": "d2",
-    "front": "In CKS (System Hardening and Kernel Security), how does Seccomp profile confinement with RuntimeDefault function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Seccomp profile confinement with RuntimeDefault</strong> establishes automated declarative workflows within System Hardening and Kernel Security. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d4",
+    "front": "Shellshock Mitigation: Why does Distroless protect against Shellshock?",
+    "hint": "Omits Bash and all shell interpreters.",
+    "back": "Distroless contains no <code>bash</code> or <code>sh</code> binaries, making environment-variable-based shell injection exploits physically impossible.",
     "tags": [
       "CKS",
-      "System"
+      "Supply"
     ]
   },
   {
     "id": "k8s-cks-fc-159",
-    "difficulty": "easy",
+    "difficulty": "hard",
     "certId": "k8s-cks",
-    "domainId": "d3",
-    "front": "In CKS (Minimize Microservice Vulnerabilities), how does Configuring securityContext readOnlyRootFilesystem function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Configuring securityContext readOnlyRootFilesystem</strong> establishes automated declarative workflows within Minimize Microservice Vulnerabilities. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d4",
+    "front": "Helm Chart Security Scanning: How do you scan Helm charts in CI before deployment?",
+    "hint": "helm template piped into kubesec or checkov.",
+    "back": "Run <strong>helm template &lt;chart&gt; | kubesec scan -</strong> to render the Kubernetes YAML manifests and evaluate them against security best practices.",
     "tags": [
       "CKS",
-      "Minimize"
+      "Supply"
     ]
   },
   {
     "id": "k8s-cks-fc-160",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "certId": "k8s-cks",
     "domainId": "d4",
-    "front": "In CKS (Supply Chain Security and Static Analysis), how does Image digest pinning using sha256 immutable references function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Image digest pinning using sha256 immutable references</strong> establishes automated declarative workflows within Supply Chain Security and Static Analysis. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "front": "Banning :latest Tag in Kyverno: How does Kyverno block mutable tags?",
+    "hint": "Validate pattern matching !*:latest.",
+    "back": "Define a validation rule with pattern <strong>spec.containers[*].image: '!*:latest'</strong>, rejecting any incoming manifest that specifies the <code>latest</code> tag.",
     "tags": [
       "CKS",
       "Supply"
@@ -133,65 +133,65 @@ export const K8S_CKS_FLASHCARDS_7 = [
     "id": "k8s-cks-fc-161",
     "difficulty": "medium",
     "certId": "k8s-cks",
-    "domainId": "d5",
-    "front": "In CKS (Monitoring, Logging and Runtime Security), how does Kubernetes API server audit logging configuration function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Kubernetes API server audit logging configuration</strong> establishes automated declarative workflows within Monitoring, Logging and Runtime Security. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d4",
+    "front": "Registry Access Control: Who should have write access to production container repositories?",
+    "hint": "Automated CI/CD robot accounts only; humans read-only.",
+    "back": "Only <strong>automated CI/CD robot accounts</strong> should possess push permissions to production registries. Developers should have read-only access to prevent untracked pushes.",
     "tags": [
       "CKS",
-      "Monitoring,"
+      "Supply"
     ]
   },
   {
     "id": "k8s-cks-fc-162",
     "difficulty": "easy",
     "certId": "k8s-cks",
-    "domainId": "d6",
-    "front": "In CKS (Cluster Threat Defense and Admission Control), how does MutatingWebhookConfiguration injecting sidecars securely function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>MutatingWebhookConfiguration injecting sidecars securely</strong> establishes automated declarative workflows within Cluster Threat Defense and Admission Control. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d4",
+    "front": "Hadolint DL3002: What is the risk of omitting the USER instruction in a Dockerfile?",
+    "hint": "Container defaults to root execution.",
+    "back": "Without a <code>USER</code> directive, the container executes as <strong>root UID 0</strong>, dramatically increasing attack impact in the event of an application exploit.",
     "tags": [
       "CKS",
-      "Cluster"
+      "Supply"
     ]
   },
   {
     "id": "k8s-cks-fc-163",
     "difficulty": "medium",
     "certId": "k8s-cks",
-    "domainId": "d1",
-    "front": "In CKS (Cluster Setup and Hardening), how does etcd encryption at rest with EncryptionConfiguration function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>etcd encryption at rest with EncryptionConfiguration</strong> establishes automated declarative workflows within Cluster Setup and Hardening. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d4",
+    "front": "Trufflehog Git History Scanning: What makes Trufflehog effective for secret discovery?",
+    "hint": "Scans historical commits and verifies live API keys.",
+    "back": "It inspects all past git commits, branches, and diffs for <strong>high-entropy secrets</strong> and can actively query APIs to check if leaked credentials are live.",
     "tags": [
       "CKS",
-      "Cluster"
+      "Supply"
     ]
   },
   {
     "id": "k8s-cks-fc-164",
     "difficulty": "medium",
     "certId": "k8s-cks",
-    "domainId": "d2",
-    "front": "In CKS (System Hardening and Kernel Security), how does Linux capabilities dropping ALL and adding NET_BIND_SERVICE function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Linux capabilities dropping ALL and adding NET_BIND_SERVICE</strong> establishes automated declarative workflows within System Hardening and Kernel Security. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d4",
+    "front": "npm ci vs npm install: Why use npm ci in production container builds?",
+    "hint": "Strict lockfile adherence and hash verification.",
+    "back": "<strong>npm ci</strong> strictly enforces <code>package-lock.json</code>, verifies cryptographic SHA hashes of dependencies, and never updates lockfiles, preventing supply chain drift.",
     "tags": [
       "CKS",
-      "System"
+      "Supply"
     ]
   },
   {
     "id": "k8s-cks-fc-165",
     "difficulty": "hard",
     "certId": "k8s-cks",
-    "domainId": "d3",
-    "front": "In CKS (Minimize Microservice Vulnerabilities), how does Kubernetes Secret encryption with KMS plugin integration function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Kubernetes Secret encryption with KMS plugin integration</strong> establishes automated declarative workflows within Minimize Microservice Vulnerabilities. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d4",
+    "front": "Connaisseur Webhook: What is Connaisseur's role in admission control?",
+    "hint": "Validating admission webhook for Cosign/Notary signatures.",
+    "back": "It runs as a <strong>ValidatingAdmissionWebhook</strong> that intercepts pod creation requests, validates Cosign or Notary signatures, and blocks unsigned images.",
     "tags": [
       "CKS",
-      "Minimize"
+      "Supply"
     ]
   },
   {
@@ -199,9 +199,9 @@ export const K8S_CKS_FLASHCARDS_7 = [
     "difficulty": "medium",
     "certId": "k8s-cks",
     "domainId": "d4",
-    "front": "In CKS (Supply Chain Security and Static Analysis), how does Cosign cryptographic signature verification before deployment function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Cosign cryptographic signature verification before deployment</strong> establishes automated declarative workflows within Supply Chain Security and Static Analysis. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "front": "Package Cache Cleanup: Why delete /var/lib/apt/lists/* in the same RUN layer?",
+    "hint": "Prevents temporary package cache data from persisting in image layers.",
+    "back": "Deleting package lists in the <strong>same RUN instruction</strong> ensures cache data is never written into the image layer, saving disk space and reducing attack surface.",
     "tags": [
       "CKS",
       "Supply"
@@ -211,65 +211,65 @@ export const K8S_CKS_FLASHCARDS_7 = [
     "id": "k8s-cks-fc-167",
     "difficulty": "medium",
     "certId": "k8s-cks",
-    "domainId": "d5",
-    "front": "In CKS (Monitoring, Logging and Runtime Security), how does Detecting container escape attempts and kernel exploitation function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Detecting container escape attempts and kernel exploitation</strong> establishes automated declarative workflows within Monitoring, Logging and Runtime Security. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d4",
+    "front": "Distroless :nonroot Variant: What UID does the nonroot user have?",
+    "hint": "UID 65532.",
+    "back": "The nonroot user has <strong>UID 65532</strong>. Images built on <code>:nonroot</code> execute as this unprivileged user by default.",
     "tags": [
       "CKS",
-      "Monitoring,"
+      "Supply"
     ]
   },
   {
     "id": "k8s-cks-fc-168",
     "difficulty": "easy",
     "certId": "k8s-cks",
-    "domainId": "d6",
-    "front": "In CKS (Cluster Threat Defense and Admission Control), how does Open Policy Agent Gatekeeper ConstraintTemplates and Constraints function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Open Policy Agent Gatekeeper ConstraintTemplates and Constraints</strong> establishes automated declarative workflows within Cluster Threat Defense and Admission Control. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d4",
+    "front": "Clair Vulnerability Scanner: How does Clair detect CVEs in container images?",
+    "hint": "Static analysis of image layers matched against CVE databases.",
+    "back": "Clair inspects filesystem layers, extracts installed OS package metadata, and matches versions against official security advisories and CVE databases.",
     "tags": [
       "CKS",
-      "Cluster"
+      "Supply"
     ]
   },
   {
     "id": "k8s-cks-fc-169",
     "difficulty": "medium",
     "certId": "k8s-cks",
-    "domainId": "d1",
-    "front": "In CKS (Cluster Setup and Hardening), how does API server authorization modes Node and RBAC function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>API server authorization modes Node and RBAC</strong> establishes automated declarative workflows within Cluster Setup and Hardening. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d4",
+    "front": "Dependency Typosquatting Defense: How do private registry proxies mitigate malicious packages?",
+    "hint": "Scoped namespaces and internal approval allow-lists.",
+    "back": "Internal artifact proxies (Nexus/Artifactory) enforce <strong>strict package scoping</strong> and allow-lists, preventing developers from pulling spoofed public packages.",
     "tags": [
       "CKS",
-      "Cluster"
+      "Supply"
     ]
   },
   {
     "id": "k8s-cks-fc-170",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "certId": "k8s-cks",
-    "domainId": "d2",
-    "front": "In CKS (System Hardening and Kernel Security), how does Restricting hostPath volume mounts with Pod Security Standards function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Restricting hostPath volume mounts with Pod Security Standards</strong> establishes automated declarative workflows within System Hardening and Kernel Security. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d4",
+    "front": "Docker Content Trust (DCT): What environment variable enables DCT in Docker CLI?",
+    "hint": "DOCKER_CONTENT_TRUST=1.",
+    "back": "Set <strong>export DOCKER_CONTENT_TRUST=1</strong>. The Docker client will verify digital signatures via Notary v1 before pulling or running images.",
     "tags": [
       "CKS",
-      "System"
+      "Supply"
     ]
   },
   {
     "id": "k8s-cks-fc-171",
-    "difficulty": "easy",
+    "difficulty": "hard",
     "certId": "k8s-cks",
-    "domainId": "d3",
-    "front": "In CKS (Minimize Microservice Vulnerabilities), how does ServiceAccount automountServiceAccountToken set to false function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>ServiceAccount automountServiceAccountToken set to false</strong> establishes automated declarative workflows within Minimize Microservice Vulnerabilities. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d4",
+    "front": "Preventing Stale Images: How do you address base images that have aged in production?",
+    "hint": "Automated recurring rebuild and test pipelines.",
+    "back": "Schedule <strong>regular automated CI builds</strong> that pull freshly patched base images, execute vulnerability scans, and trigger rolling cluster deployments.",
     "tags": [
       "CKS",
-      "Minimize"
+      "Supply"
     ]
   },
   {
@@ -277,9 +277,9 @@ export const K8S_CKS_FLASHCARDS_7 = [
     "difficulty": "medium",
     "certId": "k8s-cks",
     "domainId": "d4",
-    "front": "In CKS (Supply Chain Security and Static Analysis), how does Base image minimization using Google distroless containers function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Base image minimization using Google distroless containers</strong> establishes automated declarative workflows within Supply Chain Security and Static Analysis. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "front": "Red Hat UBI Minimal Builds: How do you install packages and end as non-root?",
+    "hint": "microdnf install && clean all as root, followed by USER 1001.",
+    "back": "Run <code>microdnf install -y ... && microdnf clean all</code> as root during build, then declare <strong>USER 1001</strong> before the entrypoint.",
     "tags": [
       "CKS",
       "Supply"
@@ -289,39 +289,39 @@ export const K8S_CKS_FLASHCARDS_7 = [
     "id": "k8s-cks-fc-173",
     "difficulty": "medium",
     "certId": "k8s-cks",
-    "domainId": "d5",
-    "front": "In CKS (Monitoring, Logging and Runtime Security), how does Analyzing suspicious network connections from compromised pods function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Analyzing suspicious network connections from compromised pods</strong> establishes automated declarative workflows within Monitoring, Logging and Runtime Security. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d4",
+    "front": "Trivy Config Scanning: What does trivy config evaluate?",
+    "hint": "Kubernetes manifest security misconfigurations.",
+    "back": "It scans Kubernetes YAML, Terraform, and Helm charts for <strong>configuration flaws</strong> (e.g., missing seccomp, root containers, missing resource limits) before deployment.",
     "tags": [
       "CKS",
-      "Monitoring,"
+      "Supply"
     ]
   },
   {
     "id": "k8s-cks-fc-174",
     "difficulty": "easy",
     "certId": "k8s-cks",
-    "domainId": "d6",
-    "front": "In CKS (Cluster Threat Defense and Admission Control), how does Kyverno cluster policies preventing privileged containers function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Kyverno cluster policies preventing privileged containers</strong> establishes automated declarative workflows within Cluster Threat Defense and Admission Control. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d4",
+    "front": "Rekor Transparency Log Search: How do you query the Rekor ledger by artifact digest?",
+    "hint": "rekor-cli search --sha &lt;hash&gt;.",
+    "back": "Run <strong>rekor-cli search --sha &lt;hash&gt;</strong>. It queries the immutable transparency log to retrieve the signing certificate and timestamp record.",
     "tags": [
       "CKS",
-      "Cluster"
+      "Supply"
     ]
   },
   {
     "id": "k8s-cks-fc-175",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "certId": "k8s-cks",
-    "domainId": "d1",
-    "front": "In CKS (Cluster Setup and Hardening), how does Restricting anonymous authentication on kubelet port 10250 function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Restricting anonymous authentication on kubelet port 10250</strong> establishes automated declarative workflows within Cluster Setup and Hardening. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d4",
+    "front": "COPY --chown in Dockerfiles: Why use --chown in COPY instead of RUN chown?",
+    "hint": "Avoids duplicating files in a separate layer.",
+    "back": "<strong>COPY --chown=&lt;user&gt;:&lt;group&gt;</strong> sets ownership during file transfer. Running <code>RUN chown -R</code> afterward creates a duplicate copy of the files in a new layer, doubling image size.",
     "tags": [
       "CKS",
-      "Cluster"
+      "Supply"
     ]
   }
 ];
