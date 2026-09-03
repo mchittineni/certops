@@ -9,12 +9,12 @@ export const HASHICORP_TFP_QUESTIONS_8 = [
     scenario: "A variable holds a map of VPCs, each containing a list of subnets, and one subnet resource must be created for every VPC and subnet combination.",
     question: "Which approach produces suitable for_each keys?",
     options: [
-      { id: 'A', text: "Use for_each directly on the nested map, which iterates all levels." },
-      { id: 'B', text: "Use count with the total number of subnets." },
+      { id: 'A', text: "Build a flattened list of objects with a nested for expression, then convert it to a map keyed by a composite string such as \"vpc-subnet\"." },
+      { id: 'B', text: "Use for_each directly on the nested map, which iterates all levels." },
       { id: 'C', text: "Create one module instance per VPC and use count inside it." },
-      { id: 'D', text: "Build a flattened list of objects with a nested for expression, then convert it to a map keyed by a composite string such as \"vpc-subnet\"." }
+      { id: 'D', text: "Use count with the total number of subnets." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "for_each iterates one level, so nested data must be flattened into a single collection and given stable composite keys, which is the documented pattern. Counting the total reintroduces positional keys that shift on removal, and pushing count inside a per-VPC module hides rather than solves the indexing problem.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/functions/flatten",
@@ -52,11 +52,11 @@ export const HASHICORP_TFP_QUESTIONS_8 = [
     question: "Which properties matter most?",
     options: [
       { id: 'A', text: "Running with -auto-approve so no prompt blocks the retry." },
-      { id: 'B', text: "Deleting state before each attempt for a clean slate." },
-      { id: 'C', text: "Reliable state locking, applying a saved plan, deterministic provider and module versions, and idempotent apply semantics so a re-run converges rather than duplicates." },
-      { id: 'D', text: "Using -target to retry only the failed resource." }
+      { id: 'B', text: "Reliable state locking, applying a saved plan, deterministic provider and module versions, and idempotent apply semantics so a re-run converges rather than duplicates." },
+      { id: 'C', text: "Using -target to retry only the failed resource." },
+      { id: 'D', text: "Deleting state before each attempt for a clean slate." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Terraform apply is convergent by design, so re-runs are safe when state is protected by locking, versions are pinned, and the plan being applied is the reviewed one. Auto-approve only removes a prompt, deleting state guarantees duplication, and habitual targeting leaves the configuration and state inconsistent.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/run",
@@ -73,11 +73,11 @@ export const HASHICORP_TFP_QUESTIONS_8 = [
     question: "Which approach is idiomatic in Terraform?",
     options: [
       { id: 'A', text: "One configuration with conditionals on terraform.workspace throughout." },
-      { id: 'B', text: "One shared module with input variables, called by two thin root configurations that pass different values." },
-      { id: 'C', text: "Two copies of the configuration kept in sync manually." },
-      { id: 'D', text: "Symbolic links between the two directories." }
+      { id: 'B', text: "Symbolic links between the two directories." },
+      { id: 'C', text: "One shared module with input variables, called by two thin root configurations that pass different values." },
+      { id: 'D', text: "Two copies of the configuration kept in sync manually." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Terraform has no inheritance, so sharing happens through modules parameterised by variables, with each environment root supplying its own values and holding its own state. Duplication drifts, workspace conditionals scatter environment logic through the code, and symlinks obscure what is actually being applied.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/modules/develop/composition",
@@ -93,10 +93,10 @@ export const HASHICORP_TFP_QUESTIONS_8 = [
     scenario: "An engineer generates a graph to understand why a resource is created before another.",
     question: "What does the graph show?",
     options: [
-      { id: 'A', text: "The provider API calls that will be made." },
-      { id: 'B', text: "The order in which resources were created historically." },
+      { id: 'A', text: "The order in which resources were created historically." },
+      { id: 'B', text: "The physical network topology of the created infrastructure." },
       { id: 'C', text: "The dependency relationships Terraform derived from references and depends_on, which determine the order operations may run in." },
-      { id: 'D', text: "The physical network topology of the created infrastructure." }
+      { id: 'D', text: "The provider API calls that will be made." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -114,12 +114,12 @@ export const HASHICORP_TFP_QUESTIONS_8 = [
     scenario: "An existing configuration with local state must move to HCP Terraform with its resources intact.",
     question: "What is the supported sequence?",
     options: [
-      { id: 'A', text: "Upload terraform.tfstate through the UI as the first step, then add the cloud block." },
-      { id: 'B', text: "Add a cloud block naming the organisation and workspace, run terraform init and confirm the state migration, then set variables and execution mode in the workspace." },
+      { id: 'A', text: "Create the workspace, run terraform destroy locally, then apply remotely." },
+      { id: 'B', text: "Upload terraform.tfstate through the UI as the first step, then add the cloud block." },
       { id: 'C', text: "Rename the state file to match the workspace name." },
-      { id: 'D', text: "Create the workspace, run terraform destroy locally, then apply remotely." }
+      { id: 'D', text: "Add a cloud block naming the organisation and workspace, run terraform init and confirm the state migration, then set variables and execution mode in the workspace." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Terraform detects the new cloud block during init and offers to migrate existing state into the named workspace, after which variables and execution settings are configured there. Destroying and recreating discards live infrastructure, and manual state upload skips the consistency checks the migration performs.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/cloud/migrating",
@@ -177,10 +177,10 @@ export const HASHICORP_TFP_QUESTIONS_8 = [
     scenario: "A curated internal module keeps getting feature requests for provider arguments it does not expose, and forking is becoming common.",
     question: "Which design response is reasonable?",
     options: [
-      { id: 'A', text: "Refuse all requests to keep the interface small." },
-      { id: 'B', text: "Expose every provider argument as an input to prevent all future requests." },
+      { id: 'A', text: "Expose every provider argument as an input to prevent all future requests." },
+      { id: 'B', text: "Encourage teams to fork and maintain their own copies." },
       { id: 'C', text: "Add a small number of well-typed pass-through inputs for the genuinely needed arguments, and expose resource ids as outputs so callers can attach their own resources." },
-      { id: 'D', text: "Encourage teams to fork and maintain their own copies." }
+      { id: 'D', text: "Refuse all requests to keep the interface small." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -282,12 +282,12 @@ export const HASHICORP_TFP_QUESTIONS_8 = [
     scenario: "An organisation with two hundred workspaces wants a grouping layer for permissions and shared variables.",
     question: "Which grouping is most useful?",
     options: [
-      { id: 'A', text: "Group workspaces by the team or application that owns them, so project-level permissions and variable sets match real ownership." },
-      { id: 'B', text: "Group alphabetically for findability." },
-      { id: 'C', text: "Group by Terraform version." },
-      { id: 'D', text: "Group by cloud provider only." }
+      { id: 'A', text: "Group alphabetically for findability." },
+      { id: 'B', text: "Group workspaces by the team or application that owns them, so project-level permissions and variable sets match real ownership." },
+      { id: 'C', text: "Group by cloud provider only." },
+      { id: 'D', text: "Group by Terraform version." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Projects exist to align access control and shared configuration with ownership boundaries, which is what makes permissions and variable sets meaningful. Provider, version, and alphabetical groupings do not correspond to who should be allowed to change what.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cloud-docs/projects/manage",
@@ -325,9 +325,9 @@ export const HASHICORP_TFP_QUESTIONS_8 = [
     question: "Where do those two checks belong?",
     options: [
       { id: 'A', text: "The approved-list assertion in a precondition, and the resulting-zone assertion in a postcondition." },
-      { id: 'B', text: "Both in variable validation blocks." },
-      { id: 'C', text: "Both in postconditions." },
-      { id: 'D', text: "Both in preconditions." }
+      { id: 'B', text: "Both in postconditions." },
+      { id: 'C', text: "Both in preconditions." },
+      { id: 'D', text: "Both in variable validation blocks." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -346,11 +346,11 @@ export const HASHICORP_TFP_QUESTIONS_8 = [
     question: "Which files should be ignored, and which committed?",
     options: [
       { id: 'A', text: "Commit state so the team can share it." },
-      { id: 'B', text: "Ignore .terraform.lock.hcl so each machine resolves fresh providers." },
-      { id: 'C', text: "Ignore .terraform/, *.tfstate, *.tfstate.backup, crash logs, and any tfvars containing secrets; commit .terraform.lock.hcl and the configuration." },
-      { id: 'D', text: "Ignore all .tf files in modules directories." }
+      { id: 'B', text: "Ignore all .tf files in modules directories." },
+      { id: 'C', text: "Ignore .terraform.lock.hcl so each machine resolves fresh providers." },
+      { id: 'D', text: "Ignore .terraform/, *.tfstate, *.tfstate.backup, crash logs, and any tfvars containing secrets; commit .terraform.lock.hcl and the configuration." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Local caches, state, and secret-bearing variable files must stay out of version control, while the lock file is committed precisely so every environment resolves identical providers. Committing state exposes secrets and invites conflicts, and ignoring the lock file destroys reproducibility.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/files/dependency-lock",
@@ -366,12 +366,12 @@ export const HASHICORP_TFP_QUESTIONS_8 = [
     scenario: "A singular data source fails with an error saying the query returned more than one result.",
     question: "Which fix is appropriate?",
     options: [
-      { id: 'A', text: "Tighten the filters so exactly one object matches, or switch to the plural data source and select deterministically from the results." },
-      { id: 'B', text: "Add count = 1 to the data source." },
-      { id: 'C', text: "Wrap the data source in try()." },
-      { id: 'D', text: "Re-run with -refresh=false." }
+      { id: 'A', text: "Wrap the data source in try()." },
+      { id: 'B', text: "Re-run with -refresh=false." },
+      { id: 'C', text: "Tighten the filters so exactly one object matches, or switch to the plural data source and select deterministically from the results." },
+      { id: 'D', text: "Add count = 1 to the data source." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "A singular data source is contractually required to match one object, so either the query must be made precise or the plural form used with an explicit selection rule. Adding count does not change how many objects the query matches, try would swallow a genuine ambiguity, and skipping refresh does not affect data source reads in the plan.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/data-sources",
@@ -387,12 +387,12 @@ export const HASHICORP_TFP_QUESTIONS_8 = [
     scenario: "A remote backend rejects a state write, reporting a serial mismatch.",
     question: "What does that indicate?",
     options: [
-      { id: 'A', text: "The Terraform version is too new." },
-      { id: 'B', text: "The state file is corrupt." },
-      { id: 'C', text: "The stored state advanced since this operation read it, meaning another run wrote in between; re-run so the operation is based on current state." },
+      { id: 'A', text: "The state file is corrupt." },
+      { id: 'B', text: "The stored state advanced since this operation read it, meaning another run wrote in between; re-run so the operation is based on current state." },
+      { id: 'C', text: "The Terraform version is too new." },
       { id: 'D', text: "The lineage identifier changed." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "The serial increments on every write and acts as an optimistic concurrency check, so a mismatch means the state moved on and the safe response is to re-plan against the current state. Corruption, version skew, and lineage mismatches all produce different, distinctly worded errors.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/state/locking",
@@ -408,10 +408,10 @@ export const HASHICORP_TFP_QUESTIONS_8 = [
     scenario: "Every resource must carry owner and cost-centre tags, and teams keep forgetting.",
     question: "Which combination is most effective?",
     options: [
-      { id: 'A', text: "A wiki page describing the standard." },
-      { id: 'B', text: "A post-apply script that adds missing tags outside Terraform." },
+      { id: 'A', text: "A policy alone, with no help for teams to comply." },
+      { id: 'B', text: "A wiki page describing the standard." },
       { id: 'C', text: "Provider default_tags or a shared tagging module for the happy path, plus a mandatory policy that fails runs whose plan contains untagged resources." },
-      { id: 'D', text: "A policy alone, with no help for teams to comply." }
+      { id: 'D', text: "A post-apply script that adds missing tags outside Terraform." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -429,12 +429,12 @@ export const HASHICORP_TFP_QUESTIONS_8 = [
     scenario: "A newcomer asks why some blocks start with resource and others with data.",
     question: "Which distinction is correct?",
     options: [
-      { id: 'A', text: "A resource is an object Terraform creates, updates, and destroys; a data source only reads information about something Terraform does not manage." },
-      { id: 'B', text: "Resources are for cloud objects and data sources for local files only." },
-      { id: 'C', text: "Data sources are read from state, resources from the provider." },
-      { id: 'D', text: "A data source is a resource that is created but never destroyed." }
+      { id: 'A', text: "A data source is a resource that is created but never destroyed." },
+      { id: 'B', text: "Data sources are read from state, resources from the provider." },
+      { id: 'C', text: "Resources are for cloud objects and data sources for local files only." },
+      { id: 'D', text: "A resource is an object Terraform creates, updates, and destroys; a data source only reads information about something Terraform does not manage." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Managed resources have a full lifecycle in state, while data sources perform read-only lookups that are refreshed each plan and never created or destroyed. Both types are served by providers, and data sources cover far more than local files.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/data-sources",
@@ -450,12 +450,12 @@ export const HASHICORP_TFP_QUESTIONS_8 = [
     scenario: "A module output is renamed in what is published as a minor release, and several consumers break.",
     question: "Which principle was violated?",
     options: [
-      { id: 'A', text: "Outputs are part of the public interface, so renaming or removing one is a breaking change that belongs in a major version." },
+      { id: 'A', text: "Consumers should not pin versions." },
       { id: 'B', text: "Outputs are internal, so consumers should not have depended on them." },
-      { id: 'C', text: "Consumers should not pin versions." },
-      { id: 'D', text: "Only variables form the interface; outputs may change freely." }
+      { id: 'C', text: "Only variables form the interface; outputs may change freely." },
+      { id: 'D', text: "Outputs are part of the public interface, so renaming or removing one is a breaking change that belongs in a major version." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "A module contract runs in both directions - the inputs it accepts and the outputs it promises - so removing or renaming an output breaks callers exactly as removing an input would. The remedy is to add the new output, keep the old one for a deprecation period, and remove it in a major release.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/values/outputs",
@@ -513,12 +513,12 @@ export const HASHICORP_TFP_QUESTIONS_8 = [
     scenario: "A resource generates a password that Terraform necessarily stores in state, and compliance asks how the exposure is limited.",
     question: "Which answer is accurate?",
     options: [
-      { id: 'A', text: "The value cannot be kept out of state, so exposure is limited by encrypting state at rest, restricting who can read it, and rotating the secret through the system that owns it." },
+      { id: 'A', text: "Marking the resource attribute sensitive removes it from state." },
       { id: 'B', text: "Using a write-only provider argument means nothing is stored anywhere." },
-      { id: 'C', text: "State stores only a hash of secret values." },
-      { id: 'D', text: "Marking the resource attribute sensitive removes it from state." }
+      { id: 'C', text: "The value cannot be kept out of state, so exposure is limited by encrypting state at rest, restricting who can read it, and rotating the secret through the system that owns it." },
+      { id: 'D', text: "State stores only a hash of secret values." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Terraform must record attribute values to detect drift, so a secret the provider generates is managed through encryption, access control, and rotation rather than removed. Sensitivity marking affects display only, and state stores real values rather than hashes. Write-only arguments do keep a value out of state, but they are input arguments a caller supplies - they cannot carry a value the provider itself generates.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/state/sensitive-data",

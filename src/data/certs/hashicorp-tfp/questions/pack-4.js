@@ -9,12 +9,12 @@ export const HASHICORP_TFP_QUESTIONS_4 = [
     scenario: "Every resource must carry a standard set of tags, and callers may add their own or override individual standard values.",
     question: "Which expression produces the combined map with caller values winning?",
     options: [
-      { id: 'A', text: "merge(local.default_tags, var.tags)" },
+      { id: 'A', text: "setunion(local.default_tags, var.tags)" },
       { id: 'B', text: "concat(local.default_tags, var.tags)" },
-      { id: 'C', text: "setunion(local.default_tags, var.tags)" },
-      { id: 'D', text: "merge(var.tags, local.default_tags)" }
+      { id: 'C', text: "merge(var.tags, local.default_tags)" },
+      { id: 'D', text: "merge(local.default_tags, var.tags)" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "merge combines maps left to right with later arguments overriding earlier ones, so putting the caller map last lets it win. Reversing the order makes defaults override the caller, concat works on lists rather than maps, and setunion operates on sets.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/functions/merge",
@@ -31,9 +31,9 @@ export const HASHICORP_TFP_QUESTIONS_4 = [
     question: "Which restructuring addresses the risk?",
     options: [
       { id: 'A', text: "Split into separate configurations and state files by lifecycle and ownership, wiring them together with outputs or data sources." },
-      { id: 'B', text: "Keep one state file but always use -target." },
-      { id: 'C', text: "Enable versioning on the state bucket." },
-      { id: 'D', text: "Move every resource into one large module." }
+      { id: 'B', text: "Enable versioning on the state bucket." },
+      { id: 'C', text: "Move every resource into one large module." },
+      { id: 'D', text: "Keep one state file but always use -target." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -93,12 +93,12 @@ export const HASHICORP_TFP_QUESTIONS_4 = [
     scenario: "A resource uses for_each over a map keyed by environment name, and another resource must reference the instance for \"prod\".",
     question: "Which reference is correct?",
     options: [
-      { id: 'A', text: "aws_subnet.this[\"prod\"].id" },
-      { id: 'B', text: "aws_subnet.this.prod.id" },
-      { id: 'C', text: "aws_subnet.this[0].id" },
-      { id: 'D', text: "each.value[\"prod\"].id" }
+      { id: 'A', text: "each.value[\"prod\"].id" },
+      { id: 'B', text: "aws_subnet.this[0].id" },
+      { id: 'C', text: "aws_subnet.this.prod.id" },
+      { id: 'D', text: "aws_subnet.this[\"prod\"].id" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "for_each produces a map of instances addressed by string key in square brackets. Numeric indices belong to count, attribute-style access is not valid for instance keys, and each is only in scope inside the resource that declares for_each.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/meta-arguments/for_each",
@@ -135,12 +135,12 @@ export const HASHICORP_TFP_QUESTIONS_4 = [
     scenario: "An application workspace needs outputs published by a networking workspace in the same organisation, with access controlled centrally.",
     question: "Which approach is idiomatic?",
     options: [
-      { id: 'A', text: "Use the tfe_outputs data source (or terraform_remote_state with the cloud backend) and grant the consuming workspace remote state access." },
-      { id: 'B', text: "Download the state file and commit it to the application repository." },
+      { id: 'A', text: "Download the state file and commit it to the application repository." },
+      { id: 'B', text: "Give the application workspace write access to the networking state." },
       { id: 'C', text: "Copy the values into workspace variables manually after each run." },
-      { id: 'D', text: "Give the application workspace write access to the networking state." }
+      { id: 'D', text: "Use the tfe_outputs data source (or terraform_remote_state with the cloud backend) and grant the consuming workspace remote state access." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "HCP Terraform exposes another workspace outputs through a data source, gated by explicit remote state sharing settings, which keeps a single owner and an auditable permission. Committing state leaks secrets, manual copying drifts, and write access invites two configurations to fight over the same resources.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cloud-docs/workspaces/state",
@@ -261,12 +261,12 @@ export const HASHICORP_TFP_QUESTIONS_4 = [
     scenario: "An engineer runs terraform state rm aws_s3_bucket.logs.",
     question: "What happens?",
     options: [
-      { id: 'A', text: "Terraform forgets the bucket; the real bucket still exists but is no longer managed, and the next plan would try to create it if the configuration still declares it." },
-      { id: 'B', text: "The configuration block is removed from the .tf files." },
-      { id: 'C', text: "The bucket is marked for replacement on the next apply." },
+      { id: 'A', text: "The configuration block is removed from the .tf files." },
+      { id: 'B', text: "The bucket is marked for replacement on the next apply." },
+      { id: 'C', text: "Terraform forgets the bucket; the real bucket still exists but is no longer managed, and the next plan would try to create it if the configuration still declares it." },
       { id: 'D', text: "The bucket is deleted from the cloud." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "state rm only edits state, leaving the real object untouched and unmanaged - which is why the still-present configuration then plans a create that collides with the existing bucket. Deletion is terraform destroy, replacement is -replace, and Terraform never edits your configuration files.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/state/rm",
@@ -283,11 +283,11 @@ export const HASHICORP_TFP_QUESTIONS_4 = [
     question: "Which release approach limits disruption?",
     options: [
       { id: 'A', text: "Make the breaking change immediately and tell consumers to fix their code." },
-      { id: 'B', text: "Add the new behaviour behind an optional input with a backwards-compatible default, release it as a minor version, and deprecate the old behaviour before removing it in a major release." },
-      { id: 'C', text: "Remove version constraints so everyone tracks main." },
-      { id: 'D', text: "Fork the module into two permanent copies." }
+      { id: 'B', text: "Remove version constraints so everyone tracks main." },
+      { id: 'C', text: "Fork the module into two permanent copies." },
+      { id: 'D', text: "Add the new behaviour behind an optional input with a backwards-compatible default, release it as a minor version, and deprecate the old behaviour before removing it in a major release." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "An additive, defaulted input keeps existing callers working while new callers opt in, and the deprecation window gives the laggards time before a major version removes the old path. Immediate breakage, permanent forks, and unpinned consumption all shift cost onto consumers.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/modules/develop",
@@ -324,12 +324,12 @@ export const HASHICORP_TFP_QUESTIONS_4 = [
     scenario: "A cost policy should warn on expensive plans in development but block them entirely in production.",
     question: "Which Sentinel enforcement levels express that?",
     options: [
-      { id: 'A', text: "hard-mandatory everywhere, with exceptions granted per run." },
-      { id: 'B', text: "advisory everywhere, relying on reviewers." },
-      { id: 'C', text: "Enforcement levels apply per organisation only, so two policy sets are impossible." },
-      { id: 'D', text: "advisory or soft-mandatory in development, and hard-mandatory in production." }
+      { id: 'A', text: "advisory or soft-mandatory in development, and hard-mandatory in production." },
+      { id: 'B', text: "Enforcement levels apply per organisation only, so two policy sets are impossible." },
+      { id: 'C', text: "advisory everywhere, relying on reviewers." },
+      { id: 'D', text: "hard-mandatory everywhere, with exceptions granted per run." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Sentinel has three levels: advisory logs a warning, soft-mandatory can be overridden by an authorised user, and hard-mandatory cannot be overridden at all - so the two environments simply use different levels via separate policy sets. Policy sets are scoped to workspaces or projects rather than only the whole organisation.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cloud-docs/policy-enforcement/manage-policy-sets",
@@ -346,11 +346,11 @@ export const HASHICORP_TFP_QUESTIONS_4 = [
     question: "Which sequence is correct?",
     options: [
       { id: 'A', text: "Apply, then validate, then plan." },
-      { id: 'B', text: "Write, then init, then plan and review, then apply." },
-      { id: 'C', text: "Plan, then init, then apply." },
-      { id: 'D', text: "Init, then apply, then plan to verify." }
+      { id: 'B', text: "Plan, then init, then apply." },
+      { id: 'C', text: "Init, then apply, then plan to verify." },
+      { id: 'D', text: "Write, then init, then plan and review, then apply." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The documented core workflow is write, init to install dependencies and configure the backend, plan to preview and review, then apply. Planning requires an initialised working directory, and applying before reviewing defeats the purpose of the plan.",
     referenceUrl: "https://developer.hashicorp.com/terraform/intro/core-workflow",
@@ -388,11 +388,11 @@ export const HASHICORP_TFP_QUESTIONS_4 = [
     question: "Why?",
     options: [
       { id: 'A', text: "The backend rejects connections from mismatched clients." },
-      { id: 'B', text: "The state file format is unreadable to any other version." },
-      { id: 'C', text: "State records the Terraform version that wrote it, and older versions refuse to operate on state written by a newer one; everyone must upgrade together." },
-      { id: 'D', text: "The provider lock file pins the CLI version." }
+      { id: 'B', text: "The provider lock file pins the CLI version." },
+      { id: 'C', text: "The state file format is unreadable to any other version." },
+      { id: 'D', text: "State records the Terraform version that wrote it, and older versions refuse to operate on state written by a newer one; everyone must upgrade together." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Terraform stores the writing version in state and deliberately blocks older binaries from operating on newer state to prevent corruption, so version upgrades must be coordinated - often pinned with required_version. Backends are version-agnostic and the lock file records providers, not the CLI.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/state",
@@ -408,12 +408,12 @@ export const HASHICORP_TFP_QUESTIONS_4 = [
     scenario: "A configuration uses language features introduced in a recent release and must fail clearly on older CLI versions.",
     question: "Which block declares that?",
     options: [
-      { id: 'A', text: "terraform { required_version = \">= 1.5.0\" }" },
-      { id: 'B', text: "A required_providers entry for terraform." },
-      { id: 'C', text: "variable \"terraform_version\" { default = \"1.5.0\" }" },
+      { id: 'A', text: "variable \"terraform_version\" { default = \"1.5.0\" }" },
+      { id: 'B', text: "terraform { required_version = \">= 1.5.0\" }" },
+      { id: 'C', text: "A required_providers entry for terraform." },
       { id: 'D', text: "provider \"terraform\" { version = \">= 1.5.0\" }" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "required_version inside the terraform block constrains the CLI itself and produces an immediate, clear error on an unsupported version. required_providers constrains providers, there is no terraform provider to configure this way, and a variable enforces nothing.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/settings",
@@ -471,10 +471,10 @@ export const HASHICORP_TFP_QUESTIONS_4 = [
     scenario: "A pipeline plans on a pull request and applies after merge, several hours later. Occasionally the apply does something the reviewer did not see.",
     question: "Which change makes the applied change equal the reviewed one?",
     options: [
-      { id: 'A', text: "Use -auto-approve so no human is involved." },
-      { id: 'B', text: "Re-run plan at apply time and compare the text output manually." },
+      { id: 'A', text: "Disable refresh during apply." },
+      { id: 'B', text: "Use -auto-approve so no human is involved." },
       { id: 'C', text: "Save the plan artifact and apply that exact file, so a state change since the plan causes the apply to fail rather than silently differ." },
-      { id: 'D', text: "Disable refresh during apply." }
+      { id: 'D', text: "Re-run plan at apply time and compare the text output manually." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -493,11 +493,11 @@ export const HASHICORP_TFP_QUESTIONS_4 = [
     question: "What does Terraform do?",
     options: [
       { id: 'A', text: "Terraform errors out and refuses to plan until state is repaired." },
-      { id: 'B', text: "Refresh detects the object is gone and the plan proposes to create it again, since the configuration still declares it." },
-      { id: 'C', text: "Terraform restores the deleted object from state." },
-      { id: 'D', text: "Terraform silently removes the resource from the configuration." }
+      { id: 'B', text: "Terraform silently removes the resource from the configuration." },
+      { id: 'C', text: "Refresh detects the object is gone and the plan proposes to create it again, since the configuration still declares it." },
+      { id: 'D', text: "Terraform restores the deleted object from state." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Refresh notices the missing object, marks it as needing creation, and the plan converges reality back to the configuration - which is the whole point of a declarative tool. Terraform never edits your configuration and cannot resurrect data from state, which holds only metadata.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/plan",
@@ -513,12 +513,12 @@ export const HASHICORP_TFP_QUESTIONS_4 = [
     scenario: "A production resource changed unexpectedly and the team needs to know which run made the change and who approved it.",
     question: "Which source answers that most directly?",
     options: [
-      { id: 'A', text: "The dependency lock file." },
-      { id: 'B', text: "The current state file, which records the author of each attribute." },
-      { id: 'C', text: "The run history in HCP Terraform (or the CI job history and state version history), which records the plan, the applier, and the resulting state version." },
+      { id: 'A', text: "The run history in HCP Terraform (or the CI job history and state version history), which records the plan, the applier, and the resulting state version." },
+      { id: 'B', text: "The dependency lock file." },
+      { id: 'C', text: "The current state file, which records the author of each attribute." },
       { id: 'D', text: "terraform graph output." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Attribution lives in run history and state versioning - who queued the run, what the plan contained, and which state version resulted - which is a strong argument for a remote workflow over laptop applies. State itself records values rather than authorship, the lock file records providers, and the graph shows dependencies.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cloud-docs/run/manage",

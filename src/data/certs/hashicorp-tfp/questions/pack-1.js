@@ -10,11 +10,11 @@ export const HASHICORP_TFP_QUESTIONS_1 = [
     question: "Which meta-argument should the resource use?",
     options: [
       { id: 'A', text: "A separate resource block per name" },
-      { id: 'B', text: "A dynamic block over var.names" },
-      { id: 'C', text: "count = length(var.names), indexing with count.index" },
-      { id: 'D', text: "for_each = toset(var.names), referencing each.value" }
+      { id: 'B', text: "count = length(var.names), indexing with count.index" },
+      { id: 'C', text: "for_each = toset(var.names), referencing each.value" },
+      { id: 'D', text: "A dynamic block over var.names" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "for_each keys instances by a stable string, so removing \"logs\" only destroys that instance and leaves the others untouched. count keys instances by position, so removing the first element shifts every later index and forces recreation. A dynamic block generates nested blocks inside one resource rather than multiple instances, and hand-writing a block per name does not scale.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/meta-arguments/for_each",
@@ -31,9 +31,9 @@ export const HASHICORP_TFP_QUESTIONS_1 = [
     question: "Which approach is preferred in modern Terraform?",
     options: [
       { id: 'A', text: "Add a moved block declaring from aws_instance.web to aws_instance.frontend." },
-      { id: 'B', text: "Run terraform state mv on every workstation and in CI." },
-      { id: 'C', text: "Import the instance under the new address and remove the old state entry." },
-      { id: 'D', text: "Apply the rename and accept the replacement." }
+      { id: 'B', text: "Import the instance under the new address and remove the old state entry." },
+      { id: 'C', text: "Apply the rename and accept the replacement." },
+      { id: 'D', text: "Run terraform state mv on every workstation and in CI." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -135,12 +135,12 @@ export const HASHICORP_TFP_QUESTIONS_1 = [
     scenario: "A provider call is failing with an unhelpful message and the engineer needs to see the underlying API requests, written to a file rather than the terminal.",
     question: "Which environment variables do that?",
     options: [
-      { id: 'A', text: "TF_VAR_log=debug and TF_OUTPUT=file" },
-      { id: 'B', text: "TERRAFORM_DEBUG=1 and TERRAFORM_LOGFILE=./terraform.log" },
-      { id: 'C', text: "TF_LOG_PROVIDER=on only" },
-      { id: 'D', text: "TF_LOG=DEBUG (or TRACE) together with TF_LOG_PATH=./terraform.log" }
+      { id: 'A', text: "TERRAFORM_DEBUG=1 and TERRAFORM_LOGFILE=./terraform.log" },
+      { id: 'B', text: "TF_VAR_log=debug and TF_OUTPUT=file" },
+      { id: 'C', text: "TF_LOG=DEBUG (or TRACE) together with TF_LOG_PATH=./terraform.log" },
+      { id: 'D', text: "TF_LOG_PROVIDER=on only" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "TF_LOG sets the verbosity - TRACE, DEBUG, INFO, WARN, ERROR - and TF_LOG_PATH redirects the output to a file; TF_LOG_CORE and TF_LOG_PROVIDER can narrow it to one side. The other variable names do not exist, and TF_VAR_ prefixed variables set input variables rather than logging.",
     referenceUrl: "https://developer.hashicorp.com/terraform/internals/debugging",
@@ -156,12 +156,12 @@ export const HASHICORP_TFP_QUESTIONS_1 = [
     scenario: "A security group resource needs one ingress block per entry in a list of port and CIDR pairs, and the list length varies by environment.",
     question: "Which language feature produces the repeated nested blocks?",
     options: [
-      { id: 'A', text: "A dynamic \"ingress\" block with for_each over the list and a content block." },
-      { id: 'B', text: "for_each on the security group resource itself." },
-      { id: 'C', text: "count on the security group resource." },
-      { id: 'D', text: "A for expression assigned directly to the ingress argument." }
+      { id: 'A', text: "A for expression assigned directly to the ingress argument." },
+      { id: 'B', text: "count on the security group resource." },
+      { id: 'C', text: "for_each on the security group resource itself." },
+      { id: 'D', text: "A dynamic \"ingress\" block with for_each over the list and a content block." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "dynamic blocks exist precisely to generate a variable number of nested blocks inside one resource, iterating with for_each and emitting a content block per element. Putting for_each or count on the resource would create several security groups instead of several rules, and a bare for expression cannot produce block syntax.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/expressions/dynamic-blocks",
@@ -177,12 +177,12 @@ export const HASHICORP_TFP_QUESTIONS_1 = [
     scenario: "An organisation must block any run that would create an unencrypted storage bucket, across every workspace, without relying on reviewers noticing it.",
     question: "Which HCP Terraform capability enforces that automatically?",
     options: [
-      { id: 'A', text: "A run task that posts a comment on the pull request." },
-      { id: 'B', text: "A required manual apply approval." },
-      { id: 'C', text: "A workspace variable marked sensitive." },
-      { id: 'D', text: "A policy set (Sentinel or OPA) attached to the organisation or a project, evaluated between plan and apply." }
+      { id: 'A', text: "A policy set (Sentinel or OPA) attached to the organisation or a project, evaluated between plan and apply." },
+      { id: 'B', text: "A workspace variable marked sensitive." },
+      { id: 'C', text: "A required manual apply approval." },
+      { id: 'D', text: "A run task that posts a comment on the pull request." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Policy sets run against the plan output after plan and before apply, and a hard-mandatory policy fails the run outright, which is the automated gate described. Run tasks integrate external tools but a comment does not block, sensitive variables only hide values, and manual approval still depends on a human noticing.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cloud-docs/policy-enforcement",
@@ -199,11 +199,11 @@ export const HASHICORP_TFP_QUESTIONS_1 = [
     question: "Which version constraint expresses that?",
     options: [
       { id: 'A', text: "version = \"3.0.0\"" },
-      { id: 'B', text: "Omitting version and relying on the lock file" },
-      { id: 'C', text: "version = \">= 3.0\"" },
-      { id: 'D', text: "version = \"~> 3.0\"" }
+      { id: 'B', text: "version = \">= 3.0\"" },
+      { id: 'C', text: "version = \"~> 3.0\"" },
+      { id: 'D', text: "Omitting version and relying on the lock file" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "The pessimistic operator ~> 3.0 allows 3.1 and 3.4 but never 4.0, giving compatible updates without a major-version surprise. >= 3.0 admits 4.x, an exact pin blocks even patch fixes, and the dependency lock file records provider versions rather than module versions.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/modules/syntax",
@@ -219,12 +219,12 @@ export const HASHICORP_TFP_QUESTIONS_1 = [
     scenario: "A production database was created by hand and must now be managed by Terraform, with the change reviewable in a pull request and repeatable in CI.",
     question: "Which mechanism fits that requirement best?",
     options: [
-      { id: 'A', text: "terraform state push with a hand-edited state file." },
-      { id: 'B', text: "An import block in the configuration naming the target address and the resource id." },
+      { id: 'A', text: "terraform import run once by an engineer on their laptop." },
+      { id: 'B', text: "terraform state push with a hand-edited state file." },
       { id: 'C', text: "Recreating the database with Terraform and migrating the data." },
-      { id: 'D', text: "terraform import run once by an engineer on their laptop." }
+      { id: 'D', text: "An import block in the configuration naming the target address and the resource id." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Config-driven import blocks are declarative, reviewable, and planned - terraform plan shows what will be imported and can even generate the resource configuration - so the same run works in CI. The CLI import command is imperative and leaves no artifact, hand-editing state is dangerous, and recreating a production database is unnecessary risk.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/import",
@@ -240,12 +240,12 @@ export const HASHICORP_TFP_QUESTIONS_1 = [
     scenario: "A new clone of a repository is checked out in CI and terraform init runs before plan.",
     question: "Which tasks does init perform?",
     options: [
-      { id: 'A', text: "Validates variable values against their type constraints." },
+      { id: 'A', text: "Creates the remote state bucket if it does not exist." },
       { id: 'B', text: "Refreshes state against the real infrastructure and reports drift." },
-      { id: 'C', text: "Initialises the backend, installs required providers and modules, and writes or verifies the dependency lock file." },
-      { id: 'D', text: "Creates the remote state bucket if it does not exist." }
+      { id: 'C', text: "Validates variable values against their type constraints." },
+      { id: 'D', text: "Initialises the backend, installs required providers and modules, and writes or verifies the dependency lock file." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "init configures the backend, downloads providers and modules into .terraform, and reconciles .terraform.lock.hcl. Refreshing happens during plan and apply, variable validation happens when values are evaluated, and Terraform does not create backend storage for you.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/init",
@@ -283,11 +283,11 @@ export const HASHICORP_TFP_QUESTIONS_1 = [
     question: "What causes this and how is it commonly resolved?",
     options: [
       { id: 'A', text: "The for_each value is a list; convert it to a set with toset." },
-      { id: 'B', text: "The for_each keys derive from values unknown until apply; restructure so keys come from known inputs, or split the apply into stages." },
-      { id: 'C', text: "The provider version is too old; upgrade it." },
-      { id: 'D', text: "Terraform needs -parallelism=1 to evaluate for_each." }
+      { id: 'B', text: "The provider version is too old; upgrade it." },
+      { id: 'C', text: "Terraform needs -parallelism=1 to evaluate for_each." },
+      { id: 'D', text: "The for_each keys derive from values unknown until apply; restructure so keys come from known inputs, or split the apply into stages." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Terraform must know the instance keys at plan time to build the graph, so keys that depend on attributes computed during apply are rejected; the fix is to derive keys from variables, locals, or data known in advance. A list is legal for for_each only when converted, but that produces a different error, and neither provider versions nor parallelism affects key determinability.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/meta-arguments/for_each",
@@ -303,12 +303,12 @@ export const HASHICORP_TFP_QUESTIONS_1 = [
     scenario: "A networking configuration and an application configuration live in separate state files and separate pipelines. The application needs the VPC and subnet ids produced by the networking run.",
     question: "Which approach is the most maintainable?",
     options: [
-      { id: 'A', text: "Copy the ids into the application variables file after each networking apply." },
-      { id: 'B', text: "Publish the values as outputs of the networking workspace and consume them with terraform_remote_state or an HCP Terraform outputs data source." },
-      { id: 'C', text: "Import the networking resources into the application state as well." },
-      { id: 'D', text: "Merge the two configurations into one state file." }
+      { id: 'A', text: "Merge the two configurations into one state file." },
+      { id: 'B', text: "Import the networking resources into the application state as well." },
+      { id: 'C', text: "Publish the values as outputs of the networking workspace and consume them with terraform_remote_state or an HCP Terraform outputs data source." },
+      { id: 'D', text: "Copy the ids into the application variables file after each networking apply." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Exposing outputs and reading them from the other configuration keeps a single owner for each resource while making the dependency explicit and automatic; data sources that look the resources up by tag are an equally valid loose-coupling alternative. Manual copying drifts, merging removes the blast-radius separation that motivated the split, and importing the same resource into two states means two owners fighting over it.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/state/remote-state-data",
@@ -345,12 +345,12 @@ export const HASHICORP_TFP_QUESTIONS_1 = [
     scenario: "A module outputs a generated password that must not be printed in CLI output or run logs.",
     question: "Which declaration is correct?",
     options: [
-      { id: 'A', text: "Wrapping the value in the nonsensitive function." },
-      { id: 'B', text: "Storing the value in a local instead of an output." },
-      { id: 'C', text: "Naming the output with a leading underscore." },
-      { id: 'D', text: "Setting sensitive = true on the output block." }
+      { id: 'A', text: "Naming the output with a leading underscore." },
+      { id: 'B', text: "Setting sensitive = true on the output block." },
+      { id: 'C', text: "Wrapping the value in the nonsensitive function." },
+      { id: 'D', text: "Storing the value in a local instead of an output." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "sensitive = true redacts the value in plan, apply, and output display, and the sensitivity propagates to anything derived from it. nonsensitive does the opposite by stripping the marking, naming conventions have no effect, and a local cannot be consumed by a calling module. Note that the value is still stored in plain text in state.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/values/outputs",
@@ -387,12 +387,12 @@ export const HASHICORP_TFP_QUESTIONS_1 = [
     scenario: "terraform plan fails with \"Error: Cycle: aws_security_group.a, aws_security_group_rule.b, aws_security_group.c\".",
     question: "What is the usual root cause and remedy?",
     options: [
-      { id: 'A', text: "Two resources reference each other, so the graph has no valid order; break the cycle by extracting the mutual reference into a separate resource such as a standalone rule." },
-      { id: 'B', text: "The provider is not initialised; run terraform init -upgrade." },
-      { id: 'C', text: "Parallelism is too high; rerun with -parallelism=1." },
-      { id: 'D', text: "The state file is corrupt; restore it from a backup." }
+      { id: 'A', text: "Parallelism is too high; rerun with -parallelism=1." },
+      { id: 'B', text: "The state file is corrupt; restore it from a backup." },
+      { id: 'C', text: "Two resources reference each other, so the graph has no valid order; break the cycle by extracting the mutual reference into a separate resource such as a standalone rule." },
+      { id: 'D', text: "The provider is not initialised; run terraform init -upgrade." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Terraform builds a directed acyclic graph, so a mutual reference - two security groups each naming the other - has no topological order and must be broken by moving one side into a separate resource that references both. Re-initialising, restoring state, and lowering parallelism do not change the graph shape.",
     referenceUrl: "https://developer.hashicorp.com/terraform/internals/graph",
@@ -408,12 +408,12 @@ export const HASHICORP_TFP_QUESTIONS_1 = [
     scenario: "A team wants runs to execute on HCP Terraform infrastructure with centralised logging, variables, and policy enforcement, while still triggering plans from developer laptops.",
     question: "Which workspace execution mode fits?",
     options: [
-      { id: 'A', text: "Remote execution, where the CLI streams the run to HCP Terraform and the plan and apply happen there." },
+      { id: 'A', text: "Local execution, where HCP Terraform stores only the state." },
       { id: 'B', text: "No execution mode change is needed; the CLI always runs remotely once a cloud block exists." },
-      { id: 'C', text: "Agent execution, which is required for any remote run." },
-      { id: 'D', text: "Local execution, where HCP Terraform stores only the state." }
+      { id: 'C', text: "Remote execution, where the CLI streams the run to HCP Terraform and the plan and apply happen there." },
+      { id: 'D', text: "Agent execution, which is required for any remote run." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Remote execution runs plan and apply on HCP Terraform infrastructure while the developer CLI streams the output, giving central variables, logs, and policy checks. Local execution uses HCP Terraform purely as a state backend, agent mode is for reaching private networks and is not required generally, and the execution mode is a workspace setting rather than an automatic consequence of the cloud block.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cloud-docs/workspaces/settings",
@@ -450,12 +450,12 @@ export const HASHICORP_TFP_QUESTIONS_1 = [
     scenario: "A repository contains .terraform.lock.hcl and the team debates whether to commit it.",
     question: "Which statement is correct?",
     options: [
-      { id: 'A', text: "It contains resource state and must never be committed." },
-      { id: 'B', text: "It records module versions and is regenerated on every plan, so it should be ignored." },
-      { id: 'C', text: "It stores backend credentials and must be encrypted before committing." },
-      { id: 'D', text: "It records selected provider versions and their checksums and should be committed so every run uses identical providers." }
+      { id: 'A', text: "It stores backend credentials and must be encrypted before committing." },
+      { id: 'B', text: "It records selected provider versions and their checksums and should be committed so every run uses identical providers." },
+      { id: 'C', text: "It contains resource state and must never be committed." },
+      { id: 'D', text: "It records module versions and is regenerated on every plan, so it should be ignored." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "The lock file pins provider versions and hashes so CI and every developer resolve the same binaries, which is exactly why it belongs in version control. It does not track modules, holds no state or credentials, and is updated deliberately with terraform init -upgrade.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/files/dependency-lock",
@@ -492,12 +492,12 @@ export const HASHICORP_TFP_QUESTIONS_1 = [
     scenario: "A platform team is reviewing a module whose variables include vpc_id, subnet_ids, instance_type, and also aws_region, aws_access_key, and tf_state_bucket.",
     question: "Which review comment is correct?",
     options: [
-      { id: 'A', text: "All six should become required variables with no defaults." },
-      { id: 'B', text: "The module should define its own backend block so it can be applied directly." },
-      { id: 'C', text: "Region should stay but subnet_ids should be looked up with a data source inside the module." },
-      { id: 'D', text: "Credentials, region, and backend settings do not belong in a module interface; they are provider and root-level concerns." }
+      { id: 'A', text: "The module should define its own backend block so it can be applied directly." },
+      { id: 'B', text: "All six should become required variables with no defaults." },
+      { id: 'C', text: "Credentials, region, and backend settings do not belong in a module interface; they are provider and root-level concerns." },
+      { id: 'D', text: "Region should stay but subnet_ids should be looked up with a data source inside the module." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "A reusable module should take only the inputs describing what to build; authentication, region, and state storage are the responsibility of the root module and its provider and backend configuration. Child modules cannot declare backends, and hiding network lookups inside the module makes it less predictable and harder to test.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/modules/develop",
