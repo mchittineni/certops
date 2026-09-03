@@ -143,80 +143,60 @@ export function certIcon(cert, { size = 20, tone = 'brand' } = {}) {
 }
 
 /**
- * Discipline icons and branding. Kubernetes & Cloud Native uses the official
- * Kubernetes mark because the track is named after it; the rest have curated
- * discipline glyphs styled in their track colors.
+ * Discipline icons and branding as requested:
+ * ☁️ Cloud Engineering · 🚀 DevOps & SRE · 🏗️ Platform Engineering · 💰 FinOps · 🔐 DevSecOps & Security
  */
+export const DISCIPLINE_ICONS = {
+  'Cloud Engineering': '☁️',
+  'DevOps & SRE': '🚀',
+  'Platform Engineering': '🏗️',
+  'FinOps': '💰',
+  'DevSecOps & Security': '🔐'
+};
+
 const DISCIPLINE_CONFIG = {
-  'Cloud Engineering': {
-    color: '#0284c7',
-    glyph: '<path d="M6.5 19a4.5 4.5 0 0 1-.4-8.98A6 6 0 0 1 17.8 8.1 4.5 4.5 0 0 1 17.5 19z"></path><path d="M12 13v5m-2.5-2.5 2.5 2.5 2.5-2.5"></path>'
-  },
-  'DevOps & SRE': {
-    color: '#8b5cf6',
-    glyph: '<path d="M8 12a4 4 0 1 1 4 4 6 6 0 0 0-8 0 4 4 0 0 1 4-4z"></path><path d="M16 12a4 4 0 1 0-4-4 6 6 0 0 1 8 0 4 4 0 0 0-4 4z"></path>'
-  },
-  'Platform Engineering': {
-    color: '#6366f1',
-    glyph: '<path d="m12 2 9 4.9v10.2L12 22 3 17.1V6.9zm0 0v10m9-5.1-9 5.1m-9-5.1 9 5.1"></path>'
-  },
-  'FinOps': {
-    color: '#10b981',
-    glyph: '<circle cx="12" cy="12" r="9"></circle><path d="M14.8 9A2 2 0 0 0 13 8h-2a2 2 0 0 0 0 4h2a2 2 0 0 1 0 4h-2a2 2 0 0 1-1.8-1"></path><path d="M12 6v2m0 8v2"></path>'
-  },
-  'DevSecOps & Security': {
-    color: '#ef4444',
-    glyph: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path>'
-  }
+  'Cloud Engineering': { color: '#0284c7' },
+  'DevOps & SRE': { color: '#8b5cf6' },
+  'Platform Engineering': { color: '#6366f1' },
+  'FinOps': { color: '#10b981' },
+  'DevSecOps & Security': { color: '#ef4444' }
 };
 
 /**
- * Role glyphs and theme styling colors.
+ * Role interactive icons and theme styling colors.
  */
+export const ROLE_ICONS = {
+  'cloud-engineer': '☁️',
+  'devops-engineer': '🚀',
+  'platform-engineer': '🏗️',
+  'sre': '⚡',
+  'security-engineer': '🔐',
+  'finops': '💰',
+  'solutions-architect': '🏛️'
+};
+
 const ROLE_CONFIG = {
-  'cloud-engineer': {
-    color: '#0284c7',
-    glyph: '<path d="M6.5 19a4.5 4.5 0 0 1-.4-8.98A6 6 0 0 1 17.8 8.1 4.5 4.5 0 0 1 17.5 19z"></path><path d="M12 13v5m-2.5-2.5 2.5 2.5 2.5-2.5"></path>'
-  },
-  'devops-engineer': {
-    color: '#8b5cf6',
-    glyph: '<path d="M4.5 16.5c-1.5-1.5-1.5-4 0-5.5l5.5-5.5a4 4 0 0 1 5.5 0c1.5 1.5 1.5 4 0 5.5l-5.5 5.5a4 4 0 0 1-5.5 0z"></path><path d="M12 12l2.5 2.5m-5-5L12 12"></path><circle cx="8" cy="8" r="1.5"></circle><circle cx="16" cy="16" r="1.5"></circle>'
-  },
-  'platform-engineer': {
-    color: '#6366f1',
-    glyph: '<path d="m12 2 9 4.9v10.2L12 22 3 17.1V6.9zm0 0v10m9-5.1-9 5.1m-9-5.1 9 5.1"></path>'
-  },
-  'sre': {
-    color: '#10b981',
-    glyph: '<path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>'
-  },
-  'security-engineer': {
-    color: '#ef4444',
-    glyph: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path>'
-  },
-  'finops': {
-    color: '#f59e0b',
-    glyph: '<circle cx="12" cy="12" r="9"></circle><path d="M14.8 9A2 2 0 0 0 13 8h-2a2 2 0 0 0 0 4h2a2 2 0 0 1 0 4h-2a2 2 0 0 1-1.8-1"></path><path d="M12 6v2m0 8v2"></path>'
-  },
-  'solutions-architect': {
-    color: '#3b82f6',
-    glyph: '<rect width="7" height="7" x="3" y="3" rx="1.5"></rect><rect width="7" height="7" x="14" y="3" rx="1.5"></rect><rect width="7" height="7" x="14" y="14" rx="1.5"></rect><rect width="7" height="7" x="3" y="14" rx="1.5"></rect><path d="M10 6.5h4M6.5 10v4m11 0v-4m-4 7.5H10"></path>'
-  }
+  'cloud-engineer': { color: '#0284c7' },
+  'devops-engineer': { color: '#8b5cf6' },
+  'platform-engineer': { color: '#6366f1' },
+  'sre': { color: '#10b981' },
+  'security-engineer': { color: '#ef4444' },
+  'finops': { color: '#f59e0b' },
+  'solutions-architect': { color: '#3b82f6' }
 };
 
 export function roleIcon(roleId, { size = 22 } = {}) {
   const conf = ROLE_CONFIG[roleId];
+  const emoji = ROLE_ICONS[roleId];
   if (!conf) return '';
-  return `<span class="brand-mark role-glyph role-glyph-${roleId}" style="--role-color:${conf.color};width:${size}px;height:${size}px" aria-hidden="true">
-    <svg viewBox="0 0 24 24" width="${size}" height="${size}" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${conf.glyph}</svg>
-  </span>`;
+  return `<span class="brand-mark role-glyph role-glyph-${roleId}" style="--role-color:${conf.color};width:${size}px;height:${size}px;font-size:${Math.round(size * 0.95)}px;line-height:1;display:inline-flex;align-items:center;justify-content:center" aria-hidden="true">${emoji || ''}</span>`;
 }
 
 export function disciplineIcon(category, { size = 22 } = {}) {
+  const emoji = DISCIPLINE_ICONS[category];
+  if (emoji) {
+    return `<span class="discipline-emoji" style="font-size:${Math.round(size * 0.95)}px;line-height:1;display:inline-flex;align-items:center;justify-content:center" aria-hidden="true">${emoji}</span>`;
+  }
   if (category === 'Kubernetes & Cloud Native') return brandMark('kubernetes', { size });
-  const conf = DISCIPLINE_CONFIG[category];
-  if (!conf) return '';
-  return `<span class="brand-mark discipline-glyph" style="--disc-color:${conf.color};color:${conf.color};width:${size}px;height:${size}px" aria-hidden="true">
-    <svg viewBox="0 0 24 24" width="${size}" height="${size}" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${conf.glyph}</svg>
-  </span>`;
+  return '';
 }
