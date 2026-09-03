@@ -26,7 +26,7 @@ export default {
   "maxScore": 100,
   "defaultTimeMinutes": 180,
   "blueprintSource": "https://developer.hashicorp.com/terraform/tutorials/certification-003",
-  "blueprintVerified": false,
+  "blueprintVerified": true,
   "domains": [
     {
       "id": "d1",
