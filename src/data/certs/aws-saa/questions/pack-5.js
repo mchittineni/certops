@@ -9,12 +9,12 @@ export const AWS_SAA_QUESTIONS_5 = [
     scenario: "A company operates Amazon DynamoDB tables, Amazon EFS file systems, Amazon RDS databases, and Amazon EBS volumes across multiple AWS accounts. The CISO mandates a single centralized backup plan with automated cross-account copies to a dedicated disaster recovery AWS account, with immutable protection against ransomware deletion.",
     question: "Which AWS service and feature satisfies this centralized immutable backup requirement?",
     options: [
-      { id: 'A', text: "Custom AWS Lambda backup scripts orchestrated by AWS Step Functions." },
-      { id: 'B', text: "Amazon Data Lifecycle Manager (DLM) with cross-region snapshot policies." },
-      { id: 'C', text: "AWS Backup with AWS Backup Vault Lock and cross-account backup copies enabled via AWS Organizations." },
-      { id: 'D', text: "Amazon S3 Glacier Flexible Retrieval with S3 Object Lock in Governance mode." }
+      { id: 'A', text: "AWS Backup with AWS Backup Vault Lock and cross-account backup copies enabled via AWS Organizations." },
+      { id: 'B', text: "Amazon S3 Glacier Flexible Retrieval with S3 Object Lock in Governance mode." },
+      { id: 'C', text: "Custom AWS Lambda backup scripts orchestrated by AWS Step Functions." },
+      { id: 'D', text: "Amazon Data Lifecycle Manager (DLM) with cross-region snapshot policies." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "AWS Backup is a centralized backup service that provides policy-based backup automation across AWS services (EBS, RDS, DynamoDB, EFS, S3, EC2). Combined with AWS Backup Vault Lock (WORM compliance preventing backup modification or deletion even by root) and cross-account backup copies in AWS Organizations, it satisfies all enterprise disaster recovery and ransomware protection mandates. S3 Object Lock only protects S3 objects, not native EBS/RDS/EFS resources. DLM only manages EBS snapshots and AMIs. Custom Lambda scripts create operational overhead and lack native Vault Lock immutability.",
     referenceUrl: "https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html",
@@ -30,12 +30,12 @@ export const AWS_SAA_QUESTIONS_5 = [
     scenario: "An e-commerce notification system publishes all platform events (order placed, order shipped, item returned, user registered) to a single Amazon SNS topic. Downstream microservices are currently receiving all messages and discarding irrelevant events in application code, causing unnecessary compute overhead and network bandwidth consumption.",
     question: "How should the Solutions Architect optimize message consumption without creating multiple SNS topics?",
     options: [
-      { id: 'A', text: "Convert all subscriber queues from SQS standard to SQS FIFO." },
-      { id: 'B', text: "Configure Amazon SNS Subscription Filter Policies on each subscriber SQS queue based on event message attributes." },
-      { id: 'C', text: "Deploy an Application Load Balancer with path-based routing rules between SNS and SQS." },
+      { id: 'A', text: "Configure Amazon SNS Subscription Filter Policies on each subscriber SQS queue based on event message attributes." },
+      { id: 'B', text: "Deploy an Application Load Balancer with path-based routing rules between SNS and SQS." },
+      { id: 'C', text: "Convert all subscriber queues from SQS standard to SQS FIFO." },
       { id: 'D', text: "Insert an Amazon ElastiCache Redis cluster to filter messages before SQS delivery." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Amazon SNS Subscription Filter Policies allow subscribers (such as Amazon SQS queues or Lambda functions) to define JSON filtering rules matching message attributes (e.g. `eventType = \"order_placed\"`). SNS evaluates filter policies and delivers only matching messages to that specific subscription, eliminating wasteful consumer invocations. ALBs do not sit between SNS and SQS. SQS FIFO guarantees ordering, not topic attribute filtering. ElastiCache cannot act as an intermediary message filter for SNS topics.",
     referenceUrl: "https://docs.aws.amazon.com/sns/latest/dg/sns-message-filtering.html",
@@ -51,12 +51,12 @@ export const AWS_SAA_QUESTIONS_5 = [
     scenario: "An international financial application running on Amazon Aurora PostgreSQL in us-east-1 needs a disaster recovery solution in us-west-2. The application performs 10,000 write transactions per second. The business requires an RPO under 1 second and an RTO under 2 minutes. Write performance on the primary cluster must not be degraded by synchronous replication latency.",
     question: "Which architecture meets these strict RPO/RTO and performance criteria?",
     options: [
-      { id: 'A', text: "Amazon Aurora Global Database with a secondary cluster in us-west-2 utilizing storage-level physical replication." },
-      { id: 'B', text: "Continuous EBS volume mirroring using AWS DataSync over AWS Direct Connect." },
-      { id: 'C', text: "Amazon RDS Multi-AZ synchronous replication spanning across us-east-1 and us-west-2." },
-      { id: 'D', text: "Amazon RDS for PostgreSQL with logical cross-region Read Replicas." }
+      { id: 'A', text: "Amazon RDS Multi-AZ synchronous replication spanning across us-east-1 and us-west-2." },
+      { id: 'B', text: "Amazon RDS for PostgreSQL with logical cross-region Read Replicas." },
+      { id: 'C', text: "Amazon Aurora Global Database with a secondary cluster in us-west-2 utilizing storage-level physical replication." },
+      { id: 'D', text: "Continuous EBS volume mirroring using AWS DataSync over AWS Direct Connect." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Amazon Aurora Global Database uses dedicated storage-level physical replication across AWS Regions, providing typical replication latency under 1 second (RPO < 1s) with zero performance impact on the primary cluster database engine. It can be promoted to a full read/write cluster in under 2 minutes during an outage. RDS Multi-AZ is strictly synchronous within a single region across AZs and cannot span multiple AWS Regions. Logical binlog replication incurs significant lag under 10k TPS. DataSync cannot mirror live mounted transactional database EBS volumes.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html",
@@ -72,12 +72,12 @@ export const AWS_SAA_QUESTIONS_5 = [
     scenario: "An analytics dashboard uses Amazon ElastiCache for Redis. The dataset is growing rapidly and is projected to exceed 500 GB, which exceeds the memory capacity of a single Redis node. The application requires horizontal write scaling and high availability.",
     question: "Which ElastiCache configuration accommodates datasets larger than a single node and scales writes across multiple shards?",
     options: [
-      { id: 'A', text: "Amazon ElastiCache for Redis with Cluster Mode Enabled (sharding data across multiple shards)." },
-      { id: 'B', text: "Amazon DynamoDB Accelerator (DAX) with a single node." },
-      { id: 'C', text: "Amazon ElastiCache for Memcached with multi-AZ replication." },
-      { id: 'D', text: "Amazon ElastiCache for Redis with Cluster Mode Disabled and 5 read replicas." }
+      { id: 'A', text: "Amazon ElastiCache for Memcached with multi-AZ replication." },
+      { id: 'B', text: "Amazon ElastiCache for Redis with Cluster Mode Disabled and 5 read replicas." },
+      { id: 'C', text: "Amazon ElastiCache for Redis with Cluster Mode Enabled (sharding data across multiple shards)." },
+      { id: 'D', text: "Amazon DynamoDB Accelerator (DAX) with a single node." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "ElastiCache for Redis with Cluster Mode Enabled partitions data across multiple shards (up to 500 shards per cluster), allowing total in-memory data capacity up to petabytes and scaling both write and read throughput horizontally. Cluster Mode Disabled is limited to a single primary node for all writes, capping total data size to that single instance memory. Memcached does not support replication. DAX only front-ends DynamoDB.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Scaling.RedisClusterMode.html",
@@ -156,12 +156,12 @@ export const AWS_SAA_QUESTIONS_5 = [
     scenario: "An Amazon Redshift data warehouse cluster experiences slow query performance when executing large SQL queries that join a massive 2 billion row `fact_sales` table with a 50 million row `dim_customer` table on `customer_id`.",
     question: "Which Redshift table design optimization eliminates cross-node data broadcasting and dramatically accelerates join performance?",
     options: [
-      { id: 'A', text: "Convert both tables to Amazon DynamoDB Global Tables." },
+      { id: 'A', text: "Set `EVEN` distribution on both tables and increase the cluster node count." },
       { id: 'B', text: "Set `ALL` distribution on both `fact_sales` and `dim_customer`." },
-      { id: 'C', text: "Set `EVEN` distribution on both tables and increase the cluster node count." },
-      { id: 'D', text: "Configure `KEY` distribution on both `fact_sales` and `dim_customer` using `customer_id` as the distribution key, and set `customer_id` as the sort key." }
+      { id: 'C', text: "Configure `KEY` distribution on both `fact_sales` and `dim_customer` using `customer_id` as the distribution key, and set `customer_id` as the sort key." },
+      { id: 'D', text: "Convert both tables to Amazon DynamoDB Global Tables." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "In Amazon Redshift, setting `DISTSTYLE KEY` on the join column (`customer_id`) on both tables ensures that rows with matching join keys from both tables are colocated on the exact same cluster compute slice. This enables local joins without cross-network data redistribution or broadcasting across nodes. `DISTSTYLE ALL` copies the entire table to every node, which is suitable for small lookup tables (<3M rows) but impossible for a 2-billion-row fact table. `EVEN` distribution forces expensive network redistribution during joins. DynamoDB cannot execute complex SQL joins.",
     referenceUrl: "https://docs.aws.amazon.com/redshift/latest/dg/c_best-practices-selecting-data-distribution-style.html",
@@ -199,11 +199,11 @@ export const AWS_SAA_QUESTIONS_5 = [
     question: "Which AWS service provides application-level networking, service discovery, and automated mTLS encryption between microservices?",
     options: [
       { id: 'A', text: "Amazon CloudFront with Origin Access Control." },
-      { id: 'B', text: "AWS App Mesh with Envoy sidecar proxies." },
-      { id: 'C', text: "AWS Transit Gateway with IPsec VPN." },
-      { id: 'D', text: "Network Load Balancers in front of every individual ECS container." }
+      { id: 'B', text: "AWS Transit Gateway with IPsec VPN." },
+      { id: 'C', text: "Network Load Balancers in front of every individual ECS container." },
+      { id: 'D', text: "AWS App Mesh with Envoy sidecar proxies." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "AWS App Mesh is a service mesh that uses open-source Envoy sidecar proxies deployed alongside microservice containers to manage service-to-service communication. It provides mutual TLS (mTLS) encryption, traffic routing, circuit breakers, access logging, and distributed tracing across microservices with zero code changes. Transit Gateway operates at the VPC network layer, not container microservice mesh. NLBs add excessive load balancer cost and complexity without service mesh capabilities. CloudFront is an edge CDN for public internet traffic.",
     referenceUrl: "https://docs.aws.amazon.com/app-mesh/latest/userguide/what-is-app-mesh.html",
@@ -219,13 +219,13 @@ export const AWS_SAA_QUESTIONS_5 = [
     scenario: "An application deployed on EC2 instances in an isolated private VPC (with no Internet Gateway or NAT Gateway) must securely retrieve database credentials from AWS Secrets Manager and support automated 30-day credential rotation for an Amazon RDS PostgreSQL database.",
     question: "Which combination of configurations allows private credential retrieval and automated rotation? (Choose TWO)",
     options: [
-      { id: 'A', text: "Configure AWS Systems Manager Session Manager over an Internet Gateway." },
+      { id: 'A', text: "Create an Amazon S3 Gateway VPC Endpoint and store credentials in encrypted CSV files." },
       { id: 'B', text: "Configure automatic rotation in Secrets Manager using the pre-built RDS rotation Lambda function deployed inside the private VPC." },
       { id: 'C', text: "Attach an Elastic IP address directly to the RDS PostgreSQL database." },
-      { id: 'D', text: "Create an AWS Secrets Manager Interface VPC Endpoint (AWS PrivateLink) in the VPC." },
-      { id: 'E', text: "Create an Amazon S3 Gateway VPC Endpoint and store credentials in encrypted CSV files." }
+      { id: 'D', text: "Configure AWS Systems Manager Session Manager over an Internet Gateway." },
+      { id: 'E', text: "Create an AWS Secrets Manager Interface VPC Endpoint (AWS PrivateLink) in the VPC." }
     ],
-    correctAnswers: ['B', 'D'],
+    correctAnswers: ['B', 'E'],
     type: "multiple",
     explanation: "Interface VPC Endpoints (PrivateLink) for Secrets Manager allow EC2 instances in an isolated private subnet to query the Secrets Manager API over the private AWS backbone without internet access. For automated RDS rotation in a private VPC, the Secrets Manager rotation Lambda function must be configured to run inside the VPC subnets with security groups permitting connectivity to both RDS and the Secrets Manager VPC endpoint. S3 CSV files do not support automated rotation. Elastic IPs and Internet Gateways violate the isolated private subnet requirement.",
     referenceUrl: "https://docs.aws.amazon.com/secretsmanager/latest/userguide/vpc-endpoint-overview.html",
@@ -242,11 +242,11 @@ export const AWS_SAA_QUESTIONS_5 = [
     question: "Which AWS service provides centralized multi-account Single Sign-On and workforce identity federation?",
     options: [
       { id: 'A', text: "AWS Directory Service Simple AD." },
-      { id: 'B', text: "Amazon Cognito User Pools." },
-      { id: 'C', text: "Individual IAM SAML 2.0 Identity Providers configured in all 150 accounts manually." },
-      { id: 'D', text: "AWS IAM Identity Center (successor to AWS Single Sign-On)." }
+      { id: 'B', text: "AWS IAM Identity Center (successor to AWS Single Sign-On)." },
+      { id: 'C', text: "Amazon Cognito User Pools." },
+      { id: 'D', text: "Individual IAM SAML 2.0 Identity Providers configured in all 150 accounts manually." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "AWS IAM Identity Center (formerly AWS SSO) is the recommended service for managing centralized workforce access to multiple AWS accounts and SAML-enabled cloud applications. It connects directly with corporate identity providers like Okta, Azure AD, or PingFederate via SAML 2.0 and SCIM protocol for automatic user provisioning across all AWS accounts in AWS Organizations. Cognito User Pools are for end-user consumer mobile/web applications, not internal enterprise workforce administration. Manually creating 150 IAM IdPs creates massive operational overhead. Simple AD is a basic standalone directory that does not integrate natively with external SAML IdPs.",
     referenceUrl: "https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html",
@@ -262,12 +262,12 @@ export const AWS_SAA_QUESTIONS_5 = [
     scenario: "A government agency mandates that all outbound internet traffic from AWS VPCs must be inspected against stateful intrusion detection/prevention signatures (IDS/IPS) and restricted strictly to an approved list of fully qualified domain names (FQDNs).",
     question: "Which AWS service enforces stateful domain filtering and network intrusion prevention at the VPC boundary?",
     options: [
-      { id: 'A', text: "AWS Network Firewall." },
-      { id: 'B', text: "AWS Shield Standard." },
-      { id: 'C', text: "Security Groups." },
-      { id: 'D', text: "Network ACLs." }
+      { id: 'A', text: "Network ACLs." },
+      { id: 'B', text: "Security Groups." },
+      { id: 'C', text: "AWS Shield Standard." },
+      { id: 'D', text: "AWS Network Firewall." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "AWS Network Firewall is a stateful Layer 3–7 network firewall that provides domain name filtering (allowing only approved FQDNs like `*.example.com`), custom Suricata-compatible IPS/IDS rules, and stateful packet inspection for all VPC traffic. Security Groups and NACLs filter by IP addresses/CIDRs and ports, not domain names (FQDNs), and lack deep packet inspection. Shield Standard is automatic Layer 3/4 DDoS mitigation.",
     referenceUrl: "https://docs.aws.amazon.com/network-firewall/latest/developerguide/what-is-aws-network-firewall.html",
@@ -283,12 +283,12 @@ export const AWS_SAA_QUESTIONS_5 = [
     scenario: "A company stores sensitive proprietary source code in an Amazon S3 bucket. Compliance mandates that objects in the bucket can ONLY be accessed by EC2 instances originating through a specific Gateway VPC Endpoint (`vpce-12345abcde`). Direct access over the public internet must be denied even for users with valid IAM credentials.",
     question: "Which S3 Bucket Policy condition enforces that requests must originate from the specified VPC Endpoint?",
     options: [
-      { id: 'A', text: "A Network ACL rule applied to the VPC endpoint route table." },
-      { id: 'B', text: "A Security Group rule attached to the S3 bucket." },
+      { id: 'A', text: "A Deny statement with the Condition `\"StringNotEquals\": {\"aws:sourceVpce\": \"vpce-12345abcde\"}`." },
+      { id: 'B', text: "A Network ACL rule applied to the VPC endpoint route table." },
       { id: 'C', text: "An Allow statement with the Condition `\"StringEquals\": {\"aws:SourceIp\": \"10.0.0.0/16\"}`." },
-      { id: 'D', text: "A Deny statement with the Condition `\"StringNotEquals\": {\"aws:sourceVpce\": \"vpce-12345abcde\"}`." }
+      { id: 'D', text: "A Security Group rule attached to the S3 bucket." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "To restrict S3 bucket access strictly to traffic originating from a specific VPC endpoint, an explicit `Deny` statement is added to the S3 bucket policy with the condition `\"StringNotEquals\": {\"aws:sourceVpce\": \"vpce-12345abcde\"}`. Any request not traversing that specific VPC endpoint is denied immediately. S3 does not support Security Groups. Checking private IPs in `aws:SourceIp` does not work for Gateway VPC endpoints because private IPs are not preserved in the HTTP headers. NACLs cannot inspect S3 API calls.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies-vpc-endpoint.html",
@@ -325,12 +325,12 @@ export const AWS_SAA_QUESTIONS_5 = [
     scenario: "A legal firm must retain 500 TB of closed case litigation records for 10 years to comply with regulatory statutes. The files are accessed less than once every two years, and the legal team can wait up to 12 hours to retrieve documents when needed.",
     question: "Which Amazon S3 storage class offers the lowest storage cost for this long-term compliance archive?",
     options: [
-      { id: 'A', text: "Amazon S3 One Zone-Infrequent Access (S3 One Zone-IA)." },
-      { id: 'B', text: "Amazon S3 Standard-Infrequent Access (S3 Standard-IA)." },
-      { id: 'C', text: "Amazon S3 Glacier Flexible Retrieval." },
-      { id: 'D', text: "Amazon S3 Glacier Deep Archive." }
+      { id: 'A', text: "Amazon S3 Glacier Flexible Retrieval." },
+      { id: 'B', text: "Amazon S3 Glacier Deep Archive." },
+      { id: 'C', text: "Amazon S3 One Zone-Infrequent Access (S3 One Zone-IA)." },
+      { id: 'D', text: "Amazon S3 Standard-Infrequent Access (S3 Standard-IA)." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Amazon S3 Glacier Deep Archive is Amazon S3's lowest-cost storage class ($0.00099 per GB/month, or ~$1 per TB/month), designed for long-term retention of data that is accessed rarely (once or twice a year). Objects can be retrieved within 12 hours (Standard retrieval) or 48 hours (Bulk retrieval). Glacier Flexible Retrieval is ~4x more expensive than Deep Archive. Standard-IA and One Zone-IA are designed for millisecond access and are significantly more expensive for multi-year cold archives.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/glacier-deep-archive-storage-class.html",
@@ -346,12 +346,12 @@ export const AWS_SAA_QUESTIONS_5 = [
     scenario: "A company notices that 40% of its Amazon EC2 instance fleet is consistently operating at under 5% CPU and memory utilization. The engineering director mandates an automated analysis to identify over-provisioned instances and recommend rightsized EC2 instance families.",
     question: "Which AWS service delivers machine-learning-driven EC2 and EBS rightsizing recommendations based on CloudWatch metrics history?",
     options: [
-      { id: 'A', text: "AWS Application Discovery Service." },
-      { id: 'B', text: "AWS CloudTrail." },
-      { id: 'C', text: "Amazon Inspector." },
-      { id: 'D', text: "AWS Compute Optimizer." }
+      { id: 'A', text: "AWS Compute Optimizer." },
+      { id: 'B', text: "Amazon Inspector." },
+      { id: 'C', text: "AWS CloudTrail." },
+      { id: 'D', text: "AWS Application Discovery Service." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "AWS Compute Optimizer uses machine learning to analyze historical CloudWatch utilization metrics (CPU, memory, storage, network) to identify under-provisioned and over-provisioned resources. It generates actionable rightsizing recommendations for Amazon EC2 instances, Amazon EBS volumes, AWS Lambda functions, and Amazon ECS on AWS Fargate. CloudTrail logs API calls. Application Discovery Service is for pre-migration on-premises inventory planning. Inspector scans for software vulnerabilities.",
     referenceUrl: "https://docs.aws.amazon.com/compute-optimizer/latest/ug/what-is-compute-optimizer.html",
@@ -388,12 +388,12 @@ export const AWS_SAA_QUESTIONS_5 = [
     scenario: "An application produces 100 GB of application audit logs daily in Amazon S3 Standard. Regulations require logs to be retrievable within milliseconds for 30 days, kept in low-cost storage for 1 year, and permanently deleted after 5 years.",
     question: "Which S3 Lifecycle rule accomplishes this retention schedule at the lowest cost?",
     options: [
-      { id: 'A', text: "Transition to S3 Standard-IA after 30 days, transition to S3 Glacier Flexible Retrieval after 90 days, and expire after 1,825 days (5 years)." },
-      { id: 'B', text: "Keep in S3 Standard for 5 years, then enable S3 Versioning." },
-      { id: 'C', text: "Transition to S3 Glacier Instant Retrieval after 30 days and keep indefinitely." },
-      { id: 'D', text: "Transition to S3 One Zone-IA after 1 day and expire after 30 days." }
+      { id: 'A', text: "Transition to S3 One Zone-IA after 1 day and expire after 30 days." },
+      { id: 'B', text: "Transition to S3 Glacier Instant Retrieval after 30 days and keep indefinitely." },
+      { id: 'C', text: "Keep in S3 Standard for 5 years, then enable S3 Versioning." },
+      { id: 'D', text: "Transition to S3 Standard-IA after 30 days, transition to S3 Glacier Flexible Retrieval after 90 days, and expire after 1,825 days (5 years)." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "This lifecycle configuration perfectly matches access requirements: 30 days in S3 Standard (frequent millisecond access), transitioning to S3 Standard-IA at 30 days (infrequent millisecond access), moving to S3 Glacier Flexible Retrieval after 90 days for low-cost long-term compliance storage, and expiring (deleting) objects after 5 years (1,825 days). Keeping in Standard is the most expensive. Transitioning to One Zone-IA after 1 day breaks the 30-day requirement. Keeping Glacier Instant indefinitely incurs permanent storage fees after year 5.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html",
@@ -494,12 +494,12 @@ export const AWS_SAA_QUESTIONS_5 = [
     scenario: "An enterprise cloud architecture consists of 40 separate development teams, each with its own AWS account in AWS Organizations. Creating individual VPCs, NAT Gateways, and Transit Gateway attachments in all 40 accounts is resulting in massive recurring monthly VPC networking infrastructure charges.",
     question: "How can the central network engineering team centralize VPC infrastructure and eliminate redundant NAT Gateways across accounts?",
     options: [
-      { id: 'A', text: "Create 40 VPC Peering connections between each account and an on-premises data center." },
-      { id: 'B', text: "Deploy an AWS Direct Connect dedicated circuit in every member account." },
-      { id: 'C', text: "Create a central VPC in a Network account and share subnets with all 40 member accounts using AWS Resource Access Manager (AWS RAM) VPC Sharing." },
+      { id: 'A', text: "Deploy an AWS Direct Connect dedicated circuit in every member account." },
+      { id: 'B', text: "Create a central VPC in a Network account and share subnets with all 40 member accounts using AWS Resource Access Manager (AWS RAM) VPC Sharing." },
+      { id: 'C', text: "Create 40 VPC Peering connections between each account and an on-premises data center." },
       { id: 'D', text: "Assign Elastic IP addresses directly to all EC2 instances across all accounts." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "VPC Sharing (powered by AWS Resource Access Manager / RAM) allows a central networking account to own the VPC (subnets, route tables, NAT Gateways, Internet Gateways) and share subnets with other member accounts in AWS Organizations. Participants in member accounts can launch their EC2 instances, RDS databases, and Lambda functions into the shared subnets. This centralizes network management and eliminates redundant NAT Gateways and Transit Gateway attachments. VPC Peering meshes and multiple Direct Connect circuits vastly multiply network costs. Elastic IPs turn private resources public.",
     referenceUrl: "https://docs.aws.amazon.com/vpc/latest/userguide/vpc-sharing.html",
@@ -515,12 +515,12 @@ export const AWS_SAA_QUESTIONS_5 = [
     scenario: "A software engineering team uses Amazon FSx for OpenZFS for shared development environments and source code builds. The team requires point-in-time file system snapshots that can be taken in seconds without performance overhead, and automatic replication to another AWS Region for disaster recovery.",
     question: "Which FSx for OpenZFS features provide rapid snapshots and cross-region disaster recovery?",
     options: [
-      { id: 'A', text: "FSx for OpenZFS ZFS Snapshots and on-demand Cross-Region Snapshot Copy / Replication." },
-      { id: 'B', text: "Mounting the OpenZFS file system over an AWS Site-to-Site VPN connection." },
-      { id: 'C', text: "Using Amazon S3 File Gateway with local disk caching." },
-      { id: 'D', text: "AWS DataSync scheduled transfer to an S3 Standard-IA bucket." }
+      { id: 'A', text: "AWS DataSync scheduled transfer to an S3 Standard-IA bucket." },
+      { id: 'B', text: "Using Amazon S3 File Gateway with local disk caching." },
+      { id: 'C', text: "Mounting the OpenZFS file system over an AWS Site-to-Site VPN connection." },
+      { id: 'D', text: "FSx for OpenZFS ZFS Snapshots and on-demand Cross-Region Snapshot Copy / Replication." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Amazon FSx for OpenZFS supports instant, near-zero-overhead ZFS snapshots and native cross-Region snapshot copy/replication. This enables point-in-time recovery of file systems in seconds and simple cross-region disaster recovery with low RTO. DataSync is slower and does not preserve ZFS dataset properties natively. Mounting across VPN introduces severe latency bottlenecks. Storage Gateway is for on-premises hybrid file shares.",
     referenceUrl: "https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/snapshots-fsx.html",
