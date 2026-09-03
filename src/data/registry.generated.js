@@ -69,8 +69,30 @@ export const CONTENT_REGISTRY = {
     ]
   },
   'aws-dva': {
-    questions: [],
-    flashcards: []
+    questions: [
+      pack('./certs/aws-dva/questions/pack-1.js', () => import('./certs/aws-dva/questions/pack-1.js')),
+      pack('./certs/aws-dva/questions/pack-2.js', () => import('./certs/aws-dva/questions/pack-2.js')),
+      pack('./certs/aws-dva/questions/pack-3.js', () => import('./certs/aws-dva/questions/pack-3.js')),
+      pack('./certs/aws-dva/questions/pack-4.js', () => import('./certs/aws-dva/questions/pack-4.js')),
+      pack('./certs/aws-dva/questions/pack-5.js', () => import('./certs/aws-dva/questions/pack-5.js')),
+      pack('./certs/aws-dva/questions/pack-6.js', () => import('./certs/aws-dva/questions/pack-6.js')),
+      pack('./certs/aws-dva/questions/pack-7.js', () => import('./certs/aws-dva/questions/pack-7.js')),
+      pack('./certs/aws-dva/questions/pack-8.js', () => import('./certs/aws-dva/questions/pack-8.js')),
+      pack('./certs/aws-dva/questions/pack-9.js', () => import('./certs/aws-dva/questions/pack-9.js')),
+      pack('./certs/aws-dva/questions/pack-10.js', () => import('./certs/aws-dva/questions/pack-10.js'))
+    ],
+    flashcards: [
+      pack('./certs/aws-dva/flashcards/pack-1.js', () => import('./certs/aws-dva/flashcards/pack-1.js')),
+      pack('./certs/aws-dva/flashcards/pack-2.js', () => import('./certs/aws-dva/flashcards/pack-2.js')),
+      pack('./certs/aws-dva/flashcards/pack-3.js', () => import('./certs/aws-dva/flashcards/pack-3.js')),
+      pack('./certs/aws-dva/flashcards/pack-4.js', () => import('./certs/aws-dva/flashcards/pack-4.js')),
+      pack('./certs/aws-dva/flashcards/pack-5.js', () => import('./certs/aws-dva/flashcards/pack-5.js')),
+      pack('./certs/aws-dva/flashcards/pack-6.js', () => import('./certs/aws-dva/flashcards/pack-6.js')),
+      pack('./certs/aws-dva/flashcards/pack-7.js', () => import('./certs/aws-dva/flashcards/pack-7.js')),
+      pack('./certs/aws-dva/flashcards/pack-8.js', () => import('./certs/aws-dva/flashcards/pack-8.js')),
+      pack('./certs/aws-dva/flashcards/pack-9.js', () => import('./certs/aws-dva/flashcards/pack-9.js')),
+      pack('./certs/aws-dva/flashcards/pack-10.js', () => import('./certs/aws-dva/flashcards/pack-10.js'))
+    ]
   },
   'aws-mla': {
     questions: [],
@@ -175,8 +197,30 @@ export const CONTENT_REGISTRY = {
     ]
   },
   'azure-az204': {
-    questions: [],
-    flashcards: []
+    questions: [
+      pack('./certs/azure-az204/questions/pack-1.js', () => import('./certs/azure-az204/questions/pack-1.js')),
+      pack('./certs/azure-az204/questions/pack-2.js', () => import('./certs/azure-az204/questions/pack-2.js')),
+      pack('./certs/azure-az204/questions/pack-3.js', () => import('./certs/azure-az204/questions/pack-3.js')),
+      pack('./certs/azure-az204/questions/pack-4.js', () => import('./certs/azure-az204/questions/pack-4.js')),
+      pack('./certs/azure-az204/questions/pack-5.js', () => import('./certs/azure-az204/questions/pack-5.js')),
+      pack('./certs/azure-az204/questions/pack-6.js', () => import('./certs/azure-az204/questions/pack-6.js')),
+      pack('./certs/azure-az204/questions/pack-7.js', () => import('./certs/azure-az204/questions/pack-7.js')),
+      pack('./certs/azure-az204/questions/pack-8.js', () => import('./certs/azure-az204/questions/pack-8.js')),
+      pack('./certs/azure-az204/questions/pack-9.js', () => import('./certs/azure-az204/questions/pack-9.js')),
+      pack('./certs/azure-az204/questions/pack-10.js', () => import('./certs/azure-az204/questions/pack-10.js'))
+    ],
+    flashcards: [
+      pack('./certs/azure-az204/flashcards/pack-1.js', () => import('./certs/azure-az204/flashcards/pack-1.js')),
+      pack('./certs/azure-az204/flashcards/pack-2.js', () => import('./certs/azure-az204/flashcards/pack-2.js')),
+      pack('./certs/azure-az204/flashcards/pack-3.js', () => import('./certs/azure-az204/flashcards/pack-3.js')),
+      pack('./certs/azure-az204/flashcards/pack-4.js', () => import('./certs/azure-az204/flashcards/pack-4.js')),
+      pack('./certs/azure-az204/flashcards/pack-5.js', () => import('./certs/azure-az204/flashcards/pack-5.js')),
+      pack('./certs/azure-az204/flashcards/pack-6.js', () => import('./certs/azure-az204/flashcards/pack-6.js')),
+      pack('./certs/azure-az204/flashcards/pack-7.js', () => import('./certs/azure-az204/flashcards/pack-7.js')),
+      pack('./certs/azure-az204/flashcards/pack-8.js', () => import('./certs/azure-az204/flashcards/pack-8.js')),
+      pack('./certs/azure-az204/flashcards/pack-9.js', () => import('./certs/azure-az204/flashcards/pack-9.js')),
+      pack('./certs/azure-az204/flashcards/pack-10.js', () => import('./certs/azure-az204/flashcards/pack-10.js'))
+    ]
   },
   'azure-az305': {
     questions: [],
@@ -517,8 +561,30 @@ export const CONTENT_REGISTRY = {
     ]
   },
   'gcp-pca': {
-    questions: [],
-    flashcards: []
+    questions: [
+      pack('./certs/gcp-pca/questions/pack-1.js', () => import('./certs/gcp-pca/questions/pack-1.js')),
+      pack('./certs/gcp-pca/questions/pack-2.js', () => import('./certs/gcp-pca/questions/pack-2.js')),
+      pack('./certs/gcp-pca/questions/pack-3.js', () => import('./certs/gcp-pca/questions/pack-3.js')),
+      pack('./certs/gcp-pca/questions/pack-4.js', () => import('./certs/gcp-pca/questions/pack-4.js')),
+      pack('./certs/gcp-pca/questions/pack-5.js', () => import('./certs/gcp-pca/questions/pack-5.js')),
+      pack('./certs/gcp-pca/questions/pack-6.js', () => import('./certs/gcp-pca/questions/pack-6.js')),
+      pack('./certs/gcp-pca/questions/pack-7.js', () => import('./certs/gcp-pca/questions/pack-7.js')),
+      pack('./certs/gcp-pca/questions/pack-8.js', () => import('./certs/gcp-pca/questions/pack-8.js')),
+      pack('./certs/gcp-pca/questions/pack-9.js', () => import('./certs/gcp-pca/questions/pack-9.js')),
+      pack('./certs/gcp-pca/questions/pack-10.js', () => import('./certs/gcp-pca/questions/pack-10.js'))
+    ],
+    flashcards: [
+      pack('./certs/gcp-pca/flashcards/pack-1.js', () => import('./certs/gcp-pca/flashcards/pack-1.js')),
+      pack('./certs/gcp-pca/flashcards/pack-2.js', () => import('./certs/gcp-pca/flashcards/pack-2.js')),
+      pack('./certs/gcp-pca/flashcards/pack-3.js', () => import('./certs/gcp-pca/flashcards/pack-3.js')),
+      pack('./certs/gcp-pca/flashcards/pack-4.js', () => import('./certs/gcp-pca/flashcards/pack-4.js')),
+      pack('./certs/gcp-pca/flashcards/pack-5.js', () => import('./certs/gcp-pca/flashcards/pack-5.js')),
+      pack('./certs/gcp-pca/flashcards/pack-6.js', () => import('./certs/gcp-pca/flashcards/pack-6.js')),
+      pack('./certs/gcp-pca/flashcards/pack-7.js', () => import('./certs/gcp-pca/flashcards/pack-7.js')),
+      pack('./certs/gcp-pca/flashcards/pack-8.js', () => import('./certs/gcp-pca/flashcards/pack-8.js')),
+      pack('./certs/gcp-pca/flashcards/pack-9.js', () => import('./certs/gcp-pca/flashcards/pack-9.js')),
+      pack('./certs/gcp-pca/flashcards/pack-10.js', () => import('./certs/gcp-pca/flashcards/pack-10.js'))
+    ]
   },
   'gcp-pcdbe': {
     questions: [],
@@ -641,8 +707,30 @@ export const CONTENT_REGISTRY = {
     ]
   },
   'hashicorp-tfa': {
-    questions: [],
-    flashcards: []
+    questions: [
+      pack('./certs/hashicorp-tfa/questions/pack-1.js', () => import('./certs/hashicorp-tfa/questions/pack-1.js')),
+      pack('./certs/hashicorp-tfa/questions/pack-2.js', () => import('./certs/hashicorp-tfa/questions/pack-2.js')),
+      pack('./certs/hashicorp-tfa/questions/pack-3.js', () => import('./certs/hashicorp-tfa/questions/pack-3.js')),
+      pack('./certs/hashicorp-tfa/questions/pack-4.js', () => import('./certs/hashicorp-tfa/questions/pack-4.js')),
+      pack('./certs/hashicorp-tfa/questions/pack-5.js', () => import('./certs/hashicorp-tfa/questions/pack-5.js')),
+      pack('./certs/hashicorp-tfa/questions/pack-6.js', () => import('./certs/hashicorp-tfa/questions/pack-6.js')),
+      pack('./certs/hashicorp-tfa/questions/pack-7.js', () => import('./certs/hashicorp-tfa/questions/pack-7.js')),
+      pack('./certs/hashicorp-tfa/questions/pack-8.js', () => import('./certs/hashicorp-tfa/questions/pack-8.js')),
+      pack('./certs/hashicorp-tfa/questions/pack-9.js', () => import('./certs/hashicorp-tfa/questions/pack-9.js')),
+      pack('./certs/hashicorp-tfa/questions/pack-10.js', () => import('./certs/hashicorp-tfa/questions/pack-10.js'))
+    ],
+    flashcards: [
+      pack('./certs/hashicorp-tfa/flashcards/pack-1.js', () => import('./certs/hashicorp-tfa/flashcards/pack-1.js')),
+      pack('./certs/hashicorp-tfa/flashcards/pack-2.js', () => import('./certs/hashicorp-tfa/flashcards/pack-2.js')),
+      pack('./certs/hashicorp-tfa/flashcards/pack-3.js', () => import('./certs/hashicorp-tfa/flashcards/pack-3.js')),
+      pack('./certs/hashicorp-tfa/flashcards/pack-4.js', () => import('./certs/hashicorp-tfa/flashcards/pack-4.js')),
+      pack('./certs/hashicorp-tfa/flashcards/pack-5.js', () => import('./certs/hashicorp-tfa/flashcards/pack-5.js')),
+      pack('./certs/hashicorp-tfa/flashcards/pack-6.js', () => import('./certs/hashicorp-tfa/flashcards/pack-6.js')),
+      pack('./certs/hashicorp-tfa/flashcards/pack-7.js', () => import('./certs/hashicorp-tfa/flashcards/pack-7.js')),
+      pack('./certs/hashicorp-tfa/flashcards/pack-8.js', () => import('./certs/hashicorp-tfa/flashcards/pack-8.js')),
+      pack('./certs/hashicorp-tfa/flashcards/pack-9.js', () => import('./certs/hashicorp-tfa/flashcards/pack-9.js')),
+      pack('./certs/hashicorp-tfa/flashcards/pack-10.js', () => import('./certs/hashicorp-tfa/flashcards/pack-10.js'))
+    ]
   },
   'hashicorp-tfp': {
     questions: [
@@ -733,8 +821,30 @@ export const CONTENT_REGISTRY = {
     ]
   },
   'k8s-ckad': {
-    questions: [],
-    flashcards: []
+    questions: [
+      pack('./certs/k8s-ckad/questions/pack-1.js', () => import('./certs/k8s-ckad/questions/pack-1.js')),
+      pack('./certs/k8s-ckad/questions/pack-2.js', () => import('./certs/k8s-ckad/questions/pack-2.js')),
+      pack('./certs/k8s-ckad/questions/pack-3.js', () => import('./certs/k8s-ckad/questions/pack-3.js')),
+      pack('./certs/k8s-ckad/questions/pack-4.js', () => import('./certs/k8s-ckad/questions/pack-4.js')),
+      pack('./certs/k8s-ckad/questions/pack-5.js', () => import('./certs/k8s-ckad/questions/pack-5.js')),
+      pack('./certs/k8s-ckad/questions/pack-6.js', () => import('./certs/k8s-ckad/questions/pack-6.js')),
+      pack('./certs/k8s-ckad/questions/pack-7.js', () => import('./certs/k8s-ckad/questions/pack-7.js')),
+      pack('./certs/k8s-ckad/questions/pack-8.js', () => import('./certs/k8s-ckad/questions/pack-8.js')),
+      pack('./certs/k8s-ckad/questions/pack-9.js', () => import('./certs/k8s-ckad/questions/pack-9.js')),
+      pack('./certs/k8s-ckad/questions/pack-10.js', () => import('./certs/k8s-ckad/questions/pack-10.js'))
+    ],
+    flashcards: [
+      pack('./certs/k8s-ckad/flashcards/pack-1.js', () => import('./certs/k8s-ckad/flashcards/pack-1.js')),
+      pack('./certs/k8s-ckad/flashcards/pack-2.js', () => import('./certs/k8s-ckad/flashcards/pack-2.js')),
+      pack('./certs/k8s-ckad/flashcards/pack-3.js', () => import('./certs/k8s-ckad/flashcards/pack-3.js')),
+      pack('./certs/k8s-ckad/flashcards/pack-4.js', () => import('./certs/k8s-ckad/flashcards/pack-4.js')),
+      pack('./certs/k8s-ckad/flashcards/pack-5.js', () => import('./certs/k8s-ckad/flashcards/pack-5.js')),
+      pack('./certs/k8s-ckad/flashcards/pack-6.js', () => import('./certs/k8s-ckad/flashcards/pack-6.js')),
+      pack('./certs/k8s-ckad/flashcards/pack-7.js', () => import('./certs/k8s-ckad/flashcards/pack-7.js')),
+      pack('./certs/k8s-ckad/flashcards/pack-8.js', () => import('./certs/k8s-ckad/flashcards/pack-8.js')),
+      pack('./certs/k8s-ckad/flashcards/pack-9.js', () => import('./certs/k8s-ckad/flashcards/pack-9.js')),
+      pack('./certs/k8s-ckad/flashcards/pack-10.js', () => import('./certs/k8s-ckad/flashcards/pack-10.js'))
+    ]
   },
   'k8s-cks': {
     questions: [
