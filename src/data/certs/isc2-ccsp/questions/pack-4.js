@@ -10,11 +10,11 @@ export const ISC2_CCSP_QUESTIONS_4 = [
     question: "What is the recommended implementation strategy to satisfy these technical requirements according to official best practices?",
     options: [
       { id: 'A', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'B', text: "Deploy native automation for threat modeling methodologies stride and dread in cloud systems utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'C', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'D', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." }
+      { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
+      { id: 'C', text: "Deploy native automation for threat modeling methodologies stride and dread in cloud systems utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
+      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for threat modeling methodologies stride and dread in cloud systems provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Cloud Security Professional standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.isc2.org/certifications/ccsp",
@@ -30,12 +30,12 @@ export const ISC2_CCSP_QUESTIONS_4 = [
     scenario: "A healthcare telemedicine network is evaluating Certified Cloud Security Professional practices specifically regarding Digital forensics in cloud environments and chain of custody preservation. The engineering group is modernizing legacy components to achieve zero-downtime deployments under unpredictable traffic spikes for service tier #77.",
     question: "Which configuration provides the most cost-effective and secure solution to achieve these criteria?",
     options: [
-      { id: 'A', text: "Deploy native automation for digital forensics in cloud environments and chain of custody preservation utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
+      { id: 'A', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
       { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
+      { id: 'C', text: "Deploy native automation for digital forensics in cloud environments and chain of custody preservation utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
+      { id: 'D', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for digital forensics in cloud environments and chain of custody preservation provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Cloud Security Professional standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.isc2.org/certifications/ccsp",
@@ -51,12 +51,12 @@ export const ISC2_CCSP_QUESTIONS_4 = [
     scenario: "A high-throughput e-commerce retailer is evaluating Certified Cloud Security Professional practices specifically regarding ISO/IEC 27017 cloud security and ISO/IEC 27018 cloud privacy controls. The engineering group is remediating compliance audit findings regarding unauthorized configuration drift across staging and production for service tier #78.",
     question: "Which architectural approach fulfills these operational objectives while maintaining reliability and minimal engineering overhead?",
     options: [
-      { id: 'A', text: "Deploy native automation for iso/iec 27017 cloud security and iso/iec 27018 cloud privacy controls utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
+      { id: 'A', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
       { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
+      { id: 'C', text: "Deploy native automation for iso/iec 27017 cloud security and iso/iec 27018 cloud privacy controls utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
+      { id: 'D', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for iso/iec 27017 cloud security and iso/iec 27018 cloud privacy controls provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Cloud Security Professional standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.isc2.org/certifications/ccsp",
@@ -72,12 +72,12 @@ export const ISC2_CCSP_QUESTIONS_4 = [
     scenario: "A global streaming entertainment platform is evaluating Certified Cloud Security Professional practices specifically regarding Evaluating cloud service providers CSPs and third-party risk analysis. The engineering group must minimize mean time to recovery (MTTR) and prevent cascading failures during regional outages for service tier #79.",
     question: "How should the engineering team configure the platform to ensure resilient, automated operation without manual intervention?",
     options: [
-      { id: 'A', text: "Deploy native automation for evaluating cloud service providers csps and third-party risk analysis utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
+      { id: 'A', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
+      { id: 'B', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
+      { id: 'C', text: "Deploy native automation for evaluating cloud service providers csps and third-party risk analysis utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
+      { id: 'D', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for evaluating cloud service providers csps and third-party risk analysis provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Cloud Security Professional standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.isc2.org/certifications/ccsp",
@@ -93,12 +93,12 @@ export const ISC2_CCSP_QUESTIONS_4 = [
     scenario: "An algorithmic trading exchange is evaluating Certified Cloud Security Professional practices specifically regarding Data tokenization vs format-preserving encryption and masking. The engineering group is migrating mission-critical workloads while enforcing strict organizational security guardrails for service tier #80.",
     question: "Which design pattern should be implemented to ensure continuous compliance, automated validation, and high availability?",
     options: [
-      { id: 'A', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'B', text: "Deploy native automation for data tokenization vs format-preserving encryption and masking utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'C', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
+      { id: 'A', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
+      { id: 'B', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
+      { id: 'C', text: "Deploy native automation for data tokenization vs format-preserving encryption and masking utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
       { id: 'D', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for data tokenization vs format-preserving encryption and masking provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Cloud Security Professional standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.isc2.org/certifications/ccsp",
@@ -114,12 +114,12 @@ export const ISC2_CCSP_QUESTIONS_4 = [
     scenario: "A logistics and supply chain optimization service is evaluating Certified Cloud Security Professional practices specifically regarding Physical and environmental security controls for hyperscale data centers. The engineering group needs to eliminate manual operational toil and enforce declarative infrastructure reconciliation for service tier #81.",
     question: "What is the recommended implementation strategy to satisfy these technical requirements according to official best practices?",
     options: [
-      { id: 'A', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'B', text: "Deploy native automation for physical and environmental security controls for hyperscale data centers utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'C', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
+      { id: 'A', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
+      { id: 'B', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
+      { id: 'C', text: "Deploy native automation for physical and environmental security controls for hyperscale data centers utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
       { id: 'D', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for physical and environmental security controls for hyperscale data centers provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Cloud Security Professional standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.isc2.org/certifications/ccsp",
@@ -137,8 +137,8 @@ export const ISC2_CCSP_QUESTIONS_4 = [
     options: [
       { id: 'A', text: "Deploy native automation for federated identity management with saml 2.0, oauth 2.0, and oidc utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
       { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'C', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'D', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." }
+      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
+      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -156,12 +156,12 @@ export const ISC2_CCSP_QUESTIONS_4 = [
     scenario: "A multi-tenant enterprise SaaS provider is evaluating Certified Cloud Security Professional practices specifically regarding Patch management, vulnerability assessment, and baseline drift auditing. The engineering group must enforce zero-trust identity boundaries and cryptographic verification across all service endpoints for service tier #83.",
     question: "Which architectural approach fulfills these operational objectives while maintaining reliability and minimal engineering overhead?",
     options: [
-      { id: 'A', text: "Deploy native automation for patch management, vulnerability assessment, and baseline drift auditing utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
+      { id: 'A', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
+      { id: 'B', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
       { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
+      { id: 'D', text: "Deploy native automation for patch management, vulnerability assessment, and baseline drift auditing utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for patch management, vulnerability assessment, and baseline drift auditing provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Cloud Security Professional standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.isc2.org/certifications/ccsp",
@@ -178,9 +178,9 @@ export const ISC2_CCSP_QUESTIONS_4 = [
     question: "How should the engineering team configure the platform to ensure resilient, automated operation without manual intervention?",
     options: [
       { id: 'A', text: "Deploy native automation for contractual obligations, service level agreements slas, and liabilities utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
+      { id: 'B', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
+      { id: 'C', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
+      { id: 'D', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,12 +198,12 @@ export const ISC2_CCSP_QUESTIONS_4 = [
     scenario: "An automotive connected-vehicle fleet manager is evaluating Certified Cloud Security Professional practices specifically regarding Business impact analysis BIA and cloud financial economics. The engineering group is resolving cross-account network latency bottlenecks and transient connection timeouts for service tier #85.",
     question: "Which design pattern should be implemented to ensure continuous compliance, automated validation, and high availability?",
     options: [
-      { id: 'A', text: "Deploy native automation for business impact analysis bia and cloud financial economics utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'B', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'C', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
+      { id: 'A', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
+      { id: 'B', text: "Deploy native automation for business impact analysis bia and cloud financial economics utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
+      { id: 'C', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
+      { id: 'D', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for business impact analysis bia and cloud financial economics provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Cloud Security Professional standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.isc2.org/certifications/ccsp",
@@ -219,12 +219,12 @@ export const ISC2_CCSP_QUESTIONS_4 = [
     scenario: "A digital media publishing network is evaluating Certified Cloud Security Professional practices specifically regarding Secure cloud storage architectures object, block, volume, and ephemeral. The engineering group must establish centralized audit logging and automated incident containment for security operations for service tier #86.",
     question: "What is the recommended implementation strategy to satisfy these technical requirements according to official best practices?",
     options: [
-      { id: 'A', text: "Deploy native automation for secure cloud storage architectures object, block, volume, and ephemeral utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
+      { id: 'A', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
+      { id: 'B', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
       { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
+      { id: 'D', text: "Deploy native automation for secure cloud storage architectures object, block, volume, and ephemeral utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for secure cloud storage architectures object, block, volume, and ephemeral provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Cloud Security Professional standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.isc2.org/certifications/ccsp",
@@ -241,8 +241,8 @@ export const ISC2_CCSP_QUESTIONS_4 = [
     question: "Which configuration provides the most cost-effective and secure solution to achieve these criteria?",
     options: [
       { id: 'A', text: "Deploy native automation for container security and runtime isolation mechanisms utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
+      { id: 'B', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
+      { id: 'C', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
       { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
     ],
     correctAnswers: ['A'],
@@ -261,12 +261,12 @@ export const ISC2_CCSP_QUESTIONS_4 = [
     scenario: "A renewable energy smart-grid operator is evaluating Certified Cloud Security Professional practices specifically regarding API security, rate limiting, and OWASP Top 10 API vulnerabilities. The engineering group is remediating compliance audit findings regarding unauthorized configuration drift across staging and production for service tier #88.",
     question: "Which architectural approach fulfills these operational objectives while maintaining reliability and minimal engineering overhead?",
     options: [
-      { id: 'A', text: "Deploy native automation for api security, rate limiting, and owasp top 10 api vulnerabilities utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
+      { id: 'A', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
+      { id: 'B', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
+      { id: 'C', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
+      { id: 'D', text: "Deploy native automation for api security, rate limiting, and owasp top 10 api vulnerabilities utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for api security, rate limiting, and owasp top 10 api vulnerabilities provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Cloud Security Professional standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.isc2.org/certifications/ccsp",
@@ -282,12 +282,12 @@ export const ISC2_CCSP_QUESTIONS_4 = [
     scenario: "A mobile gaming backend architecture is evaluating Certified Cloud Security Professional practices specifically regarding Security Information and Event Management SIEM in multi-cloud. The engineering group must minimize mean time to recovery (MTTR) and prevent cascading failures during regional outages for service tier #89.",
     question: "How should the engineering team configure the platform to ensure resilient, automated operation without manual intervention?",
     options: [
-      { id: 'A', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
+      { id: 'A', text: "Deploy native automation for security information and event management siem in multi-cloud utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
       { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
       { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'D', text: "Deploy native automation for security information and event management siem in multi-cloud utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." }
+      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for security information and event management siem in multi-cloud provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Cloud Security Professional standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.isc2.org/certifications/ccsp",
@@ -303,12 +303,12 @@ export const ISC2_CCSP_QUESTIONS_4 = [
     scenario: "A ride-sharing dispatch system is evaluating Certified Cloud Security Professional practices specifically regarding Electronic discovery eDiscovery and cross-border data transfer restrictions. The engineering group is migrating mission-critical workloads while enforcing strict organizational security guardrails for service tier #90.",
     question: "Which design pattern should be implemented to ensure continuous compliance, automated validation, and high availability?",
     options: [
-      { id: 'A', text: "Deploy native automation for electronic discovery ediscovery and cross-border data transfer restrictions utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
+      { id: 'A', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
+      { id: 'B', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
+      { id: 'C', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
+      { id: 'D', text: "Deploy native automation for electronic discovery ediscovery and cross-border data transfer restrictions utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for electronic discovery ediscovery and cross-border data transfer restrictions provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Cloud Security Professional standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.isc2.org/certifications/ccsp",
@@ -324,12 +324,12 @@ export const ISC2_CCSP_QUESTIONS_4 = [
     scenario: "An insurance claims processing engine is evaluating Certified Cloud Security Professional practices specifically regarding Cloud computing service models IaaS, PaaS, SaaS and shared responsibility. The engineering group needs to eliminate manual operational toil and enforce declarative infrastructure reconciliation for service tier #91.",
     question: "What is the recommended implementation strategy to satisfy these technical requirements according to official best practices?",
     options: [
-      { id: 'A', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'B', text: "Deploy native automation for cloud computing service models iaas, paas, saas and shared responsibility utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
+      { id: 'A', text: "Deploy native automation for cloud computing service models iaas, paas, saas and shared responsibility utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
+      { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
       { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
       { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for cloud computing service models iaas, paas, saas and shared responsibility provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Cloud Security Professional standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.isc2.org/certifications/ccsp",
@@ -346,9 +346,9 @@ export const ISC2_CCSP_QUESTIONS_4 = [
     question: "Which configuration provides the most cost-effective and secure solution to achieve these criteria?",
     options: [
       { id: 'A', text: "Deploy native automation for cloud data lifecycle create, store, use, share, archive, destroy utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'B', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
+      { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
       { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'D', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." }
+      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -387,12 +387,12 @@ export const ISC2_CCSP_QUESTIONS_4 = [
     scenario: "A real estate property management portal is evaluating Certified Cloud Security Professional practices specifically regarding Secure Software Development Life Cycle SSDLC in cloud architectures. The engineering group needs to optimize cloud expenditure and implement real-time cost attribution across engineering teams for service tier #94.",
     question: "How should the engineering team configure the platform to ensure resilient, automated operation without manual intervention?",
     options: [
-      { id: 'A', text: "Deploy native automation for secure software development life cycle ssdlc in cloud architectures utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
+      { id: 'A', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
+      { id: 'B', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
+      { id: 'C', text: "Deploy native automation for secure software development life cycle ssdlc in cloud architectures utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
       { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for secure software development life cycle ssdlc in cloud architectures provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Cloud Security Professional standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.isc2.org/certifications/ccsp",
@@ -408,12 +408,12 @@ export const ISC2_CCSP_QUESTIONS_4 = [
     scenario: "An autonomous robotics manufacturing facility is evaluating Certified Cloud Security Professional practices specifically regarding Security operations center SOC continuous monitoring and alerting. The engineering group is resolving cross-account network latency bottlenecks and transient connection timeouts for service tier #95.",
     question: "Which design pattern should be implemented to ensure continuous compliance, automated validation, and high availability?",
     options: [
-      { id: 'A', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'B', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'C', text: "Deploy native automation for security operations center soc continuous monitoring and alerting utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'D', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." }
+      { id: 'A', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
+      { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
+      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
+      { id: 'D', text: "Deploy native automation for security operations center soc continuous monitoring and alerting utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for security operations center soc continuous monitoring and alerting provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Cloud Security Professional standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.isc2.org/certifications/ccsp",
@@ -429,12 +429,12 @@ export const ISC2_CCSP_QUESTIONS_4 = [
     scenario: "A higher education student information system is evaluating Certified Cloud Security Professional practices specifically regarding International privacy laws including GDPR, CCPA, and HIPAA compliance. The engineering group must establish centralized audit logging and automated incident containment for security operations for service tier #96.",
     question: "What is the recommended implementation strategy to satisfy these technical requirements according to official best practices?",
     options: [
-      { id: 'A', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
+      { id: 'A', text: "Deploy native automation for international privacy laws including gdpr, ccpa, and hipaa compliance utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
       { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'D', text: "Deploy native automation for international privacy laws including gdpr, ccpa, and hipaa compliance utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." }
+      { id: 'C', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
+      { id: 'D', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for international privacy laws including gdpr, ccpa, and hipaa compliance provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Cloud Security Professional standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.isc2.org/certifications/ccsp",
@@ -451,11 +451,11 @@ export const ISC2_CCSP_QUESTIONS_4 = [
     question: "Which configuration provides the most cost-effective and secure solution to achieve these criteria?",
     options: [
       { id: 'A', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'D', text: "Deploy native automation for cloud deployment models public, private, hybrid, and community utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." }
+      { id: 'B', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
+      { id: 'C', text: "Deploy native automation for cloud deployment models public, private, hybrid, and community utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
+      { id: 'D', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for cloud deployment models public, private, hybrid, and community provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Cloud Security Professional standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.isc2.org/certifications/ccsp",
@@ -471,12 +471,12 @@ export const ISC2_CCSP_QUESTIONS_4 = [
     scenario: "A digital payments settlement processor is evaluating Certified Cloud Security Professional practices specifically regarding Data discovery and classification methodologies in multi-tenant cloud. The engineering group is remediating compliance audit findings regarding unauthorized configuration drift across staging and production for service tier #98.",
     question: "Which architectural approach fulfills these operational objectives while maintaining reliability and minimal engineering overhead?",
     options: [
-      { id: 'A', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'B', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'C', text: "Deploy native automation for data discovery and classification methodologies in multi-tenant cloud utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'D', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." }
+      { id: 'A', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
+      { id: 'B', text: "Deploy native automation for data discovery and classification methodologies in multi-tenant cloud utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
+      { id: 'C', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
+      { id: 'D', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for data discovery and classification methodologies in multi-tenant cloud provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Cloud Security Professional standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.isc2.org/certifications/ccsp",
@@ -513,12 +513,12 @@ export const ISC2_CCSP_QUESTIONS_4 = [
     scenario: "A cloud-native telecommunications provider is evaluating Certified Cloud Security Professional practices specifically regarding Application security testing comparing SAST, DAST, IAST, and SCA. The engineering group is migrating mission-critical workloads while enforcing strict organizational security guardrails for service tier #100.",
     question: "Which design pattern should be implemented to ensure continuous compliance, automated validation, and high availability?",
     options: [
-      { id: 'A', text: "Deploy native automation for application security testing comparing sast, dast, iast, and sca utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
+      { id: 'A', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
       { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
       { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
+      { id: 'D', text: "Deploy native automation for application security testing comparing sast, dast, iast, and sca utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for application security testing comparing sast, dast, iast, and sca provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Cloud Security Professional standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.isc2.org/certifications/ccsp",
