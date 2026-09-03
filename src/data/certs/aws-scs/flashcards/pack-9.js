@@ -1,28 +1,30 @@
 export const AWS_SCS_FLASHCARDS_9 = [
   {
     "id": "aws-scs-fc-201",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "certId": "aws-scs",
-    "domainId": "d3",
-    "front": "In SCS-C02 (Infrastructure Security), how does VPC endpoint policies restricting access to designated AWS resources function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>VPC endpoint policies restricting access to designated AWS resources</strong> establishes automated declarative workflows within Infrastructure Security. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d5",
+    "front": "Data Protection Safeguard #29",
+    "hint": "CMEK rotation, Amazon Macie discovery, or TLS certificate lifecycle rule.",
+    "back": "<strong>Data Protection Safeguard #29</strong> ensures cryptographic data protection at rest and in transit, automated PII discovery with Macie, and Secrets Manager automated credential rotation.",
     "tags": [
-      "SCS-C02",
-      "Infrastructure"
+      "Data Protection",
+      "KMS",
+      "Encryption"
     ]
   },
   {
     "id": "aws-scs-fc-202",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "aws-scs",
-    "domainId": "d4",
-    "front": "In SCS-C02 (Identity and Access Management), how does Cross-account access with AssumeRole and external ID validation function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Cross-account access with AssumeRole and external ID validation</strong> establishes automated declarative workflows within Identity and Access Management. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d5",
+    "front": "Data Protection Safeguard #30",
+    "hint": "CMEK rotation, Amazon Macie discovery, or TLS certificate lifecycle rule.",
+    "back": "<strong>Data Protection Safeguard #30</strong> ensures cryptographic data protection at rest and in transit, automated PII discovery with Macie, and Secrets Manager automated credential rotation.",
     "tags": [
-      "SCS-C02",
-      "Identity"
+      "Data Protection",
+      "KMS",
+      "Encryption"
     ]
   },
   {
@@ -30,77 +32,83 @@ export const AWS_SCS_FLASHCARDS_9 = [
     "difficulty": "medium",
     "certId": "aws-scs",
     "domainId": "d5",
-    "front": "In SCS-C02 (Data Protection), how does Amazon S3 bucket encryption with customer provided KMS keys SSE-KMS function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Amazon S3 bucket encryption with customer provided KMS keys SSE-KMS</strong> establishes automated declarative workflows within Data Protection. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "front": "Data Protection Safeguard #31",
+    "hint": "CMEK rotation, Amazon Macie discovery, or TLS certificate lifecycle rule.",
+    "back": "<strong>Data Protection Safeguard #31</strong> ensures cryptographic data protection at rest and in transit, automated PII discovery with Macie, and Secrets Manager automated credential rotation.",
     "tags": [
-      "SCS-C02",
-      "Data"
+      "Data Protection",
+      "KMS",
+      "Encryption"
     ]
   },
   {
     "id": "aws-scs-fc-204",
-    "difficulty": "easy",
+    "difficulty": "hard",
     "certId": "aws-scs",
-    "domainId": "d6",
-    "front": "In SCS-C02 (Management and Security Governance), how does Delegated administrator accounts for security and governance services function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Delegated administrator accounts for security and governance services</strong> establishes automated declarative workflows within Management and Security Governance. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d5",
+    "front": "Data Protection Safeguard #32",
+    "hint": "CMEK rotation, Amazon Macie discovery, or TLS certificate lifecycle rule.",
+    "back": "<strong>Data Protection Safeguard #32</strong> ensures cryptographic data protection at rest and in transit, automated PII discovery with Macie, and Secrets Manager automated credential rotation.",
     "tags": [
-      "SCS-C02",
-      "Management"
+      "Data Protection",
+      "KMS",
+      "Encryption"
     ]
   },
   {
     "id": "aws-scs-fc-205",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "certId": "aws-scs",
-    "domainId": "d1",
-    "front": "In SCS-C02 (Threat Detection and Incident Response), how does Amazon EventBridge rules triggering Lambda for security auto-remediation function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Amazon EventBridge rules triggering Lambda for security auto-remediation</strong> establishes automated declarative workflows within Threat Detection and Incident Response. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d5",
+    "front": "Data Protection Safeguard #33",
+    "hint": "CMEK rotation, Amazon Macie discovery, or TLS certificate lifecycle rule.",
+    "back": "<strong>Data Protection Safeguard #33</strong> ensures cryptographic data protection at rest and in transit, automated PII discovery with Macie, and Secrets Manager automated credential rotation.",
     "tags": [
-      "SCS-C02",
-      "Threat"
+      "Data Protection",
+      "KMS",
+      "Encryption"
     ]
   },
   {
     "id": "aws-scs-fc-206",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "aws-scs",
-    "domainId": "d2",
-    "front": "In SCS-C02 (Security Logging and Monitoring), how does Amazon OpenSearch Service aggregating and visualizing security telemetry function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Amazon OpenSearch Service aggregating and visualizing security telemetry</strong> establishes automated declarative workflows within Security Logging and Monitoring. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d5",
+    "front": "Data Protection Safeguard #34",
+    "hint": "CMEK rotation, Amazon Macie discovery, or TLS certificate lifecycle rule.",
+    "back": "<strong>Data Protection Safeguard #34</strong> ensures cryptographic data protection at rest and in transit, automated PII discovery with Macie, and Secrets Manager automated credential rotation.",
     "tags": [
-      "SCS-C02",
-      "Security"
+      "Data Protection",
+      "KMS",
+      "Encryption"
     ]
   },
   {
     "id": "aws-scs-fc-207",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "certId": "aws-scs",
-    "domainId": "d3",
-    "front": "In SCS-C02 (Infrastructure Security), how does AWS Systems Manager Session Manager replacing bastion host SSH access function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>AWS Systems Manager Session Manager replacing bastion host SSH access</strong> establishes automated declarative workflows within Infrastructure Security. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d5",
+    "front": "Data Protection Safeguard #35",
+    "hint": "CMEK rotation, Amazon Macie discovery, or TLS certificate lifecycle rule.",
+    "back": "<strong>Data Protection Safeguard #35</strong> ensures cryptographic data protection at rest and in transit, automated PII discovery with Macie, and Secrets Manager automated credential rotation.",
     "tags": [
-      "SCS-C02",
-      "Infrastructure"
+      "Data Protection",
+      "KMS",
+      "Encryption"
     ]
   },
   {
     "id": "aws-scs-fc-208",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "aws-scs",
-    "domainId": "d4",
-    "front": "In SCS-C02 (Identity and Access Management), how does Attribute-Based Access Control ABAC using principal and resource tags function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Attribute-Based Access Control ABAC using principal and resource tags</strong> establishes automated declarative workflows within Identity and Access Management. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d5",
+    "front": "Data Protection Safeguard #36",
+    "hint": "CMEK rotation, Amazon Macie discovery, or TLS certificate lifecycle rule.",
+    "back": "<strong>Data Protection Safeguard #36</strong> ensures cryptographic data protection at rest and in transit, automated PII discovery with Macie, and Secrets Manager automated credential rotation.",
     "tags": [
-      "SCS-C02",
-      "Identity"
+      "Data Protection",
+      "KMS",
+      "Encryption"
     ]
   },
   {
@@ -108,220 +116,238 @@ export const AWS_SCS_FLASHCARDS_9 = [
     "difficulty": "medium",
     "certId": "aws-scs",
     "domainId": "d5",
-    "front": "In SCS-C02 (Data Protection), how does Amazon Macie sensitive data discovery and classification across S3 buckets function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Amazon Macie sensitive data discovery and classification across S3 buckets</strong> establishes automated declarative workflows within Data Protection. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "front": "Data Protection Safeguard #37",
+    "hint": "CMEK rotation, Amazon Macie discovery, or TLS certificate lifecycle rule.",
+    "back": "<strong>Data Protection Safeguard #37</strong> ensures cryptographic data protection at rest and in transit, automated PII discovery with Macie, and Secrets Manager automated credential rotation.",
     "tags": [
-      "SCS-C02",
-      "Data"
+      "Data Protection",
+      "KMS",
+      "Encryption"
     ]
   },
   {
     "id": "aws-scs-fc-210",
     "difficulty": "hard",
     "certId": "aws-scs",
-    "domainId": "d6",
-    "front": "In SCS-C02 (Management and Security Governance), how does Security reference architecture SRA multi-account foundational layout function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Security reference architecture SRA multi-account foundational layout</strong> establishes automated declarative workflows within Management and Security Governance. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d5",
+    "front": "Data Protection Safeguard #38",
+    "hint": "CMEK rotation, Amazon Macie discovery, or TLS certificate lifecycle rule.",
+    "back": "<strong>Data Protection Safeguard #38</strong> ensures cryptographic data protection at rest and in transit, automated PII discovery with Macie, and Secrets Manager automated credential rotation.",
     "tags": [
-      "SCS-C02",
-      "Management"
+      "Data Protection",
+      "KMS",
+      "Encryption"
     ]
   },
   {
     "id": "aws-scs-fc-211",
     "difficulty": "medium",
     "certId": "aws-scs",
-    "domainId": "d1",
-    "front": "In SCS-C02 (Threat Detection and Incident Response), how does Amazon GuardDuty threat intelligence and anomalous activity findings function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Amazon GuardDuty threat intelligence and anomalous activity findings</strong> establishes automated declarative workflows within Threat Detection and Incident Response. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d5",
+    "front": "Data Protection Safeguard #39",
+    "hint": "CMEK rotation, Amazon Macie discovery, or TLS certificate lifecycle rule.",
+    "back": "<strong>Data Protection Safeguard #39</strong> ensures cryptographic data protection at rest and in transit, automated PII discovery with Macie, and Secrets Manager automated credential rotation.",
     "tags": [
-      "SCS-C02",
-      "Threat"
+      "Data Protection",
+      "KMS",
+      "Encryption"
     ]
   },
   {
     "id": "aws-scs-fc-212",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "aws-scs",
-    "domainId": "d2",
-    "front": "In SCS-C02 (Security Logging and Monitoring), how does AWS CloudTrail multi-region organization trails and log validation function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>AWS CloudTrail multi-region organization trails and log validation</strong> establishes automated declarative workflows within Security Logging and Monitoring. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d5",
+    "front": "Data Protection Safeguard #40",
+    "hint": "CMEK rotation, Amazon Macie discovery, or TLS certificate lifecycle rule.",
+    "back": "<strong>Data Protection Safeguard #40</strong> ensures cryptographic data protection at rest and in transit, automated PII discovery with Macie, and Secrets Manager automated credential rotation.",
     "tags": [
-      "SCS-C02",
-      "Security"
+      "Data Protection",
+      "KMS",
+      "Encryption"
     ]
   },
   {
     "id": "aws-scs-fc-213",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "certId": "aws-scs",
-    "domainId": "d3",
-    "front": "In SCS-C02 (Infrastructure Security), how does AWS WAF web ACL rule groups defending against SQL injection and XSS function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>AWS WAF web ACL rule groups defending against SQL injection and XSS</strong> establishes automated declarative workflows within Infrastructure Security. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d5",
+    "front": "Data Protection Safeguard #41",
+    "hint": "CMEK rotation, Amazon Macie discovery, or TLS certificate lifecycle rule.",
+    "back": "<strong>Data Protection Safeguard #41</strong> ensures cryptographic data protection at rest and in transit, automated PII discovery with Macie, and Secrets Manager automated credential rotation.",
     "tags": [
-      "SCS-C02",
-      "Infrastructure"
+      "Data Protection",
+      "KMS",
+      "Encryption"
     ]
   },
   {
     "id": "aws-scs-fc-214",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "aws-scs",
-    "domainId": "d4",
-    "front": "In SCS-C02 (Identity and Access Management), how does IAM policy evaluation logic explicit deny, SCPs, boundaries, and identity function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>IAM policy evaluation logic explicit deny, SCPs, boundaries, and identity</strong> establishes automated declarative workflows within Identity and Access Management. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d5",
+    "front": "Data Protection Safeguard #42",
+    "hint": "CMEK rotation, Amazon Macie discovery, or TLS certificate lifecycle rule.",
+    "back": "<strong>Data Protection Safeguard #42</strong> ensures cryptographic data protection at rest and in transit, automated PII discovery with Macie, and Secrets Manager automated credential rotation.",
     "tags": [
-      "SCS-C02",
-      "Identity"
+      "Data Protection",
+      "KMS",
+      "Encryption"
     ]
   },
   {
     "id": "aws-scs-fc-215",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "certId": "aws-scs",
     "domainId": "d5",
-    "front": "In SCS-C02 (Data Protection), how does AWS KMS envelope encryption with customer managed symmetric keys function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>AWS KMS envelope encryption with customer managed symmetric keys</strong> establishes automated declarative workflows within Data Protection. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "front": "Data Protection Safeguard #43",
+    "hint": "CMEK rotation, Amazon Macie discovery, or TLS certificate lifecycle rule.",
+    "back": "<strong>Data Protection Safeguard #43</strong> ensures cryptographic data protection at rest and in transit, automated PII discovery with Macie, and Secrets Manager automated credential rotation.",
     "tags": [
-      "SCS-C02",
-      "Data"
+      "Data Protection",
+      "KMS",
+      "Encryption"
     ]
   },
   {
     "id": "aws-scs-fc-216",
-    "difficulty": "easy",
+    "difficulty": "hard",
     "certId": "aws-scs",
     "domainId": "d6",
-    "front": "In SCS-C02 (Management and Security Governance), how does AWS Config managed rules and conformance packs auditing compliance function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>AWS Config managed rules and conformance packs auditing compliance</strong> establishes automated declarative workflows within Management and Security Governance. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "front": "Service Control Policies (SCPs): The Deny-Override Rule",
+    "hint": "Hard organization guardrails that even account root users cannot bypass.",
+    "back": "An explicit <code>Deny</code> in a <strong>Service Control Policy (SCP)</strong> overrides all allowances across all IAM users and roles in member accounts\u2014including member account root users. SCPs do not grant permissions on their own; they act as a permission filter, and they never affect the management account.",
     "tags": [
-      "SCS-C02",
-      "Management"
+      "Organizations",
+      "SCPs",
+      "Governance",
+      "Security"
     ]
   },
   {
     "id": "aws-scs-fc-217",
     "difficulty": "medium",
     "certId": "aws-scs",
-    "domainId": "d1",
-    "front": "In SCS-C02 (Threat Detection and Incident Response), how does AWS Security Hub centralized posture management and compliance checks function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>AWS Security Hub centralized posture management and compliance checks</strong> establishes automated declarative workflows within Threat Detection and Incident Response. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d6",
+    "front": "Security Governance Control #1",
+    "hint": "AWS Control Tower guardrail, Config conformance pack, or Audit Manager rule.",
+    "back": "<strong>Security Governance Control #1</strong> establishes centralized landing zones, automated compliance evaluation via AWS Config conformance packs, and continuous audit evidence collection.",
     "tags": [
-      "SCS-C02",
-      "Threat"
+      "Governance",
+      "Control Tower",
+      "Compliance"
     ]
   },
   {
     "id": "aws-scs-fc-218",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "aws-scs",
-    "domainId": "d2",
-    "front": "In SCS-C02 (Security Logging and Monitoring), how does VPC Flow Logs capturing accepted and rejected network traffic function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>VPC Flow Logs capturing accepted and rejected network traffic</strong> establishes automated declarative workflows within Security Logging and Monitoring. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d6",
+    "front": "Security Governance Control #2",
+    "hint": "AWS Control Tower guardrail, Config conformance pack, or Audit Manager rule.",
+    "back": "<strong>Security Governance Control #2</strong> establishes centralized landing zones, automated compliance evaluation via AWS Config conformance packs, and continuous audit evidence collection.",
     "tags": [
-      "SCS-C02",
-      "Security"
+      "Governance",
+      "Control Tower",
+      "Compliance"
     ]
   },
   {
     "id": "aws-scs-fc-219",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "certId": "aws-scs",
-    "domainId": "d3",
-    "front": "In SCS-C02 (Infrastructure Security), how does AWS Shield Advanced DDoS mitigation and cost protection function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>AWS Shield Advanced DDoS mitigation and cost protection</strong> establishes automated declarative workflows within Infrastructure Security. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d6",
+    "front": "Security Governance Control #3",
+    "hint": "AWS Control Tower guardrail, Config conformance pack, or Audit Manager rule.",
+    "back": "<strong>Security Governance Control #3</strong> establishes centralized landing zones, automated compliance evaluation via AWS Config conformance packs, and continuous audit evidence collection.",
     "tags": [
-      "SCS-C02",
-      "Infrastructure"
+      "Governance",
+      "Control Tower",
+      "Compliance"
     ]
   },
   {
     "id": "aws-scs-fc-220",
     "difficulty": "hard",
     "certId": "aws-scs",
-    "domainId": "d4",
-    "front": "In SCS-C02 (Identity and Access Management), how does IAM permission boundaries delegating safe role creation to teams function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>IAM permission boundaries delegating safe role creation to teams</strong> establishes automated declarative workflows within Identity and Access Management. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d6",
+    "front": "Security Governance Control #4",
+    "hint": "AWS Control Tower guardrail, Config conformance pack, or Audit Manager rule.",
+    "back": "<strong>Security Governance Control #4</strong> establishes centralized landing zones, automated compliance evaluation via AWS Config conformance packs, and continuous audit evidence collection.",
     "tags": [
-      "SCS-C02",
-      "Identity"
+      "Governance",
+      "Control Tower",
+      "Compliance"
     ]
   },
   {
     "id": "aws-scs-fc-221",
     "difficulty": "medium",
     "certId": "aws-scs",
-    "domainId": "d5",
-    "front": "In SCS-C02 (Data Protection), how does AWS KMS key policies vs IAM policies for cryptographic access function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>AWS KMS key policies vs IAM policies for cryptographic access</strong> establishes automated declarative workflows within Data Protection. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d6",
+    "front": "Security Governance Control #5",
+    "hint": "AWS Control Tower guardrail, Config conformance pack, or Audit Manager rule.",
+    "back": "<strong>Security Governance Control #5</strong> establishes centralized landing zones, automated compliance evaluation via AWS Config conformance packs, and continuous audit evidence collection.",
     "tags": [
-      "SCS-C02",
-      "Data"
+      "Governance",
+      "Control Tower",
+      "Compliance"
     ]
   },
   {
     "id": "aws-scs-fc-222",
-    "difficulty": "easy",
+    "difficulty": "hard",
     "certId": "aws-scs",
     "domainId": "d6",
-    "front": "In SCS-C02 (Management and Security Governance), how does AWS Organizations Service Control Policies SCPs establishing hard guardrails function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>AWS Organizations Service Control Policies SCPs establishing hard guardrails</strong> establishes automated declarative workflows within Management and Security Governance. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "front": "Security Governance Control #6",
+    "hint": "AWS Control Tower guardrail, Config conformance pack, or Audit Manager rule.",
+    "back": "<strong>Security Governance Control #6</strong> establishes centralized landing zones, automated compliance evaluation via AWS Config conformance packs, and continuous audit evidence collection.",
     "tags": [
-      "SCS-C02",
-      "Management"
+      "Governance",
+      "Control Tower",
+      "Compliance"
     ]
   },
   {
     "id": "aws-scs-fc-223",
     "difficulty": "medium",
     "certId": "aws-scs",
-    "domainId": "d1",
-    "front": "In SCS-C02 (Threat Detection and Incident Response), how does Amazon Detective root cause investigation and graph analysis function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Amazon Detective root cause investigation and graph analysis</strong> establishes automated declarative workflows within Threat Detection and Incident Response. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d6",
+    "front": "Security Governance Control #7",
+    "hint": "AWS Control Tower guardrail, Config conformance pack, or Audit Manager rule.",
+    "back": "<strong>Security Governance Control #7</strong> establishes centralized landing zones, automated compliance evaluation via AWS Config conformance packs, and continuous audit evidence collection.",
     "tags": [
-      "SCS-C02",
-      "Threat"
+      "Governance",
+      "Control Tower",
+      "Compliance"
     ]
   },
   {
     "id": "aws-scs-fc-224",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "aws-scs",
-    "domainId": "d2",
-    "front": "In SCS-C02 (Security Logging and Monitoring), how does CloudWatch log group retention, metric filters, and subscription filters function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>CloudWatch log group retention, metric filters, and subscription filters</strong> establishes automated declarative workflows within Security Logging and Monitoring. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d6",
+    "front": "Security Governance Control #8",
+    "hint": "AWS Control Tower guardrail, Config conformance pack, or Audit Manager rule.",
+    "back": "<strong>Security Governance Control #8</strong> establishes centralized landing zones, automated compliance evaluation via AWS Config conformance packs, and continuous audit evidence collection.",
     "tags": [
-      "SCS-C02",
-      "Security"
+      "Governance",
+      "Control Tower",
+      "Compliance"
     ]
   },
   {
     "id": "aws-scs-fc-225",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "certId": "aws-scs",
-    "domainId": "d3",
-    "front": "In SCS-C02 (Infrastructure Security), how does AWS Network Firewall stateful inspection and TLS decryption rules function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>AWS Network Firewall stateful inspection and TLS decryption rules</strong> establishes automated declarative workflows within Infrastructure Security. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d6",
+    "front": "Security Governance Control #9",
+    "hint": "AWS Control Tower guardrail, Config conformance pack, or Audit Manager rule.",
+    "back": "<strong>Security Governance Control #9</strong> establishes centralized landing zones, automated compliance evaluation via AWS Config conformance packs, and continuous audit evidence collection.",
     "tags": [
-      "SCS-C02",
-      "Infrastructure"
+      "Governance",
+      "Control Tower",
+      "Compliance"
     ]
   }
 ];

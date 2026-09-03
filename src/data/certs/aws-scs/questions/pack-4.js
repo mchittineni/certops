@@ -1,528 +1,1004 @@
 export const AWS_SCS_QUESTIONS_4 = [
   {
-    id: "aws-scs-76",
-    difficulty: "medium",
-    certId: "aws-scs",
-    domainId: "d4",
-    domainName: "Identity and Access Management",
-    title: "IAM Access Analyzer identifying public and cross-account resource sharing: Operational Strategy (Part 76)",
-    scenario: "A multinational fintech banking platform is evaluating AWS Certified Security - Specialty practices specifically regarding IAM Access Analyzer identifying public and cross-account resource sharing. The engineering group must establish centralized audit logging and automated incident containment for security operations for service tier #76.",
-    question: "What is the recommended implementation strategy to satisfy these technical requirements according to official best practices? (Focus: IAM Access Analyzer identifying public and cross-account resource sharing in Identity and Access Management)",
-    options: [
-      { id: 'A', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'B', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'C', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'D', text: "Deploy native automation for iam access analyzer identifying public and cross-account resource sharing utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." }
+    "difficulty": "medium",
+    "certId": "aws-scs",
+    "domainId": "d2",
+    "domainName": "Security Logging and Monitoring",
+    "title": "Detecting Unencrypted EBS Volume Creation via CloudTrail and EventBridge",
+    "scenario": "A security architect wants to prevent unencrypted EBS volumes from remaining active. Whenever an unencrypted volume is created, an automated script must immediately delete or snapshot the volume and terminate the instance.",
+    "question": "Which EventBridge event pattern matches the creation of an unencrypted EBS volume from CloudTrail?",
+    "options": [
+      {
+        "id": "A",
+        "text": "An EventBridge rule matching <code>CreateVolume</code> where <code>detail.responseElements.encrypted</code> is <code>false</code>"
+      },
+      {
+        "id": "B",
+        "text": "An EventBridge rule matching <code>AttachVolume</code> where <code>detail.requestParameters.device</code> is <code>/dev/xvda</code>"
+      },
+      {
+        "id": "C",
+        "text": "A CloudWatch Logs subscription filter on <code>dmesg</code>"
+      },
+      {
+        "id": "D",
+        "text": "An AWS Config rule running once per week"
+      }
     ],
-    correctAnswers: ['D'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for iam access analyzer identifying public and cross-account resource sharing provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Identity", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "When `CreateVolume` succeeds, the CloudTrail response elements record `encrypted: false` if encryption was not enabled. An EventBridge rule matching `detail.responseElements.encrypted = false` immediately triggers a Lambda function to take corrective containment action within seconds.",
+    "referenceUrl": "https://docs.aws.amazon.com/security/",
+    "tags": [
+      "EventBridge",
+      "CloudTrail",
+      "EBS",
+      "Unencrypted-Volume"
+    ],
+    "id": "aws-scs-76"
   },
   {
-    id: "aws-scs-77",
-    difficulty: "medium",
-    certId: "aws-scs",
-    domainId: "d5",
-    domainName: "Data Protection",
-    title: "AWS Secrets Manager automatic password rotation for RDS databases: Operational Strategy (Part 77)",
-    scenario: "A healthcare telemedicine network is evaluating AWS Certified Security - Specialty practices specifically regarding AWS Secrets Manager automatic password rotation for RDS databases. The engineering group is modernizing legacy components to achieve zero-downtime deployments under unpredictable traffic spikes for service tier #77.",
-    question: "Which configuration provides the most cost-effective and secure solution to achieve these criteria? (Focus: AWS Secrets Manager automatic password rotation for RDS databases in Data Protection)",
-    options: [
-      { id: 'A', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'B', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'D', text: "Deploy native automation for aws secrets manager automatic password rotation for rds databases utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." }
+    "difficulty": "hard",
+    "certId": "aws-scs",
+    "domainId": "d2",
+    "domainName": "Security Logging and Monitoring",
+    "title": "Amazon GuardDuty CloudWatch Metric Export for Centralized SOC Dashboard",
+    "scenario": "A centralized security operations center tracks finding counts by severity (Low, Medium, High) in Amazon CloudWatch dashboards across multiple AWS Regions.",
+    "question": "Where does GuardDuty publish quantitative finding metrics for CloudWatch dashboards?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Through EventBridge rules matching GuardDuty findings that emit custom CloudWatch metrics via a Lambda function (or native CloudWatch metric filters)"
+      },
+      {
+        "id": "B",
+        "text": "GuardDuty automatically populates metrics in the AWS/EC2 namespace"
+      },
+      {
+        "id": "C",
+        "text": "GuardDuty streams directly to Amazon Athena via internal queues"
+      },
+      {
+        "id": "D",
+        "text": "GuardDuty writes metrics to the Linux syslog daemon"
+      }
     ],
-    correctAnswers: ['D'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for aws secrets manager automatic password rotation for rds databases provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Data", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "GuardDuty publishes raw finding JSON payloads to Amazon EventBridge. To create aggregate CloudWatch dashboards showing finding counts by severity, teams configure an EventBridge rule that routes findings to a lightweight Lambda function or CloudWatch custom metric publisher.",
+    "referenceUrl": "https://docs.aws.amazon.com/security/",
+    "tags": [
+      "GuardDuty",
+      "CloudWatch",
+      "EventBridge",
+      "Dashboards"
+    ],
+    "id": "aws-scs-77"
   },
   {
-    id: "aws-scs-78",
-    difficulty: "easy",
-    certId: "aws-scs",
-    domainId: "d6",
-    domainName: "Management and Security Governance",
-    title: "AWS Audit Manager continuous assessment against industry frameworks: Operational Strategy (Part 78)",
-    scenario: "A high-throughput e-commerce retailer is evaluating AWS Certified Security - Specialty practices specifically regarding AWS Audit Manager continuous assessment against industry frameworks. The engineering group is remediating compliance audit findings regarding unauthorized configuration drift across staging and production for service tier #78.",
-    question: "Which architectural approach fulfills these operational objectives while maintaining reliability and minimal engineering overhead? (Focus: AWS Audit Manager continuous assessment against industry frameworks in Management and Security Governance)",
-    options: [
-      { id: 'A', text: "Deploy native automation for aws audit manager continuous assessment against industry frameworks utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'B', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'C', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'D', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." }
+    "difficulty": "medium",
+    "certId": "aws-scs",
+    "domainId": "d2",
+    "domainName": "Security Logging and Monitoring",
+    "title": "Auditing Lambda Function Environment Variable Encryption Settings",
+    "scenario": "An auditor flags that AWS Lambda functions might expose sensitive API tokens in plain text if helper encryption is not enabled.",
+    "question": "Which AWS Config managed rule checks whether AWS Lambda environment variables are encrypted with a customer managed KMS key?",
+    "options": [
+      {
+        "id": "A",
+        "text": "<code>lambda-function-settings-check</code>"
+      },
+      {
+        "id": "B",
+        "text": "<code>iam-password-policy</code>"
+      },
+      {
+        "id": "C",
+        "text": "<code>s3-bucket-ssl-requests-only</code>"
+      },
+      {
+        "id": "D",
+        "text": "<code>ec2-volume-inuse-check</code>"
+      }
     ],
-    correctAnswers: ['A'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for aws audit manager continuous assessment against industry frameworks provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Management", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "The AWS Config managed rule `lambda-function-settings-check` evaluates Lambda function configurations, verifying that function settings (including environment variable encryption with customer managed KMS keys, runtime version, and VPC attachment) comply with organizational security policies.",
+    "referenceUrl": "https://docs.aws.amazon.com/security/",
+    "tags": [
+      "AWS-Config",
+      "Lambda",
+      "Environment-Variables",
+      "KMS"
+    ],
+    "id": "aws-scs-78"
   },
   {
-    id: "aws-scs-79",
-    difficulty: "medium",
-    certId: "aws-scs",
-    domainId: "d1",
-    domainName: "Threat Detection and Incident Response",
-    title: "Automated incident containment isolating compromised EC2 instances: Operational Strategy (Part 79)",
-    scenario: "A global streaming entertainment platform is evaluating AWS Certified Security - Specialty practices specifically regarding Automated incident containment isolating compromised EC2 instances. The engineering group must minimize mean time to recovery (MTTR) and prevent cascading failures during regional outages for service tier #79.",
-    question: "How should the engineering team configure the platform to ensure resilient, automated operation without manual intervention? (Focus: Automated incident containment isolating compromised EC2 instances in Threat Detection and Incident Response)",
-    options: [
-      { id: 'A', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'B', text: "Deploy native automation for automated incident containment isolating compromised ec2 instances utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'D', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." }
+    "difficulty": "medium",
+    "certId": "aws-scs",
+    "domainId": "d2",
+    "domainName": "Security Logging and Monitoring",
+    "title": "Monitoring Network Firewall Drop Events with CloudWatch Logs",
+    "scenario": "AWS Network Firewall is deployed in an inspection VPC. The security team needs to analyze all packets dropped by stateful Suricata rules to track active exploit attempts.",
+    "question": "How should AWS Network Firewall logging be configured to capture dropped packet metadata?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Configure Network Firewall logging to write <code>Alert</code> log types to an Amazon CloudWatch Log group or S3 bucket"
+      },
+      {
+        "id": "B",
+        "text": "Configure Network Firewall to log only <code>Flow</code> logs"
+      },
+      {
+        "id": "C",
+        "text": "Rely on VPC Flow Logs on the transit gateway"
+      },
+      {
+        "id": "D",
+        "text": "Attach an AWS WAF Web ACL to the Network Firewall endpoint"
+      }
     ],
-    correctAnswers: ['B'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for automated incident containment isolating compromised ec2 instances provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Threat", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "AWS Network Firewall provides two types of logs: **Flow logs** (standard network traffic metadata for all evaluated packets) and **Alert logs** (detailed records generated when stateful rules trigger an action, including `drop`, `reject`, or `alert`). Dropped packets and Suricata rule signatures are recorded in Alert logs.",
+    "referenceUrl": "https://docs.aws.amazon.com/security/",
+    "tags": [
+      "Network-Firewall",
+      "Alert-Logs",
+      "Suricata",
+      "Intrusion-Detection"
+    ],
+    "id": "aws-scs-79"
   },
   {
-    id: "aws-scs-80",
-    difficulty: "hard",
-    certId: "aws-scs",
-    domainId: "d2",
-    domainName: "Security Logging and Monitoring",
-    title: "Amazon Athena SQL queries analyzing VPC Flow Logs and CloudTrail: Operational Strategy (Part 80)",
-    scenario: "An algorithmic trading exchange is evaluating AWS Certified Security - Specialty practices specifically regarding Amazon Athena SQL queries analyzing VPC Flow Logs and CloudTrail. The engineering group is migrating mission-critical workloads while enforcing strict organizational security guardrails for service tier #80.",
-    question: "Which design pattern should be implemented to ensure continuous compliance, automated validation, and high availability? (Focus: Amazon Athena SQL queries analyzing VPC Flow Logs and CloudTrail in Security Logging and Monitoring)",
-    options: [
-      { id: 'A', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'B', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'C', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'D', text: "Deploy native automation for amazon athena sql queries analyzing vpc flow logs and cloudtrail utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." }
+    "difficulty": "easy",
+    "certId": "aws-scs",
+    "domainId": "d2",
+    "domainName": "Security Logging and Monitoring",
+    "title": "Monitoring CloudTrail Trail Configuration Changes with CloudWatch",
+    "scenario": "To prevent stealthy tampering with compliance logging, an alert must trigger immediately if any administrator updates or deletes a CloudTrail trail configuration.",
+    "question": "Which metric filter pattern satisfies CIS Benchmark compliance for CloudTrail trail changes?",
+    "options": [
+      {
+        "id": "A",
+        "text": "<code>{($.eventName=CreateTrail)||($.eventName=UpdateTrail)||($.eventName=DeleteTrail)||($.eventName=StartLogging)||($.eventName=StopLogging)}</code>"
+      },
+      {
+        "id": "B",
+        "text": "<code>{ $.eventSource = \"ec2.amazonaws.com\" }</code>"
+      },
+      {
+        "id": "C",
+        "text": "<code>{ $.errorCode = \"404\" }</code>"
+      },
+      {
+        "id": "D",
+        "text": "<code>{ $.userIdentity.type = \"IAMUser\" }</code>"
+      }
     ],
-    correctAnswers: ['D'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for amazon athena sql queries analyzing vpc flow logs and cloudtrail provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Security", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "The CIS AWS Foundations Benchmark specifies filtering CloudTrail logs for all trail lifecycle events (CreateTrail, UpdateTrail, DeleteTrail, StartLogging, StopLogging) to ensure that any tampering with audit trail collection is flagged instantly to security teams.",
+    "referenceUrl": "https://docs.aws.amazon.com/security/",
+    "tags": [
+      "CloudWatch",
+      "Metric-Filter",
+      "CloudTrail-Configuration",
+      "CIS-Benchmark"
+    ],
+    "id": "aws-scs-80"
   },
   {
-    id: "aws-scs-81",
-    difficulty: "easy",
-    certId: "aws-scs",
-    domainId: "d3",
-    domainName: "Infrastructure Security",
-    title: "VPC endpoint policies restricting access to designated AWS resources: Operational Strategy (Part 81)",
-    scenario: "A logistics and supply chain optimization service is evaluating AWS Certified Security - Specialty practices specifically regarding VPC endpoint policies restricting access to designated AWS resources. The engineering group needs to eliminate manual operational toil and enforce declarative infrastructure reconciliation for service tier #81.",
-    question: "What is the recommended implementation strategy to satisfy these technical requirements according to official best practices? (Focus: VPC endpoint policies restricting access to designated AWS resources in Infrastructure Security)",
-    options: [
-      { id: 'A', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'C', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'D', text: "Deploy native automation for vpc endpoint policies restricting access to designated aws resources utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." }
+    "id": "aws-scs-81",
+    "difficulty": "medium",
+    "certId": "aws-scs",
+    "domainId": "d3",
+    "domainName": "Infrastructure Security",
+    "title": "AWS WAF Rate-Based Rules for DDoS and Brute-Force Mitigation",
+    "scenario": "A public-facing e-commerce API running behind an Application Load Balancer is targeted by a distributed brute-force login attack from rotating IP addresses. The security team needs to automatically block any client IP address that sends more than 100 requests per 5-minute period to the /api/login endpoint.",
+    "question": "Which AWS WAF configuration implements this protection?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Add a deny rule in the VPC Network ACL for every individual IP address observed in logs"
+      },
+      {
+        "id": "B",
+        "text": "Configure an AWS Shield Advanced proactive engagement rule on the ALB"
+      },
+      {
+        "id": "C",
+        "text": "Configure an Auto Scaling group scaling policy to terminate instances under high HTTP load"
+      },
+      {
+        "id": "D",
+        "text": "Create an AWS WAF Web ACL with a rate-based rule evaluating requests matching the URI path /api/login, setting the rate limit to 100 requests per 5-minute evaluation window with a Block action"
+      }
     ],
-    correctAnswers: ['D'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for vpc endpoint policies restricting access to designated aws resources provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Infrastructure", "Architecture"]
+    "correctAnswers": [
+      "D"
+    ],
+    "type": "single",
+    "explanation": "AWS WAF rate-based rules track the number of requests arriving from each IP address over a sliding 5-minute evaluation window. When combined with a scope-down statement (such as matching requests with URI path /api/login), AWS WAF automatically blocks or CAPTCHA-challenges offending IPs that exceed the threshold.",
+    "referenceUrl": "https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-type-rate-based.html",
+    "tags": [
+      "WAF",
+      "Rate-Based Rules",
+      "DDoS",
+      "ALB"
+    ]
   },
   {
-    id: "aws-scs-82",
-    difficulty: "medium",
-    certId: "aws-scs",
-    domainId: "d4",
-    domainName: "Identity and Access Management",
-    title: "Cross-account access with AssumeRole and external ID validation: Operational Strategy (Part 82)",
-    scenario: "An IoT industrial telematics infrastructure is evaluating AWS Certified Security - Specialty practices specifically regarding Cross-account access with AssumeRole and external ID validation. The engineering group is implementing automated canary analysis with instant rollback capabilities triggered by error budget burn rates for service tier #82.",
-    question: "Which configuration provides the most cost-effective and secure solution to achieve these criteria? (Focus: Cross-account access with AssumeRole and external ID validation in Identity and Access Management)",
-    options: [
-      { id: 'A', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'B', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'C', text: "Deploy native automation for cross-account access with assumerole and external id validation utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'D', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." }
+    "id": "aws-scs-82",
+    "difficulty": "hard",
+    "certId": "aws-scs",
+    "domainId": "d3",
+    "domainName": "Infrastructure Security",
+    "title": "Restricting VPC Interface Endpoints with Endpoint Policies",
+    "scenario": "A company uses an Amazon S3 interface endpoint (AWS PrivateLink) inside a private subnet. The security policy mandates that instances in this subnet must only be allowed to access an internal corporate S3 bucket (arn:aws:s3:::corp-internal-data) and must be blocked from accessing any other S3 buckets (including personal or external AWS accounts).",
+    "question": "How should this restriction be enforced?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Add an entry in the VPC route table pointing 0.0.0.0/0 to an egress-only internet gateway"
+      },
+      {
+        "id": "B",
+        "text": "Configure a security group on the interface endpoint allowing port 443 outbound to 0.0.0.0/0"
+      },
+      {
+        "id": "C",
+        "text": "Attach a bucket policy on the internal S3 bucket denying access to all external VPCs"
+      },
+      {
+        "id": "D",
+        "text": "Attach a VPC endpoint policy to the interface endpoint that allows s3:* actions only when Resource equals arn:aws:s3:::corp-internal-data and arn:aws:s3:::corp-internal-data/*"
+      }
     ],
-    correctAnswers: ['C'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for cross-account access with assumerole and external id validation provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Identity", "Architecture"]
+    "correctAnswers": [
+      "D"
+    ],
+    "type": "single",
+    "explanation": "VPC endpoint policies are resource-based policies attached to VPC endpoints (both gateway and interface endpoints). Unlike security groups which control network traffic by IP and port, endpoint policies control which specific AWS resources and API actions can be accessed through that endpoint, preventing data exfiltration to unauthorized external buckets.",
+    "referenceUrl": "https://docs.aws.amazon.com/vpc/latest/privatelink/vpc-endpoints-access.html",
+    "tags": [
+      "VPC Endpoints",
+      "Endpoint Policies",
+      "PrivateLink",
+      "S3",
+      "Data Exfiltration"
+    ]
   },
   {
-    id: "aws-scs-83",
-    difficulty: "medium",
-    certId: "aws-scs",
-    domainId: "d5",
-    domainName: "Data Protection",
-    title: "Amazon S3 bucket encryption with customer provided KMS keys SSE-KMS: Operational Strategy (Part 83)",
-    scenario: "A multi-tenant enterprise SaaS provider is evaluating AWS Certified Security - Specialty practices specifically regarding Amazon S3 bucket encryption with customer provided KMS keys SSE-KMS. The engineering group must enforce zero-trust identity boundaries and cryptographic verification across all service endpoints for service tier #83.",
-    question: "Which architectural approach fulfills these operational objectives while maintaining reliability and minimal engineering overhead? (Focus: Amazon S3 bucket encryption with customer provided KMS keys SSE-KMS in Data Protection)",
-    options: [
-      { id: 'A', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'B', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'C', text: "Deploy native automation for amazon s3 bucket encryption with customer provided kms keys sse-kms utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'D', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." }
+    "difficulty": "easy",
+    "certId": "aws-scs",
+    "domainId": "d3",
+    "domainName": "Infrastructure Security",
+    "title": "Mitigating Server-Side Request Forgery (SSRF) with IMDSv2",
+    "scenario": "A penetration testing report demonstrates that a web application running on Amazon EC2 is vulnerable to Server-Side Request Forgery (SSRF). An attacker exploited the vulnerability to query 169.254.169.254 and exfiltrate IAM role credentials from the instance metadata service.",
+    "question": "Which configuration must be enforced across all EC2 instances to neutralize this SSRF attack vector?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Enforce Instance Metadata Service Version 2 (IMDSv2) by setting <code>HttpTokens=required</code> and setting <code>HttpPutResponseHopLimit=1</code>"
+      },
+      {
+        "id": "B",
+        "text": "Disable the instance metadata service completely on all application instances"
+      },
+      {
+        "id": "C",
+        "text": "Attach a VPC Network ACL rule blocking traffic to 169.254.169.254"
+      },
+      {
+        "id": "D",
+        "text": "Store the instance credentials in an Amazon S3 bucket instead of an IAM role"
+      }
     ],
-    correctAnswers: ['C'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for amazon s3 bucket encryption with customer provided kms keys sse-kms provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Data", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "IMDSv2 mitigates SSRF by requiring session-oriented authentication. Callers must first send an HTTP PUT request with the header `X-aws-ec2-metadata-token-ttl-seconds` to obtain a session token, and subsequent requests must pass this token in the `X-aws-ec2-metadata-token` header. Most SSRF vulnerabilities cannot execute arbitrary PUT requests with custom headers. Setting `HttpPutResponseHopLimit=1` additionally blocks containers or pods running on the instance from reaching IMDSv2.",
+    "referenceUrl": "https://docs.aws.amazon.com/security/",
+    "tags": [
+      "EC2",
+      "IMDSv2",
+      "SSRF",
+      "Instance-Metadata"
+    ],
+    "id": "aws-scs-83"
   },
   {
-    id: "aws-scs-84",
-    difficulty: "easy",
-    certId: "aws-scs",
-    domainId: "d6",
-    domainName: "Management and Security Governance",
-    title: "Delegated administrator accounts for security and governance services: Operational Strategy (Part 84)",
-    scenario: "A public sector aerospace engineering department is evaluating AWS Certified Security - Specialty practices specifically regarding Delegated administrator accounts for security and governance services. The engineering group needs to optimize cloud expenditure and implement real-time cost attribution across engineering teams for service tier #84.",
-    question: "How should the engineering team configure the platform to ensure resilient, automated operation without manual intervention? (Focus: Delegated administrator accounts for security and governance services in Management and Security Governance)",
-    options: [
-      { id: 'A', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'B', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'C', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'D', text: "Deploy native automation for delegated administrator accounts for security and governance services utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." }
+    "difficulty": "medium",
+    "certId": "aws-scs",
+    "domainId": "d3",
+    "domainName": "Infrastructure Security",
+    "title": "AWS WAF Rate-Based Rules for Brute-Force and DoS Defense",
+    "scenario": "A public authentication endpoint (/api/v1/login) on an Application Load Balancer is suffering from credential stuffing attacks. The security team wants to automatically block any client IP address that makes more than 100 requests to this specific URL within a 5-minute window.",
+    "question": "Which AWS WAF rule configuration achieves this rate-limiting defense?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Create an AWS WAF rate-based rule evaluated on IP address with a rate limit of 100, scoped with a condition statement matching URI path equals <code>/api/v1/login</code>, and set the action to Block"
+      },
+      {
+        "id": "B",
+        "text": "Deploy an AWS Shield Standard rule on the ALB target group"
+      },
+      {
+        "id": "C",
+        "text": "Configure an ALB listener rule with a fixed response of 429 Too Many Requests"
+      },
+      {
+        "id": "D",
+        "text": "Create a Network ACL rule that denies TCP port 443 after 100 packets"
+      }
     ],
-    correctAnswers: ['D'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for delegated administrator accounts for security and governance services provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Management", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "AWS WAF supports rate-based rules that track request counts from client IPs over a sliding 5-minute evaluation window. Scoping down the rate-based rule with a nested statement (URI path equals `/api/v1/login`) ensures that the rate limit applies specifically to the sensitive login endpoint without impacting normal browsing traffic.",
+    "referenceUrl": "https://docs.aws.amazon.com/security/",
+    "tags": [
+      "AWS-WAF",
+      "Rate-Based-Rule",
+      "Credential-Stuffing",
+      "ALB"
+    ],
+    "id": "aws-scs-84"
   },
   {
-    id: "aws-scs-85",
-    difficulty: "hard",
-    certId: "aws-scs",
-    domainId: "d1",
-    domainName: "Threat Detection and Incident Response",
-    title: "Amazon EventBridge rules triggering Lambda for security auto-remediation: Operational Strategy (Part 85)",
-    scenario: "An automotive connected-vehicle fleet manager is evaluating AWS Certified Security - Specialty practices specifically regarding Amazon EventBridge rules triggering Lambda for security auto-remediation. The engineering group is resolving cross-account network latency bottlenecks and transient connection timeouts for service tier #85.",
-    question: "Which design pattern should be implemented to ensure continuous compliance, automated validation, and high availability? (Focus: Amazon EventBridge rules triggering Lambda for security auto-remediation in Threat Detection and Incident Response)",
-    options: [
-      { id: 'A', text: "Deploy native automation for amazon eventbridge rules triggering lambda for security auto-remediation utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'B', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'C', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'D', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." }
+    "difficulty": "medium",
+    "certId": "aws-scs",
+    "domainId": "d3",
+    "domainName": "Infrastructure Security",
+    "title": "Centralized Egress Filtering via AWS Network Firewall in an Inspection VPC",
+    "scenario": "An enterprise requires that all outbound internet traffic from 20 application VPCs must route through a centralized inspection VPC to perform deep packet inspection, domain allow-listing, and Suricata intrusion prevention before reaching an Internet Gateway.",
+    "question": "Which routing architecture securely routes outbound traffic through AWS Network Firewall?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Connect the application VPCs to an AWS Transit Gateway (TGW). In the TGW route table for application VPCs, set the default route (0.0.0.0/0) to the Inspection VPC attachment. Route traffic within the Inspection VPC to the AWS Network Firewall endpoint, and from the firewall subnet to the NAT Gateway / Internet Gateway"
+      },
+      {
+        "id": "B",
+        "text": "Deploy an Internet Gateway in every application VPC with public subnets"
+      },
+      {
+        "id": "C",
+        "text": "Configure VPC peering between all 20 application VPCs in a full mesh"
+      },
+      {
+        "id": "D",
+        "text": "Attach an AWS WAF Web ACL to the Transit Gateway route table"
+      }
     ],
-    correctAnswers: ['A'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for amazon eventbridge rules triggering lambda for security auto-remediation provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Threat", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "The centralized egress inspection architecture connects spoke VPCs via Transit Gateway. The spoke route table directs 0.0.0.0/0 to the inspection VPC attachment. Inside the inspection VPC, traffic enters through TGW attachment subnets, routes to Network Firewall endpoints for stateful inspection and domain filtering, passes through a NAT Gateway, and exits through the Internet Gateway.",
+    "referenceUrl": "https://docs.aws.amazon.com/security/",
+    "tags": [
+      "Network-Firewall",
+      "Inspection-VPC",
+      "Transit-Gateway",
+      "Egress-Filtering"
+    ],
+    "id": "aws-scs-85"
   },
   {
-    id: "aws-scs-86",
-    difficulty: "medium",
-    certId: "aws-scs",
-    domainId: "d2",
-    domainName: "Security Logging and Monitoring",
-    title: "Amazon OpenSearch Service aggregating and visualizing security telemetry: Operational Strategy (Part 86)",
-    scenario: "A digital media publishing network is evaluating AWS Certified Security - Specialty practices specifically regarding Amazon OpenSearch Service aggregating and visualizing security telemetry. The engineering group must establish centralized audit logging and automated incident containment for security operations for service tier #86.",
-    question: "What is the recommended implementation strategy to satisfy these technical requirements according to official best practices? (Focus: Amazon OpenSearch Service aggregating and visualizing security telemetry in Security Logging and Monitoring)",
-    options: [
-      { id: 'A', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'B', text: "Deploy native automation for amazon opensearch service aggregating and visualizing security telemetry utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'D', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." }
+    "difficulty": "hard",
+    "certId": "aws-scs",
+    "domainId": "d3",
+    "domainName": "Infrastructure Security",
+    "title": "AWS Network Firewall: Restricting Egress to Approved FQDNs",
+    "scenario": "A compliance standard requires that production database instances must only connect to external update repositories on approved domain names (e.g. *.github.com, packages.microsoft.com). All other outbound internet connections must be dropped.",
+    "question": "Which AWS Network Firewall rule group type and configuration enforces this domain-based restriction?",
+    "options": [
+      {
+        "id": "A",
+        "text": "A stateful rule group configured with Domain List filtering, specifying allowed domain names, target type HTTP_HOST and TLS_SNI, and default action to Drop"
+      },
+      {
+        "id": "B",
+        "text": "A stateless rule group with 5-tuple IP match rules"
+      },
+      {
+        "id": "C",
+        "text": "An AWS WAF Web ACL attached to the private subnet route table"
+      },
+      {
+        "id": "D",
+        "text": "A VPC Network ACL with DNS domain names in rule entries"
+      }
     ],
-    correctAnswers: ['B'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for amazon opensearch service aggregating and visualizing security telemetry provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Security", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "AWS Network Firewall stateful rule groups support Domain List rules. The firewall inspects both the HTTP `Host` header and the TLS Server Name Indication (`SNI`) extension in the TLS ClientHello handshake. Setting the domain list to allow specific FQDNs and dropping all other destinations enforces strict outbound egress control.",
+    "referenceUrl": "https://docs.aws.amazon.com/security/",
+    "tags": [
+      "Network-Firewall",
+      "Domain-List",
+      "SNI",
+      "Egress-Control"
+    ],
+    "id": "aws-scs-86"
   },
   {
-    id: "aws-scs-87",
-    difficulty: "easy",
-    certId: "aws-scs",
-    domainId: "d3",
-    domainName: "Infrastructure Security",
-    title: "AWS Systems Manager Session Manager replacing bastion host SSH access: Operational Strategy (Part 87)",
-    scenario: "A pharmaceutical clinical trial data service is evaluating AWS Certified Security - Specialty practices specifically regarding AWS Systems Manager Session Manager replacing bastion host SSH access. The engineering group is modernizing legacy components to achieve zero-downtime deployments under unpredictable traffic spikes for service tier #87.",
-    question: "Which configuration provides the most cost-effective and secure solution to achieve these criteria? (Focus: AWS Systems Manager Session Manager replacing bastion host SSH access in Infrastructure Security)",
-    options: [
-      { id: 'A', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'B', text: "Deploy native automation for aws systems manager session manager replacing bastion host ssh access utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'D', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." }
+    "difficulty": "medium",
+    "certId": "aws-scs",
+    "domainId": "d3",
+    "domainName": "Infrastructure Security",
+    "title": "Eliminating Bastion Hosts with AWS Systems Manager Session Manager",
+    "scenario": "A security audit flags that maintaining traditional Linux bastion hosts with open SSH port 22 in public subnets exposes the organization to brute-force attacks and requires managing static SSH keys.",
+    "question": "Which architecture provides secure, auditable terminal access to private EC2 instances without opening inbound firewall ports?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Install the AWS Systems Manager (SSM) Agent on private instances, assign an IAM role with <code>AmazonSSMManagedInstanceCore</code>, and access the instances via AWS Systems Manager Session Manager over HTTPS using private VPC endpoints"
+      },
+      {
+        "id": "B",
+        "text": "Open port 22 in the security group only for the corporate office public IP address"
+      },
+      {
+        "id": "C",
+        "text": "Deploy an OpenVPN Access Server in a public subnet"
+      },
+      {
+        "id": "D",
+        "text": "Store all private SSH keys in an encrypted public S3 bucket"
+      }
     ],
-    correctAnswers: ['B'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for aws systems manager session manager replacing bastion host ssh access provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Infrastructure", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "AWS Systems Manager Session Manager provides secure remote instance management via the SSM Agent. The agent initiates outbound TLS connections (port 443) to the Systems Manager service, requiring zero inbound ports in Security Groups or Network ACLs. Access is authorized via IAM, and all terminal keystrokes and session logs can be encrypted with KMS and delivered to S3/CloudWatch.",
+    "referenceUrl": "https://docs.aws.amazon.com/security/",
+    "tags": [
+      "Session-Manager",
+      "SSM",
+      "Bastion-Less",
+      "Least-Privilege"
+    ],
+    "id": "aws-scs-87"
   },
   {
-    id: "aws-scs-88",
-    difficulty: "medium",
-    certId: "aws-scs",
-    domainId: "d4",
-    domainName: "Identity and Access Management",
-    title: "Attribute-Based Access Control ABAC using principal and resource tags: Operational Strategy (Part 88)",
-    scenario: "A renewable energy smart-grid operator is evaluating AWS Certified Security - Specialty practices specifically regarding Attribute-Based Access Control ABAC using principal and resource tags. The engineering group is remediating compliance audit findings regarding unauthorized configuration drift across staging and production for service tier #88.",
-    question: "Which architectural approach fulfills these operational objectives while maintaining reliability and minimal engineering overhead? (Focus: Attribute-Based Access Control ABAC using principal and resource tags in Identity and Access Management)",
-    options: [
-      { id: 'A', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'B', text: "Deploy native automation for attribute-based access control abac using principal and resource tags utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'C', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
+    "difficulty": "medium",
+    "certId": "aws-scs",
+    "domainId": "d3",
+    "domainName": "Infrastructure Security",
+    "title": "Mutual TLS (mTLS) Authentication on Application Load Balancers",
+    "scenario": "A financial API must authenticate B2B partner clients using X.509 client certificates at the transport layer before requests reach backend microservices.",
+    "question": "Which AWS service feature terminates client TLS handshakes and verifies client certificates natively?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Application Load Balancer (ALB) with mutual TLS (mTLS) enabled on the HTTPS listener, configured with a trust store containing the partner's CA certificate bundle in Amazon S3"
+      },
+      {
+        "id": "B",
+        "text": "AWS WAF with an IP allow-list rule"
+      },
+      {
+        "id": "C",
+        "text": "Network Load Balancer (NLB) with TCP passthrough to backend instances"
+      },
+      {
+        "id": "D",
+        "text": "Amazon CloudFront with Origin Access Control"
+      }
     ],
-    correctAnswers: ['B'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for attribute-based access control abac using principal and resource tags provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Identity", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "Application Load Balancers natively support mutual TLS (mTLS). Administrators create a trust store in ALB containing the root or intermediate CA certificates that signed the client certificates, enabling the ALB to validate client certificates directly at the load balancer layer before forwarding requests to target groups.",
+    "referenceUrl": "https://docs.aws.amazon.com/security/",
+    "tags": [
+      "ALB",
+      "mTLS",
+      "Client-Certificates",
+      "Authentication"
+    ],
+    "id": "aws-scs-88"
   },
   {
-    id: "aws-scs-89",
-    difficulty: "medium",
-    certId: "aws-scs",
-    domainId: "d5",
-    domainName: "Data Protection",
-    title: "Amazon Macie sensitive data discovery and classification across S3 buckets: Operational Strategy (Part 89)",
-    scenario: "A mobile gaming backend architecture is evaluating AWS Certified Security - Specialty practices specifically regarding Amazon Macie sensitive data discovery and classification across S3 buckets. The engineering group must minimize mean time to recovery (MTTR) and prevent cascading failures during regional outages for service tier #89.",
-    question: "How should the engineering team configure the platform to ensure resilient, automated operation without manual intervention? (Focus: Amazon Macie sensitive data discovery and classification across S3 buckets in Data Protection)",
-    options: [
-      { id: 'A', text: "Deploy native automation for amazon macie sensitive data discovery and classification across s3 buckets utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'B', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'D', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." }
+    "difficulty": "easy",
+    "certId": "aws-scs",
+    "domainId": "d3",
+    "domainName": "Infrastructure Security",
+    "title": "AWS Firewall Manager for Centralized Security Group Governance",
+    "scenario": "An enterprise with 100 AWS accounts must ensure that no security group in any VPC ever allows unrestricted inbound access (0.0.0.0/0) on port 22 (SSH) or port 3389 (RDP). Any violating rule must be automatically revoked.",
+    "question": "Which centralized AWS service enforces and auto-remediates security group rules across all member accounts in an organization?",
+    "options": [
+      {
+        "id": "A",
+        "text": "AWS Firewall Manager using a Common Security Group policy with automated remediation enabled"
+      },
+      {
+        "id": "B",
+        "text": "AWS Shield Advanced applied to each member account"
+      },
+      {
+        "id": "C",
+        "text": "Deploying a Python cron script on an EC2 instance in the management account"
+      },
+      {
+        "id": "D",
+        "text": "Amazon GuardDuty Runtime Monitoring"
+      }
     ],
-    correctAnswers: ['A'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for amazon macie sensitive data discovery and classification across s3 buckets provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Data", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "AWS Firewall Manager integrates with AWS Organizations to centrally manage security policies. A Firewall Manager security group policy audits all security groups across all member accounts and Regions. Enabling auto-remediation automatically strips out disallowed inbound rules (such as 0.0.0.0/0 on SSH/RDP).",
+    "referenceUrl": "https://docs.aws.amazon.com/security/",
+    "tags": [
+      "Firewall-Manager",
+      "Security-Groups",
+      "Organizations",
+      "Auto-Remediation"
+    ],
+    "id": "aws-scs-89"
   },
   {
-    id: "aws-scs-90",
-    difficulty: "hard",
-    certId: "aws-scs",
-    domainId: "d6",
-    domainName: "Management and Security Governance",
-    title: "Security reference architecture SRA multi-account foundational layout: Operational Strategy (Part 90)",
-    scenario: "A ride-sharing dispatch system is evaluating AWS Certified Security - Specialty practices specifically regarding Security reference architecture SRA multi-account foundational layout. The engineering group is migrating mission-critical workloads while enforcing strict organizational security guardrails for service tier #90.",
-    question: "Which design pattern should be implemented to ensure continuous compliance, automated validation, and high availability? (Focus: Security reference architecture SRA multi-account foundational layout in Management and Security Governance)",
-    options: [
-      { id: 'A', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'B', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'C', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'D', text: "Deploy native automation for security reference architecture sra multi-account foundational layout utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." }
+    "difficulty": "medium",
+    "certId": "aws-scs",
+    "domainId": "d3",
+    "domainName": "Infrastructure Security",
+    "title": "VPC Endpoint Policies for Data Exfiltration Prevention",
+    "scenario": "A company wants to prevent malicious insiders on EC2 instances in private subnets from exfiltrating company data to their personal Amazon S3 buckets, while still allowing access to the corporate S3 buckets.",
+    "question": "Which security control enforces this boundary at the network layer?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Attach a VPC Endpoint Policy to the S3 VPC Gateway Endpoint that allows S3 actions only when <code>aws:ResourceAccount</code> matches the corporate AWS account ID (or specific bucket ARNs)"
+      },
+      {
+        "id": "B",
+        "text": "Remove the S3 VPC Gateway Endpoint and route S3 traffic through an Internet Gateway"
+      },
+      {
+        "id": "C",
+        "text": "Attach an S3 bucket policy to the personal external buckets"
+      },
+      {
+        "id": "D",
+        "text": "Use Network ACLs to block port 443"
+      }
     ],
-    correctAnswers: ['D'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for security reference architecture sra multi-account foundational layout provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Management", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "VPC Endpoint policies attach directly to VPC endpoints (Gateway or Interface endpoints). By restricting the `Resource` or using the `aws:ResourceAccount` / `aws:PrincipalOrgID` condition key, the endpoint will drop any requests targeting S3 buckets outside the corporate organization, preventing exfiltration to unauthorized accounts.",
+    "referenceUrl": "https://docs.aws.amazon.com/security/",
+    "tags": [
+      "VPC-Endpoint-Policy",
+      "S3",
+      "Data-Exfiltration",
+      "Network-Security"
+    ],
+    "id": "aws-scs-90"
   },
   {
-    id: "aws-scs-91",
-    difficulty: "medium",
-    certId: "aws-scs",
-    domainId: "d1",
-    domainName: "Threat Detection and Incident Response",
-    title: "Amazon GuardDuty threat intelligence and anomalous activity findings: Operational Strategy (Part 91)",
-    scenario: "An insurance claims processing engine is evaluating AWS Certified Security - Specialty practices specifically regarding Amazon GuardDuty threat intelligence and anomalous activity findings. The engineering group needs to eliminate manual operational toil and enforce declarative infrastructure reconciliation for service tier #91.",
-    question: "What is the recommended implementation strategy to satisfy these technical requirements according to official best practices? (Focus: Amazon GuardDuty threat intelligence and anomalous activity findings in Threat Detection and Incident Response)",
-    options: [
-      { id: 'A', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'B', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'C', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'D', text: "Deploy native automation for amazon guardduty threat intelligence and anomalous activity findings utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." }
+    "difficulty": "medium",
+    "certId": "aws-scs",
+    "domainId": "d3",
+    "domainName": "Infrastructure Security",
+    "title": "Security Groups vs. Network ACLs: Ephemeral Port Return Traffic",
+    "scenario": "A database instance in a private subnet must connect outbound to an external software repository on TCP port 443. The security group has an outbound rule allowing TCP 443 to 0.0.0.0/0, but the Network ACL denies all inbound traffic. Outbound connections are timing out.",
+    "question": "Why is the connection failing, and how should the Network ACL be updated?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Network ACLs are stateless; an inbound rule allowing return traffic on ephemeral ports (TCP 1024-65535) from 0.0.0.0/0 must be added to the private subnet Network ACL"
+      },
+      {
+        "id": "B",
+        "text": "Security groups are stateless; an inbound rule on port 443 must be added to the security group"
+      },
+      {
+        "id": "C",
+        "text": "Network ACLs do not support TCP port 443"
+      },
+      {
+        "id": "D",
+        "text": "The private subnet must be converted to a public subnet"
+      }
     ],
-    correctAnswers: ['D'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for amazon guardduty threat intelligence and anomalous activity findings provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Threat", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "Unlike Security Groups (which are stateful and automatically permit return traffic), Network ACLs are stateless. When an EC2 instance initiates an outbound connection on port 443, the remote server responds on a temporary ephemeral port (typically TCP 1024\u201365535). The subnet's Network ACL must have an inbound rule allowing return traffic on the ephemeral port range.",
+    "referenceUrl": "https://docs.aws.amazon.com/security/",
+    "tags": [
+      "Network-ACL",
+      "Security-Groups",
+      "Ephemeral-Ports",
+      "Stateless"
+    ],
+    "id": "aws-scs-91"
   },
   {
-    id: "aws-scs-92",
-    difficulty: "medium",
-    certId: "aws-scs",
-    domainId: "d2",
-    domainName: "Security Logging and Monitoring",
-    title: "AWS CloudTrail multi-region organization trails and log validation: Operational Strategy (Part 92)",
-    scenario: "A commercial airline reservation service is evaluating AWS Certified Security - Specialty practices specifically regarding AWS CloudTrail multi-region organization trails and log validation. The engineering group is implementing automated canary analysis with instant rollback capabilities triggered by error budget burn rates for service tier #92.",
-    question: "Which configuration provides the most cost-effective and secure solution to achieve these criteria? (Focus: AWS CloudTrail multi-region organization trails and log validation in Security Logging and Monitoring)",
-    options: [
-      { id: 'A', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'B', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'D', text: "Deploy native automation for aws cloudtrail multi-region organization trails and log validation utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." }
+    "difficulty": "hard",
+    "certId": "aws-scs",
+    "domainId": "d3",
+    "domainName": "Infrastructure Security",
+    "title": "Securing ALB Ingress with AWS WAF Bot Control",
+    "scenario": "A ticketing website is overwhelmed by automated scraping bots that enumerate seat availability and execute high-frequency HTTP requests, bypassing simple rate-limiting rules.",
+    "question": "Which AWS WAF managed rule group detects and blocks sophisticated bot signatures and scrapers?",
+    "options": [
+      {
+        "id": "A",
+        "text": "AWS Managed Rules for Bot Control (AWSManagedRulesBotControlRuleSet)"
+      },
+      {
+        "id": "B",
+        "text": "AWS Managed Rules for SQL Database (AWSManagedRulesSQLiRuleSet)"
+      },
+      {
+        "id": "C",
+        "text": "AWS Managed Rules for Core Rule Set (AWSManagedRulesCommonRuleSet)"
+      },
+      {
+        "id": "D",
+        "text": "AWS Managed Rules for Known Bad Inputs (AWSManagedRulesKnownBadInputsRuleSet)"
+      }
     ],
-    correctAnswers: ['D'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for aws cloudtrail multi-region organization trails and log validation provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Security", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "The AWS WAF Bot Control managed rule group analyzes incoming HTTP request signatures, browser fingerprints, and token payloads to detect and mitigate malicious bot traffic, scrapers, search engine impersonators, and automated crawlers.",
+    "referenceUrl": "https://docs.aws.amazon.com/security/",
+    "tags": [
+      "AWS-WAF",
+      "Bot-Control",
+      "DDoS",
+      "Scraping"
+    ],
+    "id": "aws-scs-92"
   },
   {
-    id: "aws-scs-93",
-    difficulty: "easy",
-    certId: "aws-scs",
-    domainId: "d3",
-    domainName: "Infrastructure Security",
-    title: "AWS WAF web ACL rule groups defending against SQL injection and XSS: Operational Strategy (Part 93)",
-    scenario: "A cybersecurity threat intelligence agency is evaluating AWS Certified Security - Specialty practices specifically regarding AWS WAF web ACL rule groups defending against SQL injection and XSS. The engineering group must enforce zero-trust identity boundaries and cryptographic verification across all service endpoints for service tier #93.",
-    question: "Which architectural approach fulfills these operational objectives while maintaining reliability and minimal engineering overhead? (Focus: AWS WAF web ACL rule groups defending against SQL injection and XSS in Infrastructure Security)",
-    options: [
-      { id: 'A', text: "Deploy native automation for aws waf web acl rule groups defending against sql injection and xss utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'B', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'D', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." }
+    "difficulty": "medium",
+    "certId": "aws-scs",
+    "domainId": "d3",
+    "domainName": "Infrastructure Security",
+    "title": "Enforcing HTTPS and Minimum TLS 1.2 on Application Load Balancers",
+    "scenario": "A compliance regulation requires that all web traffic entering an Application Load Balancer must use HTTPS, and deprecated cryptographic ciphers (SSLv3, TLS 1.0, and TLS 1.1) must be completely disabled.",
+    "question": "How must the ALB listeners and security policies be configured?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Create an HTTP listener on port 80 that redirects all requests to HTTPS port 443 with a 301 redirect, and attach the <code>ELBSecurityPolicy-TLS13-1-2-2021-06</code> security policy to the HTTPS port 443 listener"
+      },
+      {
+        "id": "B",
+        "text": "Delete the port 80 listener and configure an IAM policy restricting TLS versions"
+      },
+      {
+        "id": "C",
+        "text": "Deploy an AWS WAF rule that blocks HTTP requests"
+      },
+      {
+        "id": "D",
+        "text": "Attach an SSL certificate directly to the EC2 instances in private subnets"
+      }
     ],
-    correctAnswers: ['A'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for aws waf web acl rule groups defending against sql injection and xss provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Infrastructure", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "To enforce HTTPS, the ALB HTTP (port 80) listener should be configured with an automatic redirect action to HTTPS (port 443). To disable insecure TLS protocols and weak ciphers, administrators assign a modern predefined SSL/TLS security policy (e.g. `ELBSecurityPolicy-TLS13-1-2-2021-06`) on the HTTPS listener.",
+    "referenceUrl": "https://docs.aws.amazon.com/security/",
+    "tags": [
+      "ALB",
+      "TLS-1.2",
+      "SSL-Policy",
+      "Redirect"
+    ],
+    "id": "aws-scs-93"
   },
   {
-    id: "aws-scs-94",
-    difficulty: "medium",
-    certId: "aws-scs",
-    domainId: "d4",
-    domainName: "Identity and Access Management",
-    title: "IAM policy evaluation logic explicit deny, SCPs, boundaries, and identity: Operational Strategy (Part 94)",
-    scenario: "A real estate property management portal is evaluating AWS Certified Security - Specialty practices specifically regarding IAM policy evaluation logic explicit deny, SCPs, boundaries, and identity. The engineering group needs to optimize cloud expenditure and implement real-time cost attribution across engineering teams for service tier #94.",
-    question: "How should the engineering team configure the platform to ensure resilient, automated operation without manual intervention? (Focus: IAM policy evaluation logic explicit deny, SCPs, boundaries, and identity in Identity and Access Management)",
-    options: [
-      { id: 'A', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'B', text: "Deploy native automation for iam policy evaluation logic explicit deny, scps, boundaries, and identity utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
+    "difficulty": "medium",
+    "certId": "aws-scs",
+    "domainId": "d3",
+    "domainName": "Infrastructure Security",
+    "title": "Securing Private EC2 Communication with AWS PrivateLink",
+    "scenario": "An enterprise application running in VPC A needs to access a proprietary microservice hosted by a vendor in VPC B. The traffic must never traverse the public internet, VPC peering is forbidden due to overlapping CIDR ranges, and the vendor must not have access to any other resources in VPC A.",
+    "question": "Which architectural pattern fulfills these strict network isolation criteria?",
+    "options": [
+      {
+        "id": "A",
+        "text": "The vendor configures a Network Load Balancer (NLB) in VPC B and creates a VPC Endpoint Service (AWS PrivateLink). The enterprise creates an Interface VPC Endpoint in VPC A connected to the vendor's service"
+      },
+      {
+        "id": "B",
+        "text": "Establish an IPsec VPN tunnel between VPC A and VPC B using Internet Gateways"
+      },
+      {
+        "id": "C",
+        "text": "Create an AWS Transit Gateway and enable route leaking between the VPCs"
+      },
+      {
+        "id": "D",
+        "text": "Deploy an Application Load Balancer with public Elastic IP addresses"
+      }
     ],
-    correctAnswers: ['B'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for iam policy evaluation logic explicit deny, scps, boundaries, and identity provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Identity", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "AWS PrivateLink enables private, unidirectional connectivity between VPCs without requiring VPC peering or internet exposure. The service provider frontends their service with an NLB and creates an Endpoint Service; the consumer provisions an Interface Endpoint (ENI) in their VPC. PrivateLink works seamlessly across overlapping IP CIDR ranges.",
+    "referenceUrl": "https://docs.aws.amazon.com/security/",
+    "tags": [
+      "PrivateLink",
+      "VPC-Endpoint",
+      "Overlapping-CIDR",
+      "Zero-Trust"
+    ],
+    "id": "aws-scs-94"
   },
   {
-    id: "aws-scs-95",
-    difficulty: "hard",
-    certId: "aws-scs",
-    domainId: "d5",
-    domainName: "Data Protection",
-    title: "AWS KMS envelope encryption with customer managed symmetric keys: Operational Strategy (Part 95)",
-    scenario: "An autonomous robotics manufacturing facility is evaluating AWS Certified Security - Specialty practices specifically regarding AWS KMS envelope encryption with customer managed symmetric keys. The engineering group is resolving cross-account network latency bottlenecks and transient connection timeouts for service tier #95.",
-    question: "Which design pattern should be implemented to ensure continuous compliance, automated validation, and high availability? (Focus: AWS KMS envelope encryption with customer managed symmetric keys in Data Protection)",
-    options: [
-      { id: 'A', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'C', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'D', text: "Deploy native automation for aws kms envelope encryption with customer managed symmetric keys utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." }
+    "difficulty": "easy",
+    "certId": "aws-scs",
+    "domainId": "d3",
+    "domainName": "Infrastructure Security",
+    "title": "Protecting Web Applications with AWS Shield Advanced",
+    "scenario": "A global media company hosting their web application on Amazon CloudFront and ALB experiences a multi-gigabit Layer 7 distributed denial of service attack that escalates AWS auto-scaling costs significantly.",
+    "question": "Which features provided by AWS Shield Advanced protect the organization during this event?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Access to the 24/7 AWS Shield Response Team (SRT), automated application layer DDoS mitigation, and Cost Protection for Spike Coverage to credit charges incurred by DDoS scaling"
+      },
+      {
+        "id": "B",
+        "text": "Free SSL/TLS certificates with automated email renewal"
+      },
+      {
+        "id": "C",
+        "text": "Automatic deletion of all EC2 instances under high CPU utilization"
+      },
+      {
+        "id": "D",
+        "text": "Instant conversion of dynamic web applications into static S3 sites"
+      }
     ],
-    correctAnswers: ['D'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for aws kms envelope encryption with customer managed symmetric keys provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Data", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "AWS Shield Advanced provides enterprise DDoS protection. Key benefits include 24/7 engagement with the Shield Response Team (SRT), automated creation of custom AWS WAF mitigation rules against Layer 7 attacks, and Cost Protection for Spike Coverage (which refunds auto-scaling costs incurred due to DDoS attacks).",
+    "referenceUrl": "https://docs.aws.amazon.com/security/",
+    "tags": [
+      "Shield-Advanced",
+      "DDoS",
+      "Cost-Protection",
+      "SRT"
+    ],
+    "id": "aws-scs-95"
   },
   {
-    id: "aws-scs-96",
-    difficulty: "easy",
-    certId: "aws-scs",
-    domainId: "d6",
-    domainName: "Management and Security Governance",
-    title: "AWS Config managed rules and conformance packs auditing compliance: Operational Strategy (Part 96)",
-    scenario: "A higher education student information system is evaluating AWS Certified Security - Specialty practices specifically regarding AWS Config managed rules and conformance packs auditing compliance. The engineering group must establish centralized audit logging and automated incident containment for security operations for service tier #96.",
-    question: "What is the recommended implementation strategy to satisfy these technical requirements according to official best practices? (Focus: AWS Config managed rules and conformance packs auditing compliance in Management and Security Governance)",
-    options: [
-      { id: 'A', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'B', text: "Deploy native automation for aws config managed rules and conformance packs auditing compliance utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'C', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
+    "difficulty": "medium",
+    "certId": "aws-scs",
+    "domainId": "d3",
+    "domainName": "Infrastructure Security",
+    "title": "EC2 Image Builder for Hardened CIS Benchmark AMIs",
+    "scenario": "An enterprise must ensure that all EC2 instances deployed across 30 development and production accounts originate from a hardened Amazon Linux 2023 AMI that complies with the CIS Level 1 Benchmark.",
+    "question": "Which AWS native pipeline automates the continuous building, testing, and distribution of hardened AMIs?",
+    "options": [
+      {
+        "id": "A",
+        "text": "EC2 Image Builder with a CIS benchmark component recipe, automated validation tests, and distribution configuration sharing the AMI across AWS Organizations accounts"
+      },
+      {
+        "id": "B",
+        "text": "Manual snapshotting of a single EC2 instance in the default VPC"
+      },
+      {
+        "id": "C",
+        "text": "AWS CodeDeploy deploying bash scripts on running instances"
+      },
+      {
+        "id": "D",
+        "text": "AWS Cloud9 integrated development environment"
+      }
     ],
-    correctAnswers: ['B'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for aws config managed rules and conformance packs auditing compliance provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Management", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "EC2 Image Builder automates the creation, management, and deployment of customized, secure, and up-to-date server images. AWS provides pre-built CIS benchmark components that can be incorporated into image recipes. The distribution settings automatically share encrypted AMIs with other AWS accounts or organizations.",
+    "referenceUrl": "https://docs.aws.amazon.com/security/",
+    "tags": [
+      "EC2-Image-Builder",
+      "CIS-Benchmark",
+      "Hardened-AMI",
+      "Golden-Image"
+    ],
+    "id": "aws-scs-96"
   },
   {
-    id: "aws-scs-97",
-    difficulty: "medium",
-    certId: "aws-scs",
-    domainId: "d1",
-    domainName: "Threat Detection and Incident Response",
-    title: "AWS Security Hub centralized posture management and compliance checks: Operational Strategy (Part 97)",
-    scenario: "A global hotel hospitality reservation platform is evaluating AWS Certified Security - Specialty practices specifically regarding AWS Security Hub centralized posture management and compliance checks. The engineering group is modernizing legacy components to achieve zero-downtime deployments under unpredictable traffic spikes for service tier #97.",
-    question: "Which configuration provides the most cost-effective and secure solution to achieve these criteria? (Focus: AWS Security Hub centralized posture management and compliance checks in Threat Detection and Incident Response)",
-    options: [
-      { id: 'A', text: "Deploy native automation for aws security hub centralized posture management and compliance checks utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'B', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'C', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
+    "difficulty": "medium",
+    "certId": "aws-scs",
+    "domainId": "d3",
+    "domainName": "Infrastructure Security",
+    "title": "Restricting S3 Bucket Access to Specific VPC Endpoints",
+    "scenario": "An S3 bucket storing sensitive medical imaging files must be accessible only from applications running within a specific VPC. Requests originating from any other network, including other corporate VPCs or the public internet, must be rejected.",
+    "question": "Which condition block in the S3 bucket policy restricts access strictly to the VPC's Gateway Endpoint?",
+    "options": [
+      {
+        "id": "A",
+        "text": "<code>\"Condition\": { \"StringNotEquals\": { \"aws:sourceVpce\": \"vpce-12345678\" } }, \"Effect\": \"Deny\"</code>"
+      },
+      {
+        "id": "B",
+        "text": "<code>\"Condition\": { \"IpAddress\": { \"aws:SourceIp\": \"10.0.0.0/16\" } }, \"Effect\": \"Allow\"</code>"
+      },
+      {
+        "id": "C",
+        "text": "<code>\"Condition\": { \"StringEquals\": { \"aws:PrincipalArn\": \"*\" } }</code>"
+      },
+      {
+        "id": "D",
+        "text": "<code>\"Condition\": { \"Bool\": { \"aws:SecureTransport\": \"false\" } }</code>"
+      }
     ],
-    correctAnswers: ['A'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for aws security hub centralized posture management and compliance checks provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Threat", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "To restrict an S3 bucket strictly to a designated VPC endpoint, an explicit Deny policy is attached with the condition `StringNotEquals: { 'aws:sourceVpce': 'vpce-12345678' }`. Any request that does not traverse that specific endpoint ID is immediately denied.",
+    "referenceUrl": "https://docs.aws.amazon.com/security/",
+    "tags": [
+      "S3-Bucket-Policy",
+      "aws-sourceVpce",
+      "Gateway-Endpoint",
+      "Network-Isolation"
+    ],
+    "id": "aws-scs-97"
   },
   {
-    id: "aws-scs-98",
-    difficulty: "medium",
-    certId: "aws-scs",
-    domainId: "d2",
-    domainName: "Security Logging and Monitoring",
-    title: "VPC Flow Logs capturing accepted and rejected network traffic: Operational Strategy (Part 98)",
-    scenario: "A digital payments settlement processor is evaluating AWS Certified Security - Specialty practices specifically regarding VPC Flow Logs capturing accepted and rejected network traffic. The engineering group is remediating compliance audit findings regarding unauthorized configuration drift across staging and production for service tier #98.",
-    question: "Which architectural approach fulfills these operational objectives while maintaining reliability and minimal engineering overhead? (Focus: VPC Flow Logs capturing accepted and rejected network traffic in Security Logging and Monitoring)",
-    options: [
-      { id: 'A', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'C', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'D', text: "Deploy native automation for vpc flow logs capturing accepted and rejected network traffic utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." }
+    "difficulty": "hard",
+    "certId": "aws-scs",
+    "domainId": "d3",
+    "domainName": "Infrastructure Security",
+    "title": "Patching EC2 Fleets Securely with AWS Systems Manager Patch Manager",
+    "scenario": "A security policy mandates that all production EC2 instances must have security patches categorized as Critical or High automatically installed within 7 days of release, with automated rollback and compliance reporting.",
+    "question": "Which AWS Systems Manager capability executes and tracks this patching lifecycle?",
+    "options": [
+      {
+        "id": "A",
+        "text": "SSM Patch Manager configured with a custom Patch Baseline approving Critical and High patches with a 7-day auto-approval delay, executed via Maintenance Windows"
+      },
+      {
+        "id": "B",
+        "text": "SSM State Manager running shell scripts with curl commands"
+      },
+      {
+        "id": "C",
+        "text": "AWS CodePipeline executing yum update every night"
+      },
+      {
+        "id": "D",
+        "text": "AWS CloudTrail executing SSM automation on every instance boot"
+      }
     ],
-    correctAnswers: ['D'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for vpc flow logs capturing accepted and rejected network traffic provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Security", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "AWS Systems Manager Patch Manager allows defining Patch Baselines. Baselines can specify auto-approval rules based on severity (Critical, Important) and an approval delay (e.g. 7 days). SSM Maintenance Windows schedule the non-disruptive execution of patches across tagged target instance groups with full compliance dashboards.",
+    "referenceUrl": "https://docs.aws.amazon.com/security/",
+    "tags": [
+      "Systems-Manager",
+      "Patch-Manager",
+      "Vulnerability-Management",
+      "Compliance"
+    ],
+    "id": "aws-scs-98"
   },
   {
-    id: "aws-scs-99",
-    difficulty: "easy",
-    certId: "aws-scs",
-    domainId: "d3",
-    domainName: "Infrastructure Security",
-    title: "AWS Shield Advanced DDoS mitigation and cost protection: Operational Strategy (Part 99)",
-    scenario: "A genomics sequencing data pipeline is evaluating AWS Certified Security - Specialty practices specifically regarding AWS Shield Advanced DDoS mitigation and cost protection. The engineering group must minimize mean time to recovery (MTTR) and prevent cascading failures during regional outages for service tier #99.",
-    question: "How should the engineering team configure the platform to ensure resilient, automated operation without manual intervention? (Focus: AWS Shield Advanced DDoS mitigation and cost protection in Infrastructure Security)",
-    options: [
-      { id: 'A', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'B', text: "Deploy native automation for aws shield advanced ddos mitigation and cost protection utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'C', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'D', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." }
+    "difficulty": "medium",
+    "certId": "aws-scs",
+    "domainId": "d3",
+    "domainName": "Infrastructure Security",
+    "title": "AWS WAF Custom Rules for Geo-Blocking and Header Validation",
+    "scenario": "A company operating strictly in North America wants to block all web requests originating from outside the US and Canada, and also reject any request that does not include a proprietary authorization header (X-Custom-Auth).",
+    "question": "Which combination of AWS WAF rules enforces these requirements?",
+    "options": [
+      {
+        "id": "A",
+        "text": "A Web ACL with: 1. A geo match statement configured to Block requests if country code is not US or CA; 2. A size constraint or string match statement checking that the header <code>X-Custom-Auth</code> exists and contains the valid secret"
+      },
+      {
+        "id": "B",
+        "text": "An ALB listener rule forwarding traffic to an on-premises proxy"
+      },
+      {
+        "id": "C",
+        "text": "A Route 53 latency routing policy that excludes European DNS queries"
+      },
+      {
+        "id": "D",
+        "text": "A Network ACL denying all IP addresses outside North America"
+      }
     ],
-    correctAnswers: ['B'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for aws shield advanced ddos mitigation and cost protection provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Infrastructure", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "AWS WAF Web ACLs support geographic match statements (inspecting the client IP against MaxMind databases) to allow or block traffic by country code. Custom header rules inspect incoming HTTP headers, verifying the presence and value of custom authentication tokens.",
+    "referenceUrl": "https://docs.aws.amazon.com/security/",
+    "tags": [
+      "AWS-WAF",
+      "Geo-Blocking",
+      "Custom-Headers",
+      "Perimeter-Defense"
+    ],
+    "id": "aws-scs-99"
   },
   {
-    id: "aws-scs-100",
-    difficulty: "hard",
-    certId: "aws-scs",
-    domainId: "d4",
-    domainName: "Identity and Access Management",
-    title: "IAM permission boundaries delegating safe role creation to teams: Operational Strategy (Part 100)",
-    scenario: "A cloud-native telecommunications provider is evaluating AWS Certified Security - Specialty practices specifically regarding IAM permission boundaries delegating safe role creation to teams. The engineering group is migrating mission-critical workloads while enforcing strict organizational security guardrails for service tier #100.",
-    question: "Which design pattern should be implemented to ensure continuous compliance, automated validation, and high availability? (Focus: IAM permission boundaries delegating safe role creation to teams in Identity and Access Management)",
-    options: [
-      { id: 'A', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'C', text: "Deploy native automation for iam permission boundaries delegating safe role creation to teams utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'D', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." }
+    "difficulty": "medium",
+    "certId": "aws-scs",
+    "domainId": "d3",
+    "domainName": "Infrastructure Security",
+    "title": "Detecting Compromised Instances Probing AWS Metadata via VPC Flow Logs",
+    "scenario": "An attacker gains a webshell on an EC2 instance and attempts to scan other internal subnets and probe the link-local metadata address (169.254.169.254) for credentials.",
+    "question": "How do VPC Flow Logs capture traffic to the link-local metadata address?",
+    "options": [
+      {
+        "id": "A",
+        "text": "VPC Flow Logs do not capture link-local traffic (169.254.169.254); host-level monitoring (e.g. iptables, GuardDuty Runtime Monitoring, or osquery via SSM) must be used"
+      },
+      {
+        "id": "B",
+        "text": "VPC Flow Logs automatically capture link-local packets with action ACCEPT"
+      },
+      {
+        "id": "C",
+        "text": "Route 53 Resolver query logs record all link-local HTTP requests"
+      },
+      {
+        "id": "D",
+        "text": "AWS WAF logs metadata traffic when attached to the private subnet"
+      }
     ],
-    correctAnswers: ['C'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for iam permission boundaries delegating safe role creation to teams provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Identity", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "A critical AWS networking limitation: VPC Flow Logs do **not** capture traffic to the link-local address `169.254.169.254`, traffic to Amazon DNS (VPC base+2), or DHCP traffic. To detect probing of instance metadata or link-local endpoints, security teams must deploy in-guest monitoring (such as Amazon GuardDuty Runtime Monitoring, auditd, or iptables logging).",
+    "referenceUrl": "https://docs.aws.amazon.com/security/",
+    "tags": [
+      "VPC-Flow-Logs",
+      "Link-Local",
+      "IMDS",
+      "Gotcha"
+    ],
+    "id": "aws-scs-100"
   }
 ];
 

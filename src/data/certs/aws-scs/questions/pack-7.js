@@ -1,528 +1,1003 @@
 export const AWS_SCS_QUESTIONS_7 = [
   {
-    id: "aws-scs-151",
-    difficulty: "medium",
-    certId: "aws-scs",
-    domainId: "d1",
-    domainName: "Threat Detection and Incident Response",
-    title: "Amazon GuardDuty threat intelligence and anomalous activity findings: Operational Strategy (Part 151)",
-    scenario: "A multinational fintech banking platform is evaluating AWS Certified Security - Specialty practices specifically regarding Amazon GuardDuty threat intelligence and anomalous activity findings. The engineering group needs to optimize cloud expenditure and implement real-time cost attribution across engineering teams for service tier #151.",
-    question: "What is the recommended implementation strategy to satisfy these technical requirements according to official best practices? (Focus: Amazon GuardDuty threat intelligence and anomalous activity findings in Threat Detection and Incident Response)",
-    options: [
-      { id: 'A', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'B', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'C', text: "Deploy native automation for amazon guardduty threat intelligence and anomalous activity findings utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'D', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." }
+    "id": "aws-scs-151",
+    "difficulty": "easy",
+    "certId": "aws-scs",
+    "domainId": "d4",
+    "domainName": "Identity and Access Management",
+    "title": "IAM and Access Governance Scenario #19",
+    "scenario": "An identity architect is establishing least privilege, temporary credentials, and federation across an AWS enterprise estate.",
+    "question": "Which IAM architecture best satisfies objective #19?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Creating long-lived IAM user access keys for every employee and disabling MFA"
+      },
+      {
+        "id": "B",
+        "text": "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies"
+      },
+      {
+        "id": "C",
+        "text": "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation"
+      },
+      {
+        "id": "D",
+        "text": "Hardcoding root account access credentials in application configuration files"
+      }
     ],
-    correctAnswers: ['C'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for amazon guardduty threat intelligence and anomalous activity findings provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Threat", "Architecture"]
+    "correctAnswers": [
+      "C"
+    ],
+    "type": "single",
+    "explanation": "IAM best practices mandate eliminating long-lived access keys, adopting federated single sign-on with IAM Identity Center, enforcing MFA, and validating policies using IAM Access Analyzer.",
+    "referenceUrl": "https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html",
+    "tags": [
+      "IAM",
+      "Identity Center",
+      "Least Privilege",
+      "Federation"
+    ]
   },
   {
-    id: "aws-scs-152",
-    difficulty: "medium",
-    certId: "aws-scs",
-    domainId: "d2",
-    domainName: "Security Logging and Monitoring",
-    title: "AWS CloudTrail multi-region organization trails and log validation: Operational Strategy (Part 152)",
-    scenario: "A healthcare telemedicine network is evaluating AWS Certified Security - Specialty practices specifically regarding AWS CloudTrail multi-region organization trails and log validation. The engineering group is resolving cross-account network latency bottlenecks and transient connection timeouts for service tier #152.",
-    question: "Which configuration provides the most cost-effective and secure solution to achieve these criteria? (Focus: AWS CloudTrail multi-region organization trails and log validation in Security Logging and Monitoring)",
-    options: [
-      { id: 'A', text: "Deploy native automation for aws cloudtrail multi-region organization trails and log validation utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'B', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'D', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." }
+    "id": "aws-scs-152",
+    "difficulty": "medium",
+    "certId": "aws-scs",
+    "domainId": "d4",
+    "domainName": "Identity and Access Management",
+    "title": "IAM and Access Governance Scenario #20",
+    "scenario": "An identity architect is establishing least privilege, temporary credentials, and federation across an AWS enterprise estate.",
+    "question": "Which IAM architecture best satisfies objective #20?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Hardcoding root account access credentials in application configuration files"
+      },
+      {
+        "id": "B",
+        "text": "Creating long-lived IAM user access keys for every employee and disabling MFA"
+      },
+      {
+        "id": "C",
+        "text": "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation"
+      },
+      {
+        "id": "D",
+        "text": "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies"
+      }
     ],
-    correctAnswers: ['A'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for aws cloudtrail multi-region organization trails and log validation provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Security", "Architecture"]
+    "correctAnswers": [
+      "C"
+    ],
+    "type": "single",
+    "explanation": "IAM best practices mandate eliminating long-lived access keys, adopting federated single sign-on with IAM Identity Center, enforcing MFA, and validating policies using IAM Access Analyzer.",
+    "referenceUrl": "https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html",
+    "tags": [
+      "IAM",
+      "Identity Center",
+      "Least Privilege",
+      "Federation"
+    ]
   },
   {
-    id: "aws-scs-153",
-    difficulty: "easy",
-    certId: "aws-scs",
-    domainId: "d3",
-    domainName: "Infrastructure Security",
-    title: "AWS WAF web ACL rule groups defending against SQL injection and XSS: Operational Strategy (Part 153)",
-    scenario: "A high-throughput e-commerce retailer is evaluating AWS Certified Security - Specialty practices specifically regarding AWS WAF web ACL rule groups defending against SQL injection and XSS. The engineering group must establish centralized audit logging and automated incident containment for security operations for service tier #153.",
-    question: "Which architectural approach fulfills these operational objectives while maintaining reliability and minimal engineering overhead? (Focus: AWS WAF web ACL rule groups defending against SQL injection and XSS in Infrastructure Security)",
-    options: [
-      { id: 'A', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'B', text: "Deploy native automation for aws waf web acl rule groups defending against sql injection and xss utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
+    "id": "aws-scs-153",
+    "difficulty": "hard",
+    "certId": "aws-scs",
+    "domainId": "d4",
+    "domainName": "Identity and Access Management",
+    "title": "IAM and Access Governance Scenario #21",
+    "scenario": "An identity architect is establishing least privilege, temporary credentials, and federation across an AWS enterprise estate.",
+    "question": "Which IAM architecture best satisfies objective #21?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Hardcoding root account access credentials in application configuration files"
+      },
+      {
+        "id": "B",
+        "text": "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation"
+      },
+      {
+        "id": "C",
+        "text": "Creating long-lived IAM user access keys for every employee and disabling MFA"
+      },
+      {
+        "id": "D",
+        "text": "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies"
+      }
     ],
-    correctAnswers: ['B'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for aws waf web acl rule groups defending against sql injection and xss provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Infrastructure", "Architecture"]
+    "correctAnswers": [
+      "B"
+    ],
+    "type": "single",
+    "explanation": "IAM best practices mandate eliminating long-lived access keys, adopting federated single sign-on with IAM Identity Center, enforcing MFA, and validating policies using IAM Access Analyzer.",
+    "referenceUrl": "https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html",
+    "tags": [
+      "IAM",
+      "Identity Center",
+      "Least Privilege",
+      "Federation"
+    ]
   },
   {
-    id: "aws-scs-154",
-    difficulty: "medium",
-    certId: "aws-scs",
-    domainId: "d4",
-    domainName: "Identity and Access Management",
-    title: "IAM policy evaluation logic explicit deny, SCPs, boundaries, and identity: Operational Strategy (Part 154)",
-    scenario: "A global streaming entertainment platform is evaluating AWS Certified Security - Specialty practices specifically regarding IAM policy evaluation logic explicit deny, SCPs, boundaries, and identity. The engineering group is modernizing legacy components to achieve zero-downtime deployments under unpredictable traffic spikes for service tier #154.",
-    question: "How should the engineering team configure the platform to ensure resilient, automated operation without manual intervention? (Focus: IAM policy evaluation logic explicit deny, SCPs, boundaries, and identity in Identity and Access Management)",
-    options: [
-      { id: 'A', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'D', text: "Deploy native automation for iam policy evaluation logic explicit deny, scps, boundaries, and identity utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." }
+    "id": "aws-scs-154",
+    "difficulty": "easy",
+    "certId": "aws-scs",
+    "domainId": "d4",
+    "domainName": "Identity and Access Management",
+    "title": "IAM and Access Governance Scenario #22",
+    "scenario": "An identity architect is establishing least privilege, temporary credentials, and federation across an AWS enterprise estate.",
+    "question": "Which IAM architecture best satisfies objective #22?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies"
+      },
+      {
+        "id": "B",
+        "text": "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation"
+      },
+      {
+        "id": "C",
+        "text": "Hardcoding root account access credentials in application configuration files"
+      },
+      {
+        "id": "D",
+        "text": "Creating long-lived IAM user access keys for every employee and disabling MFA"
+      }
     ],
-    correctAnswers: ['D'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for iam policy evaluation logic explicit deny, scps, boundaries, and identity provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Identity", "Architecture"]
+    "correctAnswers": [
+      "B"
+    ],
+    "type": "single",
+    "explanation": "IAM best practices mandate eliminating long-lived access keys, adopting federated single sign-on with IAM Identity Center, enforcing MFA, and validating policies using IAM Access Analyzer.",
+    "referenceUrl": "https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html",
+    "tags": [
+      "IAM",
+      "Identity Center",
+      "Least Privilege",
+      "Federation"
+    ]
   },
   {
-    id: "aws-scs-155",
-    difficulty: "hard",
-    certId: "aws-scs",
-    domainId: "d5",
-    domainName: "Data Protection",
-    title: "AWS KMS envelope encryption with customer managed symmetric keys: Operational Strategy (Part 155)",
-    scenario: "An algorithmic trading exchange is evaluating AWS Certified Security - Specialty practices specifically regarding AWS KMS envelope encryption with customer managed symmetric keys. The engineering group is remediating compliance audit findings regarding unauthorized configuration drift across staging and production for service tier #155.",
-    question: "Which design pattern should be implemented to ensure continuous compliance, automated validation, and high availability? (Focus: AWS KMS envelope encryption with customer managed symmetric keys in Data Protection)",
-    options: [
-      { id: 'A', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'B', text: "Deploy native automation for aws kms envelope encryption with customer managed symmetric keys utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'D', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." }
+    "id": "aws-scs-155",
+    "difficulty": "medium",
+    "certId": "aws-scs",
+    "domainId": "d4",
+    "domainName": "Identity and Access Management",
+    "title": "IAM and Access Governance Scenario #23",
+    "scenario": "An identity architect is establishing least privilege, temporary credentials, and federation across an AWS enterprise estate.",
+    "question": "Which IAM architecture best satisfies objective #23?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Hardcoding root account access credentials in application configuration files"
+      },
+      {
+        "id": "B",
+        "text": "Creating long-lived IAM user access keys for every employee and disabling MFA"
+      },
+      {
+        "id": "C",
+        "text": "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation"
+      },
+      {
+        "id": "D",
+        "text": "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies"
+      }
     ],
-    correctAnswers: ['B'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for aws kms envelope encryption with customer managed symmetric keys provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Data", "Architecture"]
+    "correctAnswers": [
+      "C"
+    ],
+    "type": "single",
+    "explanation": "IAM best practices mandate eliminating long-lived access keys, adopting federated single sign-on with IAM Identity Center, enforcing MFA, and validating policies using IAM Access Analyzer.",
+    "referenceUrl": "https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html",
+    "tags": [
+      "IAM",
+      "Identity Center",
+      "Least Privilege",
+      "Federation"
+    ]
   },
   {
-    id: "aws-scs-156",
-    difficulty: "easy",
-    certId: "aws-scs",
-    domainId: "d6",
-    domainName: "Management and Security Governance",
-    title: "AWS Config managed rules and conformance packs auditing compliance: Operational Strategy (Part 156)",
-    scenario: "A logistics and supply chain optimization service is evaluating AWS Certified Security - Specialty practices specifically regarding AWS Config managed rules and conformance packs auditing compliance. The engineering group must minimize mean time to recovery (MTTR) and prevent cascading failures during regional outages for service tier #156.",
-    question: "What is the recommended implementation strategy to satisfy these technical requirements according to official best practices? (Focus: AWS Config managed rules and conformance packs auditing compliance in Management and Security Governance)",
-    options: [
-      { id: 'A', text: "Deploy native automation for aws config managed rules and conformance packs auditing compliance utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'B', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'C', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'D', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." }
+    "id": "aws-scs-156",
+    "difficulty": "hard",
+    "certId": "aws-scs",
+    "domainId": "d4",
+    "domainName": "Identity and Access Management",
+    "title": "IAM and Access Governance Scenario #24",
+    "scenario": "An identity architect is establishing least privilege, temporary credentials, and federation across an AWS enterprise estate.",
+    "question": "Which IAM architecture best satisfies objective #24?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Hardcoding root account access credentials in application configuration files"
+      },
+      {
+        "id": "B",
+        "text": "Creating long-lived IAM user access keys for every employee and disabling MFA"
+      },
+      {
+        "id": "C",
+        "text": "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies"
+      },
+      {
+        "id": "D",
+        "text": "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation"
+      }
     ],
-    correctAnswers: ['A'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for aws config managed rules and conformance packs auditing compliance provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Management", "Architecture"]
+    "correctAnswers": [
+      "D"
+    ],
+    "type": "single",
+    "explanation": "IAM best practices mandate eliminating long-lived access keys, adopting federated single sign-on with IAM Identity Center, enforcing MFA, and validating policies using IAM Access Analyzer.",
+    "referenceUrl": "https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html",
+    "tags": [
+      "IAM",
+      "Identity Center",
+      "Least Privilege",
+      "Federation"
+    ]
   },
   {
-    id: "aws-scs-157",
-    difficulty: "medium",
-    certId: "aws-scs",
-    domainId: "d1",
-    domainName: "Threat Detection and Incident Response",
-    title: "AWS Security Hub centralized posture management and compliance checks: Operational Strategy (Part 157)",
-    scenario: "An IoT industrial telematics infrastructure is evaluating AWS Certified Security - Specialty practices specifically regarding AWS Security Hub centralized posture management and compliance checks. The engineering group is migrating mission-critical workloads while enforcing strict organizational security guardrails for service tier #157.",
-    question: "Which configuration provides the most cost-effective and secure solution to achieve these criteria? (Focus: AWS Security Hub centralized posture management and compliance checks in Threat Detection and Incident Response)",
-    options: [
-      { id: 'A', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'B', text: "Deploy native automation for aws security hub centralized posture management and compliance checks utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'C', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'D', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." }
+    "id": "aws-scs-157",
+    "difficulty": "easy",
+    "certId": "aws-scs",
+    "domainId": "d4",
+    "domainName": "Identity and Access Management",
+    "title": "IAM and Access Governance Scenario #25",
+    "scenario": "An identity architect is establishing least privilege, temporary credentials, and federation across an AWS enterprise estate.",
+    "question": "Which IAM architecture best satisfies objective #25?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation"
+      },
+      {
+        "id": "B",
+        "text": "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies"
+      },
+      {
+        "id": "C",
+        "text": "Creating long-lived IAM user access keys for every employee and disabling MFA"
+      },
+      {
+        "id": "D",
+        "text": "Hardcoding root account access credentials in application configuration files"
+      }
     ],
-    correctAnswers: ['B'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for aws security hub centralized posture management and compliance checks provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Threat", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "IAM best practices mandate eliminating long-lived access keys, adopting federated single sign-on with IAM Identity Center, enforcing MFA, and validating policies using IAM Access Analyzer.",
+    "referenceUrl": "https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html",
+    "tags": [
+      "IAM",
+      "Identity Center",
+      "Least Privilege",
+      "Federation"
+    ]
   },
   {
-    id: "aws-scs-158",
-    difficulty: "medium",
-    certId: "aws-scs",
-    domainId: "d2",
-    domainName: "Security Logging and Monitoring",
-    title: "VPC Flow Logs capturing accepted and rejected network traffic: Operational Strategy (Part 158)",
-    scenario: "A multi-tenant enterprise SaaS provider is evaluating AWS Certified Security - Specialty practices specifically regarding VPC Flow Logs capturing accepted and rejected network traffic. The engineering group needs to eliminate manual operational toil and enforce declarative infrastructure reconciliation for service tier #158.",
-    question: "Which architectural approach fulfills these operational objectives while maintaining reliability and minimal engineering overhead? (Focus: VPC Flow Logs capturing accepted and rejected network traffic in Security Logging and Monitoring)",
-    options: [
-      { id: 'A', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'B', text: "Deploy native automation for vpc flow logs capturing accepted and rejected network traffic utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'C', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'D', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." }
+    "id": "aws-scs-158",
+    "difficulty": "medium",
+    "certId": "aws-scs",
+    "domainId": "d4",
+    "domainName": "Identity and Access Management",
+    "title": "IAM and Access Governance Scenario #26",
+    "scenario": "An identity architect is establishing least privilege, temporary credentials, and federation across an AWS enterprise estate.",
+    "question": "Which IAM architecture best satisfies objective #26?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Hardcoding root account access credentials in application configuration files"
+      },
+      {
+        "id": "B",
+        "text": "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies"
+      },
+      {
+        "id": "C",
+        "text": "Creating long-lived IAM user access keys for every employee and disabling MFA"
+      },
+      {
+        "id": "D",
+        "text": "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation"
+      }
     ],
-    correctAnswers: ['B'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for vpc flow logs capturing accepted and rejected network traffic provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Security", "Architecture"]
+    "correctAnswers": [
+      "D"
+    ],
+    "type": "single",
+    "explanation": "IAM best practices mandate eliminating long-lived access keys, adopting federated single sign-on with IAM Identity Center, enforcing MFA, and validating policies using IAM Access Analyzer.",
+    "referenceUrl": "https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html",
+    "tags": [
+      "IAM",
+      "Identity Center",
+      "Least Privilege",
+      "Federation"
+    ]
   },
   {
-    id: "aws-scs-159",
-    difficulty: "easy",
-    certId: "aws-scs",
-    domainId: "d3",
-    domainName: "Infrastructure Security",
-    title: "AWS Shield Advanced DDoS mitigation and cost protection: Operational Strategy (Part 159)",
-    scenario: "A public sector aerospace engineering department is evaluating AWS Certified Security - Specialty practices specifically regarding AWS Shield Advanced DDoS mitigation and cost protection. The engineering group is implementing automated canary analysis with instant rollback capabilities triggered by error budget burn rates for service tier #159.",
-    question: "How should the engineering team configure the platform to ensure resilient, automated operation without manual intervention? (Focus: AWS Shield Advanced DDoS mitigation and cost protection in Infrastructure Security)",
-    options: [
-      { id: 'A', text: "Deploy native automation for aws shield advanced ddos mitigation and cost protection utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'B', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'C', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'D', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." }
+    "id": "aws-scs-159",
+    "difficulty": "hard",
+    "certId": "aws-scs",
+    "domainId": "d4",
+    "domainName": "Identity and Access Management",
+    "title": "IAM and Access Governance Scenario #27",
+    "scenario": "An identity architect is establishing least privilege, temporary credentials, and federation across an AWS enterprise estate.",
+    "question": "Which IAM architecture best satisfies objective #27?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Hardcoding root account access credentials in application configuration files"
+      },
+      {
+        "id": "B",
+        "text": "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation"
+      },
+      {
+        "id": "C",
+        "text": "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies"
+      },
+      {
+        "id": "D",
+        "text": "Creating long-lived IAM user access keys for every employee and disabling MFA"
+      }
     ],
-    correctAnswers: ['A'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for aws shield advanced ddos mitigation and cost protection provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Infrastructure", "Architecture"]
+    "correctAnswers": [
+      "B"
+    ],
+    "type": "single",
+    "explanation": "IAM best practices mandate eliminating long-lived access keys, adopting federated single sign-on with IAM Identity Center, enforcing MFA, and validating policies using IAM Access Analyzer.",
+    "referenceUrl": "https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html",
+    "tags": [
+      "IAM",
+      "Identity Center",
+      "Least Privilege",
+      "Federation"
+    ]
   },
   {
-    id: "aws-scs-160",
-    difficulty: "hard",
-    certId: "aws-scs",
-    domainId: "d4",
-    domainName: "Identity and Access Management",
-    title: "IAM permission boundaries delegating safe role creation to teams: Operational Strategy (Part 160)",
-    scenario: "An automotive connected-vehicle fleet manager is evaluating AWS Certified Security - Specialty practices specifically regarding IAM permission boundaries delegating safe role creation to teams. The engineering group must enforce zero-trust identity boundaries and cryptographic verification across all service endpoints for service tier #160.",
-    question: "Which design pattern should be implemented to ensure continuous compliance, automated validation, and high availability? (Focus: IAM permission boundaries delegating safe role creation to teams in Identity and Access Management)",
-    options: [
-      { id: 'A', text: "Deploy native automation for iam permission boundaries delegating safe role creation to teams utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'B', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'C', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'D', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." }
+    "id": "aws-scs-160",
+    "difficulty": "easy",
+    "certId": "aws-scs",
+    "domainId": "d4",
+    "domainName": "Identity and Access Management",
+    "title": "IAM and Access Governance Scenario #28",
+    "scenario": "An identity architect is establishing least privilege, temporary credentials, and federation across an AWS enterprise estate.",
+    "question": "Which IAM architecture best satisfies objective #28?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Creating long-lived IAM user access keys for every employee and disabling MFA"
+      },
+      {
+        "id": "B",
+        "text": "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies"
+      },
+      {
+        "id": "C",
+        "text": "Hardcoding root account access credentials in application configuration files"
+      },
+      {
+        "id": "D",
+        "text": "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation"
+      }
     ],
-    correctAnswers: ['A'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for iam permission boundaries delegating safe role creation to teams provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Identity", "Architecture"]
+    "correctAnswers": [
+      "D"
+    ],
+    "type": "single",
+    "explanation": "IAM best practices mandate eliminating long-lived access keys, adopting federated single sign-on with IAM Identity Center, enforcing MFA, and validating policies using IAM Access Analyzer.",
+    "referenceUrl": "https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html",
+    "tags": [
+      "IAM",
+      "Identity Center",
+      "Least Privilege",
+      "Federation"
+    ]
   },
   {
-    id: "aws-scs-161",
-    difficulty: "medium",
-    certId: "aws-scs",
-    domainId: "d5",
-    domainName: "Data Protection",
-    title: "AWS KMS key policies vs IAM policies for cryptographic access: Operational Strategy (Part 161)",
-    scenario: "A digital media publishing network is evaluating AWS Certified Security - Specialty practices specifically regarding AWS KMS key policies vs IAM policies for cryptographic access. The engineering group needs to optimize cloud expenditure and implement real-time cost attribution across engineering teams for service tier #161.",
-    question: "What is the recommended implementation strategy to satisfy these technical requirements according to official best practices? (Focus: AWS KMS key policies vs IAM policies for cryptographic access in Data Protection)",
-    options: [
-      { id: 'A', text: "Deploy native automation for aws kms key policies vs iam policies for cryptographic access utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'B', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'C', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'D', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." }
+    "id": "aws-scs-161",
+    "difficulty": "medium",
+    "certId": "aws-scs",
+    "domainId": "d4",
+    "domainName": "Identity and Access Management",
+    "title": "IAM and Access Governance Scenario #29",
+    "scenario": "An identity architect is establishing least privilege, temporary credentials, and federation across an AWS enterprise estate.",
+    "question": "Which IAM architecture best satisfies objective #29?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies"
+      },
+      {
+        "id": "B",
+        "text": "Creating long-lived IAM user access keys for every employee and disabling MFA"
+      },
+      {
+        "id": "C",
+        "text": "Hardcoding root account access credentials in application configuration files"
+      },
+      {
+        "id": "D",
+        "text": "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation"
+      }
     ],
-    correctAnswers: ['A'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for aws kms key policies vs iam policies for cryptographic access provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Data", "Architecture"]
+    "correctAnswers": [
+      "D"
+    ],
+    "type": "single",
+    "explanation": "IAM best practices mandate eliminating long-lived access keys, adopting federated single sign-on with IAM Identity Center, enforcing MFA, and validating policies using IAM Access Analyzer.",
+    "referenceUrl": "https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html",
+    "tags": [
+      "IAM",
+      "Identity Center",
+      "Least Privilege",
+      "Federation"
+    ]
   },
   {
-    id: "aws-scs-162",
-    difficulty: "easy",
-    certId: "aws-scs",
-    domainId: "d6",
-    domainName: "Management and Security Governance",
-    title: "AWS Organizations Service Control Policies SCPs establishing hard guardrails: Operational Strategy (Part 162)",
-    scenario: "A pharmaceutical clinical trial data service is evaluating AWS Certified Security - Specialty practices specifically regarding AWS Organizations Service Control Policies SCPs establishing hard guardrails. The engineering group is resolving cross-account network latency bottlenecks and transient connection timeouts for service tier #162.",
-    question: "Which configuration provides the most cost-effective and secure solution to achieve these criteria? (Focus: AWS Organizations Service Control Policies SCPs establishing hard guardrails in Management and Security Governance)",
-    options: [
-      { id: 'A', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'D', text: "Deploy native automation for aws organizations service control policies scps establishing hard guardrails utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." }
+    "id": "aws-scs-162",
+    "difficulty": "hard",
+    "certId": "aws-scs",
+    "domainId": "d4",
+    "domainName": "Identity and Access Management",
+    "title": "IAM and Access Governance Scenario #30",
+    "scenario": "An identity architect is establishing least privilege, temporary credentials, and federation across an AWS enterprise estate.",
+    "question": "Which IAM architecture best satisfies objective #30?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation"
+      },
+      {
+        "id": "B",
+        "text": "Hardcoding root account access credentials in application configuration files"
+      },
+      {
+        "id": "C",
+        "text": "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies"
+      },
+      {
+        "id": "D",
+        "text": "Creating long-lived IAM user access keys for every employee and disabling MFA"
+      }
     ],
-    correctAnswers: ['D'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for aws organizations service control policies scps establishing hard guardrails provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Management", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "IAM best practices mandate eliminating long-lived access keys, adopting federated single sign-on with IAM Identity Center, enforcing MFA, and validating policies using IAM Access Analyzer.",
+    "referenceUrl": "https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html",
+    "tags": [
+      "IAM",
+      "Identity Center",
+      "Least Privilege",
+      "Federation"
+    ]
   },
   {
-    id: "aws-scs-163",
-    difficulty: "medium",
-    certId: "aws-scs",
-    domainId: "d1",
-    domainName: "Threat Detection and Incident Response",
-    title: "Amazon Detective root cause investigation and graph analysis: Operational Strategy (Part 163)",
-    scenario: "A renewable energy smart-grid operator is evaluating AWS Certified Security - Specialty practices specifically regarding Amazon Detective root cause investigation and graph analysis. The engineering group must establish centralized audit logging and automated incident containment for security operations for service tier #163.",
-    question: "Which architectural approach fulfills these operational objectives while maintaining reliability and minimal engineering overhead? (Focus: Amazon Detective root cause investigation and graph analysis in Threat Detection and Incident Response)",
-    options: [
-      { id: 'A', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'B', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'C', text: "Deploy native automation for amazon detective root cause investigation and graph analysis utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'D', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." }
+    "id": "aws-scs-163",
+    "difficulty": "easy",
+    "certId": "aws-scs",
+    "domainId": "d4",
+    "domainName": "Identity and Access Management",
+    "title": "IAM and Access Governance Scenario #31",
+    "scenario": "An identity architect is establishing least privilege, temporary credentials, and federation across an AWS enterprise estate.",
+    "question": "Which IAM architecture best satisfies objective #31?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation"
+      },
+      {
+        "id": "B",
+        "text": "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies"
+      },
+      {
+        "id": "C",
+        "text": "Hardcoding root account access credentials in application configuration files"
+      },
+      {
+        "id": "D",
+        "text": "Creating long-lived IAM user access keys for every employee and disabling MFA"
+      }
     ],
-    correctAnswers: ['C'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for amazon detective root cause investigation and graph analysis provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Threat", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "IAM best practices mandate eliminating long-lived access keys, adopting federated single sign-on with IAM Identity Center, enforcing MFA, and validating policies using IAM Access Analyzer.",
+    "referenceUrl": "https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html",
+    "tags": [
+      "IAM",
+      "Identity Center",
+      "Least Privilege",
+      "Federation"
+    ]
   },
   {
-    id: "aws-scs-164",
-    difficulty: "medium",
-    certId: "aws-scs",
-    domainId: "d2",
-    domainName: "Security Logging and Monitoring",
-    title: "CloudWatch log group retention, metric filters, and subscription filters: Operational Strategy (Part 164)",
-    scenario: "A mobile gaming backend architecture is evaluating AWS Certified Security - Specialty practices specifically regarding CloudWatch log group retention, metric filters, and subscription filters. The engineering group is modernizing legacy components to achieve zero-downtime deployments under unpredictable traffic spikes for service tier #164.",
-    question: "How should the engineering team configure the platform to ensure resilient, automated operation without manual intervention? (Focus: CloudWatch log group retention, metric filters, and subscription filters in Security Logging and Monitoring)",
-    options: [
-      { id: 'A', text: "Deploy native automation for cloudwatch log group retention, metric filters, and subscription filters utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
+    "id": "aws-scs-164",
+    "difficulty": "medium",
+    "certId": "aws-scs",
+    "domainId": "d4",
+    "domainName": "Identity and Access Management",
+    "title": "IAM and Access Governance Scenario #32",
+    "scenario": "An identity architect is establishing least privilege, temporary credentials, and federation across an AWS enterprise estate.",
+    "question": "Which IAM architecture best satisfies objective #32?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies"
+      },
+      {
+        "id": "B",
+        "text": "Hardcoding root account access credentials in application configuration files"
+      },
+      {
+        "id": "C",
+        "text": "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation"
+      },
+      {
+        "id": "D",
+        "text": "Creating long-lived IAM user access keys for every employee and disabling MFA"
+      }
     ],
-    correctAnswers: ['A'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for cloudwatch log group retention, metric filters, and subscription filters provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Security", "Architecture"]
+    "correctAnswers": [
+      "C"
+    ],
+    "type": "single",
+    "explanation": "IAM best practices mandate eliminating long-lived access keys, adopting federated single sign-on with IAM Identity Center, enforcing MFA, and validating policies using IAM Access Analyzer.",
+    "referenceUrl": "https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html",
+    "tags": [
+      "IAM",
+      "Identity Center",
+      "Least Privilege",
+      "Federation"
+    ]
   },
   {
-    id: "aws-scs-165",
-    difficulty: "hard",
-    certId: "aws-scs",
-    domainId: "d3",
-    domainName: "Infrastructure Security",
-    title: "AWS Network Firewall stateful inspection and TLS decryption rules: Operational Strategy (Part 165)",
-    scenario: "A ride-sharing dispatch system is evaluating AWS Certified Security - Specialty practices specifically regarding AWS Network Firewall stateful inspection and TLS decryption rules. The engineering group is remediating compliance audit findings regarding unauthorized configuration drift across staging and production for service tier #165.",
-    question: "Which design pattern should be implemented to ensure continuous compliance, automated validation, and high availability? (Focus: AWS Network Firewall stateful inspection and TLS decryption rules in Infrastructure Security)",
-    options: [
-      { id: 'A', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'B', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'C', text: "Deploy native automation for aws network firewall stateful inspection and tls decryption rules utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'D', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." }
+    "id": "aws-scs-165",
+    "difficulty": "hard",
+    "certId": "aws-scs",
+    "domainId": "d4",
+    "domainName": "Identity and Access Management",
+    "title": "IAM and Access Governance Scenario #33",
+    "scenario": "An identity architect is establishing least privilege, temporary credentials, and federation across an AWS enterprise estate.",
+    "question": "Which IAM architecture best satisfies objective #33?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation"
+      },
+      {
+        "id": "B",
+        "text": "Hardcoding root account access credentials in application configuration files"
+      },
+      {
+        "id": "C",
+        "text": "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies"
+      },
+      {
+        "id": "D",
+        "text": "Creating long-lived IAM user access keys for every employee and disabling MFA"
+      }
     ],
-    correctAnswers: ['C'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for aws network firewall stateful inspection and tls decryption rules provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Infrastructure", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "IAM best practices mandate eliminating long-lived access keys, adopting federated single sign-on with IAM Identity Center, enforcing MFA, and validating policies using IAM Access Analyzer.",
+    "referenceUrl": "https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html",
+    "tags": [
+      "IAM",
+      "Identity Center",
+      "Least Privilege",
+      "Federation"
+    ]
   },
   {
-    id: "aws-scs-166",
-    difficulty: "medium",
-    certId: "aws-scs",
-    domainId: "d4",
-    domainName: "Identity and Access Management",
-    title: "IAM Access Analyzer identifying public and cross-account resource sharing: Operational Strategy (Part 166)",
-    scenario: "An insurance claims processing engine is evaluating AWS Certified Security - Specialty practices specifically regarding IAM Access Analyzer identifying public and cross-account resource sharing. The engineering group must minimize mean time to recovery (MTTR) and prevent cascading failures during regional outages for service tier #166.",
-    question: "What is the recommended implementation strategy to satisfy these technical requirements according to official best practices? (Focus: IAM Access Analyzer identifying public and cross-account resource sharing in Identity and Access Management)",
-    options: [
-      { id: 'A', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'B', text: "Deploy native automation for iam access analyzer identifying public and cross-account resource sharing utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'C', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'D', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." }
+    "id": "aws-scs-166",
+    "difficulty": "easy",
+    "certId": "aws-scs",
+    "domainId": "d4",
+    "domainName": "Identity and Access Management",
+    "title": "IAM and Access Governance Scenario #34",
+    "scenario": "An identity architect is establishing least privilege, temporary credentials, and federation across an AWS enterprise estate.",
+    "question": "Which IAM architecture best satisfies objective #34?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Creating long-lived IAM user access keys for every employee and disabling MFA"
+      },
+      {
+        "id": "B",
+        "text": "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies"
+      },
+      {
+        "id": "C",
+        "text": "Hardcoding root account access credentials in application configuration files"
+      },
+      {
+        "id": "D",
+        "text": "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation"
+      }
     ],
-    correctAnswers: ['B'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for iam access analyzer identifying public and cross-account resource sharing provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Identity", "Architecture"]
+    "correctAnswers": [
+      "D"
+    ],
+    "type": "single",
+    "explanation": "IAM best practices mandate eliminating long-lived access keys, adopting federated single sign-on with IAM Identity Center, enforcing MFA, and validating policies using IAM Access Analyzer.",
+    "referenceUrl": "https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html",
+    "tags": [
+      "IAM",
+      "Identity Center",
+      "Least Privilege",
+      "Federation"
+    ]
   },
   {
-    id: "aws-scs-167",
-    difficulty: "medium",
-    certId: "aws-scs",
-    domainId: "d5",
-    domainName: "Data Protection",
-    title: "AWS Secrets Manager automatic password rotation for RDS databases: Operational Strategy (Part 167)",
-    scenario: "A commercial airline reservation service is evaluating AWS Certified Security - Specialty practices specifically regarding AWS Secrets Manager automatic password rotation for RDS databases. The engineering group is migrating mission-critical workloads while enforcing strict organizational security guardrails for service tier #167.",
-    question: "Which configuration provides the most cost-effective and secure solution to achieve these criteria? (Focus: AWS Secrets Manager automatic password rotation for RDS databases in Data Protection)",
-    options: [
-      { id: 'A', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'B', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'D', text: "Deploy native automation for aws secrets manager automatic password rotation for rds databases utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." }
+    "id": "aws-scs-167",
+    "difficulty": "medium",
+    "certId": "aws-scs",
+    "domainId": "d4",
+    "domainName": "Identity and Access Management",
+    "title": "IAM and Access Governance Scenario #35",
+    "scenario": "An identity architect is establishing least privilege, temporary credentials, and federation across an AWS enterprise estate.",
+    "question": "Which IAM architecture best satisfies objective #35?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation"
+      },
+      {
+        "id": "B",
+        "text": "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies"
+      },
+      {
+        "id": "C",
+        "text": "Creating long-lived IAM user access keys for every employee and disabling MFA"
+      },
+      {
+        "id": "D",
+        "text": "Hardcoding root account access credentials in application configuration files"
+      }
     ],
-    correctAnswers: ['D'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for aws secrets manager automatic password rotation for rds databases provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Data", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "IAM best practices mandate eliminating long-lived access keys, adopting federated single sign-on with IAM Identity Center, enforcing MFA, and validating policies using IAM Access Analyzer.",
+    "referenceUrl": "https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html",
+    "tags": [
+      "IAM",
+      "Identity Center",
+      "Least Privilege",
+      "Federation"
+    ]
   },
   {
-    id: "aws-scs-168",
-    difficulty: "easy",
-    certId: "aws-scs",
-    domainId: "d6",
-    domainName: "Management and Security Governance",
-    title: "AWS Audit Manager continuous assessment against industry frameworks: Operational Strategy (Part 168)",
-    scenario: "A cybersecurity threat intelligence agency is evaluating AWS Certified Security - Specialty practices specifically regarding AWS Audit Manager continuous assessment against industry frameworks. The engineering group needs to eliminate manual operational toil and enforce declarative infrastructure reconciliation for service tier #168.",
-    question: "Which architectural approach fulfills these operational objectives while maintaining reliability and minimal engineering overhead? (Focus: AWS Audit Manager continuous assessment against industry frameworks in Management and Security Governance)",
-    options: [
-      { id: 'A', text: "Deploy native automation for aws audit manager continuous assessment against industry frameworks utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'B', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'C', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
+    "id": "aws-scs-168",
+    "difficulty": "hard",
+    "certId": "aws-scs",
+    "domainId": "d4",
+    "domainName": "Identity and Access Management",
+    "title": "IAM and Access Governance Scenario #36",
+    "scenario": "An identity architect is establishing least privilege, temporary credentials, and federation across an AWS enterprise estate.",
+    "question": "Which IAM architecture best satisfies objective #36?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation"
+      },
+      {
+        "id": "B",
+        "text": "Creating long-lived IAM user access keys for every employee and disabling MFA"
+      },
+      {
+        "id": "C",
+        "text": "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies"
+      },
+      {
+        "id": "D",
+        "text": "Hardcoding root account access credentials in application configuration files"
+      }
     ],
-    correctAnswers: ['A'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for aws audit manager continuous assessment against industry frameworks provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Management", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "IAM best practices mandate eliminating long-lived access keys, adopting federated single sign-on with IAM Identity Center, enforcing MFA, and validating policies using IAM Access Analyzer.",
+    "referenceUrl": "https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html",
+    "tags": [
+      "IAM",
+      "Identity Center",
+      "Least Privilege",
+      "Federation"
+    ]
   },
   {
-    id: "aws-scs-169",
-    difficulty: "medium",
-    certId: "aws-scs",
-    domainId: "d1",
-    domainName: "Threat Detection and Incident Response",
-    title: "Automated incident containment isolating compromised EC2 instances: Operational Strategy (Part 169)",
-    scenario: "A real estate property management portal is evaluating AWS Certified Security - Specialty practices specifically regarding Automated incident containment isolating compromised EC2 instances. The engineering group is implementing automated canary analysis with instant rollback capabilities triggered by error budget burn rates for service tier #169.",
-    question: "How should the engineering team configure the platform to ensure resilient, automated operation without manual intervention? (Focus: Automated incident containment isolating compromised EC2 instances in Threat Detection and Incident Response)",
-    options: [
-      { id: 'A', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'B', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'C', text: "Deploy native automation for automated incident containment isolating compromised ec2 instances utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'D', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." }
+    "id": "aws-scs-169",
+    "difficulty": "easy",
+    "certId": "aws-scs",
+    "domainId": "d4",
+    "domainName": "Identity and Access Management",
+    "title": "IAM and Access Governance Scenario #37",
+    "scenario": "An identity architect is establishing least privilege, temporary credentials, and federation across an AWS enterprise estate.",
+    "question": "Which IAM architecture best satisfies objective #37?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Creating long-lived IAM user access keys for every employee and disabling MFA"
+      },
+      {
+        "id": "B",
+        "text": "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies"
+      },
+      {
+        "id": "C",
+        "text": "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation"
+      },
+      {
+        "id": "D",
+        "text": "Hardcoding root account access credentials in application configuration files"
+      }
     ],
-    correctAnswers: ['C'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for automated incident containment isolating compromised ec2 instances provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Threat", "Architecture"]
+    "correctAnswers": [
+      "C"
+    ],
+    "type": "single",
+    "explanation": "IAM best practices mandate eliminating long-lived access keys, adopting federated single sign-on with IAM Identity Center, enforcing MFA, and validating policies using IAM Access Analyzer.",
+    "referenceUrl": "https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html",
+    "tags": [
+      "IAM",
+      "Identity Center",
+      "Least Privilege",
+      "Federation"
+    ]
   },
   {
-    id: "aws-scs-170",
-    difficulty: "hard",
-    certId: "aws-scs",
-    domainId: "d2",
-    domainName: "Security Logging and Monitoring",
-    title: "Amazon Athena SQL queries analyzing VPC Flow Logs and CloudTrail: Operational Strategy (Part 170)",
-    scenario: "An autonomous robotics manufacturing facility is evaluating AWS Certified Security - Specialty practices specifically regarding Amazon Athena SQL queries analyzing VPC Flow Logs and CloudTrail. The engineering group must enforce zero-trust identity boundaries and cryptographic verification across all service endpoints for service tier #170.",
-    question: "Which design pattern should be implemented to ensure continuous compliance, automated validation, and high availability? (Focus: Amazon Athena SQL queries analyzing VPC Flow Logs and CloudTrail in Security Logging and Monitoring)",
-    options: [
-      { id: 'A', text: "Deploy native automation for amazon athena sql queries analyzing vpc flow logs and cloudtrail utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'B', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'C', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
+    "id": "aws-scs-170",
+    "difficulty": "medium",
+    "certId": "aws-scs",
+    "domainId": "d4",
+    "domainName": "Identity and Access Management",
+    "title": "IAM and Access Governance Scenario #38",
+    "scenario": "An identity architect is establishing least privilege, temporary credentials, and federation across an AWS enterprise estate.",
+    "question": "Which IAM architecture best satisfies objective #38?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Creating long-lived IAM user access keys for every employee and disabling MFA"
+      },
+      {
+        "id": "B",
+        "text": "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies"
+      },
+      {
+        "id": "C",
+        "text": "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation"
+      },
+      {
+        "id": "D",
+        "text": "Hardcoding root account access credentials in application configuration files"
+      }
     ],
-    correctAnswers: ['A'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for amazon athena sql queries analyzing vpc flow logs and cloudtrail provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Security", "Architecture"]
+    "correctAnswers": [
+      "C"
+    ],
+    "type": "single",
+    "explanation": "IAM best practices mandate eliminating long-lived access keys, adopting federated single sign-on with IAM Identity Center, enforcing MFA, and validating policies using IAM Access Analyzer.",
+    "referenceUrl": "https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html",
+    "tags": [
+      "IAM",
+      "Identity Center",
+      "Least Privilege",
+      "Federation"
+    ]
   },
   {
-    id: "aws-scs-171",
-    difficulty: "easy",
-    certId: "aws-scs",
-    domainId: "d3",
-    domainName: "Infrastructure Security",
-    title: "VPC endpoint policies restricting access to designated AWS resources: Operational Strategy (Part 171)",
-    scenario: "A higher education student information system is evaluating AWS Certified Security - Specialty practices specifically regarding VPC endpoint policies restricting access to designated AWS resources. The engineering group needs to optimize cloud expenditure and implement real-time cost attribution across engineering teams for service tier #171.",
-    question: "What is the recommended implementation strategy to satisfy these technical requirements according to official best practices? (Focus: VPC endpoint policies restricting access to designated AWS resources in Infrastructure Security)",
-    options: [
-      { id: 'A', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'B', text: "Deploy native automation for vpc endpoint policies restricting access to designated aws resources utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'C', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'D', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." }
+    "id": "aws-scs-171",
+    "difficulty": "hard",
+    "certId": "aws-scs",
+    "domainId": "d5",
+    "domainName": "Data Protection",
+    "title": "AWS KMS Envelope Encryption Mechanism",
+    "scenario": "An engineer is designing a client-side encryption library for sensitive financial files before uploading them to Amazon S3. The application must encrypt multi-gigabyte files locally using AES-256 without sending the plaintext payload over the network to AWS KMS.",
+    "question": "How does AWS KMS envelope encryption facilitate this process?",
+    "options": [
+      {
+        "id": "A",
+        "text": "The application sends the multi-gigabyte file directly to kms:Encrypt via API payload"
+      },
+      {
+        "id": "B",
+        "text": "The application calls kms:GenerateDataKey to receive a plaintext data key and a ciphertext (encrypted) data key, encrypts the file locally with the plaintext key, deletes the plaintext key from memory, and stores the encrypted data key alongside the encrypted ciphertext in S3"
+      },
+      {
+        "id": "C",
+        "text": "The application stores the plaintext data key in an S3 bucket metadata tag"
+      },
+      {
+        "id": "D",
+        "text": "KMS streams the KMS Customer Master Key directly to the client RAM for local symmetric encryption"
+      }
     ],
-    correctAnswers: ['B'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for vpc endpoint policies restricting access to designated aws resources provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Infrastructure", "Architecture"]
+    "correctAnswers": [
+      "B"
+    ],
+    "type": "single",
+    "explanation": "AWS KMS envelope encryption allows encrypting arbitrary sizes of data locally. Calling `kms:GenerateDataKey` returns a plaintext data encryption key (DEK) and an encrypted copy of that DEK. The application encrypts data locally with the plaintext DEK, erases it from memory, and attaches the encrypted DEK to the ciphertext. KMS never receives or stores the actual file payload (KMS `Encrypt` API has a 4 KB payload limit).",
+    "referenceUrl": "https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#enveloping",
+    "tags": [
+      "KMS",
+      "Envelope Encryption",
+      "Data Protection",
+      "Cryptography"
+    ]
   },
   {
-    id: "aws-scs-172",
-    difficulty: "medium",
-    certId: "aws-scs",
-    domainId: "d4",
-    domainName: "Identity and Access Management",
-    title: "Cross-account access with AssumeRole and external ID validation: Operational Strategy (Part 172)",
-    scenario: "A global hotel hospitality reservation platform is evaluating AWS Certified Security - Specialty practices specifically regarding Cross-account access with AssumeRole and external ID validation. The engineering group is resolving cross-account network latency bottlenecks and transient connection timeouts for service tier #172.",
-    question: "Which configuration provides the most cost-effective and secure solution to achieve these criteria? (Focus: Cross-account access with AssumeRole and external ID validation in Identity and Access Management)",
-    options: [
-      { id: 'A', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'B', text: "Deploy native automation for cross-account access with assumerole and external id validation utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'D', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." }
+    "id": "aws-scs-172",
+    "difficulty": "medium",
+    "certId": "aws-scs",
+    "domainId": "d5",
+    "domainName": "Data Protection",
+    "title": "S3 Object Lock: Governance vs. Compliance Mode",
+    "scenario": "A healthcare enterprise must store patient records in Amazon S3 to comply with strict SEC and HIPAA regulations. Records must be write-once-read-many (WORM) and permanently prevented from deletion or modification for 7 years, even by the AWS account root user or administrators.",
+    "question": "Which S3 Object Lock retention mode must be enabled?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Compliance mode"
+      },
+      {
+        "id": "B",
+        "text": "S3 Lifecycle transition to Glacier Flexible Retrieval"
+      },
+      {
+        "id": "C",
+        "text": "Governance mode"
+      },
+      {
+        "id": "D",
+        "text": "Legal Hold alone without retention mode"
+      }
     ],
-    correctAnswers: ['B'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for cross-account access with assumerole and external id validation provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Identity", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "In S3 Object Lock **Compliance mode**, a protected object version cannot be overwritten or deleted by any user, including the root user in the AWS account. Its retention period cannot be shortened, and retention settings cannot be deleted until the retention period expires. In contrast, **Governance mode** allows users with the `s3:BypassGovernanceRetention` permission to alter or delete objects.",
+    "referenceUrl": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-overview.html",
+    "tags": [
+      "S3",
+      "Object Lock",
+      "Compliance Mode",
+      "Data Protection"
+    ]
   },
   {
-    id: "aws-scs-173",
-    difficulty: "medium",
-    certId: "aws-scs",
-    domainId: "d5",
-    domainName: "Data Protection",
-    title: "Amazon S3 bucket encryption with customer provided KMS keys SSE-KMS: Operational Strategy (Part 173)",
-    scenario: "A digital payments settlement processor is evaluating AWS Certified Security - Specialty practices specifically regarding Amazon S3 bucket encryption with customer provided KMS keys SSE-KMS. The engineering group must establish centralized audit logging and automated incident containment for security operations for service tier #173.",
-    question: "Which architectural approach fulfills these operational objectives while maintaining reliability and minimal engineering overhead? (Focus: Amazon S3 bucket encryption with customer provided KMS keys SSE-KMS in Data Protection)",
-    options: [
-      { id: 'A', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'B', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'C', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'D', text: "Deploy native automation for amazon s3 bucket encryption with customer provided kms keys sse-kms utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." }
+    "difficulty": "easy",
+    "certId": "aws-scs",
+    "domainId": "d5",
+    "domainName": "Data Protection",
+    "title": "KMS Key Policy Delegation to IAM",
+    "scenario": "A security engineer creates a new Customer Managed Key (CMK) in AWS KMS. An IAM administrator attaches an IAM policy granting an application role kms:Decrypt permissions on the key ARN, but the application receives an AccessDeniedException when attempting to decrypt.",
+    "question": "What must be included in the KMS key policy to allow IAM policies to delegate permissions on the key?",
+    "options": [
+      {
+        "id": "A",
+        "text": "The KMS key policy must include a statement with <code>\"Principal\": {\"AWS\": \"arn:aws:iam::111122223333:root\"}</code> and action <code>kms:*</code>, delegating authorization to IAM"
+      },
+      {
+        "id": "B",
+        "text": "The application role must be made an administrator in the AWS Organizations management account"
+      },
+      {
+        "id": "C",
+        "text": "The KMS key must be converted from a symmetric key to an asymmetric key"
+      },
+      {
+        "id": "D",
+        "text": "The key must be shared with the AWS service principal kms.amazonaws.com"
+      }
     ],
-    correctAnswers: ['D'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for amazon s3 bucket encryption with customer provided kms keys sse-kms provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Data", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "In AWS KMS, the Key Policy is the primary access control mechanism. Unlike other AWS services, IAM policies have zero effect on KMS permissions unless the KMS key policy explicitly contains a statement granting the account root principal (`arn:aws:iam::{account-id}:root`) access to the key. This statement delegates authority to account IAM policies to grant permissions.",
+    "referenceUrl": "https://docs.aws.amazon.com/security/",
+    "tags": [
+      "KMS",
+      "Key-Policy",
+      "IAM-Delegation",
+      "Access-Control"
+    ],
+    "id": "aws-scs-173"
   },
   {
-    id: "aws-scs-174",
-    difficulty: "easy",
-    certId: "aws-scs",
-    domainId: "d6",
-    domainName: "Management and Security Governance",
-    title: "Delegated administrator accounts for security and governance services: Operational Strategy (Part 174)",
-    scenario: "A genomics sequencing data pipeline is evaluating AWS Certified Security - Specialty practices specifically regarding Delegated administrator accounts for security and governance services. The engineering group is modernizing legacy components to achieve zero-downtime deployments under unpredictable traffic spikes for service tier #174.",
-    question: "How should the engineering team configure the platform to ensure resilient, automated operation without manual intervention? (Focus: Delegated administrator accounts for security and governance services in Management and Security Governance)",
-    options: [
-      { id: 'A', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'B', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'C', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'D', text: "Deploy native automation for delegated administrator accounts for security and governance services utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." }
+    "difficulty": "medium",
+    "certId": "aws-scs",
+    "domainId": "d5",
+    "domainName": "Data Protection",
+    "title": "KMS Automatic Key Rotation Mechanism",
+    "scenario": "A corporate compliance mandate requires annual cryptographic key rotation. An administrator enables automatic key rotation on a Customer Managed Key (CMK) used to encrypt 50 TB of historical data in Amazon S3.",
+    "question": "How does AWS KMS handle existing ciphertexts when automatic key rotation occurs?",
+    "options": [
+      {
+        "id": "A",
+        "text": "KMS generates new cryptographic backing material for future encryptions while preserving all previous backing key material to decrypt existing data transparently without re-encrypting existing ciphertexts"
+      },
+      {
+        "id": "B",
+        "text": "KMS re-encrypts all 50 TB of existing S3 data immediately upon rotation"
+      },
+      {
+        "id": "C",
+        "text": "The KMS Key ID and ARN change, requiring all applications to update their configuration files"
+      },
+      {
+        "id": "D",
+        "text": "All existing ciphertexts become unreadable unless manually exported and decrypted within 30 days"
+      }
     ],
-    correctAnswers: ['D'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for delegated administrator accounts for security and governance services provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Management", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "When automatic key rotation is enabled for a customer managed key, KMS creates new backing cryptographic material annually. The Key ID, ARN, and key policies remain completely unchanged. New `Encrypt` calls use the newest backing key, while KMS maintains previous backing versions to decrypt older data seamlessly without re-encrypting existing stored data.",
+    "referenceUrl": "https://docs.aws.amazon.com/security/",
+    "tags": [
+      "KMS",
+      "Automatic-Rotation",
+      "Key-Management",
+      "Data-Protection"
+    ],
+    "id": "aws-scs-174"
   },
   {
-    id: "aws-scs-175",
-    difficulty: "hard",
-    certId: "aws-scs",
-    domainId: "d1",
-    domainName: "Threat Detection and Incident Response",
-    title: "Amazon EventBridge rules triggering Lambda for security auto-remediation: Operational Strategy (Part 175)",
-    scenario: "A cloud-native telecommunications provider is evaluating AWS Certified Security - Specialty practices specifically regarding Amazon EventBridge rules triggering Lambda for security auto-remediation. The engineering group is remediating compliance audit findings regarding unauthorized configuration drift across staging and production for service tier #175.",
-    question: "Which design pattern should be implemented to ensure continuous compliance, automated validation, and high availability? (Focus: Amazon EventBridge rules triggering Lambda for security auto-remediation in Threat Detection and Incident Response)",
-    options: [
-      { id: 'A', text: "Deploy native automation for amazon eventbridge rules triggering lambda for security auto-remediation utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
+    "difficulty": "medium",
+    "certId": "aws-scs",
+    "domainId": "d5",
+    "domainName": "Data Protection",
+    "title": "Preventing Tampering with KMS Encryption Context",
+    "scenario": "An e-commerce company encrypts order data before storing it in a database. The security team wants to prevent a malicious insider from taking ciphertext from an order belonging to Customer A and swapping it into an order belonging to Customer B.",
+    "question": "How does AWS KMS Encryption Context prevent ciphertext swapping attacks?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Include key-value pairs (e.g. <code>{\"order_id\": \"12345\", \"customer_id\": \"cust-99\"}</code>) as the Encryption Context during encryption; KMS cryptographically binds this context to the ciphertext, causing decryption to fail if the identical context is not provided"
+      },
+      {
+        "id": "B",
+        "text": "Encrypt the customer ID with an RSA asymmetric key pair"
+      },
+      {
+        "id": "C",
+        "text": "Store the customer ID in an S3 bucket with Object Lock enabled"
+      },
+      {
+        "id": "D",
+        "text": "Enable CloudWatch alarms on database row updates"
+      }
     ],
-    correctAnswers: ['A'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for amazon eventbridge rules triggering lambda for security auto-remediation provides reproducible deployments, auditable traceability, and continuous operational resilience as required by AWS Certified Security - Specialty standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
-    tags: ["SCS-C02", "Threat", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "The KMS Encryption Context is non-secret key-value data treated as Authenticated Additional Data (AAD). When provided during `Encrypt`, KMS cryptographically binds the context into the ciphertext. To successfully decrypt via `Decrypt`, the exact same encryption context must be provided; any mismatch causes decryption to fail, preventing ciphertext swapping.",
+    "referenceUrl": "https://docs.aws.amazon.com/security/",
+    "tags": [
+      "KMS",
+      "Encryption-Context",
+      "AAD",
+      "Tamper-Resistance"
+    ],
+    "id": "aws-scs-175"
   }
 ];
 
