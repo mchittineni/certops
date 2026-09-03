@@ -9,12 +9,12 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     scenario: "Every combination of three regions and four instance sizes must be produced as a list of pairs.",
     question: "Which function builds the cross product directly?",
     options: [
-      { id: 'A', text: "concat(var.regions, var.sizes)" },
-      { id: 'B', text: "setproduct(var.regions, var.sizes)" },
+      { id: 'A', text: "setproduct(var.regions, var.sizes)" },
+      { id: 'B', text: "merge(var.regions, var.sizes)" },
       { id: 'C', text: "zipmap(var.regions, var.sizes)" },
-      { id: 'D', text: "merge(var.regions, var.sizes)" }
+      { id: 'D', text: "concat(var.regions, var.sizes)" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "setproduct returns the Cartesian product of the given collections as a list of tuples, which is then usually flattened into a keyed map for for_each. zipmap pairs elements positionally into a map, concat appends lists end to end, and merge combines maps.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/functions/setproduct",
@@ -30,12 +30,12 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     scenario: "An engineer deletes .terraform to clear a strange error.",
     question: "What is the consequence?",
     options: [
-      { id: 'A', text: "The dependency lock file is invalidated and must be regenerated." },
+      { id: 'A', text: "The workspace selection is permanently lost." },
       { id: 'B', text: "The state file is deleted along with it." },
-      { id: 'C', text: "Providers, modules, and backend configuration must be reinstalled by running terraform init again; no state or configuration is lost." },
-      { id: 'D', text: "The workspace selection is permanently lost." }
+      { id: 'C', text: "The dependency lock file is invalidated and must be regenerated." },
+      { id: 'D', text: "Providers, modules, and backend configuration must be reinstalled by running terraform init again; no state or configuration is lost." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The .terraform directory is a local working cache of providers, modules, and backend settings, so removing it costs only a re-init. Remote state is untouched, the committed lock file remains valid and is reused, and workspace selection is re-established on init.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/init",
@@ -51,12 +51,12 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     scenario: "A platform team owns networking and shared services; six product teams own their own applications and deploy many times a day.",
     question: "Which layout best matches those rates of change and ownership?",
     options: [
-      { id: 'A', text: "One state per resource type across all teams." },
-      { id: 'B', text: "A platform state per environment for networking and shared services, plus one state per product team per environment, with product states reading platform outputs." },
-      { id: 'C', text: "One state per cloud account regardless of team." },
-      { id: 'D', text: "One state per environment containing everything, applied by the platform team on request." }
+      { id: 'A', text: "One state per environment containing everything, applied by the platform team on request." },
+      { id: 'B', text: "One state per cloud account regardless of team." },
+      { id: 'C', text: "A platform state per environment for networking and shared services, plus one state per product team per environment, with product states reading platform outputs." },
+      { id: 'D', text: "One state per resource type across all teams." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "State boundaries should follow ownership and rate of change so fast-moving teams are not serialised behind slow-moving shared infrastructure, with explicit output consumption expressing the dependency. A shared everything-state creates a queue and a single point of failure, and account or resource-type boundaries do not correspond to who changes what.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/modules/develop/composition",
@@ -72,12 +72,12 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     scenario: "Two engineers plan the same commit against the same workspace and see different results.",
     question: "Which causes are plausible? (Choose two.)",
     options: [
-      { id: 'A', text: "Different provider versions because one of them has not honoured the committed lock file." },
-      { id: 'B', text: "Different resource ordering in the configuration files." },
-      { id: 'C', text: "Different terminal colour settings." },
+      { id: 'A', text: "Different terminal colour settings." },
+      { id: 'B', text: "Different provider versions because one of them has not honoured the committed lock file." },
+      { id: 'C', text: "Different resource ordering in the configuration files." },
       { id: 'D', text: "Different variable values supplied locally, for example from an uncommitted tfvars file or environment variables." }
     ],
-    correctAnswers: ['A', 'D'],
+    correctAnswers: ['B', 'D'],
     type: "multiple",
     explanation: "Plan output is a function of configuration, variables, provider versions, and current state, so divergence almost always comes from inputs or dependency versions differing between the two machines. Display settings change nothing, and block ordering within files does not affect the graph.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/values/variables",
@@ -93,10 +93,10 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     scenario: "A module creates exactly one bucket and the author is choosing a resource label.",
     question: "Which convention is recommended?",
     options: [
-      { id: 'A', text: "Repeat the module name in the label, for example aws_s3_bucket.logging_module_bucket." },
-      { id: 'B', text: "Use a random suffix to guarantee uniqueness." },
+      { id: 'A', text: "Use a random suffix to guarantee uniqueness." },
+      { id: 'B', text: "Include the environment in the label." },
       { id: 'C', text: "A short label such as this or main, since the module name already provides the context in the full address." },
-      { id: 'D', text: "Include the environment in the label." }
+      { id: 'D', text: "Repeat the module name in the label, for example aws_s3_bucket.logging_module_bucket." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -136,11 +136,11 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     question: "Which correction is accurate?",
     options: [
       { id: 'A', text: "Sensitive variables are never written to state." },
-      { id: 'B', text: "Sensitive variables cannot be used in resource arguments." },
-      { id: 'C', text: "Sensitive controls display only - the value still reaches state and the plan file - so storage must be protected separately." },
-      { id: 'D', text: "Sensitive variables are stored encrypted in state." }
+      { id: 'B', text: "Sensitive controls display only - the value still reaches state and the plan file - so storage must be protected separately." },
+      { id: 'C', text: "Sensitive variables are stored encrypted in state." },
+      { id: 'D', text: "Sensitive variables cannot be used in resource arguments." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Sensitivity is a redaction marker propagated through expressions and honoured in CLI output; anything Terraform must remember to detect drift is still written to state in plain text. Sensitive values are freely usable in arguments, with the notable exception of places that would expose them in addresses such as for_each keys.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/values/variables",
@@ -177,12 +177,12 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     scenario: "The bucket and lock table that will store remote state must themselves be created by Terraform, which needs a backend.",
     question: "How is that chicken-and-egg problem usually solved?",
     options: [
-      { id: 'A', text: "Use a backend block that references the resources it defines." },
-      { id: 'B', text: "Terraform creates missing backend resources automatically on init." },
-      { id: 'C', text: "Store the bootstrap state in the same bucket before it exists." },
-      { id: 'D', text: "Create the backend resources in a small bootstrap configuration using local state, then migrate that configuration to the remote backend it created, or provision them outside Terraform." }
+      { id: 'A', text: "Store the bootstrap state in the same bucket before it exists." },
+      { id: 'B', text: "Create the backend resources in a small bootstrap configuration using local state, then migrate that configuration to the remote backend it created, or provision them outside Terraform." },
+      { id: 'C', text: "Use a backend block that references the resources it defines." },
+      { id: 'D', text: "Terraform creates missing backend resources automatically on init." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "A tiny bootstrap configuration with local state creates the storage and locking resources, after which its own state can be migrated into them - or the resources are created once by other means. Terraform never provisions backend storage itself, and a backend block cannot reference configuration values at all.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/backend",
@@ -198,9 +198,9 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     scenario: "terraform validate reports that a resource with the same type and name is declared twice in the same module.",
     question: "Why is this an error?",
     options: [
-      { id: 'A', text: "It is allowed if the blocks are in different files." },
-      { id: 'B', text: "Terraform allows it but the provider does not." },
-      { id: 'C', text: "It is only an error when the two blocks differ." },
+      { id: 'A', text: "Terraform allows it but the provider does not." },
+      { id: 'B', text: "It is only an error when the two blocks differ." },
+      { id: 'C', text: "It is allowed if the blocks are in different files." },
       { id: 'D', text: "The pair of type and name forms a unique address within a module, so two declarations would map to the same state entry." }
     ],
     correctAnswers: ['D'],
@@ -219,12 +219,12 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     scenario: "A configuration uses a public registry module and the author wants both the source and a version constraint.",
     question: "Which module block is well formed?",
     options: [
-      { id: 'A', text: "module \"vpc\" { source = \"terraform-aws-modules/vpc/aws\" ref = \"v5.0.0\" ... }" },
-      { id: 'B', text: "module \"vpc\" { source = \"terraform-aws-modules/vpc/aws\"  version = \"~> 5.0\"  ... }" },
-      { id: 'C', text: "module \"vpc\" { source = \"terraform-aws-modules/vpc/aws@5.0\" ... }" },
-      { id: 'D', text: "module \"vpc\" { source = \"registry.terraform.io/terraform-aws-modules/vpc/aws\" version = \"latest\" ... }" }
+      { id: 'A', text: "module \"vpc\" { source = \"terraform-aws-modules/vpc/aws@5.0\" ... }" },
+      { id: 'B', text: "module \"vpc\" { source = \"registry.terraform.io/terraform-aws-modules/vpc/aws\" version = \"latest\" ... }" },
+      { id: 'C', text: "module \"vpc\" { source = \"terraform-aws-modules/vpc/aws\" ref = \"v5.0.0\" ... }" },
+      { id: 'D', text: "module \"vpc\" { source = \"terraform-aws-modules/vpc/aws\"  version = \"~> 5.0\"  ... }" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Registry modules use a three-part address and a separate version argument accepting standard constraints. Version suffixes in the source, a literal latest, and a ref argument are all invalid for registry sources - ref belongs to git sources.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/modules/syntax",
@@ -282,9 +282,9 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     scenario: "While splitting a configuration, an engineer needs to know which provider configuration each state entry was created with.",
     question: "Where is that recorded?",
     options: [
-      { id: 'A', text: "Nowhere; it is inferred from the configuration at run time." },
-      { id: 'B', text: "In the dependency lock file." },
-      { id: 'C', text: "In the .terraform/providers directory." },
+      { id: 'A', text: "In the dependency lock file." },
+      { id: 'B', text: "In the .terraform/providers directory." },
+      { id: 'C', text: "Nowhere; it is inferred from the configuration at run time." },
       { id: 'D', text: "In the state entry itself, which stores the provider configuration address such as provider[\"registry.terraform.io/hashicorp/aws\"].west." }
     ],
     correctAnswers: ['D'],
@@ -303,10 +303,10 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     scenario: "A module could either accept a list of raw provider rule objects or accept high-level intents such as allow_https_from_internet.",
     question: "Which consideration should guide the choice?",
     options: [
-      { id: 'A', text: "The two are equivalent in practice." },
-      { id: 'B', text: "Intent-based inputs are required by the registry." },
+      { id: 'A', text: "Intent-based inputs are required by the registry." },
+      { id: 'B', text: "Raw pass-through is always better because it is future-proof." },
       { id: 'C', text: "Intent-based inputs encode organisational decisions and are easier to govern, while raw pass-through inputs are more flexible but shift responsibility for correctness back to every caller." },
-      { id: 'D', text: "Raw pass-through is always better because it is future-proof." }
+      { id: 'D', text: "The two are equivalent in practice." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -324,12 +324,12 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     scenario: "A plan proposes changes nobody expects.",
     question: "Which check should come first?",
     options: [
-      { id: 'A', text: "Delete the lock file and re-init." },
-      { id: 'B', text: "Run apply to see what really happens." },
-      { id: 'C', text: "Confirm which working directory, workspace, backend, and variable values the plan actually used, because the commonest cause is planning the wrong thing." },
-      { id: 'D', text: "Immediately raise a provider bug report." }
+      { id: 'A', text: "Confirm which working directory, workspace, backend, and variable values the plan actually used, because the commonest cause is planning the wrong thing." },
+      { id: 'B', text: "Immediately raise a provider bug report." },
+      { id: 'C', text: "Delete the lock file and re-init." },
+      { id: 'D', text: "Run apply to see what really happens." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Wrong-context plans - the wrong workspace, the wrong backend key, a stale variable file - are far more common than tool defects, and confirming context costs seconds. Applying to investigate is exactly the wrong direction, and blindly changing dependency versions adds a variable.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/plan",
@@ -345,12 +345,12 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     scenario: "A repository contains fifteen root configurations and CI currently runs every one on every commit, taking an hour.",
     question: "Which improvement is most appropriate?",
     options: [
-      { id: 'A', text: "Plan only the first root and assume the rest are similar." },
-      { id: 'B', text: "Detect which roots are affected by the changed files, including shared module paths, and plan only those." },
+      { id: 'A', text: "Run all roots in parallel with no change detection." },
+      { id: 'B', text: "Plan only the first root and assume the rest are similar." },
       { id: 'C', text: "Merge the fifteen roots into one configuration." },
-      { id: 'D', text: "Run all roots in parallel with no change detection." }
+      { id: 'D', text: "Detect which roots are affected by the changed files, including shared module paths, and plan only those." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Change detection that accounts for shared module dependencies keeps feedback fast while still covering everything a commit can affect. Blind parallelism only hides the waste and multiplies API load, merging roots destroys isolation, and sampling one root leaves real breakage undetected.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/run",
@@ -366,12 +366,12 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     scenario: "A configuration is being decommissioned as code, but the resources it manages must be handed to another team and stay running.",
     question: "Which path is correct?",
     options: [
-      { id: 'A', text: "Copy the old state file into the new backend and keep both configurations." },
-      { id: 'B', text: "Have the receiving configuration import the resources (or move the state entries across), then remove them from the old state without destroying, and finally delete the old configuration." },
-      { id: 'C', text: "Run terraform destroy and let the other team recreate everything." },
-      { id: 'D', text: "Delete the old state file and let the resources become unmanaged permanently." }
+      { id: 'A', text: "Delete the old state file and let the resources become unmanaged permanently." },
+      { id: 'B', text: "Run terraform destroy and let the other team recreate everything." },
+      { id: 'C', text: "Have the receiving configuration import the resources (or move the state entries across), then remove them from the old state without destroying, and finally delete the old configuration." },
+      { id: 'D', text: "Copy the old state file into the new backend and keep both configurations." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Handover means transferring management, so the new owner takes the resources into its state and the old state releases them without deletion, leaving exactly one owner. Destroying loses the running infrastructure, abandoning state leaves it unmanaged, and duplicating state creates two owners that will fight.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/import",
@@ -387,12 +387,12 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     scenario: "A root configuration has grown to a single 2,000-line main.tf and reviews have become difficult.",
     question: "Which refactor helps most without changing behaviour?",
     options: [
-      { id: 'A', text: "Split the file across several directories." },
-      { id: 'B', text: "Reorder the blocks alphabetically." },
-      { id: 'C', text: "Split the file by concern into several .tf files in the same directory, since Terraform concatenates them and addresses are unchanged." },
-      { id: 'D', text: "Move half the resources into a child module, which is behaviour-neutral." }
+      { id: 'A', text: "Reorder the blocks alphabetically." },
+      { id: 'B', text: "Split the file across several directories." },
+      { id: 'C', text: "Move half the resources into a child module, which is behaviour-neutral." },
+      { id: 'D', text: "Split the file by concern into several .tf files in the same directory, since Terraform concatenates them and addresses are unchanged." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "All .tf files in a directory form one module, so splitting by concern improves readability with zero effect on addresses, state, or the plan. Moving resources into a module does change their addresses and needs moved blocks, separate directories create separate root modules and states, and reordering does not reduce size.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/files",
@@ -409,9 +409,9 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     question: "What does that block do?",
     options: [
       { id: 'A', text: "It configures HCP Terraform as the state store and remote execution target for this configuration, taking the place of a backend block." },
-      { id: 'B', text: "It declares a provider for HCP Terraform resources." },
-      { id: 'C', text: "It sets the required Terraform version." },
-      { id: 'D', text: "It is documentation only and has no effect." }
+      { id: 'B', text: "It is documentation only and has no effect." },
+      { id: 'C', text: "It declares a provider for HCP Terraform resources." },
+      { id: 'D', text: "It sets the required Terraform version." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,12 +492,12 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     scenario: "A destroy must remove a database before the security group it uses, and Terraform is choosing the reverse order.",
     question: "How does Terraform order destroys?",
     options: [
-      { id: 'A', text: "Alphabetically by resource address." },
-      { id: 'B', text: "In reverse dependency order, so a resource is destroyed before the things it depends on - meaning a missing reference or depends_on is the reason an order looks wrong." },
+      { id: 'A', text: "In the same order as creation." },
+      { id: 'B', text: "Alphabetically by resource address." },
       { id: 'C', text: "In the order the blocks appear in the files." },
-      { id: 'D', text: "In the same order as creation." }
+      { id: 'D', text: "In reverse dependency order, so a resource is destroyed before the things it depends on - meaning a missing reference or depends_on is the reason an order looks wrong." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Destroy walks the dependency graph backwards, so dependents go first and their dependencies afterwards; when the order looks wrong the graph is usually missing an edge that a reference or depends_on would supply. File order and naming never influence the graph.",
     referenceUrl: "https://developer.hashicorp.com/terraform/internals/graph",

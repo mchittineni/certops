@@ -10,9 +10,9 @@ export const HASHICORP_TFP_QUESTIONS_2 = [
     question: "Which expression produces the required map?",
     options: [
       { id: 'A', text: "{ for o in var.items : o.name => o }" },
-      { id: 'B', text: "merge(var.items...)" },
-      { id: 'C', text: "toset(var.items)" },
-      { id: 'D', text: "[ for o in var.items : o.name ]" }
+      { id: 'B', text: "[ for o in var.items : o.name ]" },
+      { id: 'C', text: "merge(var.items...)" },
+      { id: 'D', text: "toset(var.items)" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -51,12 +51,12 @@ export const HASHICORP_TFP_QUESTIONS_2 = [
     scenario: "A CI job must set the variable environment without a tfvars file and without an interactive prompt.",
     question: "Which mechanisms work? (Choose two.)",
     options: [
-      { id: 'A', text: "Setting the environment variable TERRAFORM_environment." },
-      { id: 'B', text: "Exporting environment=prod in the shell." },
+      { id: 'A', text: "Passing -var=\"environment=prod\" on the command line." },
+      { id: 'B', text: "Setting the environment variable TERRAFORM_environment." },
       { id: 'C', text: "Setting the environment variable TF_VAR_environment." },
-      { id: 'D', text: "Passing -var=\"environment=prod\" on the command line." }
+      { id: 'D', text: "Exporting environment=prod in the shell." }
     ],
-    correctAnswers: ['C', 'D'],
+    correctAnswers: ['A', 'C'],
     type: "multiple",
     explanation: "Terraform reads input variables from TF_VAR_ prefixed environment variables and from -var and -var-file flags, both of which are non-interactive. A TERRAFORM_ prefix is not recognised, and a bare shell variable of the same name is invisible to Terraform.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/values/variables",
@@ -72,12 +72,12 @@ export const HASHICORP_TFP_QUESTIONS_2 = [
     scenario: "A team consumes modules from the public registry, a private git repository over SSH, and a local path during development.",
     question: "Which source value is invalid?",
     options: [
-      { id: 'A', text: "source = \"../modules/network\"" },
-      { id: 'B', text: "source = \"git::ssh://git@github.com/org/repo.git//modules/vpc?ref=v1.2.0\"" },
-      { id: 'C', text: "source = \"https://example.com/modules.zip?ref=v1\"" },
-      { id: 'D', text: "source = \"terraform-aws-modules/vpc/aws\"" }
+      { id: 'A', text: "source = \"git::ssh://git@github.com/org/repo.git//modules/vpc?ref=v1.2.0\"" },
+      { id: 'B', text: "source = \"../modules/network\"" },
+      { id: 'C', text: "source = \"terraform-aws-modules/vpc/aws\"" },
+      { id: 'D', text: "source = \"https://example.com/modules.zip?ref=v1\"" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "A plain HTTP URL with a ref query is not a supported module source form; HTTP sources must point at an archive that Terraform can fetch and unpack, and the ref parameter belongs to git sources. Registry addresses, git sources with a subdirectory and ref, and relative local paths are all valid.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/modules/sources",
@@ -115,11 +115,11 @@ export const HASHICORP_TFP_QUESTIONS_2 = [
     question: "Which HCP Terraform feature solves this?",
     options: [
       { id: 'A', text: "A .tfvars file committed to each repository." },
-      { id: 'B', text: "A run task that injects variables at plan time." },
-      { id: 'C', text: "A variable set scoped to the organisation, a project, or a chosen list of workspaces." },
-      { id: 'D', text: "A workspace template that clones variables on creation." }
+      { id: 'B', text: "A workspace template that clones variables on creation." },
+      { id: 'C', text: "A run task that injects variables at plan time." },
+      { id: 'D', text: "A variable set scoped to the organisation, a project, or a chosen list of workspaces." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Variable sets define variables once and apply them to the whole organisation, a project, or selected workspaces, so a rotation is a single edit. Cloning at creation time would not propagate later changes, committed tfvars files scatter secrets across repositories, and run tasks integrate external systems rather than supplying variables.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cloud-docs/workspaces/variables",
@@ -135,12 +135,12 @@ export const HASHICORP_TFP_QUESTIONS_2 = [
     scenario: "After removing a module that defined its own provider block, destroy fails with \"Provider configuration not present: to work with resource X its original provider configuration is required\".",
     question: "What is the correct recovery?",
     options: [
-      { id: 'A', text: "Temporarily restore an equivalent provider configuration in the root module so the orphaned resources can be destroyed, then remove them and the provider." },
+      { id: 'A', text: "Delete the state file and start again." },
       { id: 'B', text: "Run terraform init -reconfigure, which regenerates the provider configuration." },
-      { id: 'C', text: "Set the provider version to any value in required_providers." },
-      { id: 'D', text: "Delete the state file and start again." }
+      { id: 'C', text: "Temporarily restore an equivalent provider configuration in the root module so the orphaned resources can be destroyed, then remove them and the provider." },
+      { id: 'D', text: "Set the provider version to any value in required_providers." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "State entries record which provider configuration created them, so removing that configuration while the resources still exist leaves them unmanageable; restoring an equivalent configuration long enough to destroy or move them is the supported path. Deleting state orphans real infrastructure, re-initialising does not invent configurations, and a version constraint is not a configuration.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/providers/configuration",
@@ -219,12 +219,12 @@ export const HASHICORP_TFP_QUESTIONS_2 = [
     scenario: "A module input must accept a collection of subnet definitions, each with a cidr string and an availability_zone string, and reject anything else at plan time.",
     question: "Which type constraint is best?",
     options: [
-      { id: 'A', text: "any" },
-      { id: 'B', text: "list(string)" },
-      { id: 'C', text: "map(any)" },
-      { id: 'D', text: "map(object({ cidr = string, availability_zone = string }))" }
+      { id: 'A', text: "map(any)" },
+      { id: 'B', text: "map(object({ cidr = string, availability_zone = string }))" },
+      { id: 'C', text: "any" },
+      { id: 'D', text: "list(string)" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "A map of a structural object type documents the expected shape and makes Terraform reject malformed input during evaluation, and keying by name also gives stable for_each keys. any and map(any) defer all checking, and list(string) cannot express two attributes per element.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/expressions/type-constraints",
@@ -240,12 +240,12 @@ export const HASHICORP_TFP_QUESTIONS_2 = [
     scenario: "A colleague asks whether terraform plan changes anything in the real world when it refreshes.",
     question: "Which description is accurate?",
     options: [
-      { id: 'A', text: "Refresh deletes state entries for resources it cannot find." },
-      { id: 'B', text: "Refresh reads the current attributes of managed objects from their providers and updates state to match; it never modifies the remote objects." },
-      { id: 'C', text: "Refresh is a no-op when a remote backend is used." },
-      { id: 'D', text: "Refresh rewrites remote resources so they match the configuration." }
+      { id: 'A', text: "Refresh is a no-op when a remote backend is used." },
+      { id: 'B', text: "Refresh rewrites remote resources so they match the configuration." },
+      { id: 'C', text: "Refresh deletes state entries for resources it cannot find." },
+      { id: 'D', text: "Refresh reads the current attributes of managed objects from their providers and updates state to match; it never modifies the remote objects." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Refreshing is a read operation that syncs state with reality so the plan can show accurate drift; it never mutates infrastructure. Making reality match configuration is what apply does, resources found deleted are marked for recreation in the plan rather than silently dropped, and refresh behaviour is independent of the backend.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/refresh",
@@ -283,11 +283,11 @@ export const HASHICORP_TFP_QUESTIONS_2 = [
     question: "Which approach best meets that requirement?",
     options: [
       { id: 'A', text: "Commit an encrypted credentials file and decrypt it in the job." },
-      { id: 'B', text: "Pass the access key as a -var value on the command line." },
-      { id: 'C', text: "Use OIDC or workload identity federation so the CI job exchanges a short-lived token for cloud credentials at run time." },
-      { id: 'D', text: "Store the key in a Terraform variable marked sensitive." }
+      { id: 'B', text: "Use OIDC or workload identity federation so the CI job exchanges a short-lived token for cloud credentials at run time." },
+      { id: 'C', text: "Store the key in a Terraform variable marked sensitive." },
+      { id: 'D', text: "Pass the access key as a -var value on the command line." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Federated short-lived credentials remove the standing secret entirely, which is the strongest control and now standard across major CI systems and clouds. Encrypted files still contain a long-lived key, command-line variables leak into process listings and logs, and marking a variable sensitive only hides it in output.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cloud-docs/workspaces/dynamic-provider-credentials",
@@ -303,12 +303,12 @@ export const HASHICORP_TFP_QUESTIONS_2 = [
     scenario: "One module must be instantiated once per team, with different inputs, and referenced individually by team name elsewhere in the configuration.",
     question: "Which construct supports that?",
     options: [
-      { id: 'A', text: "A dynamic block wrapping the module." },
-      { id: 'B', text: "depends_on with a list of team names." },
-      { id: 'C', text: "Copying the module block once per team." },
-      { id: 'D', text: "for_each on the module block, referencing module.name[\"team\"].output." }
+      { id: 'A', text: "depends_on with a list of team names." },
+      { id: 'B', text: "A dynamic block wrapping the module." },
+      { id: 'C', text: "for_each on the module block, referencing module.name[\"team\"].output." },
+      { id: 'D', text: "Copying the module block once per team." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Modules accept count and for_each just as resources do, and for_each gives each instance a stable string key usable in references. dynamic blocks generate nested blocks rather than module instances, duplicating blocks does not scale, and depends_on only orders operations.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/meta-arguments/module-for_each",
@@ -324,10 +324,10 @@ export const HASHICORP_TFP_QUESTIONS_2 = [
     scenario: "A workspace is connected to a git repository. A pull request is opened that changes the Terraform code.",
     question: "What happens by default?",
     options: [
-      { id: 'A', text: "A full plan and apply runs immediately." },
+      { id: 'A', text: "Nothing happens until the branch is merged and a run is queued manually." },
       { id: 'B', text: "A speculative plan runs and reports back on the pull request, without the ability to apply." },
-      { id: 'C', text: "Nothing happens until the branch is merged and a run is queued manually." },
-      { id: 'D', text: "The workspace is locked until the pull request is closed." }
+      { id: 'C', text: "The workspace is locked until the pull request is closed." },
+      { id: 'D', text: "A full plan and apply runs immediately." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -345,12 +345,12 @@ export const HASHICORP_TFP_QUESTIONS_2 = [
     scenario: "An application resource must be created only after an IAM policy attachment exists, but the application configuration does not reference any attribute of the attachment.",
     question: "How is that ordering guaranteed?",
     options: [
-      { id: 'A', text: "Placing the attachment block earlier in the file." },
-      { id: 'B', text: "A provisioner that sleeps before the application is created." },
-      { id: 'C', text: "Wrapping both in the same module." },
-      { id: 'D', text: "depends_on = [aws_iam_role_policy_attachment.this] on the application resource." }
+      { id: 'A', text: "Wrapping both in the same module." },
+      { id: 'B', text: "depends_on = [aws_iam_role_policy_attachment.this] on the application resource." },
+      { id: 'C', text: "Placing the attachment block earlier in the file." },
+      { id: 'D', text: "A provisioner that sleeps before the application is created." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Terraform infers ordering from references, so when there is no reference the dependency must be declared with depends_on. File order is irrelevant to the graph, sleeping provisioners are a fragile hack, and co-locating resources in a module creates no ordering by itself.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/meta-arguments/depends_on",
@@ -367,11 +367,11 @@ export const HASHICORP_TFP_QUESTIONS_2 = [
     question: "Which objection is correct?",
     options: [
       { id: 'A', text: "State is regenerated on every plan, so committing it has no effect." },
-      { id: 'B', text: "State files are binary and cannot be diffed, so version control adds nothing." },
-      { id: 'C', text: "State stores all resource attributes in plain text, including values marked sensitive, so it must be treated as a secret and kept in an access-controlled encrypted backend." },
-      { id: 'D', text: "Only the lock file needs protecting; state itself is redacted." }
+      { id: 'B', text: "Only the lock file needs protecting; state itself is redacted." },
+      { id: 'C', text: "State files are binary and cannot be diffed, so version control adds nothing." },
+      { id: 'D', text: "State stores all resource attributes in plain text, including values marked sensitive, so it must be treated as a secret and kept in an access-controlled encrypted backend." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Sensitive marking affects display only - state records the real values, including generated passwords and keys - so state belongs in an encrypted, access-controlled remote backend. It is human-readable JSON, it is not regenerated from scratch each run, and nothing in it is redacted.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/state/sensitive-data",
@@ -387,12 +387,12 @@ export const HASHICORP_TFP_QUESTIONS_2 = [
     scenario: "An apply creates six of ten resources and then fails on the seventh because of a provider quota error. The engineer wants to know the safe next step.",
     question: "What is the state of the world and the right action?",
     options: [
-      { id: 'A', text: "terraform destroy must be run before retrying." },
-      { id: 'B', text: "Terraform rolls back the six created resources automatically." },
-      { id: 'C', text: "The state file is invalid and must be restored from backup." },
-      { id: 'D', text: "The six created resources are recorded in state; fix the quota or configuration and run plan and apply again, which will create only the remaining resources." }
+      { id: 'A', text: "Terraform rolls back the six created resources automatically." },
+      { id: 'B', text: "terraform destroy must be run before retrying." },
+      { id: 'C', text: "The six created resources are recorded in state; fix the quota or configuration and run plan and apply again, which will create only the remaining resources." },
+      { id: 'D', text: "The state file is invalid and must be restored from backup." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Terraform has no transaction rollback: successfully created objects are written to state as it goes, so a re-plan after fixing the cause simply continues from where it stopped. Restoring a backup would orphan the six real resources, and destroying everything discards good work for no reason.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/apply",
@@ -408,12 +408,12 @@ export const HASHICORP_TFP_QUESTIONS_2 = [
     scenario: "A repository must reject any commit whose Terraform files are not canonically formatted, without the pipeline rewriting files itself.",
     question: "Which command belongs in CI?",
     options: [
-      { id: 'A', text: "terraform console" },
-      { id: 'B', text: "terraform validate -json" },
-      { id: 'C', text: "terraform fmt -write" },
-      { id: 'D', text: "terraform fmt -check -recursive" }
+      { id: 'A', text: "terraform validate -json" },
+      { id: 'B', text: "terraform console" },
+      { id: 'C', text: "terraform fmt -check -recursive" },
+      { id: 'D', text: "terraform fmt -write" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "fmt -check exits non-zero when files would change and -recursive covers nested module directories, so the build fails without modifying the tree. Writing files in CI hides the problem, validate checks semantics rather than style, and console is an interactive expression evaluator.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/fmt",
@@ -493,11 +493,11 @@ export const HASHICORP_TFP_QUESTIONS_2 = [
     question: "Which assessment is accurate?",
     options: [
       { id: 'A', text: "CLI workspaces provide full isolation including separate credentials and backends." },
-      { id: 'B', text: "CLI workspaces require the local backend." },
-      { id: 'C', text: "CLI workspaces only switch state within the same backend and configuration; strongly isolated environments usually want separate backends or HCP Terraform workspaces with their own credentials." },
-      { id: 'D', text: "CLI workspaces are deprecated and removed." }
+      { id: 'B', text: "CLI workspaces only switch state within the same backend and configuration; strongly isolated environments usually want separate backends or HCP Terraform workspaces with their own credentials." },
+      { id: 'C', text: "CLI workspaces are deprecated and removed." },
+      { id: 'D', text: "CLI workspaces require the local backend." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "A CLI workspace is just an alternate state within the same backend and configuration - good for short-lived variations, weak for production and non-production separation where different credentials, permissions, and blast radius matter. They are neither removed nor limited to the local backend.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/state/workspaces",
@@ -513,10 +513,10 @@ export const HASHICORP_TFP_QUESTIONS_2 = [
     scenario: "An engineer wants to test a complex for expression against real state values before committing it.",
     question: "Which tool helps?",
     options: [
-      { id: 'A', text: "terraform providers schema -json." },
-      { id: 'B', text: "terraform graph, which renders the dependency graph." },
+      { id: 'A', text: "terraform graph, which renders the dependency graph." },
+      { id: 'B', text: "terraform force-unlock." },
       { id: 'C', text: "terraform console, which evaluates expressions against the current state and configuration." },
-      { id: 'D', text: "terraform force-unlock." }
+      { id: 'D', text: "terraform providers schema -json." }
     ],
     correctAnswers: ['C'],
     type: "single",

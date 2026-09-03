@@ -30,12 +30,12 @@ export const HASHICORP_TFP_QUESTIONS_9 = [
     scenario: "Terraform reports a successful apply, yet the deployed service returns errors because a security group rule is missing that a colleague deleted manually last week.",
     question: "Why did Terraform not restore it?",
     options: [
-      { id: 'A', text: "The rule is managed as an inline block or is not in the configuration at all, or the run did not refresh - Terraform only reconciles what its configuration and state describe." },
-      { id: 'B', text: "The provider cached the previous result." },
-      { id: 'C', text: "Apply always skips security groups." },
+      { id: 'A', text: "The provider cached the previous result." },
+      { id: 'B', text: "Apply always skips security groups." },
+      { id: 'C', text: "The rule is managed as an inline block or is not in the configuration at all, or the run did not refresh - Terraform only reconciles what its configuration and state describe." },
       { id: 'D', text: "Terraform never repairs deleted resources." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Terraform converges only the objects it manages, so a rule created outside the configuration, owned by a different configuration, or missed because refresh was disabled will not be restored. Terraform does normally recreate managed objects that were deleted, and providers do not cache resource existence between runs.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/resources/behavior",
@@ -51,12 +51,12 @@ export const HASHICORP_TFP_QUESTIONS_9 = [
     scenario: "A git repository holds many modules under a modules directory, and only one is needed.",
     question: "Which source syntax selects it?",
     options: [
-      { id: 'A', text: "A path argument in the module block." },
+      { id: 'A', text: "A double slash before the subdirectory, as in git::https://example.com/repo.git//modules/vpc?ref=v1.0.0" },
       { id: 'B', text: "A subdir argument alongside source." },
-      { id: 'C', text: "A double slash before the subdirectory, as in git::https://example.com/repo.git//modules/vpc?ref=v1.0.0" },
-      { id: 'D', text: "A single slash before the subdirectory." }
+      { id: 'C', text: "A single slash before the subdirectory." },
+      { id: 'D', text: "A path argument in the module block." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The double slash separates the repository from the subdirectory within it, and ref selects a tag, branch, or commit. A single slash is read as part of the repository path, and there are no subdir or path arguments on a module block.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/modules/sources",
@@ -72,12 +72,12 @@ export const HASHICORP_TFP_QUESTIONS_9 = [
     scenario: "After restoring a state version following an incident, the team must confirm the restore is right before resuming normal operations.",
     question: "Which check gives that confidence?",
     options: [
-      { id: 'A', text: "A full terraform plan showing no changes, which proves state, configuration, and reality agree." },
-      { id: 'B', text: "Checking that terraform state list returns any output." },
+      { id: 'A', text: "Checking that terraform state list returns any output." },
+      { id: 'B', text: "Confirming the state serial increased." },
       { id: 'C', text: "Comparing state file sizes." },
-      { id: 'D', text: "Confirming the state serial increased." }
+      { id: 'D', text: "A full terraform plan showing no changes, which proves state, configuration, and reality agree." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "An empty plan is the strongest available evidence that the restored state matches both the configuration and the live infrastructure. File size, a non-empty listing, and a higher serial say nothing about whether the contents are correct.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/plan",
@@ -114,12 +114,12 @@ export const HASHICORP_TFP_QUESTIONS_9 = [
     scenario: "Workspaces, variable sets, and team permissions are currently clicked together in the UI and drift from the documented standard.",
     question: "Which approach addresses that?",
     options: [
-      { id: 'A', text: "Write a runbook describing the manual steps precisely." },
-      { id: 'B', text: "Export the settings to a spreadsheet weekly." },
-      { id: 'C', text: "Manage the organisation with the tfe provider from a dedicated administration configuration, so workspaces and permissions are themselves reviewed code." },
-      { id: 'D', text: "Restrict UI access to one administrator." }
+      { id: 'A', text: "Export the settings to a spreadsheet weekly." },
+      { id: 'B', text: "Write a runbook describing the manual steps precisely." },
+      { id: 'C', text: "Restrict UI access to one administrator." },
+      { id: 'D', text: "Manage the organisation with the tfe provider from a dedicated administration configuration, so workspaces and permissions are themselves reviewed code." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The tfe provider lets the platform itself be declared, reviewed, and versioned, which is the standard answer to configuration drift in the control plane. Runbooks and spreadsheets document rather than enforce, and funnelling changes through one person creates a bottleneck without an audit trail of intent.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cloud-docs/api-docs",
@@ -135,10 +135,10 @@ export const HASHICORP_TFP_QUESTIONS_9 = [
     scenario: "A multi-line policy document must be embedded in a configuration with consistent indentation.",
     question: "Which syntax is appropriate?",
     options: [
-      { id: 'A', text: "Backtick-delimited template literals." },
-      { id: 'B', text: "A single-quoted multi-line string." },
+      { id: 'A', text: "A single-quoted multi-line string." },
+      { id: 'B', text: "Concatenating lines with the plus operator." },
       { id: 'C', text: "An indented heredoc introduced with <<-EOT and terminated by EOT, which strips the leading indentation." },
-      { id: 'D', text: "Concatenating lines with the plus operator." }
+      { id: 'D', text: "Backtick-delimited template literals." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -303,12 +303,12 @@ export const HASHICORP_TFP_QUESTIONS_9 = [
     scenario: "An autoscaling group desired capacity is changed constantly by an autoscaler, and Terraform keeps trying to reset it.",
     question: "Which handling is correct?",
     options: [
-      { id: 'A', text: "Add ignore_changes for the capacity attribute so the external system owns it, while Terraform continues to own the rest of the resource." },
-      { id: 'B', text: "Disable the autoscaler." },
+      { id: 'A', text: "Run Terraform more frequently so it wins." },
+      { id: 'B', text: "Add ignore_changes for the capacity attribute so the external system owns it, while Terraform continues to own the rest of the resource." },
       { id: 'C', text: "Remove the resource from Terraform management entirely." },
-      { id: 'D', text: "Run Terraform more frequently so it wins." }
+      { id: 'D', text: "Disable the autoscaler." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Attribute-level ownership is exactly what ignore_changes expresses, letting a runtime system manage one field while Terraform manages the definition. Abandoning management loses everything else, disabling the autoscaler solves the conflict by removing a needed capability, and racing two controllers guarantees churn.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/meta-arguments/lifecycle",
@@ -346,11 +346,11 @@ export const HASHICORP_TFP_QUESTIONS_9 = [
     question: "Which improvements genuinely help? (Choose two.)",
     options: [
       { id: 'A', text: "Run plan with -no-color so the output is shorter." },
-      { id: 'B', text: "Summarise the change counts and highlight destroy and replace actions from the JSON plan, collapsing the full output behind a details block." },
-      { id: 'C', text: "Reduce the size of each configuration so a typical change touches fewer resources." },
-      { id: 'D', text: "Post only the exit code." }
+      { id: 'B', text: "Post only the exit code." },
+      { id: 'C', text: "Summarise the change counts and highlight destroy and replace actions from the JSON plan, collapsing the full output behind a details block." },
+      { id: 'D', text: "Reduce the size of each configuration so a typical change touches fewer resources." }
     ],
-    correctAnswers: ['B', 'C'],
+    correctAnswers: ['C', 'D'],
     type: "multiple",
     explanation: "Reviewability improves by surfacing the dangerous actions from the structured plan and by keeping the blast radius of a single configuration small enough that plans stay human-sized. Colour settings do not reduce length, and an exit code alone removes the review entirely.",
     referenceUrl: "https://developer.hashicorp.com/terraform/internals/json-format",
@@ -366,12 +366,12 @@ export const HASHICORP_TFP_QUESTIONS_9 = [
     scenario: "A provider release has a known data-loss bug and no workspace may use it until a fix ships.",
     question: "Which combination is most effective?",
     options: [
-      { id: 'A', text: "A policy that fails runs using the affected version, plus updating the shared module and root constraints to exclude it, for example with a != or upper-bound constraint." },
-      { id: 'B', text: "An email asking teams not to upgrade." },
-      { id: 'C', text: "Deleting the provider from the plugin cache on the agents." },
-      { id: 'D', text: "Setting the lock file to read-only." }
+      { id: 'A', text: "Setting the lock file to read-only." },
+      { id: 'B', text: "Deleting the provider from the plugin cache on the agents." },
+      { id: 'C', text: "An email asking teams not to upgrade." },
+      { id: 'D', text: "A policy that fails runs using the affected version, plus updating the shared module and root constraints to exclude it, for example with a != or upper-bound constraint." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Enforcement plus a corrected constraint gives both an automatic block and a corrected default path, which is how a bad dependency version is contained. Communication alone is unreliable, clearing a cache only delays re-download, and file permissions on a lock file do not prevent a deliberate upgrade.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/providers/requirements",
@@ -408,10 +408,10 @@ export const HASHICORP_TFP_QUESTIONS_9 = [
     scenario: "A module repository contains a file named versions.tf.",
     question: "What does it conventionally hold?",
     options: [
-      { id: 'A', text: "The module semantic version number." },
+      { id: 'A', text: "A changelog of module releases." },
       { id: 'B', text: "The terraform block with required_version and required_providers." },
-      { id: 'C', text: "Provider credentials." },
-      { id: 'D', text: "A changelog of module releases." }
+      { id: 'C', text: "The module semantic version number." },
+      { id: 'D', text: "Provider credentials." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -429,12 +429,12 @@ export const HASHICORP_TFP_QUESTIONS_9 = [
     scenario: "A brand new configuration is applied against an empty backend.",
     question: "Which sequence describes it?",
     options: [
-      { id: 'A', text: "Terraform creates a new state with a fresh lineage, plans every resource as a create, applies them, and writes each created object into state as it goes." },
-      { id: 'B', text: "Terraform requires an explicit terraform state init command first." },
-      { id: 'C', text: "Terraform scans the cloud account and adopts matching resources automatically." },
+      { id: 'A', text: "Terraform scans the cloud account and adopts matching resources automatically." },
+      { id: 'B', text: "Terraform creates a new state with a fresh lineage, plans every resource as a create, applies them, and writes each created object into state as it goes." },
+      { id: 'C', text: "Terraform requires an explicit terraform state init command first." },
       { id: 'D', text: "Terraform writes state only after every resource succeeds." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "A first apply starts from empty state, so everything is a create, and state is written progressively rather than only at the end - which is why a failure part-way leaves the successful resources recorded. Terraform never adopts existing objects without an explicit import, and there is no separate state init command.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/state",
@@ -451,11 +451,11 @@ export const HASHICORP_TFP_QUESTIONS_9 = [
     question: "Which cause should be checked first?",
     options: [
       { id: 'A', text: "Registry modules ignore variable defaults." },
-      { id: 'B', text: "Local modules use a different provider version." },
-      { id: 'C', text: "The published tag does not contain the same code - the change was never committed, tagged, or the tag points at an older commit - so compare the published contents with the local working tree." },
-      { id: 'D', text: "Registry modules cannot use for_each." }
+      { id: 'B', text: "Registry modules cannot use for_each." },
+      { id: 'C', text: "Local modules use a different provider version." },
+      { id: 'D', text: "The published tag does not contain the same code - the change was never committed, tagged, or the tag points at an older commit - so compare the published contents with the local working tree." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "A local path reads the working tree while a registry source reads a published immutable tag, so the first hypothesis is that the two differ. Registry modules have identical language semantics, and provider resolution is driven by the whole configuration rather than the module source type.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/modules/sources",
@@ -471,12 +471,12 @@ export const HASHICORP_TFP_QUESTIONS_9 = [
     scenario: "A pipeline stores plan files as build artifacts so they can be applied after approval.",
     question: "Which precaution matters?",
     options: [
-      { id: 'A', text: "Treat the plan file as sensitive, because it can contain resource attribute values including secrets, and restrict who can download build artifacts." },
-      { id: 'B', text: "Nothing, because plan files are encrypted by Terraform." },
-      { id: 'C', text: "Nothing, because plan files contain only action verbs." },
-      { id: 'D', text: "Convert the plan to JSON, which redacts secrets." }
+      { id: 'A', text: "Convert the plan to JSON, which redacts secrets." },
+      { id: 'B', text: "Nothing, because plan files contain only action verbs." },
+      { id: 'C', text: "Nothing, because plan files are encrypted by Terraform." },
+      { id: 'D', text: "Treat the plan file as sensitive, because it can contain resource attribute values including secrets, and restrict who can download build artifacts." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "A saved plan embeds the values Terraform intends to write, so it must be protected like state; Terraform does not encrypt it and the JSON rendering marks sensitivity without removing every value. Restricting artifact access and lifetime is the practical control.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/plan",
@@ -492,12 +492,12 @@ export const HASHICORP_TFP_QUESTIONS_9 = [
     scenario: "A resource has an optional logging block that should only appear when a variable supplies logging settings.",
     question: "Which construct emits the block conditionally?",
     options: [
-      { id: 'A', text: "An if statement before the block." },
-      { id: 'B', text: "A conditional expression returning null for the whole block." },
-      { id: 'C', text: "count on the resource." },
-      { id: 'D', text: "A dynamic \"logging\" block whose for_each iterates over a list that is empty when logging is disabled." }
+      { id: 'A', text: "A dynamic \"logging\" block whose for_each iterates over a list that is empty when logging is disabled." },
+      { id: 'B', text: "count on the resource." },
+      { id: 'C', text: "A conditional expression returning null for the whole block." },
+      { id: 'D', text: "An if statement before the block." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "A dynamic block over a collection that is empty or single-element is the standard way to include a nested block conditionally, since blocks are structural rather than values. HCL has no if statement, count would remove the whole resource, and a block cannot be replaced by a null expression.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/expressions/dynamic-blocks",
