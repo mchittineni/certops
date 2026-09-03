@@ -87,17 +87,17 @@ export const CONTENT_MANIFEST = {
     "questions": {
       "total": 250,
       "byDifficulty": {
-        "easy": 67,
-        "medium": 133,
-        "hard": 50
+        "easy": 29,
+        "medium": 150,
+        "hard": 71
       },
       "byDomain": {
-        "d1": 42,
-        "d2": 42,
-        "d3": 42,
-        "d4": 42,
-        "d5": 41,
-        "d6": 41
+        "d1": 55,
+        "d2": 43,
+        "d3": 38,
+        "d4": 37,
+        "d5": 35,
+        "d6": 42
       },
       "packs": 10,
       "loadedPacks": 10
@@ -105,17 +105,17 @@ export const CONTENT_MANIFEST = {
     "flashcards": {
       "total": 250,
       "byDifficulty": {
-        "easy": 67,
-        "medium": 133,
-        "hard": 50
+        "easy": 11,
+        "medium": 137,
+        "hard": 102
       },
       "byDomain": {
-        "d1": 42,
-        "d2": 42,
-        "d3": 42,
-        "d4": 42,
-        "d5": 41,
-        "d6": 41
+        "d1": 55,
+        "d2": 43,
+        "d3": 38,
+        "d4": 37,
+        "d5": 35,
+        "d6": 42
       },
       "packs": 10,
       "loadedPacks": 10
@@ -255,17 +255,17 @@ export const CONTENT_MANIFEST = {
     "questions": {
       "total": 250,
       "byDifficulty": {
-        "easy": 67,
-        "medium": 133,
-        "hard": 50
+        "easy": 60,
+        "medium": 128,
+        "hard": 62
       },
       "byDomain": {
-        "d1": 42,
-        "d2": 42,
-        "d3": 42,
-        "d4": 42,
-        "d5": 41,
-        "d6": 41
+        "d1": 35,
+        "d2": 45,
+        "d3": 50,
+        "d4": 40,
+        "d5": 45,
+        "d6": 35
       },
       "packs": 10,
       "loadedPacks": 10
@@ -273,17 +273,17 @@ export const CONTENT_MANIFEST = {
     "flashcards": {
       "total": 250,
       "byDifficulty": {
-        "easy": 67,
-        "medium": 133,
-        "hard": 50
+        "easy": 8,
+        "medium": 130,
+        "hard": 112
       },
       "byDomain": {
-        "d1": 42,
-        "d2": 42,
-        "d3": 42,
-        "d4": 42,
-        "d5": 41,
-        "d6": 41
+        "d1": 35,
+        "d2": 45,
+        "d3": 50,
+        "d4": 40,
+        "d5": 45,
+        "d6": 35
       },
       "packs": 10,
       "loadedPacks": 10
@@ -449,16 +449,16 @@ export const CONTENT_MANIFEST = {
     "questions": {
       "total": 250,
       "byDifficulty": {
-        "easy": 67,
-        "medium": 133,
-        "hard": 50
+        "easy": 3,
+        "medium": 126,
+        "hard": 121
       },
       "byDomain": {
-        "d1": 50,
-        "d2": 50,
-        "d3": 50,
-        "d4": 50,
-        "d5": 50
+        "d1": 38,
+        "d2": 37,
+        "d3": 100,
+        "d4": 38,
+        "d5": 37
       },
       "packs": 10,
       "loadedPacks": 10
@@ -466,16 +466,16 @@ export const CONTENT_MANIFEST = {
     "flashcards": {
       "total": 250,
       "byDifficulty": {
-        "easy": 67,
-        "medium": 133,
-        "hard": 50
+        "easy": 3,
+        "medium": 127,
+        "hard": 120
       },
       "byDomain": {
-        "d1": 50,
-        "d2": 50,
-        "d3": 50,
-        "d4": 50,
-        "d5": 50
+        "d1": 38,
+        "d2": 37,
+        "d3": 100,
+        "d4": 38,
+        "d5": 37
       },
       "packs": 10,
       "loadedPacks": 10
@@ -485,9 +485,9 @@ export const CONTENT_MANIFEST = {
     "questions": {
       "total": 250,
       "byDifficulty": {
-        "easy": 83,
-        "medium": 84,
-        "hard": 83
+        "easy": 73,
+        "medium": 111,
+        "hard": 66
       },
       "byDomain": {
         "d1": 75,
@@ -500,9 +500,9 @@ export const CONTENT_MANIFEST = {
     "flashcards": {
       "total": 250,
       "byDifficulty": {
-        "easy": 83,
-        "medium": 84,
-        "hard": 83
+        "easy": 59,
+        "medium": 120,
+        "hard": 71
       },
       "byDomain": {
         "d1": 75,
@@ -1215,14 +1215,14 @@ export const CONTENT_MANIFEST = {
     "questions": {
       "total": 250,
       "byDifficulty": {
-        "easy": 83,
-        "medium": 84,
-        "hard": 83
+        "easy": 35,
+        "medium": 129,
+        "hard": 86
       },
       "byDomain": {
         "d1": 50,
-        "d2": 63,
-        "d3": 62,
+        "d2": 62,
+        "d3": 63,
         "d4": 75
       },
       "packs": 10,
@@ -1231,14 +1231,14 @@ export const CONTENT_MANIFEST = {
     "flashcards": {
       "total": 250,
       "byDifficulty": {
-        "easy": 83,
-        "medium": 84,
-        "hard": 83
+        "easy": 36,
+        "medium": 128,
+        "hard": 86
       },
       "byDomain": {
         "d1": 50,
-        "d2": 63,
-        "d3": 62,
+        "d2": 62,
+        "d3": 63,
         "d4": 75
       },
       "packs": 10,
@@ -1321,16 +1321,16 @@ export const CONTENT_MANIFEST = {
     "questions": {
       "total": 250,
       "byDifficulty": {
-        "easy": 67,
-        "medium": 133,
-        "hard": 50
+        "easy": 44,
+        "medium": 163,
+        "hard": 43
       },
       "byDomain": {
         "d1": 50,
-        "d2": 50,
-        "d3": 50,
+        "d2": 45,
+        "d3": 63,
         "d4": 50,
-        "d5": 50
+        "d5": 42
       },
       "packs": 10,
       "loadedPacks": 10
@@ -1338,16 +1338,16 @@ export const CONTENT_MANIFEST = {
     "flashcards": {
       "total": 250,
       "byDifficulty": {
-        "easy": 67,
-        "medium": 133,
-        "hard": 50
+        "easy": 44,
+        "medium": 163,
+        "hard": 43
       },
       "byDomain": {
         "d1": 50,
-        "d2": 50,
-        "d3": 50,
+        "d2": 45,
+        "d3": 63,
         "d4": 50,
-        "d5": 50
+        "d5": 42
       },
       "packs": 10,
       "loadedPacks": 10
@@ -1823,17 +1823,17 @@ export const CONTENT_MANIFEST = {
     "questions": {
       "total": 250,
       "byDifficulty": {
-        "easy": 67,
-        "medium": 133,
-        "hard": 50
+        "easy": 41,
+        "medium": 167,
+        "hard": 42
       },
       "byDomain": {
-        "d1": 42,
-        "d2": 42,
-        "d3": 42,
-        "d4": 42,
-        "d5": 41,
-        "d6": 41
+        "d1": 38,
+        "d2": 37,
+        "d3": 50,
+        "d4": 50,
+        "d5": 50,
+        "d6": 25
       },
       "packs": 10,
       "loadedPacks": 10
@@ -1841,17 +1841,17 @@ export const CONTENT_MANIFEST = {
     "flashcards": {
       "total": 250,
       "byDifficulty": {
-        "easy": 67,
-        "medium": 133,
-        "hard": 50
+        "easy": 41,
+        "medium": 167,
+        "hard": 42
       },
       "byDomain": {
-        "d1": 42,
-        "d2": 42,
-        "d3": 42,
-        "d4": 42,
-        "d5": 41,
-        "d6": 41
+        "d1": 38,
+        "d2": 37,
+        "d3": 50,
+        "d4": 50,
+        "d5": 50,
+        "d6": 25
       },
       "packs": 10,
       "loadedPacks": 10
