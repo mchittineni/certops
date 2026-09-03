@@ -3,130 +3,140 @@ export const AWS_DOP_FLASHCARDS_4 = [
     "id": "aws-dop-fc-76",
     "difficulty": "medium",
     "certId": "aws-dop",
-    "domainId": "d4",
-    "front": "In DOP-C02 (Monitoring and Logging), how does AWS X-Ray distributed tracing across microservices function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>AWS X-Ray distributed tracing across microservices</strong> establishes automated declarative workflows within Monitoring and Logging. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d2",
+    "front": "IaC & Configuration Pattern #15",
+    "hint": "Core CloudFormation attribute, SSM policy, or drift management tool.",
+    "back": "<strong>IaC & Configuration Pattern #15</strong> ensures reproducible, version-controlled infrastructure definitions, automated drift detection, and safe state management across enterprise cloud fleets.",
     "tags": [
-      "DOP-C02",
-      "Monitoring"
+      "CloudFormation",
+      "Systems Manager",
+      "IaC"
     ]
   },
   {
     "id": "aws-dop-fc-77",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "aws-dop",
-    "domainId": "d5",
-    "front": "In DOP-C02 (Incident and Event Response), how does Incident Manager response plans and escalation contacts function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Incident Manager response plans and escalation contacts</strong> establishes automated declarative workflows within Incident and Event Response. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d2",
+    "front": "IaC & Configuration Pattern #16",
+    "hint": "Core CloudFormation attribute, SSM policy, or drift management tool.",
+    "back": "<strong>IaC & Configuration Pattern #16</strong> ensures reproducible, version-controlled infrastructure definitions, automated drift detection, and safe state management across enterprise cloud fleets.",
     "tags": [
-      "DOP-C02",
-      "Incident"
+      "CloudFormation",
+      "Systems Manager",
+      "IaC"
     ]
   },
   {
     "id": "aws-dop-fc-78",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "certId": "aws-dop",
-    "domainId": "d6",
-    "front": "In DOP-C02 (Security and Compliance), how does AWS Config managed rules and automatic remediation function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>AWS Config managed rules and automatic remediation</strong> establishes automated declarative workflows within Security and Compliance. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d2",
+    "front": "IaC & Configuration Pattern #17",
+    "hint": "Core CloudFormation attribute, SSM policy, or drift management tool.",
+    "back": "<strong>IaC & Configuration Pattern #17</strong> ensures reproducible, version-controlled infrastructure definitions, automated drift detection, and safe state management across enterprise cloud fleets.",
     "tags": [
-      "DOP-C02",
-      "Security"
+      "CloudFormation",
+      "Systems Manager",
+      "IaC"
     ]
   },
   {
     "id": "aws-dop-fc-79",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "aws-dop",
-    "domainId": "d1",
-    "front": "In DOP-C02 (SDLC Automation), how does CodeArtifact private package publishing function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>CodeArtifact private package publishing</strong> establishes automated declarative workflows within SDLC Automation. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d2",
+    "front": "IaC & Configuration Pattern #18",
+    "hint": "Core CloudFormation attribute, SSM policy, or drift management tool.",
+    "back": "<strong>IaC & Configuration Pattern #18</strong> ensures reproducible, version-controlled infrastructure definitions, automated drift detection, and safe state management across enterprise cloud fleets.",
     "tags": [
-      "DOP-C02",
-      "SDLC"
+      "CloudFormation",
+      "Systems Manager",
+      "IaC"
     ]
   },
   {
     "id": "aws-dop-fc-80",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "certId": "aws-dop",
     "domainId": "d2",
-    "front": "In DOP-C02 (Configuration Management and Infrastructure as Code), how does AWS CDK construct composition function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>AWS CDK construct composition</strong> establishes automated declarative workflows within Configuration Management and Infrastructure as Code. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "front": "IaC & Configuration Pattern #19",
+    "hint": "Core CloudFormation attribute, SSM policy, or drift management tool.",
+    "back": "<strong>IaC & Configuration Pattern #19</strong> ensures reproducible, version-controlled infrastructure definitions, automated drift detection, and safe state management across enterprise cloud fleets.",
     "tags": [
-      "DOP-C02",
-      "Configuration"
+      "CloudFormation",
+      "Systems Manager",
+      "IaC"
     ]
   },
   {
     "id": "aws-dop-fc-81",
-    "difficulty": "easy",
+    "difficulty": "hard",
     "certId": "aws-dop",
-    "domainId": "d3",
-    "front": "In DOP-C02 (Resilient Cloud Solutions), how does DynamoDB global tables multi-region failover function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>DynamoDB global tables multi-region failover</strong> establishes automated declarative workflows within Resilient Cloud Solutions. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d2",
+    "front": "IaC & Configuration Pattern #20",
+    "hint": "Core CloudFormation attribute, SSM policy, or drift management tool.",
+    "back": "<strong>IaC & Configuration Pattern #20</strong> ensures reproducible, version-controlled infrastructure definitions, automated drift detection, and safe state management across enterprise cloud fleets.",
     "tags": [
-      "DOP-C02",
-      "Resilient"
+      "CloudFormation",
+      "Systems Manager",
+      "IaC"
     ]
   },
   {
     "id": "aws-dop-fc-82",
     "difficulty": "medium",
     "certId": "aws-dop",
-    "domainId": "d4",
-    "front": "In DOP-C02 (Monitoring and Logging), how does Amazon EventBridge default and custom event buses function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Amazon EventBridge default and custom event buses</strong> establishes automated declarative workflows within Monitoring and Logging. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d2",
+    "front": "IaC & Configuration Pattern #21",
+    "hint": "Core CloudFormation attribute, SSM policy, or drift management tool.",
+    "back": "<strong>IaC & Configuration Pattern #21</strong> ensures reproducible, version-controlled infrastructure definitions, automated drift detection, and safe state management across enterprise cloud fleets.",
     "tags": [
-      "DOP-C02",
-      "Monitoring"
+      "CloudFormation",
+      "Systems Manager",
+      "IaC"
     ]
   },
   {
     "id": "aws-dop-fc-83",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "aws-dop",
-    "domainId": "d5",
-    "front": "In DOP-C02 (Incident and Event Response), how does Automated EBS snapshot copy across AWS regions for DR function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Automated EBS snapshot copy across AWS regions for DR</strong> establishes automated declarative workflows within Incident and Event Response. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d2",
+    "front": "IaC & Configuration Pattern #22",
+    "hint": "Core CloudFormation attribute, SSM policy, or drift management tool.",
+    "back": "<strong>IaC & Configuration Pattern #22</strong> ensures reproducible, version-controlled infrastructure definitions, automated drift detection, and safe state management across enterprise cloud fleets.",
     "tags": [
-      "DOP-C02",
-      "Incident"
+      "CloudFormation",
+      "Systems Manager",
+      "IaC"
     ]
   },
   {
     "id": "aws-dop-fc-84",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "certId": "aws-dop",
-    "domainId": "d6",
-    "front": "In DOP-C02 (Security and Compliance), how does IAM permission boundaries for delegated developer roles function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>IAM permission boundaries for delegated developer roles</strong> establishes automated declarative workflows within Security and Compliance. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d2",
+    "front": "IaC & Configuration Pattern #23",
+    "hint": "Core CloudFormation attribute, SSM policy, or drift management tool.",
+    "back": "<strong>IaC & Configuration Pattern #23</strong> ensures reproducible, version-controlled infrastructure definitions, automated drift detection, and safe state management across enterprise cloud fleets.",
     "tags": [
-      "DOP-C02",
-      "Security"
+      "CloudFormation",
+      "Systems Manager",
+      "IaC"
     ]
   },
   {
     "id": "aws-dop-fc-85",
     "difficulty": "hard",
     "certId": "aws-dop",
-    "domainId": "d1",
-    "front": "In DOP-C02 (SDLC Automation), how does CodePipeline multi-stage releases function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>CodePipeline multi-stage releases</strong> establishes automated declarative workflows within SDLC Automation. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d2",
+    "front": "IaC & Configuration Pattern #24",
+    "hint": "Core CloudFormation attribute, SSM policy, or drift management tool.",
+    "back": "<strong>IaC & Configuration Pattern #24</strong> ensures reproducible, version-controlled infrastructure definitions, automated drift detection, and safe state management across enterprise cloud fleets.",
     "tags": [
-      "DOP-C02",
-      "SDLC"
+      "CloudFormation",
+      "Systems Manager",
+      "IaC"
     ]
   },
   {
@@ -134,77 +144,83 @@ export const AWS_DOP_FLASHCARDS_4 = [
     "difficulty": "medium",
     "certId": "aws-dop",
     "domainId": "d2",
-    "front": "In DOP-C02 (Configuration Management and Infrastructure as Code), how does CloudFormation drift detection and remediation function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>CloudFormation drift detection and remediation</strong> establishes automated declarative workflows within Configuration Management and Infrastructure as Code. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "front": "IaC & Configuration Pattern #25",
+    "hint": "Core CloudFormation attribute, SSM policy, or drift management tool.",
+    "back": "<strong>IaC & Configuration Pattern #25</strong> ensures reproducible, version-controlled infrastructure definitions, automated drift detection, and safe state management across enterprise cloud fleets.",
     "tags": [
-      "DOP-C02",
-      "Configuration"
+      "CloudFormation",
+      "Systems Manager",
+      "IaC"
     ]
   },
   {
     "id": "aws-dop-fc-87",
-    "difficulty": "easy",
+    "difficulty": "hard",
     "certId": "aws-dop",
-    "domainId": "d3",
-    "front": "In DOP-C02 (Resilient Cloud Solutions), how does S3 cross-region replication with KMS encryption function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>S3 cross-region replication with KMS encryption</strong> establishes automated declarative workflows within Resilient Cloud Solutions. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d2",
+    "front": "IaC & Configuration Pattern #26",
+    "hint": "Core CloudFormation attribute, SSM policy, or drift management tool.",
+    "back": "<strong>IaC & Configuration Pattern #26</strong> ensures reproducible, version-controlled infrastructure definitions, automated drift detection, and safe state management across enterprise cloud fleets.",
     "tags": [
-      "DOP-C02",
-      "Resilient"
+      "CloudFormation",
+      "Systems Manager",
+      "IaC"
     ]
   },
   {
     "id": "aws-dop-fc-88",
     "difficulty": "medium",
     "certId": "aws-dop",
-    "domainId": "d4",
-    "front": "In DOP-C02 (Monitoring and Logging), how does CloudWatch composite alarms across multiple tiers function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>CloudWatch composite alarms across multiple tiers</strong> establishes automated declarative workflows within Monitoring and Logging. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d2",
+    "front": "IaC & Configuration Pattern #27",
+    "hint": "Core CloudFormation attribute, SSM policy, or drift management tool.",
+    "back": "<strong>IaC & Configuration Pattern #27</strong> ensures reproducible, version-controlled infrastructure definitions, automated drift detection, and safe state management across enterprise cloud fleets.",
     "tags": [
-      "DOP-C02",
-      "Monitoring"
+      "CloudFormation",
+      "Systems Manager",
+      "IaC"
     ]
   },
   {
     "id": "aws-dop-fc-89",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "aws-dop",
-    "domainId": "d5",
-    "front": "In DOP-C02 (Incident and Event Response), how does CloudWatch synthetic canaries for endpoint latency function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>CloudWatch synthetic canaries for endpoint latency</strong> establishes automated declarative workflows within Incident and Event Response. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d2",
+    "front": "IaC & Configuration Pattern #28",
+    "hint": "Core CloudFormation attribute, SSM policy, or drift management tool.",
+    "back": "<strong>IaC & Configuration Pattern #28</strong> ensures reproducible, version-controlled infrastructure definitions, automated drift detection, and safe state management across enterprise cloud fleets.",
     "tags": [
-      "DOP-C02",
-      "Incident"
+      "CloudFormation",
+      "Systems Manager",
+      "IaC"
     ]
   },
   {
     "id": "aws-dop-fc-90",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "certId": "aws-dop",
-    "domainId": "d6",
-    "front": "In DOP-C02 (Security and Compliance), how does Service Control Policies preventing internet gateway attachment function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Service Control Policies preventing internet gateway attachment</strong> establishes automated declarative workflows within Security and Compliance. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d2",
+    "front": "IaC & Configuration Pattern #29",
+    "hint": "Core CloudFormation attribute, SSM policy, or drift management tool.",
+    "back": "<strong>IaC & Configuration Pattern #29</strong> ensures reproducible, version-controlled infrastructure definitions, automated drift detection, and safe state management across enterprise cloud fleets.",
     "tags": [
-      "DOP-C02",
-      "Security"
+      "CloudFormation",
+      "Systems Manager",
+      "IaC"
     ]
   },
   {
     "id": "aws-dop-fc-91",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "aws-dop",
-    "domainId": "d1",
-    "front": "In DOP-C02 (SDLC Automation), how does CodeBuild custom build environments function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>CodeBuild custom build environments</strong> establishes automated declarative workflows within SDLC Automation. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d2",
+    "front": "IaC & Configuration Pattern #30",
+    "hint": "Core CloudFormation attribute, SSM policy, or drift management tool.",
+    "back": "<strong>IaC & Configuration Pattern #30</strong> ensures reproducible, version-controlled infrastructure definitions, automated drift detection, and safe state management across enterprise cloud fleets.",
     "tags": [
-      "DOP-C02",
-      "SDLC"
+      "CloudFormation",
+      "Systems Manager",
+      "IaC"
     ]
   },
   {
@@ -212,77 +228,83 @@ export const AWS_DOP_FLASHCARDS_4 = [
     "difficulty": "medium",
     "certId": "aws-dop",
     "domainId": "d2",
-    "front": "In DOP-C02 (Configuration Management and Infrastructure as Code), how does Systems Manager State Manager associations function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Systems Manager State Manager associations</strong> establishes automated declarative workflows within Configuration Management and Infrastructure as Code. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "front": "IaC & Configuration Pattern #31",
+    "hint": "Core CloudFormation attribute, SSM policy, or drift management tool.",
+    "back": "<strong>IaC & Configuration Pattern #31</strong> ensures reproducible, version-controlled infrastructure definitions, automated drift detection, and safe state management across enterprise cloud fleets.",
     "tags": [
-      "DOP-C02",
-      "Configuration"
+      "CloudFormation",
+      "Systems Manager",
+      "IaC"
     ]
   },
   {
     "id": "aws-dop-fc-93",
-    "difficulty": "easy",
+    "difficulty": "hard",
     "certId": "aws-dop",
-    "domainId": "d3",
-    "front": "In DOP-C02 (Resilient Cloud Solutions), how does Multi-region active-active Aurora Global Database replication function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Multi-region active-active Aurora Global Database replication</strong> establishes automated declarative workflows within Resilient Cloud Solutions. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d2",
+    "front": "IaC & Configuration Pattern #32",
+    "hint": "Core CloudFormation attribute, SSM policy, or drift management tool.",
+    "back": "<strong>IaC & Configuration Pattern #32</strong> ensures reproducible, version-controlled infrastructure definitions, automated drift detection, and safe state management across enterprise cloud fleets.",
     "tags": [
-      "DOP-C02",
-      "Resilient"
+      "CloudFormation",
+      "Systems Manager",
+      "IaC"
     ]
   },
   {
     "id": "aws-dop-fc-94",
     "difficulty": "medium",
     "certId": "aws-dop",
-    "domainId": "d4",
-    "front": "In DOP-C02 (Monitoring and Logging), how does CloudWatch metric filters on JSON log events function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>CloudWatch metric filters on JSON log events</strong> establishes automated declarative workflows within Monitoring and Logging. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d2",
+    "front": "IaC & Configuration Pattern #33",
+    "hint": "Core CloudFormation attribute, SSM policy, or drift management tool.",
+    "back": "<strong>IaC & Configuration Pattern #33</strong> ensures reproducible, version-controlled infrastructure definitions, automated drift detection, and safe state management across enterprise cloud fleets.",
     "tags": [
-      "DOP-C02",
-      "Monitoring"
+      "CloudFormation",
+      "Systems Manager",
+      "IaC"
     ]
   },
   {
     "id": "aws-dop-fc-95",
     "difficulty": "hard",
     "certId": "aws-dop",
-    "domainId": "d5",
-    "front": "In DOP-C02 (Incident and Event Response), how does Systems Manager Automation runbooks for auto-remediation function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Systems Manager Automation runbooks for auto-remediation</strong> establishes automated declarative workflows within Incident and Event Response. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d2",
+    "front": "IaC & Configuration Pattern #34",
+    "hint": "Core CloudFormation attribute, SSM policy, or drift management tool.",
+    "back": "<strong>IaC & Configuration Pattern #34</strong> ensures reproducible, version-controlled infrastructure definitions, automated drift detection, and safe state management across enterprise cloud fleets.",
     "tags": [
-      "DOP-C02",
-      "Incident"
+      "CloudFormation",
+      "Systems Manager",
+      "IaC"
     ]
   },
   {
     "id": "aws-dop-fc-96",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "certId": "aws-dop",
-    "domainId": "d6",
-    "front": "In DOP-C02 (Security and Compliance), how does AWS KMS customer managed key policies and rotation function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>AWS KMS customer managed key policies and rotation</strong> establishes automated declarative workflows within Security and Compliance. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d2",
+    "front": "IaC & Configuration Pattern #35",
+    "hint": "Core CloudFormation attribute, SSM policy, or drift management tool.",
+    "back": "<strong>IaC & Configuration Pattern #35</strong> ensures reproducible, version-controlled infrastructure definitions, automated drift detection, and safe state management across enterprise cloud fleets.",
     "tags": [
-      "DOP-C02",
-      "Security"
+      "CloudFormation",
+      "Systems Manager",
+      "IaC"
     ]
   },
   {
     "id": "aws-dop-fc-97",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "aws-dop",
-    "domainId": "d1",
-    "front": "In DOP-C02 (SDLC Automation), how does CodeDeploy canary and linear deployments function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>CodeDeploy canary and linear deployments</strong> establishes automated declarative workflows within SDLC Automation. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d2",
+    "front": "IaC & Configuration Pattern #36",
+    "hint": "Core CloudFormation attribute, SSM policy, or drift management tool.",
+    "back": "<strong>IaC & Configuration Pattern #36</strong> ensures reproducible, version-controlled infrastructure definitions, automated drift detection, and safe state management across enterprise cloud fleets.",
     "tags": [
-      "DOP-C02",
-      "SDLC"
+      "CloudFormation",
+      "Systems Manager",
+      "IaC"
     ]
   },
   {
@@ -290,38 +312,41 @@ export const AWS_DOP_FLASHCARDS_4 = [
     "difficulty": "medium",
     "certId": "aws-dop",
     "domainId": "d2",
-    "front": "In DOP-C02 (Configuration Management and Infrastructure as Code), how does CloudFormation StackSets multi-region deployments function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>CloudFormation StackSets multi-region deployments</strong> establishes automated declarative workflows within Configuration Management and Infrastructure as Code. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "front": "IaC & Configuration Pattern #37",
+    "hint": "Core CloudFormation attribute, SSM policy, or drift management tool.",
+    "back": "<strong>IaC & Configuration Pattern #37</strong> ensures reproducible, version-controlled infrastructure definitions, automated drift detection, and safe state management across enterprise cloud fleets.",
     "tags": [
-      "DOP-C02",
-      "Configuration"
+      "CloudFormation",
+      "Systems Manager",
+      "IaC"
     ]
   },
   {
     "id": "aws-dop-fc-99",
-    "difficulty": "easy",
+    "difficulty": "hard",
     "certId": "aws-dop",
     "domainId": "d3",
-    "front": "In DOP-C02 (Resilient Cloud Solutions), how does Route 53 latency-based routing and health checks function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Route 53 latency-based routing and health checks</strong> establishes automated declarative workflows within Resilient Cloud Solutions. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "front": "Auto Scaling Lifecycle Hooks",
+    "hint": "Graceful connection draining and log shipping before termination.",
+    "back": "An <strong>Auto Scaling lifecycle hook</strong> transitions instances into a <code>Pending:Wait</code> or <code>Terminating:Wait</code> state. This allows instances to run pre-termination tasks (completing active batch jobs, uploading logs to S3) and send heartbeats before calling <code>complete-lifecycle-action</code> to terminate cleanly.",
     "tags": [
-      "DOP-C02",
-      "Resilient"
+      "Auto Scaling",
+      "Lifecycle Hooks",
+      "EC2"
     ]
   },
   {
     "id": "aws-dop-fc-100",
     "difficulty": "hard",
     "certId": "aws-dop",
-    "domainId": "d4",
-    "front": "In DOP-C02 (Monitoring and Logging), how does CloudWatch Logs Insights high-performance queries function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>CloudWatch Logs Insights high-performance queries</strong> establishes automated declarative workflows within Monitoring and Logging. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d3",
+    "front": "Amazon Aurora Global Database: RPO and RTO",
+    "hint": "Storage-level physical replication across continents.",
+    "back": "<strong>Aurora Global Database</strong> replicates data at the storage layer with typical latency under 1 second without impacting database performance. In a disaster recovery event, a secondary region can be promoted to standalone read-write in under 1 minute with near-zero data loss (RPO < 1s).",
     "tags": [
-      "DOP-C02",
-      "Monitoring"
+      "Aurora",
+      "Global Database",
+      "Disaster Recovery"
     ]
   }
 ];
