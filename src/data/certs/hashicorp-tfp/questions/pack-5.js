@@ -9,12 +9,12 @@ export const HASHICORP_TFP_QUESTIONS_5 = [
     scenario: "A local must contain only the subnets from a map whose public attribute is true, keyed by the same names.",
     question: "Which expression does that?",
     options: [
-      { id: 'A', text: "{ for k, v in var.subnets : k => v if v.public }" },
+      { id: 'A', text: "lookup(var.subnets, \"public\", {})" },
       { id: 'B', text: "matchkeys(var.subnets, keys(var.subnets), [\"public\"])" },
-      { id: 'C', text: "lookup(var.subnets, \"public\", {})" },
+      { id: 'C', text: "{ for k, v in var.subnets : k => v if v.public }" },
       { id: 'D', text: "[ for k, v in var.subnets : k if v.public ]" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "A for expression in object form with an if clause filters while preserving the key and value, producing the filtered map required. The bracket form returns a list of names rather than a map, lookup fetches one key by name, and matchkeys pairs two lists rather than filtering a map by an attribute.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/expressions/for",
@@ -31,11 +31,11 @@ export const HASHICORP_TFP_QUESTIONS_5 = [
     question: "What must change?",
     options: [
       { id: 'A', text: "Add a provider alias inside the module for each iteration." },
-      { id: 'B', text: "Replace for_each with a dynamic block." },
-      { id: 'C', text: "Remove the provider blocks from the module and have it declare configuration_aliases instead, with the caller passing providers explicitly." },
-      { id: 'D', text: "Upgrade the provider to a version that supports module iteration." }
+      { id: 'B', text: "Remove the provider blocks from the module and have it declare configuration_aliases instead, with the caller passing providers explicitly." },
+      { id: 'C', text: "Upgrade the provider to a version that supports module iteration." },
+      { id: 'D', text: "Replace for_each with a dynamic block." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "A module that configures its own providers is a legacy pattern that Terraform cannot instantiate repeatedly, because each instance would need its own provider configuration; moving provider configuration to the caller resolves it. Adding more aliases inside the module makes the problem worse, dynamic blocks do not create module instances, and no provider version changes this language rule.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/modules/develop/providers",
@@ -51,10 +51,10 @@ export const HASHICORP_TFP_QUESTIONS_5 = [
     scenario: "A local state directory contains terraform.tfstate and terraform.tfstate.backup.",
     question: "What is the backup file?",
     options: [
-      { id: 'A', text: "The state of the previous workspace." },
-      { id: 'B', text: "An encrypted copy of the current state." },
+      { id: 'A', text: "An encrypted copy of the current state." },
+      { id: 'B', text: "A full history of every state version ever written." },
       { id: 'C', text: "The previous state written before the most recent operation, kept as a one-step safety net for the local backend." },
-      { id: 'D', text: "A full history of every state version ever written." }
+      { id: 'D', text: "The state of the previous workspace." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -72,10 +72,10 @@ export const HASHICORP_TFP_QUESTIONS_5 = [
     scenario: "A team wants pull request feedback that is safe to run on untrusted forks, with no access to production credentials.",
     question: "Which stage design is appropriate?",
     options: [
-      { id: 'A', text: "Skip all checks on forks and rely on review." },
+      { id: 'A', text: "Run apply in a sandbox account for every pull request." },
       { id: 'B', text: "Run a full plan with production credentials on every fork pull request." },
       { id: 'C', text: "Run fmt -check, validate with -backend=false, and static analysis on the fork; run plan against real credentials only for branches in the trusted repository." },
-      { id: 'D', text: "Run apply in a sandbox account for every pull request." }
+      { id: 'D', text: "Skip all checks on forks and rely on review." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -93,9 +93,9 @@ export const HASHICORP_TFP_QUESTIONS_5 = [
     scenario: "After upgrading a provider, plan fails with \"An argument named X is not expected here\" on a resource that previously worked.",
     question: "What is the most likely explanation?",
     options: [
-      { id: 'A', text: "The state file is incompatible and must be recreated." },
+      { id: 'A', text: "Terraform core needs upgrading." },
       { id: 'B', text: "The argument was removed or renamed in a new major provider version; consult the upgrade guide and change the configuration or pin the previous version." },
-      { id: 'C', text: "Terraform core needs upgrading." },
+      { id: 'C', text: "The state file is incompatible and must be recreated." },
       { id: 'D', text: "The argument must be moved into a lifecycle block." }
     ],
     correctAnswers: ['B'],
@@ -114,10 +114,10 @@ export const HASHICORP_TFP_QUESTIONS_5 = [
     scenario: "An organisation runs the same application stack in four environments across three regions and wants consistent naming, access control, and variable inheritance.",
     question: "Which structure fits HCP Terraform best?",
     options: [
-      { id: 'A', text: "One workspace holding all environments, switched by a variable." },
-      { id: 'B', text: "One workspace per developer." },
+      { id: 'A', text: "One workspace per developer." },
+      { id: 'B', text: "One workspace per resource type." },
       { id: 'C', text: "One workspace per environment-region combination, grouped into projects with variable sets scoped to the project and team permissions on the project." },
-      { id: 'D', text: "One workspace per resource type." }
+      { id: 'D', text: "One workspace holding all environments, switched by a variable." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -135,12 +135,12 @@ export const HASHICORP_TFP_QUESTIONS_5 = [
     scenario: "A cloud-init file must be rendered from a template with values interpolated, and the result passed as user data.",
     question: "Which mechanism is current?",
     options: [
-      { id: 'A', text: "The deprecated template_file data source from the template provider." },
-      { id: 'B', text: "The file function with string concatenation." },
-      { id: 'C', text: "The templatefile function, reading a file from disk and substituting the supplied variables." },
-      { id: 'D', text: "A local-exec provisioner running envsubst." }
+      { id: 'A', text: "A local-exec provisioner running envsubst." },
+      { id: 'B', text: "The deprecated template_file data source from the template provider." },
+      { id: 'C', text: "The file function with string concatenation." },
+      { id: 'D', text: "The templatefile function, reading a file from disk and substituting the supplied variables." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "templatefile is the built-in function for rendering a template with a map of values, and it replaced the external template provider data source. The plain file function returns literal contents without interpolation, and shelling out to a provisioner reintroduces all the fragility provisioners are warned about.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/functions/templatefile",
@@ -157,8 +157,8 @@ export const HASHICORP_TFP_QUESTIONS_5 = [
     question: "Which command resolves it?",
     options: [
       { id: 'A', text: "terraform get -update only, which is required before every plan." },
-      { id: 'B', text: "Deleting the lock file." },
-      { id: 'C', text: "terraform refresh." },
+      { id: 'B', text: "terraform refresh." },
+      { id: 'C', text: "Deleting the lock file." },
       { id: 'D', text: "terraform init, which reinstalls modules into .terraform/modules; add -upgrade to move to a newer allowed version." }
     ],
     correctAnswers: ['D'],
@@ -177,12 +177,12 @@ export const HASHICORP_TFP_QUESTIONS_5 = [
     scenario: "Forty existing security groups must be brought under management, and hand-writing forty resource blocks is error-prone.",
     question: "Which capability reduces that work?",
     options: [
-      { id: 'A', text: "A data source per security group." },
+      { id: 'A', text: "Import blocks combined with terraform plan -generate-config-out=generated.tf, which writes candidate resource configuration for review." },
       { id: 'B', text: "terraform import -all, which discovers and imports everything." },
-      { id: 'C', text: "terraform state push with a generated state file." },
-      { id: 'D', text: "Import blocks combined with terraform plan -generate-config-out=generated.tf, which writes candidate resource configuration for review." }
+      { id: 'C', text: "A data source per security group." },
+      { id: 'D', text: "terraform state push with a generated state file." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Config-driven import can generate a starting configuration for each imported address, which is then reviewed and committed - a large saving on brownfield adoption. There is no import-all command, hand-generating state bypasses every safety check, and data sources read resources without managing them.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/import/generating-configuration",
@@ -198,12 +198,12 @@ export const HASHICORP_TFP_QUESTIONS_5 = [
     scenario: "A plan posted to a pull request comment must not reveal a generated password that appears in a resource attribute.",
     question: "Which measures actually help? (Choose two.)",
     options: [
-      { id: 'A', text: "Use -no-color so values are not highlighted." },
-      { id: 'B', text: "Encrypt the plan file, which prevents display of the value." },
-      { id: 'C', text: "Restrict who can read the state and the run logs, since state stores the value in plain text regardless." },
-      { id: 'D', text: "Mark the relevant variables and outputs sensitive so Terraform redacts them in plan and apply output." }
+      { id: 'A', text: "Restrict who can read the state and the run logs, since state stores the value in plain text regardless." },
+      { id: 'B', text: "Use -no-color so values are not highlighted." },
+      { id: 'C', text: "Mark the relevant variables and outputs sensitive so Terraform redacts them in plan and apply output." },
+      { id: 'D', text: "Encrypt the plan file, which prevents display of the value." }
     ],
-    correctAnswers: ['C', 'D'],
+    correctAnswers: ['A', 'C'],
     type: "multiple",
     explanation: "Sensitivity marking suppresses the value in human-readable output, and access control on state and logs addresses the fact that the real value is still stored in state and inside the plan file. Encrypting the artifact does not change what Terraform prints, and colour settings are purely cosmetic.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/state/sensitive-data",
@@ -219,12 +219,12 @@ export const HASHICORP_TFP_QUESTIONS_5 = [
     scenario: "A plan shows (known after apply) for an attribute another resource depends on, and a count elsewhere fails because of it.",
     question: "What is the general principle?",
     options: [
-      { id: 'A', text: "(known after apply) always indicates an error in the provider." },
-      { id: 'B', text: "Unknown values only occur on first apply and never afterwards." },
-      { id: 'C', text: "count and for_each keys must be resolvable at plan time, so anything derived from an unknown attribute must be restructured or applied in stages." },
-      { id: 'D', text: "Unknown values can be forced known with the tolist function." }
+      { id: 'A', text: "count and for_each keys must be resolvable at plan time, so anything derived from an unknown attribute must be restructured or applied in stages." },
+      { id: 'B', text: "Unknown values can be forced known with the tolist function." },
+      { id: 'C', text: "Unknown values only occur on first apply and never afterwards." },
+      { id: 'D', text: "(known after apply) always indicates an error in the provider." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Terraform builds the resource graph during plan, so instance counts and keys must be known then; ordinary attribute values may legitimately be unknown and get filled in during apply. Unknown markers are normal rather than provider bugs, type functions cannot resolve unknown values, and any replacement can reintroduce unknowns later.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/expressions/references",
@@ -240,10 +240,10 @@ export const HASHICORP_TFP_QUESTIONS_5 = [
     scenario: "A configuration uses a provider published under a namespace other than hashicorp and must resolve it reliably.",
     question: "Which declaration is required?",
     options: [
-      { id: 'A', text: "A module block pointing at the provider repository." },
-      { id: 'B', text: "An entry in the dependency lock file only." },
+      { id: 'A', text: "An entry in the dependency lock file only." },
+      { id: 'B', text: "A provider block alone, since Terraform infers the source from the name." },
       { id: 'C', text: "A required_providers entry giving source = \"namespace/name\" and a version constraint." },
-      { id: 'D', text: "A provider block alone, since Terraform infers the source from the name." }
+      { id: 'D', text: "A module block pointing at the provider repository." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -283,9 +283,9 @@ export const HASHICORP_TFP_QUESTIONS_5 = [
     question: "Which construct expresses the check?",
     options: [
       { id: 'A', text: "A run block with command = apply containing an assert block whose condition compares the module output to the expected prefix." },
-      { id: 'B', text: "A variable validation block inside the test file." },
-      { id: 'C', text: "A Sentinel policy in the test directory." },
-      { id: 'D', text: "A precondition on the test provider." }
+      { id: 'B', text: "A precondition on the test provider." },
+      { id: 'C', text: "A variable validation block inside the test file." },
+      { id: 'D', text: "A Sentinel policy in the test directory." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -304,9 +304,9 @@ export const HASHICORP_TFP_QUESTIONS_5 = [
     question: "Which trade-off is stated correctly?",
     options: [
       { id: 'A', text: "Remote state couples the consumer to the producer state layout and requires state access, while a data source couples it to a discoverable naming or tagging convention and needs only provider read access." },
-      { id: 'B', text: "Remote state is deprecated in favour of data sources." },
-      { id: 'C', text: "Data sources are always faster and never fail." },
-      { id: 'D', text: "Both approaches give the consumer the ability to modify the producer resources." }
+      { id: 'B', text: "Both approaches give the consumer the ability to modify the producer resources." },
+      { id: 'C', text: "Remote state is deprecated in favour of data sources." },
+      { id: 'D', text: "Data sources are always faster and never fail." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -325,11 +325,11 @@ export const HASHICORP_TFP_QUESTIONS_5 = [
     question: "Which invocation is appropriate?",
     options: [
       { id: 'A', text: "terraform state rm for every resource." },
-      { id: 'B', text: "terraform apply -destroy -auto-approve, or terraform destroy -auto-approve, scoped to that environment configuration and state." },
-      { id: 'C', text: "terraform apply -refresh-only." },
-      { id: 'D', text: "Deleting the state file from the backend." }
+      { id: 'B', text: "terraform apply -refresh-only." },
+      { id: 'C', text: "Deleting the state file from the backend." },
+      { id: 'D', text: "terraform apply -destroy -auto-approve, or terraform destroy -auto-approve, scoped to that environment configuration and state." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Destroy plans and removes every managed object in that state, which is what tearing down an ephemeral environment means, and the destroy plan can even be reviewed first. Removing state entries or deleting the state file leaves the real infrastructure running and unmanaged, and a refresh-only apply changes nothing.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/destroy",
@@ -345,10 +345,10 @@ export const HASHICORP_TFP_QUESTIONS_5 = [
     scenario: "An expression reads var.settings[\"timeout\"], but some callers omit that key and the run fails.",
     question: "Which approach handles the absence cleanly?",
     options: [
-      { id: 'A', text: "coalesce(var.settings) to fill missing keys." },
-      { id: 'B', text: "try(var.settings[\"timeout\"]) with no fallback." },
+      { id: 'A', text: "Setting the variable type to any." },
+      { id: 'B', text: "coalesce(var.settings) to fill missing keys." },
       { id: 'C', text: "lookup(var.settings, \"timeout\", 30) to supply a default, or declare the attribute as optional with a default in the variable type." },
-      { id: 'D', text: "Setting the variable type to any." }
+      { id: 'D', text: "try(var.settings[\"timeout\"]) with no fallback." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -366,12 +366,12 @@ export const HASHICORP_TFP_QUESTIONS_5 = [
     scenario: "A pipeline timed out during apply and was retried. Now two load balancers exist but state records only one.",
     question: "What most likely happened and how is it corrected?",
     options: [
-      { id: 'A', text: "The first apply created the object but was killed before writing state, so the retry created a second; reconcile by importing or deleting the orphan, and prevent recurrence with reliable state locking and longer timeouts." },
+      { id: 'A', text: "Terraform automatically deduplicates on the next plan." },
       { id: 'B', text: "The provider duplicated the resource because parallelism was too high." },
-      { id: 'C', text: "Terraform automatically deduplicates on the next plan." },
+      { id: 'C', text: "The first apply created the object but was killed before writing state, so the retry created a second; reconcile by importing or deleting the orphan, and prevent recurrence with reliable state locking and longer timeouts." },
       { id: 'D', text: "State locking failed, which always causes duplicates." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Losing the process between the provider create call and the state write leaves a real object with no state entry, and the next run creates another; the cleanup is to import the one you want to keep and remove the other. Parallelism does not duplicate resources, locking prevents concurrent writers rather than this failure mode, and Terraform cannot see objects that are absent from state.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/state",
@@ -387,12 +387,12 @@ export const HASHICORP_TFP_QUESTIONS_5 = [
     scenario: "A module is being prepared for wide internal use and reviewers ask for its interface to be self-describing.",
     question: "Which practices contribute most?",
     options: [
-      { id: 'A', text: "Descriptions and precise types on every variable and output, a README with usage examples, and an examples directory that is exercised by tests." },
-      { id: 'B', text: "Publishing the module without a version so consumers always get the latest documentation." },
-      { id: 'C', text: "A comment at the top of main.tf listing the resources." },
-      { id: 'D', text: "Naming variables after the provider attributes they set." }
+      { id: 'A', text: "Publishing the module without a version so consumers always get the latest documentation." },
+      { id: 'B', text: "Naming variables after the provider attributes they set." },
+      { id: 'C', text: "Descriptions and precise types on every variable and output, a README with usage examples, and an examples directory that is exercised by tests." },
+      { id: 'D', text: "A comment at the top of main.tf listing the resources." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Typed, described inputs and outputs plus runnable examples are what registries render and what consumers rely on, and tests keep the examples honest. A resource list comment goes stale, mirroring provider attribute names is not documentation, and unversioned publishing removes the consumer safety net.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/modules/develop/structure",
@@ -408,9 +408,9 @@ export const HASHICORP_TFP_QUESTIONS_5 = [
     scenario: "When the networking workspace applies successfully, the dependent application workspaces should plan automatically.",
     question: "Which feature provides that?",
     options: [
-      { id: 'A', text: "A notification webhook that developers act on manually." },
+      { id: 'A', text: "Remote state sharing, which automatically re-runs consumers." },
       { id: 'B', text: "Run triggers, which queue a run in a workspace when a source workspace completes an apply." },
-      { id: 'C', text: "Remote state sharing, which automatically re-runs consumers." },
+      { id: 'C', text: "A notification webhook that developers act on manually." },
       { id: 'D', text: "A shared variable set." }
     ],
     correctAnswers: ['B'],
@@ -450,12 +450,12 @@ export const HASHICORP_TFP_QUESTIONS_5 = [
     scenario: "A resource attribute is generated by the cloud on every read - a rotating token - and appears as a change in every plan even though nothing is wrong.",
     question: "Which handling is appropriate?",
     options: [
-      { id: 'A', text: "Add ignore_changes for that attribute, and if the value is genuinely needed downstream read it through a data source at use time." },
+      { id: 'A', text: "Set the attribute to null so Terraform stops tracking it." },
       { id: 'B', text: "Remove the resource from state before each plan." },
-      { id: 'C', text: "Set the attribute to null so Terraform stops tracking it." },
-      { id: 'D', text: "Disable refresh for the whole configuration." }
+      { id: 'C', text: "Disable refresh for the whole configuration." },
+      { id: 'D', text: "Add ignore_changes for that attribute, and if the value is genuinely needed downstream read it through a data source at use time." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Targeted ignore_changes stops Terraform reconciling an attribute it cannot meaningfully own, while everything else on the resource stays under drift detection. Disabling refresh globally hides real drift, setting null usually means unset rather than untracked, and repeatedly removing state abandons management.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/meta-arguments/lifecycle",
@@ -471,10 +471,10 @@ export const HASHICORP_TFP_QUESTIONS_5 = [
     scenario: "An operator needs to configure a provider mirror and credentials for a private registry for all Terraform runs on a machine.",
     question: "Which file holds that?",
     options: [
-      { id: 'A', text: "terraform.tfvars in each working directory." },
+      { id: 'A', text: "The backend block of every configuration." },
       { id: 'B', text: "The dependency lock file." },
       { id: 'C', text: "The CLI configuration file - .terraformrc or terraform.rc in the user home directory - which can define credentials, provider_installation, and the plugin cache." },
-      { id: 'D', text: "The backend block of every configuration." }
+      { id: 'D', text: "terraform.tfvars in each working directory." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -492,12 +492,12 @@ export const HASHICORP_TFP_QUESTIONS_5 = [
     scenario: "A plan file produced yesterday must be reviewed again before approval, in both human and machine form.",
     question: "Which commands do that?",
     options: [
-      { id: 'A', text: "terraform show tfplan for the readable rendering and terraform show -json tfplan for the structured form." },
-      { id: 'B', text: "terraform output -json tfplan" },
-      { id: 'C', text: "terraform plan tfplan" },
-      { id: 'D', text: "terraform state show tfplan" }
+      { id: 'A', text: "terraform output -json tfplan" },
+      { id: 'B', text: "terraform state show tfplan" },
+      { id: 'C', text: "terraform show tfplan for the readable rendering and terraform show -json tfplan for the structured form." },
+      { id: 'D', text: "terraform plan tfplan" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "terraform show renders a saved plan file either for humans or as documented JSON, which is how reviews and policy tooling consume it. plan generates a new plan rather than reading one, output reads state outputs, and state show expects a resource address.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/show",
@@ -513,10 +513,10 @@ export const HASHICORP_TFP_QUESTIONS_5 = [
     scenario: "A platform team wraps a popular public module in an internal module that sets organisational defaults and exposes a narrower interface.",
     question: "Which assessment of that pattern is fair?",
     options: [
-      { id: 'A', text: "It prevents consumers from ever hitting upstream breaking changes." },
-      { id: 'B', text: "It removes the need to pin the upstream module version." },
+      { id: 'A', text: "It is always wrong because it adds indirection." },
+      { id: 'B', text: "It prevents consumers from ever hitting upstream breaking changes." },
       { id: 'C', text: "It is a reasonable way to encode standards and reduce choice, at the cost of an extra layer to maintain and upgrade whenever the upstream module changes." },
-      { id: 'D', text: "It is always wrong because it adds indirection." }
+      { id: 'D', text: "It removes the need to pin the upstream module version." }
     ],
     correctAnswers: ['C'],
     type: "single",
