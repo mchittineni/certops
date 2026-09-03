@@ -390,7 +390,7 @@ function renderRolePath(state, role) {
     <div class="role-path-wrap">
       <div class="role-path-head">
         <div>
-          <h3>${escapeHtml(role.title)} path</h3>
+          <h3 class="role-path-title">${roleIcon(role.id, { size: 22 })} ${escapeHtml(role.title)} path</h3>
           <p class="panel-note">
             ${ready} of ${role.path.length} ready now · ${questions} question${questions === 1 ? '' : 's'} across the ready steps
           </p>
