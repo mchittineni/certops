@@ -30,12 +30,12 @@ export const AWS_CLF_QUESTIONS_2 = [
     scenario: "An enterprise is planning its digital cloud migration and is organizing stakeholder teams across Business, People, Governance, Platform, Security, and Operations.",
     question: "Which framework provides these six foundational perspectives to structure cloud transformation?",
     options: [
-      { id: 'A', text: "AWS Cloud Adoption Framework (AWS CAF)" },
-      { id: 'B', text: "AWS Well-Architected Framework" },
-      { id: 'C', text: "AWS Control Tower" },
-      { id: 'D', text: "AWS Migration Hub" }
+      { id: 'A', text: "AWS Control Tower" },
+      { id: 'B', text: "AWS Migration Hub" },
+      { id: 'C', text: "AWS Cloud Adoption Framework (AWS CAF)" },
+      { id: 'D', text: "AWS Well-Architected Framework" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "The AWS Cloud Adoption Framework (AWS CAF) organizes guidance into six perspectives: Business, People, Governance (business-focused) and Platform, Security, Operations (technical-focused) to help organizations build an actionable roadmap for cloud transformation.",
     referenceUrl: "https://aws.amazon.com/professional-services/CAF/",
@@ -52,9 +52,9 @@ export const AWS_CLF_QUESTIONS_2 = [
     question: "Which IAM entity should be attached to the EC2 instance?",
     options: [
       { id: 'A', text: "An IAM Role assigned via an EC2 Instance Profile." },
-      { id: 'B', text: "The AWS Account Root user credentials." },
-      { id: 'C', text: "An IAM Group with DynamoDB permissions." },
-      { id: 'D', text: "An IAM User with long-term secret access keys." }
+      { id: 'B', text: "An IAM User with long-term secret access keys." },
+      { id: 'C', text: "The AWS Account Root user credentials." },
+      { id: 'D', text: "An IAM Group with DynamoDB permissions." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -72,12 +72,12 @@ export const AWS_CLF_QUESTIONS_2 = [
     scenario: "A security operations team requires continuous, intelligent threat detection that monitors AWS CloudTrail event logs, VPC Flow Logs, and DNS logs for suspicious activity such as cryptocurrency mining or unauthorized API calls.",
     question: "Which AWS security service provides continuous intelligent threat detection using machine learning?",
     options: [
-      { id: 'A', text: "AWS WAF" },
-      { id: 'B', text: "AWS Shield" },
-      { id: 'C', text: "Amazon GuardDuty" },
+      { id: 'A', text: "AWS Shield" },
+      { id: 'B', text: "Amazon GuardDuty" },
+      { id: 'C', text: "AWS WAF" },
       { id: 'D', text: "Amazon Inspector" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Amazon GuardDuty is an intelligent threat detection service that continuously monitors malicious activity and unauthorized behavior across AWS accounts, workloads, and data stored in S3 by analyzing CloudTrail, VPC Flow, and DNS logs.",
     referenceUrl: "https://docs.aws.amazon.com/guardduty/latest/ug/what-is-guardduty.html",
@@ -114,12 +114,12 @@ export const AWS_CLF_QUESTIONS_2 = [
     scenario: "A compliance officer needs to scan millions of documents stored in Amazon S3 buckets to discover, classify, and protect Personally Identifiable Information (PII) such as credit card numbers and passports.",
     question: "Which AWS service uses machine learning and pattern matching to discover and protect sensitive data in Amazon S3?",
     options: [
-      { id: 'A', text: "AWS Secrets Manager" },
-      { id: 'B', text: "AWS KMS" },
-      { id: 'C', text: "Amazon Macie" },
-      { id: 'D', text: "Amazon GuardDuty" }
+      { id: 'A', text: "AWS KMS" },
+      { id: 'B', text: "AWS Secrets Manager" },
+      { id: 'C', text: "Amazon GuardDuty" },
+      { id: 'D', text: "Amazon Macie" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Amazon Macie is a fully managed data security and privacy service that uses machine learning and pattern matching to discover, monitor, and protect sensitive data (such as PII, PHI, and credentials) stored in Amazon S3.",
     referenceUrl: "https://docs.aws.amazon.com/macie/latest/user/what-is-macie.html",
@@ -135,12 +135,12 @@ export const AWS_CLF_QUESTIONS_2 = [
     scenario: "A data analytics team runs batch processing and big data rendering tasks that can tolerate unexpected interruptions and needs compute capacity at up to a 90% discount compared to On-Demand rates.",
     question: "Which Amazon EC2 purchasing option provides the deepest discount for fault-tolerant workloads?",
     options: [
-      { id: 'A', text: "Reserved Instances" },
-      { id: 'B', text: "Spot Instances" },
-      { id: 'C', text: "On-Demand Instances" },
-      { id: 'D', text: "Dedicated Hosts" }
+      { id: 'A', text: "Spot Instances" },
+      { id: 'B', text: "Reserved Instances" },
+      { id: 'C', text: "Dedicated Hosts" },
+      { id: 'D', text: "On-Demand Instances" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Amazon EC2 Spot Instances allow customers to take advantage of unused EC2 capacity at steep discounts (up to 90% off On-Demand pricing), ideal for fault-tolerant, stateless, or batch processing workloads that can handle 2-minute termination notices.",
     referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html",
@@ -156,12 +156,12 @@ export const AWS_CLF_QUESTIONS_2 = [
     scenario: "An administrator needs block-level persistent storage for an Amazon EC2 instance running a high-transaction OLTP database that requires consistent IOPS performance.",
     question: "Which Amazon EBS volume type is optimized for transactional database workloads requiring high IOPS?",
     options: [
-      { id: 'A', text: "Cold HDD (sc1)" },
-      { id: 'B', text: "Throughput Optimized HDD (st1)" },
-      { id: 'C', text: "General Purpose SSD (gp3) or Provisioned IOPS SSD (io2)" },
-      { id: 'D', text: "Amazon S3 Standard" }
+      { id: 'A', text: "Amazon S3 Standard" },
+      { id: 'B', text: "General Purpose SSD (gp3) or Provisioned IOPS SSD (io2)" },
+      { id: 'C', text: "Throughput Optimized HDD (st1)" },
+      { id: 'D', text: "Cold HDD (sc1)" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Amazon EBS SSD-backed volumes (General Purpose gp2/gp3 and Provisioned IOPS io1/io2) are designed for transactional workloads, boot volumes, and databases requiring low latency and high IOPS. HDD-backed volumes (st1/sc1) are designed for large sequential throughput, not random IOPS.",
     referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html",
@@ -177,12 +177,12 @@ export const AWS_CLF_QUESTIONS_2 = [
     scenario: "Multiple Linux Amazon EC2 instances running across different Availability Zones in a Region need concurrent read and write access to a shared POSIX-compliant filesystem.",
     question: "Which AWS storage service provides a fully managed shared NFS filesystem for Linux workloads?",
     options: [
-      { id: 'A', text: "AWS Storage Gateway" },
+      { id: 'A', text: "Amazon Elastic Block Store (Amazon EBS)" },
       { id: 'B', text: "Amazon S3 Glacier" },
-      { id: 'C', text: "Amazon Elastic Block Store (Amazon EBS)" },
-      { id: 'D', text: "Amazon Elastic File System (Amazon EFS)" }
+      { id: 'C', text: "Amazon Elastic File System (Amazon EFS)" },
+      { id: 'D', text: "AWS Storage Gateway" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Amazon EFS provides simple, serverless, elastic shared file storage for use with AWS Cloud services and on-premises resources via the standard Network File System (NFSv4) protocol, accessible concurrently from thousands of EC2 instances.",
     referenceUrl: "https://docs.aws.amazon.com/efs/latest/ug/whatisefs.html",
@@ -199,11 +199,11 @@ export const AWS_CLF_QUESTIONS_2 = [
     question: "Which AWS service provides fully managed in-memory caching using Redis or Memcached?",
     options: [
       { id: 'A', text: "Amazon RDS Read Replicas" },
-      { id: 'B', text: "Amazon CloudFront" },
-      { id: 'C', text: "Amazon DynamoDB Accelerator (DAX)" },
-      { id: 'D', text: "Amazon ElastiCache" }
+      { id: 'B', text: "Amazon DynamoDB Accelerator (DAX)" },
+      { id: 'C', text: "Amazon ElastiCache" },
+      { id: 'D', text: "Amazon CloudFront" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Amazon ElastiCache is a fully managed in-memory data store and caching service compatible with Redis and Memcached, enabling sub-millisecond response times for read-heavy database workloads.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/WhatIs.html",
@@ -219,12 +219,12 @@ export const AWS_CLF_QUESTIONS_2 = [
     scenario: "A business intelligence team needs to run complex SQL analytical queries across petabytes of structured historical sales data to generate quarterly executive dashboards.",
     question: "Which AWS service is purpose-built for petabyte-scale cloud data warehousing and analytical OLAP queries?",
     options: [
-      { id: 'A', text: "Amazon DynamoDB" },
-      { id: 'B', text: "Amazon RDS for PostgreSQL" },
-      { id: 'C', text: "Amazon Redshift" },
-      { id: 'D', text: "Amazon DocumentDB" }
+      { id: 'A', text: "Amazon RDS for PostgreSQL" },
+      { id: 'B', text: "Amazon DynamoDB" },
+      { id: 'C', text: "Amazon DocumentDB" },
+      { id: 'D', text: "Amazon Redshift" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Amazon Redshift is a fully managed, petabyte-scale cloud data warehouse service that uses columnar storage and massively parallel processing (MPP) to execute complex analytical queries across massive datasets.",
     referenceUrl: "https://docs.aws.amazon.com/redshift/latest/mgmt/welcome.html",
@@ -241,11 +241,11 @@ export const AWS_CLF_QUESTIONS_2 = [
     question: "Which AWS service provides a fully managed Publish/Subscribe (Pub/Sub) messaging service for fan-out notifications?",
     options: [
       { id: 'A', text: "Amazon Simple Queue Service (Amazon SQS)" },
-      { id: 'B', text: "Amazon MQ" },
-      { id: 'C', text: "Amazon Simple Notification Service (Amazon SNS)" },
-      { id: 'D', text: "Amazon Kinesis Data Streams" }
+      { id: 'B', text: "Amazon Kinesis Data Streams" },
+      { id: 'C', text: "Amazon MQ" },
+      { id: 'D', text: "Amazon Simple Notification Service (Amazon SNS)" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Amazon SNS is a fully managed Pub/Sub messaging service that enables message fan-out to distributed endpoints (SQS queues, Lambda functions, HTTP webhooks) as well as end-user notifications via SMS, mobile push, and email.",
     referenceUrl: "https://docs.aws.amazon.com/sns/latest/dg/welcome.html",
@@ -261,12 +261,12 @@ export const AWS_CLF_QUESTIONS_2 = [
     scenario: "An image processing pipeline receives customer photo uploads and processes them asynchronously. To prevent processing component failures from crashing the upload web server, the architecture must decouple the components.",
     question: "Which AWS service provides managed message queuing to decouple and scale distributed application components?",
     options: [
-      { id: 'A', text: "AWS Step Functions" },
-      { id: 'B', text: "Amazon Simple Queue Service (Amazon SQS)" },
-      { id: 'C', text: "Amazon SNS" },
-      { id: 'D', text: "Amazon CloudWatch Events" }
+      { id: 'A', text: "Amazon SNS" },
+      { id: 'B', text: "Amazon CloudWatch Events" },
+      { id: 'C', text: "AWS Step Functions" },
+      { id: 'D', text: "Amazon Simple Queue Service (Amazon SQS)" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Amazon SQS is a fully managed message queuing service that enables decoupling of microservices, distributed systems, and serverless applications, buffering messages reliably until processing workers pull and execute them.",
     referenceUrl: "https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/welcome.html",
@@ -303,12 +303,12 @@ export const AWS_CLF_QUESTIONS_2 = [
     scenario: "An enterprise requires a dedicated, private, physical 10 Gbps network connection between its corporate data centre and AWS to bypass the public internet and ensure consistent throughput with low latency.",
     question: "Which AWS networking service establishes a private dedicated physical connection from on-premises to AWS?",
     options: [
-      { id: 'A', text: "AWS Transit Gateway" },
-      { id: 'B', text: "Amazon Route 53" },
-      { id: 'C', text: "AWS Site-to-Site VPN" },
-      { id: 'D', text: "AWS Direct Connect" }
+      { id: 'A', text: "AWS Direct Connect" },
+      { id: 'B', text: "AWS Site-to-Site VPN" },
+      { id: 'C', text: "Amazon Route 53" },
+      { id: 'D', text: "AWS Transit Gateway" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "AWS Direct Connect links your internal network directly to an AWS Direct Connect location over a standard Ethernet fiber-optic cable, bypassing the public internet to deliver higher bandwidth, lower latency, and more consistent network performance than internet-based VPNs.",
     referenceUrl: "https://docs.aws.amazon.com/directconnect/latest/UserGuide/Welcome.html",
@@ -346,11 +346,11 @@ export const AWS_CLF_QUESTIONS_2 = [
     question: "Which AWS billing feature allows categorizing and tracking AWS costs based on custom key-value metadata attached to resources?",
     options: [
       { id: 'A', text: "Consolidated Billing" },
-      { id: 'B', text: "AWS Budgets" },
-      { id: 'C', text: "Cost Allocation Tags" },
-      { id: 'D', text: "AWS Compute Optimizer" }
+      { id: 'B', text: "AWS Compute Optimizer" },
+      { id: 'C', text: "AWS Budgets" },
+      { id: 'D', text: "Cost Allocation Tags" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Cost Allocation Tags are key-value pairs assigned to AWS resources that appear in Cost Explorer and Cost and Usage Reports (CUR), allowing organizations to categorize and track resource costs by project, department, or environment.",
     referenceUrl: "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html",
@@ -366,12 +366,12 @@ export const AWS_CLF_QUESTIONS_2 = [
     scenario: "An operations team wants to identify over-provisioned (wasteful) and under-provisioned (performance-constrained) EC2 instances, EBS volumes, and Lambda functions to optimize cost and performance.",
     question: "Which AWS service uses machine learning to analyze historical utilization metrics and recommend optimal instance types?",
     options: [
-      { id: 'A', text: "Amazon CloudWatch Synthetics" },
-      { id: 'B', text: "AWS Trusted Advisor" },
-      { id: 'C', text: "AWS Compute Optimizer" },
-      { id: 'D', text: "AWS Pricing Calculator" }
+      { id: 'A', text: "AWS Trusted Advisor" },
+      { id: 'B', text: "Amazon CloudWatch Synthetics" },
+      { id: 'C', text: "AWS Pricing Calculator" },
+      { id: 'D', text: "AWS Compute Optimizer" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "AWS Compute Optimizer recommends optimal AWS resources (EC2 instance types, Auto Scaling groups, EBS volumes, and Lambda functions) for your workloads by applying machine learning to historical Amazon CloudWatch utilization metrics.",
     referenceUrl: "https://docs.aws.amazon.com/compute-optimizer/latest/ug/what-is-compute-optimizer.html",
@@ -429,10 +429,10 @@ export const AWS_CLF_QUESTIONS_2 = [
     scenario: "A cloud architect is designing an architecture that can automatically recover from infrastructure failures, dynamically scale to meet demand, and mitigate disruptions like misconfigurations.",
     question: "Which pillar of the AWS Well-Architected Framework encompasses failure recovery and workload resilience?",
     options: [
-      { id: 'A', text: "Security Pillar" },
-      { id: 'B', text: "Performance Efficiency Pillar" },
+      { id: 'A', text: "Operational Excellence Pillar" },
+      { id: 'B', text: "Security Pillar" },
       { id: 'C', text: "Reliability Pillar" },
-      { id: 'D', text: "Operational Excellence Pillar" }
+      { id: 'D', text: "Performance Efficiency Pillar" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -450,12 +450,12 @@ export const AWS_CLF_QUESTIONS_2 = [
     scenario: "A real-time multiplayer gaming platform uses non-HTTP UDP and TCP protocols across global clients and needs fixed static anycast IP addresses to route traffic over the AWS global fiber network.",
     question: "Which AWS service provides two static anycast IP addresses and optimizes network paths for TCP and UDP traffic?",
     options: [
-      { id: 'A', text: "Elastic IP Addresses" },
-      { id: 'B', text: "AWS Global Accelerator" },
-      { id: 'C', text: "Amazon CloudFront" },
+      { id: 'A', text: "Amazon CloudFront" },
+      { id: 'B', text: "Elastic IP Addresses" },
+      { id: 'C', text: "AWS Global Accelerator" },
       { id: 'D', text: "Amazon Route 53" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "AWS Global Accelerator uses static anycast IP addresses to route traffic over the AWS global private network, improving availability and performance for both HTTP and non-HTTP (TCP/UDP) protocols. CloudFront is optimized specifically for HTTP/HTTPS web content caching.",
     referenceUrl: "https://docs.aws.amazon.com/global-accelerator/latest/dg/what-is-global-accelerator.html",
@@ -471,12 +471,12 @@ export const AWS_CLF_QUESTIONS_2 = [
     scenario: "An administrator needs to monitor the CPU utilization of 50 Amazon EC2 instances and receive an automated email alert whenever average CPU utilization exceeds 85% for 10 minutes.",
     question: "Which AWS monitoring service collects performance metrics and triggers alarm actions?",
     options: [
-      { id: 'A', text: "AWS CloudTrail" },
-      { id: 'B', text: "Amazon CloudWatch" },
+      { id: 'A', text: "Amazon CloudWatch" },
+      { id: 'B', text: "AWS Config" },
       { id: 'C', text: "AWS Health Dashboard" },
-      { id: 'D', text: "AWS Config" }
+      { id: 'D', text: "AWS CloudTrail" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Amazon CloudWatch collects and tracks metrics, collects and monitors log files, and sets alarms on resource utilization (such as CPU, Disk, and Network) to send notifications via Amazon SNS or trigger Auto Scaling actions.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html",

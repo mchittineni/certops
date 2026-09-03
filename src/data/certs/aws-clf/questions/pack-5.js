@@ -51,12 +51,12 @@ export const AWS_CLF_QUESTIONS_5 = [
     scenario: "An engineer connects VPC A to VPC B via VPC Peering, and VPC B to VPC C via VPC Peering. By default, traffic from VPC A cannot reach VPC C through VPC B.",
     question: "Which characteristic of VPC Peering describes the rule that peering connections cannot bridge traffic across intermediate VPCs?",
     options: [
-      { id: 'A', text: "VPC Peering does not support transitive routing." },
-      { id: 'B', text: "VPC Peering requires matching CIDR address blocks." },
+      { id: 'A', text: "VPC Peering requires dedicated Direct Connect hardware." },
+      { id: 'B', text: "VPC Peering does not support transitive routing." },
       { id: 'C', text: "VPC Peering restricts bandwidth to 1 Gbps." },
-      { id: 'D', text: "VPC Peering requires dedicated Direct Connect hardware." }
+      { id: 'D', text: "VPC Peering requires matching CIDR address blocks." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "VPC Peering is non-transitive: if VPC A is peered with VPC B, and VPC B is peered with VPC C, VPC A cannot route traffic to VPC C through VPC B. To connect multiple VPCs transitively, you use AWS Transit Gateway.",
     referenceUrl: "https://docs.aws.amazon.com/vpc/latest/peering/invalid-peering-configurations.html#transitive-peering",
@@ -135,12 +135,12 @@ export const AWS_CLF_QUESTIONS_5 = [
     scenario: "A systems administrator needs to automate the rollout of security patches across a fleet of 200 Linux and Windows Amazon EC2 instances during a scheduled maintenance window.",
     question: "Which AWS Systems Manager capability automates the process of patching managed instances with security updates?",
     options: [
-      { id: 'A', text: "Amazon Inspector" },
-      { id: 'B', text: "AWS Systems Manager Patch Manager" },
-      { id: 'C', text: "AWS Systems Manager Run Command" },
-      { id: 'D', text: "AWS Config" }
+      { id: 'A', text: "AWS Config" },
+      { id: 'B', text: "AWS Systems Manager Run Command" },
+      { id: 'C', text: "AWS Systems Manager Patch Manager" },
+      { id: 'D', text: "Amazon Inspector" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "AWS Systems Manager Patch Manager automates the process of patching managed instances with both security-related and other types of updates across large fleets of Linux and Windows operating systems.",
     referenceUrl: "https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-patch.html",
@@ -156,12 +156,12 @@ export const AWS_CLF_QUESTIONS_5 = [
     scenario: "A developer needs a secure, hierarchical storage service for application configuration parameters and plain-text strings (such as database URLs and feature flags) at no cost for standard tier parameters.",
     question: "Which AWS service provides centralized, secure storage for configuration data and secrets management?",
     options: [
-      { id: 'A', text: "AWS Systems Manager Parameter Store" },
+      { id: 'A', text: "AWS Secrets Manager" },
       { id: 'B', text: "Amazon DynamoDB" },
-      { id: 'C', text: "AWS KMS" },
-      { id: 'D', text: "AWS Secrets Manager" }
+      { id: 'C', text: "AWS Systems Manager Parameter Store" },
+      { id: 'D', text: "AWS KMS" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "AWS Systems Manager Parameter Store provides secure, hierarchical storage for configuration data management and secrets management, integrating with KMS for encrypted SecureStrings and offering free standard parameters.",
     referenceUrl: "https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-parameter-store.html",
@@ -219,12 +219,12 @@ export const AWS_CLF_QUESTIONS_5 = [
     scenario: "A research institution runs large-scale big data processing clusters using open-source frameworks like Apache Spark, Apache Hadoop, and Presto across hundreds of EC2 instances.",
     question: "Which AWS managed big data platform enables running petabyte-scale data processing with open-source distributed frameworks?",
     options: [
-      { id: 'A', text: "AWS Glue" },
-      { id: 'B', text: "Amazon EMR" },
-      { id: 'C', text: "Amazon Redshift" },
-      { id: 'D', text: "Amazon Athena" }
+      { id: 'A', text: "Amazon Athena" },
+      { id: 'B', text: "Amazon Redshift" },
+      { id: 'C', text: "Amazon EMR" },
+      { id: 'D', text: "AWS Glue" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Amazon EMR (formerly Elastic MapReduce) is the industry-leading cloud big data platform for processing vast amounts of data using open-source tools such as Apache Spark, Apache Hive, Apache HBase, and Presto.",
     referenceUrl: "https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-what-is-emr.html",
@@ -240,12 +240,12 @@ export const AWS_CLF_QUESTIONS_5 = [
     scenario: "An IoT application collects telemetry metrics from 100,000 smart energy meters every second and needs to ingest, buffer, and analyze the real-time data stream with sub-second latency.",
     question: "Which AWS service family is purpose-built to ingest, process, and analyze real-time streaming data at any scale?",
     options: [
-      { id: 'A', text: "Amazon SQS" },
-      { id: 'B', text: "Amazon MQ" },
-      { id: 'C', text: "Amazon Kinesis" },
-      { id: 'D', text: "Amazon SNS" }
+      { id: 'A', text: "Amazon SNS" },
+      { id: 'B', text: "Amazon Kinesis" },
+      { id: 'C', text: "Amazon MQ" },
+      { id: 'D', text: "Amazon SQS" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Amazon Kinesis makes it easy to collect, process, and analyze real-time, streaming data (such as video, audio, application logs, website clickstreams, and IoT telemetry) so you can get timely insights.",
     referenceUrl: "https://docs.aws.amazon.com/streams/latest/dev/introduction.html",
@@ -345,12 +345,12 @@ export const AWS_CLF_QUESTIONS_5 = [
     scenario: "An educational reading app needs to convert written articles into lifelike, natural-sounding spoken audio speech across dozens of languages.",
     question: "Which AWS AI service turns text into lifelike speech using deep learning?",
     options: [
-      { id: 'A', text: "Amazon Translate" },
-      { id: 'B', text: "Amazon Polly" },
-      { id: 'C', text: "Amazon Transcribe" },
+      { id: 'A', text: "Amazon Transcribe" },
+      { id: 'B', text: "Amazon Translate" },
+      { id: 'C', text: "Amazon Polly" },
       { id: 'D', text: "Amazon Lex" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Amazon Polly is a service that turns text into lifelike speech, allowing you to create applications that talk and build entirely new categories of speech-enabled products.",
     referenceUrl: "https://docs.aws.amazon.com/polly/latest/dg/what-is.html",
@@ -366,12 +366,12 @@ export const AWS_CLF_QUESTIONS_5 = [
     scenario: "A contact centre needs to convert recorded customer phone call audio files into accurate, timestamped text transcripts for sentiment analysis.",
     question: "Which AWS service uses automatic speech recognition (ASR) to convert speech audio into text?",
     options: [
-      { id: 'A', text: "Amazon Polly" },
-      { id: 'B', text: "Amazon Lex" },
-      { id: 'C', text: "Amazon Comprehend" },
-      { id: 'D', text: "Amazon Transcribe" }
+      { id: 'A', text: "Amazon Comprehend" },
+      { id: 'B', text: "Amazon Transcribe" },
+      { id: 'C', text: "Amazon Polly" },
+      { id: 'D', text: "Amazon Lex" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Amazon Transcribe is an automatic speech recognition service that makes it easy for developers to add speech-to-text capabilities to their applications.",
     referenceUrl: "https://docs.aws.amazon.com/transcribe/latest/dg/what-is.html",
@@ -387,12 +387,12 @@ export const AWS_CLF_QUESTIONS_5 = [
     scenario: "A customer service team wants to build an interactive conversational AI voice and text chatbot (the same technology behind Amazon Alexa) to handle flight booking queries.",
     question: "Which AWS service provides conversational AI interfaces for building voice and text chatbots?",
     options: [
-      { id: 'A', text: "Amazon Transcribe" },
+      { id: 'A', text: "Amazon Lex" },
       { id: 'B', text: "Amazon Polly" },
-      { id: 'C', text: "Amazon Lex" },
-      { id: 'D', text: "Amazon Connect" }
+      { id: 'C', text: "Amazon Connect" },
+      { id: 'D', text: "Amazon Transcribe" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Amazon Lex is a fully managed artificial intelligence service with advanced natural language models for building conversational interfaces into applications with voice and text.",
     referenceUrl: "https://docs.aws.amazon.com/lex/latest/dg/what-is.html",
@@ -409,11 +409,11 @@ export const AWS_CLF_QUESTIONS_5 = [
     question: "Which AWS service delivers an omnichannel cloud contact centre with automated routing and CRM integrations?",
     options: [
       { id: 'A', text: "Amazon Lex" },
-      { id: 'B', text: "Amazon Connect" },
-      { id: 'C', text: "Amazon WorkSpaces" },
-      { id: 'D', text: "Amazon Chime" }
+      { id: 'B', text: "Amazon WorkSpaces" },
+      { id: 'C', text: "Amazon Chime" },
+      { id: 'D', text: "Amazon Connect" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Amazon Connect is an easy-to-use, omnichannel cloud contact centre that helps companies provide superior customer service at a lower cost, scaling to support any number of customer service agents.",
     referenceUrl: "https://docs.aws.amazon.com/connect/latest/adminguide/what-is-amazon-connect.html",
@@ -450,12 +450,12 @@ export const AWS_CLF_QUESTIONS_5 = [
     scenario: "A university wants students to access heavy 3D CAD modeling software from low-cost web browsers without provisioning full virtual desktops or installing software locally.",
     question: "Which AWS service streams non-persistent desktop applications securely to HTML5 web browsers?",
     options: [
-      { id: 'A', text: "AWS Elastic Beanstalk" },
-      { id: 'B', text: "Amazon EC2" },
-      { id: 'C', text: "Amazon AppStream 2.0" },
-      { id: 'D', text: "Amazon WorkSpaces" }
+      { id: 'A', text: "Amazon AppStream 2.0" },
+      { id: 'B', text: "Amazon WorkSpaces" },
+      { id: 'C', text: "AWS Elastic Beanstalk" },
+      { id: 'D', text: "Amazon EC2" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Amazon AppStream 2.0 is a fully managed non-persistent application streaming service that provides users with instant access to their desktop applications from any device with a web browser.",
     referenceUrl: "https://docs.aws.amazon.com/appstream2/latest/developerguide/what-is-appstream.html",
@@ -471,12 +471,12 @@ export const AWS_CLF_QUESTIONS_5 = [
     scenario: "A high-performance computing (HPC) research workload requires sub-millisecond file storage throughput connected directly to Amazon S3 data lakes for compute-intensive financial modeling.",
     question: "Which Amazon FSx file system type is optimized for high-performance computing (HPC) and machine learning workloads?",
     options: [
-      { id: 'A', text: "Amazon S3 Standard" },
+      { id: 'A', text: "Amazon FSx for Lustre" },
       { id: 'B', text: "Amazon FSx for Windows File Server" },
-      { id: 'C', text: "Amazon Elastic File System (EFS)" },
-      { id: 'D', text: "Amazon FSx for Lustre" }
+      { id: 'C', text: "Amazon S3 Standard" },
+      { id: 'D', text: "Amazon Elastic File System (EFS)" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Amazon FSx for Lustre is a high-performance file system optimized for compute-intensive workloads such as high-performance computing (HPC), machine learning, and video processing, integrating natively with Amazon S3.",
     referenceUrl: "https://docs.aws.amazon.com/fsx/latest/LustreGuide/what-is.html",
@@ -492,12 +492,12 @@ export const AWS_CLF_QUESTIONS_5 = [
     scenario: "A student creates a new AWS account to learn cloud computing and wants to know which popular compute resources are available for free for the first 12 months.",
     question: "What monthly allowance of Amazon EC2 compute is included in the 12-Months Free tier?",
     options: [
-      { id: 'A', text: "Unlimited EC2 usage for the first 30 days." },
-      { id: 'B', text: "750 hours per month of c5.xlarge compute instances." },
+      { id: 'A', text: "750 hours per month of Linux and Windows t2.micro (or t3.micro in select Regions) instance usage." },
+      { id: 'B', text: "Unlimited EC2 usage for the first 30 days." },
       { id: 'C', text: "100 hours per month of any EC2 instance type." },
-      { id: 'D', text: "750 hours per month of Linux and Windows t2.micro (or t3.micro in select Regions) instance usage." }
+      { id: 'D', text: "750 hours per month of c5.xlarge compute instances." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The AWS 12-Months Free tier includes 750 hours per month of Linux, RHEL, or SLES t2.micro/t3.micro instance usage, plus 750 hours of Windows t2.micro/t3.micro, enough to run a micro instance continuously for a full month.",
     referenceUrl: "https://aws.amazon.com/free/",
