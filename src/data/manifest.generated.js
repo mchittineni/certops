@@ -45,15 +45,15 @@ export const CONTENT_MANIFEST = {
     "flashcards": {
       "total": 250,
       "byDifficulty": {
-        "easy": 90,
-        "medium": 85,
-        "hard": 75
+        "easy": 110,
+        "medium": 137,
+        "hard": 3
       },
       "byDomain": {
-        "d1": 60,
-        "d2": 68,
-        "d4": 58,
-        "d3": 64
+        "d1": 29,
+        "d2": 56,
+        "d4": 33,
+        "d3": 132
       },
       "packs": 10,
       "loadedPacks": 10
@@ -123,26 +123,36 @@ export const CONTENT_MANIFEST = {
   },
   "aws-dva": {
     "questions": {
-      "total": 0,
+      "total": 250,
       "byDifficulty": {
-        "easy": 0,
-        "medium": 0,
-        "hard": 0
+        "easy": 83,
+        "medium": 125,
+        "hard": 42
       },
-      "byDomain": {},
-      "packs": 0,
-      "loadedPacks": 0
+      "byDomain": {
+        "d1": 80,
+        "d2": 65,
+        "d3": 60,
+        "d4": 45
+      },
+      "packs": 10,
+      "loadedPacks": 10
     },
     "flashcards": {
-      "total": 0,
+      "total": 250,
       "byDifficulty": {
-        "easy": 0,
-        "medium": 0,
-        "hard": 0
+        "easy": 83,
+        "medium": 125,
+        "hard": 42
       },
-      "byDomain": {},
-      "packs": 0,
-      "loadedPacks": 0
+      "byDomain": {
+        "d1": 80,
+        "d2": 65,
+        "d3": 60,
+        "d4": 45
+      },
+      "packs": 10,
+      "loadedPacks": 10
     }
   },
   "aws-mla": {
@@ -399,26 +409,38 @@ export const CONTENT_MANIFEST = {
   },
   "azure-az204": {
     "questions": {
-      "total": 0,
+      "total": 250,
       "byDifficulty": {
-        "easy": 0,
-        "medium": 0,
-        "hard": 0
+        "easy": 84,
+        "medium": 125,
+        "hard": 41
       },
-      "byDomain": {},
-      "packs": 0,
-      "loadedPacks": 0
+      "byDomain": {
+        "d1": 70,
+        "d2": 45,
+        "d3": 45,
+        "d4": 35,
+        "d5": 55
+      },
+      "packs": 10,
+      "loadedPacks": 10
     },
     "flashcards": {
-      "total": 0,
+      "total": 250,
       "byDifficulty": {
-        "easy": 0,
-        "medium": 0,
-        "hard": 0
+        "easy": 84,
+        "medium": 125,
+        "hard": 41
       },
-      "byDomain": {},
-      "packs": 0,
-      "loadedPacks": 0
+      "byDomain": {
+        "d1": 70,
+        "d2": 45,
+        "d3": 45,
+        "d4": 35,
+        "d5": 55
+      },
+      "packs": 10,
+      "loadedPacks": 10
     }
   },
   "azure-az305": {
@@ -449,16 +471,16 @@ export const CONTENT_MANIFEST = {
     "questions": {
       "total": 250,
       "byDifficulty": {
-        "easy": 3,
-        "medium": 126,
-        "hard": 121
+        "easy": 24,
+        "medium": 195,
+        "hard": 31
       },
       "byDomain": {
-        "d1": 38,
-        "d2": 37,
+        "d1": 47,
+        "d2": 28,
         "d3": 100,
-        "d4": 38,
-        "d5": 37
+        "d4": 31,
+        "d5": 44
       },
       "packs": 10,
       "loadedPacks": 10
@@ -485,13 +507,13 @@ export const CONTENT_MANIFEST = {
     "questions": {
       "total": 250,
       "byDifficulty": {
-        "easy": 73,
-        "medium": 111,
-        "hard": 66
+        "easy": 101,
+        "medium": 124,
+        "hard": 25
       },
       "byDomain": {
-        "d1": 75,
-        "d2": 100,
+        "d1": 55,
+        "d2": 120,
         "d3": 75
       },
       "packs": 10,
@@ -1215,9 +1237,9 @@ export const CONTENT_MANIFEST = {
     "questions": {
       "total": 250,
       "byDifficulty": {
-        "easy": 35,
-        "medium": 129,
-        "hard": 86
+        "easy": 41,
+        "medium": 134,
+        "hard": 75
       },
       "byDomain": {
         "d1": 50,
@@ -1355,26 +1377,40 @@ export const CONTENT_MANIFEST = {
   },
   "gcp-pca": {
     "questions": {
-      "total": 0,
+      "total": 250,
       "byDifficulty": {
-        "easy": 0,
-        "medium": 0,
-        "hard": 0
+        "easy": 57,
+        "medium": 125,
+        "hard": 68
       },
-      "byDomain": {},
-      "packs": 0,
-      "loadedPacks": 0
+      "byDomain": {
+        "d1": 60,
+        "d2": 50,
+        "d3": 45,
+        "d4": 40,
+        "d5": 30,
+        "d6": 25
+      },
+      "packs": 10,
+      "loadedPacks": 10
     },
     "flashcards": {
-      "total": 0,
+      "total": 250,
       "byDifficulty": {
-        "easy": 0,
-        "medium": 0,
-        "hard": 0
+        "easy": 57,
+        "medium": 125,
+        "hard": 68
       },
-      "byDomain": {},
-      "packs": 0,
-      "loadedPacks": 0
+      "byDomain": {
+        "d1": 60,
+        "d2": 50,
+        "d3": 45,
+        "d4": 40,
+        "d5": 30,
+        "d6": 25
+      },
+      "packs": 10,
+      "loadedPacks": 10
     }
   },
   "gcp-pcdbe": {
@@ -1563,15 +1599,15 @@ export const CONTENT_MANIFEST = {
     "flashcards": {
       "total": 250,
       "byDifficulty": {
-        "easy": 83,
-        "medium": 84,
-        "hard": 83
+        "easy": 33,
+        "medium": 195,
+        "hard": 22
       },
       "byDomain": {
-        "d1": 100,
-        "d2": 63,
-        "d3": 37,
-        "d4": 50
+        "d1": 79,
+        "d2": 53,
+        "d3": 31,
+        "d4": 87
       },
       "packs": 10,
       "loadedPacks": 10
@@ -1581,15 +1617,15 @@ export const CONTENT_MANIFEST = {
     "questions": {
       "total": 250,
       "byDifficulty": {
-        "easy": 55,
-        "medium": 124,
-        "hard": 71
+        "easy": 27,
+        "medium": 170,
+        "hard": 53
       },
       "byDomain": {
-        "d1": 30,
-        "d2": 30,
-        "d3": 133,
-        "d4": 57
+        "d1": 55,
+        "d2": 55,
+        "d3": 95,
+        "d4": 45
       },
       "packs": 10,
       "loadedPacks": 10
@@ -1597,15 +1633,15 @@ export const CONTENT_MANIFEST = {
     "flashcards": {
       "total": 250,
       "byDifficulty": {
-        "easy": 83,
-        "medium": 84,
-        "hard": 83
+        "easy": 30,
+        "medium": 198,
+        "hard": 22
       },
       "byDomain": {
-        "d1": 62,
-        "d2": 63,
-        "d3": 88,
-        "d4": 37
+        "d1": 52,
+        "d2": 57,
+        "d3": 92,
+        "d4": 49
       },
       "packs": 10,
       "loadedPacks": 10
@@ -1613,26 +1649,40 @@ export const CONTENT_MANIFEST = {
   },
   "hashicorp-tfa": {
     "questions": {
-      "total": 0,
+      "total": 250,
       "byDifficulty": {
-        "easy": 0,
-        "medium": 0,
-        "hard": 0
+        "easy": 63,
+        "medium": 125,
+        "hard": 62
       },
-      "byDomain": {},
-      "packs": 0,
-      "loadedPacks": 0
+      "byDomain": {
+        "d1": 25,
+        "d2": 38,
+        "d3": 50,
+        "d4": 37,
+        "d5": 50,
+        "d6": 50
+      },
+      "packs": 10,
+      "loadedPacks": 10
     },
     "flashcards": {
-      "total": 0,
+      "total": 250,
       "byDifficulty": {
-        "easy": 0,
-        "medium": 0,
-        "hard": 0
+        "easy": 63,
+        "medium": 125,
+        "hard": 62
       },
-      "byDomain": {},
-      "packs": 0,
-      "loadedPacks": 0
+      "byDomain": {
+        "d1": 25,
+        "d2": 38,
+        "d3": 50,
+        "d4": 37,
+        "d5": 50,
+        "d6": 50
+      },
+      "packs": 10,
+      "loadedPacks": 10
     }
   },
   "hashicorp-tfp": {
@@ -1797,26 +1847,38 @@ export const CONTENT_MANIFEST = {
   },
   "k8s-ckad": {
     "questions": {
-      "total": 0,
+      "total": 250,
       "byDifficulty": {
-        "easy": 0,
-        "medium": 0,
-        "hard": 0
+        "easy": 69,
+        "medium": 125,
+        "hard": 56
       },
-      "byDomain": {},
-      "packs": 0,
-      "loadedPacks": 0
+      "byDomain": {
+        "d1": 50,
+        "d2": 50,
+        "d3": 38,
+        "d4": 62,
+        "d5": 50
+      },
+      "packs": 10,
+      "loadedPacks": 10
     },
     "flashcards": {
-      "total": 0,
+      "total": 250,
       "byDifficulty": {
-        "easy": 0,
-        "medium": 0,
-        "hard": 0
+        "easy": 69,
+        "medium": 125,
+        "hard": 56
       },
-      "byDomain": {},
-      "packs": 0,
-      "loadedPacks": 0
+      "byDomain": {
+        "d1": 50,
+        "d2": 50,
+        "d3": 38,
+        "d4": 62,
+        "d5": 50
+      },
+      "packs": 10,
+      "loadedPacks": 10
     }
   },
   "k8s-cks": {
@@ -1884,7 +1946,7 @@ export const CONTENT_MANIFEST = {
 };
 
 export const CONTENT_TOTALS = {
-  "questions": 5500,
-  "flashcards": 5500,
+  "questions": 6750,
+  "flashcards": 6750,
   "certifications": 68
 };
