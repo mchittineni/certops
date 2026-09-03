@@ -24,6 +24,7 @@ lcov.info
 # Content snapshots taken automatically by `npm run check`.
 # These are local safety copies of src/data/certs; the packs themselves ARE committed.
 .content-backups/
+scratch/
 
 # Logs
 *.log
