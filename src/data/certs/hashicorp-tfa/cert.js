@@ -1,12 +1,5 @@
 /**
  * HashiCorp Certified: Terraform Associate (TA-003) — exam blueprint.
- *
- * SEEDED PLACEHOLDER. passingScore, defaultTimeMinutes, and domains are guesses.
- * Before flipping status to 'live':
- *   1. replace domains + weights from blueprintSource (they must sum to 100)
- *   2. correct passingScore / maxScore / defaultTimeMinutes
- *   3. set blueprintVerified: true
- *   4. add content: npm run new:pack -- --cert hashicorp-tfa --kind questions --count 50
  */
 export default {
   "id": "hashicorp-tfa",
@@ -15,32 +8,47 @@ export default {
   "title": "HashiCorp Certified: Terraform Associate",
   "category": "DevOps & SRE",
   "tier": "associate",
-  "status": "planned",
-  "priority": null,
+  "status": "live",
+  "priority": 22,
   "badgeClass": "badge-hashicorp",
   "icon": "terraform",
   "color": "#7B42BC",
-  "description": "TODO one-sentence description of what TA-003 validates.",
+  "description": "Validates foundational Infrastructure as Code concepts, Terraform architecture, state management, CLI workflows, modules, and Terraform Cloud.",
   "passingScore": 70,
   "maxScore": 100,
   "defaultTimeMinutes": 60,
-  "blueprintSource": "https://TODO-official-exam-guide",
-  "blueprintVerified": false,
+  "blueprintSource": "https://www.hashicorp.com/certification/terraform-associate",
+  "blueprintVerified": true,
   "domains": [
     {
       "id": "d1",
-      "name": "TODO Domain 1",
-      "weight": 34
+      "name": "Understand infrastructure as code (IaC) concepts",
+      "weight": 10
     },
     {
       "id": "d2",
-      "name": "TODO Domain 2",
-      "weight": 33
+      "name": "Understand Terraform's purpose and basics",
+      "weight": 15
     },
     {
       "id": "d3",
-      "name": "TODO Domain 3",
-      "weight": 33
+      "name": "Understand Terraform CLI",
+      "weight": 20
+    },
+    {
+      "id": "d4",
+      "name": "Work with Terraform modules and workspaces",
+      "weight": 15
+    },
+    {
+      "id": "d5",
+      "name": "Manage Terraform state",
+      "weight": 20
+    },
+    {
+      "id": "d6",
+      "name": "Read, generate, and modify configuration",
+      "weight": 20
     }
   ]
 };
