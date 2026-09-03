@@ -9,12 +9,12 @@ export const AWS_CLF_QUESTIONS_10 = [
     scenario: "A security operations team wants to deploy a third-party next-generation firewall appliance on Amazon EC2 with software licensing billed by the hour directly through AWS.",
     question: "Which AWS portal enables purchasing and launching pre-configured third-party software with consolidated AWS billing?",
     options: [
-      { id: 'A', text: "AWS Service Catalog" },
-      { id: 'B', text: "AWS Marketplace" },
-      { id: 'C', text: "AWS Partner Central" },
-      { id: 'D', text: "Amazon AppStream 2.0" }
+      { id: 'A', text: "AWS Partner Central" },
+      { id: 'B', text: "Amazon AppStream 2.0" },
+      { id: 'C', text: "AWS Service Catalog" },
+      { id: 'D', text: "AWS Marketplace" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "AWS Marketplace is a curated digital catalog that makes it easy for customers to find, buy, deploy, and manage third-party software, data, and services with pay-as-you-go billing on their AWS invoice.",
     referenceUrl: "https://aws.amazon.com/marketplace",
@@ -31,11 +31,11 @@ export const AWS_CLF_QUESTIONS_10 = [
     question: "Why do some EC2 instances show up as untagged in Cost Explorer reports?",
     options: [
       { id: 'A', text: "Cost Explorer only tags compute instances in `us-east-1`." },
-      { id: 'B', text: "The resources were launched without the `CostCenter` tag key or the tag was assigned after usage occurred." },
-      { id: 'C', text: "Cost allocation tags do not apply to EC2 instances." },
-      { id: 'D', text: "Tags require manual approval by AWS Support." }
+      { id: 'B', text: "Cost allocation tags do not apply to EC2 instances." },
+      { id: 'C', text: "Tags require manual approval by AWS Support." },
+      { id: 'D', text: "The resources were launched without the `CostCenter` tag key or the tag was assigned after usage occurred." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Cost Allocation Tags apply from the time of tag activation and assignment onward; resources that lack the specified tag or generated usage prior to tag activation appear as untagged.",
     referenceUrl: "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html",
@@ -177,12 +177,12 @@ export const AWS_CLF_QUESTIONS_10 = [
     scenario: "A big data processing workload wants to combine On-Demand Instances for baseline capacity with Spot Instances across multiple instance types to maximize compute power at lowest cost.",
     question: "Which Amazon EC2 feature allows an Auto Scaling group to launch a mix of On-Demand and Spot instances across multiple instance families?",
     options: [
-      { id: 'A', text: "Auto Scaling Mixed Instances Policy" },
-      { id: 'B', text: "Capacity Reservations" },
-      { id: 'C', text: "Placement Groups" },
-      { id: 'D', text: "Dedicated Hosts" }
+      { id: 'A', text: "Dedicated Hosts" },
+      { id: 'B', text: "Placement Groups" },
+      { id: 'C', text: "Capacity Reservations" },
+      { id: 'D', text: "Auto Scaling Mixed Instances Policy" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "An EC2 Auto Scaling Mixed Instances Policy allows you to launch and automatically scale a fleet of On-Demand and Spot instances across multiple instance types and purchasing models in a single Auto Scaling group.",
     referenceUrl: "https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html",
@@ -219,12 +219,12 @@ export const AWS_CLF_QUESTIONS_10 = [
     scenario: "A compliance auditor needs to filter and extract a few specific records from a 10 GB archived log file stored in Amazon S3 Glacier without restoring the entire 10 GB archive file.",
     question: "Which feature allows running SQL queries directly on data stored in Amazon S3 Glacier archives?",
     options: [
-      { id: 'A', text: "Amazon Redshift Spectrum" },
-      { id: 'B', text: "AWS Glue" },
-      { id: 'C', text: "S3 Glacier Select" },
-      { id: 'D', text: "Amazon Athena" }
+      { id: 'A', text: "AWS Glue" },
+      { id: 'B', text: "Amazon Redshift Spectrum" },
+      { id: 'C', text: "Amazon Athena" },
+      { id: 'D', text: "S3 Glacier Select" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "S3 Glacier Select allows you to run queries directly on data stored in S3 Glacier archives using simple SQL statements, retrieving only the filtered subset of data you need without unarchiving the whole object.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/glacier-select.html",
@@ -240,12 +240,12 @@ export const AWS_CLF_QUESTIONS_10 = [
     scenario: "An administrator with AWS Basic Support runs AWS Trusted Advisor. They notice only core security checks are available, while full checks require upgraded support.",
     question: "Which AWS Support tiers unlock all AWS Trusted Advisor checks across all five categories?",
     options: [
-      { id: 'A', text: "Business Support and Enterprise Support (including Enterprise On-Ramp)" },
-      { id: 'B', text: "Developer Support" },
+      { id: 'A', text: "Developer Support" },
+      { id: 'B', text: "All checks are free for all customers." },
       { id: 'C', text: "Basic Support" },
-      { id: 'D', text: "All checks are free for all customers." }
+      { id: 'D', text: "Business Support and Enterprise Support (including Enterprise On-Ramp)" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Basic and Developer Support include only core Trusted Advisor checks (such as basic S3 bucket permissions and IAM MFA). Business and Enterprise Support tiers unlock the full suite of Trusted Advisor checks.",
     referenceUrl: "https://docs.aws.amazon.com/awssupport/latest/user/trusted-advisor.html",
@@ -282,12 +282,12 @@ export const AWS_CLF_QUESTIONS_10 = [
     scenario: "An architect is selecting an AWS Region to deploy a multi-tier high-availability architecture across multiple data centres.",
     question: "What is the minimum number of Availability Zones contained in every AWS Region?",
     options: [
-      { id: 'A', text: "Exactly 1 Availability Zone" },
-      { id: 'B', text: "Each Region contains only 1 server rack" },
-      { id: 'C', text: "At least 10 Availability Zones" },
-      { id: 'D', text: "At least 3 Availability Zones (minimum 2 in select legacy Regions)" }
+      { id: 'A', text: "At least 3 Availability Zones (minimum 2 in select legacy Regions)" },
+      { id: 'B', text: "At least 10 Availability Zones" },
+      { id: 'C', text: "Each Region contains only 1 server rack" },
+      { id: 'D', text: "Exactly 1 Availability Zone" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Every modern AWS Region consists of multiple, isolated, and physically separate Availability Zones within a geographic area, typically three or more (minimum two in select legacy regions).",
     referenceUrl: "https://aws.amazon.com/about-aws/global-infrastructure/regions_az/",
@@ -345,12 +345,12 @@ export const AWS_CLF_QUESTIONS_10 = [
     scenario: "A chief financial officer asks for a projected forecast of the company's AWS spend for the next 3 to 12 months based on historical consumption trends.",
     question: "Which AWS cost management tool provides automated cost forecasting models based on past usage history?",
     options: [
-      { id: 'A', text: "AWS Compute Optimizer" },
-      { id: 'B', text: "AWS Trusted Advisor" },
-      { id: 'C', text: "AWS Pricing Calculator" },
-      { id: 'D', text: "AWS Cost Explorer" }
+      { id: 'A', text: "AWS Pricing Calculator" },
+      { id: 'B', text: "AWS Cost Explorer" },
+      { id: 'C', text: "AWS Compute Optimizer" },
+      { id: 'D', text: "AWS Trusted Advisor" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "AWS Cost Explorer includes a forecasting feature that uses machine learning algorithms based on your historical usage patterns to project future cloud costs up to 12 months in advance.",
     referenceUrl: "https://docs.aws.amazon.com/cost-management/latest/userguide/ce-forecast.html",
@@ -387,9 +387,9 @@ export const AWS_CLF_QUESTIONS_10 = [
     scenario: "A security manager needs continuous security scoring and automated evaluation of all AWS resources against the Center for Internet Security (CIS) AWS Foundations Benchmark.",
     question: "Which AWS service performs continuous automated compliance checks against security standards like CIS and PCI-DSS?",
     options: [
-      { id: 'A', text: "AWS CloudTrail" },
-      { id: 'B', text: "AWS Artifact" },
-      { id: 'C', text: "Amazon GuardDuty" },
+      { id: 'A', text: "AWS Artifact" },
+      { id: 'B', text: "Amazon GuardDuty" },
+      { id: 'C', text: "AWS CloudTrail" },
       { id: 'D', text: "AWS Security Hub" }
     ],
     correctAnswers: ['D'],
@@ -450,9 +450,9 @@ export const AWS_CLF_QUESTIONS_10 = [
     scenario: "An enterprise finance director needs assistance understanding complex billing questions, analyzing consolidated invoices, and optimizing billing structures with a dedicated billing specialist.",
     question: "Which AWS Support resource is a dedicated billing and account expert provided exclusively to Enterprise Support customers?",
     options: [
-      { id: 'A', text: "AWS Partner Network" },
-      { id: 'B', text: "Technical Account Manager (TAM)" },
-      { id: 'C', text: "Cloud Support Associate" },
+      { id: 'A', text: "Cloud Support Associate" },
+      { id: 'B', text: "AWS Partner Network" },
+      { id: 'C', text: "Technical Account Manager (TAM)" },
       { id: 'D', text: "AWS Concierge Support Team" }
     ],
     correctAnswers: ['D'],
@@ -471,9 +471,9 @@ export const AWS_CLF_QUESTIONS_10 = [
     scenario: "An engineer creates an Amazon RDS Multi-AZ PostgreSQL database. They want to know if the standby replica instance can be used by developers for read-only reporting queries.",
     question: "Can an application directly connect to and query the standby replica instance in a standard Amazon RDS Multi-AZ deployment?",
     options: [
-      { id: 'A', text: "Yes, if provisioned with SSD gp3 storage." },
-      { id: 'B', text: "Yes, the standby replica automatically load-balances read traffic." },
-      { id: 'C', text: "Yes, by connecting to the standby's public IP address." },
+      { id: 'A', text: "Yes, by connecting to the standby's public IP address." },
+      { id: 'B', text: "Yes, if provisioned with SSD gp3 storage." },
+      { id: 'C', text: "Yes, the standby replica automatically load-balances read traffic." },
       { id: 'D', text: "No, in a standard RDS Multi-AZ deployment, the standby replica is strictly for high availability and failover and cannot accept read connections (unlike Read Replicas)." }
     ],
     correctAnswers: ['D'],

@@ -9,10 +9,10 @@ export const AWS_CLF_QUESTIONS_1 = [
     scenario: "A company is moving a web application onto Amazon EC2 instances and wants to confirm which security tasks remain its own responsibility rather than AWS's under the AWS Shared Responsibility Model.",
     question: "Which task is the responsibility of the customer?",
     options: [
-      { id: 'A', text: "Patching the hypervisor that hosts EC2 instances." },
-      { id: 'B', text: "Maintaining physical access controls at AWS Availability Zones." },
+      { id: 'A', text: "Maintaining physical access controls at AWS Availability Zones." },
+      { id: 'B', text: "Replacing failed physical disks in the AWS data centre." },
       { id: 'C', text: "Applying operating system and application security patches on the EC2 instances." },
-      { id: 'D', text: "Replacing failed physical disks in the AWS data centre." }
+      { id: 'D', text: "Patching the hypervisor that hosts EC2 instances." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -72,12 +72,12 @@ export const AWS_CLF_QUESTIONS_1 = [
     scenario: "A new AWS account has been created and the team is reviewing the security recommendations in the IAM console before granting anyone access.",
     question: "Which action is an AWS security best practice for the account root user?",
     options: [
-      { id: 'A', text: "Share the root user password with all administrators so they can respond to incidents." },
-      { id: 'B', text: "Enable multi-factor authentication on the root user, then create individual IAM identities for daily work and stop using root." },
-      { id: 'C', text: "Create root user access keys and store them in the application configuration." },
-      { id: 'D', text: "Use the root user for daily administration but rotate its password monthly." }
+      { id: 'A', text: "Create root user access keys and store them in the application configuration." },
+      { id: 'B', text: "Use the root user for daily administration but rotate its password monthly." },
+      { id: 'C', text: "Share the root user password with all administrators so they can respond to incidents." },
+      { id: 'D', text: "Enable multi-factor authentication on the root user, then create individual IAM identities for daily work and stop using root." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "AWS recommends locking away the root user: enable MFA on it, do not create root access keys, and perform everyday work with individual IAM users or roles that have least-privilege permissions. Sharing root credentials destroys auditability, root access keys are an explicit anti-pattern, and using root for daily work means every action runs with unrestricted permissions.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html",
@@ -93,12 +93,12 @@ export const AWS_CLF_QUESTIONS_1 = [
     scenario: "A retailer must move 400 TB of historical sales archives from an on-premises SAN into Amazon S3. The site has a 100 Mbps internet uplink that is already 70% utilised during business hours, and the migration must finish within three weeks.",
     question: "Which AWS service should the company use?",
     options: [
-      { id: 'A', text: "AWS DataSync over the existing internet connection." },
-      { id: 'B', text: "AWS Database Migration Service (DMS) with a full-load task." },
-      { id: 'C', text: "The S3 console multipart upload feature run overnight." },
-      { id: 'D', text: "AWS Snowball Edge Storage Optimized devices shipped to the AWS Region." }
+      { id: 'A', text: "AWS Database Migration Service (DMS) with a full-load task." },
+      { id: 'B', text: "AWS DataSync over the existing internet connection." },
+      { id: 'C', text: "AWS Snowball Edge Storage Optimized devices shipped to the AWS Region." },
+      { id: 'D', text: "The S3 console multipart upload feature run overnight." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "At an effective 30 Mbps of spare bandwidth, 400 TB would take well over a year to transfer online, so a physical offline transfer device is the only option that meets the deadline. AWS Snowball Edge ships ruggedised appliances you fill locally and return to AWS. DataSync and multipart upload are still bound by the uplink, and DMS is for databases, not file archives.",
     referenceUrl: "https://docs.aws.amazon.com/snowball/latest/developer-guide/whatisedge.html",
@@ -114,12 +114,12 @@ export const AWS_CLF_QUESTIONS_1 = [
     scenario: "During a compliance audit, the security team must produce evidence of which identity deleted a specific Amazon S3 bucket, when, and from which source IP address.",
     question: "Which AWS service provides this record?",
     options: [
-      { id: 'A', text: "Amazon CloudWatch metrics for the S3 namespace." },
-      { id: 'B', text: "AWS CloudTrail event history." },
-      { id: 'C', text: "AWS Trusted Advisor security checks." },
+      { id: 'A', text: "AWS CloudTrail event history." },
+      { id: 'B', text: "AWS Trusted Advisor security checks." },
+      { id: 'C', text: "Amazon CloudWatch metrics for the S3 namespace." },
       { id: 'D', text: "Amazon Inspector assessment reports." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "AWS CloudTrail records management-plane API activity - the identity, timestamp, source IP, request parameters, and response for every call - which is exactly the audit trail required. CloudWatch reports performance metrics, Trusted Advisor gives best-practice recommendations, and Amazon Inspector scans workloads for software vulnerabilities.",
     referenceUrl: "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html",
@@ -198,12 +198,12 @@ export const AWS_CLF_QUESTIONS_1 = [
     scenario: "An architect designs an application to run across multiple Availability Zones in an AWS Region so that the system remains accessible even if a single data centre experiences a power failure.",
     question: "Which cloud architectural concept is demonstrated by deploying across multiple Availability Zones?",
     options: [
-      { id: 'A', text: "High Availability" },
-      { id: 'B', text: "Data Sovereignty" },
+      { id: 'A', text: "Data Sovereignty" },
+      { id: 'B', text: "Cost Reduction" },
       { id: 'C', text: "Strict Latency Optimization" },
-      { id: 'D', text: "Cost Reduction" }
+      { id: 'D', text: "High Availability" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "High Availability (HA) ensures that systems operate continuously without failing for long periods by deploying redundant components across independent fault domains, such as multiple AWS Availability Zones. If one AZ fails, traffic is routed to operational AZs with minimal or no downtime.",
     referenceUrl: "https://docs.aws.amazon.com/whitepapers/latest/real-time-communication-on-aws/high-availability-and-fault-tolerance.html",
@@ -241,11 +241,11 @@ export const AWS_CLF_QUESTIONS_1 = [
     question: "Which security best practice should be applied when crafting the IAM policy?",
     options: [
       { id: 'A', text: "Allow full S3 access (`s3:*`) across all AWS resources." },
-      { id: 'B', text: "Grant least privilege by allowing only `s3:GetObject` on `arn:aws:s3:::company-media/*`." },
-      { id: 'C', text: "Attach the AWS managed `AdministratorAccess` policy with a temporary expiration." },
-      { id: 'D', text: "Grant full administrator access to avoid blocking development progress." }
+      { id: 'B', text: "Attach the AWS managed `AdministratorAccess` policy with a temporary expiration." },
+      { id: 'C', text: "Grant full administrator access to avoid blocking development progress." },
+      { id: 'D', text: "Grant least privilege by allowing only `s3:GetObject` on `arn:aws:s3:::company-media/*`." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The principle of least privilege states that users should be granted only the minimum permissions required to perform their specific job functions. Granting `s3:GetObject` on the specific bucket path enforces least privilege without exposing sensitive delete operations or other buckets.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#grant-least-privilege",
@@ -262,11 +262,11 @@ export const AWS_CLF_QUESTIONS_1 = [
     question: "Which AWS service provides automatic DDoS protection out-of-the-box for all AWS workloads?",
     options: [
       { id: 'A', text: "AWS Network Firewall" },
-      { id: 'B', text: "AWS Shield Standard" },
-      { id: 'C', text: "AWS Shield Advanced" },
-      { id: 'D', text: "AWS WAF" }
+      { id: 'B', text: "AWS WAF" },
+      { id: 'C', text: "AWS Shield Standard" },
+      { id: 'D', text: "AWS Shield Advanced" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "AWS Shield Standard is automatically enabled for all AWS customers at no additional cost. It protects against the most common infrastructure (Layer 3 and 4) DDoS attacks, such as SYN/UDP floods and reflection attacks, safeguarding CloudFront distributions, Route 53, and Elastic Load Balancers.",
     referenceUrl: "https://docs.aws.amazon.com/waf/latest/developerguide/shield-chapter.html",
@@ -283,11 +283,11 @@ export const AWS_CLF_QUESTIONS_1 = [
     question: "Which AWS managed service manages encryption keys and integrates natively with AWS storage services?",
     options: [
       { id: 'A', text: "AWS Certificate Manager (ACM)" },
-      { id: 'B', text: "AWS Key Management Service (AWS KMS)" },
-      { id: 'C', text: "AWS CloudHSM" },
-      { id: 'D', text: "AWS Secrets Manager" }
+      { id: 'B', text: "AWS Secrets Manager" },
+      { id: 'C', text: "AWS Key Management Service (AWS KMS)" },
+      { id: 'D', text: "AWS CloudHSM" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "AWS Key Management Service (AWS KMS) makes it easy to create and control cryptographic keys used to encrypt data across AWS services and applications. KMS integrates with AWS CloudTrail to provide logs of all key usage for regulatory compliance.",
     referenceUrl: "https://docs.aws.amazon.com/kms/latest/developerguide/overview.html",
@@ -303,12 +303,12 @@ export const AWS_CLF_QUESTIONS_1 = [
     scenario: "An enterprise auditor requests copies of AWS compliance certifications, including SOC 2 reports and ISO 27001 certifications, to verify regulatory adherence.",
     question: "Which AWS portal provides on-demand access to AWS security and compliance documents?",
     options: [
-      { id: 'A', text: "AWS Security Hub" },
-      { id: 'B', text: "AWS Artifact" },
-      { id: 'C', text: "AWS Audit Manager" },
-      { id: 'D', text: "AWS Trusted Advisor" }
+      { id: 'A', text: "AWS Trusted Advisor" },
+      { id: 'B', text: "AWS Audit Manager" },
+      { id: 'C', text: "AWS Artifact" },
+      { id: 'D', text: "AWS Security Hub" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "AWS Artifact is a self-service audit portal that provides on-demand downloads of AWS security and compliance reports (such as SOC, PCI-DSS, and ISO certifications) as well as select agreements (such as Business Associate Addendum / BAA).",
     referenceUrl: "https://docs.aws.amazon.com/artifact/latest/ug/what-is-aws-artifact.html",
@@ -324,12 +324,12 @@ export const AWS_CLF_QUESTIONS_1 = [
     scenario: "A legal firm needs to archive closed client case records for 10 years to comply with regulatory mandates. Files are rarely retrieved, and retrieval times of 3-5 hours are acceptable.",
     question: "Which Amazon S3 storage class offers the lowest storage cost for long-term archival with asynchronous retrieval?",
     options: [
-      { id: 'A', text: "S3 Standard-Infrequent Access (S3 Standard-IA)" },
-      { id: 'B', text: "S3 One Zone-IA" },
-      { id: 'C', text: "S3 Glacier Flexible Retrieval" },
-      { id: 'D', text: "S3 Standard" }
+      { id: 'A', text: "S3 Standard" },
+      { id: 'B', text: "S3 Glacier Flexible Retrieval" },
+      { id: 'C', text: "S3 One Zone-IA" },
+      { id: 'D', text: "S3 Standard-Infrequent Access (S3 Standard-IA)" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "S3 Glacier Flexible Retrieval (formerly S3 Glacier) is a secure, durable, and low-cost storage class for archival data that is accessed 1-2 times per year, offering retrieval options from minutes to hours. S3 Standard is for active data, and Standard-IA is for monthly access.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html",
@@ -366,12 +366,12 @@ export const AWS_CLF_QUESTIONS_1 = [
     scenario: "A gaming company needs a fully managed, serverless database that delivers single-digit millisecond latency at any scale for player session state and leaderboards.",
     question: "Which AWS database service meets these requirements?",
     options: [
-      { id: 'A', text: "Amazon RDS for MySQL" },
-      { id: 'B', text: "Amazon Redshift" },
-      { id: 'C', text: "Amazon Aurora Serverless PostgreSQL" },
-      { id: 'D', text: "Amazon DynamoDB" }
+      { id: 'A', text: "Amazon DynamoDB" },
+      { id: 'B', text: "Amazon Aurora Serverless PostgreSQL" },
+      { id: 'C', text: "Amazon Redshift" },
+      { id: 'D', text: "Amazon RDS for MySQL" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Amazon DynamoDB is a fully managed NoSQL key-value and document database that provides single-digit millisecond performance at any scale, automatic multi-AZ data replication, and serverless on-demand capacity scaling.",
     referenceUrl: "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html",
@@ -388,11 +388,11 @@ export const AWS_CLF_QUESTIONS_1 = [
     question: "Which AWS service provides low-latency content delivery via a global network of Edge Locations?",
     options: [
       { id: 'A', text: "Amazon Route 53" },
-      { id: 'B', text: "AWS Direct Connect" },
-      { id: 'C', text: "AWS Transit Gateway" },
-      { id: 'D', text: "Amazon CloudFront" }
+      { id: 'B', text: "Amazon CloudFront" },
+      { id: 'C', text: "AWS Direct Connect" },
+      { id: 'D', text: "AWS Transit Gateway" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Amazon CloudFront is a fast Content Delivery Network (CDN) service that securely delivers data, videos, applications, and APIs to customers globally with low latency and high transfer speeds using AWS Edge Locations.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html",
@@ -408,12 +408,12 @@ export const AWS_CLF_QUESTIONS_1 = [
     scenario: "A network engineer wants to filter inbound and outbound traffic to specific Amazon EC2 instances. The firewall must operate at the instance/ENI level and be stateful.",
     question: "Which AWS networking security feature should be configured?",
     options: [
-      { id: 'A', text: "Route Tables" },
-      { id: 'B', text: "Network Access Control Lists (NACLs)" },
-      { id: 'C', text: "Security Groups" },
-      { id: 'D', text: "Internet Gateways" }
+      { id: 'A', text: "Network Access Control Lists (NACLs)" },
+      { id: 'B', text: "Route Tables" },
+      { id: 'C', text: "Internet Gateways" },
+      { id: 'D', text: "Security Groups" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Security Groups act as virtual firewalls at the instance/network interface (ENI) level and are **stateful** (return traffic is automatically allowed regardless of inbound/outbound rules). Network ACLs operate at the subnet level and are stateless.",
     referenceUrl: "https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html",
@@ -492,12 +492,12 @@ export const AWS_CLF_QUESTIONS_1 = [
     scenario: "A global web application is hosted in both `us-east-1` and `eu-central-1`. The team wants incoming DNS queries routed automatically to the AWS Region that provides the lowest network latency for the requesting user.",
     question: "Which Amazon Route 53 routing policy should be configured?",
     options: [
-      { id: 'A', text: "Weighted Routing Policy" },
+      { id: 'A', text: "Latency Routing Policy" },
       { id: 'B', text: "Geolocation Routing Policy" },
-      { id: 'C', text: "Failover Routing Policy" },
-      { id: 'D', text: "Latency Routing Policy" }
+      { id: 'C', text: "Weighted Routing Policy" },
+      { id: 'D', text: "Failover Routing Policy" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Latency Routing directs client traffic to the AWS Region that gives the user the lowest network round-trip time based on AWS worldwide network measurements. Geolocation routes based on physical geographic location (e.g. continent/country), not measured speed.",
     referenceUrl: "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-latency.html",
@@ -513,12 +513,12 @@ export const AWS_CLF_QUESTIONS_1 = [
     scenario: "A microservices application routes HTTP and HTTPS requests based on URL path rules (e.g. `/orders` vs `/catalog`) to different container target groups.",
     question: "Which Elastic Load Balancer type operates at Layer 7 and supports path-based and host-based routing?",
     options: [
-      { id: 'A', text: "Gateway Load Balancer (GWLB)" },
-      { id: 'B', text: "Network Load Balancer (NLB)" },
-      { id: 'C', text: "Application Load Balancer (ALB)" },
-      { id: 'D', text: "Classic Load Balancer (CLB)" }
+      { id: 'A', text: "Network Load Balancer (NLB)" },
+      { id: 'B', text: "Gateway Load Balancer (GWLB)" },
+      { id: 'C', text: "Classic Load Balancer (CLB)" },
+      { id: 'D', text: "Application Load Balancer (ALB)" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Application Load Balancer (ALB) operates at Layer 7 (Application Layer) and supports advanced HTTP/HTTPS routing features such as path-based routing, host-based routing, HTTP/2, and native container integration. NLB operates at Layer 4 (TCP/UDP) for extreme performance.",
     referenceUrl: "https://docs.aws.amazon.com/elasticloadbalancing/latest/application/introduction.html",
