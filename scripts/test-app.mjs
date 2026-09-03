@@ -38,8 +38,8 @@ await check('official provider marks render, with lettermarks where none is lice
   assert.ok(html.includes('aria-label="Microsoft Azure"'), 'Azure lettermark missing');
   // every mark carries a per-theme colour pair
   assert.ok(/--brand:#[0-9a-fA-F]{6};--brand-dark:#[0-9a-fA-F]{6}/.test(html), 'marks must ship both theme colours');
-  // the emoji that used to stand in for provider and discipline icons
-  for (const placeholder of ['🟧', '🟦', '🔷', '☸️', '🐙', '🐳', '♾️', '🏗️', '⬡', '🛡️']) {
+  // the old emoji placeholders for provider marks
+  for (const placeholder of ['🟧', '🟦', '🔷', '🐙', '🐳', '♾️', '⬡', '🛡️']) {
     assert.ok(!html.includes(placeholder), `emoji placeholder ${placeholder} should be replaced by a real mark`);
   }
 });
@@ -49,11 +49,17 @@ await check('the app defaults to the light theme', () => {
   assert.strictEqual(document.documentElement.attrs['data-theme'], 'light');
 });
 
-await check('all six disciplines appear in the grid', () => {
+await check('all six disciplines appear in the grid with requested iconography', () => {
   const html = dom.html();
   for (const c of ['Cloud Engineering', 'DevOps &amp; SRE', 'Kubernetes &amp; Cloud Native', 'Platform Engineering', 'FinOps', 'DevSecOps &amp; Security']) {
     assert.ok(html.includes(c), `missing discipline ${c}`);
   }
+  // User-requested discipline icons: ☁️ Cloud Engineering · 🚀 DevOps & SRE · 🏗️ Platform Engineering · 💰 FinOps · 🔐 DevSecOps & Security
+  assert.ok(html.includes('☁️'), 'missing Cloud Engineering ☁️ icon');
+  assert.ok(html.includes('🚀'), 'missing DevOps & SRE 🚀 icon');
+  assert.ok(html.includes('🏗️'), 'missing Platform Engineering 🏗️ icon');
+  assert.ok(html.includes('💰'), 'missing FinOps 💰 icon');
+  assert.ok(html.includes('🔐'), 'missing DevSecOps & Security 🔐 icon');
 });
 
 await check('discipline filter narrows the catalogue and toggles off', () => {
