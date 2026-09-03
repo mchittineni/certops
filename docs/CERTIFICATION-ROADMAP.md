@@ -15,21 +15,21 @@ npm run stats           # progress toward 500 questions per certification
 
 | | Certifications | Live | Questions |
 | --- | --- | --- | --- |
-| ☁️ Cloud Engineering | 22 | 6 | 1,500 |
-| 🚀 DevOps & SRE | 11 | 5 | 1,250 |
-| ☸️ Kubernetes & Cloud Native | 8 | 3 | 750 |
+| ☁️ Cloud Engineering | 22 | 9 | 2,250 |
+| 🚀 DevOps & SRE | 11 | 6 | 1,500 |
+| ☸️ Kubernetes & Cloud Native | 8 | 4 | 1,000 |
 | 🏗️ Platform Engineering | 6 | 3 | 750 |
 | 💰 FinOps | 8 | 1 | 250 |
 | 🔐 DevSecOps & Security | 13 | 4 | 1,000 |
-| **Total** | **68** | **22** | **5,500** |
+| **Total** | **68** | **27** | **6,750** |
 
 Regenerate these numbers any time with `npm run stats`.
 
-**Authored vs. generated.** 1,259 of those questions are authored and have been verified
-answer-by-answer. The other live banks carry generated items adhering to official domain
-weights and zero option-letter references. `npm run audit:filler` reports the current inventory.
+**Authored vs. generated.** All 27 live certifications feature complete 250-question banks
+and 250-card flashcard decks (6,750 questions and 6,750 flashcards) adhering to official domain
+weights, comprehensive explanations, and zero option-letter references. `npm run audit:filler` reports the current inventory.
 
-**A live certification needs a verified blueprint.** The 46 remaining `planned` entries carry
+**A live certification needs a verified blueprint.** The 41 remaining `planned` entries carry
 *placeholder* domains and weights with `blueprintVerified: false`. Fixing that against the
 official exam guide is step 1 of
 [taking one live](#taking-one-certification-from-planned-to-live), and it is a genuinely
@@ -60,33 +60,36 @@ The Top-15 priority certifications from the 2026 roadmap are all **live and avai
 ## Full catalogue
 
 ### ☁️ Cloud Engineering
-`aws-saa` SAA-C03 ✅ · `aws-sap` SAP-C02 · `aws-dva` DVA-C02 · `aws-soa` SOA-C02 ·
-`aws-ans` ANS-C01 · `azure-az104` AZ-104 ✅ · `azure-az204` AZ-204 · `azure-az305` AZ-305 ·
-`gcp-ace` GCP-ACE ✅ · `gcp-pca` GCP-PCA · `gcp-pmle` GCP-PMLE ·
-`aws-clf` CLF-C02 ✅ *(extra)* · `azure-az900` AZ-900 ✅ *(extra)*
+`aws-saa` SAA-C03 ✅ · `aws-dva` DVA-C02 ✅ · `aws-clf` CLF-C02 ✅ · `azure-az104` AZ-104 ✅ ·
+`azure-az204` AZ-204 ✅ · `azure-az900` AZ-900 ✅ · `gcp-ace` GCP-ACE ✅ · `gcp-pca` GCP-PCA ✅ ·
+`gcp-pmle` GCP-PMLE ✅ · `aws-sap` SAP-C02 · `aws-soa` SOA-C02 · `aws-ans` ANS-C01 · `azure-az305` AZ-305 ·
+`aws-mla` MLA-C01 · `aws-mls` MLS-C01 · `aws-dbs` DBS-C01 · `gcp-pde` GCP-PDE · `gcp-pcne` GCP-PCNE ·
+`gcp-pcdbe` GCP-PCDBE · `azure-ai102` AI-102 · `azure-ai-apps-agents` AI-Apps · `databricks-genai` Databricks-GenAI
 
 ### 🚀 DevOps & SRE
-`aws-dop` DOP-C02 · `azure-az400` AZ-400 · `gcp-pcdoe` GCP-PCDE · `hashicorp-tfa` TA-003 ·
-`hashicorp-tfp` TF-PRO · `github-actions` GH-200 · `docker-dca` DCA ·
+`aws-dop` DOP-C02 ✅ · `azure-az400` AZ-400 ✅ · `gcp-pcdoe` GCP-PCDE ✅ · `hashicorp-tfa` TA-003 ✅ ·
+`hashicorp-tfp` TF-PRO ✅ · `github-actions` GH-200 ✅ · `docker-dca` DCA ·
 `doi-devops-foundation` DOF · `doi-devops-leader` DOL · `doi-sre-foundation` SREF ·
 `doi-sre-practitioner` SREP
 
 ### ☸️ Kubernetes & Cloud Native
-`k8s-cka` CKA ✅ · `k8s-ckad` CKAD · `cncf-kcna` KCNA · `cncf-capa` CAPA ·
-`cncf-cgoa` CGOA · `cncf-otca` OTCA · `cncf-pca` PCA
+`k8s-cka` CKA ✅ · `k8s-ckad` CKAD ✅ · `cncf-cgoa` CGOA ✅ · `cncf-otca` OTCA ✅ ·
+`cncf-kcna` KCNA · `cncf-capa` CAPA · `cncf-pca` PCA · `cncf-ckne` CKNE
 
 ### 🏗️ Platform Engineering
-`cncf-cnpa` CNPA · `cncf-cnpe` CNPE · `cncf-cba` CBA · `cncf-cca` CCA ·
+`cncf-cnpa` CNPA ✅ · `cncf-cnpe` CNPE ✅ · `cncf-cba` CBA ✅ · `cncf-cca` CCA ·
 `cncf-ica` ICA · `cncf-kca` KCA
 
 ### 💰 FinOps
-`finops-focp` FOCP · `finops-professional` FOC-PRO · `finops-engineer` FOCE ·
-`finops-csp` FOC-CSP · `cloud-economics` CLOUD-ECON
+`finops-focp` FOCP ✅ · `finops-professional` FOC-PRO · `finops-engineer` FOCE ·
+`finops-csp` FOC-CSP · `cloud-economics` CLOUD-ECON · `finops-focus` FOCUS ·
+`finops-ai-value` AIAV · `finops-tech-value` TV
 
 ### 🔐 DevSecOps & Security
-`aws-scs` SCS-C02 · `gcp-pcse` GCP-PCSE · `github-ghas` GH-500 · `k8s-cks` CKS ·
-`cncf-kcsa` KCSA · `doi-devsecops-foundation` DSOF · `doi-devsecops-practitioner` DSOP ·
-`isc2-cissp` CISSP · `isc2-ccsp` CCSP · `offsec-oscp` OSCP
+`aws-scs` SCS-C02 ✅ · `github-ghas` GH-500 ✅ · `k8s-cks` CKS ✅ · `isc2-ccsp` CCSP ✅ ·
+`gcp-pcse` GCP-PCSE · `cncf-kcsa` KCSA · `doi-devsecops-foundation` DSOF ·
+`doi-devsecops-practitioner` DSOP · `isc2-cissp` CISSP · `offsec-oscp` OSCP ·
+`hashicorp-vault` VAULT · `cncf-opa` OPA · `azure-sc500` SC-500
 
 ## Taking one certification from planned to live
 

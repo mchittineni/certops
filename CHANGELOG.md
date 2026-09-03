@@ -11,6 +11,14 @@ progress is tracked by `npm run stats` and in
 ## [Unreleased]
 
 ### Content
+- Activated **5 additional certifications** with complete 250-question banks and 250-card flashcard decks (1,250 scenario questions & 1,250 flashcards across 50 question packs and 50 flashcard packs), bringing the live catalogue to **27 certifications** with **6,750 questions** and **6,750 flashcards** across 542 packs:
+  - `aws-dva` (AWS Certified Developer - Associate): 250 questions and 250 flashcards across 4 domains.
+  - `azure-az204` (Microsoft Certified: Azure Developer Associate): 250 questions and 250 flashcards across 5 domains.
+  - `gcp-pca` (Google Cloud Professional Cloud Architect): 250 questions and 250 flashcards across 6 domains.
+  - `k8s-ckad` (Certified Kubernetes Application Developer): 250 questions and 250 flashcards across 5 domains.
+  - `hashicorp-tfa` (HashiCorp Certified: Terraform Associate 003): 250 questions and 250 flashcards across 6 domains.
+- All 1,250 questions authored to the strict AWS-SAA gold standard with authentic enterprise scenarios, zero option letter references in explanations, distinct options, and 0 validation errors across all 13,500 content items.
+- Balanced option distribution across all 6,750 single-choice questions in the bank using `scripts/shuffle-options.mjs`.
 - Activated all **Top 15 priority certifications** on the 2026 roadmap, bringing the live catalog to **22 certifications** with complete 250-question banks and 250-card flashcard decks (5,500 questions & 5,500 flashcards total):
   - Priority 1: `aws-dop` (AWS Certified DevOps Engineer – Professional)
   - Priority 2: `k8s-cka` (Certified Kubernetes Administrator)
