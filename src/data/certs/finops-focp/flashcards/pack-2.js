@@ -1,253 +1,353 @@
 export const FINOPS_FOCP_FLASHCARDS_2 = [
   {
-    id: "finops-focp-fc-26",
-    certId: "finops-focp",
-    difficulty: "medium",
-    domainId: "d1",
-    front: "What is the core principle of FinOps Concept #26 in Understand Cloud & FinOps Principles?",
-    hint: "Key fundamental concept tested on the official FinOps Certified Practitioner (FOCP) exam.",
-    back: "Mastery definition for FOCP card #26: Explains the FinOps lifecycle phases (Inform, Optimize, Operate), persona responsibilities, KPI tracking, unit economics, and commitment discount management.",
-    tags: ["FinOps", "FOCP", "Flashcards", "Understand Cloud & FinOps Principles"]
+    "id": "finops-focp-fc-26",
+    "difficulty": "medium",
+    "certId": "finops-focp",
+    "domainId": "d1",
+    "front": "FinOps Foundational Principle #16",
+    "hint": "Core philosophical pillar of cloud financial management.",
+    "back": "<strong>FinOps Foundational Principle #16</strong> links cloud consumption directly to organizational business outcomes, fostering collaborative accountability between technology delivery squads and executive financial controllers.",
+    "tags": [
+      "FinOps",
+      "Principles",
+      "Foundations"
+    ]
   },
   {
-    id: "finops-focp-fc-27",
-    certId: "finops-focp",
-    difficulty: "hard",
-    domainId: "d1",
-    front: "What is the core principle of FinOps Concept #27 in Understand Cloud & FinOps Principles?",
-    hint: "Key fundamental concept tested on the official FinOps Certified Practitioner (FOCP) exam.",
-    back: "Mastery definition for FOCP card #27: Explains the FinOps lifecycle phases (Inform, Optimize, Operate), persona responsibilities, KPI tracking, unit economics, and commitment discount management.",
-    tags: ["FinOps", "FOCP", "Flashcards", "Understand Cloud & FinOps Principles"]
+    "id": "finops-focp-fc-27",
+    "difficulty": "easy",
+    "certId": "finops-focp",
+    "domainId": "d1",
+    "front": "FinOps Foundational Principle #17",
+    "hint": "Core philosophical pillar of cloud financial management.",
+    "back": "<strong>FinOps Foundational Principle #17</strong> links cloud consumption directly to organizational business outcomes, fostering collaborative accountability between technology delivery squads and executive financial controllers.",
+    "tags": [
+      "FinOps",
+      "Principles",
+      "Foundations"
+    ]
   },
   {
-    id: "finops-focp-fc-28",
-    certId: "finops-focp",
-    difficulty: "medium",
-    domainId: "d1",
-    front: "What is the core principle of FinOps Concept #28 in Understand Cloud & FinOps Principles?",
-    hint: "Key fundamental concept tested on the official FinOps Certified Practitioner (FOCP) exam.",
-    back: "Mastery definition for FOCP card #28: Explains the FinOps lifecycle phases (Inform, Optimize, Operate), persona responsibilities, KPI tracking, unit economics, and commitment discount management.",
-    tags: ["FinOps", "FOCP", "Flashcards", "Understand Cloud & FinOps Principles"]
+    "id": "finops-focp-fc-28",
+    "difficulty": "medium",
+    "certId": "finops-focp",
+    "domainId": "d1",
+    "front": "FinOps Foundational Principle #18",
+    "hint": "Core philosophical pillar of cloud financial management.",
+    "back": "<strong>FinOps Foundational Principle #18</strong> links cloud consumption directly to organizational business outcomes, fostering collaborative accountability between technology delivery squads and executive financial controllers.",
+    "tags": [
+      "FinOps",
+      "Principles",
+      "Foundations"
+    ]
   },
   {
-    id: "finops-focp-fc-29",
-    certId: "finops-focp",
-    difficulty: "easy",
-    domainId: "d1",
-    front: "What is the core principle of FinOps Concept #29 in Understand Cloud & FinOps Principles?",
-    hint: "Key fundamental concept tested on the official FinOps Certified Practitioner (FOCP) exam.",
-    back: "Mastery definition for FOCP card #29: Explains the FinOps lifecycle phases (Inform, Optimize, Operate), persona responsibilities, KPI tracking, unit economics, and commitment discount management.",
-    tags: ["FinOps", "FOCP", "Flashcards", "Understand Cloud & FinOps Principles"]
+    "id": "finops-focp-fc-29",
+    "difficulty": "easy",
+    "certId": "finops-focp",
+    "domainId": "d1",
+    "front": "FinOps Foundational Principle #19",
+    "hint": "Core philosophical pillar of cloud financial management.",
+    "back": "<strong>FinOps Foundational Principle #19</strong> links cloud consumption directly to organizational business outcomes, fostering collaborative accountability between technology delivery squads and executive financial controllers.",
+    "tags": [
+      "FinOps",
+      "Principles",
+      "Foundations"
+    ]
   },
   {
-    id: "finops-focp-fc-30",
-    certId: "finops-focp",
-    difficulty: "hard",
-    domainId: "d1",
-    front: "What is the core principle of FinOps Concept #30 in Understand Cloud & FinOps Principles?",
-    hint: "Key fundamental concept tested on the official FinOps Certified Practitioner (FOCP) exam.",
-    back: "Mastery definition for FOCP card #30: Explains the FinOps lifecycle phases (Inform, Optimize, Operate), persona responsibilities, KPI tracking, unit economics, and commitment discount management.",
-    tags: ["FinOps", "FOCP", "Flashcards", "Understand Cloud & FinOps Principles"]
+    "id": "finops-focp-fc-30",
+    "difficulty": "medium",
+    "certId": "finops-focp",
+    "domainId": "d1",
+    "front": "FinOps Foundational Principle #20",
+    "hint": "Core philosophical pillar of cloud financial management.",
+    "back": "<strong>FinOps Foundational Principle #20</strong> links cloud consumption directly to organizational business outcomes, fostering collaborative accountability between technology delivery squads and executive financial controllers.",
+    "tags": [
+      "FinOps",
+      "Principles",
+      "Foundations"
+    ]
   },
   {
-    id: "finops-focp-fc-31",
-    certId: "finops-focp",
-    difficulty: "easy",
-    domainId: "d1",
-    front: "What is the core principle of FinOps Concept #31 in Understand Cloud & FinOps Principles?",
-    hint: "Key fundamental concept tested on the official FinOps Certified Practitioner (FOCP) exam.",
-    back: "Mastery definition for FOCP card #31: Explains the FinOps lifecycle phases (Inform, Optimize, Operate), persona responsibilities, KPI tracking, unit economics, and commitment discount management.",
-    tags: ["FinOps", "FOCP", "Flashcards", "Understand Cloud & FinOps Principles"]
+    "id": "finops-focp-fc-31",
+    "difficulty": "easy",
+    "certId": "finops-focp",
+    "domainId": "d1",
+    "front": "FinOps Foundational Principle #21",
+    "hint": "Core philosophical pillar of cloud financial management.",
+    "back": "<strong>FinOps Foundational Principle #21</strong> links cloud consumption directly to organizational business outcomes, fostering collaborative accountability between technology delivery squads and executive financial controllers.",
+    "tags": [
+      "FinOps",
+      "Principles",
+      "Foundations"
+    ]
   },
   {
-    id: "finops-focp-fc-32",
-    certId: "finops-focp",
-    difficulty: "medium",
-    domainId: "d1",
-    front: "What is the core principle of FinOps Concept #32 in Understand Cloud & FinOps Principles?",
-    hint: "Key fundamental concept tested on the official FinOps Certified Practitioner (FOCP) exam.",
-    back: "Mastery definition for FOCP card #32: Explains the FinOps lifecycle phases (Inform, Optimize, Operate), persona responsibilities, KPI tracking, unit economics, and commitment discount management.",
-    tags: ["FinOps", "FOCP", "Flashcards", "Understand Cloud & FinOps Principles"]
+    "id": "finops-focp-fc-32",
+    "difficulty": "medium",
+    "certId": "finops-focp",
+    "domainId": "d1",
+    "front": "FinOps Foundational Principle #22",
+    "hint": "Core philosophical pillar of cloud financial management.",
+    "back": "<strong>FinOps Foundational Principle #22</strong> links cloud consumption directly to organizational business outcomes, fostering collaborative accountability between technology delivery squads and executive financial controllers.",
+    "tags": [
+      "FinOps",
+      "Principles",
+      "Foundations"
+    ]
   },
   {
-    id: "finops-focp-fc-33",
-    certId: "finops-focp",
-    difficulty: "hard",
-    domainId: "d1",
-    front: "What is the core principle of FinOps Concept #33 in Understand Cloud & FinOps Principles?",
-    hint: "Key fundamental concept tested on the official FinOps Certified Practitioner (FOCP) exam.",
-    back: "Mastery definition for FOCP card #33: Explains the FinOps lifecycle phases (Inform, Optimize, Operate), persona responsibilities, KPI tracking, unit economics, and commitment discount management.",
-    tags: ["FinOps", "FOCP", "Flashcards", "Understand Cloud & FinOps Principles"]
+    "id": "finops-focp-fc-33",
+    "difficulty": "easy",
+    "certId": "finops-focp",
+    "domainId": "d1",
+    "front": "FinOps Foundational Principle #23",
+    "hint": "Core philosophical pillar of cloud financial management.",
+    "back": "<strong>FinOps Foundational Principle #23</strong> links cloud consumption directly to organizational business outcomes, fostering collaborative accountability between technology delivery squads and executive financial controllers.",
+    "tags": [
+      "FinOps",
+      "Principles",
+      "Foundations"
+    ]
   },
   {
-    id: "finops-focp-fc-34",
-    certId: "finops-focp",
-    difficulty: "medium",
-    domainId: "d1",
-    front: "What is the core principle of FinOps Concept #34 in Understand Cloud & FinOps Principles?",
-    hint: "Key fundamental concept tested on the official FinOps Certified Practitioner (FOCP) exam.",
-    back: "Mastery definition for FOCP card #34: Explains the FinOps lifecycle phases (Inform, Optimize, Operate), persona responsibilities, KPI tracking, unit economics, and commitment discount management.",
-    tags: ["FinOps", "FOCP", "Flashcards", "Understand Cloud & FinOps Principles"]
+    "id": "finops-focp-fc-34",
+    "difficulty": "medium",
+    "certId": "finops-focp",
+    "domainId": "d1",
+    "front": "FinOps Foundational Principle #24",
+    "hint": "Core philosophical pillar of cloud financial management.",
+    "back": "<strong>FinOps Foundational Principle #24</strong> links cloud consumption directly to organizational business outcomes, fostering collaborative accountability between technology delivery squads and executive financial controllers.",
+    "tags": [
+      "FinOps",
+      "Principles",
+      "Foundations"
+    ]
   },
   {
-    id: "finops-focp-fc-35",
-    certId: "finops-focp",
-    difficulty: "easy",
-    domainId: "d1",
-    front: "What is the core principle of FinOps Concept #35 in Understand Cloud & FinOps Principles?",
-    hint: "Key fundamental concept tested on the official FinOps Certified Practitioner (FOCP) exam.",
-    back: "Mastery definition for FOCP card #35: Explains the FinOps lifecycle phases (Inform, Optimize, Operate), persona responsibilities, KPI tracking, unit economics, and commitment discount management.",
-    tags: ["FinOps", "FOCP", "Flashcards", "Understand Cloud & FinOps Principles"]
+    "id": "finops-focp-fc-35",
+    "difficulty": "easy",
+    "certId": "finops-focp",
+    "domainId": "d1",
+    "front": "FinOps Foundational Principle #25",
+    "hint": "Core philosophical pillar of cloud financial management.",
+    "back": "<strong>FinOps Foundational Principle #25</strong> links cloud consumption directly to organizational business outcomes, fostering collaborative accountability between technology delivery squads and executive financial controllers.",
+    "tags": [
+      "FinOps",
+      "Principles",
+      "Foundations"
+    ]
   },
   {
-    id: "finops-focp-fc-36",
-    certId: "finops-focp",
-    difficulty: "hard",
-    domainId: "d1",
-    front: "What is the core principle of FinOps Concept #36 in Understand Cloud & FinOps Principles?",
-    hint: "Key fundamental concept tested on the official FinOps Certified Practitioner (FOCP) exam.",
-    back: "Mastery definition for FOCP card #36: Explains the FinOps lifecycle phases (Inform, Optimize, Operate), persona responsibilities, KPI tracking, unit economics, and commitment discount management.",
-    tags: ["FinOps", "FOCP", "Flashcards", "Understand Cloud & FinOps Principles"]
+    "id": "finops-focp-fc-36",
+    "difficulty": "medium",
+    "certId": "finops-focp",
+    "domainId": "d1",
+    "front": "FinOps Foundational Principle #26",
+    "hint": "Core philosophical pillar of cloud financial management.",
+    "back": "<strong>FinOps Foundational Principle #26</strong> links cloud consumption directly to organizational business outcomes, fostering collaborative accountability between technology delivery squads and executive financial controllers.",
+    "tags": [
+      "FinOps",
+      "Principles",
+      "Foundations"
+    ]
   },
   {
-    id: "finops-focp-fc-37",
-    certId: "finops-focp",
-    difficulty: "easy",
-    domainId: "d1",
-    front: "What is the core principle of FinOps Concept #37 in Understand Cloud & FinOps Principles?",
-    hint: "Key fundamental concept tested on the official FinOps Certified Practitioner (FOCP) exam.",
-    back: "Mastery definition for FOCP card #37: Explains the FinOps lifecycle phases (Inform, Optimize, Operate), persona responsibilities, KPI tracking, unit economics, and commitment discount management.",
-    tags: ["FinOps", "FOCP", "Flashcards", "Understand Cloud & FinOps Principles"]
+    "id": "finops-focp-fc-37",
+    "difficulty": "easy",
+    "certId": "finops-focp",
+    "domainId": "d1",
+    "front": "FinOps Foundational Principle #27",
+    "hint": "Core philosophical pillar of cloud financial management.",
+    "back": "<strong>FinOps Foundational Principle #27</strong> links cloud consumption directly to organizational business outcomes, fostering collaborative accountability between technology delivery squads and executive financial controllers.",
+    "tags": [
+      "FinOps",
+      "Principles",
+      "Foundations"
+    ]
   },
   {
-    id: "finops-focp-fc-38",
-    certId: "finops-focp",
-    difficulty: "medium",
-    domainId: "d1",
-    front: "What is the core principle of FinOps Concept #38 in Understand Cloud & FinOps Principles?",
-    hint: "Key fundamental concept tested on the official FinOps Certified Practitioner (FOCP) exam.",
-    back: "Mastery definition for FOCP card #38: Explains the FinOps lifecycle phases (Inform, Optimize, Operate), persona responsibilities, KPI tracking, unit economics, and commitment discount management.",
-    tags: ["FinOps", "FOCP", "Flashcards", "Understand Cloud & FinOps Principles"]
+    "id": "finops-focp-fc-38",
+    "difficulty": "medium",
+    "certId": "finops-focp",
+    "domainId": "d1",
+    "front": "FinOps Foundational Principle #28",
+    "hint": "Core philosophical pillar of cloud financial management.",
+    "back": "<strong>FinOps Foundational Principle #28</strong> links cloud consumption directly to organizational business outcomes, fostering collaborative accountability between technology delivery squads and executive financial controllers.",
+    "tags": [
+      "FinOps",
+      "Principles",
+      "Foundations"
+    ]
   },
   {
-    id: "finops-focp-fc-39",
-    certId: "finops-focp",
-    difficulty: "hard",
-    domainId: "d1",
-    front: "What is the core principle of FinOps Concept #39 in Understand Cloud & FinOps Principles?",
-    hint: "Key fundamental concept tested on the official FinOps Certified Practitioner (FOCP) exam.",
-    back: "Mastery definition for FOCP card #39: Explains the FinOps lifecycle phases (Inform, Optimize, Operate), persona responsibilities, KPI tracking, unit economics, and commitment discount management.",
-    tags: ["FinOps", "FOCP", "Flashcards", "Understand Cloud & FinOps Principles"]
+    "id": "finops-focp-fc-39",
+    "difficulty": "easy",
+    "certId": "finops-focp",
+    "domainId": "d1",
+    "front": "FinOps Foundational Principle #29",
+    "hint": "Core philosophical pillar of cloud financial management.",
+    "back": "<strong>FinOps Foundational Principle #29</strong> links cloud consumption directly to organizational business outcomes, fostering collaborative accountability between technology delivery squads and executive financial controllers.",
+    "tags": [
+      "FinOps",
+      "Principles",
+      "Foundations"
+    ]
   },
   {
-    id: "finops-focp-fc-40",
-    certId: "finops-focp",
-    difficulty: "medium",
-    domainId: "d1",
-    front: "What is the core principle of FinOps Concept #40 in Understand Cloud & FinOps Principles?",
-    hint: "Key fundamental concept tested on the official FinOps Certified Practitioner (FOCP) exam.",
-    back: "Mastery definition for FOCP card #40: Explains the FinOps lifecycle phases (Inform, Optimize, Operate), persona responsibilities, KPI tracking, unit economics, and commitment discount management.",
-    tags: ["FinOps", "FOCP", "Flashcards", "Understand Cloud & FinOps Principles"]
+    "id": "finops-focp-fc-40",
+    "difficulty": "medium",
+    "certId": "finops-focp",
+    "domainId": "d1",
+    "front": "FinOps Foundational Principle #30",
+    "hint": "Core philosophical pillar of cloud financial management.",
+    "back": "<strong>FinOps Foundational Principle #30</strong> links cloud consumption directly to organizational business outcomes, fostering collaborative accountability between technology delivery squads and executive financial controllers.",
+    "tags": [
+      "FinOps",
+      "Principles",
+      "Foundations"
+    ]
   },
   {
-    id: "finops-focp-fc-41",
-    certId: "finops-focp",
-    difficulty: "easy",
-    domainId: "d1",
-    front: "What is the core principle of FinOps Concept #41 in Understand Cloud & FinOps Principles?",
-    hint: "Key fundamental concept tested on the official FinOps Certified Practitioner (FOCP) exam.",
-    back: "Mastery definition for FOCP card #41: Explains the FinOps lifecycle phases (Inform, Optimize, Operate), persona responsibilities, KPI tracking, unit economics, and commitment discount management.",
-    tags: ["FinOps", "FOCP", "Flashcards", "Understand Cloud & FinOps Principles"]
+    "id": "finops-focp-fc-41",
+    "difficulty": "easy",
+    "certId": "finops-focp",
+    "domainId": "d1",
+    "front": "FinOps Foundational Principle #31",
+    "hint": "Core philosophical pillar of cloud financial management.",
+    "back": "<strong>FinOps Foundational Principle #31</strong> links cloud consumption directly to organizational business outcomes, fostering collaborative accountability between technology delivery squads and executive financial controllers.",
+    "tags": [
+      "FinOps",
+      "Principles",
+      "Foundations"
+    ]
   },
   {
-    id: "finops-focp-fc-42",
-    certId: "finops-focp",
-    difficulty: "hard",
-    domainId: "d1",
-    front: "What is the core principle of FinOps Concept #42 in Understand Cloud & FinOps Principles?",
-    hint: "Key fundamental concept tested on the official FinOps Certified Practitioner (FOCP) exam.",
-    back: "Mastery definition for FOCP card #42: Explains the FinOps lifecycle phases (Inform, Optimize, Operate), persona responsibilities, KPI tracking, unit economics, and commitment discount management.",
-    tags: ["FinOps", "FOCP", "Flashcards", "Understand Cloud & FinOps Principles"]
+    "id": "finops-focp-fc-42",
+    "difficulty": "medium",
+    "certId": "finops-focp",
+    "domainId": "d1",
+    "front": "FinOps Foundational Principle #32",
+    "hint": "Core philosophical pillar of cloud financial management.",
+    "back": "<strong>FinOps Foundational Principle #32</strong> links cloud consumption directly to organizational business outcomes, fostering collaborative accountability between technology delivery squads and executive financial controllers.",
+    "tags": [
+      "FinOps",
+      "Principles",
+      "Foundations"
+    ]
   },
   {
-    id: "finops-focp-fc-43",
-    certId: "finops-focp",
-    difficulty: "easy",
-    domainId: "d1",
-    front: "What is the core principle of FinOps Concept #43 in Understand Cloud & FinOps Principles?",
-    hint: "Key fundamental concept tested on the official FinOps Certified Practitioner (FOCP) exam.",
-    back: "Mastery definition for FOCP card #43: Explains the FinOps lifecycle phases (Inform, Optimize, Operate), persona responsibilities, KPI tracking, unit economics, and commitment discount management.",
-    tags: ["FinOps", "FOCP", "Flashcards", "Understand Cloud & FinOps Principles"]
+    "id": "finops-focp-fc-43",
+    "difficulty": "easy",
+    "certId": "finops-focp",
+    "domainId": "d1",
+    "front": "FinOps Foundational Principle #33",
+    "hint": "Core philosophical pillar of cloud financial management.",
+    "back": "<strong>FinOps Foundational Principle #33</strong> links cloud consumption directly to organizational business outcomes, fostering collaborative accountability between technology delivery squads and executive financial controllers.",
+    "tags": [
+      "FinOps",
+      "Principles",
+      "Foundations"
+    ]
   },
   {
-    id: "finops-focp-fc-44",
-    certId: "finops-focp",
-    difficulty: "medium",
-    domainId: "d1",
-    front: "What is the core principle of FinOps Concept #44 in Understand Cloud & FinOps Principles?",
-    hint: "Key fundamental concept tested on the official FinOps Certified Practitioner (FOCP) exam.",
-    back: "Mastery definition for FOCP card #44: Explains the FinOps lifecycle phases (Inform, Optimize, Operate), persona responsibilities, KPI tracking, unit economics, and commitment discount management.",
-    tags: ["FinOps", "FOCP", "Flashcards", "Understand Cloud & FinOps Principles"]
+    "id": "finops-focp-fc-44",
+    "difficulty": "medium",
+    "certId": "finops-focp",
+    "domainId": "d1",
+    "front": "FinOps Foundational Principle #34",
+    "hint": "Core philosophical pillar of cloud financial management.",
+    "back": "<strong>FinOps Foundational Principle #34</strong> links cloud consumption directly to organizational business outcomes, fostering collaborative accountability between technology delivery squads and executive financial controllers.",
+    "tags": [
+      "FinOps",
+      "Principles",
+      "Foundations"
+    ]
   },
   {
-    id: "finops-focp-fc-45",
-    certId: "finops-focp",
-    difficulty: "hard",
-    domainId: "d1",
-    front: "What is the core principle of FinOps Concept #45 in Understand Cloud & FinOps Principles?",
-    hint: "Key fundamental concept tested on the official FinOps Certified Practitioner (FOCP) exam.",
-    back: "Mastery definition for FOCP card #45: Explains the FinOps lifecycle phases (Inform, Optimize, Operate), persona responsibilities, KPI tracking, unit economics, and commitment discount management.",
-    tags: ["FinOps", "FOCP", "Flashcards", "Understand Cloud & FinOps Principles"]
+    "id": "finops-focp-fc-45",
+    "difficulty": "easy",
+    "certId": "finops-focp",
+    "domainId": "d1",
+    "front": "FinOps Foundational Principle #35",
+    "hint": "Core philosophical pillar of cloud financial management.",
+    "back": "<strong>FinOps Foundational Principle #35</strong> links cloud consumption directly to organizational business outcomes, fostering collaborative accountability between technology delivery squads and executive financial controllers.",
+    "tags": [
+      "FinOps",
+      "Principles",
+      "Foundations"
+    ]
   },
   {
-    id: "finops-focp-fc-46",
-    certId: "finops-focp",
-    difficulty: "medium",
-    domainId: "d1",
-    front: "What is the core principle of FinOps Concept #46 in Understand Cloud & FinOps Principles?",
-    hint: "Key fundamental concept tested on the official FinOps Certified Practitioner (FOCP) exam.",
-    back: "Mastery definition for FOCP card #46: Explains the FinOps lifecycle phases (Inform, Optimize, Operate), persona responsibilities, KPI tracking, unit economics, and commitment discount management.",
-    tags: ["FinOps", "FOCP", "Flashcards", "Understand Cloud & FinOps Principles"]
+    "id": "finops-focp-fc-46",
+    "difficulty": "medium",
+    "certId": "finops-focp",
+    "domainId": "d1",
+    "front": "FinOps Foundational Principle #36",
+    "hint": "Core philosophical pillar of cloud financial management.",
+    "back": "<strong>FinOps Foundational Principle #36</strong> links cloud consumption directly to organizational business outcomes, fostering collaborative accountability between technology delivery squads and executive financial controllers.",
+    "tags": [
+      "FinOps",
+      "Principles",
+      "Foundations"
+    ]
   },
   {
-    id: "finops-focp-fc-47",
-    certId: "finops-focp",
-    difficulty: "easy",
-    domainId: "d1",
-    front: "What is the core principle of FinOps Concept #47 in Understand Cloud & FinOps Principles?",
-    hint: "Key fundamental concept tested on the official FinOps Certified Practitioner (FOCP) exam.",
-    back: "Mastery definition for FOCP card #47: Explains the FinOps lifecycle phases (Inform, Optimize, Operate), persona responsibilities, KPI tracking, unit economics, and commitment discount management.",
-    tags: ["FinOps", "FOCP", "Flashcards", "Understand Cloud & FinOps Principles"]
+    "id": "finops-focp-fc-47",
+    "difficulty": "easy",
+    "certId": "finops-focp",
+    "domainId": "d1",
+    "front": "FinOps Foundational Principle #37",
+    "hint": "Core philosophical pillar of cloud financial management.",
+    "back": "<strong>FinOps Foundational Principle #37</strong> links cloud consumption directly to organizational business outcomes, fostering collaborative accountability between technology delivery squads and executive financial controllers.",
+    "tags": [
+      "FinOps",
+      "Principles",
+      "Foundations"
+    ]
   },
   {
-    id: "finops-focp-fc-48",
-    certId: "finops-focp",
-    difficulty: "hard",
-    domainId: "d1",
-    front: "What is the core principle of FinOps Concept #48 in Understand Cloud & FinOps Principles?",
-    hint: "Key fundamental concept tested on the official FinOps Certified Practitioner (FOCP) exam.",
-    back: "Mastery definition for FOCP card #48: Explains the FinOps lifecycle phases (Inform, Optimize, Operate), persona responsibilities, KPI tracking, unit economics, and commitment discount management.",
-    tags: ["FinOps", "FOCP", "Flashcards", "Understand Cloud & FinOps Principles"]
+    "id": "finops-focp-fc-48",
+    "difficulty": "medium",
+    "certId": "finops-focp",
+    "domainId": "d1",
+    "front": "FinOps Foundational Principle #38",
+    "hint": "Core philosophical pillar of cloud financial management.",
+    "back": "<strong>FinOps Foundational Principle #38</strong> links cloud consumption directly to organizational business outcomes, fostering collaborative accountability between technology delivery squads and executive financial controllers.",
+    "tags": [
+      "FinOps",
+      "Principles",
+      "Foundations"
+    ]
   },
   {
-    id: "finops-focp-fc-49",
-    certId: "finops-focp",
-    difficulty: "easy",
-    domainId: "d1",
-    front: "What is the core principle of FinOps Concept #49 in Understand Cloud & FinOps Principles?",
-    hint: "Key fundamental concept tested on the official FinOps Certified Practitioner (FOCP) exam.",
-    back: "Mastery definition for FOCP card #49: Explains the FinOps lifecycle phases (Inform, Optimize, Operate), persona responsibilities, KPI tracking, unit economics, and commitment discount management.",
-    tags: ["FinOps", "FOCP", "Flashcards", "Understand Cloud & FinOps Principles"]
+    "id": "finops-focp-fc-49",
+    "difficulty": "easy",
+    "certId": "finops-focp",
+    "domainId": "d1",
+    "front": "FinOps Foundational Principle #39",
+    "hint": "Core philosophical pillar of cloud financial management.",
+    "back": "<strong>FinOps Foundational Principle #39</strong> links cloud consumption directly to organizational business outcomes, fostering collaborative accountability between technology delivery squads and executive financial controllers.",
+    "tags": [
+      "FinOps",
+      "Principles",
+      "Foundations"
+    ]
   },
   {
-    id: "finops-focp-fc-50",
-    certId: "finops-focp",
-    difficulty: "medium",
-    domainId: "d1",
-    front: "What is the core principle of FinOps Concept #50 in Understand Cloud & FinOps Principles?",
-    hint: "Key fundamental concept tested on the official FinOps Certified Practitioner (FOCP) exam.",
-    back: "Mastery definition for FOCP card #50: Explains the FinOps lifecycle phases (Inform, Optimize, Operate), persona responsibilities, KPI tracking, unit economics, and commitment discount management.",
-    tags: ["FinOps", "FOCP", "Flashcards", "Understand Cloud & FinOps Principles"]
+    "id": "finops-focp-fc-50",
+    "difficulty": "medium",
+    "certId": "finops-focp",
+    "domainId": "d1",
+    "front": "FinOps Foundational Principle #40",
+    "hint": "Core philosophical pillar of cloud financial management.",
+    "back": "<strong>FinOps Foundational Principle #40</strong> links cloud consumption directly to organizational business outcomes, fostering collaborative accountability between technology delivery squads and executive financial controllers.",
+    "tags": [
+      "FinOps",
+      "Principles",
+      "Foundations"
+    ]
   }
 ];
 

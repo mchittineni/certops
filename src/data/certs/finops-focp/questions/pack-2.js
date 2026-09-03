@@ -5,41 +5,41 @@ export const FINOPS_FOCP_QUESTIONS_2 = [
     certId: "finops-focp",
     domainId: "d1",
     domainName: "Understand Cloud & FinOps Principles",
-    title: "FOCP Scenario #26: Understand Cloud & FinOps Principles",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #26.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #26?",
+    title: "FinOps Principles Practice #8",
+    scenario: "An organization is modernizing its cloud financial operations, aligning cross-functional teams to eliminate waste and maximize business value.",
+    question: "Which FinOps principle or foundational concept is demonstrated in scenario #8?",
     options: [
-      { id: 'A', text: "Option A: Official FinOps Foundation standard practice for Understand Cloud & FinOps Principles driving cloud financial accountability." },
-      { id: 'B', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'C', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'D', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." }
+      { id: 'A', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" },
+      { id: 'B', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" },
+      { id: 'C', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" },
+      { id: 'D', text: "Managing cloud spend strictly through retrospective annual audits" }
     ],
     correctAnswers: ['A'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #26: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "Understand Cloud & FinOps Principles"]
+    explanation: "FinOps principles mandate continuous cross-functional collaboration and real-time visibility. Aligning engineering, finance, and procurement ensures that cloud spending decisions are data-driven, agile, and aligned with core business value.",
+    referenceUrl: "https://www.finops.org/framework/principles/",
+    tags: ["FinOps", "Principles", "Culture"]
   },
   {
     id: "focp-27",
-    difficulty: "hard",
+    difficulty: "easy",
     certId: "finops-focp",
     domainId: "d1",
     domainName: "Understand Cloud & FinOps Principles",
-    title: "FOCP Scenario #27: Understand Cloud & FinOps Principles",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #27.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #27?",
+    title: "FinOps Principles Practice #9",
+    scenario: "An organization is modernizing its cloud financial operations, aligning cross-functional teams to eliminate waste and maximize business value.",
+    question: "Which FinOps principle or foundational concept is demonstrated in scenario #9?",
     options: [
-      { id: 'A', text: "Option A: Official FinOps Foundation standard practice for Understand Cloud & FinOps Principles driving cloud financial accountability." },
-      { id: 'B', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'C', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'D', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." }
+      { id: 'A', text: "Managing cloud spend strictly through retrospective annual audits" },
+      { id: 'B', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" },
+      { id: 'C', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" },
+      { id: 'D', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #27: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "Understand Cloud & FinOps Principles"]
+    explanation: "FinOps principles mandate continuous cross-functional collaboration and real-time visibility. Aligning engineering, finance, and procurement ensures that cloud spending decisions are data-driven, agile, and aligned with core business value.",
+    referenceUrl: "https://www.finops.org/framework/principles/",
+    tags: ["FinOps", "Principles", "Culture"]
   },
   {
     id: "focp-28",
@@ -47,20 +47,20 @@ export const FINOPS_FOCP_QUESTIONS_2 = [
     certId: "finops-focp",
     domainId: "d1",
     domainName: "Understand Cloud & FinOps Principles",
-    title: "FOCP Scenario #28: Understand Cloud & FinOps Principles",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #28.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #28?",
+    title: "FinOps Principles Practice #10",
+    scenario: "An organization is modernizing its cloud financial operations, aligning cross-functional teams to eliminate waste and maximize business value.",
+    question: "Which FinOps principle or foundational concept is demonstrated in scenario #10?",
     options: [
-      { id: 'A', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'B', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'C', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'D', text: "Option A: Official FinOps Foundation standard practice for Understand Cloud & FinOps Principles driving cloud financial accountability." }
+      { id: 'A', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" },
+      { id: 'B', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" },
+      { id: 'C', text: "Managing cloud spend strictly through retrospective annual audits" },
+      { id: 'D', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #28: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "Understand Cloud & FinOps Principles"]
+    explanation: "FinOps principles mandate continuous cross-functional collaboration and real-time visibility. Aligning engineering, finance, and procurement ensures that cloud spending decisions are data-driven, agile, and aligned with core business value.",
+    referenceUrl: "https://www.finops.org/framework/principles/",
+    tags: ["FinOps", "Principles", "Culture"]
   },
   {
     id: "focp-29",
@@ -68,41 +68,41 @@ export const FINOPS_FOCP_QUESTIONS_2 = [
     certId: "finops-focp",
     domainId: "d1",
     domainName: "Understand Cloud & FinOps Principles",
-    title: "FOCP Scenario #29: Understand Cloud & FinOps Principles",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #29.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #29?",
+    title: "FinOps Principles Practice #11",
+    scenario: "An organization is modernizing its cloud financial operations, aligning cross-functional teams to eliminate waste and maximize business value.",
+    question: "Which FinOps principle or foundational concept is demonstrated in scenario #11?",
     options: [
-      { id: 'A', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'B', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'C', text: "Option A: Official FinOps Foundation standard practice for Understand Cloud & FinOps Principles driving cloud financial accountability." },
-      { id: 'D', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." }
+      { id: 'A', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" },
+      { id: 'B', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" },
+      { id: 'C', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" },
+      { id: 'D', text: "Managing cloud spend strictly through retrospective annual audits" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #29: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "Understand Cloud & FinOps Principles"]
+    explanation: "FinOps principles mandate continuous cross-functional collaboration and real-time visibility. Aligning engineering, finance, and procurement ensures that cloud spending decisions are data-driven, agile, and aligned with core business value.",
+    referenceUrl: "https://www.finops.org/framework/principles/",
+    tags: ["FinOps", "Principles", "Culture"]
   },
   {
     id: "focp-30",
-    difficulty: "hard",
+    difficulty: "medium",
     certId: "finops-focp",
     domainId: "d1",
     domainName: "Understand Cloud & FinOps Principles",
-    title: "FOCP Scenario #30: Understand Cloud & FinOps Principles",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #30.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #30?",
+    title: "FinOps Principles Practice #12",
+    scenario: "An organization is modernizing its cloud financial operations, aligning cross-functional teams to eliminate waste and maximize business value.",
+    question: "Which FinOps principle or foundational concept is demonstrated in scenario #12?",
     options: [
-      { id: 'A', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'B', text: "Option A: Official FinOps Foundation standard practice for Understand Cloud & FinOps Principles driving cloud financial accountability." },
-      { id: 'C', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'D', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." }
+      { id: 'A', text: "Managing cloud spend strictly through retrospective annual audits" },
+      { id: 'B', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" },
+      { id: 'C', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" },
+      { id: 'D', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #30: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "Understand Cloud & FinOps Principles"]
+    explanation: "FinOps principles mandate continuous cross-functional collaboration and real-time visibility. Aligning engineering, finance, and procurement ensures that cloud spending decisions are data-driven, agile, and aligned with core business value.",
+    referenceUrl: "https://www.finops.org/framework/principles/",
+    tags: ["FinOps", "Principles", "Culture"]
   },
   {
     id: "focp-31",
@@ -110,20 +110,20 @@ export const FINOPS_FOCP_QUESTIONS_2 = [
     certId: "finops-focp",
     domainId: "d1",
     domainName: "Understand Cloud & FinOps Principles",
-    title: "FOCP Scenario #31: Understand Cloud & FinOps Principles",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #31.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #31?",
+    title: "FinOps Principles Practice #13",
+    scenario: "An organization is modernizing its cloud financial operations, aligning cross-functional teams to eliminate waste and maximize business value.",
+    question: "Which FinOps principle or foundational concept is demonstrated in scenario #13?",
     options: [
-      { id: 'A', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'B', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'C', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'D', text: "Option A: Official FinOps Foundation standard practice for Understand Cloud & FinOps Principles driving cloud financial accountability." }
+      { id: 'A', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" },
+      { id: 'B', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" },
+      { id: 'C', text: "Managing cloud spend strictly through retrospective annual audits" },
+      { id: 'D', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #31: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "Understand Cloud & FinOps Principles"]
+    explanation: "FinOps principles mandate continuous cross-functional collaboration and real-time visibility. Aligning engineering, finance, and procurement ensures that cloud spending decisions are data-driven, agile, and aligned with core business value.",
+    referenceUrl: "https://www.finops.org/framework/principles/",
+    tags: ["FinOps", "Principles", "Culture"]
   },
   {
     id: "focp-32",
@@ -131,41 +131,41 @@ export const FINOPS_FOCP_QUESTIONS_2 = [
     certId: "finops-focp",
     domainId: "d1",
     domainName: "Understand Cloud & FinOps Principles",
-    title: "FOCP Scenario #32: Understand Cloud & FinOps Principles",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #32.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #32?",
+    title: "FinOps Principles Practice #14",
+    scenario: "An organization is modernizing its cloud financial operations, aligning cross-functional teams to eliminate waste and maximize business value.",
+    question: "Which FinOps principle or foundational concept is demonstrated in scenario #14?",
     options: [
-      { id: 'A', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'B', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'C', text: "Option A: Official FinOps Foundation standard practice for Understand Cloud & FinOps Principles driving cloud financial accountability." },
-      { id: 'D', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." }
+      { id: 'A', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" },
+      { id: 'B', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" },
+      { id: 'C', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" },
+      { id: 'D', text: "Managing cloud spend strictly through retrospective annual audits" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #32: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "Understand Cloud & FinOps Principles"]
+    explanation: "FinOps principles mandate continuous cross-functional collaboration and real-time visibility. Aligning engineering, finance, and procurement ensures that cloud spending decisions are data-driven, agile, and aligned with core business value.",
+    referenceUrl: "https://www.finops.org/framework/principles/",
+    tags: ["FinOps", "Principles", "Culture"]
   },
   {
     id: "focp-33",
-    difficulty: "hard",
+    difficulty: "easy",
     certId: "finops-focp",
     domainId: "d1",
     domainName: "Understand Cloud & FinOps Principles",
-    title: "FOCP Scenario #33: Understand Cloud & FinOps Principles",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #33.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #33?",
+    title: "FinOps Principles Practice #15",
+    scenario: "An organization is modernizing its cloud financial operations, aligning cross-functional teams to eliminate waste and maximize business value.",
+    question: "Which FinOps principle or foundational concept is demonstrated in scenario #15?",
     options: [
-      { id: 'A', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'B', text: "Option A: Official FinOps Foundation standard practice for Understand Cloud & FinOps Principles driving cloud financial accountability." },
-      { id: 'C', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'D', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." }
+      { id: 'A', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" },
+      { id: 'B', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" },
+      { id: 'C', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" },
+      { id: 'D', text: "Managing cloud spend strictly through retrospective annual audits" }
     ],
     correctAnswers: ['B'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #33: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "Understand Cloud & FinOps Principles"]
+    explanation: "FinOps principles mandate continuous cross-functional collaboration and real-time visibility. Aligning engineering, finance, and procurement ensures that cloud spending decisions are data-driven, agile, and aligned with core business value.",
+    referenceUrl: "https://www.finops.org/framework/principles/",
+    tags: ["FinOps", "Principles", "Culture"]
   },
   {
     id: "focp-34",
@@ -173,20 +173,20 @@ export const FINOPS_FOCP_QUESTIONS_2 = [
     certId: "finops-focp",
     domainId: "d1",
     domainName: "Understand Cloud & FinOps Principles",
-    title: "FOCP Scenario #34: Understand Cloud & FinOps Principles",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #34.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #34?",
+    title: "FinOps Principles Practice #16",
+    scenario: "An organization is modernizing its cloud financial operations, aligning cross-functional teams to eliminate waste and maximize business value.",
+    question: "Which FinOps principle or foundational concept is demonstrated in scenario #16?",
     options: [
-      { id: 'A', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'B', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'C', text: "Option A: Official FinOps Foundation standard practice for Understand Cloud & FinOps Principles driving cloud financial accountability." },
-      { id: 'D', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." }
+      { id: 'A', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" },
+      { id: 'B', text: "Managing cloud spend strictly through retrospective annual audits" },
+      { id: 'C', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" },
+      { id: 'D', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #34: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "Understand Cloud & FinOps Principles"]
+    explanation: "FinOps principles mandate continuous cross-functional collaboration and real-time visibility. Aligning engineering, finance, and procurement ensures that cloud spending decisions are data-driven, agile, and aligned with core business value.",
+    referenceUrl: "https://www.finops.org/framework/principles/",
+    tags: ["FinOps", "Principles", "Culture"]
   },
   {
     id: "focp-35",
@@ -194,41 +194,41 @@ export const FINOPS_FOCP_QUESTIONS_2 = [
     certId: "finops-focp",
     domainId: "d1",
     domainName: "Understand Cloud & FinOps Principles",
-    title: "FOCP Scenario #35: Understand Cloud & FinOps Principles",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #35.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #35?",
+    title: "FinOps Principles Practice #17",
+    scenario: "An organization is modernizing its cloud financial operations, aligning cross-functional teams to eliminate waste and maximize business value.",
+    question: "Which FinOps principle or foundational concept is demonstrated in scenario #17?",
     options: [
-      { id: 'A', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'B', text: "Option A: Official FinOps Foundation standard practice for Understand Cloud & FinOps Principles driving cloud financial accountability." },
-      { id: 'C', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'D', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." }
+      { id: 'A', text: "Managing cloud spend strictly through retrospective annual audits" },
+      { id: 'B', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" },
+      { id: 'C', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" },
+      { id: 'D', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #35: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "Understand Cloud & FinOps Principles"]
+    explanation: "FinOps principles mandate continuous cross-functional collaboration and real-time visibility. Aligning engineering, finance, and procurement ensures that cloud spending decisions are data-driven, agile, and aligned with core business value.",
+    referenceUrl: "https://www.finops.org/framework/principles/",
+    tags: ["FinOps", "Principles", "Culture"]
   },
   {
     id: "focp-36",
-    difficulty: "hard",
+    difficulty: "medium",
     certId: "finops-focp",
     domainId: "d1",
     domainName: "Understand Cloud & FinOps Principles",
-    title: "FOCP Scenario #36: Understand Cloud & FinOps Principles",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #36.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #36?",
+    title: "FinOps Principles Practice #18",
+    scenario: "An organization is modernizing its cloud financial operations, aligning cross-functional teams to eliminate waste and maximize business value.",
+    question: "Which FinOps principle or foundational concept is demonstrated in scenario #18?",
     options: [
-      { id: 'A', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'B', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'C', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'D', text: "Option A: Official FinOps Foundation standard practice for Understand Cloud & FinOps Principles driving cloud financial accountability." }
+      { id: 'A', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" },
+      { id: 'B', text: "Managing cloud spend strictly through retrospective annual audits" },
+      { id: 'C', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" },
+      { id: 'D', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #36: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "Understand Cloud & FinOps Principles"]
+    explanation: "FinOps principles mandate continuous cross-functional collaboration and real-time visibility. Aligning engineering, finance, and procurement ensures that cloud spending decisions are data-driven, agile, and aligned with core business value.",
+    referenceUrl: "https://www.finops.org/framework/principles/",
+    tags: ["FinOps", "Principles", "Culture"]
   },
   {
     id: "focp-37",
@@ -236,20 +236,20 @@ export const FINOPS_FOCP_QUESTIONS_2 = [
     certId: "finops-focp",
     domainId: "d1",
     domainName: "Understand Cloud & FinOps Principles",
-    title: "FOCP Scenario #37: Understand Cloud & FinOps Principles",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #37.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #37?",
+    title: "FinOps Principles Practice #19",
+    scenario: "An organization is modernizing its cloud financial operations, aligning cross-functional teams to eliminate waste and maximize business value.",
+    question: "Which FinOps principle or foundational concept is demonstrated in scenario #19?",
     options: [
-      { id: 'A', text: "Option A: Official FinOps Foundation standard practice for Understand Cloud & FinOps Principles driving cloud financial accountability." },
-      { id: 'B', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'C', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'D', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." }
+      { id: 'A', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" },
+      { id: 'B', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" },
+      { id: 'C', text: "Managing cloud spend strictly through retrospective annual audits" },
+      { id: 'D', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #37: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "Understand Cloud & FinOps Principles"]
+    explanation: "FinOps principles mandate continuous cross-functional collaboration and real-time visibility. Aligning engineering, finance, and procurement ensures that cloud spending decisions are data-driven, agile, and aligned with core business value.",
+    referenceUrl: "https://www.finops.org/framework/principles/",
+    tags: ["FinOps", "Principles", "Culture"]
   },
   {
     id: "focp-38",
@@ -257,41 +257,41 @@ export const FINOPS_FOCP_QUESTIONS_2 = [
     certId: "finops-focp",
     domainId: "d1",
     domainName: "Understand Cloud & FinOps Principles",
-    title: "FOCP Scenario #38: Understand Cloud & FinOps Principles",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #38.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #38?",
+    title: "FinOps Principles Practice #20",
+    scenario: "An organization is modernizing its cloud financial operations, aligning cross-functional teams to eliminate waste and maximize business value.",
+    question: "Which FinOps principle or foundational concept is demonstrated in scenario #20?",
     options: [
-      { id: 'A', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'B', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'C', text: "Option A: Official FinOps Foundation standard practice for Understand Cloud & FinOps Principles driving cloud financial accountability." },
-      { id: 'D', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." }
+      { id: 'A', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" },
+      { id: 'B', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" },
+      { id: 'C', text: "Managing cloud spend strictly through retrospective annual audits" },
+      { id: 'D', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #38: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "Understand Cloud & FinOps Principles"]
+    explanation: "FinOps principles mandate continuous cross-functional collaboration and real-time visibility. Aligning engineering, finance, and procurement ensures that cloud spending decisions are data-driven, agile, and aligned with core business value.",
+    referenceUrl: "https://www.finops.org/framework/principles/",
+    tags: ["FinOps", "Principles", "Culture"]
   },
   {
     id: "focp-39",
-    difficulty: "hard",
+    difficulty: "easy",
     certId: "finops-focp",
     domainId: "d1",
     domainName: "Understand Cloud & FinOps Principles",
-    title: "FOCP Scenario #39: Understand Cloud & FinOps Principles",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #39.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #39?",
+    title: "FinOps Principles Practice #21",
+    scenario: "An organization is modernizing its cloud financial operations, aligning cross-functional teams to eliminate waste and maximize business value.",
+    question: "Which FinOps principle or foundational concept is demonstrated in scenario #21?",
     options: [
-      { id: 'A', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'B', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'C', text: "Option A: Official FinOps Foundation standard practice for Understand Cloud & FinOps Principles driving cloud financial accountability." },
-      { id: 'D', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." }
+      { id: 'A', text: "Managing cloud spend strictly through retrospective annual audits" },
+      { id: 'B', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" },
+      { id: 'C', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" },
+      { id: 'D', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #39: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "Understand Cloud & FinOps Principles"]
+    explanation: "FinOps principles mandate continuous cross-functional collaboration and real-time visibility. Aligning engineering, finance, and procurement ensures that cloud spending decisions are data-driven, agile, and aligned with core business value.",
+    referenceUrl: "https://www.finops.org/framework/principles/",
+    tags: ["FinOps", "Principles", "Culture"]
   },
   {
     id: "focp-40",
@@ -299,20 +299,20 @@ export const FINOPS_FOCP_QUESTIONS_2 = [
     certId: "finops-focp",
     domainId: "d1",
     domainName: "Understand Cloud & FinOps Principles",
-    title: "FOCP Scenario #40: Understand Cloud & FinOps Principles",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #40.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #40?",
+    title: "FinOps Principles Practice #22",
+    scenario: "An organization is modernizing its cloud financial operations, aligning cross-functional teams to eliminate waste and maximize business value.",
+    question: "Which FinOps principle or foundational concept is demonstrated in scenario #22?",
     options: [
-      { id: 'A', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'B', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'C', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'D', text: "Option A: Official FinOps Foundation standard practice for Understand Cloud & FinOps Principles driving cloud financial accountability." }
+      { id: 'A', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" },
+      { id: 'B', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" },
+      { id: 'C', text: "Managing cloud spend strictly through retrospective annual audits" },
+      { id: 'D', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" }
     ],
     correctAnswers: ['D'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #40: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "Understand Cloud & FinOps Principles"]
+    explanation: "FinOps principles mandate continuous cross-functional collaboration and real-time visibility. Aligning engineering, finance, and procurement ensures that cloud spending decisions are data-driven, agile, and aligned with core business value.",
+    referenceUrl: "https://www.finops.org/framework/principles/",
+    tags: ["FinOps", "Principles", "Culture"]
   },
   {
     id: "focp-41",
@@ -320,41 +320,41 @@ export const FINOPS_FOCP_QUESTIONS_2 = [
     certId: "finops-focp",
     domainId: "d1",
     domainName: "Understand Cloud & FinOps Principles",
-    title: "FOCP Scenario #41: Understand Cloud & FinOps Principles",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #41.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #41?",
+    title: "FinOps Principles Practice #23",
+    scenario: "An organization is modernizing its cloud financial operations, aligning cross-functional teams to eliminate waste and maximize business value.",
+    question: "Which FinOps principle or foundational concept is demonstrated in scenario #23?",
     options: [
-      { id: 'A', text: "Option A: Official FinOps Foundation standard practice for Understand Cloud & FinOps Principles driving cloud financial accountability." },
-      { id: 'B', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'C', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'D', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." }
+      { id: 'A', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" },
+      { id: 'B', text: "Managing cloud spend strictly through retrospective annual audits" },
+      { id: 'C', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" },
+      { id: 'D', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #41: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "Understand Cloud & FinOps Principles"]
+    explanation: "FinOps principles mandate continuous cross-functional collaboration and real-time visibility. Aligning engineering, finance, and procurement ensures that cloud spending decisions are data-driven, agile, and aligned with core business value.",
+    referenceUrl: "https://www.finops.org/framework/principles/",
+    tags: ["FinOps", "Principles", "Culture"]
   },
   {
     id: "focp-42",
-    difficulty: "hard",
+    difficulty: "medium",
     certId: "finops-focp",
     domainId: "d1",
     domainName: "Understand Cloud & FinOps Principles",
-    title: "FOCP Scenario #42: Understand Cloud & FinOps Principles",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #42.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #42?",
+    title: "FinOps Principles Practice #24",
+    scenario: "An organization is modernizing its cloud financial operations, aligning cross-functional teams to eliminate waste and maximize business value.",
+    question: "Which FinOps principle or foundational concept is demonstrated in scenario #24?",
     options: [
-      { id: 'A', text: "Option A: Official FinOps Foundation standard practice for Understand Cloud & FinOps Principles driving cloud financial accountability." },
-      { id: 'B', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'C', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'D', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." }
+      { id: 'A', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" },
+      { id: 'B', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" },
+      { id: 'C', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" },
+      { id: 'D', text: "Managing cloud spend strictly through retrospective annual audits" }
     ],
     correctAnswers: ['A'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #42: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "Understand Cloud & FinOps Principles"]
+    explanation: "FinOps principles mandate continuous cross-functional collaboration and real-time visibility. Aligning engineering, finance, and procurement ensures that cloud spending decisions are data-driven, agile, and aligned with core business value.",
+    referenceUrl: "https://www.finops.org/framework/principles/",
+    tags: ["FinOps", "Principles", "Culture"]
   },
   {
     id: "focp-43",
@@ -362,20 +362,20 @@ export const FINOPS_FOCP_QUESTIONS_2 = [
     certId: "finops-focp",
     domainId: "d1",
     domainName: "Understand Cloud & FinOps Principles",
-    title: "FOCP Scenario #43: Understand Cloud & FinOps Principles",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #43.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #43?",
+    title: "FinOps Principles Practice #25",
+    scenario: "An organization is modernizing its cloud financial operations, aligning cross-functional teams to eliminate waste and maximize business value.",
+    question: "Which FinOps principle or foundational concept is demonstrated in scenario #25?",
     options: [
-      { id: 'A', text: "Option A: Official FinOps Foundation standard practice for Understand Cloud & FinOps Principles driving cloud financial accountability." },
-      { id: 'B', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'C', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'D', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." }
+      { id: 'A', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" },
+      { id: 'B', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" },
+      { id: 'C', text: "Managing cloud spend strictly through retrospective annual audits" },
+      { id: 'D', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" }
     ],
     correctAnswers: ['A'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #43: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "Understand Cloud & FinOps Principles"]
+    explanation: "FinOps principles mandate continuous cross-functional collaboration and real-time visibility. Aligning engineering, finance, and procurement ensures that cloud spending decisions are data-driven, agile, and aligned with core business value.",
+    referenceUrl: "https://www.finops.org/framework/principles/",
+    tags: ["FinOps", "Principles", "Culture"]
   },
   {
     id: "focp-44",
@@ -383,41 +383,41 @@ export const FINOPS_FOCP_QUESTIONS_2 = [
     certId: "finops-focp",
     domainId: "d1",
     domainName: "Understand Cloud & FinOps Principles",
-    title: "FOCP Scenario #44: Understand Cloud & FinOps Principles",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #44.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #44?",
+    title: "FinOps Principles Practice #26",
+    scenario: "An organization is modernizing its cloud financial operations, aligning cross-functional teams to eliminate waste and maximize business value.",
+    question: "Which FinOps principle or foundational concept is demonstrated in scenario #26?",
     options: [
-      { id: 'A', text: "Option A: Official FinOps Foundation standard practice for Understand Cloud & FinOps Principles driving cloud financial accountability." },
-      { id: 'B', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'C', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'D', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." }
+      { id: 'A', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" },
+      { id: 'B', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" },
+      { id: 'C', text: "Managing cloud spend strictly through retrospective annual audits" },
+      { id: 'D', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #44: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "Understand Cloud & FinOps Principles"]
+    explanation: "FinOps principles mandate continuous cross-functional collaboration and real-time visibility. Aligning engineering, finance, and procurement ensures that cloud spending decisions are data-driven, agile, and aligned with core business value.",
+    referenceUrl: "https://www.finops.org/framework/principles/",
+    tags: ["FinOps", "Principles", "Culture"]
   },
   {
     id: "focp-45",
-    difficulty: "hard",
+    difficulty: "easy",
     certId: "finops-focp",
     domainId: "d1",
     domainName: "Understand Cloud & FinOps Principles",
-    title: "FOCP Scenario #45: Understand Cloud & FinOps Principles",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #45.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #45?",
+    title: "FinOps Principles Practice #27",
+    scenario: "An organization is modernizing its cloud financial operations, aligning cross-functional teams to eliminate waste and maximize business value.",
+    question: "Which FinOps principle or foundational concept is demonstrated in scenario #27?",
     options: [
-      { id: 'A', text: "Option A: Official FinOps Foundation standard practice for Understand Cloud & FinOps Principles driving cloud financial accountability." },
-      { id: 'B', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'C', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'D', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." }
+      { id: 'A', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" },
+      { id: 'B', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" },
+      { id: 'C', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" },
+      { id: 'D', text: "Managing cloud spend strictly through retrospective annual audits" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #45: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "Understand Cloud & FinOps Principles"]
+    explanation: "FinOps principles mandate continuous cross-functional collaboration and real-time visibility. Aligning engineering, finance, and procurement ensures that cloud spending decisions are data-driven, agile, and aligned with core business value.",
+    referenceUrl: "https://www.finops.org/framework/principles/",
+    tags: ["FinOps", "Principles", "Culture"]
   },
   {
     id: "focp-46",
@@ -425,20 +425,20 @@ export const FINOPS_FOCP_QUESTIONS_2 = [
     certId: "finops-focp",
     domainId: "d1",
     domainName: "Understand Cloud & FinOps Principles",
-    title: "FOCP Scenario #46: Understand Cloud & FinOps Principles",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #46.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #46?",
+    title: "FinOps Principles Practice #28",
+    scenario: "An organization is modernizing its cloud financial operations, aligning cross-functional teams to eliminate waste and maximize business value.",
+    question: "Which FinOps principle or foundational concept is demonstrated in scenario #28?",
     options: [
-      { id: 'A', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'B', text: "Option A: Official FinOps Foundation standard practice for Understand Cloud & FinOps Principles driving cloud financial accountability." },
-      { id: 'C', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'D', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." }
+      { id: 'A', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" },
+      { id: 'B', text: "Managing cloud spend strictly through retrospective annual audits" },
+      { id: 'C', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" },
+      { id: 'D', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #46: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "Understand Cloud & FinOps Principles"]
+    explanation: "FinOps principles mandate continuous cross-functional collaboration and real-time visibility. Aligning engineering, finance, and procurement ensures that cloud spending decisions are data-driven, agile, and aligned with core business value.",
+    referenceUrl: "https://www.finops.org/framework/principles/",
+    tags: ["FinOps", "Principles", "Culture"]
   },
   {
     id: "focp-47",
@@ -446,41 +446,41 @@ export const FINOPS_FOCP_QUESTIONS_2 = [
     certId: "finops-focp",
     domainId: "d1",
     domainName: "Understand Cloud & FinOps Principles",
-    title: "FOCP Scenario #47: Understand Cloud & FinOps Principles",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #47.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #47?",
+    title: "FinOps Principles Practice #29",
+    scenario: "An organization is modernizing its cloud financial operations, aligning cross-functional teams to eliminate waste and maximize business value.",
+    question: "Which FinOps principle or foundational concept is demonstrated in scenario #29?",
     options: [
-      { id: 'A', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'B', text: "Option A: Official FinOps Foundation standard practice for Understand Cloud & FinOps Principles driving cloud financial accountability." },
-      { id: 'C', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'D', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." }
+      { id: 'A', text: "Managing cloud spend strictly through retrospective annual audits" },
+      { id: 'B', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" },
+      { id: 'C', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" },
+      { id: 'D', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #47: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "Understand Cloud & FinOps Principles"]
+    explanation: "FinOps principles mandate continuous cross-functional collaboration and real-time visibility. Aligning engineering, finance, and procurement ensures that cloud spending decisions are data-driven, agile, and aligned with core business value.",
+    referenceUrl: "https://www.finops.org/framework/principles/",
+    tags: ["FinOps", "Principles", "Culture"]
   },
   {
     id: "focp-48",
-    difficulty: "hard",
+    difficulty: "medium",
     certId: "finops-focp",
     domainId: "d1",
     domainName: "Understand Cloud & FinOps Principles",
-    title: "FOCP Scenario #48: Understand Cloud & FinOps Principles",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #48.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #48?",
+    title: "FinOps Principles Practice #30",
+    scenario: "An organization is modernizing its cloud financial operations, aligning cross-functional teams to eliminate waste and maximize business value.",
+    question: "Which FinOps principle or foundational concept is demonstrated in scenario #30?",
     options: [
-      { id: 'A', text: "Option A: Official FinOps Foundation standard practice for Understand Cloud & FinOps Principles driving cloud financial accountability." },
-      { id: 'B', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'C', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'D', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." }
+      { id: 'A', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" },
+      { id: 'B', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" },
+      { id: 'C', text: "Managing cloud spend strictly through retrospective annual audits" },
+      { id: 'D', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #48: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "Understand Cloud & FinOps Principles"]
+    explanation: "FinOps principles mandate continuous cross-functional collaboration and real-time visibility. Aligning engineering, finance, and procurement ensures that cloud spending decisions are data-driven, agile, and aligned with core business value.",
+    referenceUrl: "https://www.finops.org/framework/principles/",
+    tags: ["FinOps", "Principles", "Culture"]
   },
   {
     id: "focp-49",
@@ -488,20 +488,20 @@ export const FINOPS_FOCP_QUESTIONS_2 = [
     certId: "finops-focp",
     domainId: "d1",
     domainName: "Understand Cloud & FinOps Principles",
-    title: "FOCP Scenario #49: Understand Cloud & FinOps Principles",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #49.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #49?",
+    title: "FinOps Principles Practice #31",
+    scenario: "An organization is modernizing its cloud financial operations, aligning cross-functional teams to eliminate waste and maximize business value.",
+    question: "Which FinOps principle or foundational concept is demonstrated in scenario #31?",
     options: [
-      { id: 'A', text: "Option A: Official FinOps Foundation standard practice for Understand Cloud & FinOps Principles driving cloud financial accountability." },
-      { id: 'B', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'C', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'D', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." }
+      { id: 'A', text: "Managing cloud spend strictly through retrospective annual audits" },
+      { id: 'B', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" },
+      { id: 'C', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" },
+      { id: 'D', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #49: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "Understand Cloud & FinOps Principles"]
+    explanation: "FinOps principles mandate continuous cross-functional collaboration and real-time visibility. Aligning engineering, finance, and procurement ensures that cloud spending decisions are data-driven, agile, and aligned with core business value.",
+    referenceUrl: "https://www.finops.org/framework/principles/",
+    tags: ["FinOps", "Principles", "Culture"]
   },
   {
     id: "focp-50",
@@ -509,20 +509,20 @@ export const FINOPS_FOCP_QUESTIONS_2 = [
     certId: "finops-focp",
     domainId: "d1",
     domainName: "Understand Cloud & FinOps Principles",
-    title: "FOCP Scenario #50: Understand Cloud & FinOps Principles",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #50.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #50?",
+    title: "FinOps Principles Practice #32",
+    scenario: "An organization is modernizing its cloud financial operations, aligning cross-functional teams to eliminate waste and maximize business value.",
+    question: "Which FinOps principle or foundational concept is demonstrated in scenario #32?",
     options: [
-      { id: 'A', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'B', text: "Option A: Official FinOps Foundation standard practice for Understand Cloud & FinOps Principles driving cloud financial accountability." },
-      { id: 'C', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'D', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." }
+      { id: 'A', text: "Managing cloud spend strictly through retrospective annual audits" },
+      { id: 'B', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" },
+      { id: 'C', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" },
+      { id: 'D', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #50: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "Understand Cloud & FinOps Principles"]
+    explanation: "FinOps principles mandate continuous cross-functional collaboration and real-time visibility. Aligning engineering, finance, and procurement ensures that cloud spending decisions are data-driven, agile, and aligned with core business value.",
+    referenceUrl: "https://www.finops.org/framework/principles/",
+    tags: ["FinOps", "Principles", "Culture"]
   }
 ];
 
