@@ -172,7 +172,9 @@ export const ROLE_ICONS = {
   'sre': '⚡',
   'security-engineer': '🔐',
   'finops': '💰',
-  'solutions-architect': '🏛️'
+  'solutions-architect': '🏛️',
+  'ai-ml-engineer': '🤖',
+  'data-engineer': '📊'
 };
 
 const ROLE_CONFIG = {
@@ -182,7 +184,9 @@ const ROLE_CONFIG = {
   'sre': { color: '#10b981' },
   'security-engineer': { color: '#ef4444' },
   'finops': { color: '#f59e0b' },
-  'solutions-architect': { color: '#3b82f6' }
+  'solutions-architect': { color: '#3b82f6' },
+  'ai-ml-engineer': { color: '#ec4899' },
+  'data-engineer': { color: '#14b8a6' }
 };
 
 export function roleIcon(roleId, { size = 22 } = {}) {
