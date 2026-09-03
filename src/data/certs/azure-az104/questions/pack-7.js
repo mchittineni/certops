@@ -51,12 +51,12 @@ export const AZURE_AZ104_QUESTIONS_7 = [
     scenario: "A security compliance policy mandates that every newly created Windows Server virtual machine must have the Azure Monitor Agent (AMA) extension and a diagnostic Data Collection Rule association deployed automatically upon creation.",
     question: "Which Azure Policy effect deploys required child resources or extensions when they are missing from a new deployment?",
     options: [
-      { id: 'A', text: "`Deny` effect." },
-      { id: 'B', text: "`Audit` effect." },
-      { id: 'C', text: "`DeployIfNotExists` effect." },
-      { id: 'D', text: "`Disabled` effect." }
+      { id: 'A', text: "`Audit` effect." },
+      { id: 'B', text: "`Deny` effect." },
+      { id: 'C', text: "`Disabled` effect." },
+      { id: 'D', text: "`DeployIfNotExists` effect." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The `DeployIfNotExists` (DINE) effect in Azure Policy evaluates whether a related child resource or extension (such as the Azure Monitor Agent extension) exists when a parent resource (VM) is created or updated; if it is missing, Azure Policy automatically triggers an ARM template deployment using a managed identity to deploy the missing resource.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effect-deploy-if-not-exists",
@@ -93,10 +93,10 @@ export const AZURE_AZ104_QUESTIONS_7 = [
     scenario: "A developer needs Contributor access to a single storage account named `stordev01` located inside resource group `rg-dev` within subscription `sub-core`. The developer must NOT be able to modify any other resource inside `rg-dev`.",
     question: "At which Azure RBAC scope should the Contributor role be assigned?",
     options: [
-      { id: 'A', text: "At the Management Group scope." },
-      { id: 'B', text: "At the Subscription scope (`sub-core`)." },
+      { id: 'A', text: "At the Resource Group scope (`rg-dev`)." },
+      { id: 'B', text: "At the Management Group scope." },
       { id: 'C', text: "At the Resource scope (`stordev01`)." },
-      { id: 'D', text: "At the Resource Group scope (`rg-dev`)." }
+      { id: 'D', text: "At the Subscription scope (`sub-core`)." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -177,12 +177,12 @@ export const AZURE_AZ104_QUESTIONS_7 = [
     scenario: "An administrator is configuring Azure File Sync to synchronize two on-premises Windows file servers with an Azure File Share. What is the correct hierarchy of Azure File Sync components?",
     question: "How are Azure File Sync entities structured?",
     options: [
-      { id: 'A', text: "Sync Groups contain Storage Accounts only." },
-      { id: 'B', text: "Storage Sync Service contains Sync Groups; each Sync Group contains one Cloud Endpoint (Azure File Share) and one or more Server Endpoints (local server paths)." },
-      { id: 'C', text: "Recovery Services Vault contains Server Endpoints directly." },
-      { id: 'D', text: "Server Endpoints contain Cloud Endpoints." }
+      { id: 'A', text: "Server Endpoints contain Cloud Endpoints." },
+      { id: 'B', text: "Recovery Services Vault contains Server Endpoints directly." },
+      { id: 'C', text: "Storage Sync Service contains Sync Groups; each Sync Group contains one Cloud Endpoint (Azure File Share) and one or more Server Endpoints (local server paths)." },
+      { id: 'D', text: "Sync Groups contain Storage Accounts only." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "The Azure File Sync hierarchy begins with a **Storage Sync Service** (top-level resource). Inside the Storage Sync Service, you create **Sync Groups**, which define the sync topology. A Sync Group must have exactly one **Cloud Endpoint** (an Azure File share) and can have multiple registered **Server Endpoints** (specific folder paths on registered Windows Servers).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/file-sync/file-sync-deployment-guide",
@@ -198,12 +198,12 @@ export const AZURE_AZ104_QUESTIONS_7 = [
     scenario: "A company moves 10 TB of temporary log files to the Azure Blob Archive tier. After 20 days, the team deletes the blobs.",
     question: "What additional cost is incurred for deleting Archive blobs before 180 days?",
     options: [
-      { id: 'A', text: "Zero fee, deletions are always completely free." },
-      { id: 'B', text: "An Early Deletion fee prorated for the remaining 160 days." },
-      { id: 'C', text: "A data egress fee equivalent to downloading all files." },
-      { id: 'D', text: "A penalty equal to converting the account to Premium." }
+      { id: 'A', text: "An Early Deletion fee prorated for the remaining 160 days." },
+      { id: 'B', text: "Zero fee, deletions are always completely free." },
+      { id: 'C', text: "A penalty equal to converting the account to Premium." },
+      { id: 'D', text: "A data egress fee equivalent to downloading all files." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Azure Blob Storage cooler tiers impose minimum storage retention durations: Cool tier (30 days), Cold tier (90 days), and Archive tier (180 days). Deleting or moving blobs out of these tiers before the minimum retention window expires incurs an **Early Deletion fee** prorated for the remaining unfulfilled days.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/blobs/access-tiers-overview#pricing-and-billing",
@@ -240,12 +240,12 @@ export const AZURE_AZ104_QUESTIONS_7 = [
     scenario: "An administrator configures an auto-scaling Virtual Machine Scale Set across Availability Zones. When traffic drops and the scale set scales in (removes VM instances), the system must prioritize deleting instances with the oldest VM configuration or newest creation timestamp.",
     question: "Which VMSS property controls which specific VM instances are selected for termination during scale-in?",
     options: [
-      { id: 'A', text: "Azure Resource Lock." },
-      { id: 'B', text: "Scale-In Policy (e.g. `Default`, `OldestVM`, or `NewestVM`)." },
-      { id: 'C', text: "Proximity Placement Group." },
+      { id: 'A', text: "Proximity Placement Group." },
+      { id: 'B', text: "Azure Resource Lock." },
+      { id: 'C', text: "Scale-In Policy (e.g. `Default`, `OldestVM`, or `NewestVM`)." },
       { id: 'D', text: "Fault Domain count." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Virtual Machine Scale Sets Scale-In Policies determine which VM instances are deallocated and deleted when a scale-in event occurs. Options include `Default` (balances across AZs/FDs and deletes oldest/newest), `OldestVM` (deletes instances created longest ago), and `NewestVM` (deletes most recently created instances).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy",
@@ -282,12 +282,12 @@ export const AZURE_AZ104_QUESTIONS_7 = [
     scenario: "An enterprise runs an Oracle database on an Azure Linux VM. The backup team needs to ensure database backups trigger database flush scripts (`VSS` on Windows or pre/post scripts on Linux) so transaction logs are committed cleanly before the snapshot is taken.",
     question: "Which backup consistency level guarantees that transactional databases can recover cleanly without log replays?",
     options: [
-      { id: 'A', text: "Application-Consistent backup snapshot." },
-      { id: 'B', text: "File-System Consistent backup snapshot." },
-      { id: 'C', text: "Crash-Consistent backup snapshot." },
-      { id: 'D', text: "Differential backup snapshot." }
+      { id: 'A', text: "Differential backup snapshot." },
+      { id: 'B', text: "Crash-Consistent backup snapshot." },
+      { id: 'C', text: "File-System Consistent backup snapshot." },
+      { id: 'D', text: "Application-Consistent backup snapshot." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "An **Application-Consistent** backup captures memory contents and pending I/O transactions by leveraging VSS (Volume Shadow Copy Service on Windows) or pre/post freeze/thaw scripts (on Linux) to ensure database transactions are flushed to disk before taking the snapshot, ensuring clean database recovery without corruption.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/backup/backup-azure-vms-introduction#snapshot-consistency",
@@ -324,12 +324,12 @@ export const AZURE_AZ104_QUESTIONS_7 = [
     scenario: "An administrator attempts to establish a Virtual Network Peering connection between `VNet-1` (address space `10.0.0.0/16`) and `VNet-2` (address space `10.0.10.0/24`).",
     question: "Why does Azure Resource Manager reject the peering creation request?",
     options: [
-      { id: 'A', text: "Both VNets must be in different Azure regions." },
+      { id: 'A', text: "The address spaces of the two virtual networks overlap." },
       { id: 'B', text: "VNet Peering requires an ExpressRoute circuit." },
-      { id: 'C', text: "The address spaces of the two virtual networks overlap." },
-      { id: 'D', text: "VNet Peering requires both VNets to have identical address spaces." }
+      { id: 'C', text: "VNet Peering requires both VNets to have identical address spaces." },
+      { id: 'D', text: "Both VNets must be in different Azure regions." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Azure Virtual Network Peering strictly requires that the peered virtual networks must NOT have any overlapping IP address ranges. Since `10.0.10.0/24` is a subnet completely contained inside `10.0.0.0/16`, Azure rejects the peering request immediately due to IP address space collision.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview#requirements-and-constraints",
@@ -345,12 +345,12 @@ export const AZURE_AZ104_QUESTIONS_7 = [
     scenario: "An internal web service sits behind an Azure Standard Load Balancer. The application occasionally enters an error state where the TCP port 80 listener is open, but the web app returns HTTP 500 Internal Server Error.",
     question: "Which load balancer health probe configuration ensures the load balancer stops sending traffic to failing VM instances?",
     options: [
-      { id: 'A', text: "Configure an HTTP (or HTTPS) health probe targeting an application health check path (`/health`) expecting an HTTP 200 response." },
-      { id: 'B', text: "Deploy an Azure Bastion host." },
+      { id: 'A', text: "Deploy an Azure Bastion host." },
+      { id: 'B', text: "Configure a basic TCP health probe on port 80." },
       { id: 'C', text: "Disable health probes on the load balancer." },
-      { id: 'D', text: "Configure a basic TCP health probe on port 80." }
+      { id: 'D', text: "Configure an HTTP (or HTTPS) health probe targeting an application health check path (`/health`) expecting an HTTP 200 response." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "A TCP health probe only checks whether a three-way TCP handshake completes on the port (which succeeds even when a web server is returning 500 errors). An HTTP/HTTPS health probe checks for a successful HTTP 200 OK status code on a specific path (e.g. `/health`), properly detecting and removing application-level failures from the backend rotation.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/load-balancer/load-balancer-custom-probe-overview",
@@ -387,12 +387,12 @@ export const AZURE_AZ104_QUESTIONS_7 = [
     scenario: "An administrator needs to write an NSG inbound rule that permits traffic originating from any virtual machine in the local virtual network, any peered virtual network, and any connected on-premises network over VPN/ExpressRoute, without hardcoding individual IP ranges.",
     question: "Which built-in Azure Service Tag represents all virtual network and connected hybrid address spaces?",
     options: [
-      { id: 'A', text: "`AzureLoadBalancer` service tag." },
-      { id: 'B', text: "`AzureCloud` service tag." },
-      { id: 'C', text: "`VirtualNetwork` service tag." },
-      { id: 'D', text: "`Internet` service tag." }
+      { id: 'A', text: "`AzureCloud` service tag." },
+      { id: 'B', text: "`AzureLoadBalancer` service tag." },
+      { id: 'C', text: "`Internet` service tag." },
+      { id: 'D', text: "`VirtualNetwork` service tag." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The `VirtualNetwork` service tag encompasses the local virtual network address space, all connected peered virtual networks, and on-premises address spaces connected via Azure VPN Gateway or ExpressRoute, simplifying security rule definition across hybrid topologies.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-network/service-tags-overview",
@@ -471,12 +471,12 @@ export const AZURE_AZ104_QUESTIONS_7 = [
     scenario: "An Azure Virtual Machine experiences unexpected downtime. The administrator checks Azure Resource Health and sees the status \"Unavailable (Platform Initiated)\".",
     question: "What does \"Platform Initiated\" indicate regarding the root cause of the downtime?",
     options: [
-      { id: 'A', text: "An NSG rule blocked incoming traffic." },
-      { id: 'B', text: "The downtime was caused by an underlying Azure physical infrastructure event, hardware fault, or platform maintenance." },
-      { id: 'C', text: "The VM was stopped by a user inside the Azure portal." },
-      { id: 'D', text: "The guest OS ran out of disk space." }
+      { id: 'A', text: "The VM was stopped by a user inside the Azure portal." },
+      { id: 'B', text: "The guest OS ran out of disk space." },
+      { id: 'C', text: "An NSG rule blocked incoming traffic." },
+      { id: 'D', text: "The downtime was caused by an underlying Azure physical infrastructure event, hardware fault, or platform maintenance." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "In Azure Resource Health, \"Platform Initiated\" events indicate that the downtime was triggered by the Azure platform infrastructure (e.g. physical host hardware failure, power glitch, or scheduled platform host update), rather than customer-initiated actions (\"User Initiated\").",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/service-health/resource-health-checks-resource-types#virtual-machines",
@@ -492,12 +492,12 @@ export const AZURE_AZ104_QUESTIONS_7 = [
     scenario: "A Site-to-Site VPN connection between an on-premises Cisco ASA firewall and an Azure Virtual Network Gateway is down. The network administrator needs to diagnose Phase 1 (IKE) and Phase 2 (IPsec) handshake logs and packet counters.",
     question: "Which Azure Network Watcher tool diagnoses Virtual Network Gateway connections and provides diagnostic summary reports?",
     options: [
-      { id: 'A', text: "VPN Troubleshoot." },
+      { id: 'A', text: "Next Hop." },
       { id: 'B', text: "IP Flow Verify." },
-      { id: 'C', text: "Next Hop." },
-      { id: 'D', text: "Security Group View." }
+      { id: 'C', text: "Security Group View." },
+      { id: 'D', text: "VPN Troubleshoot." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The **VPN Troubleshoot** feature in Azure Network Watcher diagnoses Virtual Network Gateways and S2S VPN connections, checking gateway health, IKE/IPsec SA negotiation, and routing status, outputting detailed diagnostic logs to an Azure Storage Account.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/network-watcher/network-watcher-troubleshoot-manage-portal",
@@ -513,12 +513,12 @@ export const AZURE_AZ104_QUESTIONS_7 = [
     scenario: "A development team is deploying a major software update to an Azure App Service web app. During the deployment window, the team needs to observe incoming requests, CPU/memory consumption, and unhandled exceptions in real time with 1-second latency.",
     question: "Which Application Insights feature provides real-time 1-second telemetry monitoring during deployments?",
     options: [
-      { id: 'A', text: "Application Insights Live Metrics Stream." },
-      { id: 'B', text: "Application Insights Availability Web Tests." },
-      { id: 'C', text: "Azure Log Analytics scheduled queries." },
+      { id: 'A', text: "Application Insights Availability Web Tests." },
+      { id: 'B', text: "Azure Log Analytics scheduled queries." },
+      { id: 'C', text: "Application Insights Live Metrics Stream." },
       { id: 'D', text: "Azure Activity Log." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Application Insights Live Metrics Stream provides real-time, 1-second latency monitoring of live web applications. It streams incoming request rates, failure counts, exception traces, and server CPU/RAM telemetry instantaneously, allowing developers to watch live deployments without waiting for log ingestion indexing.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/app/live-stream",
