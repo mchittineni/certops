@@ -10,9 +10,9 @@ export const CNCF_OTCA_QUESTIONS_10 = [
     question: "What is the recommended implementation strategy to satisfy these technical requirements according to official best practices?",
     options: [
       { id: 'A', text: "Deploy native automation for configuring batch processor and memory_limiter processor utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
+      { id: 'B', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
+      { id: 'C', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
+      { id: 'D', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -32,8 +32,8 @@ export const CNCF_OTCA_QUESTIONS_10 = [
     options: [
       { id: 'A', text: "Deploy native automation for manual tracing with tracer, span, spankind, and spanstatus utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
       { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'C', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'D', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." }
+      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
+      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -52,9 +52,9 @@ export const CNCF_OTCA_QUESTIONS_10 = [
     question: "Which architectural approach fulfills these operational objectives while maintaining reliability and minimal engineering overhead?",
     options: [
       { id: 'A', text: "Deploy native automation for sampling strategies head-based probabilistic vs tail-based collector sampling utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
+      { id: 'B', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
+      { id: 'C', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
+      { id: 'D', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -72,12 +72,12 @@ export const CNCF_OTCA_QUESTIONS_10 = [
     scenario: "A global streaming entertainment platform is evaluating OpenTelemetry Certified Associate practices specifically regarding OpenTelemetry signals traces, metrics, logs, and baggage. The engineering group is resolving cross-account network latency bottlenecks and transient connection timeouts for service tier #229.",
     question: "How should the engineering team configure the platform to ensure resilient, automated operation without manual intervention?",
     options: [
-      { id: 'A', text: "Deploy native automation for opentelemetry signals traces, metrics, logs, and baggage utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
+      { id: 'A', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
       { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'C', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'D', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." }
+      { id: 'C', text: "Deploy native automation for opentelemetry signals traces, metrics, logs, and baggage utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
+      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for opentelemetry signals traces, metrics, logs, and baggage provides reproducible deployments, auditable traceability, and continuous operational resilience as required by OpenTelemetry Certified Associate standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.cncf.io/certification/otca/",
@@ -94,11 +94,11 @@ export const CNCF_OTCA_QUESTIONS_10 = [
     question: "Which design pattern should be implemented to ensure continuous compliance, automated validation, and high availability?",
     options: [
       { id: 'A', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'C', text: "Deploy native automation for collector deployment patterns agent daemonset vs gateway deployment utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
+      { id: 'B', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
+      { id: 'C', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
+      { id: 'D', text: "Deploy native automation for collector deployment patterns agent daemonset vs gateway deployment utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for collector deployment patterns agent daemonset vs gateway deployment provides reproducible deployments, auditable traceability, and continuous operational resilience as required by OpenTelemetry Certified Associate standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.cncf.io/certification/otca/",
@@ -114,12 +114,12 @@ export const CNCF_OTCA_QUESTIONS_10 = [
     scenario: "A logistics and supply chain optimization service is evaluating OpenTelemetry Certified Associate practices specifically regarding Recording span events, status codes, and contextual attributes. The engineering group is modernizing legacy components to achieve zero-downtime deployments under unpredictable traffic spikes for service tier #231.",
     question: "What is the recommended implementation strategy to satisfy these technical requirements according to official best practices?",
     options: [
-      { id: 'A', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'B', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'C', text: "Deploy native automation for recording span events, status codes, and contextual attributes utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'D', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." }
+      { id: 'A', text: "Deploy native automation for recording span events, status codes, and contextual attributes utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
+      { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
+      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
+      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for recording span events, status codes, and contextual attributes provides reproducible deployments, auditable traceability, and continuous operational resilience as required by OpenTelemetry Certified Associate standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.cncf.io/certification/otca/",
@@ -136,8 +136,8 @@ export const CNCF_OTCA_QUESTIONS_10 = [
     question: "Which configuration provides the most cost-effective and secure solution to achieve these criteria?",
     options: [
       { id: 'A', text: "Deploy native automation for opentelemetry collector health checks and self-observability metrics utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'B', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'C', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
+      { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
+      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
       { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
     ],
     correctAnswers: ['A'],
@@ -156,12 +156,12 @@ export const CNCF_OTCA_QUESTIONS_10 = [
     scenario: "A multi-tenant enterprise SaaS provider is evaluating OpenTelemetry Certified Associate practices specifically regarding W3C Trace Context specification traceparent and tracestate headers. The engineering group must minimize mean time to recovery (MTTR) and prevent cascading failures during regional outages for service tier #233.",
     question: "Which architectural approach fulfills these operational objectives while maintaining reliability and minimal engineering overhead?",
     options: [
-      { id: 'A', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'B', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'C', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'D', text: "Deploy native automation for w3c trace context specification traceparent and tracestate headers utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." }
+      { id: 'A', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
+      { id: 'B', text: "Deploy native automation for w3c trace context specification traceparent and tracestate headers utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
+      { id: 'C', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
+      { id: 'D', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for w3c trace context specification traceparent and tracestate headers provides reproducible deployments, auditable traceability, and continuous operational resilience as required by OpenTelemetry Certified Associate standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.cncf.io/certification/otca/",
@@ -177,12 +177,12 @@ export const CNCF_OTCA_QUESTIONS_10 = [
     scenario: "A public sector aerospace engineering department is evaluating OpenTelemetry Certified Associate practices specifically regarding Pipeline routing using connector components and routing processors. The engineering group is migrating mission-critical workloads while enforcing strict organizational security guardrails for service tier #234.",
     question: "How should the engineering team configure the platform to ensure resilient, automated operation without manual intervention?",
     options: [
-      { id: 'A', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
+      { id: 'A', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
       { id: 'B', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'C', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'D', text: "Deploy native automation for pipeline routing using connector components and routing processors utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." }
+      { id: 'C', text: "Deploy native automation for pipeline routing using connector components and routing processors utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
+      { id: 'D', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for pipeline routing using connector components and routing processors provides reproducible deployments, auditable traceability, and continuous operational resilience as required by OpenTelemetry Certified Associate standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.cncf.io/certification/otca/",
@@ -198,12 +198,12 @@ export const CNCF_OTCA_QUESTIONS_10 = [
     scenario: "An automotive connected-vehicle fleet manager is evaluating OpenTelemetry Certified Associate practices specifically regarding Metric instruments Counter, UpDownCounter, Histogram, and Gauge. The engineering group needs to eliminate manual operational toil and enforce declarative infrastructure reconciliation for service tier #235.",
     question: "Which design pattern should be implemented to ensure continuous compliance, automated validation, and high availability?",
     options: [
-      { id: 'A', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'B', text: "Deploy native automation for metric instruments counter, updowncounter, histogram, and gauge utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
+      { id: 'A', text: "Deploy native automation for metric instruments counter, updowncounter, histogram, and gauge utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
+      { id: 'B', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
       { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
+      { id: 'D', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for metric instruments counter, updowncounter, histogram, and gauge provides reproducible deployments, auditable traceability, and continuous operational resilience as required by OpenTelemetry Certified Associate standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.cncf.io/certification/otca/",
@@ -219,12 +219,12 @@ export const CNCF_OTCA_QUESTIONS_10 = [
     scenario: "A digital media publishing network is evaluating OpenTelemetry Certified Associate practices specifically regarding Troubleshooting pipeline errors using the debug and file exporters. The engineering group is implementing automated canary analysis with instant rollback capabilities triggered by error budget burn rates for service tier #236.",
     question: "What is the recommended implementation strategy to satisfy these technical requirements according to official best practices?",
     options: [
-      { id: 'A', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
+      { id: 'A', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
+      { id: 'B', text: "Deploy native automation for troubleshooting pipeline errors using the debug and file exporters utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
       { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'D', text: "Deploy native automation for troubleshooting pipeline errors using the debug and file exporters utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." }
+      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for troubleshooting pipeline errors using the debug and file exporters provides reproducible deployments, auditable traceability, and continuous operational resilience as required by OpenTelemetry Certified Associate standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.cncf.io/certification/otca/",
@@ -240,12 +240,12 @@ export const CNCF_OTCA_QUESTIONS_10 = [
     scenario: "A pharmaceutical clinical trial data service is evaluating OpenTelemetry Certified Associate practices specifically regarding Semantic Conventions for HTTP, database, and RPC operations. The engineering group must enforce zero-trust identity boundaries and cryptographic verification across all service endpoints for service tier #237.",
     question: "Which configuration provides the most cost-effective and secure solution to achieve these criteria?",
     options: [
-      { id: 'A', text: "Deploy native automation for semantic conventions for http, database, and rpc operations utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
+      { id: 'A', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
+      { id: 'B', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
+      { id: 'C', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
+      { id: 'D', text: "Deploy native automation for semantic conventions for http, database, and rpc operations utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for semantic conventions for http, database, and rpc operations provides reproducible deployments, auditable traceability, and continuous operational resilience as required by OpenTelemetry Certified Associate standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.cncf.io/certification/otca/",
@@ -283,9 +283,9 @@ export const CNCF_OTCA_QUESTIONS_10 = [
     question: "How should the engineering team configure the platform to ensure resilient, automated operation without manual intervention?",
     options: [
       { id: 'A', text: "Deploy native automation for context propagation across asynchronous boundaries using baggage utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
+      { id: 'B', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
+      { id: 'C', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
+      { id: 'D', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -303,12 +303,12 @@ export const CNCF_OTCA_QUESTIONS_10 = [
     scenario: "A ride-sharing dispatch system is evaluating OpenTelemetry Certified Associate practices specifically regarding Tuning collector memory buffers, queue sizes, and worker pool scaling. The engineering group must establish centralized audit logging and automated incident containment for security operations for service tier #240.",
     question: "Which design pattern should be implemented to ensure continuous compliance, automated validation, and high availability?",
     options: [
-      { id: 'A', text: "Deploy native automation for tuning collector memory buffers, queue sizes, and worker pool scaling utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
+      { id: 'A', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
       { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
+      { id: 'C', text: "Deploy native automation for tuning collector memory buffers, queue sizes, and worker pool scaling utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
       { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for tuning collector memory buffers, queue sizes, and worker pool scaling provides reproducible deployments, auditable traceability, and continuous operational resilience as required by OpenTelemetry Certified Associate standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.cncf.io/certification/otca/",
@@ -324,12 +324,12 @@ export const CNCF_OTCA_QUESTIONS_10 = [
     scenario: "An insurance claims processing engine is evaluating OpenTelemetry Certified Associate practices specifically regarding OpenTelemetry project mission, scope, and vendor neutrality. The engineering group is modernizing legacy components to achieve zero-downtime deployments under unpredictable traffic spikes for service tier #241.",
     question: "What is the recommended implementation strategy to satisfy these technical requirements according to official best practices?",
     options: [
-      { id: 'A', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'B', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'C', text: "Deploy native automation for opentelemetry project mission, scope, and vendor neutrality utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'D', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." }
+      { id: 'A', text: "Deploy native automation for opentelemetry project mission, scope, and vendor neutrality utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
+      { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
+      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
+      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for opentelemetry project mission, scope, and vendor neutrality provides reproducible deployments, auditable traceability, and continuous operational resilience as required by OpenTelemetry Certified Associate standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.cncf.io/certification/otca/",
@@ -345,12 +345,12 @@ export const CNCF_OTCA_QUESTIONS_10 = [
     scenario: "A commercial airline reservation service is evaluating OpenTelemetry Certified Associate practices specifically regarding OpenTelemetry Collector architecture receivers, processors, exporters. The engineering group is remediating compliance audit findings regarding unauthorized configuration drift across staging and production for service tier #242.",
     question: "Which configuration provides the most cost-effective and secure solution to achieve these criteria?",
     options: [
-      { id: 'A', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'B', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'C', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'D', text: "Deploy native automation for opentelemetry collector architecture receivers, processors, exporters utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." }
+      { id: 'A', text: "Deploy native automation for opentelemetry collector architecture receivers, processors, exporters utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
+      { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
+      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
+      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for opentelemetry collector architecture receivers, processors, exporters provides reproducible deployments, auditable traceability, and continuous operational resilience as required by OpenTelemetry Certified Associate standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.cncf.io/certification/otca/",
@@ -366,12 +366,12 @@ export const CNCF_OTCA_QUESTIONS_10 = [
     scenario: "A cybersecurity threat intelligence agency is evaluating OpenTelemetry Certified Associate practices specifically regarding Auto-instrumentation using OpenTelemetry bytecode and zero-code agents. The engineering group must minimize mean time to recovery (MTTR) and prevent cascading failures during regional outages for service tier #243.",
     question: "Which architectural approach fulfills these operational objectives while maintaining reliability and minimal engineering overhead?",
     options: [
-      { id: 'A', text: "Deploy native automation for auto-instrumentation using opentelemetry bytecode and zero-code agents utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
+      { id: 'A', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
+      { id: 'B', text: "Deploy native automation for auto-instrumentation using opentelemetry bytecode and zero-code agents utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
       { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
+      { id: 'D', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for auto-instrumentation using opentelemetry bytecode and zero-code agents provides reproducible deployments, auditable traceability, and continuous operational resilience as required by OpenTelemetry Certified Associate standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.cncf.io/certification/otca/",
@@ -387,12 +387,12 @@ export const CNCF_OTCA_QUESTIONS_10 = [
     scenario: "A real estate property management portal is evaluating OpenTelemetry Certified Associate practices specifically regarding Exporting telemetry to Prometheus, Jaeger, Zipkin, and cloud backends. The engineering group is migrating mission-critical workloads while enforcing strict organizational security guardrails for service tier #244.",
     question: "How should the engineering team configure the platform to ensure resilient, automated operation without manual intervention?",
     options: [
-      { id: 'A', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'D', text: "Deploy native automation for exporting telemetry to prometheus, jaeger, zipkin, and cloud backends utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." }
+      { id: 'A', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
+      { id: 'B', text: "Deploy native automation for exporting telemetry to prometheus, jaeger, zipkin, and cloud backends utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
+      { id: 'C', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
+      { id: 'D', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for exporting telemetry to prometheus, jaeger, zipkin, and cloud backends provides reproducible deployments, auditable traceability, and continuous operational resilience as required by OpenTelemetry Certified Associate standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.cncf.io/certification/otca/",
@@ -408,12 +408,12 @@ export const CNCF_OTCA_QUESTIONS_10 = [
     scenario: "An autonomous robotics manufacturing facility is evaluating OpenTelemetry Certified Associate practices specifically regarding OpenTelemetry API vs OpenTelemetry SDK responsibilities. The engineering group needs to eliminate manual operational toil and enforce declarative infrastructure reconciliation for service tier #245.",
     question: "Which design pattern should be implemented to ensure continuous compliance, automated validation, and high availability?",
     options: [
-      { id: 'A', text: "Deploy native automation for opentelemetry api vs opentelemetry sdk responsibilities utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
+      { id: 'A', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
       { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
+      { id: 'C', text: "Deploy native automation for opentelemetry api vs opentelemetry sdk responsibilities utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
       { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for opentelemetry api vs opentelemetry sdk responsibilities provides reproducible deployments, auditable traceability, and continuous operational resilience as required by OpenTelemetry Certified Associate standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.cncf.io/certification/otca/",
@@ -451,9 +451,9 @@ export const CNCF_OTCA_QUESTIONS_10 = [
     question: "Which configuration provides the most cost-effective and secure solution to achieve these criteria?",
     options: [
       { id: 'A', text: "Deploy native automation for manual tracing with tracer, span, spankind, and spanstatus utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'B', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'C', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
+      { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
+      { id: 'C', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
+      { id: 'D', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -472,11 +472,11 @@ export const CNCF_OTCA_QUESTIONS_10 = [
     question: "Which architectural approach fulfills these operational objectives while maintaining reliability and minimal engineering overhead?",
     options: [
       { id: 'A', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'B', text: "Deploy native automation for sampling strategies head-based probabilistic vs tail-based collector sampling utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'C', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
+      { id: 'B', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
+      { id: 'C', text: "Deploy native automation for sampling strategies head-based probabilistic vs tail-based collector sampling utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
       { id: 'D', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for sampling strategies head-based probabilistic vs tail-based collector sampling provides reproducible deployments, auditable traceability, and continuous operational resilience as required by OpenTelemetry Certified Associate standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.cncf.io/certification/otca/",
@@ -492,10 +492,10 @@ export const CNCF_OTCA_QUESTIONS_10 = [
     scenario: "A genomics sequencing data pipeline is evaluating OpenTelemetry Certified Associate practices specifically regarding OpenTelemetry signals traces, metrics, logs, and baggage. The engineering group is resolving cross-account network latency bottlenecks and transient connection timeouts for service tier #249.",
     question: "How should the engineering team configure the platform to ensure resilient, automated operation without manual intervention?",
     options: [
-      { id: 'A', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
+      { id: 'A', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
       { id: 'B', text: "Deploy native automation for opentelemetry signals traces, metrics, logs, and baggage utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
+      { id: 'C', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
+      { id: 'D', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -514,9 +514,9 @@ export const CNCF_OTCA_QUESTIONS_10 = [
     question: "Which design pattern should be implemented to ensure continuous compliance, automated validation, and high availability?",
     options: [
       { id: 'A', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'B', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
+      { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
       { id: 'C', text: "Deploy native automation for collector deployment patterns agent daemonset vs gateway deployment utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'D', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." }
+      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
     ],
     correctAnswers: ['C'],
     type: "single",
