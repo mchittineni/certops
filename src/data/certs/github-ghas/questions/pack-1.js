@@ -9,12 +9,12 @@ export const GITHUB_GHAS_QUESTIONS_1 = [
     scenario: "A developer pushes a branch and the push is rejected because push protection detected a cloud provider key in one of the commits. The developer insists the value is a dummy string used by a unit test.",
     question: "What is the correct handling?",
     options: [
-      { id: 'A', text: "Rename the variable holding the value, which changes the pattern match and allows the push." },
+      { id: 'A', text: "Force push the branch, which skips push protection because no new blob is created." },
       { id: 'B', text: "Disable push protection for the repository, push the branch, then re-enable it." },
-      { id: 'C', text: "Force push the branch, which skips push protection because no new blob is created." },
-      { id: 'D', text: "Confirm whether the value is genuinely inert, and if so remove the push protection block by supplying a bypass reason, which is recorded and raises an alert for security to review." }
+      { id: 'C', text: "Confirm whether the value is genuinely inert, and if so remove the push protection block by supplying a bypass reason, which is recorded and raises an alert for security to review." },
+      { id: 'D', text: "Rename the variable holding the value, which changes the pattern match and allows the push." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Push protection is designed to be overridable so a genuine false positive does not block work, but every bypass requires a stated reason, is written to the audit log and raises an alert so a security reviewer can confirm the judgement. Turning the control off to get past it removes the record and the review, renaming a variable does not change the secret value being matched, and force pushing does not evade the check.",
     referenceUrl: "https://docs.github.com/en/code-security/secret-scanning/introduction/about-push-protection",
@@ -72,12 +72,12 @@ export const GITHUB_GHAS_QUESTIONS_1 = [
     scenario: "A reviewer works through secret scanning alerts. One is a real credential that has since been revoked at the provider, one is a randomly generated fixture in a test file, and one matched a string that is not a credential at all.",
     question: "How should each be resolved?",
     options: [
-      { id: 'A', text: "All three as won't fix, since no code change is required for any of them." },
-      { id: 'B', text: "The revoked credential as a false positive and the other two as revoked." },
-      { id: 'C', text: "The revoked credential as revoked, the fixture as used in tests, and the non-credential as a false positive, because the resolution reason drives reporting and future triage." },
-      { id: 'D', text: "All three as false positives, since none of them now present a risk." }
+      { id: 'A', text: "The revoked credential as revoked, the fixture as used in tests, and the non-credential as a false positive, because the resolution reason drives reporting and future triage." },
+      { id: 'B', text: "All three as false positives, since none of them now present a risk." },
+      { id: 'C', text: "All three as won't fix, since no code change is required for any of them." },
+      { id: 'D', text: "The revoked credential as a false positive and the other two as revoked." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Secret scanning offers distinct resolutions precisely so the closed alerts remain meaningful: revoked records that a real credential was exposed and dealt with, used in tests marks an intentional inert value, and false positive marks a detection error that helps assess pattern quality. Collapsing all three into one reason destroys that signal and, in the case of labelling a real exposure a false positive, misrepresents an incident.",
     referenceUrl: "https://docs.github.com/en/code-security/secret-scanning/managing-alerts-from-secret-scanning",
@@ -114,12 +114,12 @@ export const GITHUB_GHAS_QUESTIONS_1 = [
     scenario: "A repository has push protection enabled. A security reviewer asks whether a contributor could still introduce a credential by editing a file in the browser or by an API-driven commit.",
     question: "Which statement is correct?",
     options: [
-      { id: 'A', text: "Push protection applies only to users without write access." },
+      { id: 'A', text: "Push protection applies to the default branch only, so a commit to any other branch is unaffected." },
       { id: 'B', text: "Push protection only inspects content arriving over the git protocol, so web and API commits bypass it." },
-      { id: 'C', text: "Push protection applies to content arriving through the web editor and the API as well as through a git push, so those paths are blocked in the same way." },
-      { id: 'D', text: "Push protection applies to the default branch only, so a commit to any other branch is unaffected." }
+      { id: 'C', text: "Push protection applies only to users without write access." },
+      { id: 'D', text: "Push protection applies to content arriving through the web editor and the API as well as through a git push, so those paths are blocked in the same way." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The check runs on content as it is written to the repository rather than on a particular transport, so browser edits and API-created commits are subject to the same block and the same bypass workflow as a command-line push. It is not limited to the git protocol, to a single branch, or to a class of user, which is what makes it a control rather than a convention.",
     referenceUrl: "https://docs.github.com/en/code-security/secret-scanning/introduction/about-push-protection",
@@ -135,12 +135,12 @@ export const GITHUB_GHAS_QUESTIONS_1 = [
     scenario: "An administrator enables Dependabot alerts on a private repository and no alerts appear over several weeks, although the project depends on packages with known published advisories.",
     question: "What is the most likely cause?",
     options: [
-      { id: 'A', text: "Advisories are only matched against direct dependencies listed in the manifest, and this project has none." },
-      { id: 'B', text: "Dependabot alerts are only produced for public repositories." },
-      { id: 'C', text: "Dependabot alerts require a dependabot.yml configuration file to be present." },
-      { id: 'D', text: "The dependency graph is not enabled for the repository, and Dependabot alerts are derived from it by matching resolved dependencies against published advisories." }
+      { id: 'A', text: "The dependency graph is not enabled for the repository, and Dependabot alerts are derived from it by matching resolved dependencies against published advisories." },
+      { id: 'B', text: "Dependabot alerts require a dependabot.yml configuration file to be present." },
+      { id: 'C', text: "Dependabot alerts are only produced for public repositories." },
+      { id: 'D', text: "Advisories are only matched against direct dependencies listed in the manifest, and this project has none." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Alerts are produced by comparing the resolved dependencies recorded in the dependency graph against the advisory database, so without the graph there is nothing to match and no alerts appear. A configuration file governs version updates rather than alerts, private repositories are supported, and the graph covers transitive dependencies as well as direct ones.",
     referenceUrl: "https://docs.github.com/en/code-security/dependabot/dependabot-alerts/about-dependabot-alerts",
@@ -156,12 +156,12 @@ export const GITHUB_GHAS_QUESTIONS_1 = [
     scenario: "A team asks for Dependabot to be turned on. They want to be told about vulnerable dependencies, to receive fixes for those automatically, and separately to stay reasonably current on everything else.",
     question: "Which mapping is correct?",
     options: [
-      { id: 'A', text: "All three are enabled by a single toggle and cannot be configured independently." },
-      { id: 'B', text: "Alerts notify about vulnerable dependencies, security updates raise pull requests fixing those specific vulnerabilities, and version updates keep dependencies current on a schedule defined in the configuration file." },
+      { id: 'A', text: "Alerts and security updates are the same feature, and version updates raise pull requests only for vulnerable dependencies." },
+      { id: 'B', text: "All three are enabled by a single toggle and cannot be configured independently." },
       { id: 'C', text: "Version updates notify about vulnerabilities, and security updates keep everything current on a schedule." },
-      { id: 'D', text: "Alerts and security updates are the same feature, and version updates raise pull requests only for vulnerable dependencies." }
+      { id: 'D', text: "Alerts notify about vulnerable dependencies, security updates raise pull requests fixing those specific vulnerabilities, and version updates keep dependencies current on a schedule defined in the configuration file." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The three features are separate and enabled independently: alerts are the notification layer over the advisory match, security updates act on those alerts by proposing the minimum version change that resolves them, and version updates are a scheduled currency exercise driven by the configuration file regardless of whether anything is vulnerable. Conflating them leads teams to expect fixes when they have only enabled notification.",
     referenceUrl: "https://docs.github.com/en/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates",
@@ -219,12 +219,12 @@ export const GITHUB_GHAS_QUESTIONS_1 = [
     scenario: "Most open Dependabot alerts concern low severity issues in build and test tooling that never ships. Security wants those closed consistently without a person dismissing each one and without hiding production risk.",
     question: "Which capability applies?",
     options: [
-      { id: 'A', text: "Disabling Dependabot alerts for the repository and relying on dependency review instead." },
-      { id: 'B', text: "Setting the repository advisory severity threshold, which filters which advisories are matched." },
-      { id: 'C', text: "Dependabot auto-triage rules, which can automatically dismiss alerts matching criteria such as low severity in development-scoped dependencies while leaving other alerts open." },
-      { id: 'D', text: "An ignore entry in the configuration file, which suppresses the alerts as well as the version updates." }
+      { id: 'A', text: "Dependabot auto-triage rules, which can automatically dismiss alerts matching criteria such as low severity in development-scoped dependencies while leaving other alerts open." },
+      { id: 'B', text: "An ignore entry in the configuration file, which suppresses the alerts as well as the version updates." },
+      { id: 'C', text: "Disabling Dependabot alerts for the repository and relying on dependency review instead." },
+      { id: 'D', text: "Setting the repository advisory severity threshold, which filters which advisories are matched." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Auto-triage rules apply a stated policy to incoming alerts, so alerts meeting the criteria are dismissed with a recorded reason and the remaining queue reflects genuine production exposure, which is exactly the distinction the team wants. An ignore entry governs which version update pull requests are raised rather than alerting, disabling alerts loses production coverage as well, and there is no repository-level advisory severity threshold that filters matching.",
     referenceUrl: "https://docs.github.com/en/code-security/dependabot/dependabot-auto-triage-rules/about-dependabot-auto-triage-rules",
@@ -240,12 +240,12 @@ export const GITHUB_GHAS_QUESTIONS_1 = [
     scenario: "One dependency must stay on its current major version because a later one breaks an integration, but the team still wants patch updates within that major and wants everything else to update normally.",
     question: "Which configuration expresses that?",
     options: [
-      { id: 'A', text: "Adding the dependency to an allow entry, which pins it to its current version." },
-      { id: 'B', text: "An ignore entry for that dependency naming the update types to skip, so major version updates are not proposed while patch updates continue." },
+      { id: 'A', text: "Removing the dependency from the manifest so Dependabot does not see it." },
+      { id: 'B', text: "Adding the dependency to an allow entry, which pins it to its current version." },
       { id: 'C', text: "Setting open-pull-requests-limit to zero for the ecosystem." },
-      { id: 'D', text: "Removing the dependency from the manifest so Dependabot does not see it." }
+      { id: 'D', text: "An ignore entry for that dependency naming the update types to skip, so major version updates are not proposed while patch updates continue." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "An ignore entry can name a dependency together with the update types to skip, so major bumps stop being proposed while patch and minor updates keep flowing, which is precisely a pin at the major boundary. Removing it from the manifest would break the build, a zero pull request limit silences the whole ecosystem, and an allow entry narrows which dependencies are considered rather than pinning a version.",
     referenceUrl: "https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file",
@@ -261,12 +261,12 @@ export const GITHUB_GHAS_QUESTIONS_1 = [
     scenario: "One repository is a straightforward interpreted-language service that needs analysis with no special configuration. Another is a compiled project needing a custom build command, a specific query pack and analysis on a schedule.",
     question: "Which setup suits each?",
     options: [
-      { id: 'A', text: "Default setup for the compiled project, since it handles build detection, and advanced setup for the interpreted one." },
-      { id: 'B', text: "Default setup for the first, since it configures and maintains the analysis with no workflow file, and advanced setup for the second, since a workflow file is what allows custom build steps, query selection and scheduling." },
+      { id: 'A', text: "Advanced setup for both, because default setup cannot analyse interpreted languages." },
+      { id: 'B', text: "Default setup for the compiled project, since it handles build detection, and advanced setup for the interpreted one." },
       { id: 'C', text: "Default setup for both, because it accepts a configuration file supplying build commands and query packs." },
-      { id: 'D', text: "Advanced setup for both, because default setup cannot analyse interpreted languages." }
+      { id: 'D', text: "Default setup for the first, since it configures and maintains the analysis with no workflow file, and advanced setup for the second, since a workflow file is what allows custom build steps, query selection and scheduling." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Default setup enables analysis without a workflow file and keeps it updated, which suits a project needing nothing unusual, while advanced setup generates a workflow the team owns and is what makes custom build steps, additional query packs and schedules expressible. Default setup covers interpreted languages well, and the customisation the compiled project needs is exactly what it does not offer.",
     referenceUrl: "https://docs.github.com/en/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning",
@@ -283,9 +283,9 @@ export const GITHUB_GHAS_QUESTIONS_1 = [
     question: "What is the underlying reason and the remedy?",
     options: [
       { id: 'A', text: "For a compiled language the extractor observes the compiler as it builds, so if no build occurred nothing was extracted; the workflow must run autobuild or explicit build commands between database initialisation and analysis, or use a supported build-mode that does not require one." },
-      { id: 'B', text: "The repository is too large for extraction, and the remedy is to exclude directories with a paths filter." },
-      { id: 'C', text: "The database must be created after the analysis step, and the ordering in the workflow is reversed." },
-      { id: 'D', text: "Compiled languages require the source to be uploaded as a SARIF file rather than analysed directly." }
+      { id: 'B', text: "Compiled languages require the source to be uploaded as a SARIF file rather than analysed directly." },
+      { id: 'C', text: "The repository is too large for extraction, and the remedy is to exclude directories with a paths filter." },
+      { id: 'D', text: "The database must be created after the analysis step, and the ordering in the workflow is reversed." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -304,9 +304,9 @@ export const GITHUB_GHAS_QUESTIONS_1 = [
     question: "Which query suites correspond to those two steps?",
     options: [
       { id: 'A', text: "The security-extended suite adds further security queries beyond the default, and security-and-quality adds maintainability and reliability queries on top of that." },
-      { id: 'B', text: "Additional queries can only be added by writing custom queries, since the suites are fixed at the default set." },
-      { id: 'C', text: "The security-and-quality suite adds security queries only, and security-extended adds quality queries." },
-      { id: 'D', text: "There is one suite whose sensitivity is set by a threshold value in the configuration." }
+      { id: 'B', text: "There is one suite whose sensitivity is set by a threshold value in the configuration." },
+      { id: 'C', text: "Additional queries can only be added by writing custom queries, since the suites are fixed at the default set." },
+      { id: 'D', text: "The security-and-quality suite adds security queries only, and security-extended adds quality queries." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -429,12 +429,12 @@ export const GITHUB_GHAS_QUESTIONS_1 = [
     scenario: "Code scanning annotates pull requests, but contributors can still merge with a new high severity alert present. Security wants merges blocked when a change introduces one, consistently across many repositories.",
     question: "Which control achieves that?",
     options: [
-      { id: 'A', text: "Setting the query suite to security-extended, which causes high severity findings to fail the check." },
-      { id: 'B', text: "A code scanning merge protection rule configured in a repository ruleset, applied at organization level and specifying the tool and the severity that should block." },
-      { id: 'C', text: "Marking the code scanning workflow as a required status check in each repository, which blocks on any alert." },
+      { id: 'A', text: "Marking the code scanning workflow as a required status check in each repository, which blocks on any alert." },
+      { id: 'B', text: "Setting the query suite to security-extended, which causes high severity findings to fail the check." },
+      { id: 'C', text: "A code scanning merge protection rule configured in a repository ruleset, applied at organization level and specifying the tool and the severity that should block." },
       { id: 'D', text: "Enabling push protection, which extends to code scanning findings." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Rulesets support a code scanning merge protection rule that names the tool and the alert severity that must block, and defining it at organization level applies it consistently and prevents a repository administrator from quietly removing it. A required status check on the workflow only reflects whether the analysis ran and is configured per repository, query suite selection changes what is found rather than what blocks, and push protection concerns credentials.",
     referenceUrl: "https://docs.github.com/en/code-security/code-scanning/managing-code-scanning-alerts/set-code-scanning-merge-protection",
@@ -450,12 +450,12 @@ export const GITHUB_GHAS_QUESTIONS_1 = [
     scenario: "A repository is stable and rarely receives commits. Its last analysis ran four months ago, and new queries and advisories have been published since then.",
     question: "Which practice addresses this?",
     options: [
-      { id: 'A', text: "Push an empty commit whenever a new advisory is published." },
-      { id: 'B', text: "Nothing is needed, because alerts are recomputed server-side whenever queries are updated." },
-      { id: 'C', text: "Re-run the last workflow run monthly, which re-executes the analysis with the queries current at that time." },
-      { id: 'D', text: "Add a schedule trigger to the code scanning workflow so analysis runs periodically with the current queries even when the code has not changed." }
+      { id: 'A', text: "Add a schedule trigger to the code scanning workflow so analysis runs periodically with the current queries even when the code has not changed." },
+      { id: 'B', text: "Re-run the last workflow run monthly, which re-executes the analysis with the queries current at that time." },
+      { id: 'C', text: "Nothing is needed, because alerts are recomputed server-side whenever queries are updated." },
+      { id: 'D', text: "Push an empty commit whenever a new advisory is published." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Analysis reflects the queries in effect when it ran, so a quiet repository grows stale and a scheduled run is the standard way to keep findings current, which is why the generated advanced setup workflow includes one. Re-running an old run repeats that execution rather than refreshing the query set in a meaningful way, results are not recomputed server-side, and manually pushing commits in response to advisories is unworkable.",
     referenceUrl: "https://docs.github.com/en/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning",
