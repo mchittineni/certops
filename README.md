@@ -25,15 +25,15 @@ every answer moves your difficulty band toward your actual level.
 | | |
 | --- | --- |
 | Certifications scaffolded | **68** across six disciplines |
-| Live (launchable, with content) | **22** — including all Top 15 roadmap priorities plus AWS, Azure, GCP, GitHub, and FinOps tracks |
-| Questions authored / live | **5,500** of a 34,000 target (500 × 68) |
-| Flashcards authored / live | **5,500** |
+| Live (launchable, with content) | **27** — including all Top 15 roadmap priorities plus AWS, Azure, GCP, GitHub, Kubernetes, and HashiCorp tracks |
+| Questions authored / live | **6,750** of a 34,000 target (500 × 68) |
+| Flashcards authored / live | **6,750** |
 
 Run
 `npm run audit:filler` for the current inventory — those banks are listed as live but
 their answers are not trustworthy until the items are rewritten.
 
-The 46 remaining certifications exist as folders with **placeholder blueprints** — they
+The 41 remaining certifications exist as folders with **placeholder blueprints** — they
 appear on the roadmap panel but cannot be launched. That is the honest state of things,
 and it is exactly where contributions land: see [CONTRIBUTING.md](CONTRIBUTING.md).
 
