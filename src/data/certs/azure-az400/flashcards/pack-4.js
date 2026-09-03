@@ -1,93 +1,101 @@
 export const AZURE_AZ400_FLASHCARDS_4 = [
   {
     "id": "azure-az400-fc-76",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "azure-az400",
-    "domainId": "d1",
-    "front": "In AZ-400 (Configure processes and communications), how does Azure Boards work item hierarchies and sprint planning function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Azure Boards work item hierarchies and sprint planning</strong> establishes automated declarative workflows within Configure processes and communications. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d3",
+    "front": "Service Connections: Workload Identity Federation (OIDC) vs. Service Principal Secrets",
+    "hint": "Zero stored static secrets vs. expiring client secret strings.",
+    "back": "<strong>Workload Identity Federation</strong> uses OpenID Connect (OIDC) to issue short-lived federated access tokens directly from Microsoft Entra ID per pipeline run, eliminating the security hazard of storing, rotating, and managing static service principal client secrets.",
     "tags": [
-      "AZ-400",
-      "Configure"
+      "Azure Pipelines",
+      "Workload Identity",
+      "OIDC",
+      "Security"
     ]
   },
   {
     "id": "azure-az400-fc-77",
     "difficulty": "medium",
     "certId": "azure-az400",
-    "domainId": "d2",
-    "front": "In AZ-400 (Design and implement source control), how does Azure Repos Git branch policies and required pull request reviewers function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Azure Repos Git branch policies and required pull request reviewers</strong> establishes automated declarative workflows within Design and implement source control. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d3",
+    "front": "App Service Deployment Slots: Swap with Preview",
+    "hint": "Testing staging configuration with production environment variables before swapping.",
+    "back": "<strong>Swap with Preview</strong> performs a two-phase swap: it applies production configuration settings to the staging slot first, allowing engineers to verify application health under true production environment variables before completing the final traffic switch.",
     "tags": [
-      "AZ-400",
-      "Design"
+      "App Service",
+      "Deployment Slots",
+      "Blue/Green"
     ]
   },
   {
     "id": "azure-az400-fc-78",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "certId": "azure-az400",
     "domainId": "d3",
-    "front": "In AZ-400 (Design and implement build and release pipelines), how does Publishing and consuming NuGet and npm packages with Azure Artifacts function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Publishing and consuming NuGet and npm packages with Azure Artifacts</strong> establishes automated declarative workflows within Design and implement build and release pipelines. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "front": "Self-Hosted Agents vs. Microsoft-Hosted Agents",
+    "hint": "Custom software and private network reach vs. zero maintenance fresh VMs.",
+    "back": "<strong>Microsoft-Hosted Agents</strong> run in clean, disposable Azure VMs with maintenance handled by Microsoft, but cannot access private on-premises networks. <strong>Self-Hosted Agents</strong> provide persistent build caches, custom SDKs, and direct connectivity to private VNet/on-premises resources.",
     "tags": [
-      "AZ-400",
-      "Design"
+      "Azure Pipelines",
+      "Agents",
+      "Infrastructure"
     ]
   },
   {
     "id": "azure-az400-fc-79",
-    "difficulty": "medium",
+    "difficulty": "easy",
     "certId": "azure-az400",
-    "domainId": "d4",
-    "front": "In AZ-400 (Develop a security and compliance plan), how does Microsoft Defender for Cloud integration in CI/CD pipelines function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Microsoft Defender for Cloud integration in CI/CD pipelines</strong> establishes automated declarative workflows within Develop a security and compliance plan. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d3",
+    "front": "Azure Artifacts Upstream Sources",
+    "hint": "Caching public packages locally for build resilience and security.",
+    "back": "<strong>Upstream Sources</strong> allow Azure Artifacts feeds to act as a proxy for public registries (npmjs.com, nuget.org, PyPI). Packages downloaded from upstream are cached inside the private feed, insulating builds from public registry outages and deletion.",
     "tags": [
-      "AZ-400",
-      "Develop"
+      "Azure Artifacts",
+      "Upstream Sources",
+      "Package Management"
     ]
   },
   {
     "id": "azure-az400-fc-80",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "certId": "azure-az400",
-    "domainId": "d5",
-    "front": "In AZ-400 (Implement an instrumentation strategy), how does Application Insights distributed tracing and telemetry collection function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Application Insights distributed tracing and telemetry collection</strong> establishes automated declarative workflows within Implement an instrumentation strategy. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d3",
+    "front": "Azure App Configuration Feature Flags",
+    "hint": "Decoupling deployment from release via dynamic runtime toggles.",
+    "back": "<strong>Azure App Configuration Feature Manager</strong> allows defining boolean feature flags and targeted rollout filters (e.g. 15% user percentage) that applications query dynamically, allowing features to be toggled on/off without redeploying code.",
     "tags": [
-      "AZ-400",
-      "Implement"
+      "App Configuration",
+      "Feature Flags",
+      "DevOps"
     ]
   },
   {
     "id": "azure-az400-fc-81",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "certId": "azure-az400",
-    "domainId": "d1",
-    "front": "In AZ-400 (Configure processes and communications), how does Traceability linking user stories, commits, and releases function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Traceability linking user stories, commits, and releases</strong> establishes automated declarative workflows within Configure processes and communications. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d3",
+    "front": "CI/CD Pipeline Pattern #1",
+    "hint": "Multi-stage YAML construct, container rollout, or deployment gate.",
+    "back": "<strong>CI/CD Pipeline Pattern #1</strong> enforces declarative pipeline templates, container registry caching with ACR, and automated rollback triggers across hybrid environments.",
     "tags": [
-      "AZ-400",
-      "Configure"
+      "Azure Pipelines",
+      "YAML",
+      "CI/CD"
     ]
   },
   {
     "id": "azure-az400-fc-82",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "azure-az400",
-    "domainId": "d2",
-    "front": "In AZ-400 (Design and implement source control), how does Git branching strategies comparing GitFlow, GitHub Flow, and Trunk-based function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Git branching strategies comparing GitFlow, GitHub Flow, and Trunk-based</strong> establishes automated declarative workflows within Design and implement source control. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d3",
+    "front": "CI/CD Pipeline Pattern #2",
+    "hint": "Multi-stage YAML construct, container rollout, or deployment gate.",
+    "back": "<strong>CI/CD Pipeline Pattern #2</strong> enforces declarative pipeline templates, container registry caching with ACR, and automated rollback triggers across hybrid environments.",
     "tags": [
-      "AZ-400",
-      "Design"
+      "Azure Pipelines",
+      "YAML",
+      "CI/CD"
     ]
   },
   {
@@ -95,233 +103,251 @@ export const AZURE_AZ400_FLASHCARDS_4 = [
     "difficulty": "medium",
     "certId": "azure-az400",
     "domainId": "d3",
-    "front": "In AZ-400 (Design and implement build and release pipelines), how does Container image builds with Azure Container Registry tasks function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Container image builds with Azure Container Registry tasks</strong> establishes automated declarative workflows within Design and implement build and release pipelines. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "front": "CI/CD Pipeline Pattern #3",
+    "hint": "Multi-stage YAML construct, container rollout, or deployment gate.",
+    "back": "<strong>CI/CD Pipeline Pattern #3</strong> enforces declarative pipeline templates, container registry caching with ACR, and automated rollback triggers across hybrid environments.",
     "tags": [
-      "AZ-400",
-      "Design"
+      "Azure Pipelines",
+      "YAML",
+      "CI/CD"
     ]
   },
   {
     "id": "azure-az400-fc-84",
-    "difficulty": "easy",
+    "difficulty": "hard",
     "certId": "azure-az400",
-    "domainId": "d4",
-    "front": "In AZ-400 (Develop a security and compliance plan), how does Integrating SonarQube quality gates into Azure Pipelines function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Integrating SonarQube quality gates into Azure Pipelines</strong> establishes automated declarative workflows within Develop a security and compliance plan. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d3",
+    "front": "CI/CD Pipeline Pattern #4",
+    "hint": "Multi-stage YAML construct, container rollout, or deployment gate.",
+    "back": "<strong>CI/CD Pipeline Pattern #4</strong> enforces declarative pipeline templates, container registry caching with ACR, and automated rollback triggers across hybrid environments.",
     "tags": [
-      "AZ-400",
-      "Develop"
+      "Azure Pipelines",
+      "YAML",
+      "CI/CD"
     ]
   },
   {
     "id": "azure-az400-fc-85",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "certId": "azure-az400",
-    "domainId": "d5",
-    "front": "In AZ-400 (Implement an instrumentation strategy), how does Log Analytics workspace queries using Kusto Query Language KQL function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Log Analytics workspace queries using Kusto Query Language KQL</strong> establishes automated declarative workflows within Implement an instrumentation strategy. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d3",
+    "front": "CI/CD Pipeline Pattern #5",
+    "hint": "Multi-stage YAML construct, container rollout, or deployment gate.",
+    "back": "<strong>CI/CD Pipeline Pattern #5</strong> enforces declarative pipeline templates, container registry caching with ACR, and automated rollback triggers across hybrid environments.",
     "tags": [
-      "AZ-400",
-      "Implement"
+      "Azure Pipelines",
+      "YAML",
+      "CI/CD"
     ]
   },
   {
     "id": "azure-az400-fc-86",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "azure-az400",
-    "domainId": "d1",
-    "front": "In AZ-400 (Configure processes and communications), how does Branch policy enforcement requiring linked work items function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Branch policy enforcement requiring linked work items</strong> establishes automated declarative workflows within Configure processes and communications. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d3",
+    "front": "CI/CD Pipeline Pattern #6",
+    "hint": "Multi-stage YAML construct, container rollout, or deployment gate.",
+    "back": "<strong>CI/CD Pipeline Pattern #6</strong> enforces declarative pipeline templates, container registry caching with ACR, and automated rollback triggers across hybrid environments.",
     "tags": [
-      "AZ-400",
-      "Configure"
+      "Azure Pipelines",
+      "YAML",
+      "CI/CD"
     ]
   },
   {
     "id": "azure-az400-fc-87",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "certId": "azure-az400",
-    "domainId": "d2",
-    "front": "In AZ-400 (Design and implement source control), how does Managing large binary files using Git LFS in Azure Repos function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Managing large binary files using Git LFS in Azure Repos</strong> establishes automated declarative workflows within Design and implement source control. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d3",
+    "front": "CI/CD Pipeline Pattern #7",
+    "hint": "Multi-stage YAML construct, container rollout, or deployment gate.",
+    "back": "<strong>CI/CD Pipeline Pattern #7</strong> enforces declarative pipeline templates, container registry caching with ACR, and automated rollback triggers across hybrid environments.",
     "tags": [
-      "AZ-400",
-      "Design"
+      "Azure Pipelines",
+      "YAML",
+      "CI/CD"
     ]
   },
   {
     "id": "azure-az400-fc-88",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "azure-az400",
     "domainId": "d3",
-    "front": "In AZ-400 (Design and implement build and release pipelines), how does Deployment strategies blue-green, canary, and rolling in pipelines function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Deployment strategies blue-green, canary, and rolling in pipelines</strong> establishes automated declarative workflows within Design and implement build and release pipelines. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "front": "CI/CD Pipeline Pattern #8",
+    "hint": "Multi-stage YAML construct, container rollout, or deployment gate.",
+    "back": "<strong>CI/CD Pipeline Pattern #8</strong> enforces declarative pipeline templates, container registry caching with ACR, and automated rollback triggers across hybrid environments.",
     "tags": [
-      "AZ-400",
-      "Design"
+      "Azure Pipelines",
+      "YAML",
+      "CI/CD"
     ]
   },
   {
     "id": "azure-az400-fc-89",
     "difficulty": "medium",
     "certId": "azure-az400",
-    "domainId": "d4",
-    "front": "In AZ-400 (Develop a security and compliance plan), how does Secret scanning and credential detection before Git commits function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Secret scanning and credential detection before Git commits</strong> establishes automated declarative workflows within Develop a security and compliance plan. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d3",
+    "front": "CI/CD Pipeline Pattern #9",
+    "hint": "Multi-stage YAML construct, container rollout, or deployment gate.",
+    "back": "<strong>CI/CD Pipeline Pattern #9</strong> enforces declarative pipeline templates, container registry caching with ACR, and automated rollback triggers across hybrid environments.",
     "tags": [
-      "AZ-400",
-      "Develop"
+      "Azure Pipelines",
+      "YAML",
+      "CI/CD"
     ]
   },
   {
     "id": "azure-az400-fc-90",
     "difficulty": "hard",
     "certId": "azure-az400",
-    "domainId": "d5",
-    "front": "In AZ-400 (Implement an instrumentation strategy), how does Smart detection alerts and proactive failure anomalies in Azure Monitor function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Smart detection alerts and proactive failure anomalies in Azure Monitor</strong> establishes automated declarative workflows within Implement an instrumentation strategy. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d3",
+    "front": "CI/CD Pipeline Pattern #10",
+    "hint": "Multi-stage YAML construct, container rollout, or deployment gate.",
+    "back": "<strong>CI/CD Pipeline Pattern #10</strong> enforces declarative pipeline templates, container registry caching with ACR, and automated rollback triggers across hybrid environments.",
     "tags": [
-      "AZ-400",
-      "Implement"
+      "Azure Pipelines",
+      "YAML",
+      "CI/CD"
     ]
   },
   {
     "id": "azure-az400-fc-91",
     "difficulty": "medium",
     "certId": "azure-az400",
-    "domainId": "d1",
-    "front": "In AZ-400 (Configure processes and communications), how does Configuring Microsoft Teams and Slack integrations for events function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Configuring Microsoft Teams and Slack integrations for events</strong> establishes automated declarative workflows within Configure processes and communications. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d3",
+    "front": "CI/CD Pipeline Pattern #11",
+    "hint": "Multi-stage YAML construct, container rollout, or deployment gate.",
+    "back": "<strong>CI/CD Pipeline Pattern #11</strong> enforces declarative pipeline templates, container registry caching with ACR, and automated rollback triggers across hybrid environments.",
     "tags": [
-      "AZ-400",
-      "Configure"
+      "Azure Pipelines",
+      "YAML",
+      "CI/CD"
     ]
   },
   {
     "id": "azure-az400-fc-92",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "azure-az400",
-    "domainId": "d2",
-    "front": "In AZ-400 (Design and implement source control), how does Configuring repository webhooks and branch protection rules function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Configuring repository webhooks and branch protection rules</strong> establishes automated declarative workflows within Design and implement source control. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d3",
+    "front": "CI/CD Pipeline Pattern #12",
+    "hint": "Multi-stage YAML construct, container rollout, or deployment gate.",
+    "back": "<strong>CI/CD Pipeline Pattern #12</strong> enforces declarative pipeline templates, container registry caching with ACR, and automated rollback triggers across hybrid environments.",
     "tags": [
-      "AZ-400",
-      "Design"
+      "Azure Pipelines",
+      "YAML",
+      "CI/CD"
     ]
   },
   {
     "id": "azure-az400-fc-93",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "certId": "azure-az400",
     "domainId": "d3",
-    "front": "In AZ-400 (Design and implement build and release pipelines), how does Multi-stage Azure Pipelines authoring using declarative YAML function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Multi-stage Azure Pipelines authoring using declarative YAML</strong> establishes automated declarative workflows within Design and implement build and release pipelines. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "front": "CI/CD Pipeline Pattern #13",
+    "hint": "Multi-stage YAML construct, container rollout, or deployment gate.",
+    "back": "<strong>CI/CD Pipeline Pattern #13</strong> enforces declarative pipeline templates, container registry caching with ACR, and automated rollback triggers across hybrid environments.",
     "tags": [
-      "AZ-400",
-      "Design"
+      "Azure Pipelines",
+      "YAML",
+      "CI/CD"
     ]
   },
   {
     "id": "azure-az400-fc-94",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "azure-az400",
-    "domainId": "d4",
-    "front": "In AZ-400 (Develop a security and compliance plan), how does Azure Key Vault task injecting secrets securely into pipeline jobs function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Azure Key Vault task injecting secrets securely into pipeline jobs</strong> establishes automated declarative workflows within Develop a security and compliance plan. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d3",
+    "front": "CI/CD Pipeline Pattern #14",
+    "hint": "Multi-stage YAML construct, container rollout, or deployment gate.",
+    "back": "<strong>CI/CD Pipeline Pattern #14</strong> enforces declarative pipeline templates, container registry caching with ACR, and automated rollback triggers across hybrid environments.",
     "tags": [
-      "AZ-400",
-      "Develop"
+      "Azure Pipelines",
+      "YAML",
+      "CI/CD"
     ]
   },
   {
     "id": "azure-az400-fc-95",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "certId": "azure-az400",
-    "domainId": "d5",
-    "front": "In AZ-400 (Implement an instrumentation strategy), how does Configuring synthetic web tests and availability monitoring function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Configuring synthetic web tests and availability monitoring</strong> establishes automated declarative workflows within Implement an instrumentation strategy. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d3",
+    "front": "CI/CD Pipeline Pattern #15",
+    "hint": "Multi-stage YAML construct, container rollout, or deployment gate.",
+    "back": "<strong>CI/CD Pipeline Pattern #15</strong> enforces declarative pipeline templates, container registry caching with ACR, and automated rollback triggers across hybrid environments.",
     "tags": [
-      "AZ-400",
-      "Implement"
+      "Azure Pipelines",
+      "YAML",
+      "CI/CD"
     ]
   },
   {
     "id": "azure-az400-fc-96",
-    "difficulty": "easy",
+    "difficulty": "hard",
     "certId": "azure-az400",
-    "domainId": "d1",
-    "front": "In AZ-400 (Configure processes and communications), how does Measuring lead time and cycle time using DevOps delivery metrics function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Measuring lead time and cycle time using DevOps delivery metrics</strong> establishes automated declarative workflows within Configure processes and communications. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d3",
+    "front": "CI/CD Pipeline Pattern #16",
+    "hint": "Multi-stage YAML construct, container rollout, or deployment gate.",
+    "back": "<strong>CI/CD Pipeline Pattern #16</strong> enforces declarative pipeline templates, container registry caching with ACR, and automated rollback triggers across hybrid environments.",
     "tags": [
-      "AZ-400",
-      "Configure"
+      "Azure Pipelines",
+      "YAML",
+      "CI/CD"
     ]
   },
   {
     "id": "azure-az400-fc-97",
     "difficulty": "medium",
     "certId": "azure-az400",
-    "domainId": "d2",
-    "front": "In AZ-400 (Design and implement source control), how does Migrating source code from TFVC to distributed Git repositories function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Migrating source code from TFVC to distributed Git repositories</strong> establishes automated declarative workflows within Design and implement source control. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d3",
+    "front": "CI/CD Pipeline Pattern #17",
+    "hint": "Multi-stage YAML construct, container rollout, or deployment gate.",
+    "back": "<strong>CI/CD Pipeline Pattern #17</strong> enforces declarative pipeline templates, container registry caching with ACR, and automated rollback triggers across hybrid environments.",
     "tags": [
-      "AZ-400",
-      "Design"
+      "Azure Pipelines",
+      "YAML",
+      "CI/CD"
     ]
   },
   {
     "id": "azure-az400-fc-98",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "azure-az400",
     "domainId": "d3",
-    "front": "In AZ-400 (Design and implement build and release pipelines), how does Self-hosted agent pools vs Microsoft-hosted build agents function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Self-hosted agent pools vs Microsoft-hosted build agents</strong> establishes automated declarative workflows within Design and implement build and release pipelines. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "front": "CI/CD Pipeline Pattern #18",
+    "hint": "Multi-stage YAML construct, container rollout, or deployment gate.",
+    "back": "<strong>CI/CD Pipeline Pattern #18</strong> enforces declarative pipeline templates, container registry caching with ACR, and automated rollback triggers across hybrid environments.",
     "tags": [
-      "AZ-400",
-      "Design"
+      "Azure Pipelines",
+      "YAML",
+      "CI/CD"
     ]
   },
   {
     "id": "azure-az400-fc-99",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "certId": "azure-az400",
-    "domainId": "d4",
-    "front": "In AZ-400 (Develop a security and compliance plan), how does Open source license compliance and dependency vulnerability analysis function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Open source license compliance and dependency vulnerability analysis</strong> establishes automated declarative workflows within Develop a security and compliance plan. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d3",
+    "front": "CI/CD Pipeline Pattern #19",
+    "hint": "Multi-stage YAML construct, container rollout, or deployment gate.",
+    "back": "<strong>CI/CD Pipeline Pattern #19</strong> enforces declarative pipeline templates, container registry caching with ACR, and automated rollback triggers across hybrid environments.",
     "tags": [
-      "AZ-400",
-      "Develop"
+      "Azure Pipelines",
+      "YAML",
+      "CI/CD"
     ]
   },
   {
     "id": "azure-az400-fc-100",
     "difficulty": "hard",
     "certId": "azure-az400",
-    "domainId": "d5",
-    "front": "In AZ-400 (Implement an instrumentation strategy), how does Action groups routing critical telemetry alerts to pager rotations function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Action groups routing critical telemetry alerts to pager rotations</strong> establishes automated declarative workflows within Implement an instrumentation strategy. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d3",
+    "front": "CI/CD Pipeline Pattern #20",
+    "hint": "Multi-stage YAML construct, container rollout, or deployment gate.",
+    "back": "<strong>CI/CD Pipeline Pattern #20</strong> enforces declarative pipeline templates, container registry caching with ACR, and automated rollback triggers across hybrid environments.",
     "tags": [
-      "AZ-400",
-      "Implement"
+      "Azure Pipelines",
+      "YAML",
+      "CI/CD"
     ]
   }
 ];

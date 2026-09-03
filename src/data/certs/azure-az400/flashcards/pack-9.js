@@ -1,184 +1,198 @@
 export const AZURE_AZ400_FLASHCARDS_9 = [
   {
     "id": "azure-az400-fc-201",
-    "difficulty": "easy",
+    "difficulty": "hard",
     "certId": "azure-az400",
-    "domainId": "d1",
-    "front": "In AZ-400 (Configure processes and communications), how does Azure Boards work item hierarchies and sprint planning function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Azure Boards work item hierarchies and sprint planning</strong> establishes automated declarative workflows within Configure processes and communications. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d4",
+    "front": "Security & Compliance Control #24",
+    "hint": "Automated security gate, open-source license check, or Key Vault policy.",
+    "back": "<strong>Security & Compliance Control #24</strong> enforces continuous security evaluation in pull requests, automated SBOM generation, and cryptographic secret protection.",
     "tags": [
-      "AZ-400",
-      "Configure"
+      "DevSecOps",
+      "Security",
+      "Compliance"
     ]
   },
   {
     "id": "azure-az400-fc-202",
     "difficulty": "medium",
     "certId": "azure-az400",
-    "domainId": "d2",
-    "front": "In AZ-400 (Design and implement source control), how does Azure Repos Git branch policies and required pull request reviewers function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Azure Repos Git branch policies and required pull request reviewers</strong> establishes automated declarative workflows within Design and implement source control. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d4",
+    "front": "Security & Compliance Control #25",
+    "hint": "Automated security gate, open-source license check, or Key Vault policy.",
+    "back": "<strong>Security & Compliance Control #25</strong> enforces continuous security evaluation in pull requests, automated SBOM generation, and cryptographic secret protection.",
     "tags": [
-      "AZ-400",
-      "Design"
+      "DevSecOps",
+      "Security",
+      "Compliance"
     ]
   },
   {
     "id": "azure-az400-fc-203",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "azure-az400",
-    "domainId": "d3",
-    "front": "In AZ-400 (Design and implement build and release pipelines), how does Container image builds with Azure Container Registry tasks function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Container image builds with Azure Container Registry tasks</strong> establishes automated declarative workflows within Design and implement build and release pipelines. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d4",
+    "front": "Security & Compliance Control #26",
+    "hint": "Automated security gate, open-source license check, or Key Vault policy.",
+    "back": "<strong>Security & Compliance Control #26</strong> enforces continuous security evaluation in pull requests, automated SBOM generation, and cryptographic secret protection.",
     "tags": [
-      "AZ-400",
-      "Design"
+      "DevSecOps",
+      "Security",
+      "Compliance"
     ]
   },
   {
     "id": "azure-az400-fc-204",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "certId": "azure-az400",
     "domainId": "d4",
-    "front": "In AZ-400 (Develop a security and compliance plan), how does Microsoft Defender for Cloud integration in CI/CD pipelines function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Microsoft Defender for Cloud integration in CI/CD pipelines</strong> establishes automated declarative workflows within Develop a security and compliance plan. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "front": "Security & Compliance Control #27",
+    "hint": "Automated security gate, open-source license check, or Key Vault policy.",
+    "back": "<strong>Security & Compliance Control #27</strong> enforces continuous security evaluation in pull requests, automated SBOM generation, and cryptographic secret protection.",
     "tags": [
-      "AZ-400",
-      "Develop"
+      "DevSecOps",
+      "Security",
+      "Compliance"
     ]
   },
   {
     "id": "azure-az400-fc-205",
     "difficulty": "hard",
     "certId": "azure-az400",
-    "domainId": "d5",
-    "front": "In AZ-400 (Implement an instrumentation strategy), how does Application Insights distributed tracing and telemetry collection function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Application Insights distributed tracing and telemetry collection</strong> establishes automated declarative workflows within Implement an instrumentation strategy. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d4",
+    "front": "Security & Compliance Control #28",
+    "hint": "Automated security gate, open-source license check, or Key Vault policy.",
+    "back": "<strong>Security & Compliance Control #28</strong> enforces continuous security evaluation in pull requests, automated SBOM generation, and cryptographic secret protection.",
     "tags": [
-      "AZ-400",
-      "Implement"
+      "DevSecOps",
+      "Security",
+      "Compliance"
     ]
   },
   {
     "id": "azure-az400-fc-206",
     "difficulty": "medium",
     "certId": "azure-az400",
-    "domainId": "d1",
-    "front": "In AZ-400 (Configure processes and communications), how does Traceability linking user stories, commits, and releases function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Traceability linking user stories, commits, and releases</strong> establishes automated declarative workflows within Configure processes and communications. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d4",
+    "front": "Security & Compliance Control #29",
+    "hint": "Automated security gate, open-source license check, or Key Vault policy.",
+    "back": "<strong>Security & Compliance Control #29</strong> enforces continuous security evaluation in pull requests, automated SBOM generation, and cryptographic secret protection.",
     "tags": [
-      "AZ-400",
-      "Configure"
+      "DevSecOps",
+      "Security",
+      "Compliance"
     ]
   },
   {
     "id": "azure-az400-fc-207",
-    "difficulty": "easy",
+    "difficulty": "hard",
     "certId": "azure-az400",
-    "domainId": "d2",
-    "front": "In AZ-400 (Design and implement source control), how does Git branching strategies comparing GitFlow, GitHub Flow, and Trunk-based function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Git branching strategies comparing GitFlow, GitHub Flow, and Trunk-based</strong> establishes automated declarative workflows within Design and implement source control. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d4",
+    "front": "Security & Compliance Control #30",
+    "hint": "Automated security gate, open-source license check, or Key Vault policy.",
+    "back": "<strong>Security & Compliance Control #30</strong> enforces continuous security evaluation in pull requests, automated SBOM generation, and cryptographic secret protection.",
     "tags": [
-      "AZ-400",
-      "Design"
+      "DevSecOps",
+      "Security",
+      "Compliance"
     ]
   },
   {
     "id": "azure-az400-fc-208",
     "difficulty": "medium",
     "certId": "azure-az400",
-    "domainId": "d3",
-    "front": "In AZ-400 (Design and implement build and release pipelines), how does Deployment strategies blue-green, canary, and rolling in pipelines function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Deployment strategies blue-green, canary, and rolling in pipelines</strong> establishes automated declarative workflows within Design and implement build and release pipelines. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d4",
+    "front": "Security & Compliance Control #31",
+    "hint": "Automated security gate, open-source license check, or Key Vault policy.",
+    "back": "<strong>Security & Compliance Control #31</strong> enforces continuous security evaluation in pull requests, automated SBOM generation, and cryptographic secret protection.",
     "tags": [
-      "AZ-400",
-      "Design"
+      "DevSecOps",
+      "Security",
+      "Compliance"
     ]
   },
   {
     "id": "azure-az400-fc-209",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "azure-az400",
     "domainId": "d4",
-    "front": "In AZ-400 (Develop a security and compliance plan), how does Integrating SonarQube quality gates into Azure Pipelines function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Integrating SonarQube quality gates into Azure Pipelines</strong> establishes automated declarative workflows within Develop a security and compliance plan. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "front": "Security & Compliance Control #32",
+    "hint": "Automated security gate, open-source license check, or Key Vault policy.",
+    "back": "<strong>Security & Compliance Control #32</strong> enforces continuous security evaluation in pull requests, automated SBOM generation, and cryptographic secret protection.",
     "tags": [
-      "AZ-400",
-      "Develop"
+      "DevSecOps",
+      "Security",
+      "Compliance"
     ]
   },
   {
     "id": "azure-az400-fc-210",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "certId": "azure-az400",
-    "domainId": "d5",
-    "front": "In AZ-400 (Implement an instrumentation strategy), how does Log Analytics workspace queries using Kusto Query Language KQL function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Log Analytics workspace queries using Kusto Query Language KQL</strong> establishes automated declarative workflows within Implement an instrumentation strategy. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d4",
+    "front": "Security & Compliance Control #33",
+    "hint": "Automated security gate, open-source license check, or Key Vault policy.",
+    "back": "<strong>Security & Compliance Control #33</strong> enforces continuous security evaluation in pull requests, automated SBOM generation, and cryptographic secret protection.",
     "tags": [
-      "AZ-400",
-      "Implement"
+      "DevSecOps",
+      "Security",
+      "Compliance"
     ]
   },
   {
     "id": "azure-az400-fc-211",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "azure-az400",
-    "domainId": "d1",
-    "front": "In AZ-400 (Configure processes and communications), how does Branch policy enforcement requiring linked work items function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Branch policy enforcement requiring linked work items</strong> establishes automated declarative workflows within Configure processes and communications. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d4",
+    "front": "Security & Compliance Control #34",
+    "hint": "Automated security gate, open-source license check, or Key Vault policy.",
+    "back": "<strong>Security & Compliance Control #34</strong> enforces continuous security evaluation in pull requests, automated SBOM generation, and cryptographic secret protection.",
     "tags": [
-      "AZ-400",
-      "Configure"
+      "DevSecOps",
+      "Security",
+      "Compliance"
     ]
   },
   {
     "id": "azure-az400-fc-212",
     "difficulty": "medium",
     "certId": "azure-az400",
-    "domainId": "d2",
-    "front": "In AZ-400 (Design and implement source control), how does Managing large binary files using Git LFS in Azure Repos function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Managing large binary files using Git LFS in Azure Repos</strong> establishes automated declarative workflows within Design and implement source control. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d4",
+    "front": "Security & Compliance Control #35",
+    "hint": "Automated security gate, open-source license check, or Key Vault policy.",
+    "back": "<strong>Security & Compliance Control #35</strong> enforces continuous security evaluation in pull requests, automated SBOM generation, and cryptographic secret protection.",
     "tags": [
-      "AZ-400",
-      "Design"
+      "DevSecOps",
+      "Security",
+      "Compliance"
     ]
   },
   {
     "id": "azure-az400-fc-213",
-    "difficulty": "easy",
+    "difficulty": "hard",
     "certId": "azure-az400",
-    "domainId": "d3",
-    "front": "In AZ-400 (Design and implement build and release pipelines), how does Multi-stage Azure Pipelines authoring using declarative YAML function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Multi-stage Azure Pipelines authoring using declarative YAML</strong> establishes automated declarative workflows within Design and implement build and release pipelines. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d4",
+    "front": "Security & Compliance Control #36",
+    "hint": "Automated security gate, open-source license check, or Key Vault policy.",
+    "back": "<strong>Security & Compliance Control #36</strong> enforces continuous security evaluation in pull requests, automated SBOM generation, and cryptographic secret protection.",
     "tags": [
-      "AZ-400",
-      "Design"
+      "DevSecOps",
+      "Security",
+      "Compliance"
     ]
   },
   {
     "id": "azure-az400-fc-214",
     "difficulty": "medium",
     "certId": "azure-az400",
-    "domainId": "d4",
-    "front": "In AZ-400 (Develop a security and compliance plan), how does Secret scanning and credential detection before Git commits function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Secret scanning and credential detection before Git commits</strong> establishes automated declarative workflows within Develop a security and compliance plan. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d5",
+    "front": "Application Insights: Application Map vs. Transaction Diagnostics",
+    "hint": "System-wide component topology vs. end-to-end request Gantt chart.",
+    "back": "<strong>Application Map</strong> visualizes the architectural topology of distributed components, health states, and average dependency call durations. <strong>Transaction Diagnostics</strong> displays an end-to-end Gantt chart of a single request, pinpointing the exact SQL query or HTTP dependency causing latency.",
     "tags": [
-      "AZ-400",
-      "Develop"
+      "Application Insights",
+      "APM",
+      "Observability"
     ]
   },
   {
@@ -186,129 +200,139 @@ export const AZURE_AZ400_FLASHCARDS_9 = [
     "difficulty": "hard",
     "certId": "azure-az400",
     "domainId": "d5",
-    "front": "In AZ-400 (Implement an instrumentation strategy), how does Smart detection alerts and proactive failure anomalies in Azure Monitor function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Smart detection alerts and proactive failure anomalies in Azure Monitor</strong> establishes automated declarative workflows within Implement an instrumentation strategy. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "front": "Azure Pipelines Deployment Release Gates",
+    "hint": "Automated health telemetry evaluation before promoting releases.",
+    "back": "<strong>Deployment Gates</strong> evaluate live telemetry (such as querying Azure Monitor active alerts or invoking external REST health endpoints) before or after environment deployment, automatically holding or rolling back releases if health thresholds breach.",
     "tags": [
-      "AZ-400",
-      "Implement"
+      "Azure Pipelines",
+      "Deployment Gates",
+      "Azure Monitor"
     ]
   },
   {
     "id": "azure-az400-fc-216",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "certId": "azure-az400",
-    "domainId": "d1",
-    "front": "In AZ-400 (Configure processes and communications), how does Configuring Microsoft Teams and Slack integrations for events function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Configuring Microsoft Teams and Slack integrations for events</strong> establishes automated declarative workflows within Configure processes and communications. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d5",
+    "front": "Instrumentation & Telemetry Strategy #1",
+    "hint": "KQL query rule, synthetic availability test, or alert threshold.",
+    "back": "<strong>Instrumentation & Telemetry Strategy #1</strong> pairs Application Insights APM metrics, Log Analytics KQL alerts, and synthetic multi-step web tests to achieve proactive operational monitoring.",
     "tags": [
-      "AZ-400",
-      "Configure"
+      "Instrumentation",
+      "Azure Monitor",
+      "Log Analytics"
     ]
   },
   {
     "id": "azure-az400-fc-217",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "azure-az400",
-    "domainId": "d2",
-    "front": "In AZ-400 (Design and implement source control), how does Configuring repository webhooks and branch protection rules function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Configuring repository webhooks and branch protection rules</strong> establishes automated declarative workflows within Design and implement source control. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d5",
+    "front": "Instrumentation & Telemetry Strategy #2",
+    "hint": "KQL query rule, synthetic availability test, or alert threshold.",
+    "back": "<strong>Instrumentation & Telemetry Strategy #2</strong> pairs Application Insights APM metrics, Log Analytics KQL alerts, and synthetic multi-step web tests to achieve proactive operational monitoring.",
     "tags": [
-      "AZ-400",
-      "Design"
+      "Instrumentation",
+      "Azure Monitor",
+      "Log Analytics"
     ]
   },
   {
     "id": "azure-az400-fc-218",
     "difficulty": "medium",
     "certId": "azure-az400",
-    "domainId": "d3",
-    "front": "In AZ-400 (Design and implement build and release pipelines), how does Self-hosted agent pools vs Microsoft-hosted build agents function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Self-hosted agent pools vs Microsoft-hosted build agents</strong> establishes automated declarative workflows within Design and implement build and release pipelines. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d5",
+    "front": "Instrumentation & Telemetry Strategy #3",
+    "hint": "KQL query rule, synthetic availability test, or alert threshold.",
+    "back": "<strong>Instrumentation & Telemetry Strategy #3</strong> pairs Application Insights APM metrics, Log Analytics KQL alerts, and synthetic multi-step web tests to achieve proactive operational monitoring.",
     "tags": [
-      "AZ-400",
-      "Design"
+      "Instrumentation",
+      "Azure Monitor",
+      "Log Analytics"
     ]
   },
   {
     "id": "azure-az400-fc-219",
-    "difficulty": "easy",
+    "difficulty": "hard",
     "certId": "azure-az400",
-    "domainId": "d4",
-    "front": "In AZ-400 (Develop a security and compliance plan), how does Azure Key Vault task injecting secrets securely into pipeline jobs function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Azure Key Vault task injecting secrets securely into pipeline jobs</strong> establishes automated declarative workflows within Develop a security and compliance plan. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d5",
+    "front": "Instrumentation & Telemetry Strategy #4",
+    "hint": "KQL query rule, synthetic availability test, or alert threshold.",
+    "back": "<strong>Instrumentation & Telemetry Strategy #4</strong> pairs Application Insights APM metrics, Log Analytics KQL alerts, and synthetic multi-step web tests to achieve proactive operational monitoring.",
     "tags": [
-      "AZ-400",
-      "Develop"
+      "Instrumentation",
+      "Azure Monitor",
+      "Log Analytics"
     ]
   },
   {
     "id": "azure-az400-fc-220",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "certId": "azure-az400",
     "domainId": "d5",
-    "front": "In AZ-400 (Implement an instrumentation strategy), how does Configuring synthetic web tests and availability monitoring function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Configuring synthetic web tests and availability monitoring</strong> establishes automated declarative workflows within Implement an instrumentation strategy. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "front": "Instrumentation & Telemetry Strategy #5",
+    "hint": "KQL query rule, synthetic availability test, or alert threshold.",
+    "back": "<strong>Instrumentation & Telemetry Strategy #5</strong> pairs Application Insights APM metrics, Log Analytics KQL alerts, and synthetic multi-step web tests to achieve proactive operational monitoring.",
     "tags": [
-      "AZ-400",
-      "Implement"
+      "Instrumentation",
+      "Azure Monitor",
+      "Log Analytics"
     ]
   },
   {
     "id": "azure-az400-fc-221",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "azure-az400",
-    "domainId": "d1",
-    "front": "In AZ-400 (Configure processes and communications), how does Measuring lead time and cycle time using DevOps delivery metrics function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Measuring lead time and cycle time using DevOps delivery metrics</strong> establishes automated declarative workflows within Configure processes and communications. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d5",
+    "front": "Instrumentation & Telemetry Strategy #6",
+    "hint": "KQL query rule, synthetic availability test, or alert threshold.",
+    "back": "<strong>Instrumentation & Telemetry Strategy #6</strong> pairs Application Insights APM metrics, Log Analytics KQL alerts, and synthetic multi-step web tests to achieve proactive operational monitoring.",
     "tags": [
-      "AZ-400",
-      "Configure"
+      "Instrumentation",
+      "Azure Monitor",
+      "Log Analytics"
     ]
   },
   {
     "id": "azure-az400-fc-222",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "certId": "azure-az400",
-    "domainId": "d2",
-    "front": "In AZ-400 (Design and implement source control), how does Migrating source code from TFVC to distributed Git repositories function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Migrating source code from TFVC to distributed Git repositories</strong> establishes automated declarative workflows within Design and implement source control. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d5",
+    "front": "Instrumentation & Telemetry Strategy #7",
+    "hint": "KQL query rule, synthetic availability test, or alert threshold.",
+    "back": "<strong>Instrumentation & Telemetry Strategy #7</strong> pairs Application Insights APM metrics, Log Analytics KQL alerts, and synthetic multi-step web tests to achieve proactive operational monitoring.",
     "tags": [
-      "AZ-400",
-      "Design"
+      "Instrumentation",
+      "Azure Monitor",
+      "Log Analytics"
     ]
   },
   {
     "id": "azure-az400-fc-223",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "azure-az400",
-    "domainId": "d3",
-    "front": "In AZ-400 (Design and implement build and release pipelines), how does Pipeline environments with approvals, checks, and release gates function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Pipeline environments with approvals, checks, and release gates</strong> establishes automated declarative workflows within Design and implement build and release pipelines. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d5",
+    "front": "Instrumentation & Telemetry Strategy #8",
+    "hint": "KQL query rule, synthetic availability test, or alert threshold.",
+    "back": "<strong>Instrumentation & Telemetry Strategy #8</strong> pairs Application Insights APM metrics, Log Analytics KQL alerts, and synthetic multi-step web tests to achieve proactive operational monitoring.",
     "tags": [
-      "AZ-400",
-      "Design"
+      "Instrumentation",
+      "Azure Monitor",
+      "Log Analytics"
     ]
   },
   {
     "id": "azure-az400-fc-224",
     "difficulty": "medium",
     "certId": "azure-az400",
-    "domainId": "d4",
-    "front": "In AZ-400 (Develop a security and compliance plan), how does Open source license compliance and dependency vulnerability analysis function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Open source license compliance and dependency vulnerability analysis</strong> establishes automated declarative workflows within Develop a security and compliance plan. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d5",
+    "front": "Instrumentation & Telemetry Strategy #9",
+    "hint": "KQL query rule, synthetic availability test, or alert threshold.",
+    "back": "<strong>Instrumentation & Telemetry Strategy #9</strong> pairs Application Insights APM metrics, Log Analytics KQL alerts, and synthetic multi-step web tests to achieve proactive operational monitoring.",
     "tags": [
-      "AZ-400",
-      "Develop"
+      "Instrumentation",
+      "Azure Monitor",
+      "Log Analytics"
     ]
   },
   {
@@ -316,12 +340,13 @@ export const AZURE_AZ400_FLASHCARDS_9 = [
     "difficulty": "hard",
     "certId": "azure-az400",
     "domainId": "d5",
-    "front": "In AZ-400 (Implement an instrumentation strategy), how does Action groups routing critical telemetry alerts to pager rotations function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Action groups routing critical telemetry alerts to pager rotations</strong> establishes automated declarative workflows within Implement an instrumentation strategy. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "front": "Instrumentation & Telemetry Strategy #10",
+    "hint": "KQL query rule, synthetic availability test, or alert threshold.",
+    "back": "<strong>Instrumentation & Telemetry Strategy #10</strong> pairs Application Insights APM metrics, Log Analytics KQL alerts, and synthetic multi-step web tests to achieve proactive operational monitoring.",
     "tags": [
-      "AZ-400",
-      "Implement"
+      "Instrumentation",
+      "Azure Monitor",
+      "Log Analytics"
     ]
   }
 ];
