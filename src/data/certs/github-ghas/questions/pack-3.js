@@ -9,12 +9,12 @@ export const GITHUB_GHAS_QUESTIONS_3 = [
     scenario: "A cloud provider token was committed to a public repository. Within minutes the provider had revoked it and emailed the account owner, before the internal security team had seen the alert.",
     question: "What accounts for this?",
     options: [
-      { id: 'A', text: "GitHub revokes credentials directly using the provider API on the owner behalf." },
-      { id: 'B', text: "Validity checks revoke any token they find to be active." },
+      { id: 'A', text: "Validity checks revoke any token they find to be active." },
+      { id: 'B', text: "The secret scanning partner program: for supported token types found in public repositories, the issuing provider is notified so it can revoke or otherwise act, independently of the repository owner." },
       { id: 'C', text: "Push protection revoked the token when it blocked the push." },
-      { id: 'D', text: "The secret scanning partner program: for supported token types found in public repositories, the issuing provider is notified so it can revoke or otherwise act, independently of the repository owner." }
+      { id: 'D', text: "GitHub revokes credentials directly using the provider API on the owner behalf." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Under the partner program the provider that issued a token type is informed when one appears in a public repository, and many providers respond by revoking it immediately, which is why the credential can be dead before the owning team has triaged the alert. GitHub notifies rather than revoking on the provider behalf, push protection prevents a push rather than acting on a credential, and validity checks report status without changing it.",
     referenceUrl: "https://docs.github.com/en/code-security/secret-scanning/introduction/about-secret-scanning",
@@ -30,12 +30,12 @@ export const GITHUB_GHAS_QUESTIONS_3 = [
     scenario: "A security operations team runs its own incident platform and needs new secret scanning alerts to arrive there promptly, across every repository in the organization, without anyone watching the Security tab.",
     question: "Which integration approach is appropriate?",
     options: [
-      { id: 'A', text: "Export the security overview page on a schedule and ingest the export." },
-      { id: 'B', text: "Configure email notifications to a shared mailbox and parse the messages." },
-      { id: 'C', text: "Poll the alerts API for every repository every few minutes, since no webhook exists for these alerts." },
-      { id: 'D', text: "Subscribe to the secret scanning alert webhook at organization level for near real time delivery, and use the alerts API for backfill and periodic reconciliation." }
+      { id: 'A', text: "Subscribe to the secret scanning alert webhook at organization level for near real time delivery, and use the alerts API for backfill and periodic reconciliation." },
+      { id: 'B', text: "Poll the alerts API for every repository every few minutes, since no webhook exists for these alerts." },
+      { id: 'C', text: "Configure email notifications to a shared mailbox and parse the messages." },
+      { id: 'D', text: "Export the security overview page on a schedule and ingest the export." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "A webhook subscribed at organization level pushes alert events as they occur across every repository beneath it, and pairing it with the API for backfill and reconciliation covers gaps from delivery failures, which is the standard integration shape. Polling every repository is slower and creates rate limit pressure when a webhook exists, mailbox parsing is brittle, and the overview is a reporting surface rather than a feed.",
     referenceUrl: "https://docs.github.com/en/rest/secret-scanning",
@@ -51,12 +51,12 @@ export const GITHUB_GHAS_QUESTIONS_3 = [
     scenario: "Triage reveals that the same shared service password appears in thirty repositories across the organization, each with its own alert. Rotating it will break every consumer at once if not coordinated.",
     question: "What is the appropriate approach?",
     options: [
-      { id: 'A', text: "Resolve twenty-nine of the alerts as duplicates and remediate only the repository where it was first committed." },
-      { id: 'B', text: "Leave the credential in place and add push protection so no further copies are added." },
-      { id: 'C', text: "Use the organization-wide alert view to establish the full set of affected repositories and owners, provision a replacement credential and migrate consumers to it from a managed secret store, then revoke the original and resolve every alert." },
-      { id: 'D', text: "Rotate the credential immediately and let each team fix its own breakage, since exposure outweighs availability in all cases." }
+      { id: 'A', text: "Use the organization-wide alert view to establish the full set of affected repositories and owners, provision a replacement credential and migrate consumers to it from a managed secret store, then revoke the original and resolve every alert." },
+      { id: 'B', text: "Rotate the credential immediately and let each team fix its own breakage, since exposure outweighs availability in all cases." },
+      { id: 'C', text: "Resolve twenty-nine of the alerts as duplicates and remediate only the repository where it was first committed." },
+      { id: 'D', text: "Leave the credential in place and add push protection so no further copies are added." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The organization-wide view is what turns thirty separate alerts into one incident with a known blast radius, and issuing a replacement before revoking the original allows consumers to move without a simultaneous outage, with the exposed credential then revoked rather than merely rotated in place. Immediate revocation may still be right for a live high-severity exposure, but it is a deliberate trade rather than the default; closing alerts as duplicates loses the record of which repositories held it, and preventing new copies does nothing about the existing one.",
     referenceUrl: "https://docs.github.com/en/code-security/security-overview/viewing-security-insights",
@@ -72,12 +72,12 @@ export const GITHUB_GHAS_QUESTIONS_3 = [
     scenario: "An alert points at a credential that was removed from the working tree eighteen months ago in a later commit. A developer argues the alert is spurious because the current code does not contain it.",
     question: "Which reasoning is correct?",
     options: [
-      { id: 'A', text: "The alert is spurious and should be closed as a false positive, since scanning should only consider the current tree." },
-      { id: 'B', text: "The alert is valid but requires no rotation, because history is only readable by repository administrators." },
-      { id: 'C', text: "The alert is valid because the value remains retrievable from the commit history by anyone who can clone the repository, so it must be rotated regardless of whether current files contain it." },
+      { id: 'A', text: "The alert is valid but requires no rotation, because history is only readable by repository administrators." },
+      { id: 'B', text: "The alert is valid because the value remains retrievable from the commit history by anyone who can clone the repository, so it must be rotated regardless of whether current files contain it." },
+      { id: 'C', text: "The alert is spurious and should be closed as a false positive, since scanning should only consider the current tree." },
       { id: 'D', text: "The alert will close itself once the commit is older than two years." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Anything ever committed remains in the object history and in every clone and fork, so deletion in a later commit changes nothing about whether the credential is obtainable, which is exactly why secret scanning examines history and why rotation rather than deletion is the remedy. It is not a false positive, history is readable by anyone who can read the repository, and alerts do not expire with age.",
     referenceUrl: "https://docs.github.com/en/code-security/secret-scanning/managing-alerts-from-secret-scanning",
@@ -93,12 +93,12 @@ export const GITHUB_GHAS_QUESTIONS_3 = [
     scenario: "A security lead must show that the investment in push protection is working, and has open alert counts, resolved alert counts and bypass records available.",
     question: "Which measure most directly evidences prevention?",
     options: [
-      { id: 'A', text: "The total number of repositories with the feature enabled." },
-      { id: 'B', text: "The average time taken to resolve alerts." },
-      { id: 'C', text: "The count of pushes blocked by push protection, since each represents a credential that never entered the repository, read alongside the bypass count and reasons to show how often the block was overridden." },
-      { id: 'D', text: "The count of open secret scanning alerts, since a lower number proves prevention is working." }
+      { id: 'A', text: "The count of pushes blocked by push protection, since each represents a credential that never entered the repository, read alongside the bypass count and reasons to show how often the block was overridden." },
+      { id: 'B', text: "The count of open secret scanning alerts, since a lower number proves prevention is working." },
+      { id: 'C', text: "The total number of repositories with the feature enabled." },
+      { id: 'D', text: "The average time taken to resolve alerts." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Blocked pushes measure the thing push protection actually does, namely stopping an exposure before it happens, and pairing that with how often blocks were bypassed and why keeps the measure honest rather than flattering. Open alert counts move for many reasons including newly enabled repositories, enablement counts measure coverage rather than effect, and resolution time measures the response process for exposures that already occurred.",
     referenceUrl: "https://docs.github.com/en/code-security/security-overview/viewing-security-insights",
@@ -135,12 +135,12 @@ export const GITHUB_GHAS_QUESTIONS_3 = [
     scenario: "A team encounters advisories in two places: entries in the global advisory database that generate alerts for consumers, and a draft advisory in their own repository that nobody outside can see.",
     question: "How do the two relate?",
     options: [
-      { id: 'A', text: "They are unrelated: repository advisories are internal notes and never reach the global database." },
-      { id: 'B', text: "Repository advisories generate consumer alerts immediately on creation, before publication." },
+      { id: 'A', text: "Repository advisories generate consumer alerts immediately on creation, before publication." },
+      { id: 'B', text: "A repository advisory is authored privately by the maintainers of the affected project and, when published, is reviewed and can be added to the global database, from where it generates alerts for downstream consumers." },
       { id: 'C', text: "Global advisories are generated automatically from code scanning alerts across public repositories." },
-      { id: 'D', text: "A repository advisory is authored privately by the maintainers of the affected project and, when published, is reviewed and can be added to the global database, from where it generates alerts for downstream consumers." }
+      { id: 'D', text: "They are unrelated: repository advisories are internal notes and never reach the global database." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "The repository advisory is the private authoring and coordination surface for the maintainers of a project, and publication is the step that moves the information into the curated global database where dependency matching turns it into alerts for everyone consuming the affected versions. They are two stages of one pipeline rather than unrelated, the global database is curated rather than generated from code scanning, and a draft raises no consumer alerts, which is the point of drafting.",
     referenceUrl: "https://docs.github.com/en/code-security/security-advisories/working-with-repository-security-advisories/about-repository-security-advisories",
@@ -177,12 +177,12 @@ export const GITHUB_GHAS_QUESTIONS_3 = [
     scenario: "An organization maintains a fork of an upstream project with substantial local changes, treating it as a product. It receives no Dependabot alerts although the upstream repository does.",
     question: "Why, and what is required?",
     options: [
-      { id: 'A', text: "Alerts require the fork to be ahead of upstream, which this one is not." },
-      { id: 'B', text: "Dependabot alerts are not enabled on forks by default, so they must be enabled explicitly for that fork, after which its own dependency graph drives its own alerts." },
+      { id: 'A', text: "Forks inherit alerts from the upstream repository, so the absence indicates upstream has disabled them." },
+      { id: 'B', text: "Alerts require the fork to be ahead of upstream, which this one is not." },
       { id: 'C', text: "Forks cannot have alerts at all, so the fork must be detached into a standalone repository." },
-      { id: 'D', text: "Forks inherit alerts from the upstream repository, so the absence indicates upstream has disabled them." }
+      { id: 'D', text: "Dependabot alerts are not enabled on forks by default, so they must be enabled explicitly for that fork, after which its own dependency graph drives its own alerts." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Forks default to having alerts off because most forks are short-lived contribution copies whose owners do not want a duplicate alert stream, so a fork maintained as a product must have them enabled deliberately, after which it is analysed on its own terms including its local changes. Alerts are not inherited from upstream, forks are fully supported, and being behind upstream does not suppress them.",
     referenceUrl: "https://docs.github.com/en/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts",
@@ -198,12 +198,12 @@ export const GITHUB_GHAS_QUESTIONS_3 = [
     scenario: "Dependency review currently fails a pull request for any newly introduced advisory including informational ones, and developers have begun treating the check as noise.",
     question: "Which adjustment restores its credibility?",
     options: [
-      { id: 'A', text: "Replace dependency review with Dependabot alerts, which do not block pull requests." },
-      { id: 'B', text: "Configure a severity threshold so the check fails only at or above an agreed level, with the remaining findings still reported in the pull request for awareness, and keep the licence policy separate." },
+      { id: 'A', text: "Remove the check from required status checks and leave it advisory only." },
+      { id: 'B', text: "Replace dependency review with Dependabot alerts, which do not block pull requests." },
       { id: 'C', text: "Set the check to fail only on critical findings and suppress the display of everything else." },
-      { id: 'D', text: "Remove the check from required status checks and leave it advisory only." }
+      { id: 'D', text: "Configure a severity threshold so the check fails only at or above an agreed level, with the remaining findings still reported in the pull request for awareness, and keep the licence policy separate." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "A gate is credible when the threshold for blocking matches what the organization has actually agreed is unacceptable, and the action supports exactly that separation between what fails the check and what is merely reported. Making it advisory removes the gate, suppressing the display of lower severity findings discards useful context along with the blocking, and alerts are a different feature that does not gate a merge at all.",
     referenceUrl: "https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-the-dependency-review-action",
@@ -219,12 +219,12 @@ export const GITHUB_GHAS_QUESTIONS_3 = [
     scenario: "A team consumes an internally produced container image. They want to verify before deployment that it was built by the expected workflow in the expected repository, not uploaded by someone with registry access.",
     question: "Which mechanism supports this?",
     options: [
-      { id: 'A', text: "A Dependabot alert, which would be raised if an artifact came from an unexpected source." },
-      { id: 'B', text: "The dependency graph of the producing repository, which records published artifacts." },
-      { id: 'C', text: "The image digest recorded in the deployment manifest, which establishes the build origin." },
-      { id: 'D', text: "Build provenance attestations generated by the producing workflow and verified by the consumer against the expected repository and workflow identity before the image is deployed." }
+      { id: 'A', text: "Build provenance attestations generated by the producing workflow and verified by the consumer against the expected repository and workflow identity before the image is deployed." },
+      { id: 'B', text: "The image digest recorded in the deployment manifest, which establishes the build origin." },
+      { id: 'C', text: "The dependency graph of the producing repository, which records published artifacts." },
+      { id: 'D', text: "A Dependabot alert, which would be raised if an artifact came from an unexpected source." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Provenance attestations bind an artifact digest to the workflow identity that produced it and are signed, so a consumer can verify origin rather than merely integrity, which is precisely the difference between knowing a file is unaltered and knowing who built it. A digest proves the bytes are unchanged but says nothing about who created them, the dependency graph describes consumption, and Dependabot matches advisories rather than checking provenance.",
     referenceUrl: "https://docs.github.com/en/actions/security-for-github-actions/using-artifact-attestations/using-artifact-attestations-to-establish-provenance-for-builds",
@@ -303,12 +303,12 @@ export const GITHUB_GHAS_QUESTIONS_3 = [
     scenario: "An in-house web framework wraps request handling. CodeQL does not recognise its request accessors as untrusted sources, so injection flows that begin there are not reported at all.",
     question: "Which approach fixes the gap properly?",
     options: [
-      { id: 'A', text: "Write a custom query that searches for calls to the framework accessors and reports each one." },
-      { id: 'B', text: "Nothing can be done; CodeQL only models frameworks supported upstream." },
+      { id: 'A', text: "Nothing can be done; CodeQL only models frameworks supported upstream." },
+      { id: 'B', text: "Supply model data extending the CodeQL libraries so the framework accessors are recognised as sources and its sensitive operations as sinks, distributed as a pack so every repository benefits." },
       { id: 'C', text: "Rename the framework methods to match those of a recognised framework so the existing models apply." },
-      { id: 'D', text: "Supply model data extending the CodeQL libraries so the framework accessors are recognised as sources and its sensitive operations as sinks, distributed as a pack so every repository benefits." }
+      { id: 'D', text: "Write a custom query that searches for calls to the framework accessors and reports each one." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Modelling the framework tells the existing taint tracking where untrusted data enters and where it must not reach, so every injection query benefits at once and the results remain proper data flow findings with paths, rather than a bare list of call sites. A query reporting every accessor call would flood the queue with non-findings, renaming methods to trick the models is unmaintainable and fragile, and extending the models is precisely the supported answer.",
     referenceUrl: "https://docs.github.com/en/code-security/code-scanning/managing-your-code-scanning-configuration/editing-your-configuration-of-default-setup",
@@ -324,12 +324,12 @@ export const GITHUB_GHAS_QUESTIONS_3 = [
     scenario: "One query in the extended suite produces many findings that the organization has consistently judged inapplicable. Dismissing them individually consumes review time every week.",
     question: "Which approach is better than repeated dismissal?",
     options: [
-      { id: 'A', text: "Downgrade the whole suite to the default set, which excludes the query." },
-      { id: 'B', text: "Add a query filter to the code scanning configuration excluding that query by its identifier, recording why, so the rest of the suite continues to run and the decision is visible in configuration rather than repeated per alert." },
-      { id: 'C', text: "Continue dismissing them, because excluding a security query is never acceptable." },
-      { id: 'D', text: "Add the affected paths to the ignore list, which removes those findings." }
+      { id: 'A', text: "Add a query filter to the code scanning configuration excluding that query by its identifier, recording why, so the rest of the suite continues to run and the decision is visible in configuration rather than repeated per alert." },
+      { id: 'B', text: "Downgrade the whole suite to the default set, which excludes the query." },
+      { id: 'C', text: "Add the affected paths to the ignore list, which removes those findings." },
+      { id: 'D', text: "Continue dismissing them, because excluding a security query is never acceptable." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "A query filter records a considered organizational decision in one reviewable place and stops the recurring triage cost, which is preferable to the same judgement being re-made by hand every week. Dropping to the default suite discards many other useful queries, excluding paths removes all analysis of that code rather than one query, and a documented exclusion with a stated rationale is a legitimate tuning step rather than something to be avoided on principle.",
     referenceUrl: "https://docs.github.com/en/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning",
@@ -345,12 +345,12 @@ export const GITHUB_GHAS_QUESTIONS_3 = [
     scenario: "A programme manager needs a weekly view of open code scanning alerts by severity, repository and age, across two hundred repositories, refreshed automatically.",
     question: "Which source supports that?",
     options: [
-      { id: 'A', text: "The audit log, which records each alert as it is created." },
-      { id: 'B', text: "A scheduled workflow in each repository that writes its own alert count to a shared file." },
-      { id: 'C', text: "The code scanning alerts API at organization level, which returns alerts with severity, state and timestamps for aggregation into the dashboard." },
-      { id: 'D', text: "Screen scraping the security overview page, since alert data is not exposed programmatically." }
+      { id: 'A', text: "The code scanning alerts API at organization level, which returns alerts with severity, state and timestamps for aggregation into the dashboard." },
+      { id: 'B', text: "Screen scraping the security overview page, since alert data is not exposed programmatically." },
+      { id: 'C', text: "The audit log, which records each alert as it is created." },
+      { id: 'D', text: "A scheduled workflow in each repository that writes its own alert count to a shared file." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Code scanning alerts are exposed through the API including at organization scope, with the severity, state and timestamp fields a dashboard needs, so aggregation is a straightforward scheduled query. Scraping is unnecessary given the API, the audit log records administrative events rather than alert inventory, and per-repository self-reporting is two hundred pieces of machinery replacing one.",
     referenceUrl: "https://docs.github.com/en/rest/code-scanning",
@@ -367,9 +367,9 @@ export const GITHUB_GHAS_QUESTIONS_3 = [
     question: "Which step is most useful?",
     options: [
       { id: 'A', text: "Re-run with the debug option enabled so the workflow uploads the database and the extractor logs as artifacts, then inspect them to confirm whether source files were extracted at all." },
-      { id: 'B', text: "Delete the repository code scanning configuration and re-enable default setup." },
-      { id: 'C', text: "Compare the alert count against another repository to establish a baseline." },
-      { id: 'D', text: "Increase the query suite to security-and-quality, since zero results usually means the suite is too narrow." }
+      { id: 'B', text: "Compare the alert count against another repository to establish a baseline." },
+      { id: 'C', text: "Increase the query suite to security-and-quality, since zero results usually means the suite is too narrow." },
+      { id: 'D', text: "Delete the repository code scanning configuration and re-enable default setup." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -387,12 +387,12 @@ export const GITHUB_GHAS_QUESTIONS_3 = [
     scenario: "A hand-written code scanning workflow in a private repository fails when it tries to publish results, with an error about insufficient permissions, although the analysis itself completed.",
     question: "Which permissions does the job need?",
     options: [
-      { id: 'A', text: "No permissions block is needed, because the analysis action requests its own scopes at run time." },
+      { id: 'A', text: "Only administration: write, which covers all security features." },
       { id: 'B', text: "Only contents: write, since results are stored as repository content." },
-      { id: 'C', text: "security-events: write to upload results, together with contents: read to check out the code, and actions: read where the workflow needs to read workflow run information in a private repository." },
-      { id: 'D', text: "Only administration: write, which covers all security features." }
+      { id: 'C', text: "No permissions block is needed, because the analysis action requests its own scopes at run time." },
+      { id: 'D', text: "security-events: write to upload results, together with contents: read to check out the code, and actions: read where the workflow needs to read workflow run information in a private repository." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Publishing analysis results is governed by the security events scope, and a working analysis job also needs to read the repository content, with an additional read on workflow data in private repositories, so the failure at the upload step points squarely at the missing write scope. Results are not repository content, an administration scope is neither required nor appropriate, and an action cannot grant itself scopes beyond the job token.",
     referenceUrl: "https://docs.github.com/en/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning",
@@ -408,12 +408,12 @@ export const GITHUB_GHAS_QUESTIONS_3 = [
     scenario: "Security overview flags a repository whose code scanning results are months old. The workflow exists and has not been deleted, and the repository has received commits during that period.",
     question: "Which causes should be checked?",
     options: [
-      { id: 'A', text: "Whether the repository has exceeded its licence allocation, which pauses analysis silently." },
-      { id: 'B', text: "Whether the default branch was renamed, which is the only cause of stale analysis." },
-      { id: 'C', text: "Whether the workflow is disabled, whether its triggers still match the branches receiving commits, whether recent runs are failing, and whether the analysis is only configured for a branch that is no longer used." },
-      { id: 'D', text: "Whether the alerts have exceeded the retention period, which causes the analysis to be marked stale." }
+      { id: 'A', text: "Whether the workflow is disabled, whether its triggers still match the branches receiving commits, whether recent runs are failing, and whether the analysis is only configured for a branch that is no longer used." },
+      { id: 'B', text: "Whether the alerts have exceeded the retention period, which causes the analysis to be marked stale." },
+      { id: 'C', text: "Whether the repository has exceeded its licence allocation, which pauses analysis silently." },
+      { id: 'D', text: "Whether the default branch was renamed, which is the only cause of stale analysis." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Stale results mean the analysis has not run successfully against the active code, so the checks are whether it is enabled, whether its triggers match where the work is happening, whether it has been failing unnoticed and whether it targets an abandoned branch, which is a reminder that a repository with old results is effectively unmonitored. Alerts do not expire on a retention timer, and while a branch rename is one possible trigger mismatch it is far from the only cause.",
     referenceUrl: "https://docs.github.com/en/code-security/security-overview/about-security-overview",
@@ -429,12 +429,12 @@ export const GITHUB_GHAS_QUESTIONS_3 = [
     scenario: "A team asks whether adopting code scanning means they can reduce their dependency scanning or their secret detection, since all three are described as security tooling.",
     question: "Which answer is correct?",
     options: [
-      { id: 'A', text: "Secret scanning subsumes code scanning, since credential exposure is the dominant risk." },
-      { id: 'B', text: "All three detect the same findings through different interfaces, so one can be chosen on preference." },
-      { id: 'C', text: "They address different classes of problem: code scanning finds flaws in code the team writes, dependency tooling finds known vulnerabilities in components it consumes, and secret scanning finds exposed credentials, so none substitutes for another." },
-      { id: 'D', text: "Code scanning subsumes dependency scanning, since vulnerable library calls appear in the analysed code." }
+      { id: 'A', text: "They address different classes of problem: code scanning finds flaws in code the team writes, dependency tooling finds known vulnerabilities in components it consumes, and secret scanning finds exposed credentials, so none substitutes for another." },
+      { id: 'B', text: "Code scanning subsumes dependency scanning, since vulnerable library calls appear in the analysed code." },
+      { id: 'C', text: "Secret scanning subsumes code scanning, since credential exposure is the dominant risk." },
+      { id: 'D', text: "All three detect the same findings through different interfaces, so one can be chosen on preference." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The three tools cover disjoint categories, respectively defects introduced by the team, known vulnerabilities inherited from third-party components, and credentials that have escaped into the repository, and none of them can see the others territory. Analysing code that calls a library does not tell you the library has a published advisory, and credential exposure and code defects are unrelated failure modes.",
     referenceUrl: "https://docs.github.com/en/code-security/getting-started/github-security-features",
@@ -450,12 +450,12 @@ export const GITHUB_GHAS_QUESTIONS_3 = [
     scenario: "Forty of six hundred repositories are in scope for a regulatory regime and need stricter merge protections and scanning requirements. The set changes as products move in and out of scope, and maintaining a list by hand has already drifted.",
     question: "Which approach keeps the scope accurate?",
     options: [
-      { id: 'A', text: "Maintain a ruleset that names the forty repositories explicitly and review the list quarterly." },
-      { id: 'B', text: "Apply the strict rules to all six hundred repositories, since stricter is always safer." },
+      { id: 'A', text: "Apply the strict rules to all six hundred repositories, since stricter is always safer." },
+      { id: 'B', text: "Define a custom repository property recording regulatory scope, target rulesets and security configurations at repositories carrying that property, and govern the property value as the single point of change." },
       { id: 'C', text: "Move the regulated repositories into their own organization and apply the rules there." },
-      { id: 'D', text: "Define a custom repository property recording regulatory scope, target rulesets and security configurations at repositories carrying that property, and govern the property value as the single point of change." }
+      { id: 'D', text: "Maintain a ruleset that names the forty repositories explicitly and review the list quarterly." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Targeting policy by a repository property turns scope into data that is set once per repository and consumed by every rule, so a product entering scope inherits the whole regime by changing one value rather than by editing several policies. An explicit list drifts between reviews, reorganising repositories by regulatory status is disruptive and fights other reasons for structure, and applying the strictest regime everywhere imposes real cost on teams it was not designed for.",
     referenceUrl: "https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/managing-custom-properties-for-repositories-in-your-organization",
@@ -471,12 +471,12 @@ export const GITHUB_GHAS_QUESTIONS_3 = [
     scenario: "An organization is enabling the full security feature set across six hundred repositories. A previous attempt enabled everything at once, produced tens of thousands of alerts, and was abandoned when teams disengaged.",
     question: "Which rollout sequence is most likely to succeed?",
     options: [
-      { id: 'A', text: "Enable every feature everywhere on the same day so the full risk picture is available immediately for prioritisation." },
-      { id: 'B', text: "Start with preventative controls that create little backlog such as push protection and dependency review on pull requests, then enable detection features in waves with owners and triage capacity agreed per wave, gating new findings on pull requests before attempting the historical backlog." },
-      { id: 'C', text: "Enable features only on repositories that already have no findings, expanding as other repositories are cleaned up." },
-      { id: 'D', text: "Enable detection features only, and defer all preventative controls until the backlog reaches zero." }
+      { id: 'A', text: "Start with preventative controls that create little backlog such as push protection and dependency review on pull requests, then enable detection features in waves with owners and triage capacity agreed per wave, gating new findings on pull requests before attempting the historical backlog." },
+      { id: 'B', text: "Enable every feature everywhere on the same day so the full risk picture is available immediately for prioritisation." },
+      { id: 'C', text: "Enable detection features only, and defer all preventative controls until the backlog reaches zero." },
+      { id: 'D', text: "Enable features only on repositories that already have no findings, expanding as other repositories are cleaned up." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Preventative controls stop the problem growing while producing almost no backlog, and separating new findings from historical ones lets teams keep pull requests clean before confronting years of accumulation, which is what keeps them engaged. Enabling everything at once reproduces the failure described, deferring prevention lets the backlog keep growing while it is being cleared, and starting only where there is nothing to find postpones the work indefinitely.",
     referenceUrl: "https://docs.github.com/en/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/about-securing-your-organization",
@@ -513,12 +513,12 @@ export const GITHUB_GHAS_QUESTIONS_3 = [
     scenario: "An auditor asks which platform capabilities evidence controls for secure development, vulnerability management, change management and access control.",
     question: "Which mapping is defensible?",
     options: [
-      { id: 'A', text: "No platform feature maps to an audit control, so evidence must be produced from separate documentation." },
+      { id: 'A', text: "The audit log alone evidences all four, since it records everything that happened." },
       { id: 'B', text: "Secret scanning alone evidences all four, since credentials underpin every control family." },
-      { id: 'C', text: "Code scanning and push protection evidence secure development, Dependabot alerts with dependency review evidence vulnerability management, rulesets with required reviews and status checks evidence change management, and roles with the audit log evidence access control." },
-      { id: 'D', text: "The audit log alone evidences all four, since it records everything that happened." }
+      { id: 'C', text: "No platform feature maps to an audit control, so evidence must be produced from separate documentation." },
+      { id: 'D', text: "Code scanning and push protection evidence secure development, Dependabot alerts with dependency review evidence vulnerability management, rulesets with required reviews and status checks evidence change management, and roles with the audit log evidence access control." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Each control family is evidenced by the capability that actually implements it, with prevention and analysis of code defects covering secure development, advisory matching and the pull request gate covering vulnerability management, merge rules covering change management, and role assignment together with the event record covering access control. No single feature covers all four, and the platform produces genuine control evidence rather than only documentation.",
     referenceUrl: "https://docs.github.com/en/code-security/getting-started/github-security-features",

@@ -51,12 +51,12 @@ export const GITHUB_GHAS_QUESTIONS_5 = [
     scenario: "Developers hitting a push protection block open support tickets asking what to do, because the generic message does not say which internal secret store to use or who to ask.",
     question: "Which option addresses this?",
     options: [
-      { id: 'A', text: "Disable push protection and rely on alerts, since the block message cannot be changed." },
-      { id: 'B', text: "Configure the custom link shown on the block, pointing at internal guidance that names the approved secret store and the escalation route." },
-      { id: 'C', text: "Configure a commit message template containing the guidance." },
-      { id: 'D', text: "Add the guidance to each repository README, which is shown alongside the block." }
+      { id: 'A', text: "Configure the custom link shown on the block, pointing at internal guidance that names the approved secret store and the escalation route." },
+      { id: 'B', text: "Disable push protection and rely on alerts, since the block message cannot be changed." },
+      { id: 'C', text: "Add the guidance to each repository README, which is shown alongside the block." },
+      { id: 'D', text: "Configure a commit message template containing the guidance." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The block message supports a configurable link to organization guidance, which puts the answer in front of the developer at the moment they need it and is the cheapest fix for a support-ticket pattern. Disabling the control to avoid explaining it trades prevention for convenience, the README is not surfaced at the block, and commit templates appear before the push rather than at the rejection.",
     referenceUrl: "https://docs.github.com/en/code-security/secret-scanning/introduction/about-push-protection",
@@ -114,12 +114,12 @@ export const GITHUB_GHAS_QUESTIONS_5 = [
     scenario: "An external contributor opens a pull request from their fork. Review notices what looks like their own personal cloud key in one of the commits.",
     question: "What is the right response?",
     options: [
-      { id: 'A', text: "Ask the contributor to force push over the commit, after which the credential is unrecoverable." },
-      { id: 'B', text: "Tell the contributor privately and promptly so they can revoke it, since the commit exists in their fork and in the pull request regardless of whether it is merged, and do not merge the commit; the exposure belongs to them but the project should not propagate it." },
+      { id: 'A', text: "Merge the pull request and remove the credential in a follow-up commit on the default branch." },
+      { id: 'B', text: "Ask the contributor to force push over the commit, after which the credential is unrecoverable." },
       { id: 'C', text: "Close the pull request without explanation, since the exposure is not the project's concern." },
-      { id: 'D', text: "Merge the pull request and remove the credential in a follow-up commit on the default branch." }
+      { id: 'D', text: "Tell the contributor privately and promptly so they can revoke it, since the commit exists in their fork and in the pull request regardless of whether it is merged, and do not merge the commit; the exposure belongs to them but the project should not propagate it." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The credential is already exposed wherever the commit is reachable, so the urgent step is telling the owner so they can revoke, and the project's obligation is to avoid merging it into a more widely cloned history. Merging and cleaning up later copies the exposure into the main repository, closing silently leaves someone with a live leaked key, and a force push does not reliably remove a commit already referenced by a pull request.",
     referenceUrl: "https://docs.github.com/en/code-security/secret-scanning/managing-alerts-from-secret-scanning",
@@ -136,9 +136,9 @@ export const GITHUB_GHAS_QUESTIONS_5 = [
     question: "Which configuration adjusts this?",
     options: [
       { id: 'A', text: "Set the schedule interval together with the day, time and timezone for the ecosystem, so updates arrive when someone is present to review them." },
-      { id: 'B', text: "Set a target branch, which controls the delivery time." },
-      { id: 'C', text: "Use a workflow to reschedule the pull requests after they are opened." },
-      { id: 'D', text: "Set the schedule interval only, since the time of day is fixed by the platform." }
+      { id: 'B', text: "Use a workflow to reschedule the pull requests after they are opened." },
+      { id: 'C', text: "Set the schedule interval only, since the time of day is fixed by the platform." },
+      { id: 'D', text: "Set a target branch, which controls the delivery time." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -156,12 +156,12 @@ export const GITHUB_GHAS_QUESTIONS_5 = [
     scenario: "A team on a frozen release wants pull requests for vulnerable dependencies only. They do not want routine version bumps, and they are unsure whether a configuration file is required.",
     question: "What is needed?",
     options: [
-      { id: 'A', text: "Add a configuration file with an interval of never, which disables version updates while enabling security ones." },
-      { id: 'B', text: "Enable Dependabot alerts and security updates, which raise fixes for vulnerable dependencies with no configuration file; the file is what turns on scheduled version updates, which they should not add." },
-      { id: 'C', text: "Security updates cannot be enabled without version updates, so the team must accept both." },
-      { id: 'D', text: "Add a configuration file with an ignore entry for every dependency, leaving only security updates." }
+      { id: 'A', text: "Enable Dependabot alerts and security updates, which raise fixes for vulnerable dependencies with no configuration file; the file is what turns on scheduled version updates, which they should not add." },
+      { id: 'B', text: "Add a configuration file with an interval of never, which disables version updates while enabling security ones." },
+      { id: 'C', text: "Add a configuration file with an ignore entry for every dependency, leaving only security updates." },
+      { id: 'D', text: "Security updates cannot be enabled without version updates, so the team must accept both." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The two features are independent: security updates are switched on in the repository settings and act on alerts without any file, whereas the configuration file exists to define scheduled version updates, so the simplest correct answer is to enable the former and not write the latter. There is no never interval, ignoring every dependency is an elaborate way to achieve nothing, and the features are not coupled.",
     referenceUrl: "https://docs.github.com/en/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates",
@@ -324,12 +324,12 @@ export const GITHUB_GHAS_QUESTIONS_5 = [
     scenario: "A component is written in a language CodeQL does not support. The organization still needs static analysis findings for it to appear in the same alert list and reporting as everything else.",
     question: "What is the approach?",
     options: [
-      { id: 'A', text: "Rewrite the component in a supported language." },
-      { id: 'B', text: "Accept that the component cannot be covered and record it as an exception." },
-      { id: 'C', text: "Run a suitable third-party analyser for that language and upload its results as SARIF under its own category, so its findings join the same alert list, reporting and merge protection as CodeQL results." },
-      { id: 'D', text: "Write a CodeQL extractor for the language, which is the only supported route." }
+      { id: 'A', text: "Run a suitable third-party analyser for that language and upload its results as SARIF under its own category, so its findings join the same alert list, reporting and merge protection as CodeQL results." },
+      { id: 'B', text: "Write a CodeQL extractor for the language, which is the only supported route." },
+      { id: 'C', text: "Rewrite the component in a supported language." },
+      { id: 'D', text: "Accept that the component cannot be covered and record it as an exception." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Code scanning is deliberately tool-agnostic through SARIF, so an unsupported language is a matter of choosing an analyser and uploading its results under its own category, after which the findings behave like any other alerts. Building an extractor is a large undertaking that is not required here, rewriting a component to suit a tool inverts the priorities, and an exception is unnecessary when an integration path exists.",
     referenceUrl: "https://docs.github.com/en/code-security/code-scanning/integrating-with-code-scanning/about-integration-with-code-scanning",
@@ -345,12 +345,12 @@ export const GITHUB_GHAS_QUESTIONS_5 = [
     scenario: "A dashboard counts repositories with zero open code scanning alerts as compliant. A reviewer suspects some of those repositories are not being analysed at all.",
     question: "Which check separates the two?",
     options: [
-      { id: 'A', text: "Check the repository creation date, since new repositories are clean by definition." },
-      { id: 'B', text: "Check the number of closed alerts, since a clean repository will have historical ones." },
-      { id: 'C', text: "Check whether the repository has a workflow file present, which is sufficient evidence that analysis runs." },
-      { id: 'D', text: "Check whether a recent successful analysis exists for the reference, using the coverage view and the tool status information, because zero alerts with no successful analysis means unmonitored rather than clean." }
+      { id: 'A', text: "Check whether a recent successful analysis exists for the reference, using the coverage view and the tool status information, because zero alerts with no successful analysis means unmonitored rather than clean." },
+      { id: 'B', text: "Check whether the repository has a workflow file present, which is sufficient evidence that analysis runs." },
+      { id: 'C', text: "Check the number of closed alerts, since a clean repository will have historical ones." },
+      { id: 'D', text: "Check the repository creation date, since new repositories are clean by definition." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Absence of alerts is only meaningful alongside evidence that something looked, so the compliance question is whether a recent analysis succeeded for the relevant reference, which the coverage and tool status surfaces answer directly. A workflow file may be disabled or failing, historical alert counts say nothing about current analysis, and a new repository can accumulate unanalysed code immediately.",
     referenceUrl: "https://docs.github.com/en/code-security/code-scanning/managing-your-code-scanning-configuration/about-the-tool-status-page",
@@ -387,12 +387,12 @@ export const GITHUB_GHAS_QUESTIONS_5 = [
     scenario: "A repository owner is asked whether opening the repository to a wider internal audience with read access would expose its code scanning alerts to those users.",
     question: "Which statement is accurate?",
     options: [
-      { id: 'A', text: "Alerts are visible to anyone who can read the repository, so wider read access exposes them." },
-      { id: 'B', text: "Alerts are visible to nobody until they are dismissed or fixed." },
+      { id: 'A', text: "Alerts are visible to nobody until they are dismissed or fixed." },
+      { id: 'B', text: "Alert details are available to users with write access, along with administrators and security managers, so granting read access does not expose them, though for a public repository some code scanning alert information is visible more broadly." },
       { id: 'C', text: "Alerts are visible only to organization owners in every case." },
-      { id: 'D', text: "Alert details are available to users with write access, along with administrators and security managers, so granting read access does not expose them, though for a public repository some code scanning alert information is visible more broadly." }
+      { id: 'D', text: "Alerts are visible to anyone who can read the repository, so wider read access exposes them." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Alert visibility is tied to write access rather than read, together with the administrative and security roles, which is deliberate because an open alert is a map of exploitable weaknesses; the public repository case is the notable nuance worth checking before opening a project up. Read access does not confer visibility, the audience is broader than owners alone, and alerts are visible to the right people from the moment they are raised.",
     referenceUrl: "https://docs.github.com/en/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts",
@@ -408,12 +408,12 @@ export const GITHUB_GHAS_QUESTIONS_5 = [
     scenario: "A team wants pull request analysis to spend its time on the change under review rather than re-deriving results for the whole repository on every run.",
     question: "Which statement reflects how this is approached?",
     options: [
-      { id: 'A', text: "The analysis can be pointed at only the changed files, which is the standard configuration for pull requests." },
-      { id: 'B', text: "Pull request analysis is a text diff scan rather than a semantic analysis, which is why it is fast." },
+      { id: 'A', text: "Pull request analysis is a text diff scan rather than a semantic analysis, which is why it is fast." },
+      { id: 'B', text: "The analysis still needs a database for the codebase because a change is only meaningful in context, but the pull request run can be optimised, and the presentation is already scoped to what the change introduces so reviewers see only new findings." },
       { id: 'C', text: "Pull request analysis reuses the database from the last default branch run, so no extraction happens." },
-      { id: 'D', text: "The analysis still needs a database for the codebase because a change is only meaningful in context, but the pull request run can be optimised, and the presentation is already scoped to what the change introduces so reviewers see only new findings." }
+      { id: 'D', text: "The analysis can be pointed at only the changed files, which is the standard configuration for pull requests." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Data flow can begin in an unchanged file and end in a changed one, so analysing the changed files alone would miss exactly the findings a review cares about, which is why the codebase context is still required while the reviewer's view is narrowed to what the change introduces. The database is built for the proposed code rather than reused from another commit, and pull request analysis is the same semantic analysis rather than a text scan.",
     referenceUrl: "https://docs.github.com/en/code-security/code-scanning/managing-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests",
@@ -430,9 +430,9 @@ export const GITHUB_GHAS_QUESTIONS_5 = [
     question: "How should this be resolved and recorded?",
     options: [
       { id: 'A', text: "Resolve it on the facts of reachability rather than on role seniority, and record the conclusion on the alert so a future reviewer inherits the reasoning; if the finding is accepted rather than wrong, dismiss it as won't fix rather than as a false positive." },
-      { id: 'B', text: "Leave the alert open indefinitely, since an unresolved disagreement should not be closed." },
-      { id: 'C', text: "Defer to the security reviewer in all cases, since security owns the alert queue." },
-      { id: 'D', text: "Defer to the developer in all cases, since they know the code." }
+      { id: 'B', text: "Defer to the developer in all cases, since they know the code." },
+      { id: 'C', text: "Leave the alert open indefinitely, since an unresolved disagreement should not be closed." },
+      { id: 'D', text: "Defer to the security reviewer in all cases, since security owns the alert queue." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -472,9 +472,9 @@ export const GITHUB_GHAS_QUESTIONS_5 = [
     question: "What should the policy file cover?",
     options: [
       { id: 'A', text: "How to report privately including the private reporting route, which versions are supported, what response times a reporter can expect, and any disclosure expectations, placed where the platform surfaces it to someone about to open an issue." },
-      { id: 'B', text: "The list of security tools the project runs, so reporters know what is already covered." },
-      { id: 'C', text: "A prohibition on reporting vulnerabilities publicly, with no alternative route given." },
-      { id: 'D', text: "A statement that the project takes security seriously and a maintainer email address." }
+      { id: 'B', text: "A prohibition on reporting vulnerabilities publicly, with no alternative route given." },
+      { id: 'C', text: "A statement that the project takes security seriously and a maintainer email address." },
+      { id: 'D', text: "The list of security tools the project runs, so reporters know what is already covered." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,12 +492,12 @@ export const GITHUB_GHAS_QUESTIONS_5 = [
     scenario: "An organization wants to know within a day if anyone disables a security feature, removes a repository from a security configuration, changes a runner group, or alters a custom pattern.",
     question: "Which arrangement detects these?",
     options: [
-      { id: 'A', text: "Subscribe to the secret scanning and code scanning alert webhooks, which include configuration changes." },
-      { id: 'B', text: "Stream the audit log to the monitoring platform and alert on the configuration event types that represent a weakening, since these are administrative changes rather than alerts and appear nowhere in the security alert feeds." },
-      { id: 'C', text: "Poll security overview daily and compare the coverage view to yesterday's." },
+      { id: 'A', text: "Poll security overview daily and compare the coverage view to yesterday's." },
+      { id: 'B', text: "Subscribe to the secret scanning and code scanning alert webhooks, which include configuration changes." },
+      { id: 'C', text: "Stream the audit log to the monitoring platform and alert on the configuration event types that represent a weakening, since these are administrative changes rather than alerts and appear nowhere in the security alert feeds." },
       { id: 'D', text: "Require that all such changes go through a pull request, which provides the record." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Turning a control off produces no alert, because there is nothing to alert about once the control is gone, so detection has to come from the administrative event stream, which records who changed what and when and can be alerted on directly. A daily coverage diff is slower, coarser and misses changes that are reverted in between, alert webhooks carry findings rather than settings, and most of these settings are not expressed as repository files at all.",
     referenceUrl: "https://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise",
