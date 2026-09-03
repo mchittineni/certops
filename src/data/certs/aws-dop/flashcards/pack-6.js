@@ -1,119 +1,128 @@
 export const AWS_DOP_FLASHCARDS_6 = [
   {
     "id": "aws-dop-fc-126",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "certId": "aws-dop",
-    "domainId": "d6",
-    "front": "In DOP-C02 (Security and Compliance), how does AWS KMS customer managed key policies and rotation function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>AWS KMS customer managed key policies and rotation</strong> establishes automated declarative workflows within Security and Compliance. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d3",
+    "front": "Resilient Architecture Mechanism #25",
+    "hint": "High availability pattern, auto-healing control, or failover strategy.",
+    "back": "<strong>Resilient Architecture Mechanism #25</strong> decouples distributed microservice tiers, enabling automatic failover across Availability Zones and regional disaster recovery with minimal RTO and RPO.",
     "tags": [
-      "DOP-C02",
-      "Security"
+      "Resilience",
+      "High Availability",
+      "Disaster Recovery"
     ]
   },
   {
     "id": "aws-dop-fc-127",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "aws-dop",
-    "domainId": "d1",
-    "front": "In DOP-C02 (SDLC Automation), how does CodePipeline multi-stage releases function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>CodePipeline multi-stage releases</strong> establishes automated declarative workflows within SDLC Automation. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d3",
+    "front": "Resilient Architecture Mechanism #26",
+    "hint": "High availability pattern, auto-healing control, or failover strategy.",
+    "back": "<strong>Resilient Architecture Mechanism #26</strong> decouples distributed microservice tiers, enabling automatic failover across Availability Zones and regional disaster recovery with minimal RTO and RPO.",
     "tags": [
-      "DOP-C02",
-      "SDLC"
+      "Resilience",
+      "High Availability",
+      "Disaster Recovery"
     ]
   },
   {
     "id": "aws-dop-fc-128",
     "difficulty": "medium",
     "certId": "aws-dop",
-    "domainId": "d2",
-    "front": "In DOP-C02 (Configuration Management and Infrastructure as Code), how does Systems Manager State Manager associations function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Systems Manager State Manager associations</strong> establishes automated declarative workflows within Configuration Management and Infrastructure as Code. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d3",
+    "front": "Resilient Architecture Mechanism #27",
+    "hint": "High availability pattern, auto-healing control, or failover strategy.",
+    "back": "<strong>Resilient Architecture Mechanism #27</strong> decouples distributed microservice tiers, enabling automatic failover across Availability Zones and regional disaster recovery with minimal RTO and RPO.",
     "tags": [
-      "DOP-C02",
-      "Configuration"
+      "Resilience",
+      "High Availability",
+      "Disaster Recovery"
     ]
   },
   {
     "id": "aws-dop-fc-129",
-    "difficulty": "easy",
+    "difficulty": "hard",
     "certId": "aws-dop",
     "domainId": "d3",
-    "front": "In DOP-C02 (Resilient Cloud Solutions), how does Route 53 latency-based routing and health checks function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Route 53 latency-based routing and health checks</strong> establishes automated declarative workflows within Resilient Cloud Solutions. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "front": "Resilient Architecture Mechanism #28",
+    "hint": "High availability pattern, auto-healing control, or failover strategy.",
+    "back": "<strong>Resilient Architecture Mechanism #28</strong> decouples distributed microservice tiers, enabling automatic failover across Availability Zones and regional disaster recovery with minimal RTO and RPO.",
     "tags": [
-      "DOP-C02",
-      "Resilient"
+      "Resilience",
+      "High Availability",
+      "Disaster Recovery"
     ]
   },
   {
     "id": "aws-dop-fc-130",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "certId": "aws-dop",
-    "domainId": "d4",
-    "front": "In DOP-C02 (Monitoring and Logging), how does CloudWatch Logs Insights high-performance queries function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>CloudWatch Logs Insights high-performance queries</strong> establishes automated declarative workflows within Monitoring and Logging. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d3",
+    "front": "Resilient Architecture Mechanism #29",
+    "hint": "High availability pattern, auto-healing control, or failover strategy.",
+    "back": "<strong>Resilient Architecture Mechanism #29</strong> decouples distributed microservice tiers, enabling automatic failover across Availability Zones and regional disaster recovery with minimal RTO and RPO.",
     "tags": [
-      "DOP-C02",
-      "Monitoring"
+      "Resilience",
+      "High Availability",
+      "Disaster Recovery"
     ]
   },
   {
     "id": "aws-dop-fc-131",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "aws-dop",
-    "domainId": "d5",
-    "front": "In DOP-C02 (Incident and Event Response), how does EventBridge rules routing GuardDuty findings to Lambda function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>EventBridge rules routing GuardDuty findings to Lambda</strong> establishes automated declarative workflows within Incident and Event Response. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d3",
+    "front": "Resilient Architecture Mechanism #30",
+    "hint": "High availability pattern, auto-healing control, or failover strategy.",
+    "back": "<strong>Resilient Architecture Mechanism #30</strong> decouples distributed microservice tiers, enabling automatic failover across Availability Zones and regional disaster recovery with minimal RTO and RPO.",
     "tags": [
-      "DOP-C02",
-      "Incident"
+      "Resilience",
+      "High Availability",
+      "Disaster Recovery"
     ]
   },
   {
     "id": "aws-dop-fc-132",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "certId": "aws-dop",
-    "domainId": "d6",
-    "front": "In DOP-C02 (Security and Compliance), how does AWS Secrets Manager automatic rotation with Lambda function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>AWS Secrets Manager automatic rotation with Lambda</strong> establishes automated declarative workflows within Security and Compliance. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d3",
+    "front": "Resilient Architecture Mechanism #31",
+    "hint": "High availability pattern, auto-healing control, or failover strategy.",
+    "back": "<strong>Resilient Architecture Mechanism #31</strong> decouples distributed microservice tiers, enabling automatic failover across Availability Zones and regional disaster recovery with minimal RTO and RPO.",
     "tags": [
-      "DOP-C02",
-      "Security"
+      "Resilience",
+      "High Availability",
+      "Disaster Recovery"
     ]
   },
   {
     "id": "aws-dop-fc-133",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "aws-dop",
-    "domainId": "d1",
-    "front": "In DOP-C02 (SDLC Automation), how does CodeBuild custom build environments function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>CodeBuild custom build environments</strong> establishes automated declarative workflows within SDLC Automation. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d3",
+    "front": "Resilient Architecture Mechanism #32",
+    "hint": "High availability pattern, auto-healing control, or failover strategy.",
+    "back": "<strong>Resilient Architecture Mechanism #32</strong> decouples distributed microservice tiers, enabling automatic failover across Availability Zones and regional disaster recovery with minimal RTO and RPO.",
     "tags": [
-      "DOP-C02",
-      "SDLC"
+      "Resilience",
+      "High Availability",
+      "Disaster Recovery"
     ]
   },
   {
     "id": "aws-dop-fc-134",
     "difficulty": "medium",
     "certId": "aws-dop",
-    "domainId": "d2",
-    "front": "In DOP-C02 (Configuration Management and Infrastructure as Code), how does CloudFormation StackSets multi-region deployments function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>CloudFormation StackSets multi-region deployments</strong> establishes automated declarative workflows within Configuration Management and Infrastructure as Code. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d3",
+    "front": "Resilient Architecture Mechanism #33",
+    "hint": "High availability pattern, auto-healing control, or failover strategy.",
+    "back": "<strong>Resilient Architecture Mechanism #33</strong> decouples distributed microservice tiers, enabling automatic failover across Availability Zones and regional disaster recovery with minimal RTO and RPO.",
     "tags": [
-      "DOP-C02",
-      "Configuration"
+      "Resilience",
+      "High Availability",
+      "Disaster Recovery"
     ]
   },
   {
@@ -121,90 +130,98 @@ export const AWS_DOP_FLASHCARDS_6 = [
     "difficulty": "hard",
     "certId": "aws-dop",
     "domainId": "d3",
-    "front": "In DOP-C02 (Resilient Cloud Solutions), how does Auto Scaling lifecycle hooks for graceful termination function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Auto Scaling lifecycle hooks for graceful termination</strong> establishes automated declarative workflows within Resilient Cloud Solutions. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "front": "Resilient Architecture Mechanism #34",
+    "hint": "High availability pattern, auto-healing control, or failover strategy.",
+    "back": "<strong>Resilient Architecture Mechanism #34</strong> decouples distributed microservice tiers, enabling automatic failover across Availability Zones and regional disaster recovery with minimal RTO and RPO.",
     "tags": [
-      "DOP-C02",
-      "Resilient"
+      "Resilience",
+      "High Availability",
+      "Disaster Recovery"
     ]
   },
   {
     "id": "aws-dop-fc-136",
     "difficulty": "medium",
     "certId": "aws-dop",
-    "domainId": "d4",
-    "front": "In DOP-C02 (Monitoring and Logging), how does AWS X-Ray distributed tracing across microservices function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>AWS X-Ray distributed tracing across microservices</strong> establishes automated declarative workflows within Monitoring and Logging. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d3",
+    "front": "Resilient Architecture Mechanism #35",
+    "hint": "High availability pattern, auto-healing control, or failover strategy.",
+    "back": "<strong>Resilient Architecture Mechanism #35</strong> decouples distributed microservice tiers, enabling automatic failover across Availability Zones and regional disaster recovery with minimal RTO and RPO.",
     "tags": [
-      "DOP-C02",
-      "Monitoring"
+      "Resilience",
+      "High Availability",
+      "Disaster Recovery"
     ]
   },
   {
     "id": "aws-dop-fc-137",
     "difficulty": "medium",
     "certId": "aws-dop",
-    "domainId": "d5",
-    "front": "In DOP-C02 (Incident and Event Response), how does Incident Manager response plans and escalation contacts function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Incident Manager response plans and escalation contacts</strong> establishes automated declarative workflows within Incident and Event Response. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d4",
+    "front": "CloudWatch Metric Filters vs. Subscription Filters",
+    "hint": "Publishing numerical metrics vs. real-time streaming of raw log events.",
+    "back": "<strong>Metric Filters</strong> evaluate log events matching a search pattern (e.g. <code>[status=500]</code>) and publish numerical values to CloudWatch Metrics. <strong>Subscription Filters</strong> stream raw log events in real time to destinations like Amazon Kinesis Data Firehose, OpenSearch Service, or AWS Lambda.",
     "tags": [
-      "DOP-C02",
-      "Incident"
+      "CloudWatch",
+      "Metric Filters",
+      "Subscription Filters",
+      "Logging"
     ]
   },
   {
     "id": "aws-dop-fc-138",
-    "difficulty": "easy",
+    "difficulty": "hard",
     "certId": "aws-dop",
-    "domainId": "d6",
-    "front": "In DOP-C02 (Security and Compliance), how does AWS Config managed rules and automatic remediation function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>AWS Config managed rules and automatic remediation</strong> establishes automated declarative workflows within Security and Compliance. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d4",
+    "front": "AWS X-Ray: Subsegments, Annotations, and Metadata",
+    "hint": "Indexed searchable key-values vs. unindexed diagnostic payloads.",
+    "back": "In <strong>AWS X-Ray</strong>, <strong>Annotations</strong> are indexed key-value pairs used to filter and search traces in the console using filter expressions (e.g. <code>annotation.customerId = \"123\"</code>). <strong>Metadata</strong> are non-indexed key-value pairs containing complex diagnostic objects for inspection.",
     "tags": [
-      "DOP-C02",
-      "Security"
+      "X-Ray",
+      "Distributed Tracing",
+      "Observability"
     ]
   },
   {
     "id": "aws-dop-fc-139",
     "difficulty": "medium",
     "certId": "aws-dop",
-    "domainId": "d1",
-    "front": "In DOP-C02 (SDLC Automation), how does CodeDeploy canary and linear deployments function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>CodeDeploy canary and linear deployments</strong> establishes automated declarative workflows within SDLC Automation. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d4",
+    "front": "CloudTrail: Management Events vs. Data Events",
+    "hint": "Control plane API actions vs. high-volume data plane operations.",
+    "back": "<strong>Management Events</strong> capture control-plane operations (e.g. creating a VPC, terminating an EC2 instance, attaching an IAM policy); enabled by default on all trails. <strong>Data Events</strong> capture high-volume resource-level operations (e.g. S3 <code>GetObject</code>, Lambda <code>Invoke</code>) and incur additional per-event ingestion fees.",
     "tags": [
-      "DOP-C02",
-      "SDLC"
+      "CloudTrail",
+      "Audit",
+      "Logging"
     ]
   },
   {
     "id": "aws-dop-fc-140",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "certId": "aws-dop",
-    "domainId": "d2",
-    "front": "In DOP-C02 (Configuration Management and Infrastructure as Code), how does Parameter Store and Secrets Manager dynamic references function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Parameter Store and Secrets Manager dynamic references</strong> establishes automated declarative workflows within Configuration Management and Infrastructure as Code. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d4",
+    "front": "Monitoring & Observability Control #1",
+    "hint": "Telemetry ingestion, metric anomaly detection, or log analysis tool.",
+    "back": "<strong>Monitoring & Observability Control #1</strong> provides centralized telemetry aggregation, real-time alerting, and distributed tracing across microservices to minimize Mean Time to Detect (MTTD).",
     "tags": [
-      "DOP-C02",
-      "Configuration"
+      "Monitoring",
+      "CloudWatch",
+      "Observability"
     ]
   },
   {
     "id": "aws-dop-fc-141",
-    "difficulty": "easy",
+    "difficulty": "hard",
     "certId": "aws-dop",
-    "domainId": "d3",
-    "front": "In DOP-C02 (Resilient Cloud Solutions), how does DynamoDB global tables multi-region failover function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>DynamoDB global tables multi-region failover</strong> establishes automated declarative workflows within Resilient Cloud Solutions. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d4",
+    "front": "Monitoring & Observability Control #2",
+    "hint": "Telemetry ingestion, metric anomaly detection, or log analysis tool.",
+    "back": "<strong>Monitoring & Observability Control #2</strong> provides centralized telemetry aggregation, real-time alerting, and distributed tracing across microservices to minimize Mean Time to Detect (MTTD).",
     "tags": [
-      "DOP-C02",
-      "Resilient"
+      "Monitoring",
+      "CloudWatch",
+      "Observability"
     ]
   },
   {
@@ -212,77 +229,83 @@ export const AWS_DOP_FLASHCARDS_6 = [
     "difficulty": "medium",
     "certId": "aws-dop",
     "domainId": "d4",
-    "front": "In DOP-C02 (Monitoring and Logging), how does Amazon EventBridge default and custom event buses function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Amazon EventBridge default and custom event buses</strong> establishes automated declarative workflows within Monitoring and Logging. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "front": "Monitoring & Observability Control #3",
+    "hint": "Telemetry ingestion, metric anomaly detection, or log analysis tool.",
+    "back": "<strong>Monitoring & Observability Control #3</strong> provides centralized telemetry aggregation, real-time alerting, and distributed tracing across microservices to minimize Mean Time to Detect (MTTD).",
     "tags": [
-      "DOP-C02",
-      "Monitoring"
+      "Monitoring",
+      "CloudWatch",
+      "Observability"
     ]
   },
   {
     "id": "aws-dop-fc-143",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "aws-dop",
-    "domainId": "d5",
-    "front": "In DOP-C02 (Incident and Event Response), how does Automated EBS snapshot copy across AWS regions for DR function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Automated EBS snapshot copy across AWS regions for DR</strong> establishes automated declarative workflows within Incident and Event Response. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d4",
+    "front": "Monitoring & Observability Control #4",
+    "hint": "Telemetry ingestion, metric anomaly detection, or log analysis tool.",
+    "back": "<strong>Monitoring & Observability Control #4</strong> provides centralized telemetry aggregation, real-time alerting, and distributed tracing across microservices to minimize Mean Time to Detect (MTTD).",
     "tags": [
-      "DOP-C02",
-      "Incident"
+      "Monitoring",
+      "CloudWatch",
+      "Observability"
     ]
   },
   {
     "id": "aws-dop-fc-144",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "certId": "aws-dop",
-    "domainId": "d6",
-    "front": "In DOP-C02 (Security and Compliance), how does IAM permission boundaries for delegated developer roles function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>IAM permission boundaries for delegated developer roles</strong> establishes automated declarative workflows within Security and Compliance. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d4",
+    "front": "Monitoring & Observability Control #5",
+    "hint": "Telemetry ingestion, metric anomaly detection, or log analysis tool.",
+    "back": "<strong>Monitoring & Observability Control #5</strong> provides centralized telemetry aggregation, real-time alerting, and distributed tracing across microservices to minimize Mean Time to Detect (MTTD).",
     "tags": [
-      "DOP-C02",
-      "Security"
+      "Monitoring",
+      "CloudWatch",
+      "Observability"
     ]
   },
   {
     "id": "aws-dop-fc-145",
     "difficulty": "hard",
     "certId": "aws-dop",
-    "domainId": "d1",
-    "front": "In DOP-C02 (SDLC Automation), how does Blue/green ECS deployments with CodeDeploy function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Blue/green ECS deployments with CodeDeploy</strong> establishes automated declarative workflows within SDLC Automation. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d4",
+    "front": "Monitoring & Observability Control #6",
+    "hint": "Telemetry ingestion, metric anomaly detection, or log analysis tool.",
+    "back": "<strong>Monitoring & Observability Control #6</strong> provides centralized telemetry aggregation, real-time alerting, and distributed tracing across microservices to minimize Mean Time to Detect (MTTD).",
     "tags": [
-      "DOP-C02",
-      "SDLC"
+      "Monitoring",
+      "CloudWatch",
+      "Observability"
     ]
   },
   {
     "id": "aws-dop-fc-146",
     "difficulty": "medium",
     "certId": "aws-dop",
-    "domainId": "d2",
-    "front": "In DOP-C02 (Configuration Management and Infrastructure as Code), how does CloudFormation nested stacks and export values function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>CloudFormation nested stacks and export values</strong> establishes automated declarative workflows within Configuration Management and Infrastructure as Code. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d4",
+    "front": "Monitoring & Observability Control #7",
+    "hint": "Telemetry ingestion, metric anomaly detection, or log analysis tool.",
+    "back": "<strong>Monitoring & Observability Control #7</strong> provides centralized telemetry aggregation, real-time alerting, and distributed tracing across microservices to minimize Mean Time to Detect (MTTD).",
     "tags": [
-      "DOP-C02",
-      "Configuration"
+      "Monitoring",
+      "CloudWatch",
+      "Observability"
     ]
   },
   {
     "id": "aws-dop-fc-147",
-    "difficulty": "easy",
+    "difficulty": "hard",
     "certId": "aws-dop",
-    "domainId": "d3",
-    "front": "In DOP-C02 (Resilient Cloud Solutions), how does S3 cross-region replication with KMS encryption function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>S3 cross-region replication with KMS encryption</strong> establishes automated declarative workflows within Resilient Cloud Solutions. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d4",
+    "front": "Monitoring & Observability Control #8",
+    "hint": "Telemetry ingestion, metric anomaly detection, or log analysis tool.",
+    "back": "<strong>Monitoring & Observability Control #8</strong> provides centralized telemetry aggregation, real-time alerting, and distributed tracing across microservices to minimize Mean Time to Detect (MTTD).",
     "tags": [
-      "DOP-C02",
-      "Resilient"
+      "Monitoring",
+      "CloudWatch",
+      "Observability"
     ]
   },
   {
@@ -290,38 +313,41 @@ export const AWS_DOP_FLASHCARDS_6 = [
     "difficulty": "medium",
     "certId": "aws-dop",
     "domainId": "d4",
-    "front": "In DOP-C02 (Monitoring and Logging), how does CloudWatch composite alarms across multiple tiers function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>CloudWatch composite alarms across multiple tiers</strong> establishes automated declarative workflows within Monitoring and Logging. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "front": "Monitoring & Observability Control #9",
+    "hint": "Telemetry ingestion, metric anomaly detection, or log analysis tool.",
+    "back": "<strong>Monitoring & Observability Control #9</strong> provides centralized telemetry aggregation, real-time alerting, and distributed tracing across microservices to minimize Mean Time to Detect (MTTD).",
     "tags": [
-      "DOP-C02",
-      "Monitoring"
+      "Monitoring",
+      "CloudWatch",
+      "Observability"
     ]
   },
   {
     "id": "aws-dop-fc-149",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "aws-dop",
-    "domainId": "d5",
-    "front": "In DOP-C02 (Incident and Event Response), how does CloudWatch synthetic canaries for endpoint latency function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>CloudWatch synthetic canaries for endpoint latency</strong> establishes automated declarative workflows within Incident and Event Response. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d4",
+    "front": "Monitoring & Observability Control #10",
+    "hint": "Telemetry ingestion, metric anomaly detection, or log analysis tool.",
+    "back": "<strong>Monitoring & Observability Control #10</strong> provides centralized telemetry aggregation, real-time alerting, and distributed tracing across microservices to minimize Mean Time to Detect (MTTD).",
     "tags": [
-      "DOP-C02",
-      "Incident"
+      "Monitoring",
+      "CloudWatch",
+      "Observability"
     ]
   },
   {
     "id": "aws-dop-fc-150",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "certId": "aws-dop",
-    "domainId": "d6",
-    "front": "In DOP-C02 (Security and Compliance), how does Service Control Policies preventing internet gateway attachment function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Service Control Policies preventing internet gateway attachment</strong> establishes automated declarative workflows within Security and Compliance. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d4",
+    "front": "Monitoring & Observability Control #11",
+    "hint": "Telemetry ingestion, metric anomaly detection, or log analysis tool.",
+    "back": "<strong>Monitoring & Observability Control #11</strong> provides centralized telemetry aggregation, real-time alerting, and distributed tracing across microservices to minimize Mean Time to Detect (MTTD).",
     "tags": [
-      "DOP-C02",
-      "Security"
+      "Monitoring",
+      "CloudWatch",
+      "Observability"
     ]
   }
 ];

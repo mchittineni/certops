@@ -3,52 +3,56 @@ export const AWS_DOP_FLASHCARDS_5 = [
     "id": "aws-dop-fc-101",
     "difficulty": "medium",
     "certId": "aws-dop",
-    "domainId": "d5",
-    "front": "In DOP-C02 (Incident and Event Response), how does EventBridge rules routing GuardDuty findings to Lambda function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>EventBridge rules routing GuardDuty findings to Lambda</strong> establishes automated declarative workflows within Incident and Event Response. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d3",
+    "front": "Amazon SQS Dead-Letter Queue (DLQ) and Redrive",
+    "hint": "Isolating poison-pill messages and reprocessing after remediation.",
+    "back": "A <strong>Dead-Letter Queue (DLQ)</strong> captures messages that exceed the <code>maxReceiveCount</code> threshold, preventing corrupted payloads from blocking queues. Once bug fixes are deployed, <strong>DLQ Redrive</strong> moves dead-letter messages directly back to the source queue for reprocessing.",
     "tags": [
-      "DOP-C02",
-      "Incident"
+      "SQS",
+      "DLQ",
+      "Resilience"
     ]
   },
   {
     "id": "aws-dop-fc-102",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "certId": "aws-dop",
-    "domainId": "d6",
-    "front": "In DOP-C02 (Security and Compliance), how does AWS Secrets Manager automatic rotation with Lambda function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>AWS Secrets Manager automatic rotation with Lambda</strong> establishes automated declarative workflows within Security and Compliance. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d3",
+    "front": "Resilient Architecture Mechanism #1",
+    "hint": "High availability pattern, auto-healing control, or failover strategy.",
+    "back": "<strong>Resilient Architecture Mechanism #1</strong> decouples distributed microservice tiers, enabling automatic failover across Availability Zones and regional disaster recovery with minimal RTO and RPO.",
     "tags": [
-      "DOP-C02",
-      "Security"
+      "Resilience",
+      "High Availability",
+      "Disaster Recovery"
     ]
   },
   {
     "id": "aws-dop-fc-103",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "aws-dop",
-    "domainId": "d1",
-    "front": "In DOP-C02 (SDLC Automation), how does Blue/green ECS deployments with CodeDeploy function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Blue/green ECS deployments with CodeDeploy</strong> establishes automated declarative workflows within SDLC Automation. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d3",
+    "front": "Resilient Architecture Mechanism #2",
+    "hint": "High availability pattern, auto-healing control, or failover strategy.",
+    "back": "<strong>Resilient Architecture Mechanism #2</strong> decouples distributed microservice tiers, enabling automatic failover across Availability Zones and regional disaster recovery with minimal RTO and RPO.",
     "tags": [
-      "DOP-C02",
-      "SDLC"
+      "Resilience",
+      "High Availability",
+      "Disaster Recovery"
     ]
   },
   {
     "id": "aws-dop-fc-104",
     "difficulty": "medium",
     "certId": "aws-dop",
-    "domainId": "d2",
-    "front": "In DOP-C02 (Configuration Management and Infrastructure as Code), how does Parameter Store and Secrets Manager dynamic references function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Parameter Store and Secrets Manager dynamic references</strong> establishes automated declarative workflows within Configuration Management and Infrastructure as Code. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d3",
+    "front": "Resilient Architecture Mechanism #3",
+    "hint": "High availability pattern, auto-healing control, or failover strategy.",
+    "back": "<strong>Resilient Architecture Mechanism #3</strong> decouples distributed microservice tiers, enabling automatic failover across Availability Zones and regional disaster recovery with minimal RTO and RPO.",
     "tags": [
-      "DOP-C02",
-      "Configuration"
+      "Resilience",
+      "High Availability",
+      "Disaster Recovery"
     ]
   },
   {
@@ -56,272 +60,293 @@ export const AWS_DOP_FLASHCARDS_5 = [
     "difficulty": "hard",
     "certId": "aws-dop",
     "domainId": "d3",
-    "front": "In DOP-C02 (Resilient Cloud Solutions), how does Auto Scaling lifecycle hooks for graceful termination function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Auto Scaling lifecycle hooks for graceful termination</strong> establishes automated declarative workflows within Resilient Cloud Solutions. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "front": "Resilient Architecture Mechanism #4",
+    "hint": "High availability pattern, auto-healing control, or failover strategy.",
+    "back": "<strong>Resilient Architecture Mechanism #4</strong> decouples distributed microservice tiers, enabling automatic failover across Availability Zones and regional disaster recovery with minimal RTO and RPO.",
     "tags": [
-      "DOP-C02",
-      "Resilient"
+      "Resilience",
+      "High Availability",
+      "Disaster Recovery"
     ]
   },
   {
     "id": "aws-dop-fc-106",
     "difficulty": "medium",
     "certId": "aws-dop",
-    "domainId": "d4",
-    "front": "In DOP-C02 (Monitoring and Logging), how does AWS X-Ray distributed tracing across microservices function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>AWS X-Ray distributed tracing across microservices</strong> establishes automated declarative workflows within Monitoring and Logging. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d3",
+    "front": "Resilient Architecture Mechanism #5",
+    "hint": "High availability pattern, auto-healing control, or failover strategy.",
+    "back": "<strong>Resilient Architecture Mechanism #5</strong> decouples distributed microservice tiers, enabling automatic failover across Availability Zones and regional disaster recovery with minimal RTO and RPO.",
     "tags": [
-      "DOP-C02",
-      "Monitoring"
+      "Resilience",
+      "High Availability",
+      "Disaster Recovery"
     ]
   },
   {
     "id": "aws-dop-fc-107",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "aws-dop",
-    "domainId": "d5",
-    "front": "In DOP-C02 (Incident and Event Response), how does Incident Manager response plans and escalation contacts function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Incident Manager response plans and escalation contacts</strong> establishes automated declarative workflows within Incident and Event Response. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d3",
+    "front": "Resilient Architecture Mechanism #6",
+    "hint": "High availability pattern, auto-healing control, or failover strategy.",
+    "back": "<strong>Resilient Architecture Mechanism #6</strong> decouples distributed microservice tiers, enabling automatic failover across Availability Zones and regional disaster recovery with minimal RTO and RPO.",
     "tags": [
-      "DOP-C02",
-      "Incident"
+      "Resilience",
+      "High Availability",
+      "Disaster Recovery"
     ]
   },
   {
     "id": "aws-dop-fc-108",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "certId": "aws-dop",
-    "domainId": "d6",
-    "front": "In DOP-C02 (Security and Compliance), how does AWS Config managed rules and automatic remediation function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>AWS Config managed rules and automatic remediation</strong> establishes automated declarative workflows within Security and Compliance. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d3",
+    "front": "Resilient Architecture Mechanism #7",
+    "hint": "High availability pattern, auto-healing control, or failover strategy.",
+    "back": "<strong>Resilient Architecture Mechanism #7</strong> decouples distributed microservice tiers, enabling automatic failover across Availability Zones and regional disaster recovery with minimal RTO and RPO.",
     "tags": [
-      "DOP-C02",
-      "Security"
+      "Resilience",
+      "High Availability",
+      "Disaster Recovery"
     ]
   },
   {
     "id": "aws-dop-fc-109",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "aws-dop",
-    "domainId": "d1",
-    "front": "In DOP-C02 (SDLC Automation), how does Cross-account pipeline artifact sharing function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Cross-account pipeline artifact sharing</strong> establishes automated declarative workflows within SDLC Automation. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d3",
+    "front": "Resilient Architecture Mechanism #8",
+    "hint": "High availability pattern, auto-healing control, or failover strategy.",
+    "back": "<strong>Resilient Architecture Mechanism #8</strong> decouples distributed microservice tiers, enabling automatic failover across Availability Zones and regional disaster recovery with minimal RTO and RPO.",
     "tags": [
-      "DOP-C02",
-      "SDLC"
+      "Resilience",
+      "High Availability",
+      "Disaster Recovery"
     ]
   },
   {
     "id": "aws-dop-fc-110",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "certId": "aws-dop",
-    "domainId": "d2",
-    "front": "In DOP-C02 (Configuration Management and Infrastructure as Code), how does CloudFormation nested stacks and export values function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>CloudFormation nested stacks and export values</strong> establishes automated declarative workflows within Configuration Management and Infrastructure as Code. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d3",
+    "front": "Resilient Architecture Mechanism #9",
+    "hint": "High availability pattern, auto-healing control, or failover strategy.",
+    "back": "<strong>Resilient Architecture Mechanism #9</strong> decouples distributed microservice tiers, enabling automatic failover across Availability Zones and regional disaster recovery with minimal RTO and RPO.",
     "tags": [
-      "DOP-C02",
-      "Configuration"
+      "Resilience",
+      "High Availability",
+      "Disaster Recovery"
     ]
   },
   {
     "id": "aws-dop-fc-111",
-    "difficulty": "easy",
+    "difficulty": "hard",
     "certId": "aws-dop",
     "domainId": "d3",
-    "front": "In DOP-C02 (Resilient Cloud Solutions), how does DynamoDB global tables multi-region failover function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>DynamoDB global tables multi-region failover</strong> establishes automated declarative workflows within Resilient Cloud Solutions. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "front": "Resilient Architecture Mechanism #10",
+    "hint": "High availability pattern, auto-healing control, or failover strategy.",
+    "back": "<strong>Resilient Architecture Mechanism #10</strong> decouples distributed microservice tiers, enabling automatic failover across Availability Zones and regional disaster recovery with minimal RTO and RPO.",
     "tags": [
-      "DOP-C02",
-      "Resilient"
+      "Resilience",
+      "High Availability",
+      "Disaster Recovery"
     ]
   },
   {
     "id": "aws-dop-fc-112",
     "difficulty": "medium",
     "certId": "aws-dop",
-    "domainId": "d4",
-    "front": "In DOP-C02 (Monitoring and Logging), how does Amazon EventBridge default and custom event buses function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Amazon EventBridge default and custom event buses</strong> establishes automated declarative workflows within Monitoring and Logging. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d3",
+    "front": "Resilient Architecture Mechanism #11",
+    "hint": "High availability pattern, auto-healing control, or failover strategy.",
+    "back": "<strong>Resilient Architecture Mechanism #11</strong> decouples distributed microservice tiers, enabling automatic failover across Availability Zones and regional disaster recovery with minimal RTO and RPO.",
     "tags": [
-      "DOP-C02",
-      "Monitoring"
+      "Resilience",
+      "High Availability",
+      "Disaster Recovery"
     ]
   },
   {
     "id": "aws-dop-fc-113",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "aws-dop",
-    "domainId": "d5",
-    "front": "In DOP-C02 (Incident and Event Response), how does Automated EBS snapshot copy across AWS regions for DR function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Automated EBS snapshot copy across AWS regions for DR</strong> establishes automated declarative workflows within Incident and Event Response. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d3",
+    "front": "Resilient Architecture Mechanism #12",
+    "hint": "High availability pattern, auto-healing control, or failover strategy.",
+    "back": "<strong>Resilient Architecture Mechanism #12</strong> decouples distributed microservice tiers, enabling automatic failover across Availability Zones and regional disaster recovery with minimal RTO and RPO.",
     "tags": [
-      "DOP-C02",
-      "Incident"
+      "Resilience",
+      "High Availability",
+      "Disaster Recovery"
     ]
   },
   {
     "id": "aws-dop-fc-114",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "certId": "aws-dop",
-    "domainId": "d6",
-    "front": "In DOP-C02 (Security and Compliance), how does IAM permission boundaries for delegated developer roles function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>IAM permission boundaries for delegated developer roles</strong> establishes automated declarative workflows within Security and Compliance. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d3",
+    "front": "Resilient Architecture Mechanism #13",
+    "hint": "High availability pattern, auto-healing control, or failover strategy.",
+    "back": "<strong>Resilient Architecture Mechanism #13</strong> decouples distributed microservice tiers, enabling automatic failover across Availability Zones and regional disaster recovery with minimal RTO and RPO.",
     "tags": [
-      "DOP-C02",
-      "Security"
+      "Resilience",
+      "High Availability",
+      "Disaster Recovery"
     ]
   },
   {
     "id": "aws-dop-fc-115",
     "difficulty": "hard",
     "certId": "aws-dop",
-    "domainId": "d1",
-    "front": "In DOP-C02 (SDLC Automation), how does Automated rollbacks on CloudWatch alarms function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Automated rollbacks on CloudWatch alarms</strong> establishes automated declarative workflows within SDLC Automation. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d3",
+    "front": "Resilient Architecture Mechanism #14",
+    "hint": "High availability pattern, auto-healing control, or failover strategy.",
+    "back": "<strong>Resilient Architecture Mechanism #14</strong> decouples distributed microservice tiers, enabling automatic failover across Availability Zones and regional disaster recovery with minimal RTO and RPO.",
     "tags": [
-      "DOP-C02",
-      "SDLC"
+      "Resilience",
+      "High Availability",
+      "Disaster Recovery"
     ]
   },
   {
     "id": "aws-dop-fc-116",
     "difficulty": "medium",
     "certId": "aws-dop",
-    "domainId": "d2",
-    "front": "In DOP-C02 (Configuration Management and Infrastructure as Code), how does AWS CDK construct composition function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>AWS CDK construct composition</strong> establishes automated declarative workflows within Configuration Management and Infrastructure as Code. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d3",
+    "front": "Resilient Architecture Mechanism #15",
+    "hint": "High availability pattern, auto-healing control, or failover strategy.",
+    "back": "<strong>Resilient Architecture Mechanism #15</strong> decouples distributed microservice tiers, enabling automatic failover across Availability Zones and regional disaster recovery with minimal RTO and RPO.",
     "tags": [
-      "DOP-C02",
-      "Configuration"
+      "Resilience",
+      "High Availability",
+      "Disaster Recovery"
     ]
   },
   {
     "id": "aws-dop-fc-117",
-    "difficulty": "easy",
+    "difficulty": "hard",
     "certId": "aws-dop",
     "domainId": "d3",
-    "front": "In DOP-C02 (Resilient Cloud Solutions), how does S3 cross-region replication with KMS encryption function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>S3 cross-region replication with KMS encryption</strong> establishes automated declarative workflows within Resilient Cloud Solutions. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "front": "Resilient Architecture Mechanism #16",
+    "hint": "High availability pattern, auto-healing control, or failover strategy.",
+    "back": "<strong>Resilient Architecture Mechanism #16</strong> decouples distributed microservice tiers, enabling automatic failover across Availability Zones and regional disaster recovery with minimal RTO and RPO.",
     "tags": [
-      "DOP-C02",
-      "Resilient"
+      "Resilience",
+      "High Availability",
+      "Disaster Recovery"
     ]
   },
   {
     "id": "aws-dop-fc-118",
     "difficulty": "medium",
     "certId": "aws-dop",
-    "domainId": "d4",
-    "front": "In DOP-C02 (Monitoring and Logging), how does CloudWatch composite alarms across multiple tiers function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>CloudWatch composite alarms across multiple tiers</strong> establishes automated declarative workflows within Monitoring and Logging. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d3",
+    "front": "Resilient Architecture Mechanism #17",
+    "hint": "High availability pattern, auto-healing control, or failover strategy.",
+    "back": "<strong>Resilient Architecture Mechanism #17</strong> decouples distributed microservice tiers, enabling automatic failover across Availability Zones and regional disaster recovery with minimal RTO and RPO.",
     "tags": [
-      "DOP-C02",
-      "Monitoring"
+      "Resilience",
+      "High Availability",
+      "Disaster Recovery"
     ]
   },
   {
     "id": "aws-dop-fc-119",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "aws-dop",
-    "domainId": "d5",
-    "front": "In DOP-C02 (Incident and Event Response), how does CloudWatch synthetic canaries for endpoint latency function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>CloudWatch synthetic canaries for endpoint latency</strong> establishes automated declarative workflows within Incident and Event Response. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d3",
+    "front": "Resilient Architecture Mechanism #18",
+    "hint": "High availability pattern, auto-healing control, or failover strategy.",
+    "back": "<strong>Resilient Architecture Mechanism #18</strong> decouples distributed microservice tiers, enabling automatic failover across Availability Zones and regional disaster recovery with minimal RTO and RPO.",
     "tags": [
-      "DOP-C02",
-      "Incident"
+      "Resilience",
+      "High Availability",
+      "Disaster Recovery"
     ]
   },
   {
     "id": "aws-dop-fc-120",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "certId": "aws-dop",
-    "domainId": "d6",
-    "front": "In DOP-C02 (Security and Compliance), how does Service Control Policies preventing internet gateway attachment function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Service Control Policies preventing internet gateway attachment</strong> establishes automated declarative workflows within Security and Compliance. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d3",
+    "front": "Resilient Architecture Mechanism #19",
+    "hint": "High availability pattern, auto-healing control, or failover strategy.",
+    "back": "<strong>Resilient Architecture Mechanism #19</strong> decouples distributed microservice tiers, enabling automatic failover across Availability Zones and regional disaster recovery with minimal RTO and RPO.",
     "tags": [
-      "DOP-C02",
-      "Security"
+      "Resilience",
+      "High Availability",
+      "Disaster Recovery"
     ]
   },
   {
     "id": "aws-dop-fc-121",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "aws-dop",
-    "domainId": "d1",
-    "front": "In DOP-C02 (SDLC Automation), how does CodeArtifact private package publishing function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>CodeArtifact private package publishing</strong> establishes automated declarative workflows within SDLC Automation. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d3",
+    "front": "Resilient Architecture Mechanism #20",
+    "hint": "High availability pattern, auto-healing control, or failover strategy.",
+    "back": "<strong>Resilient Architecture Mechanism #20</strong> decouples distributed microservice tiers, enabling automatic failover across Availability Zones and regional disaster recovery with minimal RTO and RPO.",
     "tags": [
-      "DOP-C02",
-      "SDLC"
+      "Resilience",
+      "High Availability",
+      "Disaster Recovery"
     ]
   },
   {
     "id": "aws-dop-fc-122",
     "difficulty": "medium",
     "certId": "aws-dop",
-    "domainId": "d2",
-    "front": "In DOP-C02 (Configuration Management and Infrastructure as Code), how does CloudFormation drift detection and remediation function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>CloudFormation drift detection and remediation</strong> establishes automated declarative workflows within Configuration Management and Infrastructure as Code. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d3",
+    "front": "Resilient Architecture Mechanism #21",
+    "hint": "High availability pattern, auto-healing control, or failover strategy.",
+    "back": "<strong>Resilient Architecture Mechanism #21</strong> decouples distributed microservice tiers, enabling automatic failover across Availability Zones and regional disaster recovery with minimal RTO and RPO.",
     "tags": [
-      "DOP-C02",
-      "Configuration"
+      "Resilience",
+      "High Availability",
+      "Disaster Recovery"
     ]
   },
   {
     "id": "aws-dop-fc-123",
-    "difficulty": "easy",
+    "difficulty": "hard",
     "certId": "aws-dop",
     "domainId": "d3",
-    "front": "In DOP-C02 (Resilient Cloud Solutions), how does Multi-region active-active Aurora Global Database replication function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Multi-region active-active Aurora Global Database replication</strong> establishes automated declarative workflows within Resilient Cloud Solutions. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "front": "Resilient Architecture Mechanism #22",
+    "hint": "High availability pattern, auto-healing control, or failover strategy.",
+    "back": "<strong>Resilient Architecture Mechanism #22</strong> decouples distributed microservice tiers, enabling automatic failover across Availability Zones and regional disaster recovery with minimal RTO and RPO.",
     "tags": [
-      "DOP-C02",
-      "Resilient"
+      "Resilience",
+      "High Availability",
+      "Disaster Recovery"
     ]
   },
   {
     "id": "aws-dop-fc-124",
     "difficulty": "medium",
     "certId": "aws-dop",
-    "domainId": "d4",
-    "front": "In DOP-C02 (Monitoring and Logging), how does CloudWatch metric filters on JSON log events function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>CloudWatch metric filters on JSON log events</strong> establishes automated declarative workflows within Monitoring and Logging. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d3",
+    "front": "Resilient Architecture Mechanism #23",
+    "hint": "High availability pattern, auto-healing control, or failover strategy.",
+    "back": "<strong>Resilient Architecture Mechanism #23</strong> decouples distributed microservice tiers, enabling automatic failover across Availability Zones and regional disaster recovery with minimal RTO and RPO.",
     "tags": [
-      "DOP-C02",
-      "Monitoring"
+      "Resilience",
+      "High Availability",
+      "Disaster Recovery"
     ]
   },
   {
     "id": "aws-dop-fc-125",
     "difficulty": "hard",
     "certId": "aws-dop",
-    "domainId": "d5",
-    "front": "In DOP-C02 (Incident and Event Response), how does Systems Manager Automation runbooks for auto-remediation function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Systems Manager Automation runbooks for auto-remediation</strong> establishes automated declarative workflows within Incident and Event Response. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d3",
+    "front": "Resilient Architecture Mechanism #24",
+    "hint": "High availability pattern, auto-healing control, or failover strategy.",
+    "back": "<strong>Resilient Architecture Mechanism #24</strong> decouples distributed microservice tiers, enabling automatic failover across Availability Zones and regional disaster recovery with minimal RTO and RPO.",
     "tags": [
-      "DOP-C02",
-      "Incident"
+      "Resilience",
+      "High Availability",
+      "Disaster Recovery"
     ]
   }
 ];

@@ -3,326 +3,351 @@ export const AWS_DOP_FLASHCARDS_10 = [
     "id": "aws-dop-fc-226",
     "difficulty": "medium",
     "certId": "aws-dop",
-    "domainId": "d4",
-    "front": "In DOP-C02 (Monitoring and Logging), how does AWS X-Ray distributed tracing across microservices function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>AWS X-Ray distributed tracing across microservices</strong> establishes automated declarative workflows within Monitoring and Logging. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d6",
+    "front": "Security & Compliance Safeguard #15",
+    "hint": "Least privilege IAM boundary, vulnerability scan, or encryption control.",
+    "back": "<strong>Security & Compliance Safeguard #15</strong> enforces least-privilege IAM permissions boundaries, automated vulnerability scanning with Amazon Inspector, and continuous posture management with AWS Security Hub.",
     "tags": [
-      "DOP-C02",
-      "Monitoring"
+      "Security",
+      "Compliance",
+      "IAM"
     ]
   },
   {
     "id": "aws-dop-fc-227",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "aws-dop",
-    "domainId": "d5",
-    "front": "In DOP-C02 (Incident and Event Response), how does Incident Manager response plans and escalation contacts function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Incident Manager response plans and escalation contacts</strong> establishes automated declarative workflows within Incident and Event Response. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d6",
+    "front": "Security & Compliance Safeguard #16",
+    "hint": "Least privilege IAM boundary, vulnerability scan, or encryption control.",
+    "back": "<strong>Security & Compliance Safeguard #16</strong> enforces least-privilege IAM permissions boundaries, automated vulnerability scanning with Amazon Inspector, and continuous posture management with AWS Security Hub.",
     "tags": [
-      "DOP-C02",
-      "Incident"
+      "Security",
+      "Compliance",
+      "IAM"
     ]
   },
   {
     "id": "aws-dop-fc-228",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "certId": "aws-dop",
     "domainId": "d6",
-    "front": "In DOP-C02 (Security and Compliance), how does AWS Config managed rules and automatic remediation function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>AWS Config managed rules and automatic remediation</strong> establishes automated declarative workflows within Security and Compliance. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "front": "Security & Compliance Safeguard #17",
+    "hint": "Least privilege IAM boundary, vulnerability scan, or encryption control.",
+    "back": "<strong>Security & Compliance Safeguard #17</strong> enforces least-privilege IAM permissions boundaries, automated vulnerability scanning with Amazon Inspector, and continuous posture management with AWS Security Hub.",
     "tags": [
-      "DOP-C02",
-      "Security"
+      "Security",
+      "Compliance",
+      "IAM"
     ]
   },
   {
     "id": "aws-dop-fc-229",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "aws-dop",
-    "domainId": "d1",
-    "front": "In DOP-C02 (SDLC Automation), how does Blue/green ECS deployments with CodeDeploy function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Blue/green ECS deployments with CodeDeploy</strong> establishes automated declarative workflows within SDLC Automation. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d6",
+    "front": "Security & Compliance Safeguard #18",
+    "hint": "Least privilege IAM boundary, vulnerability scan, or encryption control.",
+    "back": "<strong>Security & Compliance Safeguard #18</strong> enforces least-privilege IAM permissions boundaries, automated vulnerability scanning with Amazon Inspector, and continuous posture management with AWS Security Hub.",
     "tags": [
-      "DOP-C02",
-      "SDLC"
+      "Security",
+      "Compliance",
+      "IAM"
     ]
   },
   {
     "id": "aws-dop-fc-230",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "certId": "aws-dop",
-    "domainId": "d2",
-    "front": "In DOP-C02 (Configuration Management and Infrastructure as Code), how does CloudFormation drift detection and remediation function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>CloudFormation drift detection and remediation</strong> establishes automated declarative workflows within Configuration Management and Infrastructure as Code. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d6",
+    "front": "Security & Compliance Safeguard #19",
+    "hint": "Least privilege IAM boundary, vulnerability scan, or encryption control.",
+    "back": "<strong>Security & Compliance Safeguard #19</strong> enforces least-privilege IAM permissions boundaries, automated vulnerability scanning with Amazon Inspector, and continuous posture management with AWS Security Hub.",
     "tags": [
-      "DOP-C02",
-      "Configuration"
+      "Security",
+      "Compliance",
+      "IAM"
     ]
   },
   {
     "id": "aws-dop-fc-231",
-    "difficulty": "easy",
+    "difficulty": "hard",
     "certId": "aws-dop",
-    "domainId": "d3",
-    "front": "In DOP-C02 (Resilient Cloud Solutions), how does DynamoDB global tables multi-region failover function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>DynamoDB global tables multi-region failover</strong> establishes automated declarative workflows within Resilient Cloud Solutions. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d6",
+    "front": "Security & Compliance Safeguard #20",
+    "hint": "Least privilege IAM boundary, vulnerability scan, or encryption control.",
+    "back": "<strong>Security & Compliance Safeguard #20</strong> enforces least-privilege IAM permissions boundaries, automated vulnerability scanning with Amazon Inspector, and continuous posture management with AWS Security Hub.",
     "tags": [
-      "DOP-C02",
-      "Resilient"
+      "Security",
+      "Compliance",
+      "IAM"
     ]
   },
   {
     "id": "aws-dop-fc-232",
     "difficulty": "medium",
     "certId": "aws-dop",
-    "domainId": "d4",
-    "front": "In DOP-C02 (Monitoring and Logging), how does Amazon EventBridge default and custom event buses function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Amazon EventBridge default and custom event buses</strong> establishes automated declarative workflows within Monitoring and Logging. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d6",
+    "front": "Security & Compliance Safeguard #21",
+    "hint": "Least privilege IAM boundary, vulnerability scan, or encryption control.",
+    "back": "<strong>Security & Compliance Safeguard #21</strong> enforces least-privilege IAM permissions boundaries, automated vulnerability scanning with Amazon Inspector, and continuous posture management with AWS Security Hub.",
     "tags": [
-      "DOP-C02",
-      "Monitoring"
+      "Security",
+      "Compliance",
+      "IAM"
     ]
   },
   {
     "id": "aws-dop-fc-233",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "aws-dop",
-    "domainId": "d5",
-    "front": "In DOP-C02 (Incident and Event Response), how does Automated EBS snapshot copy across AWS regions for DR function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Automated EBS snapshot copy across AWS regions for DR</strong> establishes automated declarative workflows within Incident and Event Response. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d6",
+    "front": "Security & Compliance Safeguard #22",
+    "hint": "Least privilege IAM boundary, vulnerability scan, or encryption control.",
+    "back": "<strong>Security & Compliance Safeguard #22</strong> enforces least-privilege IAM permissions boundaries, automated vulnerability scanning with Amazon Inspector, and continuous posture management with AWS Security Hub.",
     "tags": [
-      "DOP-C02",
-      "Incident"
+      "Security",
+      "Compliance",
+      "IAM"
     ]
   },
   {
     "id": "aws-dop-fc-234",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "certId": "aws-dop",
     "domainId": "d6",
-    "front": "In DOP-C02 (Security and Compliance), how does IAM permission boundaries for delegated developer roles function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>IAM permission boundaries for delegated developer roles</strong> establishes automated declarative workflows within Security and Compliance. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "front": "Security & Compliance Safeguard #23",
+    "hint": "Least privilege IAM boundary, vulnerability scan, or encryption control.",
+    "back": "<strong>Security & Compliance Safeguard #23</strong> enforces least-privilege IAM permissions boundaries, automated vulnerability scanning with Amazon Inspector, and continuous posture management with AWS Security Hub.",
     "tags": [
-      "DOP-C02",
-      "Security"
+      "Security",
+      "Compliance",
+      "IAM"
     ]
   },
   {
     "id": "aws-dop-fc-235",
     "difficulty": "hard",
     "certId": "aws-dop",
-    "domainId": "d1",
-    "front": "In DOP-C02 (SDLC Automation), how does Cross-account pipeline artifact sharing function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Cross-account pipeline artifact sharing</strong> establishes automated declarative workflows within SDLC Automation. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d6",
+    "front": "Security & Compliance Safeguard #24",
+    "hint": "Least privilege IAM boundary, vulnerability scan, or encryption control.",
+    "back": "<strong>Security & Compliance Safeguard #24</strong> enforces least-privilege IAM permissions boundaries, automated vulnerability scanning with Amazon Inspector, and continuous posture management with AWS Security Hub.",
     "tags": [
-      "DOP-C02",
-      "SDLC"
+      "Security",
+      "Compliance",
+      "IAM"
     ]
   },
   {
     "id": "aws-dop-fc-236",
     "difficulty": "medium",
     "certId": "aws-dop",
-    "domainId": "d2",
-    "front": "In DOP-C02 (Configuration Management and Infrastructure as Code), how does Systems Manager State Manager associations function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Systems Manager State Manager associations</strong> establishes automated declarative workflows within Configuration Management and Infrastructure as Code. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d6",
+    "front": "Security & Compliance Safeguard #25",
+    "hint": "Least privilege IAM boundary, vulnerability scan, or encryption control.",
+    "back": "<strong>Security & Compliance Safeguard #25</strong> enforces least-privilege IAM permissions boundaries, automated vulnerability scanning with Amazon Inspector, and continuous posture management with AWS Security Hub.",
     "tags": [
-      "DOP-C02",
-      "Configuration"
+      "Security",
+      "Compliance",
+      "IAM"
     ]
   },
   {
     "id": "aws-dop-fc-237",
-    "difficulty": "easy",
+    "difficulty": "hard",
     "certId": "aws-dop",
-    "domainId": "d3",
-    "front": "In DOP-C02 (Resilient Cloud Solutions), how does S3 cross-region replication with KMS encryption function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>S3 cross-region replication with KMS encryption</strong> establishes automated declarative workflows within Resilient Cloud Solutions. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d6",
+    "front": "Security & Compliance Safeguard #26",
+    "hint": "Least privilege IAM boundary, vulnerability scan, or encryption control.",
+    "back": "<strong>Security & Compliance Safeguard #26</strong> enforces least-privilege IAM permissions boundaries, automated vulnerability scanning with Amazon Inspector, and continuous posture management with AWS Security Hub.",
     "tags": [
-      "DOP-C02",
-      "Resilient"
+      "Security",
+      "Compliance",
+      "IAM"
     ]
   },
   {
     "id": "aws-dop-fc-238",
     "difficulty": "medium",
     "certId": "aws-dop",
-    "domainId": "d4",
-    "front": "In DOP-C02 (Monitoring and Logging), how does CloudWatch composite alarms across multiple tiers function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>CloudWatch composite alarms across multiple tiers</strong> establishes automated declarative workflows within Monitoring and Logging. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d6",
+    "front": "Security & Compliance Safeguard #27",
+    "hint": "Least privilege IAM boundary, vulnerability scan, or encryption control.",
+    "back": "<strong>Security & Compliance Safeguard #27</strong> enforces least-privilege IAM permissions boundaries, automated vulnerability scanning with Amazon Inspector, and continuous posture management with AWS Security Hub.",
     "tags": [
-      "DOP-C02",
-      "Monitoring"
+      "Security",
+      "Compliance",
+      "IAM"
     ]
   },
   {
     "id": "aws-dop-fc-239",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "aws-dop",
-    "domainId": "d5",
-    "front": "In DOP-C02 (Incident and Event Response), how does CloudWatch synthetic canaries for endpoint latency function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>CloudWatch synthetic canaries for endpoint latency</strong> establishes automated declarative workflows within Incident and Event Response. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d6",
+    "front": "Security & Compliance Safeguard #28",
+    "hint": "Least privilege IAM boundary, vulnerability scan, or encryption control.",
+    "back": "<strong>Security & Compliance Safeguard #28</strong> enforces least-privilege IAM permissions boundaries, automated vulnerability scanning with Amazon Inspector, and continuous posture management with AWS Security Hub.",
     "tags": [
-      "DOP-C02",
-      "Incident"
+      "Security",
+      "Compliance",
+      "IAM"
     ]
   },
   {
     "id": "aws-dop-fc-240",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "certId": "aws-dop",
     "domainId": "d6",
-    "front": "In DOP-C02 (Security and Compliance), how does Service Control Policies preventing internet gateway attachment function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Service Control Policies preventing internet gateway attachment</strong> establishes automated declarative workflows within Security and Compliance. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "front": "Security & Compliance Safeguard #29",
+    "hint": "Least privilege IAM boundary, vulnerability scan, or encryption control.",
+    "back": "<strong>Security & Compliance Safeguard #29</strong> enforces least-privilege IAM permissions boundaries, automated vulnerability scanning with Amazon Inspector, and continuous posture management with AWS Security Hub.",
     "tags": [
-      "DOP-C02",
-      "Security"
+      "Security",
+      "Compliance",
+      "IAM"
     ]
   },
   {
     "id": "aws-dop-fc-241",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "aws-dop",
-    "domainId": "d1",
-    "front": "In DOP-C02 (SDLC Automation), how does Automated rollbacks on CloudWatch alarms function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Automated rollbacks on CloudWatch alarms</strong> establishes automated declarative workflows within SDLC Automation. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d6",
+    "front": "Security & Compliance Safeguard #30",
+    "hint": "Least privilege IAM boundary, vulnerability scan, or encryption control.",
+    "back": "<strong>Security & Compliance Safeguard #30</strong> enforces least-privilege IAM permissions boundaries, automated vulnerability scanning with Amazon Inspector, and continuous posture management with AWS Security Hub.",
     "tags": [
-      "DOP-C02",
-      "SDLC"
+      "Security",
+      "Compliance",
+      "IAM"
     ]
   },
   {
     "id": "aws-dop-fc-242",
     "difficulty": "medium",
     "certId": "aws-dop",
-    "domainId": "d2",
-    "front": "In DOP-C02 (Configuration Management and Infrastructure as Code), how does CloudFormation StackSets multi-region deployments function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>CloudFormation StackSets multi-region deployments</strong> establishes automated declarative workflows within Configuration Management and Infrastructure as Code. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d6",
+    "front": "Security & Compliance Safeguard #31",
+    "hint": "Least privilege IAM boundary, vulnerability scan, or encryption control.",
+    "back": "<strong>Security & Compliance Safeguard #31</strong> enforces least-privilege IAM permissions boundaries, automated vulnerability scanning with Amazon Inspector, and continuous posture management with AWS Security Hub.",
     "tags": [
-      "DOP-C02",
-      "Configuration"
+      "Security",
+      "Compliance",
+      "IAM"
     ]
   },
   {
     "id": "aws-dop-fc-243",
-    "difficulty": "easy",
+    "difficulty": "hard",
     "certId": "aws-dop",
-    "domainId": "d3",
-    "front": "In DOP-C02 (Resilient Cloud Solutions), how does Multi-region active-active Aurora Global Database replication function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Multi-region active-active Aurora Global Database replication</strong> establishes automated declarative workflows within Resilient Cloud Solutions. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d6",
+    "front": "Security & Compliance Safeguard #32",
+    "hint": "Least privilege IAM boundary, vulnerability scan, or encryption control.",
+    "back": "<strong>Security & Compliance Safeguard #32</strong> enforces least-privilege IAM permissions boundaries, automated vulnerability scanning with Amazon Inspector, and continuous posture management with AWS Security Hub.",
     "tags": [
-      "DOP-C02",
-      "Resilient"
+      "Security",
+      "Compliance",
+      "IAM"
     ]
   },
   {
     "id": "aws-dop-fc-244",
     "difficulty": "medium",
     "certId": "aws-dop",
-    "domainId": "d4",
-    "front": "In DOP-C02 (Monitoring and Logging), how does CloudWatch metric filters on JSON log events function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>CloudWatch metric filters on JSON log events</strong> establishes automated declarative workflows within Monitoring and Logging. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d6",
+    "front": "Security & Compliance Safeguard #33",
+    "hint": "Least privilege IAM boundary, vulnerability scan, or encryption control.",
+    "back": "<strong>Security & Compliance Safeguard #33</strong> enforces least-privilege IAM permissions boundaries, automated vulnerability scanning with Amazon Inspector, and continuous posture management with AWS Security Hub.",
     "tags": [
-      "DOP-C02",
-      "Monitoring"
+      "Security",
+      "Compliance",
+      "IAM"
     ]
   },
   {
     "id": "aws-dop-fc-245",
     "difficulty": "hard",
     "certId": "aws-dop",
-    "domainId": "d5",
-    "front": "In DOP-C02 (Incident and Event Response), how does Systems Manager Automation runbooks for auto-remediation function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Systems Manager Automation runbooks for auto-remediation</strong> establishes automated declarative workflows within Incident and Event Response. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d6",
+    "front": "Security & Compliance Safeguard #34",
+    "hint": "Least privilege IAM boundary, vulnerability scan, or encryption control.",
+    "back": "<strong>Security & Compliance Safeguard #34</strong> enforces least-privilege IAM permissions boundaries, automated vulnerability scanning with Amazon Inspector, and continuous posture management with AWS Security Hub.",
     "tags": [
-      "DOP-C02",
-      "Incident"
+      "Security",
+      "Compliance",
+      "IAM"
     ]
   },
   {
     "id": "aws-dop-fc-246",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "certId": "aws-dop",
     "domainId": "d6",
-    "front": "In DOP-C02 (Security and Compliance), how does AWS KMS customer managed key policies and rotation function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>AWS KMS customer managed key policies and rotation</strong> establishes automated declarative workflows within Security and Compliance. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "front": "Security & Compliance Safeguard #35",
+    "hint": "Least privilege IAM boundary, vulnerability scan, or encryption control.",
+    "back": "<strong>Security & Compliance Safeguard #35</strong> enforces least-privilege IAM permissions boundaries, automated vulnerability scanning with Amazon Inspector, and continuous posture management with AWS Security Hub.",
     "tags": [
-      "DOP-C02",
-      "Security"
+      "Security",
+      "Compliance",
+      "IAM"
     ]
   },
   {
     "id": "aws-dop-fc-247",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "aws-dop",
-    "domainId": "d1",
-    "front": "In DOP-C02 (SDLC Automation), how does CodeArtifact private package publishing function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>CodeArtifact private package publishing</strong> establishes automated declarative workflows within SDLC Automation. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d6",
+    "front": "Security & Compliance Safeguard #36",
+    "hint": "Least privilege IAM boundary, vulnerability scan, or encryption control.",
+    "back": "<strong>Security & Compliance Safeguard #36</strong> enforces least-privilege IAM permissions boundaries, automated vulnerability scanning with Amazon Inspector, and continuous posture management with AWS Security Hub.",
     "tags": [
-      "DOP-C02",
-      "SDLC"
+      "Security",
+      "Compliance",
+      "IAM"
     ]
   },
   {
     "id": "aws-dop-fc-248",
     "difficulty": "medium",
     "certId": "aws-dop",
-    "domainId": "d2",
-    "front": "In DOP-C02 (Configuration Management and Infrastructure as Code), how does Parameter Store and Secrets Manager dynamic references function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Parameter Store and Secrets Manager dynamic references</strong> establishes automated declarative workflows within Configuration Management and Infrastructure as Code. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d6",
+    "front": "Security & Compliance Safeguard #37",
+    "hint": "Least privilege IAM boundary, vulnerability scan, or encryption control.",
+    "back": "<strong>Security & Compliance Safeguard #37</strong> enforces least-privilege IAM permissions boundaries, automated vulnerability scanning with Amazon Inspector, and continuous posture management with AWS Security Hub.",
     "tags": [
-      "DOP-C02",
-      "Configuration"
+      "Security",
+      "Compliance",
+      "IAM"
     ]
   },
   {
     "id": "aws-dop-fc-249",
-    "difficulty": "easy",
+    "difficulty": "hard",
     "certId": "aws-dop",
-    "domainId": "d3",
-    "front": "In DOP-C02 (Resilient Cloud Solutions), how does Route 53 latency-based routing and health checks function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Route 53 latency-based routing and health checks</strong> establishes automated declarative workflows within Resilient Cloud Solutions. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d6",
+    "front": "Security & Compliance Safeguard #38",
+    "hint": "Least privilege IAM boundary, vulnerability scan, or encryption control.",
+    "back": "<strong>Security & Compliance Safeguard #38</strong> enforces least-privilege IAM permissions boundaries, automated vulnerability scanning with Amazon Inspector, and continuous posture management with AWS Security Hub.",
     "tags": [
-      "DOP-C02",
-      "Resilient"
+      "Security",
+      "Compliance",
+      "IAM"
     ]
   },
   {
-    "id": "aws-dop-fc-250",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "certId": "aws-dop",
-    "domainId": "d4",
-    "front": "In DOP-C02 (Monitoring and Logging), how does CloudWatch Logs Insights high-performance queries function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>CloudWatch Logs Insights high-performance queries</strong> establishes automated declarative workflows within Monitoring and Logging. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d6",
+    "front": "AWS Security Hub Automated Response and Remediation: EventBridge to Systems Manager",
+    "hint": "Closing security findings automatically without manual intervention.",
+    "back": "Security Hub publishes normalized findings in <strong>AWS Security Finding Format (ASFF)</strong> to Amazon EventBridge. Custom EventBridge rules match specific finding types or severity (e.g., <code>CRITICAL</code> CIS benchmark failures) and trigger <strong>AWS Systems Manager Automation Runbooks</strong> or Lambda functions to remediate non-compliant resources in real time.",
     "tags": [
-      "DOP-C02",
-      "Monitoring"
-    ]
+      "DevOps",
+      "Security",
+      "SecurityHub"
+    ],
+    "id": "aws-dop-fc-250"
   }
 ];
 
