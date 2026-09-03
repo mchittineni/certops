@@ -9,10 +9,10 @@ export const AZURE_AZ900_QUESTIONS_4 = [
     scenario: "A company needs to deploy virtual machines in a specific geographic area containing one or more datacenters connected via a low-latency network.",
     question: "What Azure architectural construct defines this geographical boundary?",
     options: [
-      { id: 'A', text: "An Azure geography" },
+      { id: 'A', text: "A resource group" },
       { id: 'B', text: "An Azure region" },
-      { id: 'C', text: "A resource group" },
-      { id: 'D', text: "An Availability Zone" }
+      { id: 'C', text: "An Availability Zone" },
+      { id: 'D', text: "An Azure geography" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -31,9 +31,9 @@ export const AZURE_AZ900_QUESTIONS_4 = [
     question: "Which Azure feature provides this relationship?",
     options: [
       { id: 'A', text: "Azure region pairs" },
-      { id: 'B', text: "Azure Availability Zones" },
-      { id: 'C', text: "Management Groups" },
-      { id: 'D', text: "Virtual Network peering" }
+      { id: 'B', text: "Virtual Network peering" },
+      { id: 'C', text: "Azure Availability Zones" },
+      { id: 'D', text: "Management Groups" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -51,9 +51,9 @@ export const AZURE_AZ900_QUESTIONS_4 = [
     scenario: "A United States federal agency requires cloud services that meet strict FedRAMP High and Department of Defense Impact Level 5 compliance requirements, operated in isolated physical datacenters by screened US citizens.",
     question: "Which Azure environment should the agency adopt?",
     options: [
-      { id: 'A', text: "Azure Stack Hub on-premises only" },
-      { id: 'B', text: "Azure China 21Vianet" },
-      { id: 'C', text: "Public Azure commercial cloud" },
+      { id: 'A', text: "Public Azure commercial cloud" },
+      { id: 'B', text: "Azure Stack Hub on-premises only" },
+      { id: 'C', text: "Azure China 21Vianet" },
       { id: 'D', text: "Azure Government" }
     ],
     correctAnswers: ['D'],
@@ -73,11 +73,11 @@ export const AZURE_AZ900_QUESTIONS_4 = [
     question: "Which Azure architectural feature provides physically separated datacenters within the same region, each equipped with independent power, cooling, and networking?",
     options: [
       { id: 'A', text: "Azure Resource Groups" },
-      { id: 'B', text: "Azure Region Pairs" },
-      { id: 'C', text: "Azure Subscriptions" },
-      { id: 'D', text: "Azure Availability Zones" }
+      { id: 'B', text: "Azure Subscriptions" },
+      { id: 'C', text: "Azure Availability Zones" },
+      { id: 'D', text: "Azure Region Pairs" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Availability Zones are physically separate datacenter locations within an Azure region. Each Availability Zone is made up of one or more datacenters equipped with independent power, cooling, and networking infrastructure to protect applications from datacenter-level failures.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/reliability/availability-zones-overview",
@@ -93,12 +93,12 @@ export const AZURE_AZ900_QUESTIONS_4 = [
     scenario: "An IT administrator manages 40 Azure subscriptions for different business units. Management wants to apply governance policies and access controls across all 40 subscriptions simultaneously.",
     question: "Which Azure resource container sits above subscriptions in the organizational hierarchy?",
     options: [
-      { id: 'A', text: "Subscriptions" },
-      { id: 'B', text: "Resource Groups" },
-      { id: 'C', text: "Availability Sets" },
-      { id: 'D', text: "Management Groups" }
+      { id: 'A', text: "Resource Groups" },
+      { id: 'B', text: "Subscriptions" },
+      { id: 'C', text: "Management Groups" },
+      { id: 'D', text: "Availability Sets" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Azure Management Groups provide a level of scope above subscriptions. If an organization has multiple subscriptions, management groups allow administrators to efficiently manage access, policies, and compliance across all subscriptions by inheriting policies applied at the management group level.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/management-groups/overview",
@@ -114,12 +114,12 @@ export const AZURE_AZ900_QUESTIONS_4 = [
     scenario: "A development team creates 15 resources (VMs, storage, virtual networks, and databases) for a short-term project. When the project completes, they want to delete all 15 resources with a single operation.",
     question: "Which Azure construct should they use to group and manage the lifecycle of these related resources?",
     options: [
-      { id: 'A', text: "An Availability Zone" },
-      { id: 'B', text: "A Virtual Network subnet" },
-      { id: 'C', text: "An Azure Resource Group" },
-      { id: 'D', text: "A Management Group" }
+      { id: 'A', text: "A Virtual Network subnet" },
+      { id: 'B', text: "An Azure Resource Group" },
+      { id: 'C', text: "A Management Group" },
+      { id: 'D', text: "An Availability Zone" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "An Azure Resource Group is a logical container into which Azure resources (like VMs, databases, and VNets) are deployed and managed. Deleting a resource group automatically deletes all resources contained within it, providing clean lifecycle management.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview",
@@ -135,12 +135,12 @@ export const AZURE_AZ900_QUESTIONS_4 = [
     scenario: "An enterprise uses automated pipelines to deploy infrastructure using JSON templates and the Azure CLI. Regardless of whether deployments originate from the Azure Portal, PowerShell, or SDKs, the deployment requests are validated and routed consistently.",
     question: "Which Azure management layer handles all deployment, management, and access control requests?",
     options: [
-      { id: 'A', text: "Azure Resource Manager (ARM)" },
-      { id: 'B', text: "Azure Service Health" },
-      { id: 'C', text: "Azure Monitor" },
-      { id: 'D', text: "Microsoft Entra ID Application Proxy" }
+      { id: 'A', text: "Microsoft Entra ID Application Proxy" },
+      { id: 'B', text: "Azure Resource Manager (ARM)" },
+      { id: 'C', text: "Azure Service Health" },
+      { id: 'D', text: "Azure Monitor" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Azure Resource Manager (ARM) is the central deployment and management service for Azure. It provides a consistent management layer across the Azure Portal, Azure PowerShell, Azure CLI, and REST APIs, ensuring authentication, policy enforcement, and audit logging for every resource action.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview",
@@ -156,12 +156,12 @@ export const AZURE_AZ900_QUESTIONS_4 = [
     scenario: "An organization needs to run custom enterprise software that requires direct access to the underlying operating system and specific registry configurations.",
     question: "Which Azure compute service should they deploy?",
     options: [
-      { id: 'A', text: "Azure Logic Apps" },
-      { id: 'B', text: "Azure App Service" },
-      { id: 'C', text: "Azure Functions" },
-      { id: 'D', text: "Azure Virtual Machines" }
+      { id: 'A', text: "Azure Virtual Machines" },
+      { id: 'B', text: "Azure Functions" },
+      { id: 'C', text: "Azure App Service" },
+      { id: 'D', text: "Azure Logic Apps" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Azure Virtual Machines is an Infrastructure as a Service (IaaS) offering that gives customers full control over the operating system, file system, installed software, and network configuration, making it ideal for legacy apps and custom OS requirements.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machines/overview",
@@ -177,12 +177,12 @@ export const AZURE_AZ900_QUESTIONS_4 = [
     scenario: "A financial analytics firm requires a cluster of identical Windows Server virtual machines that automatically scale the number of instances up or down based on CPU metrics or a defined schedule.",
     question: "Which Azure service provides this capability?",
     options: [
-      { id: 'A', text: "Azure App Service Free tier" },
-      { id: 'B', text: "Azure Logic Apps" },
-      { id: 'C', text: "Azure Virtual Machine Scale Sets (VMSS)" },
-      { id: 'D', text: "Azure Container Instances" }
+      { id: 'A', text: "Azure Virtual Machine Scale Sets (VMSS)" },
+      { id: 'B', text: "Azure Container Instances" },
+      { id: 'C', text: "Azure App Service Free tier" },
+      { id: 'D', text: "Azure Logic Apps" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Azure Virtual Machine Scale Sets (VMSS) allow organizations to create and manage a group of identical, load-balanced virtual machines. The number of VM instances can automatically increase or decrease in response to demand or defined metrics.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview",
@@ -198,12 +198,12 @@ export const AZURE_AZ900_QUESTIONS_4 = [
     scenario: "A team of web developers wants to deploy a containerized Python and React web application without managing virtual machines, patching servers, or provisioning web server infrastructure.",
     question: "Which Azure service provides this managed platform?",
     options: [
-      { id: 'A', text: "Azure Virtual Machines" },
-      { id: 'B', text: "Azure App Service" },
-      { id: 'C', text: "Azure Dedicated Host" },
-      { id: 'D', text: "Azure Virtual Desktop" }
+      { id: 'A', text: "Azure Dedicated Host" },
+      { id: 'B', text: "Azure Virtual Machines" },
+      { id: 'C', text: "Azure Virtual Desktop" },
+      { id: 'D', text: "Azure App Service" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Azure App Service is an HTTP-based Platform as a Service (PaaS) for hosting web applications, REST APIs, and mobile backends. It supports automated scaling, continuous deployment, and multi-language runtimes without server management.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/app-service/overview",
@@ -220,9 +220,9 @@ export const AZURE_AZ900_QUESTIONS_4 = [
     question: "Which Azure service is best suited for this lightweight container execution?",
     options: [
       { id: 'A', text: "Azure Kubernetes Service (AKS)" },
-      { id: 'B', text: "Azure Dedicated Host" },
+      { id: 'B', text: "Azure Virtual Machine Scale Sets" },
       { id: 'C', text: "Azure Container Instances (ACI)" },
-      { id: 'D', text: "Azure Virtual Machine Scale Sets" }
+      { id: 'D', text: "Azure Dedicated Host" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -240,12 +240,12 @@ export const AZURE_AZ900_QUESTIONS_4 = [
     scenario: "An enterprise is modernizing its application suite into hundreds of interconnected microservices packaged in containers, requiring automated deployment, service discovery, scaling, and rolling updates.",
     question: "Which Azure service provides enterprise-grade container orchestration?",
     options: [
-      { id: 'A', text: "Azure Virtual Desktop" },
-      { id: 'B', text: "Azure Kubernetes Service (AKS)" },
+      { id: 'A', text: "Azure Kubernetes Service (AKS)" },
+      { id: 'B', text: "Azure Virtual Desktop" },
       { id: 'C', text: "Azure Functions" },
       { id: 'D', text: "Azure Container Instances" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Azure Kubernetes Service (AKS) is a fully managed container orchestration service based on open-source Kubernetes. Azure handles cluster management, control plane health, and automated upgrades, while providing seamless integration with Azure networking and security.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/aks/intro-kubernetes",
@@ -261,8 +261,8 @@ export const AZURE_AZ900_QUESTIONS_4 = [
     scenario: "A developer needs to execute a lightweight snippet of C# code whenever a customer places an order in an online store. The code should execute only upon event arrival and incur zero compute cost while idle.",
     question: "Which Azure service should be used?",
     options: [
-      { id: 'A', text: "Azure Cloud Services" },
-      { id: 'B', text: "Azure Virtual Machines" },
+      { id: 'A', text: "Azure Virtual Machines" },
+      { id: 'B', text: "Azure Cloud Services" },
       { id: 'C', text: "Azure Functions" },
       { id: 'D', text: "Azure Dedicated Host" }
     ],
@@ -303,12 +303,12 @@ export const AZURE_AZ900_QUESTIONS_4 = [
     scenario: "A company deploys several Azure Virtual Machines and needs them to securely communicate with each other, with on-premises networks, and with the internet over isolated private IP addresses.",
     question: "Which fundamental Azure networking service provides this isolation?",
     options: [
-      { id: 'A', text: "Azure Virtual Network (VNet)" },
-      { id: 'B', text: "Azure ExpressRoute private peering" },
-      { id: 'C', text: "Azure DNS private zone" },
-      { id: 'D', text: "Azure Traffic Manager" }
+      { id: 'A', text: "Azure Traffic Manager" },
+      { id: 'B', text: "Azure DNS private zone" },
+      { id: 'C', text: "Azure ExpressRoute private peering" },
+      { id: 'D', text: "Azure Virtual Network (VNet)" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Azure Virtual Network (VNet) is the fundamental building block for private network communication in Azure. VNets enable Azure resources (like VMs) to securely communicate with each other, the internet, and on-premises networks within a private IP address space.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview",
@@ -324,12 +324,12 @@ export const AZURE_AZ900_QUESTIONS_4 = [
     scenario: "An enterprise runs two separate Azure Virtual Networks: one for HR applications in East US and another for Finance applications in East US. They need high-speed, private IP connectivity between the two networks without routing traffic over the public internet.",
     question: "Which networking capability should they configure?",
     options: [
-      { id: 'A', text: "Public IP addresses on every VM" },
-      { id: 'B', text: "Virtual Network Peering" },
-      { id: 'C', text: "A Site-to-Site VPN Gateway over the internet" },
-      { id: 'D', text: "Point-to-Site VPN connections on every VM" }
+      { id: 'A', text: "A Site-to-Site VPN Gateway over the internet" },
+      { id: 'B', text: "Public IP addresses on every VM" },
+      { id: 'C', text: "Point-to-Site VPN connections on every VM" },
+      { id: 'D', text: "Virtual Network Peering" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Virtual Network Peering seamlessly connects two Azure Virtual Networks. Once peered, traffic between VMs in both VNets routes privately across the Microsoft backbone network with low latency and high bandwidth, without traversing the public internet.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview",
@@ -346,8 +346,8 @@ export const AZURE_AZ900_QUESTIONS_4 = [
     question: "Which connectivity solution meets this requirement?",
     options: [
       { id: 'A', text: "Azure ExpressRoute" },
-      { id: 'B', text: "Azure VPN Gateway with Site-to-Site IPsec" },
-      { id: 'C', text: "Azure Bastion host" },
+      { id: 'B', text: "Azure Bastion host" },
+      { id: 'C', text: "Azure VPN Gateway with Site-to-Site IPsec" },
       { id: 'D', text: "Point-to-Site VPN with OpenVPN" }
     ],
     correctAnswers: ['A'],
@@ -367,11 +367,11 @@ export const AZURE_AZ900_QUESTIONS_4 = [
     question: "Which Azure service is specifically designed for this purpose?",
     options: [
       { id: 'A', text: "Azure Front Door" },
-      { id: 'B', text: "Azure DNS" },
-      { id: 'C', text: "Azure VPN Gateway" },
-      { id: 'D', text: "Azure ExpressRoute" }
+      { id: 'B', text: "Azure VPN Gateway" },
+      { id: 'C', text: "Azure ExpressRoute" },
+      { id: 'D', text: "Azure DNS" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "An Azure VPN Gateway sends encrypted traffic between an Azure Virtual Network and an on-premises location over the public internet using industry-standard IPsec/IKE VPN tunnels.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways",
@@ -388,11 +388,11 @@ export const AZURE_AZ900_QUESTIONS_4 = [
     question: "Which Azure resource should be associated with the subnet to enforce this filtering?",
     options: [
       { id: 'A', text: "Azure Public IP prefix" },
-      { id: 'B', text: "Azure DNS private resolver" },
-      { id: 'C', text: "A Network Security Group (NSG)" },
-      { id: 'D', text: "Azure Route Table" }
+      { id: 'B', text: "Azure Route Table" },
+      { id: 'C', text: "Azure DNS private resolver" },
+      { id: 'D', text: "A Network Security Group (NSG)" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "A Network Security Group (NSG) contains security rules that allow or deny inbound and outbound network traffic based on 5-tuple criteria: source IP, source port, destination IP, destination port, and protocol.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview",
@@ -408,12 +408,12 @@ export const AZURE_AZ900_QUESTIONS_4 = [
     scenario: "A system administrator needs to securely connect to the command line and desktop of Azure VMs via SSH and RDP without assigning public IP addresses to the VMs and without exposing ports 22 and 3389 to the public internet.",
     question: "Which Azure service provides secure browser-based administrative access?",
     options: [
-      { id: 'A', text: "Azure VPN Gateway" },
-      { id: 'B', text: "Azure Bastion" },
-      { id: 'C', text: "Azure Front Door" },
-      { id: 'D', text: "Azure Route Server" }
+      { id: 'A', text: "Azure Bastion" },
+      { id: 'B', text: "Azure Front Door" },
+      { id: 'C', text: "Azure Route Server" },
+      { id: 'D', text: "Azure VPN Gateway" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Azure Bastion is a fully managed PaaS service provisioned inside a virtual network. It provides secure and seamless RDP and SSH connectivity to virtual machines directly through the Azure Portal over TLS (port 443), eliminating the need for public IPs on the target VMs.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/bastion/bastion-overview",
@@ -429,12 +429,12 @@ export const AZURE_AZ900_QUESTIONS_4 = [
     scenario: "A cloud solutions architecture review is evaluating Azure core architectural services, data storage solutions, and identity controls for azure blob storage - unstructured data.",
     question: "Which Azure service, feature, or mechanism satisfies the requirements for azure blob storage - unstructured data?",
     options: [
-      { id: 'A', text: "Azure Table Storage" },
-      { id: 'B', text: "Azure Files" },
-      { id: 'C', text: "Azure Cosmos DB" },
-      { id: 'D', text: "Azure Blob Storage" }
+      { id: 'A', text: "Azure Cosmos DB" },
+      { id: 'B', text: "Azure Blob Storage" },
+      { id: 'C', text: "Azure Table Storage" },
+      { id: 'D', text: "Azure Files" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Azure Blob Storage is Microsoft's object storage solution for storing massive amounts of unstructured data like text, images, video, and audio files. Selecting the appropriate Azure service ensures technical alignment with Microsoft best practices and operational scalability.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/",
@@ -450,12 +450,12 @@ export const AZURE_AZ900_QUESTIONS_4 = [
     scenario: "A cloud solutions architecture review is evaluating Azure core architectural services, data storage solutions, and identity controls for blob access tiers - hot tier.",
     question: "Which Azure service, feature, or mechanism satisfies the requirements for blob access tiers - hot tier?",
     options: [
-      { id: 'A', text: "Hot access tier" },
-      { id: 'B', text: "Archive access tier" },
-      { id: 'C', text: "Cold access tier" },
-      { id: 'D', text: "Cool access tier" }
+      { id: 'A', text: "Archive access tier" },
+      { id: 'B', text: "Hot access tier" },
+      { id: 'C', text: "Cool access tier" },
+      { id: 'D', text: "Cold access tier" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "The Hot access tier is optimized for data that is in active use, accessed frequently, providing the lowest access fees but higher storage cost per gigabyte. Selecting the appropriate Azure service ensures technical alignment with Microsoft best practices and operational scalability.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/",
@@ -473,8 +473,8 @@ export const AZURE_AZ900_QUESTIONS_4 = [
     options: [
       { id: 'A', text: "Hot access tier" },
       { id: 'B', text: "Cool access tier" },
-      { id: 'C', text: "Archive access tier" },
-      { id: 'D', text: "Premium disk tier" }
+      { id: 'C', text: "Premium disk tier" },
+      { id: 'D', text: "Archive access tier" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -492,12 +492,12 @@ export const AZURE_AZ900_QUESTIONS_4 = [
     scenario: "A cloud solutions architecture review is evaluating Azure core architectural services, data storage solutions, and identity controls for blob access tiers - archive tier.",
     question: "Which Azure service, feature, or mechanism satisfies the requirements for blob access tiers - archive tier?",
     options: [
-      { id: 'A', text: "General purpose tier" },
+      { id: 'A', text: "Archive access tier" },
       { id: 'B', text: "Cool access tier" },
-      { id: 'C', text: "Hot access tier" },
-      { id: 'D', text: "Archive access tier" }
+      { id: 'C', text: "General purpose tier" },
+      { id: 'D', text: "Hot access tier" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The Archive tier offers the lowest storage cost for data stored for at least 180 days that can tolerate multi-hour rehydration delays before retrieval. Selecting the appropriate Azure service ensures technical alignment with Microsoft best practices and operational scalability.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/",
@@ -513,12 +513,12 @@ export const AZURE_AZ900_QUESTIONS_4 = [
     scenario: "A cloud solutions architecture review is evaluating Azure core architectural services, data storage solutions, and identity controls for azure files - shared storage.",
     question: "Which Azure service, feature, or mechanism satisfies the requirements for azure files - shared storage?",
     options: [
-      { id: 'A', text: "Azure Blob Storage" },
-      { id: 'B', text: "Azure Data Lake Gen2" },
-      { id: 'C', text: "Azure Files" },
-      { id: 'D', text: "Azure Managed Disks" }
+      { id: 'A', text: "Azure Managed Disks" },
+      { id: 'B', text: "Azure Files" },
+      { id: 'C', text: "Azure Blob Storage" },
+      { id: 'D', text: "Azure Data Lake Gen2" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Azure Files provides fully managed cloud file shares accessible via industry-standard SMB and NFS protocols, allowing multiple VMs to mount the share simultaneously. Selecting the appropriate Azure service ensures technical alignment with Microsoft best practices and operational scalability.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/",
