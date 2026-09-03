@@ -1,12 +1,5 @@
 /**
  * AWS Certified Developer - Associate (DVA-C02) — exam blueprint.
- *
- * SEEDED PLACEHOLDER. passingScore, defaultTimeMinutes, and domains are guesses.
- * Before flipping status to 'live':
- *   1. replace domains + weights from blueprintSource (they must sum to 100)
- *   2. correct passingScore / maxScore / defaultTimeMinutes
- *   3. set blueprintVerified: true
- *   4. add content: npm run new:pack -- --cert aws-dva --kind questions --count 50
  */
 export default {
   "id": "aws-dva",
@@ -15,32 +8,37 @@ export default {
   "title": "AWS Certified Developer - Associate",
   "category": "Cloud Engineering",
   "tier": "associate",
-  "status": "planned",
-  "priority": null,
+  "status": "live",
+  "priority": 18,
   "badgeClass": "badge-aws",
   "icon": "aws",
   "color": "#ff9900",
-  "description": "TODO one-sentence description of what DVA-C02 validates.",
+  "description": "Validates technical expertise in developing, deploying, securing, and debugging cloud-based applications using AWS core services.",
   "passingScore": 720,
   "maxScore": 1000,
   "defaultTimeMinutes": 130,
-  "blueprintSource": "https://TODO-official-exam-guide",
-  "blueprintVerified": false,
+  "blueprintSource": "https://d1.awsstatic.com/training-and-certification/docs-dev-associate/AWS-Certified-Developer-Associate_Exam-Guide.pdf",
+  "blueprintVerified": true,
   "domains": [
     {
       "id": "d1",
-      "name": "TODO Domain 1",
-      "weight": 34
+      "name": "Development with AWS Services",
+      "weight": 32
     },
     {
       "id": "d2",
-      "name": "TODO Domain 2",
-      "weight": 33
+      "name": "Security",
+      "weight": 26
     },
     {
       "id": "d3",
-      "name": "TODO Domain 3",
-      "weight": 33
+      "name": "Deployment",
+      "weight": 24
+    },
+    {
+      "id": "d4",
+      "name": "Troubleshooting and Optimization",
+      "weight": 18
     }
   ]
 };
