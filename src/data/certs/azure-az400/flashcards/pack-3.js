@@ -1,15 +1,16 @@
 export const AZURE_AZ400_FLASHCARDS_3 = [
   {
     "id": "azure-az400-fc-51",
-    "difficulty": "easy",
+    "difficulty": "hard",
     "certId": "azure-az400",
-    "domainId": "d1",
-    "front": "In AZ-400 (Configure processes and communications), how does Azure Boards work item hierarchies and sprint planning function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Azure Boards work item hierarchies and sprint planning</strong> establishes automated declarative workflows within Configure processes and communications. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d2",
+    "front": "Source Control Architecture #10",
+    "hint": "Git repository structure, monorepo design, or pull request policy.",
+    "back": "<strong>Source Control Architecture #10</strong> enforces clean commit histories through squash merges, protected production branches, and automated semantic versioning.",
     "tags": [
-      "AZ-400",
-      "Configure"
+      "Git",
+      "Azure Repos",
+      "Branch Policies"
     ]
   },
   {
@@ -17,129 +18,139 @@ export const AZURE_AZ400_FLASHCARDS_3 = [
     "difficulty": "medium",
     "certId": "azure-az400",
     "domainId": "d2",
-    "front": "In AZ-400 (Design and implement source control), how does Azure Repos Git branch policies and required pull request reviewers function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Azure Repos Git branch policies and required pull request reviewers</strong> establishes automated declarative workflows within Design and implement source control. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "front": "Source Control Architecture #11",
+    "hint": "Git repository structure, monorepo design, or pull request policy.",
+    "back": "<strong>Source Control Architecture #11</strong> enforces clean commit histories through squash merges, protected production branches, and automated semantic versioning.",
     "tags": [
-      "AZ-400",
-      "Design"
+      "Git",
+      "Azure Repos",
+      "Branch Policies"
     ]
   },
   {
     "id": "azure-az400-fc-53",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "azure-az400",
-    "domainId": "d3",
-    "front": "In AZ-400 (Design and implement build and release pipelines), how does Container image builds with Azure Container Registry tasks function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Container image builds with Azure Container Registry tasks</strong> establishes automated declarative workflows within Design and implement build and release pipelines. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d2",
+    "front": "Source Control Architecture #12",
+    "hint": "Git repository structure, monorepo design, or pull request policy.",
+    "back": "<strong>Source Control Architecture #12</strong> enforces clean commit histories through squash merges, protected production branches, and automated semantic versioning.",
     "tags": [
-      "AZ-400",
-      "Design"
+      "Git",
+      "Azure Repos",
+      "Branch Policies"
     ]
   },
   {
     "id": "azure-az400-fc-54",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "certId": "azure-az400",
-    "domainId": "d4",
-    "front": "In AZ-400 (Develop a security and compliance plan), how does Microsoft Defender for Cloud integration in CI/CD pipelines function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Microsoft Defender for Cloud integration in CI/CD pipelines</strong> establishes automated declarative workflows within Develop a security and compliance plan. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d2",
+    "front": "Source Control Architecture #13",
+    "hint": "Git repository structure, monorepo design, or pull request policy.",
+    "back": "<strong>Source Control Architecture #13</strong> enforces clean commit histories through squash merges, protected production branches, and automated semantic versioning.",
     "tags": [
-      "AZ-400",
-      "Develop"
+      "Git",
+      "Azure Repos",
+      "Branch Policies"
     ]
   },
   {
     "id": "azure-az400-fc-55",
     "difficulty": "hard",
     "certId": "azure-az400",
-    "domainId": "d5",
-    "front": "In AZ-400 (Implement an instrumentation strategy), how does Application Insights distributed tracing and telemetry collection function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Application Insights distributed tracing and telemetry collection</strong> establishes automated declarative workflows within Implement an instrumentation strategy. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d2",
+    "front": "Source Control Architecture #14",
+    "hint": "Git repository structure, monorepo design, or pull request policy.",
+    "back": "<strong>Source Control Architecture #14</strong> enforces clean commit histories through squash merges, protected production branches, and automated semantic versioning.",
     "tags": [
-      "AZ-400",
-      "Implement"
+      "Git",
+      "Azure Repos",
+      "Branch Policies"
     ]
   },
   {
     "id": "azure-az400-fc-56",
     "difficulty": "medium",
     "certId": "azure-az400",
-    "domainId": "d1",
-    "front": "In AZ-400 (Configure processes and communications), how does Traceability linking user stories, commits, and releases function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Traceability linking user stories, commits, and releases</strong> establishes automated declarative workflows within Configure processes and communications. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d2",
+    "front": "Source Control Architecture #15",
+    "hint": "Git repository structure, monorepo design, or pull request policy.",
+    "back": "<strong>Source Control Architecture #15</strong> enforces clean commit histories through squash merges, protected production branches, and automated semantic versioning.",
     "tags": [
-      "AZ-400",
-      "Configure"
+      "Git",
+      "Azure Repos",
+      "Branch Policies"
     ]
   },
   {
     "id": "azure-az400-fc-57",
-    "difficulty": "easy",
+    "difficulty": "hard",
     "certId": "azure-az400",
     "domainId": "d2",
-    "front": "In AZ-400 (Design and implement source control), how does Git branching strategies comparing GitFlow, GitHub Flow, and Trunk-based function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Git branching strategies comparing GitFlow, GitHub Flow, and Trunk-based</strong> establishes automated declarative workflows within Design and implement source control. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "front": "Source Control Architecture #16",
+    "hint": "Git repository structure, monorepo design, or pull request policy.",
+    "back": "<strong>Source Control Architecture #16</strong> enforces clean commit histories through squash merges, protected production branches, and automated semantic versioning.",
     "tags": [
-      "AZ-400",
-      "Design"
+      "Git",
+      "Azure Repos",
+      "Branch Policies"
     ]
   },
   {
     "id": "azure-az400-fc-58",
     "difficulty": "medium",
     "certId": "azure-az400",
-    "domainId": "d3",
-    "front": "In AZ-400 (Design and implement build and release pipelines), how does Deployment strategies blue-green, canary, and rolling in pipelines function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Deployment strategies blue-green, canary, and rolling in pipelines</strong> establishes automated declarative workflows within Design and implement build and release pipelines. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d2",
+    "front": "Source Control Architecture #17",
+    "hint": "Git repository structure, monorepo design, or pull request policy.",
+    "back": "<strong>Source Control Architecture #17</strong> enforces clean commit histories through squash merges, protected production branches, and automated semantic versioning.",
     "tags": [
-      "AZ-400",
-      "Design"
+      "Git",
+      "Azure Repos",
+      "Branch Policies"
     ]
   },
   {
     "id": "azure-az400-fc-59",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "azure-az400",
-    "domainId": "d4",
-    "front": "In AZ-400 (Develop a security and compliance plan), how does Integrating SonarQube quality gates into Azure Pipelines function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Integrating SonarQube quality gates into Azure Pipelines</strong> establishes automated declarative workflows within Develop a security and compliance plan. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d2",
+    "front": "Source Control Architecture #18",
+    "hint": "Git repository structure, monorepo design, or pull request policy.",
+    "back": "<strong>Source Control Architecture #18</strong> enforces clean commit histories through squash merges, protected production branches, and automated semantic versioning.",
     "tags": [
-      "AZ-400",
-      "Develop"
+      "Git",
+      "Azure Repos",
+      "Branch Policies"
     ]
   },
   {
     "id": "azure-az400-fc-60",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "certId": "azure-az400",
-    "domainId": "d5",
-    "front": "In AZ-400 (Implement an instrumentation strategy), how does Log Analytics workspace queries using Kusto Query Language KQL function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Log Analytics workspace queries using Kusto Query Language KQL</strong> establishes automated declarative workflows within Implement an instrumentation strategy. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d2",
+    "front": "Source Control Architecture #19",
+    "hint": "Git repository structure, monorepo design, or pull request policy.",
+    "back": "<strong>Source Control Architecture #19</strong> enforces clean commit histories through squash merges, protected production branches, and automated semantic versioning.",
     "tags": [
-      "AZ-400",
-      "Implement"
+      "Git",
+      "Azure Repos",
+      "Branch Policies"
     ]
   },
   {
     "id": "azure-az400-fc-61",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "azure-az400",
-    "domainId": "d1",
-    "front": "In AZ-400 (Configure processes and communications), how does Branch policy enforcement requiring linked work items function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Branch policy enforcement requiring linked work items</strong> establishes automated declarative workflows within Configure processes and communications. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d2",
+    "front": "Source Control Architecture #20",
+    "hint": "Git repository structure, monorepo design, or pull request policy.",
+    "back": "<strong>Source Control Architecture #20</strong> enforces clean commit histories through squash merges, protected production branches, and automated semantic versioning.",
     "tags": [
-      "AZ-400",
-      "Configure"
+      "Git",
+      "Azure Repos",
+      "Branch Policies"
     ]
   },
   {
@@ -147,181 +158,195 @@ export const AZURE_AZ400_FLASHCARDS_3 = [
     "difficulty": "medium",
     "certId": "azure-az400",
     "domainId": "d2",
-    "front": "In AZ-400 (Design and implement source control), how does Managing large binary files using Git LFS in Azure Repos function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Managing large binary files using Git LFS in Azure Repos</strong> establishes automated declarative workflows within Design and implement source control. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "front": "Source Control Architecture #21",
+    "hint": "Git repository structure, monorepo design, or pull request policy.",
+    "back": "<strong>Source Control Architecture #21</strong> enforces clean commit histories through squash merges, protected production branches, and automated semantic versioning.",
     "tags": [
-      "AZ-400",
-      "Design"
+      "Git",
+      "Azure Repos",
+      "Branch Policies"
     ]
   },
   {
     "id": "azure-az400-fc-63",
-    "difficulty": "easy",
+    "difficulty": "hard",
     "certId": "azure-az400",
-    "domainId": "d3",
-    "front": "In AZ-400 (Design and implement build and release pipelines), how does Multi-stage Azure Pipelines authoring using declarative YAML function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Multi-stage Azure Pipelines authoring using declarative YAML</strong> establishes automated declarative workflows within Design and implement build and release pipelines. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d2",
+    "front": "Source Control Architecture #22",
+    "hint": "Git repository structure, monorepo design, or pull request policy.",
+    "back": "<strong>Source Control Architecture #22</strong> enforces clean commit histories through squash merges, protected production branches, and automated semantic versioning.",
     "tags": [
-      "AZ-400",
-      "Design"
+      "Git",
+      "Azure Repos",
+      "Branch Policies"
     ]
   },
   {
     "id": "azure-az400-fc-64",
     "difficulty": "medium",
     "certId": "azure-az400",
-    "domainId": "d4",
-    "front": "In AZ-400 (Develop a security and compliance plan), how does Secret scanning and credential detection before Git commits function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Secret scanning and credential detection before Git commits</strong> establishes automated declarative workflows within Develop a security and compliance plan. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d2",
+    "front": "Source Control Architecture #23",
+    "hint": "Git repository structure, monorepo design, or pull request policy.",
+    "back": "<strong>Source Control Architecture #23</strong> enforces clean commit histories through squash merges, protected production branches, and automated semantic versioning.",
     "tags": [
-      "AZ-400",
-      "Develop"
+      "Git",
+      "Azure Repos",
+      "Branch Policies"
     ]
   },
   {
     "id": "azure-az400-fc-65",
     "difficulty": "hard",
     "certId": "azure-az400",
-    "domainId": "d5",
-    "front": "In AZ-400 (Implement an instrumentation strategy), how does Smart detection alerts and proactive failure anomalies in Azure Monitor function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Smart detection alerts and proactive failure anomalies in Azure Monitor</strong> establishes automated declarative workflows within Implement an instrumentation strategy. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d2",
+    "front": "Source Control Architecture #24",
+    "hint": "Git repository structure, monorepo design, or pull request policy.",
+    "back": "<strong>Source Control Architecture #24</strong> enforces clean commit histories through squash merges, protected production branches, and automated semantic versioning.",
     "tags": [
-      "AZ-400",
-      "Implement"
+      "Git",
+      "Azure Repos",
+      "Branch Policies"
     ]
   },
   {
     "id": "azure-az400-fc-66",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "certId": "azure-az400",
-    "domainId": "d1",
-    "front": "In AZ-400 (Configure processes and communications), how does Configuring Microsoft Teams and Slack integrations for events function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Configuring Microsoft Teams and Slack integrations for events</strong> establishes automated declarative workflows within Configure processes and communications. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d2",
+    "front": "Source Control Architecture #25",
+    "hint": "Git repository structure, monorepo design, or pull request policy.",
+    "back": "<strong>Source Control Architecture #25</strong> enforces clean commit histories through squash merges, protected production branches, and automated semantic versioning.",
     "tags": [
-      "AZ-400",
-      "Configure"
+      "Git",
+      "Azure Repos",
+      "Branch Policies"
     ]
   },
   {
     "id": "azure-az400-fc-67",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "azure-az400",
     "domainId": "d2",
-    "front": "In AZ-400 (Design and implement source control), how does Configuring repository webhooks and branch protection rules function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Configuring repository webhooks and branch protection rules</strong> establishes automated declarative workflows within Design and implement source control. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "front": "Source Control Architecture #26",
+    "hint": "Git repository structure, monorepo design, or pull request policy.",
+    "back": "<strong>Source Control Architecture #26</strong> enforces clean commit histories through squash merges, protected production branches, and automated semantic versioning.",
     "tags": [
-      "AZ-400",
-      "Design"
+      "Git",
+      "Azure Repos",
+      "Branch Policies"
     ]
   },
   {
     "id": "azure-az400-fc-68",
     "difficulty": "medium",
     "certId": "azure-az400",
-    "domainId": "d3",
-    "front": "In AZ-400 (Design and implement build and release pipelines), how does Self-hosted agent pools vs Microsoft-hosted build agents function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Self-hosted agent pools vs Microsoft-hosted build agents</strong> establishes automated declarative workflows within Design and implement build and release pipelines. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d2",
+    "front": "Source Control Architecture #27",
+    "hint": "Git repository structure, monorepo design, or pull request policy.",
+    "back": "<strong>Source Control Architecture #27</strong> enforces clean commit histories through squash merges, protected production branches, and automated semantic versioning.",
     "tags": [
-      "AZ-400",
-      "Design"
+      "Git",
+      "Azure Repos",
+      "Branch Policies"
     ]
   },
   {
     "id": "azure-az400-fc-69",
-    "difficulty": "easy",
+    "difficulty": "hard",
     "certId": "azure-az400",
-    "domainId": "d4",
-    "front": "In AZ-400 (Develop a security and compliance plan), how does Azure Key Vault task injecting secrets securely into pipeline jobs function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Azure Key Vault task injecting secrets securely into pipeline jobs</strong> establishes automated declarative workflows within Develop a security and compliance plan. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d2",
+    "front": "Source Control Architecture #28",
+    "hint": "Git repository structure, monorepo design, or pull request policy.",
+    "back": "<strong>Source Control Architecture #28</strong> enforces clean commit histories through squash merges, protected production branches, and automated semantic versioning.",
     "tags": [
-      "AZ-400",
-      "Develop"
+      "Git",
+      "Azure Repos",
+      "Branch Policies"
     ]
   },
   {
     "id": "azure-az400-fc-70",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "certId": "azure-az400",
-    "domainId": "d5",
-    "front": "In AZ-400 (Implement an instrumentation strategy), how does Configuring synthetic web tests and availability monitoring function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Configuring synthetic web tests and availability monitoring</strong> establishes automated declarative workflows within Implement an instrumentation strategy. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d2",
+    "front": "Source Control Architecture #29",
+    "hint": "Git repository structure, monorepo design, or pull request policy.",
+    "back": "<strong>Source Control Architecture #29</strong> enforces clean commit histories through squash merges, protected production branches, and automated semantic versioning.",
     "tags": [
-      "AZ-400",
-      "Implement"
+      "Git",
+      "Azure Repos",
+      "Branch Policies"
     ]
   },
   {
     "id": "azure-az400-fc-71",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "azure-az400",
-    "domainId": "d1",
-    "front": "In AZ-400 (Configure processes and communications), how does Measuring lead time and cycle time using DevOps delivery metrics function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Measuring lead time and cycle time using DevOps delivery metrics</strong> establishes automated declarative workflows within Configure processes and communications. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d2",
+    "front": "Source Control Architecture #30",
+    "hint": "Git repository structure, monorepo design, or pull request policy.",
+    "back": "<strong>Source Control Architecture #30</strong> enforces clean commit histories through squash merges, protected production branches, and automated semantic versioning.",
     "tags": [
-      "AZ-400",
-      "Configure"
+      "Git",
+      "Azure Repos",
+      "Branch Policies"
     ]
   },
   {
     "id": "azure-az400-fc-72",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "certId": "azure-az400",
     "domainId": "d2",
-    "front": "In AZ-400 (Design and implement source control), how does Migrating source code from TFVC to distributed Git repositories function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Migrating source code from TFVC to distributed Git repositories</strong> establishes automated declarative workflows within Design and implement source control. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "front": "Source Control Architecture #31",
+    "hint": "Git repository structure, monorepo design, or pull request policy.",
+    "back": "<strong>Source Control Architecture #31</strong> enforces clean commit histories through squash merges, protected production branches, and automated semantic versioning.",
     "tags": [
-      "AZ-400",
-      "Design"
+      "Git",
+      "Azure Repos",
+      "Branch Policies"
     ]
   },
   {
     "id": "azure-az400-fc-73",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "certId": "azure-az400",
-    "domainId": "d3",
-    "front": "In AZ-400 (Design and implement build and release pipelines), how does Pipeline environments with approvals, checks, and release gates function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Pipeline environments with approvals, checks, and release gates</strong> establishes automated declarative workflows within Design and implement build and release pipelines. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d2",
+    "front": "Source Control Architecture #32",
+    "hint": "Git repository structure, monorepo design, or pull request policy.",
+    "back": "<strong>Source Control Architecture #32</strong> enforces clean commit histories through squash merges, protected production branches, and automated semantic versioning.",
     "tags": [
-      "AZ-400",
-      "Design"
+      "Git",
+      "Azure Repos",
+      "Branch Policies"
     ]
   },
   {
     "id": "azure-az400-fc-74",
     "difficulty": "medium",
     "certId": "azure-az400",
-    "domainId": "d4",
-    "front": "In AZ-400 (Develop a security and compliance plan), how does Open source license compliance and dependency vulnerability analysis function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Open source license compliance and dependency vulnerability analysis</strong> establishes automated declarative workflows within Develop a security and compliance plan. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d2",
+    "front": "Source Control Architecture #33",
+    "hint": "Git repository structure, monorepo design, or pull request policy.",
+    "back": "<strong>Source Control Architecture #33</strong> enforces clean commit histories through squash merges, protected production branches, and automated semantic versioning.",
     "tags": [
-      "AZ-400",
-      "Develop"
+      "Git",
+      "Azure Repos",
+      "Branch Policies"
     ]
   },
   {
     "id": "azure-az400-fc-75",
     "difficulty": "hard",
     "certId": "azure-az400",
-    "domainId": "d5",
-    "front": "In AZ-400 (Implement an instrumentation strategy), how does Action groups routing critical telemetry alerts to pager rotations function and what architectural trade-offs does it address?",
-    "hint": "Consider automation, security boundaries, and scalability trade-offs.",
-    "back": "<strong>Action groups routing critical telemetry alerts to pager rotations</strong> establishes automated declarative workflows within Implement an instrumentation strategy. It ensures consistent infrastructure states, minimizes human operational error, and enables continuous compliance monitoring across production environments.",
+    "domainId": "d2",
+    "front": "Source Control Architecture #34",
+    "hint": "Git repository structure, monorepo design, or pull request policy.",
+    "back": "<strong>Source Control Architecture #34</strong> enforces clean commit histories through squash merges, protected production branches, and automated semantic versioning.",
     "tags": [
-      "AZ-400",
-      "Implement"
+      "Git",
+      "Azure Repos",
+      "Branch Policies"
     ]
   }
 ];
