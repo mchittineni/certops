@@ -1,528 +1,978 @@
 export const GCP_ACE_QUESTIONS_6 = [
   {
-    id: "gcp-ace-126",
-    difficulty: "easy",
-    certId: "gcp-ace",
-    domainId: "d1",
-    domainName: "Setting up a cloud solution environment",
-    title: "Creating projects and configuring Cloud Identity organization hierarchy: Operational Strategy (Part 126)",
-    scenario: "A multinational fintech banking platform is evaluating Associate Cloud Engineer practices specifically regarding Creating projects and configuring Cloud Identity organization hierarchy. The engineering group is remediating compliance audit findings regarding unauthorized configuration drift across staging and production for service tier #126.",
-    question: "What is the recommended implementation strategy to satisfy these technical requirements according to official best practices? (Focus: Creating projects and configuring Cloud Identity organization hierarchy in Setting up a cloud solution environment)",
-    options: [
-      { id: 'A', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'B', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'C', text: "Deploy native automation for creating projects and configuring cloud identity organization hierarchy utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
+    "difficulty": "medium",
+    "certId": "gcp-ace",
+    "domainId": "d3",
+    "domainName": "Deploying and implementing a cloud solution",
+    "title": "Automating SSL/TLS Certificate Lifecycle with Google-Managed Certificates",
+    "scenario": "An enterprise deploys a public e-commerce store behind an External Application Load Balancer. The operations team wants Google Cloud to handle public SSL/TLS certificate issuance, DNS domain verification, and 90-day automated renewals without manual intervention.",
+    "question": "Which certificate resource should be provisioned?",
+    "options": [
+      {
+        "id": "A",
+        "text": "A Google-managed SSL certificate (gcloud compute ssl-certificates create --domains=shop.example.com)"
+      },
+      {
+        "id": "B",
+        "text": "A self-managed SSL certificate uploaded via Cloud KMS"
+      },
+      {
+        "id": "C",
+        "text": "An SSL certificate generated with OpenSSL and stored in Secret Manager"
+      },
+      {
+        "id": "D",
+        "text": "A Let's Encrypt certificate configured on each backend Compute Engine VM"
+      }
     ],
-    correctAnswers: ['C'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for creating projects and configuring cloud identity organization hierarchy provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Associate Cloud Engineer standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://cloud.google.com/learn/certification/guides/cloud-engineer",
-    tags: ["GCP-ACE", "Setting", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "Google-managed SSL certificates are fully managed TLS certificates provisioned, verified, and automatically renewed by Google Cloud before expiration. Attaching a Google-managed certificate to an HTTPS Target Proxy eliminates manual certificate rotation and certificate expiry outages.",
+    "referenceUrl": "https://cloud.google.com/docs",
+    "tags": [
+      "LoadBalancing",
+      "SSLCertificates",
+      "Security"
+    ],
+    "id": "gcp-ace-126"
   },
   {
-    id: "gcp-ace-127",
-    difficulty: "medium",
-    certId: "gcp-ace",
-    domainId: "d2",
-    domainName: "Planning and configuring a cloud solution",
-    title: "Estimating solution costs using the Google Cloud Pricing Calculator: Operational Strategy (Part 127)",
-    scenario: "A healthcare telemedicine network is evaluating Associate Cloud Engineer practices specifically regarding Estimating solution costs using the Google Cloud Pricing Calculator. The engineering group must minimize mean time to recovery (MTTR) and prevent cascading failures during regional outages for service tier #127.",
-    question: "Which configuration provides the most cost-effective and secure solution to achieve these criteria? (Focus: Estimating solution costs using the Google Cloud Pricing Calculator in Planning and configuring a cloud solution)",
-    options: [
-      { id: 'A', text: "Deploy native automation for estimating solution costs using the google cloud pricing calculator utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
+    "difficulty": "medium",
+    "certId": "gcp-ace",
+    "domainId": "d3",
+    "domainName": "Deploying and implementing a cloud solution",
+    "title": "Managing Terraform State Durability on Google Cloud Storage",
+    "scenario": "A cloud platform team uses HashiCorp Terraform to manage Google Cloud infrastructure. Multiple engineers collaborate on the codebase, requiring shared state storage with state locking and disaster recovery capabilities.",
+    "question": "What is the recommended configuration for the Terraform remote backend?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Configure a 'gcs' backend in Terraform pointing to a dedicated Cloud Storage bucket with Object Versioning enabled"
+      },
+      {
+        "id": "B",
+        "text": "Store terraform.tfstate in a private Git repository"
+      },
+      {
+        "id": "C",
+        "text": "Save the state file on a shared Persistent Disk mounted via NFS"
+      },
+      {
+        "id": "D",
+        "text": "Store state in Cloud Bigtable using a wide-column schema"
+      }
     ],
-    correctAnswers: ['A'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for estimating solution costs using the google cloud pricing calculator provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Associate Cloud Engineer standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://cloud.google.com/learn/certification/guides/cloud-engineer",
-    tags: ["GCP-ACE", "Planning", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "Terraform provides native support for Google Cloud Storage ('gcs' backend). GCS natively supports distributed state locking via object generation preconditions to prevent concurrent modifications. Enabling Object Versioning on the bucket ensures past state versions can be restored if the state file becomes corrupted.",
+    "referenceUrl": "https://cloud.google.com/docs",
+    "tags": [
+      "Terraform",
+      "CloudStorage",
+      "DevOps"
+    ],
+    "id": "gcp-ace-127"
   },
   {
-    id: "gcp-ace-128",
-    difficulty: "medium",
-    certId: "gcp-ace",
-    domainId: "d3",
-    domainName: "Deploying and implementing a cloud solution",
-    title: "Deploying Compute Engine instances and managed instance groups MIGs: Operational Strategy (Part 128)",
-    scenario: "A high-throughput e-commerce retailer is evaluating Associate Cloud Engineer practices specifically regarding Deploying Compute Engine instances and managed instance groups MIGs. The engineering group is migrating mission-critical workloads while enforcing strict organizational security guardrails for service tier #128.",
-    question: "Which architectural approach fulfills these operational objectives while maintaining reliability and minimal engineering overhead? (Focus: Deploying Compute Engine instances and managed instance groups MIGs in Deploying and implementing a cloud solution)",
-    options: [
-      { id: 'A', text: "Deploy native automation for deploying compute engine instances and managed instance groups migs utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'B', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'C', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'D', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." }
+    "difficulty": "hard",
+    "certId": "gcp-ace",
+    "domainId": "d3",
+    "domainName": "Deploying and implementing a cloud solution",
+    "title": "Configuring Cloud NAT for Outbound Internet Egress",
+    "scenario": "A private GKE cluster's nodes need to download container images from public third-party registries. The nodes have no external IPs, and outbound internet access is currently failing.",
+    "question": "Which pair of gcloud commands deploys Cloud NAT on the VPC network?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Create a Cloud Router with 'gcloud compute routers create', and then create the NAT gateway with 'gcloud compute routers nats create --auto-allocate-nat-external-ips --nat-all-subnet-ip-ranges'"
+      },
+      {
+        "id": "B",
+        "text": "Run 'gcloud compute networks update --enable-internet-gateway'"
+      },
+      {
+        "id": "C",
+        "text": "Deploy an Internal Application Load Balancer with internet routing"
+      },
+      {
+        "id": "D",
+        "text": "Run 'gcloud compute routes create default-internet --destination-range=0.0.0.0/0'"
+      }
     ],
-    correctAnswers: ['A'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for deploying compute engine instances and managed instance groups migs provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Associate Cloud Engineer standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://cloud.google.com/learn/certification/guides/cloud-engineer",
-    tags: ["GCP-ACE", "Deploying", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "Cloud NAT is configured as a feature of Cloud Router. First, a Cloud Router is instantiated in the VPC and region ('gcloud compute routers create'). Second, Cloud NAT is created on that router ('gcloud compute routers nats create') with automatic IP allocation and configured to handle outbound traffic for all subnet ranges.",
+    "referenceUrl": "https://cloud.google.com/docs",
+    "tags": [
+      "CloudNAT",
+      "CloudRouter",
+      "Networking"
+    ],
+    "id": "gcp-ace-128"
   },
   {
-    id: "gcp-ace-129",
-    difficulty: "easy",
-    certId: "gcp-ace",
-    domainId: "d4",
-    domainName: "Ensuring successful operation of a cloud solution",
-    title: "Managing Compute Engine VM lifecycle and snapshot schedules: Operational Strategy (Part 129)",
-    scenario: "A global streaming entertainment platform is evaluating Associate Cloud Engineer practices specifically regarding Managing Compute Engine VM lifecycle and snapshot schedules. The engineering group needs to eliminate manual operational toil and enforce declarative infrastructure reconciliation for service tier #129.",
-    question: "How should the engineering team configure the platform to ensure resilient, automated operation without manual intervention? (Focus: Managing Compute Engine VM lifecycle and snapshot schedules in Ensuring successful operation of a cloud solution)",
-    options: [
-      { id: 'A', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'B', text: "Deploy native automation for managing compute engine vm lifecycle and snapshot schedules utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
+    "difficulty": "medium",
+    "certId": "gcp-ace",
+    "domainId": "d3",
+    "domainName": "Deploying and implementing a cloud solution",
+    "title": "Horizontal Pod Autoscaler Deployment with Resource Metrics",
+    "scenario": "A containerized API running in GKE needs to scale between 2 and 15 pod replicas based on CPU load. The target average CPU utilization across pods should be maintained at 70%.",
+    "question": "Which kubectl command creates this autoscaler?",
+    "options": [
+      {
+        "id": "A",
+        "text": "kubectl autoscale deployment api-server --cpu-percent=70 --min=2 --max=15"
+      },
+      {
+        "id": "B",
+        "text": "kubectl scale deployment api-server --replicas=15"
+      },
+      {
+        "id": "C",
+        "text": "kubectl set resources deployment api-server --limits=cpu=70%"
+      },
+      {
+        "id": "D",
+        "text": "kubectl create hpa api-server --target-cpu=70"
+      }
     ],
-    correctAnswers: ['B'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for managing compute engine vm lifecycle and snapshot schedules provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Associate Cloud Engineer standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://cloud.google.com/learn/certification/guides/cloud-engineer",
-    tags: ["GCP-ACE", "Ensuring", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "The 'kubectl autoscale deployment &lt;NAME&gt; --cpu-percent=70 --min=2 --max=15' command deploys a HorizontalPodAutoscaler resource in Kubernetes. HPA monitors pod CPU usage via Metrics Server and dynamically adjusts replica count between 2 and 15 to keep average CPU utilization near 70%.",
+    "referenceUrl": "https://cloud.google.com/docs",
+    "tags": [
+      "GKE",
+      "HPA",
+      "Kubernetes"
+    ],
+    "id": "gcp-ace-129"
   },
   {
-    id: "gcp-ace-130",
-    difficulty: "hard",
-    certId: "gcp-ace",
-    domainId: "d5",
-    domainName: "Configuring access and security",
-    title: "Configuring IAM policies on projects, folders, and specific resources: Operational Strategy (Part 130)",
-    scenario: "An algorithmic trading exchange is evaluating Associate Cloud Engineer practices specifically regarding Configuring IAM policies on projects, folders, and specific resources. The engineering group is implementing automated canary analysis with instant rollback capabilities triggered by error budget burn rates for service tier #130.",
-    question: "Which design pattern should be implemented to ensure continuous compliance, automated validation, and high availability? (Focus: Configuring IAM policies on projects, folders, and specific resources in Configuring access and security)",
-    options: [
-      { id: 'A', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'B', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'C', text: "Deploy native automation for configuring iam policies on projects, folders, and specific resources utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'D', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." }
+    "difficulty": "medium",
+    "certId": "gcp-ace",
+    "domainId": "d3",
+    "domainName": "Deploying and implementing a cloud solution",
+    "title": "Protecting Workload Availability During GKE Node Upgrades with PDB",
+    "scenario": "During automated GKE node pool upgrades, multiple worker nodes are drained simultaneously, terminating pods and causing brief application outages. The application requires that at least 3 healthy pod replicas must remain online at all times.",
+    "question": "Which Kubernetes resource protects against voluntary disruption outages?",
+    "options": [
+      {
+        "id": "A",
+        "text": "PodDisruptionBudget (PDB) configured with minAvailable: 3"
+      },
+      {
+        "id": "B",
+        "text": "ResourceQuota configured with pods: 3"
+      },
+      {
+        "id": "C",
+        "text": "LimitRange with default CPU requests"
+      },
+      {
+        "id": "D",
+        "text": "StatefulSet with podManagementPolicy: OrderedReady"
+      }
     ],
-    correctAnswers: ['C'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for configuring iam policies on projects, folders, and specific resources provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Associate Cloud Engineer standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://cloud.google.com/learn/certification/guides/cloud-engineer",
-    tags: ["GCP-ACE", "Configuring", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "A PodDisruptionBudget (PDB) defines the minimum number of pod replicas (or percentage) that must remain available during voluntary disruptions such as node draining or cluster upgrades. Setting 'minAvailable: 3' blocks GKE from draining nodes if doing so would cause active replicas to fall below 3.",
+    "referenceUrl": "https://cloud.google.com/docs",
+    "tags": [
+      "GKE",
+      "PDB",
+      "Reliability"
+    ],
+    "id": "gcp-ace-130"
   },
   {
-    id: "gcp-ace-131",
-    difficulty: "medium",
-    certId: "gcp-ace",
-    domainId: "d1",
-    domainName: "Setting up a cloud solution environment",
-    title: "Managing Cloud Billing accounts, export budgets, and spending alerts: Operational Strategy (Part 131)",
-    scenario: "A logistics and supply chain optimization service is evaluating Associate Cloud Engineer practices specifically regarding Managing Cloud Billing accounts, export budgets, and spending alerts. The engineering group must enforce zero-trust identity boundaries and cryptographic verification across all service endpoints for service tier #131.",
-    question: "What is the recommended implementation strategy to satisfy these technical requirements according to official best practices? (Focus: Managing Cloud Billing accounts, export budgets, and spending alerts in Setting up a cloud solution environment)",
-    options: [
-      { id: 'A', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'C', text: "Deploy native automation for managing cloud billing accounts, export budgets, and spending alerts utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
+    "difficulty": "easy",
+    "certId": "gcp-ace",
+    "domainId": "d3",
+    "domainName": "Deploying and implementing a cloud solution",
+    "title": "Migrating from Container Registry to Artifact Registry",
+    "scenario": "Google Cloud deprecated legacy Container Registry ('gcr.io'). A company needs to provision a modern, regional container image repository in region 'us-central1' supporting fine-grained IAM controls and vulnerability scanning.",
+    "question": "Which command creates a Docker container repository in Artifact Registry?",
+    "options": [
+      {
+        "id": "A",
+        "text": "gcloud artifacts repositories create [REPO_NAME] --repository-format=docker --location=us-central1"
+      },
+      {
+        "id": "B",
+        "text": "gcloud container images create [REPO_NAME] --region=us-central1"
+      },
+      {
+        "id": "C",
+        "text": "gcloud storage buckets create gs://artifacts-[REPO_NAME]"
+      },
+      {
+        "id": "D",
+        "text": "gcloud run repositories create [REPO_NAME]"
+      }
     ],
-    correctAnswers: ['C'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for managing cloud billing accounts, export budgets, and spending alerts provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Associate Cloud Engineer standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://cloud.google.com/learn/certification/guides/cloud-engineer",
-    tags: ["GCP-ACE", "Setting", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "Artifact Registry is Google Cloud's modern universal package and container registry. The command 'gcloud artifacts repositories create &lt;NAME&gt; --repository-format=docker --location=us-central1' creates a regional repository supporting Docker images, Helm charts, and language packages with IAM role integration.",
+    "referenceUrl": "https://cloud.google.com/docs",
+    "tags": [
+      "ArtifactRegistry",
+      "Containers",
+      "DevOps"
+    ],
+    "id": "gcp-ace-131"
   },
   {
-    id: "gcp-ace-132",
-    difficulty: "easy",
-    certId: "gcp-ace",
-    domainId: "d2",
-    domainName: "Planning and configuring a cloud solution",
-    title: "Planning Compute Engine machine types, persistent disks, and preemptible VMs: Operational Strategy (Part 132)",
-    scenario: "An IoT industrial telematics infrastructure is evaluating Associate Cloud Engineer practices specifically regarding Planning Compute Engine machine types, persistent disks, and preemptible VMs. The engineering group needs to optimize cloud expenditure and implement real-time cost attribution across engineering teams for service tier #132.",
-    question: "Which configuration provides the most cost-effective and secure solution to achieve these criteria? (Focus: Planning Compute Engine machine types, persistent disks, and preemptible VMs in Planning and configuring a cloud solution)",
-    options: [
-      { id: 'A', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'B', text: "Deploy native automation for planning compute engine machine types, persistent disks, and preemptible vms utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'C', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
+    "difficulty": "medium",
+    "certId": "gcp-ace",
+    "domainId": "d3",
+    "domainName": "Deploying and implementing a cloud solution",
+    "title": "Building Container Images in the Cloud Using Cloud Build",
+    "scenario": "A software engineer working on a lightweight laptop without Docker installed needs to build a container image from a local source code directory containing a Dockerfile and push it to Artifact Registry.",
+    "question": "Which command builds and pushes the image using Google Cloud managed build infrastructure?",
+    "options": [
+      {
+        "id": "A",
+        "text": "gcloud builds submit --tag us-central1-docker.pkg.dev/[PROJECT]/[REPO]/[IMAGE]:v1 ."
+      },
+      {
+        "id": "B",
+        "text": "gcloud artifacts docker push ."
+      },
+      {
+        "id": "C",
+        "text": "docker build -t [IMAGE] . && docker push [IMAGE]"
+      },
+      {
+        "id": "D",
+        "text": "gcloud run deploy --source=."
+      }
     ],
-    correctAnswers: ['B'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for planning compute engine machine types, persistent disks, and preemptible vms provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Associate Cloud Engineer standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://cloud.google.com/learn/certification/guides/cloud-engineer",
-    tags: ["GCP-ACE", "Planning", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "'gcloud builds submit' packages local source files, uploads them to Cloud Build, executes the Docker build on Google-managed serverless build runners, and automatically pushes the resulting container image to the designated Artifact Registry repository, requiring no local Docker daemon.",
+    "referenceUrl": "https://cloud.google.com/docs",
+    "tags": [
+      "CloudBuild",
+      "ArtifactRegistry",
+      "CI/CD"
+    ],
+    "id": "gcp-ace-132"
   },
   {
-    id: "gcp-ace-133",
-    difficulty: "medium",
-    certId: "gcp-ace",
-    domainId: "d3",
-    domainName: "Deploying and implementing a cloud solution",
-    title: "Deploying and scaling container workloads on Google Kubernetes Engine GKE: Operational Strategy (Part 133)",
-    scenario: "A multi-tenant enterprise SaaS provider is evaluating Associate Cloud Engineer practices specifically regarding Deploying and scaling container workloads on Google Kubernetes Engine GKE. The engineering group is resolving cross-account network latency bottlenecks and transient connection timeouts for service tier #133.",
-    question: "Which architectural approach fulfills these operational objectives while maintaining reliability and minimal engineering overhead? (Focus: Deploying and scaling container workloads on Google Kubernetes Engine GKE in Deploying and implementing a cloud solution)",
-    options: [
-      { id: 'A', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'B', text: "Deploy native automation for deploying and scaling container workloads on google kubernetes engine gke utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'C', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'D', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." }
+    "difficulty": "medium",
+    "certId": "gcp-ace",
+    "domainId": "d3",
+    "domainName": "Deploying and implementing a cloud solution",
+    "title": "Defending Web Applications Against DDoS with Cloud Armor",
+    "scenario": "A web application behind an External Application Load Balancer experiences a Layer 7 HTTP flood attack originating from IP range 198.51.100.0/24. The security team needs to immediately block all requests from this IP range at Google's network edge before traffic reaches backend VMs.",
+    "question": "Which Google Cloud security service and rule type fulfills this requirement?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Cloud Armor security policy with a deny rule matching src-ip-ranges 198.51.100.0/24 attached to the load balancer backend service"
+      },
+      {
+        "id": "B",
+        "text": "VPC firewall rule with target tag web-server"
+      },
+      {
+        "id": "C",
+        "text": "Cloud NAT IP filter rule"
+      },
+      {
+        "id": "D",
+        "text": "Cloud DNS blacklist zone"
+      }
     ],
-    correctAnswers: ['B'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for deploying and scaling container workloads on google kubernetes engine gke provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Associate Cloud Engineer standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://cloud.google.com/learn/certification/guides/cloud-engineer",
-    tags: ["GCP-ACE", "Deploying", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "Google Cloud Armor operates at the network edge in conjunction with External Application Load Balancers. By defining a Cloud Armor security policy with a rule that denies traffic from specific IP ranges or matches OWASP Top 10 WAF signatures, malicious requests are filtered out at Google's global edge points of presence.",
+    "referenceUrl": "https://cloud.google.com/docs",
+    "tags": [
+      "CloudArmor",
+      "LoadBalancing",
+      "Security"
+    ],
+    "id": "gcp-ace-133"
   },
   {
-    id: "gcp-ace-134",
-    difficulty: "medium",
-    certId: "gcp-ace",
-    domainId: "d4",
-    domainName: "Ensuring successful operation of a cloud solution",
-    title: "Configuring Cloud Monitoring uptime checks, alert policies, and dashboards: Operational Strategy (Part 134)",
-    scenario: "A public sector aerospace engineering department is evaluating Associate Cloud Engineer practices specifically regarding Configuring Cloud Monitoring uptime checks, alert policies, and dashboards. The engineering group must establish centralized audit logging and automated incident containment for security operations for service tier #134.",
-    question: "How should the engineering team configure the platform to ensure resilient, automated operation without manual intervention? (Focus: Configuring Cloud Monitoring uptime checks, alert policies, and dashboards in Ensuring successful operation of a cloud solution)",
-    options: [
-      { id: 'A', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'C', text: "Deploy native automation for configuring cloud monitoring uptime checks, alert policies, and dashboards utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
+    "difficulty": "hard",
+    "certId": "gcp-ace",
+    "domainId": "d3",
+    "domainName": "Deploying and implementing a cloud solution",
+    "title": "Petabyte-Scale Cloud-to-Cloud Migration with Storage Transfer Service",
+    "scenario": "An enterprise is migrating 800 TB of media assets stored across hundreds of Amazon S3 buckets to Google Cloud Storage. The migration must support scheduled daily incremental synchronizations, checksum validation, and automatic retries without deploying proxy servers.",
+    "question": "Which Google Cloud service should be selected for this migration?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Storage Transfer Service"
+      },
+      {
+        "id": "B",
+        "text": "gsutil rsync running on a Compute Engine VM"
+      },
+      {
+        "id": "C",
+        "text": "Transfer Appliance"
+      },
+      {
+        "id": "D",
+        "text": "Cloud Data Fusion ETL pipeline"
+      }
     ],
-    correctAnswers: ['C'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for configuring cloud monitoring uptime checks, alert policies, and dashboards provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Associate Cloud Engineer standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://cloud.google.com/learn/certification/guides/cloud-engineer",
-    tags: ["GCP-ACE", "Ensuring", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "Google Cloud Storage Transfer Service is a managed service designed for large-scale data transfers from cloud storage providers (Amazon S3, Azure Blob, HTTP sources) to Cloud Storage. It handles high-concurrency parallelism, automated retries, and data integrity checksums without running customer VMs.",
+    "referenceUrl": "https://cloud.google.com/docs",
+    "tags": [
+      "StorageTransferService",
+      "CloudStorage",
+      "Migration"
+    ],
+    "id": "gcp-ace-134"
   },
   {
-    id: "gcp-ace-135",
-    difficulty: "hard",
-    certId: "gcp-ace",
-    domainId: "d5",
-    domainName: "Configuring access and security",
-    title: "Service account key management and secure service account impersonation: Operational Strategy (Part 135)",
-    scenario: "An automotive connected-vehicle fleet manager is evaluating Associate Cloud Engineer practices specifically regarding Service account key management and secure service account impersonation. The engineering group is modernizing legacy components to achieve zero-downtime deployments under unpredictable traffic spikes for service tier #135.",
-    question: "Which design pattern should be implemented to ensure continuous compliance, automated validation, and high availability? (Focus: Service account key management and secure service account impersonation in Configuring access and security)",
-    options: [
-      { id: 'A', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'B', text: "Deploy native automation for service account key management and secure service account impersonation utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'C', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
+    "difficulty": "medium",
+    "certId": "gcp-ace",
+    "domainId": "d3",
+    "domainName": "Deploying and implementing a cloud solution",
+    "title": "Centralized SSH Key Governance Using OS Login",
+    "scenario": "A systems security team struggles with managing SSH keys scattered across VM metadata and user home directories on Compute Engine instances. When an employee leaves the company, revoking their SSH access requires manual cleanup across dozens of VMs.",
+    "question": "Which feature enables centralized, IAM-based SSH access management?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Enable OS Login by setting metadata 'enable-oslogin=TRUE' and grant IAM roles 'roles/compute.osLogin' or 'roles/compute.osAdminLogin'"
+      },
+      {
+        "id": "B",
+        "text": "Disable SSH port 22 and connect exclusively via serial console"
+      },
+      {
+        "id": "C",
+        "text": "Use Cloud KMS to encrypt the /etc/ssh/authorized_keys file"
+      },
+      {
+        "id": "D",
+        "text": "Configure a cron job that empties ~/.ssh/authorized_keys every hour"
+      }
     ],
-    correctAnswers: ['B'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for service account key management and secure service account impersonation provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Associate Cloud Engineer standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://cloud.google.com/learn/certification/guides/cloud-engineer",
-    tags: ["GCP-ACE", "Configuring", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "Enabling OS Login links Linux user accounts and SSH access directly to Google Cloud Identity and Cloud IAM. When OS Login is enabled, SSH keys are tied to the user's Google account, and access is governed by IAM roles ('roles/compute.osLogin' or 'roles/compute.osAdminLogin'). Offboarding an employee instantly revokes their SSH access across all VMs.",
+    "referenceUrl": "https://cloud.google.com/docs",
+    "tags": [
+      "ComputeEngine",
+      "OSLogin",
+      "Security"
+    ],
+    "id": "gcp-ace-135"
   },
   {
-    id: "gcp-ace-136",
-    difficulty: "medium",
-    certId: "gcp-ace",
-    domainId: "d1",
-    domainName: "Setting up a cloud solution environment",
-    title: "gcloud CLI configuration, authorization, and named configurations: Operational Strategy (Part 136)",
-    scenario: "A digital media publishing network is evaluating Associate Cloud Engineer practices specifically regarding gcloud CLI configuration, authorization, and named configurations. The engineering group is remediating compliance audit findings regarding unauthorized configuration drift across staging and production for service tier #136.",
-    question: "What is the recommended implementation strategy to satisfy these technical requirements according to official best practices? (Focus: gcloud CLI configuration, authorization, and named configurations in Setting up a cloud solution environment)",
-    options: [
-      { id: 'A', text: "Deploy native automation for gcloud cli configuration, authorization, and named configurations utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'B', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'C', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'D', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." }
+    "difficulty": "medium",
+    "certId": "gcp-ace",
+    "domainId": "d3",
+    "domainName": "Deploying and implementing a cloud solution",
+    "title": "Verifying VM Boot Integrity with Shielded VM Features",
+    "scenario": "A security auditor requires verification that Compute Engine instances are protected against malicious bootkits, rootkits, and kernel-level firmware modifications.",
+    "question": "Which three capabilities are provided by Google Cloud Shielded VMs?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Secure Boot, Virtual Trusted Platform Module (vTPM), and Integrity Monitoring"
+      },
+      {
+        "id": "B",
+        "text": "Cloud Armor, VPC Service Controls, and Identity-Aware Proxy"
+      },
+      {
+        "id": "C",
+        "text": "Customer-Managed Encryption Keys, Secret Manager, and Cloud HSM"
+      },
+      {
+        "id": "D",
+        "text": "OS Login, Binary Authorization, and Container Analysis"
+      }
     ],
-    correctAnswers: ['A'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for gcloud cli configuration, authorization, and named configurations provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Associate Cloud Engineer standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://cloud.google.com/learn/certification/guides/cloud-engineer",
-    tags: ["GCP-ACE", "Setting", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "Shielded VMs provide verifiable boot integrity using three native features: 1) Secure Boot (ensures the VM boots only software signed by trusted certificate authorities); 2) vTPM (provides virtual hardware roots of trust and cryptographic key storage); and 3) Integrity Monitoring (records boot measurements and alerts if discrepancies are detected).",
+    "referenceUrl": "https://cloud.google.com/docs",
+    "tags": [
+      "ComputeEngine",
+      "ShieldedVM",
+      "Security"
+    ],
+    "id": "gcp-ace-136"
   },
   {
-    id: "gcp-ace-137",
-    difficulty: "medium",
-    certId: "gcp-ace",
-    domainId: "d2",
-    domainName: "Planning and configuring a cloud solution",
-    title: "Selecting Cloud Storage classes Standard, Nearline, Coldline, and Archive: Operational Strategy (Part 137)",
-    scenario: "A pharmaceutical clinical trial data service is evaluating Associate Cloud Engineer practices specifically regarding Selecting Cloud Storage classes Standard, Nearline, Coldline, and Archive. The engineering group must minimize mean time to recovery (MTTR) and prevent cascading failures during regional outages for service tier #137.",
-    question: "Which configuration provides the most cost-effective and secure solution to achieve these criteria? (Focus: Selecting Cloud Storage classes Standard, Nearline, Coldline, and Archive in Planning and configuring a cloud solution)",
-    options: [
-      { id: 'A', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'B', text: "Deploy native automation for selecting cloud storage classes standard, nearline, coldline, and archive utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'D', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." }
+    "difficulty": "easy",
+    "certId": "gcp-ace",
+    "domainId": "d3",
+    "domainName": "Deploying and implementing a cloud solution",
+    "title": "Deploying Cloud Bigtable Instances with cbt CLI Tool",
+    "scenario": "A database administrator needs to script the automated deployment of a production Cloud Bigtable cluster in zone us-east1-c with 3 SSD nodes, and immediately create a table named 'sensor_data' with column family 'cf1'.",
+    "question": "Which tools and commands accomplish this sequence?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Create instance with 'gcloud bigtable instances create', and create table with 'cbt createtable sensor_data' and 'cbt createfamily sensor_data cf1'"
+      },
+      {
+        "id": "B",
+        "text": "Use 'bq mk' to create the Bigtable table"
+      },
+      {
+        "id": "C",
+        "text": "Use 'gcloud sql instances create' and run standard DDL SQL queries"
+      },
+      {
+        "id": "D",
+        "text": "Create the table inside Cloud Shell using the gsutil CLI"
+      }
     ],
-    correctAnswers: ['B'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for selecting cloud storage classes standard, nearline, coldline, and archive provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Associate Cloud Engineer standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://cloud.google.com/learn/certification/guides/cloud-engineer",
-    tags: ["GCP-ACE", "Planning", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "The 'gcloud' CLI manages Cloud Bigtable instance and cluster infrastructure ('gcloud bigtable instances create'). The 'cbt' CLI is the official command-line tool for Bigtable table and data operations ('cbt createtable', 'cbt createfamily', 'cbt read').",
+    "referenceUrl": "https://cloud.google.com/docs",
+    "tags": [
+      "CloudBigtable",
+      "cbt",
+      "Database"
+    ],
+    "id": "gcp-ace-137"
   },
   {
-    id: "gcp-ace-138",
-    difficulty: "easy",
-    certId: "gcp-ace",
-    domainId: "d3",
-    domainName: "Deploying and implementing a cloud solution",
-    title: "Deploying serverless container workloads with Cloud Run services: Operational Strategy (Part 138)",
-    scenario: "A renewable energy smart-grid operator is evaluating Associate Cloud Engineer practices specifically regarding Deploying serverless container workloads with Cloud Run services. The engineering group is migrating mission-critical workloads while enforcing strict organizational security guardrails for service tier #138.",
-    question: "Which architectural approach fulfills these operational objectives while maintaining reliability and minimal engineering overhead? (Focus: Deploying serverless container workloads with Cloud Run services in Deploying and implementing a cloud solution)",
-    options: [
-      { id: 'A', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'B', text: "Deploy native automation for deploying serverless container workloads with cloud run services utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'D', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." }
+    "difficulty": "medium",
+    "certId": "gcp-ace",
+    "domainId": "d3",
+    "domainName": "Deploying and implementing a cloud solution",
+    "title": "Importing Compressed SQL Dumps into Cloud SQL",
+    "scenario": "A 100 GB gzipped MySQL database dump file ('database_backup.sql.gz') is uploaded to Cloud Storage bucket 'gs://sql-imports/'. An engineer attempts to import the file into Cloud SQL using 'gcloud sql import sql', but the command fails with an 'Access Denied' error referencing the bucket.",
+    "question": "What configuration is required to allow Cloud SQL to read the backup dump?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Retrieve the Cloud SQL instance's dedicated service account email and grant it 'roles/storage.objectViewer' on the Cloud Storage bucket"
+      },
+      {
+        "id": "B",
+        "text": "Make the Cloud Storage bucket publicly readable"
+      },
+      {
+        "id": "C",
+        "text": "Download the backup to an ephemeral Compute Engine VM first"
+      },
+      {
+        "id": "D",
+        "text": "Assign the primitive Owner role to the developer executing the import command"
+      }
     ],
-    correctAnswers: ['B'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for deploying serverless container workloads with cloud run services provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Associate Cloud Engineer standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://cloud.google.com/learn/certification/guides/cloud-engineer",
-    tags: ["GCP-ACE", "Deploying", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "Every Cloud SQL instance has a unique, Google-managed service account (visible via 'gcloud sql instances describe'). To import data from or export data to a Cloud Storage bucket, this specific Cloud SQL service account email must be granted IAM permissions ('roles/storage.objectViewer' for imports, 'roles/storage.objectAdmin' for exports) on the target bucket.",
+    "referenceUrl": "https://cloud.google.com/docs",
+    "tags": [
+      "CloudSQL",
+      "CloudStorage",
+      "DatabaseAdministration"
+    ],
+    "id": "gcp-ace-138"
   },
   {
-    id: "gcp-ace-139",
-    difficulty: "medium",
-    certId: "gcp-ace",
-    domainId: "d4",
-    domainName: "Ensuring successful operation of a cloud solution",
-    title: "Querying application and audit logs with Cloud Logging Log Explorer: Operational Strategy (Part 139)",
-    scenario: "A mobile gaming backend architecture is evaluating Associate Cloud Engineer practices specifically regarding Querying application and audit logs with Cloud Logging Log Explorer. The engineering group needs to eliminate manual operational toil and enforce declarative infrastructure reconciliation for service tier #139.",
-    question: "How should the engineering team configure the platform to ensure resilient, automated operation without manual intervention? (Focus: Querying application and audit logs with Cloud Logging Log Explorer in Ensuring successful operation of a cloud solution)",
-    options: [
-      { id: 'A', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'C', text: "Deploy native automation for querying application and audit logs with cloud logging log explorer utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'D', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." }
+    "difficulty": "medium",
+    "certId": "gcp-ace",
+    "domainId": "d3",
+    "domainName": "Deploying and implementing a cloud solution",
+    "title": "Configuring Database Parameters via Cloud SQL Flags",
+    "scenario": "A PostgreSQL database on Cloud SQL needs its maximum connection limit adjusted to 1,000 connections ('max_connections=1000') and autovacuum logging enabled ('log_autovacuum_min_duration=0').",
+    "question": "Which gcloud command applies these database configuration settings?",
+    "options": [
+      {
+        "id": "A",
+        "text": "gcloud sql instances patch [INSTANCE_NAME] --database-flags=max_connections=1000,log_autovacuum_min_duration=0"
+      },
+      {
+        "id": "B",
+        "text": "SSH into the Cloud SQL instance and edit /etc/postgresql/postgresql.conf"
+      },
+      {
+        "id": "C",
+        "text": "Execute 'ALTER SYSTEM SET max_connections = 1000' over standard SQL connection"
+      },
+      {
+        "id": "D",
+        "text": "gcloud sql instances update-config --flags='max_connections=1000'"
+      }
     ],
-    correctAnswers: ['C'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for querying application and audit logs with cloud logging log explorer provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Associate Cloud Engineer standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://cloud.google.com/learn/certification/guides/cloud-engineer",
-    tags: ["GCP-ACE", "Ensuring", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "In Cloud SQL, users do not have root filesystem access or SSH access to underlying database host VMs. Database engine configuration variables are modified as 'database flags' using 'gcloud sql instances patch &lt;INSTANCE&gt; --database-flags=...'. Note that modifying certain flags may trigger an automatic database restart.",
+    "referenceUrl": "https://cloud.google.com/docs",
+    "tags": [
+      "CloudSQL",
+      "DatabaseFlags",
+      "Configuration"
+    ],
+    "id": "gcp-ace-139"
   },
   {
-    id: "gcp-ace-140",
-    difficulty: "hard",
-    certId: "gcp-ace",
-    domainId: "d5",
-    domainName: "Configuring access and security",
-    title: "Managing encryption keys with Cloud Key Management Service Cloud KMS: Operational Strategy (Part 140)",
-    scenario: "A ride-sharing dispatch system is evaluating Associate Cloud Engineer practices specifically regarding Managing encryption keys with Cloud Key Management Service Cloud KMS. The engineering group is implementing automated canary analysis with instant rollback capabilities triggered by error budget burn rates for service tier #140.",
-    question: "Which design pattern should be implemented to ensure continuous compliance, automated validation, and high availability? (Focus: Managing encryption keys with Cloud Key Management Service Cloud KMS in Configuring access and security)",
-    options: [
-      { id: 'A', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'B', text: "Deploy native automation for managing encryption keys with cloud key management service cloud kms utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'C', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'D', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." }
+    "difficulty": "hard",
+    "certId": "gcp-ace",
+    "domainId": "d3",
+    "domainName": "Deploying and implementing a cloud solution",
+    "title": "Implementing East-West Microservice Security with GKE Network Policies",
+    "scenario": "A multi-tier application runs in GKE. The security team mandates that pods with label 'app: payment-processor' must only accept incoming network traffic from pods labeled 'app: frontend-api', and must strictly drop network packets from all other pods in the cluster.",
+    "question": "Which Kubernetes resource enforces this network microsegmentation?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Enable Network Policy enforcement on the GKE cluster and apply a standard Kubernetes 'NetworkPolicy' YAML manifest specifying ingress from 'app: frontend-api'"
+      },
+      {
+        "id": "B",
+        "text": "Create a VPC firewall rule targeting payment-processor pods"
+      },
+      {
+        "id": "C",
+        "text": "Configure an External Application Load Balancer with URL routing rules"
+      },
+      {
+        "id": "D",
+        "text": "Deploy Cloud NAT inside the Kubernetes cluster"
+      }
     ],
-    correctAnswers: ['B'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for managing encryption keys with cloud key management service cloud kms provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Associate Cloud Engineer standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://cloud.google.com/learn/certification/guides/cloud-engineer",
-    tags: ["GCP-ACE", "Configuring", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "GKE Network Policies (powered by Calico or Datapath V2) enforce Layer 3 and Layer 4 pod-level network security controls inside the cluster. A standard Kubernetes NetworkPolicy resource specifies ingress rules based on podSelector labels, isolating the payment processor pods from unauthorized internal east-west traffic.",
+    "referenceUrl": "https://cloud.google.com/docs",
+    "tags": [
+      "GKE",
+      "NetworkPolicy",
+      "Security"
+    ],
+    "id": "gcp-ace-140"
   },
   {
-    id: "gcp-ace-141",
-    difficulty: "easy",
-    certId: "gcp-ace",
-    domainId: "d1",
-    domainName: "Setting up a cloud solution environment",
-    title: "IAM pre-defined and custom roles across resource hierarchy: Operational Strategy (Part 141)",
-    scenario: "An insurance claims processing engine is evaluating Associate Cloud Engineer practices specifically regarding IAM pre-defined and custom roles across resource hierarchy. The engineering group must enforce zero-trust identity boundaries and cryptographic verification across all service endpoints for service tier #141.",
-    question: "What is the recommended implementation strategy to satisfy these technical requirements according to official best practices? (Focus: IAM pre-defined and custom roles across resource hierarchy in Setting up a cloud solution environment)",
-    options: [
-      { id: 'A', text: "Deploy native automation for iam pre-defined and custom roles across resource hierarchy utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'B', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'C', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'D', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." }
+    "difficulty": "medium",
+    "certId": "gcp-ace",
+    "domainId": "d3",
+    "domainName": "Deploying and implementing a cloud solution",
+    "title": "Configuring Custom Domain Mappings on Cloud Run",
+    "scenario": "A company wants their Cloud Run microservice, currently accessible at 'https://service-xyz-uc.a.run.app', to be reachable at their corporate domain 'https://api.company.com'.",
+    "question": "What is the recommended procedure to map the custom domain to the Cloud Run service?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Create a domain mapping using 'gcloud beta run domain-mappings create', and add the provided CNAME record to the domain's DNS host"
+      },
+      {
+        "id": "B",
+        "text": "Deploy an unmanaged Compute Engine instance running Apache to reverse-proxy traffic to Cloud Run"
+      },
+      {
+        "id": "C",
+        "text": "Modify the /etc/hosts file on all customer client workstations"
+      },
+      {
+        "id": "D",
+        "text": "Change the Cloud Run service name to 'api.company.com'"
+      }
     ],
-    correctAnswers: ['A'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for iam pre-defined and custom roles across resource hierarchy provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Associate Cloud Engineer standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://cloud.google.com/learn/certification/guides/cloud-engineer",
-    tags: ["GCP-ACE", "Setting", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "Cloud Run supports custom domain mappings directly. Executing 'gcloud beta run domain-mappings create --service=&lt;SERVICE&gt; --domain=api.company.com' generates DNS mapping records (such as CNAME or A/AAAA records). Once added to the DNS registrar, Google automatically manages and renews an SSL/TLS certificate for the domain.",
+    "referenceUrl": "https://cloud.google.com/docs",
+    "tags": [
+      "CloudRun",
+      "CustomDomains",
+      "Networking"
+    ],
+    "id": "gcp-ace-141"
   },
   {
-    id: "gcp-ace-142",
-    difficulty: "medium",
-    certId: "gcp-ace",
-    domainId: "d2",
-    domainName: "Planning and configuring a cloud solution",
-    title: "Configuring Cloud SQL high availability and BigQuery dataset storage: Operational Strategy (Part 142)",
-    scenario: "A commercial airline reservation service is evaluating Associate Cloud Engineer practices specifically regarding Configuring Cloud SQL high availability and BigQuery dataset storage. The engineering group needs to optimize cloud expenditure and implement real-time cost attribution across engineering teams for service tier #142.",
-    question: "Which configuration provides the most cost-effective and secure solution to achieve these criteria? (Focus: Configuring Cloud SQL high availability and BigQuery dataset storage in Planning and configuring a cloud solution)",
-    options: [
-      { id: 'A', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'B', text: "Deploy native automation for configuring cloud sql high availability and bigquery dataset storage utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'D', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." }
+    "difficulty": "medium",
+    "certId": "gcp-ace",
+    "domainId": "d3",
+    "domainName": "Deploying and implementing a cloud solution",
+    "title": "Parallel BigQuery Data Extraction to Sharded Cloud Storage Files",
+    "scenario": "A data engineer needs to export a 2 TB BigQuery table to Cloud Storage as compressed Parquet files. When running 'bq extract', the command fails because a single file cannot exceed the maximum export file size limit.",
+    "question": "How should the export destination URI be formatted to allow parallel sharded export?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Format the destination URI with a wildcard character: 'gs://my-bucket/export-*.parquet'"
+      },
+      {
+        "id": "B",
+        "text": "Export the table as uncompressed CSV instead"
+      },
+      {
+        "id": "C",
+        "text": "Write a Python script that exports 10,000 rows at a time using OFFSET"
+      },
+      {
+        "id": "D",
+        "text": "Increase the BigQuery table extraction size quota in IAM"
+      }
     ],
-    correctAnswers: ['B'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for configuring cloud sql high availability and bigquery dataset storage provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Associate Cloud Engineer standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://cloud.google.com/learn/certification/guides/cloud-engineer",
-    tags: ["GCP-ACE", "Planning", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "BigQuery enforces a maximum file size (typically 1 GB) per single exported file. By supplying a wildcard pattern (e.g., 'gs://my-bucket/export-*.parquet') in the 'bq extract' command, BigQuery automatically shards the output across multiple files in parallel, drastically reducing export time for terabyte-scale datasets.",
+    "referenceUrl": "https://cloud.google.com/docs",
+    "tags": [
+      "BigQuery",
+      "bqExtract",
+      "DataPipelines"
+    ],
+    "id": "gcp-ace-142"
   },
   {
-    id: "gcp-ace-143",
-    difficulty: "medium",
-    certId: "gcp-ace",
-    domainId: "d3",
-    domainName: "Deploying and implementing a cloud solution",
-    title: "Configuring Cloud VPC firewall rules, Cloud NAT, and private Google access: Operational Strategy (Part 143)",
-    scenario: "A cybersecurity threat intelligence agency is evaluating Associate Cloud Engineer practices specifically regarding Configuring Cloud VPC firewall rules, Cloud NAT, and private Google access. The engineering group is resolving cross-account network latency bottlenecks and transient connection timeouts for service tier #143.",
-    question: "Which architectural approach fulfills these operational objectives while maintaining reliability and minimal engineering overhead? (Focus: Configuring Cloud VPC firewall rules, Cloud NAT, and private Google access in Deploying and implementing a cloud solution)",
-    options: [
-      { id: 'A', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'B', text: "Deploy native automation for configuring cloud vpc firewall rules, cloud nat, and private google access utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'C', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
+    "difficulty": "easy",
+    "certId": "gcp-ace",
+    "domainId": "d3",
+    "domainName": "Deploying and implementing a cloud solution",
+    "title": "Accessing Compute Engine VM Metadata Programmatically",
+    "scenario": "A containerized application running on a Compute Engine instance needs to determine its own zone and retrieve an OAuth2 access token to call Google Cloud APIs without hardcoding credentials or configuration files.",
+    "question": "How should the application query the Google Cloud metadata server from within the VM?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Make an HTTP GET request to 'http://metadata.google.internal/computeMetadata/v1/' with header 'Metadata-Flavor: Google'"
+      },
+      {
+        "id": "B",
+        "text": "Read local environment variable $GOOGLE_COMPUTE_METADATA"
+      },
+      {
+        "id": "C",
+        "text": "Query Google Public DNS 8.8.8.8 on UDP port 53"
+      },
+      {
+        "id": "D",
+        "text": "Run 'gcloud config list' via a bash subshell"
+      }
     ],
-    correctAnswers: ['B'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for configuring cloud vpc firewall rules, cloud nat, and private google access provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Associate Cloud Engineer standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://cloud.google.com/learn/certification/guides/cloud-engineer",
-    tags: ["GCP-ACE", "Deploying", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "Compute Engine provides an internal metadata server accessible at 'http://metadata.google.internal/computeMetadata/v1/'. Applications query endpoints like 'instance/zone' and 'instance/service-accounts/default/token'. Every request must include the custom HTTP header 'Metadata-Flavor: Google' to prevent Server-Side Request Forgery (SSRF) vulnerabilities.",
+    "referenceUrl": "https://cloud.google.com/docs",
+    "tags": [
+      "ComputeEngine",
+      "MetadataServer",
+      "Security"
+    ],
+    "id": "gcp-ace-143"
   },
   {
-    id: "gcp-ace-144",
-    difficulty: "easy",
-    certId: "gcp-ace",
-    domainId: "d4",
-    domainName: "Ensuring successful operation of a cloud solution",
-    title: "Viewing and filtering billing reports and cost breakdown analysis: Operational Strategy (Part 144)",
-    scenario: "A real estate property management portal is evaluating Associate Cloud Engineer practices specifically regarding Viewing and filtering billing reports and cost breakdown analysis. The engineering group must establish centralized audit logging and automated incident containment for security operations for service tier #144.",
-    question: "How should the engineering team configure the platform to ensure resilient, automated operation without manual intervention? (Focus: Viewing and filtering billing reports and cost breakdown analysis in Ensuring successful operation of a cloud solution)",
-    options: [
-      { id: 'A', text: "Deploy native automation for viewing and filtering billing reports and cost breakdown analysis utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'B', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'D', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." }
+    "difficulty": "medium",
+    "certId": "gcp-ace",
+    "domainId": "d3",
+    "domainName": "Deploying and implementing a cloud solution",
+    "title": "Secure Terraform Service Account Impersonation",
+    "scenario": "A platform automation team uses Terraform to deploy Google Cloud infrastructure from GitHub Actions. The team wants to ensure Terraform runs with permissions of 'terraform-admin@project.iam.gserviceaccount.com' without saving or storing a service account key in GitHub repository secrets.",
+    "question": "How should Terraform be configured to authenticate via impersonation?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Configure GitHub Actions to authenticate via Workload Identity Federation, and configure the Google provider block with 'impersonate_service_account'"
+      },
+      {
+        "id": "B",
+        "text": "Store the base64-encoded service account JSON key in GitHub Secrets"
+      },
+      {
+        "id": "C",
+        "text": "Assign the Owner role to the GitHub runner IP address"
+      },
+      {
+        "id": "D",
+        "text": "Embed the service account credentials in the main.tf code file"
+      }
     ],
-    correctAnswers: ['A'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for viewing and filtering billing reports and cost breakdown analysis provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Associate Cloud Engineer standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://cloud.google.com/learn/certification/guides/cloud-engineer",
-    tags: ["GCP-ACE", "Ensuring", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "The modern enterprise standard combines Workload Identity Federation (allowing GitHub Actions to authenticate via OpenID Connect) with Terraform service account impersonation. Specifying 'impersonate_service_account = \"terraform-admin@...\"' in the Google provider block instructs Terraform to generate short-lived OAuth tokens, completely eliminating static JSON keys.",
+    "referenceUrl": "https://cloud.google.com/docs",
+    "tags": [
+      "Terraform",
+      "ServiceAccounts",
+      "DevOps"
+    ],
+    "id": "gcp-ace-144"
   },
   {
-    id: "gcp-ace-145",
-    difficulty: "hard",
-    certId: "gcp-ace",
-    domainId: "d5",
-    domainName: "Configuring access and security",
-    title: "Configuring VPC firewall rules and hierarchical firewall policies: Operational Strategy (Part 145)",
-    scenario: "An autonomous robotics manufacturing facility is evaluating Associate Cloud Engineer practices specifically regarding Configuring VPC firewall rules and hierarchical firewall policies. The engineering group is modernizing legacy components to achieve zero-downtime deployments under unpredictable traffic spikes for service tier #145.",
-    question: "Which design pattern should be implemented to ensure continuous compliance, automated validation, and high availability? (Focus: Configuring VPC firewall rules and hierarchical firewall policies in Configuring access and security)",
-    options: [
-      { id: 'A', text: "Deploy native automation for configuring vpc firewall rules and hierarchical firewall policies utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
+    "difficulty": "medium",
+    "certId": "gcp-ace",
+    "domainId": "d3",
+    "domainName": "Deploying and implementing a cloud solution",
+    "title": "Multi-Cluster Ingress for Global GKE Workload Routing",
+    "scenario": "An enterprise runs identical GKE clusters in region 'us-central1' and region 'europe-west1'. The enterprise wants incoming customer traffic to hit a single global anycast IP and route to the nearest healthy cluster, failing over automatically if a regional cluster goes down.",
+    "question": "Which Google Cloud GKE feature provides this global routing across multiple clusters?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Multi-Cluster Ingress (MCI)"
+      },
+      {
+        "id": "B",
+        "text": "Standard GKE Ingress deployed independently in each cluster"
+      },
+      {
+        "id": "C",
+        "text": "Cloud DNS weighted routing records"
+      },
+      {
+        "id": "D",
+        "text": "Compute Engine Stateful Managed Instance Groups"
+      }
     ],
-    correctAnswers: ['A'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for configuring vpc firewall rules and hierarchical firewall policies provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Associate Cloud Engineer standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://cloud.google.com/learn/certification/guides/cloud-engineer",
-    tags: ["GCP-ACE", "Configuring", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "Multi-Cluster Ingress (MCI) is a Google-managed controller that configures a single global External Application Load Balancer across multiple GKE clusters deployed in different regions. It dynamically balances traffic across clusters based on proximity and health, providing seamless global high availability and disaster recovery.",
+    "referenceUrl": "https://cloud.google.com/docs",
+    "tags": [
+      "GKE",
+      "MultiClusterIngress",
+      "Architecture"
+    ],
+    "id": "gcp-ace-145"
   },
   {
-    id: "gcp-ace-146",
-    difficulty: "medium",
-    certId: "gcp-ace",
-    domainId: "d1",
-    domainName: "Setting up a cloud solution environment",
-    title: "Enabling Google Cloud APIs and managing service accounts: Operational Strategy (Part 146)",
-    scenario: "A higher education student information system is evaluating Associate Cloud Engineer practices specifically regarding Enabling Google Cloud APIs and managing service accounts. The engineering group is remediating compliance audit findings regarding unauthorized configuration drift across staging and production for service tier #146.",
-    question: "What is the recommended implementation strategy to satisfy these technical requirements according to official best practices? (Focus: Enabling Google Cloud APIs and managing service accounts in Setting up a cloud solution environment)",
-    options: [
-      { id: 'A', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'B', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'C', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'D', text: "Deploy native automation for enabling google cloud apis and managing service accounts utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." }
+    "difficulty": "hard",
+    "certId": "gcp-ace",
+    "domainId": "d3",
+    "domainName": "Deploying and implementing a cloud solution",
+    "title": "Enforcing Specific CPU Architecture Requirements with Minimum CPU Platform",
+    "scenario": "A high-performance computing (HPC) application requires Advanced Vector Extensions (AVX-512) instructions available on Intel Ice Lake processors or newer. When Compute Engine instances are created with generic machine types (such as n2-standard-4), they may be scheduled on older host hardware.",
+    "question": "Which flag ensures the instance is deployed on the required CPU hardware architecture?",
+    "options": [
+      {
+        "id": "A",
+        "text": "--min-cpu-platform=\"Intel Ice Lake\""
+      },
+      {
+        "id": "B",
+        "text": "--cpu-architecture=avx512"
+      },
+      {
+        "id": "C",
+        "text": "--accelerator=type=intel-ice-lake"
+      },
+      {
+        "id": "D",
+        "text": "--host-hardware=latest"
+      }
     ],
-    correctAnswers: ['D'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for enabling google cloud apis and managing service accounts provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Associate Cloud Engineer standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://cloud.google.com/learn/certification/guides/cloud-engineer",
-    tags: ["GCP-ACE", "Setting", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "Passing '--min-cpu-platform=\"Intel Ice Lake\"' to 'gcloud compute instances create' guarantees that the VM instance will only be scheduled and booted on host hardware running Intel Ice Lake processors (or newer platforms that support the required instruction sets).",
+    "referenceUrl": "https://cloud.google.com/docs",
+    "tags": [
+      "ComputeEngine",
+      "Hardware",
+      "Performance"
+    ],
+    "id": "gcp-ace-146"
   },
   {
-    id: "gcp-ace-147",
-    difficulty: "easy",
-    certId: "gcp-ace",
-    domainId: "d2",
-    domainName: "Planning and configuring a cloud solution",
-    title: "Planning VPC networks, subnets, and IP address allocation: Operational Strategy (Part 147)",
-    scenario: "A global hotel hospitality reservation platform is evaluating Associate Cloud Engineer practices specifically regarding Planning VPC networks, subnets, and IP address allocation. The engineering group must minimize mean time to recovery (MTTR) and prevent cascading failures during regional outages for service tier #147.",
-    question: "Which configuration provides the most cost-effective and secure solution to achieve these criteria? (Focus: Planning VPC networks, subnets, and IP address allocation in Planning and configuring a cloud solution)",
-    options: [
-      { id: 'A', text: "Deploy native automation for planning vpc networks, subnets, and ip address allocation utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'B', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'C', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'D', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." }
+    "difficulty": "medium",
+    "certId": "gcp-ace",
+    "domainId": "d3",
+    "domainName": "Deploying and implementing a cloud solution",
+    "title": "Preventing Database Disk Full Failures with Storage Auto-Increase",
+    "scenario": "A rapidly growing e-commerce application stores transaction records in Cloud SQL for MySQL. The database administrator is worried that sudden surges in data volume could cause the disk to reach 100% capacity, putting the database into an offline read-only state.",
+    "question": "Which Cloud SQL setting ensures disk capacity expands automatically as data grows?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Enable Storage Auto-Increase on the Cloud SQL instance"
+      },
+      {
+        "id": "B",
+        "text": "Attach a Regional Persistent Disk with dynamic resizing"
+      },
+      {
+        "id": "C",
+        "text": "Deploy Cloud Monitoring alerts to email administrators at 80% disk capacity"
+      },
+      {
+        "id": "D",
+        "text": "Create a Snapshot Schedule with 1-hour intervals"
+      }
     ],
-    correctAnswers: ['A'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for planning vpc networks, subnets, and ip address allocation provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Associate Cloud Engineer standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://cloud.google.com/learn/certification/guides/cloud-engineer",
-    tags: ["GCP-ACE", "Planning", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "Enabling 'Storage Auto-Increase' on a Cloud SQL instance allows Google Cloud to automatically expand persistent disk capacity whenever available free space falls below 10%. This prevents sudden disk-full crashes and ensures uninterrupted database write operations without requiring manual intervention.",
+    "referenceUrl": "https://cloud.google.com/docs",
+    "tags": [
+      "CloudSQL",
+      "StorageAutoIncrease",
+      "Reliability"
+    ],
+    "id": "gcp-ace-147"
   },
   {
-    id: "gcp-ace-148",
-    difficulty: "medium",
-    certId: "gcp-ace",
-    domainId: "d3",
-    domainName: "Deploying and implementing a cloud solution",
-    title: "Deploying cloud infrastructure with Cloud Foundation Toolkit and Terraform: Operational Strategy (Part 148)",
-    scenario: "A digital payments settlement processor is evaluating Associate Cloud Engineer practices specifically regarding Deploying cloud infrastructure with Cloud Foundation Toolkit and Terraform. The engineering group is migrating mission-critical workloads while enforcing strict organizational security guardrails for service tier #148.",
-    question: "Which architectural approach fulfills these operational objectives while maintaining reliability and minimal engineering overhead? (Focus: Deploying cloud infrastructure with Cloud Foundation Toolkit and Terraform in Deploying and implementing a cloud solution)",
-    options: [
-      { id: 'A', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'B', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'D', text: "Deploy native automation for deploying cloud infrastructure with cloud foundation toolkit and terraform utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." }
+    "difficulty": "medium",
+    "certId": "gcp-ace",
+    "domainId": "d3",
+    "domainName": "Deploying and implementing a cloud solution",
+    "title": "Bidirectional Peering Configuration for VPC Network Peering",
+    "scenario": "An administrator executes 'gcloud compute networks peerings create peer-ab --network=vpc-a --peer-network=vpc-b' in project A. The administrator notices that instances in 'vpc-a' still cannot communicate with instances in 'vpc-b' and the peering state shows 'INACTIVE'.",
+    "question": "What required step was missed in configuring the peering connection?",
+    "options": [
+      {
+        "id": "A",
+        "text": "A symmetric peering connection from vpc-b to vpc-a must also be created in project B before the peering state becomes ACTIVE"
+      },
+      {
+        "id": "B",
+        "text": "The instances must be rebooted to recognize the new route tables"
+      },
+      {
+        "id": "C",
+        "text": "A Cloud VPN tunnel must be configured between the VPCs to exchange BGP routes"
+      },
+      {
+        "id": "D",
+        "text": "Both VPCs must be converted from Custom Mode to Auto Mode"
+      }
     ],
-    correctAnswers: ['D'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for deploying cloud infrastructure with cloud foundation toolkit and terraform provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Associate Cloud Engineer standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://cloud.google.com/learn/certification/guides/cloud-engineer",
-    tags: ["GCP-ACE", "Deploying", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "VPC Network Peering in Google Cloud requires symmetric, bidirectional configuration. Creating a peering connection from VPC A to VPC B places the peering in an INACTIVE state until a corresponding peering connection from VPC B to VPC A is created by an administrator with appropriate permissions. Once both sides are configured, the status transitions to ACTIVE.",
+    "referenceUrl": "https://cloud.google.com/docs",
+    "tags": [
+      "VPC",
+      "Peering",
+      "Networking"
+    ],
+    "id": "gcp-ace-148"
   },
   {
-    id: "gcp-ace-149",
-    difficulty: "medium",
-    certId: "gcp-ace",
-    domainId: "d4",
-    domainName: "Ensuring successful operation of a cloud solution",
-    title: "Managing GKE cluster upgrades and node pool autoscaling: Operational Strategy (Part 149)",
-    scenario: "A genomics sequencing data pipeline is evaluating Associate Cloud Engineer practices specifically regarding Managing GKE cluster upgrades and node pool autoscaling. The engineering group needs to eliminate manual operational toil and enforce declarative infrastructure reconciliation for service tier #149.",
-    question: "How should the engineering team configure the platform to ensure resilient, automated operation without manual intervention? (Focus: Managing GKE cluster upgrades and node pool autoscaling in Ensuring successful operation of a cloud solution)",
-    options: [
-      { id: 'A', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'B', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'C', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'D', text: "Deploy native automation for managing gke cluster upgrades and node pool autoscaling utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." }
+    "difficulty": "easy",
+    "certId": "gcp-ace",
+    "domainId": "d3",
+    "domainName": "Deploying and implementing a cloud solution",
+    "title": "Attaching GPU Accelerators to Compute Engine: Host Maintenance Policy",
+    "scenario": "A data engineering team provisions a Compute Engine instance with an attached NVIDIA Tesla T4 GPU for batch machine learning inference. When executing 'gcloud compute instances create ... --accelerator=type=nvidia-tesla-t4,count=1', the command returns an error regarding the VM maintenance policy.",
+    "question": "Which maintenance policy must be set when attaching GPUs to Compute Engine instances?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Set '--maintenance-policy=TERMINATE' because GPU instances do not support live migration during host maintenance events"
+      },
+      {
+        "id": "B",
+        "text": "Set '--maintenance-policy=MIGRATE' to enable seamless failover"
+      },
+      {
+        "id": "C",
+        "text": "Disable all maintenance policies using '--no-maintenance-policy'"
+      },
+      {
+        "id": "D",
+        "text": "Set '--restart-on-failure=false'"
+      }
     ],
-    correctAnswers: ['D'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for managing gke cluster upgrades and node pool autoscaling provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Associate Cloud Engineer standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://cloud.google.com/learn/certification/guides/cloud-engineer",
-    tags: ["GCP-ACE", "Ensuring", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "Compute Engine normally uses Live Migration to keep VM instances running while host system software and hardware updates are applied. However, instances with attached GPU accelerators do not support live migration; they must have their maintenance policy set to 'TERMINATE', causing the VM to shut down and restart when host maintenance occurs.",
+    "referenceUrl": "https://cloud.google.com/docs",
+    "tags": [
+      "ComputeEngine",
+      "GPUs",
+      "MaintenancePolicy"
+    ],
+    "id": "gcp-ace-149"
   },
   {
-    id: "gcp-ace-150",
-    difficulty: "hard",
-    certId: "gcp-ace",
-    domainId: "d5",
-    domainName: "Configuring access and security",
-    title: "Configuring Cloud Storage bucket permissions using Uniform bucket-level access: Operational Strategy (Part 150)",
-    scenario: "A cloud-native telecommunications provider is evaluating Associate Cloud Engineer practices specifically regarding Configuring Cloud Storage bucket permissions using Uniform bucket-level access. The engineering group is implementing automated canary analysis with instant rollback capabilities triggered by error budget burn rates for service tier #150.",
-    question: "Which design pattern should be implemented to ensure continuous compliance, automated validation, and high availability? (Focus: Configuring Cloud Storage bucket permissions using Uniform bucket-level access in Configuring access and security)",
-    options: [
-      { id: 'A', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'B', text: "Deploy native automation for configuring cloud storage bucket permissions using uniform bucket-level access utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'C', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'D', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." }
+    "difficulty": "medium",
+    "certId": "gcp-ace",
+    "domainId": "d3",
+    "domainName": "Deploying and implementing a cloud solution",
+    "title": "Creating Dual-Region Cloud Storage Buckets with Location Flags",
+    "scenario": "A backup team needs to create a new Cloud Storage bucket that synchronously replicates data between 'us-central1' (Iowa) and 'us-east1' (South Carolina) for regional disaster recovery.",
+    "question": "Which gcloud storage command creates this dual-region bucket?",
+    "options": [
+      {
+        "id": "A",
+        "text": "gcloud storage buckets create gs://dr-backup-bucket --location=us-central1,us-east1"
+      },
+      {
+        "id": "B",
+        "text": "gcloud storage buckets create gs://dr-backup-bucket --location=US-DUAL"
+      },
+      {
+        "id": "C",
+        "text": "gcloud storage buckets create gs://dr-backup-bucket --multi-region=us-central1-us-east1"
+      },
+      {
+        "id": "D",
+        "text": "gcloud storage buckets create gs://dr-backup-bucket --cross-region=true"
+      }
     ],
-    correctAnswers: ['B'],
-    type: "single",
-    explanation: "Implementing declarative automation and native policy guardrails for configuring cloud storage bucket permissions using uniform bucket-level access provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Associate Cloud Engineer standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
-    referenceUrl: "https://cloud.google.com/learn/certification/guides/cloud-engineer",
-    tags: ["GCP-ACE", "Configuring", "Architecture"]
+    "correctAnswers": [
+      "A"
+    ],
+    "type": "single",
+    "explanation": "To create a predefined or custom Dual-Region Cloud Storage bucket, the '--location' flag accepts two comma-separated region identifiers (e.g. '--location=us-central1,us-east1'). This provisions a bucket whose data is stored across both regions with regional failover capabilities.",
+    "referenceUrl": "https://cloud.google.com/docs",
+    "tags": [
+      "CloudStorage",
+      "DualRegion",
+      "DisasterRecovery"
+    ],
+    "id": "gcp-ace-150"
   }
 ];
 
