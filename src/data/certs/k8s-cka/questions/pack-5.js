@@ -51,10 +51,10 @@ export const K8S_CKA_QUESTIONS_5 = [
     scenario: "A Service of type NodePort is created without specifying a nodePort value.",
     question: "From which range does the API server allocate the port by default?",
     options: [
-      { id: 'A', text: "8000-9000" },
+      { id: 'A', text: "1024-65535" },
       { id: 'B', text: "30000-32767" },
-      { id: 'C', text: "10250-10259" },
-      { id: 'D', text: "1024-65535" }
+      { id: 'C', text: "8000-9000" },
+      { id: 'D', text: "10250-10259" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -114,12 +114,12 @@ export const K8S_CKA_QUESTIONS_5 = [
     scenario: "Pod X is selected by policy A, which allows ingress from namespace alpha, and by policy B, which allows ingress from namespace beta.",
     question: "What traffic can reach pod X?",
     options: [
-      { id: 'A', text: "Only traffic matching both selectors simultaneously." },
+      { id: 'A', text: "Traffic from alpha and from beta, because policies are additive." },
       { id: 'B', text: "Only traffic from alpha, because the first policy wins." },
-      { id: 'C', text: "Traffic from alpha and from beta, because policies are additive." },
-      { id: 'D', text: "No traffic, because the two policies conflict." }
+      { id: 'C', text: "No traffic, because the two policies conflict." },
+      { id: 'D', text: "Only traffic matching both selectors simultaneously." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "NetworkPolicies are purely additive allow-lists: the union of every policy selecting a pod defines what is permitted, and there is no deny rule or ordering. Nothing conflicts, no policy takes precedence, and the rules are OR-ed rather than AND-ed.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/network-policies/",
@@ -156,12 +156,12 @@ export const K8S_CKA_QUESTIONS_5 = [
     scenario: "curl to the pod IP on port 8080 succeeds from another pod, but curl to the Service ClusterIP on port 80 times out. The Service has endpoints listed.",
     question: "Which misconfiguration best explains it?",
     options: [
-      { id: 'A', text: "CoreDNS is not running." },
-      { id: 'B', text: "The pod has no readiness probe." },
-      { id: 'C', text: "The Service targetPort does not match the port the container listens on." },
-      { id: 'D', text: "The Service is missing an ownerReference to the deployment." }
+      { id: 'A', text: "The Service targetPort does not match the port the container listens on." },
+      { id: 'B', text: "The Service is missing an ownerReference to the deployment." },
+      { id: 'C', text: "CoreDNS is not running." },
+      { id: 'D', text: "The pod has no readiness probe." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Endpoints exist so the selector is right, which leaves a port mapping error: a Service with port 80 must set targetPort 8080 to reach a container listening there. A missing readiness probe would not remove healthy endpoints, DNS failure would show as name resolution errors rather than a ClusterIP timeout, and Services need no ownerReference.",
     referenceUrl: "https://kubernetes.io/docs/tasks/debug/debug-application/debug-service/",
@@ -198,12 +198,12 @@ export const K8S_CKA_QUESTIONS_5 = [
     scenario: "A CSI driver is being installed and the manifests include a controller Deployment and a node DaemonSet.",
     question: "Which split of responsibilities is correct?",
     options: [
-      { id: 'A', text: "The controller mounts volumes into pods and the node component provisions storage." },
-      { id: 'B', text: "Both components perform identical work and one is a hot standby." },
-      { id: 'C', text: "The controller component handles provisioning, attaching, and snapshotting; the node component handles staging, mounting, and formatting on each node." },
-      { id: 'D', text: "The node component talks to the storage API and the controller runs inside each pod." }
+      { id: 'A', text: "Both components perform identical work and one is a hot standby." },
+      { id: 'B', text: "The controller mounts volumes into pods and the node component provisions storage." },
+      { id: 'C', text: "The node component talks to the storage API and the controller runs inside each pod." },
+      { id: 'D', text: "The controller component handles provisioning, attaching, and snapshotting; the node component handles staging, mounting, and formatting on each node." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "CSI splits cluster-wide operations - CreateVolume, ControllerPublish, snapshots - into a controller plugin, and per-node operations - NodeStageVolume and NodePublishVolume - into a DaemonSet that must run wherever volumes are mounted. The other options invert or duplicate those roles.",
     referenceUrl: "https://kubernetes.io/docs/concepts/storage/volumes/",
@@ -219,10 +219,10 @@ export const K8S_CKA_QUESTIONS_5 = [
     scenario: "An operator wants the YAML for a deployment as a starting point for editing, without creating anything in the cluster.",
     question: "Which command prints it?",
     options: [
-      { id: 'A', text: "kubectl explain deployment --recursive" },
+      { id: 'A', text: "kubectl apply -f - --dry-run=server" },
       { id: 'B', text: "kubectl create deployment web --image=nginx --dry-run=client -o yaml" },
-      { id: 'C', text: "kubectl get deployment web -o yaml" },
-      { id: 'D', text: "kubectl apply -f - --dry-run=server" }
+      { id: 'C', text: "kubectl explain deployment --recursive" },
+      { id: 'D', text: "kubectl get deployment web -o yaml" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -261,12 +261,12 @@ export const K8S_CKA_QUESTIONS_5 = [
     scenario: "A pod in namespace web resolves the short name api successfully even though the Service is api.web.svc.cluster.local.",
     question: "Why does the short name work?",
     options: [
-      { id: 'A', text: "The kubelet injects a hosts file entry for every Service." },
-      { id: 'B', text: "The pod /etc/resolv.conf contains search domains including web.svc.cluster.local, so short names are expanded." },
-      { id: 'C', text: "kube-proxy rewrites DNS queries for local Services." },
-      { id: 'D', text: "CoreDNS creates an alias record for every short name." }
+      { id: 'A', text: "kube-proxy rewrites DNS queries for local Services." },
+      { id: 'B', text: "CoreDNS creates an alias record for every short name." },
+      { id: 'C', text: "The kubelet injects a hosts file entry for every Service." },
+      { id: 'D', text: "The pod /etc/resolv.conf contains search domains including web.svc.cluster.local, so short names are expanded." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The kubelet writes a resolv.conf whose search list starts with the pod namespace, so an unqualified name is tried as api.web.svc.cluster.local first. CoreDNS serves the fully qualified names rather than aliases, kube-proxy does not touch DNS, and /etc/hosts contains only the pod own entries and any hostAliases.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/",
@@ -303,12 +303,12 @@ export const K8S_CKA_QUESTIONS_5 = [
     scenario: "A deleted namespace has remained in Terminating for an hour. Its objects appear gone but the namespace will not disappear.",
     question: "What is the usual cause?",
     options: [
-      { id: 'A', text: "etcd is out of disk space." },
-      { id: 'B', text: "The namespace still has a ResourceQuota attached." },
-      { id: 'C', text: "kube-proxy has not removed the Service rules yet." },
-      { id: 'D', text: "A finalizer is waiting on a resource whose controller or aggregated API is unavailable." }
+      { id: 'A', text: "kube-proxy has not removed the Service rules yet." },
+      { id: 'B', text: "A finalizer is waiting on a resource whose controller or aggregated API is unavailable." },
+      { id: 'C', text: "etcd is out of disk space." },
+      { id: 'D', text: "The namespace still has a ResourceQuota attached." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Namespace deletion blocks on finalizers until every resource in it is cleaned up, and the common trigger is a custom resource whose controller or an aggregated APIService is down, visible in the namespace status conditions. Quotas are deleted like any other namespaced object, kube-proxy rules are not part of the finalization contract, and an etcd disk problem would break far more than one namespace.",
     referenceUrl: "https://kubernetes.io/docs/tasks/administer-cluster/namespaces/",
@@ -387,12 +387,12 @@ export const K8S_CKA_QUESTIONS_5 = [
     scenario: "kubectl commands take many seconds. The API server pod is running and etcd shows high disk latency in its metrics.",
     question: "Which conclusion is best supported?",
     options: [
-      { id: 'A', text: "etcd write latency is the bottleneck, so faster disks or reduced write churn on the control plane are the fix." },
-      { id: 'B', text: "kube-proxy is throttling API traffic." },
-      { id: 'C', text: "CoreDNS needs more replicas." },
-      { id: 'D', text: "The scheduler is overloaded and should be scaled out." }
+      { id: 'A', text: "The scheduler is overloaded and should be scaled out." },
+      { id: 'B', text: "CoreDNS needs more replicas." },
+      { id: 'C', text: "kube-proxy is throttling API traffic." },
+      { id: 'D', text: "etcd write latency is the bottleneck, so faster disks or reduced write churn on the control plane are the fix." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Every API write is an etcd write, so etcd disk latency directly translates into slow API responses; etcd is notoriously sensitive to fsync latency and wants low-latency local storage. The scheduler runs as a single active leader and does not serve kubectl, kube-proxy does not proxy API traffic, and DNS capacity does not affect API latency.",
     referenceUrl: "https://etcd.io/docs/latest/op-guide/performance/",
@@ -450,12 +450,12 @@ export const K8S_CKA_QUESTIONS_5 = [
     scenario: "A developer proposes using a hostPath volume so their pod can write directly to /var/log on the node.",
     question: "Which objection is technically correct?",
     options: [
-      { id: 'A', text: "hostPath exposes the node filesystem to the pod, is not portable across nodes, and is disallowed by the baseline and restricted Pod Security Standards." },
-      { id: 'B', text: "hostPath volumes cannot be mounted read-write." },
-      { id: 'C', text: "hostPath data is deleted when the pod restarts." },
+      { id: 'A', text: "hostPath data is deleted when the pod restarts." },
+      { id: 'B', text: "hostPath exposes the node filesystem to the pod, is not portable across nodes, and is disallowed by the baseline and restricted Pod Security Standards." },
+      { id: 'C', text: "hostPath volumes cannot be mounted read-write." },
       { id: 'D', text: "hostPath requires a PersistentVolumeClaim to be created first." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "hostPath gives a workload direct access to the node filesystem, which is both a privilege escalation path and a portability problem because the pod is tied to whatever node holds that data - which is why the baseline and restricted standards forbid it. It can be mounted read-write, it needs no claim, and its data persists on the node after the pod goes away.",
     referenceUrl: "https://kubernetes.io/docs/concepts/storage/volumes/",
@@ -471,12 +471,12 @@ export const K8S_CKA_QUESTIONS_5 = [
     scenario: "A dual-stack cluster must expose a Service that answers on both an IPv4 and an IPv6 ClusterIP.",
     question: "Which Service setting achieves that?",
     options: [
-      { id: 'A', text: "ipFamilyPolicy: SingleStack with ipFamilies listing both families." },
-      { id: 'B', text: "Two Services with the same selector and different clusterIP values." },
-      { id: 'C', text: "ipFamilyPolicy: RequireDualStack with both IPv4 and IPv6 listed in ipFamilies." },
-      { id: 'D', text: "externalTrafficPolicy: Local on an IPv6-only Service." }
+      { id: 'A', text: "ipFamilyPolicy: RequireDualStack with both IPv4 and IPv6 listed in ipFamilies." },
+      { id: 'B', text: "externalTrafficPolicy: Local on an IPv6-only Service." },
+      { id: 'C', text: "ipFamilyPolicy: SingleStack with ipFamilies listing both families." },
+      { id: 'D', text: "Two Services with the same selector and different clusterIP values." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "RequireDualStack asks the API server to allocate a ClusterIP from each family, and PreferDualStack degrades gracefully on a single-stack cluster. SingleStack allocates one address regardless of the ipFamilies list, two Services are a workaround rather than dual-stack, and externalTrafficPolicy concerns source IP preservation.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/dual-stack/",
@@ -492,12 +492,12 @@ export const K8S_CKA_QUESTIONS_5 = [
     scenario: "A deployment object must be removed for a migration while its running pods keep serving traffic until a replacement controller adopts them.",
     question: "Which command does that?",
     options: [
-      { id: 'A', text: "kubectl scale deployment web --replicas=0 then delete it" },
-      { id: 'B', text: "kubectl delete deployment web --cascade=orphan" },
-      { id: 'C', text: "kubectl delete deployment web --cascade=foreground" },
-      { id: 'D', text: "kubectl delete deployment web --force --grace-period=0" }
+      { id: 'A', text: "kubectl delete deployment web --cascade=orphan" },
+      { id: 'B', text: "kubectl scale deployment web --replicas=0 then delete it" },
+      { id: 'C', text: "kubectl delete deployment web --force --grace-period=0" },
+      { id: 'D', text: "kubectl delete deployment web --cascade=foreground" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "--cascade=orphan deletes only the named object and leaves its dependents - the ReplicaSet and pods - running without an owner. Force deletion still cascades to dependents by default, foreground cascade explicitly waits for dependents to be deleted first, and scaling to zero removes exactly the pods that must keep serving.",
     referenceUrl: "https://kubernetes.io/docs/concepts/architecture/garbage-collection/",
@@ -513,12 +513,12 @@ export const K8S_CKA_QUESTIONS_5 = [
     scenario: "On a node where kubectl is unavailable, an operator must list running containers and read the logs of one of them directly from containerd.",
     question: "Which commands do that?",
     options: [
-      { id: 'A', text: "kubeadm inspect containers." },
-      { id: 'B', text: "docker ps and docker logs, which always work with containerd." },
-      { id: 'C', text: "systemctl status containerd and journalctl -u containerd only." },
-      { id: 'D', text: "crictl ps to list containers and crictl logs CONTAINER_ID to read output." }
+      { id: 'A', text: "docker ps and docker logs, which always work with containerd." },
+      { id: 'B', text: "kubeadm inspect containers." },
+      { id: 'C', text: "crictl ps to list containers and crictl logs CONTAINER_ID to read output." },
+      { id: 'D', text: "systemctl status containerd and journalctl -u containerd only." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "crictl speaks the CRI directly, so ps and logs work against containerd or CRI-O without the API server. The docker CLI does not manage containerd CRI containers on a dockershim-free cluster, the containerd journal shows daemon messages rather than per-container output, and kubeadm has no inspect containers command.",
     referenceUrl: "https://kubernetes.io/docs/tasks/debug/debug-cluster/crictl/",

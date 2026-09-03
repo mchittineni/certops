@@ -9,10 +9,10 @@ export const K8S_CKA_QUESTIONS_10 = [
     scenario: "Three control plane nodes each run a kube-scheduler and a kube-controller-manager, yet only one of each appears to be doing work.",
     question: "Why is that expected?",
     options: [
-      { id: 'A', text: "Work is sharded by namespace across the three replicas." },
+      { id: 'A', text: "The other replicas have crashed and should be investigated." },
       { id: 'B', text: "Those components run active/passive using a Lease object, so only the elected leader acts while the others stand by." },
-      { id: 'C', text: "Only the replica on the first control plane node is ever used, by design." },
-      { id: 'D', text: "The other replicas have crashed and should be investigated." }
+      { id: 'C', text: "Work is sharded by namespace across the three replicas." },
+      { id: 'D', text: "Only the replica on the first control plane node is ever used, by design." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -30,12 +30,12 @@ export const K8S_CKA_QUESTIONS_10 = [
     scenario: "An operator changes the replica count of a deployment from three to five and separately changes a container environment variable.",
     question: "Which change creates a new ReplicaSet?",
     options: [
-      { id: 'A', text: "Neither; ReplicaSets are only created when the deployment is first applied." },
-      { id: 'B', text: "The replica count change, because scaling is a new revision." },
-      { id: 'C', text: "The environment variable change, because it modifies the pod template." },
-      { id: 'D', text: "Both changes create separate ReplicaSets." }
+      { id: 'A', text: "The replica count change, because scaling is a new revision." },
+      { id: 'B', text: "Neither; ReplicaSets are only created when the deployment is first applied." },
+      { id: 'C', text: "Both changes create separate ReplicaSets." },
+      { id: 'D', text: "The environment variable change, because it modifies the pod template." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "A new ReplicaSet is created only when spec.template changes, since the template hash identifies the revision; scaling simply adjusts the replica count on the existing ReplicaSet. That is also why kubectl rollout restart works by stamping an annotation onto the template.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/deployment/",
@@ -51,12 +51,12 @@ export const K8S_CKA_QUESTIONS_10 = [
     scenario: "On a freshly built cluster the CoreDNS pods crash-loop. Their logs end with a plugin/loop message about a forwarding loop detected in the upstream resolver.",
     question: "What is the cause and remedy?",
     options: [
-      { id: 'A', text: "The node resolv.conf points at a local stub resolver, so CoreDNS forwards to itself; point the kubelet at the real upstream resolv.conf or fix the node resolver." },
-      { id: 'B', text: "The kube-dns Service has no ClusterIP." },
-      { id: 'C', text: "The cluster CIDR overlaps the Service CIDR." },
+      { id: 'A', text: "The kube-dns Service has no ClusterIP." },
+      { id: 'B', text: "The cluster CIDR overlaps the Service CIDR." },
+      { id: 'C', text: "The node resolv.conf points at a local stub resolver, so CoreDNS forwards to itself; point the kubelet at the real upstream resolv.conf or fix the node resolver." },
       { id: 'D', text: "The CoreDNS image is corrupt and must be re-pulled." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "The loop plugin detects that CoreDNS is forwarding queries back to itself, which happens when the node resolv.conf lists a local stub such as 127.0.0.53; the fix is to point the kubelet resolvConf at the real upstream file or correct the node resolver. The other options would produce different symptoms entirely.",
     referenceUrl: "https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/",
@@ -73,11 +73,11 @@ export const K8S_CKA_QUESTIONS_10 = [
     question: "Why, and what is required?",
     options: [
       { id: 'A', text: "The new claim must request exactly the same size to bind." },
-      { id: 'B', text: "Released volumes are corrupt and must be deleted." },
-      { id: 'C', text: "A Released volume still records its previous claim reference, so it does not rebind automatically; clear the claimRef or recreate the PV." },
-      { id: 'D', text: "Released volumes rebind automatically after the reclaim timeout." }
+      { id: 'B', text: "A Released volume still records its previous claim reference, so it does not rebind automatically; clear the claimRef or recreate the PV." },
+      { id: 'C', text: "Released volumes rebind automatically after the reclaim timeout." },
+      { id: 'D', text: "Released volumes are corrupt and must be deleted." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "With a Retain policy the volume moves to Released and keeps the stale claimRef, deliberately preventing another claim from picking up data that belonged to someone else until an administrator intervenes. Size need only be at least the request, and there is no automatic rebinding timeout.",
     referenceUrl: "https://kubernetes.io/docs/concepts/storage/persistent-volumes/",
@@ -135,12 +135,12 @@ export const K8S_CKA_QUESTIONS_10 = [
     scenario: "An engineer is deciding which command to reach for when a pod misbehaves.",
     question: "What does describe provide that get -o yaml does not?",
     options: [
-      { id: 'A', text: "The Events list narrating what controllers and the kubelet have attempted, plus human-formatted fields." },
+      { id: 'A', text: "The container logs." },
       { id: 'B', text: "The resource usage metrics." },
-      { id: 'C', text: "The container logs." },
-      { id: 'D', text: "The exact persisted spec after defaulting and admission." }
+      { id: 'C', text: "The exact persisted spec after defaulting and admission." },
+      { id: 'D', text: "The Events list narrating what controllers and the kubelet have attempted, plus human-formatted fields." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "describe aggregates the object with its related Events, which is where scheduling failures, image pull errors, and probe failures are narrated; get -o yaml gives the exact persisted object, which is better for confirming fields. Logs come from kubectl logs and usage from kubectl top.",
     referenceUrl: "https://kubernetes.io/docs/tasks/debug/",
@@ -177,12 +177,12 @@ export const K8S_CKA_QUESTIONS_10 = [
     scenario: "A Service is unreachable and the operator wants a systematic order of tests rather than guesswork.",
     question: "Which sequence isolates the layer fastest?",
     options: [
-      { id: 'A', text: "Read the API server audit log first." },
-      { id: 'B', text: "Recreate the Service, then the Deployment, then the namespace." },
-      { id: 'C', text: "Restart kube-proxy, then CoreDNS, then the application pods." },
-      { id: 'D', text: "Check EndpointSlices, then curl the pod IP, then curl the ClusterIP, then test DNS resolution, then review NetworkPolicies." }
+      { id: 'A', text: "Recreate the Service, then the Deployment, then the namespace." },
+      { id: 'B', text: "Read the API server audit log first." },
+      { id: 'C', text: "Check EndpointSlices, then curl the pod IP, then curl the ClusterIP, then test DNS resolution, then review NetworkPolicies." },
+      { id: 'D', text: "Restart kube-proxy, then CoreDNS, then the application pods." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Testing from the backend outwards separates the layers cleanly: endpoints prove selection and readiness, the pod IP proves the application, the ClusterIP proves kube-proxy, name resolution proves DNS, and policy review explains selective blocking. Restarting or recreating components changes state before the cause is known.",
     referenceUrl: "https://kubernetes.io/docs/tasks/debug/debug-application/debug-service/",
@@ -261,12 +261,12 @@ export const K8S_CKA_QUESTIONS_10 = [
     scenario: "A pod has two containers. The first sets equal CPU and memory requests and limits; the second sets only a memory limit.",
     question: "What is the pod QoS class?",
     options: [
-      { id: 'A', text: "Burstable, because Guaranteed requires every container to set equal requests and limits for both CPU and memory." },
-      { id: 'B', text: "The pod is rejected as invalid." },
+      { id: 'A', text: "BestEffort, because one container omits requests." },
+      { id: 'B', text: "Burstable, because Guaranteed requires every container to set equal requests and limits for both CPU and memory." },
       { id: 'C', text: "Guaranteed, because at least one container qualifies." },
-      { id: 'D', text: "BestEffort, because one container omits requests." }
+      { id: 'D', text: "The pod is rejected as invalid." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "QoS is derived at pod level and Guaranteed demands that every container specifies CPU and memory limits with requests equal to them; one container falling short makes the whole pod Burstable. BestEffort requires no requests or limits anywhere, and the specification is perfectly valid.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/pods/pod-qos/",
@@ -303,12 +303,12 @@ export const K8S_CKA_QUESTIONS_10 = [
     scenario: "A kubeconfig contains three clusters, three users, and four contexts.",
     question: "What does a context define?",
     options: [
-      { id: 'A', text: "A named combination of a cluster, a user, and an optional default namespace." },
-      { id: 'B', text: "The API server certificate authority." },
-      { id: 'C', text: "A list of resources kubectl may access." },
-      { id: 'D', text: "A set of RBAC permissions granted to the user." }
+      { id: 'A', text: "A set of RBAC permissions granted to the user." },
+      { id: 'B', text: "A list of resources kubectl may access." },
+      { id: 'C', text: "The API server certificate authority." },
+      { id: 'D', text: "A named combination of a cluster, a user, and an optional default namespace." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "A context is purely a client-side pairing of cluster, user, and default namespace, which is why four contexts can exist across three clusters. Permissions live in RBAC on the server, and the certificate authority is part of the cluster entry.",
     referenceUrl: "https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/",
@@ -325,11 +325,11 @@ export const K8S_CKA_QUESTIONS_10 = [
     question: "Which approach is most appropriate?",
     options: [
       { id: 'A', text: "A hostPath volume on every node." },
-      { id: 'B', text: "A PersistentVolume with ReadOnlyMany, or the data baked into the container image if it is small enough." },
-      { id: 'C', text: "A ReadWriteOnce volume shared by all pods." },
-      { id: 'D', text: "An emptyDir populated by an init container in each pod." }
+      { id: 'B', text: "An emptyDir populated by an init container in each pod." },
+      { id: 'C', text: "A PersistentVolume with ReadOnlyMany, or the data baked into the container image if it is small enough." },
+      { id: 'D', text: "A ReadWriteOnce volume shared by all pods." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "ReadOnlyMany allows many nodes to mount the same volume for reading, which fits immutable reference data, and small datasets are often simplest baked into the image. ReadWriteOnce cannot span nodes, hostPath requires distributing and maintaining copies per node, and re-fetching into emptyDir per pod wastes bandwidth and startup time.",
     referenceUrl: "https://kubernetes.io/docs/concepts/storage/persistent-volumes/",
@@ -345,12 +345,12 @@ export const K8S_CKA_QUESTIONS_10 = [
     scenario: "After rotating control plane certificates, kubectl works but new pods stay Pending and the scheduler logs show authentication failures.",
     question: "What was probably missed?",
     options: [
-      { id: 'A', text: "etcd must be restored from a snapshot." },
-      { id: 'B', text: "The component kubeconfigs in /etc/kubernetes were not regenerated or the static pods were not restarted, so the scheduler is still presenting an old certificate." },
-      { id: 'C', text: "The nodes need to rejoin the cluster." },
-      { id: 'D', text: "The cluster CA was deleted." }
+      { id: 'A', text: "The nodes need to rejoin the cluster." },
+      { id: 'B', text: "The cluster CA was deleted." },
+      { id: 'C', text: "etcd must be restored from a snapshot." },
+      { id: 'D', text: "The component kubeconfigs in /etc/kubernetes were not regenerated or the static pods were not restarted, so the scheduler is still presenting an old certificate." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "kubeadm certs renew reissues certificates but the control plane components keep using the credentials they loaded at start, and their kubeconfigs embed client certificates - so scheduler.conf, controller-manager.conf, and admin.conf must be regenerated and the static pods restarted. A deleted CA would break kubectl too, and neither rejoining nodes nor restoring etcd addresses stale component credentials.",
     referenceUrl: "https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-certs/",
@@ -366,10 +366,10 @@ export const K8S_CKA_QUESTIONS_10 = [
     scenario: "An operator deletes a single pod belonging to a three-replica deployment.",
     question: "What happens next?",
     options: [
-      { id: 'A', text: "The same pod is recreated with its original name and IP address." },
+      { id: 'A', text: "The deployment is scaled down to two replicas permanently." },
       { id: 'B', text: "The ReplicaSet observes the shortfall and creates a replacement pod with a new name." },
-      { id: 'C', text: "Nothing happens until the deployment is reapplied." },
-      { id: 'D', text: "The deployment is scaled down to two replicas permanently." }
+      { id: 'C', text: "The same pod is recreated with its original name and IP address." },
+      { id: 'D', text: "Nothing happens until the deployment is reapplied." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -408,10 +408,10 @@ export const K8S_CKA_QUESTIONS_10 = [
     scenario: "kubectl api-resources begins failing with an error mentioning v1beta1.metrics.k8s.io, and namespace deletions have started hanging.",
     question: "What is the relationship?",
     options: [
-      { id: 'A', text: "APIService controls RBAC for the metrics API only." },
+      { id: 'A', text: "The error is cosmetic and unrelated to namespace deletion." },
       { id: 'B', text: "An APIService registers an aggregated API server; when its backing service is unavailable, discovery fails and namespace finalization can block because resources of that group cannot be enumerated." },
-      { id: 'C', text: "APIService objects define CRDs, which must be deleted first." },
-      { id: 'D', text: "The error is cosmetic and unrelated to namespace deletion." }
+      { id: 'C', text: "APIService controls RBAC for the metrics API only." },
+      { id: 'D', text: "APIService objects define CRDs, which must be deleted first." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -429,12 +429,12 @@ export const K8S_CKA_QUESTIONS_10 = [
     scenario: "A new StatefulSet pod is created with a volumeClaimTemplate on a CSI-backed StorageClass using WaitForFirstConsumer.",
     question: "Which sequence is correct?",
     options: [
-      { id: 'A', text: "The kubelet creates the volume directly through the cloud API." },
+      { id: 'A', text: "The pod starts first and the volume is attached afterwards without staging." },
       { id: 'B', text: "PV created first, then the PVC binds, then the pod is scheduled to wherever the volume already exists." },
-      { id: 'C', text: "The pod starts first and the volume is attached afterwards without staging." },
-      { id: 'D', text: "PVC created, scheduler selects a node, provisioner creates the PV and binds it, CSI controller attaches it to that node, CSI node plugin stages and publishes it into the pod." }
+      { id: 'C', text: "PVC created, scheduler selects a node, provisioner creates the PV and binds it, CSI controller attaches it to that node, CSI node plugin stages and publishes it into the pod." },
+      { id: 'D', text: "The kubelet creates the volume directly through the cloud API." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "With WaitForFirstConsumer, binding and provisioning deliberately wait for the scheduler so the volume is created in the right topology, after which the controller plugin attaches and the node plugin stages and publishes it before the container starts. Immediate binding would provision before scheduling, and the kubelet delegates volume operations to CSI plugins.",
     referenceUrl: "https://kubernetes.io/docs/concepts/storage/storage-classes/",
@@ -450,12 +450,12 @@ export const K8S_CKA_QUESTIONS_10 = [
     scenario: "Four symptoms are reported: a pod stuck Pending, a node NotReady, no ReplicaSet created for a new deployment, and every kubectl command failing.",
     question: "Which mapping of symptom to component is correct?",
     options: [
-      { id: 'A', text: "Pending to kube-scheduler, NotReady to the kubelet, missing ReplicaSet to kube-controller-manager, and total failure to kube-apiserver or etcd." },
-      { id: 'B', text: "All four to the kubelet, since it runs everything on the node." },
-      { id: 'C', text: "Pending to the kubelet and NotReady to the scheduler." },
+      { id: 'A', text: "Pending to the kubelet and NotReady to the scheduler." },
+      { id: 'B', text: "Pending to kube-scheduler, NotReady to the kubelet, missing ReplicaSet to kube-controller-manager, and total failure to kube-apiserver or etcd." },
+      { id: 'C', text: "All four to the kubelet, since it runs everything on the node." },
       { id: 'D', text: "All four to etcd, since it stores all state." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Each control loop owns a distinct symptom: placement is the scheduler, node health reporting is the kubelet, creating dependent objects is the controller manager, and serving requests is the API server backed by etcd. Matching symptom to owning loop is the fastest way to pick the right log.",
     referenceUrl: "https://kubernetes.io/docs/concepts/overview/components/",
@@ -513,12 +513,12 @@ export const K8S_CKA_QUESTIONS_10 = [
     scenario: "A validating webhook backend becomes unavailable and pod creation begins failing cluster-wide.",
     question: "Which configuration decides that behaviour, and what is the trade-off?",
     options: [
-      { id: 'A', text: "Webhooks are always ignored when unreachable." },
-      { id: 'B', text: "Only mutating webhooks can block requests." },
-      { id: 'C', text: "The API server retries indefinitely until the webhook responds." },
-      { id: 'D', text: "failurePolicy: Fail blocks requests when the webhook is unreachable, which is safer for policy but makes the webhook a cluster-wide dependency; Ignore trades enforcement for availability." }
+      { id: 'A', text: "Only mutating webhooks can block requests." },
+      { id: 'B', text: "Webhooks are always ignored when unreachable." },
+      { id: 'C', text: "failurePolicy: Fail blocks requests when the webhook is unreachable, which is safer for policy but makes the webhook a cluster-wide dependency; Ignore trades enforcement for availability." },
+      { id: 'D', text: "The API server retries indefinitely until the webhook responds." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "failurePolicy governs what happens when a webhook cannot be reached, and Fail is the secure default that also turns the webhook into a critical dependency - which is why namespaceSelector, objectSelector, and timeouts are used to limit its scope. Both webhook types can reject requests, and the API server does not retry forever.",
     referenceUrl: "https://kubernetes.io/docs/reference/access-authn-authz/extensible-admission-controllers/",

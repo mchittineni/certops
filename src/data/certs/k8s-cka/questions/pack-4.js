@@ -51,12 +51,12 @@ export const K8S_CKA_QUESTIONS_4 = [
     scenario: "After applying a default-deny egress NetworkPolicy to a namespace, application pods can no longer resolve any hostname, though the policy explicitly allows their database CIDR.",
     question: "What is missing from the policy?",
     options: [
-      { id: 'A', text: "A dnsPolicy of ClusterFirstWithHostNet on each pod." },
-      { id: 'B', text: "A hostAliases entry for the database hostname." },
-      { id: 'C', text: "An ingress rule allowing port 53 from CoreDNS." },
-      { id: 'D', text: "An egress rule allowing UDP and TCP port 53 to the kube-system CoreDNS pods." }
+      { id: 'A', text: "An ingress rule allowing port 53 from CoreDNS." },
+      { id: 'B', text: "An egress rule allowing UDP and TCP port 53 to the kube-system CoreDNS pods." },
+      { id: 'C', text: "A dnsPolicy of ClusterFirstWithHostNet on each pod." },
+      { id: 'D', text: "A hostAliases entry for the database hostname." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "A default-deny egress policy blocks the DNS queries pods send to CoreDNS, so the policy needs an explicit egress rule to the kube-system DNS pods on port 53 over UDP and TCP. DNS replies are return traffic on an allowed connection rather than separate ingress, dnsPolicy changes which resolver is configured rather than whether the packets are permitted, and hostAliases would only paper over one name.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/network-policies/",
@@ -114,12 +114,12 @@ export const K8S_CKA_QUESTIONS_4 = [
     scenario: "A compliance requirement states that Secret objects must be encrypted inside etcd, using a key managed on the control plane node.",
     question: "How is that enabled?",
     options: [
-      { id: 'A', text: "Turn on the PodSecurity admission controller." },
-      { id: 'B', text: "Provide an EncryptionConfiguration file and pass --encryption-provider-config to kube-apiserver, then rewrite existing Secrets." },
-      { id: 'C', text: "Enable TLS between the API server and etcd." },
-      { id: 'D', text: "Set encrypted: true in each Secret metadata." }
+      { id: 'A', text: "Enable TLS between the API server and etcd." },
+      { id: 'B', text: "Set encrypted: true in each Secret metadata." },
+      { id: 'C', text: "Turn on the PodSecurity admission controller." },
+      { id: 'D', text: "Provide an EncryptionConfiguration file and pass --encryption-provider-config to kube-apiserver, then rewrite existing Secrets." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Encryption at rest is an API server feature configured with an EncryptionConfiguration listing providers such as aescbc or a KMS plugin, and existing objects stay in their old form until they are rewritten, typically with kubectl get secrets -A -o json | kubectl replace -f -. There is no per-object encrypted flag, TLS protects data in transit rather than at rest, and PodSecurity governs pod-level security standards.",
     referenceUrl: "https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/",
@@ -156,12 +156,12 @@ export const K8S_CKA_QUESTIONS_4 = [
     scenario: "A bare-metal cluster with no cloud load balancer integration must expose a single HTTP application to users outside the cluster, and the team wants to avoid one external port per service.",
     question: "Which approach is the most appropriate?",
     options: [
-      { id: 'A', text: "Deploy an ingress controller reachable from outside, and route applications through Ingress objects." },
-      { id: 'B', text: "Use an ExternalName Service pointing at the pod IP." },
-      { id: 'C', text: "Create a LoadBalancer Service and wait for an external IP." },
-      { id: 'D', text: "Expose a NodePort per application and document the port numbers." }
+      { id: 'A', text: "Use an ExternalName Service pointing at the pod IP." },
+      { id: 'B', text: "Deploy an ingress controller reachable from outside, and route applications through Ingress objects." },
+      { id: 'C', text: "Expose a NodePort per application and document the port numbers." },
+      { id: 'D', text: "Create a LoadBalancer Service and wait for an external IP." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "An ingress controller gives one externally reachable entry point that routes many applications by host and path, which is the standard bare-metal answer. A LoadBalancer Service stays Pending without a cloud provider or a bare-metal implementation, NodePort per application is exactly the port sprawl to avoid, and ExternalName only returns a CNAME for an external DNS name.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/",
@@ -177,12 +177,12 @@ export const K8S_CKA_QUESTIONS_4 = [
     scenario: "A cleanup task must run at 02:30 every day.",
     question: "Which cron schedule expresses that?",
     options: [
-      { id: 'A', text: "2 30 * * *" },
-      { id: 'B', text: "0 2 30 * *" },
-      { id: 'C', text: "* 2 30 * *" },
-      { id: 'D', text: "30 2 * * *" }
+      { id: 'A', text: "0 2 30 * *" },
+      { id: 'B', text: "2 30 * * *" },
+      { id: 'C', text: "30 2 * * *" },
+      { id: 'D', text: "* 2 30 * *" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Cron fields are minute, hour, day of month, month, day of week, so 02:30 daily is \"30 2 * * *\". The expression 2 30 * * * puts 30 in the hour field, which is invalid; * 2 30 * * runs every minute of hour 2 on the 30th; and 0 2 30 * * runs at 02:00 on the 30th of each month.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/",
@@ -261,12 +261,12 @@ export const K8S_CKA_QUESTIONS_4 = [
     scenario: "A developer wants temporary access to a pod HTTP port from a workstation, with no Service, Ingress, or firewall change.",
     question: "Which command provides it?",
     options: [
-      { id: 'A', text: "kubectl attach pod/api" },
-      { id: 'B', text: "kubectl expose pod api --type=LoadBalancer" },
-      { id: 'C', text: "kubectl port-forward pod/api 8080:8080" },
-      { id: 'D', text: "kubectl proxy --port=8080" }
+      { id: 'A', text: "kubectl proxy --port=8080" },
+      { id: 'B', text: "kubectl port-forward pod/api 8080:8080" },
+      { id: 'C', text: "kubectl expose pod api --type=LoadBalancer" },
+      { id: 'D', text: "kubectl attach pod/api" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "kubectl port-forward tunnels a local port to a port on the pod through the API server for as long as the command runs, requiring no cluster object. Exposing a LoadBalancer creates a permanent public endpoint, kubectl proxy exposes the Kubernetes API rather than the pod application port, and attach connects to container stdio.",
     referenceUrl: "https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/",
@@ -304,9 +304,9 @@ export const K8S_CKA_QUESTIONS_4 = [
     question: "Which statement correctly contrasts the two topologies?",
     options: [
       { id: 'A', text: "A stacked topology couples an etcd member to each control plane node so losing one node loses both roles, while an external etcd topology decouples them at the cost of more machines." },
-      { id: 'B', text: "Only external etcd supports TLS between the API server and etcd." },
-      { id: 'C', text: "A stacked topology cannot be created with kubeadm." },
-      { id: 'D', text: "A stacked topology requires an odd number of etcd members while an external topology does not." }
+      { id: 'B', text: "A stacked topology cannot be created with kubeadm." },
+      { id: 'C', text: "A stacked topology requires an odd number of etcd members while an external topology does not." },
+      { id: 'D', text: "Only external etcd supports TLS between the API server and etcd." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -324,12 +324,12 @@ export const K8S_CKA_QUESTIONS_4 = [
     scenario: "A StatefulSet of five replicas takes far too long to roll out because each pod waits for the previous one to become Ready, and the application does not actually require ordering at startup.",
     question: "Which field speeds up creation and scaling?",
     options: [
-      { id: 'A', text: "updateStrategy.type: OnDelete" },
+      { id: 'A', text: "revisionHistoryLimit: 0" },
       { id: 'B', text: "terminationGracePeriodSeconds: 0" },
-      { id: 'C', text: "revisionHistoryLimit: 0" },
-      { id: 'D', text: "podManagementPolicy: Parallel" }
+      { id: 'C', text: "podManagementPolicy: Parallel" },
+      { id: 'D', text: "updateStrategy.type: OnDelete" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "podManagementPolicy: Parallel tells the StatefulSet controller to create and delete pods simultaneously instead of waiting for each ordinal, while keeping stable identities and volumes. OnDelete changes how updates are applied rather than creation order, revisionHistoryLimit only trims stored revisions, and a zero grace period forces unsafe termination.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/",
@@ -345,12 +345,12 @@ export const K8S_CKA_QUESTIONS_4 = [
     scenario: "A pod runs an application container named app and a sidecar named proxy. Only the sidecar output is needed.",
     question: "Which command returns it?",
     options: [
-      { id: 'A', text: "kubectl logs POD --all-containers --tail=1" },
-      { id: 'B', text: "kubectl logs POD -c proxy" },
+      { id: 'A', text: "kubectl describe pod POD | grep proxy" },
+      { id: 'B', text: "kubectl logs POD --all-containers --tail=1" },
       { id: 'C', text: "kubectl logs POD --previous" },
-      { id: 'D', text: "kubectl describe pod POD | grep proxy" }
+      { id: 'D', text: "kubectl logs POD -c proxy" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The -c flag selects one container inside a multi-container pod. --previous returns the last terminated instance of the default container, --all-containers mixes both streams, and describe shows object state rather than log output.",
     referenceUrl: "https://kubernetes.io/docs/reference/kubectl/generated/kubectl_logs/",
@@ -408,12 +408,12 @@ export const K8S_CKA_QUESTIONS_4 = [
     scenario: "A team wants kubectl get backups to work cluster-wide with server-side validation of the object schema, without running a separate API server.",
     question: "Which mechanism provides that?",
     options: [
-      { id: 'A', text: "A ValidatingAdmissionWebhook on ConfigMaps." },
-      { id: 'B', text: "A CustomResourceDefinition with an OpenAPI v3 structural schema." },
-      { id: 'C', text: "An APIService registering an aggregated API server." },
-      { id: 'D', text: "A kubectl plugin that shells out to a database." }
+      { id: 'A', text: "A CustomResourceDefinition with an OpenAPI v3 structural schema." },
+      { id: 'B', text: "A ValidatingAdmissionWebhook on ConfigMaps." },
+      { id: 'C', text: "A kubectl plugin that shells out to a database." },
+      { id: 'D', text: "An APIService registering an aggregated API server." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "A CRD adds a new resource type to the existing API server and validates instances against its structural schema, which is exactly the requirement without extra infrastructure. An aggregated API server is the option that does require running a separate server, an admission webhook on ConfigMaps does not create a new resource type, and a kubectl plugin adds no server-side storage or validation.",
     referenceUrl: "https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/",
@@ -429,12 +429,12 @@ export const K8S_CKA_QUESTIONS_4 = [
     scenario: "A container declares a memory request of 256Mi and a memory limit of 512Mi.",
     question: "What do those two values control?",
     options: [
-      { id: 'A', text: "The request is what the scheduler reserves when placing the pod; the limit is the ceiling the kernel enforces at runtime." },
-      { id: 'B', text: "The request is the maximum the container may use; the limit is what the scheduler reserves." },
+      { id: 'A', text: "Both values are advisory and are not enforced." },
+      { id: 'B', text: "The request is what the scheduler reserves when placing the pod; the limit is the ceiling the kernel enforces at runtime." },
       { id: 'C', text: "The request applies to the pod and the limit applies to the namespace." },
-      { id: 'D', text: "Both values are advisory and are not enforced." }
+      { id: 'D', text: "The request is the maximum the container may use; the limit is what the scheduler reserves." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Requests drive scheduling and are subtracted from node allocatable capacity, while limits are enforced by cgroups at runtime - CPU is throttled and memory over the limit is OOM killed. Describing the request as a maximum reverses the two roles, limits are genuinely enforced rather than advisory, and namespace-wide caps come from ResourceQuota rather than container limits.",
     referenceUrl: "https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
@@ -450,12 +450,12 @@ export const K8S_CKA_QUESTIONS_4 = [
     scenario: "A PersistentVolumeClaim requesting 100Gi with storageClassName: fast stays Pending. No StorageClass named fast exists in the cluster.",
     question: "What is the outcome and the fix?",
     options: [
-      { id: 'A', text: "No provisioner matches, so the claim stays Pending until the StorageClass exists or the claim references an existing class." },
-      { id: 'B', text: "A PersistentVolume of 100Gi is created without a class." },
-      { id: 'C', text: "The API server rejects the claim at creation time." },
-      { id: 'D', text: "The default StorageClass is used automatically after a timeout." }
+      { id: 'A', text: "The API server rejects the claim at creation time." },
+      { id: 'B', text: "The default StorageClass is used automatically after a timeout." },
+      { id: 'C', text: "No provisioner matches, so the claim stays Pending until the StorageClass exists or the claim references an existing class." },
+      { id: 'D', text: "A PersistentVolume of 100Gi is created without a class." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Naming a non-existent StorageClass leaves the claim unmatched and unprovisioned, and it remains Pending indefinitely; the default class only applies when storageClassName is omitted entirely. The API server accepts the object because the class need not exist at creation time, and nothing provisions a volume on its own.",
     referenceUrl: "https://kubernetes.io/docs/concepts/storage/persistent-volumes/",
@@ -471,12 +471,12 @@ export const K8S_CKA_QUESTIONS_4 = [
     scenario: "A cluster is being installed with --pod-network-cidr=10.244.0.0/16 and a Service CIDR of 10.96.0.0/12, on a network where the nodes themselves use 10.0.0.0/16.",
     question: "Which statement about these ranges is correct?",
     options: [
-      { id: 'A', text: "The node network must be inside the pod CIDR for pods to reach nodes." },
-      { id: 'B', text: "The pod CIDR, the Service CIDR, and the node network must not overlap, because each is routed differently." },
-      { id: 'C', text: "Service ClusterIPs are assigned from the pod CIDR." },
-      { id: 'D', text: "The pod CIDR must be a subnet of the Service CIDR." }
+      { id: 'A', text: "The pod CIDR, the Service CIDR, and the node network must not overlap, because each is routed differently." },
+      { id: 'B', text: "The node network must be inside the pod CIDR for pods to reach nodes." },
+      { id: 'C', text: "The pod CIDR must be a subnet of the Service CIDR." },
+      { id: 'D', text: "Service ClusterIPs are assigned from the pod CIDR." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Pod addresses come from the pod CIDR handled by the CNI plugin, Service virtual IPs come from the Service CIDR handled by kube-proxy, and node addresses come from the physical network - overlapping any two produces unroutable traffic. The other options all describe overlaps that would break exactly that separation.",
     referenceUrl: "https://kubernetes.io/docs/concepts/cluster-administration/networking/",
@@ -513,12 +513,12 @@ export const K8S_CKA_QUESTIONS_4 = [
     scenario: "A rollout has been in progress for twenty minutes. Old pods are still serving and new pods stay in a not-ready state, and kubectl rollout status never completes.",
     question: "Which explanation matches the symptoms?",
     options: [
-      { id: 'A', text: "The Service selector matches only the old pods, which blocks the rollout." },
+      { id: 'A', text: "The new pods fail their readiness probe, so maxUnavailable prevents the controller from removing more old pods." },
       { id: 'B', text: "The deployment strategy is Recreate, which keeps both versions running." },
-      { id: 'C', text: "The ReplicaSet controller has crashed." },
-      { id: 'D', text: "The new pods fail their readiness probe, so maxUnavailable prevents the controller from removing more old pods." }
+      { id: 'C', text: "The Service selector matches only the old pods, which blocks the rollout." },
+      { id: 'D', text: "The ReplicaSet controller has crashed." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "A rolling update advances only as new pods become Ready; if their readiness probe never passes, the deployment holds at the maxUnavailable boundary with both versions present, which is exactly the described stall. Recreate deletes all old pods first, a crashed controller would freeze many workloads rather than one rollout, and a Service selector affects traffic rather than rollout progress.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/deployment/",
