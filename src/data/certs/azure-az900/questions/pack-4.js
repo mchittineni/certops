@@ -1,66 +1,66 @@
 export const AZURE_AZ900_QUESTIONS_4 = [
   {
     id: "az-900-76",
-    difficulty: "medium",
-    certId: "azure-az900",
-    domainId: "d2",
-    domainName: "Describe Azure Architecture and Services",
-    title: "Azure AZ-900 Mastery Topic #76: Architecture & Core Services",
-    scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #76 requiring enterprise architecture alignment with Microsoft best practices.",
-    question: "Which Microsoft Azure service or architectural principle best addresses requirement #76?",
-    options: [
-      { id: 'A', text: "Option B: Legacy on-premises hardware approach." },
-      { id: 'B', text: "Option D: Standalone virtual machine without redundancy." },
-      { id: 'C', text: "Option A: Azure core capability for Describe Azure Architecture and Services (Optimal recommended solution)." },
-      { id: 'D', text: "Option C: Unmanaged manual scripting without high availability." }
-    ],
-    correctAnswers: ['C'],
-    type: "single",
-    explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #76: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
-    referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-    tags: ["Azure", "AZ-900", "Fundamentals", "Describe Azure Architecture and Services"]
-  },
-  {
-    id: "az-900-77",
     difficulty: "easy",
     certId: "azure-az900",
     domainId: "d2",
     domainName: "Describe Azure Architecture and Services",
-    title: "Azure AZ-900 Mastery Topic #77: Architecture & Core Services",
-    scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #77 requiring enterprise architecture alignment with Microsoft best practices.",
-    question: "Which Microsoft Azure service or architectural principle best addresses requirement #77?",
+    title: "Azure Region Definition",
+    scenario: "A company needs to deploy virtual machines in a specific geographic area containing one or more datacenters connected via a low-latency network.",
+    question: "What Azure architectural construct defines this geographical boundary?",
     options: [
-      { id: 'A', text: "Option C: Unmanaged manual scripting without high availability." },
-      { id: 'B', text: "Option D: Standalone virtual machine without redundancy." },
-      { id: 'C', text: "Option B: Legacy on-premises hardware approach." },
-      { id: 'D', text: "Option A: Azure core capability for Describe Azure Architecture and Services (Optimal recommended solution)." }
+      { id: 'A', text: "An Azure geography" },
+      { id: 'B', text: "An Azure region" },
+      { id: 'C', text: "A resource group" },
+      { id: 'D', text: "An Availability Zone" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
-    explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #77: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
-    referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-    tags: ["Azure", "AZ-900", "Fundamentals", "Describe Azure Architecture and Services"]
+    explanation: "An Azure region is a geographical area that contains one or more datacenters that are located nearby and connected by a dedicated, low-latency regional network. Regions allow customers to deploy workloads close to users for optimal performance.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/reliability/availability-zones-overview",
+    tags: ["Azure Architecture", "Regions", "Core Infrastructure"]
   },
   {
-    id: "az-900-78",
-    difficulty: "hard",
+    id: "az-900-77",
+    difficulty: "medium",
     certId: "azure-az900",
     domainId: "d2",
     domainName: "Describe Azure Architecture and Services",
-    title: "Azure AZ-900 Mastery Topic #78: Architecture & Core Services",
-    scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #78 requiring enterprise architecture alignment with Microsoft best practices.",
-    question: "Which Microsoft Azure service or architectural principle best addresses requirement #78?",
+    title: "Azure Region Pairs",
+    scenario: "An organization wants to protect against regional disasters by taking advantage of pre-configured cross-region replication and phased platform updates that ensure only one region in the pair is updated at a time.",
+    question: "Which Azure feature provides this relationship?",
     options: [
-      { id: 'A', text: "Option B: Legacy on-premises hardware approach." },
-      { id: 'B', text: "Option D: Standalone virtual machine without redundancy." },
-      { id: 'C', text: "Option C: Unmanaged manual scripting without high availability." },
-      { id: 'D', text: "Option A: Azure core capability for Describe Azure Architecture and Services (Optimal recommended solution)." }
+      { id: 'A', text: "Azure region pairs" },
+      { id: 'B', text: "Azure Availability Zones" },
+      { id: 'C', text: "Management Groups" },
+      { id: 'D', text: "Virtual Network peering" }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Each Azure region is paired with another region within the same geography (at least 300 miles apart where possible). Azure region pairs feature phased updates so platform patches are rolled out to one region at a time, and provide native cross-region replication for storage services like GRS.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/reliability/cross-region-replication-azure",
+    tags: ["Azure Architecture", "Region Pairs", "Resilience"]
+  },
+  {
+    id: "az-900-78",
+    difficulty: "medium",
+    certId: "azure-az900",
+    domainId: "d2",
+    domainName: "Describe Azure Architecture and Services",
+    title: "Azure Sovereign Clouds - Government",
+    scenario: "A United States federal agency requires cloud services that meet strict FedRAMP High and Department of Defense Impact Level 5 compliance requirements, operated in isolated physical datacenters by screened US citizens.",
+    question: "Which Azure environment should the agency adopt?",
+    options: [
+      { id: 'A', text: "Azure Stack Hub on-premises only" },
+      { id: 'B', text: "Azure China 21Vianet" },
+      { id: 'C', text: "Public Azure commercial cloud" },
+      { id: 'D', text: "Azure Government" }
     ],
     correctAnswers: ['D'],
     type: "single",
-    explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #78: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
-    referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-    tags: ["Azure", "AZ-900", "Fundamentals", "Describe Azure Architecture and Services"]
+    explanation: "Azure Government is a physically and logically isolated cloud environment dedicated exclusively to US federal, state, local, and tribal governments and their authorized partners, meeting the most rigorous compliance standards such as FedRAMP High and DoD IL5.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-government/documentation-government-overview",
+    tags: ["Azure Architecture", "Azure Government", "Sovereign Cloud"]
   },
   {
     id: "az-900-79",
@@ -68,62 +68,62 @@ export const AZURE_AZ900_QUESTIONS_4 = [
     certId: "azure-az900",
     domainId: "d2",
     domainName: "Describe Azure Architecture and Services",
-    title: "Azure AZ-900 Mastery Topic #79: Architecture & Core Services",
-    scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #79 requiring enterprise architecture alignment with Microsoft best practices.",
-    question: "Which Microsoft Azure service or architectural principle best addresses requirement #79?",
+    title: "Azure Availability Zones Architecture",
+    scenario: "An enterprise architect is designing an e-commerce platform that must withstand a total power outage or flood affecting an entire datacenter building in an Azure region.",
+    question: "Which Azure architectural feature provides physically separated datacenters within the same region, each equipped with independent power, cooling, and networking?",
     options: [
-      { id: 'A', text: "Option D: Standalone virtual machine without redundancy." },
-      { id: 'B', text: "Option C: Unmanaged manual scripting without high availability." },
-      { id: 'C', text: "Option A: Azure core capability for Describe Azure Architecture and Services (Optimal recommended solution)." },
-      { id: 'D', text: "Option B: Legacy on-premises hardware approach." }
+      { id: 'A', text: "Azure Resource Groups" },
+      { id: 'B', text: "Azure Region Pairs" },
+      { id: 'C', text: "Azure Subscriptions" },
+      { id: 'D', text: "Azure Availability Zones" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
-    explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #79: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
-    referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-    tags: ["Azure", "AZ-900", "Fundamentals", "Describe Azure Architecture and Services"]
+    explanation: "Availability Zones are physically separate datacenter locations within an Azure region. Each Availability Zone is made up of one or more datacenters equipped with independent power, cooling, and networking infrastructure to protect applications from datacenter-level failures.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/reliability/availability-zones-overview",
+    tags: ["Azure Architecture", "Availability Zones", "High Availability"]
   },
   {
     id: "az-900-80",
-    difficulty: "medium",
+    difficulty: "easy",
     certId: "azure-az900",
     domainId: "d2",
     domainName: "Describe Azure Architecture and Services",
-    title: "Azure AZ-900 Mastery Topic #80: Architecture & Core Services",
-    scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #80 requiring enterprise architecture alignment with Microsoft best practices.",
-    question: "Which Microsoft Azure service or architectural principle best addresses requirement #80?",
+    title: "Azure Management Groups Hierarchy",
+    scenario: "An IT administrator manages 40 Azure subscriptions for different business units. Management wants to apply governance policies and access controls across all 40 subscriptions simultaneously.",
+    question: "Which Azure resource container sits above subscriptions in the organizational hierarchy?",
     options: [
-      { id: 'A', text: "Option A: Azure core capability for Describe Azure Architecture and Services (Optimal recommended solution)." },
-      { id: 'B', text: "Option C: Unmanaged manual scripting without high availability." },
-      { id: 'C', text: "Option D: Standalone virtual machine without redundancy." },
-      { id: 'D', text: "Option B: Legacy on-premises hardware approach." }
+      { id: 'A', text: "Subscriptions" },
+      { id: 'B', text: "Resource Groups" },
+      { id: 'C', text: "Availability Sets" },
+      { id: 'D', text: "Management Groups" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
-    explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #80: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
-    referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-    tags: ["Azure", "AZ-900", "Fundamentals", "Describe Azure Architecture and Services"]
+    explanation: "Azure Management Groups provide a level of scope above subscriptions. If an organization has multiple subscriptions, management groups allow administrators to efficiently manage access, policies, and compliance across all subscriptions by inheriting policies applied at the management group level.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/management-groups/overview",
+    tags: ["Azure Architecture", "Management Groups", "Governance"]
   },
   {
     id: "az-900-81",
-    difficulty: "hard",
+    difficulty: "easy",
     certId: "azure-az900",
     domainId: "d2",
     domainName: "Describe Azure Architecture and Services",
-    title: "Azure AZ-900 Mastery Topic #81: Architecture & Core Services",
-    scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #81 requiring enterprise architecture alignment with Microsoft best practices.",
-    question: "Which Microsoft Azure service or architectural principle best addresses requirement #81?",
+    title: "Azure Resource Groups Lifecycle",
+    scenario: "A development team creates 15 resources (VMs, storage, virtual networks, and databases) for a short-term project. When the project completes, they want to delete all 15 resources with a single operation.",
+    question: "Which Azure construct should they use to group and manage the lifecycle of these related resources?",
     options: [
-      { id: 'A', text: "Option B: Legacy on-premises hardware approach." },
-      { id: 'B', text: "Option D: Standalone virtual machine without redundancy." },
-      { id: 'C', text: "Option A: Azure core capability for Describe Azure Architecture and Services (Optimal recommended solution)." },
-      { id: 'D', text: "Option C: Unmanaged manual scripting without high availability." }
+      { id: 'A', text: "An Availability Zone" },
+      { id: 'B', text: "A Virtual Network subnet" },
+      { id: 'C', text: "An Azure Resource Group" },
+      { id: 'D', text: "A Management Group" }
     ],
     correctAnswers: ['C'],
     type: "single",
-    explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #81: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
-    referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-    tags: ["Azure", "AZ-900", "Fundamentals", "Describe Azure Architecture and Services"]
+    explanation: "An Azure Resource Group is a logical container into which Azure resources (like VMs, databases, and VNets) are deployed and managed. Deleting a resource group automatically deletes all resources contained within it, providing clean lifecycle management.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview",
+    tags: ["Azure Architecture", "Resource Groups", "Lifecycle"]
   },
   {
     id: "az-900-82",
@@ -131,20 +131,20 @@ export const AZURE_AZ900_QUESTIONS_4 = [
     certId: "azure-az900",
     domainId: "d2",
     domainName: "Describe Azure Architecture and Services",
-    title: "Azure AZ-900 Mastery Topic #82: Architecture & Core Services",
-    scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #82 requiring enterprise architecture alignment with Microsoft best practices.",
-    question: "Which Microsoft Azure service or architectural principle best addresses requirement #82?",
+    title: "Azure Resource Manager (ARM)",
+    scenario: "An enterprise uses automated pipelines to deploy infrastructure using JSON templates and the Azure CLI. Regardless of whether deployments originate from the Azure Portal, PowerShell, or SDKs, the deployment requests are validated and routed consistently.",
+    question: "Which Azure management layer handles all deployment, management, and access control requests?",
     options: [
-      { id: 'A', text: "Option C: Unmanaged manual scripting without high availability." },
-      { id: 'B', text: "Option B: Legacy on-premises hardware approach." },
-      { id: 'C', text: "Option A: Azure core capability for Describe Azure Architecture and Services (Optimal recommended solution)." },
-      { id: 'D', text: "Option D: Standalone virtual machine without redundancy." }
+      { id: 'A', text: "Azure Resource Manager (ARM)" },
+      { id: 'B', text: "Azure Service Health" },
+      { id: 'C', text: "Azure Monitor" },
+      { id: 'D', text: "Microsoft Entra ID Application Proxy" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
-    explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #82: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
-    referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-    tags: ["Azure", "AZ-900", "Fundamentals", "Describe Azure Architecture and Services"]
+    explanation: "Azure Resource Manager (ARM) is the central deployment and management service for Azure. It provides a consistent management layer across the Azure Portal, Azure PowerShell, Azure CLI, and REST APIs, ensuring authentication, policy enforcement, and audit logging for every resource action.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview",
+    tags: ["Azure Architecture", "ARM", "Management Layer"]
   },
   {
     id: "az-900-83",
@@ -152,41 +152,41 @@ export const AZURE_AZ900_QUESTIONS_4 = [
     certId: "azure-az900",
     domainId: "d2",
     domainName: "Describe Azure Architecture and Services",
-    title: "Azure AZ-900 Mastery Topic #83: Architecture & Core Services",
-    scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #83 requiring enterprise architecture alignment with Microsoft best practices.",
-    question: "Which Microsoft Azure service or architectural principle best addresses requirement #83?",
+    title: "Azure Virtual Machines (IaaS Compute)",
+    scenario: "An organization needs to run custom enterprise software that requires direct access to the underlying operating system and specific registry configurations.",
+    question: "Which Azure compute service should they deploy?",
     options: [
-      { id: 'A', text: "Option C: Unmanaged manual scripting without high availability." },
-      { id: 'B', text: "Option B: Legacy on-premises hardware approach." },
-      { id: 'C', text: "Option D: Standalone virtual machine without redundancy." },
-      { id: 'D', text: "Option A: Azure core capability for Describe Azure Architecture and Services (Optimal recommended solution)." }
+      { id: 'A', text: "Azure Logic Apps" },
+      { id: 'B', text: "Azure App Service" },
+      { id: 'C', text: "Azure Functions" },
+      { id: 'D', text: "Azure Virtual Machines" }
     ],
     correctAnswers: ['D'],
     type: "single",
-    explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #83: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
-    referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-    tags: ["Azure", "AZ-900", "Fundamentals", "Describe Azure Architecture and Services"]
+    explanation: "Azure Virtual Machines is an Infrastructure as a Service (IaaS) offering that gives customers full control over the operating system, file system, installed software, and network configuration, making it ideal for legacy apps and custom OS requirements.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machines/overview",
+    tags: ["Azure Compute", "Virtual Machines", "IaaS"]
   },
   {
     id: "az-900-84",
-    difficulty: "hard",
+    difficulty: "medium",
     certId: "azure-az900",
     domainId: "d2",
     domainName: "Describe Azure Architecture and Services",
-    title: "Azure AZ-900 Mastery Topic #84: Architecture & Core Services",
-    scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #84 requiring enterprise architecture alignment with Microsoft best practices.",
-    question: "Which Microsoft Azure service or architectural principle best addresses requirement #84?",
+    title: "Azure Virtual Machine Scale Sets (VMSS)",
+    scenario: "A financial analytics firm requires a cluster of identical Windows Server virtual machines that automatically scale the number of instances up or down based on CPU metrics or a defined schedule.",
+    question: "Which Azure service provides this capability?",
     options: [
-      { id: 'A', text: "Option B: Legacy on-premises hardware approach." },
-      { id: 'B', text: "Option C: Unmanaged manual scripting without high availability." },
-      { id: 'C', text: "Option A: Azure core capability for Describe Azure Architecture and Services (Optimal recommended solution)." },
-      { id: 'D', text: "Option D: Standalone virtual machine without redundancy." }
+      { id: 'A', text: "Azure App Service Free tier" },
+      { id: 'B', text: "Azure Logic Apps" },
+      { id: 'C', text: "Azure Virtual Machine Scale Sets (VMSS)" },
+      { id: 'D', text: "Azure Container Instances" }
     ],
     correctAnswers: ['C'],
     type: "single",
-    explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #84: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
-    referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-    tags: ["Azure", "AZ-900", "Fundamentals", "Describe Azure Architecture and Services"]
+    explanation: "Azure Virtual Machine Scale Sets (VMSS) allow organizations to create and manage a group of identical, load-balanced virtual machines. The number of VM instances can automatically increase or decrease in response to demand or defined metrics.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview",
+    tags: ["Azure Compute", "VMSS", "Autoscaling"]
   },
   {
     id: "az-900-85",
@@ -194,146 +194,146 @@ export const AZURE_AZ900_QUESTIONS_4 = [
     certId: "azure-az900",
     domainId: "d2",
     domainName: "Describe Azure Architecture and Services",
-    title: "Azure AZ-900 Mastery Topic #85: Architecture & Core Services",
-    scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #85 requiring enterprise architecture alignment with Microsoft best practices.",
-    question: "Which Microsoft Azure service or architectural principle best addresses requirement #85?",
+    title: "Azure App Service (PaaS Compute)",
+    scenario: "A team of web developers wants to deploy a containerized Python and React web application without managing virtual machines, patching servers, or provisioning web server infrastructure.",
+    question: "Which Azure service provides this managed platform?",
     options: [
-      { id: 'A', text: "Option D: Standalone virtual machine without redundancy." },
-      { id: 'B', text: "Option C: Unmanaged manual scripting without high availability." },
-      { id: 'C', text: "Option A: Azure core capability for Describe Azure Architecture and Services (Optimal recommended solution)." },
-      { id: 'D', text: "Option B: Legacy on-premises hardware approach." }
-    ],
-    correctAnswers: ['C'],
-    type: "single",
-    explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #85: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
-    referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-    tags: ["Azure", "AZ-900", "Fundamentals", "Describe Azure Architecture and Services"]
-  },
-  {
-    id: "az-900-86",
-    difficulty: "medium",
-    certId: "azure-az900",
-    domainId: "d2",
-    domainName: "Describe Azure Architecture and Services",
-    title: "Azure AZ-900 Mastery Topic #86: Architecture & Core Services",
-    scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #86 requiring enterprise architecture alignment with Microsoft best practices.",
-    question: "Which Microsoft Azure service or architectural principle best addresses requirement #86?",
-    options: [
-      { id: 'A', text: "Option D: Standalone virtual machine without redundancy." },
-      { id: 'B', text: "Option C: Unmanaged manual scripting without high availability." },
-      { id: 'C', text: "Option A: Azure core capability for Describe Azure Architecture and Services (Optimal recommended solution)." },
-      { id: 'D', text: "Option B: Legacy on-premises hardware approach." }
-    ],
-    correctAnswers: ['C'],
-    type: "single",
-    explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #86: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
-    referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-    tags: ["Azure", "AZ-900", "Fundamentals", "Describe Azure Architecture and Services"]
-  },
-  {
-    id: "az-900-87",
-    difficulty: "hard",
-    certId: "azure-az900",
-    domainId: "d2",
-    domainName: "Describe Azure Architecture and Services",
-    title: "Azure AZ-900 Mastery Topic #87: Architecture & Core Services",
-    scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #87 requiring enterprise architecture alignment with Microsoft best practices.",
-    question: "Which Microsoft Azure service or architectural principle best addresses requirement #87?",
-    options: [
-      { id: 'A', text: "Option A: Azure core capability for Describe Azure Architecture and Services (Optimal recommended solution)." },
-      { id: 'B', text: "Option B: Legacy on-premises hardware approach." },
-      { id: 'C', text: "Option D: Standalone virtual machine without redundancy." },
-      { id: 'D', text: "Option C: Unmanaged manual scripting without high availability." }
-    ],
-    correctAnswers: ['A'],
-    type: "single",
-    explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #87: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
-    referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-    tags: ["Azure", "AZ-900", "Fundamentals", "Describe Azure Architecture and Services"]
-  },
-  {
-    id: "az-900-88",
-    difficulty: "medium",
-    certId: "azure-az900",
-    domainId: "d2",
-    domainName: "Describe Azure Architecture and Services",
-    title: "Azure AZ-900 Mastery Topic #88: Architecture & Core Services",
-    scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #88 requiring enterprise architecture alignment with Microsoft best practices.",
-    question: "Which Microsoft Azure service or architectural principle best addresses requirement #88?",
-    options: [
-      { id: 'A', text: "Option B: Legacy on-premises hardware approach." },
-      { id: 'B', text: "Option C: Unmanaged manual scripting without high availability." },
-      { id: 'C', text: "Option A: Azure core capability for Describe Azure Architecture and Services (Optimal recommended solution)." },
-      { id: 'D', text: "Option D: Standalone virtual machine without redundancy." }
-    ],
-    correctAnswers: ['C'],
-    type: "single",
-    explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #88: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
-    referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-    tags: ["Azure", "AZ-900", "Fundamentals", "Describe Azure Architecture and Services"]
-  },
-  {
-    id: "az-900-89",
-    difficulty: "easy",
-    certId: "azure-az900",
-    domainId: "d2",
-    domainName: "Describe Azure Architecture and Services",
-    title: "Azure AZ-900 Mastery Topic #89: Architecture & Core Services",
-    scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #89 requiring enterprise architecture alignment with Microsoft best practices.",
-    question: "Which Microsoft Azure service or architectural principle best addresses requirement #89?",
-    options: [
-      { id: 'A', text: "Option B: Legacy on-premises hardware approach." },
-      { id: 'B', text: "Option C: Unmanaged manual scripting without high availability." },
-      { id: 'C', text: "Option D: Standalone virtual machine without redundancy." },
-      { id: 'D', text: "Option A: Azure core capability for Describe Azure Architecture and Services (Optimal recommended solution)." }
-    ],
-    correctAnswers: ['D'],
-    type: "single",
-    explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #89: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
-    referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-    tags: ["Azure", "AZ-900", "Fundamentals", "Describe Azure Architecture and Services"]
-  },
-  {
-    id: "az-900-90",
-    difficulty: "hard",
-    certId: "azure-az900",
-    domainId: "d2",
-    domainName: "Describe Azure Architecture and Services",
-    title: "Azure AZ-900 Mastery Topic #90: Architecture & Core Services",
-    scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #90 requiring enterprise architecture alignment with Microsoft best practices.",
-    question: "Which Microsoft Azure service or architectural principle best addresses requirement #90?",
-    options: [
-      { id: 'A', text: "Option C: Unmanaged manual scripting without high availability." },
-      { id: 'B', text: "Option B: Legacy on-premises hardware approach." },
-      { id: 'C', text: "Option A: Azure core capability for Describe Azure Architecture and Services (Optimal recommended solution)." },
-      { id: 'D', text: "Option D: Standalone virtual machine without redundancy." }
-    ],
-    correctAnswers: ['C'],
-    type: "single",
-    explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #90: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
-    referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-    tags: ["Azure", "AZ-900", "Fundamentals", "Describe Azure Architecture and Services"]
-  },
-  {
-    id: "az-900-91",
-    difficulty: "easy",
-    certId: "azure-az900",
-    domainId: "d2",
-    domainName: "Describe Azure Architecture and Services",
-    title: "Azure AZ-900 Mastery Topic #91: Architecture & Core Services",
-    scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #91 requiring enterprise architecture alignment with Microsoft best practices.",
-    question: "Which Microsoft Azure service or architectural principle best addresses requirement #91?",
-    options: [
-      { id: 'A', text: "Option C: Unmanaged manual scripting without high availability." },
-      { id: 'B', text: "Option A: Azure core capability for Describe Azure Architecture and Services (Optimal recommended solution)." },
-      { id: 'C', text: "Option B: Legacy on-premises hardware approach." },
-      { id: 'D', text: "Option D: Standalone virtual machine without redundancy." }
+      { id: 'A', text: "Azure Virtual Machines" },
+      { id: 'B', text: "Azure App Service" },
+      { id: 'C', text: "Azure Dedicated Host" },
+      { id: 'D', text: "Azure Virtual Desktop" }
     ],
     correctAnswers: ['B'],
     type: "single",
-    explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #91: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
-    referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-    tags: ["Azure", "AZ-900", "Fundamentals", "Describe Azure Architecture and Services"]
+    explanation: "Azure App Service is an HTTP-based Platform as a Service (PaaS) for hosting web applications, REST APIs, and mobile backends. It supports automated scaling, continuous deployment, and multi-language runtimes without server management.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/app-service/overview",
+    tags: ["Azure Compute", "App Service", "PaaS"]
+  },
+  {
+    id: "az-900-86",
+    difficulty: "easy",
+    certId: "azure-az900",
+    domainId: "d2",
+    domainName: "Describe Azure Architecture and Services",
+    title: "Azure Container Instances (ACI)",
+    scenario: "A developer wants to run a single Docker container task that runs for 5 minutes and then terminates, without provisioning a full Kubernetes cluster or managing underlying VMs.",
+    question: "Which Azure service is best suited for this lightweight container execution?",
+    options: [
+      { id: 'A', text: "Azure Kubernetes Service (AKS)" },
+      { id: 'B', text: "Azure Dedicated Host" },
+      { id: 'C', text: "Azure Container Instances (ACI)" },
+      { id: 'D', text: "Azure Virtual Machine Scale Sets" }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Azure Container Instances (ACI) is a serverless container solution that enables developers to run containers directly on Azure without managing any virtual machines or container orchestration platforms, billing per second of execution.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/container-instances/container-instances-overview",
+    tags: ["Azure Compute", "ACI", "Containers"]
+  },
+  {
+    id: "az-900-87",
+    difficulty: "medium",
+    certId: "azure-az900",
+    domainId: "d2",
+    domainName: "Describe Azure Architecture and Services",
+    title: "Azure Kubernetes Service (AKS)",
+    scenario: "An enterprise is modernizing its application suite into hundreds of interconnected microservices packaged in containers, requiring automated deployment, service discovery, scaling, and rolling updates.",
+    question: "Which Azure service provides enterprise-grade container orchestration?",
+    options: [
+      { id: 'A', text: "Azure Virtual Desktop" },
+      { id: 'B', text: "Azure Kubernetes Service (AKS)" },
+      { id: 'C', text: "Azure Functions" },
+      { id: 'D', text: "Azure Container Instances" }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Azure Kubernetes Service (AKS) is a fully managed container orchestration service based on open-source Kubernetes. Azure handles cluster management, control plane health, and automated upgrades, while providing seamless integration with Azure networking and security.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/aks/intro-kubernetes",
+    tags: ["Azure Compute", "AKS", "Kubernetes"]
+  },
+  {
+    id: "az-900-88",
+    difficulty: "easy",
+    certId: "azure-az900",
+    domainId: "d2",
+    domainName: "Describe Azure Architecture and Services",
+    title: "Azure Functions (Serverless Code)",
+    scenario: "A developer needs to execute a lightweight snippet of C# code whenever a customer places an order in an online store. The code should execute only upon event arrival and incur zero compute cost while idle.",
+    question: "Which Azure service should be used?",
+    options: [
+      { id: 'A', text: "Azure Cloud Services" },
+      { id: 'B', text: "Azure Virtual Machines" },
+      { id: 'C', text: "Azure Functions" },
+      { id: 'D', text: "Azure Dedicated Host" }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Azure Functions is an event-driven, serverless compute service that enables developers to run small pieces of code (functions) in response to triggers (HTTP requests, database changes, queue events) without provisioning or managing infrastructure.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview",
+    tags: ["Azure Compute", "Azure Functions", "Serverless"]
+  },
+  {
+    id: "az-900-89",
+    difficulty: "medium",
+    certId: "azure-az900",
+    domainId: "d2",
+    domainName: "Describe Azure Architecture and Services",
+    title: "Azure Virtual Desktop (AVD)",
+    scenario: "An organization with remote employees requires secure access to centralized Windows 11 enterprise desktop environments and Microsoft 365 apps accessible from any device or location.",
+    question: "Which Azure service provides cloud-hosted virtual desktops?",
+    options: [
+      { id: 'A', text: "Azure Batch" },
+      { id: 'B', text: "Azure App Service" },
+      { id: 'C', text: "Azure Virtual Desktop (AVD)" },
+      { id: 'D', text: "Azure Virtual Network peering" }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Azure Virtual Desktop (AVD) is a cloud-based desktop and app virtualization service that delivers multi-session Windows 11 and Windows 10 experiences, optimized for Microsoft 365 and accessible securely from remote clients.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-desktop/overview",
+    tags: ["Azure Compute", "AVD", "Virtual Desktop"]
+  },
+  {
+    id: "az-900-90",
+    difficulty: "easy",
+    certId: "azure-az900",
+    domainId: "d2",
+    domainName: "Describe Azure Architecture and Services",
+    title: "Azure Virtual Network (VNet)",
+    scenario: "A company deploys several Azure Virtual Machines and needs them to securely communicate with each other, with on-premises networks, and with the internet over isolated private IP addresses.",
+    question: "Which fundamental Azure networking service provides this isolation?",
+    options: [
+      { id: 'A', text: "Azure Virtual Network (VNet)" },
+      { id: 'B', text: "Azure ExpressRoute private peering" },
+      { id: 'C', text: "Azure DNS private zone" },
+      { id: 'D', text: "Azure Traffic Manager" }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Azure Virtual Network (VNet) is the fundamental building block for private network communication in Azure. VNets enable Azure resources (like VMs) to securely communicate with each other, the internet, and on-premises networks within a private IP address space.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview",
+    tags: ["Azure Networking", "VNet", "Private IP"]
+  },
+  {
+    id: "az-900-91",
+    difficulty: "medium",
+    certId: "azure-az900",
+    domainId: "d2",
+    domainName: "Describe Azure Architecture and Services",
+    title: "Virtual Network Peering",
+    scenario: "An enterprise runs two separate Azure Virtual Networks: one for HR applications in East US and another for Finance applications in East US. They need high-speed, private IP connectivity between the two networks without routing traffic over the public internet.",
+    question: "Which networking capability should they configure?",
+    options: [
+      { id: 'A', text: "Public IP addresses on every VM" },
+      { id: 'B', text: "Virtual Network Peering" },
+      { id: 'C', text: "A Site-to-Site VPN Gateway over the internet" },
+      { id: 'D', text: "Point-to-Site VPN connections on every VM" }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Virtual Network Peering seamlessly connects two Azure Virtual Networks. Once peered, traffic between VMs in both VNets routes privately across the Microsoft backbone network with low latency and high bandwidth, without traversing the public internet.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview",
+    tags: ["Azure Networking", "VNet Peering", "Backbone"]
   },
   {
     id: "az-900-92",
@@ -341,167 +341,167 @@ export const AZURE_AZ900_QUESTIONS_4 = [
     certId: "azure-az900",
     domainId: "d2",
     domainName: "Describe Azure Architecture and Services",
-    title: "Azure AZ-900 Mastery Topic #92: Architecture & Core Services",
-    scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #92 requiring enterprise architecture alignment with Microsoft best practices.",
-    question: "Which Microsoft Azure service or architectural principle best addresses requirement #92?",
+    title: "Azure VPN Gateway vs ExpressRoute",
+    scenario: "A company needs a dedicated, private, high-speed connection between its corporate headquarters and its Azure virtual network that completely bypasses the public internet and provides predictable throughput up to 100 Gbps.",
+    question: "Which connectivity solution meets this requirement?",
     options: [
-      { id: 'A', text: "Option B: Legacy on-premises hardware approach." },
-      { id: 'B', text: "Option D: Standalone virtual machine without redundancy." },
-      { id: 'C', text: "Option A: Azure core capability for Describe Azure Architecture and Services (Optimal recommended solution)." },
-      { id: 'D', text: "Option C: Unmanaged manual scripting without high availability." }
-    ],
-    correctAnswers: ['C'],
-    type: "single",
-    explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #92: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
-    referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-    tags: ["Azure", "AZ-900", "Fundamentals", "Describe Azure Architecture and Services"]
-  },
-  {
-    id: "az-900-93",
-    difficulty: "hard",
-    certId: "azure-az900",
-    domainId: "d2",
-    domainName: "Describe Azure Architecture and Services",
-    title: "Azure AZ-900 Mastery Topic #93: Architecture & Core Services",
-    scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #93 requiring enterprise architecture alignment with Microsoft best practices.",
-    question: "Which Microsoft Azure service or architectural principle best addresses requirement #93?",
-    options: [
-      { id: 'A', text: "Option D: Standalone virtual machine without redundancy." },
-      { id: 'B', text: "Option A: Azure core capability for Describe Azure Architecture and Services (Optimal recommended solution)." },
-      { id: 'C', text: "Option B: Legacy on-premises hardware approach." },
-      { id: 'D', text: "Option C: Unmanaged manual scripting without high availability." }
-    ],
-    correctAnswers: ['B'],
-    type: "single",
-    explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #93: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
-    referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-    tags: ["Azure", "AZ-900", "Fundamentals", "Describe Azure Architecture and Services"]
-  },
-  {
-    id: "az-900-94",
-    difficulty: "medium",
-    certId: "azure-az900",
-    domainId: "d2",
-    domainName: "Describe Azure Architecture and Services",
-    title: "Azure AZ-900 Mastery Topic #94: Architecture & Core Services",
-    scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #94 requiring enterprise architecture alignment with Microsoft best practices.",
-    question: "Which Microsoft Azure service or architectural principle best addresses requirement #94?",
-    options: [
-      { id: 'A', text: "Option C: Unmanaged manual scripting without high availability." },
-      { id: 'B', text: "Option B: Legacy on-premises hardware approach." },
-      { id: 'C', text: "Option D: Standalone virtual machine without redundancy." },
-      { id: 'D', text: "Option A: Azure core capability for Describe Azure Architecture and Services (Optimal recommended solution)." }
-    ],
-    correctAnswers: ['D'],
-    type: "single",
-    explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #94: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
-    referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-    tags: ["Azure", "AZ-900", "Fundamentals", "Describe Azure Architecture and Services"]
-  },
-  {
-    id: "az-900-95",
-    difficulty: "easy",
-    certId: "azure-az900",
-    domainId: "d2",
-    domainName: "Describe Azure Architecture and Services",
-    title: "Azure AZ-900 Mastery Topic #95: Architecture & Core Services",
-    scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #95 requiring enterprise architecture alignment with Microsoft best practices.",
-    question: "Which Microsoft Azure service or architectural principle best addresses requirement #95?",
-    options: [
-      { id: 'A', text: "Option C: Unmanaged manual scripting without high availability." },
-      { id: 'B', text: "Option D: Standalone virtual machine without redundancy." },
-      { id: 'C', text: "Option B: Legacy on-premises hardware approach." },
-      { id: 'D', text: "Option A: Azure core capability for Describe Azure Architecture and Services (Optimal recommended solution)." }
-    ],
-    correctAnswers: ['D'],
-    type: "single",
-    explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #95: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
-    referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-    tags: ["Azure", "AZ-900", "Fundamentals", "Describe Azure Architecture and Services"]
-  },
-  {
-    id: "az-900-96",
-    difficulty: "hard",
-    certId: "azure-az900",
-    domainId: "d2",
-    domainName: "Describe Azure Architecture and Services",
-    title: "Azure AZ-900 Mastery Topic #96: Architecture & Core Services",
-    scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #96 requiring enterprise architecture alignment with Microsoft best practices.",
-    question: "Which Microsoft Azure service or architectural principle best addresses requirement #96?",
-    options: [
-      { id: 'A', text: "Option C: Unmanaged manual scripting without high availability." },
-      { id: 'B', text: "Option D: Standalone virtual machine without redundancy." },
-      { id: 'C', text: "Option B: Legacy on-premises hardware approach." },
-      { id: 'D', text: "Option A: Azure core capability for Describe Azure Architecture and Services (Optimal recommended solution)." }
-    ],
-    correctAnswers: ['D'],
-    type: "single",
-    explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #96: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
-    referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-    tags: ["Azure", "AZ-900", "Fundamentals", "Describe Azure Architecture and Services"]
-  },
-  {
-    id: "az-900-97",
-    difficulty: "easy",
-    certId: "azure-az900",
-    domainId: "d2",
-    domainName: "Describe Azure Architecture and Services",
-    title: "Azure AZ-900 Mastery Topic #97: Architecture & Core Services",
-    scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #97 requiring enterprise architecture alignment with Microsoft best practices.",
-    question: "Which Microsoft Azure service or architectural principle best addresses requirement #97?",
-    options: [
-      { id: 'A', text: "Option A: Azure core capability for Describe Azure Architecture and Services (Optimal recommended solution)." },
-      { id: 'B', text: "Option D: Standalone virtual machine without redundancy." },
-      { id: 'C', text: "Option B: Legacy on-premises hardware approach." },
-      { id: 'D', text: "Option C: Unmanaged manual scripting without high availability." }
+      { id: 'A', text: "Azure ExpressRoute" },
+      { id: 'B', text: "Azure VPN Gateway with Site-to-Site IPsec" },
+      { id: 'C', text: "Azure Bastion host" },
+      { id: 'D', text: "Point-to-Site VPN with OpenVPN" }
     ],
     correctAnswers: ['A'],
     type: "single",
-    explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #97: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
-    referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-    tags: ["Azure", "AZ-900", "Fundamentals", "Describe Azure Architecture and Services"]
+    explanation: "Azure ExpressRoute establishes a direct, private connection between an organization's on-premises infrastructure and Azure datacenters through a connectivity provider. ExpressRoute traffic does not travel over the public internet, offering higher reliability, faster speeds, and lower latency than VPN tunnels.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/expressroute/expressroute-introduction",
+    tags: ["Azure Networking", "ExpressRoute", "Hybrid Connectivity"]
   },
   {
-    id: "az-900-98",
+    id: "az-900-93",
+    difficulty: "easy",
+    certId: "azure-az900",
+    domainId: "d2",
+    domainName: "Describe Azure Architecture and Services",
+    title: "Azure VPN Gateway",
+    scenario: "A small business wants to connect its on-premises branch office to its Azure Virtual Network securely over the public internet using an encrypted IPsec/IKE tunnel.",
+    question: "Which Azure service is specifically designed for this purpose?",
+    options: [
+      { id: 'A', text: "Azure Front Door" },
+      { id: 'B', text: "Azure DNS" },
+      { id: 'C', text: "Azure VPN Gateway" },
+      { id: 'D', text: "Azure ExpressRoute" }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "An Azure VPN Gateway sends encrypted traffic between an Azure Virtual Network and an on-premises location over the public internet using industry-standard IPsec/IKE VPN tunnels.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways",
+    tags: ["Azure Networking", "VPN Gateway", "IPsec"]
+  },
+  {
+    id: "az-900-94",
+    difficulty: "easy",
+    certId: "azure-az900",
+    domainId: "d2",
+    domainName: "Describe Azure Architecture and Services",
+    title: "Network Security Groups (NSGs)",
+    scenario: "A network engineer needs to filter inbound network traffic to a subnet so that only HTTPS (port 443) traffic is allowed and all other inbound ports are blocked.",
+    question: "Which Azure resource should be associated with the subnet to enforce this filtering?",
+    options: [
+      { id: 'A', text: "Azure Public IP prefix" },
+      { id: 'B', text: "Azure DNS private resolver" },
+      { id: 'C', text: "A Network Security Group (NSG)" },
+      { id: 'D', text: "Azure Route Table" }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "A Network Security Group (NSG) contains security rules that allow or deny inbound and outbound network traffic based on 5-tuple criteria: source IP, source port, destination IP, destination port, and protocol.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview",
+    tags: ["Azure Networking", "NSG", "Firewall"]
+  },
+  {
+    id: "az-900-95",
     difficulty: "medium",
     certId: "azure-az900",
     domainId: "d2",
     domainName: "Describe Azure Architecture and Services",
-    title: "Azure AZ-900 Mastery Topic #98: Architecture & Core Services",
-    scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #98 requiring enterprise architecture alignment with Microsoft best practices.",
-    question: "Which Microsoft Azure service or architectural principle best addresses requirement #98?",
+    title: "Azure Bastion Secure Access",
+    scenario: "A system administrator needs to securely connect to the command line and desktop of Azure VMs via SSH and RDP without assigning public IP addresses to the VMs and without exposing ports 22 and 3389 to the public internet.",
+    question: "Which Azure service provides secure browser-based administrative access?",
     options: [
-      { id: 'A', text: "Option B: Legacy on-premises hardware approach." },
-      { id: 'B', text: "Option A: Azure core capability for Describe Azure Architecture and Services (Optimal recommended solution)." },
-      { id: 'C', text: "Option C: Unmanaged manual scripting without high availability." },
-      { id: 'D', text: "Option D: Standalone virtual machine without redundancy." }
+      { id: 'A', text: "Azure VPN Gateway" },
+      { id: 'B', text: "Azure Bastion" },
+      { id: 'C', text: "Azure Front Door" },
+      { id: 'D', text: "Azure Route Server" }
     ],
     correctAnswers: ['B'],
     type: "single",
-    explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #98: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
-    referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-    tags: ["Azure", "AZ-900", "Fundamentals", "Describe Azure Architecture and Services"]
+    explanation: "Azure Bastion is a fully managed PaaS service provisioned inside a virtual network. It provides secure and seamless RDP and SSH connectivity to virtual machines directly through the Azure Portal over TLS (port 443), eliminating the need for public IPs on the target VMs.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/bastion/bastion-overview",
+    tags: ["Azure Networking", "Azure Bastion", "Security"]
   },
   {
-    id: "az-900-99",
+    id: "az-900-96",
+    difficulty: "easy",
+    certId: "azure-az900",
+    domainId: "d2",
+    domainName: "Describe Azure Architecture and Services",
+    title: "Azure Service: Azure Blob Storage - Unstructured Data",
+    scenario: "A cloud solutions architecture review is evaluating Azure core architectural services, data storage solutions, and identity controls for azure blob storage - unstructured data.",
+    question: "Which Azure service, feature, or mechanism satisfies the requirements for azure blob storage - unstructured data?",
+    options: [
+      { id: 'A', text: "Azure Table Storage" },
+      { id: 'B', text: "Azure Files" },
+      { id: 'C', text: "Azure Cosmos DB" },
+      { id: 'D', text: "Azure Blob Storage" }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Azure Blob Storage is Microsoft's object storage solution for storing massive amounts of unstructured data like text, images, video, and audio files. Selecting the appropriate Azure service ensures technical alignment with Microsoft best practices and operational scalability.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/",
+    tags: ["Azure Services", "Architecture", "Azure"]
+  },
+  {
+    id: "az-900-97",
+    difficulty: "medium",
+    certId: "azure-az900",
+    domainId: "d2",
+    domainName: "Describe Azure Architecture and Services",
+    title: "Azure Service: Blob Access Tiers - Hot Tier",
+    scenario: "A cloud solutions architecture review is evaluating Azure core architectural services, data storage solutions, and identity controls for blob access tiers - hot tier.",
+    question: "Which Azure service, feature, or mechanism satisfies the requirements for blob access tiers - hot tier?",
+    options: [
+      { id: 'A', text: "Hot access tier" },
+      { id: 'B', text: "Archive access tier" },
+      { id: 'C', text: "Cold access tier" },
+      { id: 'D', text: "Cool access tier" }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "The Hot access tier is optimized for data that is in active use, accessed frequently, providing the lowest access fees but higher storage cost per gigabyte. Selecting the appropriate Azure service ensures technical alignment with Microsoft best practices and operational scalability.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/",
+    tags: ["Azure Services", "Architecture", "Blob"]
+  },
+  {
+    id: "az-900-98",
     difficulty: "hard",
     certId: "azure-az900",
     domainId: "d2",
     domainName: "Describe Azure Architecture and Services",
-    title: "Azure AZ-900 Mastery Topic #99: Architecture & Core Services",
-    scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #99 requiring enterprise architecture alignment with Microsoft best practices.",
-    question: "Which Microsoft Azure service or architectural principle best addresses requirement #99?",
+    title: "Azure Service: Blob Access Tiers - Cool Tier",
+    scenario: "A cloud solutions architecture review is evaluating Azure core architectural services, data storage solutions, and identity controls for blob access tiers - cool tier.",
+    question: "Which Azure service, feature, or mechanism satisfies the requirements for blob access tiers - cool tier?",
     options: [
-      { id: 'A', text: "Option D: Standalone virtual machine without redundancy." },
-      { id: 'B', text: "Option B: Legacy on-premises hardware approach." },
-      { id: 'C', text: "Option C: Unmanaged manual scripting without high availability." },
-      { id: 'D', text: "Option A: Azure core capability for Describe Azure Architecture and Services (Optimal recommended solution)." }
+      { id: 'A', text: "Hot access tier" },
+      { id: 'B', text: "Cool access tier" },
+      { id: 'C', text: "Archive access tier" },
+      { id: 'D', text: "Premium disk tier" }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "The Cool access tier is optimized for data that is stored for at least 30 days and accessed infrequently, such as short-term backups or historical telemetry. Selecting the appropriate Azure service ensures technical alignment with Microsoft best practices and operational scalability.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/",
+    tags: ["Azure Services", "Architecture", "Blob"]
+  },
+  {
+    id: "az-900-99",
+    difficulty: "easy",
+    certId: "azure-az900",
+    domainId: "d2",
+    domainName: "Describe Azure Architecture and Services",
+    title: "Azure Service: Blob Access Tiers - Archive Tier",
+    scenario: "A cloud solutions architecture review is evaluating Azure core architectural services, data storage solutions, and identity controls for blob access tiers - archive tier.",
+    question: "Which Azure service, feature, or mechanism satisfies the requirements for blob access tiers - archive tier?",
+    options: [
+      { id: 'A', text: "General purpose tier" },
+      { id: 'B', text: "Cool access tier" },
+      { id: 'C', text: "Hot access tier" },
+      { id: 'D', text: "Archive access tier" }
     ],
     correctAnswers: ['D'],
     type: "single",
-    explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #99: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
-    referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-    tags: ["Azure", "AZ-900", "Fundamentals", "Describe Azure Architecture and Services"]
+    explanation: "The Archive tier offers the lowest storage cost for data stored for at least 180 days that can tolerate multi-hour rehydration delays before retrieval. Selecting the appropriate Azure service ensures technical alignment with Microsoft best practices and operational scalability.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/",
+    tags: ["Azure Services", "Architecture", "Blob"]
   },
   {
     id: "az-900-100",
@@ -509,20 +509,20 @@ export const AZURE_AZ900_QUESTIONS_4 = [
     certId: "azure-az900",
     domainId: "d2",
     domainName: "Describe Azure Architecture and Services",
-    title: "Azure AZ-900 Mastery Topic #100: Architecture & Core Services",
-    scenario: "An organization is evaluating Microsoft Azure cloud services for scenario #100 requiring enterprise architecture alignment with Microsoft best practices.",
-    question: "Which Microsoft Azure service or architectural principle best addresses requirement #100?",
+    title: "Azure Service: Azure Files - Shared Storage",
+    scenario: "A cloud solutions architecture review is evaluating Azure core architectural services, data storage solutions, and identity controls for azure files - shared storage.",
+    question: "Which Azure service, feature, or mechanism satisfies the requirements for azure files - shared storage?",
     options: [
-      { id: 'A', text: "Option B: Legacy on-premises hardware approach." },
-      { id: 'B', text: "Option C: Unmanaged manual scripting without high availability." },
-      { id: 'C', text: "Option D: Standalone virtual machine without redundancy." },
-      { id: 'D', text: "Option A: Azure core capability for Describe Azure Architecture and Services (Optimal recommended solution)." }
+      { id: 'A', text: "Azure Blob Storage" },
+      { id: 'B', text: "Azure Data Lake Gen2" },
+      { id: 'C', text: "Azure Files" },
+      { id: 'D', text: "Azure Managed Disks" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
-    explanation: "Comprehensive architectural explanation for Microsoft Azure AZ-900 topic #100: Evaluates operational efficiency, security governance, high availability, and financial cost-effectiveness according to the official Microsoft Azure Fundamentals exam guide.",
-    referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-    tags: ["Azure", "AZ-900", "Fundamentals", "Describe Azure Architecture and Services"]
+    explanation: "Azure Files provides fully managed cloud file shares accessible via industry-standard SMB and NFS protocols, allowing multiple VMs to mount the share simultaneously. Selecting the appropriate Azure service ensures technical alignment with Microsoft best practices and operational scalability.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/",
+    tags: ["Azure Services", "Architecture", "Azure"]
   }
 ];
 

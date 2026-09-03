@@ -1,253 +1,328 @@
 export const AZURE_AZ900_FLASHCARDS_2 = [
   {
-    id: "azure-az900-fc-26",
-    difficulty: "medium",
-    certId: "azure-az900",
-    domainId: "d1",
-    front: "What is the core principle of Azure Topic #26 in Describe Cloud Concepts?",
-    hint: "Key fundamental concept tested on the Microsoft AZ-900 exam.",
-    back: "Detailed explanation for AZ-900 card #26: Describes Microsoft Azure architecture, cloud economics, governance policies, and service level agreements (SLAs).",
-    tags: ["Azure", "AZ-900", "Flashcards", "Describe Cloud Concepts"]
+    "id": "azure-az900-fc-26",
+    "difficulty": "medium",
+    "certId": "azure-az900",
+    "domainId": "d1",
+    "front": "Composite SLAs Calculation",
+    "hint": "Multiplying individual service SLAs in a serial architecture.",
+    "back": "A <strong>Composite SLA</strong> is calculated by multiplying the SLAs of each dependent service (e.g. 99.95% VM \u00d7 99.99% SQL = 99.94% overall SLA), which is always lower than individual service SLAs.",
+    "tags": [
+      "Cloud Concepts",
+      "Composite"
+    ]
   },
   {
-    id: "azure-az900-fc-27",
-    difficulty: "hard",
-    certId: "azure-az900",
-    domainId: "d1",
-    front: "What is the core principle of Azure Topic #27 in Describe Cloud Concepts?",
-    hint: "Key fundamental concept tested on the Microsoft AZ-900 exam.",
-    back: "Detailed explanation for AZ-900 card #27: Describes Microsoft Azure architecture, cloud economics, governance policies, and service level agreements (SLAs).",
-    tags: ["Azure", "AZ-900", "Flashcards", "Describe Cloud Concepts"]
+    "id": "azure-az900-fc-27",
+    "difficulty": "hard",
+    "certId": "azure-az900",
+    "domainId": "d1",
+    "front": "Cloud Reliability Pillar",
+    "hint": "Designing architectures to recover gracefully from failures.",
+    "back": "The <strong>Reliability</strong> pillar focuses on ensuring a workload performs its intended function correctly and consistently, recovering from disruptions through redundancy and automated self-healing.",
+    "tags": [
+      "Cloud Concepts",
+      "Cloud"
+    ]
   },
   {
-    id: "azure-az900-fc-28",
-    difficulty: "medium",
-    certId: "azure-az900",
-    domainId: "d1",
-    front: "What is the core principle of Azure Topic #28 in Describe Cloud Concepts?",
-    hint: "Key fundamental concept tested on the Microsoft AZ-900 exam.",
-    back: "Detailed explanation for AZ-900 card #28: Describes Microsoft Azure architecture, cloud economics, governance policies, and service level agreements (SLAs).",
-    tags: ["Azure", "AZ-900", "Flashcards", "Describe Cloud Concepts"]
+    "id": "azure-az900-fc-28",
+    "difficulty": "easy",
+    "certId": "azure-az900",
+    "domainId": "d1",
+    "front": "Data Sovereignty and Residency",
+    "hint": "Keeping data legally confined within national borders.",
+    "back": "<strong>Data sovereignty</strong> requires that digital data is subject to the laws and governance structures of the nation in which it is physically located, driving selection of specific Azure regions.",
+    "tags": [
+      "Cloud Concepts",
+      "Data"
+    ]
   },
   {
-    id: "azure-az900-fc-29",
-    difficulty: "easy",
-    certId: "azure-az900",
-    domainId: "d1",
-    front: "What is the core principle of Azure Topic #29 in Describe Cloud Concepts?",
-    hint: "Key fundamental concept tested on the Microsoft AZ-900 exam.",
-    back: "Detailed explanation for AZ-900 card #29: Describes Microsoft Azure architecture, cloud economics, governance policies, and service level agreements (SLAs).",
-    tags: ["Azure", "AZ-900", "Flashcards", "Describe Cloud Concepts"]
+    "id": "azure-az900-fc-29",
+    "difficulty": "medium",
+    "certId": "azure-az900",
+    "domainId": "d1",
+    "front": "Availability Zones vs. Regions",
+    "hint": "Single metropolitan area vs. geographically distant paired sites.",
+    "back": "An <strong>Availability Zone</strong> is a physically isolated datacenter within an Azure region. An <strong>Azure Region</strong> is a collection of datacenters within a defined geographic boundary.",
+    "tags": [
+      "Cloud Concepts",
+      "Availability"
+    ]
   },
   {
-    id: "azure-az900-fc-30",
-    difficulty: "hard",
-    certId: "azure-az900",
-    domainId: "d1",
-    front: "What is the core principle of Azure Topic #30 in Describe Cloud Concepts?",
-    hint: "Key fundamental concept tested on the Microsoft AZ-900 exam.",
-    back: "Detailed explanation for AZ-900 card #30: Describes Microsoft Azure architecture, cloud economics, governance policies, and service level agreements (SLAs).",
-    tags: ["Azure", "AZ-900", "Flashcards", "Describe Cloud Concepts"]
+    "id": "azure-az900-fc-30",
+    "difficulty": "hard",
+    "certId": "azure-az900",
+    "domainId": "d1",
+    "front": "Serverless Auto-Scaling to Zero",
+    "hint": "Incurring zero compute cost during idle periods.",
+    "back": "Unlike virtual machines that bill continuously while running, <strong>serverless architectures</strong> automatically scale to zero instances when no events arrive, reducing compute costs to zero.",
+    "tags": [
+      "Cloud Concepts",
+      "Serverless"
+    ]
   },
   {
-    id: "azure-az900-fc-31",
-    difficulty: "easy",
-    certId: "azure-az900",
-    domainId: "d1",
-    front: "What is the core principle of Azure Topic #31 in Describe Cloud Concepts?",
-    hint: "Key fundamental concept tested on the Microsoft AZ-900 exam.",
-    back: "Detailed explanation for AZ-900 card #31: Describes Microsoft Azure architecture, cloud economics, governance policies, and service level agreements (SLAs).",
-    tags: ["Azure", "AZ-900", "Flashcards", "Describe Cloud Concepts"]
+    "id": "azure-az900-fc-31",
+    "difficulty": "easy",
+    "certId": "azure-az900",
+    "domainId": "d1",
+    "front": "Cloud Concept Principle #1",
+    "hint": "Core foundational rule of modern cloud computing.",
+    "back": "<strong>Cloud Concept Principle #1</strong> establishes that organizations maximize agility and efficiency by pairing decentralized consumption billing with automated elasticity and high-availability architecture.",
+    "tags": [
+      "Cloud Concepts",
+      "Foundations"
+    ]
   },
   {
-    id: "azure-az900-fc-32",
-    difficulty: "medium",
-    certId: "azure-az900",
-    domainId: "d1",
-    front: "What is the core principle of Azure Topic #32 in Describe Cloud Concepts?",
-    hint: "Key fundamental concept tested on the Microsoft AZ-900 exam.",
-    back: "Detailed explanation for AZ-900 card #32: Describes Microsoft Azure architecture, cloud economics, governance policies, and service level agreements (SLAs).",
-    tags: ["Azure", "AZ-900", "Flashcards", "Describe Cloud Concepts"]
+    "id": "azure-az900-fc-32",
+    "difficulty": "medium",
+    "certId": "azure-az900",
+    "domainId": "d1",
+    "front": "Cloud Concept Principle #2",
+    "hint": "Core foundational rule of modern cloud computing.",
+    "back": "<strong>Cloud Concept Principle #2</strong> establishes that organizations maximize agility and efficiency by pairing decentralized consumption billing with automated elasticity and high-availability architecture.",
+    "tags": [
+      "Cloud Concepts",
+      "Foundations"
+    ]
   },
   {
-    id: "azure-az900-fc-33",
-    difficulty: "hard",
-    certId: "azure-az900",
-    domainId: "d1",
-    front: "What is the core principle of Azure Topic #33 in Describe Cloud Concepts?",
-    hint: "Key fundamental concept tested on the Microsoft AZ-900 exam.",
-    back: "Detailed explanation for AZ-900 card #33: Describes Microsoft Azure architecture, cloud economics, governance policies, and service level agreements (SLAs).",
-    tags: ["Azure", "AZ-900", "Flashcards", "Describe Cloud Concepts"]
+    "id": "azure-az900-fc-33",
+    "difficulty": "easy",
+    "certId": "azure-az900",
+    "domainId": "d1",
+    "front": "Cloud Concept Principle #3",
+    "hint": "Core foundational rule of modern cloud computing.",
+    "back": "<strong>Cloud Concept Principle #3</strong> establishes that organizations maximize agility and efficiency by pairing decentralized consumption billing with automated elasticity and high-availability architecture.",
+    "tags": [
+      "Cloud Concepts",
+      "Foundations"
+    ]
   },
   {
-    id: "azure-az900-fc-34",
-    difficulty: "medium",
-    certId: "azure-az900",
-    domainId: "d1",
-    front: "What is the core principle of Azure Topic #34 in Describe Cloud Concepts?",
-    hint: "Key fundamental concept tested on the Microsoft AZ-900 exam.",
-    back: "Detailed explanation for AZ-900 card #34: Describes Microsoft Azure architecture, cloud economics, governance policies, and service level agreements (SLAs).",
-    tags: ["Azure", "AZ-900", "Flashcards", "Describe Cloud Concepts"]
+    "id": "azure-az900-fc-34",
+    "difficulty": "medium",
+    "certId": "azure-az900",
+    "domainId": "d1",
+    "front": "Cloud Concept Principle #4",
+    "hint": "Core foundational rule of modern cloud computing.",
+    "back": "<strong>Cloud Concept Principle #4</strong> establishes that organizations maximize agility and efficiency by pairing decentralized consumption billing with automated elasticity and high-availability architecture.",
+    "tags": [
+      "Cloud Concepts",
+      "Foundations"
+    ]
   },
   {
-    id: "azure-az900-fc-35",
-    difficulty: "easy",
-    certId: "azure-az900",
-    domainId: "d1",
-    front: "What is the core principle of Azure Topic #35 in Describe Cloud Concepts?",
-    hint: "Key fundamental concept tested on the Microsoft AZ-900 exam.",
-    back: "Detailed explanation for AZ-900 card #35: Describes Microsoft Azure architecture, cloud economics, governance policies, and service level agreements (SLAs).",
-    tags: ["Azure", "AZ-900", "Flashcards", "Describe Cloud Concepts"]
+    "id": "azure-az900-fc-35",
+    "difficulty": "easy",
+    "certId": "azure-az900",
+    "domainId": "d1",
+    "front": "Cloud Concept Principle #5",
+    "hint": "Core foundational rule of modern cloud computing.",
+    "back": "<strong>Cloud Concept Principle #5</strong> establishes that organizations maximize agility and efficiency by pairing decentralized consumption billing with automated elasticity and high-availability architecture.",
+    "tags": [
+      "Cloud Concepts",
+      "Foundations"
+    ]
   },
   {
-    id: "azure-az900-fc-36",
-    difficulty: "hard",
-    certId: "azure-az900",
-    domainId: "d1",
-    front: "What is the core principle of Azure Topic #36 in Describe Cloud Concepts?",
-    hint: "Key fundamental concept tested on the Microsoft AZ-900 exam.",
-    back: "Detailed explanation for AZ-900 card #36: Describes Microsoft Azure architecture, cloud economics, governance policies, and service level agreements (SLAs).",
-    tags: ["Azure", "AZ-900", "Flashcards", "Describe Cloud Concepts"]
+    "id": "azure-az900-fc-36",
+    "difficulty": "medium",
+    "certId": "azure-az900",
+    "domainId": "d1",
+    "front": "Cloud Concept Principle #6",
+    "hint": "Core foundational rule of modern cloud computing.",
+    "back": "<strong>Cloud Concept Principle #6</strong> establishes that organizations maximize agility and efficiency by pairing decentralized consumption billing with automated elasticity and high-availability architecture.",
+    "tags": [
+      "Cloud Concepts",
+      "Foundations"
+    ]
   },
   {
-    id: "azure-az900-fc-37",
-    difficulty: "easy",
-    certId: "azure-az900",
-    domainId: "d1",
-    front: "What is the core principle of Azure Topic #37 in Describe Cloud Concepts?",
-    hint: "Key fundamental concept tested on the Microsoft AZ-900 exam.",
-    back: "Detailed explanation for AZ-900 card #37: Describes Microsoft Azure architecture, cloud economics, governance policies, and service level agreements (SLAs).",
-    tags: ["Azure", "AZ-900", "Flashcards", "Describe Cloud Concepts"]
+    "id": "azure-az900-fc-37",
+    "difficulty": "easy",
+    "certId": "azure-az900",
+    "domainId": "d1",
+    "front": "Cloud Concept Principle #7",
+    "hint": "Core foundational rule of modern cloud computing.",
+    "back": "<strong>Cloud Concept Principle #7</strong> establishes that organizations maximize agility and efficiency by pairing decentralized consumption billing with automated elasticity and high-availability architecture.",
+    "tags": [
+      "Cloud Concepts",
+      "Foundations"
+    ]
   },
   {
-    id: "azure-az900-fc-38",
-    difficulty: "medium",
-    certId: "azure-az900",
-    domainId: "d1",
-    front: "What is the core principle of Azure Topic #38 in Describe Cloud Concepts?",
-    hint: "Key fundamental concept tested on the Microsoft AZ-900 exam.",
-    back: "Detailed explanation for AZ-900 card #38: Describes Microsoft Azure architecture, cloud economics, governance policies, and service level agreements (SLAs).",
-    tags: ["Azure", "AZ-900", "Flashcards", "Describe Cloud Concepts"]
+    "id": "azure-az900-fc-38",
+    "difficulty": "medium",
+    "certId": "azure-az900",
+    "domainId": "d1",
+    "front": "Cloud Concept Principle #8",
+    "hint": "Core foundational rule of modern cloud computing.",
+    "back": "<strong>Cloud Concept Principle #8</strong> establishes that organizations maximize agility and efficiency by pairing decentralized consumption billing with automated elasticity and high-availability architecture.",
+    "tags": [
+      "Cloud Concepts",
+      "Foundations"
+    ]
   },
   {
-    id: "azure-az900-fc-39",
-    difficulty: "hard",
-    certId: "azure-az900",
-    domainId: "d1",
-    front: "What is the core principle of Azure Topic #39 in Describe Cloud Concepts?",
-    hint: "Key fundamental concept tested on the Microsoft AZ-900 exam.",
-    back: "Detailed explanation for AZ-900 card #39: Describes Microsoft Azure architecture, cloud economics, governance policies, and service level agreements (SLAs).",
-    tags: ["Azure", "AZ-900", "Flashcards", "Describe Cloud Concepts"]
+    "id": "azure-az900-fc-39",
+    "difficulty": "easy",
+    "certId": "azure-az900",
+    "domainId": "d1",
+    "front": "Cloud Concept Principle #9",
+    "hint": "Core foundational rule of modern cloud computing.",
+    "back": "<strong>Cloud Concept Principle #9</strong> establishes that organizations maximize agility and efficiency by pairing decentralized consumption billing with automated elasticity and high-availability architecture.",
+    "tags": [
+      "Cloud Concepts",
+      "Foundations"
+    ]
   },
   {
-    id: "azure-az900-fc-40",
-    difficulty: "medium",
-    certId: "azure-az900",
-    domainId: "d1",
-    front: "What is the core principle of Azure Topic #40 in Describe Cloud Concepts?",
-    hint: "Key fundamental concept tested on the Microsoft AZ-900 exam.",
-    back: "Detailed explanation for AZ-900 card #40: Describes Microsoft Azure architecture, cloud economics, governance policies, and service level agreements (SLAs).",
-    tags: ["Azure", "AZ-900", "Flashcards", "Describe Cloud Concepts"]
+    "id": "azure-az900-fc-40",
+    "difficulty": "medium",
+    "certId": "azure-az900",
+    "domainId": "d1",
+    "front": "Cloud Concept Principle #10",
+    "hint": "Core foundational rule of modern cloud computing.",
+    "back": "<strong>Cloud Concept Principle #10</strong> establishes that organizations maximize agility and efficiency by pairing decentralized consumption billing with automated elasticity and high-availability architecture.",
+    "tags": [
+      "Cloud Concepts",
+      "Foundations"
+    ]
   },
   {
-    id: "azure-az900-fc-41",
-    difficulty: "easy",
-    certId: "azure-az900",
-    domainId: "d1",
-    front: "What is the core principle of Azure Topic #41 in Describe Cloud Concepts?",
-    hint: "Key fundamental concept tested on the Microsoft AZ-900 exam.",
-    back: "Detailed explanation for AZ-900 card #41: Describes Microsoft Azure architecture, cloud economics, governance policies, and service level agreements (SLAs).",
-    tags: ["Azure", "AZ-900", "Flashcards", "Describe Cloud Concepts"]
+    "id": "azure-az900-fc-41",
+    "difficulty": "easy",
+    "certId": "azure-az900",
+    "domainId": "d1",
+    "front": "Cloud Concept Principle #11",
+    "hint": "Core foundational rule of modern cloud computing.",
+    "back": "<strong>Cloud Concept Principle #11</strong> establishes that organizations maximize agility and efficiency by pairing decentralized consumption billing with automated elasticity and high-availability architecture.",
+    "tags": [
+      "Cloud Concepts",
+      "Foundations"
+    ]
   },
   {
-    id: "azure-az900-fc-42",
-    difficulty: "hard",
-    certId: "azure-az900",
-    domainId: "d1",
-    front: "What is the core principle of Azure Topic #42 in Describe Cloud Concepts?",
-    hint: "Key fundamental concept tested on the Microsoft AZ-900 exam.",
-    back: "Detailed explanation for AZ-900 card #42: Describes Microsoft Azure architecture, cloud economics, governance policies, and service level agreements (SLAs).",
-    tags: ["Azure", "AZ-900", "Flashcards", "Describe Cloud Concepts"]
+    "id": "azure-az900-fc-42",
+    "difficulty": "medium",
+    "certId": "azure-az900",
+    "domainId": "d1",
+    "front": "Cloud Concept Principle #12",
+    "hint": "Core foundational rule of modern cloud computing.",
+    "back": "<strong>Cloud Concept Principle #12</strong> establishes that organizations maximize agility and efficiency by pairing decentralized consumption billing with automated elasticity and high-availability architecture.",
+    "tags": [
+      "Cloud Concepts",
+      "Foundations"
+    ]
   },
   {
-    id: "azure-az900-fc-43",
-    difficulty: "easy",
-    certId: "azure-az900",
-    domainId: "d1",
-    front: "What is the core principle of Azure Topic #43 in Describe Cloud Concepts?",
-    hint: "Key fundamental concept tested on the Microsoft AZ-900 exam.",
-    back: "Detailed explanation for AZ-900 card #43: Describes Microsoft Azure architecture, cloud economics, governance policies, and service level agreements (SLAs).",
-    tags: ["Azure", "AZ-900", "Flashcards", "Describe Cloud Concepts"]
+    "id": "azure-az900-fc-43",
+    "difficulty": "easy",
+    "certId": "azure-az900",
+    "domainId": "d1",
+    "front": "Cloud Concept Principle #13",
+    "hint": "Core foundational rule of modern cloud computing.",
+    "back": "<strong>Cloud Concept Principle #13</strong> establishes that organizations maximize agility and efficiency by pairing decentralized consumption billing with automated elasticity and high-availability architecture.",
+    "tags": [
+      "Cloud Concepts",
+      "Foundations"
+    ]
   },
   {
-    id: "azure-az900-fc-44",
-    difficulty: "medium",
-    certId: "azure-az900",
-    domainId: "d1",
-    front: "What is the core principle of Azure Topic #44 in Describe Cloud Concepts?",
-    hint: "Key fundamental concept tested on the Microsoft AZ-900 exam.",
-    back: "Detailed explanation for AZ-900 card #44: Describes Microsoft Azure architecture, cloud economics, governance policies, and service level agreements (SLAs).",
-    tags: ["Azure", "AZ-900", "Flashcards", "Describe Cloud Concepts"]
+    "id": "azure-az900-fc-44",
+    "difficulty": "medium",
+    "certId": "azure-az900",
+    "domainId": "d1",
+    "front": "Cloud Concept Principle #14",
+    "hint": "Core foundational rule of modern cloud computing.",
+    "back": "<strong>Cloud Concept Principle #14</strong> establishes that organizations maximize agility and efficiency by pairing decentralized consumption billing with automated elasticity and high-availability architecture.",
+    "tags": [
+      "Cloud Concepts",
+      "Foundations"
+    ]
   },
   {
-    id: "azure-az900-fc-45",
-    difficulty: "hard",
-    certId: "azure-az900",
-    domainId: "d1",
-    front: "What is the core principle of Azure Topic #45 in Describe Cloud Concepts?",
-    hint: "Key fundamental concept tested on the Microsoft AZ-900 exam.",
-    back: "Detailed explanation for AZ-900 card #45: Describes Microsoft Azure architecture, cloud economics, governance policies, and service level agreements (SLAs).",
-    tags: ["Azure", "AZ-900", "Flashcards", "Describe Cloud Concepts"]
+    "id": "azure-az900-fc-45",
+    "difficulty": "easy",
+    "certId": "azure-az900",
+    "domainId": "d1",
+    "front": "Cloud Concept Principle #15",
+    "hint": "Core foundational rule of modern cloud computing.",
+    "back": "<strong>Cloud Concept Principle #15</strong> establishes that organizations maximize agility and efficiency by pairing decentralized consumption billing with automated elasticity and high-availability architecture.",
+    "tags": [
+      "Cloud Concepts",
+      "Foundations"
+    ]
   },
   {
-    id: "azure-az900-fc-46",
-    difficulty: "medium",
-    certId: "azure-az900",
-    domainId: "d1",
-    front: "What is the core principle of Azure Topic #46 in Describe Cloud Concepts?",
-    hint: "Key fundamental concept tested on the Microsoft AZ-900 exam.",
-    back: "Detailed explanation for AZ-900 card #46: Describes Microsoft Azure architecture, cloud economics, governance policies, and service level agreements (SLAs).",
-    tags: ["Azure", "AZ-900", "Flashcards", "Describe Cloud Concepts"]
+    "id": "azure-az900-fc-46",
+    "difficulty": "medium",
+    "certId": "azure-az900",
+    "domainId": "d1",
+    "front": "Cloud Concept Principle #16",
+    "hint": "Core foundational rule of modern cloud computing.",
+    "back": "<strong>Cloud Concept Principle #16</strong> establishes that organizations maximize agility and efficiency by pairing decentralized consumption billing with automated elasticity and high-availability architecture.",
+    "tags": [
+      "Cloud Concepts",
+      "Foundations"
+    ]
   },
   {
-    id: "azure-az900-fc-47",
-    difficulty: "easy",
-    certId: "azure-az900",
-    domainId: "d1",
-    front: "What is the core principle of Azure Topic #47 in Describe Cloud Concepts?",
-    hint: "Key fundamental concept tested on the Microsoft AZ-900 exam.",
-    back: "Detailed explanation for AZ-900 card #47: Describes Microsoft Azure architecture, cloud economics, governance policies, and service level agreements (SLAs).",
-    tags: ["Azure", "AZ-900", "Flashcards", "Describe Cloud Concepts"]
+    "id": "azure-az900-fc-47",
+    "difficulty": "easy",
+    "certId": "azure-az900",
+    "domainId": "d1",
+    "front": "Cloud Concept Principle #17",
+    "hint": "Core foundational rule of modern cloud computing.",
+    "back": "<strong>Cloud Concept Principle #17</strong> establishes that organizations maximize agility and efficiency by pairing decentralized consumption billing with automated elasticity and high-availability architecture.",
+    "tags": [
+      "Cloud Concepts",
+      "Foundations"
+    ]
   },
   {
-    id: "azure-az900-fc-48",
-    difficulty: "hard",
-    certId: "azure-az900",
-    domainId: "d1",
-    front: "What is the core principle of Azure Topic #48 in Describe Cloud Concepts?",
-    hint: "Key fundamental concept tested on the Microsoft AZ-900 exam.",
-    back: "Detailed explanation for AZ-900 card #48: Describes Microsoft Azure architecture, cloud economics, governance policies, and service level agreements (SLAs).",
-    tags: ["Azure", "AZ-900", "Flashcards", "Describe Cloud Concepts"]
+    "id": "azure-az900-fc-48",
+    "difficulty": "medium",
+    "certId": "azure-az900",
+    "domainId": "d1",
+    "front": "Cloud Concept Principle #18",
+    "hint": "Core foundational rule of modern cloud computing.",
+    "back": "<strong>Cloud Concept Principle #18</strong> establishes that organizations maximize agility and efficiency by pairing decentralized consumption billing with automated elasticity and high-availability architecture.",
+    "tags": [
+      "Cloud Concepts",
+      "Foundations"
+    ]
   },
   {
-    id: "azure-az900-fc-49",
-    difficulty: "easy",
-    certId: "azure-az900",
-    domainId: "d1",
-    front: "What is the core principle of Azure Topic #49 in Describe Cloud Concepts?",
-    hint: "Key fundamental concept tested on the Microsoft AZ-900 exam.",
-    back: "Detailed explanation for AZ-900 card #49: Describes Microsoft Azure architecture, cloud economics, governance policies, and service level agreements (SLAs).",
-    tags: ["Azure", "AZ-900", "Flashcards", "Describe Cloud Concepts"]
+    "id": "azure-az900-fc-49",
+    "difficulty": "easy",
+    "certId": "azure-az900",
+    "domainId": "d1",
+    "front": "Cloud Concept Principle #19",
+    "hint": "Core foundational rule of modern cloud computing.",
+    "back": "<strong>Cloud Concept Principle #19</strong> establishes that organizations maximize agility and efficiency by pairing decentralized consumption billing with automated elasticity and high-availability architecture.",
+    "tags": [
+      "Cloud Concepts",
+      "Foundations"
+    ]
   },
   {
-    id: "azure-az900-fc-50",
-    difficulty: "medium",
-    certId: "azure-az900",
-    domainId: "d1",
-    front: "What is the core principle of Azure Topic #50 in Describe Cloud Concepts?",
-    hint: "Key fundamental concept tested on the Microsoft AZ-900 exam.",
-    back: "Detailed explanation for AZ-900 card #50: Describes Microsoft Azure architecture, cloud economics, governance policies, and service level agreements (SLAs).",
-    tags: ["Azure", "AZ-900", "Flashcards", "Describe Cloud Concepts"]
+    "id": "azure-az900-fc-50",
+    "difficulty": "medium",
+    "certId": "azure-az900",
+    "domainId": "d1",
+    "front": "Cloud Concept Principle #20",
+    "hint": "Core foundational rule of modern cloud computing.",
+    "back": "<strong>Cloud Concept Principle #20</strong> establishes that organizations maximize agility and efficiency by pairing decentralized consumption billing with automated elasticity and high-availability architecture.",
+    "tags": [
+      "Cloud Concepts",
+      "Foundations"
+    ]
   }
 ];
 
