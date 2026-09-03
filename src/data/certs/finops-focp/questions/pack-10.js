@@ -5,83 +5,83 @@ export const FINOPS_FOCP_QUESTIONS_10 = [
     certId: "finops-focp",
     domainId: "d4",
     domainName: "FinOps Capabilities & Optimization",
-    title: "FOCP Scenario #226: FinOps Capabilities & Optimization",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #226.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #226?",
+    title: "FinOps Optimization Scenario #33",
+    scenario: "A cloud operations team is analyzing workload optimization, rate negotiation, and cost allocation practices.",
+    question: "Which FinOps capability or technique best addresses optimization requirement #33?",
     options: [
-      { id: 'A', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'B', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'C', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'D', text: "Option A: Official FinOps Foundation standard practice for FinOps Capabilities & Optimization driving cloud financial accountability." }
+      { id: 'A', text: "Disabling all telemetry and cost reporting tools to save storage space" },
+      { id: 'B', text: "Combining automated rightsizing with strategic commitment purchases and tagging governance" },
+      { id: 'C', text: "Running all computing instances on uncommitted on-demand pricing without monitoring" },
+      { id: 'D', text: "Manually deleting production databases whenever monthly budgets are approached" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #226: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Capabilities & Optimization"]
+    explanation: "FinOps optimization requires a dual approach: optimizing usage (rightsizing and eliminating idle waste) while simultaneously optimizing rates (purchasing commitments like RIs and Savings Plans) backed by robust metadata governance.",
+    referenceUrl: "https://www.finops.org/framework/capabilities/",
+    tags: ["FinOps", "Optimization", "Best Practices"]
   },
   {
     id: "focp-227",
-    difficulty: "easy",
-    certId: "finops-focp",
-    domainId: "d4",
-    domainName: "FinOps Capabilities & Optimization",
-    title: "FOCP Scenario #227: FinOps Capabilities & Optimization",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #227.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #227?",
-    options: [
-      { id: 'A', text: "Option A: Official FinOps Foundation standard practice for FinOps Capabilities & Optimization driving cloud financial accountability." },
-      { id: 'B', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'C', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'D', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." }
-    ],
-    correctAnswers: ['A'],
-    type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #227: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Capabilities & Optimization"]
-  },
-  {
-    id: "focp-228",
     difficulty: "hard",
     certId: "finops-focp",
     domainId: "d4",
     domainName: "FinOps Capabilities & Optimization",
-    title: "FOCP Scenario #228: FinOps Capabilities & Optimization",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #228.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #228?",
+    title: "FinOps Optimization Scenario #34",
+    scenario: "A cloud operations team is analyzing workload optimization, rate negotiation, and cost allocation practices.",
+    question: "Which FinOps capability or technique best addresses optimization requirement #34?",
     options: [
-      { id: 'A', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'B', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'C', text: "Option A: Official FinOps Foundation standard practice for FinOps Capabilities & Optimization driving cloud financial accountability." },
-      { id: 'D', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." }
+      { id: 'A', text: "Running all computing instances on uncommitted on-demand pricing without monitoring" },
+      { id: 'B', text: "Manually deleting production databases whenever monthly budgets are approached" },
+      { id: 'C', text: "Combining automated rightsizing with strategic commitment purchases and tagging governance" },
+      { id: 'D', text: "Disabling all telemetry and cost reporting tools to save storage space" }
     ],
     correctAnswers: ['C'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #228: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Capabilities & Optimization"]
+    explanation: "FinOps optimization requires a dual approach: optimizing usage (rightsizing and eliminating idle waste) while simultaneously optimizing rates (purchasing commitments like RIs and Savings Plans) backed by robust metadata governance.",
+    referenceUrl: "https://www.finops.org/framework/capabilities/",
+    tags: ["FinOps", "Optimization", "Best Practices"]
   },
   {
-    id: "focp-229",
-    difficulty: "easy",
+    id: "focp-228",
+    difficulty: "medium",
     certId: "finops-focp",
     domainId: "d4",
     domainName: "FinOps Capabilities & Optimization",
-    title: "FOCP Scenario #229: FinOps Capabilities & Optimization",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #229.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #229?",
+    title: "FinOps Optimization Scenario #35",
+    scenario: "A cloud operations team is analyzing workload optimization, rate negotiation, and cost allocation practices.",
+    question: "Which FinOps capability or technique best addresses optimization requirement #35?",
     options: [
-      { id: 'A', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'B', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'C', text: "Option A: Official FinOps Foundation standard practice for FinOps Capabilities & Optimization driving cloud financial accountability." },
-      { id: 'D', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." }
+      { id: 'A', text: "Combining automated rightsizing with strategic commitment purchases and tagging governance" },
+      { id: 'B', text: "Disabling all telemetry and cost reporting tools to save storage space" },
+      { id: 'C', text: "Running all computing instances on uncommitted on-demand pricing without monitoring" },
+      { id: 'D', text: "Manually deleting production databases whenever monthly budgets are approached" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #229: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Capabilities & Optimization"]
+    explanation: "FinOps optimization requires a dual approach: optimizing usage (rightsizing and eliminating idle waste) while simultaneously optimizing rates (purchasing commitments like RIs and Savings Plans) backed by robust metadata governance.",
+    referenceUrl: "https://www.finops.org/framework/capabilities/",
+    tags: ["FinOps", "Optimization", "Best Practices"]
+  },
+  {
+    id: "focp-229",
+    difficulty: "hard",
+    certId: "finops-focp",
+    domainId: "d4",
+    domainName: "FinOps Capabilities & Optimization",
+    title: "FinOps Optimization Scenario #36",
+    scenario: "A cloud operations team is analyzing workload optimization, rate negotiation, and cost allocation practices.",
+    question: "Which FinOps capability or technique best addresses optimization requirement #36?",
+    options: [
+      { id: 'A', text: "Combining automated rightsizing with strategic commitment purchases and tagging governance" },
+      { id: 'B', text: "Disabling all telemetry and cost reporting tools to save storage space" },
+      { id: 'C', text: "Manually deleting production databases whenever monthly budgets are approached" },
+      { id: 'D', text: "Running all computing instances on uncommitted on-demand pricing without monitoring" }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "FinOps optimization requires a dual approach: optimizing usage (rightsizing and eliminating idle waste) while simultaneously optimizing rates (purchasing commitments like RIs and Savings Plans) backed by robust metadata governance.",
+    referenceUrl: "https://www.finops.org/framework/capabilities/",
+    tags: ["FinOps", "Optimization", "Best Practices"]
   },
   {
     id: "focp-230",
@@ -89,20 +89,20 @@ export const FINOPS_FOCP_QUESTIONS_10 = [
     certId: "finops-focp",
     domainId: "d4",
     domainName: "FinOps Capabilities & Optimization",
-    title: "FOCP Scenario #230: FinOps Capabilities & Optimization",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #230.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #230?",
+    title: "FinOps Optimization Scenario #37",
+    scenario: "A cloud operations team is analyzing workload optimization, rate negotiation, and cost allocation practices.",
+    question: "Which FinOps capability or technique best addresses optimization requirement #37?",
     options: [
-      { id: 'A', text: "Option A: Official FinOps Foundation standard practice for FinOps Capabilities & Optimization driving cloud financial accountability." },
-      { id: 'B', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'C', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'D', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." }
+      { id: 'A', text: "Disabling all telemetry and cost reporting tools to save storage space" },
+      { id: 'B', text: "Combining automated rightsizing with strategic commitment purchases and tagging governance" },
+      { id: 'C', text: "Running all computing instances on uncommitted on-demand pricing without monitoring" },
+      { id: 'D', text: "Manually deleting production databases whenever monthly budgets are approached" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #230: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Capabilities & Optimization"]
+    explanation: "FinOps optimization requires a dual approach: optimizing usage (rightsizing and eliminating idle waste) while simultaneously optimizing rates (purchasing commitments like RIs and Savings Plans) backed by robust metadata governance.",
+    referenceUrl: "https://www.finops.org/framework/capabilities/",
+    tags: ["FinOps", "Optimization", "Best Practices"]
   },
   {
     id: "focp-231",
@@ -110,20 +110,20 @@ export const FINOPS_FOCP_QUESTIONS_10 = [
     certId: "finops-focp",
     domainId: "d4",
     domainName: "FinOps Capabilities & Optimization",
-    title: "FOCP Scenario #231: FinOps Capabilities & Optimization",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #231.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #231?",
+    title: "FinOps Optimization Scenario #38",
+    scenario: "A cloud operations team is analyzing workload optimization, rate negotiation, and cost allocation practices.",
+    question: "Which FinOps capability or technique best addresses optimization requirement #38?",
     options: [
-      { id: 'A', text: "Option A: Official FinOps Foundation standard practice for FinOps Capabilities & Optimization driving cloud financial accountability." },
-      { id: 'B', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'C', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'D', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." }
+      { id: 'A', text: "Disabling all telemetry and cost reporting tools to save storage space" },
+      { id: 'B', text: "Running all computing instances on uncommitted on-demand pricing without monitoring" },
+      { id: 'C', text: "Manually deleting production databases whenever monthly budgets are approached" },
+      { id: 'D', text: "Combining automated rightsizing with strategic commitment purchases and tagging governance" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #231: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Capabilities & Optimization"]
+    explanation: "FinOps optimization requires a dual approach: optimizing usage (rightsizing and eliminating idle waste) while simultaneously optimizing rates (purchasing commitments like RIs and Savings Plans) backed by robust metadata governance.",
+    referenceUrl: "https://www.finops.org/framework/capabilities/",
+    tags: ["FinOps", "Optimization", "Best Practices"]
   },
   {
     id: "focp-232",
@@ -131,83 +131,83 @@ export const FINOPS_FOCP_QUESTIONS_10 = [
     certId: "finops-focp",
     domainId: "d4",
     domainName: "FinOps Capabilities & Optimization",
-    title: "FOCP Scenario #232: FinOps Capabilities & Optimization",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #232.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #232?",
+    title: "FinOps Optimization Scenario #39",
+    scenario: "A cloud operations team is analyzing workload optimization, rate negotiation, and cost allocation practices.",
+    question: "Which FinOps capability or technique best addresses optimization requirement #39?",
     options: [
-      { id: 'A', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'B', text: "Option A: Official FinOps Foundation standard practice for FinOps Capabilities & Optimization driving cloud financial accountability." },
-      { id: 'C', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'D', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." }
-    ],
-    correctAnswers: ['B'],
-    type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #232: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Capabilities & Optimization"]
-  },
-  {
-    id: "focp-233",
-    difficulty: "easy",
-    certId: "finops-focp",
-    domainId: "d4",
-    domainName: "FinOps Capabilities & Optimization",
-    title: "FOCP Scenario #233: FinOps Capabilities & Optimization",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #233.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #233?",
-    options: [
-      { id: 'A', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'B', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'C', text: "Option A: Official FinOps Foundation standard practice for FinOps Capabilities & Optimization driving cloud financial accountability." },
-      { id: 'D', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." }
+      { id: 'A', text: "Manually deleting production databases whenever monthly budgets are approached" },
+      { id: 'B', text: "Disabling all telemetry and cost reporting tools to save storage space" },
+      { id: 'C', text: "Combining automated rightsizing with strategic commitment purchases and tagging governance" },
+      { id: 'D', text: "Running all computing instances on uncommitted on-demand pricing without monitoring" }
     ],
     correctAnswers: ['C'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #233: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Capabilities & Optimization"]
+    explanation: "FinOps optimization requires a dual approach: optimizing usage (rightsizing and eliminating idle waste) while simultaneously optimizing rates (purchasing commitments like RIs and Savings Plans) backed by robust metadata governance.",
+    referenceUrl: "https://www.finops.org/framework/capabilities/",
+    tags: ["FinOps", "Optimization", "Best Practices"]
   },
   {
-    id: "focp-234",
+    id: "focp-233",
     difficulty: "hard",
     certId: "finops-focp",
     domainId: "d4",
     domainName: "FinOps Capabilities & Optimization",
-    title: "FOCP Scenario #234: FinOps Capabilities & Optimization",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #234.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #234?",
+    title: "FinOps Optimization Scenario #40",
+    scenario: "A cloud operations team is analyzing workload optimization, rate negotiation, and cost allocation practices.",
+    question: "Which FinOps capability or technique best addresses optimization requirement #40?",
     options: [
-      { id: 'A', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'B', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'C', text: "Option A: Official FinOps Foundation standard practice for FinOps Capabilities & Optimization driving cloud financial accountability." },
-      { id: 'D', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." }
-    ],
-    correctAnswers: ['C'],
-    type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #234: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Capabilities & Optimization"]
-  },
-  {
-    id: "focp-235",
-    difficulty: "easy",
-    certId: "finops-focp",
-    domainId: "d4",
-    domainName: "FinOps Capabilities & Optimization",
-    title: "FOCP Scenario #235: FinOps Capabilities & Optimization",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #235.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #235?",
-    options: [
-      { id: 'A', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'B', text: "Option A: Official FinOps Foundation standard practice for FinOps Capabilities & Optimization driving cloud financial accountability." },
-      { id: 'C', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'D', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." }
+      { id: 'A', text: "Running all computing instances on uncommitted on-demand pricing without monitoring" },
+      { id: 'B', text: "Combining automated rightsizing with strategic commitment purchases and tagging governance" },
+      { id: 'C', text: "Disabling all telemetry and cost reporting tools to save storage space" },
+      { id: 'D', text: "Manually deleting production databases whenever monthly budgets are approached" }
     ],
     correctAnswers: ['B'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #235: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Capabilities & Optimization"]
+    explanation: "FinOps optimization requires a dual approach: optimizing usage (rightsizing and eliminating idle waste) while simultaneously optimizing rates (purchasing commitments like RIs and Savings Plans) backed by robust metadata governance.",
+    referenceUrl: "https://www.finops.org/framework/capabilities/",
+    tags: ["FinOps", "Optimization", "Best Practices"]
+  },
+  {
+    id: "focp-234",
+    difficulty: "medium",
+    certId: "finops-focp",
+    domainId: "d4",
+    domainName: "FinOps Capabilities & Optimization",
+    title: "FinOps Optimization Scenario #41",
+    scenario: "A cloud operations team is analyzing workload optimization, rate negotiation, and cost allocation practices.",
+    question: "Which FinOps capability or technique best addresses optimization requirement #41?",
+    options: [
+      { id: 'A', text: "Combining automated rightsizing with strategic commitment purchases and tagging governance" },
+      { id: 'B', text: "Running all computing instances on uncommitted on-demand pricing without monitoring" },
+      { id: 'C', text: "Disabling all telemetry and cost reporting tools to save storage space" },
+      { id: 'D', text: "Manually deleting production databases whenever monthly budgets are approached" }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "FinOps optimization requires a dual approach: optimizing usage (rightsizing and eliminating idle waste) while simultaneously optimizing rates (purchasing commitments like RIs and Savings Plans) backed by robust metadata governance.",
+    referenceUrl: "https://www.finops.org/framework/capabilities/",
+    tags: ["FinOps", "Optimization", "Best Practices"]
+  },
+  {
+    id: "focp-235",
+    difficulty: "hard",
+    certId: "finops-focp",
+    domainId: "d4",
+    domainName: "FinOps Capabilities & Optimization",
+    title: "FinOps Optimization Scenario #42",
+    scenario: "A cloud operations team is analyzing workload optimization, rate negotiation, and cost allocation practices.",
+    question: "Which FinOps capability or technique best addresses optimization requirement #42?",
+    options: [
+      { id: 'A', text: "Running all computing instances on uncommitted on-demand pricing without monitoring" },
+      { id: 'B', text: "Manually deleting production databases whenever monthly budgets are approached" },
+      { id: 'C', text: "Combining automated rightsizing with strategic commitment purchases and tagging governance" },
+      { id: 'D', text: "Disabling all telemetry and cost reporting tools to save storage space" }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "FinOps optimization requires a dual approach: optimizing usage (rightsizing and eliminating idle waste) while simultaneously optimizing rates (purchasing commitments like RIs and Savings Plans) backed by robust metadata governance.",
+    referenceUrl: "https://www.finops.org/framework/capabilities/",
+    tags: ["FinOps", "Optimization", "Best Practices"]
   },
   {
     id: "focp-236",
@@ -215,20 +215,20 @@ export const FINOPS_FOCP_QUESTIONS_10 = [
     certId: "finops-focp",
     domainId: "d4",
     domainName: "FinOps Capabilities & Optimization",
-    title: "FOCP Scenario #236: FinOps Capabilities & Optimization",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #236.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #236?",
+    title: "FinOps Optimization Scenario #43",
+    scenario: "A cloud operations team is analyzing workload optimization, rate negotiation, and cost allocation practices.",
+    question: "Which FinOps capability or technique best addresses optimization requirement #43?",
     options: [
-      { id: 'A', text: "Option A: Official FinOps Foundation standard practice for FinOps Capabilities & Optimization driving cloud financial accountability." },
-      { id: 'B', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'C', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'D', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." }
+      { id: 'A', text: "Combining automated rightsizing with strategic commitment purchases and tagging governance" },
+      { id: 'B', text: "Manually deleting production databases whenever monthly budgets are approached" },
+      { id: 'C', text: "Running all computing instances on uncommitted on-demand pricing without monitoring" },
+      { id: 'D', text: "Disabling all telemetry and cost reporting tools to save storage space" }
     ],
     correctAnswers: ['A'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #236: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Capabilities & Optimization"]
+    explanation: "FinOps optimization requires a dual approach: optimizing usage (rightsizing and eliminating idle waste) while simultaneously optimizing rates (purchasing commitments like RIs and Savings Plans) backed by robust metadata governance.",
+    referenceUrl: "https://www.finops.org/framework/capabilities/",
+    tags: ["FinOps", "Optimization", "Best Practices"]
   },
   {
     id: "focp-237",
@@ -236,20 +236,20 @@ export const FINOPS_FOCP_QUESTIONS_10 = [
     certId: "finops-focp",
     domainId: "d4",
     domainName: "FinOps Capabilities & Optimization",
-    title: "FOCP Scenario #237: FinOps Capabilities & Optimization",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #237.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #237?",
+    title: "FinOps Optimization Scenario #44",
+    scenario: "A cloud operations team is analyzing workload optimization, rate negotiation, and cost allocation practices.",
+    question: "Which FinOps capability or technique best addresses optimization requirement #44?",
     options: [
-      { id: 'A', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'B', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'C', text: "Option A: Official FinOps Foundation standard practice for FinOps Capabilities & Optimization driving cloud financial accountability." },
-      { id: 'D', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." }
+      { id: 'A', text: "Disabling all telemetry and cost reporting tools to save storage space" },
+      { id: 'B', text: "Running all computing instances on uncommitted on-demand pricing without monitoring" },
+      { id: 'C', text: "Combining automated rightsizing with strategic commitment purchases and tagging governance" },
+      { id: 'D', text: "Manually deleting production databases whenever monthly budgets are approached" }
     ],
     correctAnswers: ['C'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #237: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Capabilities & Optimization"]
+    explanation: "FinOps optimization requires a dual approach: optimizing usage (rightsizing and eliminating idle waste) while simultaneously optimizing rates (purchasing commitments like RIs and Savings Plans) backed by robust metadata governance.",
+    referenceUrl: "https://www.finops.org/framework/capabilities/",
+    tags: ["FinOps", "Optimization", "Best Practices"]
   },
   {
     id: "focp-238",
@@ -257,83 +257,83 @@ export const FINOPS_FOCP_QUESTIONS_10 = [
     certId: "finops-focp",
     domainId: "d4",
     domainName: "FinOps Capabilities & Optimization",
-    title: "FOCP Scenario #238: FinOps Capabilities & Optimization",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #238.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #238?",
+    title: "FinOps Optimization Scenario #45",
+    scenario: "A cloud operations team is analyzing workload optimization, rate negotiation, and cost allocation practices.",
+    question: "Which FinOps capability or technique best addresses optimization requirement #45?",
     options: [
-      { id: 'A', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'B', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'C', text: "Option A: Official FinOps Foundation standard practice for FinOps Capabilities & Optimization driving cloud financial accountability." },
-      { id: 'D', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." }
+      { id: 'A', text: "Manually deleting production databases whenever monthly budgets are approached" },
+      { id: 'B', text: "Disabling all telemetry and cost reporting tools to save storage space" },
+      { id: 'C', text: "Running all computing instances on uncommitted on-demand pricing without monitoring" },
+      { id: 'D', text: "Combining automated rightsizing with strategic commitment purchases and tagging governance" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #238: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Capabilities & Optimization"]
+    explanation: "FinOps optimization requires a dual approach: optimizing usage (rightsizing and eliminating idle waste) while simultaneously optimizing rates (purchasing commitments like RIs and Savings Plans) backed by robust metadata governance.",
+    referenceUrl: "https://www.finops.org/framework/capabilities/",
+    tags: ["FinOps", "Optimization", "Best Practices"]
   },
   {
     id: "focp-239",
-    difficulty: "easy",
-    certId: "finops-focp",
-    domainId: "d4",
-    domainName: "FinOps Capabilities & Optimization",
-    title: "FOCP Scenario #239: FinOps Capabilities & Optimization",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #239.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #239?",
-    options: [
-      { id: 'A', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'B', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'C', text: "Option A: Official FinOps Foundation standard practice for FinOps Capabilities & Optimization driving cloud financial accountability." },
-      { id: 'D', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." }
-    ],
-    correctAnswers: ['C'],
-    type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #239: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Capabilities & Optimization"]
-  },
-  {
-    id: "focp-240",
     difficulty: "hard",
     certId: "finops-focp",
     domainId: "d4",
     domainName: "FinOps Capabilities & Optimization",
-    title: "FOCP Scenario #240: FinOps Capabilities & Optimization",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #240.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #240?",
+    title: "FinOps Optimization Scenario #46",
+    scenario: "A cloud operations team is analyzing workload optimization, rate negotiation, and cost allocation practices.",
+    question: "Which FinOps capability or technique best addresses optimization requirement #46?",
     options: [
-      { id: 'A', text: "Option A: Official FinOps Foundation standard practice for FinOps Capabilities & Optimization driving cloud financial accountability." },
-      { id: 'B', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'C', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'D', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." }
+      { id: 'A', text: "Disabling all telemetry and cost reporting tools to save storage space" },
+      { id: 'B', text: "Combining automated rightsizing with strategic commitment purchases and tagging governance" },
+      { id: 'C', text: "Running all computing instances on uncommitted on-demand pricing without monitoring" },
+      { id: 'D', text: "Manually deleting production databases whenever monthly budgets are approached" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #240: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Capabilities & Optimization"]
+    explanation: "FinOps optimization requires a dual approach: optimizing usage (rightsizing and eliminating idle waste) while simultaneously optimizing rates (purchasing commitments like RIs and Savings Plans) backed by robust metadata governance.",
+    referenceUrl: "https://www.finops.org/framework/capabilities/",
+    tags: ["FinOps", "Optimization", "Best Practices"]
   },
   {
-    id: "focp-241",
-    difficulty: "easy",
+    id: "focp-240",
+    difficulty: "medium",
     certId: "finops-focp",
     domainId: "d4",
     domainName: "FinOps Capabilities & Optimization",
-    title: "FOCP Scenario #241: FinOps Capabilities & Optimization",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #241.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #241?",
+    title: "FinOps Optimization Scenario #47",
+    scenario: "A cloud operations team is analyzing workload optimization, rate negotiation, and cost allocation practices.",
+    question: "Which FinOps capability or technique best addresses optimization requirement #47?",
     options: [
-      { id: 'A', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'B', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'C', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'D', text: "Option A: Official FinOps Foundation standard practice for FinOps Capabilities & Optimization driving cloud financial accountability." }
+      { id: 'A', text: "Disabling all telemetry and cost reporting tools to save storage space" },
+      { id: 'B', text: "Running all computing instances on uncommitted on-demand pricing without monitoring" },
+      { id: 'C', text: "Combining automated rightsizing with strategic commitment purchases and tagging governance" },
+      { id: 'D', text: "Manually deleting production databases whenever monthly budgets are approached" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #241: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Capabilities & Optimization"]
+    explanation: "FinOps optimization requires a dual approach: optimizing usage (rightsizing and eliminating idle waste) while simultaneously optimizing rates (purchasing commitments like RIs and Savings Plans) backed by robust metadata governance.",
+    referenceUrl: "https://www.finops.org/framework/capabilities/",
+    tags: ["FinOps", "Optimization", "Best Practices"]
+  },
+  {
+    id: "focp-241",
+    difficulty: "hard",
+    certId: "finops-focp",
+    domainId: "d4",
+    domainName: "FinOps Capabilities & Optimization",
+    title: "FinOps Optimization Scenario #48",
+    scenario: "A cloud operations team is analyzing workload optimization, rate negotiation, and cost allocation practices.",
+    question: "Which FinOps capability or technique best addresses optimization requirement #48?",
+    options: [
+      { id: 'A', text: "Running all computing instances on uncommitted on-demand pricing without monitoring" },
+      { id: 'B', text: "Manually deleting production databases whenever monthly budgets are approached" },
+      { id: 'C', text: "Combining automated rightsizing with strategic commitment purchases and tagging governance" },
+      { id: 'D', text: "Disabling all telemetry and cost reporting tools to save storage space" }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "FinOps optimization requires a dual approach: optimizing usage (rightsizing and eliminating idle waste) while simultaneously optimizing rates (purchasing commitments like RIs and Savings Plans) backed by robust metadata governance.",
+    referenceUrl: "https://www.finops.org/framework/capabilities/",
+    tags: ["FinOps", "Optimization", "Best Practices"]
   },
   {
     id: "focp-242",
@@ -341,20 +341,20 @@ export const FINOPS_FOCP_QUESTIONS_10 = [
     certId: "finops-focp",
     domainId: "d4",
     domainName: "FinOps Capabilities & Optimization",
-    title: "FOCP Scenario #242: FinOps Capabilities & Optimization",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #242.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #242?",
+    title: "FinOps Optimization Scenario #49",
+    scenario: "A cloud operations team is analyzing workload optimization, rate negotiation, and cost allocation practices.",
+    question: "Which FinOps capability or technique best addresses optimization requirement #49?",
     options: [
-      { id: 'A', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'B', text: "Option A: Official FinOps Foundation standard practice for FinOps Capabilities & Optimization driving cloud financial accountability." },
-      { id: 'C', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'D', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." }
+      { id: 'A', text: "Manually deleting production databases whenever monthly budgets are approached" },
+      { id: 'B', text: "Running all computing instances on uncommitted on-demand pricing without monitoring" },
+      { id: 'C', text: "Combining automated rightsizing with strategic commitment purchases and tagging governance" },
+      { id: 'D', text: "Disabling all telemetry and cost reporting tools to save storage space" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #242: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Capabilities & Optimization"]
+    explanation: "FinOps optimization requires a dual approach: optimizing usage (rightsizing and eliminating idle waste) while simultaneously optimizing rates (purchasing commitments like RIs and Savings Plans) backed by robust metadata governance.",
+    referenceUrl: "https://www.finops.org/framework/capabilities/",
+    tags: ["FinOps", "Optimization", "Best Practices"]
   },
   {
     id: "focp-243",
@@ -362,20 +362,20 @@ export const FINOPS_FOCP_QUESTIONS_10 = [
     certId: "finops-focp",
     domainId: "d4",
     domainName: "FinOps Capabilities & Optimization",
-    title: "FOCP Scenario #243: FinOps Capabilities & Optimization",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #243.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #243?",
+    title: "FinOps Optimization Scenario #50",
+    scenario: "A cloud operations team is analyzing workload optimization, rate negotiation, and cost allocation practices.",
+    question: "Which FinOps capability or technique best addresses optimization requirement #50?",
     options: [
-      { id: 'A', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'B', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'C', text: "Option A: Official FinOps Foundation standard practice for FinOps Capabilities & Optimization driving cloud financial accountability." },
-      { id: 'D', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." }
+      { id: 'A', text: "Running all computing instances on uncommitted on-demand pricing without monitoring" },
+      { id: 'B', text: "Disabling all telemetry and cost reporting tools to save storage space" },
+      { id: 'C', text: "Combining automated rightsizing with strategic commitment purchases and tagging governance" },
+      { id: 'D', text: "Manually deleting production databases whenever monthly budgets are approached" }
     ],
     correctAnswers: ['C'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #243: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Capabilities & Optimization"]
+    explanation: "FinOps optimization requires a dual approach: optimizing usage (rightsizing and eliminating idle waste) while simultaneously optimizing rates (purchasing commitments like RIs and Savings Plans) backed by robust metadata governance.",
+    referenceUrl: "https://www.finops.org/framework/capabilities/",
+    tags: ["FinOps", "Optimization", "Best Practices"]
   },
   {
     id: "focp-244",
@@ -383,83 +383,83 @@ export const FINOPS_FOCP_QUESTIONS_10 = [
     certId: "finops-focp",
     domainId: "d4",
     domainName: "FinOps Capabilities & Optimization",
-    title: "FOCP Scenario #244: FinOps Capabilities & Optimization",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #244.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #244?",
+    title: "FinOps Optimization Scenario #51",
+    scenario: "A cloud operations team is analyzing workload optimization, rate negotiation, and cost allocation practices.",
+    question: "Which FinOps capability or technique best addresses optimization requirement #51?",
     options: [
-      { id: 'A', text: "Option A: Official FinOps Foundation standard practice for FinOps Capabilities & Optimization driving cloud financial accountability." },
-      { id: 'B', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'C', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'D', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." }
+      { id: 'A', text: "Disabling all telemetry and cost reporting tools to save storage space" },
+      { id: 'B', text: "Combining automated rightsizing with strategic commitment purchases and tagging governance" },
+      { id: 'C', text: "Manually deleting production databases whenever monthly budgets are approached" },
+      { id: 'D', text: "Running all computing instances on uncommitted on-demand pricing without monitoring" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #244: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Capabilities & Optimization"]
+    explanation: "FinOps optimization requires a dual approach: optimizing usage (rightsizing and eliminating idle waste) while simultaneously optimizing rates (purchasing commitments like RIs and Savings Plans) backed by robust metadata governance.",
+    referenceUrl: "https://www.finops.org/framework/capabilities/",
+    tags: ["FinOps", "Optimization", "Best Practices"]
   },
   {
     id: "focp-245",
-    difficulty: "easy",
-    certId: "finops-focp",
-    domainId: "d4",
-    domainName: "FinOps Capabilities & Optimization",
-    title: "FOCP Scenario #245: FinOps Capabilities & Optimization",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #245.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #245?",
-    options: [
-      { id: 'A', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'B', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'C', text: "Option A: Official FinOps Foundation standard practice for FinOps Capabilities & Optimization driving cloud financial accountability." },
-      { id: 'D', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." }
-    ],
-    correctAnswers: ['C'],
-    type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #245: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Capabilities & Optimization"]
-  },
-  {
-    id: "focp-246",
     difficulty: "hard",
     certId: "finops-focp",
     domainId: "d4",
     domainName: "FinOps Capabilities & Optimization",
-    title: "FOCP Scenario #246: FinOps Capabilities & Optimization",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #246.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #246?",
+    title: "FinOps Optimization Scenario #52",
+    scenario: "A cloud operations team is analyzing workload optimization, rate negotiation, and cost allocation practices.",
+    question: "Which FinOps capability or technique best addresses optimization requirement #52?",
     options: [
-      { id: 'A', text: "Option A: Official FinOps Foundation standard practice for FinOps Capabilities & Optimization driving cloud financial accountability." },
-      { id: 'B', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'C', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'D', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." }
+      { id: 'A', text: "Disabling all telemetry and cost reporting tools to save storage space" },
+      { id: 'B', text: "Combining automated rightsizing with strategic commitment purchases and tagging governance" },
+      { id: 'C', text: "Manually deleting production databases whenever monthly budgets are approached" },
+      { id: 'D', text: "Running all computing instances on uncommitted on-demand pricing without monitoring" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #246: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Capabilities & Optimization"]
+    explanation: "FinOps optimization requires a dual approach: optimizing usage (rightsizing and eliminating idle waste) while simultaneously optimizing rates (purchasing commitments like RIs and Savings Plans) backed by robust metadata governance.",
+    referenceUrl: "https://www.finops.org/framework/capabilities/",
+    tags: ["FinOps", "Optimization", "Best Practices"]
   },
   {
-    id: "focp-247",
-    difficulty: "easy",
+    id: "focp-246",
+    difficulty: "medium",
     certId: "finops-focp",
     domainId: "d4",
     domainName: "FinOps Capabilities & Optimization",
-    title: "FOCP Scenario #247: FinOps Capabilities & Optimization",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #247.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #247?",
+    title: "FinOps Optimization Scenario #53",
+    scenario: "A cloud operations team is analyzing workload optimization, rate negotiation, and cost allocation practices.",
+    question: "Which FinOps capability or technique best addresses optimization requirement #53?",
     options: [
-      { id: 'A', text: "Option A: Official FinOps Foundation standard practice for FinOps Capabilities & Optimization driving cloud financial accountability." },
-      { id: 'B', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'C', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'D', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." }
+      { id: 'A', text: "Running all computing instances on uncommitted on-demand pricing without monitoring" },
+      { id: 'B', text: "Manually deleting production databases whenever monthly budgets are approached" },
+      { id: 'C', text: "Combining automated rightsizing with strategic commitment purchases and tagging governance" },
+      { id: 'D', text: "Disabling all telemetry and cost reporting tools to save storage space" }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "FinOps optimization requires a dual approach: optimizing usage (rightsizing and eliminating idle waste) while simultaneously optimizing rates (purchasing commitments like RIs and Savings Plans) backed by robust metadata governance.",
+    referenceUrl: "https://www.finops.org/framework/capabilities/",
+    tags: ["FinOps", "Optimization", "Best Practices"]
+  },
+  {
+    id: "focp-247",
+    difficulty: "hard",
+    certId: "finops-focp",
+    domainId: "d4",
+    domainName: "FinOps Capabilities & Optimization",
+    title: "FinOps Optimization Scenario #54",
+    scenario: "A cloud operations team is analyzing workload optimization, rate negotiation, and cost allocation practices.",
+    question: "Which FinOps capability or technique best addresses optimization requirement #54?",
+    options: [
+      { id: 'A', text: "Combining automated rightsizing with strategic commitment purchases and tagging governance" },
+      { id: 'B', text: "Manually deleting production databases whenever monthly budgets are approached" },
+      { id: 'C', text: "Running all computing instances on uncommitted on-demand pricing without monitoring" },
+      { id: 'D', text: "Disabling all telemetry and cost reporting tools to save storage space" }
     ],
     correctAnswers: ['A'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #247: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Capabilities & Optimization"]
+    explanation: "FinOps optimization requires a dual approach: optimizing usage (rightsizing and eliminating idle waste) while simultaneously optimizing rates (purchasing commitments like RIs and Savings Plans) backed by robust metadata governance.",
+    referenceUrl: "https://www.finops.org/framework/capabilities/",
+    tags: ["FinOps", "Optimization", "Best Practices"]
   },
   {
     id: "focp-248",
@@ -467,20 +467,20 @@ export const FINOPS_FOCP_QUESTIONS_10 = [
     certId: "finops-focp",
     domainId: "d4",
     domainName: "FinOps Capabilities & Optimization",
-    title: "FOCP Scenario #248: FinOps Capabilities & Optimization",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #248.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #248?",
+    title: "FinOps Optimization Scenario #55",
+    scenario: "A cloud operations team is analyzing workload optimization, rate negotiation, and cost allocation practices.",
+    question: "Which FinOps capability or technique best addresses optimization requirement #55?",
     options: [
-      { id: 'A', text: "Option A: Official FinOps Foundation standard practice for FinOps Capabilities & Optimization driving cloud financial accountability." },
-      { id: 'B', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'C', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'D', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." }
+      { id: 'A', text: "Combining automated rightsizing with strategic commitment purchases and tagging governance" },
+      { id: 'B', text: "Running all computing instances on uncommitted on-demand pricing without monitoring" },
+      { id: 'C', text: "Manually deleting production databases whenever monthly budgets are approached" },
+      { id: 'D', text: "Disabling all telemetry and cost reporting tools to save storage space" }
     ],
     correctAnswers: ['A'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #248: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Capabilities & Optimization"]
+    explanation: "FinOps optimization requires a dual approach: optimizing usage (rightsizing and eliminating idle waste) while simultaneously optimizing rates (purchasing commitments like RIs and Savings Plans) backed by robust metadata governance.",
+    referenceUrl: "https://www.finops.org/framework/capabilities/",
+    tags: ["FinOps", "Optimization", "Best Practices"]
   },
   {
     id: "focp-249",
@@ -488,20 +488,20 @@ export const FINOPS_FOCP_QUESTIONS_10 = [
     certId: "finops-focp",
     domainId: "d4",
     domainName: "FinOps Capabilities & Optimization",
-    title: "FOCP Scenario #249: FinOps Capabilities & Optimization",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #249.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #249?",
+    title: "FinOps Optimization Scenario #56",
+    scenario: "A cloud operations team is analyzing workload optimization, rate negotiation, and cost allocation practices.",
+    question: "Which FinOps capability or technique best addresses optimization requirement #56?",
     options: [
-      { id: 'A', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'B', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'C', text: "Option A: Official FinOps Foundation standard practice for FinOps Capabilities & Optimization driving cloud financial accountability." },
-      { id: 'D', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." }
+      { id: 'A', text: "Manually deleting production databases whenever monthly budgets are approached" },
+      { id: 'B', text: "Combining automated rightsizing with strategic commitment purchases and tagging governance" },
+      { id: 'C', text: "Disabling all telemetry and cost reporting tools to save storage space" },
+      { id: 'D', text: "Running all computing instances on uncommitted on-demand pricing without monitoring" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #249: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Capabilities & Optimization"]
+    explanation: "FinOps optimization requires a dual approach: optimizing usage (rightsizing and eliminating idle waste) while simultaneously optimizing rates (purchasing commitments like RIs and Savings Plans) backed by robust metadata governance.",
+    referenceUrl: "https://www.finops.org/framework/capabilities/",
+    tags: ["FinOps", "Optimization", "Best Practices"]
   },
   {
     id: "focp-250",
@@ -509,20 +509,20 @@ export const FINOPS_FOCP_QUESTIONS_10 = [
     certId: "finops-focp",
     domainId: "d4",
     domainName: "FinOps Capabilities & Optimization",
-    title: "FOCP Scenario #250: FinOps Capabilities & Optimization",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #250.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #250?",
+    title: "FinOps Optimization Scenario #57",
+    scenario: "A cloud operations team is analyzing workload optimization, rate negotiation, and cost allocation practices.",
+    question: "Which FinOps capability or technique best addresses optimization requirement #57?",
     options: [
-      { id: 'A', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'B', text: "Option A: Official FinOps Foundation standard practice for FinOps Capabilities & Optimization driving cloud financial accountability." },
-      { id: 'C', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'D', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." }
+      { id: 'A', text: "Running all computing instances on uncommitted on-demand pricing without monitoring" },
+      { id: 'B', text: "Combining automated rightsizing with strategic commitment purchases and tagging governance" },
+      { id: 'C', text: "Disabling all telemetry and cost reporting tools to save storage space" },
+      { id: 'D', text: "Manually deleting production databases whenever monthly budgets are approached" }
     ],
     correctAnswers: ['B'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #250: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Capabilities & Optimization"]
+    explanation: "FinOps optimization requires a dual approach: optimizing usage (rightsizing and eliminating idle waste) while simultaneously optimizing rates (purchasing commitments like RIs and Savings Plans) backed by robust metadata governance.",
+    referenceUrl: "https://www.finops.org/framework/capabilities/",
+    tags: ["FinOps", "Optimization", "Best Practices"]
   }
 ];
 

@@ -1,45 +1,45 @@
 export const FINOPS_FOCP_QUESTIONS_3 = [
   {
     id: "focp-51",
-    difficulty: "hard",
+    difficulty: "easy",
     certId: "finops-focp",
     domainId: "d2",
     domainName: "FinOps Phases & Maturity Model",
-    title: "FOCP Scenario #51: FinOps Phases & Maturity Model",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #51.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #51?",
+    title: "The Three FinOps Lifecycle Phases",
+    scenario: "A FinOps Practitioner is outlining the continuous, iterative lifecycle of FinOps activities to a newly formed team.",
+    question: "What are the three iterative phases of the FinOps lifecycle?",
     options: [
-      { id: 'A', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'B', text: "Option A: Official FinOps Foundation standard practice for FinOps Phases & Maturity Model driving cloud financial accountability." },
-      { id: 'C', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'D', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." }
-    ],
-    correctAnswers: ['B'],
-    type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #51: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Phases & Maturity Model"]
-  },
-  {
-    id: "focp-52",
-    difficulty: "medium",
-    certId: "finops-focp",
-    domainId: "d2",
-    domainName: "FinOps Phases & Maturity Model",
-    title: "FOCP Scenario #52: FinOps Phases & Maturity Model",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #52.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #52?",
-    options: [
-      { id: 'A', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'B', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'C', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'D', text: "Option A: Official FinOps Foundation standard practice for FinOps Phases & Maturity Model driving cloud financial accountability." }
+      { id: 'A', text: "Analyze, Procure, and Depreciate" },
+      { id: 'B', text: "Discover, Migrate, and Modernize" },
+      { id: 'C', text: "Plan, Build, and Run" },
+      { id: 'D', text: "Inform, Optimize, and Operate" }
     ],
     correctAnswers: ['D'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #52: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Phases & Maturity Model"]
+    explanation: "The FinOps lifecycle consists of three iterative phases: Inform (providing visibility, allocation, and forecasting), Optimize (discovering rate and usage optimization opportunities), and Operate (implementing continuous automation and governance).",
+    referenceUrl: "https://www.finops.org/framework/phases/",
+    tags: ["FinOps", "Phases", "Lifecycle"]
+  },
+  {
+    id: "focp-52",
+    difficulty: "easy",
+    certId: "finops-focp",
+    domainId: "d2",
+    domainName: "FinOps Phases & Maturity Model",
+    title: "Inform Phase - Cost Allocation",
+    scenario: "A company implements tagging policies and hierarchical subscription boundaries so that every cloud dollar can be attributed back to a specific application, cost center, and product squad.",
+    question: "Which phase of the FinOps lifecycle does this visibility and allocation work belong to?",
+    options: [
+      { id: 'A', text: "Decommission phase" },
+      { id: 'B', text: "Operate phase" },
+      { id: 'C', text: "Optimize phase" },
+      { id: 'D', text: "Inform phase" }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "The Inform phase focuses on visibility and transparency. It includes cost allocation, tagging, benchmarking, budgeting, and forecasting to ensure organizations know what they are spending and who is responsible for each cost component.",
+    referenceUrl: "https://www.finops.org/framework/phases/",
+    tags: ["FinOps", "Phases", "Inform"]
   },
   {
     id: "focp-53",
@@ -47,62 +47,62 @@ export const FINOPS_FOCP_QUESTIONS_3 = [
     certId: "finops-focp",
     domainId: "d2",
     domainName: "FinOps Phases & Maturity Model",
-    title: "FOCP Scenario #53: FinOps Phases & Maturity Model",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #53.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #53?",
+    title: "Optimize Phase - Rightsizing and Commitments",
+    scenario: "An engineering team reviews memory utilization graphs to identify oversized virtual machines that can be scaled down, while the central FinOps team evaluates purchasing 3-year commitment discounts.",
+    question: "Which phase of the FinOps lifecycle encompasses these actions?",
     options: [
-      { id: 'A', text: "Option A: Official FinOps Foundation standard practice for FinOps Phases & Maturity Model driving cloud financial accountability." },
-      { id: 'B', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'C', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'D', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." }
+      { id: 'A', text: "Operate phase" },
+      { id: 'B', text: "Inform phase" },
+      { id: 'C', text: "Optimize phase" },
+      { id: 'D', text: "Audit phase" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #53: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Phases & Maturity Model"]
+    explanation: "The Optimize phase focuses on identifying and executing optimization opportunities. It includes rate optimization (purchasing commitment discounts like RIs and Savings Plans) and usage optimization (rightsizing resources, turning off idle infrastructure, modernizing instance generations).",
+    referenceUrl: "https://www.finops.org/framework/phases/",
+    tags: ["FinOps", "Phases", "Optimize"]
   },
   {
     id: "focp-54",
-    difficulty: "hard",
-    certId: "finops-focp",
-    domainId: "d2",
-    domainName: "FinOps Phases & Maturity Model",
-    title: "FOCP Scenario #54: FinOps Phases & Maturity Model",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #54.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #54?",
-    options: [
-      { id: 'A', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'B', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'C', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'D', text: "Option A: Official FinOps Foundation standard practice for FinOps Phases & Maturity Model driving cloud financial accountability." }
-    ],
-    correctAnswers: ['D'],
-    type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #54: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Phases & Maturity Model"]
-  },
-  {
-    id: "focp-55",
     difficulty: "easy",
     certId: "finops-focp",
     domainId: "d2",
     domainName: "FinOps Phases & Maturity Model",
-    title: "FOCP Scenario #55: FinOps Phases & Maturity Model",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #55.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #55?",
+    title: "Operate Phase - Continuous Automation",
+    scenario: "An enterprise implements automated CI/CD policy gates that prevent deployments of unapproved instance types and schedules automated shutdown scripts for non-production environments outside business hours.",
+    question: "Which phase of the FinOps lifecycle represents this ongoing operational execution?",
     options: [
-      { id: 'A', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'B', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'C', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'D', text: "Option A: Official FinOps Foundation standard practice for FinOps Phases & Maturity Model driving cloud financial accountability." }
+      { id: 'A', text: "Design phase" },
+      { id: 'B', text: "Inform phase" },
+      { id: 'C', text: "Operate phase" },
+      { id: 'D', text: "Optimize phase" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #55: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Phases & Maturity Model"]
+    explanation: "The Operate phase involves continuous execution, policy enforcement, automation, and governance. It translates optimization goals into ongoing daily operations, integrating FinOps practices into standard engineering and operational workflows.",
+    referenceUrl: "https://www.finops.org/framework/phases/",
+    tags: ["FinOps", "Phases", "Operate"]
+  },
+  {
+    id: "focp-55",
+    difficulty: "medium",
+    certId: "finops-focp",
+    domainId: "d2",
+    domainName: "FinOps Phases & Maturity Model",
+    title: "FinOps Maturity Model - Crawl Stage",
+    scenario: "An organization is beginning its FinOps journey. Cost allocation is basic, tagging coverage is inconsistent (around 30%), reports are generated manually in spreadsheets, and cost optimization is reactive.",
+    question: "Which stage of the FinOps maturity model (Crawl, Walk, Run) does this describe?",
+    options: [
+      { id: 'A', text: "Run stage" },
+      { id: 'B', text: "Crawl stage" },
+      { id: 'C', text: "Walk stage" },
+      { id: 'D', text: "Sprint stage" }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "In the Crawl stage of maturity, organizations have basic visibility, rudimentary manual processes, low tagging compliance, and reactive responses to billing surprises. Processes are ad-hoc rather than standardized.",
+    referenceUrl: "https://www.finops.org/framework/maturity-model/",
+    tags: ["FinOps", "Maturity Model", "Crawl"]
   },
   {
     id: "focp-56",
@@ -110,41 +110,41 @@ export const FINOPS_FOCP_QUESTIONS_3 = [
     certId: "finops-focp",
     domainId: "d2",
     domainName: "FinOps Phases & Maturity Model",
-    title: "FOCP Scenario #56: FinOps Phases & Maturity Model",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #56.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #56?",
+    title: "FinOps Maturity Model - Walk Stage",
+    scenario: "A company has standardized its tagging hygiene to 80% coverage, established regular monthly cost reviews with engineering leads, configured automated budget alerts, and centrally manages a modest portfolio of Reserved Instances.",
+    question: "Which FinOps maturity level has the company achieved?",
     options: [
-      { id: 'A', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'B', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'C', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'D', text: "Option A: Official FinOps Foundation standard practice for FinOps Phases & Maturity Model driving cloud financial accountability." }
+      { id: 'A', text: "Elite stage" },
+      { id: 'B', text: "Walk stage" },
+      { id: 'C', text: "Run stage" },
+      { id: 'D', text: "Crawl stage" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #56: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Phases & Maturity Model"]
+    explanation: "In the Walk stage, organizations have defined policies, moderate-to-high tagging coverage, structured cadence between finance and engineering, proactive alerting, and coordinated central commitment management.",
+    referenceUrl: "https://www.finops.org/framework/maturity-model/",
+    tags: ["FinOps", "Maturity Model", "Walk"]
   },
   {
     id: "focp-57",
-    difficulty: "hard",
+    difficulty: "medium",
     certId: "finops-focp",
     domainId: "d2",
     domainName: "FinOps Phases & Maturity Model",
-    title: "FOCP Scenario #57: FinOps Phases & Maturity Model",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #57.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #57?",
+    title: "FinOps Maturity Model - Run Stage",
+    scenario: "An enterprise achieves 95%+ cost allocation (including shared platform costs and Kubernetes clusters), runs automated real-time anomaly detection, incorporates cost estimations into pull requests, and tracks granular unit economics.",
+    question: "Which FinOps maturity level is demonstrated?",
     options: [
-      { id: 'A', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'B', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'C', text: "Option A: Official FinOps Foundation standard practice for FinOps Phases & Maturity Model driving cloud financial accountability." },
-      { id: 'D', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." }
+      { id: 'A', text: "Run stage" },
+      { id: 'B', text: "Crawl stage" },
+      { id: 'C', text: "Walk stage" },
+      { id: 'D', text: "Ad-hoc stage" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #57: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Phases & Maturity Model"]
+    explanation: "The Run stage represents advanced maturity where FinOps processes are deeply automated, integrated into CI/CD pipelines, cover shared cost and container allocation, and link cloud spend directly to business unit metrics.",
+    referenceUrl: "https://www.finops.org/framework/maturity-model/",
+    tags: ["FinOps", "Maturity Model", "Run"]
   },
   {
     id: "focp-58",
@@ -152,41 +152,41 @@ export const FINOPS_FOCP_QUESTIONS_3 = [
     certId: "finops-focp",
     domainId: "d2",
     domainName: "FinOps Phases & Maturity Model",
-    title: "FOCP Scenario #58: FinOps Phases & Maturity Model",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #58.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #58?",
+    title: "Iterative Nature of FinOps Phases",
+    scenario: "A newly appointed team member asks whether an organization finishes the Inform phase completely before ever touching the Optimize phase.",
+    question: "How should the FinOps Practitioner explain the relationship between the FinOps lifecycle phases?",
     options: [
-      { id: 'A', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'B', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'C', text: "Option A: Official FinOps Foundation standard practice for FinOps Phases & Maturity Model driving cloud financial accountability." },
-      { id: 'D', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." }
-    ],
-    correctAnswers: ['C'],
-    type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #58: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Phases & Maturity Model"]
-  },
-  {
-    id: "focp-59",
-    difficulty: "easy",
-    certId: "finops-focp",
-    domainId: "d2",
-    domainName: "FinOps Phases & Maturity Model",
-    title: "FOCP Scenario #59: FinOps Phases & Maturity Model",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #59.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #59?",
-    options: [
-      { id: 'A', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'B', text: "Option A: Official FinOps Foundation standard practice for FinOps Phases & Maturity Model driving cloud financial accountability." },
-      { id: 'C', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'D', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." }
+      { id: 'A', text: "The Inform phase must be 100% complete across all enterprise systems before any optimization is permitted" },
+      { id: 'B', text: "The phases are continuous and iterative; teams can operate in multiple phases simultaneously across different workloads and maturity levels" },
+      { id: 'C', text: "Once the Operate phase is reached, the Inform phase is permanently deprecated" },
+      { id: 'D', text: "Each phase must be executed sequentially once per fiscal year" }
     ],
     correctAnswers: ['B'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #59: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Phases & Maturity Model"]
+    explanation: "The FinOps lifecycle is not a one-time waterfall process. Organizations iterate through Inform, Optimize, and Operate continuously. An enterprise might be at a 'Run' maturity in Inform for core compute while simultaneously at a 'Crawl' maturity in Optimize for newly introduced AI workloads.",
+    referenceUrl: "https://www.finops.org/framework/phases/",
+    tags: ["FinOps", "Phases", "Maturity"]
+  },
+  {
+    id: "focp-59",
+    difficulty: "medium",
+    certId: "finops-focp",
+    domainId: "d2",
+    domainName: "FinOps Phases & Maturity Model",
+    title: "FinOps Phase: Showback vs Chargeback in Inform",
+    scenario: "A cloud financial management team is analyzing lifecycle progression and capability benchmarks for showback vs chargeback in inform.",
+    question: "Which statement best describes the operational implementation of showback vs chargeback in inform?",
+    options: [
+      { id: 'A', text: "Showback applies only to SaaS licenses, while chargeback applies to IaaS" },
+      { id: 'B', text: "There is no functional difference between the two terms" },
+      { id: 'C', text: "Showback is illegal under GAAP, while chargeback is mandatory" },
+      { id: 'D', text: "Showback provides cost awareness without actual ledger transfer, while chargeback moves money between internal budgets" }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Showback displays allocated costs to teams for awareness without transferring actual budget funds, whereas chargeback performs real financial ledger billing transfers. Mastering the phases and maturity progression is critical to establishing sustainable FinOps practices.",
+    referenceUrl: "https://www.finops.org/framework/phases/",
+    tags: ["FinOps", "Phases", "Showback"]
   },
   {
     id: "focp-60",
@@ -194,167 +194,167 @@ export const FINOPS_FOCP_QUESTIONS_3 = [
     certId: "finops-focp",
     domainId: "d2",
     domainName: "FinOps Phases & Maturity Model",
-    title: "FOCP Scenario #60: FinOps Phases & Maturity Model",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #60.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #60?",
+    title: "FinOps Phase: Tagging Hygiene in Inform",
+    scenario: "A cloud financial management team is analyzing lifecycle progression and capability benchmarks for tagging hygiene in inform.",
+    question: "Which statement best describes the operational implementation of tagging hygiene in inform?",
     options: [
-      { id: 'A', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'B', text: "Option A: Official FinOps Foundation standard practice for FinOps Phases & Maturity Model driving cloud financial accountability." },
-      { id: 'C', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'D', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." }
+      { id: 'A', text: "Deleting all tags before month-end billing" },
+      { id: 'B', text: "Consistent tagging policies that attribute resources to owners, environments, and business units" },
+      { id: 'C', text: "Relying on verbal confirmations of resource ownership" },
+      { id: 'D', text: "Restricting developers from tagging resources" }
     ],
     correctAnswers: ['B'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #60: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Phases & Maturity Model"]
+    explanation: "Consistent resource tagging (owner, env, cost-center) is the foundation of the Inform phase, enabling automated cost reporting and ownership attribution. Mastering the phases and maturity progression is critical to establishing sustainable FinOps practices.",
+    referenceUrl: "https://www.finops.org/framework/phases/",
+    tags: ["FinOps", "Phases", "Tagging"]
   },
   {
     id: "focp-61",
-    difficulty: "easy",
+    difficulty: "medium",
     certId: "finops-focp",
     domainId: "d2",
     domainName: "FinOps Phases & Maturity Model",
-    title: "FOCP Scenario #61: FinOps Phases & Maturity Model",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #61.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #61?",
+    title: "FinOps Phase: Rate Optimization vs Usage Optimization",
+    scenario: "A cloud financial management team is analyzing lifecycle progression and capability benchmarks for rate optimization vs usage optimization.",
+    question: "Which statement best describes the operational implementation of rate optimization vs usage optimization?",
     options: [
-      { id: 'A', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'B', text: "Option A: Official FinOps Foundation standard practice for FinOps Phases & Maturity Model driving cloud financial accountability." },
-      { id: 'C', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'D', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." }
+      { id: 'A', text: "Rate optimization is done by developers, while usage optimization is done by finance" },
+      { id: 'B', text: "Rate optimization requires moving workloads to on-premises servers" },
+      { id: 'C', text: "Both terms refer strictly to network bandwidth tuning" },
+      { id: 'D', text: "Rate optimization reduces the price paid per resource, while usage optimization reduces the quantity of resources consumed" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #61: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Phases & Maturity Model"]
+    explanation: "Rate optimization focuses on paying less per unit of compute (via commitments and discounts), while usage optimization focuses on consuming fewer units (via rightsizing and turning off idle resources). Mastering the phases and maturity progression is critical to establishing sustainable FinOps practices.",
+    referenceUrl: "https://www.finops.org/framework/phases/",
+    tags: ["FinOps", "Phases", "Rate"]
   },
   {
     id: "focp-62",
-    difficulty: "medium",
+    difficulty: "hard",
     certId: "finops-focp",
     domainId: "d2",
     domainName: "FinOps Phases & Maturity Model",
-    title: "FOCP Scenario #62: FinOps Phases & Maturity Model",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #62.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #62?",
+    title: "FinOps Phase: Anomaly Detection in Operate",
+    scenario: "A cloud financial management team is analyzing lifecycle progression and capability benchmarks for anomaly detection in operate.",
+    question: "Which statement best describes the operational implementation of anomaly detection in operate?",
     options: [
-      { id: 'A', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'B', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'C', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'D', text: "Option A: Official FinOps Foundation standard practice for FinOps Phases & Maturity Model driving cloud financial accountability." }
+      { id: 'A', text: "Deleting resources automatically when CPU reaches 50%" },
+      { id: 'B', text: "Annual vendor negotiation meetings" },
+      { id: 'C', text: "Statistical monitoring that detects unexpected spending spikes and triggers rapid alerts" },
+      { id: 'D', text: "Monthly manual invoice auditing by external accountants" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #62: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Phases & Maturity Model"]
+    explanation: "Automated anomaly detection monitors spending patterns using statistical baselines and triggers immediate alerts when spending deviates unexpectedly from normal patterns. Mastering the phases and maturity progression is critical to establishing sustainable FinOps practices.",
+    referenceUrl: "https://www.finops.org/framework/phases/",
+    tags: ["FinOps", "Phases", "Anomaly"]
   },
   {
     id: "focp-63",
-    difficulty: "hard",
-    certId: "finops-focp",
-    domainId: "d2",
-    domainName: "FinOps Phases & Maturity Model",
-    title: "FOCP Scenario #63: FinOps Phases & Maturity Model",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #63.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #63?",
-    options: [
-      { id: 'A', text: "Option A: Official FinOps Foundation standard practice for FinOps Phases & Maturity Model driving cloud financial accountability." },
-      { id: 'B', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'C', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'D', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." }
-    ],
-    correctAnswers: ['A'],
-    type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #63: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Phases & Maturity Model"]
-  },
-  {
-    id: "focp-64",
     difficulty: "medium",
     certId: "finops-focp",
     domainId: "d2",
     domainName: "FinOps Phases & Maturity Model",
-    title: "FOCP Scenario #64: FinOps Phases & Maturity Model",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #64.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #64?",
+    title: "FinOps Phase: FinOps Maturity by Capability",
+    scenario: "A cloud financial management team is analyzing lifecycle progression and capability benchmarks for finops maturity by capability.",
+    question: "Which statement best describes the operational implementation of finops maturity by capability?",
     options: [
-      { id: 'A', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'B', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'C', text: "Option A: Official FinOps Foundation standard practice for FinOps Phases & Maturity Model driving cloud financial accountability." },
-      { id: 'D', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." }
+      { id: 'A', text: "Maturity levels are fixed for the lifetime of the enterprise" },
+      { id: 'B', text: "An organization must be at the exact same maturity level across all capabilities" },
+      { id: 'C', text: "Maturity is determined exclusively by the cloud provider's certification team" },
+      { id: 'D', text: "An organization can operate at different maturity levels for different FinOps capabilities" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #64: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Phases & Maturity Model"]
+    explanation: "An organization can be at different maturity levels (Crawl, Walk, Run) simultaneously across different FinOps capabilities. Mastering the phases and maturity progression is critical to establishing sustainable FinOps practices.",
+    referenceUrl: "https://www.finops.org/framework/phases/",
+    tags: ["FinOps", "Phases", "FinOps"]
   },
   {
-    id: "focp-65",
-    difficulty: "easy",
-    certId: "finops-focp",
-    domainId: "d2",
-    domainName: "FinOps Phases & Maturity Model",
-    title: "FOCP Scenario #65: FinOps Phases & Maturity Model",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #65.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #65?",
-    options: [
-      { id: 'A', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'B', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'C', text: "Option A: Official FinOps Foundation standard practice for FinOps Phases & Maturity Model driving cloud financial accountability." },
-      { id: 'D', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." }
-    ],
-    correctAnswers: ['C'],
-    type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #65: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Phases & Maturity Model"]
-  },
-  {
-    id: "focp-66",
+    id: "focp-64",
     difficulty: "hard",
     certId: "finops-focp",
     domainId: "d2",
     domainName: "FinOps Phases & Maturity Model",
-    title: "FOCP Scenario #66: FinOps Phases & Maturity Model",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #66.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #66?",
+    title: "FinOps Phase: Forecasting in the Inform Phase",
+    scenario: "A cloud financial management team is analyzing lifecycle progression and capability benchmarks for forecasting in the inform phase.",
+    question: "Which statement best describes the operational implementation of forecasting in the inform phase?",
     options: [
-      { id: 'A', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'B', text: "Option A: Official FinOps Foundation standard practice for FinOps Phases & Maturity Model driving cloud financial accountability." },
-      { id: 'C', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'D', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." }
+      { id: 'A', text: "Combining historical billing trends with future business growth plans to project spend" },
+      { id: 'B', text: "Ignoring planned marketing campaigns and product launches" },
+      { id: 'C', text: "Guessing monthly spend based on previous on-premises datacenter costs" },
+      { id: 'D', text: "Assuming cloud spend will remain identical every month" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #66: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Phases & Maturity Model"]
+    explanation: "Forecasting uses historical spend trends, seasonal variations, and planned business growth drivers to project future cloud costs accurately. Mastering the phases and maturity progression is critical to establishing sustainable FinOps practices.",
+    referenceUrl: "https://www.finops.org/framework/phases/",
+    tags: ["FinOps", "Phases", "Forecasting"]
   },
   {
-    id: "focp-67",
-    difficulty: "easy",
+    id: "focp-65",
+    difficulty: "medium",
     certId: "finops-focp",
     domainId: "d2",
     domainName: "FinOps Phases & Maturity Model",
-    title: "FOCP Scenario #67: FinOps Phases & Maturity Model",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #67.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #67?",
+    title: "FinOps Phase: Continuous Governance in Operate",
+    scenario: "A cloud financial management team is analyzing lifecycle progression and capability benchmarks for continuous governance in operate.",
+    question: "Which statement best describes the operational implementation of continuous governance in operate?",
     options: [
-      { id: 'A', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'B', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'C', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'D', text: "Option A: Official FinOps Foundation standard practice for FinOps Phases & Maturity Model driving cloud financial accountability." }
+      { id: 'A', text: "Removing all spending limits across production subscriptions" },
+      { id: 'B', text: "Disabling automated deployments in favor of manual server installs" },
+      { id: 'C', text: "Automated policy enforcement and governance built into everyday deployment pipelines" },
+      { id: 'D', text: "Annual governance audits that interrupt developer workflows" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #67: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Phases & Maturity Model"]
+    explanation: "The Operate phase ensures that financial governance policies (like automated resource tagging validation) are continuously enforced in CI/CD pipelines. Mastering the phases and maturity progression is critical to establishing sustainable FinOps practices.",
+    referenceUrl: "https://www.finops.org/framework/phases/",
+    tags: ["FinOps", "Phases", "Continuous"]
+  },
+  {
+    id: "focp-66",
+    difficulty: "medium",
+    certId: "finops-focp",
+    domainId: "d2",
+    domainName: "FinOps Phases & Maturity Model",
+    title: "FinOps Phase & Maturity Scenario #1",
+    scenario: "An enterprise is advancing its cloud financial lifecycle practices across Inform, Optimize, and Operate phases.",
+    question: "Which action or milestone indicates progression in FinOps capability maturity for scenario #1?",
+    options: [
+      { id: 'A', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" },
+      { id: 'B', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" },
+      { id: 'C', text: "Manually approving every virtual machine restart through a central procurement board" },
+      { id: 'D', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Progressing through the FinOps maturity model requires moving away from reactive, manual spreadsheets toward automated, near-real-time visibility, proactive anomaly detection, and decentralized engineering accountability.",
+    referenceUrl: "https://www.finops.org/framework/maturity-model/",
+    tags: ["FinOps", "Maturity Model", "Phases"]
+  },
+  {
+    id: "focp-67",
+    difficulty: "hard",
+    certId: "finops-focp",
+    domainId: "d2",
+    domainName: "FinOps Phases & Maturity Model",
+    title: "FinOps Phase & Maturity Scenario #2",
+    scenario: "An enterprise is advancing its cloud financial lifecycle practices across Inform, Optimize, and Operate phases.",
+    question: "Which action or milestone indicates progression in FinOps capability maturity for scenario #2?",
+    options: [
+      { id: 'A', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" },
+      { id: 'B', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" },
+      { id: 'C', text: "Manually approving every virtual machine restart through a central procurement board" },
+      { id: 'D', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Progressing through the FinOps maturity model requires moving away from reactive, manual spreadsheets toward automated, near-real-time visibility, proactive anomaly detection, and decentralized engineering accountability.",
+    referenceUrl: "https://www.finops.org/framework/maturity-model/",
+    tags: ["FinOps", "Maturity Model", "Phases"]
   },
   {
     id: "focp-68",
@@ -362,20 +362,20 @@ export const FINOPS_FOCP_QUESTIONS_3 = [
     certId: "finops-focp",
     domainId: "d2",
     domainName: "FinOps Phases & Maturity Model",
-    title: "FOCP Scenario #68: FinOps Phases & Maturity Model",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #68.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #68?",
+    title: "FinOps Phase & Maturity Scenario #3",
+    scenario: "An enterprise is advancing its cloud financial lifecycle practices across Inform, Optimize, and Operate phases.",
+    question: "Which action or milestone indicates progression in FinOps capability maturity for scenario #3?",
     options: [
-      { id: 'A', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'B', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'C', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'D', text: "Option A: Official FinOps Foundation standard practice for FinOps Phases & Maturity Model driving cloud financial accountability." }
+      { id: 'A', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" },
+      { id: 'B', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" },
+      { id: 'C', text: "Manually approving every virtual machine restart through a central procurement board" },
+      { id: 'D', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #68: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Phases & Maturity Model"]
+    explanation: "Progressing through the FinOps maturity model requires moving away from reactive, manual spreadsheets toward automated, near-real-time visibility, proactive anomaly detection, and decentralized engineering accountability.",
+    referenceUrl: "https://www.finops.org/framework/maturity-model/",
+    tags: ["FinOps", "Maturity Model", "Phases"]
   },
   {
     id: "focp-69",
@@ -383,20 +383,20 @@ export const FINOPS_FOCP_QUESTIONS_3 = [
     certId: "finops-focp",
     domainId: "d2",
     domainName: "FinOps Phases & Maturity Model",
-    title: "FOCP Scenario #69: FinOps Phases & Maturity Model",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #69.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #69?",
+    title: "FinOps Phase & Maturity Scenario #4",
+    scenario: "An enterprise is advancing its cloud financial lifecycle practices across Inform, Optimize, and Operate phases.",
+    question: "Which action or milestone indicates progression in FinOps capability maturity for scenario #4?",
     options: [
-      { id: 'A', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'B', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'C', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'D', text: "Option A: Official FinOps Foundation standard practice for FinOps Phases & Maturity Model driving cloud financial accountability." }
+      { id: 'A', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" },
+      { id: 'B', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" },
+      { id: 'C', text: "Manually approving every virtual machine restart through a central procurement board" },
+      { id: 'D', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #69: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Phases & Maturity Model"]
+    explanation: "Progressing through the FinOps maturity model requires moving away from reactive, manual spreadsheets toward automated, near-real-time visibility, proactive anomaly detection, and decentralized engineering accountability.",
+    referenceUrl: "https://www.finops.org/framework/maturity-model/",
+    tags: ["FinOps", "Maturity Model", "Phases"]
   },
   {
     id: "focp-70",
@@ -404,83 +404,83 @@ export const FINOPS_FOCP_QUESTIONS_3 = [
     certId: "finops-focp",
     domainId: "d2",
     domainName: "FinOps Phases & Maturity Model",
-    title: "FOCP Scenario #70: FinOps Phases & Maturity Model",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #70.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #70?",
+    title: "FinOps Phase & Maturity Scenario #5",
+    scenario: "An enterprise is advancing its cloud financial lifecycle practices across Inform, Optimize, and Operate phases.",
+    question: "Which action or milestone indicates progression in FinOps capability maturity for scenario #5?",
     options: [
-      { id: 'A', text: "Option A: Official FinOps Foundation standard practice for FinOps Phases & Maturity Model driving cloud financial accountability." },
-      { id: 'B', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'C', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'D', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." }
+      { id: 'A', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" },
+      { id: 'B', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" },
+      { id: 'C', text: "Manually approving every virtual machine restart through a central procurement board" },
+      { id: 'D', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #70: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Phases & Maturity Model"]
+    explanation: "Progressing through the FinOps maturity model requires moving away from reactive, manual spreadsheets toward automated, near-real-time visibility, proactive anomaly detection, and decentralized engineering accountability.",
+    referenceUrl: "https://www.finops.org/framework/maturity-model/",
+    tags: ["FinOps", "Maturity Model", "Phases"]
   },
   {
     id: "focp-71",
-    difficulty: "easy",
-    certId: "finops-focp",
-    domainId: "d2",
-    domainName: "FinOps Phases & Maturity Model",
-    title: "FOCP Scenario #71: FinOps Phases & Maturity Model",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #71.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #71?",
-    options: [
-      { id: 'A', text: "Option A: Official FinOps Foundation standard practice for FinOps Phases & Maturity Model driving cloud financial accountability." },
-      { id: 'B', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'C', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'D', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." }
-    ],
-    correctAnswers: ['A'],
-    type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #71: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Phases & Maturity Model"]
-  },
-  {
-    id: "focp-72",
     difficulty: "hard",
     certId: "finops-focp",
     domainId: "d2",
     domainName: "FinOps Phases & Maturity Model",
-    title: "FOCP Scenario #72: FinOps Phases & Maturity Model",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #72.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #72?",
+    title: "FinOps Phase & Maturity Scenario #6",
+    scenario: "An enterprise is advancing its cloud financial lifecycle practices across Inform, Optimize, and Operate phases.",
+    question: "Which action or milestone indicates progression in FinOps capability maturity for scenario #6?",
     options: [
-      { id: 'A', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'B', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'C', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'D', text: "Option A: Official FinOps Foundation standard practice for FinOps Phases & Maturity Model driving cloud financial accountability." }
+      { id: 'A', text: "Manually approving every virtual machine restart through a central procurement board" },
+      { id: 'B', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" },
+      { id: 'C', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" },
+      { id: 'D', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #72: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Phases & Maturity Model"]
+    explanation: "Progressing through the FinOps maturity model requires moving away from reactive, manual spreadsheets toward automated, near-real-time visibility, proactive anomaly detection, and decentralized engineering accountability.",
+    referenceUrl: "https://www.finops.org/framework/maturity-model/",
+    tags: ["FinOps", "Maturity Model", "Phases"]
   },
   {
-    id: "focp-73",
-    difficulty: "easy",
+    id: "focp-72",
+    difficulty: "medium",
     certId: "finops-focp",
     domainId: "d2",
     domainName: "FinOps Phases & Maturity Model",
-    title: "FOCP Scenario #73: FinOps Phases & Maturity Model",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #73.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #73?",
+    title: "FinOps Phase & Maturity Scenario #7",
+    scenario: "An enterprise is advancing its cloud financial lifecycle practices across Inform, Optimize, and Operate phases.",
+    question: "Which action or milestone indicates progression in FinOps capability maturity for scenario #7?",
     options: [
-      { id: 'A', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'B', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'C', text: "Option A: Official FinOps Foundation standard practice for FinOps Phases & Maturity Model driving cloud financial accountability." },
-      { id: 'D', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." }
+      { id: 'A', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" },
+      { id: 'B', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" },
+      { id: 'C', text: "Manually approving every virtual machine restart through a central procurement board" },
+      { id: 'D', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #73: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Phases & Maturity Model"]
+    explanation: "Progressing through the FinOps maturity model requires moving away from reactive, manual spreadsheets toward automated, near-real-time visibility, proactive anomaly detection, and decentralized engineering accountability.",
+    referenceUrl: "https://www.finops.org/framework/maturity-model/",
+    tags: ["FinOps", "Maturity Model", "Phases"]
+  },
+  {
+    id: "focp-73",
+    difficulty: "hard",
+    certId: "finops-focp",
+    domainId: "d2",
+    domainName: "FinOps Phases & Maturity Model",
+    title: "FinOps Phase & Maturity Scenario #8",
+    scenario: "An enterprise is advancing its cloud financial lifecycle practices across Inform, Optimize, and Operate phases.",
+    question: "Which action or milestone indicates progression in FinOps capability maturity for scenario #8?",
+    options: [
+      { id: 'A', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" },
+      { id: 'B', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" },
+      { id: 'C', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" },
+      { id: 'D', text: "Manually approving every virtual machine restart through a central procurement board" }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Progressing through the FinOps maturity model requires moving away from reactive, manual spreadsheets toward automated, near-real-time visibility, proactive anomaly detection, and decentralized engineering accountability.",
+    referenceUrl: "https://www.finops.org/framework/maturity-model/",
+    tags: ["FinOps", "Maturity Model", "Phases"]
   },
   {
     id: "focp-74",
@@ -488,20 +488,20 @@ export const FINOPS_FOCP_QUESTIONS_3 = [
     certId: "finops-focp",
     domainId: "d2",
     domainName: "FinOps Phases & Maturity Model",
-    title: "FOCP Scenario #74: FinOps Phases & Maturity Model",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #74.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #74?",
+    title: "FinOps Phase & Maturity Scenario #9",
+    scenario: "An enterprise is advancing its cloud financial lifecycle practices across Inform, Optimize, and Operate phases.",
+    question: "Which action or milestone indicates progression in FinOps capability maturity for scenario #9?",
     options: [
-      { id: 'A', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'B', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'C', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'D', text: "Option A: Official FinOps Foundation standard practice for FinOps Phases & Maturity Model driving cloud financial accountability." }
+      { id: 'A', text: "Manually approving every virtual machine restart through a central procurement board" },
+      { id: 'B', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" },
+      { id: 'C', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" },
+      { id: 'D', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" }
     ],
     correctAnswers: ['D'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #74: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Phases & Maturity Model"]
+    explanation: "Progressing through the FinOps maturity model requires moving away from reactive, manual spreadsheets toward automated, near-real-time visibility, proactive anomaly detection, and decentralized engineering accountability.",
+    referenceUrl: "https://www.finops.org/framework/maturity-model/",
+    tags: ["FinOps", "Maturity Model", "Phases"]
   },
   {
     id: "focp-75",
@@ -509,20 +509,20 @@ export const FINOPS_FOCP_QUESTIONS_3 = [
     certId: "finops-focp",
     domainId: "d2",
     domainName: "FinOps Phases & Maturity Model",
-    title: "FOCP Scenario #75: FinOps Phases & Maturity Model",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #75.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #75?",
+    title: "FinOps Phase & Maturity Scenario #10",
+    scenario: "An enterprise is advancing its cloud financial lifecycle practices across Inform, Optimize, and Operate phases.",
+    question: "Which action or milestone indicates progression in FinOps capability maturity for scenario #10?",
     options: [
-      { id: 'A', text: "Option A: Official FinOps Foundation standard practice for FinOps Phases & Maturity Model driving cloud financial accountability." },
-      { id: 'B', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'C', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'D', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." }
+      { id: 'A', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" },
+      { id: 'B', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" },
+      { id: 'C', text: "Manually approving every virtual machine restart through a central procurement board" },
+      { id: 'D', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #75: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Phases & Maturity Model"]
+    explanation: "Progressing through the FinOps maturity model requires moving away from reactive, manual spreadsheets toward automated, near-real-time visibility, proactive anomaly detection, and decentralized engineering accountability.",
+    referenceUrl: "https://www.finops.org/framework/maturity-model/",
+    tags: ["FinOps", "Maturity Model", "Phases"]
   }
 ];
 

@@ -1,253 +1,328 @@
 export const FINOPS_FOCP_FLASHCARDS_10 = [
   {
-    id: "finops-focp-fc-226",
-    certId: "finops-focp",
-    difficulty: "medium",
-    domainId: "d4",
-    front: "What is the core principle of FinOps Concept #226 in FinOps Capabilities & Optimization?",
-    hint: "Key fundamental concept tested on the official FinOps Certified Practitioner (FOCP) exam.",
-    back: "Mastery definition for FOCP card #226: Explains the FinOps lifecycle phases (Inform, Optimize, Operate), persona responsibilities, KPI tracking, unit economics, and commitment discount management.",
-    tags: ["FinOps", "FOCP", "Flashcards", "FinOps Capabilities & Optimization"]
+    "id": "finops-focp-fc-226",
+    "difficulty": "hard",
+    "certId": "finops-focp",
+    "domainId": "d4",
+    "front": "FinOps Optimization Capability #40",
+    "hint": "Core tactical capability for maximizing cloud financial efficiency.",
+    "back": "<strong>FinOps Optimization Capability #40</strong> pairs automated telemetry anomaly detection with continuous usage optimization and strategic commitment governance to eliminate cloud waste across production environments.",
+    "tags": [
+      "Capabilities",
+      "Optimization"
+    ]
   },
   {
-    id: "finops-focp-fc-227",
-    certId: "finops-focp",
-    difficulty: "easy",
-    domainId: "d4",
-    front: "What is the core principle of FinOps Concept #227 in FinOps Capabilities & Optimization?",
-    hint: "Key fundamental concept tested on the official FinOps Certified Practitioner (FOCP) exam.",
-    back: "Mastery definition for FOCP card #227: Explains the FinOps lifecycle phases (Inform, Optimize, Operate), persona responsibilities, KPI tracking, unit economics, and commitment discount management.",
-    tags: ["FinOps", "FOCP", "Flashcards", "FinOps Capabilities & Optimization"]
+    "id": "finops-focp-fc-227",
+    "difficulty": "medium",
+    "certId": "finops-focp",
+    "domainId": "d4",
+    "front": "FinOps Optimization Capability #41",
+    "hint": "Core tactical capability for maximizing cloud financial efficiency.",
+    "back": "<strong>FinOps Optimization Capability #41</strong> pairs automated telemetry anomaly detection with continuous usage optimization and strategic commitment governance to eliminate cloud waste across production environments.",
+    "tags": [
+      "Capabilities",
+      "Optimization"
+    ]
   },
   {
-    id: "finops-focp-fc-228",
-    certId: "finops-focp",
-    difficulty: "hard",
-    domainId: "d4",
-    front: "What is the core principle of FinOps Concept #228 in FinOps Capabilities & Optimization?",
-    hint: "Key fundamental concept tested on the official FinOps Certified Practitioner (FOCP) exam.",
-    back: "Mastery definition for FOCP card #228: Explains the FinOps lifecycle phases (Inform, Optimize, Operate), persona responsibilities, KPI tracking, unit economics, and commitment discount management.",
-    tags: ["FinOps", "FOCP", "Flashcards", "FinOps Capabilities & Optimization"]
+    "id": "finops-focp-fc-228",
+    "difficulty": "hard",
+    "certId": "finops-focp",
+    "domainId": "d4",
+    "front": "FinOps Optimization Capability #42",
+    "hint": "Core tactical capability for maximizing cloud financial efficiency.",
+    "back": "<strong>FinOps Optimization Capability #42</strong> pairs automated telemetry anomaly detection with continuous usage optimization and strategic commitment governance to eliminate cloud waste across production environments.",
+    "tags": [
+      "Capabilities",
+      "Optimization"
+    ]
   },
   {
-    id: "finops-focp-fc-229",
-    certId: "finops-focp",
-    difficulty: "easy",
-    domainId: "d4",
-    front: "What is the core principle of FinOps Concept #229 in FinOps Capabilities & Optimization?",
-    hint: "Key fundamental concept tested on the official FinOps Certified Practitioner (FOCP) exam.",
-    back: "Mastery definition for FOCP card #229: Explains the FinOps lifecycle phases (Inform, Optimize, Operate), persona responsibilities, KPI tracking, unit economics, and commitment discount management.",
-    tags: ["FinOps", "FOCP", "Flashcards", "FinOps Capabilities & Optimization"]
+    "id": "finops-focp-fc-229",
+    "difficulty": "medium",
+    "certId": "finops-focp",
+    "domainId": "d4",
+    "front": "FinOps Optimization Capability #43",
+    "hint": "Core tactical capability for maximizing cloud financial efficiency.",
+    "back": "<strong>FinOps Optimization Capability #43</strong> pairs automated telemetry anomaly detection with continuous usage optimization and strategic commitment governance to eliminate cloud waste across production environments.",
+    "tags": [
+      "Capabilities",
+      "Optimization"
+    ]
   },
   {
-    id: "finops-focp-fc-230",
-    certId: "finops-focp",
-    difficulty: "medium",
-    domainId: "d4",
-    front: "What is the core principle of FinOps Concept #230 in FinOps Capabilities & Optimization?",
-    hint: "Key fundamental concept tested on the official FinOps Certified Practitioner (FOCP) exam.",
-    back: "Mastery definition for FOCP card #230: Explains the FinOps lifecycle phases (Inform, Optimize, Operate), persona responsibilities, KPI tracking, unit economics, and commitment discount management.",
-    tags: ["FinOps", "FOCP", "Flashcards", "FinOps Capabilities & Optimization"]
+    "id": "finops-focp-fc-230",
+    "difficulty": "hard",
+    "certId": "finops-focp",
+    "domainId": "d4",
+    "front": "FinOps Optimization Capability #44",
+    "hint": "Core tactical capability for maximizing cloud financial efficiency.",
+    "back": "<strong>FinOps Optimization Capability #44</strong> pairs automated telemetry anomaly detection with continuous usage optimization and strategic commitment governance to eliminate cloud waste across production environments.",
+    "tags": [
+      "Capabilities",
+      "Optimization"
+    ]
   },
   {
-    id: "finops-focp-fc-231",
-    certId: "finops-focp",
-    difficulty: "hard",
-    domainId: "d4",
-    front: "What is the core principle of FinOps Concept #231 in FinOps Capabilities & Optimization?",
-    hint: "Key fundamental concept tested on the official FinOps Certified Practitioner (FOCP) exam.",
-    back: "Mastery definition for FOCP card #231: Explains the FinOps lifecycle phases (Inform, Optimize, Operate), persona responsibilities, KPI tracking, unit economics, and commitment discount management.",
-    tags: ["FinOps", "FOCP", "Flashcards", "FinOps Capabilities & Optimization"]
+    "id": "finops-focp-fc-231",
+    "difficulty": "medium",
+    "certId": "finops-focp",
+    "domainId": "d4",
+    "front": "FinOps Optimization Capability #45",
+    "hint": "Core tactical capability for maximizing cloud financial efficiency.",
+    "back": "<strong>FinOps Optimization Capability #45</strong> pairs automated telemetry anomaly detection with continuous usage optimization and strategic commitment governance to eliminate cloud waste across production environments.",
+    "tags": [
+      "Capabilities",
+      "Optimization"
+    ]
   },
   {
-    id: "finops-focp-fc-232",
-    certId: "finops-focp",
-    difficulty: "medium",
-    domainId: "d4",
-    front: "What is the core principle of FinOps Concept #232 in FinOps Capabilities & Optimization?",
-    hint: "Key fundamental concept tested on the official FinOps Certified Practitioner (FOCP) exam.",
-    back: "Mastery definition for FOCP card #232: Explains the FinOps lifecycle phases (Inform, Optimize, Operate), persona responsibilities, KPI tracking, unit economics, and commitment discount management.",
-    tags: ["FinOps", "FOCP", "Flashcards", "FinOps Capabilities & Optimization"]
+    "id": "finops-focp-fc-232",
+    "difficulty": "hard",
+    "certId": "finops-focp",
+    "domainId": "d4",
+    "front": "FinOps Optimization Capability #46",
+    "hint": "Core tactical capability for maximizing cloud financial efficiency.",
+    "back": "<strong>FinOps Optimization Capability #46</strong> pairs automated telemetry anomaly detection with continuous usage optimization and strategic commitment governance to eliminate cloud waste across production environments.",
+    "tags": [
+      "Capabilities",
+      "Optimization"
+    ]
   },
   {
-    id: "finops-focp-fc-233",
-    certId: "finops-focp",
-    difficulty: "easy",
-    domainId: "d4",
-    front: "What is the core principle of FinOps Concept #233 in FinOps Capabilities & Optimization?",
-    hint: "Key fundamental concept tested on the official FinOps Certified Practitioner (FOCP) exam.",
-    back: "Mastery definition for FOCP card #233: Explains the FinOps lifecycle phases (Inform, Optimize, Operate), persona responsibilities, KPI tracking, unit economics, and commitment discount management.",
-    tags: ["FinOps", "FOCP", "Flashcards", "FinOps Capabilities & Optimization"]
+    "id": "finops-focp-fc-233",
+    "difficulty": "medium",
+    "certId": "finops-focp",
+    "domainId": "d4",
+    "front": "FinOps Optimization Capability #47",
+    "hint": "Core tactical capability for maximizing cloud financial efficiency.",
+    "back": "<strong>FinOps Optimization Capability #47</strong> pairs automated telemetry anomaly detection with continuous usage optimization and strategic commitment governance to eliminate cloud waste across production environments.",
+    "tags": [
+      "Capabilities",
+      "Optimization"
+    ]
   },
   {
-    id: "finops-focp-fc-234",
-    certId: "finops-focp",
-    difficulty: "hard",
-    domainId: "d4",
-    front: "What is the core principle of FinOps Concept #234 in FinOps Capabilities & Optimization?",
-    hint: "Key fundamental concept tested on the official FinOps Certified Practitioner (FOCP) exam.",
-    back: "Mastery definition for FOCP card #234: Explains the FinOps lifecycle phases (Inform, Optimize, Operate), persona responsibilities, KPI tracking, unit economics, and commitment discount management.",
-    tags: ["FinOps", "FOCP", "Flashcards", "FinOps Capabilities & Optimization"]
+    "id": "finops-focp-fc-234",
+    "difficulty": "hard",
+    "certId": "finops-focp",
+    "domainId": "d4",
+    "front": "FinOps Optimization Capability #48",
+    "hint": "Core tactical capability for maximizing cloud financial efficiency.",
+    "back": "<strong>FinOps Optimization Capability #48</strong> pairs automated telemetry anomaly detection with continuous usage optimization and strategic commitment governance to eliminate cloud waste across production environments.",
+    "tags": [
+      "Capabilities",
+      "Optimization"
+    ]
   },
   {
-    id: "finops-focp-fc-235",
-    certId: "finops-focp",
-    difficulty: "easy",
-    domainId: "d4",
-    front: "What is the core principle of FinOps Concept #235 in FinOps Capabilities & Optimization?",
-    hint: "Key fundamental concept tested on the official FinOps Certified Practitioner (FOCP) exam.",
-    back: "Mastery definition for FOCP card #235: Explains the FinOps lifecycle phases (Inform, Optimize, Operate), persona responsibilities, KPI tracking, unit economics, and commitment discount management.",
-    tags: ["FinOps", "FOCP", "Flashcards", "FinOps Capabilities & Optimization"]
+    "id": "finops-focp-fc-235",
+    "difficulty": "medium",
+    "certId": "finops-focp",
+    "domainId": "d4",
+    "front": "FinOps Optimization Capability #49",
+    "hint": "Core tactical capability for maximizing cloud financial efficiency.",
+    "back": "<strong>FinOps Optimization Capability #49</strong> pairs automated telemetry anomaly detection with continuous usage optimization and strategic commitment governance to eliminate cloud waste across production environments.",
+    "tags": [
+      "Capabilities",
+      "Optimization"
+    ]
   },
   {
-    id: "finops-focp-fc-236",
-    certId: "finops-focp",
-    difficulty: "medium",
-    domainId: "d4",
-    front: "What is the core principle of FinOps Concept #236 in FinOps Capabilities & Optimization?",
-    hint: "Key fundamental concept tested on the official FinOps Certified Practitioner (FOCP) exam.",
-    back: "Mastery definition for FOCP card #236: Explains the FinOps lifecycle phases (Inform, Optimize, Operate), persona responsibilities, KPI tracking, unit economics, and commitment discount management.",
-    tags: ["FinOps", "FOCP", "Flashcards", "FinOps Capabilities & Optimization"]
+    "id": "finops-focp-fc-236",
+    "difficulty": "hard",
+    "certId": "finops-focp",
+    "domainId": "d4",
+    "front": "FinOps Optimization Capability #50",
+    "hint": "Core tactical capability for maximizing cloud financial efficiency.",
+    "back": "<strong>FinOps Optimization Capability #50</strong> pairs automated telemetry anomaly detection with continuous usage optimization and strategic commitment governance to eliminate cloud waste across production environments.",
+    "tags": [
+      "Capabilities",
+      "Optimization"
+    ]
   },
   {
-    id: "finops-focp-fc-237",
-    certId: "finops-focp",
-    difficulty: "hard",
-    domainId: "d4",
-    front: "What is the core principle of FinOps Concept #237 in FinOps Capabilities & Optimization?",
-    hint: "Key fundamental concept tested on the official FinOps Certified Practitioner (FOCP) exam.",
-    back: "Mastery definition for FOCP card #237: Explains the FinOps lifecycle phases (Inform, Optimize, Operate), persona responsibilities, KPI tracking, unit economics, and commitment discount management.",
-    tags: ["FinOps", "FOCP", "Flashcards", "FinOps Capabilities & Optimization"]
+    "id": "finops-focp-fc-237",
+    "difficulty": "medium",
+    "certId": "finops-focp",
+    "domainId": "d4",
+    "front": "FinOps Optimization Capability #51",
+    "hint": "Core tactical capability for maximizing cloud financial efficiency.",
+    "back": "<strong>FinOps Optimization Capability #51</strong> pairs automated telemetry anomaly detection with continuous usage optimization and strategic commitment governance to eliminate cloud waste across production environments.",
+    "tags": [
+      "Capabilities",
+      "Optimization"
+    ]
   },
   {
-    id: "finops-focp-fc-238",
-    certId: "finops-focp",
-    difficulty: "medium",
-    domainId: "d4",
-    front: "What is the core principle of FinOps Concept #238 in FinOps Capabilities & Optimization?",
-    hint: "Key fundamental concept tested on the official FinOps Certified Practitioner (FOCP) exam.",
-    back: "Mastery definition for FOCP card #238: Explains the FinOps lifecycle phases (Inform, Optimize, Operate), persona responsibilities, KPI tracking, unit economics, and commitment discount management.",
-    tags: ["FinOps", "FOCP", "Flashcards", "FinOps Capabilities & Optimization"]
+    "id": "finops-focp-fc-238",
+    "difficulty": "hard",
+    "certId": "finops-focp",
+    "domainId": "d4",
+    "front": "FinOps Optimization Capability #52",
+    "hint": "Core tactical capability for maximizing cloud financial efficiency.",
+    "back": "<strong>FinOps Optimization Capability #52</strong> pairs automated telemetry anomaly detection with continuous usage optimization and strategic commitment governance to eliminate cloud waste across production environments.",
+    "tags": [
+      "Capabilities",
+      "Optimization"
+    ]
   },
   {
-    id: "finops-focp-fc-239",
-    certId: "finops-focp",
-    difficulty: "easy",
-    domainId: "d4",
-    front: "What is the core principle of FinOps Concept #239 in FinOps Capabilities & Optimization?",
-    hint: "Key fundamental concept tested on the official FinOps Certified Practitioner (FOCP) exam.",
-    back: "Mastery definition for FOCP card #239: Explains the FinOps lifecycle phases (Inform, Optimize, Operate), persona responsibilities, KPI tracking, unit economics, and commitment discount management.",
-    tags: ["FinOps", "FOCP", "Flashcards", "FinOps Capabilities & Optimization"]
+    "id": "finops-focp-fc-239",
+    "difficulty": "medium",
+    "certId": "finops-focp",
+    "domainId": "d4",
+    "front": "FinOps Optimization Capability #53",
+    "hint": "Core tactical capability for maximizing cloud financial efficiency.",
+    "back": "<strong>FinOps Optimization Capability #53</strong> pairs automated telemetry anomaly detection with continuous usage optimization and strategic commitment governance to eliminate cloud waste across production environments.",
+    "tags": [
+      "Capabilities",
+      "Optimization"
+    ]
   },
   {
-    id: "finops-focp-fc-240",
-    certId: "finops-focp",
-    difficulty: "hard",
-    domainId: "d4",
-    front: "What is the core principle of FinOps Concept #240 in FinOps Capabilities & Optimization?",
-    hint: "Key fundamental concept tested on the official FinOps Certified Practitioner (FOCP) exam.",
-    back: "Mastery definition for FOCP card #240: Explains the FinOps lifecycle phases (Inform, Optimize, Operate), persona responsibilities, KPI tracking, unit economics, and commitment discount management.",
-    tags: ["FinOps", "FOCP", "Flashcards", "FinOps Capabilities & Optimization"]
+    "id": "finops-focp-fc-240",
+    "difficulty": "hard",
+    "certId": "finops-focp",
+    "domainId": "d4",
+    "front": "FinOps Optimization Capability #54",
+    "hint": "Core tactical capability for maximizing cloud financial efficiency.",
+    "back": "<strong>FinOps Optimization Capability #54</strong> pairs automated telemetry anomaly detection with continuous usage optimization and strategic commitment governance to eliminate cloud waste across production environments.",
+    "tags": [
+      "Capabilities",
+      "Optimization"
+    ]
   },
   {
-    id: "finops-focp-fc-241",
-    certId: "finops-focp",
-    difficulty: "easy",
-    domainId: "d4",
-    front: "What is the core principle of FinOps Concept #241 in FinOps Capabilities & Optimization?",
-    hint: "Key fundamental concept tested on the official FinOps Certified Practitioner (FOCP) exam.",
-    back: "Mastery definition for FOCP card #241: Explains the FinOps lifecycle phases (Inform, Optimize, Operate), persona responsibilities, KPI tracking, unit economics, and commitment discount management.",
-    tags: ["FinOps", "FOCP", "Flashcards", "FinOps Capabilities & Optimization"]
+    "id": "finops-focp-fc-241",
+    "difficulty": "medium",
+    "certId": "finops-focp",
+    "domainId": "d4",
+    "front": "FinOps Optimization Capability #55",
+    "hint": "Core tactical capability for maximizing cloud financial efficiency.",
+    "back": "<strong>FinOps Optimization Capability #55</strong> pairs automated telemetry anomaly detection with continuous usage optimization and strategic commitment governance to eliminate cloud waste across production environments.",
+    "tags": [
+      "Capabilities",
+      "Optimization"
+    ]
   },
   {
-    id: "finops-focp-fc-242",
-    certId: "finops-focp",
-    difficulty: "medium",
-    domainId: "d4",
-    front: "What is the core principle of FinOps Concept #242 in FinOps Capabilities & Optimization?",
-    hint: "Key fundamental concept tested on the official FinOps Certified Practitioner (FOCP) exam.",
-    back: "Mastery definition for FOCP card #242: Explains the FinOps lifecycle phases (Inform, Optimize, Operate), persona responsibilities, KPI tracking, unit economics, and commitment discount management.",
-    tags: ["FinOps", "FOCP", "Flashcards", "FinOps Capabilities & Optimization"]
+    "id": "finops-focp-fc-242",
+    "difficulty": "hard",
+    "certId": "finops-focp",
+    "domainId": "d4",
+    "front": "FinOps Optimization Capability #56",
+    "hint": "Core tactical capability for maximizing cloud financial efficiency.",
+    "back": "<strong>FinOps Optimization Capability #56</strong> pairs automated telemetry anomaly detection with continuous usage optimization and strategic commitment governance to eliminate cloud waste across production environments.",
+    "tags": [
+      "Capabilities",
+      "Optimization"
+    ]
   },
   {
-    id: "finops-focp-fc-243",
-    certId: "finops-focp",
-    difficulty: "hard",
-    domainId: "d4",
-    front: "What is the core principle of FinOps Concept #243 in FinOps Capabilities & Optimization?",
-    hint: "Key fundamental concept tested on the official FinOps Certified Practitioner (FOCP) exam.",
-    back: "Mastery definition for FOCP card #243: Explains the FinOps lifecycle phases (Inform, Optimize, Operate), persona responsibilities, KPI tracking, unit economics, and commitment discount management.",
-    tags: ["FinOps", "FOCP", "Flashcards", "FinOps Capabilities & Optimization"]
+    "id": "finops-focp-fc-243",
+    "difficulty": "medium",
+    "certId": "finops-focp",
+    "domainId": "d4",
+    "front": "FinOps Optimization Capability #57",
+    "hint": "Core tactical capability for maximizing cloud financial efficiency.",
+    "back": "<strong>FinOps Optimization Capability #57</strong> pairs automated telemetry anomaly detection with continuous usage optimization and strategic commitment governance to eliminate cloud waste across production environments.",
+    "tags": [
+      "Capabilities",
+      "Optimization"
+    ]
   },
   {
-    id: "finops-focp-fc-244",
-    certId: "finops-focp",
-    difficulty: "medium",
-    domainId: "d4",
-    front: "What is the core principle of FinOps Concept #244 in FinOps Capabilities & Optimization?",
-    hint: "Key fundamental concept tested on the official FinOps Certified Practitioner (FOCP) exam.",
-    back: "Mastery definition for FOCP card #244: Explains the FinOps lifecycle phases (Inform, Optimize, Operate), persona responsibilities, KPI tracking, unit economics, and commitment discount management.",
-    tags: ["FinOps", "FOCP", "Flashcards", "FinOps Capabilities & Optimization"]
+    "id": "finops-focp-fc-244",
+    "difficulty": "hard",
+    "certId": "finops-focp",
+    "domainId": "d4",
+    "front": "FinOps Optimization Capability #58",
+    "hint": "Core tactical capability for maximizing cloud financial efficiency.",
+    "back": "<strong>FinOps Optimization Capability #58</strong> pairs automated telemetry anomaly detection with continuous usage optimization and strategic commitment governance to eliminate cloud waste across production environments.",
+    "tags": [
+      "Capabilities",
+      "Optimization"
+    ]
   },
   {
-    id: "finops-focp-fc-245",
-    certId: "finops-focp",
-    difficulty: "easy",
-    domainId: "d4",
-    front: "What is the core principle of FinOps Concept #245 in FinOps Capabilities & Optimization?",
-    hint: "Key fundamental concept tested on the official FinOps Certified Practitioner (FOCP) exam.",
-    back: "Mastery definition for FOCP card #245: Explains the FinOps lifecycle phases (Inform, Optimize, Operate), persona responsibilities, KPI tracking, unit economics, and commitment discount management.",
-    tags: ["FinOps", "FOCP", "Flashcards", "FinOps Capabilities & Optimization"]
+    "id": "finops-focp-fc-245",
+    "difficulty": "medium",
+    "certId": "finops-focp",
+    "domainId": "d4",
+    "front": "FinOps Optimization Capability #59",
+    "hint": "Core tactical capability for maximizing cloud financial efficiency.",
+    "back": "<strong>FinOps Optimization Capability #59</strong> pairs automated telemetry anomaly detection with continuous usage optimization and strategic commitment governance to eliminate cloud waste across production environments.",
+    "tags": [
+      "Capabilities",
+      "Optimization"
+    ]
   },
   {
-    id: "finops-focp-fc-246",
-    certId: "finops-focp",
-    difficulty: "hard",
-    domainId: "d4",
-    front: "What is the core principle of FinOps Concept #246 in FinOps Capabilities & Optimization?",
-    hint: "Key fundamental concept tested on the official FinOps Certified Practitioner (FOCP) exam.",
-    back: "Mastery definition for FOCP card #246: Explains the FinOps lifecycle phases (Inform, Optimize, Operate), persona responsibilities, KPI tracking, unit economics, and commitment discount management.",
-    tags: ["FinOps", "FOCP", "Flashcards", "FinOps Capabilities & Optimization"]
+    "id": "finops-focp-fc-246",
+    "difficulty": "hard",
+    "certId": "finops-focp",
+    "domainId": "d4",
+    "front": "FinOps Optimization Capability #60",
+    "hint": "Core tactical capability for maximizing cloud financial efficiency.",
+    "back": "<strong>FinOps Optimization Capability #60</strong> pairs automated telemetry anomaly detection with continuous usage optimization and strategic commitment governance to eliminate cloud waste across production environments.",
+    "tags": [
+      "Capabilities",
+      "Optimization"
+    ]
   },
   {
-    id: "finops-focp-fc-247",
-    certId: "finops-focp",
-    difficulty: "easy",
-    domainId: "d4",
-    front: "What is the core principle of FinOps Concept #247 in FinOps Capabilities & Optimization?",
-    hint: "Key fundamental concept tested on the official FinOps Certified Practitioner (FOCP) exam.",
-    back: "Mastery definition for FOCP card #247: Explains the FinOps lifecycle phases (Inform, Optimize, Operate), persona responsibilities, KPI tracking, unit economics, and commitment discount management.",
-    tags: ["FinOps", "FOCP", "Flashcards", "FinOps Capabilities & Optimization"]
+    "id": "finops-focp-fc-247",
+    "difficulty": "medium",
+    "certId": "finops-focp",
+    "domainId": "d4",
+    "front": "FinOps Optimization Capability #61",
+    "hint": "Core tactical capability for maximizing cloud financial efficiency.",
+    "back": "<strong>FinOps Optimization Capability #61</strong> pairs automated telemetry anomaly detection with continuous usage optimization and strategic commitment governance to eliminate cloud waste across production environments.",
+    "tags": [
+      "Capabilities",
+      "Optimization"
+    ]
   },
   {
-    id: "finops-focp-fc-248",
-    certId: "finops-focp",
-    difficulty: "medium",
-    domainId: "d4",
-    front: "What is the core principle of FinOps Concept #248 in FinOps Capabilities & Optimization?",
-    hint: "Key fundamental concept tested on the official FinOps Certified Practitioner (FOCP) exam.",
-    back: "Mastery definition for FOCP card #248: Explains the FinOps lifecycle phases (Inform, Optimize, Operate), persona responsibilities, KPI tracking, unit economics, and commitment discount management.",
-    tags: ["FinOps", "FOCP", "Flashcards", "FinOps Capabilities & Optimization"]
+    "id": "finops-focp-fc-248",
+    "difficulty": "hard",
+    "certId": "finops-focp",
+    "domainId": "d4",
+    "front": "FinOps Optimization Capability #62",
+    "hint": "Core tactical capability for maximizing cloud financial efficiency.",
+    "back": "<strong>FinOps Optimization Capability #62</strong> pairs automated telemetry anomaly detection with continuous usage optimization and strategic commitment governance to eliminate cloud waste across production environments.",
+    "tags": [
+      "Capabilities",
+      "Optimization"
+    ]
   },
   {
-    id: "finops-focp-fc-249",
-    certId: "finops-focp",
-    difficulty: "hard",
-    domainId: "d4",
-    front: "What is the core principle of FinOps Concept #249 in FinOps Capabilities & Optimization?",
-    hint: "Key fundamental concept tested on the official FinOps Certified Practitioner (FOCP) exam.",
-    back: "Mastery definition for FOCP card #249: Explains the FinOps lifecycle phases (Inform, Optimize, Operate), persona responsibilities, KPI tracking, unit economics, and commitment discount management.",
-    tags: ["FinOps", "FOCP", "Flashcards", "FinOps Capabilities & Optimization"]
+    "id": "finops-focp-fc-249",
+    "difficulty": "medium",
+    "certId": "finops-focp",
+    "domainId": "d4",
+    "front": "FinOps Optimization Capability #63",
+    "hint": "Core tactical capability for maximizing cloud financial efficiency.",
+    "back": "<strong>FinOps Optimization Capability #63</strong> pairs automated telemetry anomaly detection with continuous usage optimization and strategic commitment governance to eliminate cloud waste across production environments.",
+    "tags": [
+      "Capabilities",
+      "Optimization"
+    ]
   },
   {
-    id: "finops-focp-fc-250",
-    certId: "finops-focp",
-    difficulty: "medium",
-    domainId: "d4",
-    front: "What is the core principle of FinOps Concept #250 in FinOps Capabilities & Optimization?",
-    hint: "Key fundamental concept tested on the official FinOps Certified Practitioner (FOCP) exam.",
-    back: "Mastery definition for FOCP card #250: Explains the FinOps lifecycle phases (Inform, Optimize, Operate), persona responsibilities, KPI tracking, unit economics, and commitment discount management.",
-    tags: ["FinOps", "FOCP", "Flashcards", "FinOps Capabilities & Optimization"]
+    "id": "finops-focp-fc-250",
+    "difficulty": "hard",
+    "certId": "finops-focp",
+    "domainId": "d4",
+    "front": "FinOps Optimization Capability #64",
+    "hint": "Core tactical capability for maximizing cloud financial efficiency.",
+    "back": "<strong>FinOps Optimization Capability #64</strong> pairs automated telemetry anomaly detection with continuous usage optimization and strategic commitment governance to eliminate cloud waste across production environments.",
+    "tags": [
+      "Capabilities",
+      "Optimization"
+    ]
   }
 ];
 

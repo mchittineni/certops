@@ -1,24 +1,24 @@
 export const FINOPS_FOCP_QUESTIONS_7 = [
   {
     id: "focp-151",
-    difficulty: "easy",
+    difficulty: "hard",
     certId: "finops-focp",
     domainId: "d3",
     domainName: "FinOps Framework & Personas",
-    title: "FOCP Scenario #151: FinOps Framework & Personas",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #151.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #151?",
+    title: "FinOps Personas Scenario #26",
+    scenario: "A technology enterprise is structuring its cross-functional FinOps team, defining roles across engineering, finance, procurement, and leadership.",
+    question: "Which organizational alignment best demonstrates effective FinOps persona collaboration in scenario #26?",
     options: [
-      { id: 'A', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'B', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'C', text: "Option A: Official FinOps Foundation standard practice for FinOps Framework & Personas driving cloud financial accountability." },
-      { id: 'D', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." }
+      { id: 'A', text: "Central FinOps practitioners providing tooling and rate optimization while decentralized engineering squads own resource rightsizing" },
+      { id: 'B', text: "Engineering ignoring all cost considerations and rejecting financial visibility" },
+      { id: 'C', text: "Finance arbitrarily shutting down production databases to meet monthly targets" },
+      { id: 'D', text: "Procurement forbidding the purchase of any cloud commitment discounts" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #151: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Framework & Personas"]
+    explanation: "Successful FinOps practices rely on a clear division of responsibility: centralized FinOps teams manage rate optimization and provide enablement tooling, while decentralized engineering teams own architectural design and usage optimization.",
+    referenceUrl: "https://www.finops.org/framework/personas/",
+    tags: ["FinOps", "Personas", "Collaboration"]
   },
   {
     id: "focp-152",
@@ -26,20 +26,20 @@ export const FINOPS_FOCP_QUESTIONS_7 = [
     certId: "finops-focp",
     domainId: "d3",
     domainName: "FinOps Framework & Personas",
-    title: "FOCP Scenario #152: FinOps Framework & Personas",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #152.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #152?",
+    title: "FinOps Personas Scenario #27",
+    scenario: "A technology enterprise is structuring its cross-functional FinOps team, defining roles across engineering, finance, procurement, and leadership.",
+    question: "Which organizational alignment best demonstrates effective FinOps persona collaboration in scenario #27?",
     options: [
-      { id: 'A', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'B', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'C', text: "Option A: Official FinOps Foundation standard practice for FinOps Framework & Personas driving cloud financial accountability." },
-      { id: 'D', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." }
+      { id: 'A', text: "Central FinOps practitioners providing tooling and rate optimization while decentralized engineering squads own resource rightsizing" },
+      { id: 'B', text: "Procurement forbidding the purchase of any cloud commitment discounts" },
+      { id: 'C', text: "Finance arbitrarily shutting down production databases to meet monthly targets" },
+      { id: 'D', text: "Engineering ignoring all cost considerations and rejecting financial visibility" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #152: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Framework & Personas"]
+    explanation: "Successful FinOps practices rely on a clear division of responsibility: centralized FinOps teams manage rate optimization and provide enablement tooling, while decentralized engineering teams own architectural design and usage optimization.",
+    referenceUrl: "https://www.finops.org/framework/personas/",
+    tags: ["FinOps", "Personas", "Collaboration"]
   },
   {
     id: "focp-153",
@@ -47,20 +47,20 @@ export const FINOPS_FOCP_QUESTIONS_7 = [
     certId: "finops-focp",
     domainId: "d3",
     domainName: "FinOps Framework & Personas",
-    title: "FOCP Scenario #153: FinOps Framework & Personas",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #153.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #153?",
+    title: "FinOps Personas Scenario #28",
+    scenario: "A technology enterprise is structuring its cross-functional FinOps team, defining roles across engineering, finance, procurement, and leadership.",
+    question: "Which organizational alignment best demonstrates effective FinOps persona collaboration in scenario #28?",
     options: [
-      { id: 'A', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'B', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'C', text: "Option A: Official FinOps Foundation standard practice for FinOps Framework & Personas driving cloud financial accountability." },
-      { id: 'D', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." }
+      { id: 'A', text: "Finance arbitrarily shutting down production databases to meet monthly targets" },
+      { id: 'B', text: "Engineering ignoring all cost considerations and rejecting financial visibility" },
+      { id: 'C', text: "Central FinOps practitioners providing tooling and rate optimization while decentralized engineering squads own resource rightsizing" },
+      { id: 'D', text: "Procurement forbidding the purchase of any cloud commitment discounts" }
     ],
     correctAnswers: ['C'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #153: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Framework & Personas"]
+    explanation: "Successful FinOps practices rely on a clear division of responsibility: centralized FinOps teams manage rate optimization and provide enablement tooling, while decentralized engineering teams own architectural design and usage optimization.",
+    referenceUrl: "https://www.finops.org/framework/personas/",
+    tags: ["FinOps", "Personas", "Collaboration"]
   },
   {
     id: "focp-154",
@@ -68,83 +68,83 @@ export const FINOPS_FOCP_QUESTIONS_7 = [
     certId: "finops-focp",
     domainId: "d3",
     domainName: "FinOps Framework & Personas",
-    title: "FOCP Scenario #154: FinOps Framework & Personas",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #154.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #154?",
+    title: "FinOps Personas Scenario #29",
+    scenario: "A technology enterprise is structuring its cross-functional FinOps team, defining roles across engineering, finance, procurement, and leadership.",
+    question: "Which organizational alignment best demonstrates effective FinOps persona collaboration in scenario #29?",
     options: [
-      { id: 'A', text: "Option A: Official FinOps Foundation standard practice for FinOps Framework & Personas driving cloud financial accountability." },
-      { id: 'B', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'C', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'D', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." }
+      { id: 'A', text: "Finance arbitrarily shutting down production databases to meet monthly targets" },
+      { id: 'B', text: "Central FinOps practitioners providing tooling and rate optimization while decentralized engineering squads own resource rightsizing" },
+      { id: 'C', text: "Engineering ignoring all cost considerations and rejecting financial visibility" },
+      { id: 'D', text: "Procurement forbidding the purchase of any cloud commitment discounts" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #154: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Framework & Personas"]
+    explanation: "Successful FinOps practices rely on a clear division of responsibility: centralized FinOps teams manage rate optimization and provide enablement tooling, while decentralized engineering teams own architectural design and usage optimization.",
+    referenceUrl: "https://www.finops.org/framework/personas/",
+    tags: ["FinOps", "Personas", "Collaboration"]
   },
   {
     id: "focp-155",
-    difficulty: "easy",
-    certId: "finops-focp",
-    domainId: "d3",
-    domainName: "FinOps Framework & Personas",
-    title: "FOCP Scenario #155: FinOps Framework & Personas",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #155.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #155?",
-    options: [
-      { id: 'A', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'B', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'C', text: "Option A: Official FinOps Foundation standard practice for FinOps Framework & Personas driving cloud financial accountability." },
-      { id: 'D', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." }
-    ],
-    correctAnswers: ['C'],
-    type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #155: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Framework & Personas"]
-  },
-  {
-    id: "focp-156",
     difficulty: "hard",
     certId: "finops-focp",
     domainId: "d3",
     domainName: "FinOps Framework & Personas",
-    title: "FOCP Scenario #156: FinOps Framework & Personas",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #156.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #156?",
+    title: "FinOps Personas Scenario #30",
+    scenario: "A technology enterprise is structuring its cross-functional FinOps team, defining roles across engineering, finance, procurement, and leadership.",
+    question: "Which organizational alignment best demonstrates effective FinOps persona collaboration in scenario #30?",
     options: [
-      { id: 'A', text: "Option A: Official FinOps Foundation standard practice for FinOps Framework & Personas driving cloud financial accountability." },
-      { id: 'B', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'C', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'D', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." }
+      { id: 'A', text: "Finance arbitrarily shutting down production databases to meet monthly targets" },
+      { id: 'B', text: "Procurement forbidding the purchase of any cloud commitment discounts" },
+      { id: 'C', text: "Central FinOps practitioners providing tooling and rate optimization while decentralized engineering squads own resource rightsizing" },
+      { id: 'D', text: "Engineering ignoring all cost considerations and rejecting financial visibility" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #156: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Framework & Personas"]
+    explanation: "Successful FinOps practices rely on a clear division of responsibility: centralized FinOps teams manage rate optimization and provide enablement tooling, while decentralized engineering teams own architectural design and usage optimization.",
+    referenceUrl: "https://www.finops.org/framework/personas/",
+    tags: ["FinOps", "Personas", "Collaboration"]
   },
   {
-    id: "focp-157",
-    difficulty: "easy",
+    id: "focp-156",
+    difficulty: "medium",
     certId: "finops-focp",
     domainId: "d3",
     domainName: "FinOps Framework & Personas",
-    title: "FOCP Scenario #157: FinOps Framework & Personas",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #157.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #157?",
+    title: "FinOps Personas Scenario #31",
+    scenario: "A technology enterprise is structuring its cross-functional FinOps team, defining roles across engineering, finance, procurement, and leadership.",
+    question: "Which organizational alignment best demonstrates effective FinOps persona collaboration in scenario #31?",
     options: [
-      { id: 'A', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'B', text: "Option A: Official FinOps Foundation standard practice for FinOps Framework & Personas driving cloud financial accountability." },
-      { id: 'C', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'D', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." }
+      { id: 'A', text: "Procurement forbidding the purchase of any cloud commitment discounts" },
+      { id: 'B', text: "Central FinOps practitioners providing tooling and rate optimization while decentralized engineering squads own resource rightsizing" },
+      { id: 'C', text: "Engineering ignoring all cost considerations and rejecting financial visibility" },
+      { id: 'D', text: "Finance arbitrarily shutting down production databases to meet monthly targets" }
     ],
     correctAnswers: ['B'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #157: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Framework & Personas"]
+    explanation: "Successful FinOps practices rely on a clear division of responsibility: centralized FinOps teams manage rate optimization and provide enablement tooling, while decentralized engineering teams own architectural design and usage optimization.",
+    referenceUrl: "https://www.finops.org/framework/personas/",
+    tags: ["FinOps", "Personas", "Collaboration"]
+  },
+  {
+    id: "focp-157",
+    difficulty: "hard",
+    certId: "finops-focp",
+    domainId: "d3",
+    domainName: "FinOps Framework & Personas",
+    title: "FinOps Personas Scenario #32",
+    scenario: "A technology enterprise is structuring its cross-functional FinOps team, defining roles across engineering, finance, procurement, and leadership.",
+    question: "Which organizational alignment best demonstrates effective FinOps persona collaboration in scenario #32?",
+    options: [
+      { id: 'A', text: "Finance arbitrarily shutting down production databases to meet monthly targets" },
+      { id: 'B', text: "Central FinOps practitioners providing tooling and rate optimization while decentralized engineering squads own resource rightsizing" },
+      { id: 'C', text: "Procurement forbidding the purchase of any cloud commitment discounts" },
+      { id: 'D', text: "Engineering ignoring all cost considerations and rejecting financial visibility" }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Successful FinOps practices rely on a clear division of responsibility: centralized FinOps teams manage rate optimization and provide enablement tooling, while decentralized engineering teams own architectural design and usage optimization.",
+    referenceUrl: "https://www.finops.org/framework/personas/",
+    tags: ["FinOps", "Personas", "Collaboration"]
   },
   {
     id: "focp-158",
@@ -152,20 +152,20 @@ export const FINOPS_FOCP_QUESTIONS_7 = [
     certId: "finops-focp",
     domainId: "d3",
     domainName: "FinOps Framework & Personas",
-    title: "FOCP Scenario #158: FinOps Framework & Personas",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #158.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #158?",
+    title: "FinOps Personas Scenario #33",
+    scenario: "A technology enterprise is structuring its cross-functional FinOps team, defining roles across engineering, finance, procurement, and leadership.",
+    question: "Which organizational alignment best demonstrates effective FinOps persona collaboration in scenario #33?",
     options: [
-      { id: 'A', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'B', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'C', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'D', text: "Option A: Official FinOps Foundation standard practice for FinOps Framework & Personas driving cloud financial accountability." }
+      { id: 'A', text: "Procurement forbidding the purchase of any cloud commitment discounts" },
+      { id: 'B', text: "Central FinOps practitioners providing tooling and rate optimization while decentralized engineering squads own resource rightsizing" },
+      { id: 'C', text: "Engineering ignoring all cost considerations and rejecting financial visibility" },
+      { id: 'D', text: "Finance arbitrarily shutting down production databases to meet monthly targets" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #158: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Framework & Personas"]
+    explanation: "Successful FinOps practices rely on a clear division of responsibility: centralized FinOps teams manage rate optimization and provide enablement tooling, while decentralized engineering teams own architectural design and usage optimization.",
+    referenceUrl: "https://www.finops.org/framework/personas/",
+    tags: ["FinOps", "Personas", "Collaboration"]
   },
   {
     id: "focp-159",
@@ -173,20 +173,20 @@ export const FINOPS_FOCP_QUESTIONS_7 = [
     certId: "finops-focp",
     domainId: "d3",
     domainName: "FinOps Framework & Personas",
-    title: "FOCP Scenario #159: FinOps Framework & Personas",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #159.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #159?",
+    title: "FinOps Personas Scenario #34",
+    scenario: "A technology enterprise is structuring its cross-functional FinOps team, defining roles across engineering, finance, procurement, and leadership.",
+    question: "Which organizational alignment best demonstrates effective FinOps persona collaboration in scenario #34?",
     options: [
-      { id: 'A', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'B', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'C', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'D', text: "Option A: Official FinOps Foundation standard practice for FinOps Framework & Personas driving cloud financial accountability." }
+      { id: 'A', text: "Procurement forbidding the purchase of any cloud commitment discounts" },
+      { id: 'B', text: "Central FinOps practitioners providing tooling and rate optimization while decentralized engineering squads own resource rightsizing" },
+      { id: 'C', text: "Engineering ignoring all cost considerations and rejecting financial visibility" },
+      { id: 'D', text: "Finance arbitrarily shutting down production databases to meet monthly targets" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #159: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Framework & Personas"]
+    explanation: "Successful FinOps practices rely on a clear division of responsibility: centralized FinOps teams manage rate optimization and provide enablement tooling, while decentralized engineering teams own architectural design and usage optimization.",
+    referenceUrl: "https://www.finops.org/framework/personas/",
+    tags: ["FinOps", "Personas", "Collaboration"]
   },
   {
     id: "focp-160",
@@ -194,83 +194,83 @@ export const FINOPS_FOCP_QUESTIONS_7 = [
     certId: "finops-focp",
     domainId: "d3",
     domainName: "FinOps Framework & Personas",
-    title: "FOCP Scenario #160: FinOps Framework & Personas",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #160.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #160?",
+    title: "FinOps Personas Scenario #35",
+    scenario: "A technology enterprise is structuring its cross-functional FinOps team, defining roles across engineering, finance, procurement, and leadership.",
+    question: "Which organizational alignment best demonstrates effective FinOps persona collaboration in scenario #35?",
     options: [
-      { id: 'A', text: "Option A: Official FinOps Foundation standard practice for FinOps Framework & Personas driving cloud financial accountability." },
-      { id: 'B', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'C', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'D', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." }
+      { id: 'A', text: "Finance arbitrarily shutting down production databases to meet monthly targets" },
+      { id: 'B', text: "Engineering ignoring all cost considerations and rejecting financial visibility" },
+      { id: 'C', text: "Central FinOps practitioners providing tooling and rate optimization while decentralized engineering squads own resource rightsizing" },
+      { id: 'D', text: "Procurement forbidding the purchase of any cloud commitment discounts" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #160: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Framework & Personas"]
+    explanation: "Successful FinOps practices rely on a clear division of responsibility: centralized FinOps teams manage rate optimization and provide enablement tooling, while decentralized engineering teams own architectural design and usage optimization.",
+    referenceUrl: "https://www.finops.org/framework/personas/",
+    tags: ["FinOps", "Personas", "Collaboration"]
   },
   {
     id: "focp-161",
-    difficulty: "easy",
-    certId: "finops-focp",
-    domainId: "d3",
-    domainName: "FinOps Framework & Personas",
-    title: "FOCP Scenario #161: FinOps Framework & Personas",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #161.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #161?",
-    options: [
-      { id: 'A', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'B', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'C', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'D', text: "Option A: Official FinOps Foundation standard practice for FinOps Framework & Personas driving cloud financial accountability." }
-    ],
-    correctAnswers: ['D'],
-    type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #161: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Framework & Personas"]
-  },
-  {
-    id: "focp-162",
     difficulty: "hard",
     certId: "finops-focp",
     domainId: "d3",
     domainName: "FinOps Framework & Personas",
-    title: "FOCP Scenario #162: FinOps Framework & Personas",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #162.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #162?",
+    title: "FinOps Personas Scenario #36",
+    scenario: "A technology enterprise is structuring its cross-functional FinOps team, defining roles across engineering, finance, procurement, and leadership.",
+    question: "Which organizational alignment best demonstrates effective FinOps persona collaboration in scenario #36?",
     options: [
-      { id: 'A', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'B', text: "Option A: Official FinOps Foundation standard practice for FinOps Framework & Personas driving cloud financial accountability." },
-      { id: 'C', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'D', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." }
+      { id: 'A', text: "Central FinOps practitioners providing tooling and rate optimization while decentralized engineering squads own resource rightsizing" },
+      { id: 'B', text: "Finance arbitrarily shutting down production databases to meet monthly targets" },
+      { id: 'C', text: "Procurement forbidding the purchase of any cloud commitment discounts" },
+      { id: 'D', text: "Engineering ignoring all cost considerations and rejecting financial visibility" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #162: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Framework & Personas"]
+    explanation: "Successful FinOps practices rely on a clear division of responsibility: centralized FinOps teams manage rate optimization and provide enablement tooling, while decentralized engineering teams own architectural design and usage optimization.",
+    referenceUrl: "https://www.finops.org/framework/personas/",
+    tags: ["FinOps", "Personas", "Collaboration"]
   },
   {
-    id: "focp-163",
-    difficulty: "easy",
+    id: "focp-162",
+    difficulty: "medium",
     certId: "finops-focp",
     domainId: "d3",
     domainName: "FinOps Framework & Personas",
-    title: "FOCP Scenario #163: FinOps Framework & Personas",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #163.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #163?",
+    title: "FinOps Personas Scenario #37",
+    scenario: "A technology enterprise is structuring its cross-functional FinOps team, defining roles across engineering, finance, procurement, and leadership.",
+    question: "Which organizational alignment best demonstrates effective FinOps persona collaboration in scenario #37?",
     options: [
-      { id: 'A', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'B', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'C', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'D', text: "Option A: Official FinOps Foundation standard practice for FinOps Framework & Personas driving cloud financial accountability." }
+      { id: 'A', text: "Procurement forbidding the purchase of any cloud commitment discounts" },
+      { id: 'B', text: "Central FinOps practitioners providing tooling and rate optimization while decentralized engineering squads own resource rightsizing" },
+      { id: 'C', text: "Engineering ignoring all cost considerations and rejecting financial visibility" },
+      { id: 'D', text: "Finance arbitrarily shutting down production databases to meet monthly targets" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #163: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Framework & Personas"]
+    explanation: "Successful FinOps practices rely on a clear division of responsibility: centralized FinOps teams manage rate optimization and provide enablement tooling, while decentralized engineering teams own architectural design and usage optimization.",
+    referenceUrl: "https://www.finops.org/framework/personas/",
+    tags: ["FinOps", "Personas", "Collaboration"]
+  },
+  {
+    id: "focp-163",
+    difficulty: "hard",
+    certId: "finops-focp",
+    domainId: "d3",
+    domainName: "FinOps Framework & Personas",
+    title: "FinOps Personas Scenario #38",
+    scenario: "A technology enterprise is structuring its cross-functional FinOps team, defining roles across engineering, finance, procurement, and leadership.",
+    question: "Which organizational alignment best demonstrates effective FinOps persona collaboration in scenario #38?",
+    options: [
+      { id: 'A', text: "Finance arbitrarily shutting down production databases to meet monthly targets" },
+      { id: 'B', text: "Engineering ignoring all cost considerations and rejecting financial visibility" },
+      { id: 'C', text: "Central FinOps practitioners providing tooling and rate optimization while decentralized engineering squads own resource rightsizing" },
+      { id: 'D', text: "Procurement forbidding the purchase of any cloud commitment discounts" }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Successful FinOps practices rely on a clear division of responsibility: centralized FinOps teams manage rate optimization and provide enablement tooling, while decentralized engineering teams own architectural design and usage optimization.",
+    referenceUrl: "https://www.finops.org/framework/personas/",
+    tags: ["FinOps", "Personas", "Collaboration"]
   },
   {
     id: "focp-164",
@@ -278,20 +278,20 @@ export const FINOPS_FOCP_QUESTIONS_7 = [
     certId: "finops-focp",
     domainId: "d3",
     domainName: "FinOps Framework & Personas",
-    title: "FOCP Scenario #164: FinOps Framework & Personas",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #164.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #164?",
+    title: "FinOps Personas Scenario #39",
+    scenario: "A technology enterprise is structuring its cross-functional FinOps team, defining roles across engineering, finance, procurement, and leadership.",
+    question: "Which organizational alignment best demonstrates effective FinOps persona collaboration in scenario #39?",
     options: [
-      { id: 'A', text: "Option A: Official FinOps Foundation standard practice for FinOps Framework & Personas driving cloud financial accountability." },
-      { id: 'B', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'C', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'D', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." }
+      { id: 'A', text: "Finance arbitrarily shutting down production databases to meet monthly targets" },
+      { id: 'B', text: "Central FinOps practitioners providing tooling and rate optimization while decentralized engineering squads own resource rightsizing" },
+      { id: 'C', text: "Engineering ignoring all cost considerations and rejecting financial visibility" },
+      { id: 'D', text: "Procurement forbidding the purchase of any cloud commitment discounts" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #164: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Framework & Personas"]
+    explanation: "Successful FinOps practices rely on a clear division of responsibility: centralized FinOps teams manage rate optimization and provide enablement tooling, while decentralized engineering teams own architectural design and usage optimization.",
+    referenceUrl: "https://www.finops.org/framework/personas/",
+    tags: ["FinOps", "Personas", "Collaboration"]
   },
   {
     id: "focp-165",
@@ -299,20 +299,20 @@ export const FINOPS_FOCP_QUESTIONS_7 = [
     certId: "finops-focp",
     domainId: "d3",
     domainName: "FinOps Framework & Personas",
-    title: "FOCP Scenario #165: FinOps Framework & Personas",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #165.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #165?",
+    title: "FinOps Personas Scenario #40",
+    scenario: "A technology enterprise is structuring its cross-functional FinOps team, defining roles across engineering, finance, procurement, and leadership.",
+    question: "Which organizational alignment best demonstrates effective FinOps persona collaboration in scenario #40?",
     options: [
-      { id: 'A', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'B', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'C', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'D', text: "Option A: Official FinOps Foundation standard practice for FinOps Framework & Personas driving cloud financial accountability." }
+      { id: 'A', text: "Procurement forbidding the purchase of any cloud commitment discounts" },
+      { id: 'B', text: "Engineering ignoring all cost considerations and rejecting financial visibility" },
+      { id: 'C', text: "Central FinOps practitioners providing tooling and rate optimization while decentralized engineering squads own resource rightsizing" },
+      { id: 'D', text: "Finance arbitrarily shutting down production databases to meet monthly targets" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #165: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Framework & Personas"]
+    explanation: "Successful FinOps practices rely on a clear division of responsibility: centralized FinOps teams manage rate optimization and provide enablement tooling, while decentralized engineering teams own architectural design and usage optimization.",
+    referenceUrl: "https://www.finops.org/framework/personas/",
+    tags: ["FinOps", "Personas", "Collaboration"]
   },
   {
     id: "focp-166",
@@ -320,83 +320,83 @@ export const FINOPS_FOCP_QUESTIONS_7 = [
     certId: "finops-focp",
     domainId: "d3",
     domainName: "FinOps Framework & Personas",
-    title: "FOCP Scenario #166: FinOps Framework & Personas",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #166.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #166?",
+    title: "FinOps Personas Scenario #41",
+    scenario: "A technology enterprise is structuring its cross-functional FinOps team, defining roles across engineering, finance, procurement, and leadership.",
+    question: "Which organizational alignment best demonstrates effective FinOps persona collaboration in scenario #41?",
     options: [
-      { id: 'A', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'B', text: "Option A: Official FinOps Foundation standard practice for FinOps Framework & Personas driving cloud financial accountability." },
-      { id: 'C', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'D', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." }
+      { id: 'A', text: "Procurement forbidding the purchase of any cloud commitment discounts" },
+      { id: 'B', text: "Engineering ignoring all cost considerations and rejecting financial visibility" },
+      { id: 'C', text: "Finance arbitrarily shutting down production databases to meet monthly targets" },
+      { id: 'D', text: "Central FinOps practitioners providing tooling and rate optimization while decentralized engineering squads own resource rightsizing" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #166: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Framework & Personas"]
+    explanation: "Successful FinOps practices rely on a clear division of responsibility: centralized FinOps teams manage rate optimization and provide enablement tooling, while decentralized engineering teams own architectural design and usage optimization.",
+    referenceUrl: "https://www.finops.org/framework/personas/",
+    tags: ["FinOps", "Personas", "Collaboration"]
   },
   {
     id: "focp-167",
-    difficulty: "easy",
-    certId: "finops-focp",
-    domainId: "d3",
-    domainName: "FinOps Framework & Personas",
-    title: "FOCP Scenario #167: FinOps Framework & Personas",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #167.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #167?",
-    options: [
-      { id: 'A', text: "Option A: Official FinOps Foundation standard practice for FinOps Framework & Personas driving cloud financial accountability." },
-      { id: 'B', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'C', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'D', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." }
-    ],
-    correctAnswers: ['A'],
-    type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #167: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Framework & Personas"]
-  },
-  {
-    id: "focp-168",
     difficulty: "hard",
     certId: "finops-focp",
     domainId: "d3",
     domainName: "FinOps Framework & Personas",
-    title: "FOCP Scenario #168: FinOps Framework & Personas",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #168.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #168?",
+    title: "FinOps Personas Scenario #42",
+    scenario: "A technology enterprise is structuring its cross-functional FinOps team, defining roles across engineering, finance, procurement, and leadership.",
+    question: "Which organizational alignment best demonstrates effective FinOps persona collaboration in scenario #42?",
     options: [
-      { id: 'A', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'B', text: "Option A: Official FinOps Foundation standard practice for FinOps Framework & Personas driving cloud financial accountability." },
-      { id: 'C', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'D', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." }
+      { id: 'A', text: "Engineering ignoring all cost considerations and rejecting financial visibility" },
+      { id: 'B', text: "Central FinOps practitioners providing tooling and rate optimization while decentralized engineering squads own resource rightsizing" },
+      { id: 'C', text: "Finance arbitrarily shutting down production databases to meet monthly targets" },
+      { id: 'D', text: "Procurement forbidding the purchase of any cloud commitment discounts" }
     ],
     correctAnswers: ['B'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #168: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Framework & Personas"]
+    explanation: "Successful FinOps practices rely on a clear division of responsibility: centralized FinOps teams manage rate optimization and provide enablement tooling, while decentralized engineering teams own architectural design and usage optimization.",
+    referenceUrl: "https://www.finops.org/framework/personas/",
+    tags: ["FinOps", "Personas", "Collaboration"]
   },
   {
-    id: "focp-169",
-    difficulty: "easy",
+    id: "focp-168",
+    difficulty: "medium",
     certId: "finops-focp",
     domainId: "d3",
     domainName: "FinOps Framework & Personas",
-    title: "FOCP Scenario #169: FinOps Framework & Personas",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #169.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #169?",
+    title: "FinOps Personas Scenario #43",
+    scenario: "A technology enterprise is structuring its cross-functional FinOps team, defining roles across engineering, finance, procurement, and leadership.",
+    question: "Which organizational alignment best demonstrates effective FinOps persona collaboration in scenario #43?",
     options: [
-      { id: 'A', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'B', text: "Option A: Official FinOps Foundation standard practice for FinOps Framework & Personas driving cloud financial accountability." },
-      { id: 'C', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'D', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." }
+      { id: 'A', text: "Procurement forbidding the purchase of any cloud commitment discounts" },
+      { id: 'B', text: "Finance arbitrarily shutting down production databases to meet monthly targets" },
+      { id: 'C', text: "Central FinOps practitioners providing tooling and rate optimization while decentralized engineering squads own resource rightsizing" },
+      { id: 'D', text: "Engineering ignoring all cost considerations and rejecting financial visibility" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #169: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Framework & Personas"]
+    explanation: "Successful FinOps practices rely on a clear division of responsibility: centralized FinOps teams manage rate optimization and provide enablement tooling, while decentralized engineering teams own architectural design and usage optimization.",
+    referenceUrl: "https://www.finops.org/framework/personas/",
+    tags: ["FinOps", "Personas", "Collaboration"]
+  },
+  {
+    id: "focp-169",
+    difficulty: "hard",
+    certId: "finops-focp",
+    domainId: "d3",
+    domainName: "FinOps Framework & Personas",
+    title: "FinOps Personas Scenario #44",
+    scenario: "A technology enterprise is structuring its cross-functional FinOps team, defining roles across engineering, finance, procurement, and leadership.",
+    question: "Which organizational alignment best demonstrates effective FinOps persona collaboration in scenario #44?",
+    options: [
+      { id: 'A', text: "Engineering ignoring all cost considerations and rejecting financial visibility" },
+      { id: 'B', text: "Finance arbitrarily shutting down production databases to meet monthly targets" },
+      { id: 'C', text: "Procurement forbidding the purchase of any cloud commitment discounts" },
+      { id: 'D', text: "Central FinOps practitioners providing tooling and rate optimization while decentralized engineering squads own resource rightsizing" }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Successful FinOps practices rely on a clear division of responsibility: centralized FinOps teams manage rate optimization and provide enablement tooling, while decentralized engineering teams own architectural design and usage optimization.",
+    referenceUrl: "https://www.finops.org/framework/personas/",
+    tags: ["FinOps", "Personas", "Collaboration"]
   },
   {
     id: "focp-170",
@@ -404,20 +404,20 @@ export const FINOPS_FOCP_QUESTIONS_7 = [
     certId: "finops-focp",
     domainId: "d3",
     domainName: "FinOps Framework & Personas",
-    title: "FOCP Scenario #170: FinOps Framework & Personas",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #170.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #170?",
+    title: "FinOps Personas Scenario #45",
+    scenario: "A technology enterprise is structuring its cross-functional FinOps team, defining roles across engineering, finance, procurement, and leadership.",
+    question: "Which organizational alignment best demonstrates effective FinOps persona collaboration in scenario #45?",
     options: [
-      { id: 'A', text: "Option A: Official FinOps Foundation standard practice for FinOps Framework & Personas driving cloud financial accountability." },
-      { id: 'B', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'C', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'D', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." }
+      { id: 'A', text: "Finance arbitrarily shutting down production databases to meet monthly targets" },
+      { id: 'B', text: "Engineering ignoring all cost considerations and rejecting financial visibility" },
+      { id: 'C', text: "Central FinOps practitioners providing tooling and rate optimization while decentralized engineering squads own resource rightsizing" },
+      { id: 'D', text: "Procurement forbidding the purchase of any cloud commitment discounts" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #170: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Framework & Personas"]
+    explanation: "Successful FinOps practices rely on a clear division of responsibility: centralized FinOps teams manage rate optimization and provide enablement tooling, while decentralized engineering teams own architectural design and usage optimization.",
+    referenceUrl: "https://www.finops.org/framework/personas/",
+    tags: ["FinOps", "Personas", "Collaboration"]
   },
   {
     id: "focp-171",
@@ -425,20 +425,20 @@ export const FINOPS_FOCP_QUESTIONS_7 = [
     certId: "finops-focp",
     domainId: "d3",
     domainName: "FinOps Framework & Personas",
-    title: "FOCP Scenario #171: FinOps Framework & Personas",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #171.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #171?",
+    title: "FinOps Personas Scenario #46",
+    scenario: "A technology enterprise is structuring its cross-functional FinOps team, defining roles across engineering, finance, procurement, and leadership.",
+    question: "Which organizational alignment best demonstrates effective FinOps persona collaboration in scenario #46?",
     options: [
-      { id: 'A', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'B', text: "Option A: Official FinOps Foundation standard practice for FinOps Framework & Personas driving cloud financial accountability." },
-      { id: 'C', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'D', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." }
+      { id: 'A', text: "Engineering ignoring all cost considerations and rejecting financial visibility" },
+      { id: 'B', text: "Central FinOps practitioners providing tooling and rate optimization while decentralized engineering squads own resource rightsizing" },
+      { id: 'C', text: "Finance arbitrarily shutting down production databases to meet monthly targets" },
+      { id: 'D', text: "Procurement forbidding the purchase of any cloud commitment discounts" }
     ],
     correctAnswers: ['B'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #171: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Framework & Personas"]
+    explanation: "Successful FinOps practices rely on a clear division of responsibility: centralized FinOps teams manage rate optimization and provide enablement tooling, while decentralized engineering teams own architectural design and usage optimization.",
+    referenceUrl: "https://www.finops.org/framework/personas/",
+    tags: ["FinOps", "Personas", "Collaboration"]
   },
   {
     id: "focp-172",
@@ -446,83 +446,83 @@ export const FINOPS_FOCP_QUESTIONS_7 = [
     certId: "finops-focp",
     domainId: "d3",
     domainName: "FinOps Framework & Personas",
-    title: "FOCP Scenario #172: FinOps Framework & Personas",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #172.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #172?",
+    title: "FinOps Personas Scenario #47",
+    scenario: "A technology enterprise is structuring its cross-functional FinOps team, defining roles across engineering, finance, procurement, and leadership.",
+    question: "Which organizational alignment best demonstrates effective FinOps persona collaboration in scenario #47?",
     options: [
-      { id: 'A', text: "Option A: Official FinOps Foundation standard practice for FinOps Framework & Personas driving cloud financial accountability." },
-      { id: 'B', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'C', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'D', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." }
+      { id: 'A', text: "Central FinOps practitioners providing tooling and rate optimization while decentralized engineering squads own resource rightsizing" },
+      { id: 'B', text: "Finance arbitrarily shutting down production databases to meet monthly targets" },
+      { id: 'C', text: "Procurement forbidding the purchase of any cloud commitment discounts" },
+      { id: 'D', text: "Engineering ignoring all cost considerations and rejecting financial visibility" }
     ],
     correctAnswers: ['A'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #172: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Framework & Personas"]
+    explanation: "Successful FinOps practices rely on a clear division of responsibility: centralized FinOps teams manage rate optimization and provide enablement tooling, while decentralized engineering teams own architectural design and usage optimization.",
+    referenceUrl: "https://www.finops.org/framework/personas/",
+    tags: ["FinOps", "Personas", "Collaboration"]
   },
   {
     id: "focp-173",
-    difficulty: "easy",
-    certId: "finops-focp",
-    domainId: "d3",
-    domainName: "FinOps Framework & Personas",
-    title: "FOCP Scenario #173: FinOps Framework & Personas",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #173.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #173?",
-    options: [
-      { id: 'A', text: "Option A: Official FinOps Foundation standard practice for FinOps Framework & Personas driving cloud financial accountability." },
-      { id: 'B', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'C', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." },
-      { id: 'D', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." }
-    ],
-    correctAnswers: ['A'],
-    type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #173: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Framework & Personas"]
-  },
-  {
-    id: "focp-174",
     difficulty: "hard",
     certId: "finops-focp",
     domainId: "d3",
     domainName: "FinOps Framework & Personas",
-    title: "FOCP Scenario #174: FinOps Framework & Personas",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #174.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #174?",
+    title: "FinOps Personas Scenario #48",
+    scenario: "A technology enterprise is structuring its cross-functional FinOps team, defining roles across engineering, finance, procurement, and leadership.",
+    question: "Which organizational alignment best demonstrates effective FinOps persona collaboration in scenario #48?",
     options: [
-      { id: 'A', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'B', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'C', text: "Option A: Official FinOps Foundation standard practice for FinOps Framework & Personas driving cloud financial accountability." },
-      { id: 'D', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." }
+      { id: 'A', text: "Central FinOps practitioners providing tooling and rate optimization while decentralized engineering squads own resource rightsizing" },
+      { id: 'B', text: "Engineering ignoring all cost considerations and rejecting financial visibility" },
+      { id: 'C', text: "Procurement forbidding the purchase of any cloud commitment discounts" },
+      { id: 'D', text: "Finance arbitrarily shutting down production databases to meet monthly targets" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #174: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Framework & Personas"]
+    explanation: "Successful FinOps practices rely on a clear division of responsibility: centralized FinOps teams manage rate optimization and provide enablement tooling, while decentralized engineering teams own architectural design and usage optimization.",
+    referenceUrl: "https://www.finops.org/framework/personas/",
+    tags: ["FinOps", "Personas", "Collaboration"]
   },
   {
-    id: "focp-175",
-    difficulty: "easy",
+    id: "focp-174",
+    difficulty: "medium",
     certId: "finops-focp",
     domainId: "d3",
     domainName: "FinOps Framework & Personas",
-    title: "FOCP Scenario #175: FinOps Framework & Personas",
-    scenario: "A FinOps cross-functional team (Engineering, Finance, Procurement, and Executive Leadership) is implementing cloud financial management practices for scenario #175.",
-    question: "Which FinOps principle, phase activity, or capability best addresses requirement #175?",
+    title: "FinOps Personas Scenario #49",
+    scenario: "A technology enterprise is structuring its cross-functional FinOps team, defining roles across engineering, finance, procurement, and leadership.",
+    question: "Which organizational alignment best demonstrates effective FinOps persona collaboration in scenario #49?",
     options: [
-      { id: 'A', text: "Option B: Rigid annual centralized IT budgeting that blocks cloud agility and auto-scaling." },
-      { id: 'B', text: "Option D: Eliminating all cloud visibility tools and relying strictly on retroactive monthly invoices." },
-      { id: 'C', text: "Option A: Official FinOps Foundation standard practice for FinOps Framework & Personas driving cloud financial accountability." },
-      { id: 'D', text: "Option C: Completely unallocated shared cloud spend without cost attribution or tag governance." }
+      { id: 'A', text: "Finance arbitrarily shutting down production databases to meet monthly targets" },
+      { id: 'B', text: "Central FinOps practitioners providing tooling and rate optimization while decentralized engineering squads own resource rightsizing" },
+      { id: 'C', text: "Procurement forbidding the purchase of any cloud commitment discounts" },
+      { id: 'D', text: "Engineering ignoring all cost considerations and rejecting financial visibility" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
-    explanation: "Comprehensive FinOps Certified Practitioner explanation for topic #175: Analyzes the Inform, Optimize, and Operate phases, Crawl/Walk/Run maturity models, unit economics, rate optimization (RI/Savings Plans/CUDs), workload rightsizing, shared cost allocation, anomaly management, and collaborative cross-functional culture.",
-    referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "FOCP", "Cloud Financial Management", "FinOps Framework & Personas"]
+    explanation: "Successful FinOps practices rely on a clear division of responsibility: centralized FinOps teams manage rate optimization and provide enablement tooling, while decentralized engineering teams own architectural design and usage optimization.",
+    referenceUrl: "https://www.finops.org/framework/personas/",
+    tags: ["FinOps", "Personas", "Collaboration"]
+  },
+  {
+    id: "focp-175",
+    difficulty: "hard",
+    certId: "finops-focp",
+    domainId: "d3",
+    domainName: "FinOps Framework & Personas",
+    title: "FinOps Personas Scenario #50",
+    scenario: "A technology enterprise is structuring its cross-functional FinOps team, defining roles across engineering, finance, procurement, and leadership.",
+    question: "Which organizational alignment best demonstrates effective FinOps persona collaboration in scenario #50?",
+    options: [
+      { id: 'A', text: "Finance arbitrarily shutting down production databases to meet monthly targets" },
+      { id: 'B', text: "Procurement forbidding the purchase of any cloud commitment discounts" },
+      { id: 'C', text: "Engineering ignoring all cost considerations and rejecting financial visibility" },
+      { id: 'D', text: "Central FinOps practitioners providing tooling and rate optimization while decentralized engineering squads own resource rightsizing" }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Successful FinOps practices rely on a clear division of responsibility: centralized FinOps teams manage rate optimization and provide enablement tooling, while decentralized engineering teams own architectural design and usage optimization.",
+    referenceUrl: "https://www.finops.org/framework/personas/",
+    tags: ["FinOps", "Personas", "Collaboration"]
   }
 ];
 
