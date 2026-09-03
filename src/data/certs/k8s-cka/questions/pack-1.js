@@ -9,12 +9,12 @@ export const K8S_CKA_QUESTIONS = [
     scenario: "Two Services, api-svc and web-svc, run in the shop namespace. Requests to shop.example.com/api must reach api-svc on port 8080 and every other path must reach web-svc on port 80, using a single external IP address.",
     question: "Which Kubernetes resource should be created?",
     options: [
-      { id: 'A', text: "Two Services of type LoadBalancer, one per backend." },
-      { id: 'B', text: "A single Service of type NodePort with two ports defined." },
-      { id: 'C', text: "An Ingress with a host rule for shop.example.com and two path rules backed by the two Services, served by an ingress controller." },
+      { id: 'A', text: "An Ingress with a host rule for shop.example.com and two path rules backed by the two Services, served by an ingress controller." },
+      { id: 'B', text: "Two Services of type LoadBalancer, one per backend." },
+      { id: 'C', text: "A single Service of type NodePort with two ports defined." },
       { id: 'D', text: "A NetworkPolicy selecting both Services with path-based ingress rules." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Ingress is the Kubernetes API for HTTP layer-7 routing: one entry point that dispatches by host and URL path to different backend Services, implemented by an ingress controller. Two LoadBalancer Services would consume two external IPs and cannot route by path, a NodePort Service maps ports rather than paths and targets one set of pods, and NetworkPolicy filters traffic at layer 3/4 and has no concept of URL paths.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/ingress/",
@@ -32,8 +32,8 @@ export const K8S_CKA_QUESTIONS = [
     options: [
       { id: 'A', text: "The claim is rejected by the API server because storageClassName is required." },
       { id: 'B', text: "The default StorageClass dynamically provisions a matching PersistentVolume and binds it to the claim." },
-      { id: 'C', text: "The claim stays Pending until an administrator manually creates a matching PersistentVolume." },
-      { id: 'D', text: "Kubernetes creates an emptyDir volume of 20 GiB on the node instead." }
+      { id: 'C', text: "Kubernetes creates an emptyDir volume of 20 GiB on the node instead." },
+      { id: 'D', text: "The claim stays Pending until an administrator manually creates a matching PersistentVolume." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -51,10 +51,10 @@ export const K8S_CKA_QUESTIONS = [
     scenario: "A Deployment runs three replicas of a critical API. During an incident, all three replicas were scheduled onto the same node and the node failure took the whole service down. The requirement is that the scheduler must refuse to place two replicas on the same node.",
     question: "Which pod specification achieves this?",
     options: [
-      { id: 'A', text: "preferredDuringSchedulingIgnoredDuringExecution podAntiAffinity matching the app label, with topologyKey kubernetes.io/hostname." },
+      { id: 'A', text: "A nodeSelector pinning the Deployment to three specific node names." },
       { id: 'B', text: "requiredDuringSchedulingIgnoredDuringExecution podAntiAffinity matching the app label, with topologyKey kubernetes.io/hostname." },
-      { id: 'C', text: "A nodeSelector pinning the Deployment to three specific node names." },
-      { id: 'D', text: "A podAffinity rule matching the app label, with topologyKey topology.kubernetes.io/zone." }
+      { id: 'C', text: "A podAffinity rule matching the app label, with topologyKey topology.kubernetes.io/zone." },
+      { id: 'D', text: "preferredDuringSchedulingIgnoredDuringExecution podAntiAffinity matching the app label, with topologyKey kubernetes.io/hostname." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -74,8 +74,8 @@ export const K8S_CKA_QUESTIONS = [
     options: [
       { id: 'A', text: "kubectl get pod POD -n payments -o wide" },
       { id: 'B', text: "kubectl logs POD -n payments --previous" },
-      { id: 'C', text: "kubectl exec -it POD -n payments -- sh" },
-      { id: 'D', text: "kubectl rollout restart deployment/payments -n payments" }
+      { id: 'C', text: "kubectl rollout restart deployment/payments -n payments" },
+      { id: 'D', text: "kubectl exec -it POD -n payments -- sh" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -93,9 +93,9 @@ export const K8S_CKA_QUESTIONS = [
     scenario: "A new administrator is drawing the control plane data flow and needs to know which component reads and writes cluster state directly.",
     question: "Which control plane component communicates directly with etcd?",
     options: [
-      { id: 'A', text: "kube-scheduler" },
-      { id: 'B', text: "kubelet" },
-      { id: 'C', text: "kube-controller-manager" },
+      { id: 'A', text: "kube-controller-manager" },
+      { id: 'B', text: "kube-scheduler" },
+      { id: 'C', text: "kubelet" },
       { id: 'D', text: "kube-apiserver" }
     ],
     correctAnswers: ['D'],
@@ -114,10 +114,10 @@ export const K8S_CKA_QUESTIONS = [
     scenario: "A platform team must run a log-collection agent on every node in the cluster, including nodes added later by the autoscaler, with exactly one instance per node.",
     question: "Which workload resource should they use?",
     options: [
-      { id: 'A', text: "A Deployment with replicas equal to the current node count" },
-      { id: 'B', text: "A CronJob scheduled every minute" },
+      { id: 'A', text: "A StatefulSet with pod anti-affinity" },
+      { id: 'B', text: "A Deployment with replicas equal to the current node count" },
       { id: 'C', text: "A DaemonSet" },
-      { id: 'D', text: "A StatefulSet with pod anti-affinity" }
+      { id: 'D', text: "A CronJob scheduled every minute" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -137,8 +137,8 @@ export const K8S_CKA_QUESTIONS = [
     options: [
       { id: 'A', text: "kubectl delete node node-3" },
       { id: 'B', text: "kubectl drain node-3 --ignore-daemonsets --delete-emptydir-data" },
-      { id: 'C', text: "kubectl cordon node-3 and then reboot the host" },
-      { id: 'D', text: "kubectl taint nodes node-3 maintenance=true:PreferNoSchedule" }
+      { id: 'C', text: "kubectl taint nodes node-3 maintenance=true:PreferNoSchedule" },
+      { id: 'D', text: "kubectl cordon node-3 and then reboot the host" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -157,11 +157,11 @@ export const K8S_CKA_QUESTIONS = [
     question: "Which configuration resolves this correctly?",
     options: [
       { id: 'A', text: "Increase the liveness probe periodSeconds to 300 so it is checked less often." },
-      { id: 'B', text: "Add a startupProbe with a generous failureThreshold, which disables the liveness and readiness probes until it succeeds." },
+      { id: 'B', text: "Remove the liveness probe entirely so the container is never restarted." },
       { id: 'C', text: "Convert the liveness probe into a readiness probe with the same delay." },
-      { id: 'D', text: "Remove the liveness probe entirely so the container is never restarted." }
+      { id: 'D', text: "Add a startupProbe with a generous failureThreshold, which disables the liveness and readiness probes until it succeeds." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "A startupProbe exists precisely for slow-booting containers: while it is running, the liveness and readiness probes are held off, and only after it succeeds do they begin. Removing the liveness probe loses deadlock detection for the life of the pod, a longer period still allows an early failure to kill the container, and a readiness probe alone leaves the container unmonitored for hangs.",
     referenceUrl: "https://kubernetes.io/docs/concepts/configuration/liveness-readiness-startup-probes/",
@@ -178,12 +178,12 @@ export const K8S_CKA_QUESTIONS = [
     question: "Which two actions are part of the correct restore procedure? (Choose TWO)",
     options: [
       { id: 'A', text: "Run kubectl apply -f /etc/kubernetes/manifests/etcd.yaml to restart the etcd pod." },
-      { id: 'B', text: "Update the hostPath volume in /etc/kubernetes/manifests/etcd.yaml to point at the restored data directory so kubelet recreates the static pod." },
-      { id: 'C', text: "Copy the snapshot file directly over /var/lib/etcd/member/snap/db and restart kubelet." },
-      { id: 'D', text: "Run ETCDCTL_API=3 etcdctl snapshot restore /backup/etcd-snap.db --data-dir /var/lib/etcd-restored" },
-      { id: 'E', text: "Run kubeadm reset on the control plane node before restoring the snapshot." }
+      { id: 'B', text: "Run kubeadm reset on the control plane node before restoring the snapshot." },
+      { id: 'C', text: "Run ETCDCTL_API=3 etcdctl snapshot restore /backup/etcd-snap.db --data-dir /var/lib/etcd-restored" },
+      { id: 'D', text: "Copy the snapshot file directly over /var/lib/etcd/member/snap/db and restart kubelet." },
+      { id: 'E', text: "Update the hostPath volume in /etc/kubernetes/manifests/etcd.yaml to point at the restored data directory so kubelet recreates the static pod." }
     ],
-    correctAnswers: ['B', 'D'],
+    correctAnswers: ['C', 'E'],
     type: "multiple",
     explanation: "etcdctl snapshot restore rebuilds a fresh member data directory from the snapshot - it never writes into a live data directory. Because etcd is a static pod, pointing its hostPath volume at the restored directory and letting kubelet observe the manifest change is what brings the restored member up. kubectl apply does not manage static pods, kubeadm reset would destroy the rest of the control plane configuration, and copying a snapshot over the internal member files bypasses the restore process and corrupts the store.",
     referenceUrl: "https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/",
@@ -199,13 +199,13 @@ export const K8S_CKA_QUESTIONS = [
     scenario: "In the payments namespace, all pods must reject incoming traffic except that pods labelled app=api must be reachable on TCP 8080 from pods labelled app=frontend in the same namespace. The cluster runs Calico.",
     question: "Which statements about the required NetworkPolicy configuration are correct? (Choose TWO)",
     options: [
-      { id: 'A', text: "A policy with podSelector: {} and policyTypes: [Ingress] and no ingress rules is needed to establish default-deny for the namespace." },
+      { id: 'A', text: "The default-deny policy must include an explicit deny rule listing the blocked sources." },
       { id: 'B', text: "The exception policy must set policyTypes: [Egress] because the traffic leaves the frontend pod." },
       { id: 'C', text: "Without any NetworkPolicy, ingress to pods in the namespace is denied by default." },
-      { id: 'D', text: "The default-deny policy must include an explicit deny rule listing the blocked sources." },
+      { id: 'D', text: "A policy with podSelector: {} and policyTypes: [Ingress] and no ingress rules is needed to establish default-deny for the namespace." },
       { id: 'E', text: "A second policy selecting app=api with an ingress rule for podSelector app=frontend on port 8080 grants the exception, because policies are additive." }
     ],
-    correctAnswers: ['A', 'E'],
+    correctAnswers: ['D', 'E'],
     type: "multiple",
     explanation: "NetworkPolicies are whitelist-only and additive: an empty-rule policy selecting all pods creates default-deny for ingress, and any further policy that selects a pod adds allowed sources on top. There is no deny rule syntax in the NetworkPolicy API. The exception governs traffic arriving at the api pods, so it is an Ingress policy on those pods rather than an Egress policy on the frontend. And with no policy selecting a pod at all, Kubernetes allows all traffic rather than denying it.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/network-policies/",

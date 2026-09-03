@@ -10,9 +10,9 @@ export const K8S_CKA_QUESTIONS_7 = [
     question: "Which command shows why the init container is not finishing?",
     options: [
       { id: 'A', text: "kubectl logs POD -c INIT_CONTAINER_NAME" },
-      { id: 'B', text: "kubectl logs POD" },
-      { id: 'C', text: "kubectl get pod POD -o wide" },
-      { id: 'D', text: "kubectl exec POD -- ps aux" }
+      { id: 'B', text: "kubectl get pod POD -o wide" },
+      { id: 'C', text: "kubectl exec POD -- ps aux" },
+      { id: 'D', text: "kubectl logs POD" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -30,10 +30,10 @@ export const K8S_CKA_QUESTIONS_7 = [
     scenario: "A single control plane cluster must become highly available by adding two more control plane nodes behind an existing load balancer endpoint.",
     question: "Which additional step does joining a control plane node require compared with joining a worker?",
     options: [
-      { id: 'A', text: "A separate bootstrap token type is required for control plane nodes." },
+      { id: 'A', text: "The new node must be labelled node-role.kubernetes.io/control-plane before joining." },
       { id: 'B', text: "The certificate key from kubeadm init phase upload-certs must be supplied with --control-plane --certificate-key so the new node can fetch the shared certificates." },
-      { id: 'C', text: "The new node must be labelled node-role.kubernetes.io/control-plane before joining." },
-      { id: 'D', text: "etcd must be stopped on the first control plane node during the join." }
+      { id: 'C', text: "etcd must be stopped on the first control plane node during the join." },
+      { id: 'D', text: "A separate bootstrap token type is required for control plane nodes." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -51,12 +51,12 @@ export const K8S_CKA_QUESTIONS_7 = [
     scenario: "A pod should run one task and, if the process exits non-zero, be restarted by the kubelet on the same node; if it succeeds it must stay finished.",
     question: "Which restartPolicy matches?",
     options: [
-      { id: 'A', text: "OnFailure" },
-      { id: 'B', text: "Always" },
-      { id: 'C', text: "Never" },
-      { id: 'D', text: "IfNotPresent" }
+      { id: 'A', text: "Never" },
+      { id: 'B', text: "OnFailure" },
+      { id: 'C', text: "IfNotPresent" },
+      { id: 'D', text: "Always" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "OnFailure restarts the container only on a non-zero exit and leaves a successful pod in the Succeeded phase. Always restarts even after success and is the default for long-running workloads, Never leaves a failed pod failed, and IfNotPresent is an image pull policy rather than a restart policy.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/",
@@ -72,12 +72,12 @@ export const K8S_CKA_QUESTIONS_7 = [
     scenario: "A cluster grew from 20 to 200 nodes and DNS lookups have become slow, with CoreDNS pods showing sustained high CPU.",
     question: "Which response is appropriate?",
     options: [
-      { id: 'A', text: "Increase CoreDNS replicas and resources, and consider NodeLocal DNSCache to reduce per-node query load." },
-      { id: 'B', text: "Disable the cluster DNS Service and rely on /etc/hosts entries." },
+      { id: 'A', text: "Move CoreDNS to a DaemonSet on control plane nodes only." },
+      { id: 'B', text: "Increase CoreDNS replicas and resources, and consider NodeLocal DNSCache to reduce per-node query load." },
       { id: 'C', text: "Set dnsPolicy: Default on every pod so they use the node resolver." },
-      { id: 'D', text: "Move CoreDNS to a DaemonSet on control plane nodes only." }
+      { id: 'D', text: "Disable the cluster DNS Service and rely on /etc/hosts entries." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "DNS capacity scales with cluster size, so more CoreDNS replicas plus NodeLocal DNSCache - a per-node caching agent that cuts conntrack pressure and latency - is the standard remedy. Switching pods to the node resolver breaks cluster.local resolution, hosts files do not scale, and confining DNS to control plane nodes reduces rather than increases capacity.",
     referenceUrl: "https://kubernetes.io/docs/tasks/administer-cluster/nodelocaldns/",
@@ -93,12 +93,12 @@ export const K8S_CKA_QUESTIONS_7 = [
     scenario: "An administrator pre-created a PersistentVolume of 50Gi with accessModes ReadWriteOnce and storageClassName manual. A PVC requests 20Gi, ReadWriteOnce, storageClassName manual.",
     question: "What happens?",
     options: [
-      { id: 'A', text: "The claim stays Pending because the sizes are not equal." },
-      { id: 'B', text: "The PV is split into a 20Gi and a 30Gi volume." },
-      { id: 'C', text: "The claim is rejected because manual is not a real provisioner." },
-      { id: 'D', text: "The claim binds to the 50Gi volume, because a PV may be larger than the request as long as class and access mode match." }
+      { id: 'A', text: "The claim binds to the 50Gi volume, because a PV may be larger than the request as long as class and access mode match." },
+      { id: 'B', text: "The claim is rejected because manual is not a real provisioner." },
+      { id: 'C', text: "The PV is split into a 20Gi and a 30Gi volume." },
+      { id: 'D', text: "The claim stays Pending because the sizes are not equal." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Binding requires the class and access modes to match and the volume capacity to be at least the requested size, so the claim binds and gets the whole 50Gi. Sizes need not be equal, PersistentVolumes are never subdivided, and a StorageClass with no dynamic provisioner is a normal way to group statically provisioned volumes.",
     referenceUrl: "https://kubernetes.io/docs/concepts/storage/persistent-volumes/",
@@ -114,12 +114,12 @@ export const K8S_CKA_QUESTIONS_7 = [
     scenario: "kubeadm join fails with an error about the CA certificate hash not matching the pinned public key.",
     question: "What does that indicate?",
     options: [
-      { id: 'A', text: "The bootstrap token has expired." },
-      { id: 'B', text: "The --discovery-token-ca-cert-hash value does not match the current cluster CA, usually because it was copied from an older cluster or the CA was regenerated." },
-      { id: 'C', text: "The CNI plugin is not installed on the worker." },
-      { id: 'D', text: "The worker clock is ahead of the control plane clock." }
+      { id: 'A', text: "The worker clock is ahead of the control plane clock." },
+      { id: 'B', text: "The bootstrap token has expired." },
+      { id: 'C', text: "The --discovery-token-ca-cert-hash value does not match the current cluster CA, usually because it was copied from an older cluster or the CA was regenerated." },
+      { id: 'D', text: "The CNI plugin is not installed on the worker." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "The CA certificate hash pins the control plane identity during discovery, so a mismatch means the hash belongs to a different or regenerated CA - regenerating the join command with kubeadm token create --print-join-command produces the correct value. An expired token yields an unauthorized error, clock skew produces certificate validity errors, and CNI is only needed after the node joins.",
     referenceUrl: "https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm-join/",
@@ -136,11 +136,11 @@ export const K8S_CKA_QUESTIONS_7 = [
     question: "Which command prints that summary?",
     options: [
       { id: 'A', text: "kubectl version --short" },
-      { id: 'B', text: "kubectl get nodes -o wide" },
-      { id: 'C', text: "kubectl cluster-info" },
+      { id: 'B', text: "kubectl cluster-info" },
+      { id: 'C', text: "kubectl get nodes -o wide" },
       { id: 'D', text: "kubectl config get-clusters" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "kubectl cluster-info prints the control plane URL and the addresses of core add-on services such as CoreDNS as seen through the API server. Node listings show workers, version reports client and server versions, and get-clusters lists kubeconfig entries without confirming reachability.",
     referenceUrl: "https://kubernetes.io/docs/reference/kubectl/generated/kubectl_cluster-info/",
@@ -156,12 +156,12 @@ export const K8S_CKA_QUESTIONS_7 = [
     scenario: "A pod manifest sets spec.nodeName directly to node03. The node is cordoned and lacks capacity.",
     question: "What happens?",
     options: [
-      { id: 'A', text: "The API server rejects the manifest." },
+      { id: 'A', text: "The scheduler moves the pod to a node with capacity." },
       { id: 'B', text: "The pod stays Pending until node03 is uncordoned." },
-      { id: 'C', text: "The scheduler is bypassed entirely; the kubelet on node03 tries to run the pod and it may fail admission on the node for lack of resources." },
-      { id: 'D', text: "The scheduler moves the pod to a node with capacity." }
+      { id: 'C', text: "The API server rejects the manifest." },
+      { id: 'D', text: "The scheduler is bypassed entirely; the kubelet on node03 tries to run the pod and it may fail admission on the node for lack of resources." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Setting nodeName pre-binds the pod, so kube-scheduler never evaluates it and the cordon - which only affects scheduling decisions - is irrelevant; the node kubelet then admits or rejects it based on local resources. The scheduler does not relocate pre-bound pods, the pod is not Pending because it is already assigned, and the manifest is valid.",
     referenceUrl: "https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/",
@@ -179,8 +179,8 @@ export const K8S_CKA_QUESTIONS_7 = [
     options: [
       { id: 'A', text: "Exact" },
       { id: 'B', text: "Prefix" },
-      { id: 'C', text: "ImplementationSpecific" },
-      { id: 'D', text: "Regex" }
+      { id: 'C', text: "Regex" },
+      { id: 'D', text: "ImplementationSpecific" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -198,9 +198,9 @@ export const K8S_CKA_QUESTIONS_7 = [
     scenario: "A database must guarantee that only one pod at a time can write to its volume, even if two pods are accidentally scheduled onto the same node.",
     question: "Which access mode gives that guarantee?",
     options: [
-      { id: 'A', text: "ReadWriteMany" },
+      { id: 'A', text: "ReadOnlyMany" },
       { id: 'B', text: "ReadWriteOncePod" },
-      { id: 'C', text: "ReadOnlyMany" },
+      { id: 'C', text: "ReadWriteMany" },
       { id: 'D', text: "ReadWriteOnce" }
     ],
     correctAnswers: ['B'],
@@ -219,12 +219,12 @@ export const K8S_CKA_QUESTIONS_7 = [
     scenario: "A cluster control plane runs 1.31 and an operator wants to know which kubelet versions are supported on the nodes.",
     question: "Which statement reflects the supported skew policy?",
     options: [
-      { id: 'A', text: "Kubelets may be up to three minor versions older than the API server, and must never be newer than it." },
-      { id: 'B', text: "There is no supported skew policy; any combination works." },
+      { id: 'A', text: "Kubelets must exactly match the API server minor version." },
+      { id: 'B', text: "Kubelets may be up to three minor versions older than the API server, and must never be newer than it." },
       { id: 'C', text: "Kubelets may be one minor version newer than the API server." },
-      { id: 'D', text: "Kubelets must exactly match the API server minor version." }
+      { id: 'D', text: "There is no supported skew policy; any combination works." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "The version skew policy allows kubelets to lag the API server by up to three minor versions and forbids a kubelet newer than the control plane, which is why the control plane is always upgraded first. Exact matching is stricter than required, newer kubelets are unsupported, and the policy is very much enforced in practice.",
     referenceUrl: "https://kubernetes.io/releases/version-skew-policy/",
@@ -240,12 +240,12 @@ export const K8S_CKA_QUESTIONS_7 = [
     scenario: "An operator needs the node name and pod IP for a specific pod in order to log into that machine.",
     question: "Which command shows both?",
     options: [
-      { id: 'A', text: "kubectl get pod POD -o wide" },
-      { id: 'B', text: "kubectl get pod POD -o name" },
-      { id: 'C', text: "kubectl top pod POD" },
-      { id: 'D', text: "kubectl logs POD" }
+      { id: 'A', text: "kubectl top pod POD" },
+      { id: 'B', text: "kubectl logs POD" },
+      { id: 'C', text: "kubectl get pod POD -o name" },
+      { id: 'D', text: "kubectl get pod POD -o wide" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The wide output adds the NODE and IP columns to the standard pod listing. -o name prints only the resource identifier, top shows resource usage, and logs show application output.",
     referenceUrl: "https://kubernetes.io/docs/reference/kubectl/quick-reference/",
@@ -261,12 +261,12 @@ export const K8S_CKA_QUESTIONS_7 = [
     scenario: "Three bare pods carry the label app=web. A ReplicaSet with selector app=web and replicas 3 is then created.",
     question: "What does the ReplicaSet do?",
     options: [
-      { id: 'A', text: "It creates three additional pods, for six in total." },
-      { id: 'B', text: "It adopts the three existing pods by setting ownerReferences and creates none, because the desired count is already met." },
-      { id: 'C', text: "It deletes the bare pods and creates three of its own." },
-      { id: 'D', text: "It refuses to start because the pods have no owner." }
+      { id: 'A', text: "It deletes the bare pods and creates three of its own." },
+      { id: 'B', text: "It refuses to start because the pods have no owner." },
+      { id: 'C', text: "It creates three additional pods, for six in total." },
+      { id: 'D', text: "It adopts the three existing pods by setting ownerReferences and creates none, because the desired count is already met." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "A ReplicaSet claims any pod matching its selector that has no controller owner, adopting the three existing pods and satisfying the replica count without creating more. It counts matching pods rather than only its own creations, adoption is normal behaviour, and it does not delete pods it can adopt.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/",
@@ -282,12 +282,12 @@ export const K8S_CKA_QUESTIONS_7 = [
     scenario: "Clients see occasional connection resets when calling a Service during a rolling update, even though readiness probes are configured.",
     question: "Which change most directly reduces the resets?",
     options: [
-      { id: 'A', text: "Increase the readiness probe failureThreshold." },
-      { id: 'B', text: "Switch the Service to type NodePort." },
-      { id: 'C', text: "Add a preStop hook with a short sleep so the pod keeps serving while endpoint removal propagates to every node." },
-      { id: 'D', text: "Set terminationGracePeriodSeconds to 0 so pods exit quickly." }
+      { id: 'A', text: "Switch the Service to type NodePort." },
+      { id: 'B', text: "Set terminationGracePeriodSeconds to 0 so pods exit quickly." },
+      { id: 'C', text: "Increase the readiness probe failureThreshold." },
+      { id: 'D', text: "Add a preStop hook with a short sleep so the pod keeps serving while endpoint removal propagates to every node." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Endpoint removal and kube-proxy reprogramming are asynchronous with SIGTERM, so a terminating pod can still receive traffic; a brief preStop sleep keeps it serving until the data plane catches up. A zero grace period makes the race worse, the Service type does not change the race, and a higher failureThreshold delays marking a pod unready.",
     referenceUrl: "https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/",
@@ -303,12 +303,12 @@ export const K8S_CKA_QUESTIONS_7 = [
     scenario: "Events on a pod repeat: \"Liveness probe failed: HTTP probe failed with statuscode: 500\" followed by \"Killing container\".",
     question: "What is the correct interpretation?",
     options: [
-      { id: 'A', text: "The application health endpoint is returning an error, so the kubelet restarts the container; the application logs explain why the endpoint is unhealthy." },
-      { id: 'B', text: "The container image is missing curl, which the probe requires." },
-      { id: 'C', text: "The probe URL is unreachable because of a NetworkPolicy blocking the kubelet." },
-      { id: 'D', text: "The pod exceeded its memory limit." }
+      { id: 'A', text: "The container image is missing curl, which the probe requires." },
+      { id: 'B', text: "The probe URL is unreachable because of a NetworkPolicy blocking the kubelet." },
+      { id: 'C', text: "The pod exceeded its memory limit." },
+      { id: 'D', text: "The application health endpoint is returning an error, so the kubelet restarts the container; the application logs explain why the endpoint is unhealthy." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "A status code 500 means the probe connected and the application answered unhealthily, so the fault is inside the application rather than in networking. A blocked probe reports a connection refused or timeout, HTTP probes are performed by the kubelet without any in-container tooling, and a memory kill reports OOMKilled.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/",
@@ -325,11 +325,11 @@ export const K8S_CKA_QUESTIONS_7 = [
     question: "Which RBAC objects implement that?",
     options: [
       { id: 'A', text: "A ClusterRole plus a ClusterRoleBinding for the user." },
-      { id: 'B', text: "A NetworkPolicy restricting the contractor to the sandbox namespace." },
-      { id: 'C', text: "A Role in sandbox granting the needed verbs, plus a RoleBinding in sandbox with a User subject named contractor." },
+      { id: 'B', text: "A Role in sandbox granting the needed verbs, plus a RoleBinding in sandbox with a User subject named contractor." },
+      { id: 'C', text: "A NetworkPolicy restricting the contractor to the sandbox namespace." },
       { id: 'D', text: "A ServiceAccount in sandbox plus a RoleBinding." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "A namespaced Role plus a RoleBinding whose subject kind is User and whose name matches the certificate CN grants exactly the intended scope. A ClusterRoleBinding would apply cluster-wide, a ServiceAccount is a different identity from the certificate user, and NetworkPolicy governs pod traffic rather than API authorization.",
     referenceUrl: "https://kubernetes.io/docs/reference/access-authn-authz/rbac/",
@@ -366,12 +366,12 @@ export const K8S_CKA_QUESTIONS_7 = [
     scenario: "A platform must prevent a pod from being scheduled until an external quota controller confirms budget, without leaving the pod in a failed state or deleting it.",
     question: "Which mechanism is designed for this?",
     options: [
-      { id: 'A', text: "A very high initialDelaySeconds on the readiness probe." },
-      { id: 'B', text: "A NoExecute taint on every node." },
-      { id: 'C', text: "spec.schedulingGates, which keep the pod SchedulingGated until the gates are removed by the controller." },
+      { id: 'A', text: "spec.schedulingGates, which keep the pod SchedulingGated until the gates are removed by the controller." },
+      { id: 'B', text: "A very high initialDelaySeconds on the readiness probe." },
+      { id: 'C', text: "A NoExecute taint on every node." },
       { id: 'D', text: "Setting replicas to 0 until approval." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Scheduling gates let a controller hold a created pod in the SchedulingGated state and release it by removing the gate, which is exactly an external admission-then-schedule workflow. Probe delays apply after the pod is running, scaling to zero means the pod does not exist, and a cluster-wide NoExecute taint disrupts every workload.",
     referenceUrl: "https://kubernetes.io/docs/concepts/scheduling-eviction/pod-scheduling-readiness/",
@@ -387,12 +387,12 @@ export const K8S_CKA_QUESTIONS_7 = [
     scenario: "A legacy application keeps session state in memory, so requests from one client should keep reaching the same pod through a ClusterIP Service.",
     question: "Which Service field provides basic affinity?",
     options: [
-      { id: 'A', text: "publishNotReadyAddresses: true" },
-      { id: 'B', text: "sessionAffinity: ClientIP with an optional sessionAffinityConfig timeout." },
-      { id: 'C', text: "allocateLoadBalancerNodePorts: false" },
-      { id: 'D', text: "externalTrafficPolicy: Local" }
+      { id: 'A', text: "externalTrafficPolicy: Local" },
+      { id: 'B', text: "allocateLoadBalancerNodePorts: false" },
+      { id: 'C', text: "publishNotReadyAddresses: true" },
+      { id: 'D', text: "sessionAffinity: ClientIP with an optional sessionAffinityConfig timeout." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "sessionAffinity: ClientIP makes kube-proxy hash on the client address so a client keeps hitting the same backend for the configured timeout. externalTrafficPolicy affects source IP and node selection for external traffic, publishNotReadyAddresses exposes unready pods, and the load balancer node port field concerns provisioning details.",
     referenceUrl: "https://kubernetes.io/docs/reference/networking/virtual-ips/",
@@ -408,12 +408,12 @@ export const K8S_CKA_QUESTIONS_7 = [
     scenario: "An operator runs kubectl delete node worker3 while the machine is still powered on and its kubelet is running.",
     question: "What happens?",
     options: [
-      { id: 'A', text: "Nothing happens until the node is cordoned first." },
-      { id: 'B', text: "The pods on it are removed from the API and rescheduled elsewhere, but the kubelet may re-register the node unless it is drained and its kubelet stopped or reset." },
-      { id: 'C', text: "The node object is recreated with the same pods intact." },
-      { id: 'D', text: "The machine is powered off by the control plane." }
+      { id: 'A', text: "The pods on it are removed from the API and rescheduled elsewhere, but the kubelet may re-register the node unless it is drained and its kubelet stopped or reset." },
+      { id: 'B', text: "Nothing happens until the node is cordoned first." },
+      { id: 'C', text: "The machine is powered off by the control plane." },
+      { id: 'D', text: "The node object is recreated with the same pods intact." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Deleting the node object removes its pods from the cluster view so controllers recreate them elsewhere, but a live kubelet with valid credentials simply registers again - which is why decommissioning means drain, then delete, then kubeadm reset or shutdown. Kubernetes does not power off machines, re-registration does not restore the old pods, and deletion does not require a prior cordon.",
     referenceUrl: "https://kubernetes.io/docs/concepts/architecture/nodes/",
@@ -429,12 +429,12 @@ export const K8S_CKA_QUESTIONS_7 = [
     scenario: "A heap dump written to /tmp/dump.hprof inside a running container must be retrieved for offline analysis.",
     question: "Which command copies it to the workstation?",
     options: [
-      { id: 'A', text: "kubectl cp NAMESPACE/POD:/tmp/dump.hprof ./dump.hprof" },
-      { id: 'B', text: "kubectl get pod POD -o yaml > dump.hprof" },
-      { id: 'C', text: "kubectl logs POD > dump.hprof" },
-      { id: 'D', text: "kubectl exec POD -- cat /tmp/dump.hprof" }
+      { id: 'A', text: "kubectl get pod POD -o yaml > dump.hprof" },
+      { id: 'B', text: "kubectl exec POD -- cat /tmp/dump.hprof" },
+      { id: 'C', text: "kubectl cp NAMESPACE/POD:/tmp/dump.hprof ./dump.hprof" },
+      { id: 'D', text: "kubectl logs POD > dump.hprof" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "kubectl cp transfers files in either direction between a container and the local filesystem, provided tar is available in the image. Logs capture stdout rather than files, piping cat through exec risks corrupting a binary file, and the pod manifest is unrelated to the dump.",
     referenceUrl: "https://kubernetes.io/docs/reference/kubectl/generated/kubectl_cp/",
@@ -452,8 +452,8 @@ export const K8S_CKA_QUESTIONS_7 = [
     options: [
       { id: 'A', text: "suspend: true" },
       { id: 'B', text: "concurrencyPolicy: Forbid" },
-      { id: 'C', text: "concurrencyPolicy: Allow" },
-      { id: 'D', text: "concurrencyPolicy: Replace" }
+      { id: 'C', text: "concurrencyPolicy: Replace" },
+      { id: 'D', text: "concurrencyPolicy: Allow" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -471,12 +471,12 @@ export const K8S_CKA_QUESTIONS_7 = [
     scenario: "A container reports no space left on device while the node has hundreds of gigabytes free. The pod mounts an emptyDir with sizeLimit set to 1Gi.",
     question: "What is happening?",
     options: [
-      { id: 'A', text: "The emptyDir sizeLimit caps the volume, and exceeding it causes the pod to be evicted or writes to fail regardless of node capacity." },
-      { id: 'B', text: "The PersistentVolume needs expanding." },
-      { id: 'C', text: "The node inode table is exhausted." },
-      { id: 'D', text: "The container image layer is read-only, so all writes fail." }
+      { id: 'A', text: "The node inode table is exhausted." },
+      { id: 'B', text: "The emptyDir sizeLimit caps the volume, and exceeding it causes the pod to be evicted or writes to fail regardless of node capacity." },
+      { id: 'C', text: "The container image layer is read-only, so all writes fail." },
+      { id: 'D', text: "The PersistentVolume needs expanding." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "A sizeLimit on an emptyDir bounds how much ephemeral storage the volume may consume, so hitting it produces out-of-space behaviour and eviction even on a mostly empty node. Inode exhaustion would affect every workload on the node, a read-only image layer would fail from the first write, and no PersistentVolume is involved.",
     referenceUrl: "https://kubernetes.io/docs/concepts/storage/volumes/",
@@ -492,10 +492,10 @@ export const K8S_CKA_QUESTIONS_7 = [
     scenario: "Two teams each own an Ingress object for shop.example.com, one serving /cart and the other serving /search, both with the same IngressClass.",
     question: "What is the result with a compliant ingress controller?",
     options: [
-      { id: 'A', text: "The host is served round-robin, alternating between the two rule sets." },
+      { id: 'A', text: "Only the alphabetically first Ingress is served." },
       { id: 'B', text: "The second Ingress is rejected by the API server as a duplicate host." },
       { id: 'C', text: "The controller merges the rules for the shared host so both paths are served." },
-      { id: 'D', text: "Only the alphabetically first Ingress is served." }
+      { id: 'D', text: "The host is served round-robin, alternating between the two rule sets." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -513,12 +513,12 @@ export const K8S_CKA_QUESTIONS_7 = [
     scenario: "A pod remains Terminating long after its grace period because its node is unreachable, and the workload must be recreated promptly.",
     question: "What is the correct understanding of kubectl delete pod --force --grace-period=0?",
     options: [
-      { id: 'A', text: "It removes the pod object from the API immediately without confirming the container stopped, which risks two instances running if the node returns - dangerous for single-writer workloads." },
-      { id: 'B', text: "It is the recommended first response to any Terminating pod." },
-      { id: 'C', text: "It sends SIGKILL to the container and waits for confirmation." },
-      { id: 'D', text: "It automatically detaches any PersistentVolume safely." }
+      { id: 'A', text: "It is the recommended first response to any Terminating pod." },
+      { id: 'B', text: "It sends SIGKILL to the container and waits for confirmation." },
+      { id: 'C', text: "It automatically detaches any PersistentVolume safely." },
+      { id: 'D', text: "It removes the pod object from the API immediately without confirming the container stopped, which risks two instances running if the node returns - dangerous for single-writer workloads." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Force deletion is an API-level removal that abandons the kubelet handshake, so the container may still be running on an unreachable node and a StatefulSet replacement could double-write. It cannot deliver a signal to an unreachable kubelet, it is a last resort rather than a first response, and volume detachment still depends on the node object and attach-detach controller.",
     referenceUrl: "https://kubernetes.io/docs/tasks/run-application/force-delete-stateful-set-pod/",

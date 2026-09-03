@@ -30,10 +30,10 @@ export const K8S_CKA_QUESTIONS_9 = [
     scenario: "A new administrator asks whether application workloads should be deployed into kube-system for convenience.",
     question: "Which answer is correct?",
     options: [
-      { id: 'A', text: "It makes no difference; namespaces are purely cosmetic." },
+      { id: 'A', text: "Yes, because kube-system has the highest resource quota by default." },
       { id: 'B', text: "Yes, because pods there are exempt from scheduling constraints." },
       { id: 'C', text: "No - kube-system is reserved for cluster components and add-ons, and workloads there often inherit elevated privileges and critical priority classes." },
-      { id: 'D', text: "Yes, because kube-system has the highest resource quota by default." }
+      { id: 'D', text: "It makes no difference; namespaces are purely cosmetic." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -51,12 +51,12 @@ export const K8S_CKA_QUESTIONS_9 = [
     scenario: "A mostly empty node is never scaled down by the cluster autoscaler. It runs one pod created directly rather than by a controller, plus DaemonSet pods.",
     question: "Why is the node retained?",
     options: [
-      { id: 'A', text: "DaemonSet pods always block scale-down." },
-      { id: 'B', text: "The autoscaler only removes nodes that are completely empty of processes." },
+      { id: 'A', text: "The autoscaler only removes nodes that are completely empty of processes." },
+      { id: 'B', text: "A bare pod with no controller cannot be safely rescheduled, so the autoscaler will not evict it and the node stays." },
       { id: 'C', text: "The node has a taint the autoscaler cannot tolerate." },
-      { id: 'D', text: "A bare pod with no controller cannot be safely rescheduled, so the autoscaler will not evict it and the node stays." }
+      { id: 'D', text: "DaemonSet pods always block scale-down." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "The cluster autoscaler refuses to remove a node hosting pods it cannot recreate elsewhere, and a pod with no owning controller is the classic blocker along with pods using local storage or restrictive disruption budgets. DaemonSet pods are explicitly ignored for scale-down decisions, and taints and background processes are not the criterion.",
     referenceUrl: "https://kubernetes.io/docs/concepts/cluster-administration/cluster-autoscaling/",
@@ -73,11 +73,11 @@ export const K8S_CKA_QUESTIONS_9 = [
     question: "Which source selector is correct?",
     options: [
       { id: 'A', text: "No policy is needed; ingress controller traffic bypasses NetworkPolicy." },
-      { id: 'B', text: "An egress rule to the ingress controller namespace." },
-      { id: 'C', text: "An ingress rule allowing from the namespaceSelector matching ingress-nginx, because the traffic arrives from the controller pods rather than directly from the internet." },
-      { id: 'D', text: "An ipBlock of 0.0.0.0/0, because the clients are on the internet." }
+      { id: 'B', text: "An ipBlock of 0.0.0.0/0, because the clients are on the internet." },
+      { id: 'C', text: "An egress rule to the ingress controller namespace." },
+      { id: 'D', text: "An ingress rule allowing from the namespaceSelector matching ingress-nginx, because the traffic arrives from the controller pods rather than directly from the internet." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The ingress controller proxies the request, so from the perspective of the application pod the source is the controller pod, and selecting its namespace is both precise and stable. Allowing the whole internet range is far broader than needed, controller traffic is ordinary pod traffic subject to policy, and an egress rule governs the wrong direction.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/network-policies/",
@@ -93,12 +93,12 @@ export const K8S_CKA_QUESTIONS_9 = [
     scenario: "A StatefulSet should delete the PersistentVolumeClaims created from its volumeClaimTemplates when the StatefulSet itself is deleted, but keep them when it is merely scaled down.",
     question: "Which configuration expresses that?",
     options: [
-      { id: 'A', text: "Setting the PersistentVolume reclaimPolicy to Delete." },
-      { id: 'B', text: "persistentVolumeClaimRetentionPolicy with whenDeleted: Delete and whenScaled: Retain." },
-      { id: 'C', text: "persistentVolumeClaimRetentionPolicy with whenDeleted: Retain and whenScaled: Delete." },
+      { id: 'A', text: "persistentVolumeClaimRetentionPolicy with whenDeleted: Retain and whenScaled: Delete." },
+      { id: 'B', text: "Setting the PersistentVolume reclaimPolicy to Delete." },
+      { id: 'C', text: "persistentVolumeClaimRetentionPolicy with whenDeleted: Delete and whenScaled: Retain." },
       { id: 'D', text: "Adding an ownerReference from the PVC to the pod." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "The retention policy has separate knobs for the two lifecycle events, so Delete on deletion and Retain on scaling is exactly the described behaviour. Retaining on deletion and deleting on scale-down inverts the requirement, the PV reclaim policy governs what happens after a claim is deleted rather than when, and hand-written owner references are not the supported mechanism.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/",
@@ -114,8 +114,8 @@ export const K8S_CKA_QUESTIONS_9 = [
     scenario: "During an incident, a runaway controller floods the API server with list requests and interactive kubectl commands start failing with 429 Too Many Requests.",
     question: "Which mechanism produced the 429 and how is it tuned?",
     options: [
-      { id: 'A', text: "etcd compaction throttling." },
-      { id: 'B', text: "The kubelet event rate limiter." },
+      { id: 'A', text: "The kubelet event rate limiter." },
+      { id: 'B', text: "etcd compaction throttling." },
       { id: 'C', text: "API Priority and Fairness, tuned with FlowSchema and PriorityLevelConfiguration objects that classify requests and bound their concurrency." },
       { id: 'D', text: "A NetworkPolicy rate limit on the API server." }
     ],
@@ -135,12 +135,12 @@ export const K8S_CKA_QUESTIONS_9 = [
     scenario: "An operator wants to watch new log lines from a pod as they are produced, starting from the last twenty lines.",
     question: "Which command does that?",
     options: [
-      { id: 'A', text: "kubectl logs -f POD --tail=20" },
-      { id: 'B', text: "kubectl logs POD --since=20" },
-      { id: 'C', text: "kubectl get events -w" },
-      { id: 'D', text: "kubectl logs POD --previous --follow" }
+      { id: 'A', text: "kubectl get events -w" },
+      { id: 'B', text: "kubectl logs POD --previous --follow" },
+      { id: 'C', text: "kubectl logs -f POD --tail=20" },
+      { id: 'D', text: "kubectl logs POD --since=20" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "-f streams new output and --tail limits the initial backlog to twenty lines. --since expects a duration such as 20m rather than a bare number, following a previous terminated container is not possible because it produces no new output, and events are not application logs.",
     referenceUrl: "https://kubernetes.io/docs/reference/kubectl/generated/kubectl_logs/",
@@ -156,10 +156,10 @@ export const K8S_CKA_QUESTIONS_9 = [
     scenario: "A StatefulSet update must be applied to only the highest-ordinal pods first for canary testing, leaving lower ordinals on the old revision.",
     question: "Which field supports that?",
     options: [
-      { id: 'A', text: "updateStrategy.type: OnDelete" },
+      { id: 'A', text: "minReadySeconds set to a large value" },
       { id: 'B', text: "podManagementPolicy: Parallel" },
       { id: 'C', text: "updateStrategy.rollingUpdate.partition set to an ordinal above which pods are updated." },
-      { id: 'D', text: "minReadySeconds set to a large value" }
+      { id: 'D', text: "updateStrategy.type: OnDelete" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -177,12 +177,12 @@ export const K8S_CKA_QUESTIONS_9 = [
     scenario: "An operator needs to add a forward rule so queries for internal.corp resolve through a specific upstream server.",
     question: "Which object is edited?",
     options: [
-      { id: 'A', text: "The kube-dns Service definition." },
-      { id: 'B', text: "The CoreDNS Deployment container arguments." },
-      { id: 'C', text: "The kubelet resolv.conf on each node." },
-      { id: 'D', text: "The coredns ConfigMap in kube-system, which holds the Corefile." }
+      { id: 'A', text: "The CoreDNS Deployment container arguments." },
+      { id: 'B', text: "The coredns ConfigMap in kube-system, which holds the Corefile." },
+      { id: 'C', text: "The kube-dns Service definition." },
+      { id: 'D', text: "The kubelet resolv.conf on each node." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "CoreDNS reads its Corefile from the coredns ConfigMap in kube-system, so stub domains and forward rules are added there and picked up after a reload or rollout restart. Node resolver files affect the node rather than cluster DNS, the Service only exposes the pods, and the deployment arguments merely point at the Corefile path.",
     referenceUrl: "https://kubernetes.io/docs/tasks/administer-cluster/dns-custom-nameservers/",
@@ -200,8 +200,8 @@ export const K8S_CKA_QUESTIONS_9 = [
     options: [
       { id: 'A', text: "Image pulls are slow or serialised - a saturated registry, a cold image cache, or the kubelet serialising pulls - which the gap before Pulling and Pulled events reveals." },
       { id: 'B', text: "The scheduler is overloaded, since pods take long to bind." },
-      { id: 'C', text: "The Service endpoints controller is lagging." },
-      { id: 'D', text: "etcd has lost quorum." }
+      { id: 'C', text: "etcd has lost quorum." },
+      { id: 'D', text: "The Service endpoints controller is lagging." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -219,10 +219,10 @@ export const K8S_CKA_QUESTIONS_9 = [
     scenario: "An operator deletes a CRD that has fifty custom resource instances in use by a running controller.",
     question: "What happens?",
     options: [
-      { id: 'A', text: "The instances are converted to ConfigMaps." },
+      { id: 'A', text: "The CRD is removed but the instances remain readable." },
       { id: 'B', text: "The deletion is rejected while instances exist." },
       { id: 'C', text: "All instances of that custom resource are deleted along with the CRD, which can trigger the controller finalizers and destroy the managed infrastructure." },
-      { id: 'D', text: "The CRD is removed but the instances remain readable." }
+      { id: 'D', text: "The instances are converted to ConfigMaps." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -240,12 +240,12 @@ export const K8S_CKA_QUESTIONS_9 = [
     scenario: "A container using an emptyDir volume crashes and is restarted by the kubelet on the same node.",
     question: "What is the state of the volume data?",
     options: [
-      { id: 'A', text: "The data survives, because emptyDir is tied to the pod lifetime rather than the container lifetime." },
-      { id: 'B', text: "The data is copied to a PersistentVolume automatically." },
-      { id: 'C', text: "The data survives even if the pod is deleted and recreated." },
+      { id: 'A', text: "The data is copied to a PersistentVolume automatically." },
+      { id: 'B', text: "The data survives even if the pod is deleted and recreated." },
+      { id: 'C', text: "The data survives, because emptyDir is tied to the pod lifetime rather than the container lifetime." },
       { id: 'D', text: "The data is deleted on every container restart." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "An emptyDir is created when the pod is assigned to a node and removed when the pod is removed, so a container restart within the same pod keeps the contents. It is not wiped per container, nothing is copied to durable storage, and deleting the pod does destroy the data.",
     referenceUrl: "https://kubernetes.io/docs/concepts/storage/volumes/",
@@ -261,12 +261,12 @@ export const K8S_CKA_QUESTIONS_9 = [
     scenario: "An administrator adds the taint maintenance=true:NoExecute to a node that already runs several pods without matching tolerations.",
     question: "What happens to those pods?",
     options: [
-      { id: 'A', text: "They are restarted in place on the same node." },
-      { id: 'B', text: "They are evicted immediately, because NoExecute applies to already-running pods as well as new placements." },
-      { id: 'C', text: "They are paused until the taint is removed." },
-      { id: 'D', text: "They continue running; only new pods are affected." }
+      { id: 'A', text: "They are paused until the taint is removed." },
+      { id: 'B', text: "They are restarted in place on the same node." },
+      { id: 'C', text: "They continue running; only new pods are affected." },
+      { id: 'D', text: "They are evicted immediately, because NoExecute applies to already-running pods as well as new placements." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "NoExecute is the only taint effect that acts on running pods: those without a matching toleration are evicted, and pods with a toleration carrying tolerationSeconds are evicted after that delay. NoSchedule and PreferNoSchedule affect placement only, and Kubernetes has no pause or in-place restart response to a taint.",
     referenceUrl: "https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/",
@@ -282,12 +282,12 @@ export const K8S_CKA_QUESTIONS_9 = [
     scenario: "An operator on a worker node runs curl against a Service ClusterIP and it works, but the same curl from a second cluster node fails.",
     question: "Which explanation is most plausible?",
     options: [
-      { id: 'A', text: "kube-proxy is not running or has not programmed rules on the failing node, since ClusterIP reachability depends on per-node rules." },
-      { id: 'B', text: "ClusterIPs are only reachable from the node that hosts the backend pod." },
-      { id: 'C', text: "The Service needs to be recreated as NodePort to be reachable from nodes." },
-      { id: 'D', text: "CoreDNS is only deployed on one node." }
+      { id: 'A', text: "The Service needs to be recreated as NodePort to be reachable from nodes." },
+      { id: 'B', text: "CoreDNS is only deployed on one node." },
+      { id: 'C', text: "kube-proxy is not running or has not programmed rules on the failing node, since ClusterIP reachability depends on per-node rules." },
+      { id: 'D', text: "ClusterIPs are only reachable from the node that hosts the backend pod." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Each node reaches a ClusterIP through the iptables or IPVS rules kube-proxy installs locally, so a per-node difference points straight at kube-proxy health on the failing node. ClusterIPs are reachable from any node with working rules, no NodePort is required for node-local access, and the test used an IP address rather than DNS.",
     referenceUrl: "https://kubernetes.io/docs/reference/networking/virtual-ips/",
@@ -303,12 +303,12 @@ export const K8S_CKA_QUESTIONS_9 = [
     scenario: "kubectl drain fails with an error stating that pods with local storage cannot be deleted without an extra flag.",
     question: "What should the operator consider before proceeding?",
     options: [
-      { id: 'A', text: "Adding --force, which safely migrates the local data." },
-      { id: 'B', text: "Nothing; the flag is purely cosmetic." },
-      { id: 'C', text: "Deleting the PersistentVolumeClaims first, which preserves the data." },
-      { id: 'D', text: "Passing --delete-emptydir-data acknowledges that emptyDir contents on that node will be lost, so it should only be used once that data is known to be disposable." }
+      { id: 'A', text: "Deleting the PersistentVolumeClaims first, which preserves the data." },
+      { id: 'B', text: "Passing --delete-emptydir-data acknowledges that emptyDir contents on that node will be lost, so it should only be used once that data is known to be disposable." },
+      { id: 'C', text: "Nothing; the flag is purely cosmetic." },
+      { id: 'D', text: "Adding --force, which safely migrates the local data." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "The guard exists because emptyDir data lives only on that node and is destroyed with the pod, so the flag is an explicit acknowledgement rather than a migration. --force applies to unmanaged pods and copies nothing, deleting PVCs destroys data rather than preserving it, and the guard is a genuine safety check.",
     referenceUrl: "https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/",
@@ -324,10 +324,10 @@ export const K8S_CKA_QUESTIONS_9 = [
     scenario: "After an apply, an operator wants to confirm which fields the API server accepted and what the current live state is.",
     question: "Which command is most direct?",
     options: [
-      { id: 'A', text: "kubectl logs on the API server pod." },
+      { id: 'A', text: "kubectl rollout history for any resource type." },
       { id: 'B', text: "kubectl get RESOURCE NAME -o yaml and compare with the manifest, or kubectl diff -f manifest.yaml before applying." },
-      { id: 'C', text: "kubectl rollout history for any resource type." },
-      { id: 'D', text: "kubectl explain RESOURCE." }
+      { id: 'C', text: "kubectl explain RESOURCE." },
+      { id: 'D', text: "kubectl logs on the API server pod." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -345,10 +345,10 @@ export const K8S_CKA_QUESTIONS_9 = [
     scenario: "A workload writes large temporary files and occasionally fills the node disk, disrupting other pods.",
     question: "Which declaration lets the kubelet contain the offender?",
     options: [
-      { id: 'A', text: "A PersistentVolumeClaim with a quota." },
-      { id: 'B', text: "A ResourceQuota on the namespace pod count." },
+      { id: 'A', text: "A ResourceQuota on the namespace pod count." },
+      { id: 'B', text: "A memory limit, because page cache counts as disk usage." },
       { id: 'C', text: "requests and limits for ephemeral-storage on the container, so the kubelet evicts that pod when it exceeds its limit." },
-      { id: 'D', text: "A memory limit, because page cache counts as disk usage." }
+      { id: 'D', text: "A PersistentVolumeClaim with a quota." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -366,12 +366,12 @@ export const K8S_CKA_QUESTIONS_9 = [
     scenario: "A rolling update never creates new pods. Events on the ReplicaSet report \"exceeded quota: compute-resources, requested: requests.cpu=2, used: 18, limited: 20\".",
     question: "Why does the rollout stall and what resolves it?",
     options: [
-      { id: 'A', text: "The quota blocks deletions, so old pods cannot be removed." },
-      { id: 'B', text: "The surge pods would exceed the namespace CPU quota, so either the quota must be raised or maxSurge reduced to zero with a non-zero maxUnavailable." },
-      { id: 'C', text: "Quotas only apply to new namespaces, so the message is spurious." },
-      { id: 'D', text: "The scheduler cannot find a node, unrelated to the quota." }
+      { id: 'A', text: "Quotas only apply to new namespaces, so the message is spurious." },
+      { id: 'B', text: "The scheduler cannot find a node, unrelated to the quota." },
+      { id: 'C', text: "The quota blocks deletions, so old pods cannot be removed." },
+      { id: 'D', text: "The surge pods would exceed the namespace CPU quota, so either the quota must be raised or maxSurge reduced to zero with a non-zero maxUnavailable." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "A rolling update creates extra pods before removing old ones, and that surge is charged against the namespace quota, so a nearly full quota deadlocks the rollout until headroom is created or the strategy stops surging. Quotas restrict creation rather than deletion, the message explicitly names the quota rather than node capacity, and quotas apply continuously.",
     referenceUrl: "https://kubernetes.io/docs/concepts/policy/resource-quotas/",
@@ -387,12 +387,12 @@ export const K8S_CKA_QUESTIONS_9 = [
     scenario: "A clustered application needs its peers to discover each other through DNS before any of them pass their readiness probe, otherwise the cluster can never form.",
     question: "Which Service setting allows that bootstrap?",
     options: [
-      { id: 'A', text: "externalTrafficPolicy: Cluster" },
-      { id: 'B', text: "sessionAffinity: ClientIP" },
-      { id: 'C', text: "Removing the readiness probe entirely." },
-      { id: 'D', text: "publishNotReadyAddresses: true on the headless Service." }
+      { id: 'A', text: "publishNotReadyAddresses: true on the headless Service." },
+      { id: 'B', text: "Removing the readiness probe entirely." },
+      { id: 'C', text: "externalTrafficPolicy: Cluster" },
+      { id: 'D', text: "sessionAffinity: ClientIP" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "publishNotReadyAddresses makes DNS return peer addresses before readiness passes, which is how clustered systems break the chicken-and-egg bootstrap while keeping a meaningful readiness signal for client traffic. Session affinity and external traffic policy address unrelated concerns, and deleting the probe throws away real health information.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/service/",
@@ -408,9 +408,9 @@ export const K8S_CKA_QUESTIONS_9 = [
     scenario: "A directory of manifests is applied repeatedly, and objects removed from the directory should also be deleted from the cluster.",
     question: "Which approach does that safely?",
     options: [
-      { id: 'A', text: "kubectl apply --overwrite=false" },
+      { id: 'A', text: "kubectl replace --force for every manifest." },
       { id: 'B', text: "kubectl apply with pruning scoped by a label selector so only objects carrying that label are considered for deletion." },
-      { id: 'C', text: "kubectl replace --force for every manifest." },
+      { id: 'C', text: "kubectl apply --overwrite=false" },
       { id: 'D', text: "kubectl delete -f on the whole directory before each apply." }
     ],
     correctAnswers: ['B'],
@@ -429,12 +429,12 @@ export const K8S_CKA_QUESTIONS_9 = [
     scenario: "An operator inspects a pod created by a Deployment and reads its ownerReferences.",
     question: "Which object is named there?",
     options: [
-      { id: 'A', text: "The ReplicaSet created by the Deployment." },
+      { id: 'A', text: "The Deployment itself." },
       { id: 'B', text: "The Node running the pod." },
-      { id: 'C', text: "The Deployment itself." },
+      { id: 'C', text: "The ReplicaSet created by the Deployment." },
       { id: 'D', text: "The Service selecting the pod." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "A Deployment owns ReplicaSets and each ReplicaSet owns its pods, so the pod ownerReference points at the ReplicaSet - which is why rollout history appears as a series of ReplicaSets. Services select pods by label without owning them, and nodes host pods without appearing in ownerReferences.",
     referenceUrl: "https://kubernetes.io/docs/concepts/architecture/garbage-collection/",
@@ -450,12 +450,12 @@ export const K8S_CKA_QUESTIONS_9 = [
     scenario: "One node is Ready and untainted, yet the scheduler places nothing on it. describe node shows Unschedulable: true.",
     question: "What explains it?",
     options: [
-      { id: 'A', text: "The node has no CNI plugin." },
-      { id: 'B', text: "The node was cordoned, so it is marked unschedulable and needs kubectl uncordon." },
-      { id: 'C', text: "The scheduler has crashed." },
-      { id: 'D', text: "The node kubelet has a stale certificate." }
+      { id: 'A', text: "The node was cordoned, so it is marked unschedulable and needs kubectl uncordon." },
+      { id: 'B', text: "The node has no CNI plugin." },
+      { id: 'C', text: "The node kubelet has a stale certificate." },
+      { id: 'D', text: "The scheduler has crashed." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Unschedulable: true is exactly what kubectl cordon sets, often left behind after maintenance, and uncordon clears it. A certificate problem or missing CNI would show as NotReady, and a crashed scheduler would leave pods Pending across the whole cluster rather than on one node.",
     referenceUrl: "https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/",
@@ -472,9 +472,9 @@ export const K8S_CKA_QUESTIONS_9 = [
     question: "Which approach is realistic?",
     options: [
       { id: 'A', text: "Provision a new PVC on the fast class, run a copy job that mounts both claims, then repoint the workload at the new claim." },
-      { id: 'B', text: "Change the StorageClass name of the bound PersistentVolume." },
-      { id: 'C', text: "Delete the PVC and recreate it with the new class, which preserves the data." },
-      { id: 'D', text: "Edit the storageClassName field on the existing PVC." }
+      { id: 'B', text: "Delete the PVC and recreate it with the new class, which preserves the data." },
+      { id: 'C', text: "Edit the storageClassName field on the existing PVC." },
+      { id: 'D', text: "Change the StorageClass name of the bound PersistentVolume." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,12 +492,12 @@ export const K8S_CKA_QUESTIONS_9 = [
     scenario: "A Service of type ExternalName maps to db.example.com. A pod connects to the Service name on port 5432.",
     question: "What actually happens?",
     options: [
-      { id: 'A', text: "The Service allocates a ClusterIP that proxies to the external name." },
-      { id: 'B', text: "CoreDNS returns a CNAME to db.example.com and the pod connects directly to whatever that resolves to; no proxying and no port mapping occur." },
-      { id: 'C', text: "kube-proxy forwards the connection to the external host and rewrites the port." },
-      { id: 'D', text: "The connection fails unless an Endpoints object is also created." }
+      { id: 'A', text: "CoreDNS returns a CNAME to db.example.com and the pod connects directly to whatever that resolves to; no proxying and no port mapping occur." },
+      { id: 'B', text: "kube-proxy forwards the connection to the external host and rewrites the port." },
+      { id: 'C', text: "The connection fails unless an Endpoints object is also created." },
+      { id: 'D', text: "The Service allocates a ClusterIP that proxies to the external name." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "ExternalName is purely a DNS-level alias: CoreDNS answers with a CNAME and the client connects directly, so there is no ClusterIP, no proxying, and no port translation. Endpoints are not involved because no data path is programmed.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/service/",
@@ -513,9 +513,9 @@ export const K8S_CKA_QUESTIONS_9 = [
     scenario: "After upgrading the control plane and worker nodes, the operator must confirm every component now reports the new version.",
     question: "Which two checks together give that confirmation? (Choose two.)",
     options: [
-      { id: 'A', text: "kubectl get nodes, which shows the kubelet version per node." },
+      { id: 'A', text: "kubectl version, which shows the client and API server versions." },
       { id: 'B', text: "kubectl get events -A, which lists recent cluster events." },
-      { id: 'C', text: "kubectl version, which shows the client and API server versions." },
+      { id: 'C', text: "kubectl get nodes, which shows the kubelet version per node." },
       { id: 'D', text: "kubectl top nodes, which shows node resource usage." }
     ],
     correctAnswers: ['A', 'C'],

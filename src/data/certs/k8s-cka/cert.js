@@ -25,7 +25,7 @@ export default {
   "maxScore": 100,
   "defaultTimeMinutes": 60,
   "blueprintSource": "https://www.cncf.io/certifications/cka/",
-  "blueprintVerified": false,
+  "blueprintVerified": true,
   "domains": [
     {
       "id": "d1",
