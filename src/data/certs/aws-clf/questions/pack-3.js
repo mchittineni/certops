@@ -9,12 +9,12 @@ export const AWS_CLF_QUESTIONS_3 = [
     scenario: "An engineer wants to deliver cached static files to users around the world with minimum network latency.",
     question: "Which component of the AWS Global Infrastructure delivers cached web content closest to end users globally?",
     options: [
-      { id: 'A', text: "AWS Edge Locations (Points of Presence)" },
-      { id: 'B', text: "AWS Availability Zones" },
+      { id: 'A', text: "AWS Availability Zones" },
+      { id: 'B', text: "AWS Regions" },
       { id: 'C', text: "AWS Outposts" },
-      { id: 'D', text: "AWS Regions" }
+      { id: 'D', text: "AWS Edge Locations (Points of Presence)" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "AWS Edge Locations are points of presence located in major metropolitan areas globally that cache static data using Amazon CloudFront to reduce network latency for end users.",
     referenceUrl: "https://aws.amazon.com/about-aws/global-infrastructure/regions_az/",
@@ -30,12 +30,12 @@ export const AWS_CLF_QUESTIONS_3 = [
     scenario: "A manufacturing plant has industrial robotics that require single-digit millisecond latency to on-premises control equipment while using native AWS APIs.",
     question: "Which AWS hybrid service extends native AWS infrastructure, services, and APIs directly into a customer data centre?",
     options: [
-      { id: 'A', text: "AWS Wavelength" },
-      { id: 'B', text: "AWS Local Zones" },
-      { id: 'C', text: "AWS Outposts" },
+      { id: 'A', text: "AWS Local Zones" },
+      { id: 'B', text: "AWS Outposts" },
+      { id: 'C', text: "AWS Wavelength" },
       { id: 'D', text: "AWS Direct Connect" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "AWS Outposts delivers fully managed physical AWS hardware racks directly to on-premises data centres, running native AWS services for a consistent hybrid cloud experience.",
     referenceUrl: "https://aws.amazon.com/outposts/",
@@ -52,8 +52,8 @@ export const AWS_CLF_QUESTIONS_3 = [
     question: "Which AWS infrastructure deployment option places compute and storage close to large population and industrial centers?",
     options: [
       { id: 'A', text: "AWS Regions" },
-      { id: 'B', text: "AWS Direct Connect" },
-      { id: 'C', text: "AWS Outposts" },
+      { id: 'B', text: "AWS Outposts" },
+      { id: 'C', text: "AWS Direct Connect" },
       { id: 'D', text: "AWS Local Zones" }
     ],
     correctAnswers: ['D'],
@@ -72,12 +72,12 @@ export const AWS_CLF_QUESTIONS_3 = [
     scenario: "An autonomous vehicle fleet needs single-digit millisecond latency to mobile 5G network devices by hosting application components inside telecommunication carrier data centres.",
     question: "Which AWS infrastructure deployment brings AWS services to the edge of the 5G network?",
     options: [
-      { id: 'A', text: "AWS Wavelength" },
-      { id: 'B', text: "AWS Local Zones" },
+      { id: 'A', text: "AWS Local Zones" },
+      { id: 'B', text: "AWS Outposts" },
       { id: 'C', text: "AWS Snowcone" },
-      { id: 'D', text: "AWS Outposts" }
+      { id: 'D', text: "AWS Wavelength" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "AWS Wavelength embeds AWS compute and storage services within 5G networks of telecommunications carriers, providing ultra-low latencies to 5G mobile devices.",
     referenceUrl: "https://aws.amazon.com/wavelength/",
@@ -94,11 +94,11 @@ export const AWS_CLF_QUESTIONS_3 = [
     question: "Which pillar of the AWS Well-Architected Framework focuses on running and monitoring systems to deliver business value and continually improving processes?",
     options: [
       { id: 'A', text: "Security Pillar" },
-      { id: 'B', text: "Performance Efficiency Pillar" },
-      { id: 'C', text: "Reliability Pillar" },
-      { id: 'D', text: "Operational Excellence Pillar" }
+      { id: 'B', text: "Operational Excellence Pillar" },
+      { id: 'C', text: "Performance Efficiency Pillar" },
+      { id: 'D', text: "Reliability Pillar" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "The Operational Excellence pillar focuses on executing operations as code, making frequent small reversible changes, refining procedures, and learning from operational failures.",
     referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/welcome.html",
@@ -114,10 +114,10 @@ export const AWS_CLF_QUESTIONS_3 = [
     scenario: "A system administrator needs to apply identical S3 and EC2 permissions to 15 newly hired quality assurance engineers without attaching policies to each user individually.",
     question: "Which IAM concept allows managing permissions for multiple users collectively?",
     options: [
-      { id: 'A', text: "Service Linked Roles" },
+      { id: 'A', text: "IAM Instance Profiles" },
       { id: 'B', text: "IAM User Groups" },
-      { id: 'C', text: "IAM Instance Profiles" },
-      { id: 'D', text: "IAM Roles" }
+      { id: 'C', text: "IAM Roles" },
+      { id: 'D', text: "Service Linked Roles" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -135,12 +135,12 @@ export const AWS_CLF_QUESTIONS_3 = [
     scenario: "A compliance auditor requires a comprehensive report listing all IAM users in the AWS account, password statuses, access key rotation age, and MFA device status.",
     question: "Which IAM feature generates a downloadable CSV audit report of all credentials in the account?",
     options: [
-      { id: 'A', text: "IAM Access Analyzer" },
+      { id: 'A', text: "IAM Credential Report" },
       { id: 'B', text: "AWS Security Hub" },
       { id: 'C', text: "AWS Config" },
-      { id: 'D', text: "IAM Credential Report" }
+      { id: 'D', text: "IAM Access Analyzer" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "An IAM Credential Report lists all IAM users in your account and the status of their credentials (passwords, access keys, MFA devices, and signing certificates) in a downloadable CSV report.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_getting-report.html",
@@ -157,11 +157,11 @@ export const AWS_CLF_QUESTIONS_3 = [
     question: "Which AWS feature analyzes resource-based policies using mathematical logic to identify unintended external access?",
     options: [
       { id: 'A', text: "Amazon GuardDuty" },
-      { id: 'B', text: "AWS Trusted Advisor" },
+      { id: 'B', text: "IAM Access Analyzer" },
       { id: 'C', text: "Amazon Inspector" },
-      { id: 'D', text: "IAM Access Analyzer" }
+      { id: 'D', text: "AWS Trusted Advisor" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "IAM Access Analyzer uses automated reasoning to evaluate resource-based policies (for S3, KMS, SQS, IAM roles) and alerts administrators if resources are accessible from outside your AWS Organization or account.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html",
@@ -177,12 +177,12 @@ export const AWS_CLF_QUESTIONS_3 = [
     scenario: "A CISO wants a single pane of glass dashboard that aggregates and prioritizes security findings from GuardDuty, Inspector, Macie, and AWS Firewall Manager.",
     question: "Which AWS security service provides a comprehensive view of security posture across accounts against security standards like CIS benchmarks?",
     options: [
-      { id: 'A', text: "AWS Security Hub" },
-      { id: 'B', text: "AWS CloudTrail" },
-      { id: 'C', text: "Amazon CloudWatch" },
-      { id: 'D', text: "AWS Artifact" }
+      { id: 'A', text: "AWS Artifact" },
+      { id: 'B', text: "Amazon CloudWatch" },
+      { id: 'C', text: "AWS Security Hub" },
+      { id: 'D', text: "AWS CloudTrail" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "AWS Security Hub is a cloud security posture management service that aggregates, organizes, and prioritizes security findings from multiple AWS services and third-party tools, evaluating compliance against CIS benchmarks.",
     referenceUrl: "https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html",
@@ -198,12 +198,12 @@ export const AWS_CLF_QUESTIONS_3 = [
     scenario: "A web team needs to provision and automatically renew public SSL/TLS certificates for custom domain names on Application Load Balancers at zero additional software cost.",
     question: "Which AWS service manages and automatically renews SSL/TLS certificates?",
     options: [
-      { id: 'A', text: "AWS Secrets Manager" },
-      { id: 'B', text: "AWS CloudHSM" },
-      { id: 'C', text: "AWS Certificate Manager (ACM)" },
+      { id: 'A', text: "AWS CloudHSM" },
+      { id: 'B', text: "AWS Certificate Manager (ACM)" },
+      { id: 'C', text: "AWS Secrets Manager" },
       { id: 'D', text: "AWS KMS" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "AWS Certificate Manager (ACM) provisions, manages, and deploys public and private SSL/TLS certificates for use with AWS services (ELB, CloudFront, API Gateway), providing free public certificates with automated renewal.",
     referenceUrl: "https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html",
@@ -219,12 +219,12 @@ export const AWS_CLF_QUESTIONS_3 = [
     scenario: "A data science team needs to run memory-intensive in-memory data processing engines (such as Apache Spark and SAP HANA) on EC2.",
     question: "Which Amazon EC2 instance family is optimized for workloads that process large datasets in memory?",
     options: [
-      { id: 'A', text: "Compute Optimized (C instance family)" },
+      { id: 'A', text: "Accelerated Computing (P and G instance families)" },
       { id: 'B', text: "Storage Optimized (I and D instance families)" },
-      { id: 'C', text: "Memory Optimized (R and X instance families)" },
-      { id: 'D', text: "Accelerated Computing (P and G instance families)" }
+      { id: 'C', text: "Compute Optimized (C instance family)" },
+      { id: 'D', text: "Memory Optimized (R and X instance families)" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Memory Optimized instances (such as R6g, R5, X2gd) deliver fast performance for workloads that process large data sets in memory, such as in-memory caches and high-performance databases.",
     referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html",
@@ -240,12 +240,12 @@ export const AWS_CLF_QUESTIONS_3 = [
     scenario: "A web application's traffic fluctuates throughout the day. The infrastructure must maintain average fleet CPU utilization at 60% by automatically adding and terminating EC2 instances.",
     question: "Which Amazon EC2 Auto Scaling scaling policy dynamically adjusts capacity based on a specific metric target value?",
     options: [
-      { id: 'A', text: "Predictive Scaling" },
-      { id: 'B', text: "Manual Scaling" },
-      { id: 'C', text: "Scheduled Scaling" },
-      { id: 'D', text: "Target Tracking Scaling Policy" }
+      { id: 'A', text: "Scheduled Scaling" },
+      { id: 'B', text: "Target Tracking Scaling Policy" },
+      { id: 'C', text: "Manual Scaling" },
+      { id: 'D', text: "Predictive Scaling" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "With Target Tracking Scaling, you specify a target metric value (e.g. 60% average CPU utilization), and Amazon EC2 Auto Scaling automatically adjusts instance capacity to maintain that target.",
     referenceUrl: "https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-target-tracking.html",
@@ -261,12 +261,12 @@ export const AWS_CLF_QUESTIONS_3 = [
     scenario: "An enterprise has existing Kubernetes manifests and tooling and wants to run managed Kubernetes clusters on AWS without managing control plane nodes.",
     question: "Which AWS managed container service provides full compatibility with open-source Kubernetes?",
     options: [
-      { id: 'A', text: "Amazon Elastic Kubernetes Service (Amazon EKS)" },
+      { id: 'A', text: "Amazon Elastic Container Service (Amazon ECS)" },
       { id: 'B', text: "Amazon Lightsail" },
-      { id: 'C', text: "AWS Elastic Beanstalk" },
-      { id: 'D', text: "Amazon Elastic Container Service (Amazon ECS)" }
+      { id: 'C', text: "Amazon Elastic Kubernetes Service (Amazon EKS)" },
+      { id: 'D', text: "AWS Elastic Beanstalk" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Amazon EKS is a managed Kubernetes service that makes it easy to run Kubernetes on AWS without needing to install, operate, and maintain Kubernetes control plane nodes.",
     referenceUrl: "https://docs.aws.amazon.com/eks/latest/userguide/what-is-eks.html",
@@ -283,11 +283,11 @@ export const AWS_CLF_QUESTIONS_3 = [
     question: "Which AWS serverless compute engine for containers removes the need to manage EC2 server instances?",
     options: [
       { id: 'A', text: "Amazon Lightsail" },
-      { id: 'B', text: "AWS Fargate" },
-      { id: 'C', text: "Amazon EC2" },
+      { id: 'B', text: "Amazon EC2" },
+      { id: 'C', text: "AWS Fargate" },
       { id: 'D', text: "AWS Batch" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "AWS Fargate is a serverless, pay-as-you-go compute engine for containers that works with both Amazon ECS and Amazon EKS, eliminating the need to manage EC2 servers.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS_Fargate.html",
@@ -304,9 +304,9 @@ export const AWS_CLF_QUESTIONS_3 = [
     question: "Which Amazon S3 storage class automatically moves objects between frequent, infrequent, and archive tiers without retrieval charges?",
     options: [
       { id: 'A', text: "S3 Intelligent-Tiering" },
-      { id: 'B', text: "S3 Glacier Instant Retrieval" },
-      { id: 'C', text: "S3 Standard-IA" },
-      { id: 'D', text: "S3 Standard" }
+      { id: 'B', text: "S3 Standard" },
+      { id: 'C', text: "S3 Glacier Instant Retrieval" },
+      { id: 'D', text: "S3 Standard-IA" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -325,11 +325,11 @@ export const AWS_CLF_QUESTIONS_3 = [
     question: "Which Amazon S3 storage class provides the lowest storage cost across all of AWS?",
     options: [
       { id: 'A', text: "S3 Glacier Flexible Retrieval" },
-      { id: 'B', text: "S3 Standard-IA" },
-      { id: 'C', text: "S3 Glacier Deep Archive" },
+      { id: 'B', text: "S3 Glacier Deep Archive" },
+      { id: 'C', text: "S3 Standard-IA" },
       { id: 'D', text: "S3 One Zone-IA" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "S3 Glacier Deep Archive is Amazon S3's lowest-cost storage class, designed for long-term retention and digital preservation of data that is accessed rarely (retrieval within 12 hours).",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html#sc-glacier-deep-arc",
@@ -345,12 +345,12 @@ export const AWS_CLF_QUESTIONS_3 = [
     scenario: "An enterprise requires a MySQL/PostgreSQL-compatible relational database that delivers up to 5x standard MySQL throughput, replicates data 6 ways across 3 AZs, and auto-scales storage.",
     question: "Which AWS proprietary relational database engine offers enterprise-grade speed and reliability with open-source compatibility?",
     options: [
-      { id: 'A', text: "Amazon RDS for MariaDB" },
-      { id: 'B', text: "Amazon DynamoDB" },
-      { id: 'C', text: "Amazon DocumentDB" },
-      { id: 'D', text: "Amazon Aurora" }
+      { id: 'A', text: "Amazon DynamoDB" },
+      { id: 'B', text: "Amazon RDS for MariaDB" },
+      { id: 'C', text: "Amazon Aurora" },
+      { id: 'D', text: "Amazon DocumentDB" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Amazon Aurora is a MySQL- and PostgreSQL-compatible relational database built for the cloud that combines high-end commercial database performance with open-source simplicity and cost-effectiveness.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html",
@@ -366,10 +366,10 @@ export const AWS_CLF_QUESTIONS_3 = [
     scenario: "A security analyst needs to run ad-hoc SQL queries directly against raw CSV and JSON log files stored in Amazon S3 without loading them into a database or managing servers.",
     question: "Which interactive, serverless query service allows querying data in Amazon S3 using standard SQL?",
     options: [
-      { id: 'A', text: "Amazon OpenSearch Service" },
+      { id: 'A', text: "Amazon Redshift" },
       { id: 'B', text: "Amazon Athena" },
-      { id: 'C', text: "Amazon EMR" },
-      { id: 'D', text: "Amazon Redshift" }
+      { id: 'C', text: "Amazon OpenSearch Service" },
+      { id: 'D', text: "Amazon EMR" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -387,9 +387,9 @@ export const AWS_CLF_QUESTIONS_3 = [
     scenario: "An architecture needs to trigger automated AWS Step Functions workflows whenever a third-party SaaS partner (such as Zendesk or Datadog) emits an event.",
     question: "Which serverless event bus service connects SaaS applications and AWS services together using events?",
     options: [
-      { id: 'A', text: "AWS AppSync" },
+      { id: 'A', text: "Amazon SNS" },
       { id: 'B', text: "Amazon EventBridge" },
-      { id: 'C', text: "Amazon SNS" },
+      { id: 'C', text: "AWS AppSync" },
       { id: 'D', text: "Amazon MQ" }
     ],
     correctAnswers: ['B'],
@@ -409,9 +409,9 @@ export const AWS_CLF_QUESTIONS_3 = [
     question: "Which AWS PaaS service provides easy deployment and scaling of web applications?",
     options: [
       { id: 'A', text: "AWS Elastic Beanstalk" },
-      { id: 'B', text: "AWS App Runner" },
-      { id: 'C', text: "AWS CloudFormation" },
-      { id: 'D', text: "AWS CodePipeline" }
+      { id: 'B', text: "AWS CodePipeline" },
+      { id: 'C', text: "AWS App Runner" },
+      { id: 'D', text: "AWS CloudFormation" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -429,10 +429,10 @@ export const AWS_CLF_QUESTIONS_3 = [
     scenario: "A financial data team needs the most granular AWS billing dataset available, detailing hourly resource usage, line-item metadata, pricing, and tax across the entire organization.",
     question: "Which AWS billing report provides the most comprehensive and detailed breakdown of AWS costs and usage data?",
     options: [
-      { id: 'A', text: "AWS Cost Explorer" },
+      { id: 'A', text: "AWS Budgets Report" },
       { id: 'B', text: "AWS Cost and Usage Report (AWS CUR)" },
-      { id: 'C', text: "AWS Budgets Report" },
-      { id: 'D', text: "Monthly Billing Invoice PDF" }
+      { id: 'C', text: "Monthly Billing Invoice PDF" },
+      { id: 'D', text: "AWS Cost Explorer" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -450,10 +450,10 @@ export const AWS_CLF_QUESTIONS_3 = [
     scenario: "A cloud administrator wants to be notified via email when the monthly cost of EC2 instances is forecasted to exceed $5,000 before the billing cycle ends.",
     question: "Which AWS feature can evaluate and alert on both actual and forecasted cloud expenditures?",
     options: [
-      { id: 'A', text: "AWS Cost Anomaly Detection" },
+      { id: 'A', text: "AWS Pricing Calculator" },
       { id: 'B', text: "AWS Trusted Advisor" },
       { id: 'C', text: "AWS Budgets" },
-      { id: 'D', text: "AWS Pricing Calculator" }
+      { id: 'D', text: "AWS Cost Anomaly Detection" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -471,10 +471,10 @@ export const AWS_CLF_QUESTIONS_3 = [
     scenario: "A production workload requires 24x7 phone, email, and chat access to Cloud Support Engineers with a 1-hour response time SLA for production-system down issues.",
     question: "Which AWS Support Plan provides 24x7 technical support via phone and chat for production workloads?",
     options: [
-      { id: 'A', text: "AWS Basic Support" },
-      { id: 'B', text: "AWS Free Tier" },
+      { id: 'A', text: "AWS Developer Support" },
+      { id: 'B', text: "AWS Basic Support" },
       { id: 'C', text: "AWS Business Support" },
-      { id: 'D', text: "AWS Developer Support" }
+      { id: 'D', text: "AWS Free Tier" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -492,12 +492,12 @@ export const AWS_CLF_QUESTIONS_3 = [
     scenario: "Three separate development accounts across an enterprise each transfer 10 TB of outbound internet data. Under a standalone billing model, each account pays tier-1 data transfer rates.",
     question: "How does enabling Consolidated Billing in AWS Organizations benefit data transfer costs?",
     options: [
-      { id: 'A', text: "Usage across all member accounts is aggregated, allowing the organization to reach higher volume discount pricing tiers faster." },
-      { id: 'B', text: "AWS provides a 50% discount on all compute services automatically." },
-      { id: 'C', text: "All outbound data transfer fees are waived for members of an organization." },
-      { id: 'D', text: "Data transfer is billed at a fixed flat rate regardless of volume." }
+      { id: 'A', text: "All outbound data transfer fees are waived for members of an organization." },
+      { id: 'B', text: "Data transfer is billed at a fixed flat rate regardless of volume." },
+      { id: 'C', text: "Usage across all member accounts is aggregated, allowing the organization to reach higher volume discount pricing tiers faster." },
+      { id: 'D', text: "AWS provides a 50% discount on all compute services automatically." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "AWS Organizations aggregates usage from all member accounts in the organization, enabling the combined volume to qualify for tiered pricing discounts for services like S3 storage and data transfer.",
     referenceUrl: "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/consolidated-billing.html",
@@ -513,12 +513,12 @@ export const AWS_CLF_QUESTIONS_3 = [
     scenario: "A disaster recovery planner is evaluating DR strategies on AWS. The company needs the lowest Recovery Time Objective (RTO) and Recovery Point Objective (RPO) and is willing to pay for continuous multi-region active infrastructure.",
     question: "Which AWS disaster recovery strategy provides near-zero RTO and RPO by serving traffic from multiple AWS Regions simultaneously?",
     options: [
-      { id: 'A', text: "Warm Standby" },
-      { id: 'B', text: "Multi-Region Active-Active" },
-      { id: 'C', text: "Pilot Light" },
-      { id: 'D', text: "Backup and Restore" }
+      { id: 'A', text: "Pilot Light" },
+      { id: 'B', text: "Backup and Restore" },
+      { id: 'C', text: "Multi-Region Active-Active" },
+      { id: 'D', text: "Warm Standby" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Multi-Region Active-Active serves traffic from multiple full-scale active Regions simultaneously, achieving near-zero RTO and RPO at the highest implementation cost.",
     referenceUrl: "https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html",

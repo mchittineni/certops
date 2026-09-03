@@ -9,12 +9,12 @@ export const AWS_CLF_QUESTIONS_4 = [
     scenario: "A startup product team can spin up hundreds of testing environments in minutes to experiment with new features and shut them down immediately after testing.",
     question: "Which cloud benefit refers to reducing the time required to make technology resources available to developers?",
     options: [
-      { id: 'A', text: "Stop guessing capacity" },
-      { id: 'B', text: "Speed and agility" },
-      { id: 'C', text: "Trade capital expense for variable expense" },
-      { id: 'D', text: "Economies of scale" }
+      { id: 'A', text: "Speed and agility" },
+      { id: 'B', text: "Economies of scale" },
+      { id: 'C', text: "Stop guessing capacity" },
+      { id: 'D', text: "Trade capital expense for variable expense" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "In a cloud computing environment, new IT resources are only a click away, which means that you reduce the time to make those resources available to your developers from weeks to just minutes, dramatically increasing agility.",
     referenceUrl: "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/six-advantages-of-cloud-computing.html",
@@ -30,9 +30,9 @@ export const AWS_CLF_QUESTIONS_4 = [
     scenario: "A financial compliance officer must ensure that security audit log files delivered to Amazon S3 have not been modified, deleted, or forged after delivery.",
     question: "Which AWS CloudTrail feature cryptographically validates whether log files remained unchanged after delivery?",
     options: [
-      { id: 'A', text: "AWS CloudWatch Logs Insights" },
-      { id: 'B', text: "Amazon S3 Object Lock in Governance Mode" },
-      { id: 'C', text: "AWS KMS envelope encryption" },
+      { id: 'A', text: "Amazon S3 Object Lock in Governance Mode" },
+      { id: 'B', text: "AWS KMS envelope encryption" },
+      { id: 'C', text: "AWS CloudWatch Logs Insights" },
       { id: 'D', text: "CloudTrail Log File Integrity Validation" }
     ],
     correctAnswers: ['D'],
@@ -51,12 +51,12 @@ export const AWS_CLF_QUESTIONS_4 = [
     scenario: "An enterprise document management system requires protection against accidental object overwrites and accidental deletions by administrative users.",
     question: "Which Amazon S3 feature preserves, retrieves, and restores every version of every object stored in an S3 bucket?",
     options: [
-      { id: 'A', text: "S3 Transfer Acceleration" },
-      { id: 'B', text: "S3 Versioning" },
-      { id: 'C', text: "S3 Object Replication" },
-      { id: 'D', text: "S3 Lifecycle Configuration" }
+      { id: 'A', text: "S3 Lifecycle Configuration" },
+      { id: 'B', text: "S3 Object Replication" },
+      { id: 'C', text: "S3 Versioning" },
+      { id: 'D', text: "S3 Transfer Acceleration" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "S3 Versioning keeps multiple variants of an object in the same bucket, allowing you to preserve, retrieve, and restore every version of every object, protecting against accidental overwrites and deletes.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/Versioning.html",
@@ -72,12 +72,12 @@ export const AWS_CLF_QUESTIONS_4 = [
     scenario: "A clustered Linux database application running on two Amazon EC2 instances in the same Availability Zone requires concurrent read and write access to a single high-performance Provisioned IOPS EBS volume.",
     question: "Which Amazon EBS feature enables attaching a single Provisioned IOPS volume to multiple EC2 instances simultaneously?",
     options: [
-      { id: 'A', text: "Amazon FSx for Lustre" },
-      { id: 'B', text: "Amazon Elastic File System (EFS)" },
-      { id: 'C', text: "Amazon EBS Multi-Attach" },
+      { id: 'A', text: "Amazon Elastic File System (EFS)" },
+      { id: 'B', text: "Amazon EBS Multi-Attach" },
+      { id: 'C', text: "Amazon FSx for Lustre" },
       { id: 'D', text: "EBS Snapshot Sharing" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Amazon EBS Multi-Attach enables you to attach a single Provisioned IOPS SSD (io1 or io2) volume to up to 16 Linux EC2 instances in the same Availability Zone to support clustered applications.",
     referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes-multi.html",
@@ -94,9 +94,9 @@ export const AWS_CLF_QUESTIONS_4 = [
     question: "Which type of KMS key provides full customer administrative control over access policies, alias management, and key rotation?",
     options: [
       { id: 'A', text: "AWS Managed Keys" },
-      { id: 'B', text: "AWS Owned Keys" },
+      { id: 'B', text: "CloudHSM Root Keys" },
       { id: 'C', text: "Customer Managed Keys (CMK)" },
-      { id: 'D', text: "CloudHSM Root Keys" }
+      { id: 'D', text: "AWS Owned Keys" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -114,12 +114,12 @@ export const AWS_CLF_QUESTIONS_4 = [
     scenario: "A web application receives 500 GB of file uploads from users over the internet each month and serves 2 TB of file downloads back to users over the internet.",
     question: "How is internet data transfer billed by AWS in this scenario?",
     options: [
-      { id: 'A', text: "Inbound data transfer is billed; outbound data transfer is free." },
+      { id: 'A', text: "Both inbound and outbound data transfers are completely free." },
       { id: 'B', text: "Both inbound and outbound data transfers are billed at identical per-gigabyte rates." },
-      { id: 'C', text: "Inbound data transfer from the internet is free; outbound data transfer to the internet is billed per gigabyte." },
-      { id: 'D', text: "Both inbound and outbound data transfers are completely free." }
+      { id: 'C', text: "Inbound data transfer is billed; outbound data transfer is free." },
+      { id: 'D', text: "Inbound data transfer from the internet is free; outbound data transfer to the internet is billed per gigabyte." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "As a general rule across AWS services, inbound data transfer from the public internet into AWS is free ($0.00/GB). Outbound data transfer from AWS to the public internet is billed per gigabyte above free tier allowances.",
     referenceUrl: "https://aws.amazon.com/pricing/",
@@ -135,10 +135,10 @@ export const AWS_CLF_QUESTIONS_4 = [
     scenario: "A database administrator deletes an Amazon RDS instance that is no longer needed. They want to ensure a point-in-time backup remains available indefinitely even after the RDS instance is deleted.",
     question: "What happens to automated RDS snapshots when a DB instance is deleted, and how can a permanent backup be retained?",
     options: [
-      { id: 'A', text: "Amazon RDS automatically converts all automated snapshots into S3 Glacier archives." },
+      { id: 'A', text: "Manual snapshots are deleted automatically after 35 days." },
       { id: 'B', text: "Automated snapshots are deleted with the instance; creating a manual DB snapshot preserves the backup indefinitely." },
-      { id: 'C', text: "Automated snapshots are retained for 10 years automatically." },
-      { id: 'D', text: "Manual snapshots are deleted automatically after 35 days." }
+      { id: 'C', text: "Amazon RDS automatically converts all automated snapshots into S3 Glacier archives." },
+      { id: 'D', text: "Automated snapshots are retained for 10 years automatically." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -156,12 +156,12 @@ export const AWS_CLF_QUESTIONS_4 = [
     scenario: "Global clients located in Australia, Europe, and Asia need to upload large video files to a centralized Amazon S3 bucket located in the US East (N. Virginia) Region as quickly as possible.",
     question: "Which Amazon S3 feature uses AWS Edge Locations to accelerate long-distance uploads into S3 buckets?",
     options: [
-      { id: 'A', text: "Amazon S3 Transfer Acceleration" },
-      { id: 'B', text: "Amazon S3 Cross-Region Replication" },
+      { id: 'A', text: "Amazon S3 Cross-Region Replication" },
+      { id: 'B', text: "AWS Direct Connect" },
       { id: 'C', text: "Amazon CloudFront Signed URLs" },
-      { id: 'D', text: "AWS Direct Connect" }
+      { id: 'D', text: "Amazon S3 Transfer Acceleration" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Amazon S3 Transfer Acceleration enables fast, easy, and secure transfers of files over long distances between your client and an S3 bucket by routing traffic through AWS Edge Locations over the optimized AWS private network backbone.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/transfer-acceleration.html",
@@ -177,12 +177,12 @@ export const AWS_CLF_QUESTIONS_4 = [
     scenario: "An enterprise requires stateful Layer 3-7 network traffic inspection, intrusion prevention system (IPS) rule evaluation, and domain name filtering for all VPC traffic entering and leaving via an Internet Gateway.",
     question: "Which managed AWS security service provides stateful network firewall protection and IPS inspection across VPCs?",
     options: [
-      { id: 'A', text: "Security Groups" },
-      { id: 'B', text: "AWS Network Firewall" },
-      { id: 'C', text: "AWS WAF" },
-      { id: 'D', text: "Network ACLs" }
+      { id: 'A', text: "AWS WAF" },
+      { id: 'B', text: "Network ACLs" },
+      { id: 'C', text: "Security Groups" },
+      { id: 'D', text: "AWS Network Firewall" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "AWS Network Firewall is a stateful, fully managed network firewall and intrusion detection and prevention service for your virtual private clouds (VPCs), supporting 5-tuple filtering, IPS rules, and domain filtering.",
     referenceUrl: "https://docs.aws.amazon.com/network-firewall/latest/developerguide/what-is-aws-network-firewall.html",
@@ -198,10 +198,10 @@ export const AWS_CLF_QUESTIONS_4 = [
     scenario: "A cloud architect needs to configure DNS domain resolution for internal microservices within an Amazon VPC so that record names are never resolvable from the public internet.",
     question: "Which type of Amazon Route 53 hosted zone resolves DNS queries strictly within one or more specified VPCs?",
     options: [
-      { id: 'A', text: "Global Hosted Zone" },
+      { id: 'A', text: "Dynamic Hosted Zone" },
       { id: 'B', text: "Private Hosted Zone" },
       { id: 'C', text: "Public Hosted Zone" },
-      { id: 'D', text: "Dynamic Hosted Zone" }
+      { id: 'D', text: "Global Hosted Zone" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -220,11 +220,11 @@ export const AWS_CLF_QUESTIONS_4 = [
     question: "Which AWS service acts as a centralized cloud router to interconnect thousands of VPCs and on-premises networks in a hub-and-spoke topology?",
     options: [
       { id: 'A', text: "AWS Direct Connect Gateway" },
-      { id: 'B', text: "AWS Transit Gateway" },
-      { id: 'C', text: "VPC Peering" },
-      { id: 'D', text: "Internet Gateway" }
+      { id: 'B', text: "VPC Peering" },
+      { id: 'C', text: "Internet Gateway" },
+      { id: 'D', text: "AWS Transit Gateway" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "AWS Transit Gateway connects Amazon VPCs and on-premises networks to a single central hub, simplifying network topology and eliminating the need for complex full-mesh peering relationships.",
     referenceUrl: "https://docs.aws.amazon.com/vpc/latest/tgw/what-is-transit-gateway.html",
@@ -262,11 +262,11 @@ export const AWS_CLF_QUESTIONS_4 = [
     question: "Which disaster recovery strategy maintains a minimal core environment running in the recovery Region that can be quickly scaled up during a failover?",
     options: [
       { id: 'A', text: "Backup and Restore" },
-      { id: 'B', text: "Pilot Light" },
+      { id: 'B', text: "Multi-Region Active-Active" },
       { id: 'C', text: "Warm Standby" },
-      { id: 'D', text: "Multi-Region Active-Active" }
+      { id: 'D', text: "Pilot Light" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "In a Pilot Light disaster recovery strategy, core elements (such as databases and data replication) are kept active in the DR Region, while other compute resources (EC2 instances) are provisioned and scaled out only when needed during an outage.",
     referenceUrl: "https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html",
@@ -283,11 +283,11 @@ export const AWS_CLF_QUESTIONS_4 = [
     question: "Which AWS service provides dedicated physical Hardware Security Modules (HSMs) in the AWS Cloud?",
     options: [
       { id: 'A', text: "AWS KMS" },
-      { id: 'B', text: "AWS Secrets Manager" },
-      { id: 'C', text: "AWS CloudHSM" },
+      { id: 'B', text: "AWS CloudHSM" },
+      { id: 'C', text: "AWS Secrets Manager" },
       { id: 'D', text: "AWS Certificate Manager" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "AWS CloudHSM is a cloud-based hardware security module (HSM) that enables you to easily generate and use your own encryption keys on dedicated, single-tenant, FIPS 140-2 Level 3 validated hardware under your exclusive control.",
     referenceUrl: "https://docs.aws.amazon.com/cloudhsm/latest/userguide/introduction.html",
@@ -303,12 +303,12 @@ export const AWS_CLF_QUESTIONS_4 = [
     scenario: "A healthcare provider must store patient records in Amazon S3 in a Write Once, Read Many (WORM) format to prevent objects from being deleted or overwritten for a mandatory 7-year retention period.",
     question: "Which Amazon S3 feature prevents object deletion and modification during a specified retention period?",
     options: [
-      { id: 'A', text: "S3 Versioning alone" },
-      { id: 'B', text: "Amazon S3 Object Lock" },
-      { id: 'C', text: "S3 Bucket Policies" },
+      { id: 'A', text: "Amazon S3 Object Lock" },
+      { id: 'B', text: "S3 Bucket Policies" },
+      { id: 'C', text: "S3 Versioning alone" },
       { id: 'D', text: "AWS Backup Vault Lock" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Amazon S3 Object Lock enables you to store objects using a WORM model to prevent an object from being deleted or overwritten for a fixed amount of time or indefinitely, complying with regulatory mandates such as SEC Rule 17a-4.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html",
@@ -325,11 +325,11 @@ export const AWS_CLF_QUESTIONS_4 = [
     question: "Which Amazon S3 feature automates object transitions between storage classes based on predefined age rules?",
     options: [
       { id: 'A', text: "S3 Intelligent-Tiering" },
-      { id: 'B', text: "S3 Batch Operations" },
-      { id: 'C', text: "S3 Lifecycle Management" },
+      { id: 'B', text: "S3 Lifecycle Management" },
+      { id: 'C', text: "S3 Batch Operations" },
       { id: 'D', text: "S3 Storage Lens" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "S3 Lifecycle Management enables you to define lifecycle configuration rules to automatically transition objects to more cost-effective storage classes or expire them after specific retention periods.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html",
@@ -345,12 +345,12 @@ export const AWS_CLF_QUESTIONS_4 = [
     scenario: "An organization with 40 AWS accounts wants to provide its employees with centralized single sign-on (SSO) access to all accounts and third-party SAML 2.0 applications using their corporate Okta or Microsoft Active Directory credentials.",
     question: "Which AWS service provides centralized identity and single sign-on access management across multiple AWS accounts?",
     options: [
-      { id: 'A', text: "AWS Directory Service" },
-      { id: 'B', text: "AWS IAM Identity Center" },
-      { id: 'C', text: "AWS Secrets Manager" },
-      { id: 'D', text: "Amazon Cognito" }
+      { id: 'A', text: "Amazon Cognito" },
+      { id: 'B', text: "AWS Directory Service" },
+      { id: 'C', text: "AWS IAM Identity Center" },
+      { id: 'D', text: "AWS Secrets Manager" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "AWS IAM Identity Center (successor to AWS Single Sign-On) helps you securely create or connect your workforce identities and manage their access centrally across AWS accounts and cloud applications.",
     referenceUrl: "https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html",
@@ -366,12 +366,12 @@ export const AWS_CLF_QUESTIONS_4 = [
     scenario: "A mobile development team needs a service that provides user sign-up, sign-in, social login (Google, Apple, Facebook), and user profile management for their consumer mobile app.",
     question: "Which AWS service provides user directories, authentication, and token issuance for web and mobile applications?",
     options: [
-      { id: 'A', text: "AWS Directory Service" },
-      { id: 'B', text: "Amazon Cognito User Pools" },
+      { id: 'A', text: "Amazon Cognito User Pools" },
+      { id: 'B', text: "Amazon Cognito Identity Pools" },
       { id: 'C', text: "AWS IAM" },
-      { id: 'D', text: "Amazon Cognito Identity Pools" }
+      { id: 'D', text: "AWS Directory Service" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Amazon Cognito User Pools are user directories that provide sign-up and sign-in options for web and mobile application users, including built-in support for Multi-Factor Authentication (MFA) and social identity federation.",
     referenceUrl: "https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html",
@@ -387,12 +387,12 @@ export const AWS_CLF_QUESTIONS_4 = [
     scenario: "A storage administrator needs a centralized analytics dashboard across all S3 buckets in an AWS Organization to identify cost-optimization opportunities, uncover non-encrypted buckets, and monitor activity trends.",
     question: "Which Amazon S3 analytics feature provides organization-wide visibility into object storage usage and activity metrics with actionable recommendations?",
     options: [
-      { id: 'A', text: "AWS Trusted Advisor" },
-      { id: 'B', text: "Amazon CloudWatch Metrics" },
-      { id: 'C', text: "Amazon S3 Inventory" },
-      { id: 'D', text: "Amazon S3 Storage Lens" }
+      { id: 'A', text: "Amazon S3 Inventory" },
+      { id: 'B', text: "Amazon S3 Storage Lens" },
+      { id: 'C', text: "AWS Trusted Advisor" },
+      { id: 'D', text: "Amazon CloudWatch Metrics" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Amazon S3 Storage Lens provides organization-wide visibility into object storage usage and activity trends, generating contextual insights and actionable recommendations to optimize storage costs and apply security best practices.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html",
@@ -409,8 +409,8 @@ export const AWS_CLF_QUESTIONS_4 = [
     question: "Which AWS Cost Management service uses machine learning to identify unexpected cost spikes and root causes?",
     options: [
       { id: 'A', text: "AWS Cost Anomaly Detection" },
-      { id: 'B', text: "AWS Cost Explorer" },
-      { id: 'C', text: "AWS Pricing Calculator" },
+      { id: 'B', text: "AWS Pricing Calculator" },
+      { id: 'C', text: "AWS Cost Explorer" },
       { id: 'D', text: "AWS Budgets" }
     ],
     correctAnswers: ['A'],
@@ -429,12 +429,12 @@ export const AWS_CLF_QUESTIONS_4 = [
     scenario: "An enterprise workflow involves calling multiple microservices, executing AWS Lambda functions in sequence, handling errors, and inserting conditional retry logic based on execution outputs.",
     question: "Which AWS service allows you to visually orchestrate and coordinate distributed microservices and serverless components using state machines?",
     options: [
-      { id: 'A', text: "AWS Step Functions" },
+      { id: 'A', text: "Amazon SNS" },
       { id: 'B', text: "AWS EventBridge" },
-      { id: 'C', text: "Amazon SQS" },
-      { id: 'D', text: "Amazon SNS" }
+      { id: 'C', text: "AWS Step Functions" },
+      { id: 'D', text: "Amazon SQS" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "AWS Step Functions is a low-code visual workflow service used to orchestrate AWS services, automate business processes, and build serverless applications with state machines.",
     referenceUrl: "https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html",
@@ -471,12 +471,12 @@ export const AWS_CLF_QUESTIONS_4 = [
     scenario: "A security engineer mandates that administrators must be able to securely connect to private Amazon EC2 instances via an interactive browser shell without opening inbound SSH port 22 or managing bastion hosts.",
     question: "Which AWS Systems Manager capability allows secure shell access to EC2 instances without requiring inbound firewall ports or public IP addresses?",
     options: [
-      { id: 'A', text: "AWS Direct Connect" },
-      { id: 'B', text: "EC2 Instance Connect" },
-      { id: 'C', text: "AWS Systems Manager Session Manager" },
-      { id: 'D', text: "AWS Client VPN" }
+      { id: 'A', text: "EC2 Instance Connect" },
+      { id: 'B', text: "AWS Systems Manager Session Manager" },
+      { id: 'C', text: "AWS Client VPN" },
+      { id: 'D', text: "AWS Direct Connect" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "AWS Systems Manager Session Manager provides secure and auditable instance management without needing to open inbound ports, maintain bastion hosts, or manage SSH keys.",
     referenceUrl: "https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager.html",
@@ -492,8 +492,8 @@ export const AWS_CLF_QUESTIONS_4 = [
     scenario: "An enterprise wants to deploy an intelligent enterprise search service powered by machine learning to allow employees to find documentation across internal wikis, S3 buckets, and SharePoint using natural language questions.",
     question: "Which AWS service provides an intelligent document search service powered by machine learning?",
     options: [
-      { id: 'A', text: "Amazon Comprehend" },
-      { id: 'B', text: "Amazon Textract" },
+      { id: 'A', text: "Amazon Textract" },
+      { id: 'B', text: "Amazon Comprehend" },
       { id: 'C', text: "Amazon Kendra" },
       { id: 'D', text: "Amazon OpenSearch Service" }
     ],
@@ -513,12 +513,12 @@ export const AWS_CLF_QUESTIONS_4 = [
     scenario: "A Chief Financial Officer (CFO) and Chief Risk Officer (CRO) are establishing cloud cost governance policies, risk management oversight, and service portfolio management standards.",
     question: "Which perspective of the AWS Cloud Adoption Framework (AWS CAF) focuses on program management, financial management, and license management governance?",
     options: [
-      { id: 'A', text: "Business Perspective" },
-      { id: 'B', text: "Platform Perspective" },
-      { id: 'C', text: "Governance Perspective" },
-      { id: 'D', text: "Security Perspective" }
+      { id: 'A', text: "Platform Perspective" },
+      { id: 'B', text: "Governance Perspective" },
+      { id: 'C', text: "Security Perspective" },
+      { id: 'D', text: "Business Perspective" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "The Governance Perspective of the AWS CAF provides capabilities to help orchestrate cloud initiatives while maximizing organizational benefits and minimizing transformation-related risks through cost management, license management, and portfolio management.",
     referenceUrl: "https://aws.amazon.com/professional-services/CAF/",
