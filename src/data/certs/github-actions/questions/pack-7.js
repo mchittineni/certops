@@ -9,12 +9,12 @@ export const GITHUB_ACTIONS_QUESTIONS_7 = [
     scenario: "A workflow subscribes to the pull_request event with the opened, synchronize and closed activity types. One job must behave differently depending on which of the three occurred.",
     question: "Which context value carries the activity?",
     options: [
-      { id: 'A', text: "The github.event.action value, which names the activity type, while github.event_name names the event itself." },
+      { id: 'A', text: "The github.event.type value, which is populated for every event." },
       { id: 'B', text: "The github.event_name value, which is set to the activity type when types are declared." },
-      { id: 'C', text: "The github.event.type value, which is populated for every event." },
-      { id: 'D', text: "The github.job value, which is derived from the activity." }
+      { id: 'C', text: "The github.job value, which is derived from the activity." },
+      { id: 'D', text: "The github.event.action value, which names the activity type, while github.event_name names the event itself." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The event name stays constant for every activity of the same event, and the specific activity is carried in the payload as its action property, so a condition on that value distinguishes the three cases. The event name is not rewritten when types are declared, there is no type property serving this purpose, and the job value identifies the job in the workflow rather than anything about the event.",
     referenceUrl: "https://docs.github.com/en/actions/learn-github-actions/contexts",
@@ -51,12 +51,12 @@ export const GITHUB_ACTIONS_QUESTIONS_7 = [
     scenario: "A build needs shared configuration held in a second private repository in the same organization. Adding a checkout step naming that repository fails with an authentication error, although the first checkout of the current repository succeeds.",
     question: "Why, and what is the appropriate remedy?",
     options: [
-      { id: 'A', text: "A permissions block granting contents: read extends the automatic token to sibling repositories." },
-      { id: 'B', text: "Cross-repository checkout requires the repositories to share a runner group." },
-      { id: 'C', text: "The automatic token is scoped to the current repository only, so the second checkout needs a separate credential such as a GitHub App installation token or a fine-grained token with read access to that repository, supplied to the step." },
-      { id: 'D', text: "The automatic token covers every repository in the organization, so the failure indicates the repository name is misspelled." }
+      { id: 'A', text: "Cross-repository checkout requires the repositories to share a runner group." },
+      { id: 'B', text: "A permissions block granting contents: read extends the automatic token to sibling repositories." },
+      { id: 'C', text: "The automatic token covers every repository in the organization, so the failure indicates the repository name is misspelled." },
+      { id: 'D', text: "The automatic token is scoped to the current repository only, so the second checkout needs a separate credential such as a GitHub App installation token or a fine-grained token with read access to that repository, supplied to the step." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The automatic token is issued for the repository the workflow belongs to and confers nothing elsewhere, so reading a second private repository requires a credential that has been granted access to it, with a short-lived GitHub App installation token the usual choice over a personal one. The token is not organization-wide, runner groups govern which runners may be used, and a permissions block adjusts scopes within the current repository rather than widening the audience.",
     referenceUrl: "https://docs.github.com/en/actions/security-for-github-actions/security-guides/automatic-token-authentication",
@@ -72,12 +72,12 @@ export const GITHUB_ACTIONS_QUESTIONS_7 = [
     scenario: "An ambitious matrix crosses eight language versions, six operating system images and six database engines. The workflow is rejected with an error about the number of jobs.",
     question: "What is the limit and the practical response?",
     options: [
-      { id: 'A', text: "A matrix may produce at most sixty-four jobs, and the only remedy is to split the workflow into separate files." },
-      { id: 'B', text: "There is no job count limit; the error indicates the runner labels do not exist." },
-      { id: 'C', text: "The limit applies per job rather than per run, so raising max-parallel resolves it." },
-      { id: 'D', text: "A matrix may produce at most two hundred and fifty-six jobs per workflow run, so the strategy must be reduced, typically by testing the full cross-product on a schedule and a representative subset on pull requests." }
+      { id: 'A', text: "The limit applies per job rather than per run, so raising max-parallel resolves it." },
+      { id: 'B', text: "A matrix may produce at most two hundred and fifty-six jobs per workflow run, so the strategy must be reduced, typically by testing the full cross-product on a schedule and a representative subset on pull requests." },
+      { id: 'C', text: "A matrix may produce at most sixty-four jobs, and the only remedy is to split the workflow into separate files." },
+      { id: 'D', text: "There is no job count limit; the error indicates the runner labels do not exist." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "The documented ceiling is two hundred and fifty-six jobs generated by a matrix in a single workflow run, and a cross-product of that size is usually also a signal that pull request feedback would be far too slow, so the customary answer is a small representative matrix for every change and the exhaustive sweep on a schedule. The limit is not sixty-four, it does exist, and max-parallel controls concurrency rather than the number of jobs generated.",
     referenceUrl: "https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs",
@@ -93,12 +93,12 @@ export const GITHUB_ACTIONS_QUESTIONS_7 = [
     scenario: "An internal deployment portal, running outside GitHub, must start a workflow and pass a structured payload describing the change, including several fields the workflow will read.",
     question: "Which trigger is designed for this?",
     options: [
-      { id: 'A', text: "A repository_dispatch trigger, started by an API call that supplies an event type and a client payload the workflow reads from the event context." },
-      { id: 'B', text: "A schedule trigger polling an external endpoint every five minutes." },
+      { id: 'A', text: "A schedule trigger polling an external endpoint every five minutes." },
+      { id: 'B', text: "A workflow_run trigger, with the portal starting a placeholder workflow first." },
       { id: 'C', text: "A push trigger, with the portal committing a file encoding the payload." },
-      { id: 'D', text: "A workflow_run trigger, with the portal starting a placeholder workflow first." }
+      { id: 'D', text: "A repository_dispatch trigger, started by an API call that supplies an event type and a client payload the workflow reads from the event context." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The repository_dispatch event exists precisely so an external system can start a workflow through the API with a custom event type and an arbitrary client payload that the workflow reads from the event context. Polling adds latency and wasted runs, committing a file to convey a message pollutes history and races, and workflow_run chains one workflow to another rather than accepting an external call.",
     referenceUrl: "https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows",
@@ -136,9 +136,9 @@ export const GITHUB_ACTIONS_QUESTIONS_7 = [
     question: "Which context values provide them?",
     options: [
       { id: 'A', text: "The github.head_ref value for the source branch and github.base_ref for the target branch, both populated only for pull request events." },
-      { id: 'B', text: "The github.ref value for the source branch and github.ref_name for the target branch." },
-      { id: 'C', text: "The github.base_ref value for the source branch and github.head_ref for the target branch." },
-      { id: 'D', text: "Only github.ref is available, so both names must be parsed from it." }
+      { id: 'B', text: "Only github.ref is available, so both names must be parsed from it." },
+      { id: 'C', text: "The github.ref value for the source branch and github.ref_name for the target branch." },
+      { id: 'D', text: "The github.base_ref value for the source branch and github.head_ref for the target branch." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -177,12 +177,12 @@ export const GITHUB_ACTIONS_QUESTIONS_7 = [
     scenario: "A step invokes an action that reads a credential from a named environment variable rather than from an input. The author wants the secret delivered without appearing in the workflow command line or in any argument list.",
     question: "How is it supplied?",
     options: [
-      { id: 'A', text: "Through the with block, since every action input becomes an environment variable of the same name." },
-      { id: 'B', text: "Through a workflow-level env block, which is the only place the secrets context resolves." },
-      { id: 'C', text: "By writing the secret to GITHUB_ENV in the preceding step, which is the only supported route for secrets." },
-      { id: 'D', text: "Through an env block on the step, mapping the environment variable name to the secrets context reference." }
+      { id: 'A', text: "By writing the secret to GITHUB_ENV in the preceding step, which is the only supported route for secrets." },
+      { id: 'B', text: "Through an env block on the step, mapping the environment variable name to the secrets context reference." },
+      { id: 'C', text: "Through the with block, since every action input becomes an environment variable of the same name." },
+      { id: 'D', text: "Through a workflow-level env block, which is the only place the secrets context resolves." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "A step env block sets environment variables for that step alone and may reference the secrets context, which delivers the value to an action expecting a named variable without it appearing as an argument. Inputs are exposed under a prefixed name rather than the arbitrary one the action expects, workflow-level env cannot resolve the secrets context at all, and writing a secret through the environment file works but broadens its exposure to every later step in the job for no benefit.",
     referenceUrl: "https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions",
@@ -199,9 +199,9 @@ export const GITHUB_ACTIONS_QUESTIONS_7 = [
     question: "How is that expressed?",
     options: [
       { id: 'A', text: "Add an experimental key to the matrix, set continue-on-error to an expression reading that key, and mark only the nightly entry experimental." },
-      { id: 'B', text: "Set continue-on-error to true on the job, and fail the run from a later job if a supported version failed." },
-      { id: 'C', text: "Exclude the nightly entry from the matrix and run it in a separate scheduled workflow only." },
-      { id: 'D', text: "Set fail-fast to false, which also makes individual failures non-blocking." }
+      { id: 'B', text: "Set fail-fast to false, which also makes individual failures non-blocking." },
+      { id: 'C', text: "Set continue-on-error to true on the job, and fail the run from a later job if a supported version failed." },
+      { id: 'D', text: "Exclude the nightly entry from the matrix and run it in a separate scheduled workflow only." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -219,12 +219,12 @@ export const GITHUB_ACTIONS_QUESTIONS_7 = [
     scenario: "A reusable workflow declares an input intended to be one of three deployment tiers. The author tries to declare it with the same choice type used for a manual dispatch input and the workflow is rejected.",
     question: "What is the situation?",
     options: [
-      { id: 'A', text: "The workflow_call trigger supports boolean, number and string input types but not choice, so the input should be a string with the permitted values validated inside the workflow or expressed through separate callers." },
-      { id: 'B', text: "The workflow_call trigger supports choice, so the rejection indicates a syntax error elsewhere." },
-      { id: 'C', text: "Reusable workflows cannot declare typed inputs at all; every value arrives as a string." },
+      { id: 'A', text: "The workflow_call trigger supports choice, so the rejection indicates a syntax error elsewhere." },
+      { id: 'B', text: "Reusable workflows cannot declare typed inputs at all; every value arrives as a string." },
+      { id: 'C', text: "The workflow_call trigger supports boolean, number and string input types but not choice, so the input should be a string with the permitted values validated inside the workflow or expressed through separate callers." },
       { id: 'D', text: "Choice inputs are supported but require a default to be listed among the options, which is missing." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "The two triggers offer different input type sets: a manual dispatch renders a form and therefore supports choice and environment types, while a called workflow receives values from another workflow and supports boolean, number and string. A tier is therefore declared as a string and checked in the workflow body. Typed inputs do exist for workflow_call, and the absence of choice is a genuine difference rather than a syntax slip.",
     referenceUrl: "https://docs.github.com/en/actions/using-workflows/reusing-workflows",
@@ -283,9 +283,9 @@ export const GITHUB_ACTIONS_QUESTIONS_7 = [
     question: "Which description is accurate?",
     options: [
       { id: 'A', text: "Running workflows from private forks is off by default and is enabled by an explicit setting, which separately controls whether such runs may read secrets and whether the automatic token may have write access." },
-      { id: 'B', text: "Workflows from private forks always run with full access, because the fork is inside the organization." },
-      { id: 'C', text: "Workflows never run for pull requests from a fork of a private repository, and the setting cannot be changed." },
-      { id: 'D', text: "Workflows run but only on self-hosted runners, since hosted runners are unavailable to private forks." }
+      { id: 'B', text: "Workflows run but only on self-hosted runners, since hosted runners are unavailable to private forks." },
+      { id: 'C', text: "Workflows from private forks always run with full access, because the fork is inside the organization." },
+      { id: 'D', text: "Workflows never run for pull requests from a fork of a private repository, and the setting cannot be changed." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -303,12 +303,12 @@ export const GITHUB_ACTIONS_QUESTIONS_7 = [
     scenario: "An engineer joining a team wants a quick inventory of the workflows in a repository, including which are currently disabled, from the terminal rather than by clicking through the interface.",
     question: "Which command serves this?",
     options: [
-      { id: 'A', text: "The GitHub CLI workflow list command, which enumerates workflows with their state and identifiers, with view and disable subcommands for the individual ones." },
+      { id: 'A', text: "A recursive directory listing of the workflows directory, which is the only inventory available." },
       { id: 'B', text: "The GitHub CLI run list command, which enumerates workflows rather than runs." },
-      { id: 'C', text: "A recursive directory listing of the workflows directory, which is the only inventory available." },
-      { id: 'D', text: "The GitHub CLI repo view command with the workflows flag." }
+      { id: 'C', text: "The GitHub CLI repo view command with the workflows flag." },
+      { id: 'D', text: "The GitHub CLI workflow list command, which enumerates workflows with their state and identifiers, with view and disable subcommands for the individual ones." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The workflow subcommand family lists workflows along with their state and identifiers and offers view, run, enable and disable for individual ones, which is exactly the inventory being asked for. The run subcommand lists executions rather than definitions, a directory listing shows files without revealing whether each is enabled, and repository view does not carry a workflows flag.",
     referenceUrl: "https://docs.github.com/en/actions/using-workflows/disabling-and-enabling-a-workflow",
@@ -366,12 +366,12 @@ export const GITHUB_ACTIONS_QUESTIONS_7 = [
     scenario: "A composite action runs a step that writes a value to the step output file. The consuming workflow reads the action output through the steps context and receives nothing, although the inner step clearly produced the value.",
     question: "What is missing from action.yml?",
     options: [
-      { id: 'A', text: "An outputs entry whose value property is an expression referencing the inner step output by that step identifier." },
+      { id: 'A', text: "A permissions block granting the action the ability to publish outputs." },
       { id: 'B', text: "Nothing; inner step outputs are exposed automatically under the identifier of the inner step." },
-      { id: 'C', text: "A permissions block granting the action the ability to publish outputs." },
-      { id: 'D', text: "The inner step must write to the environment file instead, since composite actions cannot produce outputs." }
+      { id: 'C', text: "The inner step must write to the environment file instead, since composite actions cannot produce outputs." },
+      { id: 'D', text: "An outputs entry whose value property is an expression referencing the inner step output by that step identifier." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "A composite action must republish anything it wants to expose, declaring an entry under outputs whose value expression names the inner step and its output, which forms the deliberate public surface of the action. Inner step outputs are not surfaced automatically, no permission governs outputs, and composite actions can certainly produce outputs once they are declared.",
     referenceUrl: "https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions",
@@ -408,12 +408,12 @@ export const GITHUB_ACTIONS_QUESTIONS_7 = [
     scenario: "A composite action wraps shell commands and is documented as cross-platform. Its own continuous integration currently runs on a single Linux runner, and a consumer reports it fails on Windows.",
     question: "What does responsible maintenance require?",
     options: [
-      { id: 'A', text: "Run the action own test workflow as a matrix across the runner platforms it claims to support, and either fix the incompatibilities or narrow the documented support to what is actually verified." },
-      { id: 'B', text: "Convert the action to a Docker container action, which makes it platform independent." },
+      { id: 'A', text: "Add continue-on-error to the consumer step, since platform differences cannot be tested from the action repository." },
+      { id: 'B', text: "Run the action own test workflow as a matrix across the runner platforms it claims to support, and either fix the incompatibilities or narrow the documented support to what is actually verified." },
       { id: 'C', text: "Document that consumers should use Linux runners, without changing the test workflow." },
-      { id: 'D', text: "Add continue-on-error to the consumer step, since platform differences cannot be tested from the action repository." }
+      { id: 'D', text: "Convert the action to a Docker container action, which makes it platform independent." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "A support claim is only meaningful if it is exercised, so the action own workflow should expand into a matrix over the platforms it advertises, and where a platform cannot be made to work the honest move is to narrow the claim. A container action would in fact restrict the action to Linux runners, documenting a restriction without adjusting the claim leaves consumers to find it by failure, and tolerating errors in the consumer hides the defect.",
     referenceUrl: "https://docs.github.com/en/actions/creating-actions/creating-a-composite-action",
@@ -429,12 +429,12 @@ export const GITHUB_ACTIONS_QUESTIONS_7 = [
     scenario: "Dependabot must authenticate to a private package registry to resolve dependency versions. The registry token has been added as an Actions secret and Dependabot still cannot reach the registry.",
     question: "What is required?",
     options: [
-      { id: 'A', text: "Store the token as an organization Actions secret, which Dependabot reads once it is scoped to the repository." },
-      { id: 'B', text: "Store the token as an environment secret on an environment named dependabot." },
-      { id: 'C', text: "Commit the registry credentials into the Dependabot configuration file, which is only readable by administrators." },
-      { id: 'D', text: "Store the token as a Dependabot secret, which is a separate store from Actions secrets, and reference it from the registries section of the Dependabot configuration." }
+      { id: 'A', text: "Commit the registry credentials into the Dependabot configuration file, which is only readable by administrators." },
+      { id: 'B', text: "Store the token as a Dependabot secret, which is a separate store from Actions secrets, and reference it from the registries section of the Dependabot configuration." },
+      { id: 'C', text: "Store the token as an organization Actions secret, which Dependabot reads once it is scoped to the repository." },
+      { id: 'D', text: "Store the token as an environment secret on an environment named dependabot." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Dependabot has its own secret store, deliberately separate from Actions secrets, and private registry credentials are placed there and referenced from the registries section of its configuration. Actions secrets at any scope are not visible to Dependabot for this purpose, no environment convention grants it access, and configuration files are readable by anyone who can read the repository so a credential must never be committed.",
     referenceUrl: "https://docs.github.com/en/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot",
@@ -471,12 +471,12 @@ export const GITHUB_ACTIONS_QUESTIONS_7 = [
     scenario: "An administrator reviewing runner group settings notices that the group containing production-network runners has the option allowing public repositories switched on, and one public repository is in scope.",
     question: "What is the risk and the correct action?",
     options: [
-      { id: 'A', text: "A pull request from any fork of that public repository could execute code on runners with production network access, so the option should be turned off and the public repository moved to hosted runners." },
-      { id: 'B', text: "There is no risk, because fork pull requests receive a read-only token and therefore cannot execute code." },
+      { id: 'A', text: "There is no risk, because fork pull requests receive a read-only token and therefore cannot execute code." },
+      { id: 'B', text: "The option only affects whether the repository appears in the group list, not whether jobs are dispatched, so no change is needed." },
       { id: 'C', text: "The risk is only to billing, since public repository usage is metered differently, so the group should be renamed for cost attribution." },
-      { id: 'D', text: "The option only affects whether the repository appears in the group list, not whether jobs are dispatched, so no change is needed." }
+      { id: 'D', text: "A pull request from any fork of that public repository could execute code on runners with production network access, so the option should be turned off and the public repository moved to hosted runners." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The setting genuinely permits public repositories to use the group, and a fork pull request executes contributor-supplied build steps on those machines, which in this case sit on the production network, so the exposure is arbitrary code inside a sensitive network rather than a token question. A restricted token does not prevent code execution, the concern is not billing, and the option controls dispatch rather than mere visibility.",
     referenceUrl: "https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups",
@@ -492,12 +492,12 @@ export const GITHUB_ACTIONS_QUESTIONS_7 = [
     scenario: "A shared credential must be rotated quarterly. It is currently duplicated as a repository secret in forty repositories, and the last rotation took two days and missed four repositories that then broke.",
     question: "Which change makes rotation a single operation?",
     options: [
-      { id: 'A', text: "Replace the duplicates with one organization secret scoped to those repositories, and where the target supports it move to federated short-lived credentials so that rotation becomes unnecessary." },
+      { id: 'A', text: "Store the credential in a repository variable so it can be edited without administrator rights." },
       { id: 'B', text: "Write a scheduled workflow that updates all forty repository secrets through the API each quarter." },
-      { id: 'C', text: "Extend the credential lifetime to a year so rotation happens less often." },
-      { id: 'D', text: "Store the credential in a repository variable so it can be edited without administrator rights." }
+      { id: 'C', text: "Replace the duplicates with one organization secret scoped to those repositories, and where the target supports it move to federated short-lived credentials so that rotation becomes unnecessary." },
+      { id: 'D', text: "Extend the credential lifetime to a year so rotation happens less often." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Centralising the value as one organization secret scoped to the repositories that need it turns rotation into a single edit and removes the possibility of missing a copy, and moving to OpenID Connect where the target supports it eliminates the stored credential altogether. An automation that fans out forty writes keeps the duplication and adds a highly privileged workflow, longer lifetimes increase exposure, and variables are plain text and unsuitable for a credential.",
     referenceUrl: "https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions",
@@ -513,12 +513,12 @@ export const GITHUB_ACTIONS_QUESTIONS_7 = [
     scenario: "A team needs a runner with a specialised toolchain. It will initially serve one repository, but the platform team expects two more repositories to need it within a quarter and wants to avoid re-registering the machine later.",
     question: "At which level should it be registered?",
     options: [
-      { id: 'A', text: "At the organization level, placed in a runner group whose access starts with the single repository and is widened as the others need it." },
+      { id: 'A', text: "At the enterprise level, since that is the only level supporting runner groups." },
       { id: 'B', text: "At the repository level, then re-registered at organization level when the second repository appears." },
-      { id: 'C', text: "At the enterprise level, since that is the only level supporting runner groups." },
-      { id: 'D', text: "At the repository level in all three repositories simultaneously, using the same machine." }
+      { id: 'C', text: "At the repository level in all three repositories simultaneously, using the same machine." },
+      { id: 'D', text: "At the organization level, placed in a runner group whose access starts with the single repository and is widened as the others need it." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Registering at organization level and controlling reach with a runner group gives the narrow access wanted today and widens with a settings change rather than a re-registration, which is exactly the flexibility described. Repository-level registration forces the migration the team wants to avoid, runner groups exist at organization as well as enterprise level, and one machine cannot hold several repository registrations at once.",
     referenceUrl: "https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners",
