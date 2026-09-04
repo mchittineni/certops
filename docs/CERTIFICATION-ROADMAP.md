@@ -1,6 +1,6 @@
 # Certification roadmap — 2026 Top 50
 
-All 52 certifications are **scaffolded** in `src/data/certs/`, so each one already has a
+All 68 certifications are **scaffolded** in `src/data/certs/`, so each one already has a
 folder, a blueprint stub, and a place to drop content. `status` controls visibility:
 
 - `live` — appears in the catalogue and can be launched. Requires real content.

@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 
 // BASE_PATH lets the same build target a root domain ('/') or a GitHub Pages
-// project subpath ('/converge/'). Vite rewrites the absolute /src/... URLs in
+// project subpath ('/certops/'). Vite rewrites the absolute /src/... URLs in
 // index.html to match, so nothing in the app needs to know where it is hosted.
 export default defineConfig({
   base: process.env.BASE_PATH || '/',

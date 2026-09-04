@@ -1,24 +1,24 @@
 /**
  * Storage keys, in one place.
  *
- * The app was renamed from OpsQuiz to Converge. Renaming the keys outright
- * would silently wipe every existing attempt history, flashcard schedule, and
- * daily streak, so the old keys are migrated once on boot and then removed.
- * This migration can be deleted after a release or two.
+ * Keys are namespaced under 'certops_'. Legacy data written under previous
+ * keys is migrated once on boot and then removed so user attempts, streaks,
+ * and flashcard SRS data are preserved.
  */
 export const KEYS = {
-  theme: 'converge_theme',
-  history: 'converge_history',
-  srs: 'converge_flashcard_srs',
-  daily: 'converge_daily',
-  role: 'converge_role'
+  theme: 'certops_theme',
+  history: 'certops_history',
+  srs: 'certops_flashcard_srs',
+  daily: 'certops_daily',
+  role: 'certops_role'
 };
 
 const LEGACY = {
-  converge_theme: 'opsquiz_theme',
-  converge_history: 'opsquiz_history',
-  converge_flashcard_srs: 'opsquiz_flashcard_srs',
-  converge_daily: 'opsquiz_daily'
+  certops_theme: 'converge_theme',
+  certops_history: 'converge_history',
+  certops_flashcard_srs: 'converge_flashcard_srs',
+  certops_daily: 'converge_daily',
+  certops_role: 'converge_role'
 };
 
 export function migrateLegacyStorage() {

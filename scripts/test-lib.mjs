@@ -307,11 +307,11 @@ await check('blocked storage keeps history read-only rather than throwing', () =
 await check('every key is namespaced and unique', () => {
   const values = Object.values(KEYS);
   assert.equal(new Set(values).size, values.length, 'two features sharing a key would overwrite each other');
-  for (const v of values) assert.ok(v.startsWith('converge_'), `${v} is not namespaced`);
+  for (const v of values) assert.ok(v.startsWith('certops_'), `${v} is not namespaced`);
 });
 
 await check('migration returns the number of keys it moved', () => {
-  use(memoryStore({ opsquiz_history: '[]', opsquiz_theme: 'dark' }));
+  use(memoryStore({ converge_history: '[]', converge_theme: 'dark' }));
   assert.equal(migrateLegacyStorage(), 2);
   assert.equal(migrateLegacyStorage(), 0, 'a second boot has nothing left to move');
 });

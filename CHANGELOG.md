@@ -203,5 +203,5 @@ questions against a 500-per-certification target, which is the whole roadmap.
   the authoring lifecycle, and server headers.
 - Coverage thresholds enforced by `.c8rc.json` (99% statements, 87% branches at release).
 
-[Unreleased]: https://github.com/mchittineni/converge/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/mchittineni/converge/releases/tag/v0.1.0
+[Unreleased]: https://github.com/mchittineni/certops/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/mchittineni/certops/releases/tag/v0.1.0

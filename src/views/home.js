@@ -328,7 +328,7 @@ function renderFooter() {
     <footer class="site-footer">
       <div class="footer-inner">
         <div>
-          <strong>Converge</strong>
+          <strong>CertOps</strong>
           <p class="fineprint">Open-source certification practice. No backend, no account — your attempt history, flashcard scheduling, and streak live in this browser only.</p>
         </div>
         <div class="footer-links">
