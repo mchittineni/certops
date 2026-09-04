@@ -15,18 +15,18 @@ npm run stats           # progress toward 500 questions per certification
 
 | | Certifications | Live | Questions |
 | --- | --- | --- | --- |
-| ☁️ Cloud Engineering | 22 | 9 | 2,250 |
-| 🚀 DevOps & SRE | 11 | 6 | 1,500 |
-| ☸️ Kubernetes & Cloud Native | 8 | 4 | 1,000 |
-| 🏗️ Platform Engineering | 6 | 3 | 750 |
-| 💰 FinOps | 8 | 1 | 250 |
-| 🔐 DevSecOps & Security | 13 | 4 | 1,000 |
-| **Total** | **68** | **27** | **6,750** |
+| ☁️ Cloud Engineering | 22 | 9 | 4,500 |
+| 🚀 DevOps & SRE | 11 | 6 | 3,000 |
+| ☸️ Kubernetes & Cloud Native | 8 | 4 | 2,000 |
+| 🏗️ Platform Engineering | 6 | 3 | 1,500 |
+| 💰 FinOps | 8 | 1 | 500 |
+| 🔐 DevSecOps & Security | 13 | 4 | 2,000 |
+| **Total** | **68** | **27** | **13,500** |
 
 Regenerate these numbers any time with `npm run stats`.
 
-**Authored vs. generated.** All 27 live certifications feature complete 250-question banks
-and 250-card flashcard decks (6,750 questions and 6,750 flashcards) adhering to official domain
+**Authored vs. generated.** All 27 live certifications feature complete 500-question banks
+and 500-card flashcard decks (13,500 questions and 13,500 flashcards, totaling 27,000 items repo-wide) adhering to official domain
 weights, comprehensive explanations, and zero option-letter references. `npm run audit:filler` reports the current inventory.
 
 **A live certification needs a verified blueprint.** The 41 remaining `planned` entries carry
@@ -37,7 +37,7 @@ useful contribution on its own — no question authoring required.
 
 ## Priority order
 
-The Top-15 priority certifications from the 2026 roadmap are all **live and available** with complete 250-question banks and 250-card flashcard decks:
+The Top-15 priority certifications from the 2026 roadmap are all **live and available** with complete 500-question banks and 500-card flashcard decks:
 
 | # | Certification | id | Category | Status |
 | --- | --- | --- | --- | --- |

@@ -11,6 +11,20 @@ progress is tracked by `npm run stats` and in
 ## [Unreleased]
 
 ### Content
+- Scaled all **27 live certifications** to exactly **500 questions** and **500 flashcards** each (adding packs 11–20, or packs 12–21 for `k8s-cka`), achieving **100% target bank completion** across all live tracks:
+  - Total bank expanded to **13,500 questions** and **13,500 flashcards** (**27,000 items repo-wide**) across 1,082 packs with 0 validation errors.
+  - Scaled all 27 certifications:
+    - **Cloud Engineering (9 live, 4,500 questions)**: `aws-saa`, `aws-dva`, `aws-clf`, `azure-az900`, `azure-az104`, `azure-az204`, `gcp-ace`, `gcp-pca`, `gcp-pmle`.
+    - **DevOps & SRE (6 live, 3,000 questions)**: `aws-dop`, `azure-az400`, `gcp-pcdoe`, `hashicorp-tfa`, `hashicorp-tfp`, `github-actions`.
+    - **Kubernetes & Cloud Native (4 live, 2,000 questions)**: `k8s-cka`, `k8s-ckad`, `cncf-cgoa`, `cncf-otca`.
+    - **Platform Engineering (3 live, 1,500 questions)**: `cncf-cba`, `cncf-cnpa`, `cncf-cnpe`.
+    - **DevSecOps & Security (4 live, 2,000 questions)**: `aws-scs`, `k8s-cks`, `github-ghas`, `isc2-ccsp`.
+    - **FinOps (1 live, 500 questions)**: `finops-focp`.
+  - All new items authored to strict scenario-based standards, strictly adhering to blueprint domain weights with detailed technical explanations.
+  - Zero option-letter references in explanations across all 13,500 questions (`npm run audit:explanations`).
+  - Zero templated placeholder phrases (`npm run audit:filler`).
+  - Balanced answer option keys across the entire question bank via `scripts/shuffle-options.mjs`.
+  - All automated test suites passing (130 checks across units, loaders, app flows, migrations, scaffolds, and server).
 - Activated **5 additional certifications** with complete 250-question banks and 250-card flashcard decks (1,250 scenario questions & 1,250 flashcards across 50 question packs and 50 flashcard packs), bringing the live catalogue to **27 certifications** with **6,750 questions** and **6,750 flashcards** across 542 packs:
   - `aws-dva` (AWS Certified Developer - Associate): 250 questions and 250 flashcards across 4 domains.
   - `azure-az204` (Microsoft Certified: Azure Developer Associate): 250 questions and 250 flashcards across 5 domains.

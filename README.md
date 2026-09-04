@@ -26,8 +26,8 @@ every answer moves your difficulty band toward your actual level.
 | --- | --- |
 | Certifications scaffolded | **68** across six disciplines |
 | Live (launchable, with content) | **27** — including all Top 15 roadmap priorities plus AWS, Azure, GCP, GitHub, Kubernetes, and HashiCorp tracks |
-| Questions authored / live | **6,750** of a 34,000 target (500 × 68) |
-| Flashcards authored / live | **6,750** |
+| Questions authored / live | **13,500** of a 34,000 target (500 × 68) |
+| Flashcards authored / live | **13,500** |
 
 Run
 `npm run audit:filler` for the current inventory — those banks are listed as live but
