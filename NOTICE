@@ -1,4 +1,4 @@
-Converge — third-party assets and trademarks
+CertOps — third-party assets and trademarks
 
 FONTS (not redistributed; loaded from Google Fonts at runtime)
 
@@ -17,7 +17,7 @@ BRAND ICONS
   imply endorsement.
 
   AWS and Microsoft Azure marks are NOT included. Both were removed from Simple
-  Icons at the trademark owners' request, so Converge renders a lettermark in
+  Icons at the trademark owners' request, so CertOps renders a lettermark in
   the official brand colour instead. If you hold the rights to use those marks,
   add the path data to src/views/brand-icons.local.js — it overrides the
   lettermark automatically and is not committed with any vendor artwork.
@@ -27,7 +27,7 @@ TRADEMARKS
   AWS, Microsoft, Azure, Google Cloud, Kubernetes, CNCF, Terraform, HashiCorp,
   GitHub, Docker, FinOps Foundation, DevOps Institute, ISC2, OffSec and all
   certification names and exam codes are trademarks of their respective owners.
-  Converge is an independent project and is not endorsed by, sponsored by, or
+  CertOps is an independent project and is not endorsed by, sponsored by, or
   affiliated with any of them. The names are used solely to identify which exam
   a study module prepares you for — nominative fair use.
 

@@ -51,7 +51,7 @@ function navbar() {
               <circle cx="12" cy="12" r="1.7" fill="currentColor" stroke="none"></circle>
             </svg>
           </div>
-          <span>Con<span class="brand-light">verge</span></span>
+          <span>Cert<span class="brand-light">Ops</span></span>
           <span class="brand-badge">CERT PREP</span>
         </a>
         <nav class="nav-links">

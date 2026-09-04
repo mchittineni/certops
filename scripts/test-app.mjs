@@ -16,7 +16,7 @@ const check = async (name, fn) => { await fn(); console.log(`  ok  ${name}`); pa
 await check('landing page renders every section', () => {
   const html = dom.html();
   assert.ok(html.includes('Know it cold before exam day'), 'hero headline');
-  assert.ok(html.includes('Converge'), 'wordmark');
+  assert.ok(html.includes('CertOps'), 'wordmark');
   assert.ok(html.includes('benefits-bar') && html.includes('100% Free'), 'benefits bar');
   assert.ok(html.includes('Daily Challenge'), 'daily challenge card');
   assert.ok(html.includes('Practice by discipline') && html.includes('category-grid'), 'discipline grid');
@@ -393,7 +393,7 @@ await check('flashcard deck builds, flips, grades, and tracks mastery', async ()
   dom.click('grade-card', { grade: 'again' });
   assert.strictEqual(state.cards.session.again, 1);
   assert.strictEqual(state.cards.deck.length, before + 1, '"Again" requeues the card in this session');
-  assert.ok(JSON.parse(localStorage.getItem('converge_flashcard_srs'))[first.id], 'review persisted');
+  assert.ok(JSON.parse(localStorage.getItem('certops_flashcard_srs'))[first.id], 'review persisted');
 });
 
 await check('flashcard difficulty filter narrows the deck', () => {
@@ -472,7 +472,7 @@ await check('completing the daily challenge scores by certification and records 
   assert.ok(html.includes('Daily challenge'));
   assert.ok(html.includes('Breakdown by certification'), 'daily results group by certification, not domain');
   assert.ok(html.includes("Replay today's challenge"));
-  const stored = JSON.parse(localStorage.getItem('converge_daily'));
+  const stored = JSON.parse(localStorage.getItem('certops_daily'));
   assert.strictEqual(Object.keys(stored).length, 1);
   assert.strictEqual(Object.values(stored)[0].total, state.results.total);
 
@@ -486,7 +486,7 @@ await check('theme toggle persists', () => {
   const before = state.theme;
   dom.click('toggle-theme');
   assert.notStrictEqual(state.theme, before);
-  assert.strictEqual(localStorage.getItem('converge_theme'), state.theme);
+  assert.strictEqual(localStorage.getItem('certops_theme'), state.theme);
   assert.strictEqual(document.documentElement.attrs['data-theme'], state.theme);
 });
 
@@ -494,7 +494,7 @@ await check('history can be cleared', async () => {
   dom.click('open-cert', { certId: 'aws-saa' });
   await tick();
   dom.click('clear-history');
-  assert.deepStrictEqual(JSON.parse(localStorage.getItem('converge_history')), []);
+  assert.deepStrictEqual(JSON.parse(localStorage.getItem('certops_history')), []);
   assert.ok(!dom.html().includes('Your progress'));
 });
 
@@ -673,7 +673,7 @@ await check('a flashcard deck can be scoped by domain, skipped through, and rese
   dom.click('grade-card', { grade: 'good' });
   dom.click('reset-deck');
   assert.ok(state.cards.finished, 'a reset deck goes back to the setup screen');
-  const raw = JSON.parse(localStorage.getItem('converge_flashcard_srs') || '{}');
+  const raw = JSON.parse(localStorage.getItem('certops_flashcard_srs') || '{}');
   assert.ok(!allCardIds.some(id => id in raw), 'reset must clear this deck from the schedule');
 });
 

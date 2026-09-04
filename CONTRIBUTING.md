@@ -1,4 +1,4 @@
-# Contributing to Converge
+# Contributing to CertOps
 
 Thanks for helping. There are three useful ways to contribute, in rough order of
 how much the project needs them:
@@ -6,8 +6,7 @@ how much the project needs them:
 1. **Fix a wrong question.** A wrong answer or a misleading explanation actively
    teaches someone the wrong thing before an exam they paid for. This is the
    highest-value contribution and the fastest to review.
-2. **Author content.** The bank is at 47 questions against a 500-per-certification
-   target, so almost everything is missing. See [Authoring content](#authoring-content).
+2. **Author content.** The 27 live certifications feature complete 500-question banks (13,500 questions repo-wide). Authoring contributions focus on the 41 planned roadmap certifications and community review of live packs. See [Authoring content](#authoring-content).
 3. **Improve the app.** Bugs, accessibility, and the [open issues](../../issues).
 
 By contributing you agree that your code is licensed under [MIT](LICENSE) and
@@ -46,8 +45,8 @@ A PR touching five packs across three certifications cannot be reviewed carefull
 ## Getting set up
 
 ```bash
-git clone https://github.com/mchittineni/converge.git
-cd converge
+git clone https://github.com/mchittineni/certops.git
+cd certops
 npm install          # dev tooling only — the app itself has no runtime dependencies
 
 node server.js       # http://localhost:3000, no build step
@@ -92,7 +91,7 @@ the real exam and the Hard filter has enough content to fill a session.
 
 ### Taking a certification from `planned` to `live`
 
-47 of the 52 certifications are scaffolded with **placeholder blueprints**. Before a
+41 of the 68 certifications are scaffolded with **placeholder blueprints**. Before a
 certification can go live, its `cert.js` needs real domains and weights from the
 official exam guide, `blueprintSource` set to that guide's URL, and
 `blueprintVerified: true`. Full walkthrough:

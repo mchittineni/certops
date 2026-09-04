@@ -1,6 +1,6 @@
 # CI, Deployment, and Security
 
-Converge is a static, dependency-free SPA. That shapes every decision here: there
+CertOps is a static, dependency-free SPA. That shapes every decision here: there
 is no server to compromise at runtime, so the attack surface is the **supply chain**
 (what gets built) and the **browser** (what the page is allowed to do).
 
@@ -117,7 +117,7 @@ exactly how a stray tag gets in.
 The build is a plain static directory. `BASE_PATH` controls the URL prefix:
 
 ```bash
-BASE_PATH=/converge/ npm run build   # GitHub Pages project site
+BASE_PATH=/certops/ npm run build    # GitHub Pages project site
 npm run build                        # root domain / Netlify / Cloudflare Pages
 ```
 
@@ -154,7 +154,7 @@ by `npm run validate` instead, which is a much stronger gate than "it parsed".
 | `test-select.mjs` | difficulty filtering, domain-weighted sampling, adaptive escalation, scoring |
 | `test-lib.mjs` | spaced repetition, daily challenge, attempt history — including corrupt JSON and blocked storage |
 | `test-loader.mjs` | lazy chunk loading: caching, in-flight de-duplication, failure and retry |
-| `test-storage-migration.mjs` | the one-time `opsquiz_*` → `converge_*` key migration |
+| `test-storage-migration.mjs` | the one-time `converge_*` → `certops_*` key migration |
 | `test-app.mjs` | end-to-end flows against a headless DOM shim, driven by real `data-action` clicks and keydowns |
 | `test-scaffold.mjs` | the authoring lifecycle: scaffold → index → validate → remove |
 | `test-server.mjs` | security headers and path handling against the real server |

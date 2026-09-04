@@ -1,14 +1,14 @@
 <div align="center">
 
-# Converge
+# CertOps
 
 **Certification practice for cloud, DevOps, Kubernetes, platform, FinOps, and security engineers.**
 
-*Converge on mastery.* The adaptive engine works like a reconciliation loop:
+*Cloud certification readiness for modern engineers.* The adaptive engine works like a reconciliation loop:
 every answer moves your difficulty band toward your actual level.
 
-[![CI](https://github.com/mchittineni/converge/actions/workflows/ci.yml/badge.svg)](https://github.com/mchittineni/converge/actions/workflows/ci.yml)
-[![Security](https://github.com/mchittineni/converge/actions/workflows/security.yml/badge.svg)](https://github.com/mchittineni/converge/actions/workflows/security.yml)
+[![CI](https://github.com/mchittineni/certops/actions/workflows/ci.yml/badge.svg)](https://github.com/mchittineni/certops/actions/workflows/ci.yml)
+[![Security](https://github.com/mchittineni/certops/actions/workflows/security.yml/badge.svg)](https://github.com/mchittineni/certops/actions/workflows/security.yml)
 [![Code: MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE)
 [![Content: CC BY-SA 4.0](https://img.shields.io/badge/content-CC%20BY--SA%204.0-lightgrey.svg)](LICENSE-CONTENT)
 [![Node](https://img.shields.io/badge/node-%3E%3D20-brightgreen.svg)](package.json)
@@ -20,7 +20,7 @@ every answer moves your difficulty band toward your actual level.
 
 ## Project status
 
-**Early. The application is complete; the question bank is not.**
+**Live track fully scaled. All 27 live certifications feature complete 500-question banks.**
 
 | | |
 | --- | --- |
@@ -29,9 +29,7 @@ every answer moves your difficulty band toward your actual level.
 | Questions authored / live | **13,500** of a 34,000 target (500 × 68) |
 | Flashcards authored / live | **13,500** |
 
-Run
-`npm run audit:filler` for the current inventory — those banks are listed as live but
-their answers are not trustworthy until the items are rewritten.
+Run `npm run stats` for detailed domain and difficulty distributions across the bank.
 
 The 41 remaining certifications exist as folders with **placeholder blueprints** — they
 appear on the roadmap panel but cannot be launched. That is the honest state of things,
@@ -39,13 +37,13 @@ and it is exactly where contributions land: see [CONTRIBUTING.md](CONTRIBUTING.m
 
 Everything that makes 500 questions per certification *tractable* is built:
 per-certification folders, scaffolders, a machine-enforced validator, lazy per-pack chunks,
-and progress tracking. What remains is authoring.
+and progress tracking. What remains is authoring the planned track.
 
 ## Quick start
 
 ```bash
-git clone https://github.com/mchittineni/converge.git
-cd converge
+git clone https://github.com/mchittineni/certops.git
+cd certops
 
 node server.js               # http://localhost:3000 — no install, no build step
 ```
@@ -173,7 +171,7 @@ same whether the bank holds 47 questions or 26,000.
 <summary>Full project structure</summary>
 
 ```
-converge/
+certops/
 ├── index.html                      # single entry point; CSP meta fallback for GitHub Pages
 ├── server.js                       # zero-dependency static server with security headers
 ├── vite.config.js                  # optional: dev HMR + production bundling
@@ -244,14 +242,12 @@ No backend, no accounts, no analytics, no network calls of any kind — the CSP 
 daily streak, and the theme live in `localStorage` in your own browser. Nothing is uploaded
 anywhere.
 
-Keys are prefixed `converge_`; data written under the previous `opsquiz_` prefix is migrated
+Keys are prefixed `certops_`; data written under previous `converge_` keys is migrated
 once on boot and then removed ([src/lib/storage.js](src/lib/storage.js)).
 
 ## Contributing
 
-The bank is at 2% of target, so content is the bottleneck — and a **wrong answer is the
-highest-priority bug**, because it teaches someone the wrong thing before an exam they paid
-for. Start with [CONTRIBUTING.md](CONTRIBUTING.md).
+The 27 live certifications are fully scaled with complete 500-question banks (13,500 questions and 13,500 flashcards repo-wide). Contributions are welcomed to expand the 41 planned roadmap certifications or refine existing questions — and a **wrong answer is the highest-priority bug**, because it teaches someone the wrong thing before an exam they paid for. Start with [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ```bash
 npm run new:pack -- --cert <id> --kind questions --count 25
@@ -269,7 +265,7 @@ The build is a plain static directory — any host works.
 
 ```bash
 npm run build                        # → dist/, for a root domain
-BASE_PATH=/converge/ npm run build   # for a GitHub Pages project site
+BASE_PATH=/certops/ npm run build    # for a GitHub Pages project site
 ```
 
 Two requirements: serve `index.html` for unknown paths, and send the headers in
@@ -291,7 +287,7 @@ carries share-alike and the code does not.
 
 Third-party assets and trademark notices: [NOTICE](NOTICE).
 
-> Converge is an independent project. It is not endorsed by, sponsored by, or affiliated
+> CertOps is an independent project. It is not endorsed by, sponsored by, or affiliated
 > with AWS, Microsoft, Google, the Linux Foundation, CNCF, HashiCorp, GitHub, Docker, the
 > FinOps Foundation, the DevOps Institute, ISC2, OffSec, or any other certification body.
 > Certification names and exam codes are trademarks of their respective owners, used only

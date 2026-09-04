@@ -15,7 +15,7 @@ only *"I have a security report, please enable private reporting"* — with no d
 
 ## What this project is
 
-Converge is a static single-page application with **no backend and no user accounts**.
+CertOps is a static single-page application with **no backend and no user accounts**.
 There is no server to compromise at runtime, no database, and no credentials anywhere in
 the stack. All state — attempt history, flashcard schedules, the daily streak, and the
 theme — lives in the visitor's own `localStorage` and is never transmitted. The shipped
