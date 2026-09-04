@@ -9,12 +9,12 @@ export const AWS_SCS_QUESTIONS_14 = [
     scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer evaluates AWS Config to detect and automatically remediate security group rules that open SSH port 22 to 0.0.0.0/0 across all enterprise accounts.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives? Recording resource configuration changes across all regions and evaluating conformance rules is under consideration.",
     options: [
-      { id: 'A', text: "Enable AWS Config recorders across all accounts and regions with the managed rule `restricted-ssh` linked to SSM automated remediation." },
-      { id: 'B', text: "Perform quarterly manual audits where engineers inspect EC2 security groups in the management console." },
-      { id: 'C', text: "Disable AWS Config to reduce monthly configuration snapshot recording fees." },
-      { id: 'D', text: "Rely on developers to voluntarily restrict their security group rules." }
+      { id: 'A', text: "Perform quarterly manual audits where engineers inspect EC2 security groups in the management console." },
+      { id: 'B', text: "Rely on developers to voluntarily restrict their security group rules." },
+      { id: 'C', text: "Enable AWS Config recorders across all accounts and regions with the managed rule `restricted-ssh` linked to SSM automated remediation." },
+      { id: 'D', text: "Disable AWS Config to reduce monthly configuration snapshot recording fees." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Enable AWS Config recorders across all accounts and regions with the managed rule `restricted-ssh` linked to SSM automated remediation. AWS Config continuously records resource configurations, relationships, and historical changes. Managed rules (such as `restricted-ssh` or `s3-bucket-public-read-prohibited`) evaluate resources in real time, triggering automated SSM remediation documents when non-compliant resources are created.",
     referenceUrl: "https://docs.aws.amazon.com/config/latest/developerguide/remediation-ssm.html",
@@ -30,12 +30,12 @@ export const AWS_SCS_QUESTIONS_14 = [
     scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer evaluates AWS Config to detect and automatically remediate security group rules that open SSH port 22 to 0.0.0.0/0 across all enterprise accounts.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence? Recording resource configuration changes across all regions and evaluating conformance rules is under consideration.",
     options: [
-      { id: 'A', text: "Enable AWS Config recorders across all accounts and regions with the managed rule `restricted-ssh` linked to SSM automated remediation." },
-      { id: 'B', text: "Perform quarterly manual audits where engineers inspect EC2 security groups in the management console." },
-      { id: 'C', text: "Disable AWS Config to reduce monthly configuration snapshot recording fees." },
-      { id: 'D', text: "Rely on developers to voluntarily restrict their security group rules." }
+      { id: 'A', text: "Perform quarterly manual audits where engineers inspect EC2 security groups in the management console." },
+      { id: 'B', text: "Enable AWS Config recorders across all accounts and regions with the managed rule `restricted-ssh` linked to SSM automated remediation." },
+      { id: 'C', text: "Rely on developers to voluntarily restrict their security group rules." },
+      { id: 'D', text: "Disable AWS Config to reduce monthly configuration snapshot recording fees." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Enable AWS Config recorders across all accounts and regions with the managed rule `restricted-ssh` linked to SSM automated remediation. AWS Config continuously records resource configurations, relationships, and historical changes. Managed rules (such as `restricted-ssh` or `s3-bucket-public-read-prohibited`) evaluate resources in real time, triggering automated SSM remediation documents when non-compliant resources are created.",
     referenceUrl: "https://docs.aws.amazon.com/config/latest/developerguide/remediation-ssm.html",
@@ -51,12 +51,12 @@ export const AWS_SCS_QUESTIONS_14 = [
     scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer evaluates AWS Config to detect and automatically remediate security group rules that open SSH port 22 to 0.0.0.0/0 across all enterprise accounts.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls? Recording resource configuration changes across all regions and evaluating conformance rules is under consideration.",
     options: [
-      { id: 'A', text: "Enable AWS Config recorders across all accounts and regions with the managed rule `restricted-ssh` linked to SSM automated remediation." },
-      { id: 'B', text: "Perform quarterly manual audits where engineers inspect EC2 security groups in the management console." },
-      { id: 'C', text: "Disable AWS Config to reduce monthly configuration snapshot recording fees." },
-      { id: 'D', text: "Rely on developers to voluntarily restrict their security group rules." }
+      { id: 'A', text: "Rely on developers to voluntarily restrict their security group rules." },
+      { id: 'B', text: "Disable AWS Config to reduce monthly configuration snapshot recording fees." },
+      { id: 'C', text: "Enable AWS Config recorders across all accounts and regions with the managed rule `restricted-ssh` linked to SSM automated remediation." },
+      { id: 'D', text: "Perform quarterly manual audits where engineers inspect EC2 security groups in the management console." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Enable AWS Config recorders across all accounts and regions with the managed rule `restricted-ssh` linked to SSM automated remediation. AWS Config continuously records resource configurations, relationships, and historical changes. Managed rules (such as `restricted-ssh` or `s3-bucket-public-read-prohibited`) evaluate resources in real time, triggering automated SSM remediation documents when non-compliant resources are created.",
     referenceUrl: "https://docs.aws.amazon.com/config/latest/developerguide/remediation-ssm.html",
@@ -72,12 +72,12 @@ export const AWS_SCS_QUESTIONS_14 = [
     scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer evaluates AWS Config to detect and automatically remediate security group rules that open SSH port 22 to 0.0.0.0/0 across all enterprise accounts.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity? Recording resource configuration changes across all regions and evaluating conformance rules is under consideration.",
     options: [
-      { id: 'A', text: "Enable AWS Config recorders across all accounts and regions with the managed rule `restricted-ssh` linked to SSM automated remediation." },
+      { id: 'A', text: "Disable AWS Config to reduce monthly configuration snapshot recording fees." },
       { id: 'B', text: "Perform quarterly manual audits where engineers inspect EC2 security groups in the management console." },
-      { id: 'C', text: "Disable AWS Config to reduce monthly configuration snapshot recording fees." },
-      { id: 'D', text: "Rely on developers to voluntarily restrict their security group rules." }
+      { id: 'C', text: "Rely on developers to voluntarily restrict their security group rules." },
+      { id: 'D', text: "Enable AWS Config recorders across all accounts and regions with the managed rule `restricted-ssh` linked to SSM automated remediation." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Enable AWS Config recorders across all accounts and regions with the managed rule `restricted-ssh` linked to SSM automated remediation. AWS Config continuously records resource configurations, relationships, and historical changes. Managed rules (such as `restricted-ssh` or `s3-bucket-public-read-prohibited`) evaluate resources in real time, triggering automated SSM remediation documents when non-compliant resources are created.",
     referenceUrl: "https://docs.aws.amazon.com/config/latest/developerguide/remediation-ssm.html",
@@ -93,12 +93,12 @@ export const AWS_SCS_QUESTIONS_14 = [
     scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer evaluates AWS Config to detect and automatically remediate security group rules that open SSH port 22 to 0.0.0.0/0 across all enterprise accounts.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense? Recording resource configuration changes across all regions and evaluating conformance rules is under consideration.",
     options: [
-      { id: 'A', text: "Enable AWS Config recorders across all accounts and regions with the managed rule `restricted-ssh` linked to SSM automated remediation." },
-      { id: 'B', text: "Perform quarterly manual audits where engineers inspect EC2 security groups in the management console." },
-      { id: 'C', text: "Disable AWS Config to reduce monthly configuration snapshot recording fees." },
-      { id: 'D', text: "Rely on developers to voluntarily restrict their security group rules." }
+      { id: 'A', text: "Rely on developers to voluntarily restrict their security group rules." },
+      { id: 'B', text: "Disable AWS Config to reduce monthly configuration snapshot recording fees." },
+      { id: 'C', text: "Perform quarterly manual audits where engineers inspect EC2 security groups in the management console." },
+      { id: 'D', text: "Enable AWS Config recorders across all accounts and regions with the managed rule `restricted-ssh` linked to SSM automated remediation." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Enable AWS Config recorders across all accounts and regions with the managed rule `restricted-ssh` linked to SSM automated remediation. AWS Config continuously records resource configurations, relationships, and historical changes. Managed rules (such as `restricted-ssh` or `s3-bucket-public-read-prohibited`) evaluate resources in real time, triggering automated SSM remediation documents when non-compliant resources are created.",
     referenceUrl: "https://docs.aws.amazon.com/config/latest/developerguide/remediation-ssm.html",
@@ -114,12 +114,12 @@ export const AWS_SCS_QUESTIONS_14 = [
     scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer evaluates Network Firewall to inspect and filter all north-south internet egress and east-west VPC traffic centrally across an entire AWS Organization.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives? Transit Gateway routing traffic through a centralized inspection VPC with AWS Network Firewall is under consideration.",
     options: [
-      { id: 'A', text: "Deploy AWS Network Firewall in a centralized inspection VPC with Transit Gateway route tables directing traffic through firewall endpoints." },
-      { id: 'B', text: "Deploy individual NAT Gateways and third-party firewall instances in every private subnet with no central management." },
+      { id: 'A', text: "Disable Transit Gateway routing to force all traffic through public internet VPNs." },
+      { id: 'B', text: "Deploy AWS Network Firewall in a centralized inspection VPC with Transit Gateway route tables directing traffic through firewall endpoints." },
       { id: 'C', text: "Allow all VPC traffic to egress directly to the internet without stateful inspection." },
-      { id: 'D', text: "Disable Transit Gateway routing to force all traffic through public internet VPNs." }
+      { id: 'D', text: "Deploy individual NAT Gateways and third-party firewall instances in every private subnet with no central management." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy AWS Network Firewall in a centralized inspection VPC with Transit Gateway route tables directing traffic through firewall endpoints. Centralized inspection architecture uses AWS Transit Gateway to route VPC egress and inter-VPC traffic through dedicated inspection VPCs hosting AWS Network Firewall endpoints. This centralizes stateful intrusion prevention (IPS) and URL filtering without deploying firewalls in every spoke VPC.",
     referenceUrl: "https://docs.aws.amazon.com/network-firewall/latest/developerguide/arch-centralized.html",
@@ -135,12 +135,12 @@ export const AWS_SCS_QUESTIONS_14 = [
     scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer evaluates Network Firewall to inspect and filter all north-south internet egress and east-west VPC traffic centrally across an entire AWS Organization.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence? Transit Gateway routing traffic through a centralized inspection VPC with AWS Network Firewall is under consideration.",
     options: [
-      { id: 'A', text: "Deploy AWS Network Firewall in a centralized inspection VPC with Transit Gateway route tables directing traffic through firewall endpoints." },
-      { id: 'B', text: "Deploy individual NAT Gateways and third-party firewall instances in every private subnet with no central management." },
-      { id: 'C', text: "Allow all VPC traffic to egress directly to the internet without stateful inspection." },
-      { id: 'D', text: "Disable Transit Gateway routing to force all traffic through public internet VPNs." }
+      { id: 'A', text: "Allow all VPC traffic to egress directly to the internet without stateful inspection." },
+      { id: 'B', text: "Deploy AWS Network Firewall in a centralized inspection VPC with Transit Gateway route tables directing traffic through firewall endpoints." },
+      { id: 'C', text: "Disable Transit Gateway routing to force all traffic through public internet VPNs." },
+      { id: 'D', text: "Deploy individual NAT Gateways and third-party firewall instances in every private subnet with no central management." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy AWS Network Firewall in a centralized inspection VPC with Transit Gateway route tables directing traffic through firewall endpoints. Centralized inspection architecture uses AWS Transit Gateway to route VPC egress and inter-VPC traffic through dedicated inspection VPCs hosting AWS Network Firewall endpoints. This centralizes stateful intrusion prevention (IPS) and URL filtering without deploying firewalls in every spoke VPC.",
     referenceUrl: "https://docs.aws.amazon.com/network-firewall/latest/developerguide/arch-centralized.html",
@@ -156,12 +156,12 @@ export const AWS_SCS_QUESTIONS_14 = [
     scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer evaluates Network Firewall to inspect and filter all north-south internet egress and east-west VPC traffic centrally across an entire AWS Organization.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls? Transit Gateway routing traffic through a centralized inspection VPC with AWS Network Firewall is under consideration.",
     options: [
-      { id: 'A', text: "Deploy AWS Network Firewall in a centralized inspection VPC with Transit Gateway route tables directing traffic through firewall endpoints." },
-      { id: 'B', text: "Deploy individual NAT Gateways and third-party firewall instances in every private subnet with no central management." },
-      { id: 'C', text: "Allow all VPC traffic to egress directly to the internet without stateful inspection." },
-      { id: 'D', text: "Disable Transit Gateway routing to force all traffic through public internet VPNs." }
+      { id: 'A', text: "Allow all VPC traffic to egress directly to the internet without stateful inspection." },
+      { id: 'B', text: "Disable Transit Gateway routing to force all traffic through public internet VPNs." },
+      { id: 'C', text: "Deploy individual NAT Gateways and third-party firewall instances in every private subnet with no central management." },
+      { id: 'D', text: "Deploy AWS Network Firewall in a centralized inspection VPC with Transit Gateway route tables directing traffic through firewall endpoints." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy AWS Network Firewall in a centralized inspection VPC with Transit Gateway route tables directing traffic through firewall endpoints. Centralized inspection architecture uses AWS Transit Gateway to route VPC egress and inter-VPC traffic through dedicated inspection VPCs hosting AWS Network Firewall endpoints. This centralizes stateful intrusion prevention (IPS) and URL filtering without deploying firewalls in every spoke VPC.",
     referenceUrl: "https://docs.aws.amazon.com/network-firewall/latest/developerguide/arch-centralized.html",
@@ -179,8 +179,8 @@ export const AWS_SCS_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Deploy AWS Network Firewall in a centralized inspection VPC with Transit Gateway route tables directing traffic through firewall endpoints." },
       { id: 'B', text: "Deploy individual NAT Gateways and third-party firewall instances in every private subnet with no central management." },
-      { id: 'C', text: "Allow all VPC traffic to egress directly to the internet without stateful inspection." },
-      { id: 'D', text: "Disable Transit Gateway routing to force all traffic through public internet VPNs." }
+      { id: 'C', text: "Disable Transit Gateway routing to force all traffic through public internet VPNs." },
+      { id: 'D', text: "Allow all VPC traffic to egress directly to the internet without stateful inspection." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -242,8 +242,8 @@ export const AWS_SCS_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Implement an AWS WAF Web ACL with a rate-based rule limiting requests to `/login` and enable AWS WAF Bot Control." },
       { id: 'B', text: "Increase EC2 instance sizes to absorb the massive volume of fraudulent login attempts." },
-      { id: 'C', text: "Disable rate limiting to prevent blocking legitimate customers who forget their passwords." },
-      { id: 'D', text: "Rely on client-side JavaScript popups to deter automated attack scripts." }
+      { id: 'C', text: "Rely on client-side JavaScript popups to deter automated attack scripts." },
+      { id: 'D', text: "Disable rate limiting to prevent blocking legitimate customers who forget their passwords." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -262,9 +262,9 @@ export const AWS_SCS_QUESTIONS_14 = [
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls? Protecting login endpoints against credential stuffing and brute-force attacks via rate-based rules is under consideration.",
     options: [
       { id: 'A', text: "Implement an AWS WAF Web ACL with a rate-based rule limiting requests to `/login` and enable AWS WAF Bot Control." },
-      { id: 'B', text: "Increase EC2 instance sizes to absorb the massive volume of fraudulent login attempts." },
+      { id: 'B', text: "Rely on client-side JavaScript popups to deter automated attack scripts." },
       { id: 'C', text: "Disable rate limiting to prevent blocking legitimate customers who forget their passwords." },
-      { id: 'D', text: "Rely on client-side JavaScript popups to deter automated attack scripts." }
+      { id: 'D', text: "Increase EC2 instance sizes to absorb the massive volume of fraudulent login attempts." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -282,12 +282,12 @@ export const AWS_SCS_QUESTIONS_14 = [
     scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer evaluates AWS WAF to protect an e-commerce login API from distributed credential stuffing attacks originating from thousands of rotating IP addresses.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity? Protecting login endpoints against credential stuffing and brute-force attacks via rate-based rules is under consideration.",
     options: [
-      { id: 'A', text: "Implement an AWS WAF Web ACL with a rate-based rule limiting requests to `/login` and enable AWS WAF Bot Control." },
-      { id: 'B', text: "Increase EC2 instance sizes to absorb the massive volume of fraudulent login attempts." },
+      { id: 'A', text: "Rely on client-side JavaScript popups to deter automated attack scripts." },
+      { id: 'B', text: "Implement an AWS WAF Web ACL with a rate-based rule limiting requests to `/login` and enable AWS WAF Bot Control." },
       { id: 'C', text: "Disable rate limiting to prevent blocking legitimate customers who forget their passwords." },
-      { id: 'D', text: "Rely on client-side JavaScript popups to deter automated attack scripts." }
+      { id: 'D', text: "Increase EC2 instance sizes to absorb the massive volume of fraudulent login attempts." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Implement an AWS WAF Web ACL with a rate-based rule limiting requests to `/login` and enable AWS WAF Bot Control. AWS WAF rate-based rules track the rate of requests from each IP address over 1-minute or 5-minute evaluation windows, automatically blocking IPs that breach configured limits. AWS WAF Bot Control adds managed signatures and machine learning to detect and mitigate malicious automated botnets.",
     referenceUrl: "https://docs.aws.amazon.com/waf/latest/developerguide/waf-bot-control.html",
@@ -303,12 +303,12 @@ export const AWS_SCS_QUESTIONS_14 = [
     scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer evaluates AWS WAF to protect an e-commerce login API from distributed credential stuffing attacks originating from thousands of rotating IP addresses.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense? Protecting login endpoints against credential stuffing and brute-force attacks via rate-based rules is under consideration.",
     options: [
-      { id: 'A', text: "Implement an AWS WAF Web ACL with a rate-based rule limiting requests to `/login` and enable AWS WAF Bot Control." },
-      { id: 'B', text: "Increase EC2 instance sizes to absorb the massive volume of fraudulent login attempts." },
-      { id: 'C', text: "Disable rate limiting to prevent blocking legitimate customers who forget their passwords." },
+      { id: 'A', text: "Disable rate limiting to prevent blocking legitimate customers who forget their passwords." },
+      { id: 'B', text: "Implement an AWS WAF Web ACL with a rate-based rule limiting requests to `/login` and enable AWS WAF Bot Control." },
+      { id: 'C', text: "Increase EC2 instance sizes to absorb the massive volume of fraudulent login attempts." },
       { id: 'D', text: "Rely on client-side JavaScript popups to deter automated attack scripts." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Implement an AWS WAF Web ACL with a rate-based rule limiting requests to `/login` and enable AWS WAF Bot Control. AWS WAF rate-based rules track the rate of requests from each IP address over 1-minute or 5-minute evaluation windows, automatically blocking IPs that breach configured limits. AWS WAF Bot Control adds managed signatures and machine learning to detect and mitigate malicious automated botnets.",
     referenceUrl: "https://docs.aws.amazon.com/waf/latest/developerguide/waf-bot-control.html",
@@ -324,12 +324,12 @@ export const AWS_SCS_QUESTIONS_14 = [
     scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer evaluates AWS Shield Advanced to protect mission-critical web applications against sophisticated multi-gigabit layer 3/4 and layer 7 DDoS attacks with financial indemnity.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives? Layer 7 DDoS attack mitigation, cost protection, and AWS DDoS Response Team (DRT) support is under consideration.",
     options: [
-      { id: 'A', text: "Subscribe to AWS Shield Advanced, enable automatic layer 7 DDoS mitigation, and authorize the AWS DDoS Response Team (DRT)." },
-      { id: 'B', text: "Rely on default AWS Shield Standard which only provides basic layer 3/4 SYN flood protection without financial guarantees." },
+      { id: 'A', text: "Rely on default AWS Shield Standard which only provides basic layer 3/4 SYN flood protection without financial guarantees." },
+      { id: 'B', text: "Manually add individual attacker IP addresses to VPC Network ACLs during the DDoS event." },
       { id: 'C', text: "Shut down all public web servers whenever a DDoS attack begins to save bandwidth costs." },
-      { id: 'D', text: "Manually add individual attacker IP addresses to VPC Network ACLs during the DDoS event." }
+      { id: 'D', text: "Subscribe to AWS Shield Advanced, enable automatic layer 7 DDoS mitigation, and authorize the AWS DDoS Response Team (DRT)." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Subscribe to AWS Shield Advanced, enable automatic layer 7 DDoS mitigation, and authorize the AWS DDoS Response Team (DRT). AWS Shield Advanced provides enterprise protection against complex DDoS attacks. It includes automated layer 7 mitigation, 24/7 engagement with the AWS DDoS Response Team (DRT), and DDoS cost protection that credits charges incurred from scaling during an attack.",
     referenceUrl: "https://docs.aws.amazon.com/waf/latest/developerguide/ddos-advanced.html",
@@ -345,12 +345,12 @@ export const AWS_SCS_QUESTIONS_14 = [
     scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer evaluates AWS Shield Advanced to protect mission-critical web applications against sophisticated multi-gigabit layer 3/4 and layer 7 DDoS attacks with financial indemnity.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence? Layer 7 DDoS attack mitigation, cost protection, and AWS DDoS Response Team (DRT) support is under consideration.",
     options: [
-      { id: 'A', text: "Subscribe to AWS Shield Advanced, enable automatic layer 7 DDoS mitigation, and authorize the AWS DDoS Response Team (DRT)." },
+      { id: 'A', text: "Manually add individual attacker IP addresses to VPC Network ACLs during the DDoS event." },
       { id: 'B', text: "Rely on default AWS Shield Standard which only provides basic layer 3/4 SYN flood protection without financial guarantees." },
-      { id: 'C', text: "Shut down all public web servers whenever a DDoS attack begins to save bandwidth costs." },
-      { id: 'D', text: "Manually add individual attacker IP addresses to VPC Network ACLs during the DDoS event." }
+      { id: 'C', text: "Subscribe to AWS Shield Advanced, enable automatic layer 7 DDoS mitigation, and authorize the AWS DDoS Response Team (DRT)." },
+      { id: 'D', text: "Shut down all public web servers whenever a DDoS attack begins to save bandwidth costs." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Subscribe to AWS Shield Advanced, enable automatic layer 7 DDoS mitigation, and authorize the AWS DDoS Response Team (DRT). AWS Shield Advanced provides enterprise protection against complex DDoS attacks. It includes automated layer 7 mitigation, 24/7 engagement with the AWS DDoS Response Team (DRT), and DDoS cost protection that credits charges incurred from scaling during an attack.",
     referenceUrl: "https://docs.aws.amazon.com/waf/latest/developerguide/ddos-advanced.html",
@@ -366,12 +366,12 @@ export const AWS_SCS_QUESTIONS_14 = [
     scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer evaluates AWS Shield Advanced to protect mission-critical web applications against sophisticated multi-gigabit layer 3/4 and layer 7 DDoS attacks with financial indemnity.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls? Layer 7 DDoS attack mitigation, cost protection, and AWS DDoS Response Team (DRT) support is under consideration.",
     options: [
-      { id: 'A', text: "Subscribe to AWS Shield Advanced, enable automatic layer 7 DDoS mitigation, and authorize the AWS DDoS Response Team (DRT)." },
-      { id: 'B', text: "Rely on default AWS Shield Standard which only provides basic layer 3/4 SYN flood protection without financial guarantees." },
-      { id: 'C', text: "Shut down all public web servers whenever a DDoS attack begins to save bandwidth costs." },
-      { id: 'D', text: "Manually add individual attacker IP addresses to VPC Network ACLs during the DDoS event." }
+      { id: 'A', text: "Shut down all public web servers whenever a DDoS attack begins to save bandwidth costs." },
+      { id: 'B', text: "Subscribe to AWS Shield Advanced, enable automatic layer 7 DDoS mitigation, and authorize the AWS DDoS Response Team (DRT)." },
+      { id: 'C', text: "Manually add individual attacker IP addresses to VPC Network ACLs during the DDoS event." },
+      { id: 'D', text: "Rely on default AWS Shield Standard which only provides basic layer 3/4 SYN flood protection without financial guarantees." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Subscribe to AWS Shield Advanced, enable automatic layer 7 DDoS mitigation, and authorize the AWS DDoS Response Team (DRT). AWS Shield Advanced provides enterprise protection against complex DDoS attacks. It includes automated layer 7 mitigation, 24/7 engagement with the AWS DDoS Response Team (DRT), and DDoS cost protection that credits charges incurred from scaling during an attack.",
     referenceUrl: "https://docs.aws.amazon.com/waf/latest/developerguide/ddos-advanced.html",
@@ -387,12 +387,12 @@ export const AWS_SCS_QUESTIONS_14 = [
     scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer evaluates AWS Shield Advanced to protect mission-critical web applications against sophisticated multi-gigabit layer 3/4 and layer 7 DDoS attacks with financial indemnity.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity? Layer 7 DDoS attack mitigation, cost protection, and AWS DDoS Response Team (DRT) support is under consideration.",
     options: [
-      { id: 'A', text: "Subscribe to AWS Shield Advanced, enable automatic layer 7 DDoS mitigation, and authorize the AWS DDoS Response Team (DRT)." },
+      { id: 'A', text: "Shut down all public web servers whenever a DDoS attack begins to save bandwidth costs." },
       { id: 'B', text: "Rely on default AWS Shield Standard which only provides basic layer 3/4 SYN flood protection without financial guarantees." },
-      { id: 'C', text: "Shut down all public web servers whenever a DDoS attack begins to save bandwidth costs." },
-      { id: 'D', text: "Manually add individual attacker IP addresses to VPC Network ACLs during the DDoS event." }
+      { id: 'C', text: "Manually add individual attacker IP addresses to VPC Network ACLs during the DDoS event." },
+      { id: 'D', text: "Subscribe to AWS Shield Advanced, enable automatic layer 7 DDoS mitigation, and authorize the AWS DDoS Response Team (DRT)." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Subscribe to AWS Shield Advanced, enable automatic layer 7 DDoS mitigation, and authorize the AWS DDoS Response Team (DRT). AWS Shield Advanced provides enterprise protection against complex DDoS attacks. It includes automated layer 7 mitigation, 24/7 engagement with the AWS DDoS Response Team (DRT), and DDoS cost protection that credits charges incurred from scaling during an attack.",
     referenceUrl: "https://docs.aws.amazon.com/waf/latest/developerguide/ddos-advanced.html",
@@ -408,12 +408,12 @@ export const AWS_SCS_QUESTIONS_14 = [
     scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer evaluates AWS Shield Advanced to protect mission-critical web applications against sophisticated multi-gigabit layer 3/4 and layer 7 DDoS attacks with financial indemnity.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense? Layer 7 DDoS attack mitigation, cost protection, and AWS DDoS Response Team (DRT) support is under consideration.",
     options: [
-      { id: 'A', text: "Subscribe to AWS Shield Advanced, enable automatic layer 7 DDoS mitigation, and authorize the AWS DDoS Response Team (DRT)." },
-      { id: 'B', text: "Rely on default AWS Shield Standard which only provides basic layer 3/4 SYN flood protection without financial guarantees." },
-      { id: 'C', text: "Shut down all public web servers whenever a DDoS attack begins to save bandwidth costs." },
+      { id: 'A', text: "Shut down all public web servers whenever a DDoS attack begins to save bandwidth costs." },
+      { id: 'B', text: "Subscribe to AWS Shield Advanced, enable automatic layer 7 DDoS mitigation, and authorize the AWS DDoS Response Team (DRT)." },
+      { id: 'C', text: "Rely on default AWS Shield Standard which only provides basic layer 3/4 SYN flood protection without financial guarantees." },
       { id: 'D', text: "Manually add individual attacker IP addresses to VPC Network ACLs during the DDoS event." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Subscribe to AWS Shield Advanced, enable automatic layer 7 DDoS mitigation, and authorize the AWS DDoS Response Team (DRT). AWS Shield Advanced provides enterprise protection against complex DDoS attacks. It includes automated layer 7 mitigation, 24/7 engagement with the AWS DDoS Response Team (DRT), and DDoS cost protection that credits charges incurred from scaling during an attack.",
     referenceUrl: "https://docs.aws.amazon.com/waf/latest/developerguide/ddos-advanced.html",
@@ -430,9 +430,9 @@ export const AWS_SCS_QUESTIONS_14 = [
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives? Stateful security groups vs stateless network access control lists (NACLs) evaluation order is under consideration.",
     options: [
       { id: 'A', text: "Add an explicit `DENY` rule for the CIDR block in the subnet's stateless Network ACL, while managing stateful application rules in Security Groups." },
-      { id: 'B', text: "Attempt to add a DENY rule to a Security Group, which only supports permissive ALLOW rules." },
-      { id: 'C', text: "Disable Network ACLs and leave subnets completely unshielded." },
-      { id: 'D', text: "Remove all outbound rules from Security Groups expecting them to block response traffic for accepted inbound connections." }
+      { id: 'B', text: "Disable Network ACLs and leave subnets completely unshielded." },
+      { id: 'C', text: "Remove all outbound rules from Security Groups expecting them to block response traffic for accepted inbound connections." },
+      { id: 'D', text: "Attempt to add a DENY rule to a Security Group, which only supports permissive ALLOW rules." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -450,12 +450,12 @@ export const AWS_SCS_QUESTIONS_14 = [
     scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer evaluates Security Groups & NACLs to block a specific malicious IP subnet from reaching any resources in a subnet while allowing stateful return traffic for application servers.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence? Stateful security groups vs stateless network access control lists (NACLs) evaluation order is under consideration.",
     options: [
-      { id: 'A', text: "Add an explicit `DENY` rule for the CIDR block in the subnet's stateless Network ACL, while managing stateful application rules in Security Groups." },
-      { id: 'B', text: "Attempt to add a DENY rule to a Security Group, which only supports permissive ALLOW rules." },
-      { id: 'C', text: "Disable Network ACLs and leave subnets completely unshielded." },
-      { id: 'D', text: "Remove all outbound rules from Security Groups expecting them to block response traffic for accepted inbound connections." }
+      { id: 'A', text: "Attempt to add a DENY rule to a Security Group, which only supports permissive ALLOW rules." },
+      { id: 'B', text: "Disable Network ACLs and leave subnets completely unshielded." },
+      { id: 'C', text: "Remove all outbound rules from Security Groups expecting them to block response traffic for accepted inbound connections." },
+      { id: 'D', text: "Add an explicit `DENY` rule for the CIDR block in the subnet's stateless Network ACL, while managing stateful application rules in Security Groups." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Add an explicit `DENY` rule for the CIDR block in the subnet's stateless Network ACL, while managing stateful application rules in Security Groups. Security Groups are stateful (return traffic is automatically allowed regardless of outbound rules) and support only `ALLOW` rules. Network ACLs are stateless (operating at the subnet boundary, evaluated by rule number order), and explicitly support both `ALLOW` and `DENY` rules, making NACLs ideal for blocking specific IP ranges.",
     referenceUrl: "https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Security.html",
@@ -471,12 +471,12 @@ export const AWS_SCS_QUESTIONS_14 = [
     scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer evaluates Security Groups & NACLs to block a specific malicious IP subnet from reaching any resources in a subnet while allowing stateful return traffic for application servers.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls? Stateful security groups vs stateless network access control lists (NACLs) evaluation order is under consideration.",
     options: [
-      { id: 'A', text: "Add an explicit `DENY` rule for the CIDR block in the subnet's stateless Network ACL, while managing stateful application rules in Security Groups." },
-      { id: 'B', text: "Attempt to add a DENY rule to a Security Group, which only supports permissive ALLOW rules." },
-      { id: 'C', text: "Disable Network ACLs and leave subnets completely unshielded." },
-      { id: 'D', text: "Remove all outbound rules from Security Groups expecting them to block response traffic for accepted inbound connections." }
+      { id: 'A', text: "Disable Network ACLs and leave subnets completely unshielded." },
+      { id: 'B', text: "Remove all outbound rules from Security Groups expecting them to block response traffic for accepted inbound connections." },
+      { id: 'C', text: "Add an explicit `DENY` rule for the CIDR block in the subnet's stateless Network ACL, while managing stateful application rules in Security Groups." },
+      { id: 'D', text: "Attempt to add a DENY rule to a Security Group, which only supports permissive ALLOW rules." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Add an explicit `DENY` rule for the CIDR block in the subnet's stateless Network ACL, while managing stateful application rules in Security Groups. Security Groups are stateful (return traffic is automatically allowed regardless of outbound rules) and support only `ALLOW` rules. Network ACLs are stateless (operating at the subnet boundary, evaluated by rule number order), and explicitly support both `ALLOW` and `DENY` rules, making NACLs ideal for blocking specific IP ranges.",
     referenceUrl: "https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Security.html",
@@ -494,8 +494,8 @@ export const AWS_SCS_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Add an explicit `DENY` rule for the CIDR block in the subnet's stateless Network ACL, while managing stateful application rules in Security Groups." },
       { id: 'B', text: "Attempt to add a DENY rule to a Security Group, which only supports permissive ALLOW rules." },
-      { id: 'C', text: "Disable Network ACLs and leave subnets completely unshielded." },
-      { id: 'D', text: "Remove all outbound rules from Security Groups expecting them to block response traffic for accepted inbound connections." }
+      { id: 'C', text: "Remove all outbound rules from Security Groups expecting them to block response traffic for accepted inbound connections." },
+      { id: 'D', text: "Disable Network ACLs and leave subnets completely unshielded." }
     ],
     correctAnswers: ['A'],
     type: "single",

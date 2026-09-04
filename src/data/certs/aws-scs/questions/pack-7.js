@@ -30,10 +30,10 @@ export const AWS_SCS_QUESTIONS_7 = [
     scenario: "An identity architect is establishing least privilege, temporary credentials, and federation across an AWS enterprise estate.",
     question: "Which IAM architecture best satisfies objective #20?",
     options: [
-      { id: 'A', text: "Creating long-lived IAM user access keys for every employee and disabling MFA" },
+      { id: 'A', text: "Hardcoding root account access credentials in application configuration files" },
       { id: 'B', text: "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies" },
       { id: 'C', text: "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation" },
-      { id: 'D', text: "Hardcoding root account access credentials in application configuration files" }
+      { id: 'D', text: "Creating long-lived IAM user access keys for every employee and disabling MFA" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -51,12 +51,12 @@ export const AWS_SCS_QUESTIONS_7 = [
     scenario: "An identity architect is establishing least privilege, temporary credentials, and federation across an AWS enterprise estate.",
     question: "Which IAM architecture best satisfies objective #21?",
     options: [
-      { id: 'A', text: "Hardcoding root account access credentials in application configuration files" },
-      { id: 'B', text: "Creating long-lived IAM user access keys for every employee and disabling MFA" },
-      { id: 'C', text: "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies" },
-      { id: 'D', text: "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation" }
+      { id: 'A', text: "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation" },
+      { id: 'B', text: "Hardcoding root account access credentials in application configuration files" },
+      { id: 'C', text: "Creating long-lived IAM user access keys for every employee and disabling MFA" },
+      { id: 'D', text: "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "IAM best practices mandate eliminating long-lived access keys, adopting federated single sign-on with IAM Identity Center, enforcing MFA, and validating policies using IAM Access Analyzer.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html",
@@ -72,12 +72,12 @@ export const AWS_SCS_QUESTIONS_7 = [
     scenario: "An identity architect is establishing least privilege, temporary credentials, and federation across an AWS enterprise estate.",
     question: "Which IAM architecture best satisfies objective #22?",
     options: [
-      { id: 'A', text: "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies" },
-      { id: 'B', text: "Hardcoding root account access credentials in application configuration files" },
-      { id: 'C', text: "Creating long-lived IAM user access keys for every employee and disabling MFA" },
-      { id: 'D', text: "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation" }
+      { id: 'A', text: "Creating long-lived IAM user access keys for every employee and disabling MFA" },
+      { id: 'B', text: "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation" },
+      { id: 'C', text: "Hardcoding root account access credentials in application configuration files" },
+      { id: 'D', text: "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "IAM best practices mandate eliminating long-lived access keys, adopting federated single sign-on with IAM Identity Center, enforcing MFA, and validating policies using IAM Access Analyzer.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html",
@@ -114,12 +114,12 @@ export const AWS_SCS_QUESTIONS_7 = [
     scenario: "An identity architect is establishing least privilege, temporary credentials, and federation across an AWS enterprise estate.",
     question: "Which IAM architecture best satisfies objective #24?",
     options: [
-      { id: 'A', text: "Hardcoding root account access credentials in application configuration files" },
-      { id: 'B', text: "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation" },
+      { id: 'A', text: "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies" },
+      { id: 'B', text: "Hardcoding root account access credentials in application configuration files" },
       { id: 'C', text: "Creating long-lived IAM user access keys for every employee and disabling MFA" },
-      { id: 'D', text: "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies" }
+      { id: 'D', text: "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "IAM best practices mandate eliminating long-lived access keys, adopting federated single sign-on with IAM Identity Center, enforcing MFA, and validating policies using IAM Access Analyzer.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html",
@@ -135,12 +135,12 @@ export const AWS_SCS_QUESTIONS_7 = [
     scenario: "An identity architect is establishing least privilege, temporary credentials, and federation across an AWS enterprise estate.",
     question: "Which IAM architecture best satisfies objective #25?",
     options: [
-      { id: 'A', text: "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation" },
-      { id: 'B', text: "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies" },
-      { id: 'C', text: "Creating long-lived IAM user access keys for every employee and disabling MFA" },
-      { id: 'D', text: "Hardcoding root account access credentials in application configuration files" }
+      { id: 'A', text: "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies" },
+      { id: 'B', text: "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation" },
+      { id: 'C', text: "Hardcoding root account access credentials in application configuration files" },
+      { id: 'D', text: "Creating long-lived IAM user access keys for every employee and disabling MFA" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "IAM best practices mandate eliminating long-lived access keys, adopting federated single sign-on with IAM Identity Center, enforcing MFA, and validating policies using IAM Access Analyzer.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html",
@@ -156,12 +156,12 @@ export const AWS_SCS_QUESTIONS_7 = [
     scenario: "An identity architect is establishing least privilege, temporary credentials, and federation across an AWS enterprise estate.",
     question: "Which IAM architecture best satisfies objective #26?",
     options: [
-      { id: 'A', text: "Hardcoding root account access credentials in application configuration files" },
-      { id: 'B', text: "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation" },
+      { id: 'A', text: "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation" },
+      { id: 'B', text: "Hardcoding root account access credentials in application configuration files" },
       { id: 'C', text: "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies" },
       { id: 'D', text: "Creating long-lived IAM user access keys for every employee and disabling MFA" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "IAM best practices mandate eliminating long-lived access keys, adopting federated single sign-on with IAM Identity Center, enforcing MFA, and validating policies using IAM Access Analyzer.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html",
@@ -177,12 +177,12 @@ export const AWS_SCS_QUESTIONS_7 = [
     scenario: "An identity architect is establishing least privilege, temporary credentials, and federation across an AWS enterprise estate.",
     question: "Which IAM architecture best satisfies objective #27?",
     options: [
-      { id: 'A', text: "Creating long-lived IAM user access keys for every employee and disabling MFA" },
-      { id: 'B', text: "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation" },
-      { id: 'C', text: "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies" },
-      { id: 'D', text: "Hardcoding root account access credentials in application configuration files" }
+      { id: 'A', text: "Hardcoding root account access credentials in application configuration files" },
+      { id: 'B', text: "Creating long-lived IAM user access keys for every employee and disabling MFA" },
+      { id: 'C', text: "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation" },
+      { id: 'D', text: "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "IAM best practices mandate eliminating long-lived access keys, adopting federated single sign-on with IAM Identity Center, enforcing MFA, and validating policies using IAM Access Analyzer.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html",
@@ -198,12 +198,12 @@ export const AWS_SCS_QUESTIONS_7 = [
     scenario: "An identity architect is establishing least privilege, temporary credentials, and federation across an AWS enterprise estate.",
     question: "Which IAM architecture best satisfies objective #28?",
     options: [
-      { id: 'A', text: "Creating long-lived IAM user access keys for every employee and disabling MFA" },
-      { id: 'B', text: "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation" },
+      { id: 'A', text: "Hardcoding root account access credentials in application configuration files" },
+      { id: 'B', text: "Creating long-lived IAM user access keys for every employee and disabling MFA" },
       { id: 'C', text: "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies" },
-      { id: 'D', text: "Hardcoding root account access credentials in application configuration files" }
+      { id: 'D', text: "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "IAM best practices mandate eliminating long-lived access keys, adopting federated single sign-on with IAM Identity Center, enforcing MFA, and validating policies using IAM Access Analyzer.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html",
@@ -219,12 +219,12 @@ export const AWS_SCS_QUESTIONS_7 = [
     scenario: "An identity architect is establishing least privilege, temporary credentials, and federation across an AWS enterprise estate.",
     question: "Which IAM architecture best satisfies objective #29?",
     options: [
-      { id: 'A', text: "Hardcoding root account access credentials in application configuration files" },
-      { id: 'B', text: "Creating long-lived IAM user access keys for every employee and disabling MFA" },
-      { id: 'C', text: "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies" },
-      { id: 'D', text: "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation" }
+      { id: 'A', text: "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies" },
+      { id: 'B', text: "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation" },
+      { id: 'C', text: "Creating long-lived IAM user access keys for every employee and disabling MFA" },
+      { id: 'D', text: "Hardcoding root account access credentials in application configuration files" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "IAM best practices mandate eliminating long-lived access keys, adopting federated single sign-on with IAM Identity Center, enforcing MFA, and validating policies using IAM Access Analyzer.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html",
@@ -241,8 +241,8 @@ export const AWS_SCS_QUESTIONS_7 = [
     question: "Which IAM architecture best satisfies objective #30?",
     options: [
       { id: 'A', text: "Creating long-lived IAM user access keys for every employee and disabling MFA" },
-      { id: 'B', text: "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies" },
-      { id: 'C', text: "Hardcoding root account access credentials in application configuration files" },
+      { id: 'B', text: "Hardcoding root account access credentials in application configuration files" },
+      { id: 'C', text: "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies" },
       { id: 'D', text: "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation" }
     ],
     correctAnswers: ['D'],
@@ -263,10 +263,10 @@ export const AWS_SCS_QUESTIONS_7 = [
     options: [
       { id: 'A', text: "Hardcoding root account access credentials in application configuration files" },
       { id: 'B', text: "Creating long-lived IAM user access keys for every employee and disabling MFA" },
-      { id: 'C', text: "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies" },
-      { id: 'D', text: "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation" }
+      { id: 'C', text: "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation" },
+      { id: 'D', text: "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "IAM best practices mandate eliminating long-lived access keys, adopting federated single sign-on with IAM Identity Center, enforcing MFA, and validating policies using IAM Access Analyzer.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html",
@@ -282,12 +282,12 @@ export const AWS_SCS_QUESTIONS_7 = [
     scenario: "An identity architect is establishing least privilege, temporary credentials, and federation across an AWS enterprise estate.",
     question: "Which IAM architecture best satisfies objective #32?",
     options: [
-      { id: 'A', text: "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies" },
-      { id: 'B', text: "Hardcoding root account access credentials in application configuration files" },
-      { id: 'C', text: "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation" },
+      { id: 'A', text: "Hardcoding root account access credentials in application configuration files" },
+      { id: 'B', text: "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation" },
+      { id: 'C', text: "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies" },
       { id: 'D', text: "Creating long-lived IAM user access keys for every employee and disabling MFA" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "IAM best practices mandate eliminating long-lived access keys, adopting federated single sign-on with IAM Identity Center, enforcing MFA, and validating policies using IAM Access Analyzer.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html",
@@ -305,10 +305,10 @@ export const AWS_SCS_QUESTIONS_7 = [
     options: [
       { id: 'A', text: "Hardcoding root account access credentials in application configuration files" },
       { id: 'B', text: "Creating long-lived IAM user access keys for every employee and disabling MFA" },
-      { id: 'C', text: "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies" },
-      { id: 'D', text: "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation" }
+      { id: 'C', text: "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation" },
+      { id: 'D', text: "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "IAM best practices mandate eliminating long-lived access keys, adopting federated single sign-on with IAM Identity Center, enforcing MFA, and validating policies using IAM Access Analyzer.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html",
@@ -324,12 +324,12 @@ export const AWS_SCS_QUESTIONS_7 = [
     scenario: "An identity architect is establishing least privilege, temporary credentials, and federation across an AWS enterprise estate.",
     question: "Which IAM architecture best satisfies objective #34?",
     options: [
-      { id: 'A', text: "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies" },
-      { id: 'B', text: "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation" },
-      { id: 'C', text: "Hardcoding root account access credentials in application configuration files" },
-      { id: 'D', text: "Creating long-lived IAM user access keys for every employee and disabling MFA" }
+      { id: 'A', text: "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation" },
+      { id: 'B', text: "Creating long-lived IAM user access keys for every employee and disabling MFA" },
+      { id: 'C', text: "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies" },
+      { id: 'D', text: "Hardcoding root account access credentials in application configuration files" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "IAM best practices mandate eliminating long-lived access keys, adopting federated single sign-on with IAM Identity Center, enforcing MFA, and validating policies using IAM Access Analyzer.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html",
@@ -346,11 +346,11 @@ export const AWS_SCS_QUESTIONS_7 = [
     question: "Which IAM architecture best satisfies objective #35?",
     options: [
       { id: 'A', text: "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies" },
-      { id: 'B', text: "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation" },
+      { id: 'B', text: "Hardcoding root account access credentials in application configuration files" },
       { id: 'C', text: "Creating long-lived IAM user access keys for every employee and disabling MFA" },
-      { id: 'D', text: "Hardcoding root account access credentials in application configuration files" }
+      { id: 'D', text: "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "IAM best practices mandate eliminating long-lived access keys, adopting federated single sign-on with IAM Identity Center, enforcing MFA, and validating policies using IAM Access Analyzer.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html",
@@ -366,12 +366,12 @@ export const AWS_SCS_QUESTIONS_7 = [
     scenario: "An identity architect is establishing least privilege, temporary credentials, and federation across an AWS enterprise estate.",
     question: "Which IAM architecture best satisfies objective #36?",
     options: [
-      { id: 'A', text: "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation" },
-      { id: 'B', text: "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies" },
+      { id: 'A', text: "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies" },
+      { id: 'B', text: "Hardcoding root account access credentials in application configuration files" },
       { id: 'C', text: "Creating long-lived IAM user access keys for every employee and disabling MFA" },
-      { id: 'D', text: "Hardcoding root account access credentials in application configuration files" }
+      { id: 'D', text: "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "IAM best practices mandate eliminating long-lived access keys, adopting federated single sign-on with IAM Identity Center, enforcing MFA, and validating policies using IAM Access Analyzer.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html",
@@ -387,12 +387,12 @@ export const AWS_SCS_QUESTIONS_7 = [
     scenario: "An identity architect is establishing least privilege, temporary credentials, and federation across an AWS enterprise estate.",
     question: "Which IAM architecture best satisfies objective #37?",
     options: [
-      { id: 'A', text: "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation" },
+      { id: 'A', text: "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies" },
       { id: 'B', text: "Hardcoding root account access credentials in application configuration files" },
-      { id: 'C', text: "Creating long-lived IAM user access keys for every employee and disabling MFA" },
-      { id: 'D', text: "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies" }
+      { id: 'C', text: "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation" },
+      { id: 'D', text: "Creating long-lived IAM user access keys for every employee and disabling MFA" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "IAM best practices mandate eliminating long-lived access keys, adopting federated single sign-on with IAM Identity Center, enforcing MFA, and validating policies using IAM Access Analyzer.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html",
@@ -408,12 +408,12 @@ export const AWS_SCS_QUESTIONS_7 = [
     scenario: "An identity architect is establishing least privilege, temporary credentials, and federation across an AWS enterprise estate.",
     question: "Which IAM architecture best satisfies objective #38?",
     options: [
-      { id: 'A', text: "Creating long-lived IAM user access keys for every employee and disabling MFA" },
-      { id: 'B', text: "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation" },
-      { id: 'C', text: "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies" },
+      { id: 'A', text: "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation" },
+      { id: 'B', text: "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies" },
+      { id: 'C', text: "Creating long-lived IAM user access keys for every employee and disabling MFA" },
       { id: 'D', text: "Hardcoding root account access credentials in application configuration files" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "IAM best practices mandate eliminating long-lived access keys, adopting federated single sign-on with IAM Identity Center, enforcing MFA, and validating policies using IAM Access Analyzer.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html",
@@ -430,9 +430,9 @@ export const AWS_SCS_QUESTIONS_7 = [
     question: "How does AWS KMS envelope encryption facilitate this process?",
     options: [
       { id: 'A', text: "KMS streams the KMS Customer Master Key directly to the client RAM for local symmetric encryption" },
-      { id: 'B', text: "The application stores the plaintext data key in an S3 bucket metadata tag" },
+      { id: 'B', text: "The application sends the multi-gigabyte file directly to kms:Encrypt via API payload" },
       { id: 'C', text: "The application calls kms:GenerateDataKey to receive a plaintext data key and a ciphertext (encrypted) data key, encrypts the file locally with the plaintext key, deletes the plaintext key from memory, and stores the encrypted data key alongside the encrypted ciphertext in S3" },
-      { id: 'D', text: "The application sends the multi-gigabyte file directly to kms:Encrypt via API payload" }
+      { id: 'D', text: "The application stores the plaintext data key in an S3 bucket metadata tag" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -450,12 +450,12 @@ export const AWS_SCS_QUESTIONS_7 = [
     scenario: "A healthcare enterprise must store patient records in Amazon S3 to comply with strict SEC and HIPAA regulations. Records must be write-once-read-many (WORM) and permanently prevented from deletion or modification for 7 years, even by the AWS account root user or administrators.",
     question: "Which S3 Object Lock retention mode must be enabled?",
     options: [
-      { id: 'A', text: "S3 Lifecycle transition to Glacier Flexible Retrieval" },
-      { id: 'B', text: "Legal Hold alone without retention mode" },
-      { id: 'C', text: "Compliance mode" },
-      { id: 'D', text: "Governance mode" }
+      { id: 'A', text: "Legal Hold alone without retention mode" },
+      { id: 'B', text: "Compliance mode" },
+      { id: 'C', text: "Governance mode" },
+      { id: 'D', text: "S3 Lifecycle transition to Glacier Flexible Retrieval" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "In S3 Object Lock **Compliance mode**, a protected object version cannot be overwritten or deleted by any user, including the root user in the AWS account. Its retention period cannot be shortened, and retention settings cannot be deleted until the retention period expires. In contrast, **Governance mode** allows users with the `s3:BypassGovernanceRetention` permission to alter or delete objects.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-overview.html",
@@ -471,12 +471,12 @@ export const AWS_SCS_QUESTIONS_7 = [
     scenario: "A security engineer creates a new Customer Managed Key (CMK) in AWS KMS. An IAM administrator attaches an IAM policy granting an application role kms:Decrypt permissions on the key ARN, but the application receives an AccessDeniedException when attempting to decrypt.",
     question: "What must be included in the KMS key policy to allow IAM policies to delegate permissions on the key?",
     options: [
-      { id: 'A', text: "The KMS key policy must include a statement with <code>\"Principal\": {\"AWS\": \"arn:aws:iam::111122223333:root\"}</code> and action <code>kms:*</code>, delegating authorization to IAM" },
-      { id: 'B', text: "The application role must be made an administrator in the AWS Organizations management account" },
-      { id: 'C', text: "The KMS key must be converted from a symmetric key to an asymmetric key" },
-      { id: 'D', text: "The key must be shared with the AWS service principal kms.amazonaws.com" }
+      { id: 'A', text: "The KMS key must be converted from a symmetric key to an asymmetric key" },
+      { id: 'B', text: "The key must be shared with the AWS service principal kms.amazonaws.com" },
+      { id: 'C', text: "The application role must be made an administrator in the AWS Organizations management account" },
+      { id: 'D', text: "The KMS key policy must include a statement with <code>\"Principal\": {\"AWS\": \"arn:aws:iam::111122223333:root\"}</code> and action <code>kms:*</code>, delegating authorization to IAM" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "In AWS KMS, the Key Policy is the primary access control mechanism. Unlike other AWS services, IAM policies have zero effect on KMS permissions unless the KMS key policy explicitly contains a statement granting the account root principal (`arn:aws:iam::{account-id}:root`) access to the key. This statement delegates authority to account IAM policies to grant permissions.",
     referenceUrl: "https://docs.aws.amazon.com/security/",
@@ -493,8 +493,8 @@ export const AWS_SCS_QUESTIONS_7 = [
     question: "How does AWS KMS handle existing ciphertexts when automatic key rotation occurs?",
     options: [
       { id: 'A', text: "KMS re-encrypts all 50 TB of existing S3 data immediately upon rotation" },
-      { id: 'B', text: "All existing ciphertexts become unreadable unless manually exported and decrypted within 30 days" },
-      { id: 'C', text: "The KMS Key ID and ARN change, requiring all applications to update their configuration files" },
+      { id: 'B', text: "The KMS Key ID and ARN change, requiring all applications to update their configuration files" },
+      { id: 'C', text: "All existing ciphertexts become unreadable unless manually exported and decrypted within 30 days" },
       { id: 'D', text: "KMS generates new cryptographic backing material for future encryptions while preserving all previous backing key material to decrypt existing data transparently without re-encrypting existing ciphertexts" }
     ],
     correctAnswers: ['D'],
@@ -514,9 +514,9 @@ export const AWS_SCS_QUESTIONS_7 = [
     question: "How does AWS KMS Encryption Context prevent ciphertext swapping attacks?",
     options: [
       { id: 'A', text: "Include key-value pairs (e.g. <code>{\"order_id\": \"12345\", \"customer_id\": \"cust-99\"}</code>) as the Encryption Context during encryption; KMS cryptographically binds this context to the ciphertext, causing decryption to fail if the identical context is not provided" },
-      { id: 'B', text: "Encrypt the customer ID with an RSA asymmetric key pair" },
-      { id: 'C', text: "Store the customer ID in an S3 bucket with Object Lock enabled" },
-      { id: 'D', text: "Enable CloudWatch alarms on database row updates" }
+      { id: 'B', text: "Enable CloudWatch alarms on database row updates" },
+      { id: 'C', text: "Encrypt the customer ID with an RSA asymmetric key pair" },
+      { id: 'D', text: "Store the customer ID in an S3 bucket with Object Lock enabled" }
     ],
     correctAnswers: ['A'],
     type: "single",

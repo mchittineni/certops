@@ -9,12 +9,12 @@ export const CNCF_CNPA_QUESTIONS_18 = [
     scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates Policy as Code to prevent developers from deploying pods that run as root, lack resource requests, or pull images from untrusted registries.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives? Enforcing cluster governance rules pre-commit and at admission time using Kyverno or Gatekeeper is under consideration.",
     options: [
-      { id: 'A', text: "Implement Policy as Code using Kyverno or Open Policy Agent (OPA) Gatekeeper to enforce admission control rules declaratively." },
+      { id: 'A', text: "Grant developers unrestricted access to bypass security policies." },
       { id: 'B', text: "Rely on manual human code reviews to catch missing resource requests and root container execution." },
-      { id: 'C', text: "Grant developers unrestricted access to bypass security policies." },
+      { id: 'C', text: "Implement Policy as Code using Kyverno or Open Policy Agent (OPA) Gatekeeper to enforce admission control rules declaratively." },
       { id: 'D', text: "Disable Kubernetes admission webhooks to improve API server response times." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Implement Policy as Code using Kyverno or Open Policy Agent (OPA) Gatekeeper to enforce admission control rules declaratively. Policy as Code tools (like CNCF Kyverno and OPA Gatekeeper) enforce governance standards automatically. Operating as validating and mutating admission controllers, they reject pods violating security policies (e.g., non-root user, required CPU/memory limits, approved registry origins).",
     referenceUrl: "https://kyverno.io/",
@@ -31,9 +31,9 @@ export const CNCF_CNPA_QUESTIONS_18 = [
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks? Enforcing cluster governance rules pre-commit and at admission time using Kyverno or Gatekeeper is under consideration.",
     options: [
       { id: 'A', text: "Implement Policy as Code using Kyverno or Open Policy Agent (OPA) Gatekeeper to enforce admission control rules declaratively." },
-      { id: 'B', text: "Rely on manual human code reviews to catch missing resource requests and root container execution." },
-      { id: 'C', text: "Grant developers unrestricted access to bypass security policies." },
-      { id: 'D', text: "Disable Kubernetes admission webhooks to improve API server response times." }
+      { id: 'B', text: "Disable Kubernetes admission webhooks to improve API server response times." },
+      { id: 'C', text: "Rely on manual human code reviews to catch missing resource requests and root container execution." },
+      { id: 'D', text: "Grant developers unrestricted access to bypass security policies." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -51,12 +51,12 @@ export const CNCF_CNPA_QUESTIONS_18 = [
     scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates Policy as Code to prevent developers from deploying pods that run as root, lack resource requests, or pull images from untrusted registries.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls? Enforcing cluster governance rules pre-commit and at admission time using Kyverno or Gatekeeper is under consideration.",
     options: [
-      { id: 'A', text: "Implement Policy as Code using Kyverno or Open Policy Agent (OPA) Gatekeeper to enforce admission control rules declaratively." },
-      { id: 'B', text: "Rely on manual human code reviews to catch missing resource requests and root container execution." },
-      { id: 'C', text: "Grant developers unrestricted access to bypass security policies." },
-      { id: 'D', text: "Disable Kubernetes admission webhooks to improve API server response times." }
+      { id: 'A', text: "Grant developers unrestricted access to bypass security policies." },
+      { id: 'B', text: "Disable Kubernetes admission webhooks to improve API server response times." },
+      { id: 'C', text: "Rely on manual human code reviews to catch missing resource requests and root container execution." },
+      { id: 'D', text: "Implement Policy as Code using Kyverno or Open Policy Agent (OPA) Gatekeeper to enforce admission control rules declaratively." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Implement Policy as Code using Kyverno or Open Policy Agent (OPA) Gatekeeper to enforce admission control rules declaratively. Policy as Code tools (like CNCF Kyverno and OPA Gatekeeper) enforce governance standards automatically. Operating as validating and mutating admission controllers, they reject pods violating security policies (e.g., non-root user, required CPU/memory limits, approved registry origins).",
     referenceUrl: "https://kyverno.io/",
@@ -72,12 +72,12 @@ export const CNCF_CNPA_QUESTIONS_18 = [
     scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates Policy as Code to prevent developers from deploying pods that run as root, lack resource requests, or pull images from untrusted registries.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely? Enforcing cluster governance rules pre-commit and at admission time using Kyverno or Gatekeeper is under consideration.",
     options: [
-      { id: 'A', text: "Implement Policy as Code using Kyverno or Open Policy Agent (OPA) Gatekeeper to enforce admission control rules declaratively." },
-      { id: 'B', text: "Rely on manual human code reviews to catch missing resource requests and root container execution." },
+      { id: 'A', text: "Rely on manual human code reviews to catch missing resource requests and root container execution." },
+      { id: 'B', text: "Disable Kubernetes admission webhooks to improve API server response times." },
       { id: 'C', text: "Grant developers unrestricted access to bypass security policies." },
-      { id: 'D', text: "Disable Kubernetes admission webhooks to improve API server response times." }
+      { id: 'D', text: "Implement Policy as Code using Kyverno or Open Policy Agent (OPA) Gatekeeper to enforce admission control rules declaratively." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Implement Policy as Code using Kyverno or Open Policy Agent (OPA) Gatekeeper to enforce admission control rules declaratively. Policy as Code tools (like CNCF Kyverno and OPA Gatekeeper) enforce governance standards automatically. Operating as validating and mutating admission controllers, they reject pods violating security policies (e.g., non-root user, required CPU/memory limits, approved registry origins).",
     referenceUrl: "https://kyverno.io/",
@@ -93,12 +93,12 @@ export const CNCF_CNPA_QUESTIONS_18 = [
     scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates Policy as Code to prevent developers from deploying pods that run as root, lack resource requests, or pull images from untrusted registries.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation? Enforcing cluster governance rules pre-commit and at admission time using Kyverno or Gatekeeper is under consideration.",
     options: [
-      { id: 'A', text: "Implement Policy as Code using Kyverno or Open Policy Agent (OPA) Gatekeeper to enforce admission control rules declaratively." },
-      { id: 'B', text: "Rely on manual human code reviews to catch missing resource requests and root container execution." },
-      { id: 'C', text: "Grant developers unrestricted access to bypass security policies." },
+      { id: 'A', text: "Grant developers unrestricted access to bypass security policies." },
+      { id: 'B', text: "Implement Policy as Code using Kyverno or Open Policy Agent (OPA) Gatekeeper to enforce admission control rules declaratively." },
+      { id: 'C', text: "Rely on manual human code reviews to catch missing resource requests and root container execution." },
       { id: 'D', text: "Disable Kubernetes admission webhooks to improve API server response times." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Implement Policy as Code using Kyverno or Open Policy Agent (OPA) Gatekeeper to enforce admission control rules declaratively. Policy as Code tools (like CNCF Kyverno and OPA Gatekeeper) enforce governance standards automatically. Operating as validating and mutating admission controllers, they reject pods violating security policies (e.g., non-root user, required CPU/memory limits, approved registry origins).",
     referenceUrl: "https://kyverno.io/",
@@ -114,12 +114,12 @@ export const CNCF_CNPA_QUESTIONS_18 = [
     scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates Schema Migrations to execute relational database schema migrations reliably during application deployments without causing downtime.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives? Automating backward-compatible database migrations in CI/CD using Kubernetes Jobs is under consideration.",
     options: [
-      { id: 'A', text: "Run schema migrations via automated Kubernetes pre-upgrade Jobs using backward-compatible expand-and-contract migration patterns." },
-      { id: 'B', text: "Log into the production database server directly via SSH during peak hours to alter tables manually." },
+      { id: 'A', text: "Log into the production database server directly via SSH during peak hours to alter tables manually." },
+      { id: 'B', text: "Run schema migrations via automated Kubernetes pre-upgrade Jobs using backward-compatible expand-and-contract migration patterns." },
       { id: 'C', text: "Execute destructive database schema drops and recreate tables from scratch on every application restart." },
       { id: 'D', text: "Prohibit altering database schemas to avoid deployment complications." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Run schema migrations via automated Kubernetes pre-upgrade Jobs using backward-compatible expand-and-contract migration patterns. Golden paths automate database lifecycle management using tools like Flyway or Liquibase executed via Kubernetes Jobs. Adopting the 'expand and contract' pattern ensures schema migrations remain backward-compatible with running application versions, eliminating downtime.",
     referenceUrl: "https://martinfowler.com/bliki/ParallelChange.html",
@@ -135,12 +135,12 @@ export const CNCF_CNPA_QUESTIONS_18 = [
     scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates Schema Migrations to execute relational database schema migrations reliably during application deployments without causing downtime.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks? Automating backward-compatible database migrations in CI/CD using Kubernetes Jobs is under consideration.",
     options: [
-      { id: 'A', text: "Run schema migrations via automated Kubernetes pre-upgrade Jobs using backward-compatible expand-and-contract migration patterns." },
-      { id: 'B', text: "Log into the production database server directly via SSH during peak hours to alter tables manually." },
-      { id: 'C', text: "Execute destructive database schema drops and recreate tables from scratch on every application restart." },
-      { id: 'D', text: "Prohibit altering database schemas to avoid deployment complications." }
+      { id: 'A', text: "Log into the production database server directly via SSH during peak hours to alter tables manually." },
+      { id: 'B', text: "Run schema migrations via automated Kubernetes pre-upgrade Jobs using backward-compatible expand-and-contract migration patterns." },
+      { id: 'C', text: "Prohibit altering database schemas to avoid deployment complications." },
+      { id: 'D', text: "Execute destructive database schema drops and recreate tables from scratch on every application restart." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Run schema migrations via automated Kubernetes pre-upgrade Jobs using backward-compatible expand-and-contract migration patterns. Golden paths automate database lifecycle management using tools like Flyway or Liquibase executed via Kubernetes Jobs. Adopting the 'expand and contract' pattern ensures schema migrations remain backward-compatible with running application versions, eliminating downtime.",
     referenceUrl: "https://martinfowler.com/bliki/ParallelChange.html",
@@ -156,12 +156,12 @@ export const CNCF_CNPA_QUESTIONS_18 = [
     scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates Schema Migrations to execute relational database schema migrations reliably during application deployments without causing downtime.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls? Automating backward-compatible database migrations in CI/CD using Kubernetes Jobs is under consideration.",
     options: [
-      { id: 'A', text: "Run schema migrations via automated Kubernetes pre-upgrade Jobs using backward-compatible expand-and-contract migration patterns." },
-      { id: 'B', text: "Log into the production database server directly via SSH during peak hours to alter tables manually." },
-      { id: 'C', text: "Execute destructive database schema drops and recreate tables from scratch on every application restart." },
+      { id: 'A', text: "Log into the production database server directly via SSH during peak hours to alter tables manually." },
+      { id: 'B', text: "Execute destructive database schema drops and recreate tables from scratch on every application restart." },
+      { id: 'C', text: "Run schema migrations via automated Kubernetes pre-upgrade Jobs using backward-compatible expand-and-contract migration patterns." },
       { id: 'D', text: "Prohibit altering database schemas to avoid deployment complications." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Run schema migrations via automated Kubernetes pre-upgrade Jobs using backward-compatible expand-and-contract migration patterns. Golden paths automate database lifecycle management using tools like Flyway or Liquibase executed via Kubernetes Jobs. Adopting the 'expand and contract' pattern ensures schema migrations remain backward-compatible with running application versions, eliminating downtime.",
     referenceUrl: "https://martinfowler.com/bliki/ParallelChange.html",
@@ -179,8 +179,8 @@ export const CNCF_CNPA_QUESTIONS_18 = [
     options: [
       { id: 'A', text: "Run schema migrations via automated Kubernetes pre-upgrade Jobs using backward-compatible expand-and-contract migration patterns." },
       { id: 'B', text: "Log into the production database server directly via SSH during peak hours to alter tables manually." },
-      { id: 'C', text: "Execute destructive database schema drops and recreate tables from scratch on every application restart." },
-      { id: 'D', text: "Prohibit altering database schemas to avoid deployment complications." }
+      { id: 'C', text: "Prohibit altering database schemas to avoid deployment complications." },
+      { id: 'D', text: "Execute destructive database schema drops and recreate tables from scratch on every application restart." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,12 +198,12 @@ export const CNCF_CNPA_QUESTIONS_18 = [
     scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates Schema Migrations to execute relational database schema migrations reliably during application deployments without causing downtime.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation? Automating backward-compatible database migrations in CI/CD using Kubernetes Jobs is under consideration.",
     options: [
-      { id: 'A', text: "Run schema migrations via automated Kubernetes pre-upgrade Jobs using backward-compatible expand-and-contract migration patterns." },
-      { id: 'B', text: "Log into the production database server directly via SSH during peak hours to alter tables manually." },
-      { id: 'C', text: "Execute destructive database schema drops and recreate tables from scratch on every application restart." },
-      { id: 'D', text: "Prohibit altering database schemas to avoid deployment complications." }
+      { id: 'A', text: "Prohibit altering database schemas to avoid deployment complications." },
+      { id: 'B', text: "Run schema migrations via automated Kubernetes pre-upgrade Jobs using backward-compatible expand-and-contract migration patterns." },
+      { id: 'C', text: "Log into the production database server directly via SSH during peak hours to alter tables manually." },
+      { id: 'D', text: "Execute destructive database schema drops and recreate tables from scratch on every application restart." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Run schema migrations via automated Kubernetes pre-upgrade Jobs using backward-compatible expand-and-contract migration patterns. Golden paths automate database lifecycle management using tools like Flyway or Liquibase executed via Kubernetes Jobs. Adopting the 'expand and contract' pattern ensures schema migrations remain backward-compatible with running application versions, eliminating downtime.",
     referenceUrl: "https://martinfowler.com/bliki/ParallelChange.html",
@@ -220,9 +220,9 @@ export const CNCF_CNPA_QUESTIONS_18 = [
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives? Decoupling code deployment from business feature release using OpenFeature and flag management is under consideration.",
     options: [
       { id: 'A', text: "Implement feature flags adhering to the CNCF OpenFeature standard to decouple code deployments from business feature releases." },
-      { id: 'B', text: "Hold back complete software releases for months on long-lived feature branches until full testing is complete." },
+      { id: 'B', text: "Deploy completely separate clusters for every single minor UI toggle." },
       { id: 'C', text: "Merge unreviewed, broken code directly into production branches with no toggle controls." },
-      { id: 'D', text: "Deploy completely separate clusters for every single minor UI toggle." }
+      { id: 'D', text: "Hold back complete software releases for months on long-lived feature branches until full testing is complete." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -261,12 +261,12 @@ export const CNCF_CNPA_QUESTIONS_18 = [
     scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates Feature Flags to deploy code changes to production continuously without exposing incomplete or high-risk features to end users immediately.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls? Decoupling code deployment from business feature release using OpenFeature and flag management is under consideration.",
     options: [
-      { id: 'A', text: "Implement feature flags adhering to the CNCF OpenFeature standard to decouple code deployments from business feature releases." },
+      { id: 'A', text: "Deploy completely separate clusters for every single minor UI toggle." },
       { id: 'B', text: "Hold back complete software releases for months on long-lived feature branches until full testing is complete." },
       { id: 'C', text: "Merge unreviewed, broken code directly into production branches with no toggle controls." },
-      { id: 'D', text: "Deploy completely separate clusters for every single minor UI toggle." }
+      { id: 'D', text: "Implement feature flags adhering to the CNCF OpenFeature standard to decouple code deployments from business feature releases." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Implement feature flags adhering to the CNCF OpenFeature standard to decouple code deployments from business feature releases. Decoupling deployment (pushing code to production) from release (making functionality visible to users) is essential for continuous delivery. Using feature flagging (standardized by CNCF OpenFeature), teams merge small increments safely and toggle functionality on-demand.",
     referenceUrl: "https://openfeature.dev/",
@@ -282,12 +282,12 @@ export const CNCF_CNPA_QUESTIONS_18 = [
     scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates Feature Flags to deploy code changes to production continuously without exposing incomplete or high-risk features to end users immediately.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely? Decoupling code deployment from business feature release using OpenFeature and flag management is under consideration.",
     options: [
-      { id: 'A', text: "Implement feature flags adhering to the CNCF OpenFeature standard to decouple code deployments from business feature releases." },
-      { id: 'B', text: "Hold back complete software releases for months on long-lived feature branches until full testing is complete." },
-      { id: 'C', text: "Merge unreviewed, broken code directly into production branches with no toggle controls." },
-      { id: 'D', text: "Deploy completely separate clusters for every single minor UI toggle." }
+      { id: 'A', text: "Merge unreviewed, broken code directly into production branches with no toggle controls." },
+      { id: 'B', text: "Implement feature flags adhering to the CNCF OpenFeature standard to decouple code deployments from business feature releases." },
+      { id: 'C', text: "Deploy completely separate clusters for every single minor UI toggle." },
+      { id: 'D', text: "Hold back complete software releases for months on long-lived feature branches until full testing is complete." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Implement feature flags adhering to the CNCF OpenFeature standard to decouple code deployments from business feature releases. Decoupling deployment (pushing code to production) from release (making functionality visible to users) is essential for continuous delivery. Using feature flagging (standardized by CNCF OpenFeature), teams merge small increments safely and toggle functionality on-demand.",
     referenceUrl: "https://openfeature.dev/",
@@ -303,12 +303,12 @@ export const CNCF_CNPA_QUESTIONS_18 = [
     scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates Feature Flags to deploy code changes to production continuously without exposing incomplete or high-risk features to end users immediately.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation? Decoupling code deployment from business feature release using OpenFeature and flag management is under consideration.",
     options: [
-      { id: 'A', text: "Implement feature flags adhering to the CNCF OpenFeature standard to decouple code deployments from business feature releases." },
-      { id: 'B', text: "Hold back complete software releases for months on long-lived feature branches until full testing is complete." },
-      { id: 'C', text: "Merge unreviewed, broken code directly into production branches with no toggle controls." },
-      { id: 'D', text: "Deploy completely separate clusters for every single minor UI toggle." }
+      { id: 'A', text: "Deploy completely separate clusters for every single minor UI toggle." },
+      { id: 'B', text: "Merge unreviewed, broken code directly into production branches with no toggle controls." },
+      { id: 'C', text: "Implement feature flags adhering to the CNCF OpenFeature standard to decouple code deployments from business feature releases." },
+      { id: 'D', text: "Hold back complete software releases for months on long-lived feature branches until full testing is complete." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Implement feature flags adhering to the CNCF OpenFeature standard to decouple code deployments from business feature releases. Decoupling deployment (pushing code to production) from release (making functionality visible to users) is essential for continuous delivery. Using feature flagging (standardized by CNCF OpenFeature), teams merge small increments safely and toggle functionality on-demand.",
     referenceUrl: "https://openfeature.dev/",
@@ -324,12 +324,12 @@ export const CNCF_CNPA_QUESTIONS_18 = [
     scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates Resilience Workflows to minimize downtime when a newly deployed microservice causes cascading database connection pool exhaustion.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives? Automated deployment rollbacks and self-healing infrastructure triggers on SLO degradation is under consideration.",
     options: [
-      { id: 'A', text: "Configure automated deployment rollbacks triggered by failing health probes or breach of service-level metrics." },
-      { id: 'B', text: "Wait for customer support queues to fill up before initiating manual troubleshooting discussions." },
-      { id: 'C', text: "Disable automated health checks to prevent Kubernetes from restarting unresponsive pods." },
-      { id: 'D', text: "Delete the production cluster whenever a single pod experiences memory limits." }
+      { id: 'A', text: "Disable automated health checks to prevent Kubernetes from restarting unresponsive pods." },
+      { id: 'B', text: "Delete the production cluster whenever a single pod experiences memory limits." },
+      { id: 'C', text: "Wait for customer support queues to fill up before initiating manual troubleshooting discussions." },
+      { id: 'D', text: "Configure automated deployment rollbacks triggered by failing health probes or breach of service-level metrics." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure automated deployment rollbacks triggered by failing health probes or breach of service-level metrics. Platform delivery workflows incorporate automated rollback and self-healing mechanisms. If a new deployment fails liveness/readiness probes or triggers an increase in HTTP 5xx error rates, the orchestrator reverts the deployment to the last known good replica set instantly.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#rolling-back-a-deployment",
@@ -345,12 +345,12 @@ export const CNCF_CNPA_QUESTIONS_18 = [
     scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates Resilience Workflows to minimize downtime when a newly deployed microservice causes cascading database connection pool exhaustion.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks? Automated deployment rollbacks and self-healing infrastructure triggers on SLO degradation is under consideration.",
     options: [
-      { id: 'A', text: "Configure automated deployment rollbacks triggered by failing health probes or breach of service-level metrics." },
-      { id: 'B', text: "Wait for customer support queues to fill up before initiating manual troubleshooting discussions." },
+      { id: 'A', text: "Delete the production cluster whenever a single pod experiences memory limits." },
+      { id: 'B', text: "Configure automated deployment rollbacks triggered by failing health probes or breach of service-level metrics." },
       { id: 'C', text: "Disable automated health checks to prevent Kubernetes from restarting unresponsive pods." },
-      { id: 'D', text: "Delete the production cluster whenever a single pod experiences memory limits." }
+      { id: 'D', text: "Wait for customer support queues to fill up before initiating manual troubleshooting discussions." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure automated deployment rollbacks triggered by failing health probes or breach of service-level metrics. Platform delivery workflows incorporate automated rollback and self-healing mechanisms. If a new deployment fails liveness/readiness probes or triggers an increase in HTTP 5xx error rates, the orchestrator reverts the deployment to the last known good replica set instantly.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#rolling-back-a-deployment",
@@ -366,12 +366,12 @@ export const CNCF_CNPA_QUESTIONS_18 = [
     scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates Resilience Workflows to minimize downtime when a newly deployed microservice causes cascading database connection pool exhaustion.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls? Automated deployment rollbacks and self-healing infrastructure triggers on SLO degradation is under consideration.",
     options: [
-      { id: 'A', text: "Configure automated deployment rollbacks triggered by failing health probes or breach of service-level metrics." },
-      { id: 'B', text: "Wait for customer support queues to fill up before initiating manual troubleshooting discussions." },
-      { id: 'C', text: "Disable automated health checks to prevent Kubernetes from restarting unresponsive pods." },
-      { id: 'D', text: "Delete the production cluster whenever a single pod experiences memory limits." }
+      { id: 'A', text: "Delete the production cluster whenever a single pod experiences memory limits." },
+      { id: 'B', text: "Disable automated health checks to prevent Kubernetes from restarting unresponsive pods." },
+      { id: 'C', text: "Wait for customer support queues to fill up before initiating manual troubleshooting discussions." },
+      { id: 'D', text: "Configure automated deployment rollbacks triggered by failing health probes or breach of service-level metrics." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure automated deployment rollbacks triggered by failing health probes or breach of service-level metrics. Platform delivery workflows incorporate automated rollback and self-healing mechanisms. If a new deployment fails liveness/readiness probes or triggers an increase in HTTP 5xx error rates, the orchestrator reverts the deployment to the last known good replica set instantly.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#rolling-back-a-deployment",
@@ -387,12 +387,12 @@ export const CNCF_CNPA_QUESTIONS_18 = [
     scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates Resilience Workflows to minimize downtime when a newly deployed microservice causes cascading database connection pool exhaustion.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely? Automated deployment rollbacks and self-healing infrastructure triggers on SLO degradation is under consideration.",
     options: [
-      { id: 'A', text: "Configure automated deployment rollbacks triggered by failing health probes or breach of service-level metrics." },
+      { id: 'A', text: "Disable automated health checks to prevent Kubernetes from restarting unresponsive pods." },
       { id: 'B', text: "Wait for customer support queues to fill up before initiating manual troubleshooting discussions." },
-      { id: 'C', text: "Disable automated health checks to prevent Kubernetes from restarting unresponsive pods." },
-      { id: 'D', text: "Delete the production cluster whenever a single pod experiences memory limits." }
+      { id: 'C', text: "Delete the production cluster whenever a single pod experiences memory limits." },
+      { id: 'D', text: "Configure automated deployment rollbacks triggered by failing health probes or breach of service-level metrics." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure automated deployment rollbacks triggered by failing health probes or breach of service-level metrics. Platform delivery workflows incorporate automated rollback and self-healing mechanisms. If a new deployment fails liveness/readiness probes or triggers an increase in HTTP 5xx error rates, the orchestrator reverts the deployment to the last known good replica set instantly.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#rolling-back-a-deployment",
@@ -408,12 +408,12 @@ export const CNCF_CNPA_QUESTIONS_18 = [
     scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates Resilience Workflows to minimize downtime when a newly deployed microservice causes cascading database connection pool exhaustion.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation? Automated deployment rollbacks and self-healing infrastructure triggers on SLO degradation is under consideration.",
     options: [
-      { id: 'A', text: "Configure automated deployment rollbacks triggered by failing health probes or breach of service-level metrics." },
-      { id: 'B', text: "Wait for customer support queues to fill up before initiating manual troubleshooting discussions." },
-      { id: 'C', text: "Disable automated health checks to prevent Kubernetes from restarting unresponsive pods." },
-      { id: 'D', text: "Delete the production cluster whenever a single pod experiences memory limits." }
+      { id: 'A', text: "Disable automated health checks to prevent Kubernetes from restarting unresponsive pods." },
+      { id: 'B', text: "Delete the production cluster whenever a single pod experiences memory limits." },
+      { id: 'C', text: "Configure automated deployment rollbacks triggered by failing health probes or breach of service-level metrics." },
+      { id: 'D', text: "Wait for customer support queues to fill up before initiating manual troubleshooting discussions." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure automated deployment rollbacks triggered by failing health probes or breach of service-level metrics. Platform delivery workflows incorporate automated rollback and self-healing mechanisms. If a new deployment fails liveness/readiness probes or triggers an increase in HTTP 5xx error rates, the orchestrator reverts the deployment to the last known good replica set instantly.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#rolling-back-a-deployment",
@@ -429,12 +429,12 @@ export const CNCF_CNPA_QUESTIONS_18 = [
     scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates DORA Metrics to measure whether platform engineering investments are successfully improving software delivery speed and reliability.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives? Deployment Frequency, Lead Time for Changes, Change Failure Rate, and Time to Restore Service is under consideration.",
     options: [
-      { id: 'A', text: "Track the four DORA metrics: Deployment Frequency, Lead Time for Changes, Change Failure Rate, and Time to Restore Service." },
+      { id: 'A', text: "Track the number of hours developers spend sitting at their office desks." },
       { id: 'B', text: "Measure developer performance exclusively by the total number of lines of source code written per day." },
-      { id: 'C', text: "Track the number of hours developers spend sitting at their office desks." },
-      { id: 'D', text: "Count the number of emails sent by engineering managers." }
+      { id: 'C', text: "Count the number of emails sent by engineering managers." },
+      { id: 'D', text: "Track the four DORA metrics: Deployment Frequency, Lead Time for Changes, Change Failure Rate, and Time to Restore Service." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Track the four DORA metrics: Deployment Frequency, Lead Time for Changes, Change Failure Rate, and Time to Restore Service. The DevOps Research and Assessment (DORA) framework defines four core metrics to assess software delivery performance: throughput (Deployment Frequency and Lead Time for Changes) and stability (Change Failure Rate and Time to Restore Service / MTTR).",
     referenceUrl: "https://dora.dev/",
@@ -450,12 +450,12 @@ export const CNCF_CNPA_QUESTIONS_18 = [
     scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates DORA Metrics to measure whether platform engineering investments are successfully improving software delivery speed and reliability.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks? Deployment Frequency, Lead Time for Changes, Change Failure Rate, and Time to Restore Service is under consideration.",
     options: [
-      { id: 'A', text: "Track the four DORA metrics: Deployment Frequency, Lead Time for Changes, Change Failure Rate, and Time to Restore Service." },
-      { id: 'B', text: "Measure developer performance exclusively by the total number of lines of source code written per day." },
-      { id: 'C', text: "Track the number of hours developers spend sitting at their office desks." },
-      { id: 'D', text: "Count the number of emails sent by engineering managers." }
+      { id: 'A', text: "Count the number of emails sent by engineering managers." },
+      { id: 'B', text: "Track the number of hours developers spend sitting at their office desks." },
+      { id: 'C', text: "Measure developer performance exclusively by the total number of lines of source code written per day." },
+      { id: 'D', text: "Track the four DORA metrics: Deployment Frequency, Lead Time for Changes, Change Failure Rate, and Time to Restore Service." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Track the four DORA metrics: Deployment Frequency, Lead Time for Changes, Change Failure Rate, and Time to Restore Service. The DevOps Research and Assessment (DORA) framework defines four core metrics to assess software delivery performance: throughput (Deployment Frequency and Lead Time for Changes) and stability (Change Failure Rate and Time to Restore Service / MTTR).",
     referenceUrl: "https://dora.dev/",
@@ -472,9 +472,9 @@ export const CNCF_CNPA_QUESTIONS_18 = [
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls? Deployment Frequency, Lead Time for Changes, Change Failure Rate, and Time to Restore Service is under consideration.",
     options: [
       { id: 'A', text: "Track the four DORA metrics: Deployment Frequency, Lead Time for Changes, Change Failure Rate, and Time to Restore Service." },
-      { id: 'B', text: "Measure developer performance exclusively by the total number of lines of source code written per day." },
-      { id: 'C', text: "Track the number of hours developers spend sitting at their office desks." },
-      { id: 'D', text: "Count the number of emails sent by engineering managers." }
+      { id: 'B', text: "Count the number of emails sent by engineering managers." },
+      { id: 'C', text: "Measure developer performance exclusively by the total number of lines of source code written per day." },
+      { id: 'D', text: "Track the number of hours developers spend sitting at their office desks." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,12 +492,12 @@ export const CNCF_CNPA_QUESTIONS_18 = [
     scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates DORA Metrics to measure whether platform engineering investments are successfully improving software delivery speed and reliability.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely? Deployment Frequency, Lead Time for Changes, Change Failure Rate, and Time to Restore Service is under consideration.",
     options: [
-      { id: 'A', text: "Track the four DORA metrics: Deployment Frequency, Lead Time for Changes, Change Failure Rate, and Time to Restore Service." },
+      { id: 'A', text: "Track the number of hours developers spend sitting at their office desks." },
       { id: 'B', text: "Measure developer performance exclusively by the total number of lines of source code written per day." },
-      { id: 'C', text: "Track the number of hours developers spend sitting at their office desks." },
-      { id: 'D', text: "Count the number of emails sent by engineering managers." }
+      { id: 'C', text: "Count the number of emails sent by engineering managers." },
+      { id: 'D', text: "Track the four DORA metrics: Deployment Frequency, Lead Time for Changes, Change Failure Rate, and Time to Restore Service." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Track the four DORA metrics: Deployment Frequency, Lead Time for Changes, Change Failure Rate, and Time to Restore Service. The DevOps Research and Assessment (DORA) framework defines four core metrics to assess software delivery performance: throughput (Deployment Frequency and Lead Time for Changes) and stability (Change Failure Rate and Time to Restore Service / MTTR).",
     referenceUrl: "https://dora.dev/",
@@ -514,9 +514,9 @@ export const CNCF_CNPA_QUESTIONS_18 = [
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation? Deployment Frequency, Lead Time for Changes, Change Failure Rate, and Time to Restore Service is under consideration.",
     options: [
       { id: 'A', text: "Track the four DORA metrics: Deployment Frequency, Lead Time for Changes, Change Failure Rate, and Time to Restore Service." },
-      { id: 'B', text: "Measure developer performance exclusively by the total number of lines of source code written per day." },
-      { id: 'C', text: "Track the number of hours developers spend sitting at their office desks." },
-      { id: 'D', text: "Count the number of emails sent by engineering managers." }
+      { id: 'B', text: "Track the number of hours developers spend sitting at their office desks." },
+      { id: 'C', text: "Count the number of emails sent by engineering managers." },
+      { id: 'D', text: "Measure developer performance exclusively by the total number of lines of source code written per day." }
     ],
     correctAnswers: ['A'],
     type: "single",

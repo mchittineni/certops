@@ -9,12 +9,12 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer evaluates Workflow Triggers to configure a GitHub Actions CI workflow to run only when commits are pushed to the `main` branch or when pull requests modifying files in the `src/` directory are opened.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives? Configuring event triggers with branch, tag, and path filters is under consideration.",
     options: [
-      { id: 'A', text: "Define `on: push: branches: [main]` and `on: pull_request: paths: ['src/**']` in the workflow YAML." },
-      { id: 'B', text: "Define `on: [push, pull_request]` without any branch or path filters." },
-      { id: 'C', text: "Run the workflow on a schedule every 10 seconds to poll the Git repository." },
-      { id: 'D', text: "Disable automated triggers and require manual workflow_dispatch exclusively." }
+      { id: 'A', text: "Run the workflow on a schedule every 10 seconds to poll the Git repository." },
+      { id: 'B', text: "Disable automated triggers and require manual workflow_dispatch exclusively." },
+      { id: 'C', text: "Define `on: push: branches: [main]` and `on: pull_request: paths: ['src/**']` in the workflow YAML." },
+      { id: 'D', text: "Define `on: [push, pull_request]` without any branch or path filters." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Define `on: push: branches: [main]` and `on: pull_request: paths: ['src/**']` in the workflow YAML. GitHub Actions workflows support event triggers defined under the `on:` key. Configuring `branches` and `paths` filters ensures that workflows only execute for relevant code modifications, preventing wasteful runner usage for documentation changes or non-target branches.",
     referenceUrl: "https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#on",
@@ -30,12 +30,12 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer evaluates Workflow Triggers to configure a GitHub Actions CI workflow to run only when commits are pushed to the `main` branch or when pull requests modifying files in the `src/` directory are opened.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency? Configuring event triggers with branch, tag, and path filters is under consideration.",
     options: [
-      { id: 'A', text: "Define `on: push: branches: [main]` and `on: pull_request: paths: ['src/**']` in the workflow YAML." },
-      { id: 'B', text: "Define `on: [push, pull_request]` without any branch or path filters." },
-      { id: 'C', text: "Run the workflow on a schedule every 10 seconds to poll the Git repository." },
-      { id: 'D', text: "Disable automated triggers and require manual workflow_dispatch exclusively." }
+      { id: 'A', text: "Run the workflow on a schedule every 10 seconds to poll the Git repository." },
+      { id: 'B', text: "Disable automated triggers and require manual workflow_dispatch exclusively." },
+      { id: 'C', text: "Define `on: [push, pull_request]` without any branch or path filters." },
+      { id: 'D', text: "Define `on: push: branches: [main]` and `on: pull_request: paths: ['src/**']` in the workflow YAML." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Define `on: push: branches: [main]` and `on: pull_request: paths: ['src/**']` in the workflow YAML. GitHub Actions workflows support event triggers defined under the `on:` key. Configuring `branches` and `paths` filters ensures that workflows only execute for relevant code modifications, preventing wasteful runner usage for documentation changes or non-target branches.",
     referenceUrl: "https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#on",
@@ -51,12 +51,12 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer evaluates Workflow Triggers to configure a GitHub Actions CI workflow to run only when commits are pushed to the `main` branch or when pull requests modifying files in the `src/` directory are opened.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls? Configuring event triggers with branch, tag, and path filters is under consideration.",
     options: [
-      { id: 'A', text: "Define `on: push: branches: [main]` and `on: pull_request: paths: ['src/**']` in the workflow YAML." },
-      { id: 'B', text: "Define `on: [push, pull_request]` without any branch or path filters." },
-      { id: 'C', text: "Run the workflow on a schedule every 10 seconds to poll the Git repository." },
-      { id: 'D', text: "Disable automated triggers and require manual workflow_dispatch exclusively." }
+      { id: 'A', text: "Define `on: [push, pull_request]` without any branch or path filters." },
+      { id: 'B', text: "Run the workflow on a schedule every 10 seconds to poll the Git repository." },
+      { id: 'C', text: "Disable automated triggers and require manual workflow_dispatch exclusively." },
+      { id: 'D', text: "Define `on: push: branches: [main]` and `on: pull_request: paths: ['src/**']` in the workflow YAML." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Define `on: push: branches: [main]` and `on: pull_request: paths: ['src/**']` in the workflow YAML. GitHub Actions workflows support event triggers defined under the `on:` key. Configuring `branches` and `paths` filters ensures that workflows only execute for relevant code modifications, preventing wasteful runner usage for documentation changes or non-target branches.",
     referenceUrl: "https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#on",
@@ -72,12 +72,12 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer evaluates Workflow Triggers to configure a GitHub Actions CI workflow to run only when commits are pushed to the `main` branch or when pull requests modifying files in the `src/` directory are opened.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction? Configuring event triggers with branch, tag, and path filters is under consideration.",
     options: [
-      { id: 'A', text: "Define `on: push: branches: [main]` and `on: pull_request: paths: ['src/**']` in the workflow YAML." },
-      { id: 'B', text: "Define `on: [push, pull_request]` without any branch or path filters." },
-      { id: 'C', text: "Run the workflow on a schedule every 10 seconds to poll the Git repository." },
-      { id: 'D', text: "Disable automated triggers and require manual workflow_dispatch exclusively." }
+      { id: 'A', text: "Disable automated triggers and require manual workflow_dispatch exclusively." },
+      { id: 'B', text: "Run the workflow on a schedule every 10 seconds to poll the Git repository." },
+      { id: 'C', text: "Define `on: push: branches: [main]` and `on: pull_request: paths: ['src/**']` in the workflow YAML." },
+      { id: 'D', text: "Define `on: [push, pull_request]` without any branch or path filters." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Define `on: push: branches: [main]` and `on: pull_request: paths: ['src/**']` in the workflow YAML. GitHub Actions workflows support event triggers defined under the `on:` key. Configuring `branches` and `paths` filters ensures that workflows only execute for relevant code modifications, preventing wasteful runner usage for documentation changes or non-target branches.",
     referenceUrl: "https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#on",
@@ -93,12 +93,12 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer evaluates Workflow Triggers to configure a GitHub Actions CI workflow to run only when commits are pushed to the `main` branch or when pull requests modifying files in the `src/` directory are opened.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability? Configuring event triggers with branch, tag, and path filters is under consideration.",
     options: [
-      { id: 'A', text: "Define `on: push: branches: [main]` and `on: pull_request: paths: ['src/**']` in the workflow YAML." },
-      { id: 'B', text: "Define `on: [push, pull_request]` without any branch or path filters." },
+      { id: 'A', text: "Define `on: [push, pull_request]` without any branch or path filters." },
+      { id: 'B', text: "Disable automated triggers and require manual workflow_dispatch exclusively." },
       { id: 'C', text: "Run the workflow on a schedule every 10 seconds to poll the Git repository." },
-      { id: 'D', text: "Disable automated triggers and require manual workflow_dispatch exclusively." }
+      { id: 'D', text: "Define `on: push: branches: [main]` and `on: pull_request: paths: ['src/**']` in the workflow YAML." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Define `on: push: branches: [main]` and `on: pull_request: paths: ['src/**']` in the workflow YAML. GitHub Actions workflows support event triggers defined under the `on:` key. Configuring `branches` and `paths` filters ensures that workflows only execute for relevant code modifications, preventing wasteful runner usage for documentation changes or non-target branches.",
     referenceUrl: "https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#on",
@@ -114,12 +114,12 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer evaluates Concurrency Management to prevent redundant CI runs from consuming runner capacity when a developer pushes several commits in rapid succession to the same pull request branch.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives? Cancelling redundant in-progress runs using concurrency groups and cancel-in-progress is under consideration.",
     options: [
-      { id: 'A', text: "Configure a `concurrency` block with `group: ${{ github.workflow }}-${{ github.ref }}` and `cancel-in-progress: true`." },
-      { id: 'B', text: "Set `strategy: fail-fast: true` on the matrix job." },
+      { id: 'A', text: "Set `strategy: fail-fast: true` on the matrix job." },
+      { id: 'B', text: "Configure a `concurrency` block with `group: ${{ github.workflow }}-${{ github.ref }}` and `cancel-in-progress: true`." },
       { id: 'C', text: "Set `timeout-minutes: 5` on the build steps." },
       { id: 'D', text: "Manually cancel running workflows via the GitHub web UI." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure a `concurrency` block with `group: ${{ github.workflow }}-${{ github.ref }}` and `cancel-in-progress: true`. A `concurrency` group ensures that only one workflow run or job using the same concurrency key runs at a time. Setting `cancel-in-progress: true` terminates any active in-flight run for that branch when a new commit is pushed, freeing up runner slots immediately.",
     referenceUrl: "https://docs.github.com/en/actions/using-jobs/using-concurrency",
@@ -136,9 +136,9 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency? Cancelling redundant in-progress runs using concurrency groups and cancel-in-progress is under consideration.",
     options: [
       { id: 'A', text: "Configure a `concurrency` block with `group: ${{ github.workflow }}-${{ github.ref }}` and `cancel-in-progress: true`." },
-      { id: 'B', text: "Set `strategy: fail-fast: true` on the matrix job." },
-      { id: 'C', text: "Set `timeout-minutes: 5` on the build steps." },
-      { id: 'D', text: "Manually cancel running workflows via the GitHub web UI." }
+      { id: 'B', text: "Manually cancel running workflows via the GitHub web UI." },
+      { id: 'C', text: "Set `strategy: fail-fast: true` on the matrix job." },
+      { id: 'D', text: "Set `timeout-minutes: 5` on the build steps." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -156,12 +156,12 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer evaluates Concurrency Management to prevent redundant CI runs from consuming runner capacity when a developer pushes several commits in rapid succession to the same pull request branch.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls? Cancelling redundant in-progress runs using concurrency groups and cancel-in-progress is under consideration.",
     options: [
-      { id: 'A', text: "Configure a `concurrency` block with `group: ${{ github.workflow }}-${{ github.ref }}` and `cancel-in-progress: true`." },
-      { id: 'B', text: "Set `strategy: fail-fast: true` on the matrix job." },
-      { id: 'C', text: "Set `timeout-minutes: 5` on the build steps." },
-      { id: 'D', text: "Manually cancel running workflows via the GitHub web UI." }
+      { id: 'A', text: "Manually cancel running workflows via the GitHub web UI." },
+      { id: 'B', text: "Configure a `concurrency` block with `group: ${{ github.workflow }}-${{ github.ref }}` and `cancel-in-progress: true`." },
+      { id: 'C', text: "Set `strategy: fail-fast: true` on the matrix job." },
+      { id: 'D', text: "Set `timeout-minutes: 5` on the build steps." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure a `concurrency` block with `group: ${{ github.workflow }}-${{ github.ref }}` and `cancel-in-progress: true`. A `concurrency` group ensures that only one workflow run or job using the same concurrency key runs at a time. Setting `cancel-in-progress: true` terminates any active in-flight run for that branch when a new commit is pushed, freeing up runner slots immediately.",
     referenceUrl: "https://docs.github.com/en/actions/using-jobs/using-concurrency",
@@ -179,8 +179,8 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Configure a `concurrency` block with `group: ${{ github.workflow }}-${{ github.ref }}` and `cancel-in-progress: true`." },
       { id: 'B', text: "Set `strategy: fail-fast: true` on the matrix job." },
-      { id: 'C', text: "Set `timeout-minutes: 5` on the build steps." },
-      { id: 'D', text: "Manually cancel running workflows via the GitHub web UI." }
+      { id: 'C', text: "Manually cancel running workflows via the GitHub web UI." },
+      { id: 'D', text: "Set `timeout-minutes: 5` on the build steps." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,12 +198,12 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer evaluates Concurrency Management to prevent redundant CI runs from consuming runner capacity when a developer pushes several commits in rapid succession to the same pull request branch.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability? Cancelling redundant in-progress runs using concurrency groups and cancel-in-progress is under consideration.",
     options: [
-      { id: 'A', text: "Configure a `concurrency` block with `group: ${{ github.workflow }}-${{ github.ref }}` and `cancel-in-progress: true`." },
-      { id: 'B', text: "Set `strategy: fail-fast: true` on the matrix job." },
-      { id: 'C', text: "Set `timeout-minutes: 5` on the build steps." },
-      { id: 'D', text: "Manually cancel running workflows via the GitHub web UI." }
+      { id: 'A', text: "Set `timeout-minutes: 5` on the build steps." },
+      { id: 'B', text: "Configure a `concurrency` block with `group: ${{ github.workflow }}-${{ github.ref }}` and `cancel-in-progress: true`." },
+      { id: 'C', text: "Manually cancel running workflows via the GitHub web UI." },
+      { id: 'D', text: "Set `strategy: fail-fast: true` on the matrix job." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure a `concurrency` block with `group: ${{ github.workflow }}-${{ github.ref }}` and `cancel-in-progress: true`. A `concurrency` group ensures that only one workflow run or job using the same concurrency key runs at a time. Setting `cancel-in-progress: true` terminates any active in-flight run for that branch when a new commit is pushed, freeing up runner slots immediately.",
     referenceUrl: "https://docs.github.com/en/actions/using-jobs/using-concurrency",
@@ -219,12 +219,12 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer evaluates Matrix Strategy to test a library across Node.js 18, 20 on Ubuntu and Windows while preventing a failure in Node 18 from cancelling other running matrix jobs.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives? Executing parallel jobs across OS matrices with fail-fast and custom inclusions is under consideration.",
     options: [
-      { id: 'A', text: "Configure `strategy: matrix:` with OS and Node arrays, and set `fail-fast: false`." },
-      { id: 'B', text: "Set `fail-fast: true` which aborts all sibling matrix jobs immediately upon any failure." },
-      { id: 'C', text: "Write four completely independent workflow YAML files." },
-      { id: 'D', text: "Run tests sequentially inside a single bash script." }
+      { id: 'A', text: "Write four completely independent workflow YAML files." },
+      { id: 'B', text: "Run tests sequentially inside a single bash script." },
+      { id: 'C', text: "Configure `strategy: matrix:` with OS and Node arrays, and set `fail-fast: false`." },
+      { id: 'D', text: "Set `fail-fast: true` which aborts all sibling matrix jobs immediately upon any failure." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure `strategy: matrix:` with OS and Node arrays, and set `fail-fast: false`. Matrix strategies dispatch parallel jobs across combinations of variables (e.g., operating systems, runtime versions). Setting `fail-fast: false` ensures that even if one matrix cell encounters an error, all other jobs continue to run to completion, providing complete cross-platform test visibility.",
     referenceUrl: "https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs",
@@ -240,12 +240,12 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer evaluates Matrix Strategy to test a library across Node.js 18, 20 on Ubuntu and Windows while preventing a failure in Node 18 from cancelling other running matrix jobs.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency? Executing parallel jobs across OS matrices with fail-fast and custom inclusions is under consideration.",
     options: [
-      { id: 'A', text: "Configure `strategy: matrix:` with OS and Node arrays, and set `fail-fast: false`." },
-      { id: 'B', text: "Set `fail-fast: true` which aborts all sibling matrix jobs immediately upon any failure." },
-      { id: 'C', text: "Write four completely independent workflow YAML files." },
+      { id: 'A', text: "Set `fail-fast: true` which aborts all sibling matrix jobs immediately upon any failure." },
+      { id: 'B', text: "Write four completely independent workflow YAML files." },
+      { id: 'C', text: "Configure `strategy: matrix:` with OS and Node arrays, and set `fail-fast: false`." },
       { id: 'D', text: "Run tests sequentially inside a single bash script." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure `strategy: matrix:` with OS and Node arrays, and set `fail-fast: false`. Matrix strategies dispatch parallel jobs across combinations of variables (e.g., operating systems, runtime versions). Setting `fail-fast: false` ensures that even if one matrix cell encounters an error, all other jobs continue to run to completion, providing complete cross-platform test visibility.",
     referenceUrl: "https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs",
@@ -262,9 +262,9 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     question: "Which solution implements these mandatory CI/CD security and compliance controls? Executing parallel jobs across OS matrices with fail-fast and custom inclusions is under consideration.",
     options: [
       { id: 'A', text: "Configure `strategy: matrix:` with OS and Node arrays, and set `fail-fast: false`." },
-      { id: 'B', text: "Set `fail-fast: true` which aborts all sibling matrix jobs immediately upon any failure." },
-      { id: 'C', text: "Write four completely independent workflow YAML files." },
-      { id: 'D', text: "Run tests sequentially inside a single bash script." }
+      { id: 'B', text: "Write four completely independent workflow YAML files." },
+      { id: 'C', text: "Run tests sequentially inside a single bash script." },
+      { id: 'D', text: "Set `fail-fast: true` which aborts all sibling matrix jobs immediately upon any failure." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -282,12 +282,12 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer evaluates Matrix Strategy to test a library across Node.js 18, 20 on Ubuntu and Windows while preventing a failure in Node 18 from cancelling other running matrix jobs.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction? Executing parallel jobs across OS matrices with fail-fast and custom inclusions is under consideration.",
     options: [
-      { id: 'A', text: "Configure `strategy: matrix:` with OS and Node arrays, and set `fail-fast: false`." },
-      { id: 'B', text: "Set `fail-fast: true` which aborts all sibling matrix jobs immediately upon any failure." },
-      { id: 'C', text: "Write four completely independent workflow YAML files." },
-      { id: 'D', text: "Run tests sequentially inside a single bash script." }
+      { id: 'A', text: "Set `fail-fast: true` which aborts all sibling matrix jobs immediately upon any failure." },
+      { id: 'B', text: "Run tests sequentially inside a single bash script." },
+      { id: 'C', text: "Configure `strategy: matrix:` with OS and Node arrays, and set `fail-fast: false`." },
+      { id: 'D', text: "Write four completely independent workflow YAML files." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure `strategy: matrix:` with OS and Node arrays, and set `fail-fast: false`. Matrix strategies dispatch parallel jobs across combinations of variables (e.g., operating systems, runtime versions). Setting `fail-fast: false` ensures that even if one matrix cell encounters an error, all other jobs continue to run to completion, providing complete cross-platform test visibility.",
     referenceUrl: "https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs",
@@ -303,12 +303,12 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer evaluates Matrix Strategy to test a library across Node.js 18, 20 on Ubuntu and Windows while preventing a failure in Node 18 from cancelling other running matrix jobs.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability? Executing parallel jobs across OS matrices with fail-fast and custom inclusions is under consideration.",
     options: [
-      { id: 'A', text: "Configure `strategy: matrix:` with OS and Node arrays, and set `fail-fast: false`." },
-      { id: 'B', text: "Set `fail-fast: true` which aborts all sibling matrix jobs immediately upon any failure." },
+      { id: 'A', text: "Run tests sequentially inside a single bash script." },
+      { id: 'B', text: "Configure `strategy: matrix:` with OS and Node arrays, and set `fail-fast: false`." },
       { id: 'C', text: "Write four completely independent workflow YAML files." },
-      { id: 'D', text: "Run tests sequentially inside a single bash script." }
+      { id: 'D', text: "Set `fail-fast: true` which aborts all sibling matrix jobs immediately upon any failure." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure `strategy: matrix:` with OS and Node arrays, and set `fail-fast: false`. Matrix strategies dispatch parallel jobs across combinations of variables (e.g., operating systems, runtime versions). Setting `fail-fast: false` ensures that even if one matrix cell encounters an error, all other jobs continue to run to completion, providing complete cross-platform test visibility.",
     referenceUrl: "https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs",
@@ -324,12 +324,12 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer evaluates Job Dependencies to ensure that an integration test job and a deployment job run only after a linting and build job have completed successfully.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives? Orchestrating sequential and parallel execution using needs: dependencies is under consideration.",
     options: [
-      { id: 'A', text: "Add `needs: [lint, build]` to the test and deployment job specifications." },
-      { id: 'B', text: "Put all commands into a single monolithic job without separation." },
-      { id: 'C', text: "Rely on GitHub Actions alphabetical job sorting for execution order." },
-      { id: 'D', text: "Use a sleep command in the deployment job to wait for the build." }
+      { id: 'A', text: "Put all commands into a single monolithic job without separation." },
+      { id: 'B', text: "Use a sleep command in the deployment job to wait for the build." },
+      { id: 'C', text: "Add `needs: [lint, build]` to the test and deployment job specifications." },
+      { id: 'D', text: "Rely on GitHub Actions alphabetical job sorting for execution order." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Add `needs: [lint, build]` to the test and deployment job specifications. By default, jobs in a GitHub Actions workflow run in parallel. Specifying `needs: [job1, job2]` creates explicit dependency relationships, ensuring dependent jobs execute only after prerequisite jobs finish with a successful status.",
     referenceUrl: "https://docs.github.com/en/actions/using-jobs/using-jobs-in-a-workflow#defining-prerequisite-jobs",
@@ -345,12 +345,12 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer evaluates Job Dependencies to ensure that an integration test job and a deployment job run only after a linting and build job have completed successfully.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency? Orchestrating sequential and parallel execution using needs: dependencies is under consideration.",
     options: [
-      { id: 'A', text: "Add `needs: [lint, build]` to the test and deployment job specifications." },
-      { id: 'B', text: "Put all commands into a single monolithic job without separation." },
-      { id: 'C', text: "Rely on GitHub Actions alphabetical job sorting for execution order." },
-      { id: 'D', text: "Use a sleep command in the deployment job to wait for the build." }
+      { id: 'A', text: "Put all commands into a single monolithic job without separation." },
+      { id: 'B', text: "Rely on GitHub Actions alphabetical job sorting for execution order." },
+      { id: 'C', text: "Use a sleep command in the deployment job to wait for the build." },
+      { id: 'D', text: "Add `needs: [lint, build]` to the test and deployment job specifications." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Add `needs: [lint, build]` to the test and deployment job specifications. By default, jobs in a GitHub Actions workflow run in parallel. Specifying `needs: [job1, job2]` creates explicit dependency relationships, ensuring dependent jobs execute only after prerequisite jobs finish with a successful status.",
     referenceUrl: "https://docs.github.com/en/actions/using-jobs/using-jobs-in-a-workflow#defining-prerequisite-jobs",
@@ -366,12 +366,12 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer evaluates Job Dependencies to ensure that an integration test job and a deployment job run only after a linting and build job have completed successfully.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls? Orchestrating sequential and parallel execution using needs: dependencies is under consideration.",
     options: [
-      { id: 'A', text: "Add `needs: [lint, build]` to the test and deployment job specifications." },
+      { id: 'A', text: "Rely on GitHub Actions alphabetical job sorting for execution order." },
       { id: 'B', text: "Put all commands into a single monolithic job without separation." },
-      { id: 'C', text: "Rely on GitHub Actions alphabetical job sorting for execution order." },
-      { id: 'D', text: "Use a sleep command in the deployment job to wait for the build." }
+      { id: 'C', text: "Use a sleep command in the deployment job to wait for the build." },
+      { id: 'D', text: "Add `needs: [lint, build]` to the test and deployment job specifications." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Add `needs: [lint, build]` to the test and deployment job specifications. By default, jobs in a GitHub Actions workflow run in parallel. Specifying `needs: [job1, job2]` creates explicit dependency relationships, ensuring dependent jobs execute only after prerequisite jobs finish with a successful status.",
     referenceUrl: "https://docs.github.com/en/actions/using-jobs/using-jobs-in-a-workflow#defining-prerequisite-jobs",
@@ -387,12 +387,12 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer evaluates Job Dependencies to ensure that an integration test job and a deployment job run only after a linting and build job have completed successfully.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction? Orchestrating sequential and parallel execution using needs: dependencies is under consideration.",
     options: [
-      { id: 'A', text: "Add `needs: [lint, build]` to the test and deployment job specifications." },
-      { id: 'B', text: "Put all commands into a single monolithic job without separation." },
-      { id: 'C', text: "Rely on GitHub Actions alphabetical job sorting for execution order." },
+      { id: 'A', text: "Put all commands into a single monolithic job without separation." },
+      { id: 'B', text: "Rely on GitHub Actions alphabetical job sorting for execution order." },
+      { id: 'C', text: "Add `needs: [lint, build]` to the test and deployment job specifications." },
       { id: 'D', text: "Use a sleep command in the deployment job to wait for the build." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Add `needs: [lint, build]` to the test and deployment job specifications. By default, jobs in a GitHub Actions workflow run in parallel. Specifying `needs: [job1, job2]` creates explicit dependency relationships, ensuring dependent jobs execute only after prerequisite jobs finish with a successful status.",
     referenceUrl: "https://docs.github.com/en/actions/using-jobs/using-jobs-in-a-workflow#defining-prerequisite-jobs",
@@ -409,9 +409,9 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability? Orchestrating sequential and parallel execution using needs: dependencies is under consideration.",
     options: [
       { id: 'A', text: "Add `needs: [lint, build]` to the test and deployment job specifications." },
-      { id: 'B', text: "Put all commands into a single monolithic job without separation." },
+      { id: 'B', text: "Use a sleep command in the deployment job to wait for the build." },
       { id: 'C', text: "Rely on GitHub Actions alphabetical job sorting for execution order." },
-      { id: 'D', text: "Use a sleep command in the deployment job to wait for the build." }
+      { id: 'D', text: "Put all commands into a single monolithic job without separation." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -429,12 +429,12 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer evaluates Conditional Execution to send an incident notification to a team Slack channel or post a diagnostic report only when a previous test step fails.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives? Controlling step and job execution using if: and functions (always, failure, cancelled) is under consideration.",
     options: [
-      { id: 'A', text: "Add `if: failure()` (or `if: always() && steps.test.outcome == 'failure'`) to the notification step." },
+      { id: 'A', text: "Use an operating system cron job to monitor the runner." },
       { id: 'B', text: "Add `if: success()` which only runs when all previous steps succeeded." },
-      { id: 'C', text: "Omit the if condition and let the step run unconditionally." },
-      { id: 'D', text: "Use an operating system cron job to monitor the runner." }
+      { id: 'C', text: "Add `if: failure()` (or `if: always() && steps.test.outcome == 'failure'`) to the notification step." },
+      { id: 'D', text: "Omit the if condition and let the step run unconditionally." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Add `if: failure()` (or `if: always() && steps.test.outcome == 'failure'`) to the notification step. By default, steps do not execute if a prior step in the job fails. Using status check functions like `if: failure()`, `if: always()`, or `if: cancelled()` overrides default behavior, allowing diagnostic data gathering, cleanup tasks, or failure notifications to execute even after errors.",
     referenceUrl: "https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsif",
@@ -450,12 +450,12 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer evaluates Conditional Execution to send an incident notification to a team Slack channel or post a diagnostic report only when a previous test step fails.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency? Controlling step and job execution using if: and functions (always, failure, cancelled) is under consideration.",
     options: [
-      { id: 'A', text: "Add `if: failure()` (or `if: always() && steps.test.outcome == 'failure'`) to the notification step." },
-      { id: 'B', text: "Add `if: success()` which only runs when all previous steps succeeded." },
-      { id: 'C', text: "Omit the if condition and let the step run unconditionally." },
+      { id: 'A', text: "Omit the if condition and let the step run unconditionally." },
+      { id: 'B', text: "Add `if: failure()` (or `if: always() && steps.test.outcome == 'failure'`) to the notification step." },
+      { id: 'C', text: "Add `if: success()` which only runs when all previous steps succeeded." },
       { id: 'D', text: "Use an operating system cron job to monitor the runner." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Add `if: failure()` (or `if: always() && steps.test.outcome == 'failure'`) to the notification step. By default, steps do not execute if a prior step in the job fails. Using status check functions like `if: failure()`, `if: always()`, or `if: cancelled()` overrides default behavior, allowing diagnostic data gathering, cleanup tasks, or failure notifications to execute even after errors.",
     referenceUrl: "https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsif",
@@ -471,12 +471,12 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer evaluates Conditional Execution to send an incident notification to a team Slack channel or post a diagnostic report only when a previous test step fails.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls? Controlling step and job execution using if: and functions (always, failure, cancelled) is under consideration.",
     options: [
-      { id: 'A', text: "Add `if: failure()` (or `if: always() && steps.test.outcome == 'failure'`) to the notification step." },
+      { id: 'A', text: "Use an operating system cron job to monitor the runner." },
       { id: 'B', text: "Add `if: success()` which only runs when all previous steps succeeded." },
-      { id: 'C', text: "Omit the if condition and let the step run unconditionally." },
-      { id: 'D', text: "Use an operating system cron job to monitor the runner." }
+      { id: 'C', text: "Add `if: failure()` (or `if: always() && steps.test.outcome == 'failure'`) to the notification step." },
+      { id: 'D', text: "Omit the if condition and let the step run unconditionally." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Add `if: failure()` (or `if: always() && steps.test.outcome == 'failure'`) to the notification step. By default, steps do not execute if a prior step in the job fails. Using status check functions like `if: failure()`, `if: always()`, or `if: cancelled()` overrides default behavior, allowing diagnostic data gathering, cleanup tasks, or failure notifications to execute even after errors.",
     referenceUrl: "https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsif",
@@ -492,12 +492,12 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer evaluates Conditional Execution to send an incident notification to a team Slack channel or post a diagnostic report only when a previous test step fails.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction? Controlling step and job execution using if: and functions (always, failure, cancelled) is under consideration.",
     options: [
-      { id: 'A', text: "Add `if: failure()` (or `if: always() && steps.test.outcome == 'failure'`) to the notification step." },
-      { id: 'B', text: "Add `if: success()` which only runs when all previous steps succeeded." },
-      { id: 'C', text: "Omit the if condition and let the step run unconditionally." },
-      { id: 'D', text: "Use an operating system cron job to monitor the runner." }
+      { id: 'A', text: "Omit the if condition and let the step run unconditionally." },
+      { id: 'B', text: "Use an operating system cron job to monitor the runner." },
+      { id: 'C', text: "Add `if: success()` which only runs when all previous steps succeeded." },
+      { id: 'D', text: "Add `if: failure()` (or `if: always() && steps.test.outcome == 'failure'`) to the notification step." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Add `if: failure()` (or `if: always() && steps.test.outcome == 'failure'`) to the notification step. By default, steps do not execute if a prior step in the job fails. Using status check functions like `if: failure()`, `if: always()`, or `if: cancelled()` overrides default behavior, allowing diagnostic data gathering, cleanup tasks, or failure notifications to execute even after errors.",
     referenceUrl: "https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsif",
@@ -513,12 +513,12 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer evaluates Conditional Execution to send an incident notification to a team Slack channel or post a diagnostic report only when a previous test step fails.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability? Controlling step and job execution using if: and functions (always, failure, cancelled) is under consideration.",
     options: [
-      { id: 'A', text: "Add `if: failure()` (or `if: always() && steps.test.outcome == 'failure'`) to the notification step." },
-      { id: 'B', text: "Add `if: success()` which only runs when all previous steps succeeded." },
+      { id: 'A', text: "Add `if: success()` which only runs when all previous steps succeeded." },
+      { id: 'B', text: "Add `if: failure()` (or `if: always() && steps.test.outcome == 'failure'`) to the notification step." },
       { id: 'C', text: "Omit the if condition and let the step run unconditionally." },
       { id: 'D', text: "Use an operating system cron job to monitor the runner." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Add `if: failure()` (or `if: always() && steps.test.outcome == 'failure'`) to the notification step. By default, steps do not execute if a prior step in the job fails. Using status check functions like `if: failure()`, `if: always()`, or `if: cancelled()` overrides default behavior, allowing diagnostic data gathering, cleanup tasks, or failure notifications to execute even after errors.",
     referenceUrl: "https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsif",

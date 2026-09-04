@@ -9,12 +9,12 @@ export const AZURE_AZ900_QUESTIONS_19 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The organization evaluates Azure Data Governance to discover, classify, and govern sensitive customer data (such as PII and credit card numbers) stored across hybrid, multi-cloud, and SaaS environments.",
     question: "Which concept or service configuration satisfies these operational resilience objectives? Microsoft Purview automated data discovery and cataloging is under consideration.",
     options: [
-      { id: 'A', text: "Deploy Microsoft Purview to create a unified data map and automated data catalog." },
-      { id: 'B', text: "Manually inspect text files in storage accounts using desktop text editors." },
-      { id: 'C', text: "Delete all historical customer data from storage accounts to avoid compliance audits." },
-      { id: 'D', text: "Rely on custom bash scripts running on a single developer workstation to search databases." }
+      { id: 'A', text: "Delete all historical customer data from storage accounts to avoid compliance audits." },
+      { id: 'B', text: "Rely on custom bash scripts running on a single developer workstation to search databases." },
+      { id: 'C', text: "Deploy Microsoft Purview to create a unified data map and automated data catalog." },
+      { id: 'D', text: "Manually inspect text files in storage accounts using desktop text editors." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy Microsoft Purview to create a unified data map and automated data catalog. Microsoft Purview is a unified data governance solution that helps manage and govern on-premises, multi-cloud, and SaaS data. It provides automated data discovery, sensitive data classification, and end-to-end data lineage across the enterprise data estate.",
     referenceUrl: "https://learn.microsoft.com/en-us/purview/purview",
@@ -30,12 +30,12 @@ export const AZURE_AZ900_QUESTIONS_19 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The organization evaluates Azure Data Governance to discover, classify, and govern sensitive customer data (such as PII and credit card numbers) stored across hybrid, multi-cloud, and SaaS environments.",
     question: "Which architectural approach should the team select to manage this demand efficiently? Microsoft Purview automated data discovery and cataloging is under consideration.",
     options: [
-      { id: 'A', text: "Deploy Microsoft Purview to create a unified data map and automated data catalog." },
-      { id: 'B', text: "Manually inspect text files in storage accounts using desktop text editors." },
-      { id: 'C', text: "Delete all historical customer data from storage accounts to avoid compliance audits." },
-      { id: 'D', text: "Rely on custom bash scripts running on a single developer workstation to search databases." }
+      { id: 'A', text: "Manually inspect text files in storage accounts using desktop text editors." },
+      { id: 'B', text: "Deploy Microsoft Purview to create a unified data map and automated data catalog." },
+      { id: 'C', text: "Rely on custom bash scripts running on a single developer workstation to search databases." },
+      { id: 'D', text: "Delete all historical customer data from storage accounts to avoid compliance audits." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy Microsoft Purview to create a unified data map and automated data catalog. Microsoft Purview is a unified data governance solution that helps manage and govern on-premises, multi-cloud, and SaaS data. It provides automated data discovery, sensitive data classification, and end-to-end data lineage across the enterprise data estate.",
     referenceUrl: "https://learn.microsoft.com/en-us/purview/purview",
@@ -51,12 +51,12 @@ export const AZURE_AZ900_QUESTIONS_19 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The organization evaluates Azure Data Governance to discover, classify, and govern sensitive customer data (such as PII and credit card numbers) stored across hybrid, multi-cloud, and SaaS environments.",
     question: "Which solution properly implements these mandatory security and governance controls? Microsoft Purview automated data discovery and cataloging is under consideration.",
     options: [
-      { id: 'A', text: "Deploy Microsoft Purview to create a unified data map and automated data catalog." },
-      { id: 'B', text: "Manually inspect text files in storage accounts using desktop text editors." },
-      { id: 'C', text: "Delete all historical customer data from storage accounts to avoid compliance audits." },
+      { id: 'A', text: "Delete all historical customer data from storage accounts to avoid compliance audits." },
+      { id: 'B', text: "Deploy Microsoft Purview to create a unified data map and automated data catalog." },
+      { id: 'C', text: "Manually inspect text files in storage accounts using desktop text editors." },
       { id: 'D', text: "Rely on custom bash scripts running on a single developer workstation to search databases." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy Microsoft Purview to create a unified data map and automated data catalog. Microsoft Purview is a unified data governance solution that helps manage and govern on-premises, multi-cloud, and SaaS data. It provides automated data discovery, sensitive data classification, and end-to-end data lineage across the enterprise data estate.",
     referenceUrl: "https://learn.microsoft.com/en-us/purview/purview",
@@ -72,12 +72,12 @@ export const AZURE_AZ900_QUESTIONS_19 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to the Microsoft Azure Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The organization evaluates Azure Data Governance to discover, classify, and govern sensitive customer data (such as PII and credit card numbers) stored across hybrid, multi-cloud, and SaaS environments.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? Microsoft Purview automated data discovery and cataloging is under consideration.",
     options: [
-      { id: 'A', text: "Deploy Microsoft Purview to create a unified data map and automated data catalog." },
-      { id: 'B', text: "Manually inspect text files in storage accounts using desktop text editors." },
-      { id: 'C', text: "Delete all historical customer data from storage accounts to avoid compliance audits." },
-      { id: 'D', text: "Rely on custom bash scripts running on a single developer workstation to search databases." }
+      { id: 'A', text: "Manually inspect text files in storage accounts using desktop text editors." },
+      { id: 'B', text: "Deploy Microsoft Purview to create a unified data map and automated data catalog." },
+      { id: 'C', text: "Rely on custom bash scripts running on a single developer workstation to search databases." },
+      { id: 'D', text: "Delete all historical customer data from storage accounts to avoid compliance audits." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy Microsoft Purview to create a unified data map and automated data catalog. Microsoft Purview is a unified data governance solution that helps manage and govern on-premises, multi-cloud, and SaaS data. It provides automated data discovery, sensitive data classification, and end-to-end data lineage across the enterprise data estate.",
     referenceUrl: "https://learn.microsoft.com/en-us/purview/purview",
@@ -93,12 +93,12 @@ export const AZURE_AZ900_QUESTIONS_19 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The organization evaluates Azure Data Governance to discover, classify, and govern sensitive customer data (such as PII and credit card numbers) stored across hybrid, multi-cloud, and SaaS environments.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? Microsoft Purview automated data discovery and cataloging is under consideration.",
     options: [
-      { id: 'A', text: "Deploy Microsoft Purview to create a unified data map and automated data catalog." },
+      { id: 'A', text: "Rely on custom bash scripts running on a single developer workstation to search databases." },
       { id: 'B', text: "Manually inspect text files in storage accounts using desktop text editors." },
-      { id: 'C', text: "Delete all historical customer data from storage accounts to avoid compliance audits." },
-      { id: 'D', text: "Rely on custom bash scripts running on a single developer workstation to search databases." }
+      { id: 'C', text: "Deploy Microsoft Purview to create a unified data map and automated data catalog." },
+      { id: 'D', text: "Delete all historical customer data from storage accounts to avoid compliance audits." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy Microsoft Purview to create a unified data map and automated data catalog. Microsoft Purview is a unified data governance solution that helps manage and govern on-premises, multi-cloud, and SaaS data. It provides automated data discovery, sensitive data classification, and end-to-end data lineage across the enterprise data estate.",
     referenceUrl: "https://learn.microsoft.com/en-us/purview/purview",
@@ -114,12 +114,12 @@ export const AZURE_AZ900_QUESTIONS_19 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The organization evaluates Azure Management Tools to provide IT administrators with a user-friendly, browser-based graphical user interface to inspect resource health, configure alerts, and manage services from any workstation.",
     question: "Which concept or service configuration satisfies these operational resilience objectives? Web-based graphical management interfaces is under consideration.",
     options: [
-      { id: 'A', text: "Use the Azure Portal (portal.azure.com) and the Azure Mobile App for graphical cloud administration." },
+      { id: 'A', text: "Use local BIOS settings on client workstations to monitor cloud infrastructure." },
       { id: 'B', text: "Require all administrators to write compiled C++ software to manage Azure services." },
-      { id: 'C', text: "Access Azure services solely through raw unauthenticated HTTP REST API calls via cURL." },
-      { id: 'D', text: "Use local BIOS settings on client workstations to monitor cloud infrastructure." }
+      { id: 'C', text: "Use the Azure Portal (portal.azure.com) and the Azure Mobile App for graphical cloud administration." },
+      { id: 'D', text: "Access Azure services solely through raw unauthenticated HTTP REST API calls via cURL." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Use the Azure Portal (portal.azure.com) and the Azure Mobile App for graphical cloud administration. The Azure Portal is a comprehensive, web-based console that provides an alternative to command-line tools. It allows administrators to build, manage, and monitor everything from simple web apps to complex cloud deployments using an intuitive graphical interface, complemented by the Azure Mobile App for iOS and Android.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-overview",
@@ -135,12 +135,12 @@ export const AZURE_AZ900_QUESTIONS_19 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The organization evaluates Azure Management Tools to provide IT administrators with a user-friendly, browser-based graphical user interface to inspect resource health, configure alerts, and manage services from any workstation.",
     question: "Which architectural approach should the team select to manage this demand efficiently? Web-based graphical management interfaces is under consideration.",
     options: [
-      { id: 'A', text: "Use the Azure Portal (portal.azure.com) and the Azure Mobile App for graphical cloud administration." },
-      { id: 'B', text: "Require all administrators to write compiled C++ software to manage Azure services." },
+      { id: 'A', text: "Require all administrators to write compiled C++ software to manage Azure services." },
+      { id: 'B', text: "Use local BIOS settings on client workstations to monitor cloud infrastructure." },
       { id: 'C', text: "Access Azure services solely through raw unauthenticated HTTP REST API calls via cURL." },
-      { id: 'D', text: "Use local BIOS settings on client workstations to monitor cloud infrastructure." }
+      { id: 'D', text: "Use the Azure Portal (portal.azure.com) and the Azure Mobile App for graphical cloud administration." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Use the Azure Portal (portal.azure.com) and the Azure Mobile App for graphical cloud administration. The Azure Portal is a comprehensive, web-based console that provides an alternative to command-line tools. It allows administrators to build, manage, and monitor everything from simple web apps to complex cloud deployments using an intuitive graphical interface, complemented by the Azure Mobile App for iOS and Android.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-overview",
@@ -156,12 +156,12 @@ export const AZURE_AZ900_QUESTIONS_19 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The organization evaluates Azure Management Tools to provide IT administrators with a user-friendly, browser-based graphical user interface to inspect resource health, configure alerts, and manage services from any workstation.",
     question: "Which solution properly implements these mandatory security and governance controls? Web-based graphical management interfaces is under consideration.",
     options: [
-      { id: 'A', text: "Use the Azure Portal (portal.azure.com) and the Azure Mobile App for graphical cloud administration." },
-      { id: 'B', text: "Require all administrators to write compiled C++ software to manage Azure services." },
-      { id: 'C', text: "Access Azure services solely through raw unauthenticated HTTP REST API calls via cURL." },
-      { id: 'D', text: "Use local BIOS settings on client workstations to monitor cloud infrastructure." }
+      { id: 'A', text: "Require all administrators to write compiled C++ software to manage Azure services." },
+      { id: 'B', text: "Access Azure services solely through raw unauthenticated HTTP REST API calls via cURL." },
+      { id: 'C', text: "Use local BIOS settings on client workstations to monitor cloud infrastructure." },
+      { id: 'D', text: "Use the Azure Portal (portal.azure.com) and the Azure Mobile App for graphical cloud administration." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Use the Azure Portal (portal.azure.com) and the Azure Mobile App for graphical cloud administration. The Azure Portal is a comprehensive, web-based console that provides an alternative to command-line tools. It allows administrators to build, manage, and monitor everything from simple web apps to complex cloud deployments using an intuitive graphical interface, complemented by the Azure Mobile App for iOS and Android.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-overview",
@@ -177,12 +177,12 @@ export const AZURE_AZ900_QUESTIONS_19 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to the Microsoft Azure Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The organization evaluates Azure Management Tools to provide IT administrators with a user-friendly, browser-based graphical user interface to inspect resource health, configure alerts, and manage services from any workstation.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? Web-based graphical management interfaces is under consideration.",
     options: [
-      { id: 'A', text: "Use the Azure Portal (portal.azure.com) and the Azure Mobile App for graphical cloud administration." },
-      { id: 'B', text: "Require all administrators to write compiled C++ software to manage Azure services." },
-      { id: 'C', text: "Access Azure services solely through raw unauthenticated HTTP REST API calls via cURL." },
+      { id: 'A', text: "Access Azure services solely through raw unauthenticated HTTP REST API calls via cURL." },
+      { id: 'B', text: "Use the Azure Portal (portal.azure.com) and the Azure Mobile App for graphical cloud administration." },
+      { id: 'C', text: "Require all administrators to write compiled C++ software to manage Azure services." },
       { id: 'D', text: "Use local BIOS settings on client workstations to monitor cloud infrastructure." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Use the Azure Portal (portal.azure.com) and the Azure Mobile App for graphical cloud administration. The Azure Portal is a comprehensive, web-based console that provides an alternative to command-line tools. It allows administrators to build, manage, and monitor everything from simple web apps to complex cloud deployments using an intuitive graphical interface, complemented by the Azure Mobile App for iOS and Android.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-overview",
@@ -198,12 +198,12 @@ export const AZURE_AZ900_QUESTIONS_19 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The organization evaluates Azure Management Tools to provide IT administrators with a user-friendly, browser-based graphical user interface to inspect resource health, configure alerts, and manage services from any workstation.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? Web-based graphical management interfaces is under consideration.",
     options: [
-      { id: 'A', text: "Use the Azure Portal (portal.azure.com) and the Azure Mobile App for graphical cloud administration." },
-      { id: 'B', text: "Require all administrators to write compiled C++ software to manage Azure services." },
-      { id: 'C', text: "Access Azure services solely through raw unauthenticated HTTP REST API calls via cURL." },
+      { id: 'A', text: "Require all administrators to write compiled C++ software to manage Azure services." },
+      { id: 'B', text: "Access Azure services solely through raw unauthenticated HTTP REST API calls via cURL." },
+      { id: 'C', text: "Use the Azure Portal (portal.azure.com) and the Azure Mobile App for graphical cloud administration." },
       { id: 'D', text: "Use local BIOS settings on client workstations to monitor cloud infrastructure." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Use the Azure Portal (portal.azure.com) and the Azure Mobile App for graphical cloud administration. The Azure Portal is a comprehensive, web-based console that provides an alternative to command-line tools. It allows administrators to build, manage, and monitor everything from simple web apps to complex cloud deployments using an intuitive graphical interface, complemented by the Azure Mobile App for iOS and Android.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-overview",
@@ -220,8 +220,8 @@ export const AZURE_AZ900_QUESTIONS_19 = [
     question: "Which concept or service configuration satisfies these operational resilience objectives? Command-line interfaces for automated scripting and administration is under consideration.",
     options: [
       { id: 'A', text: "Use the Azure CLI (az command) or Azure PowerShell module (Az) for cross-platform automation." },
-      { id: 'B', text: "Perform all administrative tasks manually through point-and-click operations in the web browser." },
-      { id: 'C', text: "Maintain proprietary local shell scripts that interact with physical datacenter SAN controllers." },
+      { id: 'B', text: "Maintain proprietary local shell scripts that interact with physical datacenter SAN controllers." },
+      { id: 'C', text: "Perform all administrative tasks manually through point-and-click operations in the web browser." },
       { id: 'D', text: "Use a paper logbook to track infrastructure changes made by administrators." }
     ],
     correctAnswers: ['A'],
@@ -240,12 +240,12 @@ export const AZURE_AZ900_QUESTIONS_19 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The organization evaluates Azure Management Tools to automate recurring infrastructure deployment and maintenance tasks from macOS, Linux, and Windows command lines using cross-platform scripts.",
     question: "Which architectural approach should the team select to manage this demand efficiently? Command-line interfaces for automated scripting and administration is under consideration.",
     options: [
-      { id: 'A', text: "Use the Azure CLI (az command) or Azure PowerShell module (Az) for cross-platform automation." },
-      { id: 'B', text: "Perform all administrative tasks manually through point-and-click operations in the web browser." },
-      { id: 'C', text: "Maintain proprietary local shell scripts that interact with physical datacenter SAN controllers." },
-      { id: 'D', text: "Use a paper logbook to track infrastructure changes made by administrators." }
+      { id: 'A', text: "Perform all administrative tasks manually through point-and-click operations in the web browser." },
+      { id: 'B', text: "Use a paper logbook to track infrastructure changes made by administrators." },
+      { id: 'C', text: "Use the Azure CLI (az command) or Azure PowerShell module (Az) for cross-platform automation." },
+      { id: 'D', text: "Maintain proprietary local shell scripts that interact with physical datacenter SAN controllers." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Use the Azure CLI (az command) or Azure PowerShell module (Az) for cross-platform automation. Azure CLI (a cross-platform command-line tool utilizing Python) and Azure PowerShell (a set of cmdlets using PowerShell) enable administrators to automate Azure resource creation, configuration, and teardown across Windows, macOS, and Linux environments, facilitating DevOps and script-based administration.",
     referenceUrl: "https://learn.microsoft.com/en-us/cli/azure/what-is-azure-cli",
@@ -261,12 +261,12 @@ export const AZURE_AZ900_QUESTIONS_19 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The organization evaluates Azure Management Tools to automate recurring infrastructure deployment and maintenance tasks from macOS, Linux, and Windows command lines using cross-platform scripts.",
     question: "Which solution properly implements these mandatory security and governance controls? Command-line interfaces for automated scripting and administration is under consideration.",
     options: [
-      { id: 'A', text: "Use the Azure CLI (az command) or Azure PowerShell module (Az) for cross-platform automation." },
+      { id: 'A', text: "Maintain proprietary local shell scripts that interact with physical datacenter SAN controllers." },
       { id: 'B', text: "Perform all administrative tasks manually through point-and-click operations in the web browser." },
-      { id: 'C', text: "Maintain proprietary local shell scripts that interact with physical datacenter SAN controllers." },
+      { id: 'C', text: "Use the Azure CLI (az command) or Azure PowerShell module (Az) for cross-platform automation." },
       { id: 'D', text: "Use a paper logbook to track infrastructure changes made by administrators." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Use the Azure CLI (az command) or Azure PowerShell module (Az) for cross-platform automation. Azure CLI (a cross-platform command-line tool utilizing Python) and Azure PowerShell (a set of cmdlets using PowerShell) enable administrators to automate Azure resource creation, configuration, and teardown across Windows, macOS, and Linux environments, facilitating DevOps and script-based administration.",
     referenceUrl: "https://learn.microsoft.com/en-us/cli/azure/what-is-azure-cli",
@@ -282,12 +282,12 @@ export const AZURE_AZ900_QUESTIONS_19 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to the Microsoft Azure Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The organization evaluates Azure Management Tools to automate recurring infrastructure deployment and maintenance tasks from macOS, Linux, and Windows command lines using cross-platform scripts.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? Command-line interfaces for automated scripting and administration is under consideration.",
     options: [
-      { id: 'A', text: "Use the Azure CLI (az command) or Azure PowerShell module (Az) for cross-platform automation." },
+      { id: 'A', text: "Maintain proprietary local shell scripts that interact with physical datacenter SAN controllers." },
       { id: 'B', text: "Perform all administrative tasks manually through point-and-click operations in the web browser." },
-      { id: 'C', text: "Maintain proprietary local shell scripts that interact with physical datacenter SAN controllers." },
-      { id: 'D', text: "Use a paper logbook to track infrastructure changes made by administrators." }
+      { id: 'C', text: "Use a paper logbook to track infrastructure changes made by administrators." },
+      { id: 'D', text: "Use the Azure CLI (az command) or Azure PowerShell module (Az) for cross-platform automation." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Use the Azure CLI (az command) or Azure PowerShell module (Az) for cross-platform automation. Azure CLI (a cross-platform command-line tool utilizing Python) and Azure PowerShell (a set of cmdlets using PowerShell) enable administrators to automate Azure resource creation, configuration, and teardown across Windows, macOS, and Linux environments, facilitating DevOps and script-based administration.",
     referenceUrl: "https://learn.microsoft.com/en-us/cli/azure/what-is-azure-cli",
@@ -303,12 +303,12 @@ export const AZURE_AZ900_QUESTIONS_19 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The organization evaluates Azure Management Tools to automate recurring infrastructure deployment and maintenance tasks from macOS, Linux, and Windows command lines using cross-platform scripts.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? Command-line interfaces for automated scripting and administration is under consideration.",
     options: [
-      { id: 'A', text: "Use the Azure CLI (az command) or Azure PowerShell module (Az) for cross-platform automation." },
+      { id: 'A', text: "Maintain proprietary local shell scripts that interact with physical datacenter SAN controllers." },
       { id: 'B', text: "Perform all administrative tasks manually through point-and-click operations in the web browser." },
-      { id: 'C', text: "Maintain proprietary local shell scripts that interact with physical datacenter SAN controllers." },
+      { id: 'C', text: "Use the Azure CLI (az command) or Azure PowerShell module (Az) for cross-platform automation." },
       { id: 'D', text: "Use a paper logbook to track infrastructure changes made by administrators." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Use the Azure CLI (az command) or Azure PowerShell module (Az) for cross-platform automation. Azure CLI (a cross-platform command-line tool utilizing Python) and Azure PowerShell (a set of cmdlets using PowerShell) enable administrators to automate Azure resource creation, configuration, and teardown across Windows, macOS, and Linux environments, facilitating DevOps and script-based administration.",
     referenceUrl: "https://learn.microsoft.com/en-us/cli/azure/what-is-azure-cli",
@@ -325,8 +325,8 @@ export const AZURE_AZ900_QUESTIONS_19 = [
     question: "Which concept or service configuration satisfies these operational resilience objectives? Browser-accessible authenticated terminal environment is under consideration.",
     options: [
       { id: 'A', text: "Launch Azure Cloud Shell directly from the Azure Portal using Bash or PowerShell." },
-      { id: 'B', text: "Install dedicated virtual machines on local developer laptops to run command-line tools." },
-      { id: 'C', text: "Configure local SSH servers on personal workstations and open inbound ports on the corporate firewall." },
+      { id: 'B', text: "Configure local SSH servers on personal workstations and open inbound ports on the corporate firewall." },
+      { id: 'C', text: "Install dedicated virtual machines on local developer laptops to run command-line tools." },
       { id: 'D', text: "Rely on third-party remote desktop software to connect to a management bastion host." }
     ],
     correctAnswers: ['A'],
@@ -347,8 +347,8 @@ export const AZURE_AZ900_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Launch Azure Cloud Shell directly from the Azure Portal using Bash or PowerShell." },
       { id: 'B', text: "Install dedicated virtual machines on local developer laptops to run command-line tools." },
-      { id: 'C', text: "Configure local SSH servers on personal workstations and open inbound ports on the corporate firewall." },
-      { id: 'D', text: "Rely on third-party remote desktop software to connect to a management bastion host." }
+      { id: 'C', text: "Rely on third-party remote desktop software to connect to a management bastion host." },
+      { id: 'D', text: "Configure local SSH servers on personal workstations and open inbound ports on the corporate firewall." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -366,12 +366,12 @@ export const AZURE_AZ900_QUESTIONS_19 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The organization evaluates Azure Management Tools to access a pre-authenticated command-line terminal directly in the web browser without installing local tools, SDKs, or software dependencies.",
     question: "Which solution properly implements these mandatory security and governance controls? Browser-accessible authenticated terminal environment is under consideration.",
     options: [
-      { id: 'A', text: "Launch Azure Cloud Shell directly from the Azure Portal using Bash or PowerShell." },
-      { id: 'B', text: "Install dedicated virtual machines on local developer laptops to run command-line tools." },
+      { id: 'A', text: "Rely on third-party remote desktop software to connect to a management bastion host." },
+      { id: 'B', text: "Launch Azure Cloud Shell directly from the Azure Portal using Bash or PowerShell." },
       { id: 'C', text: "Configure local SSH servers on personal workstations and open inbound ports on the corporate firewall." },
-      { id: 'D', text: "Rely on third-party remote desktop software to connect to a management bastion host." }
+      { id: 'D', text: "Install dedicated virtual machines on local developer laptops to run command-line tools." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Launch Azure Cloud Shell directly from the Azure Portal using Bash or PowerShell. Azure Cloud Shell is an interactive, authenticated, browser-accessible terminal for managing Azure resources. It provides the choice of either Bash or PowerShell, automatically persists files across sessions using Azure File storage, and comes pre-installed with popular command-line tools (Azure CLI, kubectl, Terraform, git).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-shell/overview",
@@ -387,12 +387,12 @@ export const AZURE_AZ900_QUESTIONS_19 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to the Microsoft Azure Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The organization evaluates Azure Management Tools to access a pre-authenticated command-line terminal directly in the web browser without installing local tools, SDKs, or software dependencies.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? Browser-accessible authenticated terminal environment is under consideration.",
     options: [
-      { id: 'A', text: "Launch Azure Cloud Shell directly from the Azure Portal using Bash or PowerShell." },
-      { id: 'B', text: "Install dedicated virtual machines on local developer laptops to run command-line tools." },
-      { id: 'C', text: "Configure local SSH servers on personal workstations and open inbound ports on the corporate firewall." },
-      { id: 'D', text: "Rely on third-party remote desktop software to connect to a management bastion host." }
+      { id: 'A', text: "Install dedicated virtual machines on local developer laptops to run command-line tools." },
+      { id: 'B', text: "Rely on third-party remote desktop software to connect to a management bastion host." },
+      { id: 'C', text: "Launch Azure Cloud Shell directly from the Azure Portal using Bash or PowerShell." },
+      { id: 'D', text: "Configure local SSH servers on personal workstations and open inbound ports on the corporate firewall." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Launch Azure Cloud Shell directly from the Azure Portal using Bash or PowerShell. Azure Cloud Shell is an interactive, authenticated, browser-accessible terminal for managing Azure resources. It provides the choice of either Bash or PowerShell, automatically persists files across sessions using Azure File storage, and comes pre-installed with popular command-line tools (Azure CLI, kubectl, Terraform, git).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-shell/overview",
@@ -408,12 +408,12 @@ export const AZURE_AZ900_QUESTIONS_19 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The organization evaluates Azure Management Tools to access a pre-authenticated command-line terminal directly in the web browser without installing local tools, SDKs, or software dependencies.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? Browser-accessible authenticated terminal environment is under consideration.",
     options: [
-      { id: 'A', text: "Launch Azure Cloud Shell directly from the Azure Portal using Bash or PowerShell." },
-      { id: 'B', text: "Install dedicated virtual machines on local developer laptops to run command-line tools." },
-      { id: 'C', text: "Configure local SSH servers on personal workstations and open inbound ports on the corporate firewall." },
-      { id: 'D', text: "Rely on third-party remote desktop software to connect to a management bastion host." }
+      { id: 'A', text: "Install dedicated virtual machines on local developer laptops to run command-line tools." },
+      { id: 'B', text: "Launch Azure Cloud Shell directly from the Azure Portal using Bash or PowerShell." },
+      { id: 'C', text: "Rely on third-party remote desktop software to connect to a management bastion host." },
+      { id: 'D', text: "Configure local SSH servers on personal workstations and open inbound ports on the corporate firewall." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Launch Azure Cloud Shell directly from the Azure Portal using Bash or PowerShell. Azure Cloud Shell is an interactive, authenticated, browser-accessible terminal for managing Azure resources. It provides the choice of either Bash or PowerShell, automatically persists files across sessions using Azure File storage, and comes pre-installed with popular command-line tools (Azure CLI, kubectl, Terraform, git).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-shell/overview",
@@ -429,12 +429,12 @@ export const AZURE_AZ900_QUESTIONS_19 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The organization evaluates Azure Hybrid Management to extend Azure Resource Manager governance, Azure Policy, and Defender for Cloud to physical servers and Kubernetes clusters running on-premises and in AWS/GCP.",
     question: "Which concept or service configuration satisfies these operational resilience objectives? Azure Arc unified control plane extension is under consideration.",
     options: [
-      { id: 'A', text: "Deploy Azure Arc connected agents onto external servers and Kubernetes clusters." },
-      { id: 'B', text: "Migrate all external physical machines into Azure Virtual Machines immediately." },
+      { id: 'A', text: "Install proprietary third-party monitoring agents with independent siloed management consoles." },
+      { id: 'B', text: "Deploy Azure Arc connected agents onto external servers and Kubernetes clusters." },
       { id: 'C', text: "Manage on-premises servers using disconnected local hardware tools without central visibility." },
-      { id: 'D', text: "Install proprietary third-party monitoring agents with independent siloed management consoles." }
+      { id: 'D', text: "Migrate all external physical machines into Azure Virtual Machines immediately." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy Azure Arc connected agents onto external servers and Kubernetes clusters. Azure Arc extends Azure Resource Manager capabilities to non-Azure environments. It allows organizations to manage physical servers, virtual machines, and Kubernetes clusters running outside Azure (on-premises, edge, or AWS/GCP) as if they were native Azure resources, applying Azure Policy and RBAC consistently.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-arc/overview",
@@ -451,9 +451,9 @@ export const AZURE_AZ900_QUESTIONS_19 = [
     question: "Which architectural approach should the team select to manage this demand efficiently? Azure Arc unified control plane extension is under consideration.",
     options: [
       { id: 'A', text: "Deploy Azure Arc connected agents onto external servers and Kubernetes clusters." },
-      { id: 'B', text: "Migrate all external physical machines into Azure Virtual Machines immediately." },
-      { id: 'C', text: "Manage on-premises servers using disconnected local hardware tools without central visibility." },
-      { id: 'D', text: "Install proprietary third-party monitoring agents with independent siloed management consoles." }
+      { id: 'B', text: "Manage on-premises servers using disconnected local hardware tools without central visibility." },
+      { id: 'C', text: "Install proprietary third-party monitoring agents with independent siloed management consoles." },
+      { id: 'D', text: "Migrate all external physical machines into Azure Virtual Machines immediately." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -471,12 +471,12 @@ export const AZURE_AZ900_QUESTIONS_19 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The organization evaluates Azure Hybrid Management to extend Azure Resource Manager governance, Azure Policy, and Defender for Cloud to physical servers and Kubernetes clusters running on-premises and in AWS/GCP.",
     question: "Which solution properly implements these mandatory security and governance controls? Azure Arc unified control plane extension is under consideration.",
     options: [
-      { id: 'A', text: "Deploy Azure Arc connected agents onto external servers and Kubernetes clusters." },
-      { id: 'B', text: "Migrate all external physical machines into Azure Virtual Machines immediately." },
-      { id: 'C', text: "Manage on-premises servers using disconnected local hardware tools without central visibility." },
-      { id: 'D', text: "Install proprietary third-party monitoring agents with independent siloed management consoles." }
+      { id: 'A', text: "Manage on-premises servers using disconnected local hardware tools without central visibility." },
+      { id: 'B', text: "Install proprietary third-party monitoring agents with independent siloed management consoles." },
+      { id: 'C', text: "Deploy Azure Arc connected agents onto external servers and Kubernetes clusters." },
+      { id: 'D', text: "Migrate all external physical machines into Azure Virtual Machines immediately." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy Azure Arc connected agents onto external servers and Kubernetes clusters. Azure Arc extends Azure Resource Manager capabilities to non-Azure environments. It allows organizations to manage physical servers, virtual machines, and Kubernetes clusters running outside Azure (on-premises, edge, or AWS/GCP) as if they were native Azure resources, applying Azure Policy and RBAC consistently.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-arc/overview",
@@ -492,12 +492,12 @@ export const AZURE_AZ900_QUESTIONS_19 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to the Microsoft Azure Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The organization evaluates Azure Hybrid Management to extend Azure Resource Manager governance, Azure Policy, and Defender for Cloud to physical servers and Kubernetes clusters running on-premises and in AWS/GCP.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? Azure Arc unified control plane extension is under consideration.",
     options: [
-      { id: 'A', text: "Deploy Azure Arc connected agents onto external servers and Kubernetes clusters." },
-      { id: 'B', text: "Migrate all external physical machines into Azure Virtual Machines immediately." },
-      { id: 'C', text: "Manage on-premises servers using disconnected local hardware tools without central visibility." },
-      { id: 'D', text: "Install proprietary third-party monitoring agents with independent siloed management consoles." }
+      { id: 'A', text: "Manage on-premises servers using disconnected local hardware tools without central visibility." },
+      { id: 'B', text: "Deploy Azure Arc connected agents onto external servers and Kubernetes clusters." },
+      { id: 'C', text: "Install proprietary third-party monitoring agents with independent siloed management consoles." },
+      { id: 'D', text: "Migrate all external physical machines into Azure Virtual Machines immediately." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy Azure Arc connected agents onto external servers and Kubernetes clusters. Azure Arc extends Azure Resource Manager capabilities to non-Azure environments. It allows organizations to manage physical servers, virtual machines, and Kubernetes clusters running outside Azure (on-premises, edge, or AWS/GCP) as if they were native Azure resources, applying Azure Policy and RBAC consistently.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-arc/overview",
@@ -513,12 +513,12 @@ export const AZURE_AZ900_QUESTIONS_19 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The organization evaluates Azure Hybrid Management to extend Azure Resource Manager governance, Azure Policy, and Defender for Cloud to physical servers and Kubernetes clusters running on-premises and in AWS/GCP.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? Azure Arc unified control plane extension is under consideration.",
     options: [
-      { id: 'A', text: "Deploy Azure Arc connected agents onto external servers and Kubernetes clusters." },
-      { id: 'B', text: "Migrate all external physical machines into Azure Virtual Machines immediately." },
-      { id: 'C', text: "Manage on-premises servers using disconnected local hardware tools without central visibility." },
-      { id: 'D', text: "Install proprietary third-party monitoring agents with independent siloed management consoles." }
+      { id: 'A', text: "Install proprietary third-party monitoring agents with independent siloed management consoles." },
+      { id: 'B', text: "Deploy Azure Arc connected agents onto external servers and Kubernetes clusters." },
+      { id: 'C', text: "Migrate all external physical machines into Azure Virtual Machines immediately." },
+      { id: 'D', text: "Manage on-premises servers using disconnected local hardware tools without central visibility." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy Azure Arc connected agents onto external servers and Kubernetes clusters. Azure Arc extends Azure Resource Manager capabilities to non-Azure environments. It allows organizations to manage physical servers, virtual machines, and Kubernetes clusters running outside Azure (on-premises, edge, or AWS/GCP) as if they were native Azure resources, applying Azure Policy and RBAC consistently.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-arc/overview",

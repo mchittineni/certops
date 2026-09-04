@@ -9,12 +9,12 @@ export const HASHICORP_TFA_QUESTIONS_3 = [
     scenario: "A FinOps director activates Cost Estimation in Terraform Cloud.",
     question: "Which cloud providers are natively supported by Terraform Cloud Cost Estimation for computing hourly and monthly cost deltas?",
     options: [
-      { id: 'A', text: "VMware vSphere only" },
-      { id: 'B', text: "Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP)" },
-      { id: 'C', text: "AWS only" },
+      { id: 'A', text: "AWS only" },
+      { id: 'B', text: "VMware vSphere only" },
+      { id: 'C', text: "Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP)" },
       { id: 'D', text: "Any provider in the Terraform Registry" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Terraform Cloud provides built-in cost estimation for major public cloud providers: AWS, Microsoft Azure, and Google Cloud Platform. It analyzes resource changes against cloud pricing APIs before apply.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cloud-docs/cost-estimation",
@@ -51,12 +51,12 @@ export const HASHICORP_TFA_QUESTIONS_3 = [
     scenario: "An enterprise maintains a `networking-workspace` (VPCs, subnets) and a separate `applications-workspace` (compute instances). When `networking-workspace` finishes an apply that changes subnet CIDRs, `applications-workspace` must automatically run a plan.",
     question: "Which Terraform Cloud feature coordinates automated execution across workspaces?",
     options: [
-      { id: 'A', text: "Notification Webhooks" },
-      { id: 'B', text: "Manual API polling scripts" },
-      { id: 'C', text: "Run Triggers" },
-      { id: 'D', text: "VCS Webhooks alone" }
+      { id: 'A', text: "Run Triggers" },
+      { id: 'B', text: "VCS Webhooks alone" },
+      { id: 'C', text: "Notification Webhooks" },
+      { id: 'D', text: "Manual API polling scripts" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "`Run Triggers` allow workspaces to be connected. When a source workspace (e.g. networking) successfully applies a run, it automatically triggers a plan in connected downstream workspaces (e.g. applications), orchestrating multi-workspace architectures.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cloud-docs/workspaces/settings/run-triggers",
@@ -72,12 +72,12 @@ export const HASHICORP_TFA_QUESTIONS_3 = [
     scenario: "A security team defines an organizational Sentinel policy. If the policy is violated, the run must be blocked immediately, and CANNOT be overridden by any user or administrator under any circumstances.",
     question: "Which Sentinel enforcement level enforces this non-overridable restriction?",
     options: [
-      { id: 'A', text: "Advisory (prints warnings only)" },
-      { id: 'B', text: "Hard-Mandatory" },
-      { id: 'C', text: "Optional" },
-      { id: 'D', text: "Soft-Mandatory (can be overridden by authorized users)" }
+      { id: 'A', text: "Optional" },
+      { id: 'B', text: "Advisory (prints warnings only)" },
+      { id: 'C', text: "Soft-Mandatory (can be overridden by authorized users)" },
+      { id: 'D', text: "Hard-Mandatory" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Sentinel has three enforcement levels: `Advisory` (prints a warning but allows apply), `Soft-Mandatory` (blocks apply, but authorized users can override), and `Hard-Mandatory` (strictly blocks apply with zero override allowed under any condition).",
     referenceUrl: "https://developer.hashicorp.com/terraform/cloud-docs/policy-enforcement/sentinel#enforcement-levels",
@@ -93,12 +93,12 @@ export const HASHICORP_TFA_QUESTIONS_3 = [
     scenario: "A government agency with strict air-gapped security mandates requires all Terraform Cloud capabilities (VCS integration, private registry, remote execution, Sentinel) hosted inside their private, self-contained data center.",
     question: "Which HashiCorp product provides self-hosted private deployments of Terraform Cloud?",
     options: [
-      { id: 'A', text: "Terraform Community Edition" },
-      { id: 'B', text: "HashiCorp Consul alone" },
+      { id: 'A', text: "HashiCorp Consul alone" },
+      { id: 'B', text: "Terraform Enterprise (TFE)" },
       { id: 'C', text: "Terraform CLI local" },
-      { id: 'D', text: "Terraform Enterprise (TFE)" }
+      { id: 'D', text: "Terraform Community Edition" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "`Terraform Enterprise` (TFE) is the self-hosted, air-gapped distribution of Terraform Cloud. It installs on customer-owned infrastructure (VMs, Kubernetes) and provides complete organizational governance, private registries, and remote execution isolated from the public internet.",
     referenceUrl: "https://developer.hashicorp.com/terraform/enterprise",
@@ -114,12 +114,12 @@ export const HASHICORP_TFA_QUESTIONS_3 = [
     scenario: "An enterprise uses hosted Terraform Cloud (SaaS) but needs to provision resources inside an isolated on-premises datacenter that has no inbound public internet connectivity.",
     question: "Which Terraform Cloud component runs inside the private network to execute remote runs locally?",
     options: [
-      { id: 'A', text: "Terraform Cloud cannot manage private infrastructure" },
-      { id: 'B', text: "Terraform Cloud Agents (TFC Agents)" },
+      { id: 'A', text: "Opening inbound SSH port 22 on the corporate firewall" },
+      { id: 'B', text: "Terraform Cloud cannot manage private infrastructure" },
       { id: 'C', text: "Public NAT gateways on the internet" },
-      { id: 'D', text: "Opening inbound SSH port 22 on the corporate firewall" }
+      { id: 'D', text: "Terraform Cloud Agents (TFC Agents)" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "`Terraform Cloud Agents` allow hosted Terraform Cloud to communicate with private, isolated infrastructure. The agent runs inside the private network, polls Terraform Cloud via outbound-only HTTPS, executes the run locally, and returns state updates.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cloud-docs/run/agents",
@@ -135,12 +135,12 @@ export const HASHICORP_TFA_QUESTIONS_3 = [
     scenario: "An organization manages 100 workspaces in Terraform Cloud. All 100 workspaces require the exact same AWS credentials (`AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`).",
     question: "Which Terraform Cloud feature shares a unified set of environment or Terraform variables across multiple workspaces?",
     options: [
-      { id: 'A', text: "Sentinel Policies" },
-      { id: 'B', text: "Global State Files" },
-      { id: 'C', text: "Variable Sets" },
-      { id: 'D', text: "Copying and pasting credentials 100 times manually" }
+      { id: 'A', text: "Copying and pasting credentials 100 times manually" },
+      { id: 'B', text: "Variable Sets" },
+      { id: 'C', text: "Sentinel Policies" },
+      { id: 'D', text: "Global State Files" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "`Variable Sets` in Terraform Cloud allow administrators to define a group of variables (sensitive credentials or common configuration values) once and apply them globally across all workspaces or to selected workspace subsets.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cloud-docs/workspaces/variables/variable-sets",
@@ -179,8 +179,8 @@ export const HASHICORP_TFA_QUESTIONS_3 = [
     options: [
       { id: 'A', text: "null_resource (or terraform_data in Terraform 1.4+)" },
       { id: 'B', text: "local_file" },
-      { id: 'C', text: "dummy_resource" },
-      { id: 'D', text: "custom_resource" }
+      { id: 'C', text: "custom_resource" },
+      { id: 'D', text: "dummy_resource" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,12 +198,12 @@ export const HASHICORP_TFA_QUESTIONS_3 = [
     scenario: "A platform engineer upgrades configurations to modern Terraform versions.",
     question: "Starting in Terraform v1.4, which built-in managed resource replaces the external HashiCorp null_resource without requiring external provider downloads?",
     options: [
-      { id: 'A', text: "local_resource" },
-      { id: 'B', text: "builtin_data" },
-      { id: 'C', text: "null_resource v2" },
-      { id: 'D', text: "terraform_data" }
+      { id: 'A', text: "null_resource v2" },
+      { id: 'B', text: "terraform_data" },
+      { id: 'C', text: "builtin_data" },
+      { id: 'D', text: "local_resource" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "`terraform_data` is built directly into Terraform Core (v1.4+). It requires no external provider plugin, stores arbitrary values in state, triggers lifecycle recreations using `triggers_replace`, and replaces `null_resource` cleanly.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/resources/terraform-data",
@@ -219,12 +219,12 @@ export const HASHICORP_TFA_QUESTIONS_3 = [
     scenario: "A developer modifies the backend block from a local backend to an Amazon S3 backend in their Terraform code.",
     question: "Which command initializes the new backend while prompting to automatically copy existing state data to the new S3 bucket?",
     options: [
-      { id: 'A', text: "terraform init -force" },
+      { id: 'A', text: "terraform init -migrate-state" },
       { id: 'B', text: "terraform init -reconfigure (which ignores existing state)" },
-      { id: 'C', text: "terraform init -migrate-state" },
+      { id: 'C', text: "terraform init -force" },
       { id: 'D', text: "terraform state push" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Running `terraform init -migrate-state` instructs Terraform to copy existing state data from the old backend to the new backend. In contrast, `-reconfigure` disregards any existing state and reinitializes from scratch.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/init#backend-initialization",
@@ -240,12 +240,12 @@ export const HASHICORP_TFA_QUESTIONS_3 = [
     scenario: "An automated CI/CD bash script needs to determine whether `terraform plan` detected any infrastructure changes without parsing human-readable text output.",
     question: "Which flag instructs terraform plan to return exit code 0 for no changes, exit code 2 for changes present, and exit code 1 for errors?",
     options: [
-      { id: 'A', text: "-exit-on-diff" },
+      { id: 'A', text: "-detailed-exitcode" },
       { id: 'B', text: "-json-exit" },
-      { id: 'C', text: "-detailed-exitcode" },
+      { id: 'C', text: "-exit-on-diff" },
       { id: 'D', text: "-status-code" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The `-detailed-exitcode` flag returns specific exit codes: `0` (succeeded, empty plan / no changes), `1` (error occurred), and `2` (succeeded, non-empty plan / changes are present), enabling automated CI/CD pipeline conditionals.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/plan#detailed-exitcode",
@@ -261,12 +261,12 @@ export const HASHICORP_TFA_QUESTIONS_3 = [
     scenario: "A platform team configures access for 50 junior engineers in Terraform Cloud. The junior engineers must be able to view workspaces and run speculative plans on pull requests, but must be blocked from executing `terraform apply` directly to production.",
     question: "Which workspace permission level should be granted to the junior engineers team?",
     options: [
-      { id: 'A', text: "Admin permission" },
-      { id: 'B', text: "Read-only permission alone" },
-      { id: 'C', text: "Plan permission (Read + Plan)" },
-      { id: 'D', text: "Write permission (Apply)" }
+      { id: 'A', text: "Read-only permission alone" },
+      { id: 'B', text: "Write permission (Apply)" },
+      { id: 'C', text: "Admin permission" },
+      { id: 'D', text: "Plan permission (Read + Plan)" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Terraform Cloud provides granular workspace permissions: `Read` (view runs/state), `Plan` (trigger and view speculative plans), `Write` (execute applies), and `Admin` (full workspace configuration and secret management).",
     referenceUrl: "https://developer.hashicorp.com/terraform/cloud-docs/users-teams-organizations/permissions#workspace-permissions",
@@ -282,12 +282,12 @@ export const HASHICORP_TFA_QUESTIONS_3 = [
     scenario: "A development team needs to ensure all Terraform `.tf` files adhere to standard canonical formatting and indentation conventions.",
     question: "Which Terraform CLI command rewrites configuration files into canonical format?",
     options: [
-      { id: 'A', text: "terraform lint" },
-      { id: 'B', text: "terraform style" },
-      { id: 'C', text: "terraform clean" },
-      { id: 'D', text: "terraform fmt" }
+      { id: 'A', text: "terraform fmt" },
+      { id: 'B', text: "terraform clean" },
+      { id: 'C', text: "terraform style" },
+      { id: 'D', text: "terraform lint" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "`terraform fmt` rewrites Terraform configuration files to canonical format and style, adjusting whitespace, indentation, alignment of equals signs, and block formatting across all `.tf` files.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/fmt",
@@ -304,9 +304,9 @@ export const HASHICORP_TFA_QUESTIONS_3 = [
     question: "Which flag instructs terraform fmt to return exit code 3 when unformatted files are found?",
     options: [
       { id: 'A', text: "-check" },
-      { id: 'B', text: "-test" },
-      { id: 'C', text: "-diff" },
-      { id: 'D', text: "-verify" }
+      { id: 'B', text: "-verify" },
+      { id: 'C', text: "-test" },
+      { id: 'D', text: "-diff" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -324,12 +324,12 @@ export const HASHICORP_TFA_QUESTIONS_3 = [
     scenario: "A developer writes new Terraform code on an airplane with no internet connection.",
     question: "What does terraform validate verify without accessing remote APIs or state?",
     options: [
-      { id: 'A', text: "Whether the cloud credentials have administrator IAM permissions" },
-      { id: 'B', text: "Whether cloud provider services are currently online" },
-      { id: 'C', text: "Whether real cloud resources exist in AWS or Azure" },
-      { id: 'D', text: "Syntactic correctness, internal consistency of attribute names and types, and provider schema compliance within configuration files" }
+      { id: 'A', text: "Whether cloud provider services are currently online" },
+      { id: 'B', text: "Whether real cloud resources exist in AWS or Azure" },
+      { id: 'C', text: "Syntactic correctness, internal consistency of attribute names and types, and provider schema compliance within configuration files" },
+      { id: 'D', text: "Whether the cloud credentials have administrator IAM permissions" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "`terraform validate` checks configuration files purely locally for internal syntax correctness, attribute validation against downloaded provider schemas, and undeclared variables. It does not access remote services, cloud APIs, or state files.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/validate",
@@ -346,9 +346,9 @@ export const HASHICORP_TFA_QUESTIONS_3 = [
     question: "Which command must be executed prior to terraform validate to initialize the working directory and download provider schemas?",
     options: [
       { id: 'A', text: "terraform init" },
-      { id: 'B', text: "terraform refresh" },
-      { id: 'C', text: "terraform plan" },
-      { id: 'D', text: "terraform login" }
+      { id: 'B', text: "terraform login" },
+      { id: 'C', text: "terraform refresh" },
+      { id: 'D', text: "terraform plan" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -368,8 +368,8 @@ export const HASHICORP_TFA_QUESTIONS_3 = [
     options: [
       { id: 'A', text: "-out=&lt;path&gt; (e.g. terraform plan -out=tfplan.binary)" },
       { id: 'B', text: "-save=&lt;path&gt;" },
-      { id: 'C', text: "-file=&lt;path&gt;" },
-      { id: 'D', text: "-export=&lt;path&gt;" }
+      { id: 'C', text: "-export=&lt;path&gt;" },
+      { id: 'D', text: "-file=&lt;path&gt;" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -387,12 +387,12 @@ export const HASHICORP_TFA_QUESTIONS_3 = [
     scenario: "A CI/CD runner executes `terraform apply tfplan` referencing a plan file generated in a previous step.",
     question: "Does Terraform ask for interactive confirmation ('Do you want to perform these actions? yes/no') when applying a saved plan file?",
     options: [
-      { id: 'A', text: "Yes, unless -force is provided" },
+      { id: 'A', text: "No, Terraform applies the saved plan immediately without interactive confirmation" },
       { id: 'B', text: "Yes, the user must still type yes" },
-      { id: 'C', text: "No, Terraform applies the saved plan immediately without interactive confirmation" },
+      { id: 'C', text: "Yes, unless -force is provided" },
       { id: 'D', text: "Applying plan files is not supported" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "When `terraform apply` is provided with an explicit plan file created by `terraform plan -out`, Terraform does NOT prompt for interactive confirmation. The plan was already reviewed when created, so it executes immediately.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/apply",
@@ -409,9 +409,9 @@ export const HASHICORP_TFA_QUESTIONS_3 = [
     question: "Which flag bypasses interactive confirmation when running terraform apply without a saved plan file?",
     options: [
       { id: 'A', text: "-auto-approve" },
-      { id: 'B', text: "-skip-prompt" },
-      { id: 'C', text: "-yes" },
-      { id: 'D', text: "-force" }
+      { id: 'B', text: "-force" },
+      { id: 'C', text: "-skip-prompt" },
+      { id: 'D', text: "-yes" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -430,9 +430,9 @@ export const HASHICORP_TFA_QUESTIONS_3 = [
     question: "Which flag isolates execution to a single specific resource and its dependencies?",
     options: [
       { id: 'A', text: "-target=aws_security_group.sg_debug" },
-      { id: 'B', text: "-filter=aws_security_group.sg_debug" },
-      { id: 'C', text: "-only=aws_security_group.sg_debug" },
-      { id: 'D', text: "-resource=aws_security_group.sg_debug" }
+      { id: 'B', text: "-resource=aws_security_group.sg_debug" },
+      { id: 'C', text: "-filter=aws_security_group.sg_debug" },
+      { id: 'D', text: "-only=aws_security_group.sg_debug" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -450,12 +450,12 @@ export const HASHICORP_TFA_QUESTIONS_3 = [
     scenario: "A virtual machine instance is corrupted due to an operating system crash, but its Terraform configuration has not changed. The engineer needs Terraform to recreate the VM.",
     question: "Which modern command instructs Terraform to destroy and recreate a specific resource during the next apply?",
     options: [
-      { id: 'A', text: "terraform recreate aws_instance.web" },
-      { id: 'B', text: "terraform apply -replace=\"aws_instance.web\"" },
-      { id: 'C', text: "terraform taint aws_instance.web (deprecated legacy command)" },
+      { id: 'A', text: "terraform taint aws_instance.web (deprecated legacy command)" },
+      { id: 'B', text: "terraform recreate aws_instance.web" },
+      { id: 'C', text: "terraform apply -replace=\"aws_instance.web\"" },
       { id: 'D', text: "terraform delete aws_instance.web" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Starting in Terraform 0.152 and v1.0, `-replace` on `plan` or `apply` is the recommended method to force recreation of a resource. It supersedes the legacy `terraform taint` command, allowing safe previewing during planning.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/plan#replace-resource",
@@ -471,12 +471,12 @@ export const HASHICORP_TFA_QUESTIONS_3 = [
     scenario: "An administrator suspects that resources were modified manually out-of-band in the cloud console. The administrator wants to update the state file to match reality without proposing any corrective infrastructure changes.",
     question: "Which command and flag performs a refresh-only inspection and updates state?",
     options: [
-      { id: 'A', text: "terraform update-state" },
+      { id: 'A', text: "terraform apply -refresh-only (or terraform plan -refresh-only)" },
       { id: 'B', text: "terraform refresh (legacy command)" },
       { id: 'C', text: "terraform sync --state" },
-      { id: 'D', text: "terraform apply -refresh-only (or terraform plan -refresh-only)" }
+      { id: 'D', text: "terraform update-state" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "`terraform apply -refresh-only` queries remote cloud APIs, compares live reality against the state file, displays drift, and prompts to update the state file to match reality WITHOUT making any changes to cloud infrastructure.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/plan#refresh-only",
@@ -513,12 +513,12 @@ export const HASHICORP_TFA_QUESTIONS_3 = [
     scenario: "An engineer needs to inspect the current attributes, IDs, and IP addresses of resource `aws_instance.db` recorded in state.",
     question: "Which command prints detailed state attributes for a single resource?",
     options: [
-      { id: 'A', text: "terraform state get aws_instance.db" },
-      { id: 'B', text: "terraform state show aws_instance.db" },
+      { id: 'A', text: "terraform describe aws_instance.db" },
+      { id: 'B', text: "terraform state get aws_instance.db" },
       { id: 'C', text: "terraform inspect aws_instance.db" },
-      { id: 'D', text: "terraform describe aws_instance.db" }
+      { id: 'D', text: "terraform state show aws_instance.db" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "`terraform state show &lt;address&gt;` displays the full set of attributes, IDs, and metadata recorded in the state file for a single specific resource or data source.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/state/show",

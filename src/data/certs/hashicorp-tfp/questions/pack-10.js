@@ -11,8 +11,8 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     options: [
       { id: 'A', text: "concat(var.regions, var.sizes)" },
       { id: 'B', text: "setproduct(var.regions, var.sizes)" },
-      { id: 'C', text: "merge(var.regions, var.sizes)" },
-      { id: 'D', text: "zipmap(var.regions, var.sizes)" }
+      { id: 'C', text: "zipmap(var.regions, var.sizes)" },
+      { id: 'D', text: "merge(var.regions, var.sizes)" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -30,12 +30,12 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     scenario: "An engineer deletes .terraform to clear a strange error.",
     question: "What is the consequence?",
     options: [
-      { id: 'A', text: "Providers, modules, and backend configuration must be reinstalled by running terraform init again; no state or configuration is lost." },
+      { id: 'A', text: "The dependency lock file is invalidated and must be regenerated." },
       { id: 'B', text: "The state file is deleted along with it." },
-      { id: 'C', text: "The dependency lock file is invalidated and must be regenerated." },
+      { id: 'C', text: "Providers, modules, and backend configuration must be reinstalled by running terraform init again; no state or configuration is lost." },
       { id: 'D', text: "The workspace selection is permanently lost." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "The .terraform directory is a local working cache of providers, modules, and backend settings, so removing it costs only a re-init. Remote state is untouched, the committed lock file remains valid and is reused, and workspace selection is re-established on init.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/init",
@@ -51,12 +51,12 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     scenario: "A platform team owns networking and shared services; six product teams own their own applications and deploy many times a day.",
     question: "Which layout best matches those rates of change and ownership?",
     options: [
-      { id: 'A', text: "One state per resource type across all teams." },
-      { id: 'B', text: "A platform state per environment for networking and shared services, plus one state per product team per environment, with product states reading platform outputs." },
-      { id: 'C', text: "One state per cloud account regardless of team." },
-      { id: 'D', text: "One state per environment containing everything, applied by the platform team on request." }
+      { id: 'A', text: "A platform state per environment for networking and shared services, plus one state per product team per environment, with product states reading platform outputs." },
+      { id: 'B', text: "One state per environment containing everything, applied by the platform team on request." },
+      { id: 'C', text: "One state per resource type across all teams." },
+      { id: 'D', text: "One state per cloud account regardless of team." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "State boundaries should follow ownership and rate of change so fast-moving teams are not serialised behind slow-moving shared infrastructure, with explicit output consumption expressing the dependency. A shared everything-state creates a queue and a single point of failure, and account or resource-type boundaries do not correspond to who changes what.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/modules/develop/composition",
@@ -72,12 +72,12 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     scenario: "Two engineers plan the same commit against the same workspace and see different results.",
     question: "Which causes are plausible? (Choose two.)",
     options: [
-      { id: 'A', text: "Different terminal colour settings." },
+      { id: 'A', text: "Different provider versions because one of them has not honoured the committed lock file." },
       { id: 'B', text: "Different resource ordering in the configuration files." },
-      { id: 'C', text: "Different provider versions because one of them has not honoured the committed lock file." },
+      { id: 'C', text: "Different terminal colour settings." },
       { id: 'D', text: "Different variable values supplied locally, for example from an uncommitted tfvars file or environment variables." }
     ],
-    correctAnswers: ['C', 'D'],
+    correctAnswers: ['A', 'D'],
     type: "multiple",
     explanation: "Plan output is a function of configuration, variables, provider versions, and current state, so divergence almost always comes from inputs or dependency versions differing between the two machines. Display settings change nothing, and block ordering within files does not affect the graph.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/values/variables",
@@ -93,10 +93,10 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     scenario: "A module creates exactly one bucket and the author is choosing a resource label.",
     question: "Which convention is recommended?",
     options: [
-      { id: 'A', text: "Repeat the module name in the label, for example aws_s3_bucket.logging_module_bucket." },
-      { id: 'B', text: "Use a random suffix to guarantee uniqueness." },
+      { id: 'A', text: "Include the environment in the label." },
+      { id: 'B', text: "Repeat the module name in the label, for example aws_s3_bucket.logging_module_bucket." },
       { id: 'C', text: "A short label such as this or main, since the module name already provides the context in the full address." },
-      { id: 'D', text: "Include the environment in the label." }
+      { id: 'D', text: "Use a random suffix to guarantee uniqueness." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -115,11 +115,11 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     question: "What is the correct handling?",
     options: [
       { id: 'A', text: "Deleting the run and re-queuing it bypasses the policy." },
-      { id: 'B', text: "Any workspace admin can override a hard-mandatory policy for a single run." },
-      { id: 'C', text: "Switching the workspace to local execution bypasses the policy legitimately." },
-      { id: 'D', text: "Hard-mandatory policies cannot be overridden, so either the change must be adjusted to comply or an authorised owner must temporarily amend the policy set - both of which leave an audit record." }
+      { id: 'B', text: "Switching the workspace to local execution bypasses the policy legitimately." },
+      { id: 'C', text: "Hard-mandatory policies cannot be overridden, so either the change must be adjusted to comply or an authorised owner must temporarily amend the policy set - both of which leave an audit record." },
+      { id: 'D', text: "Any workspace admin can override a hard-mandatory policy for a single run." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "The distinction between soft-mandatory and hard-mandatory is precisely whether an override exists, so a hard failure must be resolved by changing the plan or deliberately and visibly changing the policy. Re-queuing re-evaluates the same policy, and moving execution to evade a control is a governance failure rather than a supported workflow.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cloud-docs/policy-enforcement",
@@ -135,10 +135,10 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     scenario: "A team believes marking a variable sensitive prevents the value being stored anywhere.",
     question: "Which correction is accurate?",
     options: [
-      { id: 'A', text: "Sensitive variables are stored encrypted in state." },
+      { id: 'A', text: "Sensitive variables are never written to state." },
       { id: 'B', text: "Sensitive variables cannot be used in resource arguments." },
       { id: 'C', text: "Sensitive controls display only - the value still reaches state and the plan file - so storage must be protected separately." },
-      { id: 'D', text: "Sensitive variables are never written to state." }
+      { id: 'D', text: "Sensitive variables are stored encrypted in state." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -156,12 +156,12 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     scenario: "An engineer needs to inspect state contents during an incident without downloading secrets to a laptop.",
     question: "Which approach is preferable?",
     options: [
-      { id: 'A', text: "Email the state file to the incident channel." },
-      { id: 'B', text: "Use terraform state list and state show for the specific addresses needed, ideally from the controlled runner, rather than downloading the whole state file." },
-      { id: 'C', text: "Print the state to the CI log for shared visibility." },
+      { id: 'A', text: "Use terraform state list and state show for the specific addresses needed, ideally from the controlled runner, rather than downloading the whole state file." },
+      { id: 'B', text: "Print the state to the CI log for shared visibility." },
+      { id: 'C', text: "Email the state file to the incident channel." },
       { id: 'D', text: "Download the state file and open it in an editor." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Targeted state queries reveal only what is needed and leave no full copy of a secret-bearing file lying around. Downloading, sharing, or logging whole state spreads every credential it contains into places with weaker controls and longer retention.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/state/show",
@@ -177,12 +177,12 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     scenario: "The bucket and lock table that will store remote state must themselves be created by Terraform, which needs a backend.",
     question: "How is that chicken-and-egg problem usually solved?",
     options: [
-      { id: 'A', text: "Use a backend block that references the resources it defines." },
-      { id: 'B', text: "Terraform creates missing backend resources automatically on init." },
-      { id: 'C', text: "Store the bootstrap state in the same bucket before it exists." },
-      { id: 'D', text: "Create the backend resources in a small bootstrap configuration using local state, then migrate that configuration to the remote backend it created, or provision them outside Terraform." }
+      { id: 'A', text: "Terraform creates missing backend resources automatically on init." },
+      { id: 'B', text: "Store the bootstrap state in the same bucket before it exists." },
+      { id: 'C', text: "Create the backend resources in a small bootstrap configuration using local state, then migrate that configuration to the remote backend it created, or provision them outside Terraform." },
+      { id: 'D', text: "Use a backend block that references the resources it defines." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "A tiny bootstrap configuration with local state creates the storage and locking resources, after which its own state can be migrated into them - or the resources are created once by other means. Terraform never provisions backend storage itself, and a backend block cannot reference configuration values at all.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/backend",
@@ -198,12 +198,12 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     scenario: "terraform validate reports that a resource with the same type and name is declared twice in the same module.",
     question: "Why is this an error?",
     options: [
-      { id: 'A', text: "Terraform allows it but the provider does not." },
-      { id: 'B', text: "It is allowed if the blocks are in different files." },
-      { id: 'C', text: "The pair of type and name forms a unique address within a module, so two declarations would map to the same state entry." },
-      { id: 'D', text: "It is only an error when the two blocks differ." }
+      { id: 'A', text: "It is allowed if the blocks are in different files." },
+      { id: 'B', text: "Terraform allows it but the provider does not." },
+      { id: 'C', text: "It is only an error when the two blocks differ." },
+      { id: 'D', text: "The pair of type and name forms a unique address within a module, so two declarations would map to the same state entry." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Addresses must be unique within a module because state is keyed by them, and Terraform concatenates all .tf files in a directory, so splitting the duplicates across files changes nothing. To create several similar objects, use for_each or count rather than repeated blocks.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/resources/syntax",
@@ -219,8 +219,8 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     scenario: "A configuration uses a public registry module and the author wants both the source and a version constraint.",
     question: "Which module block is well formed?",
     options: [
-      { id: 'A', text: "module \"vpc\" { source = \"terraform-aws-modules/vpc/aws\" ref = \"v5.0.0\" ... }" },
-      { id: 'B', text: "module \"vpc\" { source = \"registry.terraform.io/terraform-aws-modules/vpc/aws\" version = \"latest\" ... }" },
+      { id: 'A', text: "module \"vpc\" { source = \"registry.terraform.io/terraform-aws-modules/vpc/aws\" version = \"latest\" ... }" },
+      { id: 'B', text: "module \"vpc\" { source = \"terraform-aws-modules/vpc/aws\" ref = \"v5.0.0\" ... }" },
       { id: 'C', text: "module \"vpc\" { source = \"terraform-aws-modules/vpc/aws\"  version = \"~> 5.0\"  ... }" },
       { id: 'D', text: "module \"vpc\" { source = \"terraform-aws-modules/vpc/aws@5.0\" ... }" }
     ],
@@ -240,12 +240,12 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     scenario: "A configuration is used for ephemeral environments that are created and destroyed daily, but destroys keep failing because of dependency ordering and retained resources.",
     question: "Which practices make destroys reliable?",
     options: [
-      { id: 'A', text: "Set create_before_destroy on every resource." },
-      { id: 'B', text: "Delete the state after each environment instead of destroying." },
-      { id: 'C', text: "Avoid prevent_destroy in ephemeral configurations, ensure deletion protection flags are variables that default off there, and let Terraform own the full dependency chain rather than importing shared resources." },
-      { id: 'D', text: "Always destroy with -target in dependency order." }
+      { id: 'A', text: "Delete the state after each environment instead of destroying." },
+      { id: 'B', text: "Avoid prevent_destroy in ephemeral configurations, ensure deletion protection flags are variables that default off there, and let Terraform own the full dependency chain rather than importing shared resources." },
+      { id: 'C', text: "Always destroy with -target in dependency order." },
+      { id: 'D', text: "Set create_before_destroy on every resource." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Reliable teardown comes from not embedding production-style guards in ephemeral stacks and from Terraform owning the whole graph so it can order deletions itself. Targeted destroys are manual and error-prone, discarding state leaks real resources, and create_before_destroy addresses replacement rather than deletion.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/destroy",
@@ -282,12 +282,12 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     scenario: "While splitting a configuration, an engineer needs to know which provider configuration each state entry was created with.",
     question: "Where is that recorded?",
     options: [
-      { id: 'A', text: "In the dependency lock file." },
-      { id: 'B', text: "Nowhere; it is inferred from the configuration at run time." },
-      { id: 'C', text: "In the state entry itself, which stores the provider configuration address such as provider[\"registry.terraform.io/hashicorp/aws\"].west." },
-      { id: 'D', text: "In the .terraform/providers directory." }
+      { id: 'A', text: "Nowhere; it is inferred from the configuration at run time." },
+      { id: 'B', text: "In the dependency lock file." },
+      { id: 'C', text: "In the .terraform/providers directory." },
+      { id: 'D', text: "In the state entry itself, which stores the provider configuration address such as provider[\"registry.terraform.io/hashicorp/aws\"].west." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Each managed resource in state records the provider configuration that created it, which is why removing an aliased provider configuration while resources still reference it produces an error. The lock file records versions and the providers directory holds binaries.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/providers/configuration",
@@ -305,10 +305,10 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     options: [
       { id: 'A', text: "The two are equivalent in practice." },
       { id: 'B', text: "Intent-based inputs are required by the registry." },
-      { id: 'C', text: "Raw pass-through is always better because it is future-proof." },
-      { id: 'D', text: "Intent-based inputs encode organisational decisions and are easier to govern, while raw pass-through inputs are more flexible but shift responsibility for correctness back to every caller." }
+      { id: 'C', text: "Intent-based inputs encode organisational decisions and are easier to govern, while raw pass-through inputs are more flexible but shift responsibility for correctness back to every caller." },
+      { id: 'D', text: "Raw pass-through is always better because it is future-proof." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "The choice is really about where correctness lives: a curated intent interface lets the platform encode and enforce decisions, while raw structures make the module a thin alias that cannot guarantee anything. Neither is universally right, and the registry imposes no such requirement.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/modules/develop",
@@ -324,12 +324,12 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     scenario: "A plan proposes changes nobody expects.",
     question: "Which check should come first?",
     options: [
-      { id: 'A', text: "Confirm which working directory, workspace, backend, and variable values the plan actually used, because the commonest cause is planning the wrong thing." },
-      { id: 'B', text: "Run apply to see what really happens." },
-      { id: 'C', text: "Delete the lock file and re-init." },
-      { id: 'D', text: "Immediately raise a provider bug report." }
+      { id: 'A', text: "Immediately raise a provider bug report." },
+      { id: 'B', text: "Delete the lock file and re-init." },
+      { id: 'C', text: "Run apply to see what really happens." },
+      { id: 'D', text: "Confirm which working directory, workspace, backend, and variable values the plan actually used, because the commonest cause is planning the wrong thing." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Wrong-context plans - the wrong workspace, the wrong backend key, a stale variable file - are far more common than tool defects, and confirming context costs seconds. Applying to investigate is exactly the wrong direction, and blindly changing dependency versions adds a variable.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/plan",
@@ -345,12 +345,12 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     scenario: "A repository contains fifteen root configurations and CI currently runs every one on every commit, taking an hour.",
     question: "Which improvement is most appropriate?",
     options: [
-      { id: 'A', text: "Detect which roots are affected by the changed files, including shared module paths, and plan only those." },
-      { id: 'B', text: "Plan only the first root and assume the rest are similar." },
-      { id: 'C', text: "Run all roots in parallel with no change detection." },
-      { id: 'D', text: "Merge the fifteen roots into one configuration." }
+      { id: 'A', text: "Plan only the first root and assume the rest are similar." },
+      { id: 'B', text: "Detect which roots are affected by the changed files, including shared module paths, and plan only those." },
+      { id: 'C', text: "Merge the fifteen roots into one configuration." },
+      { id: 'D', text: "Run all roots in parallel with no change detection." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Change detection that accounts for shared module dependencies keeps feedback fast while still covering everything a commit can affect. Blind parallelism only hides the waste and multiplies API load, merging roots destroys isolation, and sampling one root leaves real breakage undetected.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/run",
@@ -366,12 +366,12 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     scenario: "A configuration is being decommissioned as code, but the resources it manages must be handed to another team and stay running.",
     question: "Which path is correct?",
     options: [
-      { id: 'A', text: "Delete the old state file and let the resources become unmanaged permanently." },
-      { id: 'B', text: "Have the receiving configuration import the resources (or move the state entries across), then remove them from the old state without destroying, and finally delete the old configuration." },
-      { id: 'C', text: "Run terraform destroy and let the other team recreate everything." },
-      { id: 'D', text: "Copy the old state file into the new backend and keep both configurations." }
+      { id: 'A', text: "Run terraform destroy and let the other team recreate everything." },
+      { id: 'B', text: "Copy the old state file into the new backend and keep both configurations." },
+      { id: 'C', text: "Delete the old state file and let the resources become unmanaged permanently." },
+      { id: 'D', text: "Have the receiving configuration import the resources (or move the state entries across), then remove them from the old state without destroying, and finally delete the old configuration." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Handover means transferring management, so the new owner takes the resources into its state and the old state releases them without deletion, leaving exactly one owner. Destroying loses the running infrastructure, abandoning state leaves it unmanaged, and duplicating state creates two owners that will fight.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/import",
@@ -387,12 +387,12 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     scenario: "A root configuration has grown to a single 2,000-line main.tf and reviews have become difficult.",
     question: "Which refactor helps most without changing behaviour?",
     options: [
-      { id: 'A', text: "Split the file by concern into several .tf files in the same directory, since Terraform concatenates them and addresses are unchanged." },
-      { id: 'B', text: "Move half the resources into a child module, which is behaviour-neutral." },
-      { id: 'C', text: "Reorder the blocks alphabetically." },
-      { id: 'D', text: "Split the file across several directories." }
+      { id: 'A', text: "Move half the resources into a child module, which is behaviour-neutral." },
+      { id: 'B', text: "Split the file by concern into several .tf files in the same directory, since Terraform concatenates them and addresses are unchanged." },
+      { id: 'C', text: "Split the file across several directories." },
+      { id: 'D', text: "Reorder the blocks alphabetically." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "All .tf files in a directory form one module, so splitting by concern improves readability with zero effect on addresses, state, or the plan. Moving resources into a module does change their addresses and needs moved blocks, separate directories create separate root modules and states, and reordering does not reduce size.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/files",
@@ -410,8 +410,8 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     options: [
       { id: 'A', text: "It configures HCP Terraform as the state store and remote execution target for this configuration, taking the place of a backend block." },
       { id: 'B', text: "It declares a provider for HCP Terraform resources." },
-      { id: 'C', text: "It is documentation only and has no effect." },
-      { id: 'D', text: "It sets the required Terraform version." }
+      { id: 'C', text: "It sets the required Terraform version." },
+      { id: 'D', text: "It is documentation only and has no effect." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -450,12 +450,12 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     scenario: "A plan appears to hang for a long time with no output.",
     question: "Which diagnostic steps are appropriate? (Choose two.)",
     options: [
-      { id: 'A', text: "Assume the binary is corrupt and reinstall Terraform." },
-      { id: 'B', text: "Delete the configuration and rewrite it." },
-      { id: 'C', text: "Enable TF_LOG to see which provider call is outstanding." },
-      { id: 'D', text: "Check for a state lock being waited on, and for slow or unreachable provider endpoints." }
+      { id: 'A', text: "Delete the configuration and rewrite it." },
+      { id: 'B', text: "Enable TF_LOG to see which provider call is outstanding." },
+      { id: 'C', text: "Check for a state lock being waited on, and for slow or unreachable provider endpoints." },
+      { id: 'D', text: "Assume the binary is corrupt and reinstall Terraform." }
     ],
-    correctAnswers: ['C', 'D'],
+    correctAnswers: ['B', 'C'],
     type: "multiple",
     explanation: "Logging reveals exactly which request is outstanding, and the two common causes are waiting on a state lock and a slow or unreachable provider API. Rewriting the configuration and reinstalling the binary are shots in the dark that discard the evidence.",
     referenceUrl: "https://developer.hashicorp.com/terraform/internals/debugging",
@@ -471,12 +471,12 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     scenario: "A team must balance reproducibility against the effort of dependency upgrades.",
     question: "Which combination is a reasonable default?",
     options: [
-      { id: 'A', text: "Pin the Terraform version, commit the provider lock file, and use pessimistic constraints on providers and modules so upgrades are deliberate rather than accidental." },
+      { id: 'A', text: "Pin providers but let the Terraform binary float." },
       { id: 'B', text: "Float everything to latest so upgrades happen continuously." },
-      { id: 'C', text: "Pin providers but let the Terraform binary float." },
+      { id: 'C', text: "Pin the Terraform version, commit the provider lock file, and use pessimistic constraints on providers and modules so upgrades are deliberate rather than accidental." },
       { id: 'D', text: "Pin every provider and module to an exact version and never update." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "The standard posture makes every version change an explicit, reviewable commit while still allowing compatible updates when the team chooses. Exact pins forever accumulate security debt, floating everything makes builds irreproducible, and an unpinned binary reintroduces the version skew the lock file was meant to eliminate.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/files/dependency-lock",
@@ -493,11 +493,11 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     question: "How does Terraform order destroys?",
     options: [
       { id: 'A', text: "Alphabetically by resource address." },
-      { id: 'B', text: "In the order the blocks appear in the files." },
-      { id: 'C', text: "In reverse dependency order, so a resource is destroyed before the things it depends on - meaning a missing reference or depends_on is the reason an order looks wrong." },
+      { id: 'B', text: "In reverse dependency order, so a resource is destroyed before the things it depends on - meaning a missing reference or depends_on is the reason an order looks wrong." },
+      { id: 'C', text: "In the order the blocks appear in the files." },
       { id: 'D', text: "In the same order as creation." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Destroy walks the dependency graph backwards, so dependents go first and their dependencies afterwards; when the order looks wrong the graph is usually missing an edge that a reference or depends_on would supply. File order and naming never influence the graph.",
     referenceUrl: "https://developer.hashicorp.com/terraform/internals/graph",
@@ -513,12 +513,12 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     scenario: "A new tagging and encryption standard must apply to two hundred existing workspaces without breaking current deployments overnight.",
     question: "Which rollout sequence is sensible?",
     options: [
-      { id: 'A', text: "Publish the policy in advisory mode first to measure the gap, provide a compliant module and variable set, then move to soft-mandatory and finally hard-mandatory with a communicated deadline." },
-      { id: 'B', text: "Fix all two hundred workspaces manually before announcing the policy." },
-      { id: 'C', text: "Apply the standard only to new workspaces and leave existing ones alone permanently." },
-      { id: 'D', text: "Enable hard-mandatory enforcement immediately so nobody can add new violations." }
+      { id: 'A', text: "Apply the standard only to new workspaces and leave existing ones alone permanently." },
+      { id: 'B', text: "Publish the policy in advisory mode first to measure the gap, provide a compliant module and variable set, then move to soft-mandatory and finally hard-mandatory with a communicated deadline." },
+      { id: 'C', text: "Enable hard-mandatory enforcement immediately so nobody can add new violations." },
+      { id: 'D', text: "Fix all two hundred workspaces manually before announcing the policy." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Escalating enforcement levels turns a policy rollout into a measured migration: advisory quantifies the work, a paved path makes compliance cheap, and the deadline is enforced only once teams can meet it. Immediate hard enforcement blocks unrelated urgent work, exempting existing workspaces never closes the gap, and manual remediation at that scale does not hold.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cloud-docs/policy-enforcement/manage-policy-sets",

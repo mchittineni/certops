@@ -9,12 +9,12 @@ export const AWS_DOP_QUESTIONS_20 = [
     scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer evaluates Vulnerability Management to automatically scan container images for operating system and application package CVEs upon push to Amazon ECR and continuously thereafter.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives? Continuous automated vulnerability scanning for ECR and EC2 with Amazon Inspector is under consideration.",
     options: [
-      { id: 'A', text: "Enable Amazon Inspector enhanced scanning for Amazon ECR repositories." },
-      { id: 'B', text: "Rely on developers manually running local vulnerability scanners before pushing." },
-      { id: 'C', text: "Scan containers only after they have been running in production for three months." },
-      { id: 'D', text: "Disable vulnerability scanning to accelerate CI/CD push speeds." }
+      { id: 'A', text: "Rely on developers manually running local vulnerability scanners before pushing." },
+      { id: 'B', text: "Disable vulnerability scanning to accelerate CI/CD push speeds." },
+      { id: 'C', text: "Enable Amazon Inspector enhanced scanning for Amazon ECR repositories." },
+      { id: 'D', text: "Scan containers only after they have been running in production for three months." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Enable Amazon Inspector enhanced scanning for Amazon ECR repositories. Amazon Inspector integrates with Amazon ECR to provide automated, continuous vulnerability scanning. It inspects images upon push and continuously monitors them for new CVEs as new vulnerability advisories are published in national databases.",
     referenceUrl: "https://docs.aws.amazon.com/inspector/latest/user/scanning-ecr.html",
@@ -31,9 +31,9 @@ export const AWS_DOP_QUESTIONS_20 = [
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention? Continuous automated vulnerability scanning for ECR and EC2 with Amazon Inspector is under consideration.",
     options: [
       { id: 'A', text: "Enable Amazon Inspector enhanced scanning for Amazon ECR repositories." },
-      { id: 'B', text: "Rely on developers manually running local vulnerability scanners before pushing." },
-      { id: 'C', text: "Scan containers only after they have been running in production for three months." },
-      { id: 'D', text: "Disable vulnerability scanning to accelerate CI/CD push speeds." }
+      { id: 'B', text: "Scan containers only after they have been running in production for three months." },
+      { id: 'C', text: "Disable vulnerability scanning to accelerate CI/CD push speeds." },
+      { id: 'D', text: "Rely on developers manually running local vulnerability scanners before pushing." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -51,12 +51,12 @@ export const AWS_DOP_QUESTIONS_20 = [
     scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer evaluates Vulnerability Management to automatically scan container images for operating system and application package CVEs upon push to Amazon ECR and continuously thereafter.",
     question: "Which solution implements these mandatory compliance and security controls? Continuous automated vulnerability scanning for ECR and EC2 with Amazon Inspector is under consideration.",
     options: [
-      { id: 'A', text: "Enable Amazon Inspector enhanced scanning for Amazon ECR repositories." },
+      { id: 'A', text: "Disable vulnerability scanning to accelerate CI/CD push speeds." },
       { id: 'B', text: "Rely on developers manually running local vulnerability scanners before pushing." },
-      { id: 'C', text: "Scan containers only after they have been running in production for three months." },
-      { id: 'D', text: "Disable vulnerability scanning to accelerate CI/CD push speeds." }
+      { id: 'C', text: "Enable Amazon Inspector enhanced scanning for Amazon ECR repositories." },
+      { id: 'D', text: "Scan containers only after they have been running in production for three months." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Enable Amazon Inspector enhanced scanning for Amazon ECR repositories. Amazon Inspector integrates with Amazon ECR to provide automated, continuous vulnerability scanning. It inspects images upon push and continuously monitors them for new CVEs as new vulnerability advisories are published in national databases.",
     referenceUrl: "https://docs.aws.amazon.com/inspector/latest/user/scanning-ecr.html",
@@ -72,12 +72,12 @@ export const AWS_DOP_QUESTIONS_20 = [
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer evaluates Vulnerability Management to automatically scan container images for operating system and application package CVEs upon push to Amazon ECR and continuously thereafter.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead? Continuous automated vulnerability scanning for ECR and EC2 with Amazon Inspector is under consideration.",
     options: [
-      { id: 'A', text: "Enable Amazon Inspector enhanced scanning for Amazon ECR repositories." },
-      { id: 'B', text: "Rely on developers manually running local vulnerability scanners before pushing." },
-      { id: 'C', text: "Scan containers only after they have been running in production for three months." },
-      { id: 'D', text: "Disable vulnerability scanning to accelerate CI/CD push speeds." }
+      { id: 'A', text: "Disable vulnerability scanning to accelerate CI/CD push speeds." },
+      { id: 'B', text: "Scan containers only after they have been running in production for three months." },
+      { id: 'C', text: "Rely on developers manually running local vulnerability scanners before pushing." },
+      { id: 'D', text: "Enable Amazon Inspector enhanced scanning for Amazon ECR repositories." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Enable Amazon Inspector enhanced scanning for Amazon ECR repositories. Amazon Inspector integrates with Amazon ECR to provide automated, continuous vulnerability scanning. It inspects images upon push and continuously monitors them for new CVEs as new vulnerability advisories are published in national databases.",
     referenceUrl: "https://docs.aws.amazon.com/inspector/latest/user/scanning-ecr.html",
@@ -93,12 +93,12 @@ export const AWS_DOP_QUESTIONS_20 = [
     scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer evaluates Vulnerability Management to automatically scan container images for operating system and application package CVEs upon push to Amazon ECR and continuously thereafter.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability? Continuous automated vulnerability scanning for ECR and EC2 with Amazon Inspector is under consideration.",
     options: [
-      { id: 'A', text: "Enable Amazon Inspector enhanced scanning for Amazon ECR repositories." },
-      { id: 'B', text: "Rely on developers manually running local vulnerability scanners before pushing." },
+      { id: 'A', text: "Rely on developers manually running local vulnerability scanners before pushing." },
+      { id: 'B', text: "Enable Amazon Inspector enhanced scanning for Amazon ECR repositories." },
       { id: 'C', text: "Scan containers only after they have been running in production for three months." },
       { id: 'D', text: "Disable vulnerability scanning to accelerate CI/CD push speeds." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Enable Amazon Inspector enhanced scanning for Amazon ECR repositories. Amazon Inspector integrates with Amazon ECR to provide automated, continuous vulnerability scanning. It inspects images upon push and continuously monitors them for new CVEs as new vulnerability advisories are published in national databases.",
     referenceUrl: "https://docs.aws.amazon.com/inspector/latest/user/scanning-ecr.html",
@@ -114,12 +114,12 @@ export const AWS_DOP_QUESTIONS_20 = [
     scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer evaluates KMS Encryption to replicate encrypted data across AWS regions while allowing applications in both regions to decrypt data using identical key IDs without re-encrypting.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives? Granting least-privilege key access and utilizing multi-region KMS keys for disaster recovery is under consideration.",
     options: [
-      { id: 'A', text: "Create an AWS KMS multi-region key (primary key in primary region, replica key in secondary region) with matching key policies." },
-      { id: 'B', text: "Export KMS private key material and email it to the secondary region team." },
-      { id: 'C', text: "Use single-region KMS keys and decrypt data to cleartext before cross-region replication." },
-      { id: 'D', text: "Disable encryption to simplify multi-region disaster recovery." }
+      { id: 'A', text: "Disable encryption to simplify multi-region disaster recovery." },
+      { id: 'B', text: "Create an AWS KMS multi-region key (primary key in primary region, replica key in secondary region) with matching key policies." },
+      { id: 'C', text: "Export KMS private key material and email it to the secondary region team." },
+      { id: 'D', text: "Use single-region KMS keys and decrypt data to cleartext before cross-region replication." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Create an AWS KMS multi-region key (primary key in primary region, replica key in secondary region) with matching key policies. AWS KMS multi-region keys share the same key ID, key material, and ARN across regions. They allow client applications in secondary regions to decrypt data encrypted in the primary region without requiring cross-region network calls or re-encryption steps.",
     referenceUrl: "https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html",
@@ -135,12 +135,12 @@ export const AWS_DOP_QUESTIONS_20 = [
     scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer evaluates KMS Encryption to replicate encrypted data across AWS regions while allowing applications in both regions to decrypt data using identical key IDs without re-encrypting.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention? Granting least-privilege key access and utilizing multi-region KMS keys for disaster recovery is under consideration.",
     options: [
-      { id: 'A', text: "Create an AWS KMS multi-region key (primary key in primary region, replica key in secondary region) with matching key policies." },
-      { id: 'B', text: "Export KMS private key material and email it to the secondary region team." },
-      { id: 'C', text: "Use single-region KMS keys and decrypt data to cleartext before cross-region replication." },
+      { id: 'A', text: "Export KMS private key material and email it to the secondary region team." },
+      { id: 'B', text: "Use single-region KMS keys and decrypt data to cleartext before cross-region replication." },
+      { id: 'C', text: "Create an AWS KMS multi-region key (primary key in primary region, replica key in secondary region) with matching key policies." },
       { id: 'D', text: "Disable encryption to simplify multi-region disaster recovery." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Create an AWS KMS multi-region key (primary key in primary region, replica key in secondary region) with matching key policies. AWS KMS multi-region keys share the same key ID, key material, and ARN across regions. They allow client applications in secondary regions to decrypt data encrypted in the primary region without requiring cross-region network calls or re-encryption steps.",
     referenceUrl: "https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html",
@@ -156,12 +156,12 @@ export const AWS_DOP_QUESTIONS_20 = [
     scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer evaluates KMS Encryption to replicate encrypted data across AWS regions while allowing applications in both regions to decrypt data using identical key IDs without re-encrypting.",
     question: "Which solution implements these mandatory compliance and security controls? Granting least-privilege key access and utilizing multi-region KMS keys for disaster recovery is under consideration.",
     options: [
-      { id: 'A', text: "Create an AWS KMS multi-region key (primary key in primary region, replica key in secondary region) with matching key policies." },
+      { id: 'A', text: "Disable encryption to simplify multi-region disaster recovery." },
       { id: 'B', text: "Export KMS private key material and email it to the secondary region team." },
-      { id: 'C', text: "Use single-region KMS keys and decrypt data to cleartext before cross-region replication." },
-      { id: 'D', text: "Disable encryption to simplify multi-region disaster recovery." }
+      { id: 'C', text: "Create an AWS KMS multi-region key (primary key in primary region, replica key in secondary region) with matching key policies." },
+      { id: 'D', text: "Use single-region KMS keys and decrypt data to cleartext before cross-region replication." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Create an AWS KMS multi-region key (primary key in primary region, replica key in secondary region) with matching key policies. AWS KMS multi-region keys share the same key ID, key material, and ARN across regions. They allow client applications in secondary regions to decrypt data encrypted in the primary region without requiring cross-region network calls or re-encryption steps.",
     referenceUrl: "https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html",
@@ -178,9 +178,9 @@ export const AWS_DOP_QUESTIONS_20 = [
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead? Granting least-privilege key access and utilizing multi-region KMS keys for disaster recovery is under consideration.",
     options: [
       { id: 'A', text: "Create an AWS KMS multi-region key (primary key in primary region, replica key in secondary region) with matching key policies." },
-      { id: 'B', text: "Export KMS private key material and email it to the secondary region team." },
-      { id: 'C', text: "Use single-region KMS keys and decrypt data to cleartext before cross-region replication." },
-      { id: 'D', text: "Disable encryption to simplify multi-region disaster recovery." }
+      { id: 'B', text: "Disable encryption to simplify multi-region disaster recovery." },
+      { id: 'C', text: "Export KMS private key material and email it to the secondary region team." },
+      { id: 'D', text: "Use single-region KMS keys and decrypt data to cleartext before cross-region replication." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,12 +198,12 @@ export const AWS_DOP_QUESTIONS_20 = [
     scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer evaluates KMS Encryption to replicate encrypted data across AWS regions while allowing applications in both regions to decrypt data using identical key IDs without re-encrypting.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability? Granting least-privilege key access and utilizing multi-region KMS keys for disaster recovery is under consideration.",
     options: [
-      { id: 'A', text: "Create an AWS KMS multi-region key (primary key in primary region, replica key in secondary region) with matching key policies." },
-      { id: 'B', text: "Export KMS private key material and email it to the secondary region team." },
+      { id: 'A', text: "Export KMS private key material and email it to the secondary region team." },
+      { id: 'B', text: "Create an AWS KMS multi-region key (primary key in primary region, replica key in secondary region) with matching key policies." },
       { id: 'C', text: "Use single-region KMS keys and decrypt data to cleartext before cross-region replication." },
       { id: 'D', text: "Disable encryption to simplify multi-region disaster recovery." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Create an AWS KMS multi-region key (primary key in primary region, replica key in secondary region) with matching key policies. AWS KMS multi-region keys share the same key ID, key material, and ARN across regions. They allow client applications in secondary regions to decrypt data encrypted in the primary region without requiring cross-region network calls or re-encryption steps.",
     referenceUrl: "https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html",
@@ -220,8 +220,8 @@ export const AWS_DOP_QUESTIONS_20 = [
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives? Aggregating multi-account security posture against CIS AWS Foundations Benchmark with Security Hub is under consideration.",
     options: [
       { id: 'A', text: "Enable AWS Security Hub as a delegated administrator across all accounts, enabling standard security benchmarks and automated finding aggregation." },
-      { id: 'B', text: "Manually audit accounts using paper checklists once a year." },
-      { id: 'C', text: "Disable Security Hub to reduce cloud management overhead." },
+      { id: 'B', text: "Disable Security Hub to reduce cloud management overhead." },
+      { id: 'C', text: "Manually audit accounts using paper checklists once a year." },
       { id: 'D', text: "Rely solely on developer self-reporting." }
     ],
     correctAnswers: ['A'],
@@ -240,12 +240,12 @@ export const AWS_DOP_QUESTIONS_20 = [
     scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer evaluates Security Posture to continuously evaluate organizational adherence to security standards (CIS AWS Foundations, AWS Foundational Security Best Practices) across all member accounts.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention? Aggregating multi-account security posture against CIS AWS Foundations Benchmark with Security Hub is under consideration.",
     options: [
-      { id: 'A', text: "Enable AWS Security Hub as a delegated administrator across all accounts, enabling standard security benchmarks and automated finding aggregation." },
+      { id: 'A', text: "Disable Security Hub to reduce cloud management overhead." },
       { id: 'B', text: "Manually audit accounts using paper checklists once a year." },
-      { id: 'C', text: "Disable Security Hub to reduce cloud management overhead." },
-      { id: 'D', text: "Rely solely on developer self-reporting." }
+      { id: 'C', text: "Rely solely on developer self-reporting." },
+      { id: 'D', text: "Enable AWS Security Hub as a delegated administrator across all accounts, enabling standard security benchmarks and automated finding aggregation." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Enable AWS Security Hub as a delegated administrator across all accounts, enabling standard security benchmarks and automated finding aggregation. AWS Security Hub provides a comprehensive view of cloud security posture. It continuously evaluates accounts against security frameworks (CIS, PCI-DSS, NIST), generates automated compliance scores, and centralizes findings from GuardDuty, Inspector, and IAM Access Analyzer.",
     referenceUrl: "https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html",
@@ -261,12 +261,12 @@ export const AWS_DOP_QUESTIONS_20 = [
     scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer evaluates Security Posture to continuously evaluate organizational adherence to security standards (CIS AWS Foundations, AWS Foundational Security Best Practices) across all member accounts.",
     question: "Which solution implements these mandatory compliance and security controls? Aggregating multi-account security posture against CIS AWS Foundations Benchmark with Security Hub is under consideration.",
     options: [
-      { id: 'A', text: "Enable AWS Security Hub as a delegated administrator across all accounts, enabling standard security benchmarks and automated finding aggregation." },
+      { id: 'A', text: "Rely solely on developer self-reporting." },
       { id: 'B', text: "Manually audit accounts using paper checklists once a year." },
-      { id: 'C', text: "Disable Security Hub to reduce cloud management overhead." },
-      { id: 'D', text: "Rely solely on developer self-reporting." }
+      { id: 'C', text: "Enable AWS Security Hub as a delegated administrator across all accounts, enabling standard security benchmarks and automated finding aggregation." },
+      { id: 'D', text: "Disable Security Hub to reduce cloud management overhead." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Enable AWS Security Hub as a delegated administrator across all accounts, enabling standard security benchmarks and automated finding aggregation. AWS Security Hub provides a comprehensive view of cloud security posture. It continuously evaluates accounts against security frameworks (CIS, PCI-DSS, NIST), generates automated compliance scores, and centralizes findings from GuardDuty, Inspector, and IAM Access Analyzer.",
     referenceUrl: "https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html",
@@ -282,12 +282,12 @@ export const AWS_DOP_QUESTIONS_20 = [
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer evaluates Security Posture to continuously evaluate organizational adherence to security standards (CIS AWS Foundations, AWS Foundational Security Best Practices) across all member accounts.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead? Aggregating multi-account security posture against CIS AWS Foundations Benchmark with Security Hub is under consideration.",
     options: [
-      { id: 'A', text: "Enable AWS Security Hub as a delegated administrator across all accounts, enabling standard security benchmarks and automated finding aggregation." },
+      { id: 'A', text: "Rely solely on developer self-reporting." },
       { id: 'B', text: "Manually audit accounts using paper checklists once a year." },
-      { id: 'C', text: "Disable Security Hub to reduce cloud management overhead." },
-      { id: 'D', text: "Rely solely on developer self-reporting." }
+      { id: 'C', text: "Enable AWS Security Hub as a delegated administrator across all accounts, enabling standard security benchmarks and automated finding aggregation." },
+      { id: 'D', text: "Disable Security Hub to reduce cloud management overhead." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Enable AWS Security Hub as a delegated administrator across all accounts, enabling standard security benchmarks and automated finding aggregation. AWS Security Hub provides a comprehensive view of cloud security posture. It continuously evaluates accounts against security frameworks (CIS, PCI-DSS, NIST), generates automated compliance scores, and centralizes findings from GuardDuty, Inspector, and IAM Access Analyzer.",
     referenceUrl: "https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html",
@@ -303,12 +303,12 @@ export const AWS_DOP_QUESTIONS_20 = [
     scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer evaluates Security Posture to continuously evaluate organizational adherence to security standards (CIS AWS Foundations, AWS Foundational Security Best Practices) across all member accounts.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability? Aggregating multi-account security posture against CIS AWS Foundations Benchmark with Security Hub is under consideration.",
     options: [
-      { id: 'A', text: "Enable AWS Security Hub as a delegated administrator across all accounts, enabling standard security benchmarks and automated finding aggregation." },
+      { id: 'A', text: "Rely solely on developer self-reporting." },
       { id: 'B', text: "Manually audit accounts using paper checklists once a year." },
-      { id: 'C', text: "Disable Security Hub to reduce cloud management overhead." },
-      { id: 'D', text: "Rely solely on developer self-reporting." }
+      { id: 'C', text: "Enable AWS Security Hub as a delegated administrator across all accounts, enabling standard security benchmarks and automated finding aggregation." },
+      { id: 'D', text: "Disable Security Hub to reduce cloud management overhead." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Enable AWS Security Hub as a delegated administrator across all accounts, enabling standard security benchmarks and automated finding aggregation. AWS Security Hub provides a comprehensive view of cloud security posture. It continuously evaluates accounts against security frameworks (CIS, PCI-DSS, NIST), generates automated compliance scores, and centralizes findings from GuardDuty, Inspector, and IAM Access Analyzer.",
     referenceUrl: "https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html",
@@ -325,9 +325,9 @@ export const AWS_DOP_QUESTIONS_20 = [
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives? Obtaining short-lived AWS IAM credentials for on-premises servers using X.509 PKI is under consideration.",
     options: [
       { id: 'A', text: "Deploy AWS IAM Roles Anywhere using an on-premises enterprise Public Key Infrastructure (PKI) Certificate Authority (CA) trust anchor." },
-      { id: 'B', text: "Generate permanent IAM user access keys and hardcode them on on-premises disks." },
+      { id: 'B', text: "Open public internet access to AWS APIs with no authentication." },
       { id: 'C', text: "Commit IAM secret keys to a public GitHub repository." },
-      { id: 'D', text: "Open public internet access to AWS APIs with no authentication." }
+      { id: 'D', text: "Generate permanent IAM user access keys and hardcode them on on-premises disks." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -345,12 +345,12 @@ export const AWS_DOP_QUESTIONS_20 = [
     scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer evaluates Hybrid Authentication to enable on-premises servers in a corporate data center to authenticate to AWS APIs securely without creating or storing long-lived IAM access keys.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention? Obtaining short-lived AWS IAM credentials for on-premises servers using X.509 PKI is under consideration.",
     options: [
-      { id: 'A', text: "Deploy AWS IAM Roles Anywhere using an on-premises enterprise Public Key Infrastructure (PKI) Certificate Authority (CA) trust anchor." },
-      { id: 'B', text: "Generate permanent IAM user access keys and hardcode them on on-premises disks." },
-      { id: 'C', text: "Commit IAM secret keys to a public GitHub repository." },
-      { id: 'D', text: "Open public internet access to AWS APIs with no authentication." }
+      { id: 'A', text: "Open public internet access to AWS APIs with no authentication." },
+      { id: 'B', text: "Deploy AWS IAM Roles Anywhere using an on-premises enterprise Public Key Infrastructure (PKI) Certificate Authority (CA) trust anchor." },
+      { id: 'C', text: "Generate permanent IAM user access keys and hardcode them on on-premises disks." },
+      { id: 'D', text: "Commit IAM secret keys to a public GitHub repository." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy AWS IAM Roles Anywhere using an on-premises enterprise Public Key Infrastructure (PKI) Certificate Authority (CA) trust anchor. IAM Roles Anywhere allows workloads running outside of AWS (on-premises servers, other cloud providers) to exchange X.509 digital certificates from an internal CA for short-lived, temporary AWS IAM credentials, eliminating dangerous long-lived access keys.",
     referenceUrl: "https://docs.aws.amazon.com/rolesanywhere/latest/userguide/introduction.html",
@@ -368,8 +368,8 @@ export const AWS_DOP_QUESTIONS_20 = [
     options: [
       { id: 'A', text: "Deploy AWS IAM Roles Anywhere using an on-premises enterprise Public Key Infrastructure (PKI) Certificate Authority (CA) trust anchor." },
       { id: 'B', text: "Generate permanent IAM user access keys and hardcode them on on-premises disks." },
-      { id: 'C', text: "Commit IAM secret keys to a public GitHub repository." },
-      { id: 'D', text: "Open public internet access to AWS APIs with no authentication." }
+      { id: 'C', text: "Open public internet access to AWS APIs with no authentication." },
+      { id: 'D', text: "Commit IAM secret keys to a public GitHub repository." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -387,12 +387,12 @@ export const AWS_DOP_QUESTIONS_20 = [
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer evaluates Hybrid Authentication to enable on-premises servers in a corporate data center to authenticate to AWS APIs securely without creating or storing long-lived IAM access keys.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead? Obtaining short-lived AWS IAM credentials for on-premises servers using X.509 PKI is under consideration.",
     options: [
-      { id: 'A', text: "Deploy AWS IAM Roles Anywhere using an on-premises enterprise Public Key Infrastructure (PKI) Certificate Authority (CA) trust anchor." },
-      { id: 'B', text: "Generate permanent IAM user access keys and hardcode them on on-premises disks." },
-      { id: 'C', text: "Commit IAM secret keys to a public GitHub repository." },
-      { id: 'D', text: "Open public internet access to AWS APIs with no authentication." }
+      { id: 'A', text: "Open public internet access to AWS APIs with no authentication." },
+      { id: 'B', text: "Commit IAM secret keys to a public GitHub repository." },
+      { id: 'C', text: "Deploy AWS IAM Roles Anywhere using an on-premises enterprise Public Key Infrastructure (PKI) Certificate Authority (CA) trust anchor." },
+      { id: 'D', text: "Generate permanent IAM user access keys and hardcode them on on-premises disks." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy AWS IAM Roles Anywhere using an on-premises enterprise Public Key Infrastructure (PKI) Certificate Authority (CA) trust anchor. IAM Roles Anywhere allows workloads running outside of AWS (on-premises servers, other cloud providers) to exchange X.509 digital certificates from an internal CA for short-lived, temporary AWS IAM credentials, eliminating dangerous long-lived access keys.",
     referenceUrl: "https://docs.aws.amazon.com/rolesanywhere/latest/userguide/introduction.html",
@@ -408,12 +408,12 @@ export const AWS_DOP_QUESTIONS_20 = [
     scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer evaluates Hybrid Authentication to enable on-premises servers in a corporate data center to authenticate to AWS APIs securely without creating or storing long-lived IAM access keys.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability? Obtaining short-lived AWS IAM credentials for on-premises servers using X.509 PKI is under consideration.",
     options: [
-      { id: 'A', text: "Deploy AWS IAM Roles Anywhere using an on-premises enterprise Public Key Infrastructure (PKI) Certificate Authority (CA) trust anchor." },
-      { id: 'B', text: "Generate permanent IAM user access keys and hardcode them on on-premises disks." },
+      { id: 'A', text: "Generate permanent IAM user access keys and hardcode them on on-premises disks." },
+      { id: 'B', text: "Deploy AWS IAM Roles Anywhere using an on-premises enterprise Public Key Infrastructure (PKI) Certificate Authority (CA) trust anchor." },
       { id: 'C', text: "Commit IAM secret keys to a public GitHub repository." },
       { id: 'D', text: "Open public internet access to AWS APIs with no authentication." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy AWS IAM Roles Anywhere using an on-premises enterprise Public Key Infrastructure (PKI) Certificate Authority (CA) trust anchor. IAM Roles Anywhere allows workloads running outside of AWS (on-premises servers, other cloud providers) to exchange X.509 digital certificates from an internal CA for short-lived, temporary AWS IAM credentials, eliminating dangerous long-lived access keys.",
     referenceUrl: "https://docs.aws.amazon.com/rolesanywhere/latest/userguide/introduction.html",
@@ -429,12 +429,12 @@ export const AWS_DOP_QUESTIONS_20 = [
     scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer evaluates Data Privacy to discover and protect unencrypted Personally Identifiable Information (PII) or credit card numbers stored across enterprise Amazon S3 buckets.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives? Automated scanning for PII and sensitive data in Amazon S3 using Amazon Macie is under consideration.",
     options: [
-      { id: 'A', text: "Enable Amazon Macie across the organization to automatically scan S3 buckets for sensitive data and generate findings for unencrypted PII." },
+      { id: 'A', text: "Assume no developers ever upload sensitive data to S3 buckets." },
       { id: 'B', text: "Manually download every S3 object and inspect contents by eye." },
-      { id: 'C', text: "Assume no developers ever upload sensitive data to S3 buckets." },
+      { id: 'C', text: "Enable Amazon Macie across the organization to automatically scan S3 buckets for sensitive data and generate findings for unencrypted PII." },
       { id: 'D', text: "Disable S3 bucket logging to prevent discovering sensitive information." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Enable Amazon Macie across the organization to automatically scan S3 buckets for sensitive data and generate findings for unencrypted PII. Amazon Macie is a fully managed data security and privacy service that uses machine learning and pattern matching to discover and protect sensitive data in Amazon S3. Macie automatically alerts when buckets contain unencrypted PII, credentials, or financial data.",
     referenceUrl: "https://docs.aws.amazon.com/macie/latest/user/what-is-macie.html",
@@ -450,12 +450,12 @@ export const AWS_DOP_QUESTIONS_20 = [
     scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer evaluates Data Privacy to discover and protect unencrypted Personally Identifiable Information (PII) or credit card numbers stored across enterprise Amazon S3 buckets.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention? Automated scanning for PII and sensitive data in Amazon S3 using Amazon Macie is under consideration.",
     options: [
-      { id: 'A', text: "Enable Amazon Macie across the organization to automatically scan S3 buckets for sensitive data and generate findings for unencrypted PII." },
+      { id: 'A', text: "Disable S3 bucket logging to prevent discovering sensitive information." },
       { id: 'B', text: "Manually download every S3 object and inspect contents by eye." },
-      { id: 'C', text: "Assume no developers ever upload sensitive data to S3 buckets." },
-      { id: 'D', text: "Disable S3 bucket logging to prevent discovering sensitive information." }
+      { id: 'C', text: "Enable Amazon Macie across the organization to automatically scan S3 buckets for sensitive data and generate findings for unencrypted PII." },
+      { id: 'D', text: "Assume no developers ever upload sensitive data to S3 buckets." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Enable Amazon Macie across the organization to automatically scan S3 buckets for sensitive data and generate findings for unencrypted PII. Amazon Macie is a fully managed data security and privacy service that uses machine learning and pattern matching to discover and protect sensitive data in Amazon S3. Macie automatically alerts when buckets contain unencrypted PII, credentials, or financial data.",
     referenceUrl: "https://docs.aws.amazon.com/macie/latest/user/what-is-macie.html",
@@ -493,9 +493,9 @@ export const AWS_DOP_QUESTIONS_20 = [
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead? Automated scanning for PII and sensitive data in Amazon S3 using Amazon Macie is under consideration.",
     options: [
       { id: 'A', text: "Enable Amazon Macie across the organization to automatically scan S3 buckets for sensitive data and generate findings for unencrypted PII." },
-      { id: 'B', text: "Manually download every S3 object and inspect contents by eye." },
-      { id: 'C', text: "Assume no developers ever upload sensitive data to S3 buckets." },
-      { id: 'D', text: "Disable S3 bucket logging to prevent discovering sensitive information." }
+      { id: 'B', text: "Assume no developers ever upload sensitive data to S3 buckets." },
+      { id: 'C', text: "Disable S3 bucket logging to prevent discovering sensitive information." },
+      { id: 'D', text: "Manually download every S3 object and inspect contents by eye." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -514,9 +514,9 @@ export const AWS_DOP_QUESTIONS_20 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability? Automated scanning for PII and sensitive data in Amazon S3 using Amazon Macie is under consideration.",
     options: [
       { id: 'A', text: "Enable Amazon Macie across the organization to automatically scan S3 buckets for sensitive data and generate findings for unencrypted PII." },
-      { id: 'B', text: "Manually download every S3 object and inspect contents by eye." },
+      { id: 'B', text: "Disable S3 bucket logging to prevent discovering sensitive information." },
       { id: 'C', text: "Assume no developers ever upload sensitive data to S3 buckets." },
-      { id: 'D', text: "Disable S3 bucket logging to prevent discovering sensitive information." }
+      { id: 'D', text: "Manually download every S3 object and inspect contents by eye." }
     ],
     correctAnswers: ['A'],
     type: "single",

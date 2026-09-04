@@ -9,12 +9,12 @@ export const GCP_PCA_QUESTIONS_7 = [
     scenario: "A developer asks why assigning the default Compute Engine service account to GKE cluster worker nodes is considered a severe security risk.",
     question: "What security flaw occurs when GKE pods inherit the node's underlying service account?",
     options: [
-      { id: 'A', text: "Kubernetes API commands take 10x longer to execute" },
-      { id: 'B', text: "All pods on the node share the node's permissions, allowing any compromised pod to access all Google Cloud APIs permitted to the VM host" },
-      { id: 'C', text: "The GKE cluster cannot connect to the internet" },
+      { id: 'A', text: "All pods on the node share the node's permissions, allowing any compromised pod to access all Google Cloud APIs permitted to the VM host" },
+      { id: 'B', text: "The GKE cluster cannot connect to the internet" },
+      { id: 'C', text: "Kubernetes API commands take 10x longer to execute" },
       { id: 'D', text: "GKE nodes cannot run Docker containers" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Assigning broad IAM roles to GKE node service accounts violates least privilege. Any pod running on that node can query the GKE metadata server to obtain the node's access token, granting that pod unauthorized access to all Google Cloud APIs available to the host VM.",
     referenceUrl: "https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity#why_use_workload_identity",
@@ -30,12 +30,12 @@ export const GCP_PCA_QUESTIONS_7 = [
     scenario: "An enterprise audit reveals that 200 service accounts have been granted broad Primitive Editor roles on projects. The security team needs to identify unused permissions and downscope roles automatically.",
     question: "Which Google Cloud intelligence service analyzes IAM activity and recommends least-privilege role replacements?",
     options: [
-      { id: 'A', text: "IAM Recommender (Role Recommender)" },
+      { id: 'A', text: "Cloud Billing alerts" },
       { id: 'B', text: "Cloud Asset Inventory alone" },
       { id: 'C', text: "Security Command Center Standard" },
-      { id: 'D', text: "Cloud Billing alerts" }
+      { id: 'D', text: "IAM Recommender (Role Recommender)" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The Google Cloud `IAM Recommender` uses machine learning to analyze permission usage over the past 90 days. It identifies excess permissions granted to users and service accounts and automatically recommends smaller, tailored predefined roles to enforce least privilege.",
     referenceUrl: "https://cloud.google.com/iam/docs/recommender-overview",
@@ -51,12 +51,12 @@ export const GCP_PCA_QUESTIONS_7 = [
     scenario: "A security administrator rotates a Customer-Managed Encryption Key (CMEK) in Cloud KMS, creating Key Version 2.",
     question: "What happens to existing objects in a Cloud Storage bucket that were encrypted with Key Version 1?",
     options: [
-      { id: 'A', text: "Existing objects remain encrypted with Key Version 1; newly uploaded objects are encrypted with Key Version 2" },
-      { id: 'B', text: "All existing objects are automatically re-encrypted immediately" },
-      { id: 'C', text: "Existing objects become permanently unreadable" },
-      { id: 'D', text: "All previous versions of the key are deleted" }
+      { id: 'A', text: "Existing objects become permanently unreadable" },
+      { id: 'B', text: "All previous versions of the key are deleted" },
+      { id: 'C', text: "Existing objects remain encrypted with Key Version 1; newly uploaded objects are encrypted with Key Version 2" },
+      { id: 'D', text: "All existing objects are automatically re-encrypted immediately" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "When a CMEK key is rotated in Cloud KMS, existing objects in Cloud Storage remain encrypted with the key version used when they were written. Cloud KMS retains previous key versions to decrypt existing data seamlessly. Only newly written objects use the new primary key version.",
     referenceUrl: "https://cloud.google.com/storage/docs/encryption/customer-managed-keys#key-rotation",
@@ -72,12 +72,12 @@ export const GCP_PCA_QUESTIONS_7 = [
     scenario: "A healthcare organization defines custom proprietary employee badge formats: `EMP-` followed by 6 alphanumeric digits. Standard pre-built infoTypes do not detect this pattern.",
     question: "Which Sensitive Data Protection feature allows organizations to define custom regex or dictionary detectors?",
     options: [
-      { id: 'A', text: "Cloud KMS Keys" },
-      { id: 'B', text: "Custom infoTypes (Stored infoTypes)" },
-      { id: 'C', text: "Default infoTypes" },
+      { id: 'A', text: "Custom infoTypes (Stored infoTypes)" },
+      { id: 'B', text: "Default infoTypes" },
+      { id: 'C', text: "Cloud KMS Keys" },
       { id: 'D', text: "BigQuery User-Defined Functions" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Sensitive Data Protection supports `Custom infoTypes` (and `Stored infoTypes`). Organizations define custom detection logic using regular expressions (regex), word dictionaries, or large reference datasets in Cloud Storage to identify proprietary organization-specific identifiers.",
     referenceUrl: "https://cloud.google.com/sensitive-data-protection/docs/creating-custom-infotypes",
@@ -93,12 +93,12 @@ export const GCP_PCA_QUESTIONS_7 = [
     scenario: "A security team conducts authorized penetration testing on a development GKE cluster. Security Command Center continuously generates hundreds of high-severity alerts for known test activities.",
     question: "Which Security Command Center feature silences findings matching specific criteria without deleting finding records?",
     options: [
-      { id: 'A', text: "Mute Rules" },
-      { id: 'B', text: "Deleting findings permanently" },
-      { id: 'C', text: "Disabling Security Command Center" },
-      { id: 'D', text: "Ignoring Cloud Logging" }
+      { id: 'A', text: "Disabling Security Command Center" },
+      { id: 'B', text: "Ignoring Cloud Logging" },
+      { id: 'C', text: "Mute Rules" },
+      { id: 'D', text: "Deleting findings permanently" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "`Mute Rules` in Security Command Center allow security administrators to define programmatic rules (e.g. matching specific projects, resource types, or finding classes) that automatically mark matching findings as `MUTED`, keeping dashboards clean while retaining full audit records.",
     referenceUrl: "https://cloud.google.com/security-command-center/docs/how-to-mute-findings",
@@ -114,12 +114,12 @@ export const GCP_PCA_QUESTIONS_7 = [
     scenario: "A FinOps team needs to analyze detailed hourly cloud spend across 100 projects, broken down by resource labels, SKU IDs, and credit discounts.",
     question: "Which Google Cloud feature exports detailed, raw billing line items directly to an analytical database?",
     options: [
-      { id: 'A', text: "Cloud Billing PDF invoice download" },
-      { id: 'B', text: "Cloud Storage CSV export alone" },
+      { id: 'A', text: "Cloud Billing export to BigQuery (Standard and Detailed usage cost)" },
+      { id: 'B', text: "Cloud Billing PDF invoice download" },
       { id: 'C', text: "Cloud Monitoring billing dashboard alone" },
-      { id: 'D', text: "Cloud Billing export to BigQuery (Standard and Detailed usage cost)" }
+      { id: 'D', text: "Cloud Storage CSV export alone" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "`Cloud Billing export to BigQuery` automatically streams detailed billing data, including individual resource IDs, custom labels, project metadata, and SKU pricing, into BigQuery tables, allowing FinOps teams to run complex SQL queries and visualize trends in Looker Studio.",
     referenceUrl: "https://cloud.google.com/billing/docs/how-to/export-data-bigquery",
@@ -156,12 +156,12 @@ export const GCP_PCA_QUESTIONS_7 = [
     scenario: "An enterprise operating 500 GCP projects spends thousands of dollars monthly on forgotten Compute Engine instances and unattached persistent disks.",
     question: "Which Google Cloud service analyzes resource utilization and surfaces actionable recommendations to delete idle VMs and unattached disks?",
     options: [
-      { id: 'A', text: "Cloud Monitoring Metrics Explorer alone" },
-      { id: 'B', text: "Active Assist (Recommender API)" },
-      { id: 'C', text: "Cloud Profiler" },
-      { id: 'D', text: "Security Command Center Standard" }
+      { id: 'A', text: "Security Command Center Standard" },
+      { id: 'B', text: "Cloud Profiler" },
+      { id: 'C', text: "Cloud Monitoring Metrics Explorer alone" },
+      { id: 'D', text: "Active Assist (Recommender API)" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "`Active Assist` uses machine learning to inspect cloud usage. Its Recommenders identify idle Compute Engine VMs, unattached persistent disks, over-provisioned machine types, and unused IP addresses, providing estimated dollar savings and single-click remediation.",
     referenceUrl: "https://cloud.google.com/recommender/docs/overview",
@@ -178,9 +178,9 @@ export const GCP_PCA_QUESTIONS_7 = [
     question: "Which Google Cloud managed service continuously replicates database changes via change data capture (CDC) for minimal-downtime cutover?",
     options: [
       { id: 'A', text: "Database Migration Service (DMS)" },
-      { id: 'B', text: "Storage Transfer Service" },
+      { id: 'B', text: "Transfer Appliance" },
       { id: 'C', text: "Exporting mysqldump files to Cloud Storage" },
-      { id: 'D', text: "Transfer Appliance" }
+      { id: 'D', text: "Storage Transfer Service" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -200,8 +200,8 @@ export const GCP_PCA_QUESTIONS_7 = [
     options: [
       { id: 'A', text: "Migrate to Virtual Machines" },
       { id: 'B', text: "Transfer Appliance" },
-      { id: 'C', text: "Storage Transfer Service" },
-      { id: 'D', text: "Cloud Deploy" }
+      { id: 'C', text: "Cloud Deploy" },
+      { id: 'D', text: "Storage Transfer Service" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -220,8 +220,8 @@ export const GCP_PCA_QUESTIONS_7 = [
     question: "Which Google Cloud tool extracts state and software binaries from VMs into container images and GKE deployment manifests?",
     options: [
       { id: 'A', text: "Migrate to Containers (formerly Migrate for Anthos)" },
-      { id: 'B', text: "Migrate to Virtual Machines" },
-      { id: 'C', text: "Cloud Build alone" },
+      { id: 'B', text: "Cloud Build alone" },
+      { id: 'C', text: "Migrate to Virtual Machines" },
       { id: 'D', text: "Artifact Registry" }
     ],
     correctAnswers: ['A'],
@@ -241,9 +241,9 @@ export const GCP_PCA_QUESTIONS_7 = [
     question: "Which Google Cloud discovery and assessment platform analyzes on-premises infrastructure and models cloud costs?",
     options: [
       { id: 'A', text: "StratoZone" },
-      { id: 'B', text: "Active Assist alone" },
+      { id: 'B', text: "Cloud Foundation Toolkit" },
       { id: 'C', text: "Cloud Cost Profiler" },
-      { id: 'D', text: "Cloud Foundation Toolkit" }
+      { id: 'D', text: "Active Assist alone" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -261,12 +261,12 @@ export const GCP_PCA_QUESTIONS_7 = [
     scenario: "A financial trading platform requires a disaster recovery strategy with a Recovery Time Objective (RTO) of less than 1 second and Recovery Point Objective (RPO) of 0 across continents.",
     question: "Which disaster recovery architecture pattern satisfies these requirements at the cost of highest operational expense?",
     options: [
-      { id: 'A', text: "Automated backup exports to tape" },
-      { id: 'B', text: "Hot Multi-Region Active-Active deployment with synchronous replication (e.g. Cloud Spanner)" },
+      { id: 'A', text: "Hot Multi-Region Active-Active deployment with synchronous replication (e.g. Cloud Spanner)" },
+      { id: 'B', text: "Cold Standby with nightly backup restoration" },
       { id: 'C', text: "Warm Standby (Pilot Light) with minimal instances" },
-      { id: 'D', text: "Cold Standby with nightly backup restoration" }
+      { id: 'D', text: "Automated backup exports to tape" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "A `Hot Multi-Region Active-Active` architecture serves traffic concurrently from multiple geographically distributed regions. State is synchronized continuously using technologies like Cloud Spanner, ensuring zero RTO and zero data loss (RPO = 0) during an unexpected regional disaster.",
     referenceUrl: "https://cloud.google.com/architecture/dr-scenarios-planning-guide",
@@ -282,12 +282,12 @@ export const GCP_PCA_QUESTIONS_7 = [
     scenario: "A retail company wants a cost-effective disaster recovery plan for its web application. During normal operations, a secondary region maintains a synchronized database replica and minimal core infrastructure, scaling up compute VMs only during a declared disaster.",
     question: "Which disaster recovery pattern describes this architecture?",
     options: [
-      { id: 'A', text: "Multi-Cloud Mirroring" },
-      { id: 'B', text: "Warm Standby (Pilot Light)" },
+      { id: 'A', text: "Warm Standby (Pilot Light)" },
+      { id: 'B', text: "Hot Standby (Active-Active)" },
       { id: 'C', text: "Cold Standby (Backup and Restore)" },
-      { id: 'D', text: "Hot Standby (Active-Active)" }
+      { id: 'D', text: "Multi-Cloud Mirroring" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The `Warm Standby` (or Pilot Light) pattern maintains a minimal footprint in the recovery region (such as a running database read replica and minimal core networking). When a disaster strikes the primary region, autoscaling or automation scripts rapidly scale up application compute instances.",
     referenceUrl: "https://cloud.google.com/architecture/dr-scenarios-planning-guide#warm-standby",
@@ -303,12 +303,12 @@ export const GCP_PCA_QUESTIONS_7 = [
     scenario: "A cloud architect is defining business continuity SLAs for a core banking ledger. The business requires that maximum allowable data loss in a crash must not exceed 5 minutes, and service must be restored within 30 minutes.",
     question: "Which terms correctly describe these two metrics respectively?",
     options: [
-      { id: 'A', text: "MTTR is 5 minutes; MTTF is 30 minutes" },
+      { id: 'A', text: "RPO (Recovery Point Objective) is 5 minutes; RTO (Recovery Time Objective) is 30 minutes" },
       { id: 'B', text: "RTO is 5 minutes; RPO is 30 minutes" },
-      { id: 'C', text: "SLA is 5 minutes; SLO is 30 minutes" },
-      { id: 'D', text: "RPO (Recovery Point Objective) is 5 minutes; RTO (Recovery Time Objective) is 30 minutes" }
+      { id: 'C', text: "MTTR is 5 minutes; MTTF is 30 minutes" },
+      { id: 'D', text: "SLA is 5 minutes; SLO is 30 minutes" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "`Recovery Point Objective` (RPO) is the maximum acceptable amount of data loss measured in time (e.g. 5 minutes of transactions). `Recovery Time Objective` (RTO) is the maximum acceptable duration of downtime before service is restored (e.g. 30 minutes).",
     referenceUrl: "https://cloud.google.com/architecture/dr-scenarios-planning-guide#rto-rpo",
@@ -324,12 +324,12 @@ export const GCP_PCA_QUESTIONS_7 = [
     scenario: "A platform team deploys containerized microservices to GKE and Cloud Run. The team needs an automated continuous delivery pipeline that enforces promotion gates (Dev -> Staging -> Prod) and supports one-click rollbacks.",
     question: "Which Google Cloud managed service automates progressive application delivery to GKE and Cloud Run?",
     options: [
-      { id: 'A', text: "Cloud Composer" },
-      { id: 'B', text: "Google Cloud Deploy" },
-      { id: 'C', text: "Cloud Build alone" },
+      { id: 'A', text: "Google Cloud Deploy" },
+      { id: 'B', text: "Cloud Build alone" },
+      { id: 'C', text: "Cloud Composer" },
       { id: 'D', text: "Artifact Registry" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "`Google Cloud Deploy` is a fully managed continuous delivery service that automates delivery of containerized applications to GKE, Anthos, and Cloud Run. It defines structured promotion pipelines with approval gates, canary rollouts, and instant rollbacks.",
     referenceUrl: "https://cloud.google.com/deploy/docs/overview",
@@ -345,12 +345,12 @@ export const GCP_PCA_QUESTIONS_7 = [
     scenario: "An enterprise security standard requires that CI/CD container image builds must not execute in shared public cloud infrastructure and must have private IP access to internal repositories inside a VPC.",
     question: "Which Cloud Build capability provides dedicated, private build workers hosted in a customer VPC network?",
     options: [
-      { id: 'A', text: "Cloud Build Private Pools (Worker Pools)" },
-      { id: 'B', text: "Default Cloud Build shared pool" },
-      { id: 'C', text: "Cloud Shell environment" },
-      { id: 'D', text: "Compute Engine single VM runner" }
+      { id: 'A', text: "Compute Engine single VM runner" },
+      { id: 'B', text: "Cloud Shell environment" },
+      { id: 'C', text: "Default Cloud Build shared pool" },
+      { id: 'D', text: "Cloud Build Private Pools (Worker Pools)" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "`Cloud Build Private Pools` (Worker Pools) are fully managed, private worker instances running in a Google-managed tenant project peered directly into the customer's VPC network. They provide private IP connectivity to internal GitHub Enterprise instances and zero shared tenancy.",
     referenceUrl: "https://cloud.google.com/build/docs/private-pools/private-pools-overview",
@@ -366,12 +366,12 @@ export const GCP_PCA_QUESTIONS_7 = [
     scenario: "A software organization stores Docker container images, npm packages, and Java Maven artifacts across multiple disparate registries. The team wants a unified Google Cloud artifact management platform.",
     question: "Which Google Cloud service succeeds Container Registry and provides universal multi-format artifact storage with fine-grained IAM?",
     options: [
-      { id: 'A', text: "Cloud Storage public bucket" },
+      { id: 'A', text: "Google Cloud Artifact Registry" },
       { id: 'B', text: "Container Registry (gcr.io legacy)" },
-      { id: 'C', text: "Compute Engine local repository" },
-      { id: 'D', text: "Google Cloud Artifact Registry" }
+      { id: 'C', text: "Cloud Storage public bucket" },
+      { id: 'D', text: "Compute Engine local repository" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Google Cloud `Artifact Registry` is the modern successor to Container Registry. It supports OCI container images as well as language packages (Maven, npm, Python, Apt, Yum), offers regional repository placement, and enforces fine-grained IAM and CMEK encryption.",
     referenceUrl: "https://cloud.google.com/artifact-registry/docs/overview",
@@ -388,9 +388,9 @@ export const GCP_PCA_QUESTIONS_7 = [
     question: "What is the primary operational advantage of the Blue-Green deployment pattern?",
     options: [
       { id: 'A', text: "Near-zero downtime releases and instantaneous rollback capability by switching load balancer traffic back to the old environment" },
-      { id: 'B', text: "Simultaneous multi-master database schema changes" },
-      { id: 'C', text: "Elimination of automated testing" },
-      { id: 'D', text: "Lowest infrastructure compute cost during rollouts" }
+      { id: 'B', text: "Lowest infrastructure compute cost during rollouts" },
+      { id: 'C', text: "Simultaneous multi-master database schema changes" },
+      { id: 'D', text: "Elimination of automated testing" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,12 +408,12 @@ export const GCP_PCA_QUESTIONS_7 = [
     scenario: "A company deploys an experimental feature to production. The feature must be tested on 5% of real live user traffic, with automatic rollback if HTTP 5XX error rates exceed 1%.",
     question: "Which deployment strategy gradually exposes a small percentage of user traffic to a new release?",
     options: [
-      { id: 'A', text: "In-place database replacement" },
-      { id: 'B', text: "Canary Deployment (using weighted traffic splitting)" },
+      { id: 'A', text: "Canary Deployment (using weighted traffic splitting)" },
+      { id: 'B', text: "Blue-Green Deployment" },
       { id: 'C', text: "Recreate Deployment" },
-      { id: 'D', text: "Blue-Green Deployment" }
+      { id: 'D', text: "In-place database replacement" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "A `Canary Deployment` routes a small fraction (e.g. 5%) of production traffic to the new revision while serving the remaining 95% from the stable baseline. The team monitors telemetry (error rate, latency); if healthy, traffic is ramped up to 100%.",
     referenceUrl: "https://cloud.google.com/architecture/application-deployment-and-testing-strategies#canary-deployments",
@@ -430,8 +430,8 @@ export const GCP_PCA_QUESTIONS_7 = [
     question: "Which Google Cloud tagging mechanism propagates key-value metadata to billing export records for financial chargeback?",
     options: [
       { id: 'A', text: "Resource Labels" },
-      { id: 'B', text: "Network Tags" },
-      { id: 'C', text: "Machine Type names" },
+      { id: 'B', text: "Machine Type names" },
+      { id: 'C', text: "Network Tags" },
       { id: 'D', text: "VPC Subnet names" }
     ],
     correctAnswers: ['A'],
@@ -450,12 +450,12 @@ export const GCP_PCA_QUESTIONS_7 = [
     scenario: "A managed service provider (MSP) manages Google Cloud projects for 50 distinct client companies. Each client needs isolated monthly invoices and separate billing credit terms under a single master billing agreement.",
     question: "Which Cloud Billing construct provides separate invoicing under a master Cloud Billing account?",
     options: [
-      { id: 'A', text: "Multiple Google Workspace domains" },
-      { id: 'B', text: "Cloud Billing Subaccounts" },
-      { id: 'C', text: "Prepaid debit cards per project" },
-      { id: 'D', text: "Separate IAM organizations for each project" }
+      { id: 'A', text: "Prepaid debit cards per project" },
+      { id: 'B', text: "Separate IAM organizations for each project" },
+      { id: 'C', text: "Cloud Billing Subaccounts" },
+      { id: 'D', text: "Multiple Google Workspace domains" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Google Cloud `Billing Subaccounts` allow organizations and resellers to create separate billing structures beneath a single parent Master Billing Account. Each subaccount generates an independent invoice while consolidating credit terms under the parent contract.",
     referenceUrl: "https://cloud.google.com/billing/docs/how-to/subaccounts",
@@ -472,9 +472,9 @@ export const GCP_PCA_QUESTIONS_7 = [
     question: "Which principle of the Reliability pillar does this design violate?",
     options: [
       { id: 'A', text: "Designing stateless application tiers that externalize state to scalable managed databases or caches" },
-      { id: 'B', text: "Deploying all VMs in a single availability zone" },
+      { id: 'B', text: "Automating infrastructure deployments with Terraform" },
       { id: 'C', text: "Using open-source software" },
-      { id: 'D', text: "Automating infrastructure deployments with Terraform" }
+      { id: 'D', text: "Deploying all VMs in a single availability zone" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,12 +492,12 @@ export const GCP_PCA_QUESTIONS_7 = [
     scenario: "An engineering team defines service metrics. The team measures the proportion of HTTP GET requests returning 200 OK within 300ms over 30 days, targets 99.9%, and commits to customer refunds if availability drops below 99.5%.",
     question: "Which terms correctly identify these three metrics respectively?",
     options: [
-      { id: 'A', text: "SLI is the actual measurement; SLO is the internal 99.9% target; SLA is the contractual 99.5% customer commitment" },
+      { id: 'A', text: "All three terms are identical in SRE practice" },
       { id: 'B', text: "SLA is the measurement; SLI is the target; SLO is the contract" },
       { id: 'C', text: "SLO is the measurement; SLA is the target; SLI is the contract" },
-      { id: 'D', text: "All three terms are identical in SRE practice" }
+      { id: 'D', text: "SLI is the actual measurement; SLO is the internal 99.9% target; SLA is the contractual 99.5% customer commitment" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "In Google SRE terminology: `Service Level Indicator` (SLI) is a quantifiable metric of service performance (e.g. latency, error rate). `Service Level Objective` (SLO) is the internal target reliability goal (e.g. 99.9%). `Service Level Agreement` (SLA) is the legal contractual commitment with financial consequences.",
     referenceUrl: "https://cloud.google.com/architecture/framework/reliability/define-service-reliability-goals",
@@ -513,12 +513,12 @@ export const GCP_PCA_QUESTIONS_7 = [
     scenario: "A software engineering team has an availability SLO of 99.9% over a 30-day window, providing an Error Budget of 0.1% (43 minutes of allowable downtime). A series of bad releases completely exhausts the error budget.",
     question: "According to Google SRE principles, what policy should be enforced when an error budget is exhausted?",
     options: [
-      { id: 'A', text: "Lower the SLO to 99.0% immediately" },
-      { id: 'B', text: "Ignore the error budget and continue releasing features" },
+      { id: 'A', text: "Halt non-critical feature releases and redirect engineering effort toward reliability, bug fixes, and operational resilience until the budget recovers" },
+      { id: 'B', text: "Lower the SLO to 99.0% immediately" },
       { id: 'C', text: "Terminate the on-call engineers" },
-      { id: 'D', text: "Halt non-critical feature releases and redirect engineering effort toward reliability, bug fixes, and operational resilience until the budget recovers" }
+      { id: 'D', text: "Ignore the error budget and continue releasing features" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "An `Error Budget` aligns incentives between product developers (velocity) and SREs (stability). When the error budget is exhausted, the release gate is locked: new feature deployments are paused, and engineering effort is dedicated entirely to improving system stability, testing, and observability.",
     referenceUrl: "https://cloud.google.com/architecture/framework/reliability/define-service-reliability-goals#error-budgets",

@@ -9,9 +9,9 @@ export const AWS_CLF_QUESTIONS_6 = [
     scenario: "A software team migrating a document-oriented JSON application from on-premises MongoDB to AWS requires a fully managed, scalable, and highly available document database service.",
     question: "Which AWS database service provides native compatibility with MongoDB workloads and JSON document data?",
     options: [
-      { id: 'A', text: "Amazon RDS for PostgreSQL" },
-      { id: 'B', text: "Amazon Neptune" },
-      { id: 'C', text: "Amazon DynamoDB" },
+      { id: 'A', text: "Amazon Neptune" },
+      { id: 'B', text: "Amazon DynamoDB" },
+      { id: 'C', text: "Amazon RDS for PostgreSQL" },
       { id: 'D', text: "Amazon DocumentDB (with MongoDB compatibility)" }
     ],
     correctAnswers: ['D'],
@@ -31,11 +31,11 @@ export const AWS_CLF_QUESTIONS_6 = [
     question: "Which AWS managed database service is purpose-built for highly connected graph datasets and relationship queries?",
     options: [
       { id: 'A', text: "Amazon DynamoDB" },
-      { id: 'B', text: "Amazon Redshift" },
-      { id: 'C', text: "Amazon DocumentDB" },
-      { id: 'D', text: "Amazon Neptune" }
+      { id: 'B', text: "Amazon DocumentDB" },
+      { id: 'C', text: "Amazon Neptune" },
+      { id: 'D', text: "Amazon Redshift" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Amazon Neptune is a fast, reliable, fully managed graph database service built for applications that work with highly connected datasets (such as social networks, fraud graphs, and knowledge graphs).",
     referenceUrl: "https://docs.aws.amazon.com/neptune/latest/userguide/intro.html",
@@ -52,8 +52,8 @@ export const AWS_CLF_QUESTIONS_6 = [
     question: "Which AWS ledger database provides a cryptographically verifiable transaction log owned by a central authority?",
     options: [
       { id: 'A', text: "Amazon Quantum Ledger Database (Amazon QLDB)" },
-      { id: 'B', text: "Amazon DynamoDB" },
-      { id: 'C', text: "AWS CloudTrail" },
+      { id: 'B', text: "AWS CloudTrail" },
+      { id: 'C', text: "Amazon DynamoDB" },
       { id: 'D', text: "Amazon Managed Blockchain" }
     ],
     correctAnswers: ['A'],
@@ -93,12 +93,12 @@ export const AWS_CLF_QUESTIONS_6 = [
     scenario: "An enterprise allows developer team leads to create IAM users and roles for their developers, but wants to ensure that newly created IAM users cannot grant themselves administrator privileges.",
     question: "Which advanced IAM feature sets the maximum permissions that an IAM identity-based policy can grant to a user or role?",
     options: [
-      { id: 'A', text: "IAM Permission Boundaries" },
+      { id: 'A', text: "Session Policies" },
       { id: 'B', text: "Service Control Policies" },
-      { id: 'C', text: "Session Policies" },
-      { id: 'D', text: "IAM User Groups" }
+      { id: 'C', text: "IAM User Groups" },
+      { id: 'D', text: "IAM Permission Boundaries" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "A Permission Boundary is an advanced IAM feature that uses a managed policy to set the maximum permissions that an identity-based policy can grant to an IAM entity, preventing privilege escalation.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html",
@@ -114,12 +114,12 @@ export const AWS_CLF_QUESTIONS_6 = [
     scenario: "A mission-critical transaction processing system is designed so that if any individual component fails, the system continues operating with zero downtime and zero degradation in service.",
     question: "Which architectural characteristic describes a system's ability to continue operating without interruption despite the failure of one or more components?",
     options: [
-      { id: 'A', text: "Scalability" },
-      { id: 'B', text: "Fault Tolerance" },
-      { id: 'C', text: "Elasticity" },
-      { id: 'D', text: "Agility" }
+      { id: 'A', text: "Fault Tolerance" },
+      { id: 'B', text: "Elasticity" },
+      { id: 'C', text: "Agility" },
+      { id: 'D', text: "Scalability" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Fault Tolerance is the ability of a system to continue operating properly without interruption in the event of failure of one or more of its components, usually achieved through complete active redundancy.",
     referenceUrl: "https://docs.aws.amazon.com/whitepapers/latest/real-time-communication-on-aws/high-availability-and-fault-tolerance.html",
@@ -136,9 +136,9 @@ export const AWS_CLF_QUESTIONS_6 = [
     question: "Which perspective of the AWS Cloud Adoption Framework (AWS CAF) focuses on delivering cloud infrastructure solutions, migrating workloads, and modernizing platforms?",
     options: [
       { id: 'A', text: "Platform Perspective" },
-      { id: 'B', text: "Business Perspective" },
-      { id: 'C', text: "Security Perspective" },
-      { id: 'D', text: "People Perspective" }
+      { id: 'B', text: "People Perspective" },
+      { id: 'C', text: "Business Perspective" },
+      { id: 'D', text: "Security Perspective" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -156,12 +156,12 @@ export const AWS_CLF_QUESTIONS_6 = [
     scenario: "An enterprise needs to integrate AWS workloads (such as Amazon EC2 instances and Amazon WorkSpaces) with their existing on-premises Microsoft Active Directory domain.",
     question: "Which AWS service provides managed Microsoft Active Directory in the AWS Cloud?",
     options: [
-      { id: 'A', text: "AWS Secrets Manager" },
+      { id: 'A', text: "AWS IAM Identity Center" },
       { id: 'B', text: "Amazon Cognito" },
-      { id: 'C', text: "AWS Directory Service" },
-      { id: 'D', text: "AWS IAM Identity Center" }
+      { id: 'C', text: "AWS Secrets Manager" },
+      { id: 'D', text: "AWS Directory Service" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "AWS Directory Service (also known as AWS Managed Microsoft AD) enables your directory-aware workloads and AWS resources to use managed Active Directory in the AWS Cloud.",
     referenceUrl: "https://docs.aws.amazon.com/directoryservice/latest/admin-guide/what_is.html",
@@ -178,9 +178,9 @@ export const AWS_CLF_QUESTIONS_6 = [
     question: "Which AWS service provides automated block-level continuous replication of on-premises servers for rapid disaster recovery into AWS?",
     options: [
       { id: 'A', text: "AWS Elastic Disaster Recovery (AWS DRS)" },
-      { id: 'B', text: "AWS Snowball Edge" },
+      { id: 'B', text: "AWS Backup" },
       { id: 'C', text: "AWS DataSync" },
-      { id: 'D', text: "AWS Backup" }
+      { id: 'D', text: "AWS Snowball Edge" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,12 +198,12 @@ export const AWS_CLF_QUESTIONS_6 = [
     scenario: "An operations team needs a centralized backup service to automate and manage policy-based backups across Amazon EBS, Amazon RDS, Amazon DynamoDB, and Amazon EFS.",
     question: "Which AWS managed service provides centralized policy-based backup automation across multiple AWS services?",
     options: [
-      { id: 'A', text: "AWS DataSync" },
-      { id: 'B', text: "AWS Storage Gateway" },
-      { id: 'C', text: "Amazon S3 Lifecycle" },
-      { id: 'D', text: "AWS Backup" }
+      { id: 'A', text: "AWS Storage Gateway" },
+      { id: 'B', text: "AWS DataSync" },
+      { id: 'C', text: "AWS Backup" },
+      { id: 'D', text: "Amazon S3 Lifecycle" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "AWS Backup is a cost-effective, fully managed, policy-based service that simplifies data protection at scale across AWS services and hybrid workloads, supporting compliance auditing.",
     referenceUrl: "https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html",
@@ -219,12 +219,12 @@ export const AWS_CLF_QUESTIONS_6 = [
     scenario: "An enterprise wants to replace physical tape backup automation libraries with virtual tapes in AWS without changing existing on-premises backup software (like Veeam or Commvault).",
     question: "Which AWS Storage Gateway configuration emulates an iSCSI-based physical Virtual Tape Library (VTL) backed by S3 and S3 Glacier?",
     options: [
-      { id: 'A', text: "Amazon FSx File Gateway" },
-      { id: 'B', text: "Amazon S3 File Gateway" },
-      { id: 'C', text: "Volume Gateway" },
-      { id: 'D', text: "Tape Gateway" }
+      { id: 'A', text: "Amazon S3 File Gateway" },
+      { id: 'B', text: "Volume Gateway" },
+      { id: 'C', text: "Tape Gateway" },
+      { id: 'D', text: "Amazon FSx File Gateway" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "A Tape Gateway is a cloud-based virtual tape storage solution that lets you seamlessly replace physical tapes on-premises with virtual tapes in AWS without altering existing backup workflows.",
     referenceUrl: "https://docs.aws.amazon.com/storagegateway/latest/userguide/WhatIsStorageGateway.html#tape-gateway",
@@ -240,12 +240,12 @@ export const AWS_CLF_QUESTIONS_6 = [
     scenario: "An on-premises branch office needs local SMB/NFS file share access for users, with local caching for low latency, while storing all files durable in an Amazon S3 bucket.",
     question: "Which AWS Storage Gateway type provides seamless on-premises file share access backed directly by Amazon S3?",
     options: [
-      { id: 'A', text: "AWS DataSync" },
-      { id: 'B', text: "Volume Gateway" },
-      { id: 'C', text: "Amazon S3 File Gateway" },
-      { id: 'D', text: "Tape Gateway" }
+      { id: 'A', text: "Tape Gateway" },
+      { id: 'B', text: "Amazon S3 File Gateway" },
+      { id: 'C', text: "Volume Gateway" },
+      { id: 'D', text: "AWS DataSync" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Amazon S3 File Gateway presents a file interface that enables you to store files as objects in Amazon S3 using the industry-standard NFS and SMB protocols, with a local cache for fast access.",
     referenceUrl: "https://docs.aws.amazon.com/filegateway/latest/filecontent/what-is-file-s3.html",
@@ -261,12 +261,12 @@ export const AWS_CLF_QUESTIONS_6 = [
     scenario: "An organization needs to transfer 50 TB of research files from an on-premises Network Attached Storage (NAS) array to Amazon EFS over an AWS Direct Connect connection with automated bandwidth throttling and data integrity verification.",
     question: "Which AWS service automates and accelerates online data transfers between on-premises storage and AWS storage services?",
     options: [
-      { id: 'A', text: "AWS Snowball Edge" },
-      { id: 'B', text: "AWS Transfer Family" },
-      { id: 'C', text: "AWS Storage Gateway" },
-      { id: 'D', text: "AWS DataSync" }
+      { id: 'A', text: "AWS Transfer Family" },
+      { id: 'B', text: "AWS DataSync" },
+      { id: 'C', text: "AWS Snowball Edge" },
+      { id: 'D', text: "AWS Storage Gateway" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "AWS DataSync is an online data transfer and discovery service that simplifies, automates, and accelerates moving data between on-premises storage systems and AWS storage services up to 10x faster.",
     referenceUrl: "https://docs.aws.amazon.com/datasync/latest/userguide/what-is-datasync.html",
@@ -282,8 +282,8 @@ export const AWS_CLF_QUESTIONS_6 = [
     scenario: "A financial organization needs to allow business partners to securely upload invoices via SFTP (SSH File Transfer Protocol) directly into Amazon S3 buckets without managing SFTP server infrastructure.",
     question: "Which fully managed AWS service provides secure SFTP, FTPS, and FTP endpoints backed by Amazon S3 and Amazon EFS?",
     options: [
-      { id: 'A', text: "Amazon S3 Transfer Acceleration" },
-      { id: 'B', text: "AWS Storage Gateway" },
+      { id: 'A', text: "AWS Storage Gateway" },
+      { id: 'B', text: "Amazon S3 Transfer Acceleration" },
       { id: 'C', text: "AWS Transfer Family" },
       { id: 'D', text: "AWS DataSync" }
     ],
@@ -304,9 +304,9 @@ export const AWS_CLF_QUESTIONS_6 = [
     question: "Which AWS service provides a single place to discover servers and track the progress of migrations across multiple AWS and partner tools?",
     options: [
       { id: 'A', text: "AWS Migration Hub" },
-      { id: 'B', text: "AWS Application Discovery Service" },
-      { id: 'C', text: "AWS Control Tower" },
-      { id: 'D', text: "AWS Systems Manager" }
+      { id: 'B', text: "AWS Systems Manager" },
+      { id: 'C', text: "AWS Application Discovery Service" },
+      { id: 'D', text: "AWS Control Tower" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -324,12 +324,12 @@ export const AWS_CLF_QUESTIONS_6 = [
     scenario: "Before migrating an enterprise data centre to AWS, an architect needs to automatically discover server hardware configurations, CPU/RAM utilization, and network communication dependencies.",
     question: "Which AWS service collects configuration, usage, and behavior data from on-premises servers to plan cloud migrations?",
     options: [
-      { id: 'A', text: "AWS Application Migration Service" },
-      { id: 'B', text: "AWS Config" },
-      { id: 'C', text: "Amazon Inspector" },
-      { id: 'D', text: "AWS Application Discovery Service" }
+      { id: 'A', text: "Amazon Inspector" },
+      { id: 'B', text: "AWS Application Discovery Service" },
+      { id: 'C', text: "AWS Config" },
+      { id: 'D', text: "AWS Application Migration Service" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "AWS Application Discovery Service helps enterprise customers plan migration projects by gathering information about their on-premises data centres (server utilization and network dependencies).",
     referenceUrl: "https://docs.aws.amazon.com/application-discovery/latest/userguide/what-is-appdiscovery.html",
@@ -345,12 +345,12 @@ export const AWS_CLF_QUESTIONS_6 = [
     scenario: "A company wants to lift-and-shift 50 physical and VMware Windows and Linux virtual servers into Amazon EC2 with minimal cutover downtime.",
     question: "Which primary AWS service is recommended for lift-and-shift server migration to AWS?",
     options: [
-      { id: 'A', text: "AWS Database Migration Service (DMS)" },
-      { id: 'B', text: "AWS DataSync" },
+      { id: 'A', text: "AWS DataSync" },
+      { id: 'B', text: "AWS Application Migration Service (AWS MGN)" },
       { id: 'C', text: "AWS Elastic Beanstalk" },
-      { id: 'D', text: "AWS Application Migration Service (AWS MGN)" }
+      { id: 'D', text: "AWS Database Migration Service (DMS)" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "AWS Application Migration Service (AWS MGN) is the primary migration service recommended for lift-and-shift migrations to AWS, automatically replicating physical, virtual, and cloud servers into AWS.",
     referenceUrl: "https://docs.aws.amazon.com/mgn/latest/ug/what-is-application-migration-service.html",
@@ -366,8 +366,8 @@ export const AWS_CLF_QUESTIONS_6 = [
     scenario: "A team needs to migrate an on-premises Oracle database to Amazon Aurora PostgreSQL. Because the database engines differ, the schema must be converted before migrating data.",
     question: "Which combination of AWS tools converts heterogeneous database schemas and performs ongoing replication with minimal downtime?",
     options: [
-      { id: 'A', text: "AWS DataSync with Amazon S3" },
-      { id: 'B', text: "AWS Application Migration Service (MGN) alone" },
+      { id: 'A', text: "AWS Application Migration Service (MGN) alone" },
+      { id: 'B', text: "AWS DataSync with Amazon S3" },
       { id: 'C', text: "AWS Schema Conversion Tool (SCT) with AWS Database Migration Service (AWS DMS)" },
       { id: 'D', text: "AWS Snowball Edge with Amazon RDS" }
     ],
@@ -387,12 +387,12 @@ export const AWS_CLF_QUESTIONS_6 = [
     scenario: "A FinOps manager needs to group AWS costs across accounts and tags into customized business dimensions (such as `CostCenter`, `Environment`, and `Project`) to build clean executive cost reports.",
     question: "Which feature within AWS Billing and Cost Management allows you to group cost and usage information into custom categories?",
     options: [
-      { id: 'A', text: "AWS Cost Categories" },
-      { id: 'B', text: "AWS Cost Allocation Tags" },
-      { id: 'C', text: "AWS Compute Optimizer" },
-      { id: 'D', text: "AWS Budgets" }
+      { id: 'A', text: "AWS Cost Allocation Tags" },
+      { id: 'B', text: "AWS Compute Optimizer" },
+      { id: 'C', text: "AWS Budgets" },
+      { id: 'D', text: "AWS Cost Categories" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "AWS Cost Categories is a feature in AWS Cost Management that enables you to group cost and usage information into meaningful categories based on account, tag, service, and charge type rules.",
     referenceUrl: "https://docs.aws.amazon.com/cost-management/latest/userguide/control-costs-categories.html",
@@ -408,12 +408,12 @@ export const AWS_CLF_QUESTIONS_6 = [
     scenario: "A mid-sized company with production workloads needs designated Technical Account Manager (TAM) access, 30-minute response time for production down cases, and consultative architecture guidance at a lower cost than full Enterprise Support.",
     question: "Which AWS Support Plan bridges the gap between Business Support and Enterprise Support with a 30-minute response SLA?",
     options: [
-      { id: 'A', text: "Basic Support" },
-      { id: 'B', text: "Developer Support" },
-      { id: 'C', text: "Enterprise On-Ramp Support" },
-      { id: 'D', text: "Business Support" }
+      { id: 'A', text: "Developer Support" },
+      { id: 'B', text: "Enterprise On-Ramp Support" },
+      { id: 'C', text: "Business Support" },
+      { id: 'D', text: "Basic Support" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Enterprise On-Ramp is an AWS Support plan tailored for customers migrating production workloads, providing a pool of Technical Account Managers (TAMs) and a 30-minute response time SLA for critical issues.",
     referenceUrl: "https://aws.amazon.com/premiumsupport/plans/enterprise-on-ramp/",
@@ -429,12 +429,12 @@ export const AWS_CLF_QUESTIONS_6 = [
     scenario: "When suspicious Trojan activity is detected on an EC2 instance, a security tool automatically takes a snapshot of the attached EBS volume and scans for malware without installing agents on the instance.",
     question: "Which Amazon GuardDuty feature provides agentless malware detection for Amazon EBS volumes attached to EC2 instances?",
     options: [
-      { id: 'A', text: "GuardDuty Malware Protection" },
+      { id: 'A', text: "AWS Shield Advanced" },
       { id: 'B', text: "Amazon Inspector" },
-      { id: 'C', text: "AWS Shield Advanced" },
-      { id: 'D', text: "AWS WAF" }
+      { id: 'C', text: "AWS WAF" },
+      { id: 'D', text: "GuardDuty Malware Protection" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "GuardDuty Malware Protection initiates an agentless scan of Amazon EBS volumes attached to EC2 instances or container workloads when suspicious behavior or malware-related findings are detected.",
     referenceUrl: "https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html",
@@ -450,8 +450,8 @@ export const AWS_CLF_QUESTIONS_6 = [
     scenario: "A solutions architect wants to review a new application architecture against the official AWS Well-Architected best practices and obtain a milestone report highlighting high-risk issues (HRIs).",
     question: "Which AWS service provides an interactive questionnaire tool to review workloads against Well-Architected Framework pillars?",
     options: [
-      { id: 'A', text: "AWS Security Hub" },
-      { id: 'B', text: "AWS Compute Optimizer" },
+      { id: 'A', text: "AWS Compute Optimizer" },
+      { id: 'B', text: "AWS Security Hub" },
       { id: 'C', text: "AWS Trusted Advisor" },
       { id: 'D', text: "AWS Well-Architected Tool" }
     ],
@@ -471,12 +471,12 @@ export const AWS_CLF_QUESTIONS_6 = [
     scenario: "A development organization wants a fully managed continuous integration and continuous delivery (CI/CD) service that models, visualizes, and automates build, test, and release stages.",
     question: "Which AWS service orchestrates and automates software release stages across source, build, and deployment tools?",
     options: [
-      { id: 'A', text: "AWS CodeBuild" },
-      { id: 'B', text: "AWS CodeCommit" },
-      { id: 'C', text: "AWS CodeDeploy" },
-      { id: 'D', text: "AWS CodePipeline" }
+      { id: 'A', text: "AWS CodePipeline" },
+      { id: 'B', text: "AWS CodeBuild" },
+      { id: 'C', text: "AWS CodeCommit" },
+      { id: 'D', text: "AWS CodeDeploy" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "AWS CodePipeline is a fully managed continuous delivery service that helps you automate your release pipelines for fast and reliable application and infrastructure updates.",
     referenceUrl: "https://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html",
@@ -492,12 +492,12 @@ export const AWS_CLF_QUESTIONS_6 = [
     scenario: "A software team wants a build service that compiles source code, runs unit tests, and produces deployable Docker container images, scaling on-demand without managing build server instances.",
     question: "Which fully managed serverless build service compiles code and runs unit test suites with pay-per-minute billing?",
     options: [
-      { id: 'A', text: "AWS CodeBuild" },
-      { id: 'B', text: "AWS CodeDeploy" },
-      { id: 'C', text: "AWS CodePipeline" },
-      { id: 'D', text: "AWS CodeCommit" }
+      { id: 'A', text: "AWS CodeCommit" },
+      { id: 'B', text: "AWS CodePipeline" },
+      { id: 'C', text: "AWS CodeDeploy" },
+      { id: 'D', text: "AWS CodeBuild" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "AWS CodeBuild is a fully managed continuous integration service that compiles source code, runs tests, and produces software packages ready for deployment, scaling elastically without build server management.",
     referenceUrl: "https://docs.aws.amazon.com/codebuild/latest/userguide/welcome.html",
@@ -513,8 +513,8 @@ export const AWS_CLF_QUESTIONS_6 = [
     scenario: "An operations team needs to automate blue/green and rolling software deployments to Amazon EC2 instances, AWS Fargate tasks, and AWS Lambda functions with automatic rollback on error.",
     question: "Which AWS deployment service automates software deployments across compute platforms with zero downtime deployment strategies?",
     options: [
-      { id: 'A', text: "AWS CloudFormation" },
-      { id: 'B', text: "AWS Elastic Beanstalk" },
+      { id: 'A', text: "AWS Elastic Beanstalk" },
+      { id: 'B', text: "AWS CloudFormation" },
       { id: 'C', text: "AWS CodeBuild" },
       { id: 'D', text: "AWS CodeDeploy" }
     ],

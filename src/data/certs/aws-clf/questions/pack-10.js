@@ -9,12 +9,12 @@ export const AWS_CLF_QUESTIONS_10 = [
     scenario: "A security operations team wants to deploy a third-party next-generation firewall appliance on Amazon EC2 with software licensing billed by the hour directly through AWS.",
     question: "Which AWS portal enables purchasing and launching pre-configured third-party software with consolidated AWS billing?",
     options: [
-      { id: 'A', text: "AWS Marketplace" },
-      { id: 'B', text: "AWS Partner Central" },
+      { id: 'A', text: "AWS Service Catalog" },
+      { id: 'B', text: "AWS Marketplace" },
       { id: 'C', text: "Amazon AppStream 2.0" },
-      { id: 'D', text: "AWS Service Catalog" }
+      { id: 'D', text: "AWS Partner Central" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "AWS Marketplace is a curated digital catalog that makes it easy for customers to find, buy, deploy, and manage third-party software, data, and services with pay-as-you-go billing on their AWS invoice.",
     referenceUrl: "https://aws.amazon.com/marketplace",
@@ -30,12 +30,12 @@ export const AWS_CLF_QUESTIONS_10 = [
     scenario: "A finance manager filters monthly costs by the `CostCenter` tag in AWS Cost Explorer, but some EC2 instances do not show up under any tag value.",
     question: "Why do some EC2 instances show up as untagged in Cost Explorer reports?",
     options: [
-      { id: 'A', text: "The resources were launched without the `CostCenter` tag key or the tag was assigned after usage occurred." },
-      { id: 'B', text: "Tags require manual approval by AWS Support." },
-      { id: 'C', text: "Cost Explorer only tags compute instances in `us-east-1`." },
-      { id: 'D', text: "Cost allocation tags do not apply to EC2 instances." }
+      { id: 'A', text: "Cost Explorer only tags compute instances in `us-east-1`." },
+      { id: 'B', text: "The resources were launched without the `CostCenter` tag key or the tag was assigned after usage occurred." },
+      { id: 'C', text: "Cost allocation tags do not apply to EC2 instances." },
+      { id: 'D', text: "Tags require manual approval by AWS Support." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Cost Allocation Tags apply from the time of tag activation and assignment onward; resources that lack the specified tag or generated usage prior to tag activation appear as untagged.",
     referenceUrl: "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html",
@@ -51,8 +51,8 @@ export const AWS_CLF_QUESTIONS_10 = [
     scenario: "A security policy requires that all cryptographic keys used to encrypt sensitive financial records be rotated automatically once every year (365 days).",
     question: "How does AWS Key Management Service (AWS KMS) handle automatic key rotation for Customer Managed Keys?",
     options: [
-      { id: 'A', text: "Key rotation is only available in AWS CloudHSM." },
-      { id: 'B', text: "KMS changes the key ARN and breaks existing application code." },
+      { id: 'A', text: "KMS changes the key ARN and breaks existing application code." },
+      { id: 'B', text: "Key rotation is only available in AWS CloudHSM." },
       { id: 'C', text: "KMS deletes the old key and requires re-encrypting all data manually." },
       { id: 'D', text: "AWS KMS automatically rotates the backing key material once every year (or customized period) without changing the key ID or ARN." }
     ],
@@ -72,12 +72,12 @@ export const AWS_CLF_QUESTIONS_10 = [
     scenario: "An email marketing application sends millions of newsletter emails and needs to maintain high sender reputation, handle bounce/complaint feedback loops, and isolate dedicated IP pools.",
     question: "Which AWS cloud service manages sender reputation and delivers high-volume email at scale?",
     options: [
-      { id: 'A', text: "Amazon Connect" },
-      { id: 'B', text: "Amazon Simple Email Service (Amazon SES)" },
+      { id: 'A', text: "Amazon SNS" },
+      { id: 'B', text: "Amazon Connect" },
       { id: 'C', text: "Amazon Pinpoint" },
-      { id: 'D', text: "Amazon SNS" }
+      { id: 'D', text: "Amazon Simple Email Service (Amazon SES)" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Amazon SES is a cloud-based email sending service designed to help digital marketers and application developers send marketing, notification, and transactional emails with reputation management.",
     referenceUrl: "https://docs.aws.amazon.com/ses/latest/dg/Welcome.html",
@@ -95,10 +95,10 @@ export const AWS_CLF_QUESTIONS_10 = [
     options: [
       { id: 'A', text: "CloudFormation StackSets" },
       { id: 'B', text: "CloudFormation Drift Detection" },
-      { id: 'C', text: "AWS Config Rules" },
-      { id: 'D', text: "CloudFormation Change Sets" }
+      { id: 'C', text: "CloudFormation Change Sets" },
+      { id: 'D', text: "AWS Config Rules" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "CloudFormation Change Sets allow you to preview how proposed changes to a stack might affect your running resources before you execute the update, highlighting potential resource replacements.",
     referenceUrl: "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets.html",
@@ -114,12 +114,12 @@ export const AWS_CLF_QUESTIONS_10 = [
     scenario: "An engineer wants to identify if anyone has manually modified security group rules or EC2 instance types outside of the official CloudFormation template that originally provisioned the stack.",
     question: "Which AWS CloudFormation feature detects differences between actual provisioned resource configurations and the stack template?",
     options: [
-      { id: 'A', text: "CloudFormation Drift Detection" },
-      { id: 'B', text: "CloudTrail Insights" },
-      { id: 'C', text: "AWS Config" },
-      { id: 'D', text: "CloudFormation Change Sets" }
+      { id: 'A', text: "AWS Config" },
+      { id: 'B', text: "CloudFormation Change Sets" },
+      { id: 'C', text: "CloudTrail Insights" },
+      { id: 'D', text: "CloudFormation Drift Detection" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "CloudFormation Drift Detection enables you to detect whether stack resources have drifted (changed) from their expected template configurations due to out-of-band manual changes.",
     referenceUrl: "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html",
@@ -135,12 +135,12 @@ export const AWS_CLF_QUESTIONS_10 = [
     scenario: "A security engineering team needs to automatically deploy an IAM role, AWS Config rules, and an encrypted S3 logging bucket across 100 AWS accounts and 5 Regions in an AWS Organization.",
     question: "Which AWS CloudFormation feature enables provisioning stacks across multiple AWS accounts and Regions in a single operation?",
     options: [
-      { id: 'A', text: "CloudFormation Change Sets" },
-      { id: 'B', text: "CloudFormation Nested Stacks" },
-      { id: 'C', text: "CloudFormation StackSets" },
-      { id: 'D', text: "AWS Control Tower" }
+      { id: 'A', text: "AWS Control Tower" },
+      { id: 'B', text: "CloudFormation StackSets" },
+      { id: 'C', text: "CloudFormation Change Sets" },
+      { id: 'D', text: "CloudFormation Nested Stacks" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "AWS CloudFormation StackSets lets you create, update, or delete stacks across multiple AWS accounts and multiple AWS Regions with a single CloudFormation template operation.",
     referenceUrl: "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html",
@@ -156,12 +156,12 @@ export const AWS_CLF_QUESTIONS_10 = [
     scenario: "A healthcare startup must accept the AWS Business Associate Addendum (BAA) to store protected health information (PHI) on AWS under HIPAA compliance regulations.",
     question: "Where in the AWS Management Console can customers review, accept, and track legal agreements with AWS such as the BAA?",
     options: [
-      { id: 'A', text: "AWS IAM Console" },
+      { id: 'A', text: "AWS Artifact Agreements" },
       { id: 'B', text: "AWS Trusted Advisor" },
-      { id: 'C', text: "AWS Artifact Agreements" },
-      { id: 'D', text: "AWS Billing Preferences" }
+      { id: 'C', text: "AWS Billing Preferences" },
+      { id: 'D', text: "AWS IAM Console" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "AWS Artifact Agreements enables customers to review, accept, and track the status of AWS agreements (such as the Business Associate Addendum for HIPAA compliance) for their account or organization.",
     referenceUrl: "https://docs.aws.amazon.com/artifact/latest/ug/managing-agreements.html",
@@ -177,12 +177,12 @@ export const AWS_CLF_QUESTIONS_10 = [
     scenario: "A big data processing workload wants to combine On-Demand Instances for baseline capacity with Spot Instances across multiple instance types to maximize compute power at lowest cost.",
     question: "Which Amazon EC2 feature allows an Auto Scaling group to launch a mix of On-Demand and Spot instances across multiple instance families?",
     options: [
-      { id: 'A', text: "Auto Scaling Mixed Instances Policy" },
-      { id: 'B', text: "Placement Groups" },
-      { id: 'C', text: "Capacity Reservations" },
-      { id: 'D', text: "Dedicated Hosts" }
+      { id: 'A', text: "Capacity Reservations" },
+      { id: 'B', text: "Dedicated Hosts" },
+      { id: 'C', text: "Auto Scaling Mixed Instances Policy" },
+      { id: 'D', text: "Placement Groups" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "An EC2 Auto Scaling Mixed Instances Policy allows you to launch and automatically scale a fleet of On-Demand and Spot instances across multiple instance types and purchasing models in a single Auto Scaling group.",
     referenceUrl: "https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html",
@@ -198,12 +198,12 @@ export const AWS_CLF_QUESTIONS_10 = [
     scenario: "A developer builds a personal side project using Amazon DynamoDB and wants to confirm the permanent free tier monthly allowance.",
     question: "What is the monthly 'Always Free' storage allowance provided by Amazon DynamoDB?",
     options: [
-      { id: 'A', text: "25 GB of storage along with 25 provisioned Write and Read Capacity Units." },
+      { id: 'A', text: "5 GB of storage for 12 months only." },
       { id: 'B', text: "1 TB of storage indefinitely." },
-      { id: 'C', text: "5 GB of storage for 12 months only." },
+      { id: 'C', text: "25 GB of storage along with 25 provisioned Write and Read Capacity Units." },
       { id: 'D', text: "DynamoDB does not offer a free tier." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Amazon DynamoDB includes 25 GB of data storage, 25 WCU, 25 RCU, and up to 200 million requests per month in the AWS Always Free tier perpetually for all AWS accounts.",
     referenceUrl: "https://aws.amazon.com/dynamodb/pricing/",
@@ -221,8 +221,8 @@ export const AWS_CLF_QUESTIONS_10 = [
     options: [
       { id: 'A', text: "Amazon Athena" },
       { id: 'B', text: "S3 Glacier Select" },
-      { id: 'C', text: "AWS Glue" },
-      { id: 'D', text: "Amazon Redshift Spectrum" }
+      { id: 'C', text: "Amazon Redshift Spectrum" },
+      { id: 'D', text: "AWS Glue" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -261,12 +261,12 @@ export const AWS_CLF_QUESTIONS_10 = [
     scenario: "A broadcasting company is hosting a live international sports event next month and needs guaranteed compute capacity for 20 `c5.4xlarge` EC2 instances in a specific AZ without a 1-year term commitment.",
     question: "Which EC2 capability reserves compute capacity in a specific Availability Zone for any duration without requiring a 1-year or 3-year financial commitment?",
     options: [
-      { id: 'A', text: "On-Demand Capacity Reservations" },
-      { id: 'B', text: "Standard Reserved Instances" },
-      { id: 'C', text: "Spot Instances" },
-      { id: 'D', text: "Dedicated Hosts" }
+      { id: 'A', text: "Standard Reserved Instances" },
+      { id: 'B', text: "On-Demand Capacity Reservations" },
+      { id: 'C', text: "Dedicated Hosts" },
+      { id: 'D', text: "Spot Instances" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "On-Demand Capacity Reservations enable you to reserve compute capacity for your Amazon EC2 instances in a specific Availability Zone for any duration, giving capacity assurance with On-Demand billing rates.",
     referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-reservations.html",
@@ -282,10 +282,10 @@ export const AWS_CLF_QUESTIONS_10 = [
     scenario: "An architect is selecting an AWS Region to deploy a multi-tier high-availability architecture across multiple data centres.",
     question: "What is the minimum number of Availability Zones contained in every AWS Region?",
     options: [
-      { id: 'A', text: "Each Region contains only 1 server rack" },
+      { id: 'A', text: "Exactly 1 Availability Zone" },
       { id: 'B', text: "At least 3 Availability Zones (minimum 2 in select legacy Regions)" },
-      { id: 'C', text: "Exactly 1 Availability Zone" },
-      { id: 'D', text: "At least 10 Availability Zones" }
+      { id: 'C', text: "At least 10 Availability Zones" },
+      { id: 'D', text: "Each Region contains only 1 server rack" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -303,12 +303,12 @@ export const AWS_CLF_QUESTIONS_10 = [
     scenario: "A compliance team needs a scheduled weekly CSV report listing all 50 million objects in an S3 bucket along with their encryption status, size, storage class, and replication status.",
     question: "Which Amazon S3 feature generates scheduled CSV, ORC, or Parquet inventory lists of all objects in a bucket?",
     options: [
-      { id: 'A', text: "S3 Storage Lens" },
-      { id: 'B', text: "Amazon S3 Inventory" },
-      { id: 'C', text: "AWS CloudTrail" },
-      { id: 'D', text: "S3 Lifecycle" }
+      { id: 'A', text: "S3 Lifecycle" },
+      { id: 'B', text: "AWS CloudTrail" },
+      { id: 'C', text: "S3 Storage Lens" },
+      { id: 'D', text: "Amazon S3 Inventory" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Amazon S3 Inventory provides scheduled CSV, ORC, or Parquet output files that list your objects and their respective metadata on a daily or weekly basis for an S3 bucket or a shared prefix.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-inventory.html",
@@ -324,12 +324,12 @@ export const AWS_CLF_QUESTIONS_10 = [
     scenario: "A new cloud security administrator is performing an initial security audit of an AWS account.",
     question: "What is the official AWS security best practice regarding access keys for the AWS Account Root User?",
     options: [
-      { id: 'A', text: "Share root access keys with all lead developers." },
-      { id: 'B', text: "Store root access keys in a public GitHub repository." },
-      { id: 'C', text: "Rotate root access keys every 7 days." },
-      { id: 'D', text: "Do not generate root user access keys; if they exist, delete them immediately." }
+      { id: 'A', text: "Do not generate root user access keys; if they exist, delete them immediately." },
+      { id: 'B', text: "Share root access keys with all lead developers." },
+      { id: 'C', text: "Store root access keys in a public GitHub repository." },
+      { id: 'D', text: "Rotate root access keys every 7 days." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "AWS strongly recommends that you do not create access keys for the AWS account root user. If root access keys exist, delete them immediately and use IAM users or roles with least-privilege permissions.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials",
@@ -345,12 +345,12 @@ export const AWS_CLF_QUESTIONS_10 = [
     scenario: "A chief financial officer asks for a projected forecast of the company's AWS spend for the next 3 to 12 months based on historical consumption trends.",
     question: "Which AWS cost management tool provides automated cost forecasting models based on past usage history?",
     options: [
-      { id: 'A', text: "AWS Cost Explorer" },
+      { id: 'A', text: "AWS Trusted Advisor" },
       { id: 'B', text: "AWS Compute Optimizer" },
-      { id: 'C', text: "AWS Trusted Advisor" },
-      { id: 'D', text: "AWS Pricing Calculator" }
+      { id: 'C', text: "AWS Pricing Calculator" },
+      { id: 'D', text: "AWS Cost Explorer" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "AWS Cost Explorer includes a forecasting feature that uses machine learning algorithms based on your historical usage patterns to project future cloud costs up to 12 months in advance.",
     referenceUrl: "https://docs.aws.amazon.com/cost-management/latest/userguide/ce-forecast.html",
@@ -366,12 +366,12 @@ export const AWS_CLF_QUESTIONS_10 = [
     scenario: "A developer wants to launch an EC2 instance pre-configured with a commercial software package provided by an independent software vendor (ISV) with licensing charges included.",
     question: "From which catalog can developers launch verified third-party commercial AMIs?",
     options: [
-      { id: 'A', text: "Quick Start AMIs" },
+      { id: 'A', text: "AWS Marketplace AMIs" },
       { id: 'B', text: "Community AMIs" },
-      { id: 'C', text: "My AMIs" },
-      { id: 'D', text: "AWS Marketplace AMIs" }
+      { id: 'C', text: "Quick Start AMIs" },
+      { id: 'D', text: "My AMIs" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "AWS Marketplace provides a digital catalog of verified commercial AMIs sold by independent software vendors (ISVs) with licensing billed directly to your AWS account.",
     referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html#market-place-amis",
@@ -387,12 +387,12 @@ export const AWS_CLF_QUESTIONS_10 = [
     scenario: "A security manager needs continuous security scoring and automated evaluation of all AWS resources against the Center for Internet Security (CIS) AWS Foundations Benchmark.",
     question: "Which AWS service performs continuous automated compliance checks against security standards like CIS and PCI-DSS?",
     options: [
-      { id: 'A', text: "AWS CloudTrail" },
+      { id: 'A', text: "Amazon GuardDuty" },
       { id: 'B', text: "AWS Artifact" },
-      { id: 'C', text: "Amazon GuardDuty" },
-      { id: 'D', text: "AWS Security Hub" }
+      { id: 'C', text: "AWS Security Hub" },
+      { id: 'D', text: "AWS CloudTrail" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "AWS Security Hub automatically runs continuous, account-level configuration and security checks against security standards like CIS AWS Foundations Benchmark, AWS Foundational Security Best Practices, and PCI-DSS.",
     referenceUrl: "https://docs.aws.amazon.com/securityhub/latest/userguide/standards-reference.html",
@@ -408,12 +408,12 @@ export const AWS_CLF_QUESTIONS_10 = [
     scenario: "A developer creates a new Amazon S3 bucket. They want to know what default encryption is applied to new objects uploaded to the bucket without configuring custom keys.",
     question: "What encryption is applied by default to all newly uploaded objects in Amazon S3 buckets at no additional charge?",
     options: [
-      { id: 'A', text: "No encryption is applied unless explicitly enabled." },
-      { id: 'B', text: "Client-side PGP encryption." },
-      { id: 'C', text: "Server-Side Encryption with Amazon S3 managed keys (SSE-S3) using 256-bit AES." },
-      { id: 'D', text: "AWS CloudHSM hardware encryption." }
+      { id: 'A', text: "Client-side PGP encryption." },
+      { id: 'B', text: "No encryption is applied unless explicitly enabled." },
+      { id: 'C', text: "AWS CloudHSM hardware encryption." },
+      { id: 'D', text: "Server-Side Encryption with Amazon S3 managed keys (SSE-S3) using 256-bit AES." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Amazon S3 automatically applies server-side encryption with Amazon S3 managed keys (SSE-S3) using 256-bit Advanced Encryption Standard (AES-256) as the base default for all new objects uploaded to S3 at no additional cost.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/default-bucket-encryption.html",
@@ -429,12 +429,12 @@ export const AWS_CLF_QUESTIONS_10 = [
     scenario: "An enterprise leadership team calculates that their engineers spend 40% of their time racking servers, replacing failed power supplies, and managing HVAC systems in physical facilities.",
     question: "Which advantage of cloud computing describes eliminating the undifferentiated heavy lifting of managing physical data centre infrastructure?",
     options: [
-      { id: 'A', text: "Trade capital expense for variable expense." },
-      { id: 'B', text: "Stop spending money running and maintaining data centres." },
-      { id: 'C', text: "Benefit from massive economies of scale." },
+      { id: 'A', text: "Benefit from massive economies of scale." },
+      { id: 'B', text: "Trade capital expense for variable expense." },
+      { id: 'C', text: "Stop spending money running and maintaining data centres." },
       { id: 'D', text: "Stop guessing capacity." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Stop spending money running and maintaining data centres: focus on projects that differentiate your business rather than managing infrastructure (racking, stacking, and powering servers).",
     referenceUrl: "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/six-advantages-of-cloud-computing.html",
@@ -452,10 +452,10 @@ export const AWS_CLF_QUESTIONS_10 = [
     options: [
       { id: 'A', text: "AWS Partner Network" },
       { id: 'B', text: "Technical Account Manager (TAM)" },
-      { id: 'C', text: "AWS Concierge Support Team" },
-      { id: 'D', text: "Cloud Support Associate" }
+      { id: 'C', text: "Cloud Support Associate" },
+      { id: 'D', text: "AWS Concierge Support Team" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The AWS Concierge Support team is a senior customer service partner assigned to Enterprise Support customers who specializes in resolving billing, invoicing, and account management queries.",
     referenceUrl: "https://aws.amazon.com/premiumsupport/plans/enterprise/",
@@ -471,12 +471,12 @@ export const AWS_CLF_QUESTIONS_10 = [
     scenario: "An engineer creates an Amazon RDS Multi-AZ PostgreSQL database. They want to know if the standby replica instance can be used by developers for read-only reporting queries.",
     question: "Can an application directly connect to and query the standby replica instance in a standard Amazon RDS Multi-AZ deployment?",
     options: [
-      { id: 'A', text: "Yes, if provisioned with SSD gp3 storage." },
-      { id: 'B', text: "Yes, the standby replica automatically load-balances read traffic." },
+      { id: 'A', text: "No, in a standard RDS Multi-AZ deployment, the standby replica is strictly for high availability and failover and cannot accept read connections (unlike Read Replicas)." },
+      { id: 'B', text: "Yes, if provisioned with SSD gp3 storage." },
       { id: 'C', text: "Yes, by connecting to the standby's public IP address." },
-      { id: 'D', text: "No, in a standard RDS Multi-AZ deployment, the standby replica is strictly for high availability and failover and cannot accept read connections (unlike Read Replicas)." }
+      { id: 'D', text: "Yes, the standby replica automatically load-balances read traffic." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "In a standard Amazon RDS Multi-AZ deployment, the standby replica synchronously mirrors the primary DB for automatic failover but cannot serve active read connections. To scale reads, you deploy RDS Read Replicas.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.MultiAZ.html",
@@ -492,12 +492,12 @@ export const AWS_CLF_QUESTIONS_10 = [
     scenario: "A security analyst is reviewing how Amazon GuardDuty detects threat actors scanning AWS resources.",
     question: "Which primary data sources are analyzed automatically by Amazon GuardDuty without enabling log exports manually?",
     options: [
-      { id: 'A', text: "AWS Trusted Advisor scan logs." },
+      { id: 'A', text: "AWS CloudTrail management events, VPC Flow Logs, and DNS query logs." },
       { id: 'B', text: "Amazon S3 server access logs only." },
-      { id: 'C', text: "AWS CloudTrail management events, VPC Flow Logs, and DNS query logs." },
-      { id: 'D', text: "Operating system application event logs on EC2." }
+      { id: 'C', text: "Operating system application event logs on EC2." },
+      { id: 'D', text: "AWS Trusted Advisor scan logs." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Amazon GuardDuty automatically consumes and processes AWS CloudTrail management event logs, CloudTrail S3 data events, Amazon VPC Flow Logs, EKS audit logs, and DNS query logs directly from the AWS infrastructure.",
     referenceUrl: "https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_data-sources.html",
@@ -513,12 +513,12 @@ export const AWS_CLF_QUESTIONS_10 = [
     scenario: "A financial analyst wants to analyze monthly AWS spending trends broken down by service (`Amazon EC2`, `Amazon S3`, `Amazon RDS`) across the past 6 months to identify the fastest growing cost driver.",
     question: "Which AWS tool provides visual charts with multi-dimensional grouping (by Service, Usage Type, Region, and Tag) for historical spend analysis?",
     options: [
-      { id: 'A', text: "AWS Pricing Calculator" },
-      { id: 'B', text: "AWS Compute Optimizer" },
-      { id: 'C', text: "AWS Budgets" },
-      { id: 'D', text: "AWS Cost Explorer" }
+      { id: 'A', text: "AWS Cost Explorer" },
+      { id: 'B', text: "AWS Budgets" },
+      { id: 'C', text: "AWS Pricing Calculator" },
+      { id: 'D', text: "AWS Compute Optimizer" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "AWS Cost Explorer has an easy-to-use interface that lets you visualize, understand, and manage your AWS costs and usage over time, grouping by dimensions like Service, Linked Account, Region, and Cost Allocation Tag.",
     referenceUrl: "https://docs.aws.amazon.com/cost-management/latest/userguide/ce-what-is.html",

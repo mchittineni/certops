@@ -9,12 +9,12 @@ export const CNCF_CBA_QUESTIONS_20 = [
     scenario: "An enterprise developer experience team is architecting an internal developer portal to standardize service catalogs, software scaffolding, and documentation across hundreds of teams. The platform engineer evaluates Utility APIs to retrieve application configuration and persist user UI preferences across browser sessions cleanly inside a plugin.",
     question: "Which architectural approach or Backstage configuration satisfies these enterprise portal objectives? Consuming core APIs via useApi(configApiRef) and useApi(storageApiRef) is under consideration.",
     options: [
-      { id: 'A', text: "Consume Backstage utility APIs using React hooks like `useApi(configApiRef)` and `useApi(storageApiRef)`." },
-      { id: 'B', text: "Access global `window` object variables and raw browser localStorage directly without abstractions." },
+      { id: 'A', text: "Discard user UI preferences immediately upon page refresh." },
+      { id: 'B', text: "Consume Backstage utility APIs using React hooks like `useApi(configApiRef)` and `useApi(storageApiRef)`." },
       { id: 'C', text: "Hardcode configuration parameters inside client-side components." },
-      { id: 'D', text: "Discard user UI preferences immediately upon page refresh." }
+      { id: 'D', text: "Access global `window` object variables and raw browser localStorage directly without abstractions." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Consume Backstage utility APIs using React hooks like `useApi(configApiRef)` and `useApi(storageApiRef)`. Backstage provides a unified API reference system (`ApiRef`). Plugins access core services cleanly via `useApi(...)`, consuming standard APIs such as `configApi` (reading app config), `storageApi` (user settings), and `alertApi` without tight coupling.",
     referenceUrl: "https://backstage.io/docs/api/utility-apis",
@@ -32,8 +32,8 @@ export const CNCF_CBA_QUESTIONS_20 = [
     options: [
       { id: 'A', text: "Consume Backstage utility APIs using React hooks like `useApi(configApiRef)` and `useApi(storageApiRef)`." },
       { id: 'B', text: "Access global `window` object variables and raw browser localStorage directly without abstractions." },
-      { id: 'C', text: "Hardcode configuration parameters inside client-side components." },
-      { id: 'D', text: "Discard user UI preferences immediately upon page refresh." }
+      { id: 'C', text: "Discard user UI preferences immediately upon page refresh." },
+      { id: 'D', text: "Hardcode configuration parameters inside client-side components." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -51,12 +51,12 @@ export const CNCF_CBA_QUESTIONS_20 = [
     scenario: "A platform security auditor requires strict role-based access control, cryptographic service communication, and audit logging across the internal developer portal. The platform engineer evaluates Utility APIs to retrieve application configuration and persist user UI preferences across browser sessions cleanly inside a plugin.",
     question: "Which Backstage security mechanism or configuration satisfies these compliance controls? Consuming core APIs via useApi(configApiRef) and useApi(storageApiRef) is under consideration.",
     options: [
-      { id: 'A', text: "Consume Backstage utility APIs using React hooks like `useApi(configApiRef)` and `useApi(storageApiRef)`." },
-      { id: 'B', text: "Access global `window` object variables and raw browser localStorage directly without abstractions." },
-      { id: 'C', text: "Hardcode configuration parameters inside client-side components." },
+      { id: 'A', text: "Access global `window` object variables and raw browser localStorage directly without abstractions." },
+      { id: 'B', text: "Hardcode configuration parameters inside client-side components." },
+      { id: 'C', text: "Consume Backstage utility APIs using React hooks like `useApi(configApiRef)` and `useApi(storageApiRef)`." },
       { id: 'D', text: "Discard user UI preferences immediately upon page refresh." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Consume Backstage utility APIs using React hooks like `useApi(configApiRef)` and `useApi(storageApiRef)`. Backstage provides a unified API reference system (`ApiRef`). Plugins access core services cleanly via `useApi(...)`, consuming standard APIs such as `configApi` (reading app config), `storageApi` (user settings), and `alertApi` without tight coupling.",
     referenceUrl: "https://backstage.io/docs/api/utility-apis",
@@ -73,8 +73,8 @@ export const CNCF_CBA_QUESTIONS_20 = [
     question: "Which Backstage scaffolder practice or template feature enables developers to self-serve new projects safely? Consuming core APIs via useApi(configApiRef) and useApi(storageApiRef) is under consideration.",
     options: [
       { id: 'A', text: "Consume Backstage utility APIs using React hooks like `useApi(configApiRef)` and `useApi(storageApiRef)`." },
-      { id: 'B', text: "Access global `window` object variables and raw browser localStorage directly without abstractions." },
-      { id: 'C', text: "Hardcode configuration parameters inside client-side components." },
+      { id: 'B', text: "Hardcode configuration parameters inside client-side components." },
+      { id: 'C', text: "Access global `window` object variables and raw browser localStorage directly without abstractions." },
       { id: 'D', text: "Discard user UI preferences immediately upon page refresh." }
     ],
     correctAnswers: ['A'],
@@ -94,8 +94,8 @@ export const CNCF_CBA_QUESTIONS_20 = [
     question: "Which operational design or plugin architecture guarantees high availability and reliable portal performance? Consuming core APIs via useApi(configApiRef) and useApi(storageApiRef) is under consideration.",
     options: [
       { id: 'A', text: "Consume Backstage utility APIs using React hooks like `useApi(configApiRef)` and `useApi(storageApiRef)`." },
-      { id: 'B', text: "Access global `window` object variables and raw browser localStorage directly without abstractions." },
-      { id: 'C', text: "Hardcode configuration parameters inside client-side components." },
+      { id: 'B', text: "Hardcode configuration parameters inside client-side components." },
+      { id: 'C', text: "Access global `window` object variables and raw browser localStorage directly without abstractions." },
       { id: 'D', text: "Discard user UI preferences immediately upon page refresh." }
     ],
     correctAnswers: ['A'],
@@ -116,8 +116,8 @@ export const CNCF_CBA_QUESTIONS_20 = [
     options: [
       { id: 'A', text: "Customize the Backstage `ThemeProvider` by extending default light and dark themes with corporate palette overrides." },
       { id: 'B', text: "Inject unvalidated external CSS stylesheets that override browser security boundaries." },
-      { id: 'C', text: "Hardcode inline CSS color codes onto every individual HTML element across thousands of components." },
-      { id: 'D', text: "Disable dark mode support to force high-contrast white screens for all users." }
+      { id: 'C', text: "Disable dark mode support to force high-contrast white screens for all users." },
+      { id: 'D', text: "Hardcode inline CSS color codes onto every individual HTML element across thousands of components." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -136,9 +136,9 @@ export const CNCF_CBA_QUESTIONS_20 = [
     question: "Which Backstage catalog pattern or ingestion configuration handles this volume efficiently while preventing database contention? Customizing ThemeProvider, Material-UI component overrides, and light/dark modes is under consideration.",
     options: [
       { id: 'A', text: "Customize the Backstage `ThemeProvider` by extending default light and dark themes with corporate palette overrides." },
-      { id: 'B', text: "Inject unvalidated external CSS stylesheets that override browser security boundaries." },
-      { id: 'C', text: "Hardcode inline CSS color codes onto every individual HTML element across thousands of components." },
-      { id: 'D', text: "Disable dark mode support to force high-contrast white screens for all users." }
+      { id: 'B', text: "Disable dark mode support to force high-contrast white screens for all users." },
+      { id: 'C', text: "Inject unvalidated external CSS stylesheets that override browser security boundaries." },
+      { id: 'D', text: "Hardcode inline CSS color codes onto every individual HTML element across thousands of components." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -156,12 +156,12 @@ export const CNCF_CBA_QUESTIONS_20 = [
     scenario: "A platform security auditor requires strict role-based access control, cryptographic service communication, and audit logging across the internal developer portal. The platform engineer evaluates Theming & UI to align the Backstage portal appearance with corporate branding, custom color palettes, and accessible typography.",
     question: "Which Backstage security mechanism or configuration satisfies these compliance controls? Customizing ThemeProvider, Material-UI component overrides, and light/dark modes is under consideration.",
     options: [
-      { id: 'A', text: "Customize the Backstage `ThemeProvider` by extending default light and dark themes with corporate palette overrides." },
-      { id: 'B', text: "Inject unvalidated external CSS stylesheets that override browser security boundaries." },
-      { id: 'C', text: "Hardcode inline CSS color codes onto every individual HTML element across thousands of components." },
-      { id: 'D', text: "Disable dark mode support to force high-contrast white screens for all users." }
+      { id: 'A', text: "Inject unvalidated external CSS stylesheets that override browser security boundaries." },
+      { id: 'B', text: "Hardcode inline CSS color codes onto every individual HTML element across thousands of components." },
+      { id: 'C', text: "Disable dark mode support to force high-contrast white screens for all users." },
+      { id: 'D', text: "Customize the Backstage `ThemeProvider` by extending default light and dark themes with corporate palette overrides." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Customize the Backstage `ThemeProvider` by extending default light and dark themes with corporate palette overrides. Backstage UI is built on Material-UI (MUI). Organizations customize branding by wrapping the app in custom themes created via `createUnifiedTheme`, overriding color palettes, typography, and component styling while supporting light/dark theme toggling.",
     referenceUrl: "https://backstage.io/docs/getting-started/app-custom-theme",
@@ -177,12 +177,12 @@ export const CNCF_CBA_QUESTIONS_20 = [
     scenario: "A platform engineering team is establishing Golden Path templates and automated scaffolding workflows to accelerate developer onboarding and eliminate delivery friction. The platform engineer evaluates Theming & UI to align the Backstage portal appearance with corporate branding, custom color palettes, and accessible typography.",
     question: "Which Backstage scaffolder practice or template feature enables developers to self-serve new projects safely? Customizing ThemeProvider, Material-UI component overrides, and light/dark modes is under consideration.",
     options: [
-      { id: 'A', text: "Customize the Backstage `ThemeProvider` by extending default light and dark themes with corporate palette overrides." },
-      { id: 'B', text: "Inject unvalidated external CSS stylesheets that override browser security boundaries." },
-      { id: 'C', text: "Hardcode inline CSS color codes onto every individual HTML element across thousands of components." },
-      { id: 'D', text: "Disable dark mode support to force high-contrast white screens for all users." }
+      { id: 'A', text: "Disable dark mode support to force high-contrast white screens for all users." },
+      { id: 'B', text: "Hardcode inline CSS color codes onto every individual HTML element across thousands of components." },
+      { id: 'C', text: "Customize the Backstage `ThemeProvider` by extending default light and dark themes with corporate palette overrides." },
+      { id: 'D', text: "Inject unvalidated external CSS stylesheets that override browser security boundaries." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Customize the Backstage `ThemeProvider` by extending default light and dark themes with corporate palette overrides. Backstage UI is built on Material-UI (MUI). Organizations customize branding by wrapping the app in custom themes created via `createUnifiedTheme`, overriding color palettes, typography, and component styling while supporting light/dark theme toggling.",
     referenceUrl: "https://backstage.io/docs/getting-started/app-custom-theme",
@@ -198,12 +198,12 @@ export const CNCF_CBA_QUESTIONS_20 = [
     scenario: "A site reliability engineering team is operating Backstage on Kubernetes and optimizing system resilience, health monitoring, and documentation publishing pipelines. The platform engineer evaluates Theming & UI to align the Backstage portal appearance with corporate branding, custom color palettes, and accessible typography.",
     question: "Which operational design or plugin architecture guarantees high availability and reliable portal performance? Customizing ThemeProvider, Material-UI component overrides, and light/dark modes is under consideration.",
     options: [
-      { id: 'A', text: "Customize the Backstage `ThemeProvider` by extending default light and dark themes with corporate palette overrides." },
-      { id: 'B', text: "Inject unvalidated external CSS stylesheets that override browser security boundaries." },
-      { id: 'C', text: "Hardcode inline CSS color codes onto every individual HTML element across thousands of components." },
-      { id: 'D', text: "Disable dark mode support to force high-contrast white screens for all users." }
+      { id: 'A', text: "Inject unvalidated external CSS stylesheets that override browser security boundaries." },
+      { id: 'B', text: "Customize the Backstage `ThemeProvider` by extending default light and dark themes with corporate palette overrides." },
+      { id: 'C', text: "Disable dark mode support to force high-contrast white screens for all users." },
+      { id: 'D', text: "Hardcode inline CSS color codes onto every individual HTML element across thousands of components." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Customize the Backstage `ThemeProvider` by extending default light and dark themes with corporate palette overrides. Backstage UI is built on Material-UI (MUI). Organizations customize branding by wrapping the app in custom themes created via `createUnifiedTheme`, overriding color palettes, typography, and component styling while supporting light/dark theme toggling.",
     referenceUrl: "https://backstage.io/docs/getting-started/app-custom-theme",
@@ -220,9 +220,9 @@ export const CNCF_CBA_QUESTIONS_20 = [
     question: "Which architectural approach or Backstage configuration satisfies these enterprise portal objectives? Configuring permissions and role assignments via @backstage/plugin-rbac is under consideration.",
     options: [
       { id: 'A', text: "Deploy the Backstage RBAC plugin (`@backstage/plugin-rbac`) to administer roles, permissions, and policy rules dynamically." },
-      { id: 'B', text: "Grant full database root administrative privileges to every developer in the company." },
-      { id: 'C', text: "Hardcode static authorization rules in compiled TypeScript source code requiring full redeployments for every permission change." },
-      { id: 'D', text: "Disable authorization checks and open all administrative endpoints to the public internet." }
+      { id: 'B', text: "Hardcode static authorization rules in compiled TypeScript source code requiring full redeployments for every permission change." },
+      { id: 'C', text: "Disable authorization checks and open all administrative endpoints to the public internet." },
+      { id: 'D', text: "Grant full database root administrative privileges to every developer in the company." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -240,12 +240,12 @@ export const CNCF_CBA_QUESTIONS_20 = [
     scenario: "A large engineering organization manages tens of thousands of microservices, APIs, and infrastructure components across hybrid cloud environments. The platform engineer evaluates RBAC Administration to manage user roles, permission policies, and administrative delegations through an interactive portal UI without redeploying code.",
     question: "Which Backstage catalog pattern or ingestion configuration handles this volume efficiently while preventing database contention? Configuring permissions and role assignments via @backstage/plugin-rbac is under consideration.",
     options: [
-      { id: 'A', text: "Deploy the Backstage RBAC plugin (`@backstage/plugin-rbac`) to administer roles, permissions, and policy rules dynamically." },
-      { id: 'B', text: "Grant full database root administrative privileges to every developer in the company." },
-      { id: 'C', text: "Hardcode static authorization rules in compiled TypeScript source code requiring full redeployments for every permission change." },
+      { id: 'A', text: "Grant full database root administrative privileges to every developer in the company." },
+      { id: 'B', text: "Hardcode static authorization rules in compiled TypeScript source code requiring full redeployments for every permission change." },
+      { id: 'C', text: "Deploy the Backstage RBAC plugin (`@backstage/plugin-rbac`) to administer roles, permissions, and policy rules dynamically." },
       { id: 'D', text: "Disable authorization checks and open all administrative endpoints to the public internet." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy the Backstage RBAC plugin (`@backstage/plugin-rbac`) to administer roles, permissions, and policy rules dynamically. The `@backstage/plugin-rbac` plugin provides declarative and UI-driven access control. Administrators define roles, assign users and groups, and attach permission policies (such as template execution or catalog editing) dynamically without restarting backend servers.",
     referenceUrl: "https://backstage.io/docs/permissions/overview#rbac-and-custom-policies",
@@ -261,12 +261,12 @@ export const CNCF_CBA_QUESTIONS_20 = [
     scenario: "A platform security auditor requires strict role-based access control, cryptographic service communication, and audit logging across the internal developer portal. The platform engineer evaluates RBAC Administration to manage user roles, permission policies, and administrative delegations through an interactive portal UI without redeploying code.",
     question: "Which Backstage security mechanism or configuration satisfies these compliance controls? Configuring permissions and role assignments via @backstage/plugin-rbac is under consideration.",
     options: [
-      { id: 'A', text: "Deploy the Backstage RBAC plugin (`@backstage/plugin-rbac`) to administer roles, permissions, and policy rules dynamically." },
+      { id: 'A', text: "Disable authorization checks and open all administrative endpoints to the public internet." },
       { id: 'B', text: "Grant full database root administrative privileges to every developer in the company." },
       { id: 'C', text: "Hardcode static authorization rules in compiled TypeScript source code requiring full redeployments for every permission change." },
-      { id: 'D', text: "Disable authorization checks and open all administrative endpoints to the public internet." }
+      { id: 'D', text: "Deploy the Backstage RBAC plugin (`@backstage/plugin-rbac`) to administer roles, permissions, and policy rules dynamically." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy the Backstage RBAC plugin (`@backstage/plugin-rbac`) to administer roles, permissions, and policy rules dynamically. The `@backstage/plugin-rbac` plugin provides declarative and UI-driven access control. Administrators define roles, assign users and groups, and attach permission policies (such as template execution or catalog editing) dynamically without restarting backend servers.",
     referenceUrl: "https://backstage.io/docs/permissions/overview#rbac-and-custom-policies",
@@ -282,12 +282,12 @@ export const CNCF_CBA_QUESTIONS_20 = [
     scenario: "A platform engineering team is establishing Golden Path templates and automated scaffolding workflows to accelerate developer onboarding and eliminate delivery friction. The platform engineer evaluates RBAC Administration to manage user roles, permission policies, and administrative delegations through an interactive portal UI without redeploying code.",
     question: "Which Backstage scaffolder practice or template feature enables developers to self-serve new projects safely? Configuring permissions and role assignments via @backstage/plugin-rbac is under consideration.",
     options: [
-      { id: 'A', text: "Deploy the Backstage RBAC plugin (`@backstage/plugin-rbac`) to administer roles, permissions, and policy rules dynamically." },
-      { id: 'B', text: "Grant full database root administrative privileges to every developer in the company." },
-      { id: 'C', text: "Hardcode static authorization rules in compiled TypeScript source code requiring full redeployments for every permission change." },
-      { id: 'D', text: "Disable authorization checks and open all administrative endpoints to the public internet." }
+      { id: 'A', text: "Hardcode static authorization rules in compiled TypeScript source code requiring full redeployments for every permission change." },
+      { id: 'B', text: "Disable authorization checks and open all administrative endpoints to the public internet." },
+      { id: 'C', text: "Grant full database root administrative privileges to every developer in the company." },
+      { id: 'D', text: "Deploy the Backstage RBAC plugin (`@backstage/plugin-rbac`) to administer roles, permissions, and policy rules dynamically." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy the Backstage RBAC plugin (`@backstage/plugin-rbac`) to administer roles, permissions, and policy rules dynamically. The `@backstage/plugin-rbac` plugin provides declarative and UI-driven access control. Administrators define roles, assign users and groups, and attach permission policies (such as template execution or catalog editing) dynamically without restarting backend servers.",
     referenceUrl: "https://backstage.io/docs/permissions/overview#rbac-and-custom-policies",
@@ -304,9 +304,9 @@ export const CNCF_CBA_QUESTIONS_20 = [
     question: "Which operational design or plugin architecture guarantees high availability and reliable portal performance? Configuring permissions and role assignments via @backstage/plugin-rbac is under consideration.",
     options: [
       { id: 'A', text: "Deploy the Backstage RBAC plugin (`@backstage/plugin-rbac`) to administer roles, permissions, and policy rules dynamically." },
-      { id: 'B', text: "Grant full database root administrative privileges to every developer in the company." },
+      { id: 'B', text: "Disable authorization checks and open all administrative endpoints to the public internet." },
       { id: 'C', text: "Hardcode static authorization rules in compiled TypeScript source code requiring full redeployments for every permission change." },
-      { id: 'D', text: "Disable authorization checks and open all administrative endpoints to the public internet." }
+      { id: 'D', text: "Grant full database root administrative privileges to every developer in the company." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -324,12 +324,12 @@ export const CNCF_CBA_QUESTIONS_20 = [
     scenario: "An enterprise developer experience team is architecting an internal developer portal to standardize service catalogs, software scaffolding, and documentation across hundreds of teams. The platform engineer evaluates Upgrades & Maintenance to upgrade Backstage monorepo packages safely to the latest stable release without encountering dependency version mismatches.",
     question: "Which architectural approach or Backstage configuration satisfies these enterprise portal objectives? Managing dependency alignment using yarn backstage-cli versions:bump is under consideration.",
     options: [
-      { id: 'A', text: "Run `yarn backstage-cli versions:bump` to update all `@backstage/*` packages to synchronized compatible versions." },
-      { id: 'B', text: "Manually edit hundreds of package.json files with random version strings and conflicting semver ranges." },
+      { id: 'A', text: "Manually edit hundreds of package.json files with random version strings and conflicting semver ranges." },
+      { id: 'B', text: "Run `yarn backstage-cli versions:bump` to update all `@backstage/*` packages to synchronized compatible versions." },
       { id: 'C', text: "Never upgrade dependencies and run outdated vulnerable packages indefinitely." },
       { id: 'D', text: "Delete yarn.lock to force unverified transitive dependency installations." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Run `yarn backstage-cli versions:bump` to update all `@backstage/*` packages to synchronized compatible versions. Because Backstage is composed of dozens of interdependent packages, official upgrades are managed via `yarn backstage-cli versions:bump`. This command queries the release manifest and synchronizes all `@backstage/*` packages to mutually compatible versions.",
     referenceUrl: "https://backstage.io/docs/getting-started/keeping-backstage-updated",
@@ -345,12 +345,12 @@ export const CNCF_CBA_QUESTIONS_20 = [
     scenario: "A large engineering organization manages tens of thousands of microservices, APIs, and infrastructure components across hybrid cloud environments. The platform engineer evaluates Upgrades & Maintenance to upgrade Backstage monorepo packages safely to the latest stable release without encountering dependency version mismatches.",
     question: "Which Backstage catalog pattern or ingestion configuration handles this volume efficiently while preventing database contention? Managing dependency alignment using yarn backstage-cli versions:bump is under consideration.",
     options: [
-      { id: 'A', text: "Run `yarn backstage-cli versions:bump` to update all `@backstage/*` packages to synchronized compatible versions." },
-      { id: 'B', text: "Manually edit hundreds of package.json files with random version strings and conflicting semver ranges." },
-      { id: 'C', text: "Never upgrade dependencies and run outdated vulnerable packages indefinitely." },
-      { id: 'D', text: "Delete yarn.lock to force unverified transitive dependency installations." }
+      { id: 'A', text: "Manually edit hundreds of package.json files with random version strings and conflicting semver ranges." },
+      { id: 'B', text: "Delete yarn.lock to force unverified transitive dependency installations." },
+      { id: 'C', text: "Run `yarn backstage-cli versions:bump` to update all `@backstage/*` packages to synchronized compatible versions." },
+      { id: 'D', text: "Never upgrade dependencies and run outdated vulnerable packages indefinitely." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Run `yarn backstage-cli versions:bump` to update all `@backstage/*` packages to synchronized compatible versions. Because Backstage is composed of dozens of interdependent packages, official upgrades are managed via `yarn backstage-cli versions:bump`. This command queries the release manifest and synchronizes all `@backstage/*` packages to mutually compatible versions.",
     referenceUrl: "https://backstage.io/docs/getting-started/keeping-backstage-updated",
@@ -366,12 +366,12 @@ export const CNCF_CBA_QUESTIONS_20 = [
     scenario: "A platform security auditor requires strict role-based access control, cryptographic service communication, and audit logging across the internal developer portal. The platform engineer evaluates Upgrades & Maintenance to upgrade Backstage monorepo packages safely to the latest stable release without encountering dependency version mismatches.",
     question: "Which Backstage security mechanism or configuration satisfies these compliance controls? Managing dependency alignment using yarn backstage-cli versions:bump is under consideration.",
     options: [
-      { id: 'A', text: "Run `yarn backstage-cli versions:bump` to update all `@backstage/*` packages to synchronized compatible versions." },
-      { id: 'B', text: "Manually edit hundreds of package.json files with random version strings and conflicting semver ranges." },
-      { id: 'C', text: "Never upgrade dependencies and run outdated vulnerable packages indefinitely." },
-      { id: 'D', text: "Delete yarn.lock to force unverified transitive dependency installations." }
+      { id: 'A', text: "Delete yarn.lock to force unverified transitive dependency installations." },
+      { id: 'B', text: "Run `yarn backstage-cli versions:bump` to update all `@backstage/*` packages to synchronized compatible versions." },
+      { id: 'C', text: "Manually edit hundreds of package.json files with random version strings and conflicting semver ranges." },
+      { id: 'D', text: "Never upgrade dependencies and run outdated vulnerable packages indefinitely." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Run `yarn backstage-cli versions:bump` to update all `@backstage/*` packages to synchronized compatible versions. Because Backstage is composed of dozens of interdependent packages, official upgrades are managed via `yarn backstage-cli versions:bump`. This command queries the release manifest and synchronizes all `@backstage/*` packages to mutually compatible versions.",
     referenceUrl: "https://backstage.io/docs/getting-started/keeping-backstage-updated",
@@ -387,12 +387,12 @@ export const CNCF_CBA_QUESTIONS_20 = [
     scenario: "A platform engineering team is establishing Golden Path templates and automated scaffolding workflows to accelerate developer onboarding and eliminate delivery friction. The platform engineer evaluates Upgrades & Maintenance to upgrade Backstage monorepo packages safely to the latest stable release without encountering dependency version mismatches.",
     question: "Which Backstage scaffolder practice or template feature enables developers to self-serve new projects safely? Managing dependency alignment using yarn backstage-cli versions:bump is under consideration.",
     options: [
-      { id: 'A', text: "Run `yarn backstage-cli versions:bump` to update all `@backstage/*` packages to synchronized compatible versions." },
-      { id: 'B', text: "Manually edit hundreds of package.json files with random version strings and conflicting semver ranges." },
-      { id: 'C', text: "Never upgrade dependencies and run outdated vulnerable packages indefinitely." },
-      { id: 'D', text: "Delete yarn.lock to force unverified transitive dependency installations." }
+      { id: 'A', text: "Never upgrade dependencies and run outdated vulnerable packages indefinitely." },
+      { id: 'B', text: "Delete yarn.lock to force unverified transitive dependency installations." },
+      { id: 'C', text: "Manually edit hundreds of package.json files with random version strings and conflicting semver ranges." },
+      { id: 'D', text: "Run `yarn backstage-cli versions:bump` to update all `@backstage/*` packages to synchronized compatible versions." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Run `yarn backstage-cli versions:bump` to update all `@backstage/*` packages to synchronized compatible versions. Because Backstage is composed of dozens of interdependent packages, official upgrades are managed via `yarn backstage-cli versions:bump`. This command queries the release manifest and synchronizes all `@backstage/*` packages to mutually compatible versions.",
     referenceUrl: "https://backstage.io/docs/getting-started/keeping-backstage-updated",
@@ -408,12 +408,12 @@ export const CNCF_CBA_QUESTIONS_20 = [
     scenario: "A site reliability engineering team is operating Backstage on Kubernetes and optimizing system resilience, health monitoring, and documentation publishing pipelines. The platform engineer evaluates Upgrades & Maintenance to upgrade Backstage monorepo packages safely to the latest stable release without encountering dependency version mismatches.",
     question: "Which operational design or plugin architecture guarantees high availability and reliable portal performance? Managing dependency alignment using yarn backstage-cli versions:bump is under consideration.",
     options: [
-      { id: 'A', text: "Run `yarn backstage-cli versions:bump` to update all `@backstage/*` packages to synchronized compatible versions." },
-      { id: 'B', text: "Manually edit hundreds of package.json files with random version strings and conflicting semver ranges." },
-      { id: 'C', text: "Never upgrade dependencies and run outdated vulnerable packages indefinitely." },
-      { id: 'D', text: "Delete yarn.lock to force unverified transitive dependency installations." }
+      { id: 'A', text: "Manually edit hundreds of package.json files with random version strings and conflicting semver ranges." },
+      { id: 'B', text: "Delete yarn.lock to force unverified transitive dependency installations." },
+      { id: 'C', text: "Run `yarn backstage-cli versions:bump` to update all `@backstage/*` packages to synchronized compatible versions." },
+      { id: 'D', text: "Never upgrade dependencies and run outdated vulnerable packages indefinitely." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Run `yarn backstage-cli versions:bump` to update all `@backstage/*` packages to synchronized compatible versions. Because Backstage is composed of dozens of interdependent packages, official upgrades are managed via `yarn backstage-cli versions:bump`. This command queries the release manifest and synchronizes all `@backstage/*` packages to mutually compatible versions.",
     referenceUrl: "https://backstage.io/docs/getting-started/keeping-backstage-updated",
@@ -429,12 +429,12 @@ export const CNCF_CBA_QUESTIONS_20 = [
     scenario: "An enterprise developer experience team is architecting an internal developer portal to standardize service catalogs, software scaffolding, and documentation across hundreds of teams. The platform engineer evaluates Audit Logging to track who executed sensitive software scaffolding templates and audit administrative catalog changes for security compliance.",
     question: "Which architectural approach or Backstage configuration satisfies these enterprise portal objectives? Structured logging using Winston and audit trails for catalog and scaffolder operations is under consideration.",
     options: [
-      { id: 'A', text: "Configure structured JSON logging via the Backstage Winston logger service and capture scaffolder execution audit trails." },
-      { id: 'B', text: "Disable server logging to conserve disk space and hide system activity." },
-      { id: 'C', text: "Print sensitive authentication credentials in plaintext to unindexed terminal stdout." },
-      { id: 'D', text: "Log user actions into an ephemeral local text file that is deleted every five minutes." }
+      { id: 'A', text: "Disable server logging to conserve disk space and hide system activity." },
+      { id: 'B', text: "Log user actions into an ephemeral local text file that is deleted every five minutes." },
+      { id: 'C', text: "Configure structured JSON logging via the Backstage Winston logger service and capture scaffolder execution audit trails." },
+      { id: 'D', text: "Print sensitive authentication credentials in plaintext to unindexed terminal stdout." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure structured JSON logging via the Backstage Winston logger service and capture scaffolder execution audit trails. Backstage utilizes Winston for structured logging (`RootLoggerService`). In production, log formatters emit structured JSON events including user identity, timestamps, and action metadata, providing an auditable log stream for enterprise SIEM ingestion.",
     referenceUrl: "https://backstage.io/docs/tooling/winston-logger",
@@ -450,12 +450,12 @@ export const CNCF_CBA_QUESTIONS_20 = [
     scenario: "A large engineering organization manages tens of thousands of microservices, APIs, and infrastructure components across hybrid cloud environments. The platform engineer evaluates Audit Logging to track who executed sensitive software scaffolding templates and audit administrative catalog changes for security compliance.",
     question: "Which Backstage catalog pattern or ingestion configuration handles this volume efficiently while preventing database contention? Structured logging using Winston and audit trails for catalog and scaffolder operations is under consideration.",
     options: [
-      { id: 'A', text: "Configure structured JSON logging via the Backstage Winston logger service and capture scaffolder execution audit trails." },
+      { id: 'A', text: "Log user actions into an ephemeral local text file that is deleted every five minutes." },
       { id: 'B', text: "Disable server logging to conserve disk space and hide system activity." },
       { id: 'C', text: "Print sensitive authentication credentials in plaintext to unindexed terminal stdout." },
-      { id: 'D', text: "Log user actions into an ephemeral local text file that is deleted every five minutes." }
+      { id: 'D', text: "Configure structured JSON logging via the Backstage Winston logger service and capture scaffolder execution audit trails." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure structured JSON logging via the Backstage Winston logger service and capture scaffolder execution audit trails. Backstage utilizes Winston for structured logging (`RootLoggerService`). In production, log formatters emit structured JSON events including user identity, timestamps, and action metadata, providing an auditable log stream for enterprise SIEM ingestion.",
     referenceUrl: "https://backstage.io/docs/tooling/winston-logger",
@@ -471,12 +471,12 @@ export const CNCF_CBA_QUESTIONS_20 = [
     scenario: "A platform security auditor requires strict role-based access control, cryptographic service communication, and audit logging across the internal developer portal. The platform engineer evaluates Audit Logging to track who executed sensitive software scaffolding templates and audit administrative catalog changes for security compliance.",
     question: "Which Backstage security mechanism or configuration satisfies these compliance controls? Structured logging using Winston and audit trails for catalog and scaffolder operations is under consideration.",
     options: [
-      { id: 'A', text: "Configure structured JSON logging via the Backstage Winston logger service and capture scaffolder execution audit trails." },
-      { id: 'B', text: "Disable server logging to conserve disk space and hide system activity." },
-      { id: 'C', text: "Print sensitive authentication credentials in plaintext to unindexed terminal stdout." },
-      { id: 'D', text: "Log user actions into an ephemeral local text file that is deleted every five minutes." }
+      { id: 'A', text: "Print sensitive authentication credentials in plaintext to unindexed terminal stdout." },
+      { id: 'B', text: "Log user actions into an ephemeral local text file that is deleted every five minutes." },
+      { id: 'C', text: "Disable server logging to conserve disk space and hide system activity." },
+      { id: 'D', text: "Configure structured JSON logging via the Backstage Winston logger service and capture scaffolder execution audit trails." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure structured JSON logging via the Backstage Winston logger service and capture scaffolder execution audit trails. Backstage utilizes Winston for structured logging (`RootLoggerService`). In production, log formatters emit structured JSON events including user identity, timestamps, and action metadata, providing an auditable log stream for enterprise SIEM ingestion.",
     referenceUrl: "https://backstage.io/docs/tooling/winston-logger",
@@ -493,9 +493,9 @@ export const CNCF_CBA_QUESTIONS_20 = [
     question: "Which Backstage scaffolder practice or template feature enables developers to self-serve new projects safely? Structured logging using Winston and audit trails for catalog and scaffolder operations is under consideration.",
     options: [
       { id: 'A', text: "Configure structured JSON logging via the Backstage Winston logger service and capture scaffolder execution audit trails." },
-      { id: 'B', text: "Disable server logging to conserve disk space and hide system activity." },
+      { id: 'B', text: "Log user actions into an ephemeral local text file that is deleted every five minutes." },
       { id: 'C', text: "Print sensitive authentication credentials in plaintext to unindexed terminal stdout." },
-      { id: 'D', text: "Log user actions into an ephemeral local text file that is deleted every five minutes." }
+      { id: 'D', text: "Disable server logging to conserve disk space and hide system activity." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -513,12 +513,12 @@ export const CNCF_CBA_QUESTIONS_20 = [
     scenario: "A site reliability engineering team is operating Backstage on Kubernetes and optimizing system resilience, health monitoring, and documentation publishing pipelines. The platform engineer evaluates Audit Logging to track who executed sensitive software scaffolding templates and audit administrative catalog changes for security compliance.",
     question: "Which operational design or plugin architecture guarantees high availability and reliable portal performance? Structured logging using Winston and audit trails for catalog and scaffolder operations is under consideration.",
     options: [
-      { id: 'A', text: "Configure structured JSON logging via the Backstage Winston logger service and capture scaffolder execution audit trails." },
-      { id: 'B', text: "Disable server logging to conserve disk space and hide system activity." },
-      { id: 'C', text: "Print sensitive authentication credentials in plaintext to unindexed terminal stdout." },
-      { id: 'D', text: "Log user actions into an ephemeral local text file that is deleted every five minutes." }
+      { id: 'A', text: "Print sensitive authentication credentials in plaintext to unindexed terminal stdout." },
+      { id: 'B', text: "Log user actions into an ephemeral local text file that is deleted every five minutes." },
+      { id: 'C', text: "Configure structured JSON logging via the Backstage Winston logger service and capture scaffolder execution audit trails." },
+      { id: 'D', text: "Disable server logging to conserve disk space and hide system activity." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure structured JSON logging via the Backstage Winston logger service and capture scaffolder execution audit trails. Backstage utilizes Winston for structured logging (`RootLoggerService`). In production, log formatters emit structured JSON events including user identity, timestamps, and action metadata, providing an auditable log stream for enterprise SIEM ingestion.",
     referenceUrl: "https://backstage.io/docs/tooling/winston-logger",

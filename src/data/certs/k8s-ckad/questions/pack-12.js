@@ -9,12 +9,12 @@ export const K8S_CKAD_QUESTIONS_12 = [
     scenario: "A cloud-native application engineering team is establishing high-availability deployment patterns and zero-downtime release safeguards for enterprise services. The Kubernetes application developer evaluates Container Builds to build a secure, minimal container image for a Go web application without bundling the Go compiler, SDK, or build tools into the production image.",
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives? Multi-stage Docker builds minimizing final image attack surface and size is under consideration.",
     options: [
-      { id: 'A', text: "Use a multi-stage Dockerfile with a builder stage (e.g., `golang:alpine`) and copy the compiled binary into a minimal runtime base image (e.g., `scratch` or `distroless`)." },
+      { id: 'A', text: "Build the application on a developer laptop and copy the binary over FTP into a container." },
       { id: 'B', text: "Package the entire Go development environment, Git repo, and test suites into the production container image." },
-      { id: 'C', text: "Build the application on a developer laptop and copy the binary over FTP into a container." },
-      { id: 'D', text: "Run the application using go run inside a heavy Ubuntu development image." }
+      { id: 'C', text: "Run the application using go run inside a heavy Ubuntu development image." },
+      { id: 'D', text: "Use a multi-stage Dockerfile with a builder stage (e.g., `golang:alpine`) and copy the compiled binary into a minimal runtime base image (e.g., `scratch` or `distroless`)." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Use a multi-stage Dockerfile with a builder stage (e.g., `golang:alpine`) and copy the compiled binary into a minimal runtime base image (e.g., `scratch` or `distroless`). Multi-stage Docker builds separate the build environment from the final execution runtime. Artifacts produced in early builder stages are copied into minimal runtime images (such as distroless or scratch), drastically shrinking image size, speeding up image pull times, and eliminating attack vectors.",
     referenceUrl: "https://docs.docker.com/build/building/multi-stage/",
@@ -51,12 +51,12 @@ export const K8S_CKAD_QUESTIONS_12 = [
     scenario: "A security compliance auditor requires strict container runtime isolation, least-privilege credential access, and defense-in-depth network policies across all namespaces. The Kubernetes application developer evaluates Container Builds to build a secure, minimal container image for a Go web application without bundling the Go compiler, SDK, or build tools into the production image.",
     question: "Which solution properly implements these mandatory container and cluster security controls? Multi-stage Docker builds minimizing final image attack surface and size is under consideration.",
     options: [
-      { id: 'A', text: "Use a multi-stage Dockerfile with a builder stage (e.g., `golang:alpine`) and copy the compiled binary into a minimal runtime base image (e.g., `scratch` or `distroless`)." },
-      { id: 'B', text: "Package the entire Go development environment, Git repo, and test suites into the production container image." },
-      { id: 'C', text: "Build the application on a developer laptop and copy the binary over FTP into a container." },
-      { id: 'D', text: "Run the application using go run inside a heavy Ubuntu development image." }
+      { id: 'A', text: "Run the application using go run inside a heavy Ubuntu development image." },
+      { id: 'B', text: "Build the application on a developer laptop and copy the binary over FTP into a container." },
+      { id: 'C', text: "Package the entire Go development environment, Git repo, and test suites into the production container image." },
+      { id: 'D', text: "Use a multi-stage Dockerfile with a builder stage (e.g., `golang:alpine`) and copy the compiled binary into a minimal runtime base image (e.g., `scratch` or `distroless`)." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Use a multi-stage Dockerfile with a builder stage (e.g., `golang:alpine`) and copy the compiled binary into a minimal runtime base image (e.g., `scratch` or `distroless`). Multi-stage Docker builds separate the build environment from the final execution runtime. Artifacts produced in early builder stages are copied into minimal runtime images (such as distroless or scratch), drastically shrinking image size, speeding up image pull times, and eliminating attack vectors.",
     referenceUrl: "https://docs.docker.com/build/building/multi-stage/",
@@ -72,12 +72,12 @@ export const K8S_CKAD_QUESTIONS_12 = [
     scenario: "An application development team is migrating legacy monolithic applications into containerized microservices running on Kubernetes. The Kubernetes application developer evaluates Container Builds to build a secure, minimal container image for a Go web application without bundling the Go compiler, SDK, or build tools into the production image.",
     question: "Which architectural pattern or feature enables the team to modernize services with minimal disruption and low operational friction? Multi-stage Docker builds minimizing final image attack surface and size is under consideration.",
     options: [
-      { id: 'A', text: "Use a multi-stage Dockerfile with a builder stage (e.g., `golang:alpine`) and copy the compiled binary into a minimal runtime base image (e.g., `scratch` or `distroless`)." },
-      { id: 'B', text: "Package the entire Go development environment, Git repo, and test suites into the production container image." },
+      { id: 'A', text: "Package the entire Go development environment, Git repo, and test suites into the production container image." },
+      { id: 'B', text: "Use a multi-stage Dockerfile with a builder stage (e.g., `golang:alpine`) and copy the compiled binary into a minimal runtime base image (e.g., `scratch` or `distroless`)." },
       { id: 'C', text: "Build the application on a developer laptop and copy the binary over FTP into a container." },
       { id: 'D', text: "Run the application using go run inside a heavy Ubuntu development image." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Use a multi-stage Dockerfile with a builder stage (e.g., `golang:alpine`) and copy the compiled binary into a minimal runtime base image (e.g., `scratch` or `distroless`). Multi-stage Docker builds separate the build environment from the final execution runtime. Artifacts produced in early builder stages are copied into minimal runtime images (such as distroless or scratch), drastically shrinking image size, speeding up image pull times, and eliminating attack vectors.",
     referenceUrl: "https://docs.docker.com/build/building/multi-stage/",
@@ -94,9 +94,9 @@ export const K8S_CKAD_QUESTIONS_12 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees service reliability? Multi-stage Docker builds minimizing final image attack surface and size is under consideration.",
     options: [
       { id: 'A', text: "Use a multi-stage Dockerfile with a builder stage (e.g., `golang:alpine`) and copy the compiled binary into a minimal runtime base image (e.g., `scratch` or `distroless`)." },
-      { id: 'B', text: "Package the entire Go development environment, Git repo, and test suites into the production container image." },
+      { id: 'B', text: "Run the application using go run inside a heavy Ubuntu development image." },
       { id: 'C', text: "Build the application on a developer laptop and copy the binary over FTP into a container." },
-      { id: 'D', text: "Run the application using go run inside a heavy Ubuntu development image." }
+      { id: 'D', text: "Package the entire Go development environment, Git repo, and test suites into the production container image." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -114,12 +114,12 @@ export const K8S_CKAD_QUESTIONS_12 = [
     scenario: "A cloud-native application engineering team is establishing high-availability deployment patterns and zero-downtime release safeguards for enterprise services. The Kubernetes application developer evaluates Ephemeral Storage to enable two containers in the same pod to exchange temporary rendering files on disk without persisting data after the pod terminates.",
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives? Sharing scratch directories and inter-container file communication via emptyDir is under consideration.",
     options: [
-      { id: 'A', text: "Mount an `emptyDir: {}` volume into both containers at the specified mount paths." },
-      { id: 'B', text: "Mount a persistent cloud disk volume with ReadWriteMany access mode." },
+      { id: 'A', text: "Configure containers to exchange files over external FTP servers." },
+      { id: 'B', text: "Mount an `emptyDir: {}` volume into both containers at the specified mount paths." },
       { id: 'C', text: "Mount the host node root filesystem (`/`) with read-write permissions." },
-      { id: 'D', text: "Configure containers to exchange files over external FTP servers." }
+      { id: 'D', text: "Mount a persistent cloud disk volume with ReadWriteMany access mode." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Mount an `emptyDir: {}` volume into both containers at the specified mount paths. An `emptyDir` volume is created when a pod is assigned to a node and exists as long as the pod is running on that node. Containers in the pod can read and write the same files in the `emptyDir` volume, providing fast, scratchpad storage that is automatically deleted when the pod is removed.",
     referenceUrl: "https://kubernetes.io/docs/concepts/storage/volumes/#emptydir",
@@ -135,12 +135,12 @@ export const K8S_CKAD_QUESTIONS_12 = [
     scenario: "A high-throughput web application experiences unpredictable spikes in user transactions and requires automated, reliable scaling across Kubernetes clusters. The Kubernetes application developer evaluates Ephemeral Storage to enable two containers in the same pod to exchange temporary rendering files on disk without persisting data after the pod terminates.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting backend stability? Sharing scratch directories and inter-container file communication via emptyDir is under consideration.",
     options: [
-      { id: 'A', text: "Mount an `emptyDir: {}` volume into both containers at the specified mount paths." },
-      { id: 'B', text: "Mount a persistent cloud disk volume with ReadWriteMany access mode." },
-      { id: 'C', text: "Mount the host node root filesystem (`/`) with read-write permissions." },
-      { id: 'D', text: "Configure containers to exchange files over external FTP servers." }
+      { id: 'A', text: "Mount the host node root filesystem (`/`) with read-write permissions." },
+      { id: 'B', text: "Configure containers to exchange files over external FTP servers." },
+      { id: 'C', text: "Mount a persistent cloud disk volume with ReadWriteMany access mode." },
+      { id: 'D', text: "Mount an `emptyDir: {}` volume into both containers at the specified mount paths." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Mount an `emptyDir: {}` volume into both containers at the specified mount paths. An `emptyDir` volume is created when a pod is assigned to a node and exists as long as the pod is running on that node. Containers in the pod can read and write the same files in the `emptyDir` volume, providing fast, scratchpad storage that is automatically deleted when the pod is removed.",
     referenceUrl: "https://kubernetes.io/docs/concepts/storage/volumes/#emptydir",
@@ -156,12 +156,12 @@ export const K8S_CKAD_QUESTIONS_12 = [
     scenario: "A security compliance auditor requires strict container runtime isolation, least-privilege credential access, and defense-in-depth network policies across all namespaces. The Kubernetes application developer evaluates Ephemeral Storage to enable two containers in the same pod to exchange temporary rendering files on disk without persisting data after the pod terminates.",
     question: "Which solution properly implements these mandatory container and cluster security controls? Sharing scratch directories and inter-container file communication via emptyDir is under consideration.",
     options: [
-      { id: 'A', text: "Mount an `emptyDir: {}` volume into both containers at the specified mount paths." },
-      { id: 'B', text: "Mount a persistent cloud disk volume with ReadWriteMany access mode." },
-      { id: 'C', text: "Mount the host node root filesystem (`/`) with read-write permissions." },
-      { id: 'D', text: "Configure containers to exchange files over external FTP servers." }
+      { id: 'A', text: "Mount the host node root filesystem (`/`) with read-write permissions." },
+      { id: 'B', text: "Configure containers to exchange files over external FTP servers." },
+      { id: 'C', text: "Mount a persistent cloud disk volume with ReadWriteMany access mode." },
+      { id: 'D', text: "Mount an `emptyDir: {}` volume into both containers at the specified mount paths." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Mount an `emptyDir: {}` volume into both containers at the specified mount paths. An `emptyDir` volume is created when a pod is assigned to a node and exists as long as the pod is running on that node. Containers in the pod can read and write the same files in the `emptyDir` volume, providing fast, scratchpad storage that is automatically deleted when the pod is removed.",
     referenceUrl: "https://kubernetes.io/docs/concepts/storage/volumes/#emptydir",
@@ -177,12 +177,12 @@ export const K8S_CKAD_QUESTIONS_12 = [
     scenario: "An application development team is migrating legacy monolithic applications into containerized microservices running on Kubernetes. The Kubernetes application developer evaluates Ephemeral Storage to enable two containers in the same pod to exchange temporary rendering files on disk without persisting data after the pod terminates.",
     question: "Which architectural pattern or feature enables the team to modernize services with minimal disruption and low operational friction? Sharing scratch directories and inter-container file communication via emptyDir is under consideration.",
     options: [
-      { id: 'A', text: "Mount an `emptyDir: {}` volume into both containers at the specified mount paths." },
+      { id: 'A', text: "Mount the host node root filesystem (`/`) with read-write permissions." },
       { id: 'B', text: "Mount a persistent cloud disk volume with ReadWriteMany access mode." },
-      { id: 'C', text: "Mount the host node root filesystem (`/`) with read-write permissions." },
+      { id: 'C', text: "Mount an `emptyDir: {}` volume into both containers at the specified mount paths." },
       { id: 'D', text: "Configure containers to exchange files over external FTP servers." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Mount an `emptyDir: {}` volume into both containers at the specified mount paths. An `emptyDir` volume is created when a pod is assigned to a node and exists as long as the pod is running on that node. Containers in the pod can read and write the same files in the `emptyDir` volume, providing fast, scratchpad storage that is automatically deleted when the pod is removed.",
     referenceUrl: "https://kubernetes.io/docs/concepts/storage/volumes/#emptydir",
@@ -198,12 +198,12 @@ export const K8S_CKAD_QUESTIONS_12 = [
     scenario: "An SRE team is optimizing application stability to eliminate single points of failure, streamline observability, and ensure graceful failure handling. The Kubernetes application developer evaluates Ephemeral Storage to enable two containers in the same pod to exchange temporary rendering files on disk without persisting data after the pod terminates.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees service reliability? Sharing scratch directories and inter-container file communication via emptyDir is under consideration.",
     options: [
-      { id: 'A', text: "Mount an `emptyDir: {}` volume into both containers at the specified mount paths." },
-      { id: 'B', text: "Mount a persistent cloud disk volume with ReadWriteMany access mode." },
-      { id: 'C', text: "Mount the host node root filesystem (`/`) with read-write permissions." },
-      { id: 'D', text: "Configure containers to exchange files over external FTP servers." }
+      { id: 'A', text: "Mount a persistent cloud disk volume with ReadWriteMany access mode." },
+      { id: 'B', text: "Mount an `emptyDir: {}` volume into both containers at the specified mount paths." },
+      { id: 'C', text: "Configure containers to exchange files over external FTP servers." },
+      { id: 'D', text: "Mount the host node root filesystem (`/`) with read-write permissions." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Mount an `emptyDir: {}` volume into both containers at the specified mount paths. An `emptyDir` volume is created when a pod is assigned to a node and exists as long as the pod is running on that node. Containers in the pod can read and write the same files in the `emptyDir` volume, providing fast, scratchpad storage that is automatically deleted when the pod is removed.",
     referenceUrl: "https://kubernetes.io/docs/concepts/storage/volumes/#emptydir",
@@ -219,12 +219,12 @@ export const K8S_CKAD_QUESTIONS_12 = [
     scenario: "A cloud-native application engineering team is establishing high-availability deployment patterns and zero-downtime release safeguards for enterprise services. The Kubernetes application developer evaluates Build Caching to speed up CI container build pipelines so that modifying application source code does not trigger re-downloading thousands of third-party package dependencies.",
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives? Layer ordering and cache optimization for faster continuous integration builds is under consideration.",
     options: [
-      { id: 'A', text: "Structure the Dockerfile to copy dependency manifests (e.g., `package.json`, `go.mod`) and install dependencies before copying application source code." },
-      { id: 'B', text: "Copy all application source code files in the very first line of the Dockerfile." },
-      { id: 'C', text: "Disable Docker layer caching entirely using the `--no-cache` flag on every build." },
-      { id: 'D', text: "Download all external dependencies over the network inside the container startup script." }
+      { id: 'A', text: "Disable Docker layer caching entirely using the `--no-cache` flag on every build." },
+      { id: 'B', text: "Download all external dependencies over the network inside the container startup script." },
+      { id: 'C', text: "Copy all application source code files in the very first line of the Dockerfile." },
+      { id: 'D', text: "Structure the Dockerfile to copy dependency manifests (e.g., `package.json`, `go.mod`) and install dependencies before copying application source code." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Structure the Dockerfile to copy dependency manifests (e.g., `package.json`, `go.mod`) and install dependencies before copying application source code. Docker executes build instructions in order, caching intermediate layers. By copying package manifests and running installation steps before copying source files, package installation layers are reused from cache as long as dependencies have not changed, reducing build times from minutes to seconds.",
     referenceUrl: "https://docs.docker.com/build/cache/",
@@ -240,12 +240,12 @@ export const K8S_CKAD_QUESTIONS_12 = [
     scenario: "A high-throughput web application experiences unpredictable spikes in user transactions and requires automated, reliable scaling across Kubernetes clusters. The Kubernetes application developer evaluates Build Caching to speed up CI container build pipelines so that modifying application source code does not trigger re-downloading thousands of third-party package dependencies.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting backend stability? Layer ordering and cache optimization for faster continuous integration builds is under consideration.",
     options: [
-      { id: 'A', text: "Structure the Dockerfile to copy dependency manifests (e.g., `package.json`, `go.mod`) and install dependencies before copying application source code." },
-      { id: 'B', text: "Copy all application source code files in the very first line of the Dockerfile." },
-      { id: 'C', text: "Disable Docker layer caching entirely using the `--no-cache` flag on every build." },
+      { id: 'A', text: "Copy all application source code files in the very first line of the Dockerfile." },
+      { id: 'B', text: "Disable Docker layer caching entirely using the `--no-cache` flag on every build." },
+      { id: 'C', text: "Structure the Dockerfile to copy dependency manifests (e.g., `package.json`, `go.mod`) and install dependencies before copying application source code." },
       { id: 'D', text: "Download all external dependencies over the network inside the container startup script." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Structure the Dockerfile to copy dependency manifests (e.g., `package.json`, `go.mod`) and install dependencies before copying application source code. Docker executes build instructions in order, caching intermediate layers. By copying package manifests and running installation steps before copying source files, package installation layers are reused from cache as long as dependencies have not changed, reducing build times from minutes to seconds.",
     referenceUrl: "https://docs.docker.com/build/cache/",
@@ -262,8 +262,8 @@ export const K8S_CKAD_QUESTIONS_12 = [
     question: "Which solution properly implements these mandatory container and cluster security controls? Layer ordering and cache optimization for faster continuous integration builds is under consideration.",
     options: [
       { id: 'A', text: "Structure the Dockerfile to copy dependency manifests (e.g., `package.json`, `go.mod`) and install dependencies before copying application source code." },
-      { id: 'B', text: "Copy all application source code files in the very first line of the Dockerfile." },
-      { id: 'C', text: "Disable Docker layer caching entirely using the `--no-cache` flag on every build." },
+      { id: 'B', text: "Disable Docker layer caching entirely using the `--no-cache` flag on every build." },
+      { id: 'C', text: "Copy all application source code files in the very first line of the Dockerfile." },
       { id: 'D', text: "Download all external dependencies over the network inside the container startup script." }
     ],
     correctAnswers: ['A'],
@@ -282,12 +282,12 @@ export const K8S_CKAD_QUESTIONS_12 = [
     scenario: "An application development team is migrating legacy monolithic applications into containerized microservices running on Kubernetes. The Kubernetes application developer evaluates Build Caching to speed up CI container build pipelines so that modifying application source code does not trigger re-downloading thousands of third-party package dependencies.",
     question: "Which architectural pattern or feature enables the team to modernize services with minimal disruption and low operational friction? Layer ordering and cache optimization for faster continuous integration builds is under consideration.",
     options: [
-      { id: 'A', text: "Structure the Dockerfile to copy dependency manifests (e.g., `package.json`, `go.mod`) and install dependencies before copying application source code." },
-      { id: 'B', text: "Copy all application source code files in the very first line of the Dockerfile." },
-      { id: 'C', text: "Disable Docker layer caching entirely using the `--no-cache` flag on every build." },
-      { id: 'D', text: "Download all external dependencies over the network inside the container startup script." }
+      { id: 'A', text: "Copy all application source code files in the very first line of the Dockerfile." },
+      { id: 'B', text: "Download all external dependencies over the network inside the container startup script." },
+      { id: 'C', text: "Structure the Dockerfile to copy dependency manifests (e.g., `package.json`, `go.mod`) and install dependencies before copying application source code." },
+      { id: 'D', text: "Disable Docker layer caching entirely using the `--no-cache` flag on every build." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Structure the Dockerfile to copy dependency manifests (e.g., `package.json`, `go.mod`) and install dependencies before copying application source code. Docker executes build instructions in order, caching intermediate layers. By copying package manifests and running installation steps before copying source files, package installation layers are reused from cache as long as dependencies have not changed, reducing build times from minutes to seconds.",
     referenceUrl: "https://docs.docker.com/build/cache/",
@@ -303,12 +303,12 @@ export const K8S_CKAD_QUESTIONS_12 = [
     scenario: "An SRE team is optimizing application stability to eliminate single points of failure, streamline observability, and ensure graceful failure handling. The Kubernetes application developer evaluates Build Caching to speed up CI container build pipelines so that modifying application source code does not trigger re-downloading thousands of third-party package dependencies.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees service reliability? Layer ordering and cache optimization for faster continuous integration builds is under consideration.",
     options: [
-      { id: 'A', text: "Structure the Dockerfile to copy dependency manifests (e.g., `package.json`, `go.mod`) and install dependencies before copying application source code." },
+      { id: 'A', text: "Download all external dependencies over the network inside the container startup script." },
       { id: 'B', text: "Copy all application source code files in the very first line of the Dockerfile." },
       { id: 'C', text: "Disable Docker layer caching entirely using the `--no-cache` flag on every build." },
-      { id: 'D', text: "Download all external dependencies over the network inside the container startup script." }
+      { id: 'D', text: "Structure the Dockerfile to copy dependency manifests (e.g., `package.json`, `go.mod`) and install dependencies before copying application source code." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Structure the Dockerfile to copy dependency manifests (e.g., `package.json`, `go.mod`) and install dependencies before copying application source code. Docker executes build instructions in order, caching intermediate layers. By copying package manifests and running installation steps before copying source files, package installation layers are reused from cache as long as dependencies have not changed, reducing build times from minutes to seconds.",
     referenceUrl: "https://docs.docker.com/build/cache/",
@@ -324,12 +324,12 @@ export const K8S_CKAD_QUESTIONS_12 = [
     scenario: "A cloud-native application engineering team is establishing high-availability deployment patterns and zero-downtime release safeguards for enterprise services. The Kubernetes application developer evaluates Image Tagging to prevent unexpected production application behavior caused by overwriting the `latest` image tag with an untested breaking release.",
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives? Using immutable SHA256 digests and semantic versions instead of latest tags is under consideration.",
     options: [
-      { id: 'A', text: "Pin container image references to immutable image digest hashes (`@sha256:...`) or strict semantic version tags in pod manifests." },
+      { id: 'A', text: "Omit image tags completely to let the container runtime pick an arbitrary version." },
       { id: 'B', text: "Always reference the `latest` image tag across all development and production environments." },
-      { id: 'C', text: "Omit image tags completely to let the container runtime pick an arbitrary version." },
-      { id: 'D', text: "Manually re-tag failing production containers with older version strings on the worker nodes." }
+      { id: 'C', text: "Manually re-tag failing production containers with older version strings on the worker nodes." },
+      { id: 'D', text: "Pin container image references to immutable image digest hashes (`@sha256:...`) or strict semantic version tags in pod manifests." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Pin container image references to immutable image digest hashes (`@sha256:...`) or strict semantic version tags in pod manifests. The `latest` tag is mutable and can point to different code revisions over time, leading to unpredictable deployments and inconsistent replicas. Pinning images to semantic versions or immutable cryptographic digests (`sha256:...`) guarantees deterministic, repeatable, and audited deployments.",
     referenceUrl: "https://kubernetes.io/docs/concepts/containers/images/#image-names",
@@ -347,8 +347,8 @@ export const K8S_CKAD_QUESTIONS_12 = [
     options: [
       { id: 'A', text: "Pin container image references to immutable image digest hashes (`@sha256:...`) or strict semantic version tags in pod manifests." },
       { id: 'B', text: "Always reference the `latest` image tag across all development and production environments." },
-      { id: 'C', text: "Omit image tags completely to let the container runtime pick an arbitrary version." },
-      { id: 'D', text: "Manually re-tag failing production containers with older version strings on the worker nodes." }
+      { id: 'C', text: "Manually re-tag failing production containers with older version strings on the worker nodes." },
+      { id: 'D', text: "Omit image tags completely to let the container runtime pick an arbitrary version." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -388,9 +388,9 @@ export const K8S_CKAD_QUESTIONS_12 = [
     question: "Which architectural pattern or feature enables the team to modernize services with minimal disruption and low operational friction? Using immutable SHA256 digests and semantic versions instead of latest tags is under consideration.",
     options: [
       { id: 'A', text: "Pin container image references to immutable image digest hashes (`@sha256:...`) or strict semantic version tags in pod manifests." },
-      { id: 'B', text: "Always reference the `latest` image tag across all development and production environments." },
-      { id: 'C', text: "Omit image tags completely to let the container runtime pick an arbitrary version." },
-      { id: 'D', text: "Manually re-tag failing production containers with older version strings on the worker nodes." }
+      { id: 'B', text: "Manually re-tag failing production containers with older version strings on the worker nodes." },
+      { id: 'C', text: "Always reference the `latest` image tag across all development and production environments." },
+      { id: 'D', text: "Omit image tags completely to let the container runtime pick an arbitrary version." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,12 +408,12 @@ export const K8S_CKAD_QUESTIONS_12 = [
     scenario: "An SRE team is optimizing application stability to eliminate single points of failure, streamline observability, and ensure graceful failure handling. The Kubernetes application developer evaluates Image Tagging to prevent unexpected production application behavior caused by overwriting the `latest` image tag with an untested breaking release.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees service reliability? Using immutable SHA256 digests and semantic versions instead of latest tags is under consideration.",
     options: [
-      { id: 'A', text: "Pin container image references to immutable image digest hashes (`@sha256:...`) or strict semantic version tags in pod manifests." },
+      { id: 'A', text: "Omit image tags completely to let the container runtime pick an arbitrary version." },
       { id: 'B', text: "Always reference the `latest` image tag across all development and production environments." },
-      { id: 'C', text: "Omit image tags completely to let the container runtime pick an arbitrary version." },
-      { id: 'D', text: "Manually re-tag failing production containers with older version strings on the worker nodes." }
+      { id: 'C', text: "Manually re-tag failing production containers with older version strings on the worker nodes." },
+      { id: 'D', text: "Pin container image references to immutable image digest hashes (`@sha256:...`) or strict semantic version tags in pod manifests." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Pin container image references to immutable image digest hashes (`@sha256:...`) or strict semantic version tags in pod manifests. The `latest` tag is mutable and can point to different code revisions over time, leading to unpredictable deployments and inconsistent replicas. Pinning images to semantic versions or immutable cryptographic digests (`sha256:...`) guarantees deterministic, repeatable, and audited deployments.",
     referenceUrl: "https://kubernetes.io/docs/concepts/containers/images/#image-names",
@@ -429,12 +429,12 @@ export const K8S_CKAD_QUESTIONS_12 = [
     scenario: "A cloud-native application engineering team is establishing high-availability deployment patterns and zero-downtime release safeguards for enterprise services. The Kubernetes application developer evaluates Base Images to harden container images against remote code execution vulnerabilities by removing operating system shells and utilities.",
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives? Minimal distroless base images running as non-root user for security hardening is under consideration.",
     options: [
-      { id: 'A', text: "Use Google Distroless or minimal Alpine base images and explicitly configure the container to run as a non-root UID." },
-      { id: 'B', text: "Base all application containers on full desktop Ubuntu images with root user defaults." },
-      { id: 'C', text: "Install SSH daemons and Telnet inside all production container images for remote access." },
-      { id: 'D', text: "Grant full sudo privileges to the application runtime process inside the container." }
+      { id: 'A', text: "Base all application containers on full desktop Ubuntu images with root user defaults." },
+      { id: 'B', text: "Grant full sudo privileges to the application runtime process inside the container." },
+      { id: 'C', text: "Use Google Distroless or minimal Alpine base images and explicitly configure the container to run as a non-root UID." },
+      { id: 'D', text: "Install SSH daemons and Telnet inside all production container images for remote access." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Use Google Distroless or minimal Alpine base images and explicitly configure the container to run as a non-root UID. Distroless images contain only the application binary and its immediate runtime dependencies (libc, SSL certs), omitting package managers, shells (bash/sh), and system utilities. Pairing distroless images with a non-root UID severely restricts an attacker's ability to execute commands if a vulnerability is exploited.",
     referenceUrl: "https://github.com/GoogleContainerTools/distroless",
@@ -450,12 +450,12 @@ export const K8S_CKAD_QUESTIONS_12 = [
     scenario: "A high-throughput web application experiences unpredictable spikes in user transactions and requires automated, reliable scaling across Kubernetes clusters. The Kubernetes application developer evaluates Base Images to harden container images against remote code execution vulnerabilities by removing operating system shells and utilities.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting backend stability? Minimal distroless base images running as non-root user for security hardening is under consideration.",
     options: [
-      { id: 'A', text: "Use Google Distroless or minimal Alpine base images and explicitly configure the container to run as a non-root UID." },
+      { id: 'A', text: "Install SSH daemons and Telnet inside all production container images for remote access." },
       { id: 'B', text: "Base all application containers on full desktop Ubuntu images with root user defaults." },
-      { id: 'C', text: "Install SSH daemons and Telnet inside all production container images for remote access." },
+      { id: 'C', text: "Use Google Distroless or minimal Alpine base images and explicitly configure the container to run as a non-root UID." },
       { id: 'D', text: "Grant full sudo privileges to the application runtime process inside the container." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Use Google Distroless or minimal Alpine base images and explicitly configure the container to run as a non-root UID. Distroless images contain only the application binary and its immediate runtime dependencies (libc, SSL certs), omitting package managers, shells (bash/sh), and system utilities. Pairing distroless images with a non-root UID severely restricts an attacker's ability to execute commands if a vulnerability is exploited.",
     referenceUrl: "https://github.com/GoogleContainerTools/distroless",
@@ -471,12 +471,12 @@ export const K8S_CKAD_QUESTIONS_12 = [
     scenario: "A security compliance auditor requires strict container runtime isolation, least-privilege credential access, and defense-in-depth network policies across all namespaces. The Kubernetes application developer evaluates Base Images to harden container images against remote code execution vulnerabilities by removing operating system shells and utilities.",
     question: "Which solution properly implements these mandatory container and cluster security controls? Minimal distroless base images running as non-root user for security hardening is under consideration.",
     options: [
-      { id: 'A', text: "Use Google Distroless or minimal Alpine base images and explicitly configure the container to run as a non-root UID." },
-      { id: 'B', text: "Base all application containers on full desktop Ubuntu images with root user defaults." },
-      { id: 'C', text: "Install SSH daemons and Telnet inside all production container images for remote access." },
-      { id: 'D', text: "Grant full sudo privileges to the application runtime process inside the container." }
+      { id: 'A', text: "Install SSH daemons and Telnet inside all production container images for remote access." },
+      { id: 'B', text: "Grant full sudo privileges to the application runtime process inside the container." },
+      { id: 'C', text: "Use Google Distroless or minimal Alpine base images and explicitly configure the container to run as a non-root UID." },
+      { id: 'D', text: "Base all application containers on full desktop Ubuntu images with root user defaults." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Use Google Distroless or minimal Alpine base images and explicitly configure the container to run as a non-root UID. Distroless images contain only the application binary and its immediate runtime dependencies (libc, SSL certs), omitting package managers, shells (bash/sh), and system utilities. Pairing distroless images with a non-root UID severely restricts an attacker's ability to execute commands if a vulnerability is exploited.",
     referenceUrl: "https://github.com/GoogleContainerTools/distroless",
@@ -492,12 +492,12 @@ export const K8S_CKAD_QUESTIONS_12 = [
     scenario: "An application development team is migrating legacy monolithic applications into containerized microservices running on Kubernetes. The Kubernetes application developer evaluates Base Images to harden container images against remote code execution vulnerabilities by removing operating system shells and utilities.",
     question: "Which architectural pattern or feature enables the team to modernize services with minimal disruption and low operational friction? Minimal distroless base images running as non-root user for security hardening is under consideration.",
     options: [
-      { id: 'A', text: "Use Google Distroless or minimal Alpine base images and explicitly configure the container to run as a non-root UID." },
-      { id: 'B', text: "Base all application containers on full desktop Ubuntu images with root user defaults." },
-      { id: 'C', text: "Install SSH daemons and Telnet inside all production container images for remote access." },
-      { id: 'D', text: "Grant full sudo privileges to the application runtime process inside the container." }
+      { id: 'A', text: "Install SSH daemons and Telnet inside all production container images for remote access." },
+      { id: 'B', text: "Grant full sudo privileges to the application runtime process inside the container." },
+      { id: 'C', text: "Base all application containers on full desktop Ubuntu images with root user defaults." },
+      { id: 'D', text: "Use Google Distroless or minimal Alpine base images and explicitly configure the container to run as a non-root UID." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Use Google Distroless or minimal Alpine base images and explicitly configure the container to run as a non-root UID. Distroless images contain only the application binary and its immediate runtime dependencies (libc, SSL certs), omitting package managers, shells (bash/sh), and system utilities. Pairing distroless images with a non-root UID severely restricts an attacker's ability to execute commands if a vulnerability is exploited.",
     referenceUrl: "https://github.com/GoogleContainerTools/distroless",
@@ -513,12 +513,12 @@ export const K8S_CKAD_QUESTIONS_12 = [
     scenario: "An SRE team is optimizing application stability to eliminate single points of failure, streamline observability, and ensure graceful failure handling. The Kubernetes application developer evaluates Base Images to harden container images against remote code execution vulnerabilities by removing operating system shells and utilities.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees service reliability? Minimal distroless base images running as non-root user for security hardening is under consideration.",
     options: [
-      { id: 'A', text: "Use Google Distroless or minimal Alpine base images and explicitly configure the container to run as a non-root UID." },
-      { id: 'B', text: "Base all application containers on full desktop Ubuntu images with root user defaults." },
-      { id: 'C', text: "Install SSH daemons and Telnet inside all production container images for remote access." },
-      { id: 'D', text: "Grant full sudo privileges to the application runtime process inside the container." }
+      { id: 'A', text: "Install SSH daemons and Telnet inside all production container images for remote access." },
+      { id: 'B', text: "Grant full sudo privileges to the application runtime process inside the container." },
+      { id: 'C', text: "Base all application containers on full desktop Ubuntu images with root user defaults." },
+      { id: 'D', text: "Use Google Distroless or minimal Alpine base images and explicitly configure the container to run as a non-root UID." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Use Google Distroless or minimal Alpine base images and explicitly configure the container to run as a non-root UID. Distroless images contain only the application binary and its immediate runtime dependencies (libc, SSL certs), omitting package managers, shells (bash/sh), and system utilities. Pairing distroless images with a non-root UID severely restricts an attacker's ability to execute commands if a vulnerability is exploited.",
     referenceUrl: "https://github.com/GoogleContainerTools/distroless",

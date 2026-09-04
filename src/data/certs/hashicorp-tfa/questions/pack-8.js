@@ -9,12 +9,12 @@ export const HASHICORP_TFA_QUESTIONS_8 = [
     scenario: "A developer provisions a virtual machine for a one-off developer sandbox. After initial creation, all future manual modifications made by the developer must be ignored by Terraform.",
     question: "Which syntax ignores all resource attributes after initial creation?",
     options: [
-      { id: 'A', text: "lifecycle { ignore_changes = [\"*\"] }" },
-      { id: 'B', text: "lifecycle { static = true }" },
+      { id: 'A', text: "lifecycle { static = true }" },
+      { id: 'B', text: "lifecycle { ignore_changes = all }" },
       { id: 'C', text: "lifecycle { freeze = true }" },
-      { id: 'D', text: "lifecycle { ignore_changes = all }" }
+      { id: 'D', text: "lifecycle { ignore_changes = [\"*\"] }" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Setting `ignore_changes = all` instructs Terraform to create the resource initially, but completely disregard any future attribute drift or changes in live infrastructure on subsequent plan/apply runs.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/meta-arguments/lifecycle#ignore_changes",
@@ -30,12 +30,12 @@ export const HASHICORP_TFA_QUESTIONS_8 = [
     scenario: "A virtual machine needs to be recreated whenever a specific launch template or user_data script changes.",
     question: "Which lifecycle argument introduced in Terraform 1.2 forces a resource replacement when referenced resources change?",
     options: [
-      { id: 'A', text: "lifecycle { recreate_on = [aws_launch_template.app] }" },
+      { id: 'A', text: "lifecycle { replace_triggered_by = [aws_launch_template.app] }" },
       { id: 'B', text: "lifecycle { triggers_replace = [aws_launch_template.app] }" },
       { id: 'C', text: "lifecycle { depends_on_replace = [aws_launch_template.app] }" },
-      { id: 'D', text: "lifecycle { replace_triggered_by = [aws_launch_template.app] }" }
+      { id: 'D', text: "lifecycle { recreate_on = [aws_launch_template.app] }" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Introduced in Terraform 1.2, `replace_triggered_by` accepts references to other resources. If any referenced resource or attribute changes, Terraform automatically plans a replacement of the declaring resource, eliminating hacky null_resource triggers.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/meta-arguments/lifecycle#replace_triggered_by",
@@ -51,12 +51,12 @@ export const HASHICORP_TFA_QUESTIONS_8 = [
     scenario: "A DevOps team uses Amazon S3 as the remote backend in a GitHub Actions CI runner hosted on an AWS EC2 instance.",
     question: "How should the backend authenticate to the S3 bucket and DynamoDB table without storing static access keys?",
     options: [
-      { id: 'A', text: "By hardcoding credentials into main.tf" },
-      { id: 'B', text: "By allowing Terraform to automatically inherit the IAM Instance Profile (or OIDC Web Identity) assigned to the runner host" },
-      { id: 'C', text: "By committing AWS_SECRET_ACCESS_KEY into Git" },
+      { id: 'A', text: "By committing AWS_SECRET_ACCESS_KEY into Git" },
+      { id: 'B', text: "By hardcoding credentials into main.tf" },
+      { id: 'C', text: "By allowing Terraform to automatically inherit the IAM Instance Profile (or OIDC Web Identity) assigned to the runner host" },
       { id: 'D', text: "By using unauthenticated public S3 buckets" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Terraform backends leverage standard cloud SDK credential chains. On AWS, the S3 backend automatically inherits credentials from IAM Instance Profiles, ECS task roles, or OIDC Web Identity federation, eliminating static credential leakage.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/settings/backends/s3#assumerole",
@@ -72,12 +72,12 @@ export const HASHICORP_TFA_QUESTIONS_8 = [
     scenario: "An administrator runs `terraform plan -refresh-only` and Terraform detects that an S3 bucket has new tags added via the AWS console.",
     question: "What does the plan output propose to do with the detected tags?",
     options: [
-      { id: 'A', text: "It proposes deleting the S3 bucket" },
-      { id: 'B', text: "It fails with an error" },
-      { id: 'C', text: "It proposes deleting the tags from the S3 bucket" },
-      { id: 'D', text: "It proposes updating the state file to include the new tags, leaving the cloud infrastructure completely unchanged" }
+      { id: 'A', text: "It proposes deleting the tags from the S3 bucket" },
+      { id: 'B', text: "It proposes updating the state file to include the new tags, leaving the cloud infrastructure completely unchanged" },
+      { id: 'C', text: "It fails with an error" },
+      { id: 'D', text: "It proposes deleting the S3 bucket" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "A `-refresh-only` run compares cloud infrastructure against the state file. If drift is found, it plans to update the `state file` to match reality, allowing users to synchronize state without making any modifications to real cloud resources.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/plan#refresh-only",
@@ -93,12 +93,12 @@ export const HASHICORP_TFA_QUESTIONS_8 = [
     scenario: "A platform engineer wants to list all EC2 instance IDs tracked in a remote S3 backend using a single bash command line.",
     question: "Which command combination achieves this cleanly?",
     options: [
-      { id: 'A', text: "cat terraform.tfstate | grep id" },
+      { id: 'A', text: "terraform state pull | jq '.resources[] | select(.type==\"aws_instance\") | .instances[].attributes.id'" },
       { id: 'B', text: "terraform state list | grep id" },
-      { id: 'C', text: "terraform state pull | jq '.resources[] | select(.type==\"aws_instance\") | .instances[].attributes.id'" },
+      { id: 'C', text: "cat terraform.tfstate | grep id" },
       { id: 'D', text: "terraform show -raw id" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Because `terraform state pull` outputs the current state as valid JSON to `stdout`, it pairs seamlessly with `jq` to query attributes, search for resource types, or audit security properties programmatically.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/state/pull",
@@ -114,12 +114,12 @@ export const HASHICORP_TFA_QUESTIONS_8 = [
     scenario: "An organization running HashiCorp Consul on-premises uses Consul's Key-Value store for Terraform state storage.",
     question: "Which native Consul capability provides distributed state locking?",
     options: [
-      { id: 'A', text: "External DynamoDB tables" },
-      { id: 'B', text: "Consul Raft log rotation" },
+      { id: 'A', text: "Consul Raft log rotation" },
+      { id: 'B', text: "Consul Key-Value sessions and locks" },
       { id: 'C', text: "Consul Connect service mesh" },
-      { id: 'D', text: "Consul Key-Value sessions and locks" }
+      { id: 'D', text: "External DynamoDB tables" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "The `consul` backend stores state in Consul's distributed KV store and natively utilizes Consul `sessions` to acquire and release state locks automatically without requiring external databases.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/settings/backends/consul",
@@ -135,12 +135,12 @@ export const HASHICORP_TFA_QUESTIONS_8 = [
     scenario: "A company builds an internal developer platform that stores Terraform state via a custom REST API supporting HTTP GET, POST, and DELETE requests.",
     question: "Which standard Terraform backend integrates with custom RESTful endpoints?",
     options: [
-      { id: 'A', text: "api backend" },
-      { id: 'B', text: "http backend" },
+      { id: 'A', text: "custom backend" },
+      { id: 'B', text: "api backend" },
       { id: 'C', text: "rest backend" },
-      { id: 'D', text: "custom backend" }
+      { id: 'D', text: "http backend" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The `http` backend stores state using a simple REST client. It issues HTTP `GET` to read state, `POST` to update state, and supports HTTP `LOCK` and `UNLOCK` methods for custom state locking implementations (e.g. GitLab Managed Terraform State).",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/settings/backends/http",
@@ -156,12 +156,12 @@ export const HASHICORP_TFA_QUESTIONS_8 = [
     scenario: "An enterprise migrates from a single monolithic 5,000-resource state file to 20 smaller state files (networking, shared-services, apps-tier).",
     question: "Which two major operational benefits are achieved by this state decoupling?",
     options: [
-      { id: 'A', text: "Eliminates the need for writing HCL code" },
+      { id: 'A', text: "Automates cloud provider account creation" },
       { id: 'B', text: "Cloud providers discount infrastructure costs by 50%" },
-      { id: 'C', text: "Automates cloud provider account creation" },
-      { id: 'D', text: "Drastically reduced blast radius (errors in one app cannot destroy networking) and faster plan/apply execution times" }
+      { id: 'C', text: "Drastically reduced blast radius (errors in one app cannot destroy networking) and faster plan/apply execution times" },
+      { id: 'D', text: "Eliminates the need for writing HCL code" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Decoupling infrastructure into multiple isolated state files limits the blast radius of misconfigurations, isolates team permissions, and drastically slashes `terraform plan` execution times by reducing the number of cloud API calls per run.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/state/purpose",
@@ -178,9 +178,9 @@ export const HASHICORP_TFA_QUESTIONS_8 = [
     question: "Why is granting broad read access to remote state files a significant security risk?",
     options: [
       { id: 'A', text: "Because state files contain all secrets and passwords in plaintext; reading remote state grants access to every sensitive attribute in that state file" },
-      { id: 'B', text: "Remote state data sources do not access state files" },
-      { id: 'C', text: "Because remote state files can execute arbitrary shell scripts" },
-      { id: 'D', text: "Because reading state deletes the remote resources" }
+      { id: 'B', text: "Because reading state deletes the remote resources" },
+      { id: 'C', text: "Remote state data sources do not access state files" },
+      { id: 'D', text: "Because remote state files can execute arbitrary shell scripts" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,12 +198,12 @@ export const HASHICORP_TFA_QUESTIONS_8 = [
     scenario: "In a legacy Terraform 0.12 workflow, an engineer ran `terraform taint aws_instance.app`.",
     question: "What did this command modify behind the scenes?",
     options: [
-      { id: 'A', text: "It terminated the cloud virtual machine immediately" },
-      { id: 'B', text: "It corrupted the dependency lock file" },
+      { id: 'A', text: "It corrupted the dependency lock file" },
+      { id: 'B', text: "It modified the state file by adding a 'status: tainted' attribute to that resource instance, without touching the cloud resource" },
       { id: 'C', text: "It deleted the resource block from main.tf" },
-      { id: 'D', text: "It modified the state file by adding a 'status: tainted' attribute to that resource instance, without touching the cloud resource" }
+      { id: 'D', text: "It terminated the cloud virtual machine immediately" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "`terraform taint` modified only the state file: it flagged the resource record as `tainted`. On the subsequent `terraform apply`, Terraform read this flag, planned the resource's destruction and recreation, and cleared the tainted flag.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/taint",
@@ -220,9 +220,9 @@ export const HASHICORP_TFA_QUESTIONS_8 = [
     question: "Which flag instructs Terraform to wait and retry acquiring the lock for up to a specified duration before erroring?",
     options: [
       { id: 'A', text: "-lock-timeout=30s (e.g. -lock-timeout=5m)" },
-      { id: 'B', text: "-lock-retry=3" },
-      { id: 'C', text: "-wait-lock=30s" },
-      { id: 'D', text: "-retry-lock=30s" }
+      { id: 'B', text: "-retry-lock=30s" },
+      { id: 'C', text: "-lock-retry=3" },
+      { id: 'D', text: "-wait-lock=30s" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -240,12 +240,12 @@ export const HASHICORP_TFA_QUESTIONS_8 = [
     scenario: "A developer wants to run `terraform plan` to quickly inspect a proposed change locally, but a long-running pipeline currently holds the state lock for an apply.",
     question: "Which flag allows running plan without acquiring a state lock (at the risk of viewing a stale plan)?",
     options: [
-      { id: 'A', text: "-force" },
-      { id: 'B', text: "-skip-lock" },
-      { id: 'C', text: "-lock=false" },
+      { id: 'A', text: "-skip-lock" },
+      { id: 'B', text: "-lock=false" },
+      { id: 'C', text: "-force" },
       { id: 'D', text: "-read-only" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Passing `-lock=false` bypasses state lock acquisition. While useful for quick read-only planning when an apply is running, it risks reading partially written state and should never be used during `apply`.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/plan#lock-true",
@@ -262,9 +262,9 @@ export const HASHICORP_TFA_QUESTIONS_8 = [
     question: "How does Terraform uniquely identify and track resource instances across HCL files and the state file?",
     options: [
       { id: 'A', text: "Through unique resource addresses formatted as &lt;resource_type&gt;.&lt;resource_name&gt;[&lt;index_or_key&gt;] (e.g. aws_instance.web[0])" },
-      { id: 'B', text: "By the file creation date" },
-      { id: 'C', text: "Through random cloud UUIDs assigned by AWS" },
-      { id: 'D', text: "Through the line number where the resource is defined in main.tf" }
+      { id: 'B', text: "Through the line number where the resource is defined in main.tf" },
+      { id: 'C', text: "By the file creation date" },
+      { id: 'D', text: "Through random cloud UUIDs assigned by AWS" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -282,12 +282,12 @@ export const HASHICORP_TFA_QUESTIONS_8 = [
     scenario: "A team organizes flat configuration files into modular subdirectories. Running plan indicates Terraform will destroy 40 resources and recreate them under new module addresses.",
     question: "What two approaches preserve the cloud resources and update state without any destruction?",
     options: [
-      { id: 'A', text: "Renaming the cloud resources in the cloud web console" },
-      { id: 'B', text: "Using declarative 'moved' blocks in code (Terraform 1.1+) or running imperative 'terraform state mv' CLI commands" },
+      { id: 'A', text: "Running terraform apply -force" },
+      { id: 'B', text: "Renaming the cloud resources in the cloud web console" },
       { id: 'C', text: "Deleting the state file and running init" },
-      { id: 'D', text: "Running terraform apply -force" }
+      { id: 'D', text: "Using declarative 'moved' blocks in code (Terraform 1.1+) or running imperative 'terraform state mv' CLI commands" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Both declarative `moved` blocks and imperative `terraform state mv` commands update the state file's address mapping, allowing teams to restructure code without triggering destruction of live infrastructure.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/modules/develop/refactoring",
@@ -303,12 +303,12 @@ export const HASHICORP_TFA_QUESTIONS_8 = [
     scenario: "A developer deletes an entire `.tf` configuration file containing an S3 bucket definition and runs `terraform apply`.",
     question: "How does Terraform know the bucket needs to be deleted from the cloud when its code no longer exists in any file?",
     options: [
-      { id: 'A', text: "Terraform cannot know; the bucket remains orphaned forever" },
+      { id: 'A', text: "Cloud providers alert Terraform via webhooks" },
       { id: 'B', text: "Terraform searches Git commit history" },
-      { id: 'C', text: "The bucket is still recorded in the state file; comparing the state file against the configuration reveals the resource was deleted from code" },
-      { id: 'D', text: "Cloud providers alert Terraform via webhooks" }
+      { id: 'C', text: "Terraform cannot know; the bucket remains orphaned forever" },
+      { id: 'D', text: "The bucket is still recorded in the state file; comparing the state file against the configuration reveals the resource was deleted from code" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "This is the core reason Terraform maintains state: by comparing the state file (which tracks what was provisioned previously) against the current configuration files, Terraform detects that a previously created resource is missing from code and plans its destruction.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/state/purpose",
@@ -325,9 +325,9 @@ export const HASHICORP_TFA_QUESTIONS_8 = [
     question: "What action does the Terraform CLI take when encountering state written by a newer Terraform version?",
     options: [
       { id: 'A', text: "It refuses to run and errors immediately: 'State file was written by a newer version of Terraform'" },
-      { id: 'B', text: "It ignores the version and runs normally" },
-      { id: 'C', text: "It deletes the state file" },
-      { id: 'D', text: "It downgrades the state file automatically and corrupts data" }
+      { id: 'B', text: "It deletes the state file" },
+      { id: 'C', text: "It downgrades the state file automatically and corrupts data" },
+      { id: 'D', text: "It ignores the version and runs normally" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -366,12 +366,12 @@ export const HASHICORP_TFA_QUESTIONS_8 = [
     scenario: "A DevOps engineer compares different planning options in the Terraform CLI.",
     question: "What is the operational difference between a standard terraform plan and a terraform plan -refresh-only?",
     options: [
-      { id: 'A', text: "Standard plan does not query cloud APIs; refresh-only queries APIs" },
-      { id: 'B', text: "A standard plan proposes infrastructure changes to match declared code after refreshing; refresh-only proposes state file updates to match reality without proposing any cloud changes" },
-      { id: 'C', text: "There is no difference" },
-      { id: 'D', text: "Standard plan modifies cloud resources; refresh-only does not" }
+      { id: 'A', text: "There is no difference" },
+      { id: 'B', text: "Standard plan does not query cloud APIs; refresh-only queries APIs" },
+      { id: 'C', text: "Standard plan modifies cloud resources; refresh-only does not" },
+      { id: 'D', text: "A standard plan proposes infrastructure changes to match declared code after refreshing; refresh-only proposes state file updates to match reality without proposing any cloud changes" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "A standard `terraform plan` queries APIs to refresh state and then calculates actions needed to bring cloud infrastructure into alignment with declared HCL code. A `refresh-only plan` only updates the state file to match cloud reality without altering cloud infrastructure.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/plan#refresh-only",
@@ -408,12 +408,12 @@ export const HASHICORP_TFA_QUESTIONS_8 = [
     scenario: "During a backend reconfiguration, the automated migration crashes and leaves state stranded in a local temporary file.",
     question: "How can an administrator safely restore the stranded state to the new remote backend manually?",
     options: [
-      { id: 'A', text: "Delete the .terraform directory" },
-      { id: 'B', text: "Copy the file directly into the S3 bucket using AWS CLI" },
-      { id: 'C', text: "Run terraform apply -restore" },
-      { id: 'D', text: "Run terraform state push <path-to-stranded-state.json>" }
+      { id: 'A', text: "Run terraform state push <path-to-stranded-state.json>" },
+      { id: 'B', text: "Run terraform apply -restore" },
+      { id: 'C', text: "Copy the file directly into the S3 bucket using AWS CLI" },
+      { id: 'D', text: "Delete the .terraform directory" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Running `terraform state push` validates the state file's lineage and serial numbers and uploads it through the configured backend API, properly handling backend metadata and locking.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/state/push",
@@ -429,12 +429,12 @@ export const HASHICORP_TFA_QUESTIONS_8 = [
     scenario: "An enterprise configuration manages 2,000 resources. Cloud providers enforce API rate limits of 10 requests per second.",
     question: "How does Terraform's state file prevent API rate limit exhaustion during dependency calculations?",
     options: [
-      { id: 'A', text: "Terraform runs only at midnight" },
-      { id: 'B', text: "Terraform caches resource attribute metadata in state, enabling local graph calculations without making thousands of cloud API calls for static attributes" },
-      { id: 'C', text: "Terraform ignores cloud rate limits" },
+      { id: 'A', text: "Terraform ignores cloud rate limits" },
+      { id: 'B', text: "Terraform runs only at midnight" },
+      { id: 'C', text: "Terraform caches resource attribute metadata in state, enabling local graph calculations without making thousands of cloud API calls for static attributes" },
       { id: 'D', text: "Terraform bypasses cloud APIs entirely" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "By recording current attributes, IDs, and references in the state file, Terraform can resolve dependency expressions (e.g. finding a subnet ID to attach a VM) locally in memory without querying the cloud provider API repeatedly.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/state/purpose#performance",
@@ -450,12 +450,12 @@ export const HASHICORP_TFA_QUESTIONS_8 = [
     scenario: "A developer uses the `local_file` or `aws_s3_object` resource with `etag = filemd5(\"app.zip\")`.",
     question: "How does Terraform detect that the local file has changed and needs to be re-uploaded?",
     options: [
-      { id: 'A', text: "Terraform asks the developer interactively" },
+      { id: 'A', text: "Terraform calculates the new MD5 hash, compares it against the etag stored in the state file, and plans an update when hashes differ" },
       { id: 'B', text: "Terraform monitors file timestamps on the OS" },
       { id: 'C', text: "Terraform uploads the file every single second" },
-      { id: 'D', text: "Terraform calculates the new MD5 hash, compares it against the etag stored in the state file, and plans an update when hashes differ" }
+      { id: 'D', text: "Terraform asks the developer interactively" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "By computing cryptographic hashes (e.g. `filemd5()` or `filesha256()`) and storing them in state attributes like `etag`, Terraform detects content modifications during `plan` and triggers updates only when file contents actually change.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/functions/filemd5",
@@ -471,12 +471,12 @@ export const HASHICORP_TFA_QUESTIONS_8 = [
     scenario: "An engineer imports an existing AWS Security Group into Terraform state using `terraform import aws_security_group.sg sg-0123456789`.",
     question: "Does importing the security group automatically import inline egress and ingress rules associated with it?",
     options: [
-      { id: 'A', text: "Rules must always be separate resources" },
-      { id: 'B', text: "Only if imported with -all-rules flag" },
-      { id: 'C', text: "Yes, if the security group resource schema defines inline rules, the provider queries and populates their attributes into the security group's state record" },
-      { id: 'D', text: "No, security group rules can never be imported" }
+      { id: 'A', text: "No, security group rules can never be imported" },
+      { id: 'B', text: "Yes, if the security group resource schema defines inline rules, the provider queries and populates their attributes into the security group's state record" },
+      { id: 'C', text: "Rules must always be separate resources" },
+      { id: 'D', text: "Only if imported with -all-rules flag" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "When importing a resource, the provider's `Read` function queries the cloud API for the complete resource representation. If attributes (like inline ingress/egress rules) belong to the resource's schema, they are populated into state automatically.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/import",
@@ -492,12 +492,12 @@ export const HASHICORP_TFA_QUESTIONS_8 = [
     scenario: "A security reviewer audits a company's Git repository and checks the .gitignore file.",
     question: "Why does industry best practice strictly forbid committing terraform.tfstate files to Git repositories?",
     options: [
-      { id: 'A', text: "Git repositories cannot store JSON files" },
-      { id: 'B', text: "State files contain plaintext secrets, passwords, and private keys, and Git cannot provide concurrent state locking, leading to state corruption" },
+      { id: 'A', text: "State files contain plaintext secrets, passwords, and private keys, and Git cannot provide concurrent state locking, leading to state corruption" },
+      { id: 'B', text: "Git repositories cannot store JSON files" },
       { id: 'C', text: "Terraform CLI deletes Git repositories if state is detected" },
       { id: 'D', text: "State files are too small for Git" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Committing state to Git poses two fatal risks: `Security Vulnerability` (passwords and API keys in state are permanently exposed in Git history) and `Concurrency Failure` (Git cannot provide real-time distributed locking, causing merge conflicts and state corruption).",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/state/sensitive-data",
@@ -513,12 +513,12 @@ export const HASHICORP_TFA_QUESTIONS_8 = [
     scenario: "An organization implements GitOps with multiple automated GitHub Actions runners executing plans and applies.",
     question: "What guarantees that two parallel pull request merges do not execute terraform apply concurrently and corrupt the backend state?",
     options: [
-      { id: 'A', text: "Running terraform with -parallelism=1" },
-      { id: 'B', text: "Writing shell scripts that check file timestamps" },
-      { id: 'C', text: "The remote backend's distributed state locking mechanism (e.g. DynamoDB, Azure Blob Lease, or Terraform Cloud locking)" },
-      { id: 'D', text: "GitHub Actions queue priority alone" }
+      { id: 'A', text: "The remote backend's distributed state locking mechanism (e.g. DynamoDB, Azure Blob Lease, or Terraform Cloud locking)" },
+      { id: 'B', text: "GitHub Actions queue priority alone" },
+      { id: 'C', text: "Running terraform with -parallelism=1" },
+      { id: 'D', text: "Writing shell scripts that check file timestamps" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Distributed state locking provided by modern backends is the foundational guarantee of safe automation. Even if multiple CI/CD runners start simultaneously across different physical servers, the backend's distributed lock enforces strict mutual exclusion.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/state/locking",

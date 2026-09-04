@@ -9,12 +9,12 @@ export const AWS_CLF_QUESTIONS_20 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The organization evaluates AWS Organizations to combine billing across multiple AWS accounts in an enterprise to receive a single monthly bill and aggregate usage for tiered volume discounts.",
     question: "Which concept or service configuration satisfies these operational resilience objectives? AWS Organizations consolidated billing and volume discounts is under consideration.",
     options: [
-      { id: 'A', text: "Enable Consolidated Billing within AWS Organizations." },
-      { id: 'B', text: "Configure separate credit cards on each AWS account independently." },
-      { id: 'C', text: "Deploy AWS Cost Explorer in each account without linking." },
-      { id: 'D', text: "Create a joint shared IAM user across all accounts." }
+      { id: 'A', text: "Create a joint shared IAM user across all accounts." },
+      { id: 'B', text: "Enable Consolidated Billing within AWS Organizations." },
+      { id: 'C', text: "Configure separate credit cards on each AWS account independently." },
+      { id: 'D', text: "Deploy AWS Cost Explorer in each account without linking." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Enable Consolidated Billing within AWS Organizations. Consolidated Billing is a feature of AWS Organizations that consolidates payment for multiple AWS accounts into a single management account. It aggregates resource usage across all member accounts, allowing the organization to achieve volume pricing tiers (such as S3 tiered storage discounts) and share Reserved Instance / Savings Plans benefits.",
     referenceUrl: "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_consolidated-billing.html",
@@ -30,12 +30,12 @@ export const AWS_CLF_QUESTIONS_20 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The organization evaluates AWS Organizations to combine billing across multiple AWS accounts in an enterprise to receive a single monthly bill and aggregate usage for tiered volume discounts.",
     question: "Which architectural approach should the team select to manage this demand efficiently? AWS Organizations consolidated billing and volume discounts is under consideration.",
     options: [
-      { id: 'A', text: "Enable Consolidated Billing within AWS Organizations." },
-      { id: 'B', text: "Configure separate credit cards on each AWS account independently." },
-      { id: 'C', text: "Deploy AWS Cost Explorer in each account without linking." },
-      { id: 'D', text: "Create a joint shared IAM user across all accounts." }
+      { id: 'A', text: "Create a joint shared IAM user across all accounts." },
+      { id: 'B', text: "Deploy AWS Cost Explorer in each account without linking." },
+      { id: 'C', text: "Configure separate credit cards on each AWS account independently." },
+      { id: 'D', text: "Enable Consolidated Billing within AWS Organizations." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Enable Consolidated Billing within AWS Organizations. Consolidated Billing is a feature of AWS Organizations that consolidates payment for multiple AWS accounts into a single management account. It aggregates resource usage across all member accounts, allowing the organization to achieve volume pricing tiers (such as S3 tiered storage discounts) and share Reserved Instance / Savings Plans benefits.",
     referenceUrl: "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_consolidated-billing.html",
@@ -52,9 +52,9 @@ export const AWS_CLF_QUESTIONS_20 = [
     question: "Which solution properly implements these mandatory security and governance controls? AWS Organizations consolidated billing and volume discounts is under consideration.",
     options: [
       { id: 'A', text: "Enable Consolidated Billing within AWS Organizations." },
-      { id: 'B', text: "Configure separate credit cards on each AWS account independently." },
-      { id: 'C', text: "Deploy AWS Cost Explorer in each account without linking." },
-      { id: 'D', text: "Create a joint shared IAM user across all accounts." }
+      { id: 'B', text: "Deploy AWS Cost Explorer in each account without linking." },
+      { id: 'C', text: "Create a joint shared IAM user across all accounts." },
+      { id: 'D', text: "Configure separate credit cards on each AWS account independently." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -72,12 +72,12 @@ export const AWS_CLF_QUESTIONS_20 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to the AWS Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The organization evaluates AWS Organizations to combine billing across multiple AWS accounts in an enterprise to receive a single monthly bill and aggregate usage for tiered volume discounts.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? AWS Organizations consolidated billing and volume discounts is under consideration.",
     options: [
-      { id: 'A', text: "Enable Consolidated Billing within AWS Organizations." },
-      { id: 'B', text: "Configure separate credit cards on each AWS account independently." },
+      { id: 'A', text: "Configure separate credit cards on each AWS account independently." },
+      { id: 'B', text: "Enable Consolidated Billing within AWS Organizations." },
       { id: 'C', text: "Deploy AWS Cost Explorer in each account without linking." },
       { id: 'D', text: "Create a joint shared IAM user across all accounts." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Enable Consolidated Billing within AWS Organizations. Consolidated Billing is a feature of AWS Organizations that consolidates payment for multiple AWS accounts into a single management account. It aggregates resource usage across all member accounts, allowing the organization to achieve volume pricing tiers (such as S3 tiered storage discounts) and share Reserved Instance / Savings Plans benefits.",
     referenceUrl: "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_consolidated-billing.html",
@@ -93,12 +93,12 @@ export const AWS_CLF_QUESTIONS_20 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The organization evaluates AWS Organizations to combine billing across multiple AWS accounts in an enterprise to receive a single monthly bill and aggregate usage for tiered volume discounts.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? AWS Organizations consolidated billing and volume discounts is under consideration.",
     options: [
-      { id: 'A', text: "Enable Consolidated Billing within AWS Organizations." },
-      { id: 'B', text: "Configure separate credit cards on each AWS account independently." },
+      { id: 'A', text: "Configure separate credit cards on each AWS account independently." },
+      { id: 'B', text: "Create a joint shared IAM user across all accounts." },
       { id: 'C', text: "Deploy AWS Cost Explorer in each account without linking." },
-      { id: 'D', text: "Create a joint shared IAM user across all accounts." }
+      { id: 'D', text: "Enable Consolidated Billing within AWS Organizations." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Enable Consolidated Billing within AWS Organizations. Consolidated Billing is a feature of AWS Organizations that consolidates payment for multiple AWS accounts into a single management account. It aggregates resource usage across all member accounts, allowing the organization to achieve volume pricing tiers (such as S3 tiered storage discounts) and share Reserved Instance / Savings Plans benefits.",
     referenceUrl: "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_consolidated-billing.html",
@@ -114,12 +114,12 @@ export const AWS_CLF_QUESTIONS_20 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The organization evaluates AWS Cost Management to visualize, understand, and analyze historical AWS costs and usage trends over time, and forecast spending for the next 12 months.",
     question: "Which concept or service configuration satisfies these operational resilience objectives? AWS Cost Explorer historical visualization and forecasting is under consideration.",
     options: [
-      { id: 'A', text: "AWS Cost Explorer" },
+      { id: 'A', text: "AWS Trusted Advisor security check" },
       { id: 'B', text: "AWS Pricing Calculator" },
-      { id: 'C', text: "AWS Budgets" },
-      { id: 'D', text: "AWS Trusted Advisor security check" }
+      { id: 'C', text: "AWS Cost Explorer" },
+      { id: 'D', text: "AWS Budgets" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "AWS Cost Explorer AWS Cost Explorer has an easy-to-use interface that lets you visualize, understand, and manage your AWS costs and usage over time. It provides pre-built reports, custom filtering by tags/services, and forecasts future spending based on historical usage patterns.",
     referenceUrl: "https://aws.amazon.com/aws-cost-management/aws-cost-explorer/",
@@ -135,12 +135,12 @@ export const AWS_CLF_QUESTIONS_20 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The organization evaluates AWS Cost Management to visualize, understand, and analyze historical AWS costs and usage trends over time, and forecast spending for the next 12 months.",
     question: "Which architectural approach should the team select to manage this demand efficiently? AWS Cost Explorer historical visualization and forecasting is under consideration.",
     options: [
-      { id: 'A', text: "AWS Cost Explorer" },
+      { id: 'A', text: "AWS Budgets" },
       { id: 'B', text: "AWS Pricing Calculator" },
-      { id: 'C', text: "AWS Budgets" },
-      { id: 'D', text: "AWS Trusted Advisor security check" }
+      { id: 'C', text: "AWS Trusted Advisor security check" },
+      { id: 'D', text: "AWS Cost Explorer" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "AWS Cost Explorer AWS Cost Explorer has an easy-to-use interface that lets you visualize, understand, and manage your AWS costs and usage over time. It provides pre-built reports, custom filtering by tags/services, and forecasts future spending based on historical usage patterns.",
     referenceUrl: "https://aws.amazon.com/aws-cost-management/aws-cost-explorer/",
@@ -156,12 +156,12 @@ export const AWS_CLF_QUESTIONS_20 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The organization evaluates AWS Cost Management to visualize, understand, and analyze historical AWS costs and usage trends over time, and forecast spending for the next 12 months.",
     question: "Which solution properly implements these mandatory security and governance controls? AWS Cost Explorer historical visualization and forecasting is under consideration.",
     options: [
-      { id: 'A', text: "AWS Cost Explorer" },
+      { id: 'A', text: "AWS Trusted Advisor security check" },
       { id: 'B', text: "AWS Pricing Calculator" },
       { id: 'C', text: "AWS Budgets" },
-      { id: 'D', text: "AWS Trusted Advisor security check" }
+      { id: 'D', text: "AWS Cost Explorer" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "AWS Cost Explorer AWS Cost Explorer has an easy-to-use interface that lets you visualize, understand, and manage your AWS costs and usage over time. It provides pre-built reports, custom filtering by tags/services, and forecasts future spending based on historical usage patterns.",
     referenceUrl: "https://aws.amazon.com/aws-cost-management/aws-cost-explorer/",
@@ -177,12 +177,12 @@ export const AWS_CLF_QUESTIONS_20 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to the AWS Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The organization evaluates AWS Cost Management to visualize, understand, and analyze historical AWS costs and usage trends over time, and forecast spending for the next 12 months.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? AWS Cost Explorer historical visualization and forecasting is under consideration.",
     options: [
-      { id: 'A', text: "AWS Cost Explorer" },
+      { id: 'A', text: "AWS Budgets" },
       { id: 'B', text: "AWS Pricing Calculator" },
-      { id: 'C', text: "AWS Budgets" },
-      { id: 'D', text: "AWS Trusted Advisor security check" }
+      { id: 'C', text: "AWS Trusted Advisor security check" },
+      { id: 'D', text: "AWS Cost Explorer" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "AWS Cost Explorer AWS Cost Explorer has an easy-to-use interface that lets you visualize, understand, and manage your AWS costs and usage over time. It provides pre-built reports, custom filtering by tags/services, and forecasts future spending based on historical usage patterns.",
     referenceUrl: "https://aws.amazon.com/aws-cost-management/aws-cost-explorer/",
@@ -199,8 +199,8 @@ export const AWS_CLF_QUESTIONS_20 = [
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? AWS Cost Explorer historical visualization and forecasting is under consideration.",
     options: [
       { id: 'A', text: "AWS Cost Explorer" },
-      { id: 'B', text: "AWS Pricing Calculator" },
-      { id: 'C', text: "AWS Budgets" },
+      { id: 'B', text: "AWS Budgets" },
+      { id: 'C', text: "AWS Pricing Calculator" },
       { id: 'D', text: "AWS Trusted Advisor security check" }
     ],
     correctAnswers: ['A'],
@@ -219,12 +219,12 @@ export const AWS_CLF_QUESTIONS_20 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The organization evaluates AWS Cost Management to set a custom monthly spending limit of $1,000 and receive an automated email alert when forecasted or actual costs exceed 80% of that budget.",
     question: "Which concept or service configuration satisfies these operational resilience objectives? AWS Budgets cost and usage thresholds is under consideration.",
     options: [
-      { id: 'A', text: "Create a Cost Budget in AWS Budgets and configure an alert threshold at 80% linked to email notifications or an SNS topic." },
-      { id: 'B', text: "Configure AWS Cost Anomaly Detection with manual invoice review." },
-      { id: 'C', text: "Deploy an Amazon CloudWatch Logs metric filter searching for billing numbers." },
-      { id: 'D', text: "Review the monthly PDF billing invoice manually." }
+      { id: 'A', text: "Deploy an Amazon CloudWatch Logs metric filter searching for billing numbers." },
+      { id: 'B', text: "Create a Cost Budget in AWS Budgets and configure an alert threshold at 80% linked to email notifications or an SNS topic." },
+      { id: 'C', text: "Review the monthly PDF billing invoice manually." },
+      { id: 'D', text: "Configure AWS Cost Anomaly Detection with manual invoice review." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Create a Cost Budget in AWS Budgets and configure an alert threshold at 80% linked to email notifications or an SNS topic. AWS Budgets allows you to set custom budgets for costs, usage, and reservations, and sends automated alerts via email or Amazon SNS when actual or forecasted spending exceeds your defined threshold (e.g. 80% of $1,000).",
     referenceUrl: "https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html",
@@ -240,12 +240,12 @@ export const AWS_CLF_QUESTIONS_20 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The organization evaluates AWS Cost Management to set a custom monthly spending limit of $1,000 and receive an automated email alert when forecasted or actual costs exceed 80% of that budget.",
     question: "Which architectural approach should the team select to manage this demand efficiently? AWS Budgets cost and usage thresholds is under consideration.",
     options: [
-      { id: 'A', text: "Create a Cost Budget in AWS Budgets and configure an alert threshold at 80% linked to email notifications or an SNS topic." },
+      { id: 'A', text: "Review the monthly PDF billing invoice manually." },
       { id: 'B', text: "Configure AWS Cost Anomaly Detection with manual invoice review." },
       { id: 'C', text: "Deploy an Amazon CloudWatch Logs metric filter searching for billing numbers." },
-      { id: 'D', text: "Review the monthly PDF billing invoice manually." }
+      { id: 'D', text: "Create a Cost Budget in AWS Budgets and configure an alert threshold at 80% linked to email notifications or an SNS topic." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Create a Cost Budget in AWS Budgets and configure an alert threshold at 80% linked to email notifications or an SNS topic. AWS Budgets allows you to set custom budgets for costs, usage, and reservations, and sends automated alerts via email or Amazon SNS when actual or forecasted spending exceeds your defined threshold (e.g. 80% of $1,000).",
     referenceUrl: "https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html",
@@ -261,12 +261,12 @@ export const AWS_CLF_QUESTIONS_20 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The organization evaluates AWS Cost Management to set a custom monthly spending limit of $1,000 and receive an automated email alert when forecasted or actual costs exceed 80% of that budget.",
     question: "Which solution properly implements these mandatory security and governance controls? AWS Budgets cost and usage thresholds is under consideration.",
     options: [
-      { id: 'A', text: "Create a Cost Budget in AWS Budgets and configure an alert threshold at 80% linked to email notifications or an SNS topic." },
-      { id: 'B', text: "Configure AWS Cost Anomaly Detection with manual invoice review." },
-      { id: 'C', text: "Deploy an Amazon CloudWatch Logs metric filter searching for billing numbers." },
-      { id: 'D', text: "Review the monthly PDF billing invoice manually." }
+      { id: 'A', text: "Deploy an Amazon CloudWatch Logs metric filter searching for billing numbers." },
+      { id: 'B', text: "Review the monthly PDF billing invoice manually." },
+      { id: 'C', text: "Create a Cost Budget in AWS Budgets and configure an alert threshold at 80% linked to email notifications or an SNS topic." },
+      { id: 'D', text: "Configure AWS Cost Anomaly Detection with manual invoice review." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Create a Cost Budget in AWS Budgets and configure an alert threshold at 80% linked to email notifications or an SNS topic. AWS Budgets allows you to set custom budgets for costs, usage, and reservations, and sends automated alerts via email or Amazon SNS when actual or forecasted spending exceeds your defined threshold (e.g. 80% of $1,000).",
     referenceUrl: "https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html",
@@ -282,12 +282,12 @@ export const AWS_CLF_QUESTIONS_20 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to the AWS Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The organization evaluates AWS Cost Management to set a custom monthly spending limit of $1,000 and receive an automated email alert when forecasted or actual costs exceed 80% of that budget.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? AWS Budgets cost and usage thresholds is under consideration.",
     options: [
-      { id: 'A', text: "Create a Cost Budget in AWS Budgets and configure an alert threshold at 80% linked to email notifications or an SNS topic." },
-      { id: 'B', text: "Configure AWS Cost Anomaly Detection with manual invoice review." },
-      { id: 'C', text: "Deploy an Amazon CloudWatch Logs metric filter searching for billing numbers." },
-      { id: 'D', text: "Review the monthly PDF billing invoice manually." }
+      { id: 'A', text: "Deploy an Amazon CloudWatch Logs metric filter searching for billing numbers." },
+      { id: 'B', text: "Create a Cost Budget in AWS Budgets and configure an alert threshold at 80% linked to email notifications or an SNS topic." },
+      { id: 'C', text: "Review the monthly PDF billing invoice manually." },
+      { id: 'D', text: "Configure AWS Cost Anomaly Detection with manual invoice review." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Create a Cost Budget in AWS Budgets and configure an alert threshold at 80% linked to email notifications or an SNS topic. AWS Budgets allows you to set custom budgets for costs, usage, and reservations, and sends automated alerts via email or Amazon SNS when actual or forecasted spending exceeds your defined threshold (e.g. 80% of $1,000).",
     referenceUrl: "https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html",
@@ -305,8 +305,8 @@ export const AWS_CLF_QUESTIONS_20 = [
     options: [
       { id: 'A', text: "Create a Cost Budget in AWS Budgets and configure an alert threshold at 80% linked to email notifications or an SNS topic." },
       { id: 'B', text: "Configure AWS Cost Anomaly Detection with manual invoice review." },
-      { id: 'C', text: "Deploy an Amazon CloudWatch Logs metric filter searching for billing numbers." },
-      { id: 'D', text: "Review the monthly PDF billing invoice manually." }
+      { id: 'C', text: "Review the monthly PDF billing invoice manually." },
+      { id: 'D', text: "Deploy an Amazon CloudWatch Logs metric filter searching for billing numbers." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -324,12 +324,12 @@ export const AWS_CLF_QUESTIONS_20 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The organization evaluates AWS Cost Management to estimate the projected monthly costs of an architectural solution on AWS (EC2, S3, RDS) before building or deploying any resources.",
     question: "Which concept or service configuration satisfies these operational resilience objectives? AWS Pricing Calculator for pre-deployment cost estimation is under consideration.",
     options: [
-      { id: 'A', text: "AWS Pricing Calculator" },
-      { id: 'B', text: "AWS Cost Explorer" },
-      { id: 'C', text: "AWS Budgets" },
-      { id: 'D', text: "AWS CloudTrail" }
+      { id: 'A', text: "AWS CloudTrail" },
+      { id: 'B', text: "AWS Pricing Calculator" },
+      { id: 'C', text: "AWS Cost Explorer" },
+      { id: 'D', text: "AWS Budgets" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "AWS Pricing Calculator The AWS Pricing Calculator is a web-based planning tool that allows you to explore AWS services and create detailed cost estimates for your use cases before deploying any infrastructure. Cost Explorer analyzes costs after resources are running.",
     referenceUrl: "https://calculator.aws/",
@@ -345,12 +345,12 @@ export const AWS_CLF_QUESTIONS_20 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The organization evaluates AWS Cost Management to estimate the projected monthly costs of an architectural solution on AWS (EC2, S3, RDS) before building or deploying any resources.",
     question: "Which architectural approach should the team select to manage this demand efficiently? AWS Pricing Calculator for pre-deployment cost estimation is under consideration.",
     options: [
-      { id: 'A', text: "AWS Pricing Calculator" },
-      { id: 'B', text: "AWS Cost Explorer" },
+      { id: 'A', text: "AWS Cost Explorer" },
+      { id: 'B', text: "AWS CloudTrail" },
       { id: 'C', text: "AWS Budgets" },
-      { id: 'D', text: "AWS CloudTrail" }
+      { id: 'D', text: "AWS Pricing Calculator" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "AWS Pricing Calculator The AWS Pricing Calculator is a web-based planning tool that allows you to explore AWS services and create detailed cost estimates for your use cases before deploying any infrastructure. Cost Explorer analyzes costs after resources are running.",
     referenceUrl: "https://calculator.aws/",
@@ -366,12 +366,12 @@ export const AWS_CLF_QUESTIONS_20 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The organization evaluates AWS Cost Management to estimate the projected monthly costs of an architectural solution on AWS (EC2, S3, RDS) before building or deploying any resources.",
     question: "Which solution properly implements these mandatory security and governance controls? AWS Pricing Calculator for pre-deployment cost estimation is under consideration.",
     options: [
-      { id: 'A', text: "AWS Pricing Calculator" },
+      { id: 'A', text: "AWS Budgets" },
       { id: 'B', text: "AWS Cost Explorer" },
-      { id: 'C', text: "AWS Budgets" },
-      { id: 'D', text: "AWS CloudTrail" }
+      { id: 'C', text: "AWS CloudTrail" },
+      { id: 'D', text: "AWS Pricing Calculator" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "AWS Pricing Calculator The AWS Pricing Calculator is a web-based planning tool that allows you to explore AWS services and create detailed cost estimates for your use cases before deploying any infrastructure. Cost Explorer analyzes costs after resources are running.",
     referenceUrl: "https://calculator.aws/",
@@ -387,12 +387,12 @@ export const AWS_CLF_QUESTIONS_20 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to the AWS Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The organization evaluates AWS Cost Management to estimate the projected monthly costs of an architectural solution on AWS (EC2, S3, RDS) before building or deploying any resources.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? AWS Pricing Calculator for pre-deployment cost estimation is under consideration.",
     options: [
-      { id: 'A', text: "AWS Pricing Calculator" },
+      { id: 'A', text: "AWS CloudTrail" },
       { id: 'B', text: "AWS Cost Explorer" },
       { id: 'C', text: "AWS Budgets" },
-      { id: 'D', text: "AWS CloudTrail" }
+      { id: 'D', text: "AWS Pricing Calculator" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "AWS Pricing Calculator The AWS Pricing Calculator is a web-based planning tool that allows you to explore AWS services and create detailed cost estimates for your use cases before deploying any infrastructure. Cost Explorer analyzes costs after resources are running.",
     referenceUrl: "https://calculator.aws/",
@@ -409,9 +409,9 @@ export const AWS_CLF_QUESTIONS_20 = [
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? AWS Pricing Calculator for pre-deployment cost estimation is under consideration.",
     options: [
       { id: 'A', text: "AWS Pricing Calculator" },
-      { id: 'B', text: "AWS Cost Explorer" },
-      { id: 'C', text: "AWS Budgets" },
-      { id: 'D', text: "AWS CloudTrail" }
+      { id: 'B', text: "AWS CloudTrail" },
+      { id: 'C', text: "AWS Cost Explorer" },
+      { id: 'D', text: "AWS Budgets" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -429,12 +429,12 @@ export const AWS_CLF_QUESTIONS_20 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The organization evaluates AWS Support to select an AWS Support plan that provides 24/7 phone and chat access to Cloud Support Engineers with a 1-hour response time for production system down incidents.",
     question: "Which concept or service configuration satisfies these operational resilience objectives? AWS Support Plans: Basic, Developer, Business, Enterprise is under consideration.",
     options: [
-      { id: 'A', text: "AWS Business Support" },
-      { id: 'B', text: "AWS Developer Support" },
-      { id: 'C', text: "AWS Basic Support" },
-      { id: 'D', text: "AWS Free Tier Support" }
+      { id: 'A', text: "AWS Developer Support" },
+      { id: 'B', text: "AWS Free Tier Support" },
+      { id: 'C', text: "AWS Business Support" },
+      { id: 'D', text: "AWS Basic Support" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "AWS Business Support AWS Business Support provides 24/7 access to Cloud Support Engineers via phone, chat, and email, with a guaranteed response time of under 1 hour for production system down cases. Developer Support offers business-hours email access only, and Basic Support provides account/billing assistance only.",
     referenceUrl: "https://aws.amazon.com/premiumsupport/plans/",
@@ -450,12 +450,12 @@ export const AWS_CLF_QUESTIONS_20 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The organization evaluates AWS Support to select an AWS Support plan that provides 24/7 phone and chat access to Cloud Support Engineers with a 1-hour response time for production system down incidents.",
     question: "Which architectural approach should the team select to manage this demand efficiently? AWS Support Plans: Basic, Developer, Business, Enterprise is under consideration.",
     options: [
-      { id: 'A', text: "AWS Business Support" },
-      { id: 'B', text: "AWS Developer Support" },
-      { id: 'C', text: "AWS Basic Support" },
-      { id: 'D', text: "AWS Free Tier Support" }
+      { id: 'A', text: "AWS Developer Support" },
+      { id: 'B', text: "AWS Basic Support" },
+      { id: 'C', text: "AWS Free Tier Support" },
+      { id: 'D', text: "AWS Business Support" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "AWS Business Support AWS Business Support provides 24/7 access to Cloud Support Engineers via phone, chat, and email, with a guaranteed response time of under 1 hour for production system down cases. Developer Support offers business-hours email access only, and Basic Support provides account/billing assistance only.",
     referenceUrl: "https://aws.amazon.com/premiumsupport/plans/",
@@ -472,9 +472,9 @@ export const AWS_CLF_QUESTIONS_20 = [
     question: "Which solution properly implements these mandatory security and governance controls? AWS Support Plans: Basic, Developer, Business, Enterprise is under consideration.",
     options: [
       { id: 'A', text: "AWS Business Support" },
-      { id: 'B', text: "AWS Developer Support" },
+      { id: 'B', text: "AWS Free Tier Support" },
       { id: 'C', text: "AWS Basic Support" },
-      { id: 'D', text: "AWS Free Tier Support" }
+      { id: 'D', text: "AWS Developer Support" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,12 +492,12 @@ export const AWS_CLF_QUESTIONS_20 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to the AWS Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The organization evaluates AWS Support to select an AWS Support plan that provides 24/7 phone and chat access to Cloud Support Engineers with a 1-hour response time for production system down incidents.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? AWS Support Plans: Basic, Developer, Business, Enterprise is under consideration.",
     options: [
-      { id: 'A', text: "AWS Business Support" },
-      { id: 'B', text: "AWS Developer Support" },
-      { id: 'C', text: "AWS Basic Support" },
-      { id: 'D', text: "AWS Free Tier Support" }
+      { id: 'A', text: "AWS Basic Support" },
+      { id: 'B', text: "AWS Free Tier Support" },
+      { id: 'C', text: "AWS Business Support" },
+      { id: 'D', text: "AWS Developer Support" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "AWS Business Support AWS Business Support provides 24/7 access to Cloud Support Engineers via phone, chat, and email, with a guaranteed response time of under 1 hour for production system down cases. Developer Support offers business-hours email access only, and Basic Support provides account/billing assistance only.",
     referenceUrl: "https://aws.amazon.com/premiumsupport/plans/",

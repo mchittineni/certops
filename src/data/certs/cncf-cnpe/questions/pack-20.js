@@ -9,12 +9,12 @@ export const CNCF_CNPE_QUESTIONS_20 = [
     scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer evaluates Workload Rightsizing to eliminate massive cloud compute waste caused by developers requesting 8 CPU cores for microservices utilizing only 0.1 cores.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives? Automated vertical rightsizing recommendations using VPA, Goldilocks, and OpenCost is under consideration.",
     options: [
-      { id: 'A', text: "Deploy Fairwinds Goldilocks and OpenCost to monitor actual workload utilization and generate actionable rightsizing recommendations." },
-      { id: 'B', text: "Arbitrarily cap all microservice memory limits at 100MB, causing critical production services to crash with OOMKills." },
-      { id: 'C', text: "Allow developers to allocate unlimited CPU and memory resources with zero monitoring or cost tracking." },
-      { id: 'D', text: "Turn off all application pods on weekends to reduce compute consumption." }
+      { id: 'A', text: "Arbitrarily cap all microservice memory limits at 100MB, causing critical production services to crash with OOMKills." },
+      { id: 'B', text: "Allow developers to allocate unlimited CPU and memory resources with zero monitoring or cost tracking." },
+      { id: 'C', text: "Turn off all application pods on weekends to reduce compute consumption." },
+      { id: 'D', text: "Deploy Fairwinds Goldilocks and OpenCost to monitor actual workload utilization and generate actionable rightsizing recommendations." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy Fairwinds Goldilocks and OpenCost to monitor actual workload utilization and generate actionable rightsizing recommendations. Workload rightsizing optimizes cluster efficiency. Tools like Fairwinds Goldilocks (leveraging Kubernetes Vertical Pod Autoscaler in recommendation mode) paired with OpenCost calculate actual CPU/memory usage and provide right-sized request/limit recommendations to developers.",
     referenceUrl: "https://goldilocks.docs.fairwinds.com/",
@@ -30,12 +30,12 @@ export const CNCF_CNPE_QUESTIONS_20 = [
     scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer evaluates Workload Rightsizing to eliminate massive cloud compute waste caused by developers requesting 8 CPU cores for microservices utilizing only 0.1 cores.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift? Automated vertical rightsizing recommendations using VPA, Goldilocks, and OpenCost is under consideration.",
     options: [
-      { id: 'A', text: "Deploy Fairwinds Goldilocks and OpenCost to monitor actual workload utilization and generate actionable rightsizing recommendations." },
-      { id: 'B', text: "Arbitrarily cap all microservice memory limits at 100MB, causing critical production services to crash with OOMKills." },
-      { id: 'C', text: "Allow developers to allocate unlimited CPU and memory resources with zero monitoring or cost tracking." },
+      { id: 'A', text: "Allow developers to allocate unlimited CPU and memory resources with zero monitoring or cost tracking." },
+      { id: 'B', text: "Deploy Fairwinds Goldilocks and OpenCost to monitor actual workload utilization and generate actionable rightsizing recommendations." },
+      { id: 'C', text: "Arbitrarily cap all microservice memory limits at 100MB, causing critical production services to crash with OOMKills." },
       { id: 'D', text: "Turn off all application pods on weekends to reduce compute consumption." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy Fairwinds Goldilocks and OpenCost to monitor actual workload utilization and generate actionable rightsizing recommendations. Workload rightsizing optimizes cluster efficiency. Tools like Fairwinds Goldilocks (leveraging Kubernetes Vertical Pod Autoscaler in recommendation mode) paired with OpenCost calculate actual CPU/memory usage and provide right-sized request/limit recommendations to developers.",
     referenceUrl: "https://goldilocks.docs.fairwinds.com/",
@@ -51,12 +51,12 @@ export const CNCF_CNPE_QUESTIONS_20 = [
     scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer evaluates Workload Rightsizing to eliminate massive cloud compute waste caused by developers requesting 8 CPU cores for microservices utilizing only 0.1 cores.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls? Automated vertical rightsizing recommendations using VPA, Goldilocks, and OpenCost is under consideration.",
     options: [
-      { id: 'A', text: "Deploy Fairwinds Goldilocks and OpenCost to monitor actual workload utilization and generate actionable rightsizing recommendations." },
-      { id: 'B', text: "Arbitrarily cap all microservice memory limits at 100MB, causing critical production services to crash with OOMKills." },
-      { id: 'C', text: "Allow developers to allocate unlimited CPU and memory resources with zero monitoring or cost tracking." },
-      { id: 'D', text: "Turn off all application pods on weekends to reduce compute consumption." }
+      { id: 'A', text: "Turn off all application pods on weekends to reduce compute consumption." },
+      { id: 'B', text: "Allow developers to allocate unlimited CPU and memory resources with zero monitoring or cost tracking." },
+      { id: 'C', text: "Deploy Fairwinds Goldilocks and OpenCost to monitor actual workload utilization and generate actionable rightsizing recommendations." },
+      { id: 'D', text: "Arbitrarily cap all microservice memory limits at 100MB, causing critical production services to crash with OOMKills." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy Fairwinds Goldilocks and OpenCost to monitor actual workload utilization and generate actionable rightsizing recommendations. Workload rightsizing optimizes cluster efficiency. Tools like Fairwinds Goldilocks (leveraging Kubernetes Vertical Pod Autoscaler in recommendation mode) paired with OpenCost calculate actual CPU/memory usage and provide right-sized request/limit recommendations to developers.",
     referenceUrl: "https://goldilocks.docs.fairwinds.com/",
@@ -72,12 +72,12 @@ export const CNCF_CNPE_QUESTIONS_20 = [
     scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer evaluates Workload Rightsizing to eliminate massive cloud compute waste caused by developers requesting 8 CPU cores for microservices utilizing only 0.1 cores.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely? Automated vertical rightsizing recommendations using VPA, Goldilocks, and OpenCost is under consideration.",
     options: [
-      { id: 'A', text: "Deploy Fairwinds Goldilocks and OpenCost to monitor actual workload utilization and generate actionable rightsizing recommendations." },
-      { id: 'B', text: "Arbitrarily cap all microservice memory limits at 100MB, causing critical production services to crash with OOMKills." },
-      { id: 'C', text: "Allow developers to allocate unlimited CPU and memory resources with zero monitoring or cost tracking." },
-      { id: 'D', text: "Turn off all application pods on weekends to reduce compute consumption." }
+      { id: 'A', text: "Arbitrarily cap all microservice memory limits at 100MB, causing critical production services to crash with OOMKills." },
+      { id: 'B', text: "Allow developers to allocate unlimited CPU and memory resources with zero monitoring or cost tracking." },
+      { id: 'C', text: "Turn off all application pods on weekends to reduce compute consumption." },
+      { id: 'D', text: "Deploy Fairwinds Goldilocks and OpenCost to monitor actual workload utilization and generate actionable rightsizing recommendations." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy Fairwinds Goldilocks and OpenCost to monitor actual workload utilization and generate actionable rightsizing recommendations. Workload rightsizing optimizes cluster efficiency. Tools like Fairwinds Goldilocks (leveraging Kubernetes Vertical Pod Autoscaler in recommendation mode) paired with OpenCost calculate actual CPU/memory usage and provide right-sized request/limit recommendations to developers.",
     referenceUrl: "https://goldilocks.docs.fairwinds.com/",
@@ -93,12 +93,12 @@ export const CNCF_CNPE_QUESTIONS_20 = [
     scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer evaluates Workload Rightsizing to eliminate massive cloud compute waste caused by developers requesting 8 CPU cores for microservices utilizing only 0.1 cores.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution? Automated vertical rightsizing recommendations using VPA, Goldilocks, and OpenCost is under consideration.",
     options: [
-      { id: 'A', text: "Deploy Fairwinds Goldilocks and OpenCost to monitor actual workload utilization and generate actionable rightsizing recommendations." },
+      { id: 'A', text: "Allow developers to allocate unlimited CPU and memory resources with zero monitoring or cost tracking." },
       { id: 'B', text: "Arbitrarily cap all microservice memory limits at 100MB, causing critical production services to crash with OOMKills." },
-      { id: 'C', text: "Allow developers to allocate unlimited CPU and memory resources with zero monitoring or cost tracking." },
+      { id: 'C', text: "Deploy Fairwinds Goldilocks and OpenCost to monitor actual workload utilization and generate actionable rightsizing recommendations." },
       { id: 'D', text: "Turn off all application pods on weekends to reduce compute consumption." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy Fairwinds Goldilocks and OpenCost to monitor actual workload utilization and generate actionable rightsizing recommendations. Workload rightsizing optimizes cluster efficiency. Tools like Fairwinds Goldilocks (leveraging Kubernetes Vertical Pod Autoscaler in recommendation mode) paired with OpenCost calculate actual CPU/memory usage and provide right-sized request/limit recommendations to developers.",
     referenceUrl: "https://goldilocks.docs.fairwinds.com/",
@@ -114,12 +114,12 @@ export const CNCF_CNPE_QUESTIONS_20 = [
     scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer evaluates Incident Automation to collect logs, pod descriptions, and stack traces automatically and attach them to the alert ticket the moment a CrashLoopBackOff occurs.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives? Automating Kubernetes alert triage, diagnostic data collection, and remediation using Robusta is under consideration.",
     options: [
-      { id: 'A', text: "Deploy Robusta or similar incident automation engines to intercept Prometheus alerts, gather pod diagnostics, and trigger auto-remediation." },
-      { id: 'B', text: "Force on-call engineers to wake up and spend 45 minutes manually typing basic kubectl commands to collect crash logs." },
+      { id: 'A', text: "Force on-call engineers to wake up and spend 45 minutes manually typing basic kubectl commands to collect crash logs." },
+      { id: 'B', text: "Deploy Robusta or similar incident automation engines to intercept Prometheus alerts, gather pod diagnostics, and trigger auto-remediation." },
       { id: 'C', text: "Ignore crash alerts until customers submit support tickets." },
       { id: 'D', text: "Automatically delete failing deployments to erase all traces of the software failure." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy Robusta or similar incident automation engines to intercept Prometheus alerts, gather pod diagnostics, and trigger auto-remediation. Incident automation platforms (like Robusta) bridge monitoring and remediation. When an alert fires (e.g., `CrashLoopBackOff`, `OOMKilled`), Robusta gathers diagnostic evidence (previous pod logs, memory graphs) and enriches alerts in Slack/PagerDuty, drastically lowering MTTR.",
     referenceUrl: "https://docs.robusta.dev/",
@@ -135,12 +135,12 @@ export const CNCF_CNPE_QUESTIONS_20 = [
     scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer evaluates Incident Automation to collect logs, pod descriptions, and stack traces automatically and attach them to the alert ticket the moment a CrashLoopBackOff occurs.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift? Automating Kubernetes alert triage, diagnostic data collection, and remediation using Robusta is under consideration.",
     options: [
-      { id: 'A', text: "Deploy Robusta or similar incident automation engines to intercept Prometheus alerts, gather pod diagnostics, and trigger auto-remediation." },
+      { id: 'A', text: "Automatically delete failing deployments to erase all traces of the software failure." },
       { id: 'B', text: "Force on-call engineers to wake up and spend 45 minutes manually typing basic kubectl commands to collect crash logs." },
       { id: 'C', text: "Ignore crash alerts until customers submit support tickets." },
-      { id: 'D', text: "Automatically delete failing deployments to erase all traces of the software failure." }
+      { id: 'D', text: "Deploy Robusta or similar incident automation engines to intercept Prometheus alerts, gather pod diagnostics, and trigger auto-remediation." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy Robusta or similar incident automation engines to intercept Prometheus alerts, gather pod diagnostics, and trigger auto-remediation. Incident automation platforms (like Robusta) bridge monitoring and remediation. When an alert fires (e.g., `CrashLoopBackOff`, `OOMKilled`), Robusta gathers diagnostic evidence (previous pod logs, memory graphs) and enriches alerts in Slack/PagerDuty, drastically lowering MTTR.",
     referenceUrl: "https://docs.robusta.dev/",
@@ -158,8 +158,8 @@ export const CNCF_CNPE_QUESTIONS_20 = [
     options: [
       { id: 'A', text: "Deploy Robusta or similar incident automation engines to intercept Prometheus alerts, gather pod diagnostics, and trigger auto-remediation." },
       { id: 'B', text: "Force on-call engineers to wake up and spend 45 minutes manually typing basic kubectl commands to collect crash logs." },
-      { id: 'C', text: "Ignore crash alerts until customers submit support tickets." },
-      { id: 'D', text: "Automatically delete failing deployments to erase all traces of the software failure." }
+      { id: 'C', text: "Automatically delete failing deployments to erase all traces of the software failure." },
+      { id: 'D', text: "Ignore crash alerts until customers submit support tickets." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -177,12 +177,12 @@ export const CNCF_CNPE_QUESTIONS_20 = [
     scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer evaluates Incident Automation to collect logs, pod descriptions, and stack traces automatically and attach them to the alert ticket the moment a CrashLoopBackOff occurs.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely? Automating Kubernetes alert triage, diagnostic data collection, and remediation using Robusta is under consideration.",
     options: [
-      { id: 'A', text: "Deploy Robusta or similar incident automation engines to intercept Prometheus alerts, gather pod diagnostics, and trigger auto-remediation." },
-      { id: 'B', text: "Force on-call engineers to wake up and spend 45 minutes manually typing basic kubectl commands to collect crash logs." },
-      { id: 'C', text: "Ignore crash alerts until customers submit support tickets." },
-      { id: 'D', text: "Automatically delete failing deployments to erase all traces of the software failure." }
+      { id: 'A', text: "Force on-call engineers to wake up and spend 45 minutes manually typing basic kubectl commands to collect crash logs." },
+      { id: 'B', text: "Automatically delete failing deployments to erase all traces of the software failure." },
+      { id: 'C', text: "Deploy Robusta or similar incident automation engines to intercept Prometheus alerts, gather pod diagnostics, and trigger auto-remediation." },
+      { id: 'D', text: "Ignore crash alerts until customers submit support tickets." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy Robusta or similar incident automation engines to intercept Prometheus alerts, gather pod diagnostics, and trigger auto-remediation. Incident automation platforms (like Robusta) bridge monitoring and remediation. When an alert fires (e.g., `CrashLoopBackOff`, `OOMKilled`), Robusta gathers diagnostic evidence (previous pod logs, memory graphs) and enriches alerts in Slack/PagerDuty, drastically lowering MTTR.",
     referenceUrl: "https://docs.robusta.dev/",
@@ -198,12 +198,12 @@ export const CNCF_CNPE_QUESTIONS_20 = [
     scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer evaluates Incident Automation to collect logs, pod descriptions, and stack traces automatically and attach them to the alert ticket the moment a CrashLoopBackOff occurs.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution? Automating Kubernetes alert triage, diagnostic data collection, and remediation using Robusta is under consideration.",
     options: [
-      { id: 'A', text: "Deploy Robusta or similar incident automation engines to intercept Prometheus alerts, gather pod diagnostics, and trigger auto-remediation." },
-      { id: 'B', text: "Force on-call engineers to wake up and spend 45 minutes manually typing basic kubectl commands to collect crash logs." },
+      { id: 'A', text: "Force on-call engineers to wake up and spend 45 minutes manually typing basic kubectl commands to collect crash logs." },
+      { id: 'B', text: "Automatically delete failing deployments to erase all traces of the software failure." },
       { id: 'C', text: "Ignore crash alerts until customers submit support tickets." },
-      { id: 'D', text: "Automatically delete failing deployments to erase all traces of the software failure." }
+      { id: 'D', text: "Deploy Robusta or similar incident automation engines to intercept Prometheus alerts, gather pod diagnostics, and trigger auto-remediation." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy Robusta or similar incident automation engines to intercept Prometheus alerts, gather pod diagnostics, and trigger auto-remediation. Incident automation platforms (like Robusta) bridge monitoring and remediation. When an alert fires (e.g., `CrashLoopBackOff`, `OOMKilled`), Robusta gathers diagnostic evidence (previous pod logs, memory graphs) and enriches alerts in Slack/PagerDuty, drastically lowering MTTR.",
     referenceUrl: "https://docs.robusta.dev/",
@@ -219,12 +219,12 @@ export const CNCF_CNPE_QUESTIONS_20 = [
     scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer evaluates Secret Scanning to prevent developers from accidentally committing cloud provider access keys or private database passwords to Git repositories.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives? Preventing credential leakage in Git repositories via pre-commit hooks and CI push protection is under consideration.",
     options: [
-      { id: 'A', text: "Implement secret scanning with pre-commit hooks and GitHub push protection using tools like TruffleHog or GitGuardian." },
-      { id: 'B', text: "Wait for attackers to find committed AWS credentials and drain enterprise cloud accounts before rotating keys." },
+      { id: 'A', text: "Wait for attackers to find committed AWS credentials and drain enterprise cloud accounts before rotating keys." },
+      { id: 'B', text: "Disable git version control and transfer application code via unencrypted email attachments." },
       { id: 'C', text: "Commit all production passwords to the repository README file for easy developer access." },
-      { id: 'D', text: "Disable git version control and transfer application code via unencrypted email attachments." }
+      { id: 'D', text: "Implement secret scanning with pre-commit hooks and GitHub push protection using tools like TruffleHog or GitGuardian." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Implement secret scanning with pre-commit hooks and GitHub push protection using tools like TruffleHog or GitGuardian. Secret leakage is a major vector for cloud compromise. Platform engineering incorporates push protection and repository scanners (TruffleHog, GitGuardian) into CI pipelines and developer workstations, blocking commits containing high-entropy strings, private keys, or API tokens.",
     referenceUrl: "https://trufflesecurity.com/trufflehog",
@@ -240,12 +240,12 @@ export const CNCF_CNPE_QUESTIONS_20 = [
     scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer evaluates Secret Scanning to prevent developers from accidentally committing cloud provider access keys or private database passwords to Git repositories.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift? Preventing credential leakage in Git repositories via pre-commit hooks and CI push protection is under consideration.",
     options: [
-      { id: 'A', text: "Implement secret scanning with pre-commit hooks and GitHub push protection using tools like TruffleHog or GitGuardian." },
+      { id: 'A', text: "Disable git version control and transfer application code via unencrypted email attachments." },
       { id: 'B', text: "Wait for attackers to find committed AWS credentials and drain enterprise cloud accounts before rotating keys." },
       { id: 'C', text: "Commit all production passwords to the repository README file for easy developer access." },
-      { id: 'D', text: "Disable git version control and transfer application code via unencrypted email attachments." }
+      { id: 'D', text: "Implement secret scanning with pre-commit hooks and GitHub push protection using tools like TruffleHog or GitGuardian." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Implement secret scanning with pre-commit hooks and GitHub push protection using tools like TruffleHog or GitGuardian. Secret leakage is a major vector for cloud compromise. Platform engineering incorporates push protection and repository scanners (TruffleHog, GitGuardian) into CI pipelines and developer workstations, blocking commits containing high-entropy strings, private keys, or API tokens.",
     referenceUrl: "https://trufflesecurity.com/trufflehog",
@@ -262,9 +262,9 @@ export const CNCF_CNPE_QUESTIONS_20 = [
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls? Preventing credential leakage in Git repositories via pre-commit hooks and CI push protection is under consideration.",
     options: [
       { id: 'A', text: "Implement secret scanning with pre-commit hooks and GitHub push protection using tools like TruffleHog or GitGuardian." },
-      { id: 'B', text: "Wait for attackers to find committed AWS credentials and drain enterprise cloud accounts before rotating keys." },
-      { id: 'C', text: "Commit all production passwords to the repository README file for easy developer access." },
-      { id: 'D', text: "Disable git version control and transfer application code via unencrypted email attachments." }
+      { id: 'B', text: "Commit all production passwords to the repository README file for easy developer access." },
+      { id: 'C', text: "Disable git version control and transfer application code via unencrypted email attachments." },
+      { id: 'D', text: "Wait for attackers to find committed AWS credentials and drain enterprise cloud accounts before rotating keys." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -282,12 +282,12 @@ export const CNCF_CNPE_QUESTIONS_20 = [
     scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer evaluates Secret Scanning to prevent developers from accidentally committing cloud provider access keys or private database passwords to Git repositories.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely? Preventing credential leakage in Git repositories via pre-commit hooks and CI push protection is under consideration.",
     options: [
-      { id: 'A', text: "Implement secret scanning with pre-commit hooks and GitHub push protection using tools like TruffleHog or GitGuardian." },
-      { id: 'B', text: "Wait for attackers to find committed AWS credentials and drain enterprise cloud accounts before rotating keys." },
-      { id: 'C', text: "Commit all production passwords to the repository README file for easy developer access." },
-      { id: 'D', text: "Disable git version control and transfer application code via unencrypted email attachments." }
+      { id: 'A', text: "Wait for attackers to find committed AWS credentials and drain enterprise cloud accounts before rotating keys." },
+      { id: 'B', text: "Disable git version control and transfer application code via unencrypted email attachments." },
+      { id: 'C', text: "Implement secret scanning with pre-commit hooks and GitHub push protection using tools like TruffleHog or GitGuardian." },
+      { id: 'D', text: "Commit all production passwords to the repository README file for easy developer access." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Implement secret scanning with pre-commit hooks and GitHub push protection using tools like TruffleHog or GitGuardian. Secret leakage is a major vector for cloud compromise. Platform engineering incorporates push protection and repository scanners (TruffleHog, GitGuardian) into CI pipelines and developer workstations, blocking commits containing high-entropy strings, private keys, or API tokens.",
     referenceUrl: "https://trufflesecurity.com/trufflehog",
@@ -303,12 +303,12 @@ export const CNCF_CNPE_QUESTIONS_20 = [
     scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer evaluates Secret Scanning to prevent developers from accidentally committing cloud provider access keys or private database passwords to Git repositories.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution? Preventing credential leakage in Git repositories via pre-commit hooks and CI push protection is under consideration.",
     options: [
-      { id: 'A', text: "Implement secret scanning with pre-commit hooks and GitHub push protection using tools like TruffleHog or GitGuardian." },
-      { id: 'B', text: "Wait for attackers to find committed AWS credentials and drain enterprise cloud accounts before rotating keys." },
+      { id: 'A', text: "Disable git version control and transfer application code via unencrypted email attachments." },
+      { id: 'B', text: "Implement secret scanning with pre-commit hooks and GitHub push protection using tools like TruffleHog or GitGuardian." },
       { id: 'C', text: "Commit all production passwords to the repository README file for easy developer access." },
-      { id: 'D', text: "Disable git version control and transfer application code via unencrypted email attachments." }
+      { id: 'D', text: "Wait for attackers to find committed AWS credentials and drain enterprise cloud accounts before rotating keys." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Implement secret scanning with pre-commit hooks and GitHub push protection using tools like TruffleHog or GitGuardian. Secret leakage is a major vector for cloud compromise. Platform engineering incorporates push protection and repository scanners (TruffleHog, GitGuardian) into CI pipelines and developer workstations, blocking commits containing high-entropy strings, private keys, or API tokens.",
     referenceUrl: "https://trufflesecurity.com/trufflehog",
@@ -324,12 +324,12 @@ export const CNCF_CNPE_QUESTIONS_20 = [
     scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer evaluates Blameless Postmortems to foster an engineering culture where engineers openly report mistakes and vulnerabilities without fear of punishment.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives? Analyzing systemic contributing factors, human factors, and institutional resilience after major outages is under consideration.",
     options: [
-      { id: 'A', text: "Conduct blameless post-incident reviews focusing on systemic tooling improvements and process safeguards rather than human error." },
+      { id: 'A', text: "Prohibit writing incident documentation to avoid creating a legal paper trail." },
       { id: 'B', text: "Publicly reprimand and penalize engineers whenever a deployment causes downtime." },
-      { id: 'C', text: "Hide incident reports from other teams to protect departmental reputations." },
-      { id: 'D', text: "Prohibit writing incident documentation to avoid creating a legal paper trail." }
+      { id: 'C', text: "Conduct blameless post-incident reviews focusing on systemic tooling improvements and process safeguards rather than human error." },
+      { id: 'D', text: "Hide incident reports from other teams to protect departmental reputations." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Conduct blameless post-incident reviews focusing on systemic tooling improvements and process safeguards rather than human error. High-performing platform organizations practice blameless incident reviews. By recognizing that human error is a symptom of flawed systems rather than the cause, teams investigate cognitive load, ambiguous interfaces, and missing guardrails, making systems resilient.",
     referenceUrl: "https://sre.google/sre-book/postmortem-culture/",
@@ -346,9 +346,9 @@ export const CNCF_CNPE_QUESTIONS_20 = [
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift? Analyzing systemic contributing factors, human factors, and institutional resilience after major outages is under consideration.",
     options: [
       { id: 'A', text: "Conduct blameless post-incident reviews focusing on systemic tooling improvements and process safeguards rather than human error." },
-      { id: 'B', text: "Publicly reprimand and penalize engineers whenever a deployment causes downtime." },
-      { id: 'C', text: "Hide incident reports from other teams to protect departmental reputations." },
-      { id: 'D', text: "Prohibit writing incident documentation to avoid creating a legal paper trail." }
+      { id: 'B', text: "Prohibit writing incident documentation to avoid creating a legal paper trail." },
+      { id: 'C', text: "Publicly reprimand and penalize engineers whenever a deployment causes downtime." },
+      { id: 'D', text: "Hide incident reports from other teams to protect departmental reputations." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -366,12 +366,12 @@ export const CNCF_CNPE_QUESTIONS_20 = [
     scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer evaluates Blameless Postmortems to foster an engineering culture where engineers openly report mistakes and vulnerabilities without fear of punishment.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls? Analyzing systemic contributing factors, human factors, and institutional resilience after major outages is under consideration.",
     options: [
-      { id: 'A', text: "Conduct blameless post-incident reviews focusing on systemic tooling improvements and process safeguards rather than human error." },
-      { id: 'B', text: "Publicly reprimand and penalize engineers whenever a deployment causes downtime." },
-      { id: 'C', text: "Hide incident reports from other teams to protect departmental reputations." },
-      { id: 'D', text: "Prohibit writing incident documentation to avoid creating a legal paper trail." }
+      { id: 'A', text: "Publicly reprimand and penalize engineers whenever a deployment causes downtime." },
+      { id: 'B', text: "Prohibit writing incident documentation to avoid creating a legal paper trail." },
+      { id: 'C', text: "Conduct blameless post-incident reviews focusing on systemic tooling improvements and process safeguards rather than human error." },
+      { id: 'D', text: "Hide incident reports from other teams to protect departmental reputations." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Conduct blameless post-incident reviews focusing on systemic tooling improvements and process safeguards rather than human error. High-performing platform organizations practice blameless incident reviews. By recognizing that human error is a symptom of flawed systems rather than the cause, teams investigate cognitive load, ambiguous interfaces, and missing guardrails, making systems resilient.",
     referenceUrl: "https://sre.google/sre-book/postmortem-culture/",
@@ -387,12 +387,12 @@ export const CNCF_CNPE_QUESTIONS_20 = [
     scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer evaluates Blameless Postmortems to foster an engineering culture where engineers openly report mistakes and vulnerabilities without fear of punishment.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely? Analyzing systemic contributing factors, human factors, and institutional resilience after major outages is under consideration.",
     options: [
-      { id: 'A', text: "Conduct blameless post-incident reviews focusing on systemic tooling improvements and process safeguards rather than human error." },
+      { id: 'A', text: "Prohibit writing incident documentation to avoid creating a legal paper trail." },
       { id: 'B', text: "Publicly reprimand and penalize engineers whenever a deployment causes downtime." },
       { id: 'C', text: "Hide incident reports from other teams to protect departmental reputations." },
-      { id: 'D', text: "Prohibit writing incident documentation to avoid creating a legal paper trail." }
+      { id: 'D', text: "Conduct blameless post-incident reviews focusing on systemic tooling improvements and process safeguards rather than human error." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Conduct blameless post-incident reviews focusing on systemic tooling improvements and process safeguards rather than human error. High-performing platform organizations practice blameless incident reviews. By recognizing that human error is a symptom of flawed systems rather than the cause, teams investigate cognitive load, ambiguous interfaces, and missing guardrails, making systems resilient.",
     referenceUrl: "https://sre.google/sre-book/postmortem-culture/",
@@ -409,9 +409,9 @@ export const CNCF_CNPE_QUESTIONS_20 = [
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution? Analyzing systemic contributing factors, human factors, and institutional resilience after major outages is under consideration.",
     options: [
       { id: 'A', text: "Conduct blameless post-incident reviews focusing on systemic tooling improvements and process safeguards rather than human error." },
-      { id: 'B', text: "Publicly reprimand and penalize engineers whenever a deployment causes downtime." },
-      { id: 'C', text: "Hide incident reports from other teams to protect departmental reputations." },
-      { id: 'D', text: "Prohibit writing incident documentation to avoid creating a legal paper trail." }
+      { id: 'B', text: "Prohibit writing incident documentation to avoid creating a legal paper trail." },
+      { id: 'C', text: "Publicly reprimand and penalize engineers whenever a deployment causes downtime." },
+      { id: 'D', text: "Hide incident reports from other teams to protect departmental reputations." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -429,12 +429,12 @@ export const CNCF_CNPE_QUESTIONS_20 = [
     scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer evaluates Platform Evolution to retire an obsolete platform API version safely without breaking production services that still rely on it.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives? Managing deprecation cycles, sunsetting legacy APIs, and executing automated migration campaigns is under consideration.",
     options: [
-      { id: 'A', text: "Publish a formal deprecation schedule with telemetry tracking callers, emit admission warnings, and run automated migration PR campaigns." },
-      { id: 'B', text: "Delete the API endpoint abruptly on a Friday afternoon without prior warning." },
-      { id: 'C', text: "Maintain 50 obsolete, unpatched API versions indefinitely because a single developer refuses to upgrade." },
-      { id: 'D', text: "Disable cluster logging to hide deprecation warnings from development teams." }
+      { id: 'A', text: "Delete the API endpoint abruptly on a Friday afternoon without prior warning." },
+      { id: 'B', text: "Maintain 50 obsolete, unpatched API versions indefinitely because a single developer refuses to upgrade." },
+      { id: 'C', text: "Disable cluster logging to hide deprecation warnings from development teams." },
+      { id: 'D', text: "Publish a formal deprecation schedule with telemetry tracking callers, emit admission warnings, and run automated migration PR campaigns." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Publish a formal deprecation schedule with telemetry tracking callers, emit admission warnings, and run automated migration PR campaigns. Sustaining a platform requires structured evolution. Platform engineers use Kubernetes admission deprecation warnings (`Warning` headers), track API caller metrics in Prometheus, publish deprecation timelines, and provide automated migration scripts before retiring legacy APIs.",
     referenceUrl: "https://kubernetes.io/docs/reference/using-api/deprecation-policy/",
@@ -450,12 +450,12 @@ export const CNCF_CNPE_QUESTIONS_20 = [
     scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer evaluates Platform Evolution to retire an obsolete platform API version safely without breaking production services that still rely on it.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift? Managing deprecation cycles, sunsetting legacy APIs, and executing automated migration campaigns is under consideration.",
     options: [
-      { id: 'A', text: "Publish a formal deprecation schedule with telemetry tracking callers, emit admission warnings, and run automated migration PR campaigns." },
-      { id: 'B', text: "Delete the API endpoint abruptly on a Friday afternoon without prior warning." },
-      { id: 'C', text: "Maintain 50 obsolete, unpatched API versions indefinitely because a single developer refuses to upgrade." },
-      { id: 'D', text: "Disable cluster logging to hide deprecation warnings from development teams." }
+      { id: 'A', text: "Maintain 50 obsolete, unpatched API versions indefinitely because a single developer refuses to upgrade." },
+      { id: 'B', text: "Disable cluster logging to hide deprecation warnings from development teams." },
+      { id: 'C', text: "Publish a formal deprecation schedule with telemetry tracking callers, emit admission warnings, and run automated migration PR campaigns." },
+      { id: 'D', text: "Delete the API endpoint abruptly on a Friday afternoon without prior warning." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Publish a formal deprecation schedule with telemetry tracking callers, emit admission warnings, and run automated migration PR campaigns. Sustaining a platform requires structured evolution. Platform engineers use Kubernetes admission deprecation warnings (`Warning` headers), track API caller metrics in Prometheus, publish deprecation timelines, and provide automated migration scripts before retiring legacy APIs.",
     referenceUrl: "https://kubernetes.io/docs/reference/using-api/deprecation-policy/",
@@ -471,12 +471,12 @@ export const CNCF_CNPE_QUESTIONS_20 = [
     scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer evaluates Platform Evolution to retire an obsolete platform API version safely without breaking production services that still rely on it.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls? Managing deprecation cycles, sunsetting legacy APIs, and executing automated migration campaigns is under consideration.",
     options: [
-      { id: 'A', text: "Publish a formal deprecation schedule with telemetry tracking callers, emit admission warnings, and run automated migration PR campaigns." },
-      { id: 'B', text: "Delete the API endpoint abruptly on a Friday afternoon without prior warning." },
+      { id: 'A', text: "Delete the API endpoint abruptly on a Friday afternoon without prior warning." },
+      { id: 'B', text: "Publish a formal deprecation schedule with telemetry tracking callers, emit admission warnings, and run automated migration PR campaigns." },
       { id: 'C', text: "Maintain 50 obsolete, unpatched API versions indefinitely because a single developer refuses to upgrade." },
       { id: 'D', text: "Disable cluster logging to hide deprecation warnings from development teams." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Publish a formal deprecation schedule with telemetry tracking callers, emit admission warnings, and run automated migration PR campaigns. Sustaining a platform requires structured evolution. Platform engineers use Kubernetes admission deprecation warnings (`Warning` headers), track API caller metrics in Prometheus, publish deprecation timelines, and provide automated migration scripts before retiring legacy APIs.",
     referenceUrl: "https://kubernetes.io/docs/reference/using-api/deprecation-policy/",
@@ -492,12 +492,12 @@ export const CNCF_CNPE_QUESTIONS_20 = [
     scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer evaluates Platform Evolution to retire an obsolete platform API version safely without breaking production services that still rely on it.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely? Managing deprecation cycles, sunsetting legacy APIs, and executing automated migration campaigns is under consideration.",
     options: [
-      { id: 'A', text: "Publish a formal deprecation schedule with telemetry tracking callers, emit admission warnings, and run automated migration PR campaigns." },
-      { id: 'B', text: "Delete the API endpoint abruptly on a Friday afternoon without prior warning." },
-      { id: 'C', text: "Maintain 50 obsolete, unpatched API versions indefinitely because a single developer refuses to upgrade." },
-      { id: 'D', text: "Disable cluster logging to hide deprecation warnings from development teams." }
+      { id: 'A', text: "Delete the API endpoint abruptly on a Friday afternoon without prior warning." },
+      { id: 'B', text: "Disable cluster logging to hide deprecation warnings from development teams." },
+      { id: 'C', text: "Publish a formal deprecation schedule with telemetry tracking callers, emit admission warnings, and run automated migration PR campaigns." },
+      { id: 'D', text: "Maintain 50 obsolete, unpatched API versions indefinitely because a single developer refuses to upgrade." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Publish a formal deprecation schedule with telemetry tracking callers, emit admission warnings, and run automated migration PR campaigns. Sustaining a platform requires structured evolution. Platform engineers use Kubernetes admission deprecation warnings (`Warning` headers), track API caller metrics in Prometheus, publish deprecation timelines, and provide automated migration scripts before retiring legacy APIs.",
     referenceUrl: "https://kubernetes.io/docs/reference/using-api/deprecation-policy/",
@@ -513,12 +513,12 @@ export const CNCF_CNPE_QUESTIONS_20 = [
     scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer evaluates Platform Evolution to retire an obsolete platform API version safely without breaking production services that still rely on it.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution? Managing deprecation cycles, sunsetting legacy APIs, and executing automated migration campaigns is under consideration.",
     options: [
-      { id: 'A', text: "Publish a formal deprecation schedule with telemetry tracking callers, emit admission warnings, and run automated migration PR campaigns." },
+      { id: 'A', text: "Maintain 50 obsolete, unpatched API versions indefinitely because a single developer refuses to upgrade." },
       { id: 'B', text: "Delete the API endpoint abruptly on a Friday afternoon without prior warning." },
-      { id: 'C', text: "Maintain 50 obsolete, unpatched API versions indefinitely because a single developer refuses to upgrade." },
-      { id: 'D', text: "Disable cluster logging to hide deprecation warnings from development teams." }
+      { id: 'C', text: "Disable cluster logging to hide deprecation warnings from development teams." },
+      { id: 'D', text: "Publish a formal deprecation schedule with telemetry tracking callers, emit admission warnings, and run automated migration PR campaigns." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Publish a formal deprecation schedule with telemetry tracking callers, emit admission warnings, and run automated migration PR campaigns. Sustaining a platform requires structured evolution. Platform engineers use Kubernetes admission deprecation warnings (`Warning` headers), track API caller metrics in Prometheus, publish deprecation timelines, and provide automated migration scripts before retiring legacy APIs.",
     referenceUrl: "https://kubernetes.io/docs/reference/using-api/deprecation-policy/",

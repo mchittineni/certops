@@ -9,12 +9,12 @@ export const AZURE_AZ104_QUESTIONS_18 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The administrator configures Azure Private Link to connect an on-premises enterprise application across ExpressRoute to an Azure Cosmos DB database using a private IP address within an Azure VNet.",
     question: "Which concept or service configuration satisfies these operational resilience objectives? Azure Private Endpoints with private IP addresses in subnets is under evaluation.",
     options: [
-      { id: 'A', text: "Deploy an Azure Private Endpoint for Azure Cosmos DB inside a delegated VNet subnet." },
+      { id: 'A', text: "Deploy an Azure NAT Gateway with an associated public IP prefix." },
       { id: 'B', text: "Configure public internet firewall rules allowing the on-premises public IP." },
-      { id: 'C', text: "Deploy an Azure NAT Gateway with an associated public IP prefix." },
-      { id: 'D', text: "Use a Public Load Balancer to forward traffic to Cosmos DB." }
+      { id: 'C', text: "Use a Public Load Balancer to forward traffic to Cosmos DB." },
+      { id: 'D', text: "Deploy an Azure Private Endpoint for Azure Cosmos DB inside a delegated VNet subnet." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy an Azure Private Endpoint for Azure Cosmos DB inside a delegated VNet subnet. Azure Private Endpoint is a network interface that uses a private IP address from your virtual network. This network interface connects you privately and securely to a service powered by Azure Private Link (such as Storage, SQL, or Cosmos DB), bringing the service directly inside your VNet.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/private-link/private-endpoint-overview",
@@ -31,8 +31,8 @@ export const AZURE_AZ104_QUESTIONS_18 = [
     question: "Which architectural approach should the team select to manage this demand efficiently? Azure Private Endpoints with private IP addresses in subnets is under evaluation.",
     options: [
       { id: 'A', text: "Deploy an Azure Private Endpoint for Azure Cosmos DB inside a delegated VNet subnet." },
-      { id: 'B', text: "Configure public internet firewall rules allowing the on-premises public IP." },
-      { id: 'C', text: "Deploy an Azure NAT Gateway with an associated public IP prefix." },
+      { id: 'B', text: "Deploy an Azure NAT Gateway with an associated public IP prefix." },
+      { id: 'C', text: "Configure public internet firewall rules allowing the on-premises public IP." },
       { id: 'D', text: "Use a Public Load Balancer to forward traffic to Cosmos DB." }
     ],
     correctAnswers: ['A'],
@@ -51,12 +51,12 @@ export const AZURE_AZ104_QUESTIONS_18 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The administrator configures Azure Private Link to connect an on-premises enterprise application across ExpressRoute to an Azure Cosmos DB database using a private IP address within an Azure VNet.",
     question: "Which solution properly implements these mandatory security and governance controls? Azure Private Endpoints with private IP addresses in subnets is under evaluation.",
     options: [
-      { id: 'A', text: "Deploy an Azure Private Endpoint for Azure Cosmos DB inside a delegated VNet subnet." },
-      { id: 'B', text: "Configure public internet firewall rules allowing the on-premises public IP." },
-      { id: 'C', text: "Deploy an Azure NAT Gateway with an associated public IP prefix." },
-      { id: 'D', text: "Use a Public Load Balancer to forward traffic to Cosmos DB." }
+      { id: 'A', text: "Deploy an Azure NAT Gateway with an associated public IP prefix." },
+      { id: 'B', text: "Deploy an Azure Private Endpoint for Azure Cosmos DB inside a delegated VNet subnet." },
+      { id: 'C', text: "Use a Public Load Balancer to forward traffic to Cosmos DB." },
+      { id: 'D', text: "Configure public internet firewall rules allowing the on-premises public IP." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy an Azure Private Endpoint for Azure Cosmos DB inside a delegated VNet subnet. Azure Private Endpoint is a network interface that uses a private IP address from your virtual network. This network interface connects you privately and securely to a service powered by Azure Private Link (such as Storage, SQL, or Cosmos DB), bringing the service directly inside your VNet.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/private-link/private-endpoint-overview",
@@ -72,12 +72,12 @@ export const AZURE_AZ104_QUESTIONS_18 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Microsoft Azure. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The administrator configures Azure Private Link to connect an on-premises enterprise application across ExpressRoute to an Azure Cosmos DB database using a private IP address within an Azure VNet.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? Azure Private Endpoints with private IP addresses in subnets is under evaluation.",
     options: [
-      { id: 'A', text: "Deploy an Azure Private Endpoint for Azure Cosmos DB inside a delegated VNet subnet." },
+      { id: 'A', text: "Deploy an Azure NAT Gateway with an associated public IP prefix." },
       { id: 'B', text: "Configure public internet firewall rules allowing the on-premises public IP." },
-      { id: 'C', text: "Deploy an Azure NAT Gateway with an associated public IP prefix." },
-      { id: 'D', text: "Use a Public Load Balancer to forward traffic to Cosmos DB." }
+      { id: 'C', text: "Use a Public Load Balancer to forward traffic to Cosmos DB." },
+      { id: 'D', text: "Deploy an Azure Private Endpoint for Azure Cosmos DB inside a delegated VNet subnet." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy an Azure Private Endpoint for Azure Cosmos DB inside a delegated VNet subnet. Azure Private Endpoint is a network interface that uses a private IP address from your virtual network. This network interface connects you privately and securely to a service powered by Azure Private Link (such as Storage, SQL, or Cosmos DB), bringing the service directly inside your VNet.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/private-link/private-endpoint-overview",
@@ -93,12 +93,12 @@ export const AZURE_AZ104_QUESTIONS_18 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The administrator configures Azure Private Link to connect an on-premises enterprise application across ExpressRoute to an Azure Cosmos DB database using a private IP address within an Azure VNet.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? Azure Private Endpoints with private IP addresses in subnets is under evaluation.",
     options: [
-      { id: 'A', text: "Deploy an Azure Private Endpoint for Azure Cosmos DB inside a delegated VNet subnet." },
-      { id: 'B', text: "Configure public internet firewall rules allowing the on-premises public IP." },
-      { id: 'C', text: "Deploy an Azure NAT Gateway with an associated public IP prefix." },
+      { id: 'A', text: "Configure public internet firewall rules allowing the on-premises public IP." },
+      { id: 'B', text: "Deploy an Azure NAT Gateway with an associated public IP prefix." },
+      { id: 'C', text: "Deploy an Azure Private Endpoint for Azure Cosmos DB inside a delegated VNet subnet." },
       { id: 'D', text: "Use a Public Load Balancer to forward traffic to Cosmos DB." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy an Azure Private Endpoint for Azure Cosmos DB inside a delegated VNet subnet. Azure Private Endpoint is a network interface that uses a private IP address from your virtual network. This network interface connects you privately and securely to a service powered by Azure Private Link (such as Storage, SQL, or Cosmos DB), bringing the service directly inside your VNet.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/private-link/private-endpoint-overview",
@@ -114,12 +114,12 @@ export const AZURE_AZ104_QUESTIONS_18 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The administrator configures Azure Load Balancer to distribute incoming database read queries across three backend database virtual machines that have only private IP addresses with zero public internet connectivity.",
     question: "Which concept or service configuration satisfies these operational resilience objectives? Standard Public Load Balancer vs Internal Load Balancer (ILB) is under evaluation.",
     options: [
-      { id: 'A', text: "Deploy an internal Azure Load Balancer with a frontend private IP address in the database subnet." },
-      { id: 'B', text: "Deploy a public Azure Load Balancer with a public IP address." },
-      { id: 'C', text: "Use Azure Front Door to distribute internal database queries across private subnets." },
-      { id: 'D', text: "Configure round-robin DNS records on a public internet DNS server." }
+      { id: 'A', text: "Use Azure Front Door to distribute internal database queries across private subnets." },
+      { id: 'B', text: "Configure round-robin DNS records on a public internet DNS server." },
+      { id: 'C', text: "Deploy an internal Azure Load Balancer with a frontend private IP address in the database subnet." },
+      { id: 'D', text: "Deploy a public Azure Load Balancer with a public IP address." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy an internal Azure Load Balancer with a frontend private IP address in the database subnet. An Azure Load Balancer operates at Layer 4 (TCP/UDP). A Public Load Balancer maps public IP addresses to private IPs in backend pools for internet-facing traffic. An Internal Load Balancer (ILB) directs traffic only to resources that are inside a virtual network or accessible via a VPN/ExpressRoute.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/load-balancer/load-balancer-overview",
@@ -135,12 +135,12 @@ export const AZURE_AZ104_QUESTIONS_18 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The administrator configures Azure Load Balancer to distribute incoming database read queries across three backend database virtual machines that have only private IP addresses with zero public internet connectivity.",
     question: "Which architectural approach should the team select to manage this demand efficiently? Standard Public Load Balancer vs Internal Load Balancer (ILB) is under evaluation.",
     options: [
-      { id: 'A', text: "Deploy an internal Azure Load Balancer with a frontend private IP address in the database subnet." },
-      { id: 'B', text: "Deploy a public Azure Load Balancer with a public IP address." },
-      { id: 'C', text: "Use Azure Front Door to distribute internal database queries across private subnets." },
-      { id: 'D', text: "Configure round-robin DNS records on a public internet DNS server." }
+      { id: 'A', text: "Configure round-robin DNS records on a public internet DNS server." },
+      { id: 'B', text: "Use Azure Front Door to distribute internal database queries across private subnets." },
+      { id: 'C', text: "Deploy a public Azure Load Balancer with a public IP address." },
+      { id: 'D', text: "Deploy an internal Azure Load Balancer with a frontend private IP address in the database subnet." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy an internal Azure Load Balancer with a frontend private IP address in the database subnet. An Azure Load Balancer operates at Layer 4 (TCP/UDP). A Public Load Balancer maps public IP addresses to private IPs in backend pools for internet-facing traffic. An Internal Load Balancer (ILB) directs traffic only to resources that are inside a virtual network or accessible via a VPN/ExpressRoute.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/load-balancer/load-balancer-overview",
@@ -156,12 +156,12 @@ export const AZURE_AZ104_QUESTIONS_18 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The administrator configures Azure Load Balancer to distribute incoming database read queries across three backend database virtual machines that have only private IP addresses with zero public internet connectivity.",
     question: "Which solution properly implements these mandatory security and governance controls? Standard Public Load Balancer vs Internal Load Balancer (ILB) is under evaluation.",
     options: [
-      { id: 'A', text: "Deploy an internal Azure Load Balancer with a frontend private IP address in the database subnet." },
+      { id: 'A', text: "Use Azure Front Door to distribute internal database queries across private subnets." },
       { id: 'B', text: "Deploy a public Azure Load Balancer with a public IP address." },
-      { id: 'C', text: "Use Azure Front Door to distribute internal database queries across private subnets." },
+      { id: 'C', text: "Deploy an internal Azure Load Balancer with a frontend private IP address in the database subnet." },
       { id: 'D', text: "Configure round-robin DNS records on a public internet DNS server." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy an internal Azure Load Balancer with a frontend private IP address in the database subnet. An Azure Load Balancer operates at Layer 4 (TCP/UDP). A Public Load Balancer maps public IP addresses to private IPs in backend pools for internet-facing traffic. An Internal Load Balancer (ILB) directs traffic only to resources that are inside a virtual network or accessible via a VPN/ExpressRoute.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/load-balancer/load-balancer-overview",
@@ -178,9 +178,9 @@ export const AZURE_AZ104_QUESTIONS_18 = [
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? Standard Public Load Balancer vs Internal Load Balancer (ILB) is under evaluation.",
     options: [
       { id: 'A', text: "Deploy an internal Azure Load Balancer with a frontend private IP address in the database subnet." },
-      { id: 'B', text: "Deploy a public Azure Load Balancer with a public IP address." },
-      { id: 'C', text: "Use Azure Front Door to distribute internal database queries across private subnets." },
-      { id: 'D', text: "Configure round-robin DNS records on a public internet DNS server." }
+      { id: 'B', text: "Use Azure Front Door to distribute internal database queries across private subnets." },
+      { id: 'C', text: "Configure round-robin DNS records on a public internet DNS server." },
+      { id: 'D', text: "Deploy a public Azure Load Balancer with a public IP address." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,12 +198,12 @@ export const AZURE_AZ104_QUESTIONS_18 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The administrator configures Azure Load Balancer to distribute incoming database read queries across three backend database virtual machines that have only private IP addresses with zero public internet connectivity.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? Standard Public Load Balancer vs Internal Load Balancer (ILB) is under evaluation.",
     options: [
-      { id: 'A', text: "Deploy an internal Azure Load Balancer with a frontend private IP address in the database subnet." },
-      { id: 'B', text: "Deploy a public Azure Load Balancer with a public IP address." },
-      { id: 'C', text: "Use Azure Front Door to distribute internal database queries across private subnets." },
-      { id: 'D', text: "Configure round-robin DNS records on a public internet DNS server." }
+      { id: 'A', text: "Configure round-robin DNS records on a public internet DNS server." },
+      { id: 'B', text: "Use Azure Front Door to distribute internal database queries across private subnets." },
+      { id: 'C', text: "Deploy an internal Azure Load Balancer with a frontend private IP address in the database subnet." },
+      { id: 'D', text: "Deploy a public Azure Load Balancer with a public IP address." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy an internal Azure Load Balancer with a frontend private IP address in the database subnet. An Azure Load Balancer operates at Layer 4 (TCP/UDP). A Public Load Balancer maps public IP addresses to private IPs in backend pools for internet-facing traffic. An Internal Load Balancer (ILB) directs traffic only to resources that are inside a virtual network or accessible via a VPN/ExpressRoute.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/load-balancer/load-balancer-overview",
@@ -219,12 +219,12 @@ export const AZURE_AZ104_QUESTIONS_18 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The administrator configures Azure Application Gateway to route HTTP/HTTPS traffic based on URL paths (/images vs /api) and protect backend web applications against SQL injection and cross-site scripting (XSS) attacks.",
     question: "Which concept or service configuration satisfies these operational resilience objectives? Layer 7 Application Gateway with Web Application Firewall (WAF) is under evaluation.",
     options: [
-      { id: 'A', text: "Deploy Azure Application Gateway v2 with Web Application Firewall (WAF) enabled." },
+      { id: 'A', text: "Use an Azure NAT Gateway to inspect HTTP application layer payloads." },
       { id: 'B', text: "Deploy a standard Layer 4 Azure Load Balancer with a basic health probe." },
-      { id: 'C', text: "Deploy an Azure Network Security Group with an outbound port 80 rule." },
-      { id: 'D', text: "Use an Azure NAT Gateway to inspect HTTP application layer payloads." }
+      { id: 'C', text: "Deploy Azure Application Gateway v2 with Web Application Firewall (WAF) enabled." },
+      { id: 'D', text: "Deploy an Azure Network Security Group with an outbound port 80 rule." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy Azure Application Gateway v2 with Web Application Firewall (WAF) enabled. Azure Application Gateway is a Layer 7 (web traffic) load balancer that enables managing traffic to web applications. It supports URL path-based routing, SSL/TLS termination, cookie-based session affinity, and includes an integrated Web Application Firewall (WAF) protecting against OWASP top 10 threats.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/application-gateway/overview",
@@ -240,12 +240,12 @@ export const AZURE_AZ104_QUESTIONS_18 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The administrator configures Azure Application Gateway to route HTTP/HTTPS traffic based on URL paths (/images vs /api) and protect backend web applications against SQL injection and cross-site scripting (XSS) attacks.",
     question: "Which architectural approach should the team select to manage this demand efficiently? Layer 7 Application Gateway with Web Application Firewall (WAF) is under evaluation.",
     options: [
-      { id: 'A', text: "Deploy Azure Application Gateway v2 with Web Application Firewall (WAF) enabled." },
-      { id: 'B', text: "Deploy a standard Layer 4 Azure Load Balancer with a basic health probe." },
-      { id: 'C', text: "Deploy an Azure Network Security Group with an outbound port 80 rule." },
-      { id: 'D', text: "Use an Azure NAT Gateway to inspect HTTP application layer payloads." }
+      { id: 'A', text: "Use an Azure NAT Gateway to inspect HTTP application layer payloads." },
+      { id: 'B', text: "Deploy Azure Application Gateway v2 with Web Application Firewall (WAF) enabled." },
+      { id: 'C', text: "Deploy a standard Layer 4 Azure Load Balancer with a basic health probe." },
+      { id: 'D', text: "Deploy an Azure Network Security Group with an outbound port 80 rule." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy Azure Application Gateway v2 with Web Application Firewall (WAF) enabled. Azure Application Gateway is a Layer 7 (web traffic) load balancer that enables managing traffic to web applications. It supports URL path-based routing, SSL/TLS termination, cookie-based session affinity, and includes an integrated Web Application Firewall (WAF) protecting against OWASP top 10 threats.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/application-gateway/overview",
@@ -262,9 +262,9 @@ export const AZURE_AZ104_QUESTIONS_18 = [
     question: "Which solution properly implements these mandatory security and governance controls? Layer 7 Application Gateway with Web Application Firewall (WAF) is under evaluation.",
     options: [
       { id: 'A', text: "Deploy Azure Application Gateway v2 with Web Application Firewall (WAF) enabled." },
-      { id: 'B', text: "Deploy a standard Layer 4 Azure Load Balancer with a basic health probe." },
-      { id: 'C', text: "Deploy an Azure Network Security Group with an outbound port 80 rule." },
-      { id: 'D', text: "Use an Azure NAT Gateway to inspect HTTP application layer payloads." }
+      { id: 'B', text: "Use an Azure NAT Gateway to inspect HTTP application layer payloads." },
+      { id: 'C', text: "Deploy a standard Layer 4 Azure Load Balancer with a basic health probe." },
+      { id: 'D', text: "Deploy an Azure Network Security Group with an outbound port 80 rule." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -282,12 +282,12 @@ export const AZURE_AZ104_QUESTIONS_18 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Microsoft Azure. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The administrator configures Azure Application Gateway to route HTTP/HTTPS traffic based on URL paths (/images vs /api) and protect backend web applications against SQL injection and cross-site scripting (XSS) attacks.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? Layer 7 Application Gateway with Web Application Firewall (WAF) is under evaluation.",
     options: [
-      { id: 'A', text: "Deploy Azure Application Gateway v2 with Web Application Firewall (WAF) enabled." },
-      { id: 'B', text: "Deploy a standard Layer 4 Azure Load Balancer with a basic health probe." },
-      { id: 'C', text: "Deploy an Azure Network Security Group with an outbound port 80 rule." },
+      { id: 'A', text: "Deploy an Azure Network Security Group with an outbound port 80 rule." },
+      { id: 'B', text: "Deploy Azure Application Gateway v2 with Web Application Firewall (WAF) enabled." },
+      { id: 'C', text: "Deploy a standard Layer 4 Azure Load Balancer with a basic health probe." },
       { id: 'D', text: "Use an Azure NAT Gateway to inspect HTTP application layer payloads." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy Azure Application Gateway v2 with Web Application Firewall (WAF) enabled. Azure Application Gateway is a Layer 7 (web traffic) load balancer that enables managing traffic to web applications. It supports URL path-based routing, SSL/TLS termination, cookie-based session affinity, and includes an integrated Web Application Firewall (WAF) protecting against OWASP top 10 threats.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/application-gateway/overview",
@@ -303,12 +303,12 @@ export const AZURE_AZ104_QUESTIONS_18 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The administrator configures Azure Application Gateway to route HTTP/HTTPS traffic based on URL paths (/images vs /api) and protect backend web applications against SQL injection and cross-site scripting (XSS) attacks.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? Layer 7 Application Gateway with Web Application Firewall (WAF) is under evaluation.",
     options: [
-      { id: 'A', text: "Deploy Azure Application Gateway v2 with Web Application Firewall (WAF) enabled." },
-      { id: 'B', text: "Deploy a standard Layer 4 Azure Load Balancer with a basic health probe." },
-      { id: 'C', text: "Deploy an Azure Network Security Group with an outbound port 80 rule." },
-      { id: 'D', text: "Use an Azure NAT Gateway to inspect HTTP application layer payloads." }
+      { id: 'A', text: "Deploy a standard Layer 4 Azure Load Balancer with a basic health probe." },
+      { id: 'B', text: "Deploy an Azure Network Security Group with an outbound port 80 rule." },
+      { id: 'C', text: "Use an Azure NAT Gateway to inspect HTTP application layer payloads." },
+      { id: 'D', text: "Deploy Azure Application Gateway v2 with Web Application Firewall (WAF) enabled." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy Azure Application Gateway v2 with Web Application Firewall (WAF) enabled. Azure Application Gateway is a Layer 7 (web traffic) load balancer that enables managing traffic to web applications. It supports URL path-based routing, SSL/TLS termination, cookie-based session affinity, and includes an integrated Web Application Firewall (WAF) protecting against OWASP top 10 threats.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/application-gateway/overview",
@@ -324,12 +324,12 @@ export const AZURE_AZ104_QUESTIONS_18 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The administrator configures Azure Network Monitoring to diagnose why a virtual machine cannot communicate with a database server and verify whether a specific packet is allowed or denied by an NSG rule.",
     question: "Which concept or service configuration satisfies these operational resilience objectives? Network Watcher IP Flow Verify and NSG Flow Logs is under evaluation.",
     options: [
-      { id: 'A', text: "Use Azure Network Watcher IP Flow Verify to test packet allow/deny status." },
-      { id: 'B', text: "Ping the database server from a home internet connection." },
-      { id: 'C', text: "Delete and recreate all subnets in the virtual network." },
-      { id: 'D', text: "Check the virtual machine CPU utilization graphs in Azure Monitor." }
+      { id: 'A', text: "Delete and recreate all subnets in the virtual network." },
+      { id: 'B', text: "Check the virtual machine CPU utilization graphs in Azure Monitor." },
+      { id: 'C', text: "Ping the database server from a home internet connection." },
+      { id: 'D', text: "Use Azure Network Watcher IP Flow Verify to test packet allow/deny status." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Use Azure Network Watcher IP Flow Verify to test packet allow/deny status. Azure Network Watcher IP Flow Verify checks if a packet is allowed or denied to or from a virtual machine based on 5-tuple packet parameters (destination IP, source IP, destination port, source port, and protocol). It immediately identifies the exact NSG rule that allowed or blocked the traffic.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/network-watcher/diagnose-vm-network-traffic-filtering-problem",
@@ -345,12 +345,12 @@ export const AZURE_AZ104_QUESTIONS_18 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The administrator configures Azure Network Monitoring to diagnose why a virtual machine cannot communicate with a database server and verify whether a specific packet is allowed or denied by an NSG rule.",
     question: "Which architectural approach should the team select to manage this demand efficiently? Network Watcher IP Flow Verify and NSG Flow Logs is under evaluation.",
     options: [
-      { id: 'A', text: "Use Azure Network Watcher IP Flow Verify to test packet allow/deny status." },
-      { id: 'B', text: "Ping the database server from a home internet connection." },
-      { id: 'C', text: "Delete and recreate all subnets in the virtual network." },
-      { id: 'D', text: "Check the virtual machine CPU utilization graphs in Azure Monitor." }
+      { id: 'A', text: "Check the virtual machine CPU utilization graphs in Azure Monitor." },
+      { id: 'B', text: "Delete and recreate all subnets in the virtual network." },
+      { id: 'C', text: "Ping the database server from a home internet connection." },
+      { id: 'D', text: "Use Azure Network Watcher IP Flow Verify to test packet allow/deny status." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Use Azure Network Watcher IP Flow Verify to test packet allow/deny status. Azure Network Watcher IP Flow Verify checks if a packet is allowed or denied to or from a virtual machine based on 5-tuple packet parameters (destination IP, source IP, destination port, source port, and protocol). It immediately identifies the exact NSG rule that allowed or blocked the traffic.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/network-watcher/diagnose-vm-network-traffic-filtering-problem",
@@ -366,12 +366,12 @@ export const AZURE_AZ104_QUESTIONS_18 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The administrator configures Azure Network Monitoring to diagnose why a virtual machine cannot communicate with a database server and verify whether a specific packet is allowed or denied by an NSG rule.",
     question: "Which solution properly implements these mandatory security and governance controls? Network Watcher IP Flow Verify and NSG Flow Logs is under evaluation.",
     options: [
-      { id: 'A', text: "Use Azure Network Watcher IP Flow Verify to test packet allow/deny status." },
-      { id: 'B', text: "Ping the database server from a home internet connection." },
-      { id: 'C', text: "Delete and recreate all subnets in the virtual network." },
+      { id: 'A', text: "Delete and recreate all subnets in the virtual network." },
+      { id: 'B', text: "Use Azure Network Watcher IP Flow Verify to test packet allow/deny status." },
+      { id: 'C', text: "Ping the database server from a home internet connection." },
       { id: 'D', text: "Check the virtual machine CPU utilization graphs in Azure Monitor." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Use Azure Network Watcher IP Flow Verify to test packet allow/deny status. Azure Network Watcher IP Flow Verify checks if a packet is allowed or denied to or from a virtual machine based on 5-tuple packet parameters (destination IP, source IP, destination port, source port, and protocol). It immediately identifies the exact NSG rule that allowed or blocked the traffic.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/network-watcher/diagnose-vm-network-traffic-filtering-problem",
@@ -389,8 +389,8 @@ export const AZURE_AZ104_QUESTIONS_18 = [
     options: [
       { id: 'A', text: "Use Azure Network Watcher IP Flow Verify to test packet allow/deny status." },
       { id: 'B', text: "Ping the database server from a home internet connection." },
-      { id: 'C', text: "Delete and recreate all subnets in the virtual network." },
-      { id: 'D', text: "Check the virtual machine CPU utilization graphs in Azure Monitor." }
+      { id: 'C', text: "Check the virtual machine CPU utilization graphs in Azure Monitor." },
+      { id: 'D', text: "Delete and recreate all subnets in the virtual network." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,12 +408,12 @@ export const AZURE_AZ104_QUESTIONS_18 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The administrator configures Azure Network Monitoring to diagnose why a virtual machine cannot communicate with a database server and verify whether a specific packet is allowed or denied by an NSG rule.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? Network Watcher IP Flow Verify and NSG Flow Logs is under evaluation.",
     options: [
-      { id: 'A', text: "Use Azure Network Watcher IP Flow Verify to test packet allow/deny status." },
-      { id: 'B', text: "Ping the database server from a home internet connection." },
-      { id: 'C', text: "Delete and recreate all subnets in the virtual network." },
-      { id: 'D', text: "Check the virtual machine CPU utilization graphs in Azure Monitor." }
+      { id: 'A', text: "Delete and recreate all subnets in the virtual network." },
+      { id: 'B', text: "Use Azure Network Watcher IP Flow Verify to test packet allow/deny status." },
+      { id: 'C', text: "Check the virtual machine CPU utilization graphs in Azure Monitor." },
+      { id: 'D', text: "Ping the database server from a home internet connection." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Use Azure Network Watcher IP Flow Verify to test packet allow/deny status. Azure Network Watcher IP Flow Verify checks if a packet is allowed or denied to or from a virtual machine based on 5-tuple packet parameters (destination IP, source IP, destination port, source port, and protocol). It immediately identifies the exact NSG rule that allowed or blocked the traffic.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/network-watcher/diagnose-vm-network-traffic-filtering-problem",
@@ -429,12 +429,12 @@ export const AZURE_AZ104_QUESTIONS_18 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The administrator configures Azure Egress Networking to provide outbound internet access for virtual machines in a private subnet using a predictable, dedicated static public IP address without allowing inbound internet connections.",
     question: "Which concept or service configuration satisfies these operational resilience objectives? Azure NAT Gateway providing predictable outbound public SNAT is under evaluation.",
     options: [
-      { id: 'A', text: "Deploy an Azure NAT Gateway with an assigned static Public IP and associate it with the subnet." },
-      { id: 'B', text: "Assign public IP addresses directly to each virtual machine network interface." },
+      { id: 'A', text: "Open all inbound ports in the Network Security Group to allow bidirectional traffic." },
+      { id: 'B', text: "Deploy an Azure NAT Gateway with an assigned static Public IP and associate it with the subnet." },
       { id: 'C', text: "Deploy a Public Load Balancer with an inbound NAT rule for each VM." },
-      { id: 'D', text: "Open all inbound ports in the Network Security Group to allow bidirectional traffic." }
+      { id: 'D', text: "Assign public IP addresses directly to each virtual machine network interface." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy an Azure NAT Gateway with an assigned static Public IP and associate it with the subnet. Virtual Network NAT (NAT Gateway) provides outbound-only internet connectivity for virtual networks. All outbound traffic from associated subnets uses the NAT gateway's static public IP addresses. It prevents inbound internet connections, eliminating port exhaustion issues common with default SNAT.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-network/nat-gateway/nat-overview",
@@ -450,12 +450,12 @@ export const AZURE_AZ104_QUESTIONS_18 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The administrator configures Azure Egress Networking to provide outbound internet access for virtual machines in a private subnet using a predictable, dedicated static public IP address without allowing inbound internet connections.",
     question: "Which architectural approach should the team select to manage this demand efficiently? Azure NAT Gateway providing predictable outbound public SNAT is under evaluation.",
     options: [
-      { id: 'A', text: "Deploy an Azure NAT Gateway with an assigned static Public IP and associate it with the subnet." },
-      { id: 'B', text: "Assign public IP addresses directly to each virtual machine network interface." },
-      { id: 'C', text: "Deploy a Public Load Balancer with an inbound NAT rule for each VM." },
-      { id: 'D', text: "Open all inbound ports in the Network Security Group to allow bidirectional traffic." }
+      { id: 'A', text: "Assign public IP addresses directly to each virtual machine network interface." },
+      { id: 'B', text: "Deploy an Azure NAT Gateway with an assigned static Public IP and associate it with the subnet." },
+      { id: 'C', text: "Open all inbound ports in the Network Security Group to allow bidirectional traffic." },
+      { id: 'D', text: "Deploy a Public Load Balancer with an inbound NAT rule for each VM." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy an Azure NAT Gateway with an assigned static Public IP and associate it with the subnet. Virtual Network NAT (NAT Gateway) provides outbound-only internet connectivity for virtual networks. All outbound traffic from associated subnets uses the NAT gateway's static public IP addresses. It prevents inbound internet connections, eliminating port exhaustion issues common with default SNAT.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-network/nat-gateway/nat-overview",
@@ -471,12 +471,12 @@ export const AZURE_AZ104_QUESTIONS_18 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The administrator configures Azure Egress Networking to provide outbound internet access for virtual machines in a private subnet using a predictable, dedicated static public IP address without allowing inbound internet connections.",
     question: "Which solution properly implements these mandatory security and governance controls? Azure NAT Gateway providing predictable outbound public SNAT is under evaluation.",
     options: [
-      { id: 'A', text: "Deploy an Azure NAT Gateway with an assigned static Public IP and associate it with the subnet." },
-      { id: 'B', text: "Assign public IP addresses directly to each virtual machine network interface." },
+      { id: 'A', text: "Assign public IP addresses directly to each virtual machine network interface." },
+      { id: 'B', text: "Open all inbound ports in the Network Security Group to allow bidirectional traffic." },
       { id: 'C', text: "Deploy a Public Load Balancer with an inbound NAT rule for each VM." },
-      { id: 'D', text: "Open all inbound ports in the Network Security Group to allow bidirectional traffic." }
+      { id: 'D', text: "Deploy an Azure NAT Gateway with an assigned static Public IP and associate it with the subnet." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy an Azure NAT Gateway with an assigned static Public IP and associate it with the subnet. Virtual Network NAT (NAT Gateway) provides outbound-only internet connectivity for virtual networks. All outbound traffic from associated subnets uses the NAT gateway's static public IP addresses. It prevents inbound internet connections, eliminating port exhaustion issues common with default SNAT.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-network/nat-gateway/nat-overview",
@@ -492,12 +492,12 @@ export const AZURE_AZ104_QUESTIONS_18 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Microsoft Azure. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The administrator configures Azure Egress Networking to provide outbound internet access for virtual machines in a private subnet using a predictable, dedicated static public IP address without allowing inbound internet connections.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? Azure NAT Gateway providing predictable outbound public SNAT is under evaluation.",
     options: [
-      { id: 'A', text: "Deploy an Azure NAT Gateway with an assigned static Public IP and associate it with the subnet." },
+      { id: 'A', text: "Open all inbound ports in the Network Security Group to allow bidirectional traffic." },
       { id: 'B', text: "Assign public IP addresses directly to each virtual machine network interface." },
-      { id: 'C', text: "Deploy a Public Load Balancer with an inbound NAT rule for each VM." },
-      { id: 'D', text: "Open all inbound ports in the Network Security Group to allow bidirectional traffic." }
+      { id: 'C', text: "Deploy an Azure NAT Gateway with an assigned static Public IP and associate it with the subnet." },
+      { id: 'D', text: "Deploy a Public Load Balancer with an inbound NAT rule for each VM." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy an Azure NAT Gateway with an assigned static Public IP and associate it with the subnet. Virtual Network NAT (NAT Gateway) provides outbound-only internet connectivity for virtual networks. All outbound traffic from associated subnets uses the NAT gateway's static public IP addresses. It prevents inbound internet connections, eliminating port exhaustion issues common with default SNAT.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-network/nat-gateway/nat-overview",
@@ -513,12 +513,12 @@ export const AZURE_AZ104_QUESTIONS_18 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The administrator configures Azure Egress Networking to provide outbound internet access for virtual machines in a private subnet using a predictable, dedicated static public IP address without allowing inbound internet connections.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? Azure NAT Gateway providing predictable outbound public SNAT is under evaluation.",
     options: [
-      { id: 'A', text: "Deploy an Azure NAT Gateway with an assigned static Public IP and associate it with the subnet." },
+      { id: 'A', text: "Deploy a Public Load Balancer with an inbound NAT rule for each VM." },
       { id: 'B', text: "Assign public IP addresses directly to each virtual machine network interface." },
-      { id: 'C', text: "Deploy a Public Load Balancer with an inbound NAT rule for each VM." },
+      { id: 'C', text: "Deploy an Azure NAT Gateway with an assigned static Public IP and associate it with the subnet." },
       { id: 'D', text: "Open all inbound ports in the Network Security Group to allow bidirectional traffic." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy an Azure NAT Gateway with an assigned static Public IP and associate it with the subnet. Virtual Network NAT (NAT Gateway) provides outbound-only internet connectivity for virtual networks. All outbound traffic from associated subnets uses the NAT gateway's static public IP addresses. It prevents inbound internet connections, eliminating port exhaustion issues common with default SNAT.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-network/nat-gateway/nat-overview",

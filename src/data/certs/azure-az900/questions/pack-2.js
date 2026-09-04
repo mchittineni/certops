@@ -10,11 +10,11 @@ export const AZURE_AZ900_QUESTIONS_2 = [
     question: "Which statement accurately reflects the principles of saas productivity applications in modern cloud environments?",
     options: [
       { id: 'A', text: "Infrastructure as a Service (IaaS)" },
-      { id: 'B', text: "Software as a Service (SaaS)" },
-      { id: 'C', text: "Custom Bare Metal" },
+      { id: 'B', text: "Custom Bare Metal" },
+      { id: 'C', text: "Software as a Service (SaaS)" },
       { id: 'D', text: "Platform as a Service (PaaS)" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Office productivity applications delivered over the internet on a recurring per-user monthly subscription model represent Software as a Service. Understanding these distinctions is fundamental to designing resilient, cost-effective, and scalable cloud architectures on Microsoft Azure.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/get-started/cloud-concepts",
@@ -30,12 +30,12 @@ export const AZURE_AZ900_QUESTIONS_2 = [
     scenario: "An enterprise architectural review is evaluating cloud deployment models, financial operations, and operational capabilities for predictable budgeting with cloud scenarios.",
     question: "Which statement accurately reflects the principles of predictable budgeting with cloud in modern cloud environments?",
     options: [
-      { id: 'A', text: "Configuring budgets and automated cost alerts in Microsoft Cost Management" },
+      { id: 'A', text: "Converting all storage accounts to Archive tiers permanently" },
       { id: 'B', text: "Purchasing unmetered bandwidth contracts" },
-      { id: 'C', text: "Restricting application access strictly to internal subnets" },
-      { id: 'D', text: "Converting all storage accounts to Archive tiers permanently" }
+      { id: 'C', text: "Configuring budgets and automated cost alerts in Microsoft Cost Management" },
+      { id: 'D', text: "Restricting application access strictly to internal subnets" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Cloud governance tools allow finance teams to set spending thresholds and receive automated notifications before budgets are exceeded. Understanding these distinctions is fundamental to designing resilient, cost-effective, and scalable cloud architectures on Microsoft Azure.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/get-started/cloud-concepts",
@@ -51,10 +51,10 @@ export const AZURE_AZ900_QUESTIONS_2 = [
     scenario: "An enterprise architectural review is evaluating cloud deployment models, financial operations, and operational capabilities for cloud disaster recovery rto and rpo scenarios.",
     question: "Which statement accurately reflects the principles of cloud disaster recovery rto and rpo in modern cloud environments?",
     options: [
-      { id: 'A', text: "Mean Time Between Upgrades and SLA" },
+      { id: 'A', text: "Total Cost of Ownership and ROI" },
       { id: 'B', text: "Recovery Time Objective (RTO) and Recovery Point Objective (RPO)" },
-      { id: 'C', text: "Total Cost of Ownership and ROI" },
-      { id: 'D', text: "Horizontal and Vertical Elasticity" }
+      { id: 'C', text: "Horizontal and Vertical Elasticity" },
+      { id: 'D', text: "Mean Time Between Upgrades and SLA" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -93,12 +93,12 @@ export const AZURE_AZ900_QUESTIONS_2 = [
     scenario: "An enterprise architectural review is evaluating cloud deployment models, financial operations, and operational capabilities for cloud agility for prototyping scenarios.",
     question: "Which statement accurately reflects the principles of cloud agility for prototyping in modern cloud environments?",
     options: [
-      { id: 'A', text: "Data residency" },
-      { id: 'B', text: "Fault tolerance" },
+      { id: 'A', text: "Fault tolerance" },
+      { id: 'B', text: "Agility" },
       { id: 'C', text: "High availability" },
-      { id: 'D', text: "Agility" }
+      { id: 'D', text: "Data residency" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Startups leverage cloud agility to test experimental features with minimal financial commitment by rapidly spinning up and tearing down resources. Understanding these distinctions is fundamental to designing resilient, cost-effective, and scalable cloud architectures on Microsoft Azure.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/get-started/cloud-concepts",
@@ -114,12 +114,12 @@ export const AZURE_AZ900_QUESTIONS_2 = [
     scenario: "An enterprise architectural review is evaluating cloud deployment models, financial operations, and operational capabilities for hybrid cloud data latency scenarios.",
     question: "Which statement accurately reflects the principles of hybrid cloud data latency in modern cloud environments?",
     options: [
-      { id: 'A', text: "Isolated private cloud with no internet access" },
-      { id: 'B', text: "Public cloud over commodity internet only" },
-      { id: 'C', text: "Hybrid cloud with dedicated private connectivity" },
-      { id: 'D', text: "Software as a Service with public endpoints" }
+      { id: 'A', text: "Hybrid cloud with dedicated private connectivity" },
+      { id: 'B', text: "Isolated private cloud with no internet access" },
+      { id: 'C', text: "Software as a Service with public endpoints" },
+      { id: 'D', text: "Public cloud over commodity internet only" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Organizations use hybrid cloud connectivity (like ExpressRoute) to maintain high-throughput, low-latency connections between local on-premises hardware and Azure services. Understanding these distinctions is fundamental to designing resilient, cost-effective, and scalable cloud architectures on Microsoft Azure.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/get-started/cloud-concepts",
@@ -135,12 +135,12 @@ export const AZURE_AZ900_QUESTIONS_2 = [
     scenario: "An enterprise architectural review is evaluating cloud deployment models, financial operations, and operational capabilities for serverless event triggering scenarios.",
     question: "Which statement accurately reflects the principles of serverless event triggering in modern cloud environments?",
     options: [
-      { id: 'A', text: "Manual administrator invocations" },
-      { id: 'B', text: "Event-driven execution" },
-      { id: 'C', text: "Constant continuous background polling" },
-      { id: 'D', text: "Fixed scheduled server reboots" }
+      { id: 'A', text: "Fixed scheduled server reboots" },
+      { id: 'B', text: "Constant continuous background polling" },
+      { id: 'C', text: "Manual administrator invocations" },
+      { id: 'D', text: "Event-driven execution" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Serverless platforms trigger compute functions based on events such as HTTP requests, database record changes, queue messages, or timer schedules. Understanding these distinctions is fundamental to designing resilient, cost-effective, and scalable cloud architectures on Microsoft Azure.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/get-started/cloud-concepts",
@@ -177,12 +177,12 @@ export const AZURE_AZ900_QUESTIONS_2 = [
     scenario: "An enterprise architectural review is evaluating cloud deployment models, financial operations, and operational capabilities for cloud scalability - sudden surges scenarios.",
     question: "Which statement accurately reflects the principles of cloud scalability - sudden surges in modern cloud environments?",
     options: [
-      { id: 'A', text: "Hardware replacement" },
-      { id: 'B', text: "Horizontal scaling (scaling out)" },
-      { id: 'C', text: "Datacenter consolidation" },
-      { id: 'D', text: "Vertical scaling (scaling up)" }
+      { id: 'A', text: "Vertical scaling (scaling up)" },
+      { id: 'B', text: "Datacenter consolidation" },
+      { id: 'C', text: "Horizontal scaling (scaling out)" },
+      { id: 'D', text: "Hardware replacement" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Horizontal scalability allows an online streaming platform to absorb sudden viewership spikes during live events by distributing traffic across multiple instances. Understanding these distinctions is fundamental to designing resilient, cost-effective, and scalable cloud architectures on Microsoft Azure.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/get-started/cloud-concepts",
@@ -240,12 +240,12 @@ export const AZURE_AZ900_QUESTIONS_2 = [
     scenario: "An enterprise architectural review is evaluating cloud deployment models, financial operations, and operational capabilities for private cloud on-premises maintenance scenarios.",
     question: "Which statement accurately reflects the principles of private cloud on-premises maintenance in modern cloud environments?",
     options: [
-      { id: 'A', text: "The company owns and maintains all physical hardware, facilities, and virtualization software" },
-      { id: 'B', text: "The public cloud provider manages the physical cooling and power" },
-      { id: 'C', text: "The company incurs zero capital expenditure" },
-      { id: 'D', text: "Hardware failures are automatically repaired by public cloud vendors" }
+      { id: 'A', text: "The company incurs zero capital expenditure" },
+      { id: 'B', text: "The company owns and maintains all physical hardware, facilities, and virtualization software" },
+      { id: 'C', text: "Hardware failures are automatically repaired by public cloud vendors" },
+      { id: 'D', text: "The public cloud provider manages the physical cooling and power" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "A company operating a private cloud in its own datacenter is fully responsible for purchasing hardware, maintaining power and cooling, and updating virtualization hypervisors. Understanding these distinctions is fundamental to designing resilient, cost-effective, and scalable cloud architectures on Microsoft Azure.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/get-started/cloud-concepts",
@@ -261,12 +261,12 @@ export const AZURE_AZ900_QUESTIONS_2 = [
     scenario: "An enterprise architectural review is evaluating cloud deployment models, financial operations, and operational capabilities for hybrid cloud bursting scenarios.",
     question: "Which statement accurately reflects the principles of hybrid cloud bursting in modern cloud environments?",
     options: [
-      { id: 'A', text: "Cloud bursting" },
+      { id: 'A', text: "Cloud colocation" },
       { id: 'B', text: "Single-point failover" },
-      { id: 'C', text: "Sovereign isolation" },
-      { id: 'D', text: "Cloud colocation" }
+      { id: 'C', text: "Cloud bursting" },
+      { id: 'D', text: "Sovereign isolation" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Cloud bursting is a hybrid cloud pattern where an organization runs baseline workloads on-premises and automatically bursts into Azure during peak traffic periods. Understanding these distinctions is fundamental to designing resilient, cost-effective, and scalable cloud architectures on Microsoft Azure.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/get-started/cloud-concepts",
@@ -283,11 +283,11 @@ export const AZURE_AZ900_QUESTIONS_2 = [
     question: "Which statement accurately reflects the principles of saas zero infrastructure overhead in modern cloud environments?",
     options: [
       { id: 'A', text: "Customers configure virtual machine scale sets to run the SaaS app" },
-      { id: 'B', text: "Organizations must purchase physical server racks for each software seat" },
-      { id: 'C', text: "Users consume the application directly without managing any infrastructure or software updates" },
-      { id: 'D', text: "Users must regularly install operating system patches on the hosting servers" }
+      { id: 'B', text: "Users must regularly install operating system patches on the hosting servers" },
+      { id: 'C', text: "Organizations must purchase physical server racks for each software seat" },
+      { id: 'D', text: "Users consume the application directly without managing any infrastructure or software updates" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The primary appeal of SaaS for business users is the complete elimination of infrastructure, operating system, and application maintenance overhead. Understanding these distinctions is fundamental to designing resilient, cost-effective, and scalable cloud architectures on Microsoft Azure.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/get-started/cloud-concepts",
@@ -303,10 +303,10 @@ export const AZURE_AZ900_QUESTIONS_2 = [
     scenario: "An enterprise architectural review is evaluating cloud deployment models, financial operations, and operational capabilities for cloud economies of scale - energy efficiency scenarios.",
     question: "Which statement accurately reflects the principles of cloud economies of scale - energy efficiency in modern cloud environments?",
     options: [
-      { id: 'A', text: "Higher electricity tariffs charged to enterprise datacenters" },
+      { id: 'A', text: "Prohibition of server virtualization in private facilities" },
       { id: 'B', text: "Mandatory use of diesel generators for 100% of cloud compute" },
       { id: 'C', text: "Economies of scale and advanced engineering efficiency in hyperscale datacenters" },
-      { id: 'D', text: "Prohibition of server virtualization in private facilities" }
+      { id: 'D', text: "Higher electricity tariffs charged to enterprise datacenters" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -325,9 +325,9 @@ export const AZURE_AZ900_QUESTIONS_2 = [
     question: "Which statement accurately reflects the principles of serverless micro-billing in modern cloud environments?",
     options: [
       { id: 'A', text: "Compute fees double during periods of zero traffic" },
-      { id: 'B', text: "A flat hourly VM fee is charged regardless of idle time" },
+      { id: 'B', text: "Customers pay for allocated memory even when no functions execute" },
       { id: 'C', text: "Zero compute charges are incurred when the application is idle" },
-      { id: 'D', text: "Customers pay for allocated memory even when no functions execute" }
+      { id: 'D', text: "A flat hourly VM fee is charged regardless of idle time" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -346,11 +346,11 @@ export const AZURE_AZ900_QUESTIONS_2 = [
     question: "Which statement accurately reflects the principles of iaas vs paas database management in modern cloud environments?",
     options: [
       { id: 'A', text: "SQL on an Azure VM is SaaS with zero customer maintenance" },
-      { id: 'B', text: "Azure SQL Database is PaaS with automated management, whereas SQL Server on an Azure VM is IaaS requiring customer OS and database patching" },
-      { id: 'C', text: "Both solutions require manual physical hardware maintenance" },
+      { id: 'B', text: "Both solutions require manual physical hardware maintenance" },
+      { id: 'C', text: "Azure SQL Database is PaaS with automated management, whereas SQL Server on an Azure VM is IaaS requiring customer OS and database patching" },
       { id: 'D', text: "Azure SQL Database requires the customer to manage hypervisor updates" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Running SQL Server inside an Azure Virtual Machine is IaaS (requiring OS and SQL patching), whereas Azure SQL Database is PaaS (where patching and backups are managed by Azure). Understanding these distinctions is fundamental to designing resilient, cost-effective, and scalable cloud architectures on Microsoft Azure.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/get-started/cloud-concepts",
@@ -366,12 +366,12 @@ export const AZURE_AZ900_QUESTIONS_2 = [
     scenario: "An enterprise architectural review is evaluating cloud deployment models, financial operations, and operational capabilities for cloud reliability - slas scenarios.",
     question: "Which statement accurately reflects the principles of cloud reliability - slas in modern cloud environments?",
     options: [
-      { id: 'A', text: "Terms of Service waivers" },
-      { id: 'B', text: "Service Level Agreements (SLAs)" },
-      { id: 'C', text: "Statutory audit reports" },
-      { id: 'D', text: "Non-disclosure commitments" }
+      { id: 'A', text: "Non-disclosure commitments" },
+      { id: 'B', text: "Terms of Service waivers" },
+      { id: 'C', text: "Service Level Agreements (SLAs)" },
+      { id: 'D', text: "Statutory audit reports" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Microsoft publishes Service Level Agreements (SLAs) that define formal uptime and performance commitments for specific Azure services. Understanding these distinctions is fundamental to designing resilient, cost-effective, and scalable cloud architectures on Microsoft Azure.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/get-started/cloud-concepts",
@@ -387,12 +387,12 @@ export const AZURE_AZ900_QUESTIONS_2 = [
     scenario: "An enterprise architectural review is evaluating cloud deployment models, financial operations, and operational capabilities for geo-distribution and data sovereignty scenarios.",
     question: "Which statement accurately reflects the principles of geo-distribution and data sovereignty in modern cloud environments?",
     options: [
-      { id: 'A', text: "Ensuring compliance with local data residency and sovereignty regulations" },
-      { id: 'B', text: "Eliminating the need for role-based access control" },
-      { id: 'C', text: "Maximizing public internet bandwidth utilization" },
-      { id: 'D', text: "Enforcing uniform physical time zones worldwide" }
+      { id: 'A', text: "Maximizing public internet bandwidth utilization" },
+      { id: 'B', text: "Enforcing uniform physical time zones worldwide" },
+      { id: 'C', text: "Ensuring compliance with local data residency and sovereignty regulations" },
+      { id: 'D', text: "Eliminating the need for role-based access control" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploying resources across multiple regions must balance latency reduction with data sovereignty requirements ensuring data does not leave legal national borders. Understanding these distinctions is fundamental to designing resilient, cost-effective, and scalable cloud architectures on Microsoft Azure.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/get-started/cloud-concepts",
@@ -408,12 +408,12 @@ export const AZURE_AZ900_QUESTIONS_2 = [
     scenario: "An enterprise architectural review is evaluating cloud deployment models, financial operations, and operational capabilities for elasticity vs scalability distinctions scenarios.",
     question: "Which statement accurately reflects the principles of elasticity vs scalability distinctions in modern cloud environments?",
     options: [
-      { id: 'A', text: "Elasticity specifically emphasizes automated, dynamic scaling up and down in response to demand" },
-      { id: 'B', text: "Elasticity applies only to storage, whereas scalability applies only to networking" },
-      { id: 'C', text: "There is no functional or technical difference between the two terms" },
+      { id: 'A', text: "There is no functional or technical difference between the two terms" },
+      { id: 'B', text: "Elasticity specifically emphasizes automated, dynamic scaling up and down in response to demand" },
+      { id: 'C', text: "Elasticity applies only to storage, whereas scalability applies only to networking" },
       { id: 'D', text: "Scalability is automated, whereas elasticity is always manual" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Scalability represents the capacity of a system to grow, whereas elasticity represents the real-time automated scaling based on fluctuating demand. Understanding these distinctions is fundamental to designing resilient, cost-effective, and scalable cloud architectures on Microsoft Azure.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/get-started/cloud-concepts",
@@ -429,12 +429,12 @@ export const AZURE_AZ900_QUESTIONS_2 = [
     scenario: "A company plans to eliminate physical server room lease renewals and migrate computing workloads entirely to Microsoft Azure.",
     question: "How does migrating to Azure affect the company's financial expenditure model?",
     options: [
-      { id: 'A', text: "It requires paying 5 years of hardware costs upfront" },
+      { id: 'A', text: "It shifts costs from CapEx (upfront hardware purchases) to OpEx (ongoing consumption-based operating expenses)" },
       { id: 'B', text: "It eliminates all operating expenses completely" },
       { id: 'C', text: "It increases CapEx by purchasing servers in Microsoft datacenters" },
-      { id: 'D', text: "It shifts costs from CapEx (upfront hardware purchases) to OpEx (ongoing consumption-based operating expenses)" }
+      { id: 'D', text: "It requires paying 5 years of hardware costs upfront" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Cloud computing operates on an OpEx (Operational Expenditure) model where organizations pay only for the cloud services they consume on an ongoing basis, avoiding large upfront CapEx (Capital Expenditure) investments in physical datacenter infrastructure.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/strategy/business-outcomes/fiscal-outcomes",
@@ -450,12 +450,12 @@ export const AZURE_AZ900_QUESTIONS_2 = [
     scenario: "An enterprise deploys several Windows Server virtual machines on Azure IaaS to host an accounting application.",
     question: "Under the Azure Shared Responsibility Model, who is responsible for applying operating system security patches to these virtual machines?",
     options: [
-      { id: 'A', text: "The customer" },
-      { id: 'B', text: "Third-party internet service providers" },
-      { id: 'C', text: "Microsoft exclusively" },
-      { id: 'D', text: "The hardware server manufacturer" }
+      { id: 'A', text: "The hardware server manufacturer" },
+      { id: 'B', text: "Microsoft exclusively" },
+      { id: 'C', text: "The customer" },
+      { id: 'D', text: "Third-party internet service providers" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "In Infrastructure as a Service (IaaS), Microsoft manages physical host servers, virtualization hypervisors, and physical datacenter security. The customer retains full responsibility for configuring, updating, and patching the guest operating system, applications, and middleware.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility",
@@ -471,12 +471,12 @@ export const AZURE_AZ900_QUESTIONS_2 = [
     scenario: "A company uses Microsoft 365 (SaaS) for corporate email and document storage. A compliance auditor reviews data protection responsibilities.",
     question: "Which component remains the sole responsibility of the customer in a Software as a Service (SaaS) deployment?",
     options: [
-      { id: 'A', text: "Information and data classification, user accounts, and access management" },
+      { id: 'A', text: "Network switch firmware updates" },
       { id: 'B', text: "Operating system patching on mail servers" },
-      { id: 'C', text: "Network switch firmware updates" },
-      { id: 'D', text: "Physical datacenter security and cooling" }
+      { id: 'C', text: "Physical datacenter security and cooling" },
+      { id: 'D', text: "Information and data classification, user accounts, and access management" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "In all cloud service models (IaaS, PaaS, and SaaS), the customer always retains ultimate responsibility for protecting their data, classifying information, and managing user access credentials and client endpoints.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility",
@@ -492,12 +492,12 @@ export const AZURE_AZ900_QUESTIONS_2 = [
     scenario: "An architect designs an e-commerce platform that must guarantee continuous operation during local hardware component failures within a datacenter.",
     question: "Which cloud architectural principle directly addresses resilience against localized component failures without service interruption?",
     options: [
-      { id: 'A', text: "Disaster Recovery" },
-      { id: 'B', text: "High Availability" },
-      { id: 'C', text: "Data Sovereignty" },
-      { id: 'D', text: "Latency Routing" }
+      { id: 'A', text: "Latency Routing" },
+      { id: 'B', text: "Data Sovereignty" },
+      { id: 'C', text: "High Availability" },
+      { id: 'D', text: "Disaster Recovery" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "High Availability (HA) ensures a system remains operational and accessible with minimal downtime during localized failures through redundant components. Disaster Recovery (DR) focuses on restoring service and data following catastrophic regional disruptions.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/architecture/framework/resiliency/overview",
@@ -513,12 +513,12 @@ export const AZURE_AZ900_QUESTIONS_2 = [
     scenario: "A ticketing platform experiences unpredictable traffic spikes during concert ticket sales, followed by hours of near-zero traffic.",
     question: "Which cloud benefit enables the platform to automatically provision compute instances during traffic bursts and de-provision them when demand subsides?",
     options: [
-      { id: 'A', text: "Data Sovereignty" },
-      { id: 'B', text: "Geo-distribution" },
-      { id: 'C', text: "Elasticity" },
-      { id: 'D', text: "Predictability" }
+      { id: 'A', text: "Geo-distribution" },
+      { id: 'B', text: "Elasticity" },
+      { id: 'C', text: "Predictability" },
+      { id: 'D', text: "Data Sovereignty" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Elasticity is the dynamic ability of cloud systems to automatically allocate compute resources in real time to match fluctuating demand peaks and immediately de-provision idle capacity to minimize costs.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/well-architected/reliability/scaling-reliability",

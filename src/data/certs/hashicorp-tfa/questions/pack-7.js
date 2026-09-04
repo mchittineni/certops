@@ -10,8 +10,8 @@ export const HASHICORP_TFA_QUESTIONS_7 = [
     question: "Where is the master password stored in plain text by Terraform?",
     options: [
       { id: 'A', text: "In the terraform.tfstate file (both locally or in the remote backend storage)" },
-      { id: 'B', text: "In the .terraform.lock.hcl file" },
-      { id: 'C', text: "It is never stored anywhere by Terraform" },
+      { id: 'B', text: "It is never stored anywhere by Terraform" },
+      { id: 'C', text: "In the .terraform.lock.hcl file" },
       { id: 'D', text: "In the Linux kernel keyring" }
     ],
     correctAnswers: ['A'],
@@ -30,12 +30,12 @@ export const HASHICORP_TFA_QUESTIONS_7 = [
     scenario: "A team investigates how Terraform tracks state versions and prevents accidental overwriting of newer state files with stale backups.",
     question: "What two state metadata fields ensure state integrity across updates?",
     options: [
-      { id: 'A', text: "checksum and cloud_id" },
-      { id: 'B', text: "git_commit and author_name" },
-      { id: 'C', text: "lineage (unique UUID representing the project's identity) and serial (monotonically incrementing integer tracking changes)" },
-      { id: 'D', text: "version and timestamp only" }
+      { id: 'A', text: "version and timestamp only" },
+      { id: 'B', text: "lineage (unique UUID representing the project's identity) and serial (monotonically incrementing integer tracking changes)" },
+      { id: 'C', text: "checksum and cloud_id" },
+      { id: 'D', text: "git_commit and author_name" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "In `terraform.tfstate`, `lineage` is a unique UUID generated when state is first created. `serial` is an integer that increments by 1 on every write. If a client attempts to push a state with a lower serial or mismatched lineage, Terraform rejects the push to prevent state regressions.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/state",
@@ -52,9 +52,9 @@ export const HASHICORP_TFA_QUESTIONS_7 = [
     question: "Which data source reads output values directly from another project's remote state file?",
     options: [
       { id: 'A', text: "data \"terraform_remote_state\"" },
-      { id: 'B', text: "data \"cross_project_state\"" },
-      { id: 'C', text: "data \"terraform_state_reader\"" },
-      { id: 'D', text: "data \"remote_output\"" }
+      { id: 'B', text: "data \"remote_output\"" },
+      { id: 'C', text: "data \"cross_project_state\"" },
+      { id: 'D', text: "data \"terraform_state_reader\"" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -72,12 +72,12 @@ export const HASHICORP_TFA_QUESTIONS_7 = [
     scenario: "Two engineers simultaneously run `terraform apply` on the same infrastructure code using an AWS S3 backend with DynamoDB locking.",
     question: "What happens to the second engineer's execution?",
     options: [
-      { id: 'A', text: "Both applies run in parallel, merging their changes into state" },
-      { id: 'B', text: "The cloud provider pauses all running virtual machines" },
-      { id: 'C', text: "Terraform halts the second apply with 'Error: Error acquiring the state lock', displaying the lock ID, owner, and timestamp" },
-      { id: 'D', text: "The second apply overwrites the first apply's state silently" }
+      { id: 'A', text: "The cloud provider pauses all running virtual machines" },
+      { id: 'B', text: "The second apply overwrites the first apply's state silently" },
+      { id: 'C', text: "Both applies run in parallel, merging their changes into state" },
+      { id: 'D', text: "Terraform halts the second apply with 'Error: Error acquiring the state lock', displaying the lock ID, owner, and timestamp" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "`State locking` prevents multiple concurrent executions from corrupting the state file. When an operation starts, Terraform acquires an exclusive lock. Any concurrent process attempting to acquire the lock is rejected with an error message detailing the active lock owner.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/state/locking",
@@ -93,12 +93,12 @@ export const HASHICORP_TFA_QUESTIONS_7 = [
     scenario: "A platform architect evaluates remote backends that natively support state locking without requiring third-party plugins.",
     question: "Which group of backends natively supports state locking?",
     options: [
-      { id: 'A', text: "Local backend on NFS mounts" },
-      { id: 'B', text: "Amazon S3 (with DynamoDB), Google Cloud Storage (GCS), Azure Blob Storage (azurerm), and Terraform Cloud" },
+      { id: 'A', text: "Amazon S3 (with DynamoDB), Google Cloud Storage (GCS), Azure Blob Storage (azurerm), and Terraform Cloud" },
+      { id: 'B', text: "Local backend on NFS mounts" },
       { id: 'C', text: "Standard S3 without DynamoDB" },
       { id: 'D', text: "Raw HTTP backend without locking endpoints" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Native state locking is supported by `gcs`, `azurerm` (blob lease), `s3` (when paired with `dynamodb_table`), `consul`, and `cloud`/`remote` (Terraform Cloud). Standard S3 without DynamoDB does NOT support locking.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/settings/backends/configuration#available-backends",
@@ -114,12 +114,12 @@ export const HASHICORP_TFA_QUESTIONS_7 = [
     scenario: "A developer begins a project with local state. When collaborating with colleagues, the developer adds an `s3` backend block to `main.tf`.",
     question: "Which command migrates the existing local state into the remote S3 bucket?",
     options: [
-      { id: 'A', text: "terraform state upload" },
+      { id: 'A', text: "terraform apply -remote" },
       { id: 'B', text: "terraform state push -force" },
-      { id: 'C', text: "terraform apply -remote" },
-      { id: 'D', text: "terraform init -migrate-state" }
+      { id: 'C', text: "terraform init -migrate-state" },
+      { id: 'D', text: "terraform state upload" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "When changing backend configurations, running `terraform init` detects the change. Passing `-migrate-state` (or confirming 'yes' interactively) automatically uploads the existing state to the new remote backend while preserving history and serial numbers.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/init#backend-initialization",
@@ -135,12 +135,12 @@ export const HASHICORP_TFA_QUESTIONS_7 = [
     scenario: "A developer attempts to resolve a naming conflict by opening `terraform.tfstate` in a text editor (VS Code) and editing resource IDs manually.",
     question: "Why is manual modification of JSON state files strongly discouraged?",
     options: [
-      { id: 'A', text: "Terraform state files are encrypted with proprietary algorithms that cannot be opened" },
-      { id: 'B', text: "Text editors automatically delete .tf files" },
-      { id: 'C', text: "Cloud providers ban accounts that edit text files" },
-      { id: 'D', text: "Manual edits easily corrupt JSON syntax, desynchronize lineage/serial tracking, and cause irreversible state corruption and resource loss" }
+      { id: 'A', text: "Text editors automatically delete .tf files" },
+      { id: 'B', text: "Cloud providers ban accounts that edit text files" },
+      { id: 'C', text: "Manual edits easily corrupt JSON syntax, desynchronize lineage/serial tracking, and cause irreversible state corruption and resource loss" },
+      { id: 'D', text: "Terraform state files are encrypted with proprietary algorithms that cannot be opened" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "HashiCorp strongly advises against editing state files by hand. Even small errors in JSON syntax, serial numbers, schema versions, or dependency pointers corrupt the state file. Teams should always use safe CLI commands like `state mv` and `state rm`.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/state",
@@ -157,8 +157,8 @@ export const HASHICORP_TFA_QUESTIONS_7 = [
     question: "Before writing an updated state file, what safety mechanism does Terraform use to prevent data loss on local backends?",
     options: [
       { id: 'A', text: "It writes a copy of the prior state to terraform.tfstate.backup in the working directory" },
-      { id: 'B', text: "It emails the state to the user" },
-      { id: 'C', text: "It uploads the state to GitHub automatically" },
+      { id: 'B', text: "It uploads the state to GitHub automatically" },
+      { id: 'C', text: "It emails the state to the user" },
       { id: 'D', text: "It prompts the user to print the state file on paper" }
     ],
     correctAnswers: ['A'],
@@ -177,12 +177,12 @@ export const HASHICORP_TFA_QUESTIONS_7 = [
     scenario: "A security architect configures an Amazon S3 bucket for storing Terraform state files.",
     question: "Which two S3 configurations must be enabled to protect state confidentiality and prevent accidental deletion?",
     options: [
-      { id: 'A', text: "Public Website Hosting and CORS" },
-      { id: 'B', text: "Default Server-Side Encryption (SSE-KMS or SSE-S3) and S3 Bucket Versioning" },
+      { id: 'A', text: "Default Server-Side Encryption (SSE-KMS or SSE-S3) and S3 Bucket Versioning" },
+      { id: 'B', text: "Public Website Hosting and CORS" },
       { id: 'C', text: "S3 Glacier Deep Archive and Transfer Acceleration" },
       { id: 'D', text: "Requester Pays and S3 Object Lambda" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Best practices for S3 state storage mandate: enabling `Server-Side Encryption` (protecting plaintext secrets at rest) and `Bucket Versioning` (allowing recovery of older state files if corrupted or accidentally overwritten).",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/settings/backends/s3",
@@ -198,12 +198,12 @@ export const HASHICORP_TFA_QUESTIONS_7 = [
     scenario: "A `terraform apply` provisions a VPC, subnets, and internet gateway successfully, but fails on the 10th resource (an EC2 instance) due to an invalid AMI ID.",
     question: "What is recorded in the state file when an apply encounters an error midway through execution?",
     options: [
-      { id: 'A', text: "The state file is corrupted and deleted" },
+      { id: 'A', text: "A partial state containing all 9 successfully created resources, ensuring Terraform knows they exist and can manage or destroy them later" },
       { id: 'B', text: "The state file is rolled back completely to empty" },
-      { id: 'C', text: "A partial state containing all 9 successfully created resources, ensuring Terraform knows they exist and can manage or destroy them later" },
+      { id: 'C', text: "The state file is corrupted and deleted" },
       { id: 'D', text: "None of the resources are recorded" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Terraform writes state iteratively. If a run fails partway through, Terraform records `partial state` containing all resources successfully created before the failure. On the next run, Terraform does not recreate the first 9 resources; it only attempts the failed resource.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/state/purpose#metadata",
@@ -219,12 +219,12 @@ export const HASHICORP_TFA_QUESTIONS_7 = [
     scenario: "An administrator needs to restore a recovered state file (`recovered_state.json`) to a remote backend after resolving a state corruption event.",
     question: "Which command uploads a specific local state file directly to the configured remote backend?",
     options: [
-      { id: 'A', text: "terraform state upload recovered_state.json" },
-      { id: 'B', text: "terraform apply -state=recovered_state.json" },
+      { id: 'A', text: "terraform apply -state=recovered_state.json" },
+      { id: 'B', text: "terraform state push recovered_state.json" },
       { id: 'C', text: "terraform push state recovered_state.json" },
-      { id: 'D', text: "terraform state push recovered_state.json" }
+      { id: 'D', text: "terraform state upload recovered_state.json" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "`terraform state push &lt;file&gt;` uploads a local state file directly to the configured remote backend. It validates serial numbers to prevent accidental overwrites unless `-force` is explicitly provided.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/state/push",
@@ -240,12 +240,12 @@ export const HASHICORP_TFA_QUESTIONS_7 = [
     scenario: "A catastrophic network drop corrupts the remote state file stored in an Amazon S3 backend. The S3 bucket has versioning enabled.",
     question: "How can the operations team recover the previous valid state file?",
     options: [
-      { id: 'A', text: "The state file is permanently destroyed" },
-      { id: 'B', text: "By contacting HashiCorp support to generate a new state file" },
-      { id: 'C', text: "By running terraform uncorrupt" },
-      { id: 'D', text: "By navigating to the S3 bucket, locating the prior version of terraform.tfstate, and downloading or restoring it" }
+      { id: 'A', text: "By navigating to the S3 bucket, locating the prior version of terraform.tfstate, and downloading or restoring it" },
+      { id: 'B', text: "By running terraform uncorrupt" },
+      { id: 'C', text: "By contacting HashiCorp support to generate a new state file" },
+      { id: 'D', text: "The state file is permanently destroyed" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "With `S3 Bucket Versioning` enabled, every state modification writes a new object version. If state is corrupted, administrators simply restore the immediate previous object version from S3, restoring complete infrastructure tracking instantaneously.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/settings/backends/s3",
@@ -261,12 +261,12 @@ export const HASHICORP_TFA_QUESTIONS_7 = [
     scenario: "A developer attempts to dynamically configure the S3 backend bucket name using a variable: `bucket = var.state_bucket_name` inside `terraform { backend \"s3\" { ... } }`.",
     question: "Why does terraform init fail with: 'Variables not allowed'?",
     options: [
-      { id: 'A', text: "Terraform only supports hardcoded AWS credentials" },
-      { id: 'B', text: "Variables can only be used in output blocks" },
-      { id: 'C', text: "S3 bucket names must be numbers only" },
-      { id: 'D', text: "The backend block is initialized before Terraform parses variables, functions, or resources, so named values and variables cannot be used in backend blocks" }
+      { id: 'A', text: "The backend block is initialized before Terraform parses variables, functions, or resources, so named values and variables cannot be used in backend blocks" },
+      { id: 'B', text: "S3 bucket names must be numbers only" },
+      { id: 'C', text: "Variables can only be used in output blocks" },
+      { id: 'D', text: "Terraform only supports hardcoded AWS credentials" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Backend initialization occurs at the very beginning of the Terraform lifecycle, before variables or functions are evaluated. Consequently, `backend` blocks cannot interpolate `var.*`, `local.*`, or any dynamic HCL expressions.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/settings/backends/configuration#partial-configuration",
@@ -282,12 +282,12 @@ export const HASHICORP_TFA_QUESTIONS_7 = [
     scenario: "To keep backend configuration dynamic across environments without hardcoding bucket names, a developer omits the `bucket` argument from `main.tf`.",
     question: "How can backend parameters be supplied dynamically during terraform init?",
     options: [
-      { id: 'A', text: "By setting TF_VAR_backend_bucket" },
-      { id: 'B', text: "By passing -var=\"bucket=my-bucket\"" },
-      { id: 'C', text: "By passing -backend-config flags (e.g. terraform init -backend-config=\"bucket=my-prod-bucket\") or a config file" },
+      { id: 'A', text: "By passing -var=\"bucket=my-bucket\"" },
+      { id: 'B', text: "By passing -backend-config flags (e.g. terraform init -backend-config=\"bucket=my-prod-bucket\") or a config file" },
+      { id: 'C', text: "By setting TF_VAR_backend_bucket" },
       { id: 'D', text: "By writing to .terraform.lock.hcl" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "`Partial configuration` allows omitting backend attributes from `.tf` files. The missing parameters are supplied at `init` time via `-backend-config=\"key=value\"`, `-backend-config=path.hcl`, or environment variables, keeping configurations portable.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/settings/backends/configuration#partial-configuration",
@@ -303,12 +303,12 @@ export const HASHICORP_TFA_QUESTIONS_7 = [
     scenario: "A platform team configures remote execution and state management with Terraform Cloud.",
     question: "Starting in Terraform v1.1, which dedicated configuration block simplifies connecting a configuration to Terraform Cloud or Enterprise workspaces?",
     options: [
-      { id: 'A', text: "terraform { remote { host = \"app.terraform.io\" } }" },
-      { id: 'B', text: "terraform { cloud { organization = \"my-org\" workspaces { name = \"my-app\" } } }" },
+      { id: 'A', text: "terraform { cloud { organization = \"my-org\" workspaces { name = \"my-app\" } } }" },
+      { id: 'B', text: "terraform { remote { host = \"app.terraform.io\" } }" },
       { id: 'C', text: "terraform { tfe { workspace = \"my-app\" } }" },
       { id: 'D', text: "terraform { hashicorp { cloud = true } }" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The `cloud` block (introduced in Terraform 1.1) is the modern successor to the `remote` backend. It cleanly declares the Terraform Cloud `organization`, `workspaces` (single workspace or tags), and optional custom `hostname` for Terraform Enterprise.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/settings/terraform-cloud",
@@ -324,12 +324,12 @@ export const HASHICORP_TFA_QUESTIONS_7 = [
     scenario: "A developer inspects the raw JSON state file and notices that each resource has a `schema_version` number.",
     question: "What is the purpose of schema_version inside the state file?",
     options: [
-      { id: 'A', text: "It tracks the user's IAM permission tier" },
+      { id: 'A', text: "It represents the operating system patch level of the VM" },
       { id: 'B', text: "It tracks how many times the resource was updated in the cloud" },
-      { id: 'C', text: "It represents the operating system patch level of the VM" },
-      { id: 'D', text: "It tracks the internal provider schema version used when the resource was saved, allowing providers to perform automated state migrations during provider upgrades" }
+      { id: 'C', text: "It tracks the internal provider schema version used when the resource was saved, allowing providers to perform automated state migrations during provider upgrades" },
+      { id: 'D', text: "It tracks the user's IAM permission tier" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Providers define schema versions for resources. When a provider updates its internal attribute schema, it uses `schema_version` in state to run automated upgrade logic (state migrations) that transforms older state schemas to current schemas seamlessly.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/state",
@@ -345,12 +345,12 @@ export const HASHICORP_TFA_QUESTIONS_7 = [
     scenario: "An enterprise deploys workloads on Google Cloud Platform.",
     question: "Which backend block configures state storage in a Google Cloud Storage bucket with native locking?",
     options: [
-      { id: 'A', text: "terraform { backend \"gcp\" { bucket = \"...\" } }" },
+      { id: 'A', text: "terraform { backend \"cloud_storage\" { bucket = \"...\" } }" },
       { id: 'B', text: "terraform { backend \"google\" { storage_bucket = \"...\" } }" },
-      { id: 'C', text: "terraform { backend \"gcs\" { bucket = \"my-tf-state-bucket\" prefix = \"terraform/state\" } }" },
-      { id: 'D', text: "terraform { backend \"cloud_storage\" { bucket = \"...\" } }" }
+      { id: 'C', text: "terraform { backend \"gcp\" { bucket = \"...\" } }" },
+      { id: 'D', text: "terraform { backend \"gcs\" { bucket = \"my-tf-state-bucket\" prefix = \"terraform/state\" } }" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The standard GCP backend is named `gcs`. It requires a `bucket` name and an optional `prefix` path. GCS natively supports object locking using preconditions, providing distributed state locking without external databases.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/settings/backends/gcs",
@@ -366,12 +366,12 @@ export const HASHICORP_TFA_QUESTIONS_7 = [
     scenario: "A team standardizes on Microsoft Azure infrastructure.",
     question: "Which backend block configures state storage in Azure Blob Storage with automated blob lease locking?",
     options: [
-      { id: 'A', text: "terraform { backend \"azure\" { blob_container = \"tfstate\" } }" },
-      { id: 'B', text: "terraform { backend \"microsoft\" { account = \"sa\" } }" },
-      { id: 'C', text: "terraform { backend \"azurerm\" { resource_group_name = \"rg\" storage_account_name = \"sa\" container_name = \"tfstate\" key = \"prod.tfstate\" } }" },
+      { id: 'A', text: "terraform { backend \"microsoft\" { account = \"sa\" } }" },
+      { id: 'B', text: "terraform { backend \"azurerm\" { resource_group_name = \"rg\" storage_account_name = \"sa\" container_name = \"tfstate\" key = \"prod.tfstate\" } }" },
+      { id: 'C', text: "terraform { backend \"azure\" { blob_container = \"tfstate\" } }" },
       { id: 'D', text: "terraform { backend \"blob\" { container = \"tfstate\" } }" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "The `azurerm` backend stores state in Azure Blob Storage within a specified Storage Account and container. Azure Blob Leases provide native, distributed state locking automatically.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/settings/backends/azurerm",
@@ -387,12 +387,12 @@ export const HASHICORP_TFA_QUESTIONS_7 = [
     scenario: "An engineer writes an automated audit script to parse Terraform state files.",
     question: "In what data serialization format does Terraform write all state files?",
     options: [
-      { id: 'A', text: "XML (Extensible Markup Language)" },
-      { id: 'B', text: "JSON (JavaScript Object Notation)" },
-      { id: 'C', text: "YAML (YAML Ain't Markup Language)" },
+      { id: 'A', text: "YAML (YAML Ain't Markup Language)" },
+      { id: 'B', text: "XML (Extensible Markup Language)" },
+      { id: 'C', text: "JSON (JavaScript Object Notation)" },
       { id: 'D', text: "Protobuf binary format" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Terraform state files (`.tfstate`) are stored in standard `JSON` format. The JSON schema includes root keys like `version`, `terraform_version`, `serial`, `lineage`, `outputs`, and `resources`.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/state",
@@ -408,12 +408,12 @@ export const HASHICORP_TFA_QUESTIONS_7 = [
     scenario: "A developer encounters a state lock error when running terraform apply.",
     question: "When a state lock collision occurs, what vital troubleshooting information does Terraform display to the blocked user?",
     options: [
-      { id: 'A', text: "The cloud account credit card number" },
-      { id: 'B', text: "Lock ID, operation being performed (e.g. OperationTypeApply), username/host who acquired the lock, and the creation timestamp" },
-      { id: 'C', text: "Only a generic 500 error code" },
-      { id: 'D', text: "The user's cleartext login password" }
+      { id: 'A', text: "Lock ID, operation being performed (e.g. OperationTypeApply), username/host who acquired the lock, and the creation timestamp" },
+      { id: 'B', text: "The cloud account credit card number" },
+      { id: 'C', text: "The user's cleartext login password" },
+      { id: 'D', text: "Only a generic 500 error code" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The lock information output contains: `ID` (used with `force-unlock`), `Path`, `Operation` (Apply/Plan), `Who` (username@hostname), `Version`, and `Created` timestamp, making it easy to identify the colleague or CI runner holding the lock.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/state/locking",
@@ -429,12 +429,12 @@ export const HASHICORP_TFA_QUESTIONS_7 = [
     scenario: "An operations engineer adds an environment tag (`CostCenter = 1234`) to an EC2 instance directly in the AWS Console. The Terraform configuration file does not declare this tag.",
     question: "What occurs when terraform plan is executed?",
     options: [
-      { id: 'A', text: "Terraform crashes and refuses to plan" },
+      { id: 'A', text: "Terraform automatically copies the tag into main.tf" },
       { id: 'B', text: "Terraform ignores the tag difference completely" },
-      { id: 'C', text: "Terraform automatically copies the tag into main.tf" },
-      { id: 'D', text: "Terraform refreshes state, notes that the cloud instance has the tag, and plans an in-place update (~ update) to remove the tag to match the declared HCL code" }
+      { id: 'C', text: "Terraform refreshes state, notes that the cloud instance has the tag, and plans an in-place update (~ update) to remove the tag to match the declared HCL code" },
+      { id: 'D', text: "Terraform crashes and refuses to plan" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "During the refresh phase, Terraform discovers the out-of-band tag. Because the declared HCL configuration does not include the tag, Terraform plans an in-place update (`~`) to strip the tag from the cloud resource, maintaining code as the desired state.",
     referenceUrl: "https://developer.hashicorp.com/terraform/tutorials/state/drift",
@@ -450,12 +450,12 @@ export const HASHICORP_TFA_QUESTIONS_7 = [
     scenario: "A developer modifies the `cidr_block` of an existing `aws_vpc` resource in HCL. AWS APIs do not support changing the primary IPv4 CIDR block of an existing VPC in-place.",
     question: "How does Terraform plan this change in the CLI output?",
     options: [
-      { id: 'A', text: "+ create only" },
-      { id: 'B', text: "Terraform rejects the plan with an API error" },
-      { id: 'C', text: "~ update in-place" },
-      { id: 'D', text: "-/+ replace (destroy and then create replacement)" }
+      { id: 'A', text: "~ update in-place" },
+      { id: 'B', text: "-/+ replace (destroy and then create replacement)" },
+      { id: 'C', text: "Terraform rejects the plan with an API error" },
+      { id: 'D', text: "+ create only" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "When a modified attribute cannot be updated in-place due to cloud API constraints (known as `ForceNew` in provider schemas), Terraform plans a `- / + replace` action: destroying the existing resource and creating a brand-new replacement instance.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/plan#resource-actions",
@@ -472,9 +472,9 @@ export const HASHICORP_TFA_QUESTIONS_7 = [
     question: "Which lifecycle meta-argument instructs Terraform to provision the replacement instance before terminating the old instance?",
     options: [
       { id: 'A', text: "lifecycle { create_before_destroy = true }" },
-      { id: 'B', text: "lifecycle { rolling_update = true }" },
+      { id: 'B', text: "lifecycle { zero_downtime = true }" },
       { id: 'C', text: "lifecycle { replace_first = true }" },
-      { id: 'D', text: "lifecycle { zero_downtime = true }" }
+      { id: 'D', text: "lifecycle { rolling_update = true }" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,12 +492,12 @@ export const HASHICORP_TFA_QUESTIONS_7 = [
     scenario: "A developer accidentally runs `terraform destroy` or changes a ForceNew attribute on a mission-critical production database.",
     question: "Which lifecycle meta-argument acts as a safety latch that causes Terraform to immediately reject any plan attempting to destroy the resource?",
     options: [
-      { id: 'A', text: "lifecycle { no_destroy = true }" },
-      { id: 'B', text: "lifecycle { protect = true }" },
-      { id: 'C', text: "lifecycle { prevent_destroy = true }" },
+      { id: 'A', text: "lifecycle { protect = true }" },
+      { id: 'B', text: "lifecycle { prevent_destroy = true }" },
+      { id: 'C', text: "lifecycle { no_destroy = true }" },
       { id: 'D', text: "lifecycle { immutable = true }" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "`prevent_destroy = true` causes Terraform to throw an immediate error and reject any plan (or `terraform destroy`) that would result in the destruction of the resource, preventing catastrophic accidental data loss.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/meta-arguments/lifecycle#prevent_destroy",
@@ -514,9 +514,9 @@ export const HASHICORP_TFA_QUESTIONS_7 = [
     question: "Which lifecycle rule instructs Terraform to ignore differences in specific attributes during planning?",
     options: [
       { id: 'A', text: "lifecycle { ignore_changes = [desired_capacity] }" },
-      { id: 'B', text: "lifecycle { unmanaged = [desired_capacity] }" },
-      { id: 'C', text: "lifecycle { skip = [desired_capacity] }" },
-      { id: 'D', text: "lifecycle { dynamic = [desired_capacity] }" }
+      { id: 'B', text: "lifecycle { dynamic = [desired_capacity] }" },
+      { id: 'C', text: "lifecycle { unmanaged = [desired_capacity] }" },
+      { id: 'D', text: "lifecycle { skip = [desired_capacity] }" }
     ],
     correctAnswers: ['A'],
     type: "single",

@@ -10,8 +10,8 @@ export const HASHICORP_TFP_QUESTIONS_15 = [
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives? Emitting custom deprecation warnings using postcondition or validation messages is under consideration.",
     options: [
       { id: 'A', text: "Use variable validation rules or lifecycle postconditions to emit deprecation warnings when deprecated arguments are used." },
-      { id: 'B', text: "Delete the variable immediately, breaking all consumer pipelines without warning." },
-      { id: 'C', text: "Send an email to company employees hoping everyone reads it." },
+      { id: 'B', text: "Send an email to company employees hoping everyone reads it." },
+      { id: 'C', text: "Delete the variable immediately, breaking all consumer pipelines without warning." },
       { id: 'D', text: "Rename the variable silently without updating documentation." }
     ],
     correctAnswers: ['A'],
@@ -31,9 +31,9 @@ export const HASHICORP_TFP_QUESTIONS_15 = [
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift? Emitting custom deprecation warnings using postcondition or validation messages is under consideration.",
     options: [
       { id: 'A', text: "Use variable validation rules or lifecycle postconditions to emit deprecation warnings when deprecated arguments are used." },
-      { id: 'B', text: "Delete the variable immediately, breaking all consumer pipelines without warning." },
-      { id: 'C', text: "Send an email to company employees hoping everyone reads it." },
-      { id: 'D', text: "Rename the variable silently without updating documentation." }
+      { id: 'B', text: "Send an email to company employees hoping everyone reads it." },
+      { id: 'C', text: "Rename the variable silently without updating documentation." },
+      { id: 'D', text: "Delete the variable immediately, breaking all consumer pipelines without warning." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -51,12 +51,12 @@ export const HASHICORP_TFP_QUESTIONS_15 = [
     scenario: "A security compliance auditor requires cryptographic state protection, policy-as-code enforcement, and automated governance across all enterprise Terraform delivery pipelines. The Terraform professional evaluates Module Lifecycle to notify consumers of an enterprise module that an input variable or module version is deprecated and will be removed in the next major release.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls? Emitting custom deprecation warnings using postcondition or validation messages is under consideration.",
     options: [
-      { id: 'A', text: "Use variable validation rules or lifecycle postconditions to emit deprecation warnings when deprecated arguments are used." },
-      { id: 'B', text: "Delete the variable immediately, breaking all consumer pipelines without warning." },
-      { id: 'C', text: "Send an email to company employees hoping everyone reads it." },
+      { id: 'A', text: "Delete the variable immediately, breaking all consumer pipelines without warning." },
+      { id: 'B', text: "Send an email to company employees hoping everyone reads it." },
+      { id: 'C', text: "Use variable validation rules or lifecycle postconditions to emit deprecation warnings when deprecated arguments are used." },
       { id: 'D', text: "Rename the variable silently without updating documentation." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Use variable validation rules or lifecycle postconditions to emit deprecation warnings when deprecated arguments are used. Deprecating module parameters gracefully requires providing advance notice to consumers. Defining validation rules or custom check assertions highlights deprecated parameter usage during `terraform plan`, giving engineering teams time to transition before breaking changes occur.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/expressions/custom-conditions",
@@ -72,12 +72,12 @@ export const HASHICORP_TFP_QUESTIONS_15 = [
     scenario: "An enterprise is modernizing on-premises infrastructure and refactoring monolithic legacy deployments into modular, cloud-native architectures using advanced Terraform practices. The Terraform professional evaluates Module Lifecycle to notify consumers of an enterprise module that an input variable or module version is deprecated and will be removed in the next major release.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction? Emitting custom deprecation warnings using postcondition or validation messages is under consideration.",
     options: [
-      { id: 'A', text: "Use variable validation rules or lifecycle postconditions to emit deprecation warnings when deprecated arguments are used." },
-      { id: 'B', text: "Delete the variable immediately, breaking all consumer pipelines without warning." },
-      { id: 'C', text: "Send an email to company employees hoping everyone reads it." },
-      { id: 'D', text: "Rename the variable silently without updating documentation." }
+      { id: 'A', text: "Send an email to company employees hoping everyone reads it." },
+      { id: 'B', text: "Use variable validation rules or lifecycle postconditions to emit deprecation warnings when deprecated arguments are used." },
+      { id: 'C', text: "Rename the variable silently without updating documentation." },
+      { id: 'D', text: "Delete the variable immediately, breaking all consumer pipelines without warning." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Use variable validation rules or lifecycle postconditions to emit deprecation warnings when deprecated arguments are used. Deprecating module parameters gracefully requires providing advance notice to consumers. Defining validation rules or custom check assertions highlights deprecated parameter usage during `terraform plan`, giving engineering teams time to transition before breaking changes occur.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/expressions/custom-conditions",
@@ -93,12 +93,12 @@ export const HASHICORP_TFP_QUESTIONS_15 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline zero-downtime state refactoring, and automate operational recovery. The Terraform professional evaluates Module Lifecycle to notify consumers of an enterprise module that an input variable or module version is deprecated and will be removed in the next major release.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability? Emitting custom deprecation warnings using postcondition or validation messages is under consideration.",
     options: [
-      { id: 'A', text: "Use variable validation rules or lifecycle postconditions to emit deprecation warnings when deprecated arguments are used." },
+      { id: 'A', text: "Rename the variable silently without updating documentation." },
       { id: 'B', text: "Delete the variable immediately, breaking all consumer pipelines without warning." },
       { id: 'C', text: "Send an email to company employees hoping everyone reads it." },
-      { id: 'D', text: "Rename the variable silently without updating documentation." }
+      { id: 'D', text: "Use variable validation rules or lifecycle postconditions to emit deprecation warnings when deprecated arguments are used." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Use variable validation rules or lifecycle postconditions to emit deprecation warnings when deprecated arguments are used. Deprecating module parameters gracefully requires providing advance notice to consumers. Defining validation rules or custom check assertions highlights deprecated parameter usage during `terraform plan`, giving engineering teams time to transition before breaking changes occur.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/expressions/custom-conditions",
@@ -114,12 +114,12 @@ export const HASHICORP_TFP_QUESTIONS_15 = [
     scenario: "A principal cloud platform architect is establishing high-availability standards, automated disaster recovery procedures, and infrastructure resilience frameworks across multi-region environments using Terraform. The Terraform professional evaluates Blast Radius to prevent a minor update to an application DNS record from accidentally triggering recreation or locking on a production database cluster.",
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives? Structuring module state boundaries to minimize operational failure domains is under consideration.",
     options: [
-      { id: 'A', text: "Decompose infrastructure into independent state boundaries (networking, database, application compute) managed by separate configurations." },
-      { id: 'B', text: "Manage the entire enterprise infrastructure in a single monolithic Terraform root module." },
-      { id: 'C', text: "Run all deployments with `-target` to bypass state locking." },
-      { id: 'D', text: "Put all production databases in the same state file as development testing tools." }
+      { id: 'A', text: "Run all deployments with `-target` to bypass state locking." },
+      { id: 'B', text: "Put all production databases in the same state file as development testing tools." },
+      { id: 'C', text: "Manage the entire enterprise infrastructure in a single monolithic Terraform root module." },
+      { id: 'D', text: "Decompose infrastructure into independent state boundaries (networking, database, application compute) managed by separate configurations." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Decompose infrastructure into independent state boundaries (networking, database, application compute) managed by separate configurations. Large, monolithic state files create enormous operational blast radiuses: an error in one resource can halt all provisioning, state locking causes bottlenecks, and plan generation becomes slow. Dividing architecture into decoupled state boundaries minimizes risk and isolates failures.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cloud-docs/workspaces/organization",
@@ -135,12 +135,12 @@ export const HASHICORP_TFP_QUESTIONS_15 = [
     scenario: "A complex enterprise multi-cloud platform experiences massive scaling requirements and requires modular, automated, and performant infrastructure provisioning across dozens of teams. The Terraform professional evaluates Blast Radius to prevent a minor update to an application DNS record from accidentally triggering recreation or locking on a production database cluster.",
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift? Structuring module state boundaries to minimize operational failure domains is under consideration.",
     options: [
-      { id: 'A', text: "Decompose infrastructure into independent state boundaries (networking, database, application compute) managed by separate configurations." },
-      { id: 'B', text: "Manage the entire enterprise infrastructure in a single monolithic Terraform root module." },
-      { id: 'C', text: "Run all deployments with `-target` to bypass state locking." },
-      { id: 'D', text: "Put all production databases in the same state file as development testing tools." }
+      { id: 'A', text: "Run all deployments with `-target` to bypass state locking." },
+      { id: 'B', text: "Decompose infrastructure into independent state boundaries (networking, database, application compute) managed by separate configurations." },
+      { id: 'C', text: "Put all production databases in the same state file as development testing tools." },
+      { id: 'D', text: "Manage the entire enterprise infrastructure in a single monolithic Terraform root module." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Decompose infrastructure into independent state boundaries (networking, database, application compute) managed by separate configurations. Large, monolithic state files create enormous operational blast radiuses: an error in one resource can halt all provisioning, state locking causes bottlenecks, and plan generation becomes slow. Dividing architecture into decoupled state boundaries minimizes risk and isolates failures.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cloud-docs/workspaces/organization",
@@ -156,12 +156,12 @@ export const HASHICORP_TFP_QUESTIONS_15 = [
     scenario: "A security compliance auditor requires cryptographic state protection, policy-as-code enforcement, and automated governance across all enterprise Terraform delivery pipelines. The Terraform professional evaluates Blast Radius to prevent a minor update to an application DNS record from accidentally triggering recreation or locking on a production database cluster.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls? Structuring module state boundaries to minimize operational failure domains is under consideration.",
     options: [
-      { id: 'A', text: "Decompose infrastructure into independent state boundaries (networking, database, application compute) managed by separate configurations." },
-      { id: 'B', text: "Manage the entire enterprise infrastructure in a single monolithic Terraform root module." },
-      { id: 'C', text: "Run all deployments with `-target` to bypass state locking." },
-      { id: 'D', text: "Put all production databases in the same state file as development testing tools." }
+      { id: 'A', text: "Put all production databases in the same state file as development testing tools." },
+      { id: 'B', text: "Decompose infrastructure into independent state boundaries (networking, database, application compute) managed by separate configurations." },
+      { id: 'C', text: "Manage the entire enterprise infrastructure in a single monolithic Terraform root module." },
+      { id: 'D', text: "Run all deployments with `-target` to bypass state locking." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Decompose infrastructure into independent state boundaries (networking, database, application compute) managed by separate configurations. Large, monolithic state files create enormous operational blast radiuses: an error in one resource can halt all provisioning, state locking causes bottlenecks, and plan generation becomes slow. Dividing architecture into decoupled state boundaries minimizes risk and isolates failures.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cloud-docs/workspaces/organization",
@@ -178,9 +178,9 @@ export const HASHICORP_TFP_QUESTIONS_15 = [
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction? Structuring module state boundaries to minimize operational failure domains is under consideration.",
     options: [
       { id: 'A', text: "Decompose infrastructure into independent state boundaries (networking, database, application compute) managed by separate configurations." },
-      { id: 'B', text: "Manage the entire enterprise infrastructure in a single monolithic Terraform root module." },
+      { id: 'B', text: "Put all production databases in the same state file as development testing tools." },
       { id: 'C', text: "Run all deployments with `-target` to bypass state locking." },
-      { id: 'D', text: "Put all production databases in the same state file as development testing tools." }
+      { id: 'D', text: "Manage the entire enterprise infrastructure in a single monolithic Terraform root module." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,12 +198,12 @@ export const HASHICORP_TFP_QUESTIONS_15 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline zero-downtime state refactoring, and automate operational recovery. The Terraform professional evaluates Blast Radius to prevent a minor update to an application DNS record from accidentally triggering recreation or locking on a production database cluster.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability? Structuring module state boundaries to minimize operational failure domains is under consideration.",
     options: [
-      { id: 'A', text: "Decompose infrastructure into independent state boundaries (networking, database, application compute) managed by separate configurations." },
-      { id: 'B', text: "Manage the entire enterprise infrastructure in a single monolithic Terraform root module." },
-      { id: 'C', text: "Run all deployments with `-target` to bypass state locking." },
-      { id: 'D', text: "Put all production databases in the same state file as development testing tools." }
+      { id: 'A', text: "Put all production databases in the same state file as development testing tools." },
+      { id: 'B', text: "Run all deployments with `-target` to bypass state locking." },
+      { id: 'C', text: "Manage the entire enterprise infrastructure in a single monolithic Terraform root module." },
+      { id: 'D', text: "Decompose infrastructure into independent state boundaries (networking, database, application compute) managed by separate configurations." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Decompose infrastructure into independent state boundaries (networking, database, application compute) managed by separate configurations. Large, monolithic state files create enormous operational blast radiuses: an error in one resource can halt all provisioning, state locking causes bottlenecks, and plan generation becomes slow. Dividing architecture into decoupled state boundaries minimizes risk and isolates failures.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cloud-docs/workspaces/organization",
@@ -219,12 +219,12 @@ export const HASHICORP_TFP_QUESTIONS_15 = [
     scenario: "A principal cloud platform architect is establishing high-availability standards, automated disaster recovery procedures, and infrastructure resilience frameworks across multi-region environments using Terraform. The Terraform professional evaluates Advanced State Manipulation to move an existing database resource `module.db.aws_rds_cluster.this` into a nested module `module.db.module.cluster.aws_rds_cluster.this` without recreation.",
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives? Renaming and moving resources within nested module hierarchies via state mv is under consideration.",
     options: [
-      { id: 'A', text: "Execute `terraform state mv module.db.aws_rds_cluster.this module.db.module.cluster.aws_rds_cluster.this`." },
+      { id: 'A', text: "Edit the raw remote JSON state file in an external text editor." },
       { id: 'B', text: "Delete the cluster from AWS and re-provision it via apply." },
-      { id: 'C', text: "Edit the raw remote JSON state file in an external text editor." },
-      { id: 'D', text: "Destroy the old module and recreate the database with empty data." }
+      { id: 'C', text: "Destroy the old module and recreate the database with empty data." },
+      { id: 'D', text: "Execute `terraform state mv module.db.aws_rds_cluster.this module.db.module.cluster.aws_rds_cluster.this`." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Execute `terraform state mv module.db.aws_rds_cluster.this module.db.module.cluster.aws_rds_cluster.this`. Refactoring nested module hierarchies requires updating state bindings. Running `terraform state mv` with full hierarchical resource addresses re-points the state metadata without touching the physical database, allowing architectural evolution with zero downtime.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/state/mv",
@@ -240,12 +240,12 @@ export const HASHICORP_TFP_QUESTIONS_15 = [
     scenario: "A complex enterprise multi-cloud platform experiences massive scaling requirements and requires modular, automated, and performant infrastructure provisioning across dozens of teams. The Terraform professional evaluates Advanced State Manipulation to move an existing database resource `module.db.aws_rds_cluster.this` into a nested module `module.db.module.cluster.aws_rds_cluster.this` without recreation.",
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift? Renaming and moving resources within nested module hierarchies via state mv is under consideration.",
     options: [
-      { id: 'A', text: "Execute `terraform state mv module.db.aws_rds_cluster.this module.db.module.cluster.aws_rds_cluster.this`." },
-      { id: 'B', text: "Delete the cluster from AWS and re-provision it via apply." },
+      { id: 'A', text: "Destroy the old module and recreate the database with empty data." },
+      { id: 'B', text: "Execute `terraform state mv module.db.aws_rds_cluster.this module.db.module.cluster.aws_rds_cluster.this`." },
       { id: 'C', text: "Edit the raw remote JSON state file in an external text editor." },
-      { id: 'D', text: "Destroy the old module and recreate the database with empty data." }
+      { id: 'D', text: "Delete the cluster from AWS and re-provision it via apply." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Execute `terraform state mv module.db.aws_rds_cluster.this module.db.module.cluster.aws_rds_cluster.this`. Refactoring nested module hierarchies requires updating state bindings. Running `terraform state mv` with full hierarchical resource addresses re-points the state metadata without touching the physical database, allowing architectural evolution with zero downtime.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/state/mv",
@@ -262,9 +262,9 @@ export const HASHICORP_TFP_QUESTIONS_15 = [
     question: "Which solution implements these mandatory infrastructure as code security and governance controls? Renaming and moving resources within nested module hierarchies via state mv is under consideration.",
     options: [
       { id: 'A', text: "Execute `terraform state mv module.db.aws_rds_cluster.this module.db.module.cluster.aws_rds_cluster.this`." },
-      { id: 'B', text: "Delete the cluster from AWS and re-provision it via apply." },
+      { id: 'B', text: "Destroy the old module and recreate the database with empty data." },
       { id: 'C', text: "Edit the raw remote JSON state file in an external text editor." },
-      { id: 'D', text: "Destroy the old module and recreate the database with empty data." }
+      { id: 'D', text: "Delete the cluster from AWS and re-provision it via apply." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -282,12 +282,12 @@ export const HASHICORP_TFP_QUESTIONS_15 = [
     scenario: "An enterprise is modernizing on-premises infrastructure and refactoring monolithic legacy deployments into modular, cloud-native architectures using advanced Terraform practices. The Terraform professional evaluates Advanced State Manipulation to move an existing database resource `module.db.aws_rds_cluster.this` into a nested module `module.db.module.cluster.aws_rds_cluster.this` without recreation.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction? Renaming and moving resources within nested module hierarchies via state mv is under consideration.",
     options: [
-      { id: 'A', text: "Execute `terraform state mv module.db.aws_rds_cluster.this module.db.module.cluster.aws_rds_cluster.this`." },
+      { id: 'A', text: "Edit the raw remote JSON state file in an external text editor." },
       { id: 'B', text: "Delete the cluster from AWS and re-provision it via apply." },
-      { id: 'C', text: "Edit the raw remote JSON state file in an external text editor." },
+      { id: 'C', text: "Execute `terraform state mv module.db.aws_rds_cluster.this module.db.module.cluster.aws_rds_cluster.this`." },
       { id: 'D', text: "Destroy the old module and recreate the database with empty data." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Execute `terraform state mv module.db.aws_rds_cluster.this module.db.module.cluster.aws_rds_cluster.this`. Refactoring nested module hierarchies requires updating state bindings. Running `terraform state mv` with full hierarchical resource addresses re-points the state metadata without touching the physical database, allowing architectural evolution with zero downtime.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/state/mv",
@@ -303,12 +303,12 @@ export const HASHICORP_TFP_QUESTIONS_15 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline zero-downtime state refactoring, and automate operational recovery. The Terraform professional evaluates Advanced State Manipulation to move an existing database resource `module.db.aws_rds_cluster.this` into a nested module `module.db.module.cluster.aws_rds_cluster.this` without recreation.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability? Renaming and moving resources within nested module hierarchies via state mv is under consideration.",
     options: [
-      { id: 'A', text: "Execute `terraform state mv module.db.aws_rds_cluster.this module.db.module.cluster.aws_rds_cluster.this`." },
+      { id: 'A', text: "Destroy the old module and recreate the database with empty data." },
       { id: 'B', text: "Delete the cluster from AWS and re-provision it via apply." },
       { id: 'C', text: "Edit the raw remote JSON state file in an external text editor." },
-      { id: 'D', text: "Destroy the old module and recreate the database with empty data." }
+      { id: 'D', text: "Execute `terraform state mv module.db.aws_rds_cluster.this module.db.module.cluster.aws_rds_cluster.this`." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Execute `terraform state mv module.db.aws_rds_cluster.this module.db.module.cluster.aws_rds_cluster.this`. Refactoring nested module hierarchies requires updating state bindings. Running `terraform state mv` with full hierarchical resource addresses re-points the state metadata without touching the physical database, allowing architectural evolution with zero downtime.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/state/mv",
@@ -325,9 +325,9 @@ export const HASHICORP_TFP_QUESTIONS_15 = [
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives? Safely releasing stuck locks using terraform force-unlock with Lock ID is under consideration.",
     options: [
       { id: 'A', text: "Obtain the unique Lock ID reported in the error message and run `terraform force-unlock &lt;LOCK_ID&gt;` after verifying no process is running." },
-      { id: 'B', text: "Delete the DynamoDB state locking table in AWS." },
+      { id: 'B', text: "Run `terraform apply -force` to overwrite the lock without unlocking." },
       { id: 'C', text: "Delete the entire S3 bucket containing the state file." },
-      { id: 'D', text: "Run `terraform apply -force` to overwrite the lock without unlocking." }
+      { id: 'D', text: "Delete the DynamoDB state locking table in AWS." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -345,12 +345,12 @@ export const HASHICORP_TFP_QUESTIONS_15 = [
     scenario: "A complex enterprise multi-cloud platform experiences massive scaling requirements and requires modular, automated, and performant infrastructure provisioning across dozens of teams. The Terraform professional evaluates State Lock Recovery to clear a stuck state lock on an S3 remote backend caused by an unexpected CI/CD agent process crash during `terraform apply`.",
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift? Safely releasing stuck locks using terraform force-unlock with Lock ID is under consideration.",
     options: [
-      { id: 'A', text: "Obtain the unique Lock ID reported in the error message and run `terraform force-unlock &lt;LOCK_ID&gt;` after verifying no process is running." },
+      { id: 'A', text: "Delete the entire S3 bucket containing the state file." },
       { id: 'B', text: "Delete the DynamoDB state locking table in AWS." },
-      { id: 'C', text: "Delete the entire S3 bucket containing the state file." },
+      { id: 'C', text: "Obtain the unique Lock ID reported in the error message and run `terraform force-unlock &lt;LOCK_ID&gt;` after verifying no process is running." },
       { id: 'D', text: "Run `terraform apply -force` to overwrite the lock without unlocking." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Obtain the unique Lock ID reported in the error message and run `terraform force-unlock &lt;LOCK_ID&gt;` after verifying no process is running. If a process terminates abnormally while holding a state lock, the lock remains in the backend. Running `terraform force-unlock &lt;LOCK_ID&gt;` safely removes the lock from the backend (e.g., DynamoDB), allowing future operations after confirming that no other process is actively mutating state.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/force-unlock",
@@ -366,12 +366,12 @@ export const HASHICORP_TFP_QUESTIONS_15 = [
     scenario: "A security compliance auditor requires cryptographic state protection, policy-as-code enforcement, and automated governance across all enterprise Terraform delivery pipelines. The Terraform professional evaluates State Lock Recovery to clear a stuck state lock on an S3 remote backend caused by an unexpected CI/CD agent process crash during `terraform apply`.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls? Safely releasing stuck locks using terraform force-unlock with Lock ID is under consideration.",
     options: [
-      { id: 'A', text: "Obtain the unique Lock ID reported in the error message and run `terraform force-unlock &lt;LOCK_ID&gt;` after verifying no process is running." },
-      { id: 'B', text: "Delete the DynamoDB state locking table in AWS." },
+      { id: 'A', text: "Delete the DynamoDB state locking table in AWS." },
+      { id: 'B', text: "Run `terraform apply -force` to overwrite the lock without unlocking." },
       { id: 'C', text: "Delete the entire S3 bucket containing the state file." },
-      { id: 'D', text: "Run `terraform apply -force` to overwrite the lock without unlocking." }
+      { id: 'D', text: "Obtain the unique Lock ID reported in the error message and run `terraform force-unlock &lt;LOCK_ID&gt;` after verifying no process is running." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Obtain the unique Lock ID reported in the error message and run `terraform force-unlock &lt;LOCK_ID&gt;` after verifying no process is running. If a process terminates abnormally while holding a state lock, the lock remains in the backend. Running `terraform force-unlock &lt;LOCK_ID&gt;` safely removes the lock from the backend (e.g., DynamoDB), allowing future operations after confirming that no other process is actively mutating state.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/force-unlock",
@@ -387,12 +387,12 @@ export const HASHICORP_TFP_QUESTIONS_15 = [
     scenario: "An enterprise is modernizing on-premises infrastructure and refactoring monolithic legacy deployments into modular, cloud-native architectures using advanced Terraform practices. The Terraform professional evaluates State Lock Recovery to clear a stuck state lock on an S3 remote backend caused by an unexpected CI/CD agent process crash during `terraform apply`.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction? Safely releasing stuck locks using terraform force-unlock with Lock ID is under consideration.",
     options: [
-      { id: 'A', text: "Obtain the unique Lock ID reported in the error message and run `terraform force-unlock &lt;LOCK_ID&gt;` after verifying no process is running." },
-      { id: 'B', text: "Delete the DynamoDB state locking table in AWS." },
-      { id: 'C', text: "Delete the entire S3 bucket containing the state file." },
-      { id: 'D', text: "Run `terraform apply -force` to overwrite the lock without unlocking." }
+      { id: 'A', text: "Delete the DynamoDB state locking table in AWS." },
+      { id: 'B', text: "Run `terraform apply -force` to overwrite the lock without unlocking." },
+      { id: 'C', text: "Obtain the unique Lock ID reported in the error message and run `terraform force-unlock &lt;LOCK_ID&gt;` after verifying no process is running." },
+      { id: 'D', text: "Delete the entire S3 bucket containing the state file." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Obtain the unique Lock ID reported in the error message and run `terraform force-unlock &lt;LOCK_ID&gt;` after verifying no process is running. If a process terminates abnormally while holding a state lock, the lock remains in the backend. Running `terraform force-unlock &lt;LOCK_ID&gt;` safely removes the lock from the backend (e.g., DynamoDB), allowing future operations after confirming that no other process is actively mutating state.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/force-unlock",
@@ -410,8 +410,8 @@ export const HASHICORP_TFP_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Obtain the unique Lock ID reported in the error message and run `terraform force-unlock &lt;LOCK_ID&gt;` after verifying no process is running." },
       { id: 'B', text: "Delete the DynamoDB state locking table in AWS." },
-      { id: 'C', text: "Delete the entire S3 bucket containing the state file." },
-      { id: 'D', text: "Run `terraform apply -force` to overwrite the lock without unlocking." }
+      { id: 'C', text: "Run `terraform apply -force` to overwrite the lock without unlocking." },
+      { id: 'D', text: "Delete the entire S3 bucket containing the state file." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -429,12 +429,12 @@ export const HASHICORP_TFP_QUESTIONS_15 = [
     scenario: "A principal cloud platform architect is establishing high-availability standards, automated disaster recovery procedures, and infrastructure resilience frameworks across multi-region environments using Terraform. The Terraform professional evaluates Partial Apply to reconcile state when a network timeout terminates a `terraform apply` after provisioning 5 out of 10 declared resources.",
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives? Inspecting and repairing state when a network failure interrupts terraform apply mid-run is under consideration.",
     options: [
-      { id: 'A', text: "Run `terraform refresh` or `terraform plan` to allow Terraform to reconcile state with live infrastructure, then resume with `apply`." },
+      { id: 'A', text: "Run `terraform destroy` immediately to delete all half-provisioned resources." },
       { id: 'B', text: "Assume all 10 resources were created and skip applying." },
-      { id: 'C', text: "Delete the state file and run `terraform apply` from scratch." },
-      { id: 'D', text: "Run `terraform destroy` immediately to delete all half-provisioned resources." }
+      { id: 'C', text: "Run `terraform refresh` or `terraform plan` to allow Terraform to reconcile state with live infrastructure, then resume with `apply`." },
+      { id: 'D', text: "Delete the state file and run `terraform apply` from scratch." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Run `terraform refresh` or `terraform plan` to allow Terraform to reconcile state with live infrastructure, then resume with `apply`. Terraform writes state incrementally during `apply`. If an apply fails halfway through, resources created prior to the failure are recorded in state. Running `terraform plan` inspects live infrastructure, recognizes what exists, and plans only the remaining un-provisioned resources.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/state/purpose#failure-recovery",
@@ -450,12 +450,12 @@ export const HASHICORP_TFP_QUESTIONS_15 = [
     scenario: "A complex enterprise multi-cloud platform experiences massive scaling requirements and requires modular, automated, and performant infrastructure provisioning across dozens of teams. The Terraform professional evaluates Partial Apply to reconcile state when a network timeout terminates a `terraform apply` after provisioning 5 out of 10 declared resources.",
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift? Inspecting and repairing state when a network failure interrupts terraform apply mid-run is under consideration.",
     options: [
-      { id: 'A', text: "Run `terraform refresh` or `terraform plan` to allow Terraform to reconcile state with live infrastructure, then resume with `apply`." },
-      { id: 'B', text: "Assume all 10 resources were created and skip applying." },
+      { id: 'A', text: "Assume all 10 resources were created and skip applying." },
+      { id: 'B', text: "Run `terraform refresh` or `terraform plan` to allow Terraform to reconcile state with live infrastructure, then resume with `apply`." },
       { id: 'C', text: "Delete the state file and run `terraform apply` from scratch." },
       { id: 'D', text: "Run `terraform destroy` immediately to delete all half-provisioned resources." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Run `terraform refresh` or `terraform plan` to allow Terraform to reconcile state with live infrastructure, then resume with `apply`. Terraform writes state incrementally during `apply`. If an apply fails halfway through, resources created prior to the failure are recorded in state. Running `terraform plan` inspects live infrastructure, recognizes what exists, and plans only the remaining un-provisioned resources.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/state/purpose#failure-recovery",
@@ -472,9 +472,9 @@ export const HASHICORP_TFP_QUESTIONS_15 = [
     question: "Which solution implements these mandatory infrastructure as code security and governance controls? Inspecting and repairing state when a network failure interrupts terraform apply mid-run is under consideration.",
     options: [
       { id: 'A', text: "Run `terraform refresh` or `terraform plan` to allow Terraform to reconcile state with live infrastructure, then resume with `apply`." },
-      { id: 'B', text: "Assume all 10 resources were created and skip applying." },
-      { id: 'C', text: "Delete the state file and run `terraform apply` from scratch." },
-      { id: 'D', text: "Run `terraform destroy` immediately to delete all half-provisioned resources." }
+      { id: 'B', text: "Delete the state file and run `terraform apply` from scratch." },
+      { id: 'C', text: "Run `terraform destroy` immediately to delete all half-provisioned resources." },
+      { id: 'D', text: "Assume all 10 resources were created and skip applying." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,12 +492,12 @@ export const HASHICORP_TFP_QUESTIONS_15 = [
     scenario: "An enterprise is modernizing on-premises infrastructure and refactoring monolithic legacy deployments into modular, cloud-native architectures using advanced Terraform practices. The Terraform professional evaluates Partial Apply to reconcile state when a network timeout terminates a `terraform apply` after provisioning 5 out of 10 declared resources.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction? Inspecting and repairing state when a network failure interrupts terraform apply mid-run is under consideration.",
     options: [
-      { id: 'A', text: "Run `terraform refresh` or `terraform plan` to allow Terraform to reconcile state with live infrastructure, then resume with `apply`." },
-      { id: 'B', text: "Assume all 10 resources were created and skip applying." },
+      { id: 'A', text: "Assume all 10 resources were created and skip applying." },
+      { id: 'B', text: "Run `terraform destroy` immediately to delete all half-provisioned resources." },
       { id: 'C', text: "Delete the state file and run `terraform apply` from scratch." },
-      { id: 'D', text: "Run `terraform destroy` immediately to delete all half-provisioned resources." }
+      { id: 'D', text: "Run `terraform refresh` or `terraform plan` to allow Terraform to reconcile state with live infrastructure, then resume with `apply`." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Run `terraform refresh` or `terraform plan` to allow Terraform to reconcile state with live infrastructure, then resume with `apply`. Terraform writes state incrementally during `apply`. If an apply fails halfway through, resources created prior to the failure are recorded in state. Running `terraform plan` inspects live infrastructure, recognizes what exists, and plans only the remaining un-provisioned resources.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/state/purpose#failure-recovery",
@@ -513,12 +513,12 @@ export const HASHICORP_TFP_QUESTIONS_15 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline zero-downtime state refactoring, and automate operational recovery. The Terraform professional evaluates Partial Apply to reconcile state when a network timeout terminates a `terraform apply` after provisioning 5 out of 10 declared resources.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability? Inspecting and repairing state when a network failure interrupts terraform apply mid-run is under consideration.",
     options: [
-      { id: 'A', text: "Run `terraform refresh` or `terraform plan` to allow Terraform to reconcile state with live infrastructure, then resume with `apply`." },
-      { id: 'B', text: "Assume all 10 resources were created and skip applying." },
-      { id: 'C', text: "Delete the state file and run `terraform apply` from scratch." },
+      { id: 'A', text: "Delete the state file and run `terraform apply` from scratch." },
+      { id: 'B', text: "Run `terraform refresh` or `terraform plan` to allow Terraform to reconcile state with live infrastructure, then resume with `apply`." },
+      { id: 'C', text: "Assume all 10 resources were created and skip applying." },
       { id: 'D', text: "Run `terraform destroy` immediately to delete all half-provisioned resources." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Run `terraform refresh` or `terraform plan` to allow Terraform to reconcile state with live infrastructure, then resume with `apply`. Terraform writes state incrementally during `apply`. If an apply fails halfway through, resources created prior to the failure are recorded in state. Running `terraform plan` inspects live infrastructure, recognizes what exists, and plans only the remaining un-provisioned resources.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/state/purpose#failure-recovery",

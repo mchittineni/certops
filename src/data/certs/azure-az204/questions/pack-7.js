@@ -9,12 +9,12 @@ export const AZURE_AZ204_QUESTIONS_7 = [
     scenario: "A cloud administrator is authoring a custom Azure RBAC role definition to delegate management permissions on virtual machines.",
     question: "Which section of the role definition JSON specifies the control plane management operations that the role is permitted to perform?",
     options: [
-      { id: 'A', text: "Actions" },
+      { id: 'A', text: "DataActions" },
       { id: 'B', text: "NotActions" },
-      { id: 'C', text: "DataActions" },
+      { id: 'C', text: "Actions" },
       { id: 'D', text: "AssignableScopes" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "An Azure RBAC role definition consists of: `Actions` (management plane operations the role can perform), `NotActions` (operations excluded from Actions), `DataActions` (data plane operations, e.g. reading blob content), `NotDataActions`, and `AssignableScopes`.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/role-based-access-control/role-definitions",
@@ -31,9 +31,9 @@ export const AZURE_AZ204_QUESTIONS_7 = [
     question: "Which service receives near-real-time certificate lifecycle events from Key Vault and triggers notification webhooks?",
     options: [
       { id: 'A', text: "Azure Event Grid (Microsoft.KeyVault.CertificateNearExpiry event)" },
-      { id: 'B', text: "Azure Service Bus Queue alone" },
+      { id: 'B', text: "Azure Application Insights" },
       { id: 'C', text: "Log Analytics alerts alone" },
-      { id: 'D', text: "Azure Application Insights" }
+      { id: 'D', text: "Azure Service Bus Queue alone" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -52,9 +52,9 @@ export const AZURE_AZ204_QUESTIONS_7 = [
     question: "What happens when an administrator attempts to configure Conditional Access while Security Defaults is enabled?",
     options: [
       { id: 'A', text: "Security Defaults must be disabled before custom Conditional Access policies can be created and activated" },
-      { id: 'B', text: "Conditional Access rules override Security Defaults automatically" },
+      { id: 'B', text: "Conditional Access can only be used with on-premises servers" },
       { id: 'C', text: "Security Defaults and Conditional Access operate in parallel" },
-      { id: 'D', text: "Conditional Access can only be used with on-premises servers" }
+      { id: 'D', text: "Conditional Access rules override Security Defaults automatically" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -72,12 +72,12 @@ export const AZURE_AZ204_QUESTIONS_7 = [
     scenario: "When creating an Azure Key Vault, an administrator wants to configure the soft-delete retention window to 30 days instead of the default 90 days.",
     question: "Which property in the Key Vault resource definition specifies the retention duration?",
     options: [
-      { id: 'A', text: "keyLifespanDays" },
-      { id: 'B', text: "retentionWindowDays" },
-      { id: 'C', text: "purgeProtectionDays" },
-      { id: 'D', text: "softDeleteRetentionInDays (configurable between 7 and 90 days)" }
+      { id: 'A', text: "retentionWindowDays" },
+      { id: 'B', text: "softDeleteRetentionInDays (configurable between 7 and 90 days)" },
+      { id: 'C', text: "keyLifespanDays" },
+      { id: 'D', text: "purgeProtectionDays" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "In Azure Key Vault, `softDeleteRetentionInDays` specifies the number of days that deleted vaults and objects are retained in a recoverable state. It can be set between 7 and 90 days (default is 90 days).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/key-vault/general/soft-delete-overview#soft-delete-behavior",
@@ -94,9 +94,9 @@ export const AZURE_AZ204_QUESTIONS_7 = [
     question: "Which value for the `sp` query parameter grants read, write, and list permissions without delete?",
     options: [
       { id: 'A', text: "sp=rwl" },
-      { id: 'B', text: "sp=rwd" },
+      { id: 'B', text: "sp=rwld" },
       { id: 'C', text: "sp=all" },
-      { id: 'D', text: "sp=rwld" }
+      { id: 'D', text: "sp=rwd" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -137,8 +137,8 @@ export const AZURE_AZ204_QUESTIONS_7 = [
     options: [
       { id: 'A', text: "Allow trusted Microsoft services to bypass this firewall (bypass = AzureServices)" },
       { id: 'B', text: "Disable Key Vault authentication completely" },
-      { id: 'C', text: "Open port 80 to 0.0.0.0/0" },
-      { id: 'D', text: "Set defaultAction to Allow" }
+      { id: 'C', text: "Set defaultAction to Allow" },
+      { id: 'D', text: "Open port 80 to 0.0.0.0/0" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -157,9 +157,9 @@ export const AZURE_AZ204_QUESTIONS_7 = [
     question: "Which Microsoft Graph feature combines multiple requests into a single HTTP POST payload?",
     options: [
       { id: 'A', text: "JSON Batching ($batch endpoint)" },
-      { id: 'B', text: "Executing 15 parallel HTTP calls" },
+      { id: 'B', text: "Delta Query" },
       { id: 'C', text: "Microsoft Graph Webhooks" },
-      { id: 'D', text: "Delta Query" }
+      { id: 'D', text: "Executing 15 parallel HTTP calls" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -177,12 +177,12 @@ export const AZURE_AZ204_QUESTIONS_7 = [
     scenario: "An identity management tool synchronizes user account changes from Microsoft Entra ID every hour. Querying all 100,000 users on each sync cycle is slow and wasteful.",
     question: "Which Microsoft Graph feature tracks incremental additions, updates, and deletions using delta tokens?",
     options: [
-      { id: 'A', text: "Graph Webhooks alone without tokens" },
-      { id: 'B', text: "OData $filter queries alone" },
-      { id: 'C', text: "Microsoft Graph Delta Query" },
-      { id: 'D', text: "Graph JSON Batching" }
+      { id: 'A', text: "OData $filter queries alone" },
+      { id: 'B', text: "Microsoft Graph Delta Query" },
+      { id: 'C', text: "Graph JSON Batching" },
+      { id: 'D', text: "Graph Webhooks alone without tokens" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Microsoft Graph `Delta Query` allows applications to discover newly created, updated, or deleted entities through periodic calls. The API returns a `@odata.deltaLink` containing a state token used on the next run to fetch only changes that occurred since the last query.",
     referenceUrl: "https://learn.microsoft.com/en-us/graph/delta-query-overview",
@@ -198,12 +198,12 @@ export const AZURE_AZ204_QUESTIONS_7 = [
     scenario: "A developer is asked why Azure Storage accounts provide two separate access keys (Key 1 and Key 2).",
     question: "What is the operational difference between Key 1 and Key 2 in terms of permissions?",
     options: [
-      { id: 'A', text: "Key 1 is for Blob storage only; Key 2 is for Queue storage only" },
-      { id: 'B', text: "There is no difference in permissions; both keys have identical full administrative access to the storage account and exist to enable zero-downtime rotation" },
-      { id: 'C', text: "Key 1 is read-only; Key 2 is read-write" },
+      { id: 'A', text: "There is no difference in permissions; both keys have identical full administrative access to the storage account and exist to enable zero-downtime rotation" },
+      { id: 'B', text: "Key 1 is read-only; Key 2 is read-write" },
+      { id: 'C', text: "Key 1 is for Blob storage only; Key 2 is for Queue storage only" },
       { id: 'D', text: "Key 1 expires after 30 days; Key 2 never expires" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Key 1 and Key 2 possess identical root administrative permissions across all services in the storage account. Azure provides two keys solely to facilitate zero-downtime key rotation: applications use one key while the administrator regenerates the other.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/common/storage-account-keys-manage",
@@ -220,9 +220,9 @@ export const AZURE_AZ204_QUESTIONS_7 = [
     question: "Which configuration value should the application use to direct telemetry to the target Application Insights resource?",
     options: [
       { id: 'A', text: "The Application Insights Connection String (APPLICATIONINSIGHTS_CONNECTION_STRING)" },
-      { id: 'B', text: "An Azure Storage SAS token" },
-      { id: 'C', text: "The legacy APPINSIGHTS_INSTRUMENTATIONKEY alone" },
-      { id: 'D', text: "The subscription ID" }
+      { id: 'B', text: "The legacy APPINSIGHTS_INSTRUMENTATIONKEY alone" },
+      { id: 'C', text: "The subscription ID" },
+      { id: 'D', text: "An Azure Storage SAS token" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -240,12 +240,12 @@ export const AZURE_AZ204_QUESTIONS_7 = [
     scenario: "A developer is instrumenting a checkout workflow in C# to record a custom business metric `OrderValue` and track when an order is completed.",
     question: "Which TelemetryClient methods should the developer invoke?",
     options: [
-      { id: 'A', text: "TrackException only" },
-      { id: 'B', text: "TrackAvailability for business transactions" },
-      { id: 'C', text: "TrackMetric for recording numerical values and TrackEvent for named business occurrences" },
-      { id: 'D', text: "TrackTrace for numbers and TrackDependency for events" }
+      { id: 'A', text: "TrackAvailability for business transactions" },
+      { id: 'B', text: "TrackMetric for recording numerical values and TrackEvent for named business occurrences" },
+      { id: 'C', text: "TrackTrace for numbers and TrackDependency for events" },
+      { id: 'D', text: "TrackException only" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "The `TelemetryClient` class in Application Insights provides specialized methods: `TrackMetric` (for numerical measurements and counts), `TrackEvent` (for named user or business milestones), `TrackTrace` (diagnostic logs), `TrackException` (errors), and `TrackDependency` (outbound calls).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/app/api-custom-events-metrics",
@@ -261,12 +261,12 @@ export const AZURE_AZ204_QUESTIONS_7 = [
     scenario: "A multi-tenant SaaS application needs every log, request, exception, and dependency tracked in Application Insights to automatically include a `TenantId` custom property.",
     question: "Which Application Insights component intercepts all telemetry items and adds contextual properties globally?",
     options: [
-      { id: 'A', text: "An Azure Functions output binding" },
+      { id: 'A', text: "A Custom Telemetry Initializer (implementing ITelemetryInitializer)" },
       { id: 'B', text: "A custom Telemetry Processor" },
-      { id: 'C', text: "A KQL query filter" },
-      { id: 'D', text: "A Custom Telemetry Initializer (implementing ITelemetryInitializer)" }
+      { id: 'C', text: "An Azure Functions output binding" },
+      { id: 'D', text: "A KQL query filter" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "An `ITelemetryInitializer` intercepts every telemetry item emitted by the application before it is processed or sent. Developers add custom properties (like `TenantId` or environment names) to the `telemetry.Context.GlobalProperties` dictionary, enriching all traces uniformly.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/app/api-filtering-sampling#add-properties-itelemetryinitializer",
@@ -282,12 +282,12 @@ export const AZURE_AZ204_QUESTIONS_7 = [
     scenario: "A high-traffic web application's health check endpoint `/health` is pinged every 2 seconds by load balancers, flooding Application Insights and driving up ingestion costs.",
     question: "Which Application Insights component can evaluate telemetry items and drop requests matching `/health` before they leave the application?",
     options: [
-      { id: 'A', text: "A Telemetry Initializer" },
-      { id: 'B', text: "A KQL where clause in Azure Monitor" },
-      { id: 'C', text: "A Custom Telemetry Processor (implementing ITelemetryProcessor)" },
+      { id: 'A', text: "A Custom Telemetry Processor (implementing ITelemetryProcessor)" },
+      { id: 'B', text: "A Telemetry Initializer" },
+      { id: 'C', text: "A KQL where clause in Azure Monitor" },
       { id: 'D', text: "An Application Map filter" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "An `ITelemetryProcessor` sits in the client-side telemetry processing pipeline. By implementing the `Process(ITelemetry item)` method, developers can inspect incoming requests and return without calling `Next.Process(item)` to filter out unwanted health check traces completely.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/app/api-filtering-sampling#filtering-itelemetryprocessor",
@@ -303,12 +303,12 @@ export const AZURE_AZ204_QUESTIONS_7 = [
     scenario: "An ASP.NET Core web application experiences fluctuating traffic. The developer wants Application Insights to automatically adjust the percentage of sampled telemetry based on incoming traffic volume.",
     question: "Which sampling type dynamically regulates the volume of telemetry sent from the application SDK?",
     options: [
-      { id: 'A', text: "Adaptive Sampling" },
+      { id: 'A', text: "Manual Sampling" },
       { id: 'B', text: "Fixed-Rate Sampling" },
       { id: 'C', text: "Ingestion Sampling" },
-      { id: 'D', text: "Manual Sampling" }
+      { id: 'D', text: "Adaptive Sampling" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Application Insights supports three sampling types: `Adaptive Sampling` (automatically adjusts sampling percentage in ASP.NET/ASP.NET Core SDK to stay within a target rate), `Fixed-rate Sampling` (static percentage set by developer), and `Ingestion Sampling` (sampling at the Azure Monitor service endpoint).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/app/sampling",
@@ -324,12 +324,12 @@ export const AZURE_AZ204_QUESTIONS_7 = [
     scenario: "A development team deploys a critical hotfix to an Azure App Service web app and needs to monitor real-time CPU usage, incoming request rates, and failure exceptions with sub-second latency.",
     question: "Which Application Insights feature provides near-real-time (1-second latency) telemetry graphs?",
     options: [
-      { id: 'A', text: "Live Metrics Stream (QuickPulse)" },
-      { id: 'B', text: "Application Map" },
-      { id: 'C', text: "Log Analytics workspace KQL queries" },
-      { id: 'D', text: "Metrics Explorer standard graphs" }
+      { id: 'A', text: "Metrics Explorer standard graphs" },
+      { id: 'B', text: "Log Analytics workspace KQL queries" },
+      { id: 'C', text: "Application Map" },
+      { id: 'D', text: "Live Metrics Stream (QuickPulse)" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The Application Insights `Live Metrics Stream` (QuickPulse) displays incoming request rates, failure counts, CPU/memory consumption, and individual exception traces with approximately 1 second of latency, allowing developers to observe hotfix deployments live in production.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/app/live-stream",
@@ -345,12 +345,12 @@ export const AZURE_AZ204_QUESTIONS_7 = [
     scenario: "A distributed microservice architecture experiences latency spikes. Operators need a visual topology map showing which downstream SQL database or external HTTP API has high failure rates or slow responses.",
     question: "Which Application Insights view visualizes architectural dependencies and their respective health KPIs?",
     options: [
-      { id: 'A', text: "Transaction Diagnostics alone" },
-      { id: 'B', text: "Smart Detection" },
-      { id: 'C', text: "Live Metrics Stream" },
-      { id: 'D', text: "Application Map" }
+      { id: 'A', text: "Smart Detection" },
+      { id: 'B', text: "Application Map" },
+      { id: 'C', text: "Transaction Diagnostics alone" },
+      { id: 'D', text: "Live Metrics Stream" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "The Application Insights `Application Map` automatically visualizes all interconnected components, microservices, databases, and third-party APIs. Each node displays average call durations, request counts, and error rates, highlighting failing dependencies in red.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-map",
@@ -366,12 +366,12 @@ export const AZURE_AZ204_QUESTIONS_7 = [
     scenario: "An operations engineer needs to verify that a web application is online and responds with HTTP status 200 within 5 seconds from 5 global locations every 5 minutes.",
     question: "Which Application Insights availability test type performs a single-URL ping check with SSL validation?",
     options: [
-      { id: 'A', text: "KQL alert rule" },
-      { id: 'B', text: "Live Metrics stream" },
-      { id: 'C', text: "Standard Test (URL ping test)" },
-      { id: 'D', text: "Custom TrackAvailability test alone" }
+      { id: 'A', text: "Live Metrics stream" },
+      { id: 'B', text: "Standard Test (URL ping test)" },
+      { id: 'C', text: "Custom TrackAvailability test alone" },
+      { id: 'D', text: "KQL alert rule" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Application Insights `Standard Tests` (URL ping tests) probe a single HTTP endpoint from multiple globally distributed Azure points of presence at regular intervals, validating HTTP response codes, response timeouts, SSL certificate validity, and content matches.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/app/availability-overview#standard-test",
@@ -387,12 +387,12 @@ export const AZURE_AZ204_QUESTIONS_7 = [
     scenario: "A developer is querying the `requests` table in Log Analytics to calculate the total number of failed HTTP requests grouped by hour over the last 24 hours.",
     question: "Which KQL query satisfies this requirement?",
     options: [
-      { id: 'A', text: "requests | select failed where time = 24h | group by hour" },
-      { id: 'B', text: "SELECT count(*) FROM requests WHERE success = 0 GROUP BY date" },
-      { id: 'C', text: "requests | where timestamp > ago(24h) and success == false | summarize count() by bin(timestamp, 1h)" },
+      { id: 'A', text: "requests | where timestamp > ago(24h) and success == false | summarize count() by bin(timestamp, 1h)" },
+      { id: 'B', text: "requests | select failed where time = 24h | group by hour" },
+      { id: 'C', text: "SELECT count(*) FROM requests WHERE success = 0 GROUP BY date" },
       { id: 'D', text: "requests | filter error | aggregate hourly" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "In KQL, the pipe `|` operator chains operations. `where timestamp > ago(24h) and success == false` filters the dataset, and `summarize count() by bin(timestamp, 1h)` groups the results into 1-hour time buckets.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/logs/get-started-queries",
@@ -409,9 +409,9 @@ export const AZURE_AZ204_QUESTIONS_7 = [
     question: "Which two KQL operators calculate the new column and select the output fields respectively?",
     options: [
       { id: 'A', text: "extend calculates the new column, and project selects and orders the output columns" },
-      { id: 'B', text: "evaluate creates the column, and table filters it" },
-      { id: 'C', text: "project calculates the column, and select filters fields" },
-      { id: 'D', text: "summarize calculates the column, and render outputs it" }
+      { id: 'B', text: "project calculates the column, and select filters fields" },
+      { id: 'C', text: "summarize calculates the column, and render outputs it" },
+      { id: 'D', text: "evaluate creates the column, and table filters it" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -429,12 +429,12 @@ export const AZURE_AZ204_QUESTIONS_7 = [
     scenario: "A central DevOps team needs to write a KQL query that correlates error logs across two distinct Log Analytics workspaces in different resource groups.",
     question: "Which KQL function queries an external workspace by name or resource ID?",
     options: [
-      { id: 'A', text: "workspace('workspaceName')" },
-      { id: 'B', text: "app('appName')" },
+      { id: 'A', text: "app('appName')" },
+      { id: 'B', text: "workspace('workspaceName')" },
       { id: 'C', text: "database('dbName')" },
       { id: 'D', text: "external('workspaceId')" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "KQL supports cross-resource queries using the `workspace('workspaceName')` function (for Log Analytics workspaces) and `app('appName')` function (for Application Insights components), allowing unified queries across multiple distributed monitoring repositories.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/logs/cross-workspace-query",
@@ -450,12 +450,12 @@ export const AZURE_AZ204_QUESTIONS_7 = [
     scenario: "An on-call team wants an alert to fire within 1 minute whenever App Service average CPU utilization exceeds 90% across a 5-minute evaluation window.",
     question: "Which Azure Monitor alert rule type provides sub-minute metric evaluation and lowest alert latency?",
     options: [
-      { id: 'A', text: "Metric Alert" },
-      { id: 'B', text: "Log Search Alert" },
+      { id: 'A', text: "Log Search Alert" },
+      { id: 'B', text: "Metric Alert" },
       { id: 'C', text: "Activity Log Alert" },
       { id: 'D', text: "Service Health Alert" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "`Metric Alerts` run at frequent intervals (e.g. every minute) against pre-aggregated, non-dimensional or multi-dimensional numeric metrics, providing fast alert evaluation with minimal latency. `Log Search Alerts` run KQL queries on logs and have higher latency.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-types#metric-alerts",
@@ -472,9 +472,9 @@ export const AZURE_AZ204_QUESTIONS_7 = [
     question: "Which Azure Monitor resource groups these diverse notification and automation actions together?",
     options: [
       { id: 'A', text: "An Action Group" },
-      { id: 'B', text: "An Autoscale Setting" },
-      { id: 'C', text: "An Alert Processing Rule alone" },
-      { id: 'D', text: "A Log Analytics Workspace" }
+      { id: 'B', text: "An Alert Processing Rule alone" },
+      { id: 'C', text: "A Log Analytics Workspace" },
+      { id: 'D', text: "An Autoscale Setting" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,12 +492,12 @@ export const AZURE_AZ204_QUESTIONS_7 = [
     scenario: "A production web application on Azure App Service experiences intermittent response delays where certain requests take 12 seconds. CPU utilization is normal and logs show no exceptions.",
     question: "Which Application Insights feature captures detailed function-level execution call stacks and timing for slow live production requests?",
     options: [
-      { id: 'A', text: "Snapshot Debugger" },
-      { id: 'B', text: "Application Insights Profiler" },
-      { id: 'C', text: "Live Metrics Stream" },
-      { id: 'D', text: "Smart Detection alone" }
+      { id: 'A', text: "Smart Detection alone" },
+      { id: 'B', text: "Live Metrics Stream" },
+      { id: 'C', text: "Snapshot Debugger" },
+      { id: 'D', text: "Application Insights Profiler" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "`Application Insights Profiler` runs as an agent in the production environment. When request duration exceeds threshold triggers, Profiler captures call tree traces and CPU samples, showing line-by-line method execution durations without needing debugging symbols or restarts.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/app/profiler",
@@ -513,12 +513,12 @@ export const AZURE_AZ204_QUESTIONS_7 = [
     scenario: "A critical bug in production throws a `NullReferenceException`. The developer cannot reproduce the bug locally and needs to inspect the in-memory variables and call stack at the moment the exception occurred.",
     question: "Which feature captures memory state and local variables upon production exceptions without impacting users?",
     options: [
-      { id: 'A', text: "Snapshot Debugger" },
-      { id: 'B', text: "Profiler" },
-      { id: 'C', text: "Live Metrics Stream" },
-      { id: 'D', text: "Diagnostic Settings" }
+      { id: 'A', text: "Profiler" },
+      { id: 'B', text: "Snapshot Debugger" },
+      { id: 'C', text: "Diagnostic Settings" },
+      { id: 'D', text: "Live Metrics Stream" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Application Insights `Snapshot Debugger` automatically captures a debug snapshot of local memory variables, parameters, and the exact call stack when an unhandled exception occurs in production, allowing developers to inspect state in Visual Studio or the Azure portal.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/app/snapshot-debugger",

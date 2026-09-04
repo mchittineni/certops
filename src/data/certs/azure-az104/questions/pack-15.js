@@ -9,12 +9,12 @@ export const AZURE_AZ104_QUESTIONS_15 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The administrator configures Azure VM Security to encrypt Azure VM managed OS and data disks at rest using cryptographic keys stored and managed in Azure Key Vault without requiring OS-level BitLocker configuration.",
     question: "Which concept or service configuration satisfies these operational resilience objectives? Server-Side Encryption with Customer-Managed Keys (SSE with CMK) vs ADE is under evaluation.",
     options: [
-      { id: 'A', text: "Enable Server-Side Encryption (SSE) with Customer-Managed Keys (CMK) using an Azure Key Vault key." },
-      { id: 'B', text: "Rely on unencrypted managed disks and encrypt files individually using ZIP passwords." },
-      { id: 'C', text: "Enable BitLocker inside the guest OS without Key Vault integration." },
-      { id: 'D', text: "Store disk encryption keys in an unencrypted Azure Storage blob container." }
+      { id: 'A', text: "Store disk encryption keys in an unencrypted Azure Storage blob container." },
+      { id: 'B', text: "Enable BitLocker inside the guest OS without Key Vault integration." },
+      { id: 'C', text: "Enable Server-Side Encryption (SSE) with Customer-Managed Keys (CMK) using an Azure Key Vault key." },
+      { id: 'D', text: "Rely on unencrypted managed disks and encrypt files individually using ZIP passwords." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Enable Server-Side Encryption (SSE) with Customer-Managed Keys (CMK) using an Azure Key Vault key. Azure Managed Disks provide Server-Side Encryption (SSE) enabled by default using platform-managed keys. Customers can switch to Customer-Managed Keys (CMK) hosted in Azure Key Vault via a Disk Encryption Set, providing encryption at the storage layer without guest OS CPU overhead or BitLocker/DM-Crypt dependencies.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machines/disk-encryption",
@@ -30,12 +30,12 @@ export const AZURE_AZ104_QUESTIONS_15 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The administrator configures Azure VM Security to encrypt Azure VM managed OS and data disks at rest using cryptographic keys stored and managed in Azure Key Vault without requiring OS-level BitLocker configuration.",
     question: "Which architectural approach should the team select to manage this demand efficiently? Server-Side Encryption with Customer-Managed Keys (SSE with CMK) vs ADE is under evaluation.",
     options: [
-      { id: 'A', text: "Enable Server-Side Encryption (SSE) with Customer-Managed Keys (CMK) using an Azure Key Vault key." },
-      { id: 'B', text: "Rely on unencrypted managed disks and encrypt files individually using ZIP passwords." },
-      { id: 'C', text: "Enable BitLocker inside the guest OS without Key Vault integration." },
-      { id: 'D', text: "Store disk encryption keys in an unencrypted Azure Storage blob container." }
+      { id: 'A', text: "Enable BitLocker inside the guest OS without Key Vault integration." },
+      { id: 'B', text: "Store disk encryption keys in an unencrypted Azure Storage blob container." },
+      { id: 'C', text: "Enable Server-Side Encryption (SSE) with Customer-Managed Keys (CMK) using an Azure Key Vault key." },
+      { id: 'D', text: "Rely on unencrypted managed disks and encrypt files individually using ZIP passwords." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Enable Server-Side Encryption (SSE) with Customer-Managed Keys (CMK) using an Azure Key Vault key. Azure Managed Disks provide Server-Side Encryption (SSE) enabled by default using platform-managed keys. Customers can switch to Customer-Managed Keys (CMK) hosted in Azure Key Vault via a Disk Encryption Set, providing encryption at the storage layer without guest OS CPU overhead or BitLocker/DM-Crypt dependencies.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machines/disk-encryption",
@@ -51,12 +51,12 @@ export const AZURE_AZ104_QUESTIONS_15 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The administrator configures Azure VM Security to encrypt Azure VM managed OS and data disks at rest using cryptographic keys stored and managed in Azure Key Vault without requiring OS-level BitLocker configuration.",
     question: "Which solution properly implements these mandatory security and governance controls? Server-Side Encryption with Customer-Managed Keys (SSE with CMK) vs ADE is under evaluation.",
     options: [
-      { id: 'A', text: "Enable Server-Side Encryption (SSE) with Customer-Managed Keys (CMK) using an Azure Key Vault key." },
-      { id: 'B', text: "Rely on unencrypted managed disks and encrypt files individually using ZIP passwords." },
-      { id: 'C', text: "Enable BitLocker inside the guest OS without Key Vault integration." },
-      { id: 'D', text: "Store disk encryption keys in an unencrypted Azure Storage blob container." }
+      { id: 'A', text: "Rely on unencrypted managed disks and encrypt files individually using ZIP passwords." },
+      { id: 'B', text: "Enable Server-Side Encryption (SSE) with Customer-Managed Keys (CMK) using an Azure Key Vault key." },
+      { id: 'C', text: "Store disk encryption keys in an unencrypted Azure Storage blob container." },
+      { id: 'D', text: "Enable BitLocker inside the guest OS without Key Vault integration." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Enable Server-Side Encryption (SSE) with Customer-Managed Keys (CMK) using an Azure Key Vault key. Azure Managed Disks provide Server-Side Encryption (SSE) enabled by default using platform-managed keys. Customers can switch to Customer-Managed Keys (CMK) hosted in Azure Key Vault via a Disk Encryption Set, providing encryption at the storage layer without guest OS CPU overhead or BitLocker/DM-Crypt dependencies.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machines/disk-encryption",
@@ -72,12 +72,12 @@ export const AZURE_AZ104_QUESTIONS_15 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Microsoft Azure. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The administrator configures Azure VM Security to encrypt Azure VM managed OS and data disks at rest using cryptographic keys stored and managed in Azure Key Vault without requiring OS-level BitLocker configuration.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? Server-Side Encryption with Customer-Managed Keys (SSE with CMK) vs ADE is under evaluation.",
     options: [
-      { id: 'A', text: "Enable Server-Side Encryption (SSE) with Customer-Managed Keys (CMK) using an Azure Key Vault key." },
-      { id: 'B', text: "Rely on unencrypted managed disks and encrypt files individually using ZIP passwords." },
-      { id: 'C', text: "Enable BitLocker inside the guest OS without Key Vault integration." },
-      { id: 'D', text: "Store disk encryption keys in an unencrypted Azure Storage blob container." }
+      { id: 'A', text: "Enable BitLocker inside the guest OS without Key Vault integration." },
+      { id: 'B', text: "Enable Server-Side Encryption (SSE) with Customer-Managed Keys (CMK) using an Azure Key Vault key." },
+      { id: 'C', text: "Store disk encryption keys in an unencrypted Azure Storage blob container." },
+      { id: 'D', text: "Rely on unencrypted managed disks and encrypt files individually using ZIP passwords." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Enable Server-Side Encryption (SSE) with Customer-Managed Keys (CMK) using an Azure Key Vault key. Azure Managed Disks provide Server-Side Encryption (SSE) enabled by default using platform-managed keys. Customers can switch to Customer-Managed Keys (CMK) hosted in Azure Key Vault via a Disk Encryption Set, providing encryption at the storage layer without guest OS CPU overhead or BitLocker/DM-Crypt dependencies.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machines/disk-encryption",
@@ -94,9 +94,9 @@ export const AZURE_AZ104_QUESTIONS_15 = [
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? Server-Side Encryption with Customer-Managed Keys (SSE with CMK) vs ADE is under evaluation.",
     options: [
       { id: 'A', text: "Enable Server-Side Encryption (SSE) with Customer-Managed Keys (CMK) using an Azure Key Vault key." },
-      { id: 'B', text: "Rely on unencrypted managed disks and encrypt files individually using ZIP passwords." },
-      { id: 'C', text: "Enable BitLocker inside the guest OS without Key Vault integration." },
-      { id: 'D', text: "Store disk encryption keys in an unencrypted Azure Storage blob container." }
+      { id: 'B', text: "Enable BitLocker inside the guest OS without Key Vault integration." },
+      { id: 'C', text: "Store disk encryption keys in an unencrypted Azure Storage blob container." },
+      { id: 'D', text: "Rely on unencrypted managed disks and encrypt files individually using ZIP passwords." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -114,12 +114,12 @@ export const AZURE_AZ104_QUESTIONS_15 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The administrator configures Azure VM Management to execute an administrative PowerShell script inside a Windows virtual machine to remediate a network configuration failure when RDP connectivity is completely blocked.",
     question: "Which concept or service configuration satisfies these operational resilience objectives? Azure VM Run Command via Azure VM Agent is under evaluation.",
     options: [
-      { id: 'A', text: "Execute the remediation script using the Azure VM Run Command feature through the Azure portal or CLI." },
+      { id: 'A', text: "Reinstall the operating system from a blank ISO image." },
       { id: 'B', text: "Submit an on-premises physical data center ticket to reboot the server room switch." },
-      { id: 'C', text: "Reinstall the operating system from a blank ISO image." },
+      { id: 'C', text: "Execute the remediation script using the Azure VM Run Command feature through the Azure portal or CLI." },
       { id: 'D', text: "Open port 3389 publicly on the network security group without authentication." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Execute the remediation script using the Azure VM Run Command feature through the Azure portal or CLI. The Run Command feature uses the Azure VM Agent to execute PowerShell (Windows) or shell scripts (Linux) within an Azure VM directly from the Azure portal, REST API, CLI, or PowerShell. This allows emergency troubleshooting and management even when remote access (RDP/SSH) is completely unavailable.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machines/windows/run-command",
@@ -135,12 +135,12 @@ export const AZURE_AZ104_QUESTIONS_15 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The administrator configures Azure VM Management to execute an administrative PowerShell script inside a Windows virtual machine to remediate a network configuration failure when RDP connectivity is completely blocked.",
     question: "Which architectural approach should the team select to manage this demand efficiently? Azure VM Run Command via Azure VM Agent is under evaluation.",
     options: [
-      { id: 'A', text: "Execute the remediation script using the Azure VM Run Command feature through the Azure portal or CLI." },
+      { id: 'A', text: "Open port 3389 publicly on the network security group without authentication." },
       { id: 'B', text: "Submit an on-premises physical data center ticket to reboot the server room switch." },
-      { id: 'C', text: "Reinstall the operating system from a blank ISO image." },
-      { id: 'D', text: "Open port 3389 publicly on the network security group without authentication." }
+      { id: 'C', text: "Execute the remediation script using the Azure VM Run Command feature through the Azure portal or CLI." },
+      { id: 'D', text: "Reinstall the operating system from a blank ISO image." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Execute the remediation script using the Azure VM Run Command feature through the Azure portal or CLI. The Run Command feature uses the Azure VM Agent to execute PowerShell (Windows) or shell scripts (Linux) within an Azure VM directly from the Azure portal, REST API, CLI, or PowerShell. This allows emergency troubleshooting and management even when remote access (RDP/SSH) is completely unavailable.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machines/windows/run-command",
@@ -157,9 +157,9 @@ export const AZURE_AZ104_QUESTIONS_15 = [
     question: "Which solution properly implements these mandatory security and governance controls? Azure VM Run Command via Azure VM Agent is under evaluation.",
     options: [
       { id: 'A', text: "Execute the remediation script using the Azure VM Run Command feature through the Azure portal or CLI." },
-      { id: 'B', text: "Submit an on-premises physical data center ticket to reboot the server room switch." },
-      { id: 'C', text: "Reinstall the operating system from a blank ISO image." },
-      { id: 'D', text: "Open port 3389 publicly on the network security group without authentication." }
+      { id: 'B', text: "Open port 3389 publicly on the network security group without authentication." },
+      { id: 'C', text: "Submit an on-premises physical data center ticket to reboot the server room switch." },
+      { id: 'D', text: "Reinstall the operating system from a blank ISO image." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -178,9 +178,9 @@ export const AZURE_AZ104_QUESTIONS_15 = [
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? Azure VM Run Command via Azure VM Agent is under evaluation.",
     options: [
       { id: 'A', text: "Execute the remediation script using the Azure VM Run Command feature through the Azure portal or CLI." },
-      { id: 'B', text: "Submit an on-premises physical data center ticket to reboot the server room switch." },
+      { id: 'B', text: "Open port 3389 publicly on the network security group without authentication." },
       { id: 'C', text: "Reinstall the operating system from a blank ISO image." },
-      { id: 'D', text: "Open port 3389 publicly on the network security group without authentication." }
+      { id: 'D', text: "Submit an on-premises physical data center ticket to reboot the server room switch." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,12 +198,12 @@ export const AZURE_AZ104_QUESTIONS_15 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The administrator configures Azure VM Management to execute an administrative PowerShell script inside a Windows virtual machine to remediate a network configuration failure when RDP connectivity is completely blocked.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? Azure VM Run Command via Azure VM Agent is under evaluation.",
     options: [
-      { id: 'A', text: "Execute the remediation script using the Azure VM Run Command feature through the Azure portal or CLI." },
-      { id: 'B', text: "Submit an on-premises physical data center ticket to reboot the server room switch." },
-      { id: 'C', text: "Reinstall the operating system from a blank ISO image." },
-      { id: 'D', text: "Open port 3389 publicly on the network security group without authentication." }
+      { id: 'A', text: "Reinstall the operating system from a blank ISO image." },
+      { id: 'B', text: "Execute the remediation script using the Azure VM Run Command feature through the Azure portal or CLI." },
+      { id: 'C', text: "Open port 3389 publicly on the network security group without authentication." },
+      { id: 'D', text: "Submit an on-premises physical data center ticket to reboot the server room switch." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Execute the remediation script using the Azure VM Run Command feature through the Azure portal or CLI. The Run Command feature uses the Azure VM Agent to execute PowerShell (Windows) or shell scripts (Linux) within an Azure VM directly from the Azure portal, REST API, CLI, or PowerShell. This allows emergency troubleshooting and management even when remote access (RDP/SSH) is completely unavailable.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machines/windows/run-command",
@@ -220,9 +220,9 @@ export const AZURE_AZ104_QUESTIONS_15 = [
     question: "Which concept or service configuration satisfies these operational resilience objectives? Custom Script Extension automated software bootstrapping is under evaluation.",
     options: [
       { id: 'A', text: "Attach the Azure Custom Script Extension to the virtual machine definition during deployment." },
-      { id: 'B', text: "Log in manually via RDP to download installers from public websites." },
-      { id: 'C', text: "Burn the software installers onto a physical CD-ROM disc." },
-      { id: 'D', text: "Configure an Azure Logic App to email installation instructions to system administrators." }
+      { id: 'B', text: "Burn the software installers onto a physical CD-ROM disc." },
+      { id: 'C', text: "Configure an Azure Logic App to email installation instructions to system administrators." },
+      { id: 'D', text: "Log in manually via RDP to download installers from public websites." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -241,9 +241,9 @@ export const AZURE_AZ104_QUESTIONS_15 = [
     question: "Which architectural approach should the team select to manage this demand efficiently? Custom Script Extension automated software bootstrapping is under evaluation.",
     options: [
       { id: 'A', text: "Attach the Azure Custom Script Extension to the virtual machine definition during deployment." },
-      { id: 'B', text: "Log in manually via RDP to download installers from public websites." },
+      { id: 'B', text: "Configure an Azure Logic App to email installation instructions to system administrators." },
       { id: 'C', text: "Burn the software installers onto a physical CD-ROM disc." },
-      { id: 'D', text: "Configure an Azure Logic App to email installation instructions to system administrators." }
+      { id: 'D', text: "Log in manually via RDP to download installers from public websites." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -261,12 +261,12 @@ export const AZURE_AZ104_QUESTIONS_15 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The administrator configures Azure VM Automation to automatically download and execute software installation scripts during initial virtual machine deployment without building custom golden VM images.",
     question: "Which solution properly implements these mandatory security and governance controls? Custom Script Extension automated software bootstrapping is under evaluation.",
     options: [
-      { id: 'A', text: "Attach the Azure Custom Script Extension to the virtual machine definition during deployment." },
-      { id: 'B', text: "Log in manually via RDP to download installers from public websites." },
-      { id: 'C', text: "Burn the software installers onto a physical CD-ROM disc." },
-      { id: 'D', text: "Configure an Azure Logic App to email installation instructions to system administrators." }
+      { id: 'A', text: "Configure an Azure Logic App to email installation instructions to system administrators." },
+      { id: 'B', text: "Attach the Azure Custom Script Extension to the virtual machine definition during deployment." },
+      { id: 'C', text: "Log in manually via RDP to download installers from public websites." },
+      { id: 'D', text: "Burn the software installers onto a physical CD-ROM disc." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Attach the Azure Custom Script Extension to the virtual machine definition during deployment. The Custom Script Extension downloads and executes scripts on Azure virtual machines. This extension is useful for post-deployment configuration, software installation, or any other configuration or management tasks, retrieving scripts from Azure Storage or GitHub.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machines/extensions/custom-script-windows",
@@ -282,12 +282,12 @@ export const AZURE_AZ104_QUESTIONS_15 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Microsoft Azure. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The administrator configures Azure VM Automation to automatically download and execute software installation scripts during initial virtual machine deployment without building custom golden VM images.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? Custom Script Extension automated software bootstrapping is under evaluation.",
     options: [
-      { id: 'A', text: "Attach the Azure Custom Script Extension to the virtual machine definition during deployment." },
-      { id: 'B', text: "Log in manually via RDP to download installers from public websites." },
+      { id: 'A', text: "Log in manually via RDP to download installers from public websites." },
+      { id: 'B', text: "Attach the Azure Custom Script Extension to the virtual machine definition during deployment." },
       { id: 'C', text: "Burn the software installers onto a physical CD-ROM disc." },
       { id: 'D', text: "Configure an Azure Logic App to email installation instructions to system administrators." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Attach the Azure Custom Script Extension to the virtual machine definition during deployment. The Custom Script Extension downloads and executes scripts on Azure virtual machines. This extension is useful for post-deployment configuration, software installation, or any other configuration or management tasks, retrieving scripts from Azure Storage or GitHub.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machines/extensions/custom-script-windows",
@@ -303,12 +303,12 @@ export const AZURE_AZ104_QUESTIONS_15 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The administrator configures Azure VM Automation to automatically download and execute software installation scripts during initial virtual machine deployment without building custom golden VM images.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? Custom Script Extension automated software bootstrapping is under evaluation.",
     options: [
-      { id: 'A', text: "Attach the Azure Custom Script Extension to the virtual machine definition during deployment." },
-      { id: 'B', text: "Log in manually via RDP to download installers from public websites." },
-      { id: 'C', text: "Burn the software installers onto a physical CD-ROM disc." },
-      { id: 'D', text: "Configure an Azure Logic App to email installation instructions to system administrators." }
+      { id: 'A', text: "Burn the software installers onto a physical CD-ROM disc." },
+      { id: 'B', text: "Attach the Azure Custom Script Extension to the virtual machine definition during deployment." },
+      { id: 'C', text: "Configure an Azure Logic App to email installation instructions to system administrators." },
+      { id: 'D', text: "Log in manually via RDP to download installers from public websites." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Attach the Azure Custom Script Extension to the virtual machine definition during deployment. The Custom Script Extension downloads and executes scripts on Azure virtual machines. This extension is useful for post-deployment configuration, software installation, or any other configuration or management tasks, retrieving scripts from Azure Storage or GitHub.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machines/extensions/custom-script-windows",
@@ -324,12 +324,12 @@ export const AZURE_AZ104_QUESTIONS_15 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The administrator configures Azure Compute Scaling to automatically increase the number of VM instances in a scale set by 2 when average CPU utilization exceeds 75% for 10 minutes, and decrease by 1 when CPU falls below 25%.",
     question: "Which concept or service configuration satisfies these operational resilience objectives? Metric-triggered horizontal autoscale rules in VMSS is under evaluation.",
     options: [
-      { id: 'A', text: "Configure metric-based autoscale scale-out and scale-in rules with cool-down periods in the VMSS." },
-      { id: 'B', text: "Manually change the scale set capacity slider in the Azure portal twice daily." },
-      { id: 'C', text: "Write a cron job inside a single VM instance to reboot the other scale set members." },
+      { id: 'A', text: "Manually change the scale set capacity slider in the Azure portal twice daily." },
+      { id: 'B', text: "Write a cron job inside a single VM instance to reboot the other scale set members." },
+      { id: 'C', text: "Configure metric-based autoscale scale-out and scale-in rules with cool-down periods in the VMSS." },
       { id: 'D', text: "Deploy an Azure Application Gateway with static backend pool memberships." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure metric-based autoscale scale-out and scale-in rules with cool-down periods in the VMSS. Azure Virtual Machine Scale Sets support metric-based autoscale rules evaluated over time windows. Scale-out rules add instances when demand surges, scale-in rules safely remove instances when demand drops, and cool-down periods prevent thrashing (rapid scale oscillations).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview",
@@ -345,12 +345,12 @@ export const AZURE_AZ104_QUESTIONS_15 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The administrator configures Azure Compute Scaling to automatically increase the number of VM instances in a scale set by 2 when average CPU utilization exceeds 75% for 10 minutes, and decrease by 1 when CPU falls below 25%.",
     question: "Which architectural approach should the team select to manage this demand efficiently? Metric-triggered horizontal autoscale rules in VMSS is under evaluation.",
     options: [
-      { id: 'A', text: "Configure metric-based autoscale scale-out and scale-in rules with cool-down periods in the VMSS." },
-      { id: 'B', text: "Manually change the scale set capacity slider in the Azure portal twice daily." },
+      { id: 'A', text: "Manually change the scale set capacity slider in the Azure portal twice daily." },
+      { id: 'B', text: "Configure metric-based autoscale scale-out and scale-in rules with cool-down periods in the VMSS." },
       { id: 'C', text: "Write a cron job inside a single VM instance to reboot the other scale set members." },
       { id: 'D', text: "Deploy an Azure Application Gateway with static backend pool memberships." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure metric-based autoscale scale-out and scale-in rules with cool-down periods in the VMSS. Azure Virtual Machine Scale Sets support metric-based autoscale rules evaluated over time windows. Scale-out rules add instances when demand surges, scale-in rules safely remove instances when demand drops, and cool-down periods prevent thrashing (rapid scale oscillations).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview",
@@ -387,12 +387,12 @@ export const AZURE_AZ104_QUESTIONS_15 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Microsoft Azure. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The administrator configures Azure Compute Scaling to automatically increase the number of VM instances in a scale set by 2 when average CPU utilization exceeds 75% for 10 minutes, and decrease by 1 when CPU falls below 25%.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? Metric-triggered horizontal autoscale rules in VMSS is under evaluation.",
     options: [
-      { id: 'A', text: "Configure metric-based autoscale scale-out and scale-in rules with cool-down periods in the VMSS." },
-      { id: 'B', text: "Manually change the scale set capacity slider in the Azure portal twice daily." },
-      { id: 'C', text: "Write a cron job inside a single VM instance to reboot the other scale set members." },
-      { id: 'D', text: "Deploy an Azure Application Gateway with static backend pool memberships." }
+      { id: 'A', text: "Write a cron job inside a single VM instance to reboot the other scale set members." },
+      { id: 'B', text: "Deploy an Azure Application Gateway with static backend pool memberships." },
+      { id: 'C', text: "Configure metric-based autoscale scale-out and scale-in rules with cool-down periods in the VMSS." },
+      { id: 'D', text: "Manually change the scale set capacity slider in the Azure portal twice daily." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure metric-based autoscale scale-out and scale-in rules with cool-down periods in the VMSS. Azure Virtual Machine Scale Sets support metric-based autoscale rules evaluated over time windows. Scale-out rules add instances when demand surges, scale-in rules safely remove instances when demand drops, and cool-down periods prevent thrashing (rapid scale oscillations).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview",
@@ -410,8 +410,8 @@ export const AZURE_AZ104_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Configure metric-based autoscale scale-out and scale-in rules with cool-down periods in the VMSS." },
       { id: 'B', text: "Manually change the scale set capacity slider in the Azure portal twice daily." },
-      { id: 'C', text: "Write a cron job inside a single VM instance to reboot the other scale set members." },
-      { id: 'D', text: "Deploy an Azure Application Gateway with static backend pool memberships." }
+      { id: 'C', text: "Deploy an Azure Application Gateway with static backend pool memberships." },
+      { id: 'D', text: "Write a cron job inside a single VM instance to reboot the other scale set members." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -429,12 +429,12 @@ export const AZURE_AZ104_QUESTIONS_15 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The administrator configures Azure App Service to test a new version of a web application in a production-like staging environment with 10% of real user traffic before executing a zero-downtime swap.",
     question: "Which concept or service configuration satisfies these operational resilience objectives? Staging deployment slots with percentage-based traffic routing is under evaluation.",
     options: [
-      { id: 'A', text: "Deploy the new code to an App Service deployment slot and configure testing-in-production traffic routing." },
-      { id: 'B', text: "Deploy the new code directly to the live production App Service without staging validation." },
+      { id: 'A', text: "Deploy the new code directly to the live production App Service without staging validation." },
+      { id: 'B', text: "Deploy the new code to an App Service deployment slot and configure testing-in-production traffic routing." },
       { id: 'C', text: "Create a separate independent App Service Plan and redirect DNS records manually." },
       { id: 'D', text: "Deploy the application as a standalone Windows Service on an Azure VM." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy the new code to an App Service deployment slot and configure testing-in-production traffic routing. Azure App Service deployment slots allow hosting different versions of an app with separate hostnames. Developers can route a percentage of production traffic to a staging slot for canary testing and then swap slots with zero downtime, as worker processes are pre-warmed before routing rules change.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/app-service/deploy-staging-slots",
@@ -450,12 +450,12 @@ export const AZURE_AZ104_QUESTIONS_15 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The administrator configures Azure App Service to test a new version of a web application in a production-like staging environment with 10% of real user traffic before executing a zero-downtime swap.",
     question: "Which architectural approach should the team select to manage this demand efficiently? Staging deployment slots with percentage-based traffic routing is under evaluation.",
     options: [
-      { id: 'A', text: "Deploy the new code to an App Service deployment slot and configure testing-in-production traffic routing." },
+      { id: 'A', text: "Create a separate independent App Service Plan and redirect DNS records manually." },
       { id: 'B', text: "Deploy the new code directly to the live production App Service without staging validation." },
-      { id: 'C', text: "Create a separate independent App Service Plan and redirect DNS records manually." },
-      { id: 'D', text: "Deploy the application as a standalone Windows Service on an Azure VM." }
+      { id: 'C', text: "Deploy the application as a standalone Windows Service on an Azure VM." },
+      { id: 'D', text: "Deploy the new code to an App Service deployment slot and configure testing-in-production traffic routing." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy the new code to an App Service deployment slot and configure testing-in-production traffic routing. Azure App Service deployment slots allow hosting different versions of an app with separate hostnames. Developers can route a percentage of production traffic to a staging slot for canary testing and then swap slots with zero downtime, as worker processes are pre-warmed before routing rules change.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/app-service/deploy-staging-slots",
@@ -471,12 +471,12 @@ export const AZURE_AZ104_QUESTIONS_15 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The administrator configures Azure App Service to test a new version of a web application in a production-like staging environment with 10% of real user traffic before executing a zero-downtime swap.",
     question: "Which solution properly implements these mandatory security and governance controls? Staging deployment slots with percentage-based traffic routing is under evaluation.",
     options: [
-      { id: 'A', text: "Deploy the new code to an App Service deployment slot and configure testing-in-production traffic routing." },
-      { id: 'B', text: "Deploy the new code directly to the live production App Service without staging validation." },
+      { id: 'A', text: "Deploy the new code directly to the live production App Service without staging validation." },
+      { id: 'B', text: "Deploy the application as a standalone Windows Service on an Azure VM." },
       { id: 'C', text: "Create a separate independent App Service Plan and redirect DNS records manually." },
-      { id: 'D', text: "Deploy the application as a standalone Windows Service on an Azure VM." }
+      { id: 'D', text: "Deploy the new code to an App Service deployment slot and configure testing-in-production traffic routing." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy the new code to an App Service deployment slot and configure testing-in-production traffic routing. Azure App Service deployment slots allow hosting different versions of an app with separate hostnames. Developers can route a percentage of production traffic to a staging slot for canary testing and then swap slots with zero downtime, as worker processes are pre-warmed before routing rules change.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/app-service/deploy-staging-slots",
@@ -492,12 +492,12 @@ export const AZURE_AZ104_QUESTIONS_15 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Microsoft Azure. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The administrator configures Azure App Service to test a new version of a web application in a production-like staging environment with 10% of real user traffic before executing a zero-downtime swap.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? Staging deployment slots with percentage-based traffic routing is under evaluation.",
     options: [
-      { id: 'A', text: "Deploy the new code to an App Service deployment slot and configure testing-in-production traffic routing." },
-      { id: 'B', text: "Deploy the new code directly to the live production App Service without staging validation." },
-      { id: 'C', text: "Create a separate independent App Service Plan and redirect DNS records manually." },
-      { id: 'D', text: "Deploy the application as a standalone Windows Service on an Azure VM." }
+      { id: 'A', text: "Deploy the application as a standalone Windows Service on an Azure VM." },
+      { id: 'B', text: "Create a separate independent App Service Plan and redirect DNS records manually." },
+      { id: 'C', text: "Deploy the new code directly to the live production App Service without staging validation." },
+      { id: 'D', text: "Deploy the new code to an App Service deployment slot and configure testing-in-production traffic routing." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy the new code to an App Service deployment slot and configure testing-in-production traffic routing. Azure App Service deployment slots allow hosting different versions of an app with separate hostnames. Developers can route a percentage of production traffic to a staging slot for canary testing and then swap slots with zero downtime, as worker processes are pre-warmed before routing rules change.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/app-service/deploy-staging-slots",
@@ -513,12 +513,12 @@ export const AZURE_AZ104_QUESTIONS_15 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The administrator configures Azure App Service to test a new version of a web application in a production-like staging environment with 10% of real user traffic before executing a zero-downtime swap.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? Staging deployment slots with percentage-based traffic routing is under evaluation.",
     options: [
-      { id: 'A', text: "Deploy the new code to an App Service deployment slot and configure testing-in-production traffic routing." },
-      { id: 'B', text: "Deploy the new code directly to the live production App Service without staging validation." },
-      { id: 'C', text: "Create a separate independent App Service Plan and redirect DNS records manually." },
-      { id: 'D', text: "Deploy the application as a standalone Windows Service on an Azure VM." }
+      { id: 'A', text: "Deploy the new code directly to the live production App Service without staging validation." },
+      { id: 'B', text: "Deploy the new code to an App Service deployment slot and configure testing-in-production traffic routing." },
+      { id: 'C', text: "Deploy the application as a standalone Windows Service on an Azure VM." },
+      { id: 'D', text: "Create a separate independent App Service Plan and redirect DNS records manually." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy the new code to an App Service deployment slot and configure testing-in-production traffic routing. Azure App Service deployment slots allow hosting different versions of an app with separate hostnames. Developers can route a percentage of production traffic to a staging slot for canary testing and then swap slots with zero downtime, as worker processes are pre-warmed before routing rules change.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/app-service/deploy-staging-slots",

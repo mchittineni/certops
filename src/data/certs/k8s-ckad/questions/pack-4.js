@@ -30,12 +30,12 @@ export const K8S_CKAD_QUESTIONS_4 = [
     scenario: "A StatefulSet with 3 replicas (`pod-0`, `pod-1`, `pod-2`) using default `OrderedReady` is scaled down from 3 replicas to 1 replica.",
     question: "In which exact order are the pods terminated?",
     options: [
-      { id: 'A', text: "pod-0 is terminated first, followed by pod-1" },
-      { id: 'B', text: "pod-2 is terminated and fully shut down first, followed by pod-1" },
-      { id: 'C', text: "Pods are terminated in random order" },
-      { id: 'D', text: "All pods are terminated simultaneously" }
+      { id: 'A', text: "Pods are terminated in random order" },
+      { id: 'B', text: "All pods are terminated simultaneously" },
+      { id: 'C', text: "pod-2 is terminated and fully shut down first, followed by pod-1" },
+      { id: 'D', text: "pod-0 is terminated first, followed by pod-1" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Under `OrderedReady` policy, StatefulSet pods are scaled in reverse ordinal order. When scaling down, `pod-2` receives SIGTERM and must shut down completely before `pod-1` is terminated, preserving distributed consensus protocols.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/#scaling-down",
@@ -51,12 +51,12 @@ export const K8S_CKAD_QUESTIONS_4 = [
     scenario: "When a StatefulSet is deleted or scaled down, by default Kubernetes preserves the associated PersistentVolumeClaims (PVCs) to prevent accidental data loss. In testing environments, developers want PVCs automatically deleted when the StatefulSet is deleted.",
     question: "Which StatefulSet feature automatically deletes PVCs upon StatefulSet deletion?",
     options: [
-      { id: 'A', text: "pvcAutoDelete: true" },
-      { id: 'B', text: "persistentVolumeClaimRetentionPolicy: { whenDeleted: Delete }" },
-      { id: 'C', text: "emptyDir alone" },
-      { id: 'D', text: "volumeClaimTemplates.reclaimPolicy: Delete" }
+      { id: 'A', text: "volumeClaimTemplates.reclaimPolicy: Delete" },
+      { id: 'B', text: "emptyDir alone" },
+      { id: 'C', text: "pvcAutoDelete: true" },
+      { id: 'D', text: "persistentVolumeClaimRetentionPolicy: { whenDeleted: Delete }" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Kubernetes supports `persistentVolumeClaimRetentionPolicy`. Setting `whenDeleted: Delete` instructs the StatefulSet controller to automatically delete PVCs created by `volumeClaimTemplates` when the parent StatefulSet is deleted.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/#persistentvolumeclaim-retention",
@@ -72,12 +72,12 @@ export const K8S_CKAD_QUESTIONS_4 = [
     scenario: "A GPU monitoring agent DaemonSet must only run on worker nodes equipped with NVIDIA GPUs (labeled `hardware: gpu`).",
     question: "Which workload specification mechanism restricts DaemonSet pod placement to matching labeled nodes?",
     options: [
-      { id: 'A', text: "spec.template.spec.nodeSelector: { hardware: gpu } (or nodeAffinity)" },
+      { id: 'A', text: "spec.tolerations alone" },
       { id: 'B', text: "spec.selector: { matchLabels: { hardware: gpu } }" },
-      { id: 'C', text: "spec.tolerations alone" },
+      { id: 'C', text: "spec.template.spec.nodeSelector: { hardware: gpu } (or nodeAffinity)" },
       { id: 'D', text: "spec.replicas: 5" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Like Deployments, a DaemonSet's pod template supports `nodeSelector` and `nodeAffinity`. If defined, the DaemonSet controller schedules pods only onto nodes that satisfy the specified label criteria rather than every node in the cluster.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/#running-pods-on-select-nodes",
@@ -93,12 +93,12 @@ export const K8S_CKAD_QUESTIONS_4 = [
     scenario: "A cluster administrator taints control plane master nodes with `node-role.kubernetes.io/control-plane:NoSchedule`. An ingress controller DaemonSet must run on all worker nodes and control plane nodes.",
     question: "What must be added to the DaemonSet pod template to allow it to run on tainted control plane nodes?",
     options: [
-      { id: 'A', text: "nodeSelector: { master: true }" },
-      { id: 'B', text: "A toleration matching the control plane taint" },
-      { id: 'C', text: "securityContext: { privileged: true }" },
-      { id: 'D', text: "hostNetwork: true" }
+      { id: 'A', text: "hostNetwork: true" },
+      { id: 'B', text: "securityContext: { privileged: true }" },
+      { id: 'C', text: "nodeSelector: { master: true }" },
+      { id: 'D', text: "A toleration matching the control plane taint" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Taints prevent pods from being scheduled on nodes unless the pod has a matching `toleration`. To run DaemonSet pods on tainted master/control-plane nodes, the pod template must declare a toleration matching `node-role.kubernetes.io/control-plane`.",
     referenceUrl: "https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/",
@@ -114,12 +114,12 @@ export const K8S_CKAD_QUESTIONS_4 = [
     scenario: "An application reads configuration from an external Vault server on startup. The Vault secrets have been rotated, and the developer needs to restart all running pods in the Deployment with zero downtime without changing any YAML files.",
     question: "Which kubectl command triggers a rolling restart of all pods in a Deployment?",
     options: [
-      { id: 'A', text: "kubectl delete pods --all" },
-      { id: 'B', text: "kubectl rollout undo deployment/&lt;name&gt;" },
+      { id: 'A', text: "kubectl rollout restart deployment/&lt;name&gt;" },
+      { id: 'B', text: "kubectl delete pods --all" },
       { id: 'C', text: "kubectl scale deployment/&lt;name&gt; --replicas=0" },
-      { id: 'D', text: "kubectl rollout restart deployment/&lt;name&gt;" }
+      { id: 'D', text: "kubectl rollout undo deployment/&lt;name&gt;" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "`kubectl rollout restart deployment/&lt;name&gt;` injects a timestamp annotation into the pod template metadata, causing the Deployment controller to trigger a zero-downtime rolling update across all pods.",
     referenceUrl: "https://kubernetes.io/docs/reference/kubectl/generated/kubectl_rollout/kubectl_rollout_restart/",
@@ -135,12 +135,12 @@ export const K8S_CKAD_QUESTIONS_4 = [
     scenario: "An enterprise uses GitOps to manage production Kubernetes clusters. A cluster operator manually alters a Deployment replica count from 5 to 10 using `kubectl scale`.",
     question: "How does a GitOps operator (such as ArgoCD or Flux) react to this out-of-band change?",
     options: [
-      { id: 'A', text: "It detects OutOfSync drift between Git and the live cluster and automatically reverts the cluster replicas back to 5 declared in Git (if auto-heal is enabled)" },
-      { id: 'B', text: "It commits the replica change back into Git automatically" },
-      { id: 'C', text: "It deletes the cluster" },
-      { id: 'D', text: "It sends an SMS to all developers" }
+      { id: 'A', text: "It commits the replica change back into Git automatically" },
+      { id: 'B', text: "It detects OutOfSync drift between Git and the live cluster and automatically reverts the cluster replicas back to 5 declared in Git (if auto-heal is enabled)" },
+      { id: 'C', text: "It sends an SMS to all developers" },
+      { id: 'D', text: "It deletes the cluster" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "In GitOps, Git is the single source of truth. GitOps controllers like ArgoCD and Flux continuously reconcile live cluster state against Git. When manual mutations (drift) occur in the cluster, the controller marks the app `OutOfSync` and auto-heals the cluster back to the Git declaration.",
     referenceUrl: "https://argo-cd.readthedocs.io/en/stable/core_concepts/",
@@ -156,12 +156,12 @@ export const K8S_CKAD_QUESTIONS_4 = [
     scenario: "A developer creates a new Helm chart from scratch using `helm create mychart`.",
     question: "Which file in the chart root directory contains essential metadata like chart name, version, and apiVersion?",
     options: [
-      { id: 'A', text: "Chart.yaml" },
+      { id: 'A', text: "requirements.yaml" },
       { id: 'B', text: "values.yaml" },
       { id: 'C', text: "templates/deployment.yaml" },
-      { id: 'D', text: "requirements.yaml" }
+      { id: 'D', text: "Chart.yaml" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "In a Helm chart, `Chart.yaml` is the mandatory metadata file declaring `name`, `version` (SemVer of the package), `appVersion` (version of the application), `apiVersion: v2`, and description.",
     referenceUrl: "https://helm.sh/docs/topics/charts/#the-chartyaml-file",
@@ -177,12 +177,12 @@ export const K8S_CKAD_QUESTIONS_4 = [
     scenario: "A developer writes complex Go templating logic inside a Helm chart's `templates/deployment.yaml`. Before attempting to install the chart on a live cluster, the developer needs to validate YAML syntax and render the generated manifests locally.",
     question: "Which two Helm commands validate chart syntax and output the rendered YAML respectively?",
     options: [
-      { id: 'A', text: "kubectl apply --validate ./mychart" },
-      { id: 'B', text: "helm verify ./mychart and helm render ./mychart" },
-      { id: 'C', text: "helm dry-run ./mychart and helm test ./mychart" },
-      { id: 'D', text: "helm lint ./mychart and helm template ./mychart" }
+      { id: 'A', text: "helm verify ./mychart and helm render ./mychart" },
+      { id: 'B', text: "helm lint ./mychart and helm template ./mychart" },
+      { id: 'C', text: "kubectl apply --validate ./mychart" },
+      { id: 'D', text: "helm dry-run ./mychart and helm test ./mychart" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "`helm lint` examines a chart for syntax errors and best practice violations. `helm template [NAME] [CHART]` locally renders all template files with values and outputs the final Kubernetes YAML manifests to stdout without contacting a Kubernetes cluster.",
     referenceUrl: "https://helm.sh/docs/helm/helm_template/",
@@ -198,12 +198,12 @@ export const K8S_CKAD_QUESTIONS_4 = [
     scenario: "A platform team deploys multi-tenant staging environments. All resources deployed by Kustomize in the staging overlay must have their names prepended with `staging-` (e.g. `staging-my-service`).",
     question: "Which Kustomize field automatically prepends a string to all generated resource names?",
     options: [
-      { id: 'A', text: "namePrefix: staging-" },
+      { id: 'A', text: "namespace: staging-" },
       { id: 'B', text: "nameSuffix: staging-" },
       { id: 'C', text: "prefix: staging-" },
-      { id: 'D', text: "namespace: staging-" }
+      { id: 'D', text: "namePrefix: staging-" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "`namePrefix` in `kustomization.yaml` prepends the specified string to the names of all resources declared or generated within that kustomization layer, preventing naming collisions across overlays.",
     referenceUrl: "https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/nameprefix/",
@@ -221,8 +221,8 @@ export const K8S_CKAD_QUESTIONS_4 = [
     options: [
       { id: 'A', text: "commonLabels: { team: checkout, environment: prod }" },
       { id: 'B', text: "labels: { team: checkout }" },
-      { id: 'C', text: "metadata.labels in base" },
-      { id: 'D', text: "podLabels: { team: checkout }" }
+      { id: 'C', text: "podLabels: { team: checkout }" },
+      { id: 'D', text: "metadata.labels in base" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -241,9 +241,9 @@ export const K8S_CKAD_QUESTIONS_4 = [
     question: "How fast can the system roll back to Blue (`version: v1`)?",
     options: [
       { id: 'A', text: "Instantaneously (within seconds), by switching the Service selector back to version: v1" },
-      { id: 'B', text: "Requires restarting the Kubernetes API server" },
-      { id: 'C', text: "It takes 30 minutes to rebuild containers" },
-      { id: 'D', text: "Blue-Green deployments cannot be rolled back" }
+      { id: 'B', text: "It takes 30 minutes to rebuild containers" },
+      { id: 'C', text: "Blue-Green deployments cannot be rolled back" },
+      { id: 'D', text: "Requires restarting the Kubernetes API server" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -262,9 +262,9 @@ export const K8S_CKAD_QUESTIONS_4 = [
     question: "Which cloud-native tool automates progressive traffic shifting and automated canary rollback for Kubernetes?",
     options: [
       { id: 'A', text: "Flagger (or Argo Rollouts)" },
-      { id: 'B', text: "kubectl apply alone" },
-      { id: 'C', text: "Kustomize alone" },
-      { id: 'D', text: "Helm alone" }
+      { id: 'B', text: "Helm alone" },
+      { id: 'C', text: "kubectl apply alone" },
+      { id: 'D', text: "Kustomize alone" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -282,12 +282,12 @@ export const K8S_CKAD_QUESTIONS_4 = [
     scenario: "A Cassandra database cluster runs on a Kubernetes StatefulSet with `updateStrategy: { type: OnDelete }`. The administrator updates the container image in the StatefulSet manifest.",
     question: "What action must the administrator perform to upgrade each pod to the new image?",
     options: [
-      { id: 'A', text: "OnDelete does not support image updates" },
-      { id: 'B', text: "Scale replicas to 0 and back to 3" },
-      { id: 'C', text: "Run kubectl rollout resume" },
-      { id: 'D', text: "Manually delete each pod one by one (e.g. kubectl delete pod cassandra-0) after validating cluster health" }
+      { id: 'A', text: "Run kubectl rollout resume" },
+      { id: 'B', text: "OnDelete does not support image updates" },
+      { id: 'C', text: "Manually delete each pod one by one (e.g. kubectl delete pod cassandra-0) after validating cluster health" },
+      { id: 'D', text: "Scale replicas to 0 and back to 3" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "With `updateStrategy: { type: OnDelete }`, the StatefulSet controller does NOT automatically restart pods when the manifest changes. Pods are updated to the new template only when the user manually deletes them, giving database administrators complete control over when individual nodes restart.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/#on-delete",
@@ -304,9 +304,9 @@ export const K8S_CKAD_QUESTIONS_4 = [
     question: "What does the ReplicaSet controller do with the existing orphan pod?",
     options: [
       { id: 'A', text: "It adopts the existing pod into its replica count and does not create an extra pod" },
-      { id: 'B', text: "It deletes the existing orphan pod immediately" },
+      { id: 'B', text: "It ignores the orphan pod completely" },
       { id: 'C', text: "It crashes with a label conflict error" },
-      { id: 'D', text: "It ignores the orphan pod completely" }
+      { id: 'D', text: "It deletes the existing orphan pod immediately" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -324,12 +324,12 @@ export const K8S_CKAD_QUESTIONS_4 = [
     scenario: "A developer manages a 5-node StatefulSet (`redis-0` through `redis-4`). The team wants to test a new image version on only the last pod (`redis-4`) before upgrading the rest of the cluster.",
     question: "Which parameter under `updateStrategy.rollingUpdate` partitions the update to pods with ordinal index >= 4?",
     options: [
-      { id: 'A', text: "canary: 1" },
-      { id: 'B', text: "partition: 4" },
-      { id: 'C', text: "testOrdinal: 4" },
-      { id: 'D', text: "maxUnavailable: 1" }
+      { id: 'A', text: "testOrdinal: 4" },
+      { id: 'B', text: "maxUnavailable: 1" },
+      { id: 'C', text: "partition: 4" },
+      { id: 'D', text: "canary: 1" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "In a StatefulSet rolling update, setting `partition: &lt;ordinal&gt;` partitions the pods. When the template changes, only pods with an ordinal index greater than or equal to the partition number are updated. Setting `partition: 4` updates only `redis-4`, allowing canary testing of stateful clusters.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/#partitions",
@@ -345,12 +345,12 @@ export const K8S_CKAD_QUESTIONS_4 = [
     scenario: "A developer attempts to update the `spec.selector.matchLabels` of an active Kubernetes Deployment from `app: v1` to `app: v2`.",
     question: "How does the Kubernetes API server respond to this update request?",
     options: [
-      { id: 'A', text: "The Deployment is converted to a ReplicaSet" },
+      { id: 'A', text: "The API server rejects the request with an error because spec.selector is immutable after creation" },
       { id: 'B', text: "The API server updates all existing pods to have the new label" },
-      { id: 'C', text: "The API server deletes all running pods" },
-      { id: 'D', text: "The API server rejects the request with an error because spec.selector is immutable after creation" }
+      { id: 'C', text: "The Deployment is converted to a ReplicaSet" },
+      { id: 'D', text: "The API server deletes all running pods" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "In Kubernetes Deployments, `spec.selector` is immutable after creation. The API server rejects attempts to alter `spec.selector.matchLabels` on an existing Deployment; changing selectors requires creating a new Deployment or deleting and recreating the object.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#label-selector-updates",
@@ -366,12 +366,12 @@ export const K8S_CKAD_QUESTIONS_4 = [
     scenario: "A developer needs to run an ephemeral data cleanup container every Sunday at 02:00 UTC.",
     question: "Which Kubernetes resource manages scheduled recurring Job executions using standard crontab syntax?",
     options: [
-      { id: 'A', text: "Job with restartPolicy: Always" },
+      { id: 'A', text: "CronJob (which creates Job objects on schedule)" },
       { id: 'B', text: "Deployment with a sleep loop" },
-      { id: 'C', text: "DaemonSet" },
-      { id: 'D', text: "CronJob (which creates Job objects on schedule)" }
+      { id: 'C', text: "Job with restartPolicy: Always" },
+      { id: 'D', text: "DaemonSet" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "A `CronJob` runs jobs on a time-based schedule using standard cron format (`minute hour day-of-month month day-of-week`). On each schedule trigger, the CronJob controller creates a new standard Kubernetes `Job` object to run the task.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/",
@@ -388,8 +388,8 @@ export const K8S_CKAD_QUESTIONS_4 = [
     question: "Where are subchart dependencies declared in Helm v3?",
     options: [
       { id: 'A', text: "In the dependencies section of Chart.yaml" },
-      { id: 'B', text: "In requirements.yaml (deprecated Helm v2 syntax)" },
-      { id: 'C', text: "In values.yaml only" },
+      { id: 'B', text: "In values.yaml only" },
+      { id: 'C', text: "In requirements.yaml (deprecated Helm v2 syntax)" },
       { id: 'D', text: "In templates/redis.yaml" }
     ],
     correctAnswers: ['A'],
@@ -408,12 +408,12 @@ export const K8S_CKAD_QUESTIONS_4 = [
     scenario: "A newly started web application pod takes 15 seconds after passing its readiness probe to complete internal cache warming. Without delays, the rolling update terminates old pods before the new pod can handle peak traffic.",
     question: "Which Deployment specification setting specifies the minimum seconds a new pod must be Ready before the deployment considers it available?",
     options: [
-      { id: 'A', text: "progressDeadlineSeconds: 15" },
-      { id: 'B', text: "minReadySeconds: 15" },
-      { id: 'C', text: "initialDelaySeconds: 15" },
+      { id: 'A', text: "minReadySeconds: 15" },
+      { id: 'B', text: "initialDelaySeconds: 15" },
+      { id: 'C', text: "progressDeadlineSeconds: 15" },
       { id: 'D', text: "timeout: 15s" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "`minReadySeconds` specifies the minimum number of seconds for which a newly created Pod should be ready without any of its containers crashing, for it to be considered available during a rolling update, preventing premature old-pod termination.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#min-ready-seconds",
@@ -450,12 +450,12 @@ export const K8S_CKAD_QUESTIONS_4 = [
     scenario: "A developer wants to simulate running `helm install` against a Kubernetes cluster to verify whether the cluster API server accepts the generated manifests without actually creating any real resources.",
     question: "Which Helm flag performs server-side simulation without persisting resources?",
     options: [
-      { id: 'A', text: "helm install --fake" },
+      { id: 'A', text: "helm install --dry-run --debug my-app ./chart" },
       { id: 'B', text: "helm template alone" },
-      { id: 'C', text: "helm install --dry-run --debug my-app ./chart" },
-      { id: 'D', text: "helm lint alone" }
+      { id: 'C', text: "helm lint alone" },
+      { id: 'D', text: "helm install --fake" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Running `helm install --dry-run --debug` sends the rendered manifests to the Kubernetes API server for server-side validation against cluster schemas without actually persisting or deploying any objects.",
     referenceUrl: "https://helm.sh/docs/helm/helm_install/#options",
@@ -473,8 +473,8 @@ export const K8S_CKAD_QUESTIONS_4 = [
     options: [
       { id: 'A', text: "Inspect the output of kubectl get deployment api-server -o yaml (spec.paused: true) or kubectl describe" },
       { id: 'B', text: "kubectl get pods will show status PAUSED" },
-      { id: 'C', text: "The API server returns HTTP 503" },
-      { id: 'D', text: "There is no way to check if a deployment is paused" }
+      { id: 'C', text: "There is no way to check if a deployment is paused" },
+      { id: 'D', text: "The API server returns HTTP 503" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,12 +492,12 @@ export const K8S_CKAD_QUESTIONS_4 = [
     scenario: "A StatefulSet named `web` with 2 replicas (`web-0`, `web-1`) is governed by a headless service named `nginx` in namespace `default`.",
     question: "What is the fully qualified domain name (FQDN) to address the second pod directly?",
     options: [
-      { id: 'A', text: "web-1.nginx.default.svc.cluster.local" },
-      { id: 'B', text: "web-1.default.svc.cluster.local" },
+      { id: 'A', text: "web-1.default.svc.cluster.local" },
+      { id: 'B', text: "web-1.nginx.default.svc.cluster.local" },
       { id: 'C', text: "nginx-1.web.default.svc.cluster.local" },
       { id: 'D', text: "pod-web-1.cluster.local" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "For pods managed by a StatefulSet with a headless service, CoreDNS creates stable FQDNs following the pattern `&lt;pod-name&gt;.&lt;service-name&gt;.&lt;namespace&gt;.svc.cluster.local` (e.g. `web-1.nginx.default.svc.cluster.local`).",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/#stable-network-id",
@@ -513,12 +513,12 @@ export const K8S_CKAD_QUESTIONS_4 = [
     scenario: "A team needs to select appropriate Kubernetes workload controllers for three scenarios: (1) stateless web frontend, (2) distributed clustered database with stable network IDs, and (3) logging agent on every physical node.",
     question: "Which controllers should be chosen respectively?",
     options: [
-      { id: 'A', text: "Deployment, StatefulSet, DaemonSet" },
-      { id: 'B', text: "StatefulSet, Deployment, Job" },
-      { id: 'C', text: "DaemonSet, StatefulSet, Deployment" },
-      { id: 'D', text: "Job, CronJob, Deployment" }
+      { id: 'A', text: "Job, CronJob, Deployment" },
+      { id: 'B', text: "DaemonSet, StatefulSet, Deployment" },
+      { id: 'C', text: "StatefulSet, Deployment, Job" },
+      { id: 'D', text: "Deployment, StatefulSet, DaemonSet" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "A `Deployment` is ideal for stateless applications where pods are interchangeable. A `StatefulSet` provides stable network identities and persistent ordinal storage for clustered stateful databases. A `DaemonSet` guarantees that a copy of a pod runs on every eligible node for system agents.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/",

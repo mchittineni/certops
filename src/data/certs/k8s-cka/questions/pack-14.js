@@ -9,12 +9,12 @@ export const K8S_CKA_QUESTIONS_14 = [
     scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator evaluates Cluster DNS to troubleshoot why pods across the cluster cannot resolve external domain names or internal `.cluster.local` service names.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements? Diagnosing CoreDNS pod crashes, upstream forwarders, and resolv.conf settings is under consideration.",
     options: [
-      { id: 'A', text: "Check that CoreDNS pods are running in `kube-system`, inspect their logs with `kubectl logs -n kube-system -l k8s-app=kube-dns`, and verify the CoreDNS ConfigMap." },
-      { id: 'B', text: "Replace the Linux kernel on every worker node with an older distribution." },
+      { id: 'A', text: "Instruct applications to use hardcoded IP addresses instead of DNS names." },
+      { id: 'B', text: "Check that CoreDNS pods are running in `kube-system`, inspect their logs with `kubectl logs -n kube-system -l k8s-app=kube-dns`, and verify the CoreDNS ConfigMap." },
       { id: 'C', text: "Reboot the etcd database cluster three times consecutively." },
-      { id: 'D', text: "Instruct applications to use hardcoded IP addresses instead of DNS names." }
+      { id: 'D', text: "Replace the Linux kernel on every worker node with an older distribution." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Check that CoreDNS pods are running in `kube-system`, inspect their logs with `kubectl logs -n kube-system -l k8s-app=kube-dns`, and verify the CoreDNS ConfigMap. Cluster DNS resolution depends on CoreDNS pods running in `kube-system`. Failures often stem from CoreDNS pod crashes, loop detection in upstream forwarding (`resolv.conf`), misconfigured Corefile ConfigMaps, or network policy rules blocking UDP port 53 traffic.",
     referenceUrl: "https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/",
@@ -30,12 +30,12 @@ export const K8S_CKA_QUESTIONS_14 = [
     scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator evaluates Cluster DNS to troubleshoot why pods across the cluster cannot resolve external domain names or internal `.cluster.local` service names.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability? Diagnosing CoreDNS pod crashes, upstream forwarders, and resolv.conf settings is under consideration.",
     options: [
-      { id: 'A', text: "Check that CoreDNS pods are running in `kube-system`, inspect their logs with `kubectl logs -n kube-system -l k8s-app=kube-dns`, and verify the CoreDNS ConfigMap." },
+      { id: 'A', text: "Instruct applications to use hardcoded IP addresses instead of DNS names." },
       { id: 'B', text: "Replace the Linux kernel on every worker node with an older distribution." },
-      { id: 'C', text: "Reboot the etcd database cluster three times consecutively." },
-      { id: 'D', text: "Instruct applications to use hardcoded IP addresses instead of DNS names." }
+      { id: 'C', text: "Check that CoreDNS pods are running in `kube-system`, inspect their logs with `kubectl logs -n kube-system -l k8s-app=kube-dns`, and verify the CoreDNS ConfigMap." },
+      { id: 'D', text: "Reboot the etcd database cluster three times consecutively." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Check that CoreDNS pods are running in `kube-system`, inspect their logs with `kubectl logs -n kube-system -l k8s-app=kube-dns`, and verify the CoreDNS ConfigMap. Cluster DNS resolution depends on CoreDNS pods running in `kube-system`. Failures often stem from CoreDNS pod crashes, loop detection in upstream forwarding (`resolv.conf`), misconfigured Corefile ConfigMaps, or network policy rules blocking UDP port 53 traffic.",
     referenceUrl: "https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/",
@@ -51,12 +51,12 @@ export const K8S_CKA_QUESTIONS_14 = [
     scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator evaluates Cluster DNS to troubleshoot why pods across the cluster cannot resolve external domain names or internal `.cluster.local` service names.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls? Diagnosing CoreDNS pod crashes, upstream forwarders, and resolv.conf settings is under consideration.",
     options: [
-      { id: 'A', text: "Check that CoreDNS pods are running in `kube-system`, inspect their logs with `kubectl logs -n kube-system -l k8s-app=kube-dns`, and verify the CoreDNS ConfigMap." },
-      { id: 'B', text: "Replace the Linux kernel on every worker node with an older distribution." },
+      { id: 'A', text: "Replace the Linux kernel on every worker node with an older distribution." },
+      { id: 'B', text: "Check that CoreDNS pods are running in `kube-system`, inspect their logs with `kubectl logs -n kube-system -l k8s-app=kube-dns`, and verify the CoreDNS ConfigMap." },
       { id: 'C', text: "Reboot the etcd database cluster three times consecutively." },
       { id: 'D', text: "Instruct applications to use hardcoded IP addresses instead of DNS names." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Check that CoreDNS pods are running in `kube-system`, inspect their logs with `kubectl logs -n kube-system -l k8s-app=kube-dns`, and verify the CoreDNS ConfigMap. Cluster DNS resolution depends on CoreDNS pods running in `kube-system`. Failures often stem from CoreDNS pod crashes, loop detection in upstream forwarding (`resolv.conf`), misconfigured Corefile ConfigMaps, or network policy rules blocking UDP port 53 traffic.",
     referenceUrl: "https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/",
@@ -72,12 +72,12 @@ export const K8S_CKA_QUESTIONS_14 = [
     scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator evaluates Cluster DNS to troubleshoot why pods across the cluster cannot resolve external domain names or internal `.cluster.local` service names.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity? Diagnosing CoreDNS pod crashes, upstream forwarders, and resolv.conf settings is under consideration.",
     options: [
-      { id: 'A', text: "Check that CoreDNS pods are running in `kube-system`, inspect their logs with `kubectl logs -n kube-system -l k8s-app=kube-dns`, and verify the CoreDNS ConfigMap." },
-      { id: 'B', text: "Replace the Linux kernel on every worker node with an older distribution." },
-      { id: 'C', text: "Reboot the etcd database cluster three times consecutively." },
+      { id: 'A', text: "Reboot the etcd database cluster three times consecutively." },
+      { id: 'B', text: "Check that CoreDNS pods are running in `kube-system`, inspect their logs with `kubectl logs -n kube-system -l k8s-app=kube-dns`, and verify the CoreDNS ConfigMap." },
+      { id: 'C', text: "Replace the Linux kernel on every worker node with an older distribution." },
       { id: 'D', text: "Instruct applications to use hardcoded IP addresses instead of DNS names." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Check that CoreDNS pods are running in `kube-system`, inspect their logs with `kubectl logs -n kube-system -l k8s-app=kube-dns`, and verify the CoreDNS ConfigMap. Cluster DNS resolution depends on CoreDNS pods running in `kube-system`. Failures often stem from CoreDNS pod crashes, loop detection in upstream forwarding (`resolv.conf`), misconfigured Corefile ConfigMaps, or network policy rules blocking UDP port 53 traffic.",
     referenceUrl: "https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/",
@@ -93,12 +93,12 @@ export const K8S_CKA_QUESTIONS_14 = [
     scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator evaluates Cluster DNS to troubleshoot why pods across the cluster cannot resolve external domain names or internal `.cluster.local` service names.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability? Diagnosing CoreDNS pod crashes, upstream forwarders, and resolv.conf settings is under consideration.",
     options: [
-      { id: 'A', text: "Check that CoreDNS pods are running in `kube-system`, inspect their logs with `kubectl logs -n kube-system -l k8s-app=kube-dns`, and verify the CoreDNS ConfigMap." },
-      { id: 'B', text: "Replace the Linux kernel on every worker node with an older distribution." },
-      { id: 'C', text: "Reboot the etcd database cluster three times consecutively." },
+      { id: 'A', text: "Replace the Linux kernel on every worker node with an older distribution." },
+      { id: 'B', text: "Reboot the etcd database cluster three times consecutively." },
+      { id: 'C', text: "Check that CoreDNS pods are running in `kube-system`, inspect their logs with `kubectl logs -n kube-system -l k8s-app=kube-dns`, and verify the CoreDNS ConfigMap." },
       { id: 'D', text: "Instruct applications to use hardcoded IP addresses instead of DNS names." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Check that CoreDNS pods are running in `kube-system`, inspect their logs with `kubectl logs -n kube-system -l k8s-app=kube-dns`, and verify the CoreDNS ConfigMap. Cluster DNS resolution depends on CoreDNS pods running in `kube-system`. Failures often stem from CoreDNS pod crashes, loop detection in upstream forwarding (`resolv.conf`), misconfigured Corefile ConfigMaps, or network policy rules blocking UDP port 53 traffic.",
     referenceUrl: "https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/",
@@ -114,12 +114,12 @@ export const K8S_CKA_QUESTIONS_14 = [
     scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator evaluates Pod Scheduling to diagnose why several new pods remain permanently in `Pending` status after a batch deployment.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements? Inspecting insufficient CPU/memory scheduling events in pending pods is under consideration.",
     options: [
-      { id: 'A', text: "Run `kubectl describe pod &lt;pod-name&gt;` and inspect the Events section for `FailedScheduling` indicating insufficient CPU or memory." },
-      { id: 'B', text: "Restart the kube-apiserver service." },
-      { id: 'C', text: "Delete the deployment and hope the scheduler works on the next attempt." },
-      { id: 'D', text: "Change the pod container ports to random dynamic ports." }
+      { id: 'A', text: "Change the pod container ports to random dynamic ports." },
+      { id: 'B', text: "Delete the deployment and hope the scheduler works on the next attempt." },
+      { id: 'C', text: "Restart the kube-apiserver service." },
+      { id: 'D', text: "Run `kubectl describe pod &lt;pod-name&gt;` and inspect the Events section for `FailedScheduling` indicating insufficient CPU or memory." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Run `kubectl describe pod &lt;pod-name&gt;` and inspect the Events section for `FailedScheduling` indicating insufficient CPU or memory. When a pod stays in `Pending`, the kube-scheduler cannot find any node satisfying all constraints (resource requests, taints, affinities). Running `kubectl describe pod` exposes scheduler events like `0/5 nodes are available: 5 Insufficient cpu`, identifying exact resource bottlenecks.",
     referenceUrl: "https://kubernetes.io/docs/tasks/debug/debug-application/debug-pods/#my-pod-stays-pending",
@@ -136,8 +136,8 @@ export const K8S_CKA_QUESTIONS_14 = [
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability? Inspecting insufficient CPU/memory scheduling events in pending pods is under consideration.",
     options: [
       { id: 'A', text: "Run `kubectl describe pod &lt;pod-name&gt;` and inspect the Events section for `FailedScheduling` indicating insufficient CPU or memory." },
-      { id: 'B', text: "Restart the kube-apiserver service." },
-      { id: 'C', text: "Delete the deployment and hope the scheduler works on the next attempt." },
+      { id: 'B', text: "Delete the deployment and hope the scheduler works on the next attempt." },
+      { id: 'C', text: "Restart the kube-apiserver service." },
       { id: 'D', text: "Change the pod container ports to random dynamic ports." }
     ],
     correctAnswers: ['A'],
@@ -158,8 +158,8 @@ export const K8S_CKA_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Run `kubectl describe pod &lt;pod-name&gt;` and inspect the Events section for `FailedScheduling` indicating insufficient CPU or memory." },
       { id: 'B', text: "Restart the kube-apiserver service." },
-      { id: 'C', text: "Delete the deployment and hope the scheduler works on the next attempt." },
-      { id: 'D', text: "Change the pod container ports to random dynamic ports." }
+      { id: 'C', text: "Change the pod container ports to random dynamic ports." },
+      { id: 'D', text: "Delete the deployment and hope the scheduler works on the next attempt." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -177,12 +177,12 @@ export const K8S_CKA_QUESTIONS_14 = [
     scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator evaluates Pod Scheduling to diagnose why several new pods remain permanently in `Pending` status after a batch deployment.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity? Inspecting insufficient CPU/memory scheduling events in pending pods is under consideration.",
     options: [
-      { id: 'A', text: "Run `kubectl describe pod &lt;pod-name&gt;` and inspect the Events section for `FailedScheduling` indicating insufficient CPU or memory." },
-      { id: 'B', text: "Restart the kube-apiserver service." },
-      { id: 'C', text: "Delete the deployment and hope the scheduler works on the next attempt." },
-      { id: 'D', text: "Change the pod container ports to random dynamic ports." }
+      { id: 'A', text: "Restart the kube-apiserver service." },
+      { id: 'B', text: "Delete the deployment and hope the scheduler works on the next attempt." },
+      { id: 'C', text: "Change the pod container ports to random dynamic ports." },
+      { id: 'D', text: "Run `kubectl describe pod &lt;pod-name&gt;` and inspect the Events section for `FailedScheduling` indicating insufficient CPU or memory." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Run `kubectl describe pod &lt;pod-name&gt;` and inspect the Events section for `FailedScheduling` indicating insufficient CPU or memory. When a pod stays in `Pending`, the kube-scheduler cannot find any node satisfying all constraints (resource requests, taints, affinities). Running `kubectl describe pod` exposes scheduler events like `0/5 nodes are available: 5 Insufficient cpu`, identifying exact resource bottlenecks.",
     referenceUrl: "https://kubernetes.io/docs/tasks/debug/debug-application/debug-pods/#my-pod-stays-pending",
@@ -199,9 +199,9 @@ export const K8S_CKA_QUESTIONS_14 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability? Inspecting insufficient CPU/memory scheduling events in pending pods is under consideration.",
     options: [
       { id: 'A', text: "Run `kubectl describe pod &lt;pod-name&gt;` and inspect the Events section for `FailedScheduling` indicating insufficient CPU or memory." },
-      { id: 'B', text: "Restart the kube-apiserver service." },
-      { id: 'C', text: "Delete the deployment and hope the scheduler works on the next attempt." },
-      { id: 'D', text: "Change the pod container ports to random dynamic ports." }
+      { id: 'B', text: "Change the pod container ports to random dynamic ports." },
+      { id: 'C', text: "Restart the kube-apiserver service." },
+      { id: 'D', text: "Delete the deployment and hope the scheduler works on the next attempt." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -219,12 +219,12 @@ export const K8S_CKA_QUESTIONS_14 = [
     scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator evaluates Service Routing to troubleshoot why traffic sent to a Kubernetes ClusterIP Service returns connection refused or timeouts even though backend pods are running.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements? Diagnosing missing endpoints caused by selector label mismatches is under consideration.",
     options: [
-      { id: 'A', text: "Verify that the Service `spec.selector` labels exactly match the pod `metadata.labels` by inspecting `kubectl get endpoints &lt;service-name&gt;`." },
-      { id: 'B', text: "Delete the kubelet systemd service on all worker nodes." },
-      { id: 'C', text: "Assume the Service object requires a public static IP address to function." },
-      { id: 'D', text: "Change the Service type to ExternalName pointing to localhost." }
+      { id: 'A', text: "Assume the Service object requires a public static IP address to function." },
+      { id: 'B', text: "Change the Service type to ExternalName pointing to localhost." },
+      { id: 'C', text: "Delete the kubelet systemd service on all worker nodes." },
+      { id: 'D', text: "Verify that the Service `spec.selector` labels exactly match the pod `metadata.labels` by inspecting `kubectl get endpoints &lt;service-name&gt;`." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Verify that the Service `spec.selector` labels exactly match the pod `metadata.labels` by inspecting `kubectl get endpoints &lt;service-name&gt;`. A Service routes traffic to pods matching its label selector. If there is a typo or mismatch between `spec.selector` and pod labels, the Service creates an empty `Endpoints` (or `EndpointSlice`) list. Checking `kubectl get endpoints` confirms whether any pod IPs are registered.",
     referenceUrl: "https://kubernetes.io/docs/tasks/debug/debug-application/debug-service/",
@@ -241,9 +241,9 @@ export const K8S_CKA_QUESTIONS_14 = [
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability? Diagnosing missing endpoints caused by selector label mismatches is under consideration.",
     options: [
       { id: 'A', text: "Verify that the Service `spec.selector` labels exactly match the pod `metadata.labels` by inspecting `kubectl get endpoints &lt;service-name&gt;`." },
-      { id: 'B', text: "Delete the kubelet systemd service on all worker nodes." },
-      { id: 'C', text: "Assume the Service object requires a public static IP address to function." },
-      { id: 'D', text: "Change the Service type to ExternalName pointing to localhost." }
+      { id: 'B', text: "Assume the Service object requires a public static IP address to function." },
+      { id: 'C', text: "Change the Service type to ExternalName pointing to localhost." },
+      { id: 'D', text: "Delete the kubelet systemd service on all worker nodes." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -261,12 +261,12 @@ export const K8S_CKA_QUESTIONS_14 = [
     scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator evaluates Service Routing to troubleshoot why traffic sent to a Kubernetes ClusterIP Service returns connection refused or timeouts even though backend pods are running.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls? Diagnosing missing endpoints caused by selector label mismatches is under consideration.",
     options: [
-      { id: 'A', text: "Verify that the Service `spec.selector` labels exactly match the pod `metadata.labels` by inspecting `kubectl get endpoints &lt;service-name&gt;`." },
-      { id: 'B', text: "Delete the kubelet systemd service on all worker nodes." },
-      { id: 'C', text: "Assume the Service object requires a public static IP address to function." },
-      { id: 'D', text: "Change the Service type to ExternalName pointing to localhost." }
+      { id: 'A', text: "Assume the Service object requires a public static IP address to function." },
+      { id: 'B', text: "Change the Service type to ExternalName pointing to localhost." },
+      { id: 'C', text: "Verify that the Service `spec.selector` labels exactly match the pod `metadata.labels` by inspecting `kubectl get endpoints &lt;service-name&gt;`." },
+      { id: 'D', text: "Delete the kubelet systemd service on all worker nodes." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Verify that the Service `spec.selector` labels exactly match the pod `metadata.labels` by inspecting `kubectl get endpoints &lt;service-name&gt;`. A Service routes traffic to pods matching its label selector. If there is a typo or mismatch between `spec.selector` and pod labels, the Service creates an empty `Endpoints` (or `EndpointSlice`) list. Checking `kubectl get endpoints` confirms whether any pod IPs are registered.",
     referenceUrl: "https://kubernetes.io/docs/tasks/debug/debug-application/debug-service/",
@@ -303,12 +303,12 @@ export const K8S_CKA_QUESTIONS_14 = [
     scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator evaluates Service Routing to troubleshoot why traffic sent to a Kubernetes ClusterIP Service returns connection refused or timeouts even though backend pods are running.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability? Diagnosing missing endpoints caused by selector label mismatches is under consideration.",
     options: [
-      { id: 'A', text: "Verify that the Service `spec.selector` labels exactly match the pod `metadata.labels` by inspecting `kubectl get endpoints &lt;service-name&gt;`." },
-      { id: 'B', text: "Delete the kubelet systemd service on all worker nodes." },
-      { id: 'C', text: "Assume the Service object requires a public static IP address to function." },
-      { id: 'D', text: "Change the Service type to ExternalName pointing to localhost." }
+      { id: 'A', text: "Delete the kubelet systemd service on all worker nodes." },
+      { id: 'B', text: "Verify that the Service `spec.selector` labels exactly match the pod `metadata.labels` by inspecting `kubectl get endpoints &lt;service-name&gt;`." },
+      { id: 'C', text: "Change the Service type to ExternalName pointing to localhost." },
+      { id: 'D', text: "Assume the Service object requires a public static IP address to function." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Verify that the Service `spec.selector` labels exactly match the pod `metadata.labels` by inspecting `kubectl get endpoints &lt;service-name&gt;`. A Service routes traffic to pods matching its label selector. If there is a typo or mismatch between `spec.selector` and pod labels, the Service creates an empty `Endpoints` (or `EndpointSlice`) list. Checking `kubectl get endpoints` confirms whether any pod IPs are registered.",
     referenceUrl: "https://kubernetes.io/docs/tasks/debug/debug-application/debug-service/",
@@ -324,12 +324,12 @@ export const K8S_CKA_QUESTIONS_14 = [
     scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator evaluates kube-proxy Diagnostics to investigate why network traffic to ClusterIP Services fails on a specific worker node while working on all other nodes.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements? Diagnosing kube-proxy DaemonSet pods and iptables/IPVS rule programming is under consideration.",
     options: [
-      { id: 'A', text: "Check the status and logs of the `kube-proxy` pod running on that specific node and inspect host iptables/IPVS rules." },
-      { id: 'B', text: "Reinstall the Linux operating system on the master control plane node." },
-      { id: 'C', text: "Delete all PersistentVolumes across the entire cluster." },
-      { id: 'D', text: "Assume the pod CIDR range must be doubled." }
+      { id: 'A', text: "Reinstall the Linux operating system on the master control plane node." },
+      { id: 'B', text: "Check the status and logs of the `kube-proxy` pod running on that specific node and inspect host iptables/IPVS rules." },
+      { id: 'C', text: "Assume the pod CIDR range must be doubled." },
+      { id: 'D', text: "Delete all PersistentVolumes across the entire cluster." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Check the status and logs of the `kube-proxy` pod running on that specific node and inspect host iptables/IPVS rules. The `kube-proxy` DaemonSet manages networking rules (iptables or IPVS) on every node to translate Service virtual IPs to backend pod IPs. If `kube-proxy` crashes or cannot sync rules on a specific node, Service routing on that node breaks while remaining functional elsewhere.",
     referenceUrl: "https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/",
@@ -345,12 +345,12 @@ export const K8S_CKA_QUESTIONS_14 = [
     scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator evaluates kube-proxy Diagnostics to investigate why network traffic to ClusterIP Services fails on a specific worker node while working on all other nodes.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability? Diagnosing kube-proxy DaemonSet pods and iptables/IPVS rule programming is under consideration.",
     options: [
-      { id: 'A', text: "Check the status and logs of the `kube-proxy` pod running on that specific node and inspect host iptables/IPVS rules." },
+      { id: 'A', text: "Delete all PersistentVolumes across the entire cluster." },
       { id: 'B', text: "Reinstall the Linux operating system on the master control plane node." },
-      { id: 'C', text: "Delete all PersistentVolumes across the entire cluster." },
-      { id: 'D', text: "Assume the pod CIDR range must be doubled." }
+      { id: 'C', text: "Assume the pod CIDR range must be doubled." },
+      { id: 'D', text: "Check the status and logs of the `kube-proxy` pod running on that specific node and inspect host iptables/IPVS rules." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Check the status and logs of the `kube-proxy` pod running on that specific node and inspect host iptables/IPVS rules. The `kube-proxy` DaemonSet manages networking rules (iptables or IPVS) on every node to translate Service virtual IPs to backend pod IPs. If `kube-proxy` crashes or cannot sync rules on a specific node, Service routing on that node breaks while remaining functional elsewhere.",
     referenceUrl: "https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/",
@@ -366,12 +366,12 @@ export const K8S_CKA_QUESTIONS_14 = [
     scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator evaluates kube-proxy Diagnostics to investigate why network traffic to ClusterIP Services fails on a specific worker node while working on all other nodes.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls? Diagnosing kube-proxy DaemonSet pods and iptables/IPVS rule programming is under consideration.",
     options: [
-      { id: 'A', text: "Check the status and logs of the `kube-proxy` pod running on that specific node and inspect host iptables/IPVS rules." },
-      { id: 'B', text: "Reinstall the Linux operating system on the master control plane node." },
-      { id: 'C', text: "Delete all PersistentVolumes across the entire cluster." },
+      { id: 'A', text: "Delete all PersistentVolumes across the entire cluster." },
+      { id: 'B', text: "Check the status and logs of the `kube-proxy` pod running on that specific node and inspect host iptables/IPVS rules." },
+      { id: 'C', text: "Reinstall the Linux operating system on the master control plane node." },
       { id: 'D', text: "Assume the pod CIDR range must be doubled." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Check the status and logs of the `kube-proxy` pod running on that specific node and inspect host iptables/IPVS rules. The `kube-proxy` DaemonSet manages networking rules (iptables or IPVS) on every node to translate Service virtual IPs to backend pod IPs. If `kube-proxy` crashes or cannot sync rules on a specific node, Service routing on that node breaks while remaining functional elsewhere.",
     referenceUrl: "https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/",
@@ -387,12 +387,12 @@ export const K8S_CKA_QUESTIONS_14 = [
     scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator evaluates kube-proxy Diagnostics to investigate why network traffic to ClusterIP Services fails on a specific worker node while working on all other nodes.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity? Diagnosing kube-proxy DaemonSet pods and iptables/IPVS rule programming is under consideration.",
     options: [
-      { id: 'A', text: "Check the status and logs of the `kube-proxy` pod running on that specific node and inspect host iptables/IPVS rules." },
+      { id: 'A', text: "Assume the pod CIDR range must be doubled." },
       { id: 'B', text: "Reinstall the Linux operating system on the master control plane node." },
-      { id: 'C', text: "Delete all PersistentVolumes across the entire cluster." },
-      { id: 'D', text: "Assume the pod CIDR range must be doubled." }
+      { id: 'C', text: "Check the status and logs of the `kube-proxy` pod running on that specific node and inspect host iptables/IPVS rules." },
+      { id: 'D', text: "Delete all PersistentVolumes across the entire cluster." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Check the status and logs of the `kube-proxy` pod running on that specific node and inspect host iptables/IPVS rules. The `kube-proxy` DaemonSet manages networking rules (iptables or IPVS) on every node to translate Service virtual IPs to backend pod IPs. If `kube-proxy` crashes or cannot sync rules on a specific node, Service routing on that node breaks while remaining functional elsewhere.",
     referenceUrl: "https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/",
@@ -429,12 +429,12 @@ export const K8S_CKA_QUESTIONS_14 = [
     scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator evaluates Container Network Interface to troubleshoot an error where new pods cannot be created on a worker node, failing with `NetworkPluginNotReady` or CNI IP allocation errors.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements? Troubleshooting CNI pod crashes, IPAM pool exhaustion, and veth pairing is under consideration.",
     options: [
-      { id: 'A', text: "Inspect CNI DaemonSet pod logs (e.g., Calico, Flannel, Cilium) and verify that the node pod CIDR allocation is not exhausted." },
+      { id: 'A', text: "Change the Kubernetes API server bind port." },
       { id: 'B', text: "Reboot the etcd database instances." },
-      { id: 'C', text: "Manually delete the loopback interface on the host node." },
-      { id: 'D', text: "Change the Kubernetes API server bind port." }
+      { id: 'C', text: "Inspect CNI DaemonSet pod logs (e.g., Calico, Flannel, Cilium) and verify that the node pod CIDR allocation is not exhausted." },
+      { id: 'D', text: "Manually delete the loopback interface on the host node." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Inspect CNI DaemonSet pod logs (e.g., Calico, Flannel, Cilium) and verify that the node pod CIDR allocation is not exhausted. The CNI plugin configures network interfaces and IP addresses for pods. If the CNI daemon crashes, host CNI configuration files in `/etc/cni/net.d/` are missing, or the node IPAM pool runs out of assignable pod IPs, the kubelet reports `NetworkPluginNotReady`.",
     referenceUrl: "https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/",
@@ -452,8 +452,8 @@ export const K8S_CKA_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Inspect CNI DaemonSet pod logs (e.g., Calico, Flannel, Cilium) and verify that the node pod CIDR allocation is not exhausted." },
       { id: 'B', text: "Reboot the etcd database instances." },
-      { id: 'C', text: "Manually delete the loopback interface on the host node." },
-      { id: 'D', text: "Change the Kubernetes API server bind port." }
+      { id: 'C', text: "Change the Kubernetes API server bind port." },
+      { id: 'D', text: "Manually delete the loopback interface on the host node." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,12 +492,12 @@ export const K8S_CKA_QUESTIONS_14 = [
     scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator evaluates Container Network Interface to troubleshoot an error where new pods cannot be created on a worker node, failing with `NetworkPluginNotReady` or CNI IP allocation errors.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity? Troubleshooting CNI pod crashes, IPAM pool exhaustion, and veth pairing is under consideration.",
     options: [
-      { id: 'A', text: "Inspect CNI DaemonSet pod logs (e.g., Calico, Flannel, Cilium) and verify that the node pod CIDR allocation is not exhausted." },
-      { id: 'B', text: "Reboot the etcd database instances." },
-      { id: 'C', text: "Manually delete the loopback interface on the host node." },
-      { id: 'D', text: "Change the Kubernetes API server bind port." }
+      { id: 'A', text: "Change the Kubernetes API server bind port." },
+      { id: 'B', text: "Manually delete the loopback interface on the host node." },
+      { id: 'C', text: "Reboot the etcd database instances." },
+      { id: 'D', text: "Inspect CNI DaemonSet pod logs (e.g., Calico, Flannel, Cilium) and verify that the node pod CIDR allocation is not exhausted." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Inspect CNI DaemonSet pod logs (e.g., Calico, Flannel, Cilium) and verify that the node pod CIDR allocation is not exhausted. The CNI plugin configures network interfaces and IP addresses for pods. If the CNI daemon crashes, host CNI configuration files in `/etc/cni/net.d/` are missing, or the node IPAM pool runs out of assignable pod IPs, the kubelet reports `NetworkPluginNotReady`.",
     referenceUrl: "https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/",
@@ -513,12 +513,12 @@ export const K8S_CKA_QUESTIONS_14 = [
     scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator evaluates Container Network Interface to troubleshoot an error where new pods cannot be created on a worker node, failing with `NetworkPluginNotReady` or CNI IP allocation errors.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability? Troubleshooting CNI pod crashes, IPAM pool exhaustion, and veth pairing is under consideration.",
     options: [
-      { id: 'A', text: "Inspect CNI DaemonSet pod logs (e.g., Calico, Flannel, Cilium) and verify that the node pod CIDR allocation is not exhausted." },
+      { id: 'A', text: "Manually delete the loopback interface on the host node." },
       { id: 'B', text: "Reboot the etcd database instances." },
-      { id: 'C', text: "Manually delete the loopback interface on the host node." },
+      { id: 'C', text: "Inspect CNI DaemonSet pod logs (e.g., Calico, Flannel, Cilium) and verify that the node pod CIDR allocation is not exhausted." },
       { id: 'D', text: "Change the Kubernetes API server bind port." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Inspect CNI DaemonSet pod logs (e.g., Calico, Flannel, Cilium) and verify that the node pod CIDR allocation is not exhausted. The CNI plugin configures network interfaces and IP addresses for pods. If the CNI daemon crashes, host CNI configuration files in `/etc/cni/net.d/` are missing, or the node IPAM pool runs out of assignable pod IPs, the kubelet reports `NetworkPluginNotReady`.",
     referenceUrl: "https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/",

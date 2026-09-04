@@ -9,12 +9,12 @@ export const GITHUB_GHAS_QUESTIONS_8 = [
     scenario: "An organization wants to enable automated CodeQL code scanning across 200 standard Python repositories with zero YAML maintenance.",
     question: "Which CodeQL enablement method should the team choose?",
     options: [
-      { id: 'A', text: "Advanced setup, which creates a bespoke .github/workflows/codeql.yml file in every repository" },
-      { id: 'B', text: "Default setup, which automatically detects languages and schedules scans without committing a workflow file" },
-      { id: 'C', text: "Third-party CLI wrapper scripts executed on local developer machines" },
+      { id: 'A', text: "Default setup, which automatically detects languages and schedules scans without committing a workflow file" },
+      { id: 'B', text: "Third-party CLI wrapper scripts executed on local developer machines" },
+      { id: 'C', text: "Advanced setup, which creates a bespoke .github/workflows/codeql.yml file in every repository" },
       { id: 'D', text: "Manual SARIF file uploads via curl" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Default setup provides zero-configuration code scanning: GitHub automatically determines repository languages, query suites, and scheduling without committing a `.github/workflows/codeql.yml` file into source control.",
     referenceUrl: "https://docs.github.com/en/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning",
@@ -30,12 +30,12 @@ export const GITHUB_GHAS_QUESTIONS_8 = [
     scenario: "A Java project using Gradle fails during the autobuild step of the CodeQL workflow with a heap memory allocation error.",
     question: "What is the recommended remediation to ensure successful database extraction?",
     options: [
-      { id: 'A', text: "Convert the Java application into interpreted Python code" },
-      { id: 'B', text: "Remove the codeql-action/autobuild step and specify custom build commands (e.g. ./gradlew assemble --no-daemon -Dorg.gradle.jvmargs='-Xmx4g') between init and analyze" },
-      { id: 'C', text: "Delete the Gradle wrapper from git history" },
-      { id: 'D', text: "Disable CodeQL analysis for Java" }
+      { id: 'A', text: "Delete the Gradle wrapper from git history" },
+      { id: 'B', text: "Disable CodeQL analysis for Java" },
+      { id: 'C', text: "Convert the Java application into interpreted Python code" },
+      { id: 'D', text: "Remove the codeql-action/autobuild step and specify custom build commands (e.g. ./gradlew assemble --no-daemon -Dorg.gradle.jvmargs='-Xmx4g') between init and analyze" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "When the heuristic `autobuild` action fails on compiled languages (Java, C++, C#, Go), the standard best practice is removing `autobuild` and inserting custom compilation commands with explicit memory and compiler flags between `init` and `analyze`.",
     referenceUrl: "https://docs.github.com/en/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages",
@@ -51,12 +51,12 @@ export const GITHUB_GHAS_QUESTIONS_8 = [
     scenario: "A fintech team requires code scanning to detect not only critical vulnerabilities, but also medium- and lower-severity security issues and OWASP Top 10 recommendations.",
     question: "Which query suite should be specified in codeql-action/init?",
     options: [
-      { id: 'A', text: "queries: default" },
-      { id: 'B', text: "queries: minimal" },
-      { id: 'C', text: "queries: security-extended" },
+      { id: 'A', text: "queries: minimal" },
+      { id: 'B', text: "queries: security-extended" },
+      { id: 'C', text: "queries: default" },
       { id: 'D', text: "queries: experimental" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "The `security-extended` suite includes all default high-precision queries plus lower-severity security queries, defense-in-depth rules, and comprehensive OWASP/CWE checks.",
     referenceUrl: "https://docs.github.com/en/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#using-an-alternative-query-suite",
@@ -72,12 +72,12 @@ export const GITHUB_GHAS_QUESTIONS_8 = [
     scenario: "A developer attempts to run CodeQL on an already-compiled C++ project where object files (.o) and binaries exist in the workspace before the workflow runs.",
     question: "Why does CodeQL fail to extract the source code properly?",
     options: [
-      { id: 'A', text: "CodeQL intercepts compiler invocations during the build process; if files are already built, the compiler does not recompile them, resulting in an empty database" },
+      { id: 'A', text: "CodeQL only works on Java codebases" },
       { id: 'B', text: "CodeQL requires an internet connection to compile C++" },
-      { id: 'C', text: "Pre-compiled binaries corrupt the git index" },
-      { id: 'D', text: "CodeQL only works on Java codebases" }
+      { id: 'C', text: "CodeQL intercepts compiler invocations during the build process; if files are already built, the compiler does not recompile them, resulting in an empty database" },
+      { id: 'D', text: "Pre-compiled binaries corrupt the git index" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "CodeQL acts as a compiler tracer: it monitors active invocations of `gcc`, `clang`, or `cl.exe`. If the build system uses cached artifacts or incremental builds without recompiling, CodeQL cannot extract the AST, requiring a clean build step (`make clean`).",
     referenceUrl: "https://docs.github.com/en/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages",
@@ -93,12 +93,12 @@ export const GITHUB_GHAS_QUESTIONS_8 = [
     scenario: "A workflow runs both CodeQL and Trivy container vulnerability scanner, uploading SARIF results from both tools in the same job.",
     question: "What parameter in github/codeql-action/upload-sarif ensures the two tools do not overwrite each other's alerts?",
     options: [
-      { id: 'A', text: "name: trivy-scan" },
+      { id: 'A', text: "category: '/tool:trivy'" },
       { id: 'B', text: "token: ${{ secrets.GITHUB_TOKEN }}" },
-      { id: 'C', text: "force-overwrite: false" },
-      { id: 'D', text: "category: '/tool:trivy'" }
+      { id: 'C', text: "name: trivy-scan" },
+      { id: 'D', text: "force-overwrite: false" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The `category` string distinguishes separate analysis runs and tools. Setting a unique category (e.g. `/tool:trivy` and `/tool:codeql`) prevents results from clobbering each other in the Code Scanning dashboard.",
     referenceUrl: "https://docs.github.com/en/code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github#uploading-a-code-scanning-analysis-with-github-actions",
@@ -114,12 +114,12 @@ export const GITHUB_GHAS_QUESTIONS_8 = [
     scenario: "A new advanced setup CodeQL workflow fails during the upload-sarif step with HTTP 403 Forbidden.",
     question: "Which permission must be explicitly declared in the workflow YAML permissions block?",
     options: [
-      { id: 'A', text: "actions: read" },
+      { id: 'A', text: "security-events: write" },
       { id: 'B', text: "id-token: write" },
-      { id: 'C', text: "security-events: write" },
-      { id: 'D', text: "contents: write" }
+      { id: 'C', text: "contents: write" },
+      { id: 'D', text: "actions: read" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Uploading code scanning results or SARIF files to GitHub's code security APIs strictly requires the `security-events: write` permission on `GITHUB_TOKEN`.",
     referenceUrl: "https://docs.github.com/en/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#recommended-permissions-for-the-github_token",
@@ -135,12 +135,12 @@ export const GITHUB_GHAS_QUESTIONS_8 = [
     scenario: "An organization wants CodeQL status checks on pull requests to fail only if Critical or High severity vulnerabilities are detected, but allow Medium and Low alerts without blocking merges.",
     question: "Where is this failure threshold configured in repository settings?",
     options: [
-      { id: 'A', text: "In Settings → Code security and analysis → Code scanning → Check failure threshold" },
+      { id: 'A', text: "In branch protection rules under required status checks" },
       { id: 'B', text: "In package.json" },
-      { id: 'C', text: "In .github/workflows/codeql.yml under fail-fast" },
-      { id: 'D', text: "In branch protection rules under required status checks" }
+      { id: 'C', text: "In Settings → Code security and analysis → Code scanning → Check failure threshold" },
+      { id: 'D', text: "In .github/workflows/codeql.yml under fail-fast" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Under repository code scanning settings, administrators configure the 'Check failure threshold' (e.g. 'Only Critical and High' vs. 'Critical, High, and Medium') to define what severity triggers a failing PR status check.",
     referenceUrl: "https://docs.github.com/en/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels",
@@ -156,12 +156,12 @@ export const GITHUB_GHAS_QUESTIONS_8 = [
     scenario: "A 5-million line C# repository experiences CodeQL analyze step timeouts after 6 hours on standard 2-core GitHub-hosted runners.",
     question: "Which scaling and optimization adjustment resolves the performance bottleneck?",
     options: [
-      { id: 'A', text: "Delete historical git branches" },
-      { id: 'B', text: "Migrate to GitHub-hosted Larger Runners (e.g. 16 or 32 cores) and pass ram: and threads: options in codeql-action/analyze" },
-      { id: 'C', text: "Disable code scanning on C#" },
+      { id: 'A', text: "Disable code scanning on C#" },
+      { id: 'B', text: "Delete historical git branches" },
+      { id: 'C', text: "Migrate to GitHub-hosted Larger Runners (e.g. 16 or 32 cores) and pass ram: and threads: options in codeql-action/analyze" },
       { id: 'D', text: "Run CodeQL only on pull requests and never on main" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Enterprise codebases require substantial CPU and memory for inter-procedural AST analysis. Moving to Larger Runners and tuning `threads: 16` and `ram: 28000` dramatically accelerates query execution.",
     referenceUrl: "https://docs.github.com/en/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#specifying-threads-and-ram",
@@ -177,12 +177,12 @@ export const GITHUB_GHAS_QUESTIONS_8 = [
     scenario: "An enterprise development team is managing security policies, vulnerability scans, and supply chain controls on GitHub.",
     question: "Which group of programming languages can be analyzed by CodeQL directly from source code without any compilation or build step?",
     options: [
-      { id: 'A', text: "Java, Kotlin, and Scala" },
-      { id: 'B', text: "Go and Swift" },
-      { id: 'C', text: "C, C++, and C#" },
-      { id: 'D', text: "JavaScript/TypeScript, Python, and Ruby" }
+      { id: 'A', text: "Go and Swift" },
+      { id: 'B', text: "Java, Kotlin, and Scala" },
+      { id: 'C', text: "JavaScript/TypeScript, Python, and Ruby" },
+      { id: 'D', text: "C, C++, and C#" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Interpreted languages (JavaScript, TypeScript, Python, Ruby) do not require a build step. CodeQL directly extracts the files from the repository directory.",
     referenceUrl: "https://docs.github.com/en/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/about-code-scanning-with-codeql",
@@ -198,12 +198,12 @@ export const GITHUB_GHAS_QUESTIONS_8 = [
     scenario: "A code scanning alert flags an SQL query as an injection vulnerability. However, the query is executed against a hardcoded static SQLite in-memory database used solely for client-side unit testing.",
     question: "Which dismissal reason should the developer select?",
     options: [
-      { id: 'A', text: "Used in tests" },
-      { id: 'B', text: "False positive" },
-      { id: 'C', text: "Won't fix" },
-      { id: 'D', text: "Revoked" }
+      { id: 'A', text: "Revoked" },
+      { id: 'B', text: "Won't fix" },
+      { id: 'C', text: "Used in tests" },
+      { id: 'D', text: "False positive" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "When vulnerable patterns are intentionally contained within test fixtures or mock frameworks, 'Used in tests' accurately records the context while dismissing the alert.",
     referenceUrl: "https://docs.github.com/en/code-security/code-scanning/managing-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests",
@@ -219,12 +219,12 @@ export const GITHUB_GHAS_QUESTIONS_8 = [
     scenario: "A legacy repository has 45 existing open CodeQL alerts on the default branch. A developer opens a pull request fixing a minor CSS bug.",
     question: "Will the CodeQL PR status check fail because of the 45 existing alerts?",
     options: [
-      { id: 'A', text: "Yes, any open alert anywhere in the repository fails all PR checks" },
-      { id: 'B', text: "Yes, the developer must resolve all 45 legacy alerts before their CSS PR can merge" },
-      { id: 'C', text: "CodeQL only runs on merged code, not on pull requests" },
-      { id: 'D', text: "No, CodeQL compares the PR head commit against the merge base and alerts only if the pull request introduces new alerts or worsens existing ones" }
+      { id: 'A', text: "No, CodeQL compares the PR head commit against the merge base and alerts only if the pull request introduces new alerts or worsens existing ones" },
+      { id: 'B', text: "CodeQL only runs on merged code, not on pull requests" },
+      { id: 'C', text: "Yes, the developer must resolve all 45 legacy alerts before their CSS PR can merge" },
+      { id: 'D', text: "Yes, any open alert anywhere in the repository fails all PR checks" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "CodeQL pull request analysis is diff-aware: it identifies the merge base and reports alerts introduced by the pull request's changed lines, preventing legacy technical debt from blocking active development.",
     referenceUrl: "https://docs.github.com/en/code-security/code-scanning/managing-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests",
@@ -240,12 +240,12 @@ export const GITHUB_GHAS_QUESTIONS_8 = [
     scenario: "An enterprise development team is managing security policies, vulnerability scans, and supply chain controls on GitHub.",
     question: "A repository contains a Go backend service and a TypeScript frontend. How should the advanced setup workflow be structured to analyze both?",
     options: [
-      { id: 'A', text: "Run Go analysis on Monday and TypeScript on Tuesday" },
-      { id: 'B', text: "Combine both languages into a single compiler command" },
-      { id: 'C', text: "Use a matrix strategy: strategy.matrix: { language: ['go', 'javascript-typescript'] } so runners analyze each language in parallel" },
-      { id: 'D', text: "Create two separate repositories" }
+      { id: 'A', text: "Create two separate repositories" },
+      { id: 'B', text: "Use a matrix strategy: strategy.matrix: { language: ['go', 'javascript-typescript'] } so runners analyze each language in parallel" },
+      { id: 'C', text: "Run Go analysis on Monday and TypeScript on Tuesday" },
+      { id: 'D', text: "Combine both languages into a single compiler command" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "GitHub Actions matrix strategies let developers specify `language: ['go', 'javascript-typescript']`, spinning up isolated runners to create clean independent CodeQL databases for each language concurrently.",
     referenceUrl: "https://docs.github.com/en/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#changing-the-languages-that-are-analyzed",
@@ -261,12 +261,12 @@ export const GITHUB_GHAS_QUESTIONS_8 = [
     scenario: "A security team generates a massive SARIF file from a third-party tool and attempts to upload it via codeql-action/upload-sarif, but the upload fails.",
     question: "What are the hard size and result limits enforced by GitHub on uploaded SARIF files?",
     options: [
-      { id: 'A', text: "10 MB gzipped (or 200 MB uncompressed) and a maximum of 5,000 results" },
+      { id: 'A', text: "There are no limits on SARIF uploads" },
       { id: 'B', text: "1 GB file size and 100,000 results" },
-      { id: 'C', text: "There are no limits on SARIF uploads" },
-      { id: 'D', text: "500 KB and 100 results" }
+      { id: 'C', text: "500 KB and 100 results" },
+      { id: 'D', text: "10 MB gzipped (or 200 MB uncompressed) and a maximum of 5,000 results" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "GitHub limits SARIF uploads to a maximum file size of 10 MB (gzip compressed) or 200 MB uncompressed, with a ceiling of 5,000 result items per upload to maintain UI responsiveness.",
     referenceUrl: "https://docs.github.com/en/code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning",
@@ -282,8 +282,8 @@ export const GITHUB_GHAS_QUESTIONS_8 = [
     scenario: "A Python project includes a `tests/` directory with 500 unit test files that slow down CodeQL analysis and generate false positive alerts.",
     question: "How can the team exclude the tests directory from CodeQL extraction in advanced setup?",
     options: [
-      { id: 'A', text: "Set python -m unittest --skip" },
-      { id: 'B', text: "Delete the tests directory before analysis" },
+      { id: 'A', text: "Delete the tests directory before analysis" },
+      { id: 'B', text: "Set python -m unittest --skip" },
       { id: 'C', text: "Add # noqa comments to all test files" },
       { id: 'D', text: "Configure paths-ignore: ['tests/**'] in the codeql-action/init step or in a custom configuration file" }
     ],
@@ -303,10 +303,10 @@ export const GITHUB_GHAS_QUESTIONS_8 = [
     scenario: "A code scanning workflow runs without failing the GitHub Actions job, but no alerts appear in the repository Security tab.",
     question: "Where should the administrator navigate to view diagnostic ingestion and processing errors?",
     options: [
-      { id: 'A', text: "Insights → Contributors" },
-      { id: 'B', text: "Settings → Actions → Runners" },
+      { id: 'A', text: "Settings → Actions → Runners" },
+      { id: 'B', text: "Settings → Webhooks" },
       { id: 'C', text: "Security → Code scanning → 'Tool status' (via the three dots menu)" },
-      { id: 'D', text: "Settings → Webhooks" }
+      { id: 'D', text: "Insights → Contributors" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -324,12 +324,12 @@ export const GITHUB_GHAS_QUESTIONS_8 = [
     scenario: "In static application security testing with CodeQL, what represents a 'Sink'?",
     question: "Which code component matches the definition of a Sink in taint analysis?",
     options: [
-      { id: 'A', text: "A vulnerable or sensitive function call—such as a database query execution, file system read, or shell command execution" },
-      { id: 'B', text: "A regular expression validation function that neutralizes malicious payloads" },
-      { id: 'C', text: "Untrusted input originating from an HTTP request parameter or request header" },
-      { id: 'D', text: "The git commit metadata recording the author identity" }
+      { id: 'A', text: "Untrusted input originating from an HTTP request parameter or request header" },
+      { id: 'B', text: "A vulnerable or sensitive function call—such as a database query execution, file system read, or shell command execution" },
+      { id: 'C', text: "The git commit metadata recording the author identity" },
+      { id: 'D', text: "A regular expression validation function that neutralizes malicious payloads" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "In CodeQL taint tracking: a Source is where untrusted data enters the application (e.g. HTTP query parameter), a Sink is the sensitive execution target (e.g. `db.execute()`, `exec()`), and a Sanitizer cleanses the data.",
     referenceUrl: "https://codeql.github.com/docs/writing-codeql-queries/about-data-flow-analysis/",
@@ -366,12 +366,12 @@ export const GITHUB_GHAS_QUESTIONS_8 = [
     scenario: "A developer views a Cross-Site Scripting (XSS) CodeQL alert on a pull request. A button labeled 'Generate fix' appears next to the alert.",
     question: "How does GitHub Copilot Autofix assist in remediating code scanning alerts?",
     options: [
-      { id: 'A', text: "It opens an external bug bounty ticket" },
-      { id: 'B', text: "It automatically force-pushes code directly to the main branch without review" },
-      { id: 'C', text: "It uses AI to analyze the alert context, source, and sink to generate a recommended code diff that developers can review and apply" },
+      { id: 'A', text: "It automatically force-pushes code directly to the main branch without review" },
+      { id: 'B', text: "It uses AI to analyze the alert context, source, and sink to generate a recommended code diff that developers can review and apply" },
+      { id: 'C', text: "It opens an external bug bounty ticket" },
       { id: 'D', text: "It dismisses the alert as a false positive" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Copilot Autofix combines CodeQL's semantic analysis with AI to propose contextual, verifiable code diffs and explanation notes directly on pull request alerts, accelerating developer remediation.",
     referenceUrl: "https://docs.github.com/en/code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning",
@@ -387,12 +387,12 @@ export const GITHUB_GHAS_QUESTIONS_8 = [
     scenario: "An enterprise development team is managing security policies, vulnerability scans, and supply chain controls on GitHub.",
     question: "A security team authors a custom CodeQL query to detect an insecure proprietary logging method. What metadata comment header is mandatory?",
     options: [
-      { id: 'A', text: "A comment block containing @id, @kind, @problem.severity, and @precision metadata tags" },
-      { id: 'B', text: "author: mycorp" },
+      { id: 'A', text: "author: mycorp" },
+      { id: 'B', text: "package: com.mycorp.security" },
       { id: 'C', text: "version: 1.0" },
-      { id: 'D', text: "package: com.mycorp.security" }
+      { id: 'D', text: "A comment block containing @id, @kind, @problem.severity, and @precision metadata tags" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "CodeQL queries require structured comment metadata tags (@id, @kind problem/path-problem, @problem.severity error/warning, @precision very-high/high) so the engine can format and prioritize the alert in the UI and SARIF output.",
     referenceUrl: "https://codeql.github.com/docs/writing-codeql-queries/metadata-for-codeql-queries/",
@@ -408,12 +408,12 @@ export const GITHUB_GHAS_QUESTIONS_8 = [
     scenario: "A security engineer wants to run experimental custom QL queries against a production repository's AST without running them in CI.",
     question: "How can the engineer obtain the compiled CodeQL database?",
     options: [
-      { id: 'A', text: "Download the database bundle generated during workflow runs via the GitHub REST API or web interface" },
+      { id: 'A', text: "Request the database via a physical USB drive from GitHub support" },
       { id: 'B', text: "Databases cannot be downloaded outside GitHub" },
-      { id: 'C', text: "Take a git clone of the repository" },
-      { id: 'D', text: "Request the database via a physical USB drive from GitHub support" }
+      { id: 'C', text: "Download the database bundle generated during workflow runs via the GitHub REST API or web interface" },
+      { id: 'D', text: "Take a git clone of the repository" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Authorized users with appropriate security permissions can download the compiled CodeQL database bundle from GitHub, allowing offline query exploration and AST debugging using the VS Code CodeQL extension.",
     referenceUrl: "https://docs.github.com/en/code-security/code-scanning/managing-your-code-scanning-configuration/about-codeql-database-generation#downloading-a-codeql-database",
@@ -429,12 +429,12 @@ export const GITHUB_GHAS_QUESTIONS_8 = [
     scenario: "A monorepo has a C++ core engine, a Go API service, and a Python client. The team wants to use Advanced Setup.",
     question: "How should the compilation and extraction steps be configured across jobs?",
     options: [
-      { id: 'A', text: "Define matrix jobs where Go and C++ run their explicit build commands in their respective matrix instances, while Python runs without compilation" },
-      { id: 'B', text: "Use third-party scanners only" },
-      { id: 'C', text: "All three languages must be built in a single step using autobuild" },
-      { id: 'D', text: "Monorepos cannot be analyzed by CodeQL" }
+      { id: 'A', text: "Monorepos cannot be analyzed by CodeQL" },
+      { id: 'B', text: "All three languages must be built in a single step using autobuild" },
+      { id: 'C', text: "Define matrix jobs where Go and C++ run their explicit build commands in their respective matrix instances, while Python runs without compilation" },
+      { id: 'D', text: "Use third-party scanners only" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "In multi-language monorepos, matrix jobs isolate language extraction: compiled languages execute their specific build scripts (e.g. `make` for C++, `go build` for Go), while interpreted languages execute clean AST extraction in parallel.",
     referenceUrl: "https://docs.github.com/en/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning",
@@ -451,11 +451,11 @@ export const GITHUB_GHAS_QUESTIONS_8 = [
     question: "A repository administrator renames the default branch from 'master' to 'main'. What happens to historical code scanning alerts?",
     options: [
       { id: 'A', text: "The repository is locked until all scans are re-run" },
-      { id: 'B', text: "GitHub automatically updates code scanning alert tracking to reference the new default branch name without data loss" },
-      { id: 'C', text: "The alerts are converted into GitHub Issues" },
-      { id: 'D', text: "All historical code scanning alerts are permanently deleted" }
+      { id: 'B', text: "All historical code scanning alerts are permanently deleted" },
+      { id: 'C', text: "GitHub automatically updates code scanning alert tracking to reference the new default branch name without data loss" },
+      { id: 'D', text: "The alerts are converted into GitHub Issues" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "GitHub natively preserves alert history, resolution states, and fingerprints across default branch renames, seamlessly re-pointing existing alerts to the new default branch.",
     referenceUrl: "https://docs.github.com/en/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts",
@@ -492,12 +492,12 @@ export const GITHUB_GHAS_QUESTIONS_8 = [
     scenario: "A developer reviewing a Path-Problem CodeQL alert in the GitHub UI clicks 'Show paths'.",
     question: "What information does the visual path graph display?",
     options: [
-      { id: 'A', text: "The file system directory tree of the repository" },
-      { id: 'B', text: "The network IP routing hops taken by the web server" },
-      { id: 'C', text: "A step-by-step trace showing the untrusted data flow from the entry point (source) through variables to the execution point (sink)" },
-      { id: 'D', text: "A list of git commit authors who modified the file" }
+      { id: 'A', text: "A step-by-step trace showing the untrusted data flow from the entry point (source) through variables to the execution point (sink)" },
+      { id: 'B', text: "The file system directory tree of the repository" },
+      { id: 'C', text: "A list of git commit authors who modified the file" },
+      { id: 'D', text: "The network IP routing hops taken by the web server" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Path queries display an interactive step-by-step call graph in the web UI, showing precisely how untrusted data flows from an HTTP source through intermediate assignments and helper functions into the vulnerable sink.",
     referenceUrl: "https://docs.github.com/en/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-details",
@@ -513,12 +513,12 @@ export const GITHUB_GHAS_QUESTIONS_8 = [
     scenario: "An enterprise development team is managing security policies, vulnerability scans, and supply chain controls on GitHub.",
     question: "A security analyst tests CodeQL locally using the CodeQL CLI. Which command extracts a new database from a Go repository?",
     options: [
-      { id: 'A', text: "codeql database create my-db --language=go" },
+      { id: 'A', text: "codeql init go" },
       { id: 'B', text: "codeql scan --all" },
       { id: 'C', text: "codeql build --target=go" },
-      { id: 'D', text: "codeql init go" }
+      { id: 'D', text: "codeql database create my-db --language=go" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The `codeql database create [database-dir] --language=[language]` command initializes, extracts, and compiles the source code into a queryable relational CodeQL database locally.",
     referenceUrl: "https://codeql.github.com/docs/codeql-cli/creating-codeql-databases/",

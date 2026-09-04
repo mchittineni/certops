@@ -9,12 +9,12 @@ export const GCP_PCDOE_QUESTIONS_19 = [
     scenario: "An enterprise SRE organization is establishing operational continuity guidelines and high-availability architecture for its Google Cloud services. The DevOps team evaluates Remediation Tracking to prevent recurrence of an outage caused by unhandled disk saturation on an auxiliary logging daemon.",
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives? Prioritizing and tracking postmortem preventative action items in engineering backlogs is under consideration.",
     options: [
-      { id: 'A', text: "Document actionable preventative tasks with assigned owners and deadlines in the project issue tracker, prioritizing them against standard feature work." },
-      { id: 'B', text: "File a general suggestion ticket and close it immediately without assigning an owner or deadline." },
+      { id: 'A', text: "File a general suggestion ticket and close it immediately without assigning an owner or deadline." },
+      { id: 'B', text: "Document actionable preventative tasks with assigned owners and deadlines in the project issue tracker, prioritizing them against standard feature work." },
       { id: 'C', text: "Assume the team has learned the lesson and take no engineering action to improve system safeguards." },
       { id: 'D', text: "Mandate that engineers manually check disk free space every two hours indefinitely." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Document actionable preventative tasks with assigned owners and deadlines in the project issue tracker, prioritizing them against standard feature work. Postmortems are only effective if their action items are executed. High-priority corrective actions (such as automated disk alerts, quota protections, and self-healing cleanup jobs) must be entered into the product engineering sprint backlog and tracked to completion to prevent recurrence.",
     referenceUrl: "https://sre.google/workbook/postmortem-culture/",
@@ -30,12 +30,12 @@ export const GCP_PCDOE_QUESTIONS_19 = [
     scenario: "A high-throughput Google Cloud application experiences unpredictable bursts of traffic and transactional demands from global users. The DevOps team evaluates Remediation Tracking to prevent recurrence of an outage caused by unhandled disk saturation on an auxiliary logging daemon.",
     question: "Which engineering approach should the DevOps team select to manage this demand reliably without manual intervention? Prioritizing and tracking postmortem preventative action items in engineering backlogs is under consideration.",
     options: [
-      { id: 'A', text: "Document actionable preventative tasks with assigned owners and deadlines in the project issue tracker, prioritizing them against standard feature work." },
-      { id: 'B', text: "File a general suggestion ticket and close it immediately without assigning an owner or deadline." },
+      { id: 'A', text: "File a general suggestion ticket and close it immediately without assigning an owner or deadline." },
+      { id: 'B', text: "Document actionable preventative tasks with assigned owners and deadlines in the project issue tracker, prioritizing them against standard feature work." },
       { id: 'C', text: "Assume the team has learned the lesson and take no engineering action to improve system safeguards." },
       { id: 'D', text: "Mandate that engineers manually check disk free space every two hours indefinitely." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Document actionable preventative tasks with assigned owners and deadlines in the project issue tracker, prioritizing them against standard feature work. Postmortems are only effective if their action items are executed. High-priority corrective actions (such as automated disk alerts, quota protections, and self-healing cleanup jobs) must be entered into the product engineering sprint backlog and tracked to completion to prevent recurrence.",
     referenceUrl: "https://sre.google/workbook/postmortem-culture/",
@@ -72,12 +72,12 @@ export const GCP_PCDOE_QUESTIONS_19 = [
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on Google Cloud. The DevOps team evaluates Remediation Tracking to prevent recurrence of an outage caused by unhandled disk saturation on an auxiliary logging daemon.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead? Prioritizing and tracking postmortem preventative action items in engineering backlogs is under consideration.",
     options: [
-      { id: 'A', text: "Document actionable preventative tasks with assigned owners and deadlines in the project issue tracker, prioritizing them against standard feature work." },
-      { id: 'B', text: "File a general suggestion ticket and close it immediately without assigning an owner or deadline." },
-      { id: 'C', text: "Assume the team has learned the lesson and take no engineering action to improve system safeguards." },
+      { id: 'A', text: "Assume the team has learned the lesson and take no engineering action to improve system safeguards." },
+      { id: 'B', text: "Document actionable preventative tasks with assigned owners and deadlines in the project issue tracker, prioritizing them against standard feature work." },
+      { id: 'C', text: "File a general suggestion ticket and close it immediately without assigning an owner or deadline." },
       { id: 'D', text: "Mandate that engineers manually check disk free space every two hours indefinitely." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Document actionable preventative tasks with assigned owners and deadlines in the project issue tracker, prioritizing them against standard feature work. Postmortems are only effective if their action items are executed. High-priority corrective actions (such as automated disk alerts, quota protections, and self-healing cleanup jobs) must be entered into the product engineering sprint backlog and tracked to completion to prevent recurrence.",
     referenceUrl: "https://sre.google/workbook/postmortem-culture/",
@@ -93,12 +93,12 @@ export const GCP_PCDOE_QUESTIONS_19 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate operational incident handling. The DevOps team evaluates Remediation Tracking to prevent recurrence of an outage caused by unhandled disk saturation on an auxiliary logging daemon.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and ensures service stability? Prioritizing and tracking postmortem preventative action items in engineering backlogs is under consideration.",
     options: [
-      { id: 'A', text: "Document actionable preventative tasks with assigned owners and deadlines in the project issue tracker, prioritizing them against standard feature work." },
-      { id: 'B', text: "File a general suggestion ticket and close it immediately without assigning an owner or deadline." },
-      { id: 'C', text: "Assume the team has learned the lesson and take no engineering action to improve system safeguards." },
-      { id: 'D', text: "Mandate that engineers manually check disk free space every two hours indefinitely." }
+      { id: 'A', text: "Assume the team has learned the lesson and take no engineering action to improve system safeguards." },
+      { id: 'B', text: "Document actionable preventative tasks with assigned owners and deadlines in the project issue tracker, prioritizing them against standard feature work." },
+      { id: 'C', text: "Mandate that engineers manually check disk free space every two hours indefinitely." },
+      { id: 'D', text: "File a general suggestion ticket and close it immediately without assigning an owner or deadline." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Document actionable preventative tasks with assigned owners and deadlines in the project issue tracker, prioritizing them against standard feature work. Postmortems are only effective if their action items are executed. High-priority corrective actions (such as automated disk alerts, quota protections, and self-healing cleanup jobs) must be entered into the product engineering sprint backlog and tracked to completion to prevent recurrence.",
     referenceUrl: "https://sre.google/workbook/postmortem-culture/",
@@ -115,8 +115,8 @@ export const GCP_PCDOE_QUESTIONS_19 = [
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives? Automated and step-by-step diagnostic runbooks for on-call responders is under consideration.",
     options: [
       { id: 'A', text: "Maintain clear, version-controlled runbooks linked directly to alerting policies, including pre-validated diagnostic scripts and automated remediation workflows." },
-      { id: 'B', text: "Rely on on-call engineers to figure out unique diagnostic commands on their own in the middle of the night." },
-      { id: 'C', text: "Require the original author of the code to be woken up every time an alert fires." },
+      { id: 'B', text: "Require the original author of the code to be woken up every time an alert fires." },
+      { id: 'C', text: "Rely on on-call engineers to figure out unique diagnostic commands on their own in the middle of the night." },
       { id: 'D', text: "Keep outdated Word documents with ambiguous guidance on an internal file share." }
     ],
     correctAnswers: ['A'],
@@ -135,12 +135,12 @@ export const GCP_PCDOE_QUESTIONS_19 = [
     scenario: "A high-throughput Google Cloud application experiences unpredictable bursts of traffic and transactional demands from global users. The DevOps team evaluates Runbooks & Playbooks to enable on-call engineers to diagnose and resolve recurring complex cache invalidation issues quickly at 3:00 AM without deep domain expertise.",
     question: "Which engineering approach should the DevOps team select to manage this demand reliably without manual intervention? Automated and step-by-step diagnostic runbooks for on-call responders is under consideration.",
     options: [
-      { id: 'A', text: "Maintain clear, version-controlled runbooks linked directly to alerting policies, including pre-validated diagnostic scripts and automated remediation workflows." },
-      { id: 'B', text: "Rely on on-call engineers to figure out unique diagnostic commands on their own in the middle of the night." },
-      { id: 'C', text: "Require the original author of the code to be woken up every time an alert fires." },
-      { id: 'D', text: "Keep outdated Word documents with ambiguous guidance on an internal file share." }
+      { id: 'A', text: "Rely on on-call engineers to figure out unique diagnostic commands on their own in the middle of the night." },
+      { id: 'B', text: "Maintain clear, version-controlled runbooks linked directly to alerting policies, including pre-validated diagnostic scripts and automated remediation workflows." },
+      { id: 'C', text: "Keep outdated Word documents with ambiguous guidance on an internal file share." },
+      { id: 'D', text: "Require the original author of the code to be woken up every time an alert fires." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Maintain clear, version-controlled runbooks linked directly to alerting policies, including pre-validated diagnostic scripts and automated remediation workflows. Effective alerting policies include direct links to runbooks. High-quality runbooks provide step-by-step diagnostic commands, expected outputs, safe rollback procedures, and escalation trees. Automating routine steps with scripts reduces mean time to recovery (MTTR) and cognitive fatigue.",
     referenceUrl: "https://sre.google/workbook/incident-response/",
@@ -156,12 +156,12 @@ export const GCP_PCDOE_QUESTIONS_19 = [
     scenario: "A security compliance auditor requires automated verification of system integrity, secret isolation, and governance across all continuous delivery pipelines. The DevOps team evaluates Runbooks & Playbooks to enable on-call engineers to diagnose and resolve recurring complex cache invalidation issues quickly at 3:00 AM without deep domain expertise.",
     question: "Which solution implements these mandatory compliance and security controls? Automated and step-by-step diagnostic runbooks for on-call responders is under consideration.",
     options: [
-      { id: 'A', text: "Maintain clear, version-controlled runbooks linked directly to alerting policies, including pre-validated diagnostic scripts and automated remediation workflows." },
+      { id: 'A', text: "Keep outdated Word documents with ambiguous guidance on an internal file share." },
       { id: 'B', text: "Rely on on-call engineers to figure out unique diagnostic commands on their own in the middle of the night." },
-      { id: 'C', text: "Require the original author of the code to be woken up every time an alert fires." },
-      { id: 'D', text: "Keep outdated Word documents with ambiguous guidance on an internal file share." }
+      { id: 'C', text: "Maintain clear, version-controlled runbooks linked directly to alerting policies, including pre-validated diagnostic scripts and automated remediation workflows." },
+      { id: 'D', text: "Require the original author of the code to be woken up every time an alert fires." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Maintain clear, version-controlled runbooks linked directly to alerting policies, including pre-validated diagnostic scripts and automated remediation workflows. Effective alerting policies include direct links to runbooks. High-quality runbooks provide step-by-step diagnostic commands, expected outputs, safe rollback procedures, and escalation trees. Automating routine steps with scripts reduces mean time to recovery (MTTR) and cognitive fatigue.",
     referenceUrl: "https://sre.google/workbook/incident-response/",
@@ -177,12 +177,12 @@ export const GCP_PCDOE_QUESTIONS_19 = [
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on Google Cloud. The DevOps team evaluates Runbooks & Playbooks to enable on-call engineers to diagnose and resolve recurring complex cache invalidation issues quickly at 3:00 AM without deep domain expertise.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead? Automated and step-by-step diagnostic runbooks for on-call responders is under consideration.",
     options: [
-      { id: 'A', text: "Maintain clear, version-controlled runbooks linked directly to alerting policies, including pre-validated diagnostic scripts and automated remediation workflows." },
-      { id: 'B', text: "Rely on on-call engineers to figure out unique diagnostic commands on their own in the middle of the night." },
+      { id: 'A', text: "Rely on on-call engineers to figure out unique diagnostic commands on their own in the middle of the night." },
+      { id: 'B', text: "Maintain clear, version-controlled runbooks linked directly to alerting policies, including pre-validated diagnostic scripts and automated remediation workflows." },
       { id: 'C', text: "Require the original author of the code to be woken up every time an alert fires." },
       { id: 'D', text: "Keep outdated Word documents with ambiguous guidance on an internal file share." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Maintain clear, version-controlled runbooks linked directly to alerting policies, including pre-validated diagnostic scripts and automated remediation workflows. Effective alerting policies include direct links to runbooks. High-quality runbooks provide step-by-step diagnostic commands, expected outputs, safe rollback procedures, and escalation trees. Automating routine steps with scripts reduces mean time to recovery (MTTR) and cognitive fatigue.",
     referenceUrl: "https://sre.google/workbook/incident-response/",
@@ -198,12 +198,12 @@ export const GCP_PCDOE_QUESTIONS_19 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate operational incident handling. The DevOps team evaluates Runbooks & Playbooks to enable on-call engineers to diagnose and resolve recurring complex cache invalidation issues quickly at 3:00 AM without deep domain expertise.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and ensures service stability? Automated and step-by-step diagnostic runbooks for on-call responders is under consideration.",
     options: [
-      { id: 'A', text: "Maintain clear, version-controlled runbooks linked directly to alerting policies, including pre-validated diagnostic scripts and automated remediation workflows." },
-      { id: 'B', text: "Rely on on-call engineers to figure out unique diagnostic commands on their own in the middle of the night." },
-      { id: 'C', text: "Require the original author of the code to be woken up every time an alert fires." },
+      { id: 'A', text: "Rely on on-call engineers to figure out unique diagnostic commands on their own in the middle of the night." },
+      { id: 'B', text: "Require the original author of the code to be woken up every time an alert fires." },
+      { id: 'C', text: "Maintain clear, version-controlled runbooks linked directly to alerting policies, including pre-validated diagnostic scripts and automated remediation workflows." },
       { id: 'D', text: "Keep outdated Word documents with ambiguous guidance on an internal file share." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Maintain clear, version-controlled runbooks linked directly to alerting policies, including pre-validated diagnostic scripts and automated remediation workflows. Effective alerting policies include direct links to runbooks. High-quality runbooks provide step-by-step diagnostic commands, expected outputs, safe rollback procedures, and escalation trees. Automating routine steps with scripts reduces mean time to recovery (MTTR) and cognitive fatigue.",
     referenceUrl: "https://sre.google/workbook/incident-response/",
@@ -240,12 +240,12 @@ export const GCP_PCDOE_QUESTIONS_19 = [
     scenario: "A high-throughput Google Cloud application experiences unpredictable bursts of traffic and transactional demands from global users. The DevOps team evaluates Chaos Engineering to validate whether a multi-region Cloud Spanner and GKE deployment truly fails over seamlessly without human intervention before a real disaster strikes.",
     question: "Which engineering approach should the DevOps team select to manage this demand reliably without manual intervention? Simulating regional outages and service failures with chaos experiments is under consideration.",
     options: [
-      { id: 'A', text: "Schedule regular disaster recovery game days and automated chaos engineering experiments (e.g., Chaos Mesh, simulating zone/region disconnects) in pre-production and controlled production." },
-      { id: 'B', text: "Wait for an actual catastrophic natural disaster in a Google Cloud region to discover if failover works." },
-      { id: 'C', text: "Assume high availability configurations will work as specified in vendor sales brochures without validation." },
+      { id: 'A', text: "Wait for an actual catastrophic natural disaster in a Google Cloud region to discover if failover works." },
+      { id: 'B', text: "Assume high availability configurations will work as specified in vendor sales brochures without validation." },
+      { id: 'C', text: "Schedule regular disaster recovery game days and automated chaos engineering experiments (e.g., Chaos Mesh, simulating zone/region disconnects) in pre-production and controlled production." },
       { id: 'D', text: "Disable all automated failover systems during tests to avoid disrupting synthetic test users." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Schedule regular disaster recovery game days and automated chaos engineering experiments (e.g., Chaos Mesh, simulating zone/region disconnects) in pre-production and controlled production. Disaster recovery and high availability architectures must be validated under simulated fault conditions. Conducting chaos experiments and scheduled game days tests whether automated traffic failovers, circuit breakers, and database replication behave correctly under live network partitions.",
     referenceUrl: "https://sre.google/sre-book/disaster-recovery/",
@@ -261,12 +261,12 @@ export const GCP_PCDOE_QUESTIONS_19 = [
     scenario: "A security compliance auditor requires automated verification of system integrity, secret isolation, and governance across all continuous delivery pipelines. The DevOps team evaluates Chaos Engineering to validate whether a multi-region Cloud Spanner and GKE deployment truly fails over seamlessly without human intervention before a real disaster strikes.",
     question: "Which solution implements these mandatory compliance and security controls? Simulating regional outages and service failures with chaos experiments is under consideration.",
     options: [
-      { id: 'A', text: "Schedule regular disaster recovery game days and automated chaos engineering experiments (e.g., Chaos Mesh, simulating zone/region disconnects) in pre-production and controlled production." },
-      { id: 'B', text: "Wait for an actual catastrophic natural disaster in a Google Cloud region to discover if failover works." },
-      { id: 'C', text: "Assume high availability configurations will work as specified in vendor sales brochures without validation." },
-      { id: 'D', text: "Disable all automated failover systems during tests to avoid disrupting synthetic test users." }
+      { id: 'A', text: "Disable all automated failover systems during tests to avoid disrupting synthetic test users." },
+      { id: 'B', text: "Schedule regular disaster recovery game days and automated chaos engineering experiments (e.g., Chaos Mesh, simulating zone/region disconnects) in pre-production and controlled production." },
+      { id: 'C', text: "Wait for an actual catastrophic natural disaster in a Google Cloud region to discover if failover works." },
+      { id: 'D', text: "Assume high availability configurations will work as specified in vendor sales brochures without validation." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Schedule regular disaster recovery game days and automated chaos engineering experiments (e.g., Chaos Mesh, simulating zone/region disconnects) in pre-production and controlled production. Disaster recovery and high availability architectures must be validated under simulated fault conditions. Conducting chaos experiments and scheduled game days tests whether automated traffic failovers, circuit breakers, and database replication behave correctly under live network partitions.",
     referenceUrl: "https://sre.google/sre-book/disaster-recovery/",
@@ -283,8 +283,8 @@ export const GCP_PCDOE_QUESTIONS_19 = [
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead? Simulating regional outages and service failures with chaos experiments is under consideration.",
     options: [
       { id: 'A', text: "Schedule regular disaster recovery game days and automated chaos engineering experiments (e.g., Chaos Mesh, simulating zone/region disconnects) in pre-production and controlled production." },
-      { id: 'B', text: "Wait for an actual catastrophic natural disaster in a Google Cloud region to discover if failover works." },
-      { id: 'C', text: "Assume high availability configurations will work as specified in vendor sales brochures without validation." },
+      { id: 'B', text: "Assume high availability configurations will work as specified in vendor sales brochures without validation." },
+      { id: 'C', text: "Wait for an actual catastrophic natural disaster in a Google Cloud region to discover if failover works." },
       { id: 'D', text: "Disable all automated failover systems during tests to avoid disrupting synthetic test users." }
     ],
     correctAnswers: ['A'],
@@ -305,8 +305,8 @@ export const GCP_PCDOE_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Schedule regular disaster recovery game days and automated chaos engineering experiments (e.g., Chaos Mesh, simulating zone/region disconnects) in pre-production and controlled production." },
       { id: 'B', text: "Wait for an actual catastrophic natural disaster in a Google Cloud region to discover if failover works." },
-      { id: 'C', text: "Assume high availability configurations will work as specified in vendor sales brochures without validation." },
-      { id: 'D', text: "Disable all automated failover systems during tests to avoid disrupting synthetic test users." }
+      { id: 'C', text: "Disable all automated failover systems during tests to avoid disrupting synthetic test users." },
+      { id: 'D', text: "Assume high availability configurations will work as specified in vendor sales brochures without validation." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -324,12 +324,12 @@ export const GCP_PCDOE_QUESTIONS_19 = [
     scenario: "An enterprise SRE organization is establishing operational continuity guidelines and high-availability architecture for its Google Cloud services. The DevOps team evaluates Container Security to identify known Common Vulnerabilities and Exposures (CVEs) in third-party base images before deploying containers to production GKE clusters.",
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives? Automated vulnerability scanning and SBOM generation for container images is under consideration.",
     options: [
-      { id: 'A', text: "Enable Automated Container Scanning in Artifact Registry to automatically inspect uploaded container images and generate vulnerability reports with severity ratings." },
+      { id: 'A', text: "Scan containers only after they have been running in production for six months." },
       { id: 'B', text: "Rely exclusively on developers manually reading release notes of every open-source library used." },
-      { id: 'C', text: "Disable all security scanners to speed up image upload and push speeds in CI/CD pipelines." },
-      { id: 'D', text: "Scan containers only after they have been running in production for six months." }
+      { id: 'C', text: "Enable Automated Container Scanning in Artifact Registry to automatically inspect uploaded container images and generate vulnerability reports with severity ratings." },
+      { id: 'D', text: "Disable all security scanners to speed up image upload and push speeds in CI/CD pipelines." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Enable Automated Container Scanning in Artifact Registry to automatically inspect uploaded container images and generate vulnerability reports with severity ratings. Artifact Registry provides automatic vulnerability scanning for container images upon push. It cross-references operating system packages and language dependencies against known vulnerability databases, reporting CVE severity ratings to enforce admission control policies.",
     referenceUrl: "https://cloud.google.com/artifact-registry/docs/analysis",
@@ -346,9 +346,9 @@ export const GCP_PCDOE_QUESTIONS_19 = [
     question: "Which engineering approach should the DevOps team select to manage this demand reliably without manual intervention? Automated vulnerability scanning and SBOM generation for container images is under consideration.",
     options: [
       { id: 'A', text: "Enable Automated Container Scanning in Artifact Registry to automatically inspect uploaded container images and generate vulnerability reports with severity ratings." },
-      { id: 'B', text: "Rely exclusively on developers manually reading release notes of every open-source library used." },
+      { id: 'B', text: "Scan containers only after they have been running in production for six months." },
       { id: 'C', text: "Disable all security scanners to speed up image upload and push speeds in CI/CD pipelines." },
-      { id: 'D', text: "Scan containers only after they have been running in production for six months." }
+      { id: 'D', text: "Rely exclusively on developers manually reading release notes of every open-source library used." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -366,12 +366,12 @@ export const GCP_PCDOE_QUESTIONS_19 = [
     scenario: "A security compliance auditor requires automated verification of system integrity, secret isolation, and governance across all continuous delivery pipelines. The DevOps team evaluates Container Security to identify known Common Vulnerabilities and Exposures (CVEs) in third-party base images before deploying containers to production GKE clusters.",
     question: "Which solution implements these mandatory compliance and security controls? Automated vulnerability scanning and SBOM generation for container images is under consideration.",
     options: [
-      { id: 'A', text: "Enable Automated Container Scanning in Artifact Registry to automatically inspect uploaded container images and generate vulnerability reports with severity ratings." },
-      { id: 'B', text: "Rely exclusively on developers manually reading release notes of every open-source library used." },
-      { id: 'C', text: "Disable all security scanners to speed up image upload and push speeds in CI/CD pipelines." },
-      { id: 'D', text: "Scan containers only after they have been running in production for six months." }
+      { id: 'A', text: "Disable all security scanners to speed up image upload and push speeds in CI/CD pipelines." },
+      { id: 'B', text: "Scan containers only after they have been running in production for six months." },
+      { id: 'C', text: "Rely exclusively on developers manually reading release notes of every open-source library used." },
+      { id: 'D', text: "Enable Automated Container Scanning in Artifact Registry to automatically inspect uploaded container images and generate vulnerability reports with severity ratings." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Enable Automated Container Scanning in Artifact Registry to automatically inspect uploaded container images and generate vulnerability reports with severity ratings. Artifact Registry provides automatic vulnerability scanning for container images upon push. It cross-references operating system packages and language dependencies against known vulnerability databases, reporting CVE severity ratings to enforce admission control policies.",
     referenceUrl: "https://cloud.google.com/artifact-registry/docs/analysis",
@@ -387,12 +387,12 @@ export const GCP_PCDOE_QUESTIONS_19 = [
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on Google Cloud. The DevOps team evaluates Container Security to identify known Common Vulnerabilities and Exposures (CVEs) in third-party base images before deploying containers to production GKE clusters.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead? Automated vulnerability scanning and SBOM generation for container images is under consideration.",
     options: [
-      { id: 'A', text: "Enable Automated Container Scanning in Artifact Registry to automatically inspect uploaded container images and generate vulnerability reports with severity ratings." },
-      { id: 'B', text: "Rely exclusively on developers manually reading release notes of every open-source library used." },
+      { id: 'A', text: "Rely exclusively on developers manually reading release notes of every open-source library used." },
+      { id: 'B', text: "Enable Automated Container Scanning in Artifact Registry to automatically inspect uploaded container images and generate vulnerability reports with severity ratings." },
       { id: 'C', text: "Disable all security scanners to speed up image upload and push speeds in CI/CD pipelines." },
       { id: 'D', text: "Scan containers only after they have been running in production for six months." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Enable Automated Container Scanning in Artifact Registry to automatically inspect uploaded container images and generate vulnerability reports with severity ratings. Artifact Registry provides automatic vulnerability scanning for container images upon push. It cross-references operating system packages and language dependencies against known vulnerability databases, reporting CVE severity ratings to enforce admission control policies.",
     referenceUrl: "https://cloud.google.com/artifact-registry/docs/analysis",
@@ -409,9 +409,9 @@ export const GCP_PCDOE_QUESTIONS_19 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and ensures service stability? Automated vulnerability scanning and SBOM generation for container images is under consideration.",
     options: [
       { id: 'A', text: "Enable Automated Container Scanning in Artifact Registry to automatically inspect uploaded container images and generate vulnerability reports with severity ratings." },
-      { id: 'B', text: "Rely exclusively on developers manually reading release notes of every open-source library used." },
-      { id: 'C', text: "Disable all security scanners to speed up image upload and push speeds in CI/CD pipelines." },
-      { id: 'D', text: "Scan containers only after they have been running in production for six months." }
+      { id: 'B', text: "Disable all security scanners to speed up image upload and push speeds in CI/CD pipelines." },
+      { id: 'C', text: "Scan containers only after they have been running in production for six months." },
+      { id: 'D', text: "Rely exclusively on developers manually reading release notes of every open-source library used." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -429,12 +429,12 @@ export const GCP_PCDOE_QUESTIONS_19 = [
     scenario: "An enterprise SRE organization is establishing operational continuity guidelines and high-availability architecture for its Google Cloud services. The DevOps team evaluates Supply Chain Security to guarantee that only container images built by approved Cloud Build pipelines and verified by security scanning tools can run on production GKE clusters.",
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives? Deploy-time policy enforcement with Binary Authorization and cryptographic attestations is under consideration.",
     options: [
-      { id: 'A', text: "Configure Binary Authorization policies on GKE requiring cryptographic attestations from Cloud Build and vulnerability scanning attestors before admitting pod deployments." },
-      { id: 'B', text: "Allow any image hosted on public Docker Hub to be pulled and executed on production nodes." },
-      { id: 'C', text: "Rely on code review comments in GitHub pull requests as the sole runtime deployment guardrail." },
-      { id: 'D', text: "Instruct cluster administrators to manually verify container SHA256 hashes by sight before each release." }
+      { id: 'A', text: "Instruct cluster administrators to manually verify container SHA256 hashes by sight before each release." },
+      { id: 'B', text: "Rely on code review comments in GitHub pull requests as the sole runtime deployment guardrail." },
+      { id: 'C', text: "Allow any image hosted on public Docker Hub to be pulled and executed on production nodes." },
+      { id: 'D', text: "Configure Binary Authorization policies on GKE requiring cryptographic attestations from Cloud Build and vulnerability scanning attestors before admitting pod deployments." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure Binary Authorization policies on GKE requiring cryptographic attestations from Cloud Build and vulnerability scanning attestors before admitting pod deployments. Binary Authorization is a deploy-time security control for GKE. It evaluates incoming pod creation requests against defined policies, verifying that container images carry cryptographic signatures (attestations) from trusted authorities (build pipeline, security scanner) before admission.",
     referenceUrl: "https://cloud.google.com/binary-authorization/docs/overview",
@@ -450,12 +450,12 @@ export const GCP_PCDOE_QUESTIONS_19 = [
     scenario: "A high-throughput Google Cloud application experiences unpredictable bursts of traffic and transactional demands from global users. The DevOps team evaluates Supply Chain Security to guarantee that only container images built by approved Cloud Build pipelines and verified by security scanning tools can run on production GKE clusters.",
     question: "Which engineering approach should the DevOps team select to manage this demand reliably without manual intervention? Deploy-time policy enforcement with Binary Authorization and cryptographic attestations is under consideration.",
     options: [
-      { id: 'A', text: "Configure Binary Authorization policies on GKE requiring cryptographic attestations from Cloud Build and vulnerability scanning attestors before admitting pod deployments." },
-      { id: 'B', text: "Allow any image hosted on public Docker Hub to be pulled and executed on production nodes." },
-      { id: 'C', text: "Rely on code review comments in GitHub pull requests as the sole runtime deployment guardrail." },
-      { id: 'D', text: "Instruct cluster administrators to manually verify container SHA256 hashes by sight before each release." }
+      { id: 'A', text: "Allow any image hosted on public Docker Hub to be pulled and executed on production nodes." },
+      { id: 'B', text: "Rely on code review comments in GitHub pull requests as the sole runtime deployment guardrail." },
+      { id: 'C', text: "Instruct cluster administrators to manually verify container SHA256 hashes by sight before each release." },
+      { id: 'D', text: "Configure Binary Authorization policies on GKE requiring cryptographic attestations from Cloud Build and vulnerability scanning attestors before admitting pod deployments." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure Binary Authorization policies on GKE requiring cryptographic attestations from Cloud Build and vulnerability scanning attestors before admitting pod deployments. Binary Authorization is a deploy-time security control for GKE. It evaluates incoming pod creation requests against defined policies, verifying that container images carry cryptographic signatures (attestations) from trusted authorities (build pipeline, security scanner) before admission.",
     referenceUrl: "https://cloud.google.com/binary-authorization/docs/overview",
@@ -471,12 +471,12 @@ export const GCP_PCDOE_QUESTIONS_19 = [
     scenario: "A security compliance auditor requires automated verification of system integrity, secret isolation, and governance across all continuous delivery pipelines. The DevOps team evaluates Supply Chain Security to guarantee that only container images built by approved Cloud Build pipelines and verified by security scanning tools can run on production GKE clusters.",
     question: "Which solution implements these mandatory compliance and security controls? Deploy-time policy enforcement with Binary Authorization and cryptographic attestations is under consideration.",
     options: [
-      { id: 'A', text: "Configure Binary Authorization policies on GKE requiring cryptographic attestations from Cloud Build and vulnerability scanning attestors before admitting pod deployments." },
-      { id: 'B', text: "Allow any image hosted on public Docker Hub to be pulled and executed on production nodes." },
-      { id: 'C', text: "Rely on code review comments in GitHub pull requests as the sole runtime deployment guardrail." },
-      { id: 'D', text: "Instruct cluster administrators to manually verify container SHA256 hashes by sight before each release." }
+      { id: 'A', text: "Allow any image hosted on public Docker Hub to be pulled and executed on production nodes." },
+      { id: 'B', text: "Configure Binary Authorization policies on GKE requiring cryptographic attestations from Cloud Build and vulnerability scanning attestors before admitting pod deployments." },
+      { id: 'C', text: "Instruct cluster administrators to manually verify container SHA256 hashes by sight before each release." },
+      { id: 'D', text: "Rely on code review comments in GitHub pull requests as the sole runtime deployment guardrail." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure Binary Authorization policies on GKE requiring cryptographic attestations from Cloud Build and vulnerability scanning attestors before admitting pod deployments. Binary Authorization is a deploy-time security control for GKE. It evaluates incoming pod creation requests against defined policies, verifying that container images carry cryptographic signatures (attestations) from trusted authorities (build pipeline, security scanner) before admission.",
     referenceUrl: "https://cloud.google.com/binary-authorization/docs/overview",
@@ -492,12 +492,12 @@ export const GCP_PCDOE_QUESTIONS_19 = [
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on Google Cloud. The DevOps team evaluates Supply Chain Security to guarantee that only container images built by approved Cloud Build pipelines and verified by security scanning tools can run on production GKE clusters.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead? Deploy-time policy enforcement with Binary Authorization and cryptographic attestations is under consideration.",
     options: [
-      { id: 'A', text: "Configure Binary Authorization policies on GKE requiring cryptographic attestations from Cloud Build and vulnerability scanning attestors before admitting pod deployments." },
-      { id: 'B', text: "Allow any image hosted on public Docker Hub to be pulled and executed on production nodes." },
-      { id: 'C', text: "Rely on code review comments in GitHub pull requests as the sole runtime deployment guardrail." },
-      { id: 'D', text: "Instruct cluster administrators to manually verify container SHA256 hashes by sight before each release." }
+      { id: 'A', text: "Rely on code review comments in GitHub pull requests as the sole runtime deployment guardrail." },
+      { id: 'B', text: "Instruct cluster administrators to manually verify container SHA256 hashes by sight before each release." },
+      { id: 'C', text: "Allow any image hosted on public Docker Hub to be pulled and executed on production nodes." },
+      { id: 'D', text: "Configure Binary Authorization policies on GKE requiring cryptographic attestations from Cloud Build and vulnerability scanning attestors before admitting pod deployments." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure Binary Authorization policies on GKE requiring cryptographic attestations from Cloud Build and vulnerability scanning attestors before admitting pod deployments. Binary Authorization is a deploy-time security control for GKE. It evaluates incoming pod creation requests against defined policies, verifying that container images carry cryptographic signatures (attestations) from trusted authorities (build pipeline, security scanner) before admission.",
     referenceUrl: "https://cloud.google.com/binary-authorization/docs/overview",
@@ -513,12 +513,12 @@ export const GCP_PCDOE_QUESTIONS_19 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate operational incident handling. The DevOps team evaluates Supply Chain Security to guarantee that only container images built by approved Cloud Build pipelines and verified by security scanning tools can run on production GKE clusters.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and ensures service stability? Deploy-time policy enforcement with Binary Authorization and cryptographic attestations is under consideration.",
     options: [
-      { id: 'A', text: "Configure Binary Authorization policies on GKE requiring cryptographic attestations from Cloud Build and vulnerability scanning attestors before admitting pod deployments." },
+      { id: 'A', text: "Rely on code review comments in GitHub pull requests as the sole runtime deployment guardrail." },
       { id: 'B', text: "Allow any image hosted on public Docker Hub to be pulled and executed on production nodes." },
-      { id: 'C', text: "Rely on code review comments in GitHub pull requests as the sole runtime deployment guardrail." },
-      { id: 'D', text: "Instruct cluster administrators to manually verify container SHA256 hashes by sight before each release." }
+      { id: 'C', text: "Instruct cluster administrators to manually verify container SHA256 hashes by sight before each release." },
+      { id: 'D', text: "Configure Binary Authorization policies on GKE requiring cryptographic attestations from Cloud Build and vulnerability scanning attestors before admitting pod deployments." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure Binary Authorization policies on GKE requiring cryptographic attestations from Cloud Build and vulnerability scanning attestors before admitting pod deployments. Binary Authorization is a deploy-time security control for GKE. It evaluates incoming pod creation requests against defined policies, verifying that container images carry cryptographic signatures (attestations) from trusted authorities (build pipeline, security scanner) before admission.",
     referenceUrl: "https://cloud.google.com/binary-authorization/docs/overview",

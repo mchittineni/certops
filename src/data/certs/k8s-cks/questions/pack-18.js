@@ -9,12 +9,12 @@ export const K8S_CKS_QUESTIONS_18 = [
     scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer evaluates Secret Leak Prevention to prevent private SSH keys or API tokens needed during build time from being baked into the intermediate layers of a published container image.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives? Preventing secret leakage in container build cache and layers with docker build secret mounts is under consideration.",
     options: [
-      { id: 'A', text: "Use BuildKit secret mounts (`RUN --mount=type=secret,id=mysecret`) rather than ARG or ENV instructions." },
-      { id: 'B', text: "Pass API tokens as Dockerfile `ARG` variables and delete them in a subsequent `RUN rm` command." },
-      { id: 'C', text: "Hardcode the private SSH key in a file and delete it before committing." },
+      { id: 'A', text: "Pass API tokens as Dockerfile `ARG` variables and delete them in a subsequent `RUN rm` command." },
+      { id: 'B', text: "Hardcode the private SSH key in a file and delete it before committing." },
+      { id: 'C', text: "Use BuildKit secret mounts (`RUN --mount=type=secret,id=mysecret`) rather than ARG or ENV instructions." },
       { id: 'D', text: "Encode secrets in base64 within the Dockerfile." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Use BuildKit secret mounts (`RUN --mount=type=secret,id=mysecret`) rather than ARG or ENV instructions. Even if a file is deleted in a subsequent Dockerfile `RUN` instruction, it remains permanently accessible in the earlier layer history. Using BuildKit secret mounts (`--mount=type=secret`) exposes credentials only during build execution without recording them in any image layer.",
     referenceUrl: "https://docs.docker.com/build/building/secrets/",
@@ -30,12 +30,12 @@ export const K8S_CKS_QUESTIONS_18 = [
     scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer evaluates Secret Leak Prevention to prevent private SSH keys or API tokens needed during build time from being baked into the intermediate layers of a published container image.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks? Preventing secret leakage in container build cache and layers with docker build secret mounts is under consideration.",
     options: [
-      { id: 'A', text: "Use BuildKit secret mounts (`RUN --mount=type=secret,id=mysecret`) rather than ARG or ENV instructions." },
-      { id: 'B', text: "Pass API tokens as Dockerfile `ARG` variables and delete them in a subsequent `RUN rm` command." },
-      { id: 'C', text: "Hardcode the private SSH key in a file and delete it before committing." },
-      { id: 'D', text: "Encode secrets in base64 within the Dockerfile." }
+      { id: 'A', text: "Encode secrets in base64 within the Dockerfile." },
+      { id: 'B', text: "Use BuildKit secret mounts (`RUN --mount=type=secret,id=mysecret`) rather than ARG or ENV instructions." },
+      { id: 'C', text: "Pass API tokens as Dockerfile `ARG` variables and delete them in a subsequent `RUN rm` command." },
+      { id: 'D', text: "Hardcode the private SSH key in a file and delete it before committing." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Use BuildKit secret mounts (`RUN --mount=type=secret,id=mysecret`) rather than ARG or ENV instructions. Even if a file is deleted in a subsequent Dockerfile `RUN` instruction, it remains permanently accessible in the earlier layer history. Using BuildKit secret mounts (`--mount=type=secret`) exposes credentials only during build execution without recording them in any image layer.",
     referenceUrl: "https://docs.docker.com/build/building/secrets/",
@@ -51,12 +51,12 @@ export const K8S_CKS_QUESTIONS_18 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer evaluates Secret Leak Prevention to prevent private SSH keys or API tokens needed during build time from being baked into the intermediate layers of a published container image.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls? Preventing secret leakage in container build cache and layers with docker build secret mounts is under consideration.",
     options: [
-      { id: 'A', text: "Use BuildKit secret mounts (`RUN --mount=type=secret,id=mysecret`) rather than ARG or ENV instructions." },
-      { id: 'B', text: "Pass API tokens as Dockerfile `ARG` variables and delete them in a subsequent `RUN rm` command." },
-      { id: 'C', text: "Hardcode the private SSH key in a file and delete it before committing." },
-      { id: 'D', text: "Encode secrets in base64 within the Dockerfile." }
+      { id: 'A', text: "Encode secrets in base64 within the Dockerfile." },
+      { id: 'B', text: "Hardcode the private SSH key in a file and delete it before committing." },
+      { id: 'C', text: "Use BuildKit secret mounts (`RUN --mount=type=secret,id=mysecret`) rather than ARG or ENV instructions." },
+      { id: 'D', text: "Pass API tokens as Dockerfile `ARG` variables and delete them in a subsequent `RUN rm` command." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Use BuildKit secret mounts (`RUN --mount=type=secret,id=mysecret`) rather than ARG or ENV instructions. Even if a file is deleted in a subsequent Dockerfile `RUN` instruction, it remains permanently accessible in the earlier layer history. Using BuildKit secret mounts (`--mount=type=secret`) exposes credentials only during build execution without recording them in any image layer.",
     referenceUrl: "https://docs.docker.com/build/building/secrets/",
@@ -72,12 +72,12 @@ export const K8S_CKS_QUESTIONS_18 = [
     scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer evaluates Secret Leak Prevention to prevent private SSH keys or API tokens needed during build time from being baked into the intermediate layers of a published container image.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization? Preventing secret leakage in container build cache and layers with docker build secret mounts is under consideration.",
     options: [
-      { id: 'A', text: "Use BuildKit secret mounts (`RUN --mount=type=secret,id=mysecret`) rather than ARG or ENV instructions." },
-      { id: 'B', text: "Pass API tokens as Dockerfile `ARG` variables and delete them in a subsequent `RUN rm` command." },
+      { id: 'A', text: "Encode secrets in base64 within the Dockerfile." },
+      { id: 'B', text: "Use BuildKit secret mounts (`RUN --mount=type=secret,id=mysecret`) rather than ARG or ENV instructions." },
       { id: 'C', text: "Hardcode the private SSH key in a file and delete it before committing." },
-      { id: 'D', text: "Encode secrets in base64 within the Dockerfile." }
+      { id: 'D', text: "Pass API tokens as Dockerfile `ARG` variables and delete them in a subsequent `RUN rm` command." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Use BuildKit secret mounts (`RUN --mount=type=secret,id=mysecret`) rather than ARG or ENV instructions. Even if a file is deleted in a subsequent Dockerfile `RUN` instruction, it remains permanently accessible in the earlier layer history. Using BuildKit secret mounts (`--mount=type=secret`) exposes credentials only during build execution without recording them in any image layer.",
     referenceUrl: "https://docs.docker.com/build/building/secrets/",
@@ -93,12 +93,12 @@ export const K8S_CKS_QUESTIONS_18 = [
     scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer evaluates Secret Leak Prevention to prevent private SSH keys or API tokens needed during build time from being baked into the intermediate layers of a published container image.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection? Preventing secret leakage in container build cache and layers with docker build secret mounts is under consideration.",
     options: [
-      { id: 'A', text: "Use BuildKit secret mounts (`RUN --mount=type=secret,id=mysecret`) rather than ARG or ENV instructions." },
+      { id: 'A', text: "Encode secrets in base64 within the Dockerfile." },
       { id: 'B', text: "Pass API tokens as Dockerfile `ARG` variables and delete them in a subsequent `RUN rm` command." },
       { id: 'C', text: "Hardcode the private SSH key in a file and delete it before committing." },
-      { id: 'D', text: "Encode secrets in base64 within the Dockerfile." }
+      { id: 'D', text: "Use BuildKit secret mounts (`RUN --mount=type=secret,id=mysecret`) rather than ARG or ENV instructions." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Use BuildKit secret mounts (`RUN --mount=type=secret,id=mysecret`) rather than ARG or ENV instructions. Even if a file is deleted in a subsequent Dockerfile `RUN` instruction, it remains permanently accessible in the earlier layer history. Using BuildKit secret mounts (`--mount=type=secret`) exposes credentials only during build execution without recording them in any image layer.",
     referenceUrl: "https://docs.docker.com/build/building/secrets/",
@@ -114,12 +114,12 @@ export const K8S_CKS_QUESTIONS_18 = [
     scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer evaluates Runtime Security to detect in real-time when a shell is spawned inside a production container or an unauthorized binary is executed in `/tmp`.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives? Detecting anomalous container behavior and kernel events with Falco is under consideration.",
     options: [
-      { id: 'A', text: "Deploy Falco as a DaemonSet to monitor Linux kernel system calls and alert on anomalous runtime activities matching behavioral rules." },
-      { id: 'B', text: "Review application standard output logs once every month." },
-      { id: 'C', text: "Periodically run `ps aux` manually on worker nodes." },
+      { id: 'A', text: "Periodically run `ps aux` manually on worker nodes." },
+      { id: 'B', text: "Deploy Falco as a DaemonSet to monitor Linux kernel system calls and alert on anomalous runtime activities matching behavioral rules." },
+      { id: 'C', text: "Review application standard output logs once every month." },
       { id: 'D', text: "Disable container logging to reduce disk I/O." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy Falco as a DaemonSet to monitor Linux kernel system calls and alert on anomalous runtime activities matching behavioral rules. Falco is an open-source cloud-native runtime security tool that hooks into the Linux kernel (via eBPF or kernel module). It analyzes system call streams against rules, detecting anomalous events like spawning shells, modifying system binaries, or opening suspicious outbound connections in real time.",
     referenceUrl: "https://falco.org/docs/",
@@ -136,9 +136,9 @@ export const K8S_CKS_QUESTIONS_18 = [
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks? Detecting anomalous container behavior and kernel events with Falco is under consideration.",
     options: [
       { id: 'A', text: "Deploy Falco as a DaemonSet to monitor Linux kernel system calls and alert on anomalous runtime activities matching behavioral rules." },
-      { id: 'B', text: "Review application standard output logs once every month." },
-      { id: 'C', text: "Periodically run `ps aux` manually on worker nodes." },
-      { id: 'D', text: "Disable container logging to reduce disk I/O." }
+      { id: 'B', text: "Disable container logging to reduce disk I/O." },
+      { id: 'C', text: "Review application standard output logs once every month." },
+      { id: 'D', text: "Periodically run `ps aux` manually on worker nodes." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -157,8 +157,8 @@ export const K8S_CKS_QUESTIONS_18 = [
     question: "Which solution implements these mandatory Kubernetes security and governance controls? Detecting anomalous container behavior and kernel events with Falco is under consideration.",
     options: [
       { id: 'A', text: "Deploy Falco as a DaemonSet to monitor Linux kernel system calls and alert on anomalous runtime activities matching behavioral rules." },
-      { id: 'B', text: "Review application standard output logs once every month." },
-      { id: 'C', text: "Periodically run `ps aux` manually on worker nodes." },
+      { id: 'B', text: "Periodically run `ps aux` manually on worker nodes." },
+      { id: 'C', text: "Review application standard output logs once every month." },
       { id: 'D', text: "Disable container logging to reduce disk I/O." }
     ],
     correctAnswers: ['A'],
@@ -177,12 +177,12 @@ export const K8S_CKS_QUESTIONS_18 = [
     scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer evaluates Runtime Security to detect in real-time when a shell is spawned inside a production container or an unauthorized binary is executed in `/tmp`.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization? Detecting anomalous container behavior and kernel events with Falco is under consideration.",
     options: [
-      { id: 'A', text: "Deploy Falco as a DaemonSet to monitor Linux kernel system calls and alert on anomalous runtime activities matching behavioral rules." },
+      { id: 'A', text: "Disable container logging to reduce disk I/O." },
       { id: 'B', text: "Review application standard output logs once every month." },
-      { id: 'C', text: "Periodically run `ps aux` manually on worker nodes." },
-      { id: 'D', text: "Disable container logging to reduce disk I/O." }
+      { id: 'C', text: "Deploy Falco as a DaemonSet to monitor Linux kernel system calls and alert on anomalous runtime activities matching behavioral rules." },
+      { id: 'D', text: "Periodically run `ps aux` manually on worker nodes." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy Falco as a DaemonSet to monitor Linux kernel system calls and alert on anomalous runtime activities matching behavioral rules. Falco is an open-source cloud-native runtime security tool that hooks into the Linux kernel (via eBPF or kernel module). It analyzes system call streams against rules, detecting anomalous events like spawning shells, modifying system binaries, or opening suspicious outbound connections in real time.",
     referenceUrl: "https://falco.org/docs/",
@@ -198,12 +198,12 @@ export const K8S_CKS_QUESTIONS_18 = [
     scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer evaluates Runtime Security to detect in real-time when a shell is spawned inside a production container or an unauthorized binary is executed in `/tmp`.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection? Detecting anomalous container behavior and kernel events with Falco is under consideration.",
     options: [
-      { id: 'A', text: "Deploy Falco as a DaemonSet to monitor Linux kernel system calls and alert on anomalous runtime activities matching behavioral rules." },
-      { id: 'B', text: "Review application standard output logs once every month." },
-      { id: 'C', text: "Periodically run `ps aux` manually on worker nodes." },
+      { id: 'A', text: "Review application standard output logs once every month." },
+      { id: 'B', text: "Periodically run `ps aux` manually on worker nodes." },
+      { id: 'C', text: "Deploy Falco as a DaemonSet to monitor Linux kernel system calls and alert on anomalous runtime activities matching behavioral rules." },
       { id: 'D', text: "Disable container logging to reduce disk I/O." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy Falco as a DaemonSet to monitor Linux kernel system calls and alert on anomalous runtime activities matching behavioral rules. Falco is an open-source cloud-native runtime security tool that hooks into the Linux kernel (via eBPF or kernel module). It analyzes system call streams against rules, detecting anomalous events like spawning shells, modifying system binaries, or opening suspicious outbound connections in real time.",
     referenceUrl: "https://falco.org/docs/",
@@ -221,8 +221,8 @@ export const K8S_CKS_QUESTIONS_18 = [
     options: [
       { id: 'A', text: "Configure an Audit Policy file (`--audit-policy-file`) and audit log backend (`--audit-log-path`) in the kube-apiserver manifest." },
       { id: 'B', text: "Rely on worker node syslog files without configuring API server audit logging." },
-      { id: 'C', text: "Set audit log level to None across all resources." },
-      { id: 'D', text: "Store audit logs exclusively in temporary container memory." }
+      { id: 'C', text: "Store audit logs exclusively in temporary container memory." },
+      { id: 'D', text: "Set audit log level to None across all resources." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -240,12 +240,12 @@ export const K8S_CKS_QUESTIONS_18 = [
     scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer evaluates Audit Logging to record an immutable audit trail of every administrative request, secret retrieval, and resource alteration sent to the Kubernetes API server.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks? Configuring audit policies and backends for API server request auditing is under consideration.",
     options: [
-      { id: 'A', text: "Configure an Audit Policy file (`--audit-policy-file`) and audit log backend (`--audit-log-path`) in the kube-apiserver manifest." },
-      { id: 'B', text: "Rely on worker node syslog files without configuring API server audit logging." },
-      { id: 'C', text: "Set audit log level to None across all resources." },
-      { id: 'D', text: "Store audit logs exclusively in temporary container memory." }
+      { id: 'A', text: "Store audit logs exclusively in temporary container memory." },
+      { id: 'B', text: "Set audit log level to None across all resources." },
+      { id: 'C', text: "Rely on worker node syslog files without configuring API server audit logging." },
+      { id: 'D', text: "Configure an Audit Policy file (`--audit-policy-file`) and audit log backend (`--audit-log-path`) in the kube-apiserver manifest." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure an Audit Policy file (`--audit-policy-file`) and audit log backend (`--audit-log-path`) in the kube-apiserver manifest. Kubernetes audit logging records all actions submitted to the API server. Configuring an audit policy defines what events to capture (`Metadata`, `Request`, `RequestResponse`) and which stages (`ResponseComplete`), enabling forensic auditing and compliance verification.",
     referenceUrl: "https://kubernetes.io/docs/tasks/debug/debug-cluster/audit/",
@@ -261,12 +261,12 @@ export const K8S_CKS_QUESTIONS_18 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer evaluates Audit Logging to record an immutable audit trail of every administrative request, secret retrieval, and resource alteration sent to the Kubernetes API server.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls? Configuring audit policies and backends for API server request auditing is under consideration.",
     options: [
-      { id: 'A', text: "Configure an Audit Policy file (`--audit-policy-file`) and audit log backend (`--audit-log-path`) in the kube-apiserver manifest." },
-      { id: 'B', text: "Rely on worker node syslog files without configuring API server audit logging." },
-      { id: 'C', text: "Set audit log level to None across all resources." },
-      { id: 'D', text: "Store audit logs exclusively in temporary container memory." }
+      { id: 'A', text: "Rely on worker node syslog files without configuring API server audit logging." },
+      { id: 'B', text: "Configure an Audit Policy file (`--audit-policy-file`) and audit log backend (`--audit-log-path`) in the kube-apiserver manifest." },
+      { id: 'C', text: "Store audit logs exclusively in temporary container memory." },
+      { id: 'D', text: "Set audit log level to None across all resources." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure an Audit Policy file (`--audit-policy-file`) and audit log backend (`--audit-log-path`) in the kube-apiserver manifest. Kubernetes audit logging records all actions submitted to the API server. Configuring an audit policy defines what events to capture (`Metadata`, `Request`, `RequestResponse`) and which stages (`ResponseComplete`), enabling forensic auditing and compliance verification.",
     referenceUrl: "https://kubernetes.io/docs/tasks/debug/debug-cluster/audit/",
@@ -283,9 +283,9 @@ export const K8S_CKS_QUESTIONS_18 = [
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization? Configuring audit policies and backends for API server request auditing is under consideration.",
     options: [
       { id: 'A', text: "Configure an Audit Policy file (`--audit-policy-file`) and audit log backend (`--audit-log-path`) in the kube-apiserver manifest." },
-      { id: 'B', text: "Rely on worker node syslog files without configuring API server audit logging." },
-      { id: 'C', text: "Set audit log level to None across all resources." },
-      { id: 'D', text: "Store audit logs exclusively in temporary container memory." }
+      { id: 'B', text: "Set audit log level to None across all resources." },
+      { id: 'C', text: "Store audit logs exclusively in temporary container memory." },
+      { id: 'D', text: "Rely on worker node syslog files without configuring API server audit logging." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -324,12 +324,12 @@ export const K8S_CKS_QUESTIONS_18 = [
     scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer evaluates Audit Analysis to identify which compromised user account or ServiceAccount attempted to query all secrets across the cluster and received HTTP 403 Forbidden.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives? Investigating unauthorized API attempts and privilege escalation via audit logs is under consideration.",
     options: [
-      { id: 'A', text: "Parse API server audit logs filtering for `verb: list`, `resource: secrets`, and `responseStatus.code: 403` to extract the user identity and source IP." },
-      { id: 'B', text: "Assume the failed attempt was a normal system glitch." },
+      { id: 'A', text: "Assume the failed attempt was a normal system glitch." },
+      { id: 'B', text: "Inspect container standard output logs of backend application pods." },
       { id: 'C', text: "Delete the audit log file to hide the failed requests." },
-      { id: 'D', text: "Inspect container standard output logs of backend application pods." }
+      { id: 'D', text: "Parse API server audit logs filtering for `verb: list`, `resource: secrets`, and `responseStatus.code: 403` to extract the user identity and source IP." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Parse API server audit logs filtering for `verb: list`, `resource: secrets`, and `responseStatus.code: 403` to extract the user identity and source IP. API server audit logs capture rich context for every request: caller username, groups, impersonation details, source IP, requested URI, request verb, and HTTP response code. Filtering for 403 Forbidden errors on sensitive resources exposes reconnaissance and privilege escalation attempts.",
     referenceUrl: "https://kubernetes.io/docs/tasks/debug/debug-cluster/audit/#audit-log-backend",
@@ -387,12 +387,12 @@ export const K8S_CKS_QUESTIONS_18 = [
     scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer evaluates Audit Analysis to identify which compromised user account or ServiceAccount attempted to query all secrets across the cluster and received HTTP 403 Forbidden.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization? Investigating unauthorized API attempts and privilege escalation via audit logs is under consideration.",
     options: [
-      { id: 'A', text: "Parse API server audit logs filtering for `verb: list`, `resource: secrets`, and `responseStatus.code: 403` to extract the user identity and source IP." },
+      { id: 'A', text: "Inspect container standard output logs of backend application pods." },
       { id: 'B', text: "Assume the failed attempt was a normal system glitch." },
       { id: 'C', text: "Delete the audit log file to hide the failed requests." },
-      { id: 'D', text: "Inspect container standard output logs of backend application pods." }
+      { id: 'D', text: "Parse API server audit logs filtering for `verb: list`, `resource: secrets`, and `responseStatus.code: 403` to extract the user identity and source IP." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Parse API server audit logs filtering for `verb: list`, `resource: secrets`, and `responseStatus.code: 403` to extract the user identity and source IP. API server audit logs capture rich context for every request: caller username, groups, impersonation details, source IP, requested URI, request verb, and HTTP response code. Filtering for 403 Forbidden errors on sensitive resources exposes reconnaissance and privilege escalation attempts.",
     referenceUrl: "https://kubernetes.io/docs/tasks/debug/debug-cluster/audit/#audit-log-backend",
@@ -409,8 +409,8 @@ export const K8S_CKS_QUESTIONS_18 = [
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection? Investigating unauthorized API attempts and privilege escalation via audit logs is under consideration.",
     options: [
       { id: 'A', text: "Parse API server audit logs filtering for `verb: list`, `resource: secrets`, and `responseStatus.code: 403` to extract the user identity and source IP." },
-      { id: 'B', text: "Assume the failed attempt was a normal system glitch." },
-      { id: 'C', text: "Delete the audit log file to hide the failed requests." },
+      { id: 'B', text: "Delete the audit log file to hide the failed requests." },
+      { id: 'C', text: "Assume the failed attempt was a normal system glitch." },
       { id: 'D', text: "Inspect container standard output logs of backend application pods." }
     ],
     correctAnswers: ['A'],
@@ -429,12 +429,12 @@ export const K8S_CKS_QUESTIONS_18 = [
     scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer evaluates Falco Rules to configure Falco to trigger alerts when any process attempts to read sensitive Kubernetes service account token files from `/var/run/secrets`.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives? Customizing Falco macros, rules, and forwarding alerts to SIEM systems is under consideration.",
     options: [
-      { id: 'A', text: "Write a custom Falco rule targeting `open` or `read` syscalls on `/var/run/secrets/kubernetes.io/serviceaccount` by unauthorized processes." },
-      { id: 'B', text: "Disable the default Falco rule set entirely." },
-      { id: 'C', text: "Delete the service account tokens from the host operating system." },
-      { id: 'D', text: "Instruct developers to ignore Falco alert notifications." }
+      { id: 'A', text: "Disable the default Falco rule set entirely." },
+      { id: 'B', text: "Delete the service account tokens from the host operating system." },
+      { id: 'C', text: "Instruct developers to ignore Falco alert notifications." },
+      { id: 'D', text: "Write a custom Falco rule targeting `open` or `read` syscalls on `/var/run/secrets/kubernetes.io/serviceaccount` by unauthorized processes." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Write a custom Falco rule targeting `open` or `read` syscalls on `/var/run/secrets/kubernetes.io/serviceaccount` by unauthorized processes. Falco rules use a declarative syntax composed of conditions, macros, and output messages. Customizing rules allows security teams to detect unauthorized processes reading ServiceAccount tokens, modifying configuration files, or launching unexpected child processes.",
     referenceUrl: "https://falco.org/docs/rules/",
@@ -450,12 +450,12 @@ export const K8S_CKS_QUESTIONS_18 = [
     scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer evaluates Falco Rules to configure Falco to trigger alerts when any process attempts to read sensitive Kubernetes service account token files from `/var/run/secrets`.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks? Customizing Falco macros, rules, and forwarding alerts to SIEM systems is under consideration.",
     options: [
-      { id: 'A', text: "Write a custom Falco rule targeting `open` or `read` syscalls on `/var/run/secrets/kubernetes.io/serviceaccount` by unauthorized processes." },
-      { id: 'B', text: "Disable the default Falco rule set entirely." },
+      { id: 'A', text: "Instruct developers to ignore Falco alert notifications." },
+      { id: 'B', text: "Write a custom Falco rule targeting `open` or `read` syscalls on `/var/run/secrets/kubernetes.io/serviceaccount` by unauthorized processes." },
       { id: 'C', text: "Delete the service account tokens from the host operating system." },
-      { id: 'D', text: "Instruct developers to ignore Falco alert notifications." }
+      { id: 'D', text: "Disable the default Falco rule set entirely." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Write a custom Falco rule targeting `open` or `read` syscalls on `/var/run/secrets/kubernetes.io/serviceaccount` by unauthorized processes. Falco rules use a declarative syntax composed of conditions, macros, and output messages. Customizing rules allows security teams to detect unauthorized processes reading ServiceAccount tokens, modifying configuration files, or launching unexpected child processes.",
     referenceUrl: "https://falco.org/docs/rules/",
@@ -492,12 +492,12 @@ export const K8S_CKS_QUESTIONS_18 = [
     scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer evaluates Falco Rules to configure Falco to trigger alerts when any process attempts to read sensitive Kubernetes service account token files from `/var/run/secrets`.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization? Customizing Falco macros, rules, and forwarding alerts to SIEM systems is under consideration.",
     options: [
-      { id: 'A', text: "Write a custom Falco rule targeting `open` or `read` syscalls on `/var/run/secrets/kubernetes.io/serviceaccount` by unauthorized processes." },
-      { id: 'B', text: "Disable the default Falco rule set entirely." },
-      { id: 'C', text: "Delete the service account tokens from the host operating system." },
-      { id: 'D', text: "Instruct developers to ignore Falco alert notifications." }
+      { id: 'A', text: "Delete the service account tokens from the host operating system." },
+      { id: 'B', text: "Instruct developers to ignore Falco alert notifications." },
+      { id: 'C', text: "Disable the default Falco rule set entirely." },
+      { id: 'D', text: "Write a custom Falco rule targeting `open` or `read` syscalls on `/var/run/secrets/kubernetes.io/serviceaccount` by unauthorized processes." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Write a custom Falco rule targeting `open` or `read` syscalls on `/var/run/secrets/kubernetes.io/serviceaccount` by unauthorized processes. Falco rules use a declarative syntax composed of conditions, macros, and output messages. Customizing rules allows security teams to detect unauthorized processes reading ServiceAccount tokens, modifying configuration files, or launching unexpected child processes.",
     referenceUrl: "https://falco.org/docs/rules/",
@@ -513,12 +513,12 @@ export const K8S_CKS_QUESTIONS_18 = [
     scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer evaluates Falco Rules to configure Falco to trigger alerts when any process attempts to read sensitive Kubernetes service account token files from `/var/run/secrets`.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection? Customizing Falco macros, rules, and forwarding alerts to SIEM systems is under consideration.",
     options: [
-      { id: 'A', text: "Write a custom Falco rule targeting `open` or `read` syscalls on `/var/run/secrets/kubernetes.io/serviceaccount` by unauthorized processes." },
-      { id: 'B', text: "Disable the default Falco rule set entirely." },
-      { id: 'C', text: "Delete the service account tokens from the host operating system." },
-      { id: 'D', text: "Instruct developers to ignore Falco alert notifications." }
+      { id: 'A', text: "Disable the default Falco rule set entirely." },
+      { id: 'B', text: "Write a custom Falco rule targeting `open` or `read` syscalls on `/var/run/secrets/kubernetes.io/serviceaccount` by unauthorized processes." },
+      { id: 'C', text: "Instruct developers to ignore Falco alert notifications." },
+      { id: 'D', text: "Delete the service account tokens from the host operating system." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Write a custom Falco rule targeting `open` or `read` syscalls on `/var/run/secrets/kubernetes.io/serviceaccount` by unauthorized processes. Falco rules use a declarative syntax composed of conditions, macros, and output messages. Customizing rules allows security teams to detect unauthorized processes reading ServiceAccount tokens, modifying configuration files, or launching unexpected child processes.",
     referenceUrl: "https://falco.org/docs/rules/",

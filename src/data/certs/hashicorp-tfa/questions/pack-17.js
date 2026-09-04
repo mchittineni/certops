@@ -10,8 +10,8 @@ export const HASHICORP_TFA_QUESTIONS_17 = [
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives? Understanding the root module context and its relationship to called child modules is under consideration.",
     options: [
       { id: 'A', text: "The working directory where `terraform` CLI commands are executed is the root module, which calls and coordinates child modules." },
-      { id: 'B', text: "Every subfolder is automatically a root module executing simultaneously." },
-      { id: 'C', text: "Child modules execute completely independently without passing values back to the root module." },
+      { id: 'B', text: "Child modules execute completely independently without passing values back to the root module." },
+      { id: 'C', text: "Every subfolder is automatically a root module executing simultaneously." },
       { id: 'D', text: "Terraform only executes child modules and ignores the root directory." }
     ],
     correctAnswers: ['A'],
@@ -30,12 +30,12 @@ export const HASHICORP_TFA_QUESTIONS_17 = [
     scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer evaluates Module Hierarchy to understand the execution hierarchy when running `terraform apply` in a directory containing multiple submodules.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks? Understanding the root module context and its relationship to called child modules is under consideration.",
     options: [
-      { id: 'A', text: "The working directory where `terraform` CLI commands are executed is the root module, which calls and coordinates child modules." },
-      { id: 'B', text: "Every subfolder is automatically a root module executing simultaneously." },
+      { id: 'A', text: "Every subfolder is automatically a root module executing simultaneously." },
+      { id: 'B', text: "Terraform only executes child modules and ignores the root directory." },
       { id: 'C', text: "Child modules execute completely independently without passing values back to the root module." },
-      { id: 'D', text: "Terraform only executes child modules and ignores the root directory." }
+      { id: 'D', text: "The working directory where `terraform` CLI commands are executed is the root module, which calls and coordinates child modules." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The working directory where `terraform` CLI commands are executed is the root module, which calls and coordinates child modules. In Terraform, the configuration files in the working directory where you invoke the CLI constitute the 'root module'. Any module called by the root module via a `module` block is a 'child module'. Child modules can in turn call further nested child modules.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/modules",
@@ -51,12 +51,12 @@ export const HASHICORP_TFA_QUESTIONS_17 = [
     scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer evaluates Module Hierarchy to understand the execution hierarchy when running `terraform apply` in a directory containing multiple submodules.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls? Understanding the root module context and its relationship to called child modules is under consideration.",
     options: [
-      { id: 'A', text: "The working directory where `terraform` CLI commands are executed is the root module, which calls and coordinates child modules." },
+      { id: 'A', text: "Child modules execute completely independently without passing values back to the root module." },
       { id: 'B', text: "Every subfolder is automatically a root module executing simultaneously." },
-      { id: 'C', text: "Child modules execute completely independently without passing values back to the root module." },
+      { id: 'C', text: "The working directory where `terraform` CLI commands are executed is the root module, which calls and coordinates child modules." },
       { id: 'D', text: "Terraform only executes child modules and ignores the root directory." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "The working directory where `terraform` CLI commands are executed is the root module, which calls and coordinates child modules. In Terraform, the configuration files in the working directory where you invoke the CLI constitute the 'root module'. Any module called by the root module via a `module` block is a 'child module'. Child modules can in turn call further nested child modules.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/modules",
@@ -72,12 +72,12 @@ export const HASHICORP_TFA_QUESTIONS_17 = [
     scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer evaluates Module Hierarchy to understand the execution hierarchy when running `terraform apply` in a directory containing multiple submodules.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction? Understanding the root module context and its relationship to called child modules is under consideration.",
     options: [
-      { id: 'A', text: "The working directory where `terraform` CLI commands are executed is the root module, which calls and coordinates child modules." },
+      { id: 'A', text: "Terraform only executes child modules and ignores the root directory." },
       { id: 'B', text: "Every subfolder is automatically a root module executing simultaneously." },
-      { id: 'C', text: "Child modules execute completely independently without passing values back to the root module." },
-      { id: 'D', text: "Terraform only executes child modules and ignores the root directory." }
+      { id: 'C', text: "The working directory where `terraform` CLI commands are executed is the root module, which calls and coordinates child modules." },
+      { id: 'D', text: "Child modules execute completely independently without passing values back to the root module." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "The working directory where `terraform` CLI commands are executed is the root module, which calls and coordinates child modules. In Terraform, the configuration files in the working directory where you invoke the CLI constitute the 'root module'. Any module called by the root module via a `module` block is a 'child module'. Child modules can in turn call further nested child modules.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/modules",
@@ -93,12 +93,12 @@ export const HASHICORP_TFA_QUESTIONS_17 = [
     scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer evaluates Module Hierarchy to understand the execution hierarchy when running `terraform apply` in a directory containing multiple submodules.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability? Understanding the root module context and its relationship to called child modules is under consideration.",
     options: [
-      { id: 'A', text: "The working directory where `terraform` CLI commands are executed is the root module, which calls and coordinates child modules." },
-      { id: 'B', text: "Every subfolder is automatically a root module executing simultaneously." },
+      { id: 'A', text: "Every subfolder is automatically a root module executing simultaneously." },
+      { id: 'B', text: "The working directory where `terraform` CLI commands are executed is the root module, which calls and coordinates child modules." },
       { id: 'C', text: "Child modules execute completely independently without passing values back to the root module." },
       { id: 'D', text: "Terraform only executes child modules and ignores the root directory." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "The working directory where `terraform` CLI commands are executed is the root module, which calls and coordinates child modules. In Terraform, the configuration files in the working directory where you invoke the CLI constitute the 'root module'. Any module called by the root module via a `module` block is a 'child module'. Child modules can in turn call further nested child modules.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/modules",
@@ -114,12 +114,12 @@ export const HASHICORP_TFA_QUESTIONS_17 = [
     scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer evaluates State Fundamentals to understand why Terraform requires a state file rather than querying cloud provider APIs directly on every single operation.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives? Mapping real-world resources to configuration and tracking metadata and dependencies is under consideration.",
     options: [
-      { id: 'A', text: "State maps declared configuration resources to real-world cloud IDs, tracks metadata/dependencies, and caches performance data." },
-      { id: 'B', text: "State is only an optional cache that can be deleted before every apply without consequence." },
+      { id: 'A', text: "State files are only used to store developer login passwords." },
+      { id: 'B', text: "State maps declared configuration resources to real-world cloud IDs, tracks metadata/dependencies, and caches performance data." },
       { id: 'C', text: "Cloud providers require state files to process API requests." },
-      { id: 'D', text: "State files are only used to store developer login passwords." }
+      { id: 'D', text: "State is only an optional cache that can be deleted before every apply without consequence." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "State maps declared configuration resources to real-world cloud IDs, tracks metadata/dependencies, and caches performance data. Terraform state (`terraform.tfstate`) is critical to Terraform operations. It maps declared resources in code to real-world cloud resource IDs, records resource dependencies, tracks sensitive values, and caches attribute data to avoid thousands of slow API calls during plan generation.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/state/purpose",
@@ -137,8 +137,8 @@ export const HASHICORP_TFA_QUESTIONS_17 = [
     options: [
       { id: 'A', text: "State maps declared configuration resources to real-world cloud IDs, tracks metadata/dependencies, and caches performance data." },
       { id: 'B', text: "State is only an optional cache that can be deleted before every apply without consequence." },
-      { id: 'C', text: "Cloud providers require state files to process API requests." },
-      { id: 'D', text: "State files are only used to store developer login passwords." }
+      { id: 'C', text: "State files are only used to store developer login passwords." },
+      { id: 'D', text: "Cloud providers require state files to process API requests." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -156,12 +156,12 @@ export const HASHICORP_TFA_QUESTIONS_17 = [
     scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer evaluates State Fundamentals to understand why Terraform requires a state file rather than querying cloud provider APIs directly on every single operation.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls? Mapping real-world resources to configuration and tracking metadata and dependencies is under consideration.",
     options: [
-      { id: 'A', text: "State maps declared configuration resources to real-world cloud IDs, tracks metadata/dependencies, and caches performance data." },
-      { id: 'B', text: "State is only an optional cache that can be deleted before every apply without consequence." },
-      { id: 'C', text: "Cloud providers require state files to process API requests." },
-      { id: 'D', text: "State files are only used to store developer login passwords." }
+      { id: 'A', text: "State is only an optional cache that can be deleted before every apply without consequence." },
+      { id: 'B', text: "Cloud providers require state files to process API requests." },
+      { id: 'C', text: "State files are only used to store developer login passwords." },
+      { id: 'D', text: "State maps declared configuration resources to real-world cloud IDs, tracks metadata/dependencies, and caches performance data." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "State maps declared configuration resources to real-world cloud IDs, tracks metadata/dependencies, and caches performance data. Terraform state (`terraform.tfstate`) is critical to Terraform operations. It maps declared resources in code to real-world cloud resource IDs, records resource dependencies, tracks sensitive values, and caches attribute data to avoid thousands of slow API calls during plan generation.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/state/purpose",
@@ -177,12 +177,12 @@ export const HASHICORP_TFA_QUESTIONS_17 = [
     scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer evaluates State Fundamentals to understand why Terraform requires a state file rather than querying cloud provider APIs directly on every single operation.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction? Mapping real-world resources to configuration and tracking metadata and dependencies is under consideration.",
     options: [
-      { id: 'A', text: "State maps declared configuration resources to real-world cloud IDs, tracks metadata/dependencies, and caches performance data." },
-      { id: 'B', text: "State is only an optional cache that can be deleted before every apply without consequence." },
-      { id: 'C', text: "Cloud providers require state files to process API requests." },
-      { id: 'D', text: "State files are only used to store developer login passwords." }
+      { id: 'A', text: "Cloud providers require state files to process API requests." },
+      { id: 'B', text: "State files are only used to store developer login passwords." },
+      { id: 'C', text: "State is only an optional cache that can be deleted before every apply without consequence." },
+      { id: 'D', text: "State maps declared configuration resources to real-world cloud IDs, tracks metadata/dependencies, and caches performance data." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "State maps declared configuration resources to real-world cloud IDs, tracks metadata/dependencies, and caches performance data. Terraform state (`terraform.tfstate`) is critical to Terraform operations. It maps declared resources in code to real-world cloud resource IDs, records resource dependencies, tracks sensitive values, and caches attribute data to avoid thousands of slow API calls during plan generation.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/state/purpose",
@@ -199,8 +199,8 @@ export const HASHICORP_TFA_QUESTIONS_17 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability? Mapping real-world resources to configuration and tracking metadata and dependencies is under consideration.",
     options: [
       { id: 'A', text: "State maps declared configuration resources to real-world cloud IDs, tracks metadata/dependencies, and caches performance data." },
-      { id: 'B', text: "State is only an optional cache that can be deleted before every apply without consequence." },
-      { id: 'C', text: "Cloud providers require state files to process API requests." },
+      { id: 'B', text: "Cloud providers require state files to process API requests." },
+      { id: 'C', text: "State is only an optional cache that can be deleted before every apply without consequence." },
       { id: 'D', text: "State files are only used to store developer login passwords." }
     ],
     correctAnswers: ['A'],
@@ -219,12 +219,12 @@ export const HASHICORP_TFA_QUESTIONS_17 = [
     scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer evaluates State Backends to transition a team of six DevOps engineers from local state files on developer laptops to a shared, centralized state solution.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives? Local state file risks vs remote backend benefits (centralization, team access) is under consideration.",
     options: [
-      { id: 'A', text: "Configure a remote backend (such as Amazon S3, Azure Blob, or HCP Terraform) to store state in a centralized, accessible location." },
-      { id: 'B', text: "Commit the local `terraform.tfstate` file to a public GitHub repository." },
+      { id: 'A', text: "Require all six engineers to take turns using a single shared physical laptop." },
+      { id: 'B', text: "Configure a remote backend (such as Amazon S3, Azure Blob, or HCP Terraform) to store state in a centralized, accessible location." },
       { id: 'C', text: "Copy the state file manually across developer laptops using USB flash drives." },
-      { id: 'D', text: "Require all six engineers to take turns using a single shared physical laptop." }
+      { id: 'D', text: "Commit the local `terraform.tfstate` file to a public GitHub repository." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure a remote backend (such as Amazon S3, Azure Blob, or HCP Terraform) to store state in a centralized, accessible location. Local state files stored on disk prevent team collaboration, risk accidental deletion, cause race conditions, and expose sensitive credentials committed to version control. Remote backends centralize state in durable cloud storage, enabling secure multi-engineer collaboration.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/settings/backends/configuration",
@@ -240,12 +240,12 @@ export const HASHICORP_TFA_QUESTIONS_17 = [
     scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer evaluates State Backends to transition a team of six DevOps engineers from local state files on developer laptops to a shared, centralized state solution.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks? Local state file risks vs remote backend benefits (centralization, team access) is under consideration.",
     options: [
-      { id: 'A', text: "Configure a remote backend (such as Amazon S3, Azure Blob, or HCP Terraform) to store state in a centralized, accessible location." },
-      { id: 'B', text: "Commit the local `terraform.tfstate` file to a public GitHub repository." },
-      { id: 'C', text: "Copy the state file manually across developer laptops using USB flash drives." },
+      { id: 'A', text: "Commit the local `terraform.tfstate` file to a public GitHub repository." },
+      { id: 'B', text: "Copy the state file manually across developer laptops using USB flash drives." },
+      { id: 'C', text: "Configure a remote backend (such as Amazon S3, Azure Blob, or HCP Terraform) to store state in a centralized, accessible location." },
       { id: 'D', text: "Require all six engineers to take turns using a single shared physical laptop." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure a remote backend (such as Amazon S3, Azure Blob, or HCP Terraform) to store state in a centralized, accessible location. Local state files stored on disk prevent team collaboration, risk accidental deletion, cause race conditions, and expose sensitive credentials committed to version control. Remote backends centralize state in durable cloud storage, enabling secure multi-engineer collaboration.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/settings/backends/configuration",
@@ -261,12 +261,12 @@ export const HASHICORP_TFA_QUESTIONS_17 = [
     scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer evaluates State Backends to transition a team of six DevOps engineers from local state files on developer laptops to a shared, centralized state solution.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls? Local state file risks vs remote backend benefits (centralization, team access) is under consideration.",
     options: [
-      { id: 'A', text: "Configure a remote backend (such as Amazon S3, Azure Blob, or HCP Terraform) to store state in a centralized, accessible location." },
-      { id: 'B', text: "Commit the local `terraform.tfstate` file to a public GitHub repository." },
-      { id: 'C', text: "Copy the state file manually across developer laptops using USB flash drives." },
-      { id: 'D', text: "Require all six engineers to take turns using a single shared physical laptop." }
+      { id: 'A', text: "Commit the local `terraform.tfstate` file to a public GitHub repository." },
+      { id: 'B', text: "Configure a remote backend (such as Amazon S3, Azure Blob, or HCP Terraform) to store state in a centralized, accessible location." },
+      { id: 'C', text: "Require all six engineers to take turns using a single shared physical laptop." },
+      { id: 'D', text: "Copy the state file manually across developer laptops using USB flash drives." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure a remote backend (such as Amazon S3, Azure Blob, or HCP Terraform) to store state in a centralized, accessible location. Local state files stored on disk prevent team collaboration, risk accidental deletion, cause race conditions, and expose sensitive credentials committed to version control. Remote backends centralize state in durable cloud storage, enabling secure multi-engineer collaboration.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/settings/backends/configuration",
@@ -304,8 +304,8 @@ export const HASHICORP_TFA_QUESTIONS_17 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability? Local state file risks vs remote backend benefits (centralization, team access) is under consideration.",
     options: [
       { id: 'A', text: "Configure a remote backend (such as Amazon S3, Azure Blob, or HCP Terraform) to store state in a centralized, accessible location." },
-      { id: 'B', text: "Commit the local `terraform.tfstate` file to a public GitHub repository." },
-      { id: 'C', text: "Copy the state file manually across developer laptops using USB flash drives." },
+      { id: 'B', text: "Copy the state file manually across developer laptops using USB flash drives." },
+      { id: 'C', text: "Commit the local `terraform.tfstate` file to a public GitHub repository." },
       { id: 'D', text: "Require all six engineers to take turns using a single shared physical laptop." }
     ],
     correctAnswers: ['A'],
@@ -324,12 +324,12 @@ export const HASHICORP_TFA_QUESTIONS_17 = [
     scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer evaluates State Locking to prevent two engineers or CI pipelines from running `terraform apply` simultaneously and corrupting the shared remote state file.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives? Preventing concurrent applies and state corruption with DynamoDB / native backend locks is under consideration.",
     options: [
-      { id: 'A', text: "Use a backend supporting state locking (e.g., Amazon S3 with DynamoDB table, Azure Blob with native leases, or HCP Terraform)." },
-      { id: 'B', text: "Trust team members to verbally check with each other before running commands." },
-      { id: 'C', text: "Delete the state file whenever a collision occurs." },
-      { id: 'D', text: "Run `terraform apply` with the `-force` flag to overwrite locks." }
+      { id: 'A', text: "Trust team members to verbally check with each other before running commands." },
+      { id: 'B', text: "Delete the state file whenever a collision occurs." },
+      { id: 'C', text: "Run `terraform apply` with the `-force` flag to overwrite locks." },
+      { id: 'D', text: "Use a backend supporting state locking (e.g., Amazon S3 with DynamoDB table, Azure Blob with native leases, or HCP Terraform)." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Use a backend supporting state locking (e.g., Amazon S3 with DynamoDB table, Azure Blob with native leases, or HCP Terraform). State locking prevents concurrent executions on the same state file, protecting against race conditions and state corruption. If supported by the backend (e.g., S3 with DynamoDB `LockID`), Terraform acquires a lock before operations and releases it upon completion; concurrent runs are rejected.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/state/locking",
@@ -345,12 +345,12 @@ export const HASHICORP_TFA_QUESTIONS_17 = [
     scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer evaluates State Locking to prevent two engineers or CI pipelines from running `terraform apply` simultaneously and corrupting the shared remote state file.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks? Preventing concurrent applies and state corruption with DynamoDB / native backend locks is under consideration.",
     options: [
-      { id: 'A', text: "Use a backend supporting state locking (e.g., Amazon S3 with DynamoDB table, Azure Blob with native leases, or HCP Terraform)." },
-      { id: 'B', text: "Trust team members to verbally check with each other before running commands." },
+      { id: 'A', text: "Trust team members to verbally check with each other before running commands." },
+      { id: 'B', text: "Use a backend supporting state locking (e.g., Amazon S3 with DynamoDB table, Azure Blob with native leases, or HCP Terraform)." },
       { id: 'C', text: "Delete the state file whenever a collision occurs." },
       { id: 'D', text: "Run `terraform apply` with the `-force` flag to overwrite locks." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Use a backend supporting state locking (e.g., Amazon S3 with DynamoDB table, Azure Blob with native leases, or HCP Terraform). State locking prevents concurrent executions on the same state file, protecting against race conditions and state corruption. If supported by the backend (e.g., S3 with DynamoDB `LockID`), Terraform acquires a lock before operations and releases it upon completion; concurrent runs are rejected.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/state/locking",
@@ -366,12 +366,12 @@ export const HASHICORP_TFA_QUESTIONS_17 = [
     scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer evaluates State Locking to prevent two engineers or CI pipelines from running `terraform apply` simultaneously and corrupting the shared remote state file.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls? Preventing concurrent applies and state corruption with DynamoDB / native backend locks is under consideration.",
     options: [
-      { id: 'A', text: "Use a backend supporting state locking (e.g., Amazon S3 with DynamoDB table, Azure Blob with native leases, or HCP Terraform)." },
-      { id: 'B', text: "Trust team members to verbally check with each other before running commands." },
-      { id: 'C', text: "Delete the state file whenever a collision occurs." },
-      { id: 'D', text: "Run `terraform apply` with the `-force` flag to overwrite locks." }
+      { id: 'A', text: "Delete the state file whenever a collision occurs." },
+      { id: 'B', text: "Use a backend supporting state locking (e.g., Amazon S3 with DynamoDB table, Azure Blob with native leases, or HCP Terraform)." },
+      { id: 'C', text: "Run `terraform apply` with the `-force` flag to overwrite locks." },
+      { id: 'D', text: "Trust team members to verbally check with each other before running commands." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Use a backend supporting state locking (e.g., Amazon S3 with DynamoDB table, Azure Blob with native leases, or HCP Terraform). State locking prevents concurrent executions on the same state file, protecting against race conditions and state corruption. If supported by the backend (e.g., S3 with DynamoDB `LockID`), Terraform acquires a lock before operations and releases it upon completion; concurrent runs are rejected.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/state/locking",
@@ -388,9 +388,9 @@ export const HASHICORP_TFA_QUESTIONS_17 = [
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction? Preventing concurrent applies and state corruption with DynamoDB / native backend locks is under consideration.",
     options: [
       { id: 'A', text: "Use a backend supporting state locking (e.g., Amazon S3 with DynamoDB table, Azure Blob with native leases, or HCP Terraform)." },
-      { id: 'B', text: "Trust team members to verbally check with each other before running commands." },
+      { id: 'B', text: "Run `terraform apply` with the `-force` flag to overwrite locks." },
       { id: 'C', text: "Delete the state file whenever a collision occurs." },
-      { id: 'D', text: "Run `terraform apply` with the `-force` flag to overwrite locks." }
+      { id: 'D', text: "Trust team members to verbally check with each other before running commands." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,12 +408,12 @@ export const HASHICORP_TFA_QUESTIONS_17 = [
     scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer evaluates State Locking to prevent two engineers or CI pipelines from running `terraform apply` simultaneously and corrupting the shared remote state file.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability? Preventing concurrent applies and state corruption with DynamoDB / native backend locks is under consideration.",
     options: [
-      { id: 'A', text: "Use a backend supporting state locking (e.g., Amazon S3 with DynamoDB table, Azure Blob with native leases, or HCP Terraform)." },
-      { id: 'B', text: "Trust team members to verbally check with each other before running commands." },
+      { id: 'A', text: "Run `terraform apply` with the `-force` flag to overwrite locks." },
+      { id: 'B', text: "Use a backend supporting state locking (e.g., Amazon S3 with DynamoDB table, Azure Blob with native leases, or HCP Terraform)." },
       { id: 'C', text: "Delete the state file whenever a collision occurs." },
-      { id: 'D', text: "Run `terraform apply` with the `-force` flag to overwrite locks." }
+      { id: 'D', text: "Trust team members to verbally check with each other before running commands." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Use a backend supporting state locking (e.g., Amazon S3 with DynamoDB table, Azure Blob with native leases, or HCP Terraform). State locking prevents concurrent executions on the same state file, protecting against race conditions and state corruption. If supported by the backend (e.g., S3 with DynamoDB `LockID`), Terraform acquires a lock before operations and releases it upon completion; concurrent runs are rejected.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/state/locking",
@@ -429,12 +429,12 @@ export const HASHICORP_TFA_QUESTIONS_17 = [
     scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer evaluates S3 Backend to configure an enterprise-standard remote backend for AWS with state persistence, KMS encryption, and distributed locking.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives? Configuring backend s3 with bucket, key, region, and dynamodb_table for locking is under consideration.",
     options: [
-      { id: 'A', text: "Configure `backend \"s3\"` specifying `bucket`, `key`, `region`, `encrypt = true`, and `dynamodb_table` for state locking." },
+      { id: 'A', text: "Store state in an unencrypted public S3 bucket with anonymous write access." },
       { id: 'B', text: "Configure `backend \"local\"` pointing to `/tmp/state.tfstate`." },
-      { id: 'C', text: "Store state in an unencrypted public S3 bucket with anonymous write access." },
+      { id: 'C', text: "Configure `backend \"s3\"` specifying `bucket`, `key`, `region`, `encrypt = true`, and `dynamodb_table` for state locking." },
       { id: 'D', text: "Omit backend configuration entirely." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure `backend \"s3\"` specifying `bucket`, `key`, `region`, `encrypt = true`, and `dynamodb_table` for state locking. The S3 backend stores state as an S3 object with versioning and server-side encryption (`encrypt = true`). Configuring `dynamodb_table` enables automated distributed state locking via DynamoDB primary key `LockID`, ensuring safe multi-user and CI/CD operations.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/settings/backends/s3",
@@ -450,12 +450,12 @@ export const HASHICORP_TFA_QUESTIONS_17 = [
     scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer evaluates S3 Backend to configure an enterprise-standard remote backend for AWS with state persistence, KMS encryption, and distributed locking.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks? Configuring backend s3 with bucket, key, region, and dynamodb_table for locking is under consideration.",
     options: [
-      { id: 'A', text: "Configure `backend \"s3\"` specifying `bucket`, `key`, `region`, `encrypt = true`, and `dynamodb_table` for state locking." },
-      { id: 'B', text: "Configure `backend \"local\"` pointing to `/tmp/state.tfstate`." },
-      { id: 'C', text: "Store state in an unencrypted public S3 bucket with anonymous write access." },
-      { id: 'D', text: "Omit backend configuration entirely." }
+      { id: 'A', text: "Configure `backend \"local\"` pointing to `/tmp/state.tfstate`." },
+      { id: 'B', text: "Omit backend configuration entirely." },
+      { id: 'C', text: "Configure `backend \"s3\"` specifying `bucket`, `key`, `region`, `encrypt = true`, and `dynamodb_table` for state locking." },
+      { id: 'D', text: "Store state in an unencrypted public S3 bucket with anonymous write access." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure `backend \"s3\"` specifying `bucket`, `key`, `region`, `encrypt = true`, and `dynamodb_table` for state locking. The S3 backend stores state as an S3 object with versioning and server-side encryption (`encrypt = true`). Configuring `dynamodb_table` enables automated distributed state locking via DynamoDB primary key `LockID`, ensuring safe multi-user and CI/CD operations.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/settings/backends/s3",
@@ -471,12 +471,12 @@ export const HASHICORP_TFA_QUESTIONS_17 = [
     scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer evaluates S3 Backend to configure an enterprise-standard remote backend for AWS with state persistence, KMS encryption, and distributed locking.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls? Configuring backend s3 with bucket, key, region, and dynamodb_table for locking is under consideration.",
     options: [
-      { id: 'A', text: "Configure `backend \"s3\"` specifying `bucket`, `key`, `region`, `encrypt = true`, and `dynamodb_table` for state locking." },
-      { id: 'B', text: "Configure `backend \"local\"` pointing to `/tmp/state.tfstate`." },
-      { id: 'C', text: "Store state in an unencrypted public S3 bucket with anonymous write access." },
-      { id: 'D', text: "Omit backend configuration entirely." }
+      { id: 'A', text: "Store state in an unencrypted public S3 bucket with anonymous write access." },
+      { id: 'B', text: "Configure `backend \"s3\"` specifying `bucket`, `key`, `region`, `encrypt = true`, and `dynamodb_table` for state locking." },
+      { id: 'C', text: "Omit backend configuration entirely." },
+      { id: 'D', text: "Configure `backend \"local\"` pointing to `/tmp/state.tfstate`." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure `backend \"s3\"` specifying `bucket`, `key`, `region`, `encrypt = true`, and `dynamodb_table` for state locking. The S3 backend stores state as an S3 object with versioning and server-side encryption (`encrypt = true`). Configuring `dynamodb_table` enables automated distributed state locking via DynamoDB primary key `LockID`, ensuring safe multi-user and CI/CD operations.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/settings/backends/s3",
@@ -513,12 +513,12 @@ export const HASHICORP_TFA_QUESTIONS_17 = [
     scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer evaluates S3 Backend to configure an enterprise-standard remote backend for AWS with state persistence, KMS encryption, and distributed locking.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability? Configuring backend s3 with bucket, key, region, and dynamodb_table for locking is under consideration.",
     options: [
-      { id: 'A', text: "Configure `backend \"s3\"` specifying `bucket`, `key`, `region`, `encrypt = true`, and `dynamodb_table` for state locking." },
-      { id: 'B', text: "Configure `backend \"local\"` pointing to `/tmp/state.tfstate`." },
-      { id: 'C', text: "Store state in an unencrypted public S3 bucket with anonymous write access." },
-      { id: 'D', text: "Omit backend configuration entirely." }
+      { id: 'A', text: "Omit backend configuration entirely." },
+      { id: 'B', text: "Store state in an unencrypted public S3 bucket with anonymous write access." },
+      { id: 'C', text: "Configure `backend \"local\"` pointing to `/tmp/state.tfstate`." },
+      { id: 'D', text: "Configure `backend \"s3\"` specifying `bucket`, `key`, `region`, `encrypt = true`, and `dynamodb_table` for state locking." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure `backend \"s3\"` specifying `bucket`, `key`, `region`, `encrypt = true`, and `dynamodb_table` for state locking. The S3 backend stores state as an S3 object with versioning and server-side encryption (`encrypt = true`). Configuring `dynamodb_table` enables automated distributed state locking via DynamoDB primary key `LockID`, ensuring safe multi-user and CI/CD operations.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/settings/backends/s3",

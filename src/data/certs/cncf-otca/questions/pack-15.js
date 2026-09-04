@@ -11,8 +11,8 @@ export const CNCF_OTCA_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Define multiple pipelines under `service.pipelines.metrics` referencing shared receivers and distinct exporters, or use the `routing` connector." },
       { id: 'B', text: "Run two separate collector daemons on every worker node." },
-      { id: 'C', text: "Configure applications to make duplicate network calls to both backends." },
-      { id: 'D', text: "Alternately send metrics to one backend on odd days and the other on even days." }
+      { id: 'C', text: "Alternately send metrics to one backend on odd days and the other on even days." },
+      { id: 'D', text: "Configure applications to make duplicate network calls to both backends." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -32,8 +32,8 @@ export const CNCF_OTCA_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Define multiple pipelines under `service.pipelines.metrics` referencing shared receivers and distinct exporters, or use the `routing` connector." },
       { id: 'B', text: "Run two separate collector daemons on every worker node." },
-      { id: 'C', text: "Configure applications to make duplicate network calls to both backends." },
-      { id: 'D', text: "Alternately send metrics to one backend on odd days and the other on even days." }
+      { id: 'C', text: "Alternately send metrics to one backend on odd days and the other on even days." },
+      { id: 'D', text: "Configure applications to make duplicate network calls to both backends." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -51,12 +51,12 @@ export const CNCF_OTCA_QUESTIONS_15 = [
     scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer evaluates Multi-Backend Routing to send application metric data to Prometheus for infrastructure alerting and simultaneously to an enterprise APM backend for long-term analytics.",
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls? Splitting and routing telemetry to diverse backends using multiple pipelines and connectors is under consideration.",
     options: [
-      { id: 'A', text: "Define multiple pipelines under `service.pipelines.metrics` referencing shared receivers and distinct exporters, or use the `routing` connector." },
-      { id: 'B', text: "Run two separate collector daemons on every worker node." },
-      { id: 'C', text: "Configure applications to make duplicate network calls to both backends." },
+      { id: 'A', text: "Configure applications to make duplicate network calls to both backends." },
+      { id: 'B', text: "Define multiple pipelines under `service.pipelines.metrics` referencing shared receivers and distinct exporters, or use the `routing` connector." },
+      { id: 'C', text: "Run two separate collector daemons on every worker node." },
       { id: 'D', text: "Alternately send metrics to one backend on odd days and the other on even days." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Define multiple pipelines under `service.pipelines.metrics` referencing shared receivers and distinct exporters, or use the `routing` connector. A single OpenTelemetry Collector can route data to multiple destinations. Multiple pipelines can share the same receiver (e.g., `otlp`), processing and exporting telemetry to different backends (e.g., Prometheus for alerting, Datadog/Elastic for APM) simultaneously.",
     referenceUrl: "https://opentelemetry.io/docs/collector/configuration/#pipelines",
@@ -72,12 +72,12 @@ export const CNCF_OTCA_QUESTIONS_15 = [
     scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer evaluates Multi-Backend Routing to send application metric data to Prometheus for infrastructure alerting and simultaneously to an enterprise APM backend for long-term analytics.",
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption? Splitting and routing telemetry to diverse backends using multiple pipelines and connectors is under consideration.",
     options: [
-      { id: 'A', text: "Define multiple pipelines under `service.pipelines.metrics` referencing shared receivers and distinct exporters, or use the `routing` connector." },
+      { id: 'A', text: "Alternately send metrics to one backend on odd days and the other on even days." },
       { id: 'B', text: "Run two separate collector daemons on every worker node." },
-      { id: 'C', text: "Configure applications to make duplicate network calls to both backends." },
-      { id: 'D', text: "Alternately send metrics to one backend on odd days and the other on even days." }
+      { id: 'C', text: "Define multiple pipelines under `service.pipelines.metrics` referencing shared receivers and distinct exporters, or use the `routing` connector." },
+      { id: 'D', text: "Configure applications to make duplicate network calls to both backends." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Define multiple pipelines under `service.pipelines.metrics` referencing shared receivers and distinct exporters, or use the `routing` connector. A single OpenTelemetry Collector can route data to multiple destinations. Multiple pipelines can share the same receiver (e.g., `otlp`), processing and exporting telemetry to different backends (e.g., Prometheus for alerting, Datadog/Elastic for APM) simultaneously.",
     referenceUrl: "https://opentelemetry.io/docs/collector/configuration/#pipelines",
@@ -93,12 +93,12 @@ export const CNCF_OTCA_QUESTIONS_15 = [
     scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer evaluates Multi-Backend Routing to send application metric data to Prometheus for infrastructure alerting and simultaneously to an enterprise APM backend for long-term analytics.",
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation? Splitting and routing telemetry to diverse backends using multiple pipelines and connectors is under consideration.",
     options: [
-      { id: 'A', text: "Define multiple pipelines under `service.pipelines.metrics` referencing shared receivers and distinct exporters, or use the `routing` connector." },
+      { id: 'A', text: "Configure applications to make duplicate network calls to both backends." },
       { id: 'B', text: "Run two separate collector daemons on every worker node." },
-      { id: 'C', text: "Configure applications to make duplicate network calls to both backends." },
-      { id: 'D', text: "Alternately send metrics to one backend on odd days and the other on even days." }
+      { id: 'C', text: "Alternately send metrics to one backend on odd days and the other on even days." },
+      { id: 'D', text: "Define multiple pipelines under `service.pipelines.metrics` referencing shared receivers and distinct exporters, or use the `routing` connector." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Define multiple pipelines under `service.pipelines.metrics` referencing shared receivers and distinct exporters, or use the `routing` connector. A single OpenTelemetry Collector can route data to multiple destinations. Multiple pipelines can share the same receiver (e.g., `otlp`), processing and exporting telemetry to different backends (e.g., Prometheus for alerting, Datadog/Elastic for APM) simultaneously.",
     referenceUrl: "https://opentelemetry.io/docs/collector/configuration/#pipelines",
@@ -115,9 +115,9 @@ export const CNCF_OTCA_QUESTIONS_15 = [
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives? Extracting pod, namespace, deployment, and node labels to enrich span and metric data is under consideration.",
     options: [
       { id: 'A', text: "Add the `k8sattributes` processor to the collector pipeline and configure RBAC permissions for the collector to read Kubernetes pod metadata." },
-      { id: 'B', text: "Pass Kubernetes metadata in every HTTP query parameter from the client." },
+      { id: 'B', text: "The collector cannot interact with the Kubernetes API." },
       { id: 'C', text: "Hardcode pod names inside application environment files." },
-      { id: 'D', text: "The collector cannot interact with the Kubernetes API." }
+      { id: 'D', text: "Pass Kubernetes metadata in every HTTP query parameter from the client." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -135,12 +135,12 @@ export const CNCF_OTCA_QUESTIONS_15 = [
     scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer evaluates k8s Enrichment to enrich incoming spans with the caller's Kubernetes pod name, namespace, and container image without application code changes.",
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends? Extracting pod, namespace, deployment, and node labels to enrich span and metric data is under consideration.",
     options: [
-      { id: 'A', text: "Add the `k8sattributes` processor to the collector pipeline and configure RBAC permissions for the collector to read Kubernetes pod metadata." },
+      { id: 'A', text: "The collector cannot interact with the Kubernetes API." },
       { id: 'B', text: "Pass Kubernetes metadata in every HTTP query parameter from the client." },
-      { id: 'C', text: "Hardcode pod names inside application environment files." },
-      { id: 'D', text: "The collector cannot interact with the Kubernetes API." }
+      { id: 'C', text: "Add the `k8sattributes` processor to the collector pipeline and configure RBAC permissions for the collector to read Kubernetes pod metadata." },
+      { id: 'D', text: "Hardcode pod names inside application environment files." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Add the `k8sattributes` processor to the collector pipeline and configure RBAC permissions for the collector to read Kubernetes pod metadata. The `k8sattributes` processor queries the local kubelet or Kubernetes API to match the IP address of incoming telemetry connections against running pods, automatically attaching metadata like `k8s.pod.name`, `k8s.namespace.name`, and `k8s.deployment.name` to telemetry records.",
     referenceUrl: "https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/k8sattributesprocessor",
@@ -156,12 +156,12 @@ export const CNCF_OTCA_QUESTIONS_15 = [
     scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer evaluates k8s Enrichment to enrich incoming spans with the caller's Kubernetes pod name, namespace, and container image without application code changes.",
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls? Extracting pod, namespace, deployment, and node labels to enrich span and metric data is under consideration.",
     options: [
-      { id: 'A', text: "Add the `k8sattributes` processor to the collector pipeline and configure RBAC permissions for the collector to read Kubernetes pod metadata." },
-      { id: 'B', text: "Pass Kubernetes metadata in every HTTP query parameter from the client." },
-      { id: 'C', text: "Hardcode pod names inside application environment files." },
-      { id: 'D', text: "The collector cannot interact with the Kubernetes API." }
+      { id: 'A', text: "The collector cannot interact with the Kubernetes API." },
+      { id: 'B', text: "Hardcode pod names inside application environment files." },
+      { id: 'C', text: "Add the `k8sattributes` processor to the collector pipeline and configure RBAC permissions for the collector to read Kubernetes pod metadata." },
+      { id: 'D', text: "Pass Kubernetes metadata in every HTTP query parameter from the client." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Add the `k8sattributes` processor to the collector pipeline and configure RBAC permissions for the collector to read Kubernetes pod metadata. The `k8sattributes` processor queries the local kubelet or Kubernetes API to match the IP address of incoming telemetry connections against running pods, automatically attaching metadata like `k8s.pod.name`, `k8s.namespace.name`, and `k8s.deployment.name` to telemetry records.",
     referenceUrl: "https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/k8sattributesprocessor",
@@ -178,8 +178,8 @@ export const CNCF_OTCA_QUESTIONS_15 = [
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption? Extracting pod, namespace, deployment, and node labels to enrich span and metric data is under consideration.",
     options: [
       { id: 'A', text: "Add the `k8sattributes` processor to the collector pipeline and configure RBAC permissions for the collector to read Kubernetes pod metadata." },
-      { id: 'B', text: "Pass Kubernetes metadata in every HTTP query parameter from the client." },
-      { id: 'C', text: "Hardcode pod names inside application environment files." },
+      { id: 'B', text: "Hardcode pod names inside application environment files." },
+      { id: 'C', text: "Pass Kubernetes metadata in every HTTP query parameter from the client." },
       { id: 'D', text: "The collector cannot interact with the Kubernetes API." }
     ],
     correctAnswers: ['A'],
@@ -199,8 +199,8 @@ export const CNCF_OTCA_QUESTIONS_15 = [
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation? Extracting pod, namespace, deployment, and node labels to enrich span and metric data is under consideration.",
     options: [
       { id: 'A', text: "Add the `k8sattributes` processor to the collector pipeline and configure RBAC permissions for the collector to read Kubernetes pod metadata." },
-      { id: 'B', text: "Pass Kubernetes metadata in every HTTP query parameter from the client." },
-      { id: 'C', text: "Hardcode pod names inside application environment files." },
+      { id: 'B', text: "Hardcode pod names inside application environment files." },
+      { id: 'C', text: "Pass Kubernetes metadata in every HTTP query parameter from the client." },
       { id: 'D', text: "The collector cannot interact with the Kubernetes API." }
     ],
     correctAnswers: ['A'],
@@ -219,12 +219,12 @@ export const CNCF_OTCA_QUESTIONS_15 = [
     scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer evaluates Connectors to generate Request, Error, and Duration (R.E.D.) metrics automatically from distributed trace spans without separate metric instrumentation.",
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives? Deriving metric data (call counts, latency histograms) from distributed trace spans using spanmetrics is under consideration.",
     options: [
-      { id: 'A', text: "Configure the `spanmetrics` connector to consume spans from a traces pipeline and output request count and duration metrics into a metrics pipeline." },
-      { id: 'B', text: "Manually instrument every function call with both a trace span and a metric counter." },
-      { id: 'C', text: "Run an external cron job that queries the tracing backend and calculates metrics." },
-      { id: 'D', text: "Metrics cannot be derived from distributed traces." }
+      { id: 'A', text: "Metrics cannot be derived from distributed traces." },
+      { id: 'B', text: "Run an external cron job that queries the tracing backend and calculates metrics." },
+      { id: 'C', text: "Configure the `spanmetrics` connector to consume spans from a traces pipeline and output request count and duration metrics into a metrics pipeline." },
+      { id: 'D', text: "Manually instrument every function call with both a trace span and a metric counter." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure the `spanmetrics` connector to consume spans from a traces pipeline and output request count and duration metrics into a metrics pipeline. Connectors in the OpenTelemetry Collector link two pipelines together. The `spanmetrics` connector consumes spans from a trace pipeline, computes request rates, error counts, and latency histograms, and emits them into a metrics pipeline for export to Prometheus.",
     referenceUrl: "https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/connector/spanmetricsconnector",
@@ -240,12 +240,12 @@ export const CNCF_OTCA_QUESTIONS_15 = [
     scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer evaluates Connectors to generate Request, Error, and Duration (R.E.D.) metrics automatically from distributed trace spans without separate metric instrumentation.",
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends? Deriving metric data (call counts, latency histograms) from distributed trace spans using spanmetrics is under consideration.",
     options: [
-      { id: 'A', text: "Configure the `spanmetrics` connector to consume spans from a traces pipeline and output request count and duration metrics into a metrics pipeline." },
-      { id: 'B', text: "Manually instrument every function call with both a trace span and a metric counter." },
-      { id: 'C', text: "Run an external cron job that queries the tracing backend and calculates metrics." },
-      { id: 'D', text: "Metrics cannot be derived from distributed traces." }
+      { id: 'A', text: "Run an external cron job that queries the tracing backend and calculates metrics." },
+      { id: 'B', text: "Metrics cannot be derived from distributed traces." },
+      { id: 'C', text: "Manually instrument every function call with both a trace span and a metric counter." },
+      { id: 'D', text: "Configure the `spanmetrics` connector to consume spans from a traces pipeline and output request count and duration metrics into a metrics pipeline." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure the `spanmetrics` connector to consume spans from a traces pipeline and output request count and duration metrics into a metrics pipeline. Connectors in the OpenTelemetry Collector link two pipelines together. The `spanmetrics` connector consumes spans from a trace pipeline, computes request rates, error counts, and latency histograms, and emits them into a metrics pipeline for export to Prometheus.",
     referenceUrl: "https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/connector/spanmetricsconnector",
@@ -261,12 +261,12 @@ export const CNCF_OTCA_QUESTIONS_15 = [
     scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer evaluates Connectors to generate Request, Error, and Duration (R.E.D.) metrics automatically from distributed trace spans without separate metric instrumentation.",
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls? Deriving metric data (call counts, latency histograms) from distributed trace spans using spanmetrics is under consideration.",
     options: [
-      { id: 'A', text: "Configure the `spanmetrics` connector to consume spans from a traces pipeline and output request count and duration metrics into a metrics pipeline." },
+      { id: 'A', text: "Run an external cron job that queries the tracing backend and calculates metrics." },
       { id: 'B', text: "Manually instrument every function call with both a trace span and a metric counter." },
-      { id: 'C', text: "Run an external cron job that queries the tracing backend and calculates metrics." },
-      { id: 'D', text: "Metrics cannot be derived from distributed traces." }
+      { id: 'C', text: "Metrics cannot be derived from distributed traces." },
+      { id: 'D', text: "Configure the `spanmetrics` connector to consume spans from a traces pipeline and output request count and duration metrics into a metrics pipeline." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure the `spanmetrics` connector to consume spans from a traces pipeline and output request count and duration metrics into a metrics pipeline. Connectors in the OpenTelemetry Collector link two pipelines together. The `spanmetrics` connector consumes spans from a trace pipeline, computes request rates, error counts, and latency histograms, and emits them into a metrics pipeline for export to Prometheus.",
     referenceUrl: "https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/connector/spanmetricsconnector",
@@ -282,12 +282,12 @@ export const CNCF_OTCA_QUESTIONS_15 = [
     scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer evaluates Connectors to generate Request, Error, and Duration (R.E.D.) metrics automatically from distributed trace spans without separate metric instrumentation.",
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption? Deriving metric data (call counts, latency histograms) from distributed trace spans using spanmetrics is under consideration.",
     options: [
-      { id: 'A', text: "Configure the `spanmetrics` connector to consume spans from a traces pipeline and output request count and duration metrics into a metrics pipeline." },
-      { id: 'B', text: "Manually instrument every function call with both a trace span and a metric counter." },
-      { id: 'C', text: "Run an external cron job that queries the tracing backend and calculates metrics." },
-      { id: 'D', text: "Metrics cannot be derived from distributed traces." }
+      { id: 'A', text: "Metrics cannot be derived from distributed traces." },
+      { id: 'B', text: "Run an external cron job that queries the tracing backend and calculates metrics." },
+      { id: 'C', text: "Configure the `spanmetrics` connector to consume spans from a traces pipeline and output request count and duration metrics into a metrics pipeline." },
+      { id: 'D', text: "Manually instrument every function call with both a trace span and a metric counter." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure the `spanmetrics` connector to consume spans from a traces pipeline and output request count and duration metrics into a metrics pipeline. Connectors in the OpenTelemetry Collector link two pipelines together. The `spanmetrics` connector consumes spans from a trace pipeline, computes request rates, error counts, and latency histograms, and emits them into a metrics pipeline for export to Prometheus.",
     referenceUrl: "https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/connector/spanmetricsconnector",
@@ -324,12 +324,12 @@ export const CNCF_OTCA_QUESTIONS_15 = [
     scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer evaluates Collector Diagnostics to configure Kubernetes liveness and readiness probes for an OpenTelemetry Collector pod and inspect internal component status.",
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives? Exposing health probes and internal diagnostic pages via collector extensions is under consideration.",
     options: [
-      { id: 'A', text: "Enable the `health_check` extension on port 13133 and optionally the `zpages` extension for live diagnostic debugging." },
-      { id: 'B', text: "SSH into the collector pod and run curl against localhost:80." },
-      { id: 'C', text: "Check if the collector log file size is increasing." },
+      { id: 'A', text: "Check if the collector log file size is increasing." },
+      { id: 'B', text: "Enable the `health_check` extension on port 13133 and optionally the `zpages` extension for live diagnostic debugging." },
+      { id: 'C', text: "SSH into the collector pod and run curl against localhost:80." },
       { id: 'D', text: "Rely on node operating system ping." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Enable the `health_check` extension on port 13133 and optionally the `zpages` extension for live diagnostic debugging. Extensions in the OpenTelemetry Collector provide capabilities that do not process telemetry directly. The `health_check` extension exposes an HTTP `/` endpoint on port 13133 for Kubernetes probes, and `zpages` provides in-process diagnostic pages for active traces and RPCs.",
     referenceUrl: "https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/extension/healthcheckextension",
@@ -345,12 +345,12 @@ export const CNCF_OTCA_QUESTIONS_15 = [
     scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer evaluates Collector Diagnostics to configure Kubernetes liveness and readiness probes for an OpenTelemetry Collector pod and inspect internal component status.",
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends? Exposing health probes and internal diagnostic pages via collector extensions is under consideration.",
     options: [
-      { id: 'A', text: "Enable the `health_check` extension on port 13133 and optionally the `zpages` extension for live diagnostic debugging." },
-      { id: 'B', text: "SSH into the collector pod and run curl against localhost:80." },
+      { id: 'A', text: "Rely on node operating system ping." },
+      { id: 'B', text: "Enable the `health_check` extension on port 13133 and optionally the `zpages` extension for live diagnostic debugging." },
       { id: 'C', text: "Check if the collector log file size is increasing." },
-      { id: 'D', text: "Rely on node operating system ping." }
+      { id: 'D', text: "SSH into the collector pod and run curl against localhost:80." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Enable the `health_check` extension on port 13133 and optionally the `zpages` extension for live diagnostic debugging. Extensions in the OpenTelemetry Collector provide capabilities that do not process telemetry directly. The `health_check` extension exposes an HTTP `/` endpoint on port 13133 for Kubernetes probes, and `zpages` provides in-process diagnostic pages for active traces and RPCs.",
     referenceUrl: "https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/extension/healthcheckextension",
@@ -367,9 +367,9 @@ export const CNCF_OTCA_QUESTIONS_15 = [
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls? Exposing health probes and internal diagnostic pages via collector extensions is under consideration.",
     options: [
       { id: 'A', text: "Enable the `health_check` extension on port 13133 and optionally the `zpages` extension for live diagnostic debugging." },
-      { id: 'B', text: "SSH into the collector pod and run curl against localhost:80." },
+      { id: 'B', text: "Rely on node operating system ping." },
       { id: 'C', text: "Check if the collector log file size is increasing." },
-      { id: 'D', text: "Rely on node operating system ping." }
+      { id: 'D', text: "SSH into the collector pod and run curl against localhost:80." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -388,9 +388,9 @@ export const CNCF_OTCA_QUESTIONS_15 = [
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption? Exposing health probes and internal diagnostic pages via collector extensions is under consideration.",
     options: [
       { id: 'A', text: "Enable the `health_check` extension on port 13133 and optionally the `zpages` extension for live diagnostic debugging." },
-      { id: 'B', text: "SSH into the collector pod and run curl against localhost:80." },
-      { id: 'C', text: "Check if the collector log file size is increasing." },
-      { id: 'D', text: "Rely on node operating system ping." }
+      { id: 'B', text: "Check if the collector log file size is increasing." },
+      { id: 'C', text: "Rely on node operating system ping." },
+      { id: 'D', text: "SSH into the collector pod and run curl against localhost:80." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,12 +408,12 @@ export const CNCF_OTCA_QUESTIONS_15 = [
     scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer evaluates Collector Diagnostics to configure Kubernetes liveness and readiness probes for an OpenTelemetry Collector pod and inspect internal component status.",
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation? Exposing health probes and internal diagnostic pages via collector extensions is under consideration.",
     options: [
-      { id: 'A', text: "Enable the `health_check` extension on port 13133 and optionally the `zpages` extension for live diagnostic debugging." },
-      { id: 'B', text: "SSH into the collector pod and run curl against localhost:80." },
-      { id: 'C', text: "Check if the collector log file size is increasing." },
-      { id: 'D', text: "Rely on node operating system ping." }
+      { id: 'A', text: "Rely on node operating system ping." },
+      { id: 'B', text: "Enable the `health_check` extension on port 13133 and optionally the `zpages` extension for live diagnostic debugging." },
+      { id: 'C', text: "SSH into the collector pod and run curl against localhost:80." },
+      { id: 'D', text: "Check if the collector log file size is increasing." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Enable the `health_check` extension on port 13133 and optionally the `zpages` extension for live diagnostic debugging. Extensions in the OpenTelemetry Collector provide capabilities that do not process telemetry directly. The `health_check` extension exposes an HTTP `/` endpoint on port 13133 for Kubernetes probes, and `zpages` provides in-process diagnostic pages for active traces and RPCs.",
     referenceUrl: "https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/extension/healthcheckextension",
@@ -429,12 +429,12 @@ export const CNCF_OTCA_QUESTIONS_15 = [
     scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer evaluates Load Balancing Exporter to ensure that all distributed spans sharing the same `trace_id` are routed to the same gateway collector instance so tail sampling policies evaluate complete traces.",
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives? Routing all spans of a trace ID to the same downstream collector instance for tail sampling is under consideration.",
     options: [
-      { id: 'A', text: "Use the `loadbalancing` exporter in first-tier agent collectors with routing based on `trace_id` targeting a pool of gateway collectors." },
-      { id: 'B', text: "Use standard round-robin DNS load balancing which scatters spans across random collectors." },
-      { id: 'C', text: "Deploy a single collector with no redundancy." },
-      { id: 'D', text: "Spans sharing a trace ID do not need to be evaluated on the same collector." }
+      { id: 'A', text: "Deploy a single collector with no redundancy." },
+      { id: 'B', text: "Spans sharing a trace ID do not need to be evaluated on the same collector." },
+      { id: 'C', text: "Use standard round-robin DNS load balancing which scatters spans across random collectors." },
+      { id: 'D', text: "Use the `loadbalancing` exporter in first-tier agent collectors with routing based on `trace_id` targeting a pool of gateway collectors." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Use the `loadbalancing` exporter in first-tier agent collectors with routing based on `trace_id` targeting a pool of gateway collectors. Tail-based sampling requires an entire trace to be present on a single collector instance to evaluate sampling rules. The `loadbalancing` exporter hashes the `trace_id` of each span to ensure that all spans for a given trace always land on the same downstream gateway collector.",
     referenceUrl: "https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter/loadbalancingexporter",
@@ -450,12 +450,12 @@ export const CNCF_OTCA_QUESTIONS_15 = [
     scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer evaluates Load Balancing Exporter to ensure that all distributed spans sharing the same `trace_id` are routed to the same gateway collector instance so tail sampling policies evaluate complete traces.",
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends? Routing all spans of a trace ID to the same downstream collector instance for tail sampling is under consideration.",
     options: [
-      { id: 'A', text: "Use the `loadbalancing` exporter in first-tier agent collectors with routing based on `trace_id` targeting a pool of gateway collectors." },
-      { id: 'B', text: "Use standard round-robin DNS load balancing which scatters spans across random collectors." },
-      { id: 'C', text: "Deploy a single collector with no redundancy." },
-      { id: 'D', text: "Spans sharing a trace ID do not need to be evaluated on the same collector." }
+      { id: 'A', text: "Use standard round-robin DNS load balancing which scatters spans across random collectors." },
+      { id: 'B', text: "Spans sharing a trace ID do not need to be evaluated on the same collector." },
+      { id: 'C', text: "Use the `loadbalancing` exporter in first-tier agent collectors with routing based on `trace_id` targeting a pool of gateway collectors." },
+      { id: 'D', text: "Deploy a single collector with no redundancy." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Use the `loadbalancing` exporter in first-tier agent collectors with routing based on `trace_id` targeting a pool of gateway collectors. Tail-based sampling requires an entire trace to be present on a single collector instance to evaluate sampling rules. The `loadbalancing` exporter hashes the `trace_id` of each span to ensure that all spans for a given trace always land on the same downstream gateway collector.",
     referenceUrl: "https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter/loadbalancingexporter",
@@ -471,12 +471,12 @@ export const CNCF_OTCA_QUESTIONS_15 = [
     scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer evaluates Load Balancing Exporter to ensure that all distributed spans sharing the same `trace_id` are routed to the same gateway collector instance so tail sampling policies evaluate complete traces.",
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls? Routing all spans of a trace ID to the same downstream collector instance for tail sampling is under consideration.",
     options: [
-      { id: 'A', text: "Use the `loadbalancing` exporter in first-tier agent collectors with routing based on `trace_id` targeting a pool of gateway collectors." },
+      { id: 'A', text: "Spans sharing a trace ID do not need to be evaluated on the same collector." },
       { id: 'B', text: "Use standard round-robin DNS load balancing which scatters spans across random collectors." },
       { id: 'C', text: "Deploy a single collector with no redundancy." },
-      { id: 'D', text: "Spans sharing a trace ID do not need to be evaluated on the same collector." }
+      { id: 'D', text: "Use the `loadbalancing` exporter in first-tier agent collectors with routing based on `trace_id` targeting a pool of gateway collectors." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Use the `loadbalancing` exporter in first-tier agent collectors with routing based on `trace_id` targeting a pool of gateway collectors. Tail-based sampling requires an entire trace to be present on a single collector instance to evaluate sampling rules. The `loadbalancing` exporter hashes the `trace_id` of each span to ensure that all spans for a given trace always land on the same downstream gateway collector.",
     referenceUrl: "https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter/loadbalancingexporter",
@@ -493,9 +493,9 @@ export const CNCF_OTCA_QUESTIONS_15 = [
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption? Routing all spans of a trace ID to the same downstream collector instance for tail sampling is under consideration.",
     options: [
       { id: 'A', text: "Use the `loadbalancing` exporter in first-tier agent collectors with routing based on `trace_id` targeting a pool of gateway collectors." },
-      { id: 'B', text: "Use standard round-robin DNS load balancing which scatters spans across random collectors." },
-      { id: 'C', text: "Deploy a single collector with no redundancy." },
-      { id: 'D', text: "Spans sharing a trace ID do not need to be evaluated on the same collector." }
+      { id: 'B', text: "Deploy a single collector with no redundancy." },
+      { id: 'C', text: "Spans sharing a trace ID do not need to be evaluated on the same collector." },
+      { id: 'D', text: "Use standard round-robin DNS load balancing which scatters spans across random collectors." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -513,12 +513,12 @@ export const CNCF_OTCA_QUESTIONS_15 = [
     scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer evaluates Load Balancing Exporter to ensure that all distributed spans sharing the same `trace_id` are routed to the same gateway collector instance so tail sampling policies evaluate complete traces.",
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation? Routing all spans of a trace ID to the same downstream collector instance for tail sampling is under consideration.",
     options: [
-      { id: 'A', text: "Use the `loadbalancing` exporter in first-tier agent collectors with routing based on `trace_id` targeting a pool of gateway collectors." },
-      { id: 'B', text: "Use standard round-robin DNS load balancing which scatters spans across random collectors." },
-      { id: 'C', text: "Deploy a single collector with no redundancy." },
-      { id: 'D', text: "Spans sharing a trace ID do not need to be evaluated on the same collector." }
+      { id: 'A', text: "Deploy a single collector with no redundancy." },
+      { id: 'B', text: "Use the `loadbalancing` exporter in first-tier agent collectors with routing based on `trace_id` targeting a pool of gateway collectors." },
+      { id: 'C', text: "Spans sharing a trace ID do not need to be evaluated on the same collector." },
+      { id: 'D', text: "Use standard round-robin DNS load balancing which scatters spans across random collectors." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Use the `loadbalancing` exporter in first-tier agent collectors with routing based on `trace_id` targeting a pool of gateway collectors. Tail-based sampling requires an entire trace to be present on a single collector instance to evaluate sampling rules. The `loadbalancing` exporter hashes the `trace_id` of each span to ensure that all spans for a given trace always land on the same downstream gateway collector.",
     referenceUrl: "https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter/loadbalancingexporter",

@@ -9,12 +9,12 @@ export const AZURE_AZ900_QUESTIONS_15 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The organization evaluates Azure Governance Hierarchy to establish clear billing boundaries and apply unified compliance policies across dozens of enterprise subscriptions in a hierarchical structure.",
     question: "Which concept or service configuration satisfies these operational resilience objectives? Subscription billing boundaries and management group governance is under consideration.",
     options: [
-      { id: 'A', text: "Organize subscriptions under Azure Management Groups and apply policies at the management group scope." },
-      { id: 'B', text: "Create a single subscription and deploy all enterprise production and development resources into it." },
+      { id: 'A', text: "Create a single subscription and deploy all enterprise production and development resources into it." },
+      { id: 'B', text: "Organize subscriptions under Azure Management Groups and apply policies at the management group scope." },
       { id: 'C', text: "Apply security policies manually to individual virtual machines one by one." },
       { id: 'D', text: "Assign billing credit cards directly to individual software developers." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Organize subscriptions under Azure Management Groups and apply policies at the management group scope. Azure Management Groups provide a level of scope above subscriptions, organizing subscriptions into a governance hierarchy. Applying Azure Policy definitions or RBAC role assignments at the management group level automatically inherits down to all subscriptions and child resources within the tree.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/management-groups/overview",
@@ -32,8 +32,8 @@ export const AZURE_AZ900_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Organize subscriptions under Azure Management Groups and apply policies at the management group scope." },
       { id: 'B', text: "Create a single subscription and deploy all enterprise production and development resources into it." },
-      { id: 'C', text: "Apply security policies manually to individual virtual machines one by one." },
-      { id: 'D', text: "Assign billing credit cards directly to individual software developers." }
+      { id: 'C', text: "Assign billing credit cards directly to individual software developers." },
+      { id: 'D', text: "Apply security policies manually to individual virtual machines one by one." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -51,12 +51,12 @@ export const AZURE_AZ900_QUESTIONS_15 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The organization evaluates Azure Governance Hierarchy to establish clear billing boundaries and apply unified compliance policies across dozens of enterprise subscriptions in a hierarchical structure.",
     question: "Which solution properly implements these mandatory security and governance controls? Subscription billing boundaries and management group governance is under consideration.",
     options: [
-      { id: 'A', text: "Organize subscriptions under Azure Management Groups and apply policies at the management group scope." },
-      { id: 'B', text: "Create a single subscription and deploy all enterprise production and development resources into it." },
-      { id: 'C', text: "Apply security policies manually to individual virtual machines one by one." },
-      { id: 'D', text: "Assign billing credit cards directly to individual software developers." }
+      { id: 'A', text: "Assign billing credit cards directly to individual software developers." },
+      { id: 'B', text: "Apply security policies manually to individual virtual machines one by one." },
+      { id: 'C', text: "Organize subscriptions under Azure Management Groups and apply policies at the management group scope." },
+      { id: 'D', text: "Create a single subscription and deploy all enterprise production and development resources into it." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Organize subscriptions under Azure Management Groups and apply policies at the management group scope. Azure Management Groups provide a level of scope above subscriptions, organizing subscriptions into a governance hierarchy. Applying Azure Policy definitions or RBAC role assignments at the management group level automatically inherits down to all subscriptions and child resources within the tree.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/management-groups/overview",
@@ -72,12 +72,12 @@ export const AZURE_AZ900_QUESTIONS_15 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to the Microsoft Azure Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The organization evaluates Azure Governance Hierarchy to establish clear billing boundaries and apply unified compliance policies across dozens of enterprise subscriptions in a hierarchical structure.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? Subscription billing boundaries and management group governance is under consideration.",
     options: [
-      { id: 'A', text: "Organize subscriptions under Azure Management Groups and apply policies at the management group scope." },
-      { id: 'B', text: "Create a single subscription and deploy all enterprise production and development resources into it." },
-      { id: 'C', text: "Apply security policies manually to individual virtual machines one by one." },
+      { id: 'A', text: "Create a single subscription and deploy all enterprise production and development resources into it." },
+      { id: 'B', text: "Apply security policies manually to individual virtual machines one by one." },
+      { id: 'C', text: "Organize subscriptions under Azure Management Groups and apply policies at the management group scope." },
       { id: 'D', text: "Assign billing credit cards directly to individual software developers." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Organize subscriptions under Azure Management Groups and apply policies at the management group scope. Azure Management Groups provide a level of scope above subscriptions, organizing subscriptions into a governance hierarchy. Applying Azure Policy definitions or RBAC role assignments at the management group level automatically inherits down to all subscriptions and child resources within the tree.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/management-groups/overview",
@@ -93,12 +93,12 @@ export const AZURE_AZ900_QUESTIONS_15 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The organization evaluates Azure Governance Hierarchy to establish clear billing boundaries and apply unified compliance policies across dozens of enterprise subscriptions in a hierarchical structure.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? Subscription billing boundaries and management group governance is under consideration.",
     options: [
-      { id: 'A', text: "Organize subscriptions under Azure Management Groups and apply policies at the management group scope." },
+      { id: 'A', text: "Apply security policies manually to individual virtual machines one by one." },
       { id: 'B', text: "Create a single subscription and deploy all enterprise production and development resources into it." },
-      { id: 'C', text: "Apply security policies manually to individual virtual machines one by one." },
-      { id: 'D', text: "Assign billing credit cards directly to individual software developers." }
+      { id: 'C', text: "Assign billing credit cards directly to individual software developers." },
+      { id: 'D', text: "Organize subscriptions under Azure Management Groups and apply policies at the management group scope." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Organize subscriptions under Azure Management Groups and apply policies at the management group scope. Azure Management Groups provide a level of scope above subscriptions, organizing subscriptions into a governance hierarchy. Applying Azure Policy definitions or RBAC role assignments at the management group level automatically inherits down to all subscriptions and child resources within the tree.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/management-groups/overview",
@@ -114,12 +114,12 @@ export const AZURE_AZ900_QUESTIONS_15 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The organization evaluates Azure Compute to host custom enterprise enterprise software requiring customized OS configurations, dedicated CPU allocations, and direct administrative access.",
     question: "Which concept or service configuration satisfies these operational resilience objectives? Azure IaaS Virtual Machines is under consideration.",
     options: [
-      { id: 'A', text: "Provision Azure Virtual Machines (VMs) with the required CPU, memory, and OS disk configurations." },
-      { id: 'B', text: "Deploy the application as an Azure Static Web App." },
-      { id: 'C', text: "Use Azure Logic Apps to execute custom compiled Windows system binaries." },
-      { id: 'D', text: "Deploy the database into an unmanaged public FTP server." }
+      { id: 'A', text: "Deploy the database into an unmanaged public FTP server." },
+      { id: 'B', text: "Use Azure Logic Apps to execute custom compiled Windows system binaries." },
+      { id: 'C', text: "Deploy the application as an Azure Static Web App." },
+      { id: 'D', text: "Provision Azure Virtual Machines (VMs) with the required CPU, memory, and OS disk configurations." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Provision Azure Virtual Machines (VMs) with the required CPU, memory, and OS disk configurations. Azure Virtual Machines provide on-demand, scalable Infrastructure as a Service (IaaS) computing resources. They provide full control over the operating system, disk storage, networking, and installed software stack, ideal for custom or legacy workloads.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machines/overview",
@@ -135,12 +135,12 @@ export const AZURE_AZ900_QUESTIONS_15 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The organization evaluates Azure Compute to host custom enterprise enterprise software requiring customized OS configurations, dedicated CPU allocations, and direct administrative access.",
     question: "Which architectural approach should the team select to manage this demand efficiently? Azure IaaS Virtual Machines is under consideration.",
     options: [
-      { id: 'A', text: "Provision Azure Virtual Machines (VMs) with the required CPU, memory, and OS disk configurations." },
-      { id: 'B', text: "Deploy the application as an Azure Static Web App." },
-      { id: 'C', text: "Use Azure Logic Apps to execute custom compiled Windows system binaries." },
-      { id: 'D', text: "Deploy the database into an unmanaged public FTP server." }
+      { id: 'A', text: "Deploy the application as an Azure Static Web App." },
+      { id: 'B', text: "Provision Azure Virtual Machines (VMs) with the required CPU, memory, and OS disk configurations." },
+      { id: 'C', text: "Deploy the database into an unmanaged public FTP server." },
+      { id: 'D', text: "Use Azure Logic Apps to execute custom compiled Windows system binaries." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Provision Azure Virtual Machines (VMs) with the required CPU, memory, and OS disk configurations. Azure Virtual Machines provide on-demand, scalable Infrastructure as a Service (IaaS) computing resources. They provide full control over the operating system, disk storage, networking, and installed software stack, ideal for custom or legacy workloads.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machines/overview",
@@ -156,12 +156,12 @@ export const AZURE_AZ900_QUESTIONS_15 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The organization evaluates Azure Compute to host custom enterprise enterprise software requiring customized OS configurations, dedicated CPU allocations, and direct administrative access.",
     question: "Which solution properly implements these mandatory security and governance controls? Azure IaaS Virtual Machines is under consideration.",
     options: [
-      { id: 'A', text: "Provision Azure Virtual Machines (VMs) with the required CPU, memory, and OS disk configurations." },
+      { id: 'A', text: "Use Azure Logic Apps to execute custom compiled Windows system binaries." },
       { id: 'B', text: "Deploy the application as an Azure Static Web App." },
-      { id: 'C', text: "Use Azure Logic Apps to execute custom compiled Windows system binaries." },
-      { id: 'D', text: "Deploy the database into an unmanaged public FTP server." }
+      { id: 'C', text: "Deploy the database into an unmanaged public FTP server." },
+      { id: 'D', text: "Provision Azure Virtual Machines (VMs) with the required CPU, memory, and OS disk configurations." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Provision Azure Virtual Machines (VMs) with the required CPU, memory, and OS disk configurations. Azure Virtual Machines provide on-demand, scalable Infrastructure as a Service (IaaS) computing resources. They provide full control over the operating system, disk storage, networking, and installed software stack, ideal for custom or legacy workloads.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machines/overview",
@@ -177,12 +177,12 @@ export const AZURE_AZ900_QUESTIONS_15 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to the Microsoft Azure Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The organization evaluates Azure Compute to host custom enterprise enterprise software requiring customized OS configurations, dedicated CPU allocations, and direct administrative access.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? Azure IaaS Virtual Machines is under consideration.",
     options: [
-      { id: 'A', text: "Provision Azure Virtual Machines (VMs) with the required CPU, memory, and OS disk configurations." },
-      { id: 'B', text: "Deploy the application as an Azure Static Web App." },
-      { id: 'C', text: "Use Azure Logic Apps to execute custom compiled Windows system binaries." },
-      { id: 'D', text: "Deploy the database into an unmanaged public FTP server." }
+      { id: 'A', text: "Deploy the application as an Azure Static Web App." },
+      { id: 'B', text: "Deploy the database into an unmanaged public FTP server." },
+      { id: 'C', text: "Provision Azure Virtual Machines (VMs) with the required CPU, memory, and OS disk configurations." },
+      { id: 'D', text: "Use Azure Logic Apps to execute custom compiled Windows system binaries." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Provision Azure Virtual Machines (VMs) with the required CPU, memory, and OS disk configurations. Azure Virtual Machines provide on-demand, scalable Infrastructure as a Service (IaaS) computing resources. They provide full control over the operating system, disk storage, networking, and installed software stack, ideal for custom or legacy workloads.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machines/overview",
@@ -219,12 +219,12 @@ export const AZURE_AZ900_QUESTIONS_15 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The organization evaluates Azure Compute to automatically increase or decrease the number of identical load-balanced virtual machine instances based on CPU utilization and incoming network traffic.",
     question: "Which concept or service configuration satisfies these operational resilience objectives? Azure Virtual Machine Scale Sets automated horizontal scaling is under consideration.",
     options: [
-      { id: 'A', text: "Deploy the workload using Azure Virtual Machine Scale Sets (VMSS) with metric-based autoscale rules." },
-      { id: 'B', text: "Manually deploy 10 standalone VMs and adjust their CPU allocations individually during traffic spikes." },
-      { id: 'C', text: "Deploy an Azure Container Registry instance without compute instances." },
-      { id: 'D', text: "Use Azure DNS to create static round-robin records pointing to single static VMs." }
+      { id: 'A', text: "Deploy an Azure Container Registry instance without compute instances." },
+      { id: 'B', text: "Use Azure DNS to create static round-robin records pointing to single static VMs." },
+      { id: 'C', text: "Deploy the workload using Azure Virtual Machine Scale Sets (VMSS) with metric-based autoscale rules." },
+      { id: 'D', text: "Manually deploy 10 standalone VMs and adjust their CPU allocations individually during traffic spikes." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy the workload using Azure Virtual Machine Scale Sets (VMSS) with metric-based autoscale rules. Azure Virtual Machine Scale Sets (VMSS) let you create and manage a group of identical, load-balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule, providing true elasticity and high availability.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview",
@@ -242,8 +242,8 @@ export const AZURE_AZ900_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Deploy the workload using Azure Virtual Machine Scale Sets (VMSS) with metric-based autoscale rules." },
       { id: 'B', text: "Manually deploy 10 standalone VMs and adjust their CPU allocations individually during traffic spikes." },
-      { id: 'C', text: "Deploy an Azure Container Registry instance without compute instances." },
-      { id: 'D', text: "Use Azure DNS to create static round-robin records pointing to single static VMs." }
+      { id: 'C', text: "Use Azure DNS to create static round-robin records pointing to single static VMs." },
+      { id: 'D', text: "Deploy an Azure Container Registry instance without compute instances." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -261,12 +261,12 @@ export const AZURE_AZ900_QUESTIONS_15 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The organization evaluates Azure Compute to automatically increase or decrease the number of identical load-balanced virtual machine instances based on CPU utilization and incoming network traffic.",
     question: "Which solution properly implements these mandatory security and governance controls? Azure Virtual Machine Scale Sets automated horizontal scaling is under consideration.",
     options: [
-      { id: 'A', text: "Deploy the workload using Azure Virtual Machine Scale Sets (VMSS) with metric-based autoscale rules." },
+      { id: 'A', text: "Use Azure DNS to create static round-robin records pointing to single static VMs." },
       { id: 'B', text: "Manually deploy 10 standalone VMs and adjust their CPU allocations individually during traffic spikes." },
-      { id: 'C', text: "Deploy an Azure Container Registry instance without compute instances." },
-      { id: 'D', text: "Use Azure DNS to create static round-robin records pointing to single static VMs." }
+      { id: 'C', text: "Deploy the workload using Azure Virtual Machine Scale Sets (VMSS) with metric-based autoscale rules." },
+      { id: 'D', text: "Deploy an Azure Container Registry instance without compute instances." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy the workload using Azure Virtual Machine Scale Sets (VMSS) with metric-based autoscale rules. Azure Virtual Machine Scale Sets (VMSS) let you create and manage a group of identical, load-balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule, providing true elasticity and high availability.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview",
@@ -282,12 +282,12 @@ export const AZURE_AZ900_QUESTIONS_15 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to the Microsoft Azure Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The organization evaluates Azure Compute to automatically increase or decrease the number of identical load-balanced virtual machine instances based on CPU utilization and incoming network traffic.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? Azure Virtual Machine Scale Sets automated horizontal scaling is under consideration.",
     options: [
-      { id: 'A', text: "Deploy the workload using Azure Virtual Machine Scale Sets (VMSS) with metric-based autoscale rules." },
-      { id: 'B', text: "Manually deploy 10 standalone VMs and adjust their CPU allocations individually during traffic spikes." },
-      { id: 'C', text: "Deploy an Azure Container Registry instance without compute instances." },
-      { id: 'D', text: "Use Azure DNS to create static round-robin records pointing to single static VMs." }
+      { id: 'A', text: "Manually deploy 10 standalone VMs and adjust their CPU allocations individually during traffic spikes." },
+      { id: 'B', text: "Deploy the workload using Azure Virtual Machine Scale Sets (VMSS) with metric-based autoscale rules." },
+      { id: 'C', text: "Use Azure DNS to create static round-robin records pointing to single static VMs." },
+      { id: 'D', text: "Deploy an Azure Container Registry instance without compute instances." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy the workload using Azure Virtual Machine Scale Sets (VMSS) with metric-based autoscale rules. Azure Virtual Machine Scale Sets (VMSS) let you create and manage a group of identical, load-balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule, providing true elasticity and high availability.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview",
@@ -305,8 +305,8 @@ export const AZURE_AZ900_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Deploy the workload using Azure Virtual Machine Scale Sets (VMSS) with metric-based autoscale rules." },
       { id: 'B', text: "Manually deploy 10 standalone VMs and adjust their CPU allocations individually during traffic spikes." },
-      { id: 'C', text: "Deploy an Azure Container Registry instance without compute instances." },
-      { id: 'D', text: "Use Azure DNS to create static round-robin records pointing to single static VMs." }
+      { id: 'C', text: "Use Azure DNS to create static round-robin records pointing to single static VMs." },
+      { id: 'D', text: "Deploy an Azure Container Registry instance without compute instances." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -324,12 +324,12 @@ export const AZURE_AZ900_QUESTIONS_15 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The organization evaluates Azure Compute to host enterprise web applications and REST APIs using .NET, Java, and Node.js without managing physical servers, hypervisors, or operating system patches.",
     question: "Which concept or service configuration satisfies these operational resilience objectives? Azure App Service fully managed web hosting platform is under consideration.",
     options: [
-      { id: 'A', text: "Deploy the web application to Azure App Service under a managed App Service Plan." },
+      { id: 'A', text: "Deploy an Azure Virtual Network Gateway to serve HTTP web requests directly." },
       { id: 'B', text: "Deploy a cluster of Azure IaaS VMs and configure IIS and operating system updates manually." },
       { id: 'C', text: "Host web application source code in an unmanaged Azure Storage public blob container." },
-      { id: 'D', text: "Deploy an Azure Virtual Network Gateway to serve HTTP web requests directly." }
+      { id: 'D', text: "Deploy the web application to Azure App Service under a managed App Service Plan." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy the web application to Azure App Service under a managed App Service Plan. Azure App Service is an HTTP-based Platform as a Service (PaaS) for hosting web applications, REST APIs, and mobile back ends. It supports automated scaling, continuous deployment from GitHub, custom domains, SSL certificates, and OS patching handled transparently by Microsoft.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/app-service/overview",
@@ -345,12 +345,12 @@ export const AZURE_AZ900_QUESTIONS_15 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The organization evaluates Azure Compute to host enterprise web applications and REST APIs using .NET, Java, and Node.js without managing physical servers, hypervisors, or operating system patches.",
     question: "Which architectural approach should the team select to manage this demand efficiently? Azure App Service fully managed web hosting platform is under consideration.",
     options: [
-      { id: 'A', text: "Deploy the web application to Azure App Service under a managed App Service Plan." },
-      { id: 'B', text: "Deploy a cluster of Azure IaaS VMs and configure IIS and operating system updates manually." },
-      { id: 'C', text: "Host web application source code in an unmanaged Azure Storage public blob container." },
-      { id: 'D', text: "Deploy an Azure Virtual Network Gateway to serve HTTP web requests directly." }
+      { id: 'A', text: "Host web application source code in an unmanaged Azure Storage public blob container." },
+      { id: 'B', text: "Deploy the web application to Azure App Service under a managed App Service Plan." },
+      { id: 'C', text: "Deploy an Azure Virtual Network Gateway to serve HTTP web requests directly." },
+      { id: 'D', text: "Deploy a cluster of Azure IaaS VMs and configure IIS and operating system updates manually." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy the web application to Azure App Service under a managed App Service Plan. Azure App Service is an HTTP-based Platform as a Service (PaaS) for hosting web applications, REST APIs, and mobile back ends. It supports automated scaling, continuous deployment from GitHub, custom domains, SSL certificates, and OS patching handled transparently by Microsoft.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/app-service/overview",
@@ -367,9 +367,9 @@ export const AZURE_AZ900_QUESTIONS_15 = [
     question: "Which solution properly implements these mandatory security and governance controls? Azure App Service fully managed web hosting platform is under consideration.",
     options: [
       { id: 'A', text: "Deploy the web application to Azure App Service under a managed App Service Plan." },
-      { id: 'B', text: "Deploy a cluster of Azure IaaS VMs and configure IIS and operating system updates manually." },
-      { id: 'C', text: "Host web application source code in an unmanaged Azure Storage public blob container." },
-      { id: 'D', text: "Deploy an Azure Virtual Network Gateway to serve HTTP web requests directly." }
+      { id: 'B', text: "Deploy an Azure Virtual Network Gateway to serve HTTP web requests directly." },
+      { id: 'C', text: "Deploy a cluster of Azure IaaS VMs and configure IIS and operating system updates manually." },
+      { id: 'D', text: "Host web application source code in an unmanaged Azure Storage public blob container." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -387,12 +387,12 @@ export const AZURE_AZ900_QUESTIONS_15 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to the Microsoft Azure Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The organization evaluates Azure Compute to host enterprise web applications and REST APIs using .NET, Java, and Node.js without managing physical servers, hypervisors, or operating system patches.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? Azure App Service fully managed web hosting platform is under consideration.",
     options: [
-      { id: 'A', text: "Deploy the web application to Azure App Service under a managed App Service Plan." },
-      { id: 'B', text: "Deploy a cluster of Azure IaaS VMs and configure IIS and operating system updates manually." },
-      { id: 'C', text: "Host web application source code in an unmanaged Azure Storage public blob container." },
-      { id: 'D', text: "Deploy an Azure Virtual Network Gateway to serve HTTP web requests directly." }
+      { id: 'A', text: "Deploy a cluster of Azure IaaS VMs and configure IIS and operating system updates manually." },
+      { id: 'B', text: "Deploy an Azure Virtual Network Gateway to serve HTTP web requests directly." },
+      { id: 'C', text: "Deploy the web application to Azure App Service under a managed App Service Plan." },
+      { id: 'D', text: "Host web application source code in an unmanaged Azure Storage public blob container." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy the web application to Azure App Service under a managed App Service Plan. Azure App Service is an HTTP-based Platform as a Service (PaaS) for hosting web applications, REST APIs, and mobile back ends. It supports automated scaling, continuous deployment from GitHub, custom domains, SSL certificates, and OS patching handled transparently by Microsoft.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/app-service/overview",
@@ -408,12 +408,12 @@ export const AZURE_AZ900_QUESTIONS_15 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The organization evaluates Azure Compute to host enterprise web applications and REST APIs using .NET, Java, and Node.js without managing physical servers, hypervisors, or operating system patches.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? Azure App Service fully managed web hosting platform is under consideration.",
     options: [
-      { id: 'A', text: "Deploy the web application to Azure App Service under a managed App Service Plan." },
+      { id: 'A', text: "Deploy an Azure Virtual Network Gateway to serve HTTP web requests directly." },
       { id: 'B', text: "Deploy a cluster of Azure IaaS VMs and configure IIS and operating system updates manually." },
       { id: 'C', text: "Host web application source code in an unmanaged Azure Storage public blob container." },
-      { id: 'D', text: "Deploy an Azure Virtual Network Gateway to serve HTTP web requests directly." }
+      { id: 'D', text: "Deploy the web application to Azure App Service under a managed App Service Plan." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy the web application to Azure App Service under a managed App Service Plan. Azure App Service is an HTTP-based Platform as a Service (PaaS) for hosting web applications, REST APIs, and mobile back ends. It supports automated scaling, continuous deployment from GitHub, custom domains, SSL certificates, and OS patching handled transparently by Microsoft.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/app-service/overview",
@@ -429,12 +429,12 @@ export const AZURE_AZ900_QUESTIONS_15 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The organization evaluates Azure Serverless to execute backend code in response to events (such as HTTP requests, timer schedules, or queue messages) without provisioning or paying for idle servers.",
     question: "Which concept or service configuration satisfies these operational resilience objectives? Azure Functions event-driven serverless compute is under consideration.",
     options: [
-      { id: 'A', text: "Implement an event-driven serverless solution using Azure Functions on a Consumption Plan." },
-      { id: 'B', text: "Provision a dedicated 8-core Azure VM that polls an empty message queue 24/7." },
-      { id: 'C', text: "Deploy an Azure App Service Plan on an isolated App Service Environment running continuously." },
+      { id: 'A', text: "Provision a dedicated 8-core Azure VM that polls an empty message queue 24/7." },
+      { id: 'B', text: "Deploy an Azure App Service Plan on an isolated App Service Environment running continuously." },
+      { id: 'C', text: "Implement an event-driven serverless solution using Azure Functions on a Consumption Plan." },
       { id: 'D', text: "Configure an Azure Batch cluster that remains active at full capacity indefinitely." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Implement an event-driven serverless solution using Azure Functions on a Consumption Plan. Azure Functions is an event-driven serverless compute service that enables developers to run code in response to events without managing infrastructure. On the Consumption Plan, compute resources scale automatically and customers pay strictly for the execution time and memory consumed per invocation.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview",
@@ -450,12 +450,12 @@ export const AZURE_AZ900_QUESTIONS_15 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The organization evaluates Azure Serverless to execute backend code in response to events (such as HTTP requests, timer schedules, or queue messages) without provisioning or paying for idle servers.",
     question: "Which architectural approach should the team select to manage this demand efficiently? Azure Functions event-driven serverless compute is under consideration.",
     options: [
-      { id: 'A', text: "Implement an event-driven serverless solution using Azure Functions on a Consumption Plan." },
-      { id: 'B', text: "Provision a dedicated 8-core Azure VM that polls an empty message queue 24/7." },
-      { id: 'C', text: "Deploy an Azure App Service Plan on an isolated App Service Environment running continuously." },
-      { id: 'D', text: "Configure an Azure Batch cluster that remains active at full capacity indefinitely." }
+      { id: 'A', text: "Deploy an Azure App Service Plan on an isolated App Service Environment running continuously." },
+      { id: 'B', text: "Configure an Azure Batch cluster that remains active at full capacity indefinitely." },
+      { id: 'C', text: "Implement an event-driven serverless solution using Azure Functions on a Consumption Plan." },
+      { id: 'D', text: "Provision a dedicated 8-core Azure VM that polls an empty message queue 24/7." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Implement an event-driven serverless solution using Azure Functions on a Consumption Plan. Azure Functions is an event-driven serverless compute service that enables developers to run code in response to events without managing infrastructure. On the Consumption Plan, compute resources scale automatically and customers pay strictly for the execution time and memory consumed per invocation.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview",
@@ -473,8 +473,8 @@ export const AZURE_AZ900_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Implement an event-driven serverless solution using Azure Functions on a Consumption Plan." },
       { id: 'B', text: "Provision a dedicated 8-core Azure VM that polls an empty message queue 24/7." },
-      { id: 'C', text: "Deploy an Azure App Service Plan on an isolated App Service Environment running continuously." },
-      { id: 'D', text: "Configure an Azure Batch cluster that remains active at full capacity indefinitely." }
+      { id: 'C', text: "Configure an Azure Batch cluster that remains active at full capacity indefinitely." },
+      { id: 'D', text: "Deploy an Azure App Service Plan on an isolated App Service Environment running continuously." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,12 +492,12 @@ export const AZURE_AZ900_QUESTIONS_15 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to the Microsoft Azure Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The organization evaluates Azure Serverless to execute backend code in response to events (such as HTTP requests, timer schedules, or queue messages) without provisioning or paying for idle servers.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? Azure Functions event-driven serverless compute is under consideration.",
     options: [
-      { id: 'A', text: "Implement an event-driven serverless solution using Azure Functions on a Consumption Plan." },
-      { id: 'B', text: "Provision a dedicated 8-core Azure VM that polls an empty message queue 24/7." },
-      { id: 'C', text: "Deploy an Azure App Service Plan on an isolated App Service Environment running continuously." },
+      { id: 'A', text: "Deploy an Azure App Service Plan on an isolated App Service Environment running continuously." },
+      { id: 'B', text: "Implement an event-driven serverless solution using Azure Functions on a Consumption Plan." },
+      { id: 'C', text: "Provision a dedicated 8-core Azure VM that polls an empty message queue 24/7." },
       { id: 'D', text: "Configure an Azure Batch cluster that remains active at full capacity indefinitely." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Implement an event-driven serverless solution using Azure Functions on a Consumption Plan. Azure Functions is an event-driven serverless compute service that enables developers to run code in response to events without managing infrastructure. On the Consumption Plan, compute resources scale automatically and customers pay strictly for the execution time and memory consumed per invocation.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview",
@@ -513,12 +513,12 @@ export const AZURE_AZ900_QUESTIONS_15 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The organization evaluates Azure Serverless to execute backend code in response to events (such as HTTP requests, timer schedules, or queue messages) without provisioning or paying for idle servers.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? Azure Functions event-driven serverless compute is under consideration.",
     options: [
-      { id: 'A', text: "Implement an event-driven serverless solution using Azure Functions on a Consumption Plan." },
-      { id: 'B', text: "Provision a dedicated 8-core Azure VM that polls an empty message queue 24/7." },
-      { id: 'C', text: "Deploy an Azure App Service Plan on an isolated App Service Environment running continuously." },
-      { id: 'D', text: "Configure an Azure Batch cluster that remains active at full capacity indefinitely." }
+      { id: 'A', text: "Configure an Azure Batch cluster that remains active at full capacity indefinitely." },
+      { id: 'B', text: "Deploy an Azure App Service Plan on an isolated App Service Environment running continuously." },
+      { id: 'C', text: "Implement an event-driven serverless solution using Azure Functions on a Consumption Plan." },
+      { id: 'D', text: "Provision a dedicated 8-core Azure VM that polls an empty message queue 24/7." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Implement an event-driven serverless solution using Azure Functions on a Consumption Plan. Azure Functions is an event-driven serverless compute service that enables developers to run code in response to events without managing infrastructure. On the Consumption Plan, compute resources scale automatically and customers pay strictly for the execution time and memory consumed per invocation.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview",

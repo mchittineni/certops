@@ -9,14 +9,14 @@ export const AWS_SCS_QUESTIONS_13 = [
     scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer evaluates S3 Object Lock to guarantee that security audit logs cannot be deleted or modified by any user, including the root account, during a 7-year regulatory retention period.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives? Write Once Read Many (WORM) storage with Compliance Mode and Legal Hold for security logs is under consideration.",
     options: [
-      { id: 'A', text: "Store logs in an S3 bucket with S3 Object Lock enabled in Compliance Mode with a 7-year retention period." },
-      { id: 'B', text: "Store logs in standard S3 buckets and rely on IAM policies alone to prevent deletion." },
+      { id: 'A', text: "Store logs in standard S3 buckets and rely on IAM policies alone to prevent deletion." },
+      { id: 'B', text: "Store logs on an unencrypted on-premises NAS drive with no write protection." },
       { id: 'C', text: "Use S3 Object Lock in Governance Mode where privileged administrative users can override retention rules." },
-      { id: 'D', text: "Store logs on an unencrypted on-premises NAS drive with no write protection." }
+      { id: 'D', text: "Store logs in an S3 bucket with S3 Object Lock enabled in Compliance Mode with a 7-year retention period." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
-    explanation: "Store logs in an S3 bucket with S3 Object Lock enabled in Compliance Mode with a 7-year retention period. S3 Object Lock enforces WORM (Write Once, Read Many) policies. In `Compliance Mode`, no user\u2014including the AWS account root user\u2014can overwrite, delete, or shorten the retention period of an object until the retention timer expires, satisfying strict regulatory requirements like SEC Rule 17a-4.",
+    explanation: "Store logs in an S3 bucket with S3 Object Lock enabled in Compliance Mode with a 7-year retention period. S3 Object Lock enforces WORM (Write Once, Read Many) policies. In `Compliance Mode`, no user—including the AWS account root user—can overwrite, delete, or shorten the retention period of an object until the retention timer expires, satisfying strict regulatory requirements like SEC Rule 17a-4.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html",
     tags: ["S3 Object Lock", "S3 Object Lock", "Enterprise Governance"]
   },
@@ -30,14 +30,14 @@ export const AWS_SCS_QUESTIONS_13 = [
     scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer evaluates S3 Object Lock to guarantee that security audit logs cannot be deleted or modified by any user, including the root account, during a 7-year regulatory retention period.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence? Write Once Read Many (WORM) storage with Compliance Mode and Legal Hold for security logs is under consideration.",
     options: [
-      { id: 'A', text: "Store logs in an S3 bucket with S3 Object Lock enabled in Compliance Mode with a 7-year retention period." },
-      { id: 'B', text: "Store logs in standard S3 buckets and rely on IAM policies alone to prevent deletion." },
-      { id: 'C', text: "Use S3 Object Lock in Governance Mode where privileged administrative users can override retention rules." },
+      { id: 'A', text: "Store logs in standard S3 buckets and rely on IAM policies alone to prevent deletion." },
+      { id: 'B', text: "Use S3 Object Lock in Governance Mode where privileged administrative users can override retention rules." },
+      { id: 'C', text: "Store logs in an S3 bucket with S3 Object Lock enabled in Compliance Mode with a 7-year retention period." },
       { id: 'D', text: "Store logs on an unencrypted on-premises NAS drive with no write protection." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
-    explanation: "Store logs in an S3 bucket with S3 Object Lock enabled in Compliance Mode with a 7-year retention period. S3 Object Lock enforces WORM (Write Once, Read Many) policies. In `Compliance Mode`, no user\u2014including the AWS account root user\u2014can overwrite, delete, or shorten the retention period of an object until the retention timer expires, satisfying strict regulatory requirements like SEC Rule 17a-4.",
+    explanation: "Store logs in an S3 bucket with S3 Object Lock enabled in Compliance Mode with a 7-year retention period. S3 Object Lock enforces WORM (Write Once, Read Many) policies. In `Compliance Mode`, no user—including the AWS account root user—can overwrite, delete, or shorten the retention period of an object until the retention timer expires, satisfying strict regulatory requirements like SEC Rule 17a-4.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html",
     tags: ["S3 Object Lock", "S3 Object Lock", "Incident Containment"]
   },
@@ -51,14 +51,14 @@ export const AWS_SCS_QUESTIONS_13 = [
     scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer evaluates S3 Object Lock to guarantee that security audit logs cannot be deleted or modified by any user, including the root account, during a 7-year regulatory retention period.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls? Write Once Read Many (WORM) storage with Compliance Mode and Legal Hold for security logs is under consideration.",
     options: [
-      { id: 'A', text: "Store logs in an S3 bucket with S3 Object Lock enabled in Compliance Mode with a 7-year retention period." },
+      { id: 'A', text: "Store logs on an unencrypted on-premises NAS drive with no write protection." },
       { id: 'B', text: "Store logs in standard S3 buckets and rely on IAM policies alone to prevent deletion." },
-      { id: 'C', text: "Use S3 Object Lock in Governance Mode where privileged administrative users can override retention rules." },
-      { id: 'D', text: "Store logs on an unencrypted on-premises NAS drive with no write protection." }
+      { id: 'C', text: "Store logs in an S3 bucket with S3 Object Lock enabled in Compliance Mode with a 7-year retention period." },
+      { id: 'D', text: "Use S3 Object Lock in Governance Mode where privileged administrative users can override retention rules." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
-    explanation: "Store logs in an S3 bucket with S3 Object Lock enabled in Compliance Mode with a 7-year retention period. S3 Object Lock enforces WORM (Write Once, Read Many) policies. In `Compliance Mode`, no user\u2014including the AWS account root user\u2014can overwrite, delete, or shorten the retention period of an object until the retention timer expires, satisfying strict regulatory requirements like SEC Rule 17a-4.",
+    explanation: "Store logs in an S3 bucket with S3 Object Lock enabled in Compliance Mode with a 7-year retention period. S3 Object Lock enforces WORM (Write Once, Read Many) policies. In `Compliance Mode`, no user—including the AWS account root user—can overwrite, delete, or shorten the retention period of an object until the retention timer expires, satisfying strict regulatory requirements like SEC Rule 17a-4.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html",
     tags: ["S3 Object Lock", "S3 Object Lock", "Zero Trust Iam"]
   },
@@ -73,13 +73,13 @@ export const AWS_SCS_QUESTIONS_13 = [
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity? Write Once Read Many (WORM) storage with Compliance Mode and Legal Hold for security logs is under consideration.",
     options: [
       { id: 'A', text: "Store logs in an S3 bucket with S3 Object Lock enabled in Compliance Mode with a 7-year retention period." },
-      { id: 'B', text: "Store logs in standard S3 buckets and rely on IAM policies alone to prevent deletion." },
-      { id: 'C', text: "Use S3 Object Lock in Governance Mode where privileged administrative users can override retention rules." },
+      { id: 'B', text: "Use S3 Object Lock in Governance Mode where privileged administrative users can override retention rules." },
+      { id: 'C', text: "Store logs in standard S3 buckets and rely on IAM policies alone to prevent deletion." },
       { id: 'D', text: "Store logs on an unencrypted on-premises NAS drive with no write protection." }
     ],
     correctAnswers: ['A'],
     type: "single",
-    explanation: "Store logs in an S3 bucket with S3 Object Lock enabled in Compliance Mode with a 7-year retention period. S3 Object Lock enforces WORM (Write Once, Read Many) policies. In `Compliance Mode`, no user\u2014including the AWS account root user\u2014can overwrite, delete, or shorten the retention period of an object until the retention timer expires, satisfying strict regulatory requirements like SEC Rule 17a-4.",
+    explanation: "Store logs in an S3 bucket with S3 Object Lock enabled in Compliance Mode with a 7-year retention period. S3 Object Lock enforces WORM (Write Once, Read Many) policies. In `Compliance Mode`, no user—including the AWS account root user—can overwrite, delete, or shorten the retention period of an object until the retention timer expires, satisfying strict regulatory requirements like SEC Rule 17a-4.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html",
     tags: ["S3 Object Lock", "S3 Object Lock", "Data Protection"]
   },
@@ -93,14 +93,14 @@ export const AWS_SCS_QUESTIONS_13 = [
     scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer evaluates S3 Object Lock to guarantee that security audit logs cannot be deleted or modified by any user, including the root account, during a 7-year regulatory retention period.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense? Write Once Read Many (WORM) storage with Compliance Mode and Legal Hold for security logs is under consideration.",
     options: [
-      { id: 'A', text: "Store logs in an S3 bucket with S3 Object Lock enabled in Compliance Mode with a 7-year retention period." },
-      { id: 'B', text: "Store logs in standard S3 buckets and rely on IAM policies alone to prevent deletion." },
-      { id: 'C', text: "Use S3 Object Lock in Governance Mode where privileged administrative users can override retention rules." },
-      { id: 'D', text: "Store logs on an unencrypted on-premises NAS drive with no write protection." }
+      { id: 'A', text: "Use S3 Object Lock in Governance Mode where privileged administrative users can override retention rules." },
+      { id: 'B', text: "Store logs on an unencrypted on-premises NAS drive with no write protection." },
+      { id: 'C', text: "Store logs in an S3 bucket with S3 Object Lock enabled in Compliance Mode with a 7-year retention period." },
+      { id: 'D', text: "Store logs in standard S3 buckets and rely on IAM policies alone to prevent deletion." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
-    explanation: "Store logs in an S3 bucket with S3 Object Lock enabled in Compliance Mode with a 7-year retention period. S3 Object Lock enforces WORM (Write Once, Read Many) policies. In `Compliance Mode`, no user\u2014including the AWS account root user\u2014can overwrite, delete, or shorten the retention period of an object until the retention timer expires, satisfying strict regulatory requirements like SEC Rule 17a-4.",
+    explanation: "Store logs in an S3 bucket with S3 Object Lock enabled in Compliance Mode with a 7-year retention period. S3 Object Lock enforces WORM (Write Once, Read Many) policies. In `Compliance Mode`, no user—including the AWS account root user—can overwrite, delete, or shorten the retention period of an object until the retention timer expires, satisfying strict regulatory requirements like SEC Rule 17a-4.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html",
     tags: ["S3 Object Lock", "S3 Object Lock", "Infrastructure Defense"]
   },
@@ -114,12 +114,12 @@ export const AWS_SCS_QUESTIONS_13 = [
     scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer evaluates CloudWatch Alarms to receive immediate alerts whenever someone logs into the AWS Management Console using the root account credentials.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives? Creating metric filters on CloudTrail logs for Root account usage and unauthorized API calls is under consideration.",
     options: [
-      { id: 'A', text: "Create a CloudWatch Logs metric filter matching `$.userIdentity.type = \"Root\"` on CloudTrail events and trigger an SNS alarm." },
-      { id: 'B', text: "Check the AWS billing statement at the end of the month to see if root account fees were charged." },
+      { id: 'A', text: "Check the AWS billing statement at the end of the month to see if root account fees were charged." },
+      { id: 'B', text: "Create a CloudWatch Logs metric filter matching `$.userIdentity.type = \"Root\"` on CloudTrail events and trigger an SNS alarm." },
       { id: 'C', text: "Disable root account alerting to avoid distracting the security team." },
       { id: 'D', text: "Rely on human team members to verbally notify the team when they use the root account." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Create a CloudWatch Logs metric filter matching `$.userIdentity.type = \"Root\"` on CloudTrail events and trigger an SNS alarm. CloudWatch Logs Metric Filters scan streaming CloudTrail log lines for security-critical event patterns. Key CIS benchmark alarms include root account usage (`$.userIdentity.type = \"Root\"`), unauthorized API calls (`$.errorCode = \"*UnauthorizedOperation*\"`), and console logins without MFA.",
     referenceUrl: "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudwatch-alarms-for-cloudtrail.html",
@@ -135,12 +135,12 @@ export const AWS_SCS_QUESTIONS_13 = [
     scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer evaluates CloudWatch Alarms to receive immediate alerts whenever someone logs into the AWS Management Console using the root account credentials.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence? Creating metric filters on CloudTrail logs for Root account usage and unauthorized API calls is under consideration.",
     options: [
-      { id: 'A', text: "Create a CloudWatch Logs metric filter matching `$.userIdentity.type = \"Root\"` on CloudTrail events and trigger an SNS alarm." },
-      { id: 'B', text: "Check the AWS billing statement at the end of the month to see if root account fees were charged." },
-      { id: 'C', text: "Disable root account alerting to avoid distracting the security team." },
-      { id: 'D', text: "Rely on human team members to verbally notify the team when they use the root account." }
+      { id: 'A', text: "Disable root account alerting to avoid distracting the security team." },
+      { id: 'B', text: "Rely on human team members to verbally notify the team when they use the root account." },
+      { id: 'C', text: "Create a CloudWatch Logs metric filter matching `$.userIdentity.type = \"Root\"` on CloudTrail events and trigger an SNS alarm." },
+      { id: 'D', text: "Check the AWS billing statement at the end of the month to see if root account fees were charged." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Create a CloudWatch Logs metric filter matching `$.userIdentity.type = \"Root\"` on CloudTrail events and trigger an SNS alarm. CloudWatch Logs Metric Filters scan streaming CloudTrail log lines for security-critical event patterns. Key CIS benchmark alarms include root account usage (`$.userIdentity.type = \"Root\"`), unauthorized API calls (`$.errorCode = \"*UnauthorizedOperation*\"`), and console logins without MFA.",
     referenceUrl: "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudwatch-alarms-for-cloudtrail.html",
@@ -156,12 +156,12 @@ export const AWS_SCS_QUESTIONS_13 = [
     scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer evaluates CloudWatch Alarms to receive immediate alerts whenever someone logs into the AWS Management Console using the root account credentials.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls? Creating metric filters on CloudTrail logs for Root account usage and unauthorized API calls is under consideration.",
     options: [
-      { id: 'A', text: "Create a CloudWatch Logs metric filter matching `$.userIdentity.type = \"Root\"` on CloudTrail events and trigger an SNS alarm." },
-      { id: 'B', text: "Check the AWS billing statement at the end of the month to see if root account fees were charged." },
-      { id: 'C', text: "Disable root account alerting to avoid distracting the security team." },
-      { id: 'D', text: "Rely on human team members to verbally notify the team when they use the root account." }
+      { id: 'A', text: "Rely on human team members to verbally notify the team when they use the root account." },
+      { id: 'B', text: "Disable root account alerting to avoid distracting the security team." },
+      { id: 'C', text: "Check the AWS billing statement at the end of the month to see if root account fees were charged." },
+      { id: 'D', text: "Create a CloudWatch Logs metric filter matching `$.userIdentity.type = \"Root\"` on CloudTrail events and trigger an SNS alarm." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Create a CloudWatch Logs metric filter matching `$.userIdentity.type = \"Root\"` on CloudTrail events and trigger an SNS alarm. CloudWatch Logs Metric Filters scan streaming CloudTrail log lines for security-critical event patterns. Key CIS benchmark alarms include root account usage (`$.userIdentity.type = \"Root\"`), unauthorized API calls (`$.errorCode = \"*UnauthorizedOperation*\"`), and console logins without MFA.",
     referenceUrl: "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudwatch-alarms-for-cloudtrail.html",
@@ -177,12 +177,12 @@ export const AWS_SCS_QUESTIONS_13 = [
     scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer evaluates CloudWatch Alarms to receive immediate alerts whenever someone logs into the AWS Management Console using the root account credentials.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity? Creating metric filters on CloudTrail logs for Root account usage and unauthorized API calls is under consideration.",
     options: [
-      { id: 'A', text: "Create a CloudWatch Logs metric filter matching `$.userIdentity.type = \"Root\"` on CloudTrail events and trigger an SNS alarm." },
-      { id: 'B', text: "Check the AWS billing statement at the end of the month to see if root account fees were charged." },
-      { id: 'C', text: "Disable root account alerting to avoid distracting the security team." },
-      { id: 'D', text: "Rely on human team members to verbally notify the team when they use the root account." }
+      { id: 'A', text: "Disable root account alerting to avoid distracting the security team." },
+      { id: 'B', text: "Rely on human team members to verbally notify the team when they use the root account." },
+      { id: 'C', text: "Create a CloudWatch Logs metric filter matching `$.userIdentity.type = \"Root\"` on CloudTrail events and trigger an SNS alarm." },
+      { id: 'D', text: "Check the AWS billing statement at the end of the month to see if root account fees were charged." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Create a CloudWatch Logs metric filter matching `$.userIdentity.type = \"Root\"` on CloudTrail events and trigger an SNS alarm. CloudWatch Logs Metric Filters scan streaming CloudTrail log lines for security-critical event patterns. Key CIS benchmark alarms include root account usage (`$.userIdentity.type = \"Root\"`), unauthorized API calls (`$.errorCode = \"*UnauthorizedOperation*\"`), and console logins without MFA.",
     referenceUrl: "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudwatch-alarms-for-cloudtrail.html",
@@ -219,12 +219,12 @@ export const AWS_SCS_QUESTIONS_13 = [
     scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer evaluates Network Firewall Logging to analyze dropped network packets and Suricata intrusion prevention alerts generated by AWS Network Firewall.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives? Configuring alert, drop, and flow logging destinations for stateful Suricata inspection is under consideration.",
     options: [
-      { id: 'A', text: "Configure AWS Network Firewall logging to stream `Alert` and `Flow` logs directly to Amazon S3 or CloudWatch Logs." },
+      { id: 'A', text: "Disable logging to improve network firewall throughput by 5%." },
       { id: 'B', text: "Log into the firewall appliance operating system directly via SSH to run tcpdump." },
-      { id: 'C', text: "Disable logging to improve network firewall throughput by 5%." },
+      { id: 'C', text: "Configure AWS Network Firewall logging to stream `Alert` and `Flow` logs directly to Amazon S3 or CloudWatch Logs." },
       { id: 'D', text: "Assume all dropped packets are harmless and omit intrusion logging." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure AWS Network Firewall logging to stream `Alert` and `Flow` logs directly to Amazon S3 or CloudWatch Logs. AWS Network Firewall provides stateful traffic inspection using standard Suricata rules. Platform security teams configure logging destinations for both `Flow` logs (session metadata) and `Alert` logs (packets matching intrusion detection/prevention signatures), streaming to S3, CloudWatch, or Kinesis Firehose.",
     referenceUrl: "https://docs.aws.amazon.com/network-firewall/latest/developerguide/logging.html",
@@ -261,12 +261,12 @@ export const AWS_SCS_QUESTIONS_13 = [
     scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer evaluates Network Firewall Logging to analyze dropped network packets and Suricata intrusion prevention alerts generated by AWS Network Firewall.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls? Configuring alert, drop, and flow logging destinations for stateful Suricata inspection is under consideration.",
     options: [
-      { id: 'A', text: "Configure AWS Network Firewall logging to stream `Alert` and `Flow` logs directly to Amazon S3 or CloudWatch Logs." },
-      { id: 'B', text: "Log into the firewall appliance operating system directly via SSH to run tcpdump." },
-      { id: 'C', text: "Disable logging to improve network firewall throughput by 5%." },
-      { id: 'D', text: "Assume all dropped packets are harmless and omit intrusion logging." }
+      { id: 'A', text: "Log into the firewall appliance operating system directly via SSH to run tcpdump." },
+      { id: 'B', text: "Configure AWS Network Firewall logging to stream `Alert` and `Flow` logs directly to Amazon S3 or CloudWatch Logs." },
+      { id: 'C', text: "Assume all dropped packets are harmless and omit intrusion logging." },
+      { id: 'D', text: "Disable logging to improve network firewall throughput by 5%." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure AWS Network Firewall logging to stream `Alert` and `Flow` logs directly to Amazon S3 or CloudWatch Logs. AWS Network Firewall provides stateful traffic inspection using standard Suricata rules. Platform security teams configure logging destinations for both `Flow` logs (session metadata) and `Alert` logs (packets matching intrusion detection/prevention signatures), streaming to S3, CloudWatch, or Kinesis Firehose.",
     referenceUrl: "https://docs.aws.amazon.com/network-firewall/latest/developerguide/logging.html",
@@ -282,12 +282,12 @@ export const AWS_SCS_QUESTIONS_13 = [
     scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer evaluates Network Firewall Logging to analyze dropped network packets and Suricata intrusion prevention alerts generated by AWS Network Firewall.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity? Configuring alert, drop, and flow logging destinations for stateful Suricata inspection is under consideration.",
     options: [
-      { id: 'A', text: "Configure AWS Network Firewall logging to stream `Alert` and `Flow` logs directly to Amazon S3 or CloudWatch Logs." },
-      { id: 'B', text: "Log into the firewall appliance operating system directly via SSH to run tcpdump." },
-      { id: 'C', text: "Disable logging to improve network firewall throughput by 5%." },
-      { id: 'D', text: "Assume all dropped packets are harmless and omit intrusion logging." }
+      { id: 'A', text: "Disable logging to improve network firewall throughput by 5%." },
+      { id: 'B', text: "Assume all dropped packets are harmless and omit intrusion logging." },
+      { id: 'C', text: "Log into the firewall appliance operating system directly via SSH to run tcpdump." },
+      { id: 'D', text: "Configure AWS Network Firewall logging to stream `Alert` and `Flow` logs directly to Amazon S3 or CloudWatch Logs." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure AWS Network Firewall logging to stream `Alert` and `Flow` logs directly to Amazon S3 or CloudWatch Logs. AWS Network Firewall provides stateful traffic inspection using standard Suricata rules. Platform security teams configure logging destinations for both `Flow` logs (session metadata) and `Alert` logs (packets matching intrusion detection/prevention signatures), streaming to S3, CloudWatch, or Kinesis Firehose.",
     referenceUrl: "https://docs.aws.amazon.com/network-firewall/latest/developerguide/logging.html",
@@ -303,12 +303,12 @@ export const AWS_SCS_QUESTIONS_13 = [
     scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer evaluates Network Firewall Logging to analyze dropped network packets and Suricata intrusion prevention alerts generated by AWS Network Firewall.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense? Configuring alert, drop, and flow logging destinations for stateful Suricata inspection is under consideration.",
     options: [
-      { id: 'A', text: "Configure AWS Network Firewall logging to stream `Alert` and `Flow` logs directly to Amazon S3 or CloudWatch Logs." },
-      { id: 'B', text: "Log into the firewall appliance operating system directly via SSH to run tcpdump." },
-      { id: 'C', text: "Disable logging to improve network firewall throughput by 5%." },
-      { id: 'D', text: "Assume all dropped packets are harmless and omit intrusion logging." }
+      { id: 'A', text: "Log into the firewall appliance operating system directly via SSH to run tcpdump." },
+      { id: 'B', text: "Assume all dropped packets are harmless and omit intrusion logging." },
+      { id: 'C', text: "Configure AWS Network Firewall logging to stream `Alert` and `Flow` logs directly to Amazon S3 or CloudWatch Logs." },
+      { id: 'D', text: "Disable logging to improve network firewall throughput by 5%." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure AWS Network Firewall logging to stream `Alert` and `Flow` logs directly to Amazon S3 or CloudWatch Logs. AWS Network Firewall provides stateful traffic inspection using standard Suricata rules. Platform security teams configure logging destinations for both `Flow` logs (session metadata) and `Alert` logs (packets matching intrusion detection/prevention signatures), streaming to S3, CloudWatch, or Kinesis Firehose.",
     referenceUrl: "https://docs.aws.amazon.com/network-firewall/latest/developerguide/logging.html",
@@ -325,9 +325,9 @@ export const AWS_SCS_QUESTIONS_13 = [
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives? Streaming web request logs via Kinesis Data Firehose with header and cookie redaction is under consideration.",
     options: [
       { id: 'A', text: "Enable AWS WAF full logging to Amazon Kinesis Data Firehose with `RedactedFields` configured for `Authorization` and `Cookie` headers." },
-      { id: 'B', text: "Disable WAF logging to avoid capturing sensitive credentials in log files." },
-      { id: 'C', text: "Store plaintext HTTP request bodies containing user passwords in public S3 buckets." },
-      { id: 'D', text: "Log traffic only when the web application crashes." }
+      { id: 'B', text: "Store plaintext HTTP request bodies containing user passwords in public S3 buckets." },
+      { id: 'C', text: "Log traffic only when the web application crashes." },
+      { id: 'D', text: "Disable WAF logging to avoid capturing sensitive credentials in log files." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -345,12 +345,12 @@ export const AWS_SCS_QUESTIONS_13 = [
     scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer evaluates WAF Logging to log all incoming HTTP requests blocked by AWS WAF while ensuring sensitive user passwords and authorization headers are never logged.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence? Streaming web request logs via Kinesis Data Firehose with header and cookie redaction is under consideration.",
     options: [
-      { id: 'A', text: "Enable AWS WAF full logging to Amazon Kinesis Data Firehose with `RedactedFields` configured for `Authorization` and `Cookie` headers." },
+      { id: 'A', text: "Log traffic only when the web application crashes." },
       { id: 'B', text: "Disable WAF logging to avoid capturing sensitive credentials in log files." },
-      { id: 'C', text: "Store plaintext HTTP request bodies containing user passwords in public S3 buckets." },
-      { id: 'D', text: "Log traffic only when the web application crashes." }
+      { id: 'C', text: "Enable AWS WAF full logging to Amazon Kinesis Data Firehose with `RedactedFields` configured for `Authorization` and `Cookie` headers." },
+      { id: 'D', text: "Store plaintext HTTP request bodies containing user passwords in public S3 buckets." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Enable AWS WAF full logging to Amazon Kinesis Data Firehose with `RedactedFields` configured for `Authorization` and `Cookie` headers. AWS WAF logs comprehensive request metadata (IP, URI, headers, matching rules). Security policies require redacting sensitive information (like `Authorization` bearer tokens or `Cookie` headers) using `RedactedFields` before logs are delivered to Kinesis Data Firehose or S3.",
     referenceUrl: "https://docs.aws.amazon.com/waf/latest/developerguide/logging.html",
@@ -367,9 +367,9 @@ export const AWS_SCS_QUESTIONS_13 = [
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls? Streaming web request logs via Kinesis Data Firehose with header and cookie redaction is under consideration.",
     options: [
       { id: 'A', text: "Enable AWS WAF full logging to Amazon Kinesis Data Firehose with `RedactedFields` configured for `Authorization` and `Cookie` headers." },
-      { id: 'B', text: "Disable WAF logging to avoid capturing sensitive credentials in log files." },
+      { id: 'B', text: "Log traffic only when the web application crashes." },
       { id: 'C', text: "Store plaintext HTTP request bodies containing user passwords in public S3 buckets." },
-      { id: 'D', text: "Log traffic only when the web application crashes." }
+      { id: 'D', text: "Disable WAF logging to avoid capturing sensitive credentials in log files." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,12 +408,12 @@ export const AWS_SCS_QUESTIONS_13 = [
     scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer evaluates WAF Logging to log all incoming HTTP requests blocked by AWS WAF while ensuring sensitive user passwords and authorization headers are never logged.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense? Streaming web request logs via Kinesis Data Firehose with header and cookie redaction is under consideration.",
     options: [
-      { id: 'A', text: "Enable AWS WAF full logging to Amazon Kinesis Data Firehose with `RedactedFields` configured for `Authorization` and `Cookie` headers." },
-      { id: 'B', text: "Disable WAF logging to avoid capturing sensitive credentials in log files." },
-      { id: 'C', text: "Store plaintext HTTP request bodies containing user passwords in public S3 buckets." },
+      { id: 'A', text: "Store plaintext HTTP request bodies containing user passwords in public S3 buckets." },
+      { id: 'B', text: "Enable AWS WAF full logging to Amazon Kinesis Data Firehose with `RedactedFields` configured for `Authorization` and `Cookie` headers." },
+      { id: 'C', text: "Disable WAF logging to avoid capturing sensitive credentials in log files." },
       { id: 'D', text: "Log traffic only when the web application crashes." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Enable AWS WAF full logging to Amazon Kinesis Data Firehose with `RedactedFields` configured for `Authorization` and `Cookie` headers. AWS WAF logs comprehensive request metadata (IP, URI, headers, matching rules). Security policies require redacting sensitive information (like `Authorization` bearer tokens or `Cookie` headers) using `RedactedFields` before logs are delivered to Kinesis Data Firehose or S3.",
     referenceUrl: "https://docs.aws.amazon.com/waf/latest/developerguide/logging.html",
@@ -429,12 +429,12 @@ export const AWS_SCS_QUESTIONS_13 = [
     scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer evaluates Athena Analytics to perform fast forensic queries across terabytes of multi-account CloudTrail logs in Amazon S3 without incurring query timeouts.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives? Querying billions of multi-account CloudTrail and VPC Flow Logs efficiently using partition projection is under consideration.",
     options: [
-      { id: 'A', text: "Configure an Amazon Athena table utilizing Partition Projection on account, region, and date partitions." },
+      { id: 'A', text: "Download all S3 log files to a local database server before running SQL queries." },
       { id: 'B', text: "Execute full table scans across millions of unindexed S3 objects using standard relational SELECT queries." },
-      { id: 'C', text: "Download all S3 log files to a local database server before running SQL queries." },
-      { id: 'D', text: "Delete historical log files older than 24 hours to keep query sizes small." }
+      { id: 'C', text: "Delete historical log files older than 24 hours to keep query sizes small." },
+      { id: 'D', text: "Configure an Amazon Athena table utilizing Partition Projection on account, region, and date partitions." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure an Amazon Athena table utilizing Partition Projection on account, region, and date partitions. When querying massive multi-account log repositories in S3, standard Athena `MSCK REPAIR TABLE` operations time out. Enabling Partition Projection allows Athena to calculate partition locations mathematically from table properties, drastically accelerating queries and eliminating partition metadata bottlenecks.",
     referenceUrl: "https://docs.aws.amazon.com/athena/latest/ug/partition-projection.html",
@@ -450,12 +450,12 @@ export const AWS_SCS_QUESTIONS_13 = [
     scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer evaluates Athena Analytics to perform fast forensic queries across terabytes of multi-account CloudTrail logs in Amazon S3 without incurring query timeouts.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence? Querying billions of multi-account CloudTrail and VPC Flow Logs efficiently using partition projection is under consideration.",
     options: [
-      { id: 'A', text: "Configure an Amazon Athena table utilizing Partition Projection on account, region, and date partitions." },
+      { id: 'A', text: "Download all S3 log files to a local database server before running SQL queries." },
       { id: 'B', text: "Execute full table scans across millions of unindexed S3 objects using standard relational SELECT queries." },
-      { id: 'C', text: "Download all S3 log files to a local database server before running SQL queries." },
+      { id: 'C', text: "Configure an Amazon Athena table utilizing Partition Projection on account, region, and date partitions." },
       { id: 'D', text: "Delete historical log files older than 24 hours to keep query sizes small." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure an Amazon Athena table utilizing Partition Projection on account, region, and date partitions. When querying massive multi-account log repositories in S3, standard Athena `MSCK REPAIR TABLE` operations time out. Enabling Partition Projection allows Athena to calculate partition locations mathematically from table properties, drastically accelerating queries and eliminating partition metadata bottlenecks.",
     referenceUrl: "https://docs.aws.amazon.com/athena/latest/ug/partition-projection.html",
@@ -471,12 +471,12 @@ export const AWS_SCS_QUESTIONS_13 = [
     scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer evaluates Athena Analytics to perform fast forensic queries across terabytes of multi-account CloudTrail logs in Amazon S3 without incurring query timeouts.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls? Querying billions of multi-account CloudTrail and VPC Flow Logs efficiently using partition projection is under consideration.",
     options: [
-      { id: 'A', text: "Configure an Amazon Athena table utilizing Partition Projection on account, region, and date partitions." },
-      { id: 'B', text: "Execute full table scans across millions of unindexed S3 objects using standard relational SELECT queries." },
+      { id: 'A', text: "Execute full table scans across millions of unindexed S3 objects using standard relational SELECT queries." },
+      { id: 'B', text: "Configure an Amazon Athena table utilizing Partition Projection on account, region, and date partitions." },
       { id: 'C', text: "Download all S3 log files to a local database server before running SQL queries." },
       { id: 'D', text: "Delete historical log files older than 24 hours to keep query sizes small." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure an Amazon Athena table utilizing Partition Projection on account, region, and date partitions. When querying massive multi-account log repositories in S3, standard Athena `MSCK REPAIR TABLE` operations time out. Enabling Partition Projection allows Athena to calculate partition locations mathematically from table properties, drastically accelerating queries and eliminating partition metadata bottlenecks.",
     referenceUrl: "https://docs.aws.amazon.com/athena/latest/ug/partition-projection.html",
@@ -492,12 +492,12 @@ export const AWS_SCS_QUESTIONS_13 = [
     scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer evaluates Athena Analytics to perform fast forensic queries across terabytes of multi-account CloudTrail logs in Amazon S3 without incurring query timeouts.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity? Querying billions of multi-account CloudTrail and VPC Flow Logs efficiently using partition projection is under consideration.",
     options: [
-      { id: 'A', text: "Configure an Amazon Athena table utilizing Partition Projection on account, region, and date partitions." },
+      { id: 'A', text: "Delete historical log files older than 24 hours to keep query sizes small." },
       { id: 'B', text: "Execute full table scans across millions of unindexed S3 objects using standard relational SELECT queries." },
-      { id: 'C', text: "Download all S3 log files to a local database server before running SQL queries." },
-      { id: 'D', text: "Delete historical log files older than 24 hours to keep query sizes small." }
+      { id: 'C', text: "Configure an Amazon Athena table utilizing Partition Projection on account, region, and date partitions." },
+      { id: 'D', text: "Download all S3 log files to a local database server before running SQL queries." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure an Amazon Athena table utilizing Partition Projection on account, region, and date partitions. When querying massive multi-account log repositories in S3, standard Athena `MSCK REPAIR TABLE` operations time out. Enabling Partition Projection allows Athena to calculate partition locations mathematically from table properties, drastically accelerating queries and eliminating partition metadata bottlenecks.",
     referenceUrl: "https://docs.aws.amazon.com/athena/latest/ug/partition-projection.html",
@@ -513,12 +513,12 @@ export const AWS_SCS_QUESTIONS_13 = [
     scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer evaluates Athena Analytics to perform fast forensic queries across terabytes of multi-account CloudTrail logs in Amazon S3 without incurring query timeouts.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense? Querying billions of multi-account CloudTrail and VPC Flow Logs efficiently using partition projection is under consideration.",
     options: [
-      { id: 'A', text: "Configure an Amazon Athena table utilizing Partition Projection on account, region, and date partitions." },
-      { id: 'B', text: "Execute full table scans across millions of unindexed S3 objects using standard relational SELECT queries." },
+      { id: 'A', text: "Delete historical log files older than 24 hours to keep query sizes small." },
+      { id: 'B', text: "Configure an Amazon Athena table utilizing Partition Projection on account, region, and date partitions." },
       { id: 'C', text: "Download all S3 log files to a local database server before running SQL queries." },
-      { id: 'D', text: "Delete historical log files older than 24 hours to keep query sizes small." }
+      { id: 'D', text: "Execute full table scans across millions of unindexed S3 objects using standard relational SELECT queries." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure an Amazon Athena table utilizing Partition Projection on account, region, and date partitions. When querying massive multi-account log repositories in S3, standard Athena `MSCK REPAIR TABLE` operations time out. Enabling Partition Projection allows Athena to calculate partition locations mathematically from table properties, drastically accelerating queries and eliminating partition metadata bottlenecks.",
     referenceUrl: "https://docs.aws.amazon.com/athena/latest/ug/partition-projection.html",

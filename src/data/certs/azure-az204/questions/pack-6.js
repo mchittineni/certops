@@ -9,12 +9,12 @@ export const AZURE_AZ204_QUESTIONS_6 = [
     scenario: "A healthcare application stores cryptographic keys in Azure Key Vault. The compliance mandate dictates that no key can be permanently deleted or purged before 90 days, even by global administrators.",
     question: "Which Key Vault feature prevents premature permanent destruction of deleted vaults and keys?",
     options: [
-      { id: 'A', text: "Diagnostic Logging" },
-      { id: 'B', text: "Purge Protection" },
-      { id: 'C', text: "Soft Delete alone (without Purge Protection)" },
+      { id: 'A', text: "Purge Protection" },
+      { id: 'B', text: "Soft Delete alone (without Purge Protection)" },
+      { id: 'C', text: "Diagnostic Logging" },
       { id: 'D', text: "Vault Access Policies" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Key Vault `Soft Delete` is enabled by default (retaining deleted vaults and objects for 7 to 90 days). Enabling `Purge Protection` ensures that soft-deleted items cannot be permanently deleted (purged) by anyone until the retention period completely elapses.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/key-vault/general/soft-delete-overview#purge-protection",
@@ -31,8 +31,8 @@ export const AZURE_AZ204_QUESTIONS_6 = [
     question: "Which feature in Azure App Configuration facilitates percentage-based gradual rollout?",
     options: [
       { id: 'A', text: "Feature Management with a Percentage Targeting Filter" },
-      { id: 'B', text: "Key Vault Secret versioning" },
-      { id: 'C', text: "Storage Account Access Keys" },
+      { id: 'B', text: "Storage Account Access Keys" },
+      { id: 'C', text: "Key Vault Secret versioning" },
       { id: 'D', text: "Azure Logic Apps trigger" }
     ],
     correctAnswers: ['A'],
@@ -52,8 +52,8 @@ export const AZURE_AZ204_QUESTIONS_6 = [
     question: "Which pattern in the Azure App Configuration SDK detects changes dynamically using a sentinel key?",
     options: [
       { id: 'A', text: "Registering a Sentinel Key with a cache expiration interval (e.g. SetCacheExpiration) in the configuration provider" },
-      { id: 'B', text: "Restarting the App Service Plan every 5 minutes" },
-      { id: 'C', text: "Polling every key in App Configuration on every HTTP request" },
+      { id: 'B', text: "Polling every key in App Configuration on every HTTP request" },
+      { id: 'C', text: "Restarting the App Service Plan every 5 minutes" },
       { id: 'D', text: "Storing settings in local text files" }
     ],
     correctAnswers: ['A'],
@@ -73,9 +73,9 @@ export const AZURE_AZ204_QUESTIONS_6 = [
     question: "Which SAS type satisfies this security requirement?",
     options: [
       { id: 'A', text: "User Delegation SAS" },
-      { id: 'B', text: "Account SAS" },
+      { id: 'B', text: "Ad-hoc SAS signed with Key 1" },
       { id: 'C', text: "Service SAS" },
-      { id: 'D', text: "Ad-hoc SAS signed with Key 1" }
+      { id: 'D', text: "Account SAS" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -95,8 +95,8 @@ export const AZURE_AZ204_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "Associating the Service SAS with a Stored Access Policy on the container" },
       { id: 'B', text: "Deleting the storage account" },
-      { id: 'C', text: "Rotating the entire Azure subscription root password" },
-      { id: 'D', text: "Service SAS tokens cannot be revoked early" }
+      { id: 'C', text: "Service SAS tokens cannot be revoked early" },
+      { id: 'D', text: "Rotating the entire Azure subscription root password" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -114,12 +114,12 @@ export const AZURE_AZ204_QUESTIONS_6 = [
     scenario: "A developer creates a Shared Access Signature (SAS) token for an Azure Blob. Security governance mandates that the SAS token can only be used over encrypted TLS/HTTPS connections.",
     question: "Which query parameter in the SAS URI restricts communication exclusively to HTTPS?",
     options: [
-      { id: 'A', text: "sp=https" },
-      { id: 'B', text: "spr=https" },
-      { id: 'C', text: "sip=443" },
-      { id: 'D', text: "se=ssl" }
+      { id: 'A', text: "sip=443" },
+      { id: 'B', text: "se=ssl" },
+      { id: 'C', text: "spr=https" },
+      { id: 'D', text: "sp=https" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "The `spr` parameter (signed protocol) in a SAS URI specifies the protocol permitted for a request. Setting `spr=https` permits requests using HTTPS only, rejecting unencrypted HTTP traffic.",
     referenceUrl: "https://learn.microsoft.com/en-us/rest/api/storageservices/create-service-sas#specify-the-signed-protocol",
@@ -135,12 +135,12 @@ export const AZURE_AZ204_QUESTIONS_6 = [
     scenario: "An administrator needs to rotate the access keys for an Azure Storage account. Production applications currently connect using Key 1.",
     question: "Which rotation sequence guarantees zero application downtime?",
     options: [
-      { id: 'A', text: "Disable Shared Key access before rotating" },
+      { id: 'A', text: "Update applications to use Key 2, regenerate Key 1, update applications back to Key 1, and regenerate Key 2" },
       { id: 'B', text: "Regenerate Key 1 and Key 2 simultaneously in the portal" },
-      { id: 'C', text: "Update applications to use Key 2, regenerate Key 1, update applications back to Key 1, and regenerate Key 2" },
-      { id: 'D', text: "Delete Key 1 and recreate the storage account" }
+      { id: 'C', text: "Delete Key 1 and recreate the storage account" },
+      { id: 'D', text: "Disable Shared Key access before rotating" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Azure Storage accounts provide two access keys (Key 1 and Key 2) to enable zero-downtime rotation. Applications switch to the secondary key before regenerating the primary key, ensuring connections never drop.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/common/storage-account-keys-manage#rotate-access-keys",
@@ -157,9 +157,9 @@ export const AZURE_AZ204_QUESTIONS_6 = [
     question: "Which least-privilege delegated permission should the application request?",
     options: [
       { id: 'A', text: "User.Read" },
-      { id: 'B', text: "User.ReadWrite.All" },
+      { id: 'B', text: "RoleManagement.Read.Directory" },
       { id: 'C', text: "Directory.Read.All" },
-      { id: 'D', text: "RoleManagement.Read.Directory" }
+      { id: 'D', text: "User.ReadWrite.All" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -177,12 +177,12 @@ export const AZURE_AZ204_QUESTIONS_6 = [
     scenario: "A DevOps engineer builds a GitHub Actions deployment workflow deploying to Azure. The security team forbids storing long-term Azure client secrets in GitHub repository secrets.",
     question: "Which authentication feature allows GitHub Actions to obtain short-lived Microsoft Entra access tokens using OpenID Connect (OIDC)?",
     options: [
-      { id: 'A', text: "Workload Identity Federation" },
+      { id: 'A', text: "Storing the Subscription Admin password in GitHub secrets" },
       { id: 'B', text: "Azure App Service deployment credentials" },
-      { id: 'C', text: "Storing the Subscription Admin password in GitHub secrets" },
+      { id: 'C', text: "Workload Identity Federation" },
       { id: 'D', text: "Azure Key Vault Public Secrets" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Workload Identity Federation allows external workloads (like GitHub Actions workflows) to exchange an OpenID Connect (OIDC) token from GitHub for a short-lived Microsoft Entra access token, eliminating the need to store long-term client secrets in GitHub.",
     referenceUrl: "https://learn.microsoft.com/en-us/entra/workload-id/workload-identity-federation",
@@ -198,12 +198,12 @@ export const AZURE_AZ204_QUESTIONS_6 = [
     scenario: "A developer needs permission to deploy code and manage App Services and Cosmos DB containers in a resource group, but must not be allowed to grant permissions to other users.",
     question: "Which Azure built-in RBAC role should be assigned to the developer?",
     options: [
-      { id: 'A', text: "Contributor" },
+      { id: 'A', text: "Reader" },
       { id: 'B', text: "Owner" },
-      { id: 'C', text: "Reader" },
+      { id: 'C', text: "Contributor" },
       { id: 'D', text: "User Access Administrator" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "The `Contributor` role grants full management permissions on all Azure resources within the scope, but does not allow granting or delegating access permissions to others. The `Owner` role includes Contributor privileges plus user access administration.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles",
@@ -219,12 +219,12 @@ export const AZURE_AZ204_QUESTIONS_6 = [
     scenario: "A developer stores non-sensitive settings directly in Azure App Configuration, but needs to reference a sensitive database password stored in Azure Key Vault.",
     question: "How are Key Vault secrets linked inside Azure App Configuration?",
     options: [
-      { id: 'A', text: "Create a Key Vault Reference key in App Configuration specifying the Key Vault Secret URI" },
+      { id: 'A', text: "Store the Key Vault root password in App Configuration" },
       { id: 'B', text: "Copy the secret text directly into the App Configuration value" },
-      { id: 'C', text: "Store the Key Vault root password in App Configuration" },
+      { id: 'C', text: "Create a Key Vault Reference key in App Configuration specifying the Key Vault Secret URI" },
       { id: 'D', text: "Key Vault cannot be linked to App Configuration" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Azure App Configuration supports `Key Vault references`. App Configuration stores the URI of the secret (with content type `application/vnd.microsoft.appconfig.keyvaultref+json;charset=utf-8`). The client SDK resolves the URI and fetches the secret from Key Vault transparently using Managed Identity.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-app-configuration/use-key-vault-references-dotnet-core",
@@ -240,12 +240,12 @@ export const AZURE_AZ204_QUESTIONS_6 = [
     scenario: "A security policy mandates that a Shared Access Signature (SAS) token for uploading telemetry files can only be used from a specific client office public IP address (`198.51.100.45`).",
     question: "Which SAS query parameter restricts caller access to a specific IP address or CIDR range?",
     options: [
-      { id: 'A', text: "se=198.51.100.45" },
-      { id: 'B', text: "spr=198.51.100.45" },
-      { id: 'C', text: "sp=198.51.100.45" },
-      { id: 'D', text: "sip=198.51.100.45" }
+      { id: 'A', text: "sp=198.51.100.45" },
+      { id: 'B', text: "se=198.51.100.45" },
+      { id: 'C', text: "sip=198.51.100.45" },
+      { id: 'D', text: "spr=198.51.100.45" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "The `sip` parameter (signed IP) in a SAS URI specifies an IP address or range of IP addresses from which requests are accepted. Requests originating from any other IP address fail with an HTTP 403 Forbidden.",
     referenceUrl: "https://learn.microsoft.com/en-us/rest/api/storageservices/create-service-sas#specify-the-ip-address-or-ip-range",
@@ -261,12 +261,12 @@ export const AZURE_AZ204_QUESTIONS_6 = [
     scenario: "A developer registers a new web application in Microsoft Entra ID. After successful login, the browser must redirect back to `https://app.contoso.com/signin-oidc` with an authorization code.",
     question: "Where must this return URL be configured in the Microsoft Entra App Registration?",
     options: [
-      { id: 'A', text: "In Certificates & Secrets" },
-      { id: 'B', text: "In Expose an API" },
-      { id: 'C', text: "In API Permissions" },
-      { id: 'D', text: "In the Redirect URIs section under Authentication" }
+      { id: 'A', text: "In Expose an API" },
+      { id: 'B', text: "In the Redirect URIs section under Authentication" },
+      { id: 'C', text: "In Certificates & Secrets" },
+      { id: 'D', text: "In API Permissions" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "In Microsoft Entra App Registrations, `Redirect URIs` (reply URLs) specify the exact destination URLs where the Microsoft identity platform sends tokens or authorization codes after authentication. Any redirect URL not explicitly registered is rejected.",
     referenceUrl: "https://learn.microsoft.com/en-us/entra/identity-platform/reply-url",
@@ -282,12 +282,12 @@ export const AZURE_AZ204_QUESTIONS_6 = [
     scenario: "A multi-instance ASP.NET Core web application uses MSAL to call downstream APIs. Each server instance maintains its own in-memory token cache, causing redundant token acquisitions and user re-prompts.",
     question: "How should the developer share the MSAL token cache across all web server instances?",
     options: [
-      { id: 'A', text: "Hardcode access tokens in appsettings.json" },
-      { id: 'B', text: "Configure distributed token cache serialization using Microsoft.Identity.Web and Azure Cache for Redis" },
+      { id: 'A', text: "Configure distributed token cache serialization using Microsoft.Identity.Web and Azure Cache for Redis" },
+      { id: 'B', text: "Disable token caching completely in MSAL" },
       { id: 'C', text: "Store tokens in unencrypted client cookies" },
-      { id: 'D', text: "Disable token caching completely in MSAL" }
+      { id: 'D', text: "Hardcode access tokens in appsettings.json" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "`Microsoft.Identity.Web` provides token cache serialization extensions (e.g. `AddDistributedTokenCaches`). Serializing the MSAL token cache to a shared distributed cache (like Azure Cache for Redis or SQL Server) allows all web instances to share cached tokens and refresh tokens.",
     referenceUrl: "https://learn.microsoft.com/en-us/entra/msal/dotnet/acquiring-tokens/desktop-mobile/token-cache-serialization",
@@ -303,12 +303,12 @@ export const AZURE_AZ204_QUESTIONS_6 = [
     scenario: "An enterprise needs SSL certificates in Azure Key Vault that renew automatically 30 days before expiration without manual certificate generation or CSR handling.",
     question: "Which Key Vault feature integrates with DigiCert or GlobalSign for automated certificate renewal?",
     options: [
-      { id: 'A', text: "External manual PFX imports" },
-      { id: 'B', text: "Let's Encrypt bash scripts on VMs" },
-      { id: 'C', text: "Self-signed certificates with manual renewal" },
-      { id: 'D', text: "Integrated Certificate Authorities (Integrated CAs) configured in Key Vault Certificate Issuers" }
+      { id: 'A', text: "Self-signed certificates with manual renewal" },
+      { id: 'B', text: "External manual PFX imports" },
+      { id: 'C', text: "Integrated Certificate Authorities (Integrated CAs) configured in Key Vault Certificate Issuers" },
+      { id: 'D', text: "Let's Encrypt bash scripts on VMs" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Azure Key Vault partners with select Certificate Authorities (DigiCert and GlobalSign). By creating a Certificate Issuer linked to an account with an integrated CA, Key Vault handles the entire lifecycle (order, validate, issue, and renew) automatically.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/key-vault/certificates/how-to-integrate-certificate-authority",
@@ -324,12 +324,12 @@ export const AZURE_AZ204_QUESTIONS_6 = [
     scenario: "A user logs into an enterprise portal using standard username and password. When the user attempts to access a sensitive payroll page, the system requires Multi-Factor Authentication (MFA).",
     question: "Which Microsoft Entra security feature enforces context-driven step-up MFA based on risk or sensitive resources?",
     options: [
-      { id: 'A', text: "Basic Authentication" },
-      { id: 'B', text: "Access Restrictions on App Service alone" },
-      { id: 'C', text: "Conditional Access Policies" },
-      { id: 'D', text: "Security Defaults" }
+      { id: 'A', text: "Security Defaults" },
+      { id: 'B', text: "Basic Authentication" },
+      { id: 'C', text: "Access Restrictions on App Service alone" },
+      { id: 'D', text: "Conditional Access Policies" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Microsoft Entra `Conditional Access` policies evaluate signals (user, device, location, risk, resource requested) to enforce access controls such as requiring MFA, blocking access, or requiring compliant managed devices.",
     referenceUrl: "https://learn.microsoft.com/en-us/entra/identity/conditional-access/overview",
@@ -345,12 +345,12 @@ export const AZURE_AZ204_QUESTIONS_6 = [
     scenario: "A government banking compliance standard requires cryptographic keys to be stored in dedicated, single-tenant hardware security modules validated to FIPS 140-2 Level 3.",
     question: "Which Azure service tier provides dedicated FIPS 140-2 Level 3 HSM key protection?",
     options: [
-      { id: 'A', text: "Azure Key Vault Managed HSM" },
-      { id: 'B', text: "Standard Azure Key Vault" },
-      { id: 'C', text: "Azure Storage Service Encryption" },
-      { id: 'D', text: "Azure App Configuration" }
+      { id: 'A', text: "Azure App Configuration" },
+      { id: 'B', text: "Azure Storage Service Encryption" },
+      { id: 'C', text: "Standard Azure Key Vault" },
+      { id: 'D', text: "Azure Key Vault Managed HSM" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Azure Key Vault `Managed HSM` is a fully managed, highly available, single-tenant cloud service that provides FIPS 140-2 Level 3 validated cryptographic HSM protection for cryptographic keys.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/key-vault/managed-hsm/overview",
@@ -366,12 +366,12 @@ export const AZURE_AZ204_QUESTIONS_6 = [
     scenario: "A software release pipeline deploys version `v2.4.0` of an application. The team must freeze and lock the exact configuration key-value pairs used by this release so they cannot be altered accidentally.",
     question: "Which Azure App Configuration feature creates an immutable, point-in-time copy of configuration settings?",
     options: [
-      { id: 'A', text: "Key Vault Secret Versions" },
-      { id: 'B', text: "App Configuration Snapshots" },
-      { id: 'C', text: "App Configuration Labels" },
+      { id: 'A', text: "App Configuration Snapshots" },
+      { id: 'B', text: "App Configuration Labels" },
+      { id: 'C', text: "Key Vault Secret Versions" },
       { id: 'D', text: "Azure Backup Vault" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Azure App Configuration `Snapshots` capture a point-in-time, immutable copy of key-values and feature flags. Once created, snapshots cannot be edited or overwritten, providing a reliable configuration baseline for software releases.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-app-configuration/concept-snapshot",
@@ -388,9 +388,9 @@ export const AZURE_AZ204_QUESTIONS_6 = [
     question: "Where are custom application roles defined and in which token claim are they returned?",
     options: [
       { id: 'A', text: "Defined in the App Registration Manifest under appRoles and returned in the roles claim" },
-      { id: 'B', text: "Defined in Key Vault and returned in the aud claim" },
-      { id: 'C', text: "Defined in Azure Subscriptions and returned in the groups claim" },
-      { id: 'D', text: "Defined in local.settings.json and returned in the sub claim" }
+      { id: 'B', text: "Defined in Azure Subscriptions and returned in the groups claim" },
+      { id: 'C', text: "Defined in local.settings.json and returned in the sub claim" },
+      { id: 'D', text: "Defined in Key Vault and returned in the aud claim" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,12 +408,12 @@ export const AZURE_AZ204_QUESTIONS_6 = [
     scenario: "A backend microservice receives an HTTP request containing a Bearer token in the `Authorization` header. The microservice must validate the token before fulfilling the request.",
     question: "Which four standard checks must the API perform to validate the JWT token?",
     options: [
-      { id: 'A', text: "Verify caller IP address only" },
-      { id: 'B', text: "Verify token signature using Entra public signing keys, check expiration (exp), validate audience (aud), and validate issuer (iss)" },
-      { id: 'C', text: "Validate that the token contains no vowels" },
-      { id: 'D', text: "Check only that the token string is longer than 50 characters" }
+      { id: 'A', text: "Validate that the token contains no vowels" },
+      { id: 'B', text: "Check only that the token string is longer than 50 characters" },
+      { id: 'C', text: "Verify token signature using Entra public signing keys, check expiration (exp), validate audience (aud), and validate issuer (iss)" },
+      { id: 'D', text: "Verify caller IP address only" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "To validate a JWT issued by Microsoft Entra ID, an API must: 1) Verify the cryptographic signature using keys published at the jwks_uri; 2) Check that current time is between `nbf` and `exp`; 3) Verify `aud` matches the API's client ID; and 4) Verify `iss` matches the expected Entra tenant.",
     referenceUrl: "https://learn.microsoft.com/en-us/entra/identity-platform/access-tokens#validating-tokens",
@@ -429,12 +429,12 @@ export const AZURE_AZ204_QUESTIONS_6 = [
     scenario: "A developer writes a CLI tool using `Azure.Identity`. The tool runs on headless Linux servers where no web browser is installed.",
     question: "Which credential class should be used to support interactive user login on browser-less devices?",
     options: [
-      { id: 'A', text: "DeviceCodeCredential" },
-      { id: 'B', text: "InteractiveBrowserCredential" },
+      { id: 'A', text: "InteractiveBrowserCredential" },
+      { id: 'B', text: "DeviceCodeCredential" },
       { id: 'C', text: "ClientSecretCredential" },
       { id: 'D', text: "DefaultAzureCredential alone without inputs" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "`DeviceCodeCredential` outputs a short alphanumeric code and a URL (`https://microsoft.com/devicelogin`). The user opens the URL on any device with a browser, enters the code, and authenticates, enabling interactive login on headless Linux terminals.",
     referenceUrl: "https://learn.microsoft.com/en-us/dotnet/api/azure.identity.devicecodecredential?view=azure-dotnet",
@@ -450,12 +450,12 @@ export const AZURE_AZ204_QUESTIONS_6 = [
     scenario: "An API client calls Microservice A with a user's delegated token. Microservice A must call downstream Microservice B while preserving the original user's identity and permissions.",
     question: "Which OAuth 2.0 flow is designed for middle-tier services to exchange a user token for a downstream token?",
     options: [
-      { id: 'A', text: "On-Behalf-Of (OBO) Flow" },
-      { id: 'B', text: "Client Credentials Flow" },
+      { id: 'A', text: "Client Credentials Flow" },
+      { id: 'B', text: "On-Behalf-Of (OBO) Flow" },
       { id: 'C', text: "Implicit Flow" },
       { id: 'D', text: "Authorization Code Flow" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "The OAuth 2.0 `On-Behalf-Of (OBO)` flow allows an API that received a user's delegated access token to exchange that token for a new access token targeted at a downstream API, maintaining the caller's user identity across the microservice call chain.",
     referenceUrl: "https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-on-behalf-of-flow",
@@ -471,12 +471,12 @@ export const AZURE_AZ204_QUESTIONS_6 = [
     scenario: "A disaster recovery procedure requires creating offline backup copies of a Customer Managed Key in Azure Key Vault to store in an air-gapped vault.",
     question: "Which Key Vault operation creates an encrypted, protected byte array backup of a key?",
     options: [
-      { id: 'A', text: "CopyKeyVault" },
-      { id: 'B', text: "CreateKeySnapshot" },
-      { id: 'C', text: "BackupKeyAsync (Backup Key)" },
-      { id: 'D', text: "ExportKeyAsync in plain text" }
+      { id: 'A', text: "CreateKeySnapshot" },
+      { id: 'B', text: "BackupKeyAsync (Backup Key)" },
+      { id: 'C', text: "ExportKeyAsync in plain text" },
+      { id: 'D', text: "CopyKeyVault" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "The `BackupKey` operation exports an encrypted byte array representation of a key. The backup cannot be decrypted outside Azure Key Vault and can only be restored (`RestoreKey`) to a Key Vault in the same geography or subscription.",
     referenceUrl: "https://learn.microsoft.com/en-us/rest/api/keyvault/keys/backup-key/backup-key",
@@ -492,12 +492,12 @@ export const AZURE_AZ204_QUESTIONS_6 = [
     scenario: "An enterprise stores application settings for `Development`, `Staging`, and `Production` environments inside a single Azure App Configuration store.",
     question: "Which App Configuration feature differentiates key values across environments using the same key name?",
     options: [
-      { id: 'A', text: "Labels (e.g. Label: Development, Label: Production)" },
-      { id: 'B', text: "Creating separate tenant IDs" },
-      { id: 'C', text: "Prefixing keys with random numbers" },
-      { id: 'D', text: "Separate Key Vault instances only" }
+      { id: 'A', text: "Prefixing keys with random numbers" },
+      { id: 'B', text: "Separate Key Vault instances only" },
+      { id: 'C', text: "Labels (e.g. Label: Development, Label: Production)" },
+      { id: 'D', text: "Creating separate tenant IDs" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "In Azure App Configuration, `Labels` serve as dimensions to distinguish different values for the same key (e.g. key `Database:Timeout` with label `Development` = 60 and label `Production` = 10), enabling applications to load environment-specific configurations cleanly.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-app-configuration/concept-key-value#label-keys",
@@ -513,12 +513,12 @@ export const AZURE_AZ204_QUESTIONS_6 = [
     scenario: "A stored access policy on an Azure Blob container grants write access to partners. An administrator extends the expiration time of the policy by 30 days.",
     question: "How does modifying the stored access policy affect existing Service SAS tokens that reference it?",
     options: [
-      { id: 'A', text: "All existing Service SAS tokens referencing the policy immediately inherit the extended expiration time without regenerating tokens" },
-      { id: 'B', text: "All existing tokens are permanently invalidated" },
+      { id: 'A', text: "All existing tokens are permanently invalidated" },
+      { id: 'B', text: "All existing Service SAS tokens referencing the policy immediately inherit the extended expiration time without regenerating tokens" },
       { id: 'C', text: "The storage account must be restarted" },
       { id: 'D', text: "Tokens must be reissued to partners" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Because a Service SAS delegates access constraints to the Stored Access Policy on the server, modifying the policy (such as extending expiration or changing permissions) takes effect immediately for all active SAS tokens referencing that policy.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blob-stored-access-policy-manage#modify-or-revoke-a-stored-access-policy",

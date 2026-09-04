@@ -9,12 +9,12 @@ export const AWS_SCS_QUESTIONS_8 = [
     scenario: "A big data analytics platform writes millions of small objects per hour to an S3 bucket encrypted with SSE-KMS. The monthly AWS KMS bill is excessively high due to millions of kms:GenerateDataKey requests.",
     question: "Which S3 configuration reduces KMS request volume and cost by up to 99%?",
     options: [
-      { id: 'A', text: "Disable S3 bucket versioning" },
-      { id: 'B', text: "Increase the KMS key deletion waiting period from 7 to 30 days" },
-      { id: 'C', text: "Enable **Amazon S3 Bucket Keys** on the bucket configuration" },
-      { id: 'D', text: "Switch the encryption from SSE-KMS to client-side encryption with KMS" }
+      { id: 'A', text: "Increase the KMS key deletion waiting period from 7 to 30 days" },
+      { id: 'B', text: "Disable S3 bucket versioning" },
+      { id: 'C', text: "Switch the encryption from SSE-KMS to client-side encryption with KMS" },
+      { id: 'D', text: "Enable **Amazon S3 Bucket Keys** on the bucket configuration" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "When S3 Bucket Keys are enabled, S3 creates a short-lived bucket-level key negotiated with KMS, and uses that key within S3 to derive data encryption keys for objects in the bucket. This reduces calls from S3 to KMS by up to 99%, dramatically lowering KMS request costs while maintaining strong SSE-KMS security.",
     referenceUrl: "https://docs.aws.amazon.com/security/",
@@ -30,12 +30,12 @@ export const AWS_SCS_QUESTIONS_8 = [
     scenario: "A security policy mandates that all data transferred to and from an S3 bucket must use TLS/HTTPS encryption. Any unencrypted HTTP connection attempt must be explicitly rejected.",
     question: "Which S3 bucket policy statement enforces TLS for all bucket operations?",
     options: [
-      { id: 'A', text: "A statement with <code>\"Effect\": \"Deny\"</code>, <code>\"Action\": \"s3:*\"</code>, and <code>\"Condition\": { \"Bool\": { \"aws:SecureTransport\": \"false\" } }</code>" },
+      { id: 'A', text: "Configuring an AWS WAF rule that blocks HTTP requests" },
       { id: 'B', text: "A statement with <code>\"Effect\": \"Allow\"</code> and <code>\"Condition\": { \"StringEquals\": { \"s3:x-amz-server-side-encryption\": \"AES256\" } }</code>" },
-      { id: 'C', text: "Configuring an AWS WAF rule that blocks HTTP requests" },
+      { id: 'C', text: "A statement with <code>\"Effect\": \"Deny\"</code>, <code>\"Action\": \"s3:*\"</code>, and <code>\"Condition\": { \"Bool\": { \"aws:SecureTransport\": \"false\" } }</code>" },
       { id: 'D', text: "A statement with <code>\"Effect\": \"Deny\"</code> on port 80 in a Network ACL" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "The global condition key `aws:SecureTransport` evaluates whether the request was transmitted over TLS/HTTPS. Creating an explicit Deny statement for `s3:*` where `aws:SecureTransport` is `false` rejects any unencrypted HTTP requests, satisfying compliance requirements.",
     referenceUrl: "https://docs.aws.amazon.com/security/",
@@ -51,8 +51,8 @@ export const AWS_SCS_QUESTIONS_8 = [
     scenario: "Account A needs to share an encrypted Amazon EBS snapshot of an application volume with Account B. The snapshot is encrypted with a Customer Managed KMS Key in Account A.",
     question: "Which combination of steps allows Account B to access and copy the encrypted snapshot?",
     options: [
-      { id: 'A', text: "Share the default AWS managed key (aws/ebs) with Account B" },
-      { id: 'B', text: "Change the snapshot to unencrypted before sharing" },
+      { id: 'A', text: "Change the snapshot to unencrypted before sharing" },
+      { id: 'B', text: "Share the default AWS managed key (aws/ebs) with Account B" },
       { id: 'C', text: "Export the snapshot to an S3 bucket with public read access" },
       { id: 'D', text: "In Account A, modify the snapshot permissions to share with Account B's account ID, and update the KMS key policy in Account A to grant Account B permissions to use the key; in Account B, copy the snapshot and re-encrypt it with a KMS key owned by Account B" }
     ],
@@ -72,12 +72,12 @@ export const AWS_SCS_QUESTIONS_8 = [
     scenario: "A security architect configures automated 30-day password rotation in AWS Secrets Manager for an Amazon RDS PostgreSQL database used by a mission-critical financial application that cannot tolerate any connection downtime.",
     question: "Which Secrets Manager rotation strategy prevents application downtime during credential changes?",
     options: [
-      { id: 'A', text: "A **multi-user rotation** strategy using two alternating database user accounts (master and application/clone user)" },
-      { id: 'B', text: "A single-user rotation strategy executed during business hours" },
-      { id: 'C', text: "Writing the database password into an unencrypted EC2 User Data script" },
+      { id: 'A', text: "Writing the database password into an unencrypted EC2 User Data script" },
+      { id: 'B', text: "A **multi-user rotation** strategy using two alternating database user accounts (master and application/clone user)" },
+      { id: 'C', text: "A single-user rotation strategy executed during business hours" },
       { id: 'D', text: "Disabling database authentication during password update windows" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "In **multi-user rotation**, Secrets Manager maintains two user credentials: User A and User B. While User A is in active production use, Secrets Manager updates the password for User B on the database, updates the secret to point to User B, and tests the connection. When the next rotation occurs, it alternates back to User A. This ensures zero connection downtime for active client pools.",
     referenceUrl: "https://docs.aws.amazon.com/security/",
@@ -93,12 +93,12 @@ export const AWS_SCS_QUESTIONS_8 = [
     scenario: "A payment processing application must comply with PCI-DSS mandates requiring dedicated hardware security modules certified to FIPS 140-2 Level 3, where the customer maintains exclusive cryptographic ownership of key generation and storage.",
     question: "Which AWS solution satisfies FIPS 140-2 Level 3 dedicated hardware compliance?",
     options: [
-      { id: 'A', text: "AWS CloudHSM (or an AWS KMS Custom Key Store backed by CloudHSM)" },
-      { id: 'B', text: "AWS Systems Manager Parameter Store with SecureString" },
-      { id: 'C', text: "Standard AWS KMS with multi-tenant hardware security modules (FIPS 140-2 Level 2)" },
-      { id: 'D', text: "Amazon S3 with SSE-S3 default encryption" }
+      { id: 'A', text: "AWS Systems Manager Parameter Store with SecureString" },
+      { id: 'B', text: "Amazon S3 with SSE-S3 default encryption" },
+      { id: 'C', text: "AWS CloudHSM (or an AWS KMS Custom Key Store backed by CloudHSM)" },
+      { id: 'D', text: "Standard AWS KMS with multi-tenant hardware security modules (FIPS 140-2 Level 2)" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Standard AWS KMS uses multi-tenant HSMs validated to FIPS 140-2 Level 2 (with Level 3 physical security). For strict regulatory requirements mandating dedicated single-tenant FIPS 140-2 Level 3 hardware under direct customer administrative control, **AWS CloudHSM** (or a KMS Custom Key Store backed by a CloudHSM cluster) must be selected.",
     referenceUrl: "https://docs.aws.amazon.com/security/",
@@ -115,11 +115,11 @@ export const AWS_SCS_QUESTIONS_8 = [
     question: "Which S3 Object Lock retention mode satisfies this requirement?",
     options: [
       { id: 'A', text: "S3 Object Lock in **Governance mode**" },
-      { id: 'B', text: "S3 Object Lock in **Compliance mode** with a 7-year retention period" },
-      { id: 'C', text: "S3 Legal Hold alone without a retention period" },
-      { id: 'D', text: "S3 Glacier Vault Archive without Object Lock" }
+      { id: 'B', text: "S3 Glacier Vault Archive without Object Lock" },
+      { id: 'C', text: "S3 Object Lock in **Compliance mode** with a 7-year retention period" },
+      { id: 'D', text: "S3 Legal Hold alone without a retention period" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "In S3 Object Lock **Compliance mode**, protected object versions cannot be overwritten or deleted by any user, including the root user in the AWS account. The retention period cannot be decreased or bypassed. In contrast, **Governance mode** allows users with the `s3:BypassGovernanceRetention` permission to delete objects or override settings.",
     referenceUrl: "https://docs.aws.amazon.com/security/",
@@ -136,9 +136,9 @@ export const AWS_SCS_QUESTIONS_8 = [
     question: "Which KMS mechanism allows programmatic, temporary delegation of key permissions?",
     options: [
       { id: 'A', text: "AWS KMS **Grants** created using the <code>CreateGrant</code> API with retiring capabilities" },
-      { id: 'B', text: "Using AWS Secrets Manager to store the KMS master key" },
-      { id: 'C', text: "Modifying the root IAM policy on every instance launch" },
-      { id: 'D', text: "Exporting the KMS private key to an EC2 instance metadata tag" }
+      { id: 'B', text: "Modifying the root IAM policy on every instance launch" },
+      { id: 'C', text: "Exporting the KMS private key to an EC2 instance metadata tag" },
+      { id: 'D', text: "Using AWS Secrets Manager to store the KMS master key" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -156,10 +156,10 @@ export const AWS_SCS_QUESTIONS_8 = [
     scenario: "A company wants to ensure that a specific Customer Managed KMS Key is used only when requests originate from Amazon S3 in the us-west-2 Region, preventing users from calling kms:Decrypt directly through the AWS CLI or other services.",
     question: "Which condition key in the KMS key policy enforces this service origin restriction?",
     options: [
-      { id: 'A', text: "<code>\"Condition\": { \"StringEquals\": { \"aws:RequestedService\": \"s3\" } }</code>" },
+      { id: 'A', text: "<code>\"Condition\": { \"ArnEquals\": { \"aws:SourceArn\": \"arn:aws:s3:::*\" } }</code>" },
       { id: 'B', text: "<code>\"Condition\": { \"StringEquals\": { \"kms:ViaService\": \"s3.us-west-2.amazonaws.com\" } }</code>" },
       { id: 'C', text: "<code>\"Condition\": { \"Bool\": { \"kms:GrantIsForAWSResource\": \"true\" } }</code>" },
-      { id: 'D', text: "<code>\"Condition\": { \"ArnEquals\": { \"aws:SourceArn\": \"arn:aws:s3:::*\" } }</code>" }
+      { id: 'D', text: "<code>\"Condition\": { \"StringEquals\": { \"aws:RequestedService\": \"s3\" } }</code>" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -198,12 +198,12 @@ export const AWS_SCS_QUESTIONS_8 = [
     scenario: "A multi-region application deployed in us-east-1 and us-west-2 encrypts user records locally. In the event of a regional disaster in us-east-1, the application in us-west-2 must be able to decrypt existing stored data without making cross-region API calls back to us-east-1.",
     question: "Which AWS KMS capability provides identical cryptographic keys across multiple AWS Regions?",
     options: [
-      { id: 'A', text: "Using default AWS managed keys in both Regions" },
-      { id: 'B', text: "Creating two separate independent KMS keys with identical aliases in each Region" },
+      { id: 'A', text: "Creating two separate independent KMS keys with identical aliases in each Region" },
+      { id: 'B', text: "AWS KMS **Multi-Region Keys** (creating a primary key in us-east-1 and replicating it to us-west-2)" },
       { id: 'C', text: "Exporting the private key material to an S3 bucket replicated with Cross-Region Replication" },
-      { id: 'D', text: "AWS KMS **Multi-Region Keys** (creating a primary key in us-east-1 and replicating it to us-west-2)" }
+      { id: 'D', text: "Using default AWS managed keys in both Regions" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "AWS KMS Multi-Region Keys are primary and replica keys that share the same key material, Key ID, and cryptographic algorithm across different Regions. Ciphertext encrypted by the primary key in us-east-1 can be decrypted directly by the replica key in us-west-2 completely locally, eliminating cross-region latency and dependencies during DR failovers.",
     referenceUrl: "https://docs.aws.amazon.com/security/",
@@ -240,10 +240,10 @@ export const AWS_SCS_QUESTIONS_8 = [
     scenario: "An organization must establish an internal Public Key Infrastructure (PKI) to issue private TLS certificates for microservices running in a service mesh on private VPCs, with certificate revocation lists (CRLs) published to Amazon S3.",
     question: "Which AWS service provides managed private PKI and certificate lifecycle management?",
     options: [
-      { id: 'A', text: "AWS CloudHSM CLI tool" },
+      { id: 'A', text: "Public AWS Certificate Manager (ACM)" },
       { id: 'B', text: "AWS Certificate Manager Private CA (AWS Private CA)" },
-      { id: 'C', text: "AWS Secrets Manager with auto-rotation" },
-      { id: 'D', text: "Public AWS Certificate Manager (ACM)" }
+      { id: 'C', text: "AWS CloudHSM CLI tool" },
+      { id: 'D', text: "AWS Secrets Manager with auto-rotation" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -261,12 +261,12 @@ export const AWS_SCS_QUESTIONS_8 = [
     scenario: "A development team needs to store an application license key that is 6 KB in size, and wants to configure automated notification when the parameter is about to expire.",
     question: "Which Parameter Store tier must be used to support parameters larger than 4 KB and parameter policies?",
     options: [
-      { id: 'A', text: "**Advanced parameters**" },
-      { id: 'B', text: "AWS Secrets Manager Basic tier" },
-      { id: 'C', text: "Standard parameters" },
-      { id: 'D', text: "Free tier parameters" }
+      { id: 'A', text: "Standard parameters" },
+      { id: 'B', text: "Free tier parameters" },
+      { id: 'C', text: "**Advanced parameters**" },
+      { id: 'D', text: "AWS Secrets Manager Basic tier" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Systems Manager Parameter Store **Standard parameters** support up to 4 KB payload and are free of charge. **Advanced parameters** support payloads up to 8 KB, allow up to 100,000 parameters per account/region, and support Parameter Policies (e.g. Expiration dates and Notification events via EventBridge).",
     referenceUrl: "https://docs.aws.amazon.com/security/",
@@ -283,11 +283,11 @@ export const AWS_SCS_QUESTIONS_8 = [
     question: "What is the recommended operational sequence to encrypt the root volume?",
     options: [
       { id: 'A', text: "Copy the root filesystem over SSH to an S3 bucket" },
-      { id: 'B', text: "Enable encryption on the live running volume using the AWS CLI modify-volume command" },
+      { id: 'B', text: "Stop the EC2 instance, take a snapshot of the root volume, create an encrypted copy of the snapshot specifying the Customer Managed KMS Key, create an AMI from the encrypted snapshot, and launch a new instance from that AMI (or attach the new encrypted volume)" },
       { id: 'C', text: "Reboot the instance with the --encrypt-root flag" },
-      { id: 'D', text: "Stop the EC2 instance, take a snapshot of the root volume, create an encrypted copy of the snapshot specifying the Customer Managed KMS Key, create an AMI from the encrypted snapshot, and launch a new instance from that AMI (or attach the new encrypted volume)" }
+      { id: 'D', text: "Enable encryption on the live running volume using the AWS CLI modify-volume command" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Existing EBS volumes cannot be encrypted in-place. The standard migration procedure is: 1. Stop the instance (to ensure filesystem consistency); 2. Create a snapshot of the unencrypted volume; 3. Copy the snapshot, selecting encryption and specifying the KMS CMK; 4. Register an AMI or create a new volume from the encrypted snapshot and attach it as `/dev/xvda`.",
     referenceUrl: "https://docs.aws.amazon.com/security/",
@@ -303,12 +303,12 @@ export const AWS_SCS_QUESTIONS_8 = [
     scenario: "A software vendor distributes firmware updates to external client devices. The vendor wants to sign firmware binaries in AWS using an RSA private key stored in KMS, while allowing external clients to verify the digital signature using a public key without granting clients access to AWS.",
     question: "Which AWS KMS key configuration facilitates this public verification architecture?",
     options: [
-      { id: 'A', text: "Use a Symmetric KMS key and share the key ARN with clients" },
+      { id: 'A', text: "Create an **Asymmetric KMS key** with key usage set to `SIGN_VERIFY` and key spec `RSA_4096`, sign firmware in AWS using `kms:Sign`, and distribute the downloaded public key to clients to verify signatures locally" },
       { id: 'B', text: "Use AWS Secrets Manager to store a shared secret symmetric key" },
-      { id: 'C', text: "Create an **Asymmetric KMS key** with key usage set to `SIGN_VERIFY` and key spec `RSA_4096`, sign firmware in AWS using `kms:Sign`, and distribute the downloaded public key to clients to verify signatures locally" },
-      { id: 'D', text: "Create a CloudHSM cluster with public internet endpoints" }
+      { id: 'C', text: "Create a CloudHSM cluster with public internet endpoints" },
+      { id: 'D', text: "Use a Symmetric KMS key and share the key ARN with clients" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Asymmetric KMS keys consist of an mathematically linked public and private key pair. For code signing, creating an asymmetric key with key spec RSA (or ECC) and usage `SIGN_VERIFY` allows signing payloads via the `kms:Sign` API (the private key never leaves the HSM), while the public key can be downloaded and distributed publicly for offline verification.",
     referenceUrl: "https://docs.aws.amazon.com/security/",
@@ -324,12 +324,12 @@ export const AWS_SCS_QUESTIONS_8 = [
     scenario: "A regulated enterprise must generate its own encryption key material on an on-premises physical HSM and import that key material into AWS KMS to satisfy sovereign data control laws.",
     question: "Which steps are required to import external key material into an AWS KMS key?",
     options: [
-      { id: 'A', text: "Create a VPN connection between the on-premises HSM and the KMS control plane" },
-      { id: 'B', text: "Export the AWS root CA certificate and install it on the on-premises HSM" },
-      { id: 'C', text: "Paste the raw AES-256 hexadecimal string directly into the AWS Management Console" },
-      { id: 'D', text: "Create a KMS key with origin set to `EXTERNAL`, download the wrapping public key and import token from KMS, encrypt the on-premises key material using the wrapping key, and upload the encrypted material and import token to KMS" }
+      { id: 'A', text: "Export the AWS root CA certificate and install it on the on-premises HSM" },
+      { id: 'B', text: "Paste the raw AES-256 hexadecimal string directly into the AWS Management Console" },
+      { id: 'C', text: "Create a KMS key with origin set to `EXTERNAL`, download the wrapping public key and import token from KMS, encrypt the on-premises key material using the wrapping key, and upload the encrypted material and import token to KMS" },
+      { id: 'D', text: "Create a VPN connection between the on-premises HSM and the KMS control plane" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "To Bring Your Own Key (BYOK) to KMS: 1. Create a key with origin `EXTERNAL (Imported)`; 2. Download the wrapping public key and import token; 3. Use the wrapping key to encrypt the raw binary key material on-premises; 4. Call `ImportKeyMaterial` passing the wrapped key material and import token. Note that imported key material does not support automated rotation.",
     referenceUrl: "https://docs.aws.amazon.com/security/",
@@ -345,12 +345,12 @@ export const AWS_SCS_QUESTIONS_8 = [
     scenario: "S3 Cross-Region Replication (CRR) fails to replicate objects encrypted with SSE-KMS from a source bucket in us-east-1 to a destination bucket in eu-west-1.",
     question: "What configuration is required for S3 CRR to replicate SSE-KMS encrypted objects?",
     options: [
-      { id: 'A', text: "Convert the source bucket encryption to SSE-S3" },
-      { id: 'B', text: "Enable replication of KMS-encrypted objects in the replication rule, specify a destination KMS key ARN in eu-west-1, and grant the replication IAM role permissions to `kms:Decrypt` on the source key and `kms:Encrypt` on the destination key" },
-      { id: 'C', text: "Use AWS DataSync instead of S3 replication" },
-      { id: 'D', text: "Disable S3 bucket versioning on the destination bucket" }
+      { id: 'A', text: "Disable S3 bucket versioning on the destination bucket" },
+      { id: 'B', text: "Convert the source bucket encryption to SSE-S3" },
+      { id: 'C', text: "Enable replication of KMS-encrypted objects in the replication rule, specify a destination KMS key ARN in eu-west-1, and grant the replication IAM role permissions to `kms:Decrypt` on the source key and `kms:Encrypt` on the destination key" },
+      { id: 'D', text: "Use AWS DataSync instead of S3 replication" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "By default, S3 CRR does not replicate objects encrypted with SSE-KMS. To enable it: 1. Explicitly enable KMS encrypted object replication in the rule; 2. Specify a destination KMS key in the target Region; 3. Grant the S3 replication IAM role `kms:Decrypt` on the source CMK and `kms:GenerateDataKey`/`kms:Encrypt` on the destination CMK.",
     referenceUrl: "https://docs.aws.amazon.com/security/",
@@ -366,12 +366,12 @@ export const AWS_SCS_QUESTIONS_8 = [
     scenario: "A global web application deployed across us-east-1 and ap-southeast-1 accesses an Amazon Aurora Global Database. The application in ap-southeast-1 must read database credentials locally with low latency.",
     question: "How should Secrets Manager be configured for multi-region availability?",
     options: [
-      { id: 'A', text: "Configure primary secret replication in Secrets Manager to create read-only replica secrets in the destination Regions (ap-southeast-1), which are automatically synchronized when the primary secret rotates" },
-      { id: 'B', text: "Manually copy and paste the secret string into each Region monthly" },
-      { id: 'C', text: "Configure cross-region VPC peering to query the primary secret over HTTPS" },
+      { id: 'A', text: "Manually copy and paste the secret string into each Region monthly" },
+      { id: 'B', text: "Configure cross-region VPC peering to query the primary secret over HTTPS" },
+      { id: 'C', text: "Configure primary secret replication in Secrets Manager to create read-only replica secrets in the destination Regions (ap-southeast-1), which are automatically synchronized when the primary secret rotates" },
       { id: 'D', text: "Create a DynamoDB global table to store plaintext passwords" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "AWS Secrets Manager supports multi-Region secret replication. The primary secret in us-east-1 is replicated to replica secrets in target Regions. Replicas are read-only copies encrypted with regional KMS keys in the target Region, and Secrets Manager automatically keeps replica values in sync whenever the primary rotates.",
     referenceUrl: "https://docs.aws.amazon.com/security/",
@@ -387,12 +387,12 @@ export const AWS_SCS_QUESTIONS_8 = [
     scenario: "An enterprise wants to scan hundreds of S3 buckets across multiple accounts to discover exposed sensitive data, such as unencrypted credit card numbers and passport scans.",
     question: "Which Amazon Macie feature continuously evaluates S3 bucket security posture and sensitive data presence?",
     options: [
-      { id: 'A', text: "Enable Amazon Macie across the organization, which provides automated bucket posture inventory (evaluating public accessibility and encryption) and automated sensitive data discovery jobs using managed data identifiers" },
-      { id: 'B', text: "Deploy a custom Python script that downloads all S3 objects locally to run grep" },
-      { id: 'C', text: "Run Amazon Inspector on EC2 instances to inspect mounted S3 buckets" },
-      { id: 'D', text: "Configure S3 Storage Lens with cost optimization metrics" }
+      { id: 'A', text: "Deploy a custom Python script that downloads all S3 objects locally to run grep" },
+      { id: 'B', text: "Enable Amazon Macie across the organization, which provides automated bucket posture inventory (evaluating public accessibility and encryption) and automated sensitive data discovery jobs using managed data identifiers" },
+      { id: 'C', text: "Configure S3 Storage Lens with cost optimization metrics" },
+      { id: 'D', text: "Run Amazon Inspector on EC2 instances to inspect mounted S3 buckets" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Amazon Macie uses machine learning and pattern matching to discover sensitive data in S3. It provides an automated S3 bucket inventory (evaluating public access, encryption status, and replication) and runs discovery jobs across targeted buckets using managed and custom data identifiers.",
     referenceUrl: "https://docs.aws.amazon.com/security/",
@@ -408,12 +408,12 @@ export const AWS_SCS_QUESTIONS_8 = [
     scenario: "A security administrator needs to delete an obsolete Customer Managed Key (CMK) in AWS KMS, but wants to ensure that a safety buffer exists in case an application still relies on the key.",
     question: "What is the minimum and maximum waiting period enforced by AWS KMS before a key is permanently destroyed?",
     options: [
-      { id: 'A', text: "A minimum of 24 hours and a maximum of 7 days" },
-      { id: 'B', text: "A minimum of **7 days** and a maximum of **30 days** (default 30 days)" },
-      { id: 'C', text: "KMS keys are deleted immediately upon API invocation" },
+      { id: 'A', text: "A minimum of **7 days** and a maximum of **30 days** (default 30 days)" },
+      { id: 'B', text: "KMS keys are deleted immediately upon API invocation" },
+      { id: 'C', text: "A minimum of 24 hours and a maximum of 7 days" },
       { id: 'D', text: "A mandatory 90-day waiting period" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "AWS KMS strictly enforces a mandatory waiting period for key deletion. When `ScheduleKeyDeletion` is called, the key enters the Pending Deletion state for a duration between 7 and 30 days (default is 30 days). The key cannot be used during this period, but deletion can be cancelled via `CancelKeyDeletion` if errors occur.",
     referenceUrl: "https://docs.aws.amazon.com/security/",
@@ -429,12 +429,12 @@ export const AWS_SCS_QUESTIONS_8 = [
     scenario: "A financial application requires that all DynamoDB tables be encrypted at rest using a Customer Managed KMS Key (CMK), and the key must be rotated automatically each year.",
     question: "How is DynamoDB table encryption with a CMK configured?",
     options: [
-      { id: 'A', text: "Deploy an EC2 proxy to encrypt items before calling PutItem" },
-      { id: 'B', text: "Select **KMS - Customer Managed Key** during table creation (or update existing tables in-place) and specify the CMK ARN; DynamoDB automatically creates grants to access the key" },
+      { id: 'A', text: "Select **KMS - Customer Managed Key** during table creation (or update existing tables in-place) and specify the CMK ARN; DynamoDB automatically creates grants to access the key" },
+      { id: 'B', text: "Deploy an EC2 proxy to encrypt items before calling PutItem" },
       { id: 'C', text: "Enable S3 bucket default encryption" },
       { id: 'D', text: "DynamoDB only supports AWS owned encryption keys" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Amazon DynamoDB supports zero-downtime encryption at rest using AWS Owned Keys (default), AWS Managed Keys, or Customer Managed Keys (CMKs). Selecting a Customer Managed Key allows customers to enforce key rotation, key policies, and access auditing via CloudTrail for all table data, indexes, and streams.",
     referenceUrl: "https://docs.aws.amazon.com/security/",
@@ -451,9 +451,9 @@ export const AWS_SCS_QUESTIONS_8 = [
     question: "How are both encryption requirements implemented for Amazon EFS?",
     options: [
       { id: 'A', text: "Enable encryption at rest after creation using the AWS CLI, and configure an SSH tunnel for NFS traffic" },
-      { id: 'B', text: "Rely on VPC Network ACLs to encrypt NFS packets" },
+      { id: 'B', text: "Mount the file system using standard NFSv4 without parameters" },
       { id: 'C', text: "Enable encryption at rest during EFS file system creation specifying the KMS CMK, and mount the file system on EC2 instances using the **Amazon EFS mount helper** with the <code>-o tls</code> mount option" },
-      { id: 'D', text: "Mount the file system using standard NFSv4 without parameters" }
+      { id: 'D', text: "Rely on VPC Network ACLs to encrypt NFS packets" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -471,12 +471,12 @@ export const AWS_SCS_QUESTIONS_8 = [
     scenario: "An engineer attempts to delete an active production API secret in AWS Secrets Manager using the AWS CLI, but wants to prevent immediate catastrophic data loss.",
     question: "What is the default behavior when calling DeleteSecret in AWS Secrets Manager?",
     options: [
-      { id: 'A', text: "The secret is moved to an S3 bucket in another AWS Region" },
-      { id: 'B', text: "Secrets Manager prompts for root account multi-factor authentication" },
-      { id: 'C', text: "Secrets Manager schedules the secret for deletion after a recovery window of **30 days** (configurable from 7 to 30 days), during which the secret can be restored using `RestoreSecret`" },
-      { id: 'D', text: "The secret is immediately and permanently destroyed" }
+      { id: 'A', text: "The secret is immediately and permanently destroyed" },
+      { id: 'B', text: "The secret is moved to an S3 bucket in another AWS Region" },
+      { id: 'C', text: "Secrets Manager prompts for root account multi-factor authentication" },
+      { id: 'D', text: "Secrets Manager schedules the secret for deletion after a recovery window of **30 days** (configurable from 7 to 30 days), during which the secret can be restored using `RestoreSecret`" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "By default, calling `DeleteSecret` initiates a soft delete with a default 30-day recovery window (can be set between 7 and 30 days). The secret cannot be read during this window, but can be restored with `RestoreSecret`. Immediate permanent deletion requires passing `--force-delete-without-recovery`.",
     referenceUrl: "https://docs.aws.amazon.com/security/",
@@ -492,12 +492,12 @@ export const AWS_SCS_QUESTIONS_8 = [
     scenario: "An existing production Amazon RDS MySQL database was created without encryption. Corporate policy now requires that the database must be encrypted at rest using an AWS KMS key.",
     question: "How can encryption at rest be applied to an existing unencrypted Amazon RDS instance?",
     options: [
-      { id: 'A', text: "Take a DB snapshot of the unencrypted RDS instance, copy the snapshot while specifying a KMS key to encrypt the copy, and restore a new DB instance from the encrypted snapshot" },
-      { id: 'B', text: "Attach an AWS WAF rule to the database endpoint" },
-      { id: 'C', text: "Modify the running RDS DB instance configuration to enable encryption directly" },
-      { id: 'D', text: "Export database tables to CSV and upload them to an encrypted S3 bucket" }
+      { id: 'A', text: "Attach an AWS WAF rule to the database endpoint" },
+      { id: 'B', text: "Export database tables to CSV and upload them to an encrypted S3 bucket" },
+      { id: 'C', text: "Take a DB snapshot of the unencrypted RDS instance, copy the snapshot while specifying a KMS key to encrypt the copy, and restore a new DB instance from the encrypted snapshot" },
+      { id: 'D', text: "Modify the running RDS DB instance configuration to enable encryption directly" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Like EBS, existing unencrypted Amazon RDS DB instances cannot be encrypted in-place. The migration path requires taking a DB snapshot, copying the snapshot with encryption enabled using an AWS KMS key, and restoring a new encrypted DB instance from the encrypted snapshot copy.",
     referenceUrl: "https://docs.aws.amazon.com/security/",
@@ -513,12 +513,12 @@ export const AWS_SCS_QUESTIONS_8 = [
     scenario: "A compliance mandate dictates that all objects uploaded to an S3 bucket must explicitly use SSE-KMS encryption with a designated Customer Managed Key (CMK), rejecting any upload using SSE-S3 or unencrypted uploads.",
     question: "Which bucket policy condition statement enforces upload encryption with the designated KMS key?",
     options: [
-      { id: 'A', text: "An S3 Lifecycle rule that deletes unencrypted objects" },
-      { id: 'B', text: "A Deny statement on <code>s3:DeleteObject</code>" },
-      { id: 'C', text: "A Deny statement on <code>s3:PutObject</code> with condition <code>StringNotEquals</code> for <code>s3:x-amz-server-side-encryption-aws-kms-key-id</code> matching the CMK ARN" },
-      { id: 'D', text: "An Allow statement on <code>s3:GetObject</code>" }
+      { id: 'A', text: "An Allow statement on <code>s3:GetObject</code>" },
+      { id: 'B', text: "An S3 Lifecycle rule that deletes unencrypted objects" },
+      { id: 'C', text: "A Deny statement on <code>s3:DeleteObject</code>" },
+      { id: 'D', text: "A Deny statement on <code>s3:PutObject</code> with condition <code>StringNotEquals</code> for <code>s3:x-amz-server-side-encryption-aws-kms-key-id</code> matching the CMK ARN" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "To mandate a specific KMS key, the bucket policy denies `s3:PutObject` if the header `s3:x-amz-server-side-encryption` is not `aws:kms`, OR if the `s3:x-amz-server-side-encryption-aws-kms-key-id` condition does not match the required CMK ARN.",
     referenceUrl: "https://docs.aws.amazon.com/security/",

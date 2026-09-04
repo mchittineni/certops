@@ -10,11 +10,11 @@ export const AZURE_AZ400_QUESTIONS_5 = [
     question: "When is a Self-Hosted Agent pool mandatory over Microsoft-Hosted agents?",
     options: [
       { id: 'A', text: "When running standard open-source Python or Node.js tests" },
-      { id: 'B', text: "When compiling public GitHub repositories" },
-      { id: 'C', text: "When deploying to Azure App Service" },
-      { id: 'D', text: "When builds require access to private on-premises network resources via VPN/ExpressRoute or require custom licensed software that cannot be installed on fresh VMs within 5 minutes" }
+      { id: 'B', text: "When builds require access to private on-premises network resources via VPN/ExpressRoute or require custom licensed software that cannot be installed on fresh VMs within 5 minutes" },
+      { id: 'C', text: "When compiling public GitHub repositories" },
+      { id: 'D', text: "When deploying to Azure App Service" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Microsoft-hosted agents provide clean ephemeral VMs but have no direct connectivity to private corporate networks or on-premises resources. Self-hosted agents can be deployed inside corporate networks with persistent caches and specialized hardware.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/agents#agent-types",
@@ -31,11 +31,11 @@ export const AZURE_AZ400_QUESTIONS_5 = [
     question: "Which Azure DevOps agent pool solution provides this managed elastic scaling?",
     options: [
       { id: 'A', text: "Microsoft-hosted pools" },
-      { id: 'B', text: "Single stand-alone Azure VM" },
-      { id: 'C', text: "Azure Virtual Machine Scale Set (VMSS) agent pools" },
+      { id: 'B', text: "Azure Virtual Machine Scale Set (VMSS) agent pools" },
+      { id: 'C', text: "Single stand-alone Azure VM" },
       { id: 'D', text: "Static on-premises physical servers" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Azure VMSS agent pools combine the control of self-hosted agents (custom OS images, VNet connectivity) with automated elastic autoscaling managed by Azure DevOps, automatically provisioning fresh VMs on demand and discarding them after use.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/scale-set-agents",
@@ -51,12 +51,12 @@ export const AZURE_AZ400_QUESTIONS_5 = [
     scenario: "An enterprise DevOps engineering team is implementing automated CI/CD pipelines, source control governance, and continuous delivery on Microsoft Azure.",
     question: "When installing the Azure Pipelines agent service on a Linux virtual machine, what is the security best practice regarding user privileges?",
     options: [
-      { id: 'A', text: "Run the agent service as a non-root dedicated service user (e.g. azdevops) with least privilege" },
-      { id: 'B', text: "Run the agent as the root user" },
-      { id: 'C', text: "Run the agent with passwordless sudo on all commands" },
-      { id: 'D', text: "Run the agent using the personal account of the CIO" }
+      { id: 'A', text: "Run the agent with passwordless sudo on all commands" },
+      { id: 'B', text: "Run the agent using the personal account of the CIO" },
+      { id: 'C', text: "Run the agent as the root user" },
+      { id: 'D', text: "Run the agent service as a non-root dedicated service user (e.g. azdevops) with least privilege" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "To prevent malicious build scripts from compromising the host system or pivot-attacking the local network, self-hosted agents should always run under a dedicated, unprivileged non-root service account.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/v2-linux#security-principles",
@@ -72,12 +72,12 @@ export const AZURE_AZ400_QUESTIONS_5 = [
     scenario: "An administrator provisions a new self-hosted agent pool and generates a Personal Access Token (PAT) to register the agents.",
     question: "Which minimal scope must be selected when generating the PAT?",
     options: [
-      { id: 'A', text: "Work Items (read)" },
+      { id: 'A', text: "Agent Pools (read, manage)" },
       { id: 'B', text: "Full access" },
-      { id: 'C', text: "Code (read and write)" },
-      { id: 'D', text: "Agent Pools (read, manage)" }
+      { id: 'C', text: "Work Items (read)" },
+      { id: 'D', text: "Code (read and write)" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "To register self-hosted agents, the PAT requires strictly the `Agent Pools (read, manage)` scope. Avoid granting `Full access` to adhere to the principle of least privilege.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/v2-windows#authenticate-with-a-personal-access-token-pat",
@@ -94,9 +94,9 @@ export const AZURE_AZ400_QUESTIONS_5 = [
     question: "Which native Azure DevOps feature can be scheduled to delete stale work directories across agent pools?",
     options: [
       { id: 'A', text: "Maintenance jobs configured in Agent pool settings (deleting work directories on a schedule)" },
-      { id: 'B', text: "Restarting the VM after every job" },
-      { id: 'C', text: "Manually formatting the agent hard drive every month" },
-      { id: 'D', text: "Disabling all builds" }
+      { id: 'B', text: "Manually formatting the agent hard drive every month" },
+      { id: 'C', text: "Disabling all builds" },
+      { id: 'D', text: "Restarting the VM after every job" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -114,12 +114,12 @@ export const AZURE_AZ400_QUESTIONS_5 = [
     scenario: "A platform engineering team operates an Azure Kubernetes Service (AKS) cluster and wants to host containerized, ephemeral Azure DevOps agents that scale from 0 rapidly based on queue depth.",
     question: "Which modern open-source Kubernetes operator pattern enables containerized Azure DevOps agent autoscaling?",
     options: [
-      { id: 'A', text: "Running Windows 98 VMs" },
-      { id: 'B', text: "Using Microsoft-hosted pools exclusively" },
-      { id: 'C', text: "Deploying physical blade servers" },
-      { id: 'D', text: "Running containerized agent pods scaled via KEDA (Kubernetes Event-driven Autoscaling) or custom AKS runners monitoring queue depth" }
+      { id: 'A', text: "Using Microsoft-hosted pools exclusively" },
+      { id: 'B', text: "Running containerized agent pods scaled via KEDA (Kubernetes Event-driven Autoscaling) or custom AKS runners monitoring queue depth" },
+      { id: 'C', text: "Running Windows 98 VMs" },
+      { id: 'D', text: "Deploying physical blade servers" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Modern cloud-native platform teams deploy containerized agent pools on AKS using KEDA to monitor Azure DevOps queue length metrics, spinning up ephemeral agent pods in seconds and terminating them upon job completion.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/docker",
@@ -136,11 +136,11 @@ export const AZURE_AZ400_QUESTIONS_5 = [
     question: "Which modern authentication mechanism should be configured for the ARM service connection?",
     options: [
       { id: 'A', text: "Service principal with certificate" },
-      { id: 'B', text: "Personal user credentials" },
-      { id: 'C', text: "Workload identity federation (OIDC - OpenID Connect)" },
-      { id: 'D', text: "Service principal with client secret (password)" }
+      { id: 'B', text: "Workload identity federation (OIDC - OpenID Connect)" },
+      { id: 'C', text: "Service principal with client secret (password)" },
+      { id: 'D', text: "Personal user credentials" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Workload Identity Federation uses OpenID Connect (OIDC) to establish trust between Azure DevOps and Microsoft Entra ID. Short-lived tokens are exchanged dynamically during pipeline execution, eliminating permanent secrets and certificate rotation overhead.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/library/connect-to-azure#workload-identity-federation",
@@ -156,12 +156,12 @@ export const AZURE_AZ400_QUESTIONS_5 = [
     scenario: "An enterprise DevOps engineering team is implementing automated CI/CD pipelines, source control governance, and continuous delivery on Microsoft Azure.",
     question: "A Production Azure Service Connection has Owner permissions on the corporate subscription. How can administrators ensure that only authorized release pipelines can use it?",
     options: [
-      { id: 'A', text: "Delete the service connection after every deployment" },
+      { id: 'A', text: "In Service Connection security settings, disable 'Grant access permission to all pipelines' and explicitly authorize specific pipeline files and branches" },
       { id: 'B', text: "Make the service connection public" },
-      { id: 'C', text: "In Service Connection security settings, disable 'Grant access permission to all pipelines' and explicitly authorize specific pipeline files and branches" },
-      { id: 'D', text: "Use client secret authentication" }
+      { id: 'C', text: "Use client secret authentication" },
+      { id: 'D', text: "Delete the service connection after every deployment" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Disabling 'Grant access permission to all pipelines' prevents untrusted feature pipelines from using high-privilege credentials. Administrators explicitly grant permissions only to vetted production release pipelines and secure branches.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints#secure-a-service-connection",
@@ -177,12 +177,12 @@ export const AZURE_AZ400_QUESTIONS_5 = [
     scenario: "An organization's developers complain that pull request validation builds are stuck in the 'Waiting for an available agent' state for hours.",
     question: "Where does an administrator purchase or configure additional concurrent build pipelines?",
     options: [
-      { id: 'A', text: "Organization Settings → Pipelines → Parallel jobs" },
-      { id: 'B', text: "In the git branch policies" },
-      { id: 'C', text: "In the Azure Storage account" },
-      { id: 'D', text: "Under project work items" }
+      { id: 'A', text: "Under project work items" },
+      { id: 'B', text: "Organization Settings → Pipelines → Parallel jobs" },
+      { id: 'C', text: "In the git branch policies" },
+      { id: 'D', text: "In the Azure Storage account" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Azure DevOps concurrency is governed by Parallel Jobs. In Organization Settings under 'Parallel jobs', administrators can purchase additional Microsoft-hosted or self-hosted parallel slots to increase concurrent job execution.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/licensing/concurrent-jobs",
@@ -219,12 +219,12 @@ export const AZURE_AZ400_QUESTIONS_5 = [
     scenario: "A build pipeline running on `ubuntu-latest` requires .NET 8.0 SDK, but the hosted runner currently defaults to .NET 7.0.",
     question: "Which task should be added at the beginning of the job to dynamically install the required runtime version?",
     options: [
-      { id: 'A', text: "PowerShell task rebooting the machine" },
-      { id: 'B', text: "DotNetCoreCLI@2" },
-      { id: 'C', text: "UseDotNet@2 with packageType: sdk and version: '8.0.x'" },
+      { id: 'A', text: "DotNetCoreCLI@2" },
+      { id: 'B', text: "UseDotNet@2 with packageType: sdk and version: '8.0.x'" },
+      { id: 'C', text: "PowerShell task rebooting the machine" },
       { id: 'D', text: "Script task running apt-get update" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Tool installer tasks (like `UseDotNet@2`, `UseNode@1`, `UsePythonVersion@0`) check the local runner tool cache and dynamically download/configure the specified SDK version on demand, ensuring consistent build environments.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/reference/use-dotnet-v2",
@@ -240,12 +240,12 @@ export const AZURE_AZ400_QUESTIONS_5 = [
     scenario: "An enterprise DevOps engineering team is implementing automated CI/CD pipelines, source control governance, and continuous delivery on Microsoft Azure.",
     question: "A massive unit test suite takes 60 minutes to run sequentially on a single runner. How can Azure Pipelines run tests in parallel across 4 agents using slicing?",
     options: [
-      { id: 'A', text: "Delete half of the unit tests" },
-      { id: 'B', text: "strategy: { parallel: 4 } combined with the VSTest@2 task with testRunTitle and slice distribution" },
+      { id: 'A', text: "strategy: { parallel: 4 } combined with the VSTest@2 task with testRunTitle and slice distribution" },
+      { id: 'B', text: "Run the pipeline 4 times manually" },
       { id: 'C', text: "Decrease the test timeout to 15 minutes" },
-      { id: 'D', text: "Run the pipeline 4 times manually" }
+      { id: 'D', text: "Delete half of the unit tests" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Configuring `strategy.parallel: 4` creates 4 parallel job instances. The `VSTest@2` task automatically detects agent slicing (`Agent.JobPositionInPhase` and `Agent.TotalJobsInPhase`), distributing test assemblies evenly across agents to slash test execution time to 15 minutes.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/test/parallel-testing-vstest",
@@ -261,12 +261,12 @@ export const AZURE_AZ400_QUESTIONS_5 = [
     scenario: "An enterprise DevOps engineering team is implementing automated CI/CD pipelines, source control governance, and continuous delivery on Microsoft Azure.",
     question: "Which official task in Azure Pipelines simplifies building Docker images and pushing them to Azure Container Registry (ACR) using a service connection?",
     options: [
-      { id: 'A', text: "Bash@3 executing docker cli commands manually with plaintext credentials" },
-      { id: 'B', text: "CopyFiles@2" },
-      { id: 'C', text: "AzureCLI@2 running az acr import" },
-      { id: 'D', text: "Docker@2 with command: 'buildAndPush' and containerRegistry service connection" }
+      { id: 'A', text: "Docker@2 with command: 'buildAndPush' and containerRegistry service connection" },
+      { id: 'B', text: "Bash@3 executing docker cli commands manually with plaintext credentials" },
+      { id: 'C', text: "CopyFiles@2" },
+      { id: 'D', text: "AzureCLI@2 running az acr import" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The `Docker@2` task provides built-in integration with Azure Container Registry (ACR) and Docker Hub. Setting `command: 'buildAndPush'` builds the image from a Dockerfile and pushes it securely using service connection authentication.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/reference/docker-v2",
@@ -283,11 +283,11 @@ export const AZURE_AZ400_QUESTIONS_5 = [
     question: "Where in the YAML pipeline file is this version numbering schema declared?",
     options: [
       { id: 'A', text: "pool: version-pool" },
-      { id: 'B', text: "variables: { build: 1 }" },
-      { id: 'C', text: "version: 1.0" },
-      { id: 'D', text: "name: $(Date:yyyy.MM.dd)$(Rev:.r)" }
+      { id: 'B', text: "version: 1.0" },
+      { id: 'C', text: "name: $(Date:yyyy.MM.dd)$(Rev:.r)" },
+      { id: 'D', text: "variables: { build: 1 }" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "The top-level `name:` property in Azure Pipelines YAML defines the build number format using built-in date and revision tokens (e.g. `$(Date:yyyy.MM.dd)$(Rev:.r)`), producing clean traceable build numbers.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/process/run-number",
@@ -303,12 +303,12 @@ export const AZURE_AZ400_QUESTIONS_5 = [
     scenario: "A network deployment step occasionally fails due to transient HTTP 503 gateway timeouts. The team wants the task to retry up to 2 times automatically before failing the job.",
     question: "Which task property configures automated retries on failure?",
     options: [
-      { id: 'A', text: "retryCountOnTaskFailure: 2" },
-      { id: 'B', text: "condition: always()" },
+      { id: 'A', text: "condition: always()" },
+      { id: 'B', text: "continueOnError: true" },
       { id: 'C', text: "timeoutInMinutes: 2" },
-      { id: 'D', text: "continueOnError: true" }
+      { id: 'D', text: "retryCountOnTaskFailure: 2" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Setting `retryCountOnTaskFailure: 2` on any pipeline task instructs the agent to automatically re-attempt the task up to 2 times if the previous attempt returns a non-zero exit code, neutralizing transient network hiccups.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/process/tasks#task-retries",
@@ -324,12 +324,12 @@ export const AZURE_AZ400_QUESTIONS_5 = [
     scenario: "An enterprise DevOps engineering team is implementing automated CI/CD pipelines, source control governance, and continuous delivery on Microsoft Azure.",
     question: "What is the operational difference between setting `continueOnError: true` on a task versus using `condition: always()` on downstream tasks?",
     options: [
-      { id: 'A', text: "condition: always() deletes failed build logs" },
-      { id: 'B', text: "`continueOnError: true` treats task failure as a warning and marks the job status as partially succeeded; `condition: always()` allows subsequent tasks to run even if previous tasks formally failed" },
+      { id: 'A', text: "`continueOnError: true` treats task failure as a warning and marks the job status as partially succeeded; `condition: always()` allows subsequent tasks to run even if previous tasks formally failed" },
+      { id: 'B', text: "continueOnError works only on Windows" },
       { id: 'C', text: "There is no difference between continueOnError and condition: always()" },
-      { id: 'D', text: "continueOnError works only on Windows" }
+      { id: 'D', text: "condition: always() deletes failed build logs" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "`continueOnError: true` prevents a task failure from failing the overall job, resulting in a green or yellow 'partially succeeded' build. In contrast, `condition: always()` lets downstream tasks run to perform cleanup while keeping the job formally failed.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/process/tasks#continue-on-error",
@@ -345,12 +345,12 @@ export const AZURE_AZ400_QUESTIONS_5 = [
     scenario: "An enterprise DevOps engineering team is implementing automated CI/CD pipelines, source control governance, and continuous delivery on Microsoft Azure.",
     question: "A build pipeline fails with an ambiguous error message. How can an engineer re-run the pipeline with maximum verbose debug logs enabled?",
     options: [
-      { id: 'A', text: "Delete the pipeline and re-create it" },
+      { id: 'A', text: "Queue a new run and check 'Enable system diagnostics', or set variable `system.debug = true`" },
       { id: 'B', text: "Reboot the developer workstation" },
       { id: 'C', text: "Export the pipeline to JSON" },
-      { id: 'D', text: "Queue a new run and check 'Enable system diagnostics', or set variable `system.debug = true`" }
+      { id: 'D', text: "Delete the pipeline and re-create it" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Checking 'Enable system diagnostics' when triggering a pipeline (or setting the pipeline variable `system.debug: true`) instructs the agent and tasks to emit comprehensive verbose trace logs to diagnose failures.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/troubleshooting/review-logs#configure-verbose-logs",
@@ -366,12 +366,12 @@ export const AZURE_AZ400_QUESTIONS_5 = [
     scenario: "An enterprise produces 50 GB of build artifacts daily. Storage costs are escalating rapidly because artifacts are never deleted.",
     question: "Where in Azure DevOps can administrators set global artifact retention policies to delete build outputs after 30 days?",
     options: [
-      { id: 'A', text: "In Azure Key Vault" },
-      { id: 'B', text: "In Azure Boards iteration paths" },
-      { id: 'C', text: "Project Settings → Pipelines → Settings → Retention policies (days to keep runs and artifacts)" },
-      { id: 'D', text: "In the git repository branch policies" }
+      { id: 'A', text: "Project Settings → Pipelines → Settings → Retention policies (days to keep runs and artifacts)" },
+      { id: 'B', text: "In the git repository branch policies" },
+      { id: 'C', text: "In Azure Key Vault" },
+      { id: 'D', text: "In Azure Boards iteration paths" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Pipeline retention policies configured under Project Settings → Pipelines → Settings govern how long completed pipeline runs, symbols, and published artifacts are retained before automated deletion.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/policies/retention",
@@ -387,12 +387,12 @@ export const AZURE_AZ400_QUESTIONS_5 = [
     scenario: "A job runs inside a Docker container, but one specific task (Docker in Docker) needs to communicate directly with the host VM's Docker socket.",
     question: "Which property on a step directs execution to the host runner instead of the job container?",
     options: [
-      { id: 'A', text: "container: none" },
-      { id: 'B', text: "runOnHost: true" },
-      { id: 'C', text: "pool: host-pool" },
-      { id: 'D', text: "target: host" }
+      { id: 'A', text: "pool: host-pool" },
+      { id: 'B', text: "target: host" },
+      { id: 'C', text: "container: none" },
+      { id: 'D', text: "runOnHost: true" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "In a container job, setting `target: host` on an individual step tells the agent to execute that specific step directly on the underlying host operating system rather than inside the job container.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/process/container-phases#step-targets",
@@ -408,12 +408,12 @@ export const AZURE_AZ400_QUESTIONS_5 = [
     scenario: "An iOS build pipeline requires an Apple Developer signing certificate (`.p12`) and mobile provisioning profile (`.mobileprovision`) to sign release IPAs.",
     question: "Where should these binary certificate files be stored securely in Azure DevOps?",
     options: [
-      { id: 'A', text: "Committed into the public Git repository" },
-      { id: 'B', text: "In Azure Pipelines Library under 'Secure files', downloaded at runtime using the DownloadSecureFile@1 task" },
-      { id: 'C', text: "Pasted into the pipeline YAML description" },
-      { id: 'D', text: "Stored in an Azure Boards work item attachment" }
+      { id: 'A', text: "In Azure Pipelines Library under 'Secure files', downloaded at runtime using the DownloadSecureFile@1 task" },
+      { id: 'B', text: "Committed into the public Git repository" },
+      { id: 'C', text: "Stored in an Azure Boards work item attachment" },
+      { id: 'D', text: "Pasted into the pipeline YAML description" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Secure Files in the Azure Pipelines Library provide encrypted cloud storage for sensitive files (certificates, provisioning profiles, SSH keys). Pipelines download them via `DownloadSecureFile@1` with automatic deletion after the job ends.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/library/secure-files",
@@ -429,12 +429,12 @@ export const AZURE_AZ400_QUESTIONS_5 = [
     scenario: "A DevOps engineer wants a PowerShell script step in `azure-pipelines.yml` to execute on both Linux and Windows hosted agents.",
     question: "Which setting on the PowerShell@2 task ensures cross-platform execution using PowerShell Core?",
     options: [
-      { id: 'A', text: "targetType: inline" },
-      { id: 'B', text: "os: cross-platform" },
-      { id: 'C', text: "script: powershell.exe" },
-      { id: 'D', text: "pwsh: true" }
+      { id: 'A', text: "os: cross-platform" },
+      { id: 'B', text: "pwsh: true" },
+      { id: 'C', text: "targetType: inline" },
+      { id: 'D', text: "script: powershell.exe" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Setting `pwsh: true` on the `PowerShell@2` task instructs the agent to invoke cross-platform PowerShell Core (`pwsh`) on Windows, Linux, and macOS, rather than legacy Windows PowerShell (`powershell.exe`).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/reference/powershell-v2",
@@ -451,11 +451,11 @@ export const AZURE_AZ400_QUESTIONS_5 = [
     question: "A team writes shell scripts in `azure-pipelines.yml` to build a Go application. What is the difference between Bash@3 and CmdLine@2?",
     options: [
       { id: 'A', text: "CmdLine@2 cannot accept script arguments" },
-      { id: 'B', text: "Bash@3 works only on Ubuntu" },
-      { id: 'C', text: "Bash@3 runs bash shell scripts on Linux, macOS, and Windows (via Git Bash); CmdLine@2 runs cmd.exe on Windows or sh on Linux" },
+      { id: 'B', text: "Bash@3 runs bash shell scripts on Linux, macOS, and Windows (via Git Bash); CmdLine@2 runs cmd.exe on Windows or sh on Linux" },
+      { id: 'C', text: "Bash@3 works only on Ubuntu" },
       { id: 'D', text: "There is no difference between Bash and CmdLine tasks" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "The `Bash@3` task executes scripts using the Bash interpreter across all platforms (including Windows using Git Bash). `CmdLine@2` invokes the native operating system default shell (`cmd.exe` on Windows, `/bin/sh` on Linux).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/reference/bash-v3",
@@ -472,11 +472,11 @@ export const AZURE_AZ400_QUESTIONS_5 = [
     question: "Which configuration on AzureCLI@2 executes a checked-out script file?",
     options: [
       { id: 'A', text: "inlineScript: az cosmosdb create" },
-      { id: 'B', text: "scriptType: bash, scriptLocation: scriptPath, scriptPath: '$(Build.SourcesDirectory)/scripts/setup-db.sh'" },
+      { id: 'B', text: "scriptType: inline" },
       { id: 'C', text: "target: external" },
-      { id: 'D', text: "scriptType: inline" }
+      { id: 'D', text: "scriptType: bash, scriptLocation: scriptPath, scriptPath: '$(Build.SourcesDirectory)/scripts/setup-db.sh'" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Setting `scriptLocation: scriptPath` on `AzureCLI@2` points to a version-controlled script file in the repository. This enables local script linting, unit testing, and code review outside pipeline YAML.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/reference/azure-cli-v2",
@@ -492,12 +492,12 @@ export const AZURE_AZ400_QUESTIONS_5 = [
     scenario: "During CI builds, third-party CLI tools (like .NET SDK, Next.js, or Angular) attempt to phone home anonymous telemetry, causing transient socket delays.",
     question: "What environment variables should be defined at the pipeline root to disable telemetry across build tools?",
     options: [
-      { id: 'A', text: "DOTNET_CLI_TELEMETRY_OPTOUT: '1' and NEXT_TELEMETRY_DISABLED: '1'" },
+      { id: 'A', text: "DISABLE_ALL: 'true'" },
       { id: 'B', text: "TELEMETRY: 'off'" },
-      { id: 'C', text: "DISABLE_ALL: 'true'" },
+      { id: 'C', text: "DOTNET_CLI_TELEMETRY_OPTOUT: '1' and NEXT_TELEMETRY_DISABLED: '1'" },
       { id: 'D', text: "NO_INTERNET: 'true'" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Setting environment variables like `DOTNET_CLI_TELEMETRY_OPTOUT: 1` and `NEXT_TELEMETRY_DISABLED: 1` suppresses tool telemetry calls, speeding up CI builds and preventing outbound network noise on runner agents.",
     referenceUrl: "https://learn.microsoft.com/en-us/dotnet/core/tools/telemetry",
@@ -513,12 +513,12 @@ export const AZURE_AZ400_QUESTIONS_5 = [
     scenario: "A developer cannot queue a pipeline that targets a newly created self-hosted pool named 'Finance-Runners', receiving error: 'Pool Finance-Runners not found or not permitted'.",
     question: "How does an administrator grant the pipeline permission to use the agent pool?",
     options: [
-      { id: 'A', text: "Navigate to Project Settings → Agent pools → Finance-Runners → Security, and authorize the pipeline under Pipeline permissions" },
-      { id: 'B', text: "Delete the agent pool" },
-      { id: 'C', text: "Make the developer an Azure subscription owner" },
-      { id: 'D', text: "Reboot the build agent" }
+      { id: 'A', text: "Reboot the build agent" },
+      { id: 'B', text: "Navigate to Project Settings → Agent pools → Finance-Runners → Security, and authorize the pipeline under Pipeline permissions" },
+      { id: 'C', text: "Delete the agent pool" },
+      { id: 'D', text: "Make the developer an Azure subscription owner" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Agent pools maintain independent security access control lists. Administrators must grant the target pipeline permission to use the pool under Agent Pool Security settings in Azure DevOps.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/pools-queues#pool-security",

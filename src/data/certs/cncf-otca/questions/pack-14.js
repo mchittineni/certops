@@ -9,12 +9,12 @@ export const CNCF_OTCA_QUESTIONS_14 = [
     scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer evaluates Memory Governance to prevent an OpenTelemetry Collector pod from crashing with an Out-Of-Memory (OOMKilled) exit code during sudden telemetry spikes.",
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives? Protecting collectors from Out-Of-Memory (OOM) crashes using memory_limiter is under consideration.",
     options: [
-      { id: 'A', text: "Configure the `memory_limiter` processor as the very first processor in every pipeline with `limit_percentage` and `spike_limit_percentage`." },
-      { id: 'B', text: "Increase pod memory limit to infinite." },
-      { id: 'C', text: "Disable garbage collection in the Go runtime." },
-      { id: 'D', text: "Drop all incoming network packets blindly." }
+      { id: 'A', text: "Increase pod memory limit to infinite." },
+      { id: 'B', text: "Disable garbage collection in the Go runtime." },
+      { id: 'C', text: "Drop all incoming network packets blindly." },
+      { id: 'D', text: "Configure the `memory_limiter` processor as the very first processor in every pipeline with `limit_percentage` and `spike_limit_percentage`." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure the `memory_limiter` processor as the very first processor in every pipeline with `limit_percentage` and `spike_limit_percentage`. The `memory_limiter` processor continuously monitors the Collector's heap memory usage. When consumption approaches defined thresholds (`check_interval`, `limit_percentage`), it actively drops data or returns backpressure to callers, preventing kernel OOM termination.",
     referenceUrl: "https://github.com/open-telemetry/opentelemetry-collector/blob/main/processor/memorylimiterprocessor/README.md",
@@ -30,12 +30,12 @@ export const CNCF_OTCA_QUESTIONS_14 = [
     scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer evaluates Memory Governance to prevent an OpenTelemetry Collector pod from crashing with an Out-Of-Memory (OOMKilled) exit code during sudden telemetry spikes.",
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends? Protecting collectors from Out-Of-Memory (OOM) crashes using memory_limiter is under consideration.",
     options: [
-      { id: 'A', text: "Configure the `memory_limiter` processor as the very first processor in every pipeline with `limit_percentage` and `spike_limit_percentage`." },
+      { id: 'A', text: "Drop all incoming network packets blindly." },
       { id: 'B', text: "Increase pod memory limit to infinite." },
       { id: 'C', text: "Disable garbage collection in the Go runtime." },
-      { id: 'D', text: "Drop all incoming network packets blindly." }
+      { id: 'D', text: "Configure the `memory_limiter` processor as the very first processor in every pipeline with `limit_percentage` and `spike_limit_percentage`." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure the `memory_limiter` processor as the very first processor in every pipeline with `limit_percentage` and `spike_limit_percentage`. The `memory_limiter` processor continuously monitors the Collector's heap memory usage. When consumption approaches defined thresholds (`check_interval`, `limit_percentage`), it actively drops data or returns backpressure to callers, preventing kernel OOM termination.",
     referenceUrl: "https://github.com/open-telemetry/opentelemetry-collector/blob/main/processor/memorylimiterprocessor/README.md",
@@ -51,12 +51,12 @@ export const CNCF_OTCA_QUESTIONS_14 = [
     scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer evaluates Memory Governance to prevent an OpenTelemetry Collector pod from crashing with an Out-Of-Memory (OOMKilled) exit code during sudden telemetry spikes.",
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls? Protecting collectors from Out-Of-Memory (OOM) crashes using memory_limiter is under consideration.",
     options: [
-      { id: 'A', text: "Configure the `memory_limiter` processor as the very first processor in every pipeline with `limit_percentage` and `spike_limit_percentage`." },
-      { id: 'B', text: "Increase pod memory limit to infinite." },
-      { id: 'C', text: "Disable garbage collection in the Go runtime." },
-      { id: 'D', text: "Drop all incoming network packets blindly." }
+      { id: 'A', text: "Drop all incoming network packets blindly." },
+      { id: 'B', text: "Disable garbage collection in the Go runtime." },
+      { id: 'C', text: "Increase pod memory limit to infinite." },
+      { id: 'D', text: "Configure the `memory_limiter` processor as the very first processor in every pipeline with `limit_percentage` and `spike_limit_percentage`." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure the `memory_limiter` processor as the very first processor in every pipeline with `limit_percentage` and `spike_limit_percentage`. The `memory_limiter` processor continuously monitors the Collector's heap memory usage. When consumption approaches defined thresholds (`check_interval`, `limit_percentage`), it actively drops data or returns backpressure to callers, preventing kernel OOM termination.",
     referenceUrl: "https://github.com/open-telemetry/opentelemetry-collector/blob/main/processor/memorylimiterprocessor/README.md",
@@ -72,12 +72,12 @@ export const CNCF_OTCA_QUESTIONS_14 = [
     scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer evaluates Memory Governance to prevent an OpenTelemetry Collector pod from crashing with an Out-Of-Memory (OOMKilled) exit code during sudden telemetry spikes.",
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption? Protecting collectors from Out-Of-Memory (OOM) crashes using memory_limiter is under consideration.",
     options: [
-      { id: 'A', text: "Configure the `memory_limiter` processor as the very first processor in every pipeline with `limit_percentage` and `spike_limit_percentage`." },
-      { id: 'B', text: "Increase pod memory limit to infinite." },
+      { id: 'A', text: "Increase pod memory limit to infinite." },
+      { id: 'B', text: "Configure the `memory_limiter` processor as the very first processor in every pipeline with `limit_percentage` and `spike_limit_percentage`." },
       { id: 'C', text: "Disable garbage collection in the Go runtime." },
       { id: 'D', text: "Drop all incoming network packets blindly." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure the `memory_limiter` processor as the very first processor in every pipeline with `limit_percentage` and `spike_limit_percentage`. The `memory_limiter` processor continuously monitors the Collector's heap memory usage. When consumption approaches defined thresholds (`check_interval`, `limit_percentage`), it actively drops data or returns backpressure to callers, preventing kernel OOM termination.",
     referenceUrl: "https://github.com/open-telemetry/opentelemetry-collector/blob/main/processor/memorylimiterprocessor/README.md",
@@ -93,12 +93,12 @@ export const CNCF_OTCA_QUESTIONS_14 = [
     scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer evaluates Memory Governance to prevent an OpenTelemetry Collector pod from crashing with an Out-Of-Memory (OOMKilled) exit code during sudden telemetry spikes.",
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation? Protecting collectors from Out-Of-Memory (OOM) crashes using memory_limiter is under consideration.",
     options: [
-      { id: 'A', text: "Configure the `memory_limiter` processor as the very first processor in every pipeline with `limit_percentage` and `spike_limit_percentage`." },
-      { id: 'B', text: "Increase pod memory limit to infinite." },
-      { id: 'C', text: "Disable garbage collection in the Go runtime." },
-      { id: 'D', text: "Drop all incoming network packets blindly." }
+      { id: 'A', text: "Increase pod memory limit to infinite." },
+      { id: 'B', text: "Drop all incoming network packets blindly." },
+      { id: 'C', text: "Configure the `memory_limiter` processor as the very first processor in every pipeline with `limit_percentage` and `spike_limit_percentage`." },
+      { id: 'D', text: "Disable garbage collection in the Go runtime." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure the `memory_limiter` processor as the very first processor in every pipeline with `limit_percentage` and `spike_limit_percentage`. The `memory_limiter` processor continuously monitors the Collector's heap memory usage. When consumption approaches defined thresholds (`check_interval`, `limit_percentage`), it actively drops data or returns backpressure to callers, preventing kernel OOM termination.",
     referenceUrl: "https://github.com/open-telemetry/opentelemetry-collector/blob/main/processor/memorylimiterprocessor/README.md",
@@ -114,12 +114,12 @@ export const CNCF_OTCA_QUESTIONS_14 = [
     scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer evaluates Telemetry Transformation to rename an attribute `old_client_id` to `client.id` and mask credit card numbers appearing in span attributes across all incoming telemetry.",
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives? Modifying, filtering, and renaming telemetry attributes using OpenTelemetry Transformation Language (OTTL) is under consideration.",
     options: [
-      { id: 'A', text: "Configure the `transform` processor using OpenTelemetry Transformation Language (OTTL) statements with `set` and `replace_all_patterns`." },
-      { id: 'B', text: "Modify application source code across 50 microservices to fix the name." },
-      { id: 'C', text: "Write a custom regex proxy in Python outside the collector." },
-      { id: 'D', text: "Drop all spans containing old attribute names." }
+      { id: 'A', text: "Drop all spans containing old attribute names." },
+      { id: 'B', text: "Write a custom regex proxy in Python outside the collector." },
+      { id: 'C', text: "Modify application source code across 50 microservices to fix the name." },
+      { id: 'D', text: "Configure the `transform` processor using OpenTelemetry Transformation Language (OTTL) statements with `set` and `replace_all_patterns`." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure the `transform` processor using OpenTelemetry Transformation Language (OTTL) statements with `set` and `replace_all_patterns`. The `transform` processor uses the OpenTelemetry Transformation Language (OTTL). It provides a powerful declarative DSL to mutate, rename, extract, or delete attributes, metrics, and log fields in-flight within the collector without modifying application code.",
     referenceUrl: "https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/transformprocessor",
@@ -135,12 +135,12 @@ export const CNCF_OTCA_QUESTIONS_14 = [
     scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer evaluates Telemetry Transformation to rename an attribute `old_client_id` to `client.id` and mask credit card numbers appearing in span attributes across all incoming telemetry.",
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends? Modifying, filtering, and renaming telemetry attributes using OpenTelemetry Transformation Language (OTTL) is under consideration.",
     options: [
-      { id: 'A', text: "Configure the `transform` processor using OpenTelemetry Transformation Language (OTTL) statements with `set` and `replace_all_patterns`." },
-      { id: 'B', text: "Modify application source code across 50 microservices to fix the name." },
-      { id: 'C', text: "Write a custom regex proxy in Python outside the collector." },
-      { id: 'D', text: "Drop all spans containing old attribute names." }
+      { id: 'A', text: "Write a custom regex proxy in Python outside the collector." },
+      { id: 'B', text: "Drop all spans containing old attribute names." },
+      { id: 'C', text: "Configure the `transform` processor using OpenTelemetry Transformation Language (OTTL) statements with `set` and `replace_all_patterns`." },
+      { id: 'D', text: "Modify application source code across 50 microservices to fix the name." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure the `transform` processor using OpenTelemetry Transformation Language (OTTL) statements with `set` and `replace_all_patterns`. The `transform` processor uses the OpenTelemetry Transformation Language (OTTL). It provides a powerful declarative DSL to mutate, rename, extract, or delete attributes, metrics, and log fields in-flight within the collector without modifying application code.",
     referenceUrl: "https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/transformprocessor",
@@ -156,12 +156,12 @@ export const CNCF_OTCA_QUESTIONS_14 = [
     scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer evaluates Telemetry Transformation to rename an attribute `old_client_id` to `client.id` and mask credit card numbers appearing in span attributes across all incoming telemetry.",
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls? Modifying, filtering, and renaming telemetry attributes using OpenTelemetry Transformation Language (OTTL) is under consideration.",
     options: [
-      { id: 'A', text: "Configure the `transform` processor using OpenTelemetry Transformation Language (OTTL) statements with `set` and `replace_all_patterns`." },
-      { id: 'B', text: "Modify application source code across 50 microservices to fix the name." },
-      { id: 'C', text: "Write a custom regex proxy in Python outside the collector." },
-      { id: 'D', text: "Drop all spans containing old attribute names." }
+      { id: 'A', text: "Write a custom regex proxy in Python outside the collector." },
+      { id: 'B', text: "Configure the `transform` processor using OpenTelemetry Transformation Language (OTTL) statements with `set` and `replace_all_patterns`." },
+      { id: 'C', text: "Drop all spans containing old attribute names." },
+      { id: 'D', text: "Modify application source code across 50 microservices to fix the name." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure the `transform` processor using OpenTelemetry Transformation Language (OTTL) statements with `set` and `replace_all_patterns`. The `transform` processor uses the OpenTelemetry Transformation Language (OTTL). It provides a powerful declarative DSL to mutate, rename, extract, or delete attributes, metrics, and log fields in-flight within the collector without modifying application code.",
     referenceUrl: "https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/transformprocessor",
@@ -177,12 +177,12 @@ export const CNCF_OTCA_QUESTIONS_14 = [
     scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer evaluates Telemetry Transformation to rename an attribute `old_client_id` to `client.id` and mask credit card numbers appearing in span attributes across all incoming telemetry.",
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption? Modifying, filtering, and renaming telemetry attributes using OpenTelemetry Transformation Language (OTTL) is under consideration.",
     options: [
-      { id: 'A', text: "Configure the `transform` processor using OpenTelemetry Transformation Language (OTTL) statements with `set` and `replace_all_patterns`." },
+      { id: 'A', text: "Drop all spans containing old attribute names." },
       { id: 'B', text: "Modify application source code across 50 microservices to fix the name." },
-      { id: 'C', text: "Write a custom regex proxy in Python outside the collector." },
-      { id: 'D', text: "Drop all spans containing old attribute names." }
+      { id: 'C', text: "Configure the `transform` processor using OpenTelemetry Transformation Language (OTTL) statements with `set` and `replace_all_patterns`." },
+      { id: 'D', text: "Write a custom regex proxy in Python outside the collector." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure the `transform` processor using OpenTelemetry Transformation Language (OTTL) statements with `set` and `replace_all_patterns`. The `transform` processor uses the OpenTelemetry Transformation Language (OTTL). It provides a powerful declarative DSL to mutate, rename, extract, or delete attributes, metrics, and log fields in-flight within the collector without modifying application code.",
     referenceUrl: "https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/transformprocessor",
@@ -198,12 +198,12 @@ export const CNCF_OTCA_QUESTIONS_14 = [
     scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer evaluates Telemetry Transformation to rename an attribute `old_client_id` to `client.id` and mask credit card numbers appearing in span attributes across all incoming telemetry.",
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation? Modifying, filtering, and renaming telemetry attributes using OpenTelemetry Transformation Language (OTTL) is under consideration.",
     options: [
-      { id: 'A', text: "Configure the `transform` processor using OpenTelemetry Transformation Language (OTTL) statements with `set` and `replace_all_patterns`." },
-      { id: 'B', text: "Modify application source code across 50 microservices to fix the name." },
-      { id: 'C', text: "Write a custom regex proxy in Python outside the collector." },
-      { id: 'D', text: "Drop all spans containing old attribute names." }
+      { id: 'A', text: "Modify application source code across 50 microservices to fix the name." },
+      { id: 'B', text: "Drop all spans containing old attribute names." },
+      { id: 'C', text: "Configure the `transform` processor using OpenTelemetry Transformation Language (OTTL) statements with `set` and `replace_all_patterns`." },
+      { id: 'D', text: "Write a custom regex proxy in Python outside the collector." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure the `transform` processor using OpenTelemetry Transformation Language (OTTL) statements with `set` and `replace_all_patterns`. The `transform` processor uses the OpenTelemetry Transformation Language (OTTL). It provides a powerful declarative DSL to mutate, rename, extract, or delete attributes, metrics, and log fields in-flight within the collector without modifying application code.",
     referenceUrl: "https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/transformprocessor",
@@ -219,12 +219,12 @@ export const CNCF_OTCA_QUESTIONS_14 = [
     scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer evaluates Tail Sampling to configure an OpenTelemetry Collector to sample 100% of traces with errors (HTTP 5xx) or duration &gt; 1.5s, while keeping 5% of healthy traces.",
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives? Configuring probabilistic, string_attribute, latency, and numeric_attribute sampling filters is under consideration.",
     options: [
-      { id: 'A', text: "Configure the `tail_sampling` processor with policy rules: `status_code` (ERROR), `latency` (&gt;1500ms), and `probabilistic` (5%)." },
-      { id: 'B', text: "Use a head-based sampler at the application SDK." },
-      { id: 'C', text: "Drop all spans that have latency greater than 1.5s." },
-      { id: 'D', text: "Tail sampling is impossible in OpenTelemetry." }
+      { id: 'A', text: "Use a head-based sampler at the application SDK." },
+      { id: 'B', text: "Configure the `tail_sampling` processor with policy rules: `status_code` (ERROR), `latency` (&gt;1500ms), and `probabilistic` (5%)." },
+      { id: 'C', text: "Tail sampling is impossible in OpenTelemetry." },
+      { id: 'D', text: "Drop all spans that have latency greater than 1.5s." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure the `tail_sampling` processor with policy rules: `status_code` (ERROR), `latency` (&gt;1500ms), and `probabilistic` (5%). The `tail_sampling` processor in the Contrib collector buffers completed traces in memory. It applies composite policy rules (latency thresholds, error status codes, specific attribute values) to retain high-value traces while sampling down high-volume mundane traffic.",
     referenceUrl: "https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/tailsamplingprocessor",
@@ -240,12 +240,12 @@ export const CNCF_OTCA_QUESTIONS_14 = [
     scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer evaluates Tail Sampling to configure an OpenTelemetry Collector to sample 100% of traces with errors (HTTP 5xx) or duration &gt; 1.5s, while keeping 5% of healthy traces.",
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends? Configuring probabilistic, string_attribute, latency, and numeric_attribute sampling filters is under consideration.",
     options: [
-      { id: 'A', text: "Configure the `tail_sampling` processor with policy rules: `status_code` (ERROR), `latency` (&gt;1500ms), and `probabilistic` (5%)." },
+      { id: 'A', text: "Tail sampling is impossible in OpenTelemetry." },
       { id: 'B', text: "Use a head-based sampler at the application SDK." },
-      { id: 'C', text: "Drop all spans that have latency greater than 1.5s." },
-      { id: 'D', text: "Tail sampling is impossible in OpenTelemetry." }
+      { id: 'C', text: "Configure the `tail_sampling` processor with policy rules: `status_code` (ERROR), `latency` (&gt;1500ms), and `probabilistic` (5%)." },
+      { id: 'D', text: "Drop all spans that have latency greater than 1.5s." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure the `tail_sampling` processor with policy rules: `status_code` (ERROR), `latency` (&gt;1500ms), and `probabilistic` (5%). The `tail_sampling` processor in the Contrib collector buffers completed traces in memory. It applies composite policy rules (latency thresholds, error status codes, specific attribute values) to retain high-value traces while sampling down high-volume mundane traffic.",
     referenceUrl: "https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/tailsamplingprocessor",
@@ -283,9 +283,9 @@ export const CNCF_OTCA_QUESTIONS_14 = [
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption? Configuring probabilistic, string_attribute, latency, and numeric_attribute sampling filters is under consideration.",
     options: [
       { id: 'A', text: "Configure the `tail_sampling` processor with policy rules: `status_code` (ERROR), `latency` (&gt;1500ms), and `probabilistic` (5%)." },
-      { id: 'B', text: "Use a head-based sampler at the application SDK." },
+      { id: 'B', text: "Tail sampling is impossible in OpenTelemetry." },
       { id: 'C', text: "Drop all spans that have latency greater than 1.5s." },
-      { id: 'D', text: "Tail sampling is impossible in OpenTelemetry." }
+      { id: 'D', text: "Use a head-based sampler at the application SDK." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -325,9 +325,9 @@ export const CNCF_OTCA_QUESTIONS_14 = [
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives? Evaluating Sidecar/DaemonSet (Agent) vs Centralized Cluster (Gateway) architectures is under consideration.",
     options: [
       { id: 'A', text: "Deploy a two-tier architecture: Collector DaemonSets (Agents) on worker nodes for local receipt, forwarding to a centralized Collector cluster (Gateway)." },
-      { id: 'B', text: "Deploy a single monolithic Collector instance handling all 500 nodes directly." },
-      { id: 'C', text: "Require every application pod to export telemetry over the internet directly to SaaS backends." },
-      { id: 'D', text: "Run collectors only on master control plane nodes." }
+      { id: 'B', text: "Require every application pod to export telemetry over the internet directly to SaaS backends." },
+      { id: 'C', text: "Run collectors only on master control plane nodes." },
+      { id: 'D', text: "Deploy a single monolithic Collector instance handling all 500 nodes directly." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -347,8 +347,8 @@ export const CNCF_OTCA_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Deploy a two-tier architecture: Collector DaemonSets (Agents) on worker nodes for local receipt, forwarding to a centralized Collector cluster (Gateway)." },
       { id: 'B', text: "Deploy a single monolithic Collector instance handling all 500 nodes directly." },
-      { id: 'C', text: "Require every application pod to export telemetry over the internet directly to SaaS backends." },
-      { id: 'D', text: "Run collectors only on master control plane nodes." }
+      { id: 'C', text: "Run collectors only on master control plane nodes." },
+      { id: 'D', text: "Require every application pod to export telemetry over the internet directly to SaaS backends." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -367,9 +367,9 @@ export const CNCF_OTCA_QUESTIONS_14 = [
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls? Evaluating Sidecar/DaemonSet (Agent) vs Centralized Cluster (Gateway) architectures is under consideration.",
     options: [
       { id: 'A', text: "Deploy a two-tier architecture: Collector DaemonSets (Agents) on worker nodes for local receipt, forwarding to a centralized Collector cluster (Gateway)." },
-      { id: 'B', text: "Deploy a single monolithic Collector instance handling all 500 nodes directly." },
-      { id: 'C', text: "Require every application pod to export telemetry over the internet directly to SaaS backends." },
-      { id: 'D', text: "Run collectors only on master control plane nodes." }
+      { id: 'B', text: "Require every application pod to export telemetry over the internet directly to SaaS backends." },
+      { id: 'C', text: "Run collectors only on master control plane nodes." },
+      { id: 'D', text: "Deploy a single monolithic Collector instance handling all 500 nodes directly." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -387,12 +387,12 @@ export const CNCF_OTCA_QUESTIONS_14 = [
     scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer evaluates Collector Topologies to design an observability architecture for a 500-node Kubernetes cluster balancing local pod offloading with centralized governance.",
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption? Evaluating Sidecar/DaemonSet (Agent) vs Centralized Cluster (Gateway) architectures is under consideration.",
     options: [
-      { id: 'A', text: "Deploy a two-tier architecture: Collector DaemonSets (Agents) on worker nodes for local receipt, forwarding to a centralized Collector cluster (Gateway)." },
-      { id: 'B', text: "Deploy a single monolithic Collector instance handling all 500 nodes directly." },
-      { id: 'C', text: "Require every application pod to export telemetry over the internet directly to SaaS backends." },
-      { id: 'D', text: "Run collectors only on master control plane nodes." }
+      { id: 'A', text: "Deploy a single monolithic Collector instance handling all 500 nodes directly." },
+      { id: 'B', text: "Deploy a two-tier architecture: Collector DaemonSets (Agents) on worker nodes for local receipt, forwarding to a centralized Collector cluster (Gateway)." },
+      { id: 'C', text: "Run collectors only on master control plane nodes." },
+      { id: 'D', text: "Require every application pod to export telemetry over the internet directly to SaaS backends." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy a two-tier architecture: Collector DaemonSets (Agents) on worker nodes for local receipt, forwarding to a centralized Collector cluster (Gateway). A multi-tier architecture combines advantages: Agent collectors (DaemonSet/sidecars) provide low-latency local endpoints (`localhost:4317`) and host enrichment; Gateway collectors (centralized scaled deployment) handle heavy processing, tail sampling, and credential management for backend exports.",
     referenceUrl: "https://opentelemetry.io/docs/collector/deployment/",
@@ -408,12 +408,12 @@ export const CNCF_OTCA_QUESTIONS_14 = [
     scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer evaluates Collector Topologies to design an observability architecture for a 500-node Kubernetes cluster balancing local pod offloading with centralized governance.",
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation? Evaluating Sidecar/DaemonSet (Agent) vs Centralized Cluster (Gateway) architectures is under consideration.",
     options: [
-      { id: 'A', text: "Deploy a two-tier architecture: Collector DaemonSets (Agents) on worker nodes for local receipt, forwarding to a centralized Collector cluster (Gateway)." },
-      { id: 'B', text: "Deploy a single monolithic Collector instance handling all 500 nodes directly." },
-      { id: 'C', text: "Require every application pod to export telemetry over the internet directly to SaaS backends." },
-      { id: 'D', text: "Run collectors only on master control plane nodes." }
+      { id: 'A', text: "Run collectors only on master control plane nodes." },
+      { id: 'B', text: "Require every application pod to export telemetry over the internet directly to SaaS backends." },
+      { id: 'C', text: "Deploy a two-tier architecture: Collector DaemonSets (Agents) on worker nodes for local receipt, forwarding to a centralized Collector cluster (Gateway)." },
+      { id: 'D', text: "Deploy a single monolithic Collector instance handling all 500 nodes directly." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy a two-tier architecture: Collector DaemonSets (Agents) on worker nodes for local receipt, forwarding to a centralized Collector cluster (Gateway). A multi-tier architecture combines advantages: Agent collectors (DaemonSet/sidecars) provide low-latency local endpoints (`localhost:4317`) and host enrichment; Gateway collectors (centralized scaled deployment) handle heavy processing, tail sampling, and credential management for backend exports.",
     referenceUrl: "https://opentelemetry.io/docs/collector/deployment/",
@@ -429,12 +429,12 @@ export const CNCF_OTCA_QUESTIONS_14 = [
     scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer evaluates OTel Operator to automatically inject OpenTelemetry instrumentation libraries into Java, Node.js, and Python pods in a Kubernetes cluster without modifying Dockerfiles.",
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives? Managing collector deployments and automating auto-instrumentation via the Kubernetes operator is under consideration.",
     options: [
-      { id: 'A', text: "Deploy the OpenTelemetry Operator and annotate target namespaces/pods with `instrumentation.opentelemetry.io/inject-java: \"true\"`." },
-      { id: 'B', text: "Rebuild all container images with manual code instrumentation." },
-      { id: 'C', text: "SSH into running pods and execute npm install." },
+      { id: 'A', text: "SSH into running pods and execute npm install." },
+      { id: 'B', text: "Deploy the OpenTelemetry Operator and annotate target namespaces/pods with `instrumentation.opentelemetry.io/inject-java: \"true\"`." },
+      { id: 'C', text: "Rebuild all container images with manual code instrumentation." },
       { id: 'D', text: "The operator can only deploy collectors and cannot inject instrumentation." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy the OpenTelemetry Operator and annotate target namespaces/pods with `instrumentation.opentelemetry.io/inject-java: \"true\"`. The OpenTelemetry Operator for Kubernetes automates collector management and provides zero-code auto-instrumentation. Applying annotations (`inject-java: true`, `inject-python: true`) instructs the operator's admission webhook to inject init-containers containing runtime agents that instrument workloads transparently.",
     referenceUrl: "https://opentelemetry.io/docs/kubernetes/operator/",
@@ -450,12 +450,12 @@ export const CNCF_OTCA_QUESTIONS_14 = [
     scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer evaluates OTel Operator to automatically inject OpenTelemetry instrumentation libraries into Java, Node.js, and Python pods in a Kubernetes cluster without modifying Dockerfiles.",
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends? Managing collector deployments and automating auto-instrumentation via the Kubernetes operator is under consideration.",
     options: [
-      { id: 'A', text: "Deploy the OpenTelemetry Operator and annotate target namespaces/pods with `instrumentation.opentelemetry.io/inject-java: \"true\"`." },
-      { id: 'B', text: "Rebuild all container images with manual code instrumentation." },
-      { id: 'C', text: "SSH into running pods and execute npm install." },
-      { id: 'D', text: "The operator can only deploy collectors and cannot inject instrumentation." }
+      { id: 'A', text: "Rebuild all container images with manual code instrumentation." },
+      { id: 'B', text: "Deploy the OpenTelemetry Operator and annotate target namespaces/pods with `instrumentation.opentelemetry.io/inject-java: \"true\"`." },
+      { id: 'C', text: "The operator can only deploy collectors and cannot inject instrumentation." },
+      { id: 'D', text: "SSH into running pods and execute npm install." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy the OpenTelemetry Operator and annotate target namespaces/pods with `instrumentation.opentelemetry.io/inject-java: \"true\"`. The OpenTelemetry Operator for Kubernetes automates collector management and provides zero-code auto-instrumentation. Applying annotations (`inject-java: true`, `inject-python: true`) instructs the operator's admission webhook to inject init-containers containing runtime agents that instrument workloads transparently.",
     referenceUrl: "https://opentelemetry.io/docs/kubernetes/operator/",
@@ -471,12 +471,12 @@ export const CNCF_OTCA_QUESTIONS_14 = [
     scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer evaluates OTel Operator to automatically inject OpenTelemetry instrumentation libraries into Java, Node.js, and Python pods in a Kubernetes cluster without modifying Dockerfiles.",
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls? Managing collector deployments and automating auto-instrumentation via the Kubernetes operator is under consideration.",
     options: [
-      { id: 'A', text: "Deploy the OpenTelemetry Operator and annotate target namespaces/pods with `instrumentation.opentelemetry.io/inject-java: \"true\"`." },
-      { id: 'B', text: "Rebuild all container images with manual code instrumentation." },
+      { id: 'A', text: "The operator can only deploy collectors and cannot inject instrumentation." },
+      { id: 'B', text: "Deploy the OpenTelemetry Operator and annotate target namespaces/pods with `instrumentation.opentelemetry.io/inject-java: \"true\"`." },
       { id: 'C', text: "SSH into running pods and execute npm install." },
-      { id: 'D', text: "The operator can only deploy collectors and cannot inject instrumentation." }
+      { id: 'D', text: "Rebuild all container images with manual code instrumentation." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy the OpenTelemetry Operator and annotate target namespaces/pods with `instrumentation.opentelemetry.io/inject-java: \"true\"`. The OpenTelemetry Operator for Kubernetes automates collector management and provides zero-code auto-instrumentation. Applying annotations (`inject-java: true`, `inject-python: true`) instructs the operator's admission webhook to inject init-containers containing runtime agents that instrument workloads transparently.",
     referenceUrl: "https://opentelemetry.io/docs/kubernetes/operator/",
@@ -494,8 +494,8 @@ export const CNCF_OTCA_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Deploy the OpenTelemetry Operator and annotate target namespaces/pods with `instrumentation.opentelemetry.io/inject-java: \"true\"`." },
       { id: 'B', text: "Rebuild all container images with manual code instrumentation." },
-      { id: 'C', text: "SSH into running pods and execute npm install." },
-      { id: 'D', text: "The operator can only deploy collectors and cannot inject instrumentation." }
+      { id: 'C', text: "The operator can only deploy collectors and cannot inject instrumentation." },
+      { id: 'D', text: "SSH into running pods and execute npm install." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -514,9 +514,9 @@ export const CNCF_OTCA_QUESTIONS_14 = [
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation? Managing collector deployments and automating auto-instrumentation via the Kubernetes operator is under consideration.",
     options: [
       { id: 'A', text: "Deploy the OpenTelemetry Operator and annotate target namespaces/pods with `instrumentation.opentelemetry.io/inject-java: \"true\"`." },
-      { id: 'B', text: "Rebuild all container images with manual code instrumentation." },
-      { id: 'C', text: "SSH into running pods and execute npm install." },
-      { id: 'D', text: "The operator can only deploy collectors and cannot inject instrumentation." }
+      { id: 'B', text: "The operator can only deploy collectors and cannot inject instrumentation." },
+      { id: 'C', text: "Rebuild all container images with manual code instrumentation." },
+      { id: 'D', text: "SSH into running pods and execute npm install." }
     ],
     correctAnswers: ['A'],
     type: "single",

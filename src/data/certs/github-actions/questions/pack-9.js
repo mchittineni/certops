@@ -10,8 +10,8 @@ export const GITHUB_ACTIONS_QUESTIONS_9 = [
     question: "Which condition expresses run after success or failure, but not after cancellation?",
     options: [
       { id: 'A', text: "A condition that negates cancelled(), which is true for success and failure but false once the run has been cancelled." },
-      { id: 'B', text: "A condition of always() with continue-on-error set on the job." },
-      { id: 'C', text: "A condition combining success() and failure(), which together cover every non-cancelled outcome." },
+      { id: 'B', text: "A condition combining success() and failure(), which together cover every non-cancelled outcome." },
+      { id: 'C', text: "A condition of always() with continue-on-error set on the job." },
       { id: 'D', text: "A condition of failure(), since a cancelled run is reported as a success." }
     ],
     correctAnswers: ['A'],
@@ -30,12 +30,12 @@ export const GITHUB_ACTIONS_QUESTIONS_9 = [
     scenario: "A job must build code from the current repository against test fixtures held in a second repository. Adding a second checkout step overwrites the first checkout in the workspace root.",
     question: "Which input prevents the collision?",
     options: [
-      { id: 'A', text: "Running the second checkout in a separate job, since one job can only hold one repository." },
+      { id: 'A', text: "The path input on each checkout step, placing each repository in its own subdirectory of the workspace." },
       { id: 'B', text: "The clean input set to false on the second checkout, which preserves the first." },
       { id: 'C', text: "The sparse-checkout input, which isolates each repository automatically." },
-      { id: 'D', text: "The path input on each checkout step, placing each repository in its own subdirectory of the workspace." }
+      { id: 'D', text: "Running the second checkout in a separate job, since one job can only hold one repository." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The checkout action defaults to the workspace root, so a second invocation replaces the first unless each is given a path placing it in its own subdirectory, after which both trees coexist and later steps address them by path. Disabling cleaning leaves untracked files rather than preventing the checkout itself from taking over the directory, sparse checkout limits which files are fetched, and a single job can hold as many checkouts as it has directories for.",
     referenceUrl: "https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions",
@@ -51,12 +51,12 @@ export const GITHUB_ACTIONS_QUESTIONS_9 = [
     scenario: "An expression referencing a nested property of the event payload evaluates to nothing, and the author is unsure whether the property exists at all for this event type.",
     question: "What is the quickest way to find out from within the workflow?",
     options: [
-      { id: 'A', text: "Add a temporary step that prints the context serialised with toJSON, taking care that the output may contain untrusted data and should not be interpolated into a command." },
-      { id: 'B', text: "Print the context reference directly, which the runner expands into a readable structure." },
-      { id: 'C', text: "Enable debug logging, which is the only way to see payload contents." },
+      { id: 'A', text: "Enable debug logging, which is the only way to see payload contents." },
+      { id: 'B', text: "Add a temporary step that prints the context serialised with toJSON, taking care that the output may contain untrusted data and should not be interpolated into a command." },
+      { id: 'C', text: "Print the context reference directly, which the runner expands into a readable structure." },
       { id: 'D', text: "Download the event payload artifact, which the runner uploads for every run." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "The toJSON function serialises a whole context so a single step reveals exactly which properties exist for the event in hand, which settles the question immediately, though the payload contains attacker-influenced text so it should be written out rather than pasted into a command. Referencing an object directly yields an unhelpful placeholder, debug logging is not required for this, and no event payload artifact is uploaded automatically.",
     referenceUrl: "https://docs.github.com/en/actions/learn-github-actions/expressions",
@@ -72,12 +72,12 @@ export const GITHUB_ACTIONS_QUESTIONS_9 = [
     scenario: "An automated process pushes a dated tag every night. A workflow triggered by push runs for these tags as well as for branch pushes, and the tag runs are pure waste.",
     question: "Which filter suppresses them?",
     options: [
-      { id: 'A', text: "A branches filter listing every branch, which implicitly excludes tags." },
-      { id: 'B', text: "A job condition comparing github.ref_type to branch, which prevents the run from starting." },
-      { id: 'C', text: "A paths-ignore filter, since tags change no paths." },
-      { id: 'D', text: "A tags-ignore filter matching the nightly tag pattern on the push trigger." }
+      { id: 'A', text: "A tags-ignore filter matching the nightly tag pattern on the push trigger." },
+      { id: 'B', text: "A branches filter listing every branch, which implicitly excludes tags." },
+      { id: 'C', text: "A job condition comparing github.ref_type to branch, which prevents the run from starting." },
+      { id: 'D', text: "A paths-ignore filter, since tags change no paths." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The push trigger accepts tag filters alongside branch filters, and tags-ignore naming the nightly pattern stops those runs being created at all. Declaring a branches filter is in fact the other clean way to express this because a push trigger with only a branches filter does not match tag pushes, but the distractor claim that it works implicitly while listing every branch is the wrong reasoning. A job condition still starts a run, and a tag push does change paths from the perspective of the filter.",
     referenceUrl: "https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions",
@@ -93,12 +93,12 @@ export const GITHUB_ACTIONS_QUESTIONS_9 = [
     scenario: "A workflow needs a command-line tool that is published only as a container image. Installing it on the runner takes minutes, and the team does not want to author an action just to invoke it once.",
     question: "Which step form invokes the image directly?",
     options: [
-      { id: 'A', text: "A job container key, which is the only way to use an image without authoring an action." },
-      { id: 'B', text: "A run step invoking the container runtime by hand, since only actions may be referenced with uses." },
-      { id: 'C', text: "A step whose uses value is a docker reference to the published image, with args supplied through the with block." },
-      { id: 'D', text: "A step whose uses value is the image name alone, which the runner resolves against the default registry." }
+      { id: 'A', text: "A step whose uses value is a docker reference to the published image, with args supplied through the with block." },
+      { id: 'B', text: "A step whose uses value is the image name alone, which the runner resolves against the default registry." },
+      { id: 'C', text: "A job container key, which is the only way to use an image without authoring an action." },
+      { id: 'D', text: "A run step invoking the container runtime by hand, since only actions may be referenced with uses." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "A step may reference a published container image directly with a docker scheme reference, and the runner executes it as a container action without any metadata file being authored. A bare image name is interpreted as a repository reference rather than an image, a job container replaces the environment for every step rather than running one tool, and invoking the runtime by hand works but is exactly the boilerplate the supported form removes.",
     referenceUrl: "https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions",
@@ -114,12 +114,12 @@ export const GITHUB_ACTIONS_QUESTIONS_9 = [
     scenario: "The language version is declared both in a repository version file used by local development and as a literal in three workflows. The two drift apart and a recent incident was traced to CI testing a different version from the one developers use.",
     question: "Which change removes the duplication?",
     options: [
-      { id: 'A', text: "Use the setup action option that reads the version from the existing version file, so the repository file is the single source for both local development and CI." },
+      { id: 'A', text: "Pin the workflows to the latest version so they always match whatever developers install." },
       { id: 'B', text: "Move the version into a repository configuration variable and reference it from the workflows and from a local script." },
-      { id: 'C', text: "Pin the workflows to the latest version so they always match whatever developers install." },
-      { id: 'D', text: "Add a workflow that fails when the two values differ, leaving both declarations in place." }
+      { id: 'C', text: "Add a workflow that fails when the two values differ, leaving both declarations in place." },
+      { id: 'D', text: "Use the setup action option that reads the version from the existing version file, so the repository file is the single source for both local development and CI." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Language setup actions accept a version file input, so pointing them at the file developers already use makes one artifact authoritative for both environments and removes the possibility of drift. A configuration variable creates a third place that local tooling must be taught about, tracking the latest version reintroduces the mismatch whenever a developer lags, and a consistency check detects the drift rather than preventing it.",
     referenceUrl: "https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs",
@@ -157,9 +157,9 @@ export const GITHUB_ACTIONS_QUESTIONS_9 = [
     question: "Which download configuration achieves that?",
     options: [
       { id: 'A', text: "Use the download step with a pattern matching the artifact name prefix and the option that merges the matched artifacts into one directory." },
-      { id: 'B', text: "Download the artifacts through the API, since the action can only fetch one at a time." },
+      { id: 'B', text: "Call the download step once per leg, listing every matrix value explicitly." },
       { id: 'C', text: "Omit the name so every artifact in the run is downloaded, which always merges them into one directory." },
-      { id: 'D', text: "Call the download step once per leg, listing every matrix value explicitly." }
+      { id: 'D', text: "Download the artifacts through the API, since the action can only fetch one at a time." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -178,11 +178,11 @@ export const GITHUB_ACTIONS_QUESTIONS_9 = [
     question: "Which context value should select the download?",
     options: [
       { id: 'A', text: "The matrix.os value alone, since the operating system determines the architecture." },
-      { id: 'B', text: "The runner.name value, parsed for a hardware suffix." },
-      { id: 'C', text: "The runner.arch value, alongside runner.os, which together identify the platform the job is executing on." },
-      { id: 'D', text: "The github.repository_visibility value, which correlates with runner hardware." }
+      { id: 'B', text: "The github.repository_visibility value, which correlates with runner hardware." },
+      { id: 'C', text: "The runner.name value, parsed for a hardware suffix." },
+      { id: 'D', text: "The runner.arch value, alongside runner.os, which together identify the platform the job is executing on." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The runner context reports both the operating system and the processor architecture, and a download decision needs both because the same operating system now exists on more than one architecture. Repository visibility is unrelated, the operating system no longer implies the architecture, and parsing a runner name is a fragile substitute for a value the platform already provides.",
     referenceUrl: "https://docs.github.com/en/actions/learn-github-actions/contexts",
@@ -200,8 +200,8 @@ export const GITHUB_ACTIONS_QUESTIONS_9 = [
     options: [
       { id: 'A', text: "A job-level env entry whose value is an expression reading a matrix variable, so each leg receives the value appropriate to it." },
       { id: 'B', text: "An env entry repeated on all eleven steps with an inline condition." },
-      { id: 'C', text: "A workflow-level env entry, which resolves per matrix leg." },
-      { id: 'D', text: "A separate job duplicated from the first with the variable hard-coded." }
+      { id: 'C', text: "A separate job duplicated from the first with the variable hard-coded." },
+      { id: 'D', text: "A workflow-level env entry, which resolves per matrix leg." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -221,8 +221,8 @@ export const GITHUB_ACTIONS_QUESTIONS_9 = [
     options: [
       { id: 'A', text: "A workflow_dispatch trigger supports at most ten inputs, so the design should collapse related options into a smaller number of inputs or move configuration into the repository where it can be reviewed." },
       { id: 'B', text: "There is no input limit; the rejection must come from a duplicate input name." },
-      { id: 'C', text: "Inputs are limited only in total character length, so shortening the descriptions resolves it." },
-      { id: 'D', text: "The limit is ten inputs per workflow file across all triggers combined, so the schedule trigger must be removed." }
+      { id: 'C', text: "The limit is ten inputs per workflow file across all triggers combined, so the schedule trigger must be removed." },
+      { id: 'D', text: "Inputs are limited only in total character length, so shortening the descriptions resolves it." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -240,10 +240,10 @@ export const GITHUB_ACTIONS_QUESTIONS_9 = [
     scenario: "A calling workflow grants its job contents: read only. The reusable workflow it calls declares a permissions block requesting packages: write, and the run fails when the called workflow tries to publish.",
     question: "What is the rule?",
     options: [
-      { id: 'A', text: "A called workflow always receives the repository default permissions regardless of either block." },
-      { id: 'B', text: "Permissions cannot be declared in a reusable workflow at all, so the block is ignored." },
+      { id: 'A', text: "Permissions cannot be declared in a reusable workflow at all, so the block is ignored." },
+      { id: 'B', text: "A called workflow permissions block replaces the caller entirely, so the failure must have another cause." },
       { id: 'C', text: "A called workflow can hold the same permissions as the caller or fewer, never more, so the caller must grant the scope for the called workflow to use it." },
-      { id: 'D', text: "A called workflow permissions block replaces the caller entirely, so the failure must have another cause." }
+      { id: 'D', text: "A called workflow always receives the repository default permissions regardless of either block." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -261,12 +261,12 @@ export const GITHUB_ACTIONS_QUESTIONS_9 = [
     scenario: "Production deployments must be blocked until the organization change management platform confirms an approved change record exists. The team does not want to poll from inside the workflow, and wants the gate to hold even if someone edits the workflow file.",
     question: "Which capability fits?",
     options: [
-      { id: 'A', text: "A wait timer long enough for the change record to be approved manually." },
+      { id: 'A', text: "A custom deployment protection rule provided by a GitHub App, which the environment consults and which approves or rejects the pending deployment out of band." },
       { id: 'B', text: "A required status check on the branch naming the change management system." },
-      { id: 'C', text: "A first step in the deployment job that calls the change management API and exits non-zero when no record exists." },
-      { id: 'D', text: "A custom deployment protection rule provided by a GitHub App, which the environment consults and which approves or rejects the pending deployment out of band." }
+      { id: 'C', text: "A wait timer long enough for the change record to be approved manually." },
+      { id: 'D', text: "A first step in the deployment job that calls the change management API and exits non-zero when no record exists." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Environments accept custom protection rules implemented by a GitHub App, so the deployment is held while the external system is consulted and released or rejected by that system, and because the rule lives on the environment it cannot be bypassed by editing the workflow. A first step inside the job is exactly the bypassable in-workflow check being avoided, branch status checks gate merging rather than deployment, and a timer waits without verifying anything.",
     referenceUrl: "https://docs.github.com/en/actions/deployment/protecting-deployments/creating-custom-deployment-protection-rules",
@@ -283,9 +283,9 @@ export const GITHUB_ACTIONS_QUESTIONS_9 = [
     question: "Which approach gives that?",
     options: [
       { id: 'A', text: "Query the workflow run timing endpoint of the API across a set of runs, or use the repository Actions performance metrics, to aggregate job durations." },
-      { id: 'B', text: "Read the billing usage report, which lists per-job durations." },
-      { id: 'C', text: "Enable debug logging, which adds timing information to every step." },
-      { id: 'D', text: "Add a step to each job that records its own duration to an artifact, since no timing data is exposed." }
+      { id: 'B', text: "Enable debug logging, which adds timing information to every step." },
+      { id: 'C', text: "Add a step to each job that records its own duration to an artifact, since no timing data is exposed." },
+      { id: 'D', text: "Read the billing usage report, which lists per-job durations." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -303,12 +303,12 @@ export const GITHUB_ACTIONS_QUESTIONS_9 = [
     scenario: "A repository caches several large toolchains under different keys. Entries that were present yesterday are missing today even though the keys have not changed and no lockfile was touched.",
     question: "Which behaviours explain this?",
     options: [
-      { id: 'A', text: "A repository has a total cache size allowance and entries are evicted least-recently-used once it is exceeded, and entries not accessed for a week are removed regardless, so many large caches crowd one another out." },
+      { id: 'A', text: "Caches are removed when the artifact retention period elapses, which the repository has set to one day." },
       { id: 'B', text: "Caches are cleared whenever the default branch receives a push." },
-      { id: 'C', text: "Caches are per-run and never survive to a later run, so any hit was coincidental." },
-      { id: 'D', text: "Caches are removed when the artifact retention period elapses, which the repository has set to one day." }
+      { id: 'C', text: "A repository has a total cache size allowance and entries are evicted least-recently-used once it is exceeded, and entries not accessed for a week are removed regardless, so many large caches crowd one another out." },
+      { id: 'D', text: "Caches are per-run and never survive to a later run, so any hit was coincidental." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Cache storage is bounded per repository and reclaimed by evicting the least recently used entries once the total is exceeded, with a separate rule removing anything untouched for a week, so several large toolchains under different keys naturally compete and the losers vanish without any key change. Pushes do not clear caches, caches are explicitly designed to survive across runs, and artifact retention governs artifacts rather than caches.",
     referenceUrl: "https://docs.github.com/en/actions/using-workflows/caching-dependencies-to-speed-up-workflows",
@@ -324,12 +324,12 @@ export const GITHUB_ACTIONS_QUESTIONS_9 = [
     scenario: "An operator dispatches a production deployment against the wrong version and needs it stopped immediately, then wants the run record kept for the incident review rather than removed.",
     question: "Which actions are appropriate?",
     options: [
-      { id: 'A', text: "Disable the workflow, which cancels runs already in progress." },
-      { id: 'B', text: "Re-run the workflow with the correct version, which supersedes the incorrect run." },
-      { id: 'C', text: "Delete the run, which stops the jobs and is the only immediate control available." },
-      { id: 'D', text: "Cancel the run from the run page or with the API cancel endpoint, which stops the jobs and records a cancelled conclusion that remains in the history." }
+      { id: 'A', text: "Cancel the run from the run page or with the API cancel endpoint, which stops the jobs and records a cancelled conclusion that remains in the history." },
+      { id: 'B', text: "Delete the run, which stops the jobs and is the only immediate control available." },
+      { id: 'C', text: "Disable the workflow, which cancels runs already in progress." },
+      { id: 'D', text: "Re-run the workflow with the correct version, which supersedes the incorrect run." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Cancelling stops the in-flight jobs, allows any cleanup conditioned appropriately to execute, and leaves a run recorded with a cancelled conclusion, which is what an incident review needs. Deleting a run removes the very evidence being preserved, disabling a workflow prevents future runs rather than stopping current ones, and starting another run does not stop the first.",
     referenceUrl: "https://docs.github.com/en/actions/managing-workflow-runs/canceling-a-workflow",
@@ -345,12 +345,12 @@ export const GITHUB_ACTIONS_QUESTIONS_9 = [
     scenario: "A composite action has an input named api-url. A run step inside the action reads the conventional prefixed environment variable for that input and finds it empty, although the caller clearly passed a value.",
     question: "What is the situation?",
     options: [
-      { id: 'A', text: "The value is present but masked, which is why it appears empty." },
+      { id: 'A', text: "Run steps inside a composite action do not receive inputs as prefixed environment variables, so the value must be read from the inputs context, or bound explicitly to a variable in the step env block." },
       { id: 'B', text: "The prefix convention uses lowercase inside composite actions, so the variable name is simply wrong." },
       { id: 'C', text: "Composite actions receive inputs only if they declare a default, which this input lacks." },
-      { id: 'D', text: "Run steps inside a composite action do not receive inputs as prefixed environment variables, so the value must be read from the inputs context, or bound explicitly to a variable in the step env block." }
+      { id: 'D', text: "The value is present but masked, which is why it appears empty." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The prefixed environment variable convention applies to JavaScript and container actions, whereas a composite action exposes its inputs through the inputs context, so a run step either interpolates that context or binds it to a variable of its own choosing in the step env block. The prefix casing is not the issue, a default is not a precondition for receiving a value, and an ordinary input is not masked.",
     referenceUrl: "https://docs.github.com/en/actions/creating-actions/creating-a-composite-action",
@@ -366,12 +366,12 @@ export const GITHUB_ACTIONS_QUESTIONS_9 = [
     scenario: "A container action must invoke its entry point with a flag whose value comes from a declared input, and the author wants that visible in the metadata rather than parsed inside the container.",
     question: "How is that written?",
     options: [
-      { id: 'A', text: "Declare a command key listing the flag, since args does not accept expressions." },
-      { id: 'B', text: "Add the input name to the entrypoint string, which the runner substitutes." },
-      { id: 'C', text: "List the flag and an expression referencing the input as entries in the args list of the runs block." },
-      { id: 'D', text: "Args cannot reference inputs, so the entry point must read the prefixed environment variable." }
+      { id: 'A', text: "Args cannot reference inputs, so the entry point must read the prefixed environment variable." },
+      { id: 'B', text: "Declare a command key listing the flag, since args does not accept expressions." },
+      { id: 'C', text: "Add the input name to the entrypoint string, which the runner substitutes." },
+      { id: 'D', text: "List the flag and an expression referencing the input as entries in the args list of the runs block." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The args list of a container action accepts expressions, so an input can be threaded onto the command line declaratively and the interface remains visible to anyone reading the metadata. The entrypoint names the executable rather than templating arguments, there is no command key, and while reading the prefixed environment variable also works it is not the only route and is the very thing the author wanted to avoid.",
     referenceUrl: "https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions",
@@ -387,12 +387,12 @@ export const GITHUB_ACTIONS_QUESTIONS_9 = [
     scenario: "A JavaScript action bundles its dependencies into a committed file. A security advisory affects one of those dependencies, and the maintainer wants such advisories to raise a pull request against the action repository automatically.",
     question: "What is required?",
     options: [
-      { id: 'A', text: "Nothing; bundled dependencies are scanned and patched by the platform automatically." },
-      { id: 'B', text: "Enable Dependabot for the package ecosystem in the action repository, and ensure the release process rebuilds the committed bundle so the fix actually reaches consumers." },
-      { id: 'C', text: "Remove the bundle and install dependencies at run time so consumers always get patched versions." },
-      { id: 'D', text: "Enable Dependabot in the consuming repositories, which updates the action dependencies transitively." }
+      { id: 'A', text: "Enable Dependabot for the package ecosystem in the action repository, and ensure the release process rebuilds the committed bundle so the fix actually reaches consumers." },
+      { id: 'B', text: "Enable Dependabot in the consuming repositories, which updates the action dependencies transitively." },
+      { id: 'C', text: "Nothing; bundled dependencies are scanned and patched by the platform automatically." },
+      { id: 'D', text: "Remove the bundle and install dependencies at run time so consumers always get patched versions." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The action repository is where its dependencies are declared, so Dependabot must be enabled there, and because consumers execute the committed bundle rather than the manifest the release process has to rebuild that bundle or the advisory is closed on paper only. Consumer repositories see the action as a single reference and cannot update inside it, bundles are not patched automatically, and installing at run time is not how actions execute.",
     referenceUrl: "https://docs.github.com/en/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates",
@@ -408,12 +408,12 @@ export const GITHUB_ACTIONS_QUESTIONS_9 = [
     scenario: "An action metadata file sits in a subdirectory and names its main script with a path that includes the subdirectory name again. Consumers report the script cannot be found.",
     question: "How should the path be written?",
     options: [
-      { id: 'A', text: "Relative to the consuming repository workspace." },
-      { id: 'B', text: "Relative to the directory containing the metadata file, so the subdirectory name should not be repeated." },
-      { id: 'C', text: "As an absolute path on the runner filesystem." },
-      { id: 'D', text: "Relative to the root of the action repository, so the subdirectory must be included." }
+      { id: 'A', text: "Relative to the directory containing the metadata file, so the subdirectory name should not be repeated." },
+      { id: 'B', text: "Relative to the root of the action repository, so the subdirectory must be included." },
+      { id: 'C', text: "Relative to the consuming repository workspace." },
+      { id: 'D', text: "As an absolute path on the runner filesystem." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Paths named in the runs block, including main and any pre or post scripts, resolve against the directory holding the metadata file, so repeating the subdirectory produces a path one level too deep. Resolving against the repository root would prevent several actions living in sibling subdirectories, resolving against the consumer workspace would make the action depend on its callers, and absolute paths are not portable.",
     referenceUrl: "https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions",
@@ -429,12 +429,12 @@ export const GITHUB_ACTIONS_QUESTIONS_9 = [
     scenario: "A workflow federates to two different services. Each expects tokens issued for itself, and a reviewer warns that a token accepted by one service must not be replayable against the other.",
     question: "Which mechanism addresses that?",
     options: [
-      { id: 'A', text: "Request the identity token with the audience the target service expects, and have each service verify that the audience claim names it, so a token minted for one is rejected by the other." },
-      { id: 'B', text: "Use a different repository for each service, since the audience cannot be varied within one workflow." },
-      { id: 'C', text: "Rely on the subject claim, which already identifies the intended recipient." },
+      { id: 'A', text: "Rely on the subject claim, which already identifies the intended recipient." },
+      { id: 'B', text: "Request the identity token with the audience the target service expects, and have each service verify that the audience claim names it, so a token minted for one is rejected by the other." },
+      { id: 'C', text: "Use a different repository for each service, since the audience cannot be varied within one workflow." },
       { id: 'D', text: "Set a short expiry on the token, which prevents replay entirely." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "The audience claim states which service a token is intended for and can be chosen per request, so requesting the right audience and having each verifier check it prevents a token issued for one service being presented to another. Splitting repositories is unnecessary, the subject identifies the workflow that requested the token rather than its intended recipient, and a short lifetime shortens the window without preventing use inside it.",
     referenceUrl: "https://docs.github.com/en/actions/security-for-github-actions/security-hardening-your-deployments/about-security-hardening-with-openid-connect",
@@ -451,8 +451,8 @@ export const GITHUB_ACTIONS_QUESTIONS_9 = [
     question: "Which visibility setting expresses that?",
     options: [
       { id: 'A', text: "The private repositories visibility, which grants access to private and internal repositories without enumerating them and without including public ones." },
-      { id: 'B', text: "The all repositories visibility, relying on public repositories not referencing the secret." },
-      { id: 'C', text: "The selected repositories visibility, listing every current private repository." },
+      { id: 'B', text: "The selected repositories visibility, listing every current private repository." },
+      { id: 'C', text: "The all repositories visibility, relying on public repositories not referencing the secret." },
       { id: 'D', text: "The all repositories visibility, since public repositories are excluded from organization secrets automatically." }
     ],
     correctAnswers: ['A'],
@@ -472,8 +472,8 @@ export const GITHUB_ACTIONS_QUESTIONS_9 = [
     question: "Which approach fixes this durably?",
     options: [
       { id: 'A', text: "Move to ephemeral runners so each job starts from a clean instance, and where persistent runners must remain, run scheduled cleanup of images, workspaces and caches with alerting on free space." },
-      { id: 'B', text: "Increase the disk size, which addresses the growth permanently." },
-      { id: 'C', text: "Add a cleanup step to the end of every workflow, which is sufficient because every job then tidies after itself." },
+      { id: 'B', text: "Add a cleanup step to the end of every workflow, which is sufficient because every job then tidies after itself." },
+      { id: 'C', text: "Increase the disk size, which addresses the growth permanently." },
       { id: 'D', text: "Enable the runner automatic update, which reclaims space during upgrades." }
     ],
     correctAnswers: ['A'],
@@ -492,12 +492,12 @@ export const GITHUB_ACTIONS_QUESTIONS_9 = [
     scenario: "A platform workflow must open pull requests in twenty repositories. It currently uses a personal access token belonging to a staff engineer, which broke when that person changed teams and will break again when they leave.",
     question: "Which credential model is appropriate?",
     options: [
-      { id: 'A', text: "A personal access token on a shared machine account, with the password held in a team vault." },
-      { id: 'B', text: "A GitHub App installed on the repositories with only the permissions it needs, from which the workflow mints a short-lived installation token, so the identity belongs to the organization rather than to a person." },
+      { id: 'A', text: "A GitHub App installed on the repositories with only the permissions it needs, from which the workflow mints a short-lived installation token, so the identity belongs to the organization rather than to a person." },
+      { id: 'B', text: "A personal access token on a shared machine account, with the password held in a team vault." },
       { id: 'C', text: "The automatic token, granted organization-wide scope through a permissions block." },
       { id: 'D', text: "A fine-grained personal access token owned by the team lead, rotated annually." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "A GitHub App is an organization-owned identity with granular permissions whose installation tokens are short-lived and minted per run, which removes the dependency on any individual and shrinks the standing credential to nothing. A shared machine account is still a person-shaped credential with a long-lived secret and unclear ownership, the automatic token cannot be extended beyond its own repository, and a personal token owned by a different individual reproduces the original problem.",
     referenceUrl: "https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-as-a-github-app-installation",
@@ -513,12 +513,12 @@ export const GITHUB_ACTIONS_QUESTIONS_9 = [
     scenario: "A new credential is needed by the deployment job of one repository, targeting production only, and an administrator must choose a scope for it.",
     question: "Which placement follows least privilege?",
     options: [
-      { id: 'A', text: "A repository secret, so every job in the repository can use it if needed later." },
-      { id: 'B', text: "An environment secret on the production environment of that repository, so only jobs declaring that environment receive it and its protection rules apply." },
+      { id: 'A', text: "An environment secret on the production environment of that repository, so only jobs declaring that environment receive it and its protection rules apply." },
+      { id: 'B', text: "A repository secret, so every job in the repository can use it if needed later." },
       { id: 'C', text: "An organization secret scoped to that repository, so it is centrally managed from the start." },
       { id: 'D', text: "A configuration variable, since the deployment target is not confidential." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The narrowest scope that satisfies the requirement is an environment secret, which restricts the value to jobs declaring that environment and brings the environment reviewers and branch policies with it. A repository secret is readable by every job including ones added later, an organization secret centralises management but widens the boundary for a value only one environment needs, and a variable offers no protection at all for a credential.",
     referenceUrl: "https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions",

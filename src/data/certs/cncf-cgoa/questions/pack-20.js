@@ -9,12 +9,12 @@ export const CNCF_CGOA_QUESTIONS_20 = [
     scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer evaluates Repo Authentication to grant an in-cluster GitOps controller access to clone a private GitHub repository while enforcing strict least privilege.",
     question: "Which architectural approach or configuration satisfies these GitOps disaster recovery and operational continuity objectives? Authenticating GitOps controllers to private repositories using read-only Deploy Keys and PATs is under consideration.",
     options: [
-      { id: 'A', text: "Configure a repository-specific, read-only SSH Deploy Key (or fine-grained Personal Access Token) with access restricted strictly to that repository." },
-      { id: 'B', text: "Generate a personal access token with organization-wide administrator privileges on a developer account." },
-      { id: 'C', text: "Make the private company repository public to avoid authentication." },
+      { id: 'A', text: "Make the private company repository public to avoid authentication." },
+      { id: 'B', text: "Configure a repository-specific, read-only SSH Deploy Key (or fine-grained Personal Access Token) with access restricted strictly to that repository." },
+      { id: 'C', text: "Generate a personal access token with organization-wide administrator privileges on a developer account." },
       { id: 'D', text: "Share the corporate GitHub organization owner account credentials with the controller." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure a repository-specific, read-only SSH Deploy Key (or fine-grained Personal Access Token) with access restricted strictly to that repository. GitOps controllers authenticate to private repositories using SSH keys or HTTPS tokens. Best practice enforces least privilege by using repository-specific read-only Deploy Keys. This ensures that even if the cluster controller is compromised, an attacker cannot write to Git or access other repositories.",
     referenceUrl: "https://docs.github.com/en/authentication/connecting-to-github-with-ssh/managing-deploy-keys#deploy-keys",
@@ -30,12 +30,12 @@ export const CNCF_CGOA_QUESTIONS_20 = [
     scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer evaluates Repo Authentication to grant an in-cluster GitOps controller access to clone a private GitHub repository while enforcing strict least privilege.",
     question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays? Authenticating GitOps controllers to private repositories using read-only Deploy Keys and PATs is under consideration.",
     options: [
-      { id: 'A', text: "Configure a repository-specific, read-only SSH Deploy Key (or fine-grained Personal Access Token) with access restricted strictly to that repository." },
+      { id: 'A', text: "Make the private company repository public to avoid authentication." },
       { id: 'B', text: "Generate a personal access token with organization-wide administrator privileges on a developer account." },
-      { id: 'C', text: "Make the private company repository public to avoid authentication." },
-      { id: 'D', text: "Share the corporate GitHub organization owner account credentials with the controller." }
+      { id: 'C', text: "Share the corporate GitHub organization owner account credentials with the controller." },
+      { id: 'D', text: "Configure a repository-specific, read-only SSH Deploy Key (or fine-grained Personal Access Token) with access restricted strictly to that repository." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure a repository-specific, read-only SSH Deploy Key (or fine-grained Personal Access Token) with access restricted strictly to that repository. GitOps controllers authenticate to private repositories using SSH keys or HTTPS tokens. Best practice enforces least privilege by using repository-specific read-only Deploy Keys. This ensures that even if the cluster controller is compromised, an attacker cannot write to Git or access other repositories.",
     referenceUrl: "https://docs.github.com/en/authentication/connecting-to-github-with-ssh/managing-deploy-keys#deploy-keys",
@@ -51,12 +51,12 @@ export const CNCF_CGOA_QUESTIONS_20 = [
     scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer evaluates Repo Authentication to grant an in-cluster GitOps controller access to clone a private GitHub repository while enforcing strict least privilege.",
     question: "Which solution implements these mandatory GitOps security and governance controls? Authenticating GitOps controllers to private repositories using read-only Deploy Keys and PATs is under consideration.",
     options: [
-      { id: 'A', text: "Configure a repository-specific, read-only SSH Deploy Key (or fine-grained Personal Access Token) with access restricted strictly to that repository." },
-      { id: 'B', text: "Generate a personal access token with organization-wide administrator privileges on a developer account." },
-      { id: 'C', text: "Make the private company repository public to avoid authentication." },
-      { id: 'D', text: "Share the corporate GitHub organization owner account credentials with the controller." }
+      { id: 'A', text: "Make the private company repository public to avoid authentication." },
+      { id: 'B', text: "Share the corporate GitHub organization owner account credentials with the controller." },
+      { id: 'C', text: "Generate a personal access token with organization-wide administrator privileges on a developer account." },
+      { id: 'D', text: "Configure a repository-specific, read-only SSH Deploy Key (or fine-grained Personal Access Token) with access restricted strictly to that repository." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure a repository-specific, read-only SSH Deploy Key (or fine-grained Personal Access Token) with access restricted strictly to that repository. GitOps controllers authenticate to private repositories using SSH keys or HTTPS tokens. Best practice enforces least privilege by using repository-specific read-only Deploy Keys. This ensures that even if the cluster controller is compromised, an attacker cannot write to Git or access other repositories.",
     referenceUrl: "https://docs.github.com/en/authentication/connecting-to-github-with-ssh/managing-deploy-keys#deploy-keys",
@@ -73,9 +73,9 @@ export const CNCF_CGOA_QUESTIONS_20 = [
     question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction? Authenticating GitOps controllers to private repositories using read-only Deploy Keys and PATs is under consideration.",
     options: [
       { id: 'A', text: "Configure a repository-specific, read-only SSH Deploy Key (or fine-grained Personal Access Token) with access restricted strictly to that repository." },
-      { id: 'B', text: "Generate a personal access token with organization-wide administrator privileges on a developer account." },
+      { id: 'B', text: "Share the corporate GitHub organization owner account credentials with the controller." },
       { id: 'C', text: "Make the private company repository public to avoid authentication." },
-      { id: 'D', text: "Share the corporate GitHub organization owner account credentials with the controller." }
+      { id: 'D', text: "Generate a personal access token with organization-wide administrator privileges on a developer account." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -93,12 +93,12 @@ export const CNCF_CGOA_QUESTIONS_20 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer evaluates Repo Authentication to grant an in-cluster GitOps controller access to clone a private GitHub repository while enforcing strict least privilege.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability? Authenticating GitOps controllers to private repositories using read-only Deploy Keys and PATs is under consideration.",
     options: [
-      { id: 'A', text: "Configure a repository-specific, read-only SSH Deploy Key (or fine-grained Personal Access Token) with access restricted strictly to that repository." },
-      { id: 'B', text: "Generate a personal access token with organization-wide administrator privileges on a developer account." },
-      { id: 'C', text: "Make the private company repository public to avoid authentication." },
-      { id: 'D', text: "Share the corporate GitHub organization owner account credentials with the controller." }
+      { id: 'A', text: "Generate a personal access token with organization-wide administrator privileges on a developer account." },
+      { id: 'B', text: "Configure a repository-specific, read-only SSH Deploy Key (or fine-grained Personal Access Token) with access restricted strictly to that repository." },
+      { id: 'C', text: "Share the corporate GitHub organization owner account credentials with the controller." },
+      { id: 'D', text: "Make the private company repository public to avoid authentication." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure a repository-specific, read-only SSH Deploy Key (or fine-grained Personal Access Token) with access restricted strictly to that repository. GitOps controllers authenticate to private repositories using SSH keys or HTTPS tokens. Best practice enforces least privilege by using repository-specific read-only Deploy Keys. This ensures that even if the cluster controller is compromised, an attacker cannot write to Git or access other repositories.",
     referenceUrl: "https://docs.github.com/en/authentication/connecting-to-github-with-ssh/managing-deploy-keys#deploy-keys",
@@ -114,12 +114,12 @@ export const CNCF_CGOA_QUESTIONS_20 = [
     scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer evaluates Controller RBAC to prevent an in-cluster GitOps controller from accidentally or maliciously modifying cluster-wide security policies or kube-system resources.",
     question: "Which architectural approach or configuration satisfies these GitOps disaster recovery and operational continuity objectives? Configuring scoped ServiceAccounts and ClusterRoles for GitOps controllers is under consideration.",
     options: [
-      { id: 'A', text: "Bind the GitOps controller ServiceAccount to namespace-scoped Roles or restricted ClusterRoles that prohibit modifying cluster-admin bindings or core namespaces." },
-      { id: 'B', text: "Grant `cluster-admin` wildcard (`*`) access to all resources and API groups across the entire cluster unconditionally." },
-      { id: 'C', text: "Run the controller under the default namespace ServiceAccount with no restrictions." },
-      { id: 'D', text: "Disable Kubernetes RBAC authorization entirely." }
+      { id: 'A', text: "Disable Kubernetes RBAC authorization entirely." },
+      { id: 'B', text: "Bind the GitOps controller ServiceAccount to namespace-scoped Roles or restricted ClusterRoles that prohibit modifying cluster-admin bindings or core namespaces." },
+      { id: 'C', text: "Grant `cluster-admin` wildcard (`*`) access to all resources and API groups across the entire cluster unconditionally." },
+      { id: 'D', text: "Run the controller under the default namespace ServiceAccount with no restrictions." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Bind the GitOps controller ServiceAccount to namespace-scoped Roles or restricted ClusterRoles that prohibit modifying cluster-admin bindings or core namespaces. By default, GitOps controllers often request broad `cluster-admin` privileges. Hardening the platform requires scoping controller permissions: restricting management to designated application namespaces and denying permissions to mutate sensitive security infrastructure (e.g., PSPs, admission webhooks, kube-system).",
     referenceUrl: "https://argo-cd.readthedocs.io/en/stable/operator-manual/user-management/",
@@ -135,12 +135,12 @@ export const CNCF_CGOA_QUESTIONS_20 = [
     scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer evaluates Controller RBAC to prevent an in-cluster GitOps controller from accidentally or maliciously modifying cluster-wide security policies or kube-system resources.",
     question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays? Configuring scoped ServiceAccounts and ClusterRoles for GitOps controllers is under consideration.",
     options: [
-      { id: 'A', text: "Bind the GitOps controller ServiceAccount to namespace-scoped Roles or restricted ClusterRoles that prohibit modifying cluster-admin bindings or core namespaces." },
-      { id: 'B', text: "Grant `cluster-admin` wildcard (`*`) access to all resources and API groups across the entire cluster unconditionally." },
-      { id: 'C', text: "Run the controller under the default namespace ServiceAccount with no restrictions." },
-      { id: 'D', text: "Disable Kubernetes RBAC authorization entirely." }
+      { id: 'A', text: "Run the controller under the default namespace ServiceAccount with no restrictions." },
+      { id: 'B', text: "Disable Kubernetes RBAC authorization entirely." },
+      { id: 'C', text: "Bind the GitOps controller ServiceAccount to namespace-scoped Roles or restricted ClusterRoles that prohibit modifying cluster-admin bindings or core namespaces." },
+      { id: 'D', text: "Grant `cluster-admin` wildcard (`*`) access to all resources and API groups across the entire cluster unconditionally." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Bind the GitOps controller ServiceAccount to namespace-scoped Roles or restricted ClusterRoles that prohibit modifying cluster-admin bindings or core namespaces. By default, GitOps controllers often request broad `cluster-admin` privileges. Hardening the platform requires scoping controller permissions: restricting management to designated application namespaces and denying permissions to mutate sensitive security infrastructure (e.g., PSPs, admission webhooks, kube-system).",
     referenceUrl: "https://argo-cd.readthedocs.io/en/stable/operator-manual/user-management/",
@@ -158,8 +158,8 @@ export const CNCF_CGOA_QUESTIONS_20 = [
     options: [
       { id: 'A', text: "Bind the GitOps controller ServiceAccount to namespace-scoped Roles or restricted ClusterRoles that prohibit modifying cluster-admin bindings or core namespaces." },
       { id: 'B', text: "Grant `cluster-admin` wildcard (`*`) access to all resources and API groups across the entire cluster unconditionally." },
-      { id: 'C', text: "Run the controller under the default namespace ServiceAccount with no restrictions." },
-      { id: 'D', text: "Disable Kubernetes RBAC authorization entirely." }
+      { id: 'C', text: "Disable Kubernetes RBAC authorization entirely." },
+      { id: 'D', text: "Run the controller under the default namespace ServiceAccount with no restrictions." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -177,12 +177,12 @@ export const CNCF_CGOA_QUESTIONS_20 = [
     scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer evaluates Controller RBAC to prevent an in-cluster GitOps controller from accidentally or maliciously modifying cluster-wide security policies or kube-system resources.",
     question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction? Configuring scoped ServiceAccounts and ClusterRoles for GitOps controllers is under consideration.",
     options: [
-      { id: 'A', text: "Bind the GitOps controller ServiceAccount to namespace-scoped Roles or restricted ClusterRoles that prohibit modifying cluster-admin bindings or core namespaces." },
+      { id: 'A', text: "Disable Kubernetes RBAC authorization entirely." },
       { id: 'B', text: "Grant `cluster-admin` wildcard (`*`) access to all resources and API groups across the entire cluster unconditionally." },
-      { id: 'C', text: "Run the controller under the default namespace ServiceAccount with no restrictions." },
-      { id: 'D', text: "Disable Kubernetes RBAC authorization entirely." }
+      { id: 'C', text: "Bind the GitOps controller ServiceAccount to namespace-scoped Roles or restricted ClusterRoles that prohibit modifying cluster-admin bindings or core namespaces." },
+      { id: 'D', text: "Run the controller under the default namespace ServiceAccount with no restrictions." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Bind the GitOps controller ServiceAccount to namespace-scoped Roles or restricted ClusterRoles that prohibit modifying cluster-admin bindings or core namespaces. By default, GitOps controllers often request broad `cluster-admin` privileges. Hardening the platform requires scoping controller permissions: restricting management to designated application namespaces and denying permissions to mutate sensitive security infrastructure (e.g., PSPs, admission webhooks, kube-system).",
     referenceUrl: "https://argo-cd.readthedocs.io/en/stable/operator-manual/user-management/",
@@ -198,12 +198,12 @@ export const CNCF_CGOA_QUESTIONS_20 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer evaluates Controller RBAC to prevent an in-cluster GitOps controller from accidentally or maliciously modifying cluster-wide security policies or kube-system resources.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability? Configuring scoped ServiceAccounts and ClusterRoles for GitOps controllers is under consideration.",
     options: [
-      { id: 'A', text: "Bind the GitOps controller ServiceAccount to namespace-scoped Roles or restricted ClusterRoles that prohibit modifying cluster-admin bindings or core namespaces." },
-      { id: 'B', text: "Grant `cluster-admin` wildcard (`*`) access to all resources and API groups across the entire cluster unconditionally." },
-      { id: 'C', text: "Run the controller under the default namespace ServiceAccount with no restrictions." },
+      { id: 'A', text: "Grant `cluster-admin` wildcard (`*`) access to all resources and API groups across the entire cluster unconditionally." },
+      { id: 'B', text: "Run the controller under the default namespace ServiceAccount with no restrictions." },
+      { id: 'C', text: "Bind the GitOps controller ServiceAccount to namespace-scoped Roles or restricted ClusterRoles that prohibit modifying cluster-admin bindings or core namespaces." },
       { id: 'D', text: "Disable Kubernetes RBAC authorization entirely." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Bind the GitOps controller ServiceAccount to namespace-scoped Roles or restricted ClusterRoles that prohibit modifying cluster-admin bindings or core namespaces. By default, GitOps controllers often request broad `cluster-admin` privileges. Hardening the platform requires scoping controller permissions: restricting management to designated application namespaces and denying permissions to mutate sensitive security infrastructure (e.g., PSPs, admission webhooks, kube-system).",
     referenceUrl: "https://argo-cd.readthedocs.io/en/stable/operator-manual/user-management/",
@@ -219,12 +219,12 @@ export const CNCF_CGOA_QUESTIONS_20 = [
     scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer evaluates Pre-Commit Validation to catch syntax errors, deprecated Kubernetes API versions, and security violations in GitOps manifests before pull requests are merged.",
     question: "Which architectural approach or configuration satisfies these GitOps disaster recovery and operational continuity objectives? Auditing manifests pre-merge using OPA Conftest, Kyverno CLI, and Kubeconform is under consideration.",
     options: [
-      { id: 'A', text: "Run `kubeconform` (schema validation) and `conftest` (OPA policy checks) in the pull request CI pipeline before merge." },
+      { id: 'A', text: "Disable CI validation checks to speed up developer pull requests." },
       { id: 'B', text: "Rely on the in-cluster GitOps controller to fail after changes are merged to production." },
-      { id: 'C', text: "Wait for pods to crash in production before diagnosing manifest errors." },
-      { id: 'D', text: "Disable CI validation checks to speed up developer pull requests." }
+      { id: 'C', text: "Run `kubeconform` (schema validation) and `conftest` (OPA policy checks) in the pull request CI pipeline before merge." },
+      { id: 'D', text: "Wait for pods to crash in production before diagnosing manifest errors." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Run `kubeconform` (schema validation) and `conftest` (OPA policy checks) in the pull request CI pipeline before merge. Shifting security left in GitOps requires validating manifests before they are merged into the source of truth. Running schema validators (`kubeconform`) and policy checkers (`conftest`, `checkov`) in CI ensures invalid YAML, deprecated APIs, or privileged security contexts are rejected before hitting the cluster.",
     referenceUrl: "https://www.openpolicyagent.org/docs/latest/conftest/",
@@ -240,12 +240,12 @@ export const CNCF_CGOA_QUESTIONS_20 = [
     scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer evaluates Pre-Commit Validation to catch syntax errors, deprecated Kubernetes API versions, and security violations in GitOps manifests before pull requests are merged.",
     question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays? Auditing manifests pre-merge using OPA Conftest, Kyverno CLI, and Kubeconform is under consideration.",
     options: [
-      { id: 'A', text: "Run `kubeconform` (schema validation) and `conftest` (OPA policy checks) in the pull request CI pipeline before merge." },
-      { id: 'B', text: "Rely on the in-cluster GitOps controller to fail after changes are merged to production." },
-      { id: 'C', text: "Wait for pods to crash in production before diagnosing manifest errors." },
-      { id: 'D', text: "Disable CI validation checks to speed up developer pull requests." }
+      { id: 'A', text: "Disable CI validation checks to speed up developer pull requests." },
+      { id: 'B', text: "Wait for pods to crash in production before diagnosing manifest errors." },
+      { id: 'C', text: "Rely on the in-cluster GitOps controller to fail after changes are merged to production." },
+      { id: 'D', text: "Run `kubeconform` (schema validation) and `conftest` (OPA policy checks) in the pull request CI pipeline before merge." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Run `kubeconform` (schema validation) and `conftest` (OPA policy checks) in the pull request CI pipeline before merge. Shifting security left in GitOps requires validating manifests before they are merged into the source of truth. Running schema validators (`kubeconform`) and policy checkers (`conftest`, `checkov`) in CI ensures invalid YAML, deprecated APIs, or privileged security contexts are rejected before hitting the cluster.",
     referenceUrl: "https://www.openpolicyagent.org/docs/latest/conftest/",
@@ -261,12 +261,12 @@ export const CNCF_CGOA_QUESTIONS_20 = [
     scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer evaluates Pre-Commit Validation to catch syntax errors, deprecated Kubernetes API versions, and security violations in GitOps manifests before pull requests are merged.",
     question: "Which solution implements these mandatory GitOps security and governance controls? Auditing manifests pre-merge using OPA Conftest, Kyverno CLI, and Kubeconform is under consideration.",
     options: [
-      { id: 'A', text: "Run `kubeconform` (schema validation) and `conftest` (OPA policy checks) in the pull request CI pipeline before merge." },
+      { id: 'A', text: "Disable CI validation checks to speed up developer pull requests." },
       { id: 'B', text: "Rely on the in-cluster GitOps controller to fail after changes are merged to production." },
       { id: 'C', text: "Wait for pods to crash in production before diagnosing manifest errors." },
-      { id: 'D', text: "Disable CI validation checks to speed up developer pull requests." }
+      { id: 'D', text: "Run `kubeconform` (schema validation) and `conftest` (OPA policy checks) in the pull request CI pipeline before merge." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Run `kubeconform` (schema validation) and `conftest` (OPA policy checks) in the pull request CI pipeline before merge. Shifting security left in GitOps requires validating manifests before they are merged into the source of truth. Running schema validators (`kubeconform`) and policy checkers (`conftest`, `checkov`) in CI ensures invalid YAML, deprecated APIs, or privileged security contexts are rejected before hitting the cluster.",
     referenceUrl: "https://www.openpolicyagent.org/docs/latest/conftest/",
@@ -282,12 +282,12 @@ export const CNCF_CGOA_QUESTIONS_20 = [
     scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer evaluates Pre-Commit Validation to catch syntax errors, deprecated Kubernetes API versions, and security violations in GitOps manifests before pull requests are merged.",
     question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction? Auditing manifests pre-merge using OPA Conftest, Kyverno CLI, and Kubeconform is under consideration.",
     options: [
-      { id: 'A', text: "Run `kubeconform` (schema validation) and `conftest` (OPA policy checks) in the pull request CI pipeline before merge." },
-      { id: 'B', text: "Rely on the in-cluster GitOps controller to fail after changes are merged to production." },
-      { id: 'C', text: "Wait for pods to crash in production before diagnosing manifest errors." },
-      { id: 'D', text: "Disable CI validation checks to speed up developer pull requests." }
+      { id: 'A', text: "Wait for pods to crash in production before diagnosing manifest errors." },
+      { id: 'B', text: "Disable CI validation checks to speed up developer pull requests." },
+      { id: 'C', text: "Run `kubeconform` (schema validation) and `conftest` (OPA policy checks) in the pull request CI pipeline before merge." },
+      { id: 'D', text: "Rely on the in-cluster GitOps controller to fail after changes are merged to production." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Run `kubeconform` (schema validation) and `conftest` (OPA policy checks) in the pull request CI pipeline before merge. Shifting security left in GitOps requires validating manifests before they are merged into the source of truth. Running schema validators (`kubeconform`) and policy checkers (`conftest`, `checkov`) in CI ensures invalid YAML, deprecated APIs, or privileged security contexts are rejected before hitting the cluster.",
     referenceUrl: "https://www.openpolicyagent.org/docs/latest/conftest/",
@@ -303,12 +303,12 @@ export const CNCF_CGOA_QUESTIONS_20 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer evaluates Pre-Commit Validation to catch syntax errors, deprecated Kubernetes API versions, and security violations in GitOps manifests before pull requests are merged.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability? Auditing manifests pre-merge using OPA Conftest, Kyverno CLI, and Kubeconform is under consideration.",
     options: [
-      { id: 'A', text: "Run `kubeconform` (schema validation) and `conftest` (OPA policy checks) in the pull request CI pipeline before merge." },
-      { id: 'B', text: "Rely on the in-cluster GitOps controller to fail after changes are merged to production." },
+      { id: 'A', text: "Disable CI validation checks to speed up developer pull requests." },
+      { id: 'B', text: "Run `kubeconform` (schema validation) and `conftest` (OPA policy checks) in the pull request CI pipeline before merge." },
       { id: 'C', text: "Wait for pods to crash in production before diagnosing manifest errors." },
-      { id: 'D', text: "Disable CI validation checks to speed up developer pull requests." }
+      { id: 'D', text: "Rely on the in-cluster GitOps controller to fail after changes are merged to production." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Run `kubeconform` (schema validation) and `conftest` (OPA policy checks) in the pull request CI pipeline before merge. Shifting security left in GitOps requires validating manifests before they are merged into the source of truth. Running schema validators (`kubeconform`) and policy checkers (`conftest`, `checkov`) in CI ensures invalid YAML, deprecated APIs, or privileged security contexts are rejected before hitting the cluster.",
     referenceUrl: "https://www.openpolicyagent.org/docs/latest/conftest/",
@@ -324,12 +324,12 @@ export const CNCF_CGOA_QUESTIONS_20 = [
     scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer evaluates Argo CD SSO to enable enterprise developers to log into the Argo CD Web UI using corporate Single Sign-On (SSO) with team-based permissions.",
     question: "Which architectural approach or configuration satisfies these GitOps disaster recovery and operational continuity objectives? Integrating Argo CD with OIDC/OAuth2 providers (Okta, Entra ID, GitHub) and RBAC mapping is under consideration.",
     options: [
-      { id: 'A', text: "Configure Dex or native OIDC integration in Argo CD with Microsoft Entra ID or Okta, mapping OIDC groups to Argo CD RBAC roles." },
-      { id: 'B', text: "Create local admin user accounts in Argo CD with shared passwords for all developers." },
-      { id: 'C', text: "Disable authentication on the Argo CD web server." },
-      { id: 'D', text: "Share the root `admin` password on an internal Slack channel." }
+      { id: 'A', text: "Disable authentication on the Argo CD web server." },
+      { id: 'B', text: "Configure Dex or native OIDC integration in Argo CD with Microsoft Entra ID or Okta, mapping OIDC groups to Argo CD RBAC roles." },
+      { id: 'C', text: "Share the root `admin` password on an internal Slack channel." },
+      { id: 'D', text: "Create local admin user accounts in Argo CD with shared passwords for all developers." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure Dex or native OIDC integration in Argo CD with Microsoft Entra ID or Okta, mapping OIDC groups to Argo CD RBAC roles. Argo CD supports OpenID Connect (OIDC) and OAuth2 (via bundled Dex or native OIDC). Integrating with enterprise identity providers (Okta, Entra ID, GitHub) enables multi-factor authentication and maps corporate group memberships directly to granular Argo CD RBAC permissions.",
     referenceUrl: "https://argo-cd.readthedocs.io/en/stable/operator-manual/user-management/",
@@ -345,12 +345,12 @@ export const CNCF_CGOA_QUESTIONS_20 = [
     scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer evaluates Argo CD SSO to enable enterprise developers to log into the Argo CD Web UI using corporate Single Sign-On (SSO) with team-based permissions.",
     question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays? Integrating Argo CD with OIDC/OAuth2 providers (Okta, Entra ID, GitHub) and RBAC mapping is under consideration.",
     options: [
-      { id: 'A', text: "Configure Dex or native OIDC integration in Argo CD with Microsoft Entra ID or Okta, mapping OIDC groups to Argo CD RBAC roles." },
+      { id: 'A', text: "Disable authentication on the Argo CD web server." },
       { id: 'B', text: "Create local admin user accounts in Argo CD with shared passwords for all developers." },
-      { id: 'C', text: "Disable authentication on the Argo CD web server." },
-      { id: 'D', text: "Share the root `admin` password on an internal Slack channel." }
+      { id: 'C', text: "Share the root `admin` password on an internal Slack channel." },
+      { id: 'D', text: "Configure Dex or native OIDC integration in Argo CD with Microsoft Entra ID or Okta, mapping OIDC groups to Argo CD RBAC roles." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure Dex or native OIDC integration in Argo CD with Microsoft Entra ID or Okta, mapping OIDC groups to Argo CD RBAC roles. Argo CD supports OpenID Connect (OIDC) and OAuth2 (via bundled Dex or native OIDC). Integrating with enterprise identity providers (Okta, Entra ID, GitHub) enables multi-factor authentication and maps corporate group memberships directly to granular Argo CD RBAC permissions.",
     referenceUrl: "https://argo-cd.readthedocs.io/en/stable/operator-manual/user-management/",
@@ -366,12 +366,12 @@ export const CNCF_CGOA_QUESTIONS_20 = [
     scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer evaluates Argo CD SSO to enable enterprise developers to log into the Argo CD Web UI using corporate Single Sign-On (SSO) with team-based permissions.",
     question: "Which solution implements these mandatory GitOps security and governance controls? Integrating Argo CD with OIDC/OAuth2 providers (Okta, Entra ID, GitHub) and RBAC mapping is under consideration.",
     options: [
-      { id: 'A', text: "Configure Dex or native OIDC integration in Argo CD with Microsoft Entra ID or Okta, mapping OIDC groups to Argo CD RBAC roles." },
-      { id: 'B', text: "Create local admin user accounts in Argo CD with shared passwords for all developers." },
-      { id: 'C', text: "Disable authentication on the Argo CD web server." },
-      { id: 'D', text: "Share the root `admin` password on an internal Slack channel." }
+      { id: 'A', text: "Share the root `admin` password on an internal Slack channel." },
+      { id: 'B', text: "Disable authentication on the Argo CD web server." },
+      { id: 'C', text: "Create local admin user accounts in Argo CD with shared passwords for all developers." },
+      { id: 'D', text: "Configure Dex or native OIDC integration in Argo CD with Microsoft Entra ID or Okta, mapping OIDC groups to Argo CD RBAC roles." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure Dex or native OIDC integration in Argo CD with Microsoft Entra ID or Okta, mapping OIDC groups to Argo CD RBAC roles. Argo CD supports OpenID Connect (OIDC) and OAuth2 (via bundled Dex or native OIDC). Integrating with enterprise identity providers (Okta, Entra ID, GitHub) enables multi-factor authentication and maps corporate group memberships directly to granular Argo CD RBAC permissions.",
     referenceUrl: "https://argo-cd.readthedocs.io/en/stable/operator-manual/user-management/",
@@ -388,8 +388,8 @@ export const CNCF_CGOA_QUESTIONS_20 = [
     question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction? Integrating Argo CD with OIDC/OAuth2 providers (Okta, Entra ID, GitHub) and RBAC mapping is under consideration.",
     options: [
       { id: 'A', text: "Configure Dex or native OIDC integration in Argo CD with Microsoft Entra ID or Okta, mapping OIDC groups to Argo CD RBAC roles." },
-      { id: 'B', text: "Create local admin user accounts in Argo CD with shared passwords for all developers." },
-      { id: 'C', text: "Disable authentication on the Argo CD web server." },
+      { id: 'B', text: "Disable authentication on the Argo CD web server." },
+      { id: 'C', text: "Create local admin user accounts in Argo CD with shared passwords for all developers." },
       { id: 'D', text: "Share the root `admin` password on an internal Slack channel." }
     ],
     correctAnswers: ['A'],
@@ -429,12 +429,12 @@ export const CNCF_CGOA_QUESTIONS_20 = [
     scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer evaluates Manifest Signing to guarantee that the GitOps controller only deploys manifests and container images that carry verified cryptographic signatures from approved build engineers.",
     question: "Which architectural approach or configuration satisfies these GitOps disaster recovery and operational continuity objectives? Cryptographically signing and verifying Git commits and OCI manifest artifacts with Cosign is under consideration.",
     options: [
-      { id: 'A', text: "Enforce GPG commit signature verification on the Git repository and verify container image signatures using Cosign before reconciliation." },
-      { id: 'B', text: "Trust all commits and image tags blindly without cryptographic verification." },
-      { id: 'C', text: "Allow anonymous developers to push unsigned commits to deployment branches." },
-      { id: 'D', text: "Disable commit signing checks to reduce developer friction." }
+      { id: 'A', text: "Allow anonymous developers to push unsigned commits to deployment branches." },
+      { id: 'B', text: "Enforce GPG commit signature verification on the Git repository and verify container image signatures using Cosign before reconciliation." },
+      { id: 'C', text: "Disable commit signing checks to reduce developer friction." },
+      { id: 'D', text: "Trust all commits and image tags blindly without cryptographic verification." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Enforce GPG commit signature verification on the Git repository and verify container image signatures using Cosign before reconciliation. Supply chain security in GitOps requires verifying integrity at both levels: the container images (verified via Cosign/Sigstore) and the manifests themselves (verified via GPG/SSH signed Git commits). This ensures that unauthorized commits or tampered artifacts cannot be reconciled into production.",
     referenceUrl: "https://docs.sigstore.dev/cosign/overview/",
@@ -450,12 +450,12 @@ export const CNCF_CGOA_QUESTIONS_20 = [
     scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer evaluates Manifest Signing to guarantee that the GitOps controller only deploys manifests and container images that carry verified cryptographic signatures from approved build engineers.",
     question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays? Cryptographically signing and verifying Git commits and OCI manifest artifacts with Cosign is under consideration.",
     options: [
-      { id: 'A', text: "Enforce GPG commit signature verification on the Git repository and verify container image signatures using Cosign before reconciliation." },
-      { id: 'B', text: "Trust all commits and image tags blindly without cryptographic verification." },
-      { id: 'C', text: "Allow anonymous developers to push unsigned commits to deployment branches." },
+      { id: 'A', text: "Allow anonymous developers to push unsigned commits to deployment branches." },
+      { id: 'B', text: "Enforce GPG commit signature verification on the Git repository and verify container image signatures using Cosign before reconciliation." },
+      { id: 'C', text: "Trust all commits and image tags blindly without cryptographic verification." },
       { id: 'D', text: "Disable commit signing checks to reduce developer friction." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Enforce GPG commit signature verification on the Git repository and verify container image signatures using Cosign before reconciliation. Supply chain security in GitOps requires verifying integrity at both levels: the container images (verified via Cosign/Sigstore) and the manifests themselves (verified via GPG/SSH signed Git commits). This ensures that unauthorized commits or tampered artifacts cannot be reconciled into production.",
     referenceUrl: "https://docs.sigstore.dev/cosign/overview/",
@@ -471,12 +471,12 @@ export const CNCF_CGOA_QUESTIONS_20 = [
     scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer evaluates Manifest Signing to guarantee that the GitOps controller only deploys manifests and container images that carry verified cryptographic signatures from approved build engineers.",
     question: "Which solution implements these mandatory GitOps security and governance controls? Cryptographically signing and verifying Git commits and OCI manifest artifacts with Cosign is under consideration.",
     options: [
-      { id: 'A', text: "Enforce GPG commit signature verification on the Git repository and verify container image signatures using Cosign before reconciliation." },
-      { id: 'B', text: "Trust all commits and image tags blindly without cryptographic verification." },
-      { id: 'C', text: "Allow anonymous developers to push unsigned commits to deployment branches." },
-      { id: 'D', text: "Disable commit signing checks to reduce developer friction." }
+      { id: 'A', text: "Disable commit signing checks to reduce developer friction." },
+      { id: 'B', text: "Enforce GPG commit signature verification on the Git repository and verify container image signatures using Cosign before reconciliation." },
+      { id: 'C', text: "Trust all commits and image tags blindly without cryptographic verification." },
+      { id: 'D', text: "Allow anonymous developers to push unsigned commits to deployment branches." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Enforce GPG commit signature verification on the Git repository and verify container image signatures using Cosign before reconciliation. Supply chain security in GitOps requires verifying integrity at both levels: the container images (verified via Cosign/Sigstore) and the manifests themselves (verified via GPG/SSH signed Git commits). This ensures that unauthorized commits or tampered artifacts cannot be reconciled into production.",
     referenceUrl: "https://docs.sigstore.dev/cosign/overview/",
@@ -492,12 +492,12 @@ export const CNCF_CGOA_QUESTIONS_20 = [
     scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer evaluates Manifest Signing to guarantee that the GitOps controller only deploys manifests and container images that carry verified cryptographic signatures from approved build engineers.",
     question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction? Cryptographically signing and verifying Git commits and OCI manifest artifacts with Cosign is under consideration.",
     options: [
-      { id: 'A', text: "Enforce GPG commit signature verification on the Git repository and verify container image signatures using Cosign before reconciliation." },
+      { id: 'A', text: "Allow anonymous developers to push unsigned commits to deployment branches." },
       { id: 'B', text: "Trust all commits and image tags blindly without cryptographic verification." },
-      { id: 'C', text: "Allow anonymous developers to push unsigned commits to deployment branches." },
+      { id: 'C', text: "Enforce GPG commit signature verification on the Git repository and verify container image signatures using Cosign before reconciliation." },
       { id: 'D', text: "Disable commit signing checks to reduce developer friction." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Enforce GPG commit signature verification on the Git repository and verify container image signatures using Cosign before reconciliation. Supply chain security in GitOps requires verifying integrity at both levels: the container images (verified via Cosign/Sigstore) and the manifests themselves (verified via GPG/SSH signed Git commits). This ensures that unauthorized commits or tampered artifacts cannot be reconciled into production.",
     referenceUrl: "https://docs.sigstore.dev/cosign/overview/",
@@ -513,12 +513,12 @@ export const CNCF_CGOA_QUESTIONS_20 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer evaluates Manifest Signing to guarantee that the GitOps controller only deploys manifests and container images that carry verified cryptographic signatures from approved build engineers.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability? Cryptographically signing and verifying Git commits and OCI manifest artifacts with Cosign is under consideration.",
     options: [
-      { id: 'A', text: "Enforce GPG commit signature verification on the Git repository and verify container image signatures using Cosign before reconciliation." },
-      { id: 'B', text: "Trust all commits and image tags blindly without cryptographic verification." },
-      { id: 'C', text: "Allow anonymous developers to push unsigned commits to deployment branches." },
-      { id: 'D', text: "Disable commit signing checks to reduce developer friction." }
+      { id: 'A', text: "Trust all commits and image tags blindly without cryptographic verification." },
+      { id: 'B', text: "Disable commit signing checks to reduce developer friction." },
+      { id: 'C', text: "Enforce GPG commit signature verification on the Git repository and verify container image signatures using Cosign before reconciliation." },
+      { id: 'D', text: "Allow anonymous developers to push unsigned commits to deployment branches." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Enforce GPG commit signature verification on the Git repository and verify container image signatures using Cosign before reconciliation. Supply chain security in GitOps requires verifying integrity at both levels: the container images (verified via Cosign/Sigstore) and the manifests themselves (verified via GPG/SSH signed Git commits). This ensures that unauthorized commits or tampered artifacts cannot be reconciled into production.",
     referenceUrl: "https://docs.sigstore.dev/cosign/overview/",

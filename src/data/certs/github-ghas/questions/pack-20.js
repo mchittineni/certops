@@ -10,9 +10,9 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives? Granting security teams read/write security access organization-wide without repository admin rights is under consideration.",
     options: [
       { id: 'A', text: "Assign the `Security Manager` role to the security team at the organization level." },
-      { id: 'B', text: "Grant the security team full Owner or Admin rights across all repositories, giving them permissions to delete production code." },
-      { id: 'C', text: "Create individual personal accounts for security engineers and add them manually to every repository." },
-      { id: 'D', text: "Prohibit the security team from viewing developer repositories to protect code privacy." }
+      { id: 'B', text: "Create individual personal accounts for security engineers and add them manually to every repository." },
+      { id: 'C', text: "Prohibit the security team from viewing developer repositories to protect code privacy." },
+      { id: 'D', text: "Grant the security team full Owner or Admin rights across all repositories, giving them permissions to delete production code." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -30,12 +30,12 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer evaluates Security Manager Role to allow the corporate security operations team to view all alerts, triage findings, and configure security policies without granting them source code write access.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively? Granting security teams read/write security access organization-wide without repository admin rights is under consideration.",
     options: [
-      { id: 'A', text: "Assign the `Security Manager` role to the security team at the organization level." },
-      { id: 'B', text: "Grant the security team full Owner or Admin rights across all repositories, giving them permissions to delete production code." },
-      { id: 'C', text: "Create individual personal accounts for security engineers and add them manually to every repository." },
+      { id: 'A', text: "Create individual personal accounts for security engineers and add them manually to every repository." },
+      { id: 'B', text: "Assign the `Security Manager` role to the security team at the organization level." },
+      { id: 'C', text: "Grant the security team full Owner or Admin rights across all repositories, giving them permissions to delete production code." },
       { id: 'D', text: "Prohibit the security team from viewing developer repositories to protect code privacy." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Assign the `Security Manager` role to the security team at the organization level. The `Security Manager` role gives designated teams read access to all repositories across an organization and full management access to security alerts (Secret Scanning, Dependabot, Code Scanning) and security policies, without granting repository write or administrative permissions.",
     referenceUrl: "https://docs.github.com/en/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization",
@@ -51,12 +51,12 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer evaluates Security Manager Role to allow the corporate security operations team to view all alerts, triage findings, and configure security policies without granting them source code write access.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure? Granting security teams read/write security access organization-wide without repository admin rights is under consideration.",
     options: [
-      { id: 'A', text: "Assign the `Security Manager` role to the security team at the organization level." },
+      { id: 'A', text: "Prohibit the security team from viewing developer repositories to protect code privacy." },
       { id: 'B', text: "Grant the security team full Owner or Admin rights across all repositories, giving them permissions to delete production code." },
-      { id: 'C', text: "Create individual personal accounts for security engineers and add them manually to every repository." },
-      { id: 'D', text: "Prohibit the security team from viewing developer repositories to protect code privacy." }
+      { id: 'C', text: "Assign the `Security Manager` role to the security team at the organization level." },
+      { id: 'D', text: "Create individual personal accounts for security engineers and add them manually to every repository." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Assign the `Security Manager` role to the security team at the organization level. The `Security Manager` role gives designated teams read access to all repositories across an organization and full management access to security alerts (Secret Scanning, Dependabot, Code Scanning) and security policies, without granting repository write or administrative permissions.",
     referenceUrl: "https://docs.github.com/en/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization",
@@ -72,12 +72,12 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer evaluates Security Manager Role to allow the corporate security operations team to view all alerts, triage findings, and configure security policies without granting them source code write access.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge? Granting security teams read/write security access organization-wide without repository admin rights is under consideration.",
     options: [
-      { id: 'A', text: "Assign the `Security Manager` role to the security team at the organization level." },
+      { id: 'A', text: "Prohibit the security team from viewing developer repositories to protect code privacy." },
       { id: 'B', text: "Grant the security team full Owner or Admin rights across all repositories, giving them permissions to delete production code." },
       { id: 'C', text: "Create individual personal accounts for security engineers and add them manually to every repository." },
-      { id: 'D', text: "Prohibit the security team from viewing developer repositories to protect code privacy." }
+      { id: 'D', text: "Assign the `Security Manager` role to the security team at the organization level." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Assign the `Security Manager` role to the security team at the organization level. The `Security Manager` role gives designated teams read access to all repositories across an organization and full management access to security alerts (Secret Scanning, Dependabot, Code Scanning) and security policies, without granting repository write or administrative permissions.",
     referenceUrl: "https://docs.github.com/en/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization",
@@ -93,12 +93,12 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer evaluates Security Manager Role to allow the corporate security operations team to view all alerts, triage findings, and configure security policies without granting them source code write access.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance? Granting security teams read/write security access organization-wide without repository admin rights is under consideration.",
     options: [
-      { id: 'A', text: "Assign the `Security Manager` role to the security team at the organization level." },
-      { id: 'B', text: "Grant the security team full Owner or Admin rights across all repositories, giving them permissions to delete production code." },
+      { id: 'A', text: "Prohibit the security team from viewing developer repositories to protect code privacy." },
+      { id: 'B', text: "Assign the `Security Manager` role to the security team at the organization level." },
       { id: 'C', text: "Create individual personal accounts for security engineers and add them manually to every repository." },
-      { id: 'D', text: "Prohibit the security team from viewing developer repositories to protect code privacy." }
+      { id: 'D', text: "Grant the security team full Owner or Admin rights across all repositories, giving them permissions to delete production code." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Assign the `Security Manager` role to the security team at the organization level. The `Security Manager` role gives designated teams read access to all repositories across an organization and full management access to security alerts (Secret Scanning, Dependabot, Code Scanning) and security policies, without granting repository write or administrative permissions.",
     referenceUrl: "https://docs.github.com/en/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization",
@@ -114,12 +114,12 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer evaluates Security Advisories to enable external security researchers to report vulnerabilities privately without disclosing zero-day bugs in public issues.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives? Privately disclosing vulnerabilities, collaborating on patches, and requesting CVEs via GitHub is under consideration.",
     options: [
-      { id: 'A', text: "Enable Private Vulnerability Reporting and use Repository Security Advisories to collaborate on fixes in private forks and request CVEs." },
-      { id: 'B', text: "Ask security researchers to post exploit details publicly in open GitHub issues." },
-      { id: 'C', text: "Ignore external researcher reports and threaten legal action." },
-      { id: 'D', text: "Email plaintext vulnerability reports across unencrypted email chains." }
+      { id: 'A', text: "Ignore external researcher reports and threaten legal action." },
+      { id: 'B', text: "Enable Private Vulnerability Reporting and use Repository Security Advisories to collaborate on fixes in private forks and request CVEs." },
+      { id: 'C', text: "Email plaintext vulnerability reports across unencrypted email chains." },
+      { id: 'D', text: "Ask security researchers to post exploit details publicly in open GitHub issues." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Enable Private Vulnerability Reporting and use Repository Security Advisories to collaborate on fixes in private forks and request CVEs. Private Vulnerability Reporting allows researchers to submit confidential reports directly to repository maintainers. Maintainers use Repository Security Advisories to discuss findings, collaborate on patches in a temporary private fork, and request a CVE number directly from GitHub as a CNA.",
     referenceUrl: "https://docs.github.com/en/code-security/security-advisories/repository-security-advisories/about-repository-security-advisories",
@@ -136,9 +136,9 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively? Privately disclosing vulnerabilities, collaborating on patches, and requesting CVEs via GitHub is under consideration.",
     options: [
       { id: 'A', text: "Enable Private Vulnerability Reporting and use Repository Security Advisories to collaborate on fixes in private forks and request CVEs." },
-      { id: 'B', text: "Ask security researchers to post exploit details publicly in open GitHub issues." },
+      { id: 'B', text: "Email plaintext vulnerability reports across unencrypted email chains." },
       { id: 'C', text: "Ignore external researcher reports and threaten legal action." },
-      { id: 'D', text: "Email plaintext vulnerability reports across unencrypted email chains." }
+      { id: 'D', text: "Ask security researchers to post exploit details publicly in open GitHub issues." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -156,12 +156,12 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer evaluates Security Advisories to enable external security researchers to report vulnerabilities privately without disclosing zero-day bugs in public issues.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure? Privately disclosing vulnerabilities, collaborating on patches, and requesting CVEs via GitHub is under consideration.",
     options: [
-      { id: 'A', text: "Enable Private Vulnerability Reporting and use Repository Security Advisories to collaborate on fixes in private forks and request CVEs." },
-      { id: 'B', text: "Ask security researchers to post exploit details publicly in open GitHub issues." },
-      { id: 'C', text: "Ignore external researcher reports and threaten legal action." },
-      { id: 'D', text: "Email plaintext vulnerability reports across unencrypted email chains." }
+      { id: 'A', text: "Ignore external researcher reports and threaten legal action." },
+      { id: 'B', text: "Email plaintext vulnerability reports across unencrypted email chains." },
+      { id: 'C', text: "Ask security researchers to post exploit details publicly in open GitHub issues." },
+      { id: 'D', text: "Enable Private Vulnerability Reporting and use Repository Security Advisories to collaborate on fixes in private forks and request CVEs." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Enable Private Vulnerability Reporting and use Repository Security Advisories to collaborate on fixes in private forks and request CVEs. Private Vulnerability Reporting allows researchers to submit confidential reports directly to repository maintainers. Maintainers use Repository Security Advisories to discuss findings, collaborate on patches in a temporary private fork, and request a CVE number directly from GitHub as a CNA.",
     referenceUrl: "https://docs.github.com/en/code-security/security-advisories/repository-security-advisories/about-repository-security-advisories",
@@ -177,12 +177,12 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer evaluates Security Advisories to enable external security researchers to report vulnerabilities privately without disclosing zero-day bugs in public issues.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge? Privately disclosing vulnerabilities, collaborating on patches, and requesting CVEs via GitHub is under consideration.",
     options: [
-      { id: 'A', text: "Enable Private Vulnerability Reporting and use Repository Security Advisories to collaborate on fixes in private forks and request CVEs." },
-      { id: 'B', text: "Ask security researchers to post exploit details publicly in open GitHub issues." },
-      { id: 'C', text: "Ignore external researcher reports and threaten legal action." },
+      { id: 'A', text: "Ignore external researcher reports and threaten legal action." },
+      { id: 'B', text: "Enable Private Vulnerability Reporting and use Repository Security Advisories to collaborate on fixes in private forks and request CVEs." },
+      { id: 'C', text: "Ask security researchers to post exploit details publicly in open GitHub issues." },
       { id: 'D', text: "Email plaintext vulnerability reports across unencrypted email chains." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Enable Private Vulnerability Reporting and use Repository Security Advisories to collaborate on fixes in private forks and request CVEs. Private Vulnerability Reporting allows researchers to submit confidential reports directly to repository maintainers. Maintainers use Repository Security Advisories to discuss findings, collaborate on patches in a temporary private fork, and request a CVE number directly from GitHub as a CNA.",
     referenceUrl: "https://docs.github.com/en/code-security/security-advisories/repository-security-advisories/about-repository-security-advisories",
@@ -198,12 +198,12 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer evaluates Security Advisories to enable external security researchers to report vulnerabilities privately without disclosing zero-day bugs in public issues.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance? Privately disclosing vulnerabilities, collaborating on patches, and requesting CVEs via GitHub is under consideration.",
     options: [
-      { id: 'A', text: "Enable Private Vulnerability Reporting and use Repository Security Advisories to collaborate on fixes in private forks and request CVEs." },
-      { id: 'B', text: "Ask security researchers to post exploit details publicly in open GitHub issues." },
+      { id: 'A', text: "Ask security researchers to post exploit details publicly in open GitHub issues." },
+      { id: 'B', text: "Enable Private Vulnerability Reporting and use Repository Security Advisories to collaborate on fixes in private forks and request CVEs." },
       { id: 'C', text: "Ignore external researcher reports and threaten legal action." },
       { id: 'D', text: "Email plaintext vulnerability reports across unencrypted email chains." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Enable Private Vulnerability Reporting and use Repository Security Advisories to collaborate on fixes in private forks and request CVEs. Private Vulnerability Reporting allows researchers to submit confidential reports directly to repository maintainers. Maintainers use Repository Security Advisories to discuss findings, collaborate on patches in a temporary private fork, and request a CVE number directly from GitHub as a CNA.",
     referenceUrl: "https://docs.github.com/en/code-security/security-advisories/repository-security-advisories/about-repository-security-advisories",
@@ -219,12 +219,12 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer evaluates SECURITY.md to instruct external researchers and customers on how to responsibly disclose security vulnerabilities found in your software.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives? Publishing clear vulnerability reporting instructions and expected response timelines in repositories is under consideration.",
     options: [
-      { id: 'A', text: "Add a `SECURITY.md` file in the `.github` repository or project root detailing contact instructions, PGP keys, and disclosure policies." },
+      { id: 'A', text: "Leave security reporting procedures undefined and unmonitored." },
       { id: 'B', text: "Hide contact information to discourage anyone from reporting security flaws." },
-      { id: 'C', text: "Require researchers to mail physical letters to corporate headquarters." },
-      { id: 'D', text: "Leave security reporting procedures undefined and unmonitored." }
+      { id: 'C', text: "Add a `SECURITY.md` file in the `.github` repository or project root detailing contact instructions, PGP keys, and disclosure policies." },
+      { id: 'D', text: "Require researchers to mail physical letters to corporate headquarters." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Add a `SECURITY.md` file in the `.github` repository or project root detailing contact instructions, PGP keys, and disclosure policies. A `SECURITY.md` file provides standardized vulnerability disclosure instructions. Placing it in the repository root or `.github` folder displays a security policy banner across issues and security tabs, directing researchers to secure reporting channels (like Private Vulnerability Reporting).",
     referenceUrl: "https://docs.github.com/en/code-security/getting-started/adding-a-security-policy-to-your-repository",
@@ -241,9 +241,9 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively? Publishing clear vulnerability reporting instructions and expected response timelines in repositories is under consideration.",
     options: [
       { id: 'A', text: "Add a `SECURITY.md` file in the `.github` repository or project root detailing contact instructions, PGP keys, and disclosure policies." },
-      { id: 'B', text: "Hide contact information to discourage anyone from reporting security flaws." },
-      { id: 'C', text: "Require researchers to mail physical letters to corporate headquarters." },
-      { id: 'D', text: "Leave security reporting procedures undefined and unmonitored." }
+      { id: 'B', text: "Leave security reporting procedures undefined and unmonitored." },
+      { id: 'C', text: "Hide contact information to discourage anyone from reporting security flaws." },
+      { id: 'D', text: "Require researchers to mail physical letters to corporate headquarters." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -261,12 +261,12 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer evaluates SECURITY.md to instruct external researchers and customers on how to responsibly disclose security vulnerabilities found in your software.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure? Publishing clear vulnerability reporting instructions and expected response timelines in repositories is under consideration.",
     options: [
-      { id: 'A', text: "Add a `SECURITY.md` file in the `.github` repository or project root detailing contact instructions, PGP keys, and disclosure policies." },
-      { id: 'B', text: "Hide contact information to discourage anyone from reporting security flaws." },
-      { id: 'C', text: "Require researchers to mail physical letters to corporate headquarters." },
-      { id: 'D', text: "Leave security reporting procedures undefined and unmonitored." }
+      { id: 'A', text: "Require researchers to mail physical letters to corporate headquarters." },
+      { id: 'B', text: "Leave security reporting procedures undefined and unmonitored." },
+      { id: 'C', text: "Hide contact information to discourage anyone from reporting security flaws." },
+      { id: 'D', text: "Add a `SECURITY.md` file in the `.github` repository or project root detailing contact instructions, PGP keys, and disclosure policies." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Add a `SECURITY.md` file in the `.github` repository or project root detailing contact instructions, PGP keys, and disclosure policies. A `SECURITY.md` file provides standardized vulnerability disclosure instructions. Placing it in the repository root or `.github` folder displays a security policy banner across issues and security tabs, directing researchers to secure reporting channels (like Private Vulnerability Reporting).",
     referenceUrl: "https://docs.github.com/en/code-security/getting-started/adding-a-security-policy-to-your-repository",
@@ -282,12 +282,12 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer evaluates SECURITY.md to instruct external researchers and customers on how to responsibly disclose security vulnerabilities found in your software.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge? Publishing clear vulnerability reporting instructions and expected response timelines in repositories is under consideration.",
     options: [
-      { id: 'A', text: "Add a `SECURITY.md` file in the `.github` repository or project root detailing contact instructions, PGP keys, and disclosure policies." },
+      { id: 'A', text: "Leave security reporting procedures undefined and unmonitored." },
       { id: 'B', text: "Hide contact information to discourage anyone from reporting security flaws." },
-      { id: 'C', text: "Require researchers to mail physical letters to corporate headquarters." },
-      { id: 'D', text: "Leave security reporting procedures undefined and unmonitored." }
+      { id: 'C', text: "Add a `SECURITY.md` file in the `.github` repository or project root detailing contact instructions, PGP keys, and disclosure policies." },
+      { id: 'D', text: "Require researchers to mail physical letters to corporate headquarters." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Add a `SECURITY.md` file in the `.github` repository or project root detailing contact instructions, PGP keys, and disclosure policies. A `SECURITY.md` file provides standardized vulnerability disclosure instructions. Placing it in the repository root or `.github` folder displays a security policy banner across issues and security tabs, directing researchers to secure reporting channels (like Private Vulnerability Reporting).",
     referenceUrl: "https://docs.github.com/en/code-security/getting-started/adding-a-security-policy-to-your-repository",
@@ -326,8 +326,8 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     options: [
       { id: 'A', text: "Query the GitHub REST and GraphQL APIs using a fine-grained personal access token or GitHub App with security permissions." },
       { id: 'B', text: "Manually copy and paste alert data from web pages into an Excel spreadsheet." },
-      { id: 'C', text: "Scrape web pages using unauthenticated headless browser sessions." },
-      { id: 'D', text: "Refuse to provide audit data due to manual reporting constraints." }
+      { id: 'C', text: "Refuse to provide audit data due to manual reporting constraints." },
+      { id: 'D', text: "Scrape web pages using unauthenticated headless browser sessions." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -346,9 +346,9 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively? Automating compliance audits, alert extraction, and posture reporting via GitHub APIs is under consideration.",
     options: [
       { id: 'A', text: "Query the GitHub REST and GraphQL APIs using a fine-grained personal access token or GitHub App with security permissions." },
-      { id: 'B', text: "Manually copy and paste alert data from web pages into an Excel spreadsheet." },
+      { id: 'B', text: "Refuse to provide audit data due to manual reporting constraints." },
       { id: 'C', text: "Scrape web pages using unauthenticated headless browser sessions." },
-      { id: 'D', text: "Refuse to provide audit data due to manual reporting constraints." }
+      { id: 'D', text: "Manually copy and paste alert data from web pages into an Excel spreadsheet." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -366,12 +366,12 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer evaluates GHAS APIs to extract all open High and Critical Code Scanning, Dependabot, and Secret Scanning alerts across 500 repos for an executive audit report.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure? Automating compliance audits, alert extraction, and posture reporting via GitHub APIs is under consideration.",
     options: [
-      { id: 'A', text: "Query the GitHub REST and GraphQL APIs using a fine-grained personal access token or GitHub App with security permissions." },
-      { id: 'B', text: "Manually copy and paste alert data from web pages into an Excel spreadsheet." },
-      { id: 'C', text: "Scrape web pages using unauthenticated headless browser sessions." },
-      { id: 'D', text: "Refuse to provide audit data due to manual reporting constraints." }
+      { id: 'A', text: "Manually copy and paste alert data from web pages into an Excel spreadsheet." },
+      { id: 'B', text: "Scrape web pages using unauthenticated headless browser sessions." },
+      { id: 'C', text: "Refuse to provide audit data due to manual reporting constraints." },
+      { id: 'D', text: "Query the GitHub REST and GraphQL APIs using a fine-grained personal access token or GitHub App with security permissions." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Query the GitHub REST and GraphQL APIs using a fine-grained personal access token or GitHub App with security permissions. GitHub provides comprehensive REST and GraphQL APIs for all GHAS features (`/orgs/{org}/code-scanning/alerts`, `/secret-scanning/alerts`, `/dependabot/alerts`). Enterprise teams use these endpoints with GitHub Apps to automate compliance evidence collection, metrics dashboards, and SIEM syncing.",
     referenceUrl: "https://docs.github.com/en/rest/code-security",
@@ -388,9 +388,9 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge? Automating compliance audits, alert extraction, and posture reporting via GitHub APIs is under consideration.",
     options: [
       { id: 'A', text: "Query the GitHub REST and GraphQL APIs using a fine-grained personal access token or GitHub App with security permissions." },
-      { id: 'B', text: "Manually copy and paste alert data from web pages into an Excel spreadsheet." },
+      { id: 'B', text: "Refuse to provide audit data due to manual reporting constraints." },
       { id: 'C', text: "Scrape web pages using unauthenticated headless browser sessions." },
-      { id: 'D', text: "Refuse to provide audit data due to manual reporting constraints." }
+      { id: 'D', text: "Manually copy and paste alert data from web pages into an Excel spreadsheet." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -429,12 +429,12 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer evaluates GHAS Licensing to understand how GitHub Advanced Security licenses are counted and how to optimize license consumption across an enterprise.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives? Calculating active committers, 90-day activity windows, and managing license allocations is under consideration.",
     options: [
-      { id: 'A', text: "Track 'active committers' who have pushed code to GHAS-enabled private repositories within the last 90 days." },
-      { id: 'B', text: "Assume licenses are billed based on the total number of employee email accounts in the company." },
+      { id: 'A', text: "Assume licenses are billed based on the total number of employee email accounts in the company." },
+      { id: 'B', text: "Track 'active committers' who have pushed code to GHAS-enabled private repositories within the last 90 days." },
       { id: 'C', text: "Believe that an engineer requires five separate licenses if they commit to five different repositories." },
       { id: 'D', text: "Assume read-only repository viewers consume full GHAS committer licenses." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Track 'active committers' who have pushed code to GHAS-enabled private repositories within the last 90 days. GHAS licensing is based on active committers. An active committer is any user who has made a commit to a GHAS-enabled private/internal repository within the last 90 days. Each committer consumes only one license regardless of how many repositories or organizations they contribute to.",
     referenceUrl: "https://docs.github.com/en/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security",
@@ -450,12 +450,12 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer evaluates GHAS Licensing to understand how GitHub Advanced Security licenses are counted and how to optimize license consumption across an enterprise.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively? Calculating active committers, 90-day activity windows, and managing license allocations is under consideration.",
     options: [
-      { id: 'A', text: "Track 'active committers' who have pushed code to GHAS-enabled private repositories within the last 90 days." },
-      { id: 'B', text: "Assume licenses are billed based on the total number of employee email accounts in the company." },
-      { id: 'C', text: "Believe that an engineer requires five separate licenses if they commit to five different repositories." },
-      { id: 'D', text: "Assume read-only repository viewers consume full GHAS committer licenses." }
+      { id: 'A', text: "Assume read-only repository viewers consume full GHAS committer licenses." },
+      { id: 'B', text: "Believe that an engineer requires five separate licenses if they commit to five different repositories." },
+      { id: 'C', text: "Track 'active committers' who have pushed code to GHAS-enabled private repositories within the last 90 days." },
+      { id: 'D', text: "Assume licenses are billed based on the total number of employee email accounts in the company." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Track 'active committers' who have pushed code to GHAS-enabled private repositories within the last 90 days. GHAS licensing is based on active committers. An active committer is any user who has made a commit to a GHAS-enabled private/internal repository within the last 90 days. Each committer consumes only one license regardless of how many repositories or organizations they contribute to.",
     referenceUrl: "https://docs.github.com/en/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security",
@@ -492,12 +492,12 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer evaluates GHAS Licensing to understand how GitHub Advanced Security licenses are counted and how to optimize license consumption across an enterprise.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge? Calculating active committers, 90-day activity windows, and managing license allocations is under consideration.",
     options: [
-      { id: 'A', text: "Track 'active committers' who have pushed code to GHAS-enabled private repositories within the last 90 days." },
-      { id: 'B', text: "Assume licenses are billed based on the total number of employee email accounts in the company." },
-      { id: 'C', text: "Believe that an engineer requires five separate licenses if they commit to five different repositories." },
-      { id: 'D', text: "Assume read-only repository viewers consume full GHAS committer licenses." }
+      { id: 'A', text: "Believe that an engineer requires five separate licenses if they commit to five different repositories." },
+      { id: 'B', text: "Assume read-only repository viewers consume full GHAS committer licenses." },
+      { id: 'C', text: "Track 'active committers' who have pushed code to GHAS-enabled private repositories within the last 90 days." },
+      { id: 'D', text: "Assume licenses are billed based on the total number of employee email accounts in the company." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Track 'active committers' who have pushed code to GHAS-enabled private repositories within the last 90 days. GHAS licensing is based on active committers. An active committer is any user who has made a commit to a GHAS-enabled private/internal repository within the last 90 days. Each committer consumes only one license regardless of how many repositories or organizations they contribute to.",
     referenceUrl: "https://docs.github.com/en/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security",
@@ -513,12 +513,12 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer evaluates GHAS Licensing to understand how GitHub Advanced Security licenses are counted and how to optimize license consumption across an enterprise.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance? Calculating active committers, 90-day activity windows, and managing license allocations is under consideration.",
     options: [
-      { id: 'A', text: "Track 'active committers' who have pushed code to GHAS-enabled private repositories within the last 90 days." },
+      { id: 'A', text: "Assume read-only repository viewers consume full GHAS committer licenses." },
       { id: 'B', text: "Assume licenses are billed based on the total number of employee email accounts in the company." },
       { id: 'C', text: "Believe that an engineer requires five separate licenses if they commit to five different repositories." },
-      { id: 'D', text: "Assume read-only repository viewers consume full GHAS committer licenses." }
+      { id: 'D', text: "Track 'active committers' who have pushed code to GHAS-enabled private repositories within the last 90 days." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Track 'active committers' who have pushed code to GHAS-enabled private repositories within the last 90 days. GHAS licensing is based on active committers. An active committer is any user who has made a commit to a GHAS-enabled private/internal repository within the last 90 days. Each committer consumes only one license regardless of how many repositories or organizations they contribute to.",
     referenceUrl: "https://docs.github.com/en/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security",

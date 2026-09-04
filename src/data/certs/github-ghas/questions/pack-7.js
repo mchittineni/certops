@@ -9,12 +9,12 @@ export const GITHUB_GHAS_QUESTIONS_7 = [
     scenario: "A developer commits a package.json without committing package-lock.json. How does Dependency Graph evaluate project dependencies?",
     question: "What is the impact of omitting lockfiles on Dependency Graph accuracy?",
     options: [
-      { id: 'A', text: "Dependency Graph automatically commits a new lockfile to the repository" },
-      { id: 'B', text: "Dependency Graph infers ranges from the manifest but cannot determine exact resolved transitive dependency versions or exact vulnerability exposure" },
-      { id: 'C', text: "Dependency Graph fails to detect any dependencies at all" },
-      { id: 'D', text: "GitHub deletes the package.json file" }
+      { id: 'A', text: "GitHub deletes the package.json file" },
+      { id: 'B', text: "Dependency Graph automatically commits a new lockfile to the repository" },
+      { id: 'C', text: "Dependency Graph infers ranges from the manifest but cannot determine exact resolved transitive dependency versions or exact vulnerability exposure" },
+      { id: 'D', text: "Dependency Graph fails to detect any dependencies at all" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "When lockfiles are committed, Dependency Graph tracks exact pinned package versions. Without lockfiles, it can only parse semantic version ranges from manifests, reducing accuracy for deep transitive dependencies.",
     referenceUrl: "https://docs.github.com/en/code-security/supply-chain-security/understanding-how-github-uses-and-protects-your-data/about-the-dependency-graph",
@@ -31,8 +31,8 @@ export const GITHUB_GHAS_QUESTIONS_7 = [
     question: "Which configuration satisfies this requirement?",
     options: [
       { id: 'A', text: "Disable Dependency Graph on all branches" },
-      { id: 'B', text: "Delete all lockfiles from the repository" },
-      { id: 'C', text: "Configure dependabot.yml with schedule: never" },
+      { id: 'B', text: "Configure dependabot.yml with schedule: never" },
+      { id: 'C', text: "Delete all lockfiles from the repository" },
       { id: 'D', text: "Enable Dependabot Security Updates and omit or remove the .github/dependabot.yml version updates configuration" }
     ],
     correctAnswers: ['D'],
@@ -51,8 +51,8 @@ export const GITHUB_GHAS_QUESTIONS_7 = [
     scenario: "A security team wants to block any pull request that introduces an npm package with an AGPL-3.0 copyleft license into a proprietary cloud application.",
     question: "How should the team configure automated CI enforcement?",
     options: [
-      { id: 'A', text: "Write a custom shell script that parses package.json with grep" },
-      { id: 'B', text: "Ban developers from adding new npm dependencies" },
+      { id: 'A', text: "Ban developers from adding new npm dependencies" },
+      { id: 'B', text: "Write a custom shell script that parses package.json with grep" },
       { id: 'C', text: "Add actions/dependency-review-action to their PR workflow and configure license-check and denied-licenses: ['AGPL-3.0']" },
       { id: 'D', text: "Use Dependabot Version Updates with daily interval" }
     ],
@@ -72,12 +72,12 @@ export const GITHUB_GHAS_QUESTIONS_7 = [
     scenario: "A repository maintainer is overwhelmed by 30 separate Dependabot version update pull requests opened on Monday morning.",
     question: "Which setting in .github/dependabot.yml combines multiple package updates into a single manageable pull request?",
     options: [
-      { id: 'A', text: "open-pull-requests-limit: 1" },
-      { id: 'B', text: "schedule: { interval: monthly }" },
-      { id: 'C', text: "groups: { production-dependencies: { patterns: ['*'] } }" },
-      { id: 'D', text: "allow: [ { dependency-type: direct } ]" }
+      { id: 'A', text: "groups: { production-dependencies: { patterns: ['*'] } }" },
+      { id: 'B', text: "allow: [ { dependency-type: direct } ]" },
+      { id: 'C', text: "schedule: { interval: monthly }" },
+      { id: 'D', text: "open-pull-requests-limit: 1" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The `groups` directive in `dependabot.yml` enables bundling multiple dependency upgrades into a single consolidated pull request, drastically reducing review overhead while keeping libraries updated.",
     referenceUrl: "https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#groups",
@@ -93,12 +93,12 @@ export const GITHUB_GHAS_QUESTIONS_7 = [
     scenario: "An enterprise customer requires an official Software Bill of Materials (SBOM) conforming to the SPDX specification for compliance auditing before signing an enterprise contract.",
     question: "How can the security administrator export this compliance artifact from GitHub?",
     options: [
-      { id: 'A', text: "Export the repository SBOM in SPDX JSON format via the GitHub web UI Dependency Graph page or REST API (GET /repos/{owner}/{repo}/dependency-graph/sbom)" },
+      { id: 'A', text: "Take a screenshot of the repository insights tab" },
       { id: 'B', text: "Manually copy dependency names from package.json into an Excel spreadsheet" },
       { id: 'C', text: "Download the git log archive" },
-      { id: 'D', text: "Take a screenshot of the repository insights tab" }
+      { id: 'D', text: "Export the repository SBOM in SPDX JSON format via the GitHub web UI Dependency Graph page or REST API (GET /repos/{owner}/{repo}/dependency-graph/sbom)" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "GitHub natively provides automated SBOM export conforming to the Linux Foundation SPDX standard via the web interface under Insights → Dependency Graph → Export SBOM, and programmatically via the Dependency Graph REST API.",
     referenceUrl: "https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain/exporting-a-software-bill-of-materials-for-your-repository",
@@ -114,12 +114,12 @@ export const GITHUB_GHAS_QUESTIONS_7 = [
     scenario: "A Java project consumes internal shared JAR libraries from a private JFrog Artifactory registry. Dependabot fails to resolve version updates.",
     question: "What configuration is required to allow Dependabot to authenticate to the private artifact registry?",
     options: [
-      { id: 'A', text: "Embed the plaintext Artifactory password directly in pom.xml" },
+      { id: 'A', text: "Configure the registries: block in .github/dependabot.yml specifying the registry URL and referencing an encrypted Dependabot secret for authentication" },
       { id: 'B', text: "Commit the private Artifactory credentials to the README.md file" },
-      { id: 'C', text: "Make the internal Artifactory repository public to the internet" },
-      { id: 'D', text: "Configure the registries: block in .github/dependabot.yml specifying the registry URL and referencing an encrypted Dependabot secret for authentication" }
+      { id: 'C', text: "Embed the plaintext Artifactory password directly in pom.xml" },
+      { id: 'D', text: "Make the internal Artifactory repository public to the internet" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "In `dependabot.yml`, authors define the `registries:` dictionary (e.g. `maven-repository: { type: maven-repository, url: ..., token: ${{ secrets.ARTIFACTORY_TOKEN }} }`), providing secure credentials to private package feeds.",
     referenceUrl: "https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#registries",
@@ -135,12 +135,12 @@ export const GITHUB_GHAS_QUESTIONS_7 = [
     scenario: "A high-severity CVE is flagged in a library used exclusively as an offline build-time utility. The vulnerable code path is never packaged into production containers.",
     question: "Which dismissal reason should the maintainer select to document this risk assessment accurately?",
     options: [
-      { id: 'A', text: "Vulnerable code is not used" },
+      { id: 'A', text: "No bandwidth to fix this" },
       { id: 'B', text: "False positive" },
-      { id: 'C', text: "No bandwidth to fix this" },
-      { id: 'D', text: "A fix has already been started" }
+      { id: 'C', text: "A fix has already been started" },
+      { id: 'D', text: "Vulnerable code is not used" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "When a vulnerability exists in a package dependency but the vulnerable function or execution path is not invoked by the application, selecting 'Vulnerable code is not used' records this architectural determination and suppresses notifications.",
     referenceUrl: "https://docs.github.com/en/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts",
@@ -156,12 +156,12 @@ export const GITHUB_GHAS_QUESTIONS_7 = [
     scenario: "An attacker registers an identically named public package on npm matching an enterprise's internal un-scoped package name with a version number of 99.0.0.",
     question: "Which supply chain best practice defends against this Dependency Confusion attack?",
     options: [
-      { id: 'A', text: "Scope internal package names under an enterprise namespace (e.g. @mycorp/auth) and configure explicit registry routing in .npmrc" },
-      { id: 'B', text: "Never use open-source package registries" },
-      { id: 'C', text: "Disable Dependency Graph on all repositories" },
-      { id: 'D', text: "Commit node_modules into git history" }
+      { id: 'A', text: "Commit node_modules into git history" },
+      { id: 'B', text: "Disable Dependency Graph on all repositories" },
+      { id: 'C', text: "Scope internal package names under an enterprise namespace (e.g. @mycorp/auth) and configure explicit registry routing in .npmrc" },
+      { id: 'D', text: "Never use open-source package registries" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Dependency confusion occurs when package managers fetch public packages with higher version numbers instead of internal private libraries. Scoping packages under an organization namespace (e.g. `@mycorp/*`) and configuring strict registry priority in lockfiles prevents confusion.",
     referenceUrl: "https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review",
@@ -177,9 +177,9 @@ export const GITHUB_GHAS_QUESTIONS_7 = [
     scenario: "A Dependabot alert displays a CVSS base score of 9.8 with vector string CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H.",
     question: "What severity level does this vulnerability represent?",
     options: [
-      { id: 'A', text: "High" },
-      { id: 'B', text: "Low" },
-      { id: 'C', text: "Medium" },
+      { id: 'A', text: "Medium" },
+      { id: 'B', text: "High" },
+      { id: 'C', text: "Low" },
       { id: 'D', text: "Critical" }
     ],
     correctAnswers: ['D'],
@@ -198,10 +198,10 @@ export const GITHUB_GHAS_QUESTIONS_7 = [
     scenario: "An enterprise development team is managing security policies, vulnerability scans, and supply chain controls on GitHub.",
     question: "A developer merges several pull requests into main. What happens to open Dependabot security update pull requests?",
     options: [
-      { id: 'A', text: "Dependabot marks the repository as locked" },
-      { id: 'B', text: "The repository administrator must manually re-create the branch" },
+      { id: 'A', text: "Dependabot deletes all open pull requests" },
+      { id: 'B', text: "Dependabot marks the repository as locked" },
       { id: 'C', text: "Dependabot automatically attempts to rebase its open pull requests against the updated main branch" },
-      { id: 'D', text: "Dependabot deletes all open pull requests" }
+      { id: 'D', text: "The repository administrator must manually re-create the branch" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -220,11 +220,11 @@ export const GITHUB_GHAS_QUESTIONS_7 = [
     question: "Which ignore configuration in .github/dependabot.yml achieves this?",
     options: [
       { id: 'A', text: "open-pull-requests-limit: 0" },
-      { id: 'B', text: "schedule: { interval: weekly }" },
-      { id: 'C', text: "ignore: [ { dependency-name: '*', update-types: ['version-update:semver-major'] } ]" },
-      { id: 'D', text: "allow: [ { dependency-type: direct } ]" }
+      { id: 'B', text: "allow: [ { dependency-type: direct } ]" },
+      { id: 'C', text: "schedule: { interval: weekly }" },
+      { id: 'D', text: "ignore: [ { dependency-name: '*', update-types: ['version-update:semver-major'] } ]" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configuring `ignore:` with `update-types: ['version-update:semver-major']` allows Dependabot to open non-breaking patch and minor version upgrades while suppressing disruptive major version pull requests.",
     referenceUrl: "https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#ignore",
@@ -240,12 +240,12 @@ export const GITHUB_GHAS_QUESTIONS_7 = [
     scenario: "A vulnerability is detected in package 'minimist', which is not listed in package.json but is imported transitively by multiple top-level dependencies.",
     question: "How does Dependabot attempt to resolve this transitive vulnerability?",
     options: [
-      { id: 'A', text: "Dependabot updates the lockfile (package-lock.json) to resolve the sub-dependency to the patched version within allowed parent semver ranges" },
-      { id: 'B', text: "Dependabot deletes all top-level dependencies that import minimist" },
+      { id: 'A', text: "Dependabot deletes all top-level dependencies that import minimist" },
+      { id: 'B', text: "Dependabot updates the lockfile (package-lock.json) to resolve the sub-dependency to the patched version within allowed parent semver ranges" },
       { id: 'C', text: "Transitive vulnerabilities cannot be patched without deleting package.json" },
       { id: 'D', text: "Dependabot rewrites the application code to eliminate the library" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Dependabot Security Updates intelligently updates lockfile dependency trees: it identifies parent dependency semver constraints and updates the lockfile to reference the minimum safe sub-dependency version without breaking top-level manifest declarations.",
     referenceUrl: "https://docs.github.com/en/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates",
@@ -261,12 +261,12 @@ export const GITHUB_GHAS_QUESTIONS_7 = [
     scenario: "An external security researcher discovers a critical remote code execution vulnerability in an open-source project hosted on GitHub.",
     question: "Which GitHub feature allows the researcher to disclose the flaw securely without public exposure?",
     options: [
-      { id: 'A', text: "Submitting a report via Private Vulnerability Reporting directly within the repository Security tab" },
+      { id: 'A', text: "Opening a public GitHub Issue with the label 'security'" },
       { id: 'B', text: "Posting a comment on the latest commit" },
-      { id: 'C', text: "Creating a public pull request with the exploit script" },
-      { id: 'D', text: "Opening a public GitHub Issue with the label 'security'" }
+      { id: 'C', text: "Submitting a report via Private Vulnerability Reporting directly within the repository Security tab" },
+      { id: 'D', text: "Creating a public pull request with the exploit script" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Private Vulnerability Reporting provides a secure channel on repository Security tabs, opening a private workspace where maintainers and the reporter can collaborate on remediation before public disclosure.",
     referenceUrl: "https://docs.github.com/en/code-security/security-advisories/guidance-on-reporting-and-writing-information-about-vulnerabilities/privately-reporting-a-security-vulnerability",
@@ -282,12 +282,12 @@ export const GITHUB_GHAS_QUESTIONS_7 = [
     scenario: "Maintainers finish patching a zero-day vulnerability in a private security advisory workspace and prepare to publish it.",
     question: "How can the maintainers obtain an official Common Vulnerabilities and Exposures (CVE) identifier for the flaw?",
     options: [
-      { id: 'A', text: "Click 'Request CVE' within the GitHub Security Advisory page; GitHub issues the official CVE as an authorized CNA" },
-      { id: 'B', text: "Purchase a CVE from third-party auction websites" },
-      { id: 'C', text: "Send an email to local police departments" },
+      { id: 'A', text: "Send an email to local police departments" },
+      { id: 'B', text: "Click 'Request CVE' within the GitHub Security Advisory page; GitHub issues the official CVE as an authorized CNA" },
+      { id: 'C', text: "Purchase a CVE from third-party auction websites" },
       { id: 'D', text: "Wait 6 months for NIST to discover the vulnerability" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "GitHub is an authorized CVE Numbering Authority (CNA). Project maintainers can click 'Request CVE' directly on their published Security Advisory, and GitHub issues an official CVE identifier at zero cost.",
     referenceUrl: "https://docs.github.com/en/code-security/security-advisories/repository-security-advisories/about-repository-security-advisories",
@@ -303,12 +303,12 @@ export const GITHUB_GHAS_QUESTIONS_7 = [
     scenario: "An engineering team wants security pull requests opened by Dependabot to automatically tag the security lead and apply the label 'dependencies'.",
     question: "Which configuration in .github/dependabot.yml automates this assignment?",
     options: [
-      { id: 'A', text: "assignees: ['*']" },
-      { id: 'B', text: "reviewers: ['security-lead'] and labels: ['dependencies'] under the package-ecosystem configuration" },
-      { id: 'C', text: "git config --global user.name 'security-lead'" },
+      { id: 'A', text: "git config --global user.name 'security-lead'" },
+      { id: 'B', text: "assignees: ['*']" },
+      { id: 'C', text: "reviewers: ['security-lead'] and labels: ['dependencies'] under the package-ecosystem configuration" },
       { id: 'D', text: "name: Dependabot Automator" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "`dependabot.yml` supports specifying `reviewers:`, `assignees:`, `milestone:`, and `labels:` for each package ecosystem, streamlining PR routing directly to designated engineering teams.",
     referenceUrl: "https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#reviewers",
@@ -324,12 +324,12 @@ export const GITHUB_GHAS_QUESTIONS_7 = [
     scenario: "An enterprise implements Supply-chain Levels for Software Artifacts (SLSA) Level 3 compliance to guarantee that release binaries were built without source tampering.",
     question: "Which official GitHub action cryptographically signs and publishes build provenance metadata?",
     options: [
-      { id: 'A', text: "actions/attest-build-provenance" },
-      { id: 'B', text: "actions/upload-artifact@v4" },
-      { id: 'C', text: "actions/checkout@v4" },
-      { id: 'D', text: "docker/build-push-action" }
+      { id: 'A', text: "docker/build-push-action" },
+      { id: 'B', text: "actions/checkout@v4" },
+      { id: 'C', text: "actions/upload-artifact@v4" },
+      { id: 'D', text: "actions/attest-build-provenance" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "`actions/attest-build-provenance` uses Sigstore and GitHub Actions OIDC to generate cryptographically signed, tamper-evident SLSA provenance attestations linking built binaries to the exact source commit and runner workflow.",
     referenceUrl: "https://docs.github.com/en/actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds",
@@ -345,12 +345,12 @@ export const GITHUB_GHAS_QUESTIONS_7 = [
     scenario: "A platform team wants Dependabot patch updates to merge automatically if and only if all CI status checks pass.",
     question: "Which combination of features enables secure automated merging of Dependabot pull requests?",
     options: [
-      { id: 'A', text: "Running dependabot without git validation" },
-      { id: 'B', text: "Writing a shell script that pushes directly to main" },
-      { id: 'C', text: "Disabling all branch protection rules on main" },
-      { id: 'D', text: "Enabling GitHub auto-merge (gh pr merge --auto --squash) in an Actions workflow triggered on pull_request and requiring status checks to pass in branch protection" }
+      { id: 'A', text: "Disabling all branch protection rules on main" },
+      { id: 'B', text: "Running dependabot without git validation" },
+      { id: 'C', text: "Enabling GitHub auto-merge (gh pr merge --auto --squash) in an Actions workflow triggered on pull_request and requiring status checks to pass in branch protection" },
+      { id: 'D', text: "Writing a shell script that pushes directly to main" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Best practice enables repository auto-merge, triggers a workflow on `pull_request` that executes `gh pr merge --auto --squash` for Dependabot PRs, and relies on required status checks in branch protection to block merge until tests pass.",
     referenceUrl: "https://docs.github.com/en/code-security/dependabot/working-with-dependabot/automating-dependabot-with-github-actions",
@@ -367,11 +367,11 @@ export const GITHUB_GHAS_QUESTIONS_7 = [
     question: "What is the recommended command to instruct Dependabot to re-generate the PR against the latest base branch?",
     options: [
       { id: 'A', text: "Close the PR and disable Dependabot" },
-      { id: 'B', text: "Force-push an empty commit to the Dependabot branch" },
-      { id: 'C', text: "Post a comment on the PR containing '@dependabot rebase'" },
-      { id: 'D', text: "Delete the entire git repository and re-clone" }
+      { id: 'B', text: "Delete the entire git repository and re-clone" },
+      { id: 'C', text: "Force-push an empty commit to the Dependabot branch" },
+      { id: 'D', text: "Post a comment on the PR containing '@dependabot rebase'" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Commenting `@dependabot rebase` on a Dependabot pull request signals the bot to re-evaluate dependencies, pull the latest base branch commits, and regenerate the lockfile cleanly.",
     referenceUrl: "https://docs.github.com/en/code-security/dependabot/working-with-dependabot/managing-dependabot-pull-requests",
@@ -389,8 +389,8 @@ export const GITHUB_GHAS_QUESTIONS_7 = [
     options: [
       { id: 'A', text: "target-branch: 'develop'" },
       { id: 'B', text: "upstream: develop" },
-      { id: 'C', text: "default-branch: develop" },
-      { id: 'D', text: "branch: develop" }
+      { id: 'C', text: "branch: develop" },
+      { id: 'D', text: "default-branch: develop" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,12 +408,12 @@ export const GITHUB_GHAS_QUESTIONS_7 = [
     scenario: "An organization runs GitHub Enterprise Server (GHES) inside an air-gapped private network without outbound internet access to GitHub.com.",
     question: "How can administrators ensure the local GHES instance receives updated advisory database CVE entries?",
     options: [
-      { id: 'A', text: "Disable Dependabot alerts permanently" },
-      { id: 'B', text: "Configure individual developer laptops as proxy servers" },
-      { id: 'C', text: "Advisory databases cannot function on GitHub Enterprise Server" },
-      { id: 'D', text: "Use GitHub Connect to sync advisory data, or manually download and sync advisory bundles using the GHES management console" }
+      { id: 'A', text: "Advisory databases cannot function on GitHub Enterprise Server" },
+      { id: 'B', text: "Disable Dependabot alerts permanently" },
+      { id: 'C', text: "Use GitHub Connect to sync advisory data, or manually download and sync advisory bundles using the GHES management console" },
+      { id: 'D', text: "Configure individual developer laptops as proxy servers" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "On GitHub Enterprise Server in air-gapped or restricted networks, administrators can configure GitHub Connect to synchronize advisory feeds securely, or upload official offline vulnerability database bundles via administrative management APIs.",
     referenceUrl: "https://docs.github.com/en/enterprise-server/admin/configuration/configuring-network-settings/enabling-the-dependency-graph-for-your-enterprise",
@@ -429,12 +429,12 @@ export const GITHUB_GHAS_QUESTIONS_7 = [
     scenario: "An enterprise enforces semantic commit linting (Conventional Commits) in CI. Dependabot PRs fail because commit messages do not follow guidelines.",
     question: "How can commit messages authored by Dependabot be customized in dependabot.yml?",
     options: [
-      { id: 'A', text: "Dependabot commit messages cannot be modified" },
-      { id: 'B', text: "Disable commit linting in CI" },
-      { id: 'C', text: "commit-message: { prefix: 'chore', prefix-development: 'chore-dev', include: 'scope' }" },
-      { id: 'D', text: "git commit --amend in Actions" }
+      { id: 'A', text: "Disable commit linting in CI" },
+      { id: 'B', text: "commit-message: { prefix: 'chore', prefix-development: 'chore-dev', include: 'scope' }" },
+      { id: 'C', text: "git commit --amend in Actions" },
+      { id: 'D', text: "Dependabot commit messages cannot be modified" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "In `dependabot.yml`, the `commit-message` block allows customizing prefixes (e.g. `chore(deps)`), development prefixes, and scopes, satisfying automated Conventional Commit linters.",
     referenceUrl: "https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#commit-message",
@@ -450,12 +450,12 @@ export const GITHUB_GHAS_QUESTIONS_7 = [
     scenario: "A pipeline runs `actions/dependency-review-action` but fails with an error indicating dependency graph data is not up to date.",
     question: "What is the most common cause of this error on pull request workflows?",
     options: [
-      { id: 'A', text: "The pull request branch was pushed without manifest/lockfile changes, or dependency graph generation was delayed" },
+      { id: 'A', text: "The repository does not have an active Actions license" },
       { id: 'B', text: "The GitHub token lacked admin permissions" },
       { id: 'C', text: "The runner run out of memory" },
-      { id: 'D', text: "The repository does not have an active Actions license" }
+      { id: 'D', text: "The pull request branch was pushed without manifest/lockfile changes, or dependency graph generation was delayed" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Dependency review compares the dependency graph of the base and head commits. If a PR has merge conflicts or if dependency graph processing is delayed, the action fails until the graph is synchronized.",
     referenceUrl: "https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review",
@@ -471,12 +471,12 @@ export const GITHUB_GHAS_QUESTIONS_7 = [
     scenario: "A developer manually edits package.json, upgrades a vulnerable dependency to the patched release, and merges to main.",
     question: "What happens to the corresponding open Dependabot alert?",
     options: [
-      { id: 'A', text: "Dependabot automatically marks the alert as resolved (fixed) upon detecting the patched version in the default branch" },
-      { id: 'B', text: "A notification email is sent asking the developer to delete the repository" },
+      { id: 'A', text: "A notification email is sent asking the developer to delete the repository" },
+      { id: 'B', text: "The alert remains open until manually closed by a security manager" },
       { id: 'C', text: "The alert is deleted from audit logs" },
-      { id: 'D', text: "The alert remains open until manually closed by a security manager" }
+      { id: 'D', text: "Dependabot automatically marks the alert as resolved (fixed) upon detecting the patched version in the default branch" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Dependabot continuously monitors the default branch. When a manual commit resolves a vulnerable package version, Dependabot automatically transitions the alert to 'Closed (fixed)'.",
     referenceUrl: "https://docs.github.com/en/code-security/dependabot/dependabot-alerts/about-dependabot-alerts",
@@ -494,10 +494,10 @@ export const GITHUB_GHAS_QUESTIONS_7 = [
     options: [
       { id: 'A', text: "Yes, all Dependabot operations are permanently halted" },
       { id: 'B', text: "The limit only applies to pull requests created by human users" },
-      { id: 'C', text: "Yes, Dependabot will not open the security PR until an existing PR is merged" },
-      { id: 'D', text: "No, open-pull-requests-limit applies only to scheduled Version Updates; Dependabot Security Updates bypass this limit to deliver urgent CVE fixes" }
+      { id: 'C', text: "No, open-pull-requests-limit applies only to scheduled Version Updates; Dependabot Security Updates bypass this limit to deliver urgent CVE fixes" },
+      { id: 'D', text: "Yes, Dependabot will not open the security PR until an existing PR is merged" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "The `open-pull-requests-limit` option in `dependabot.yml` governs scheduled Version Updates. Critical Dependabot Security Updates are prioritized and bypass this limit to ensure vulnerabilities are addressed.",
     referenceUrl: "https://docs.github.com/en/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates",
@@ -513,10 +513,10 @@ export const GITHUB_GHAS_QUESTIONS_7 = [
     scenario: "Maintainers collaborating on a private security advisory invite an external contributor to inspect the proposed code fix.",
     question: "How does GitHub facilitate private collaboration on fixes before public release?",
     options: [
-      { id: 'A', text: "By posting code snippets on public discussion boards" },
-      { id: 'B', text: "By making the entire repository temporarily public" },
+      { id: 'A', text: "By emailing zip files between collaborators" },
+      { id: 'B', text: "By posting code snippets on public discussion boards" },
       { id: 'C', text: "By generating a private temporary fork linked to the Security Advisory where invited collaborators can push and review commits privately" },
-      { id: 'D', text: "By emailing zip files between collaborators" }
+      { id: 'D', text: "By making the entire repository temporarily public" }
     ],
     correctAnswers: ['C'],
     type: "single",

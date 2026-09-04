@@ -9,12 +9,12 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     scenario: "A technology startup wants to build and launch a software product quickly without investing capital in on-premises physical hardware or leasing datacenter space.",
     question: "Which cloud deployment model best satisfies the startup's requirements?",
     options: [
-      { id: 'A', text: "On-premises datacenter" },
-      { id: 'B', text: "Private cloud" },
-      { id: 'C', text: "Public cloud" },
-      { id: 'D', text: "Colocation facility" }
+      { id: 'A', text: "Private cloud" },
+      { id: 'B', text: "Public cloud" },
+      { id: 'C', text: "Colocation facility" },
+      { id: 'D', text: "On-premises datacenter" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "The public cloud model allows organizations to rent computing resources owned and managed by third-party providers such as Microsoft Azure. Resources are accessed over the internet, eliminating upfront capital expenses and hardware maintenance. In contrast, private clouds and on-premises datacenters require dedicated physical hardware and capital investment.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/get-started/cloud-concepts",
@@ -32,10 +32,10 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     options: [
       { id: 'A', text: "Public cloud only" },
       { id: 'B', text: "Private cloud only" },
-      { id: 'C', text: "Hybrid cloud" },
-      { id: 'D', text: "Community cloud" }
+      { id: 'C', text: "Community cloud" },
+      { id: 'D', text: "Hybrid cloud" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "A hybrid cloud combines on-premises infrastructure (or private cloud) with public cloud services, allowing data and apps to be shared between them. This approach allows sensitive data to stay on-premises for regulatory compliance while taking advantage of public cloud scalability for web tiers.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/get-started/cloud-concepts",
@@ -51,12 +51,12 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     scenario: "A military defense contractor requires complete physical isolation where all computing, storage, and networking hardware is dedicated exclusively to their organization.",
     question: "Which cloud deployment model meets these strict isolation requirements?",
     options: [
-      { id: 'A', text: "Multi-tenant cloud" },
-      { id: 'B', text: "Public cloud" },
-      { id: 'C', text: "Public SaaS" },
-      { id: 'D', text: "Private cloud" }
+      { id: 'A', text: "Public SaaS" },
+      { id: 'B', text: "Private cloud" },
+      { id: 'C', text: "Public cloud" },
+      { id: 'D', text: "Multi-tenant cloud" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "A private cloud consists of cloud computing resources used exclusively by one business or organization. It can be physically located in the organization's on-site datacenter or hosted by a third-party service provider on dedicated, single-tenant hardware, preventing any multi-tenant sharing.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/get-started/cloud-concepts",
@@ -74,10 +74,10 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     options: [
       { id: 'A', text: "Converting software subscriptions into fixed physical assets" },
       { id: 'B', text: "Transitioning from Operational Expenditure (OpEx) to Capital Expenditure (CapEx)" },
-      { id: 'C', text: "Eliminating both CapEx and OpEx entirely" },
-      { id: 'D', text: "Transitioning from Capital Expenditure (CapEx) to Operational Expenditure (OpEx)" }
+      { id: 'C', text: "Transitioning from Capital Expenditure (CapEx) to Operational Expenditure (OpEx)" },
+      { id: 'D', text: "Eliminating both CapEx and OpEx entirely" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Capital Expenditure (CapEx) is spending money upfront on physical infrastructure, which is deducted over time as depreciation. Operational Expenditure (OpEx) is spending money on ongoing services with no upfront infrastructure cost. The cloud operates primarily on an OpEx model with consumption-based billing.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/get-started/cloud-concepts",
@@ -93,8 +93,8 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     scenario: "A digital marketing firm runs promotional websites that experience massive traffic surges for only 48 hours each month, with minimal visits during other days.",
     question: "What is the primary financial benefit of the consumption-based model for this workload?",
     options: [
-      { id: 'A', text: "The firm pays a flat annual fee regardless of workload utilization" },
-      { id: 'B', text: "Virtual machines run at zero cost as long as they are deployed in secondary regions" },
+      { id: 'A', text: "Virtual machines run at zero cost as long as they are deployed in secondary regions" },
+      { id: 'B', text: "The firm pays a flat annual fee regardless of workload utilization" },
       { id: 'C', text: "The firm pays only for the compute resources consumed during the 48-hour campaign, avoiding idle hardware costs" },
       { id: 'D', text: "Hardware maintenance contracts are billed annually at a guaranteed flat rate" }
     ],
@@ -114,10 +114,10 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     scenario: "An online retailer requires that its storefront remains accessible to customers with minimal downtime even if a physical server or power supply in a datacenter fails.",
     question: "Which cloud computing benefit directly addresses this requirement?",
     options: [
-      { id: 'A', text: "Vertical elasticity" },
-      { id: 'B', text: "Operational agility" },
+      { id: 'A', text: "Operational agility" },
+      { id: 'B', text: "Application agility" },
       { id: 'C', text: "High availability" },
-      { id: 'D', text: "Application agility" }
+      { id: 'D', text: "Vertical elasticity" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -137,10 +137,10 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     options: [
       { id: 'A', text: "Geographic distribution" },
       { id: 'B', text: "Fault domain partitioning" },
-      { id: 'C', text: "Vertical scaling (scale up)" },
-      { id: 'D', text: "Horizontal scaling (scale out)" }
+      { id: 'C', text: "Horizontal scaling (scale out)" },
+      { id: 'D', text: "Vertical scaling (scale up)" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Vertical scaling (scaling up) involves increasing the capacity of an existing resource by allocating more compute power, RAM, or faster disk to that specific instance. Horizontal scaling (scaling out) involves adding additional identical instances to distribute traffic.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/get-started/cloud-concepts",
@@ -157,11 +157,11 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     question: "Which type of scaling is being implemented?",
     options: [
       { id: 'A', text: "Vertical scaling (scale up)" },
-      { id: 'B', text: "Fixed allocation scaling" },
-      { id: 'C', text: "Horizontal scaling (scale out)" },
-      { id: 'D', text: "Geographic localization" }
+      { id: 'B', text: "Horizontal scaling (scale out)" },
+      { id: 'C', text: "Geographic localization" },
+      { id: 'D', text: "Fixed allocation scaling" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Horizontal scaling (scaling out) adds more instances of a resource (such as additional VMs in a Virtual Machine Scale Set) to distribute incoming traffic across multiple nodes, enhancing overall throughput and system resilience.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/get-started/cloud-concepts",
@@ -177,12 +177,12 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     scenario: "A video streaming service automatically scales out computing instances on Friday evenings when viewership surges and automatically scales in instances on Monday mornings.",
     question: "Which core cloud computing capability is being demonstrated?",
     options: [
-      { id: 'A', text: "Capital optimization" },
-      { id: 'B', text: "Data residency" },
-      { id: 'C', text: "Elasticity" },
-      { id: 'D', text: "Sovereign governance" }
+      { id: 'A', text: "Data residency" },
+      { id: 'B', text: "Sovereign governance" },
+      { id: 'C', text: "Capital optimization" },
+      { id: 'D', text: "Elasticity" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Elasticity is the automated ability of cloud systems to provision extra resources dynamically during traffic spikes and deprovision those resources when demand subsides, ensuring performance during peaks and eliminating waste during troughs.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/get-started/cloud-concepts",
@@ -198,12 +198,12 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     scenario: "An engineering team can provision an entire multi-tier test environment in Azure within fifteen minutes using declarative scripts, compared to weeks of procurement on-premises.",
     question: "Which cloud computing benefit is highlighted by this capability?",
     options: [
-      { id: 'A', text: "High availability" },
-      { id: 'B', text: "Agility" },
-      { id: 'C', text: "Predictable hardware depreciation" },
-      { id: 'D', text: "Fault tolerance" }
+      { id: 'A', text: "Fault tolerance" },
+      { id: 'B', text: "Predictable hardware depreciation" },
+      { id: 'C', text: "Agility" },
+      { id: 'D', text: "High availability" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Agility in cloud computing refers to the speed and flexibility with which organizations can deploy, configure, update, and iterate on IT resources. Because infrastructure is software-defined, teams can experiment and deliver value rapidly.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/get-started/cloud-concepts",
@@ -220,9 +220,9 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     question: "Which architectural strategy in Azure directly satisfies this goal?",
     options: [
       { id: 'A', text: "Geo-distribution by deploying backend instances across Azure regions in Australia, Europe, and North America" },
-      { id: 'B', text: "Restricting player access strictly to on-premises private circuits" },
+      { id: 'B', text: "Relying on tape backups stored in multiple locations" },
       { id: 'C', text: "Hosting all resources in a single North American datacenter to centralize maintenance" },
-      { id: 'D', text: "Relying on tape backups stored in multiple locations" }
+      { id: 'D', text: "Restricting player access strictly to on-premises private circuits" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -240,12 +240,12 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     scenario: "An organization designs its cloud architecture so that if a catastrophic failure takes an entire primary region offline, operations fail over to a paired secondary region.",
     question: "Which cloud principle is the organization preparing for?",
     options: [
-      { id: 'A', text: "Single-zone elasticity" },
-      { id: 'B', text: "Vertical scaling" },
-      { id: 'C', text: "Disaster recovery (DR)" },
-      { id: 'D', text: "Local fault domain redundancy" }
+      { id: 'A', text: "Local fault domain redundancy" },
+      { id: 'B', text: "Single-zone elasticity" },
+      { id: 'C', text: "Vertical scaling" },
+      { id: 'D', text: "Disaster recovery (DR)" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Disaster recovery (DR) consists of the policies, tools, and procedures designed to enable the recovery or continuation of vital technology infrastructure following natural or human-induced catastrophic outages, using cross-region replication and failover.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/get-started/cloud-concepts",
@@ -261,12 +261,12 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     scenario: "A company deploys an Azure Virtual Machine running Windows Server 2022 to host a custom line-of-business application.",
     question: "Under the Shared Responsibility Model, which task remains the sole responsibility of the customer?",
     options: [
-      { id: 'A', text: "Applying operating system security updates and antivirus patches" },
+      { id: 'A', text: "Updating the firmware of the underlying physical host hypervisor" },
       { id: 'B', text: "Replacing failed power supply units in the server rack" },
-      { id: 'C', text: "Updating the firmware of the underlying physical host hypervisor" },
-      { id: 'D', text: "Maintaining physical access controls to the server room" }
+      { id: 'C', text: "Maintaining physical access controls to the server room" },
+      { id: 'D', text: "Applying operating system security updates and antivirus patches" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "In Infrastructure as a Service (IaaS), Microsoft manages physical hardware, power, cooling, and the hypervisor. The customer is responsible for managing, configuring, securing, and patching the guest operating system, application software, and data.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility",
@@ -282,12 +282,12 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     scenario: "A development team hosts a web application on Azure App Service.",
     question: "Which responsibility is managed automatically by Microsoft in this Platform as a Service (PaaS) model?",
     options: [
-      { id: 'A', text: "Creating database table indexes and queries" },
-      { id: 'B', text: "Writing application business logic" },
-      { id: 'C', text: "Operating system patching and server hardware maintenance" },
+      { id: 'A', text: "Writing application business logic" },
+      { id: 'B', text: "Operating system patching and server hardware maintenance" },
+      { id: 'C', text: "Creating database table indexes and queries" },
       { id: 'D', text: "Managing customer user accounts and credentials" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "In Platform as a Service (PaaS), Microsoft manages the underlying physical infrastructure, operating system installation and patching, network infrastructure, and runtime environment. The customer focuses entirely on application code and data.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility",
@@ -303,10 +303,10 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     scenario: "An organization subscribes to Microsoft Dynamics 365 and Microsoft 365 for customer relationship management and team communication.",
     question: "Which cloud service model do these applications represent?",
     options: [
-      { id: 'A', text: "Hardware as a Service (HaaS)" },
-      { id: 'B', text: "Platform as a Service (PaaS)" },
+      { id: 'A', text: "Platform as a Service (PaaS)" },
+      { id: 'B', text: "Infrastructure as a Service (IaaS)" },
       { id: 'C', text: "Software as a Service (SaaS)" },
-      { id: 'D', text: "Infrastructure as a Service (IaaS)" }
+      { id: 'D', text: "Hardware as a Service (HaaS)" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -325,11 +325,11 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     question: "Which computing model does this represent?",
     options: [
       { id: 'A', text: "On-premises virtualization" },
-      { id: 'B', text: "Bare-metal cloud infrastructure" },
-      { id: 'C', text: "Serverless computing" },
-      { id: 'D', text: "Dedicated server hosting" }
+      { id: 'B', text: "Serverless computing" },
+      { id: 'C', text: "Dedicated server hosting" },
+      { id: 'D', text: "Bare-metal cloud infrastructure" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Serverless computing (exemplified by Azure Functions) enables developers to execute event-driven code without managing servers. Cloud providers dynamically allocate machine resources upon trigger events, execute the code, and immediately release resources with sub-second billing.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview",
@@ -346,8 +346,8 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     question: "Under the Shared Responsibility Model, who is responsible for protecting and managing customer data and identities?",
     options: [
       { id: 'A', text: "Responsibility for customer data transfers to Microsoft in PaaS and SaaS" },
-      { id: 'B', text: "The cloud provider manages identity access permissions automatically" },
-      { id: 'C', text: "Microsoft assumes full responsibility for data classification in all cloud models" },
+      { id: 'B', text: "Microsoft assumes full responsibility for data classification in all cloud models" },
+      { id: 'C', text: "The cloud provider manages identity access permissions automatically" },
       { id: 'D', text: "The customer is always responsible for protecting data and managing user identities across all cloud models" }
     ],
     correctAnswers: ['D'],
@@ -366,12 +366,12 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     scenario: "A solutions architect needs to estimate the monthly cost of running 10 Azure Virtual Machines, an Azure SQL Database, and 5 TB of Azure Files before deployment.",
     question: "Which official tool should the architect use?",
     options: [
-      { id: 'A', text: "The Azure Pricing Calculator" },
-      { id: 'B', text: "Azure Resource Locks" },
-      { id: 'C', text: "Azure Virtual Network peering" },
-      { id: 'D', text: "Microsoft Purview" }
+      { id: 'A', text: "Microsoft Purview" },
+      { id: 'B', text: "The Azure Pricing Calculator" },
+      { id: 'C', text: "Azure Resource Locks" },
+      { id: 'D', text: "Azure Virtual Network peering" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "The Azure Pricing Calculator is a web-based cost estimation tool that allows architects and finance teams to configure anticipated services (VM sizes, storage tiers, bandwidth) and calculate monthly cost estimates prior to deployment.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/cost-mgt-overview",
@@ -387,12 +387,12 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     scenario: "An enterprise purposely deploys its primary machine learning models in Google Cloud, enterprise relational databases in Microsoft Azure, and legacy web services in AWS.",
     question: "What is a primary architectural driver for adopting a multi-cloud strategy?",
     options: [
-      { id: 'A', text: "Complying with mandatory international laws requiring three distinct clouds" },
-      { id: 'B', text: "Eliminating all data transfer fees between providers" },
-      { id: 'C', text: "Preventing single-vendor lock-in and taking advantage of best-of-breed specialized services from different providers" },
-      { id: 'D', text: "Ensuring identical physical operating systems across all datacenters" }
+      { id: 'A', text: "Ensuring identical physical operating systems across all datacenters" },
+      { id: 'B', text: "Preventing single-vendor lock-in and taking advantage of best-of-breed specialized services from different providers" },
+      { id: 'C', text: "Eliminating all data transfer fees between providers" },
+      { id: 'D', text: "Complying with mandatory international laws requiring three distinct clouds" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "A multi-cloud strategy enables organizations to select optimal services from different cloud providers, avoid reliance on a single vendor, and increase business resilience by diversifying technological dependencies.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/get-started/cloud-concepts",
@@ -408,8 +408,8 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     scenario: "A transaction processing engine must continue operating with zero degradation in service or loss of transactions even if a physical server memory component fails.",
     question: "Which architectural attribute describes this continuous resilience?",
     options: [
-      { id: 'A', text: "Operational agility" },
-      { id: 'B', text: "Horizontal elasticity" },
+      { id: 'A', text: "Horizontal elasticity" },
+      { id: 'B', text: "Operational agility" },
       { id: 'C', text: "OpEx prioritization" },
       { id: 'D', text: "Fault tolerance" }
     ],
@@ -429,12 +429,12 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     scenario: "An enterprise architectural review is evaluating cloud deployment models, financial operations, and operational capabilities for cloud scalability limits scenarios.",
     question: "Which statement accurately reflects the principles of cloud scalability limits in modern cloud environments?",
     options: [
-      { id: 'A', text: "CapEx optimization" },
+      { id: 'A', text: "Scalability" },
       { id: 'B', text: "Elasticity" },
-      { id: 'C', text: "Disaster recovery" },
-      { id: 'D', text: "Scalability" }
+      { id: 'C', text: "CapEx optimization" },
+      { id: 'D', text: "Disaster recovery" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Scalability allows applications to handle increased workloads by adding compute resources either vertically or horizontally without redesigning the core architecture. Understanding these distinctions is fundamental to designing resilient, cost-effective, and scalable cloud architectures on Microsoft Azure.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/get-started/cloud-concepts",
@@ -450,12 +450,12 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     scenario: "An enterprise architectural review is evaluating cloud deployment models, financial operations, and operational capabilities for economies of scale scenarios.",
     question: "Which statement accurately reflects the principles of economies of scale in modern cloud environments?",
     options: [
-      { id: 'A', text: "Micro-segmentation" },
-      { id: 'B', text: "Economies of scale" },
-      { id: 'C', text: "Sovereign isolation" },
-      { id: 'D', text: "Single-tenant arbitrage" }
+      { id: 'A', text: "Economies of scale" },
+      { id: 'B', text: "Sovereign isolation" },
+      { id: 'C', text: "Single-tenant arbitrage" },
+      { id: 'D', text: "Micro-segmentation" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Cloud providers purchase massive quantities of hardware, storage, and power at wholesale volume discounts, passing savings to customers in the form of lower per-unit pricing. Understanding these distinctions is fundamental to designing resilient, cost-effective, and scalable cloud architectures on Microsoft Azure.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/get-started/cloud-concepts",
@@ -471,12 +471,12 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     scenario: "An enterprise architectural review is evaluating cloud deployment models, financial operations, and operational capabilities for shared responsibility for physical security scenarios.",
     question: "Which statement accurately reflects the principles of shared responsibility for physical security in modern cloud environments?",
     options: [
-      { id: 'A', text: "The customer provides security guards at local Azure facilities" },
-      { id: 'B', text: "Microsoft is always responsible for physical datacenter security" },
-      { id: 'C', text: "Physical security responsibility is shared equally in PaaS" },
-      { id: 'D', text: "The customer is responsible for physical security in IaaS" }
+      { id: 'A', text: "The customer is responsible for physical security in IaaS" },
+      { id: 'B', text: "The customer provides security guards at local Azure facilities" },
+      { id: 'C', text: "Microsoft is always responsible for physical datacenter security" },
+      { id: 'D', text: "Physical security responsibility is shared equally in PaaS" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Physical security of the datacenter facilities, perimeter fencing, security personnel, and biometric access controls are always managed exclusively by Microsoft across IaaS, PaaS, and SaaS. Understanding these distinctions is fundamental to designing resilient, cost-effective, and scalable cloud architectures on Microsoft Azure.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/get-started/cloud-concepts",
@@ -492,12 +492,12 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     scenario: "An enterprise architectural review is evaluating cloud deployment models, financial operations, and operational capabilities for iaas use case - lift and shift scenarios.",
     question: "Which statement accurately reflects the principles of iaas use case - lift and shift in modern cloud environments?",
     options: [
-      { id: 'A', text: "Software as a Service (SaaS)" },
-      { id: 'B', text: "Infrastructure as a Service (IaaS)" },
-      { id: 'C', text: "Function as a Service (FaaS)" },
-      { id: 'D', text: "Platform as a Service (PaaS)" }
+      { id: 'A', text: "Infrastructure as a Service (IaaS)" },
+      { id: 'B', text: "Function as a Service (FaaS)" },
+      { id: 'C', text: "Platform as a Service (PaaS)" },
+      { id: 'D', text: "Software as a Service (SaaS)" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "When migrating existing on-premises virtual machines to the cloud with minimal architectural changes, Infrastructure as a Service (IaaS) provides the fastest and most compatible transition. Understanding these distinctions is fundamental to designing resilient, cost-effective, and scalable cloud architectures on Microsoft Azure.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/get-started/cloud-concepts",
@@ -513,10 +513,10 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     scenario: "An enterprise architectural review is evaluating cloud deployment models, financial operations, and operational capabilities for paas web hosting benefits scenarios.",
     question: "Which statement accurately reflects the principles of paas web hosting benefits in modern cloud environments?",
     options: [
-      { id: 'A', text: "Infrastructure as a Service (IaaS)" },
-      { id: 'B', text: "Dedicated Private Cloud" },
+      { id: 'A', text: "Bare-metal hosting" },
+      { id: 'B', text: "Infrastructure as a Service (IaaS)" },
       { id: 'C', text: "Platform as a Service (PaaS)" },
-      { id: 'D', text: "Bare-metal hosting" }
+      { id: 'D', text: "Dedicated Private Cloud" }
     ],
     correctAnswers: ['C'],
     type: "single",

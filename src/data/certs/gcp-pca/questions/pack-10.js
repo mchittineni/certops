@@ -9,12 +9,12 @@ export const GCP_PCA_QUESTIONS_10 = [
     scenario: "An operations engineer needs to verify that a public web service deployed on GKE is responding with HTTP 200 within 5 seconds from 5 global locations every 1 minute.",
     question: "Which Cloud Monitoring feature performs external synthetic availability probes from global points of presence?",
     options: [
-      { id: 'A', text: "Cloud Monitoring Uptime Checks" },
+      { id: 'A', text: "VPC Flow Logs" },
       { id: 'B', text: "Cloud Logging log-based alerts" },
-      { id: 'C', text: "VPC Flow Logs" },
+      { id: 'C', text: "Cloud Monitoring Uptime Checks" },
       { id: 'D', text: "Compute Engine instance health checks alone" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "`Cloud Monitoring Uptime Checks` test the availability of externally accessible services (URLs, IP addresses, load balancers) from multiple geographic probing locations worldwide at regular intervals (e.g. every 1, 5, or 15 minutes), validating status codes, response latency, and content matches.",
     referenceUrl: "https://cloud.google.com/monitoring/uptime-checks",
@@ -30,12 +30,12 @@ export const GCP_PCA_QUESTIONS_10 = [
     scenario: "A developer needs to create an alert whenever the application logs more than 50 HTTP 500 errors in 5 minutes, and also wants to measure and graph the 99th percentile of database query latencies extracted from log strings.",
     question: "Which two log-based metric types should the developer create respectively?",
     options: [
-      { id: 'A', text: "Counter metrics for both requirements" },
+      { id: 'A', text: "Counter metric for counting error occurrences; Distribution metric for extracting numerical latencies into percentiles" },
       { id: 'B', text: "Distribution metric for errors; Counter metric for latencies" },
-      { id: 'C', text: "Distribution metrics for both requirements" },
-      { id: 'D', text: "Counter metric for counting error occurrences; Distribution metric for extracting numerical latencies into percentiles" }
+      { id: 'C', text: "Counter metrics for both requirements" },
+      { id: 'D', text: "Distribution metrics for both requirements" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Cloud Logging supports two types of `Log-Based Metrics`: `Counter metrics` (count the number of log entries matching a filter expression, ideal for error counts) and `Distribution metrics` (extract numeric values from regex/JSON fields into histogram distributions to compute percentiles like p50, p95, p99).",
     referenceUrl: "https://cloud.google.com/logging/docs/logs-based-metrics",
@@ -51,12 +51,12 @@ export const GCP_PCA_QUESTIONS_10 = [
     scenario: "A high-traffic web application logs millions of verbose health check requests (`GET /health`) every hour. The logs provide no operational value and are driving up Cloud Logging ingestion costs.",
     question: "Which Cloud Logging feature discards specific log entries before they are ingested and billed?",
     options: [
-      { id: 'A', text: "Cloud Trace exclusion rules" },
-      { id: 'B', text: "VPC Firewall Rules" },
-      { id: 'C', text: "Deleting logs manually after ingestion" },
-      { id: 'D', text: "Log Exclusion Filters on the _Default log sink" }
+      { id: 'A', text: "VPC Firewall Rules" },
+      { id: 'B', text: "Log Exclusion Filters on the _Default log sink" },
+      { id: 'C', text: "Cloud Trace exclusion rules" },
+      { id: 'D', text: "Deleting logs manually after ingestion" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Cloud Logging `Log Exclusion Filters` allow organizations to define filter expressions (e.g. `httpRequest.requestUrl = \"/health\"`) on log sinks (such as `_Default`). Matching logs are excluded and dropped before ingestion, eliminating log storage charges while allowing sample percentages if desired.",
     referenceUrl: "https://cloud.google.com/logging/docs/exclusions",
@@ -72,12 +72,12 @@ export const GCP_PCA_QUESTIONS_10 = [
     scenario: "An e-commerce transaction spans 5 microservices across GKE, Cloud Functions, and an external payment gateway. End-to-end checkout latency spikes to 8 seconds.",
     question: "Which Google Cloud observability service collects distributed trace spans and visualizes RPC waterfall diagrams to locate the exact bottleneck?",
     options: [
-      { id: 'A', text: "Cloud Trace" },
-      { id: 'B', text: "Cloud Logging alone" },
-      { id: 'C', text: "Cloud Profiler" },
-      { id: 'D', text: "Cloud Monitoring Metrics Explorer alone" }
+      { id: 'A', text: "Cloud Profiler" },
+      { id: 'B', text: "Cloud Monitoring Metrics Explorer alone" },
+      { id: 'C', text: "Cloud Trace" },
+      { id: 'D', text: "Cloud Logging alone" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "`Cloud Trace` is a distributed tracing system that collects latency data from microservice applications. It generates visual waterfall timeline diagrams showing how long requests spend in each downstream service, RPC call, and database query, pinpointing latency bottlenecks instantly.",
     referenceUrl: "https://cloud.google.com/trace/docs/overview",
@@ -93,12 +93,12 @@ export const GCP_PCA_QUESTIONS_10 = [
     scenario: "A Go microservice deployed on Compute Engine experiences unexpected CPU spikes in production. The developer needs to identify which specific code functions and memory allocations consume the most CPU without degrading production performance.",
     question: "Which Google Cloud tool continuously captures CPU and heap memory profiles with sub-1% execution overhead?",
     options: [
-      { id: 'A', text: "Cloud Profiler" },
-      { id: 'B', text: "Cloud Trace" },
-      { id: 'C', text: "Cloud Debugger legacy" },
-      { id: 'D', text: "Cloud Monitoring CPU metric alone" }
+      { id: 'A', text: "Cloud Debugger legacy" },
+      { id: 'B', text: "Cloud Monitoring CPU metric alone" },
+      { id: 'C', text: "Cloud Profiler" },
+      { id: 'D', text: "Cloud Trace" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "`Cloud Profiler` is a continuous profiling tool that analyzes the execution of CPU and memory-intensive functions in production applications. It uses statistical sampling to capture call trees and flame graphs with less than 1% CPU overhead, identifying optimization opportunities in live production.",
     referenceUrl: "https://cloud.google.com/profiler/docs/about-profiler",
@@ -114,12 +114,12 @@ export const GCP_PCA_QUESTIONS_10 = [
     scenario: "A mission-critical payment worker receives messages from Cloud Pub/Sub. If no messages are acknowledged for 10 consecutive minutes, the on-call engineer must be paged for pipeline failure.",
     question: "Which Cloud Monitoring alert condition type detects when an expected metric stream stops emitting data?",
     options: [
-      { id: 'A', text: "Metric Absence condition (alerts when data is absent for 10 minutes)" },
-      { id: 'B', text: "Threshold condition (metric > 0)" },
-      { id: 'C', text: "Metric Rate of Change condition" },
-      { id: 'D', text: "Log-based counter condition alone" }
+      { id: 'A', text: "Threshold condition (metric > 0)" },
+      { id: 'B', text: "Metric Absence condition (alerts when data is absent for 10 minutes)" },
+      { id: 'C', text: "Log-based counter condition alone" },
+      { id: 'D', text: "Metric Rate of Change condition" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Cloud Monitoring `Metric Absence` alert conditions trigger an incident when a time series stops reporting data for a specified duration (e.g. 10 minutes), detecting stopped pipelines, crashed background daemons, and severed telemetry streams that would not trigger standard value threshold alerts.",
     referenceUrl: "https://cloud.google.com/monitoring/alerts/types-of-conditions#absence",
@@ -135,12 +135,12 @@ export const GCP_PCA_QUESTIONS_10 = [
     scenario: "When a high-severity production outage occurs, Cloud Monitoring must simultaneously notify on-call engineers via PagerDuty, send an alert to a team Slack channel, and post a payload to an automated remediation webhook.",
     question: "Which Cloud Monitoring resource manages destination targets for alert notifications?",
     options: [
-      { id: 'A', text: "Alert Routing Tables" },
+      { id: 'A', text: "Notification Channels (Email, Slack, PagerDuty, Webhooks)" },
       { id: 'B', text: "Log Sinks" },
-      { id: 'C', text: "Notification Channels (Email, Slack, PagerDuty, Webhooks)" },
-      { id: 'D', text: "Action Groups (Azure term)" }
+      { id: 'C', text: "Action Groups (Azure term)" },
+      { id: 'D', text: "Alert Routing Tables" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "`Notification Channels` define the delivery mechanisms for Cloud Monitoring alerts. Supported channels include Email, Slack, PagerDuty, SMS, Webhooks, and Google Cloud Mobile App, allowing incidents to fan out to multiple communication systems automatically.",
     referenceUrl: "https://cloud.google.com/monitoring/support/notification-options",
@@ -156,12 +156,12 @@ export const GCP_PCA_QUESTIONS_10 = [
     scenario: "A Python application deployed across 50 GKE pods throws unhandled `ZeroDivisionError` exceptions. The developer needs exceptions grouped automatically into actionable incident issues with stack traces.",
     question: "Which Google Cloud service aggregates application crashes and sends real-time notifications for new errors?",
     options: [
-      { id: 'A', text: "Cloud Logging standard viewer alone" },
-      { id: 'B', text: "Cloud Profiler" },
+      { id: 'A', text: "Cloud Error Reporting" },
+      { id: 'B', text: "Cloud Logging standard viewer alone" },
       { id: 'C', text: "Cloud Trace" },
-      { id: 'D', text: "Cloud Error Reporting" }
+      { id: 'D', text: "Cloud Profiler" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "`Error Reporting` aggregates and analyzes crashes and unhandled exceptions in running cloud services. It parses stack traces, groups duplicate errors into single issues, tracks frequency, and alerts developers when a new, previously unseen error pattern appears in production.",
     referenceUrl: "https://cloud.google.com/error-reporting/docs/overview",
@@ -177,12 +177,12 @@ export const GCP_PCA_QUESTIONS_10 = [
     scenario: "An enterprise organization running global payment infrastructure requires 15-minute response times for critical P1 outages 24/7, a designated Technical Account Manager (TAM), and mission-critical event support.",
     question: "Which Google Cloud Customer Care support tier includes a Technical Account Manager (TAM) and 15-minute P1 response times?",
     options: [
-      { id: 'A', text: "Basic Support (free billing support only)" },
-      { id: 'B', text: "Premium Support" },
+      { id: 'A', text: "Premium Support" },
+      { id: 'B', text: "Enhanced Support (1 hour P1 response, no TAM)" },
       { id: 'C', text: "Standard Support (4 hour P1 response)" },
-      { id: 'D', text: "Enhanced Support (1 hour P1 response, no TAM)" }
+      { id: 'D', text: "Basic Support (free billing support only)" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Google Cloud `Premium Support` is designed for mission-critical enterprise workloads. It provides 15-minute response times for critical P1 cases 24/7, an assigned Technical Account Manager (TAM), event management support, and proactive architectural reviews.",
     referenceUrl: "https://cloud.google.com/support#support-offerings",
@@ -198,12 +198,12 @@ export const GCP_PCA_QUESTIONS_10 = [
     scenario: "A cloud operations team suspects an infrastructure outage in region `us-east1` is affecting their Compute Engine VMs.",
     question: "Where should the team look for project-specific, personalized impact alerts rather than generic public status pages?",
     options: [
-      { id: 'A', text: "Public Google Cloud Status Dashboard (status.cloud.google.com)" },
-      { id: 'B', text: "Twitter/X social media feeds" },
-      { id: 'C', text: "Personalized Service Health (in the Google Cloud console)" },
+      { id: 'A', text: "Personalized Service Health (in the Google Cloud console)" },
+      { id: 'B', text: "Public Google Cloud Status Dashboard (status.cloud.google.com)" },
+      { id: 'C', text: "Twitter/X social media feeds" },
       { id: 'D', text: "Local ping tests alone" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "`Personalized Service Health` provides customized, real-time status updates specific to the customer's active projects, regions, and resources. Unlike the public Google Cloud Status Dashboard which reports broad platform outages, Service Health delivers tailored alerts on localized incidents affecting specific projects.",
     referenceUrl: "https://cloud.google.com/service-health/docs/overview",
@@ -219,12 +219,12 @@ export const GCP_PCA_QUESTIONS_10 = [
     scenario: "A DevOps engineer needs to write an alert query that calculates the ratio of HTTP 5XX server errors to total incoming HTTP requests over 5-minute rolling windows.",
     question: "Which query language in Cloud Monitoring provides expressive mathematical ratios, joins, and time-shift evaluations?",
     options: [
-      { id: 'A', text: "Kusto Query Language (KQL)" },
-      { id: 'B', text: "SQL-92 alone" },
-      { id: 'C', text: "Monitoring Query Language (MQL) / PromQL in Cloud Monitoring" },
+      { id: 'A', text: "Monitoring Query Language (MQL) / PromQL in Cloud Monitoring" },
+      { id: 'B', text: "Kusto Query Language (KQL)" },
+      { id: 'C', text: "SQL-92 alone" },
       { id: 'D', text: "Bash scripting" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "`Monitoring Query Language` (MQL) is a powerful, expressive query language for Cloud Monitoring time series data. It supports operations like ratios, unions, joins, rolling aggregations, and comparisons across disparate metric streams that cannot be expressed in basic UI metric builders.",
     referenceUrl: "https://cloud.google.com/monitoring/mql",
@@ -241,9 +241,9 @@ export const GCP_PCA_QUESTIONS_10 = [
     question: "Which autoscaling parameter prevents the autoscaler from evaluating metric data while instances are initializing?",
     options: [
       { id: 'A', text: "Initialization period (Cool-down period / Warm-up period)" },
-      { id: 'B', text: "Target CPU utilization" },
-      { id: 'C', text: "Maximum instance count" },
-      { id: 'D', text: "Scale-in control alone" }
+      { id: 'B', text: "Scale-in control alone" },
+      { id: 'C', text: "Target CPU utilization" },
+      { id: 'D', text: "Maximum instance count" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -262,9 +262,9 @@ export const GCP_PCA_QUESTIONS_10 = [
     question: "Which autoscaling feature stabilizes capacity by capping the rate at which instances are terminated?",
     options: [
       { id: 'A', text: "Scale-In Controls (stabilization window)" },
-      { id: 'B', text: "Scale-Out Controls" },
+      { id: 'B', text: "Target CPU utilization" },
       { id: 'C', text: "Health Check interval" },
-      { id: 'D', text: "Target CPU utilization" }
+      { id: 'D', text: "Scale-Out Controls" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -282,12 +282,12 @@ export const GCP_PCA_QUESTIONS_10 = [
     scenario: "When an automated GKE cluster node upgrade occurs, active pods running long-running batch tasks are abruptly terminated without notice.",
     question: "Which Kubernetes command cordons a node and evicts running pods gracefully before node deletion?",
     options: [
-      { id: 'A', text: "kubectl scale deployment --replicas=0" },
-      { id: 'B', text: "kubectl cordon alone" },
-      { id: 'C', text: "kubectl delete node immediately" },
-      { id: 'D', text: "kubectl drain (with graceful termination periods)" }
+      { id: 'A', text: "kubectl delete node immediately" },
+      { id: 'B', text: "kubectl scale deployment --replicas=0" },
+      { id: 'C', text: "kubectl drain (with graceful termination periods)" },
+      { id: 'D', text: "kubectl cordon alone" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "`kubectl drain` safely evicts all running pods from a node before taking it down for maintenance. It marks the node unschedulable (`cordon`) and allows pods to honor their `terminationGracePeriodSeconds` to finish in-flight requests or commit state cleanly.",
     referenceUrl: "https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/",
@@ -303,12 +303,12 @@ export const GCP_PCA_QUESTIONS_10 = [
     scenario: "During automated GKE node pool upgrades, multiple nodes are drained simultaneously, causing all replicas of a critical payment service to be evicted at the same moment.",
     question: "Which Kubernetes resource defines the minimum number of concurrent available replicas that must be maintained during voluntary disruptions?",
     options: [
-      { id: 'A', text: "ResourceQuota" },
-      { id: 'B', text: "HorizontalPodAutoscaler" },
+      { id: 'A', text: "PodDisruptionBudget (PDB)" },
+      { id: 'B', text: "ResourceQuota" },
       { id: 'C', text: "LimitRange" },
-      { id: 'D', text: "PodDisruptionBudget (PDB)" }
+      { id: 'D', text: "HorizontalPodAutoscaler" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "A `PodDisruptionBudget` (PDB) limits the number of pods of a replicated application that can be down simultaneously during voluntary disruptions (such as node upgrades, draining, or cluster autoscaling), ensuring serving availability never drops below business thresholds (e.g. `minAvailable: 2`).",
     referenceUrl: "https://kubernetes.io/docs/tasks/run-application/configure-pdb/",
@@ -325,9 +325,9 @@ export const GCP_PCA_QUESTIONS_10 = [
     question: "Which Cloud Monitoring feature silences alert notifications during scheduled maintenance windows?",
     options: [
       { id: 'A', text: "Snooze (Alert Snooze)" },
-      { id: 'B', text: "Deleting the alert policy" },
+      { id: 'B', text: "Disabling Cloud Logging" },
       { id: 'C', text: "Removing notification channels" },
-      { id: 'D', text: "Disabling Cloud Logging" }
+      { id: 'D', text: "Deleting the alert policy" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -345,12 +345,12 @@ export const GCP_PCA_QUESTIONS_10 = [
     scenario: "A financial compliance audit mandates that security and audit logs must be retained for 10 years, while high-volume debug application logs should be deleted after 14 days.",
     question: "Where are custom log retention durations configured in Google Cloud?",
     options: [
-      { id: 'A', text: "In Cloud Storage lifecycle rules alone" },
-      { id: 'B', text: "In VPC Subnet properties" },
-      { id: 'C', text: "In Cloud Logging Log Buckets (retentionDays setting)" },
+      { id: 'A', text: "In Cloud Logging Log Buckets (retentionDays setting)" },
+      { id: 'B', text: "In Cloud Storage lifecycle rules alone" },
+      { id: 'C', text: "In VPC Subnet properties" },
       { id: 'D', text: "In Compute Engine instance templates" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Cloud Logging stores logs in `Log Buckets` (such as `_Default` and `_Required`, or custom log buckets). Administrators can configure `retentionDays` (from 1 to 3,650 days / 10 years) per log bucket, routing different log types to dedicated buckets with customized retention schedules.",
     referenceUrl: "https://cloud.google.com/logging/docs/routing/manage-buckets",
@@ -366,12 +366,12 @@ export const GCP_PCA_QUESTIONS_10 = [
     scenario: "An enterprise SRE team requires a unified operational dashboard displaying real-time GKE pod CPU, Cloud SQL replication lag, and Cloud Load Balancing HTTP 5XX error rates on a single glass pane.",
     question: "Which Google Cloud tool builds multi-service operational visualization dashboards?",
     options: [
-      { id: 'A', text: "Cloud Trace" },
+      { id: 'A', text: "Cloud Monitoring Custom Dashboards" },
       { id: 'B', text: "Looker Studio alone" },
-      { id: 'C', text: "Cloud Profiler" },
-      { id: 'D', text: "Cloud Monitoring Custom Dashboards" }
+      { id: 'C', text: "Cloud Trace" },
+      { id: 'D', text: "Cloud Profiler" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "`Cloud Monitoring Custom Dashboards` allow engineering teams to build, customize, and share interactive dashboards combining metric charts, logs, incident tables, and SLO widgets across diverse Google Cloud services in a single unified view.",
     referenceUrl: "https://cloud.google.com/monitoring/dashboards",
@@ -387,12 +387,12 @@ export const GCP_PCA_QUESTIONS_10 = [
     scenario: "A legacy web application requires client HTTP requests from the same user session to be routed consistently to the same backend Compute Engine VM instance.",
     question: "Which backend service configuration enables sticky sessions based on client IP or cookies?",
     options: [
-      { id: 'A', text: "Session Affinity (e.g. Client IP affinity or Generated Cookie affinity)" },
+      { id: 'A', text: "Cloud CDN caching" },
       { id: 'B', text: "Round-robin load balancing" },
       { id: 'C', text: "Cross-region failover" },
-      { id: 'D', text: "Cloud CDN caching" }
+      { id: 'D', text: "Session Affinity (e.g. Client IP affinity or Generated Cookie affinity)" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Cloud Load Balancing supports `Session Affinity`. Configuring session affinity (such as `GENERATED_COOKIE` or `CLIENT_IP`) directs subsequent requests from the same client to the same backend instance as long as that instance remains healthy.",
     referenceUrl: "https://cloud.google.com/load-balancing/docs/backend-service#session_affinity",
@@ -408,12 +408,12 @@ export const GCP_PCA_QUESTIONS_10 = [
     scenario: "A web server process running on a Compute Engine VM in a Managed Instance Group crashes and stops responding to HTTP requests, but the VM instance itself remains powered on.",
     question: "Which Managed Instance Group capability detects application-level unresponsiveness and automatically restarts or recreates the VM?",
     options: [
-      { id: 'A', text: "MIG Auto-healing (with an application health check)" },
-      { id: 'B', text: "Compute Engine host live migration" },
-      { id: 'C', text: "OS Login" },
-      { id: 'D', text: "Shielded VM integrity monitoring" }
+      { id: 'A', text: "OS Login" },
+      { id: 'B', text: "Shielded VM integrity monitoring" },
+      { id: 'C', text: "MIG Auto-healing (with an application health check)" },
+      { id: 'D', text: "Compute Engine host live migration" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Managed Instance Groups support `Auto-healing`. By attaching an application health check (probing e.g. `HTTP:80/health`), the MIG automatically recreates or restarts instances that fail consecutive health checks, even if the underlying VM operating system is running.",
     referenceUrl: "https://cloud.google.com/compute/docs/instance-groups/autohealing-instances-in-migs",
@@ -429,12 +429,12 @@ export const GCP_PCA_QUESTIONS_10 = [
     scenario: "A backend container in GKE takes 45 seconds to initialize database connections upon startup. During this boot window, the service must not receive traffic. If the container enters a deadlock later, it must be restarted.",
     question: "Which two Kubernetes probes handle startup readiness and deadlock recovery respectively?",
     options: [
-      { id: 'A', text: "Readiness probe (removes pod from Service endpoints until ready); Liveness probe (restarts pod if deadlocked)" },
-      { id: 'B', text: "Liveness probe for traffic; Readiness probe for restart" },
-      { id: 'C', text: "Liveness probes handle both requirements" },
-      { id: 'D', text: "Readiness probes handle both requirements" }
+      { id: 'A', text: "Liveness probe for traffic; Readiness probe for restart" },
+      { id: 'B', text: "Readiness probe (removes pod from Service endpoints until ready); Liveness probe (restarts pod if deadlocked)" },
+      { id: 'C', text: "Readiness probes handle both requirements" },
+      { id: 'D', text: "Liveness probes handle both requirements" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Kubernetes `Readiness probes` determine if a container is ready to accept user traffic; failing a readiness probe removes the pod from Service load balancer endpoints without restarting it. `Liveness probes` determine if the container is healthy; failing a liveness probe causes the kubelet to restart the container.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/",
@@ -451,9 +451,9 @@ export const GCP_PCA_QUESTIONS_10 = [
     question: "Which Google Cloud solution implements automated multi-step synthetic user transactions?",
     options: [
       { id: 'A', text: "Cloud Monitoring Synthetic Monitors (using Mocha/Puppeteer in Cloud Functions)" },
-      { id: 'B', text: "Standard URL Uptime Check alone" },
+      { id: 'B', text: "Cloud Profiler" },
       { id: 'C', text: "VPC Flow Logs" },
-      { id: 'D', text: "Cloud Profiler" }
+      { id: 'D', text: "Standard URL Uptime Check alone" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -471,12 +471,12 @@ export const GCP_PCA_QUESTIONS_10 = [
     scenario: "A transient network blip triggers an alert incident in Cloud Monitoring. The issue resolves within 30 seconds, but the incident remains open in the dashboard.",
     question: "Which Cloud Monitoring alert policy setting automatically closes incidents when metric data ceases to violate the condition?",
     options: [
-      { id: 'A', text: "Notification Channel interval" },
-      { id: 'B', text: "MQL query timeout" },
-      { id: 'C', text: "Incident Auto-Close Duration" },
+      { id: 'A', text: "Incident Auto-Close Duration" },
+      { id: 'B', text: "Notification Channel interval" },
+      { id: 'C', text: "MQL query timeout" },
       { id: 'D', text: "Log sink retention" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Cloud Monitoring alert policies include an `Incident Auto-Close` setting (configurable from 30 minutes to 7 days). If an incident remains open because no new metric data arrives to prove resolution, Cloud Monitoring automatically marks the incident as closed after the specified duration.",
     referenceUrl: "https://cloud.google.com/monitoring/alerts/concepts-indepth#auto-close",
@@ -492,12 +492,12 @@ export const GCP_PCA_QUESTIONS_10 = [
     scenario: "A data analyst runs a BigQuery SQL query that runs for 45 minutes and consumes 10,000 slot-seconds. The team needs to analyze stage-by-stage execution times, input/output records, and shuffle bottlenecks.",
     question: "Which BigQuery feature visualizes the query execution graph and operational statistics per stage?",
     options: [
-      { id: 'A', text: "BigQuery Execution Plan (EXPLAIN)" },
+      { id: 'A', text: "BigQuery BI Engine" },
       { id: 'B', text: "Cloud Trace alone" },
-      { id: 'C', text: "BigQuery BI Engine" },
+      { id: 'C', text: "BigQuery Execution Plan (EXPLAIN)" },
       { id: 'D', text: "Cloud Monitoring alone" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "BigQuery generates a detailed `Execution Plan` (accessible in the console or via `EXPLAIN`). It visualizes the multi-stage Dremel execution graph, showing slot computation time, wait time, read/write record counts, and shuffle spillage, pinpointing data skew and expensive joins.",
     referenceUrl: "https://cloud.google.com/bigquery/docs/query-plan-explanation",
@@ -513,12 +513,12 @@ export const GCP_PCA_QUESTIONS_10 = [
     scenario: "A Cloud Spanner instance reports 95% CPU utilization. The database administrator needs to identify which specific top queries and lock conflicts are responsible for the high load.",
     question: "Which built-in Cloud Spanner introspection tables provide query statistics and lock contention diagnostics?",
     options: [
-      { id: 'A', text: "Compute Engine metrics" },
-      { id: 'B', text: "BigQuery information schema alone" },
-      { id: 'C', text: "SPANNER_SYS tables (e.g. SPANNER_SYS.QUERY_STATS_TOP_MINUTE and LOCK_STATS)" },
-      { id: 'D', text: "Cloud Logging standard logs alone" }
+      { id: 'A', text: "BigQuery information schema alone" },
+      { id: 'B', text: "SPANNER_SYS tables (e.g. SPANNER_SYS.QUERY_STATS_TOP_MINUTE and LOCK_STATS)" },
+      { id: 'C', text: "Cloud Logging standard logs alone" },
+      { id: 'D', text: "Compute Engine metrics" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Cloud Spanner provides built-in introspection tables under the `SPANNER_SYS` schema (e.g. `QUERY_STATS_TOP_MINUTE`, `LOCK_STATS_TOP_MINUTE`, `TRANSACTION_STATS`). Querying these tables allows administrators to identify the exact SQL queries consuming the most CPU and pinpoint row lock conflicts.",
     referenceUrl: "https://cloud.google.com/spanner/docs/introspection-intro",

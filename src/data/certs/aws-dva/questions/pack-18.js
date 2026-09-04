@@ -9,12 +9,12 @@ export const AWS_DVA_QUESTIONS_18 = [
     scenario: "A high-availability enterprise cloud service requires strict operational resilience and automated disaster recovery capabilities. The engineering team must eliminate single points of failure across operational workflows. The application utilizes AWS Elastic Beanstalk to deploy updates to an Elastic Beanstalk application with zero downtime, full capacity preservation, and guaranteed isolation from the existing running fleet.",
     question: "Which implementation or architectural approach satisfies these resilience criteria? Elastic Beanstalk Immutable and Traffic Splitting deployments is being implemented.",
     options: [
-      { id: 'A', text: "Configure the Elastic Beanstalk deployment policy to Immutable or Traffic Splitting." },
-      { id: 'B', text: "Configure the deployment policy to All at Once." },
-      { id: 'C', text: "Configure the deployment policy to Rolling with 50% batch sizes." },
-      { id: 'D', text: "Terminate all running EC2 instances manually before deploying the new version." }
+      { id: 'A', text: "Configure the deployment policy to All at Once." },
+      { id: 'B', text: "Terminate all running EC2 instances manually before deploying the new version." },
+      { id: 'C', text: "Configure the Elastic Beanstalk deployment policy to Immutable or Traffic Splitting." },
+      { id: 'D', text: "Configure the deployment policy to Rolling with 50% batch sizes." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure the Elastic Beanstalk deployment policy to Immutable or Traffic Splitting. Elastic Beanstalk `Immutable` deployments create a brand-new Auto Scaling group with instances running the new version behind the load balancer, validating health before swapping and terminating the old fleet. This guarantees zero downtime and maintains 100% serving capacity throughout deployment.",
     referenceUrl: "https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.rolling-version-deploy.html",
@@ -30,12 +30,12 @@ export const AWS_DVA_QUESTIONS_18 = [
     scenario: "A high-throughput digital platform experiences sudden spikes in concurrent user traffic during flash promotions. Developers must ensure sub-second response times and predictable scaling under peak throughput. The application utilizes AWS Elastic Beanstalk to deploy updates to an Elastic Beanstalk application with zero downtime, full capacity preservation, and guaranteed isolation from the existing running fleet.",
     question: "Which architectural approach should the developer recommend to handle this workload efficiently? Elastic Beanstalk Immutable and Traffic Splitting deployments is being implemented.",
     options: [
-      { id: 'A', text: "Configure the Elastic Beanstalk deployment policy to Immutable or Traffic Splitting." },
-      { id: 'B', text: "Configure the deployment policy to All at Once." },
-      { id: 'C', text: "Configure the deployment policy to Rolling with 50% batch sizes." },
-      { id: 'D', text: "Terminate all running EC2 instances manually before deploying the new version." }
+      { id: 'A', text: "Terminate all running EC2 instances manually before deploying the new version." },
+      { id: 'B', text: "Configure the deployment policy to Rolling with 50% batch sizes." },
+      { id: 'C', text: "Configure the deployment policy to All at Once." },
+      { id: 'D', text: "Configure the Elastic Beanstalk deployment policy to Immutable or Traffic Splitting." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure the Elastic Beanstalk deployment policy to Immutable or Traffic Splitting. Elastic Beanstalk `Immutable` deployments create a brand-new Auto Scaling group with instances running the new version behind the load balancer, validating health before swapping and terminating the old fleet. This guarantees zero downtime and maintains 100% serving capacity throughout deployment.",
     referenceUrl: "https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.rolling-version-deploy.html",
@@ -51,12 +51,12 @@ export const AWS_DVA_QUESTIONS_18 = [
     scenario: "A financial and healthcare service must adhere to strict regulatory compliance, encryption standards, and least privilege access principles. Security auditors require verified enforcement across all application tiers. The application utilizes AWS Elastic Beanstalk to deploy updates to an Elastic Beanstalk application with zero downtime, full capacity preservation, and guaranteed isolation from the existing running fleet.",
     question: "Which solution properly implements these mandatory security and governance controls? Elastic Beanstalk Immutable and Traffic Splitting deployments is being implemented.",
     options: [
-      { id: 'A', text: "Configure the Elastic Beanstalk deployment policy to Immutable or Traffic Splitting." },
-      { id: 'B', text: "Configure the deployment policy to All at Once." },
-      { id: 'C', text: "Configure the deployment policy to Rolling with 50% batch sizes." },
-      { id: 'D', text: "Terminate all running EC2 instances manually before deploying the new version." }
+      { id: 'A', text: "Configure the deployment policy to All at Once." },
+      { id: 'B', text: "Configure the Elastic Beanstalk deployment policy to Immutable or Traffic Splitting." },
+      { id: 'C', text: "Terminate all running EC2 instances manually before deploying the new version." },
+      { id: 'D', text: "Configure the deployment policy to Rolling with 50% batch sizes." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure the Elastic Beanstalk deployment policy to Immutable or Traffic Splitting. Elastic Beanstalk `Immutable` deployments create a brand-new Auto Scaling group with instances running the new version behind the load balancer, validating health before swapping and terminating the old fleet. This guarantees zero downtime and maintains 100% serving capacity throughout deployment.",
     referenceUrl: "https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.rolling-version-deploy.html",
@@ -72,12 +72,12 @@ export const AWS_DVA_QUESTIONS_18 = [
     scenario: "An enterprise development team is refactoring a legacy monolithic application into cloud-native microservices on AWS. The architecture must minimize operational complexity while leveraging managed services. The application utilizes AWS Elastic Beanstalk to deploy updates to an Elastic Beanstalk application with zero downtime, full capacity preservation, and guaranteed isolation from the existing running fleet.",
     question: "Which solution provides a robust implementation while minimizing ongoing operational maintenance? Elastic Beanstalk Immutable and Traffic Splitting deployments is being implemented.",
     options: [
-      { id: 'A', text: "Configure the Elastic Beanstalk deployment policy to Immutable or Traffic Splitting." },
+      { id: 'A', text: "Terminate all running EC2 instances manually before deploying the new version." },
       { id: 'B', text: "Configure the deployment policy to All at Once." },
-      { id: 'C', text: "Configure the deployment policy to Rolling with 50% batch sizes." },
-      { id: 'D', text: "Terminate all running EC2 instances manually before deploying the new version." }
+      { id: 'C', text: "Configure the Elastic Beanstalk deployment policy to Immutable or Traffic Splitting." },
+      { id: 'D', text: "Configure the deployment policy to Rolling with 50% batch sizes." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure the Elastic Beanstalk deployment policy to Immutable or Traffic Splitting. Elastic Beanstalk `Immutable` deployments create a brand-new Auto Scaling group with instances running the new version behind the load balancer, validating health before swapping and terminating the old fleet. This guarantees zero downtime and maintains 100% serving capacity throughout deployment.",
     referenceUrl: "https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.rolling-version-deploy.html",
@@ -93,12 +93,12 @@ export const AWS_DVA_QUESTIONS_18 = [
     scenario: "A distributed cloud application experiences intermittent downstream service timeouts and connection exhaustion during peak operational hours. The development team must establish automated recovery and fault isolation. The application utilizes AWS Elastic Beanstalk to deploy updates to an Elastic Beanstalk application with zero downtime, full capacity preservation, and guaranteed isolation from the existing running fleet.",
     question: "Which design pattern or service configuration eliminates bottlenecks and provides automated fault recovery? Elastic Beanstalk Immutable and Traffic Splitting deployments is being implemented.",
     options: [
-      { id: 'A', text: "Configure the Elastic Beanstalk deployment policy to Immutable or Traffic Splitting." },
-      { id: 'B', text: "Configure the deployment policy to All at Once." },
+      { id: 'A', text: "Configure the deployment policy to All at Once." },
+      { id: 'B', text: "Configure the Elastic Beanstalk deployment policy to Immutable or Traffic Splitting." },
       { id: 'C', text: "Configure the deployment policy to Rolling with 50% batch sizes." },
       { id: 'D', text: "Terminate all running EC2 instances manually before deploying the new version." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure the Elastic Beanstalk deployment policy to Immutable or Traffic Splitting. Elastic Beanstalk `Immutable` deployments create a brand-new Auto Scaling group with instances running the new version behind the load balancer, validating health before swapping and terminating the old fleet. This guarantees zero downtime and maintains 100% serving capacity throughout deployment.",
     referenceUrl: "https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.rolling-version-deploy.html",
@@ -115,9 +115,9 @@ export const AWS_DVA_QUESTIONS_18 = [
     question: "Which implementation or architectural approach satisfies these resilience criteria? Elastic Beanstalk .ebextensions configuration files is being implemented.",
     options: [
       { id: 'A', text: "Include YAML or JSON configuration files in the `.ebextensions` directory in the root of the source bundle." },
-      { id: 'B', text: "SSH into each EC2 instance after deployment and install packages manually." },
-      { id: 'C', text: "Deploy an AWS Systems Manager Run Command script every 5 minutes." },
-      { id: 'D', text: "Store package install scripts in an S3 bucket policy." }
+      { id: 'B', text: "Store package install scripts in an S3 bucket policy." },
+      { id: 'C', text: "SSH into each EC2 instance after deployment and install packages manually." },
+      { id: 'D', text: "Deploy an AWS Systems Manager Run Command script every 5 minutes." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -135,12 +135,12 @@ export const AWS_DVA_QUESTIONS_18 = [
     scenario: "A high-throughput digital platform experiences sudden spikes in concurrent user traffic during flash promotions. Developers must ensure sub-second response times and predictable scaling under peak throughput. The application utilizes AWS Elastic Beanstalk to customize the runtime environment of an Elastic Beanstalk application by installing Linux packages, configuring system daemons, and setting environment variables at deploy time.",
     question: "Which architectural approach should the developer recommend to handle this workload efficiently? Elastic Beanstalk .ebextensions configuration files is being implemented.",
     options: [
-      { id: 'A', text: "Include YAML or JSON configuration files in the `.ebextensions` directory in the root of the source bundle." },
-      { id: 'B', text: "SSH into each EC2 instance after deployment and install packages manually." },
+      { id: 'A', text: "Store package install scripts in an S3 bucket policy." },
+      { id: 'B', text: "Include YAML or JSON configuration files in the `.ebextensions` directory in the root of the source bundle." },
       { id: 'C', text: "Deploy an AWS Systems Manager Run Command script every 5 minutes." },
-      { id: 'D', text: "Store package install scripts in an S3 bucket policy." }
+      { id: 'D', text: "SSH into each EC2 instance after deployment and install packages manually." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Include YAML or JSON configuration files in the `.ebextensions` directory in the root of the source bundle. Elastic Beanstalk evaluates configuration files located in the `.ebextensions` directory of the application source code bundle in alphanumeric order. Developers use keys like `packages`, `commands`, `files`, and `services` to customize instance operating systems and software dependencies declaratively.",
     referenceUrl: "https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/ebextensions.html",
@@ -156,12 +156,12 @@ export const AWS_DVA_QUESTIONS_18 = [
     scenario: "A financial and healthcare service must adhere to strict regulatory compliance, encryption standards, and least privilege access principles. Security auditors require verified enforcement across all application tiers. The application utilizes AWS Elastic Beanstalk to customize the runtime environment of an Elastic Beanstalk application by installing Linux packages, configuring system daemons, and setting environment variables at deploy time.",
     question: "Which solution properly implements these mandatory security and governance controls? Elastic Beanstalk .ebextensions configuration files is being implemented.",
     options: [
-      { id: 'A', text: "Include YAML or JSON configuration files in the `.ebextensions` directory in the root of the source bundle." },
-      { id: 'B', text: "SSH into each EC2 instance after deployment and install packages manually." },
+      { id: 'A', text: "SSH into each EC2 instance after deployment and install packages manually." },
+      { id: 'B', text: "Store package install scripts in an S3 bucket policy." },
       { id: 'C', text: "Deploy an AWS Systems Manager Run Command script every 5 minutes." },
-      { id: 'D', text: "Store package install scripts in an S3 bucket policy." }
+      { id: 'D', text: "Include YAML or JSON configuration files in the `.ebextensions` directory in the root of the source bundle." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Include YAML or JSON configuration files in the `.ebextensions` directory in the root of the source bundle. Elastic Beanstalk evaluates configuration files located in the `.ebextensions` directory of the application source code bundle in alphanumeric order. Developers use keys like `packages`, `commands`, `files`, and `services` to customize instance operating systems and software dependencies declaratively.",
     referenceUrl: "https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/ebextensions.html",
@@ -177,12 +177,12 @@ export const AWS_DVA_QUESTIONS_18 = [
     scenario: "An enterprise development team is refactoring a legacy monolithic application into cloud-native microservices on AWS. The architecture must minimize operational complexity while leveraging managed services. The application utilizes AWS Elastic Beanstalk to customize the runtime environment of an Elastic Beanstalk application by installing Linux packages, configuring system daemons, and setting environment variables at deploy time.",
     question: "Which solution provides a robust implementation while minimizing ongoing operational maintenance? Elastic Beanstalk .ebextensions configuration files is being implemented.",
     options: [
-      { id: 'A', text: "Include YAML or JSON configuration files in the `.ebextensions` directory in the root of the source bundle." },
-      { id: 'B', text: "SSH into each EC2 instance after deployment and install packages manually." },
-      { id: 'C', text: "Deploy an AWS Systems Manager Run Command script every 5 minutes." },
-      { id: 'D', text: "Store package install scripts in an S3 bucket policy." }
+      { id: 'A', text: "Store package install scripts in an S3 bucket policy." },
+      { id: 'B', text: "Deploy an AWS Systems Manager Run Command script every 5 minutes." },
+      { id: 'C', text: "Include YAML or JSON configuration files in the `.ebextensions` directory in the root of the source bundle." },
+      { id: 'D', text: "SSH into each EC2 instance after deployment and install packages manually." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Include YAML or JSON configuration files in the `.ebextensions` directory in the root of the source bundle. Elastic Beanstalk evaluates configuration files located in the `.ebextensions` directory of the application source code bundle in alphanumeric order. Developers use keys like `packages`, `commands`, `files`, and `services` to customize instance operating systems and software dependencies declaratively.",
     referenceUrl: "https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/ebextensions.html",
@@ -199,9 +199,9 @@ export const AWS_DVA_QUESTIONS_18 = [
     question: "Which design pattern or service configuration eliminates bottlenecks and provides automated fault recovery? Elastic Beanstalk .ebextensions configuration files is being implemented.",
     options: [
       { id: 'A', text: "Include YAML or JSON configuration files in the `.ebextensions` directory in the root of the source bundle." },
-      { id: 'B', text: "SSH into each EC2 instance after deployment and install packages manually." },
-      { id: 'C', text: "Deploy an AWS Systems Manager Run Command script every 5 minutes." },
-      { id: 'D', text: "Store package install scripts in an S3 bucket policy." }
+      { id: 'B', text: "Store package install scripts in an S3 bucket policy." },
+      { id: 'C', text: "SSH into each EC2 instance after deployment and install packages manually." },
+      { id: 'D', text: "Deploy an AWS Systems Manager Run Command script every 5 minutes." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -219,12 +219,12 @@ export const AWS_DVA_QUESTIONS_18 = [
     scenario: "A high-availability enterprise cloud service requires strict operational resilience and automated disaster recovery capabilities. The engineering team must eliminate single points of failure across operational workflows. The application utilizes Amazon ECS to configure containerized microservices in Amazon ECS with explicit CPU and memory boundaries, container port mappings, and environment variables sourced from AWS Secrets Manager.",
     question: "Which implementation or architectural approach satisfies these resilience criteria? ECS Task Definition resource allocations is being implemented.",
     options: [
-      { id: 'A', text: "Define an Amazon ECS Task Definition specifying task-level CPU and memory, containerDefinitions, and `secrets` attributes referencing Secrets Manager ARNs." },
-      { id: 'B', text: "Hardcode environment variables in the Dockerfile directly." },
-      { id: 'C', text: "Deploy containers using docker-compose on a standalone EC2 instance." },
-      { id: 'D', text: "Configure an Application Load Balancer listener rule with hardcoded credentials." }
+      { id: 'A', text: "Configure an Application Load Balancer listener rule with hardcoded credentials." },
+      { id: 'B', text: "Define an Amazon ECS Task Definition specifying task-level CPU and memory, containerDefinitions, and `secrets` attributes referencing Secrets Manager ARNs." },
+      { id: 'C', text: "Hardcode environment variables in the Dockerfile directly." },
+      { id: 'D', text: "Deploy containers using docker-compose on a standalone EC2 instance." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Define an Amazon ECS Task Definition specifying task-level CPU and memory, containerDefinitions, and `secrets` attributes referencing Secrets Manager ARNs. ECS Task Definitions act as the blueprint for running Docker containers in ECS. They declare container images, CPU/memory resource limits, logging drivers, port mappings, and securely inject sensitive configuration directly from AWS Secrets Manager or Parameter Store into container environment variables.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definitions.html",
@@ -240,12 +240,12 @@ export const AWS_DVA_QUESTIONS_18 = [
     scenario: "A high-throughput digital platform experiences sudden spikes in concurrent user traffic during flash promotions. Developers must ensure sub-second response times and predictable scaling under peak throughput. The application utilizes Amazon ECS to configure containerized microservices in Amazon ECS with explicit CPU and memory boundaries, container port mappings, and environment variables sourced from AWS Secrets Manager.",
     question: "Which architectural approach should the developer recommend to handle this workload efficiently? ECS Task Definition resource allocations is being implemented.",
     options: [
-      { id: 'A', text: "Define an Amazon ECS Task Definition specifying task-level CPU and memory, containerDefinitions, and `secrets` attributes referencing Secrets Manager ARNs." },
-      { id: 'B', text: "Hardcode environment variables in the Dockerfile directly." },
-      { id: 'C', text: "Deploy containers using docker-compose on a standalone EC2 instance." },
-      { id: 'D', text: "Configure an Application Load Balancer listener rule with hardcoded credentials." }
+      { id: 'A', text: "Configure an Application Load Balancer listener rule with hardcoded credentials." },
+      { id: 'B', text: "Deploy containers using docker-compose on a standalone EC2 instance." },
+      { id: 'C', text: "Define an Amazon ECS Task Definition specifying task-level CPU and memory, containerDefinitions, and `secrets` attributes referencing Secrets Manager ARNs." },
+      { id: 'D', text: "Hardcode environment variables in the Dockerfile directly." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Define an Amazon ECS Task Definition specifying task-level CPU and memory, containerDefinitions, and `secrets` attributes referencing Secrets Manager ARNs. ECS Task Definitions act as the blueprint for running Docker containers in ECS. They declare container images, CPU/memory resource limits, logging drivers, port mappings, and securely inject sensitive configuration directly from AWS Secrets Manager or Parameter Store into container environment variables.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definitions.html",
@@ -261,12 +261,12 @@ export const AWS_DVA_QUESTIONS_18 = [
     scenario: "A financial and healthcare service must adhere to strict regulatory compliance, encryption standards, and least privilege access principles. Security auditors require verified enforcement across all application tiers. The application utilizes Amazon ECS to configure containerized microservices in Amazon ECS with explicit CPU and memory boundaries, container port mappings, and environment variables sourced from AWS Secrets Manager.",
     question: "Which solution properly implements these mandatory security and governance controls? ECS Task Definition resource allocations is being implemented.",
     options: [
-      { id: 'A', text: "Define an Amazon ECS Task Definition specifying task-level CPU and memory, containerDefinitions, and `secrets` attributes referencing Secrets Manager ARNs." },
+      { id: 'A', text: "Deploy containers using docker-compose on a standalone EC2 instance." },
       { id: 'B', text: "Hardcode environment variables in the Dockerfile directly." },
-      { id: 'C', text: "Deploy containers using docker-compose on a standalone EC2 instance." },
+      { id: 'C', text: "Define an Amazon ECS Task Definition specifying task-level CPU and memory, containerDefinitions, and `secrets` attributes referencing Secrets Manager ARNs." },
       { id: 'D', text: "Configure an Application Load Balancer listener rule with hardcoded credentials." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Define an Amazon ECS Task Definition specifying task-level CPU and memory, containerDefinitions, and `secrets` attributes referencing Secrets Manager ARNs. ECS Task Definitions act as the blueprint for running Docker containers in ECS. They declare container images, CPU/memory resource limits, logging drivers, port mappings, and securely inject sensitive configuration directly from AWS Secrets Manager or Parameter Store into container environment variables.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definitions.html",
@@ -282,12 +282,12 @@ export const AWS_DVA_QUESTIONS_18 = [
     scenario: "An enterprise development team is refactoring a legacy monolithic application into cloud-native microservices on AWS. The architecture must minimize operational complexity while leveraging managed services. The application utilizes Amazon ECS to configure containerized microservices in Amazon ECS with explicit CPU and memory boundaries, container port mappings, and environment variables sourced from AWS Secrets Manager.",
     question: "Which solution provides a robust implementation while minimizing ongoing operational maintenance? ECS Task Definition resource allocations is being implemented.",
     options: [
-      { id: 'A', text: "Define an Amazon ECS Task Definition specifying task-level CPU and memory, containerDefinitions, and `secrets` attributes referencing Secrets Manager ARNs." },
+      { id: 'A', text: "Deploy containers using docker-compose on a standalone EC2 instance." },
       { id: 'B', text: "Hardcode environment variables in the Dockerfile directly." },
-      { id: 'C', text: "Deploy containers using docker-compose on a standalone EC2 instance." },
+      { id: 'C', text: "Define an Amazon ECS Task Definition specifying task-level CPU and memory, containerDefinitions, and `secrets` attributes referencing Secrets Manager ARNs." },
       { id: 'D', text: "Configure an Application Load Balancer listener rule with hardcoded credentials." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Define an Amazon ECS Task Definition specifying task-level CPU and memory, containerDefinitions, and `secrets` attributes referencing Secrets Manager ARNs. ECS Task Definitions act as the blueprint for running Docker containers in ECS. They declare container images, CPU/memory resource limits, logging drivers, port mappings, and securely inject sensitive configuration directly from AWS Secrets Manager or Parameter Store into container environment variables.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definitions.html",
@@ -303,12 +303,12 @@ export const AWS_DVA_QUESTIONS_18 = [
     scenario: "A distributed cloud application experiences intermittent downstream service timeouts and connection exhaustion during peak operational hours. The development team must establish automated recovery and fault isolation. The application utilizes Amazon ECS to configure containerized microservices in Amazon ECS with explicit CPU and memory boundaries, container port mappings, and environment variables sourced from AWS Secrets Manager.",
     question: "Which design pattern or service configuration eliminates bottlenecks and provides automated fault recovery? ECS Task Definition resource allocations is being implemented.",
     options: [
-      { id: 'A', text: "Define an Amazon ECS Task Definition specifying task-level CPU and memory, containerDefinitions, and `secrets` attributes referencing Secrets Manager ARNs." },
-      { id: 'B', text: "Hardcode environment variables in the Dockerfile directly." },
+      { id: 'A', text: "Hardcode environment variables in the Dockerfile directly." },
+      { id: 'B', text: "Define an Amazon ECS Task Definition specifying task-level CPU and memory, containerDefinitions, and `secrets` attributes referencing Secrets Manager ARNs." },
       { id: 'C', text: "Deploy containers using docker-compose on a standalone EC2 instance." },
       { id: 'D', text: "Configure an Application Load Balancer listener rule with hardcoded credentials." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Define an Amazon ECS Task Definition specifying task-level CPU and memory, containerDefinitions, and `secrets` attributes referencing Secrets Manager ARNs. ECS Task Definitions act as the blueprint for running Docker containers in ECS. They declare container images, CPU/memory resource limits, logging drivers, port mappings, and securely inject sensitive configuration directly from AWS Secrets Manager or Parameter Store into container environment variables.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definitions.html",
@@ -324,12 +324,12 @@ export const AWS_DVA_QUESTIONS_18 = [
     scenario: "A high-availability enterprise cloud service requires strict operational resilience and automated disaster recovery capabilities. The engineering team must eliminate single points of failure across operational workflows. The application utilizes Amazon ECS to run containerized microservices without provisioning, configuring, patching, or scaling underlying EC2 virtual machine instances.",
     question: "Which implementation or architectural approach satisfies these resilience criteria? AWS Fargate serverless launch type for Amazon ECS is being implemented.",
     options: [
-      { id: 'A', text: "Configure the Amazon ECS service to use the AWS Fargate launch type." },
-      { id: 'B', text: "Deploy an EC2 Auto Scaling group with custom AMI configurations." },
-      { id: 'C', text: "Launch a cluster of t4g.nano EC2 instances." },
-      { id: 'D', text: "Deploy containers directly on an on-premises VMware cluster." }
+      { id: 'A', text: "Deploy containers directly on an on-premises VMware cluster." },
+      { id: 'B', text: "Launch a cluster of t4g.nano EC2 instances." },
+      { id: 'C', text: "Configure the Amazon ECS service to use the AWS Fargate launch type." },
+      { id: 'D', text: "Deploy an EC2 Auto Scaling group with custom AMI configurations." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure the Amazon ECS service to use the AWS Fargate launch type. AWS Fargate is a serverless compute engine for Amazon ECS and EKS that removes the need to manage underlying virtual machines. Developers specify container requirements, and Fargate dynamically provisions and isolates compute capacity per container with pay-as-you-go billing.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonECS/latest/userguide/what-is-fargate.html",
@@ -345,12 +345,12 @@ export const AWS_DVA_QUESTIONS_18 = [
     scenario: "A high-throughput digital platform experiences sudden spikes in concurrent user traffic during flash promotions. Developers must ensure sub-second response times and predictable scaling under peak throughput. The application utilizes Amazon ECS to run containerized microservices without provisioning, configuring, patching, or scaling underlying EC2 virtual machine instances.",
     question: "Which architectural approach should the developer recommend to handle this workload efficiently? AWS Fargate serverless launch type for Amazon ECS is being implemented.",
     options: [
-      { id: 'A', text: "Configure the Amazon ECS service to use the AWS Fargate launch type." },
-      { id: 'B', text: "Deploy an EC2 Auto Scaling group with custom AMI configurations." },
+      { id: 'A', text: "Deploy containers directly on an on-premises VMware cluster." },
+      { id: 'B', text: "Configure the Amazon ECS service to use the AWS Fargate launch type." },
       { id: 'C', text: "Launch a cluster of t4g.nano EC2 instances." },
-      { id: 'D', text: "Deploy containers directly on an on-premises VMware cluster." }
+      { id: 'D', text: "Deploy an EC2 Auto Scaling group with custom AMI configurations." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure the Amazon ECS service to use the AWS Fargate launch type. AWS Fargate is a serverless compute engine for Amazon ECS and EKS that removes the need to manage underlying virtual machines. Developers specify container requirements, and Fargate dynamically provisions and isolates compute capacity per container with pay-as-you-go billing.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonECS/latest/userguide/what-is-fargate.html",
@@ -367,8 +367,8 @@ export const AWS_DVA_QUESTIONS_18 = [
     question: "Which solution properly implements these mandatory security and governance controls? AWS Fargate serverless launch type for Amazon ECS is being implemented.",
     options: [
       { id: 'A', text: "Configure the Amazon ECS service to use the AWS Fargate launch type." },
-      { id: 'B', text: "Deploy an EC2 Auto Scaling group with custom AMI configurations." },
-      { id: 'C', text: "Launch a cluster of t4g.nano EC2 instances." },
+      { id: 'B', text: "Launch a cluster of t4g.nano EC2 instances." },
+      { id: 'C', text: "Deploy an EC2 Auto Scaling group with custom AMI configurations." },
       { id: 'D', text: "Deploy containers directly on an on-premises VMware cluster." }
     ],
     correctAnswers: ['A'],
@@ -387,12 +387,12 @@ export const AWS_DVA_QUESTIONS_18 = [
     scenario: "An enterprise development team is refactoring a legacy monolithic application into cloud-native microservices on AWS. The architecture must minimize operational complexity while leveraging managed services. The application utilizes Amazon ECS to run containerized microservices without provisioning, configuring, patching, or scaling underlying EC2 virtual machine instances.",
     question: "Which solution provides a robust implementation while minimizing ongoing operational maintenance? AWS Fargate serverless launch type for Amazon ECS is being implemented.",
     options: [
-      { id: 'A', text: "Configure the Amazon ECS service to use the AWS Fargate launch type." },
-      { id: 'B', text: "Deploy an EC2 Auto Scaling group with custom AMI configurations." },
-      { id: 'C', text: "Launch a cluster of t4g.nano EC2 instances." },
-      { id: 'D', text: "Deploy containers directly on an on-premises VMware cluster." }
+      { id: 'A', text: "Deploy an EC2 Auto Scaling group with custom AMI configurations." },
+      { id: 'B', text: "Deploy containers directly on an on-premises VMware cluster." },
+      { id: 'C', text: "Configure the Amazon ECS service to use the AWS Fargate launch type." },
+      { id: 'D', text: "Launch a cluster of t4g.nano EC2 instances." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure the Amazon ECS service to use the AWS Fargate launch type. AWS Fargate is a serverless compute engine for Amazon ECS and EKS that removes the need to manage underlying virtual machines. Developers specify container requirements, and Fargate dynamically provisions and isolates compute capacity per container with pay-as-you-go billing.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonECS/latest/userguide/what-is-fargate.html",
@@ -429,12 +429,12 @@ export const AWS_DVA_QUESTIONS_18 = [
     scenario: "A high-availability enterprise cloud service requires strict operational resilience and automated disaster recovery capabilities. The engineering team must eliminate single points of failure across operational workflows. The application utilizes AWS CloudFormation to prevent an Amazon S3 bucket or Amazon RDS database from being accidentally destroyed when a developer deletes the associated CloudFormation stack.",
     question: "Which implementation or architectural approach satisfies these resilience criteria? CloudFormation DeletionPolicy attribute is being implemented.",
     options: [
-      { id: 'A', text: "Set the `DeletionPolicy: Retain` attribute on the S3 bucket and RDS database resources in the CloudFormation template." },
+      { id: 'A', text: "Configure an IAM Deny policy on `cloudformation:DeleteStack`." },
       { id: 'B', text: "Remove the resources from the template and run `update-stack`." },
-      { id: 'C', text: "Configure an IAM Deny policy on `cloudformation:DeleteStack`." },
-      { id: 'D', text: "Enable CloudFormation termination protection on the EC2 instances." }
+      { id: 'C', text: "Enable CloudFormation termination protection on the EC2 instances." },
+      { id: 'D', text: "Set the `DeletionPolicy: Retain` attribute on the S3 bucket and RDS database resources in the CloudFormation template." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Set the `DeletionPolicy: Retain` attribute on the S3 bucket and RDS database resources in the CloudFormation template. The `DeletionPolicy` attribute in AWS CloudFormation controls what happens to a resource when its stack is deleted. Setting `DeletionPolicy: Retain` preserves the resource intact in the AWS account when the stack is deleted, preventing accidental data loss for persistent databases and S3 buckets.",
     referenceUrl: "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html",
@@ -450,12 +450,12 @@ export const AWS_DVA_QUESTIONS_18 = [
     scenario: "A high-throughput digital platform experiences sudden spikes in concurrent user traffic during flash promotions. Developers must ensure sub-second response times and predictable scaling under peak throughput. The application utilizes AWS CloudFormation to prevent an Amazon S3 bucket or Amazon RDS database from being accidentally destroyed when a developer deletes the associated CloudFormation stack.",
     question: "Which architectural approach should the developer recommend to handle this workload efficiently? CloudFormation DeletionPolicy attribute is being implemented.",
     options: [
-      { id: 'A', text: "Set the `DeletionPolicy: Retain` attribute on the S3 bucket and RDS database resources in the CloudFormation template." },
-      { id: 'B', text: "Remove the resources from the template and run `update-stack`." },
-      { id: 'C', text: "Configure an IAM Deny policy on `cloudformation:DeleteStack`." },
-      { id: 'D', text: "Enable CloudFormation termination protection on the EC2 instances." }
+      { id: 'A', text: "Remove the resources from the template and run `update-stack`." },
+      { id: 'B', text: "Enable CloudFormation termination protection on the EC2 instances." },
+      { id: 'C', text: "Set the `DeletionPolicy: Retain` attribute on the S3 bucket and RDS database resources in the CloudFormation template." },
+      { id: 'D', text: "Configure an IAM Deny policy on `cloudformation:DeleteStack`." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Set the `DeletionPolicy: Retain` attribute on the S3 bucket and RDS database resources in the CloudFormation template. The `DeletionPolicy` attribute in AWS CloudFormation controls what happens to a resource when its stack is deleted. Setting `DeletionPolicy: Retain` preserves the resource intact in the AWS account when the stack is deleted, preventing accidental data loss for persistent databases and S3 buckets.",
     referenceUrl: "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html",
@@ -471,12 +471,12 @@ export const AWS_DVA_QUESTIONS_18 = [
     scenario: "A financial and healthcare service must adhere to strict regulatory compliance, encryption standards, and least privilege access principles. Security auditors require verified enforcement across all application tiers. The application utilizes AWS CloudFormation to prevent an Amazon S3 bucket or Amazon RDS database from being accidentally destroyed when a developer deletes the associated CloudFormation stack.",
     question: "Which solution properly implements these mandatory security and governance controls? CloudFormation DeletionPolicy attribute is being implemented.",
     options: [
-      { id: 'A', text: "Set the `DeletionPolicy: Retain` attribute on the S3 bucket and RDS database resources in the CloudFormation template." },
+      { id: 'A', text: "Enable CloudFormation termination protection on the EC2 instances." },
       { id: 'B', text: "Remove the resources from the template and run `update-stack`." },
       { id: 'C', text: "Configure an IAM Deny policy on `cloudformation:DeleteStack`." },
-      { id: 'D', text: "Enable CloudFormation termination protection on the EC2 instances." }
+      { id: 'D', text: "Set the `DeletionPolicy: Retain` attribute on the S3 bucket and RDS database resources in the CloudFormation template." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Set the `DeletionPolicy: Retain` attribute on the S3 bucket and RDS database resources in the CloudFormation template. The `DeletionPolicy` attribute in AWS CloudFormation controls what happens to a resource when its stack is deleted. Setting `DeletionPolicy: Retain` preserves the resource intact in the AWS account when the stack is deleted, preventing accidental data loss for persistent databases and S3 buckets.",
     referenceUrl: "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html",
@@ -494,8 +494,8 @@ export const AWS_DVA_QUESTIONS_18 = [
     options: [
       { id: 'A', text: "Set the `DeletionPolicy: Retain` attribute on the S3 bucket and RDS database resources in the CloudFormation template." },
       { id: 'B', text: "Remove the resources from the template and run `update-stack`." },
-      { id: 'C', text: "Configure an IAM Deny policy on `cloudformation:DeleteStack`." },
-      { id: 'D', text: "Enable CloudFormation termination protection on the EC2 instances." }
+      { id: 'C', text: "Enable CloudFormation termination protection on the EC2 instances." },
+      { id: 'D', text: "Configure an IAM Deny policy on `cloudformation:DeleteStack`." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -513,12 +513,12 @@ export const AWS_DVA_QUESTIONS_18 = [
     scenario: "A distributed cloud application experiences intermittent downstream service timeouts and connection exhaustion during peak operational hours. The development team must establish automated recovery and fault isolation. The application utilizes AWS CloudFormation to prevent an Amazon S3 bucket or Amazon RDS database from being accidentally destroyed when a developer deletes the associated CloudFormation stack.",
     question: "Which design pattern or service configuration eliminates bottlenecks and provides automated fault recovery? CloudFormation DeletionPolicy attribute is being implemented.",
     options: [
-      { id: 'A', text: "Set the `DeletionPolicy: Retain` attribute on the S3 bucket and RDS database resources in the CloudFormation template." },
-      { id: 'B', text: "Remove the resources from the template and run `update-stack`." },
-      { id: 'C', text: "Configure an IAM Deny policy on `cloudformation:DeleteStack`." },
-      { id: 'D', text: "Enable CloudFormation termination protection on the EC2 instances." }
+      { id: 'A', text: "Enable CloudFormation termination protection on the EC2 instances." },
+      { id: 'B', text: "Configure an IAM Deny policy on `cloudformation:DeleteStack`." },
+      { id: 'C', text: "Remove the resources from the template and run `update-stack`." },
+      { id: 'D', text: "Set the `DeletionPolicy: Retain` attribute on the S3 bucket and RDS database resources in the CloudFormation template." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Set the `DeletionPolicy: Retain` attribute on the S3 bucket and RDS database resources in the CloudFormation template. The `DeletionPolicy` attribute in AWS CloudFormation controls what happens to a resource when its stack is deleted. Setting `DeletionPolicy: Retain` preserves the resource intact in the AWS account when the stack is deleted, preventing accidental data loss for persistent databases and S3 buckets.",
     referenceUrl: "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html",

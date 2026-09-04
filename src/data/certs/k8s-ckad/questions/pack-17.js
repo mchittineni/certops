@@ -9,12 +9,12 @@ export const K8S_CKAD_QUESTIONS_17 = [
     scenario: "A cloud-native application engineering team is establishing high-availability deployment patterns and zero-downtime release safeguards for enterprise services. The Kubernetes application developer evaluates Pod Security to prevent a container process from running as the root superuser (UID 0) inside the Linux container namespace.",
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives? Enforcing non-root container process execution via SecurityContext is under consideration.",
     options: [
-      { id: 'A', text: "Configure `securityContext` with `runAsNonRoot: true` and `runAsUser: 1000` at the pod or container level." },
-      { id: 'B', text: "Configure `securityContext` with `privileged: true`." },
-      { id: 'C', text: "Omit securityContext and let the container image default to root." },
-      { id: 'D', text: "Set `allowPrivilegeEscalation: true`." }
+      { id: 'A', text: "Omit securityContext and let the container image default to root." },
+      { id: 'B', text: "Configure `securityContext` with `runAsNonRoot: true` and `runAsUser: 1000` at the pod or container level." },
+      { id: 'C', text: "Set `allowPrivilegeEscalation: true`." },
+      { id: 'D', text: "Configure `securityContext` with `privileged: true`." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure `securityContext` with `runAsNonRoot: true` and `runAsUser: 1000` at the pod or container level. The `securityContext` controls security settings on pods and containers. Setting `runAsNonRoot: true` forces the kubelet to validate that the image does not execute as UID 0; if it does, the container fails to start, mitigating privilege escalation attacks.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/security-context/",
@@ -30,12 +30,12 @@ export const K8S_CKAD_QUESTIONS_17 = [
     scenario: "A high-throughput web application experiences unpredictable spikes in user transactions and requires automated, reliable scaling across Kubernetes clusters. The Kubernetes application developer evaluates Pod Security to prevent a container process from running as the root superuser (UID 0) inside the Linux container namespace.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting backend stability? Enforcing non-root container process execution via SecurityContext is under consideration.",
     options: [
-      { id: 'A', text: "Configure `securityContext` with `runAsNonRoot: true` and `runAsUser: 1000` at the pod or container level." },
-      { id: 'B', text: "Configure `securityContext` with `privileged: true`." },
-      { id: 'C', text: "Omit securityContext and let the container image default to root." },
-      { id: 'D', text: "Set `allowPrivilegeEscalation: true`." }
+      { id: 'A', text: "Configure `securityContext` with `privileged: true`." },
+      { id: 'B', text: "Configure `securityContext` with `runAsNonRoot: true` and `runAsUser: 1000` at the pod or container level." },
+      { id: 'C', text: "Set `allowPrivilegeEscalation: true`." },
+      { id: 'D', text: "Omit securityContext and let the container image default to root." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure `securityContext` with `runAsNonRoot: true` and `runAsUser: 1000` at the pod or container level. The `securityContext` controls security settings on pods and containers. Setting `runAsNonRoot: true` forces the kubelet to validate that the image does not execute as UID 0; if it does, the container fails to start, mitigating privilege escalation attacks.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/security-context/",
@@ -51,12 +51,12 @@ export const K8S_CKAD_QUESTIONS_17 = [
     scenario: "A security compliance auditor requires strict container runtime isolation, least-privilege credential access, and defense-in-depth network policies across all namespaces. The Kubernetes application developer evaluates Pod Security to prevent a container process from running as the root superuser (UID 0) inside the Linux container namespace.",
     question: "Which solution properly implements these mandatory container and cluster security controls? Enforcing non-root container process execution via SecurityContext is under consideration.",
     options: [
-      { id: 'A', text: "Configure `securityContext` with `runAsNonRoot: true` and `runAsUser: 1000` at the pod or container level." },
-      { id: 'B', text: "Configure `securityContext` with `privileged: true`." },
-      { id: 'C', text: "Omit securityContext and let the container image default to root." },
-      { id: 'D', text: "Set `allowPrivilegeEscalation: true`." }
+      { id: 'A', text: "Configure `securityContext` with `privileged: true`." },
+      { id: 'B', text: "Configure `securityContext` with `runAsNonRoot: true` and `runAsUser: 1000` at the pod or container level." },
+      { id: 'C', text: "Set `allowPrivilegeEscalation: true`." },
+      { id: 'D', text: "Omit securityContext and let the container image default to root." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure `securityContext` with `runAsNonRoot: true` and `runAsUser: 1000` at the pod or container level. The `securityContext` controls security settings on pods and containers. Setting `runAsNonRoot: true` forces the kubelet to validate that the image does not execute as UID 0; if it does, the container fails to start, mitigating privilege escalation attacks.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/security-context/",
@@ -73,9 +73,9 @@ export const K8S_CKAD_QUESTIONS_17 = [
     question: "Which architectural pattern or feature enables the team to modernize services with minimal disruption and low operational friction? Enforcing non-root container process execution via SecurityContext is under consideration.",
     options: [
       { id: 'A', text: "Configure `securityContext` with `runAsNonRoot: true` and `runAsUser: 1000` at the pod or container level." },
-      { id: 'B', text: "Configure `securityContext` with `privileged: true`." },
-      { id: 'C', text: "Omit securityContext and let the container image default to root." },
-      { id: 'D', text: "Set `allowPrivilegeEscalation: true`." }
+      { id: 'B', text: "Omit securityContext and let the container image default to root." },
+      { id: 'C', text: "Set `allowPrivilegeEscalation: true`." },
+      { id: 'D', text: "Configure `securityContext` with `privileged: true`." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -93,12 +93,12 @@ export const K8S_CKAD_QUESTIONS_17 = [
     scenario: "An SRE team is optimizing application stability to eliminate single points of failure, streamline observability, and ensure graceful failure handling. The Kubernetes application developer evaluates Pod Security to prevent a container process from running as the root superuser (UID 0) inside the Linux container namespace.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees service reliability? Enforcing non-root container process execution via SecurityContext is under consideration.",
     options: [
-      { id: 'A', text: "Configure `securityContext` with `runAsNonRoot: true` and `runAsUser: 1000` at the pod or container level." },
-      { id: 'B', text: "Configure `securityContext` with `privileged: true`." },
-      { id: 'C', text: "Omit securityContext and let the container image default to root." },
-      { id: 'D', text: "Set `allowPrivilegeEscalation: true`." }
+      { id: 'A', text: "Omit securityContext and let the container image default to root." },
+      { id: 'B', text: "Configure `securityContext` with `runAsNonRoot: true` and `runAsUser: 1000` at the pod or container level." },
+      { id: 'C', text: "Set `allowPrivilegeEscalation: true`." },
+      { id: 'D', text: "Configure `securityContext` with `privileged: true`." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure `securityContext` with `runAsNonRoot: true` and `runAsUser: 1000` at the pod or container level. The `securityContext` controls security settings on pods and containers. Setting `runAsNonRoot: true` forces the kubelet to validate that the image does not execute as UID 0; if it does, the container fails to start, mitigating privilege escalation attacks.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/security-context/",
@@ -114,12 +114,12 @@ export const K8S_CKAD_QUESTIONS_17 = [
     scenario: "A cloud-native application engineering team is establishing high-availability deployment patterns and zero-downtime release safeguards for enterprise services. The Kubernetes application developer evaluates Filesystem Security to prevent attackers from modifying container binaries, injecting rootkits, or writing malicious scripts to the container root filesystem.",
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives? Enforcing immutable read-only root filesystems on containers is under consideration.",
     options: [
-      { id: 'A', text: "Set `readOnlyRootFilesystem: true` in the container `securityContext`, mounting writable `emptyDir` volumes only where necessary." },
-      { id: 'B', text: "Set the filesystem permissions to 777 on the host operating system." },
-      { id: 'C', text: "Allow full write access to the entire root filesystem across all containers." },
+      { id: 'A', text: "Allow full write access to the entire root filesystem across all containers." },
+      { id: 'B', text: "Set `readOnlyRootFilesystem: true` in the container `securityContext`, mounting writable `emptyDir` volumes only where necessary." },
+      { id: 'C', text: "Set the filesystem permissions to 777 on the host operating system." },
       { id: 'D', text: "Disable container SELinux and AppArmor profiles." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Set `readOnlyRootFilesystem: true` in the container `securityContext`, mounting writable `emptyDir` volumes only where necessary. Setting `readOnlyRootFilesystem: true` mounts the container root filesystem as read-only. Any attempt to write, modify, or download binaries into `/` is rejected. If the application needs temporary scratch space (e.g., `/tmp`), an `emptyDir` volume can be mounted specifically at that path.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-container",
@@ -136,9 +136,9 @@ export const K8S_CKAD_QUESTIONS_17 = [
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting backend stability? Enforcing immutable read-only root filesystems on containers is under consideration.",
     options: [
       { id: 'A', text: "Set `readOnlyRootFilesystem: true` in the container `securityContext`, mounting writable `emptyDir` volumes only where necessary." },
-      { id: 'B', text: "Set the filesystem permissions to 777 on the host operating system." },
+      { id: 'B', text: "Disable container SELinux and AppArmor profiles." },
       { id: 'C', text: "Allow full write access to the entire root filesystem across all containers." },
-      { id: 'D', text: "Disable container SELinux and AppArmor profiles." }
+      { id: 'D', text: "Set the filesystem permissions to 777 on the host operating system." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -157,9 +157,9 @@ export const K8S_CKAD_QUESTIONS_17 = [
     question: "Which solution properly implements these mandatory container and cluster security controls? Enforcing immutable read-only root filesystems on containers is under consideration.",
     options: [
       { id: 'A', text: "Set `readOnlyRootFilesystem: true` in the container `securityContext`, mounting writable `emptyDir` volumes only where necessary." },
-      { id: 'B', text: "Set the filesystem permissions to 777 on the host operating system." },
-      { id: 'C', text: "Allow full write access to the entire root filesystem across all containers." },
-      { id: 'D', text: "Disable container SELinux and AppArmor profiles." }
+      { id: 'B', text: "Disable container SELinux and AppArmor profiles." },
+      { id: 'C', text: "Set the filesystem permissions to 777 on the host operating system." },
+      { id: 'D', text: "Allow full write access to the entire root filesystem across all containers." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -177,12 +177,12 @@ export const K8S_CKAD_QUESTIONS_17 = [
     scenario: "An application development team is migrating legacy monolithic applications into containerized microservices running on Kubernetes. The Kubernetes application developer evaluates Filesystem Security to prevent attackers from modifying container binaries, injecting rootkits, or writing malicious scripts to the container root filesystem.",
     question: "Which architectural pattern or feature enables the team to modernize services with minimal disruption and low operational friction? Enforcing immutable read-only root filesystems on containers is under consideration.",
     options: [
-      { id: 'A', text: "Set `readOnlyRootFilesystem: true` in the container `securityContext`, mounting writable `emptyDir` volumes only where necessary." },
-      { id: 'B', text: "Set the filesystem permissions to 777 on the host operating system." },
+      { id: 'A', text: "Set the filesystem permissions to 777 on the host operating system." },
+      { id: 'B', text: "Disable container SELinux and AppArmor profiles." },
       { id: 'C', text: "Allow full write access to the entire root filesystem across all containers." },
-      { id: 'D', text: "Disable container SELinux and AppArmor profiles." }
+      { id: 'D', text: "Set `readOnlyRootFilesystem: true` in the container `securityContext`, mounting writable `emptyDir` volumes only where necessary." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Set `readOnlyRootFilesystem: true` in the container `securityContext`, mounting writable `emptyDir` volumes only where necessary. Setting `readOnlyRootFilesystem: true` mounts the container root filesystem as read-only. Any attempt to write, modify, or download binaries into `/` is rejected. If the application needs temporary scratch space (e.g., `/tmp`), an `emptyDir` volume can be mounted specifically at that path.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-container",
@@ -199,9 +199,9 @@ export const K8S_CKAD_QUESTIONS_17 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees service reliability? Enforcing immutable read-only root filesystems on containers is under consideration.",
     options: [
       { id: 'A', text: "Set `readOnlyRootFilesystem: true` in the container `securityContext`, mounting writable `emptyDir` volumes only where necessary." },
-      { id: 'B', text: "Set the filesystem permissions to 777 on the host operating system." },
-      { id: 'C', text: "Allow full write access to the entire root filesystem across all containers." },
-      { id: 'D', text: "Disable container SELinux and AppArmor profiles." }
+      { id: 'B', text: "Allow full write access to the entire root filesystem across all containers." },
+      { id: 'C', text: "Disable container SELinux and AppArmor profiles." },
+      { id: 'D', text: "Set the filesystem permissions to 777 on the host operating system." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -219,12 +219,12 @@ export const K8S_CKAD_QUESTIONS_17 = [
     scenario: "A cloud-native application engineering team is establishing high-availability deployment patterns and zero-downtime release safeguards for enterprise services. The Kubernetes application developer evaluates Linux Capabilities to harden a container by stripping all default Linux kernel capabilities and adding back only `NET_BIND_SERVICE` to bind low ports.",
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives? Dropping all default Linux capabilities and granting only required privileges is under consideration.",
     options: [
-      { id: 'A', text: "In `securityContext.capabilities`, specify `drop: [\"ALL\"]` and `add: [\"NET_BIND_SERVICE\"]`." },
-      { id: 'B', text: "Grant full `CAP_SYS_ADMIN` capability to the container process." },
+      { id: 'A', text: "Grant full `CAP_SYS_ADMIN` capability to the container process." },
+      { id: 'B', text: "Drop all network interfaces from the pod namespace." },
       { id: 'C', text: "Enable `privileged: true` to bypass capability checks." },
-      { id: 'D', text: "Drop all network interfaces from the pod namespace." }
+      { id: 'D', text: "In `securityContext.capabilities`, specify `drop: [\"ALL\"]` and `add: [\"NET_BIND_SERVICE\"]`." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "In `securityContext.capabilities`, specify `drop: [\"ALL\"]` and `add: [\"NET_BIND_SERVICE\"]`. Linux capabilities break root privileges into distinct units. Best security practice mandates dropping all default capabilities (`drop: [\"ALL\"]`) and adding back only the specific granular capability required (e.g., `NET_BIND_SERVICE` to bind to port 80/443 without root).",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-capabilities-for-a-container",
@@ -240,12 +240,12 @@ export const K8S_CKAD_QUESTIONS_17 = [
     scenario: "A high-throughput web application experiences unpredictable spikes in user transactions and requires automated, reliable scaling across Kubernetes clusters. The Kubernetes application developer evaluates Linux Capabilities to harden a container by stripping all default Linux kernel capabilities and adding back only `NET_BIND_SERVICE` to bind low ports.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting backend stability? Dropping all default Linux capabilities and granting only required privileges is under consideration.",
     options: [
-      { id: 'A', text: "In `securityContext.capabilities`, specify `drop: [\"ALL\"]` and `add: [\"NET_BIND_SERVICE\"]`." },
-      { id: 'B', text: "Grant full `CAP_SYS_ADMIN` capability to the container process." },
-      { id: 'C', text: "Enable `privileged: true` to bypass capability checks." },
-      { id: 'D', text: "Drop all network interfaces from the pod namespace." }
+      { id: 'A', text: "Grant full `CAP_SYS_ADMIN` capability to the container process." },
+      { id: 'B', text: "Enable `privileged: true` to bypass capability checks." },
+      { id: 'C', text: "Drop all network interfaces from the pod namespace." },
+      { id: 'D', text: "In `securityContext.capabilities`, specify `drop: [\"ALL\"]` and `add: [\"NET_BIND_SERVICE\"]`." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "In `securityContext.capabilities`, specify `drop: [\"ALL\"]` and `add: [\"NET_BIND_SERVICE\"]`. Linux capabilities break root privileges into distinct units. Best security practice mandates dropping all default capabilities (`drop: [\"ALL\"]`) and adding back only the specific granular capability required (e.g., `NET_BIND_SERVICE` to bind to port 80/443 without root).",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-capabilities-for-a-container",
@@ -261,12 +261,12 @@ export const K8S_CKAD_QUESTIONS_17 = [
     scenario: "A security compliance auditor requires strict container runtime isolation, least-privilege credential access, and defense-in-depth network policies across all namespaces. The Kubernetes application developer evaluates Linux Capabilities to harden a container by stripping all default Linux kernel capabilities and adding back only `NET_BIND_SERVICE` to bind low ports.",
     question: "Which solution properly implements these mandatory container and cluster security controls? Dropping all default Linux capabilities and granting only required privileges is under consideration.",
     options: [
-      { id: 'A', text: "In `securityContext.capabilities`, specify `drop: [\"ALL\"]` and `add: [\"NET_BIND_SERVICE\"]`." },
-      { id: 'B', text: "Grant full `CAP_SYS_ADMIN` capability to the container process." },
+      { id: 'A', text: "Drop all network interfaces from the pod namespace." },
+      { id: 'B', text: "In `securityContext.capabilities`, specify `drop: [\"ALL\"]` and `add: [\"NET_BIND_SERVICE\"]`." },
       { id: 'C', text: "Enable `privileged: true` to bypass capability checks." },
-      { id: 'D', text: "Drop all network interfaces from the pod namespace." }
+      { id: 'D', text: "Grant full `CAP_SYS_ADMIN` capability to the container process." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "In `securityContext.capabilities`, specify `drop: [\"ALL\"]` and `add: [\"NET_BIND_SERVICE\"]`. Linux capabilities break root privileges into distinct units. Best security practice mandates dropping all default capabilities (`drop: [\"ALL\"]`) and adding back only the specific granular capability required (e.g., `NET_BIND_SERVICE` to bind to port 80/443 without root).",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-capabilities-for-a-container",
@@ -283,9 +283,9 @@ export const K8S_CKAD_QUESTIONS_17 = [
     question: "Which architectural pattern or feature enables the team to modernize services with minimal disruption and low operational friction? Dropping all default Linux capabilities and granting only required privileges is under consideration.",
     options: [
       { id: 'A', text: "In `securityContext.capabilities`, specify `drop: [\"ALL\"]` and `add: [\"NET_BIND_SERVICE\"]`." },
-      { id: 'B', text: "Grant full `CAP_SYS_ADMIN` capability to the container process." },
-      { id: 'C', text: "Enable `privileged: true` to bypass capability checks." },
-      { id: 'D', text: "Drop all network interfaces from the pod namespace." }
+      { id: 'B', text: "Enable `privileged: true` to bypass capability checks." },
+      { id: 'C', text: "Drop all network interfaces from the pod namespace." },
+      { id: 'D', text: "Grant full `CAP_SYS_ADMIN` capability to the container process." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -303,12 +303,12 @@ export const K8S_CKAD_QUESTIONS_17 = [
     scenario: "An SRE team is optimizing application stability to eliminate single points of failure, streamline observability, and ensure graceful failure handling. The Kubernetes application developer evaluates Linux Capabilities to harden a container by stripping all default Linux kernel capabilities and adding back only `NET_BIND_SERVICE` to bind low ports.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees service reliability? Dropping all default Linux capabilities and granting only required privileges is under consideration.",
     options: [
-      { id: 'A', text: "In `securityContext.capabilities`, specify `drop: [\"ALL\"]` and `add: [\"NET_BIND_SERVICE\"]`." },
-      { id: 'B', text: "Grant full `CAP_SYS_ADMIN` capability to the container process." },
-      { id: 'C', text: "Enable `privileged: true` to bypass capability checks." },
-      { id: 'D', text: "Drop all network interfaces from the pod namespace." }
+      { id: 'A', text: "Grant full `CAP_SYS_ADMIN` capability to the container process." },
+      { id: 'B', text: "Drop all network interfaces from the pod namespace." },
+      { id: 'C', text: "In `securityContext.capabilities`, specify `drop: [\"ALL\"]` and `add: [\"NET_BIND_SERVICE\"]`." },
+      { id: 'D', text: "Enable `privileged: true` to bypass capability checks." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "In `securityContext.capabilities`, specify `drop: [\"ALL\"]` and `add: [\"NET_BIND_SERVICE\"]`. Linux capabilities break root privileges into distinct units. Best security practice mandates dropping all default capabilities (`drop: [\"ALL\"]`) and adding back only the specific granular capability required (e.g., `NET_BIND_SERVICE` to bind to port 80/443 without root).",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-capabilities-for-a-container",
@@ -325,8 +325,8 @@ export const K8S_CKAD_QUESTIONS_17 = [
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives? Configuring CPU and memory requests and limits for predictable pod scheduling is under consideration.",
     options: [
       { id: 'A', text: "Configure `resources.requests` with `cpu: \"500m\"`, `memory: \"512Mi\"` and `resources.limits` with `cpu: \"1\"`, `memory: \"1Gi\"`." },
-      { id: 'B', text: "Omit resource requests to let the pod consume unlimited resources on any node." },
-      { id: 'C', text: "Set CPU limit to 0 to enable infinite CPU bursts." },
+      { id: 'B', text: "Set CPU limit to 0 to enable infinite CPU bursts." },
+      { id: 'C', text: "Omit resource requests to let the pod consume unlimited resources on any node." },
       { id: 'D', text: "Set memory requests higher than memory limits." }
     ],
     correctAnswers: ['A'],
@@ -346,9 +346,9 @@ export const K8S_CKAD_QUESTIONS_17 = [
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting backend stability? Configuring CPU and memory requests and limits for predictable pod scheduling is under consideration.",
     options: [
       { id: 'A', text: "Configure `resources.requests` with `cpu: \"500m\"`, `memory: \"512Mi\"` and `resources.limits` with `cpu: \"1\"`, `memory: \"1Gi\"`." },
-      { id: 'B', text: "Omit resource requests to let the pod consume unlimited resources on any node." },
-      { id: 'C', text: "Set CPU limit to 0 to enable infinite CPU bursts." },
-      { id: 'D', text: "Set memory requests higher than memory limits." }
+      { id: 'B', text: "Set CPU limit to 0 to enable infinite CPU bursts." },
+      { id: 'C', text: "Set memory requests higher than memory limits." },
+      { id: 'D', text: "Omit resource requests to let the pod consume unlimited resources on any node." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -366,12 +366,12 @@ export const K8S_CKAD_QUESTIONS_17 = [
     scenario: "A security compliance auditor requires strict container runtime isolation, least-privilege credential access, and defense-in-depth network policies across all namespaces. The Kubernetes application developer evaluates Resource Management to ensure a web application is guaranteed 500m CPU and 512Mi memory while preventing it from consuming more than 1 CPU core and 1Gi memory.",
     question: "Which solution properly implements these mandatory container and cluster security controls? Configuring CPU and memory requests and limits for predictable pod scheduling is under consideration.",
     options: [
-      { id: 'A', text: "Configure `resources.requests` with `cpu: \"500m\"`, `memory: \"512Mi\"` and `resources.limits` with `cpu: \"1\"`, `memory: \"1Gi\"`." },
-      { id: 'B', text: "Omit resource requests to let the pod consume unlimited resources on any node." },
-      { id: 'C', text: "Set CPU limit to 0 to enable infinite CPU bursts." },
-      { id: 'D', text: "Set memory requests higher than memory limits." }
+      { id: 'A', text: "Set CPU limit to 0 to enable infinite CPU bursts." },
+      { id: 'B', text: "Configure `resources.requests` with `cpu: \"500m\"`, `memory: \"512Mi\"` and `resources.limits` with `cpu: \"1\"`, `memory: \"1Gi\"`." },
+      { id: 'C', text: "Set memory requests higher than memory limits." },
+      { id: 'D', text: "Omit resource requests to let the pod consume unlimited resources on any node." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure `resources.requests` with `cpu: \"500m\"`, `memory: \"512Mi\"` and `resources.limits` with `cpu: \"1\"`, `memory: \"1Gi\"`. `requests` determine the minimum compute resources guaranteed to the container for scheduling decisions by kube-scheduler. `limits` enforce maximum boundaries: CPU is throttled if exceeded, while exceeding memory limits leads to container termination by the OOM killer.",
     referenceUrl: "https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
@@ -387,12 +387,12 @@ export const K8S_CKAD_QUESTIONS_17 = [
     scenario: "An application development team is migrating legacy monolithic applications into containerized microservices running on Kubernetes. The Kubernetes application developer evaluates Resource Management to ensure a web application is guaranteed 500m CPU and 512Mi memory while preventing it from consuming more than 1 CPU core and 1Gi memory.",
     question: "Which architectural pattern or feature enables the team to modernize services with minimal disruption and low operational friction? Configuring CPU and memory requests and limits for predictable pod scheduling is under consideration.",
     options: [
-      { id: 'A', text: "Configure `resources.requests` with `cpu: \"500m\"`, `memory: \"512Mi\"` and `resources.limits` with `cpu: \"1\"`, `memory: \"1Gi\"`." },
-      { id: 'B', text: "Omit resource requests to let the pod consume unlimited resources on any node." },
-      { id: 'C', text: "Set CPU limit to 0 to enable infinite CPU bursts." },
-      { id: 'D', text: "Set memory requests higher than memory limits." }
+      { id: 'A', text: "Set CPU limit to 0 to enable infinite CPU bursts." },
+      { id: 'B', text: "Set memory requests higher than memory limits." },
+      { id: 'C', text: "Omit resource requests to let the pod consume unlimited resources on any node." },
+      { id: 'D', text: "Configure `resources.requests` with `cpu: \"500m\"`, `memory: \"512Mi\"` and `resources.limits` with `cpu: \"1\"`, `memory: \"1Gi\"`." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure `resources.requests` with `cpu: \"500m\"`, `memory: \"512Mi\"` and `resources.limits` with `cpu: \"1\"`, `memory: \"1Gi\"`. `requests` determine the minimum compute resources guaranteed to the container for scheduling decisions by kube-scheduler. `limits` enforce maximum boundaries: CPU is throttled if exceeded, while exceeding memory limits leads to container termination by the OOM killer.",
     referenceUrl: "https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
@@ -408,12 +408,12 @@ export const K8S_CKAD_QUESTIONS_17 = [
     scenario: "An SRE team is optimizing application stability to eliminate single points of failure, streamline observability, and ensure graceful failure handling. The Kubernetes application developer evaluates Resource Management to ensure a web application is guaranteed 500m CPU and 512Mi memory while preventing it from consuming more than 1 CPU core and 1Gi memory.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees service reliability? Configuring CPU and memory requests and limits for predictable pod scheduling is under consideration.",
     options: [
-      { id: 'A', text: "Configure `resources.requests` with `cpu: \"500m\"`, `memory: \"512Mi\"` and `resources.limits` with `cpu: \"1\"`, `memory: \"1Gi\"`." },
-      { id: 'B', text: "Omit resource requests to let the pod consume unlimited resources on any node." },
-      { id: 'C', text: "Set CPU limit to 0 to enable infinite CPU bursts." },
+      { id: 'A', text: "Set CPU limit to 0 to enable infinite CPU bursts." },
+      { id: 'B', text: "Configure `resources.requests` with `cpu: \"500m\"`, `memory: \"512Mi\"` and `resources.limits` with `cpu: \"1\"`, `memory: \"1Gi\"`." },
+      { id: 'C', text: "Omit resource requests to let the pod consume unlimited resources on any node." },
       { id: 'D', text: "Set memory requests higher than memory limits." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure `resources.requests` with `cpu: \"500m\"`, `memory: \"512Mi\"` and `resources.limits` with `cpu: \"1\"`, `memory: \"1Gi\"`. `requests` determine the minimum compute resources guaranteed to the container for scheduling decisions by kube-scheduler. `limits` enforce maximum boundaries: CPU is throttled if exceeded, while exceeding memory limits leads to container termination by the OOM killer.",
     referenceUrl: "https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
@@ -429,12 +429,12 @@ export const K8S_CKAD_QUESTIONS_17 = [
     scenario: "A cloud-native application engineering team is establishing high-availability deployment patterns and zero-downtime release safeguards for enterprise services. The Kubernetes application developer evaluates QoS Classes to configure a mission-critical billing pod so that Kubernetes assigns it the `Guaranteed` QoS class to protect it from eviction during node memory pressure.",
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives? Determining pod QoS classes based on resource requests and limits configuration is under consideration.",
     options: [
-      { id: 'A', text: "Set identical `requests` and `limits` for both CPU and memory on every container in the pod." },
-      { id: 'B', text: "Omit all resource requests and limits from the pod specification." },
+      { id: 'A', text: "Omit all resource requests and limits from the pod specification." },
+      { id: 'B', text: "Label the pod with `qos: guaranteed` in metadata.labels." },
       { id: 'C', text: "Set memory request to half of memory limit." },
-      { id: 'D', text: "Label the pod with `qos: guaranteed` in metadata.labels." }
+      { id: 'D', text: "Set identical `requests` and `limits` for both CPU and memory on every container in the pod." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Set identical `requests` and `limits` for both CPU and memory on every container in the pod. Kubernetes automatically assigns one of three QoS classes based on resources: `Guaranteed` (requests equal limits for CPU and memory across all containers), `Burstable` (requests &lt; limits), and `BestEffort` (no requests or limits set). `Guaranteed` pods are evicted last during node resource starvation.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/quality-service-pod/",
@@ -450,12 +450,12 @@ export const K8S_CKAD_QUESTIONS_17 = [
     scenario: "A high-throughput web application experiences unpredictable spikes in user transactions and requires automated, reliable scaling across Kubernetes clusters. The Kubernetes application developer evaluates QoS Classes to configure a mission-critical billing pod so that Kubernetes assigns it the `Guaranteed` QoS class to protect it from eviction during node memory pressure.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting backend stability? Determining pod QoS classes based on resource requests and limits configuration is under consideration.",
     options: [
-      { id: 'A', text: "Set identical `requests` and `limits` for both CPU and memory on every container in the pod." },
-      { id: 'B', text: "Omit all resource requests and limits from the pod specification." },
-      { id: 'C', text: "Set memory request to half of memory limit." },
-      { id: 'D', text: "Label the pod with `qos: guaranteed` in metadata.labels." }
+      { id: 'A', text: "Set memory request to half of memory limit." },
+      { id: 'B', text: "Set identical `requests` and `limits` for both CPU and memory on every container in the pod." },
+      { id: 'C', text: "Label the pod with `qos: guaranteed` in metadata.labels." },
+      { id: 'D', text: "Omit all resource requests and limits from the pod specification." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Set identical `requests` and `limits` for both CPU and memory on every container in the pod. Kubernetes automatically assigns one of three QoS classes based on resources: `Guaranteed` (requests equal limits for CPU and memory across all containers), `Burstable` (requests &lt; limits), and `BestEffort` (no requests or limits set). `Guaranteed` pods are evicted last during node resource starvation.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/quality-service-pod/",
@@ -471,12 +471,12 @@ export const K8S_CKAD_QUESTIONS_17 = [
     scenario: "A security compliance auditor requires strict container runtime isolation, least-privilege credential access, and defense-in-depth network policies across all namespaces. The Kubernetes application developer evaluates QoS Classes to configure a mission-critical billing pod so that Kubernetes assigns it the `Guaranteed` QoS class to protect it from eviction during node memory pressure.",
     question: "Which solution properly implements these mandatory container and cluster security controls? Determining pod QoS classes based on resource requests and limits configuration is under consideration.",
     options: [
-      { id: 'A', text: "Set identical `requests` and `limits` for both CPU and memory on every container in the pod." },
-      { id: 'B', text: "Omit all resource requests and limits from the pod specification." },
-      { id: 'C', text: "Set memory request to half of memory limit." },
-      { id: 'D', text: "Label the pod with `qos: guaranteed` in metadata.labels." }
+      { id: 'A', text: "Set memory request to half of memory limit." },
+      { id: 'B', text: "Label the pod with `qos: guaranteed` in metadata.labels." },
+      { id: 'C', text: "Set identical `requests` and `limits` for both CPU and memory on every container in the pod." },
+      { id: 'D', text: "Omit all resource requests and limits from the pod specification." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Set identical `requests` and `limits` for both CPU and memory on every container in the pod. Kubernetes automatically assigns one of three QoS classes based on resources: `Guaranteed` (requests equal limits for CPU and memory across all containers), `Burstable` (requests &lt; limits), and `BestEffort` (no requests or limits set). `Guaranteed` pods are evicted last during node resource starvation.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/quality-service-pod/",
@@ -492,12 +492,12 @@ export const K8S_CKAD_QUESTIONS_17 = [
     scenario: "An application development team is migrating legacy monolithic applications into containerized microservices running on Kubernetes. The Kubernetes application developer evaluates QoS Classes to configure a mission-critical billing pod so that Kubernetes assigns it the `Guaranteed` QoS class to protect it from eviction during node memory pressure.",
     question: "Which architectural pattern or feature enables the team to modernize services with minimal disruption and low operational friction? Determining pod QoS classes based on resource requests and limits configuration is under consideration.",
     options: [
-      { id: 'A', text: "Set identical `requests` and `limits` for both CPU and memory on every container in the pod." },
+      { id: 'A', text: "Set memory request to half of memory limit." },
       { id: 'B', text: "Omit all resource requests and limits from the pod specification." },
-      { id: 'C', text: "Set memory request to half of memory limit." },
-      { id: 'D', text: "Label the pod with `qos: guaranteed` in metadata.labels." }
+      { id: 'C', text: "Label the pod with `qos: guaranteed` in metadata.labels." },
+      { id: 'D', text: "Set identical `requests` and `limits` for both CPU and memory on every container in the pod." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Set identical `requests` and `limits` for both CPU and memory on every container in the pod. Kubernetes automatically assigns one of three QoS classes based on resources: `Guaranteed` (requests equal limits for CPU and memory across all containers), `Burstable` (requests &lt; limits), and `BestEffort` (no requests or limits set). `Guaranteed` pods are evicted last during node resource starvation.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/quality-service-pod/",
@@ -513,12 +513,12 @@ export const K8S_CKAD_QUESTIONS_17 = [
     scenario: "An SRE team is optimizing application stability to eliminate single points of failure, streamline observability, and ensure graceful failure handling. The Kubernetes application developer evaluates QoS Classes to configure a mission-critical billing pod so that Kubernetes assigns it the `Guaranteed` QoS class to protect it from eviction during node memory pressure.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees service reliability? Determining pod QoS classes based on resource requests and limits configuration is under consideration.",
     options: [
-      { id: 'A', text: "Set identical `requests` and `limits` for both CPU and memory on every container in the pod." },
-      { id: 'B', text: "Omit all resource requests and limits from the pod specification." },
-      { id: 'C', text: "Set memory request to half of memory limit." },
-      { id: 'D', text: "Label the pod with `qos: guaranteed` in metadata.labels." }
+      { id: 'A', text: "Omit all resource requests and limits from the pod specification." },
+      { id: 'B', text: "Set memory request to half of memory limit." },
+      { id: 'C', text: "Label the pod with `qos: guaranteed` in metadata.labels." },
+      { id: 'D', text: "Set identical `requests` and `limits` for both CPU and memory on every container in the pod." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Set identical `requests` and `limits` for both CPU and memory on every container in the pod. Kubernetes automatically assigns one of three QoS classes based on resources: `Guaranteed` (requests equal limits for CPU and memory across all containers), `Burstable` (requests &lt; limits), and `BestEffort` (no requests or limits set). `Guaranteed` pods are evicted last during node resource starvation.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/quality-service-pod/",

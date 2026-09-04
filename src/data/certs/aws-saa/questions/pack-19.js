@@ -10,9 +10,9 @@ export const AWS_SAA_QUESTIONS_19 = [
     question: "Which architecture or service configuration satisfies these disaster recovery and regional resilience requirements? Compute Savings Plans vs EC2 Instance Savings Plans is being evaluated.",
     options: [
       { id: 'A', text: "Purchase Compute Savings Plans with a 1-year or 3-year commitment." },
-      { id: 'B', text: "Purchase EC2 Instance Savings Plans for a specific instance family in us-east-1." },
-      { id: 'C', text: "Purchase Standard Reserved Instances for specific EC2 instance types." },
-      { id: 'D', text: "Rely exclusively on On-Demand instance pricing with volume discounts." }
+      { id: 'B', text: "Purchase Standard Reserved Instances for specific EC2 instance types." },
+      { id: 'C', text: "Rely exclusively on On-Demand instance pricing with volume discounts." },
+      { id: 'D', text: "Purchase EC2 Instance Savings Plans for a specific instance family in us-east-1." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -31,9 +31,9 @@ export const AWS_SAA_QUESTIONS_19 = [
     question: "Which architectural approach should the solutions architect recommend to accommodate this scale? Compute Savings Plans vs EC2 Instance Savings Plans is being evaluated.",
     options: [
       { id: 'A', text: "Purchase Compute Savings Plans with a 1-year or 3-year commitment." },
-      { id: 'B', text: "Purchase EC2 Instance Savings Plans for a specific instance family in us-east-1." },
-      { id: 'C', text: "Purchase Standard Reserved Instances for specific EC2 instance types." },
-      { id: 'D', text: "Rely exclusively on On-Demand instance pricing with volume discounts." }
+      { id: 'B', text: "Purchase Standard Reserved Instances for specific EC2 instance types." },
+      { id: 'C', text: "Rely exclusively on On-Demand instance pricing with volume discounts." },
+      { id: 'D', text: "Purchase EC2 Instance Savings Plans for a specific instance family in us-east-1." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -51,12 +51,12 @@ export const AWS_SAA_QUESTIONS_19 = [
     scenario: "A financial and healthcare organization must adhere to stringent regulatory compliance and auditing standards. Security auditors require strict enforcement of data protection, least privilege access, and automated governance. The system relies on AWS Cost Management to reduce compute spend across Amazon EC2, AWS Lambda, and AWS Fargate while maintaining flexibility to change instance families, operating systems, and AWS Regions.",
     question: "Which solution properly implements these mandatory security and governance controls? Compute Savings Plans vs EC2 Instance Savings Plans is being evaluated.",
     options: [
-      { id: 'A', text: "Purchase Compute Savings Plans with a 1-year or 3-year commitment." },
-      { id: 'B', text: "Purchase EC2 Instance Savings Plans for a specific instance family in us-east-1." },
-      { id: 'C', text: "Purchase Standard Reserved Instances for specific EC2 instance types." },
-      { id: 'D', text: "Rely exclusively on On-Demand instance pricing with volume discounts." }
+      { id: 'A', text: "Purchase Standard Reserved Instances for specific EC2 instance types." },
+      { id: 'B', text: "Rely exclusively on On-Demand instance pricing with volume discounts." },
+      { id: 'C', text: "Purchase Compute Savings Plans with a 1-year or 3-year commitment." },
+      { id: 'D', text: "Purchase EC2 Instance Savings Plans for a specific instance family in us-east-1." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Purchase Compute Savings Plans with a 1-year or 3-year commitment. Compute Savings Plans provide the greatest flexibility, automatically applying up to 66% discounts to Amazon EC2 instance usage regardless of instance family, size, OS, or AWS Region, while also applying to AWS Fargate and AWS Lambda usage. EC2 Instance Savings Plans apply only to a specific family within a single region.",
     referenceUrl: "https://docs.aws.amazon.com/savingsplans/latest/userguide/what-is-savings-plans.html",
@@ -72,12 +72,12 @@ export const AWS_SAA_QUESTIONS_19 = [
     scenario: "An enterprise is migrating enterprise workloads from on-premises data centers to AWS. The architecture must integrate existing operational processes while leveraging cloud-native managed services to minimize operational complexity. The system relies on AWS Cost Management to reduce compute spend across Amazon EC2, AWS Lambda, and AWS Fargate while maintaining flexibility to change instance families, operating systems, and AWS Regions.",
     question: "Which solution enables a robust, highly available architecture while minimizing ongoing operational overhead? Compute Savings Plans vs EC2 Instance Savings Plans is being evaluated.",
     options: [
-      { id: 'A', text: "Purchase Compute Savings Plans with a 1-year or 3-year commitment." },
-      { id: 'B', text: "Purchase EC2 Instance Savings Plans for a specific instance family in us-east-1." },
-      { id: 'C', text: "Purchase Standard Reserved Instances for specific EC2 instance types." },
-      { id: 'D', text: "Rely exclusively on On-Demand instance pricing with volume discounts." }
+      { id: 'A', text: "Rely exclusively on On-Demand instance pricing with volume discounts." },
+      { id: 'B', text: "Purchase Compute Savings Plans with a 1-year or 3-year commitment." },
+      { id: 'C', text: "Purchase EC2 Instance Savings Plans for a specific instance family in us-east-1." },
+      { id: 'D', text: "Purchase Standard Reserved Instances for specific EC2 instance types." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Purchase Compute Savings Plans with a 1-year or 3-year commitment. Compute Savings Plans provide the greatest flexibility, automatically applying up to 66% discounts to Amazon EC2 instance usage regardless of instance family, size, OS, or AWS Region, while also applying to AWS Fargate and AWS Lambda usage. EC2 Instance Savings Plans apply only to a specific family within a single region.",
     referenceUrl: "https://docs.aws.amazon.com/savingsplans/latest/userguide/what-is-savings-plans.html",
@@ -93,12 +93,12 @@ export const AWS_SAA_QUESTIONS_19 = [
     scenario: "A distributed microservices application experiences intermittent failures and resource saturation during peak operational windows. The solutions architect must eliminate single points of failure and establish automated recovery mechanisms. The system relies on AWS Cost Management to reduce compute spend across Amazon EC2, AWS Lambda, and AWS Fargate while maintaining flexibility to change instance families, operating systems, and AWS Regions.",
     question: "Which design pattern or service configuration eliminates single points of failure and provides automated recovery? Compute Savings Plans vs EC2 Instance Savings Plans is being evaluated.",
     options: [
-      { id: 'A', text: "Purchase Compute Savings Plans with a 1-year or 3-year commitment." },
+      { id: 'A', text: "Rely exclusively on On-Demand instance pricing with volume discounts." },
       { id: 'B', text: "Purchase EC2 Instance Savings Plans for a specific instance family in us-east-1." },
-      { id: 'C', text: "Purchase Standard Reserved Instances for specific EC2 instance types." },
-      { id: 'D', text: "Rely exclusively on On-Demand instance pricing with volume discounts." }
+      { id: 'C', text: "Purchase Compute Savings Plans with a 1-year or 3-year commitment." },
+      { id: 'D', text: "Purchase Standard Reserved Instances for specific EC2 instance types." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Purchase Compute Savings Plans with a 1-year or 3-year commitment. Compute Savings Plans provide the greatest flexibility, automatically applying up to 66% discounts to Amazon EC2 instance usage regardless of instance family, size, OS, or AWS Region, while also applying to AWS Fargate and AWS Lambda usage. EC2 Instance Savings Plans apply only to a specific family within a single region.",
     referenceUrl: "https://docs.aws.amazon.com/savingsplans/latest/userguide/what-is-savings-plans.html",
@@ -116,8 +116,8 @@ export const AWS_SAA_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Configure an EC2 Auto Scaling group or Spot Fleet using the `price-capacity-optimized` allocation strategy across multiple instance families." },
       { id: 'B', text: "Deploy EC2 On-Demand instances using the lowest-cost t4g instance types." },
-      { id: 'C', text: "Configure Spot Fleet with the `lowest-price` allocation strategy restricted to a single instance type in one AZ." },
-      { id: 'D', text: "Purchase 3-year All Upfront Convertible Reserved Instances." }
+      { id: 'C', text: "Purchase 3-year All Upfront Convertible Reserved Instances." },
+      { id: 'D', text: "Configure Spot Fleet with the `lowest-price` allocation strategy restricted to a single instance type in one AZ." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -135,12 +135,12 @@ export const AWS_SAA_QUESTIONS_19 = [
     scenario: "A high-volume digital platform experiences sudden, unpredictable surges in user traffic during nationwide marketing campaigns. The engineering team must ensure the architecture scales seamlessly under high throughput while maintaining low latency. The system relies on Amazon EC2 to run stateless fault-tolerant batch workloads at the lowest possible cost while minimizing Spot instance interruptions.",
     question: "Which architectural approach should the solutions architect recommend to accommodate this scale? EC2 Spot Fleet with price-capacity-optimized allocation strategy is being evaluated.",
     options: [
-      { id: 'A', text: "Configure an EC2 Auto Scaling group or Spot Fleet using the `price-capacity-optimized` allocation strategy across multiple instance families." },
-      { id: 'B', text: "Deploy EC2 On-Demand instances using the lowest-cost t4g instance types." },
-      { id: 'C', text: "Configure Spot Fleet with the `lowest-price` allocation strategy restricted to a single instance type in one AZ." },
-      { id: 'D', text: "Purchase 3-year All Upfront Convertible Reserved Instances." }
+      { id: 'A', text: "Deploy EC2 On-Demand instances using the lowest-cost t4g instance types." },
+      { id: 'B', text: "Purchase 3-year All Upfront Convertible Reserved Instances." },
+      { id: 'C', text: "Configure an EC2 Auto Scaling group or Spot Fleet using the `price-capacity-optimized` allocation strategy across multiple instance families." },
+      { id: 'D', text: "Configure Spot Fleet with the `lowest-price` allocation strategy restricted to a single instance type in one AZ." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure an EC2 Auto Scaling group or Spot Fleet using the `price-capacity-optimized` allocation strategy across multiple instance families. The `price-capacity-optimized` allocation strategy analyzes historical capacity and price data to launch Spot instances from the pools that have the lowest likelihood of interruption while still offering deep Spot discounts (up to 90%), making it ideal for resilient workloads.",
     referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-allocation-strategy.html",
@@ -156,12 +156,12 @@ export const AWS_SAA_QUESTIONS_19 = [
     scenario: "A financial and healthcare organization must adhere to stringent regulatory compliance and auditing standards. Security auditors require strict enforcement of data protection, least privilege access, and automated governance. The system relies on Amazon EC2 to run stateless fault-tolerant batch workloads at the lowest possible cost while minimizing Spot instance interruptions.",
     question: "Which solution properly implements these mandatory security and governance controls? EC2 Spot Fleet with price-capacity-optimized allocation strategy is being evaluated.",
     options: [
-      { id: 'A', text: "Configure an EC2 Auto Scaling group or Spot Fleet using the `price-capacity-optimized` allocation strategy across multiple instance families." },
+      { id: 'A', text: "Configure Spot Fleet with the `lowest-price` allocation strategy restricted to a single instance type in one AZ." },
       { id: 'B', text: "Deploy EC2 On-Demand instances using the lowest-cost t4g instance types." },
-      { id: 'C', text: "Configure Spot Fleet with the `lowest-price` allocation strategy restricted to a single instance type in one AZ." },
+      { id: 'C', text: "Configure an EC2 Auto Scaling group or Spot Fleet using the `price-capacity-optimized` allocation strategy across multiple instance families." },
       { id: 'D', text: "Purchase 3-year All Upfront Convertible Reserved Instances." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure an EC2 Auto Scaling group or Spot Fleet using the `price-capacity-optimized` allocation strategy across multiple instance families. The `price-capacity-optimized` allocation strategy analyzes historical capacity and price data to launch Spot instances from the pools that have the lowest likelihood of interruption while still offering deep Spot discounts (up to 90%), making it ideal for resilient workloads.",
     referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-allocation-strategy.html",
@@ -177,12 +177,12 @@ export const AWS_SAA_QUESTIONS_19 = [
     scenario: "An enterprise is migrating enterprise workloads from on-premises data centers to AWS. The architecture must integrate existing operational processes while leveraging cloud-native managed services to minimize operational complexity. The system relies on Amazon EC2 to run stateless fault-tolerant batch workloads at the lowest possible cost while minimizing Spot instance interruptions.",
     question: "Which solution enables a robust, highly available architecture while minimizing ongoing operational overhead? EC2 Spot Fleet with price-capacity-optimized allocation strategy is being evaluated.",
     options: [
-      { id: 'A', text: "Configure an EC2 Auto Scaling group or Spot Fleet using the `price-capacity-optimized` allocation strategy across multiple instance families." },
-      { id: 'B', text: "Deploy EC2 On-Demand instances using the lowest-cost t4g instance types." },
-      { id: 'C', text: "Configure Spot Fleet with the `lowest-price` allocation strategy restricted to a single instance type in one AZ." },
-      { id: 'D', text: "Purchase 3-year All Upfront Convertible Reserved Instances." }
+      { id: 'A', text: "Deploy EC2 On-Demand instances using the lowest-cost t4g instance types." },
+      { id: 'B', text: "Configure Spot Fleet with the `lowest-price` allocation strategy restricted to a single instance type in one AZ." },
+      { id: 'C', text: "Purchase 3-year All Upfront Convertible Reserved Instances." },
+      { id: 'D', text: "Configure an EC2 Auto Scaling group or Spot Fleet using the `price-capacity-optimized` allocation strategy across multiple instance families." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure an EC2 Auto Scaling group or Spot Fleet using the `price-capacity-optimized` allocation strategy across multiple instance families. The `price-capacity-optimized` allocation strategy analyzes historical capacity and price data to launch Spot instances from the pools that have the lowest likelihood of interruption while still offering deep Spot discounts (up to 90%), making it ideal for resilient workloads.",
     referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-allocation-strategy.html",
@@ -198,12 +198,12 @@ export const AWS_SAA_QUESTIONS_19 = [
     scenario: "A distributed microservices application experiences intermittent failures and resource saturation during peak operational windows. The solutions architect must eliminate single points of failure and establish automated recovery mechanisms. The system relies on Amazon EC2 to run stateless fault-tolerant batch workloads at the lowest possible cost while minimizing Spot instance interruptions.",
     question: "Which design pattern or service configuration eliminates single points of failure and provides automated recovery? EC2 Spot Fleet with price-capacity-optimized allocation strategy is being evaluated.",
     options: [
-      { id: 'A', text: "Configure an EC2 Auto Scaling group or Spot Fleet using the `price-capacity-optimized` allocation strategy across multiple instance families." },
-      { id: 'B', text: "Deploy EC2 On-Demand instances using the lowest-cost t4g instance types." },
+      { id: 'A', text: "Deploy EC2 On-Demand instances using the lowest-cost t4g instance types." },
+      { id: 'B', text: "Purchase 3-year All Upfront Convertible Reserved Instances." },
       { id: 'C', text: "Configure Spot Fleet with the `lowest-price` allocation strategy restricted to a single instance type in one AZ." },
-      { id: 'D', text: "Purchase 3-year All Upfront Convertible Reserved Instances." }
+      { id: 'D', text: "Configure an EC2 Auto Scaling group or Spot Fleet using the `price-capacity-optimized` allocation strategy across multiple instance families." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure an EC2 Auto Scaling group or Spot Fleet using the `price-capacity-optimized` allocation strategy across multiple instance families. The `price-capacity-optimized` allocation strategy analyzes historical capacity and price data to launch Spot instances from the pools that have the lowest likelihood of interruption while still offering deep Spot discounts (up to 90%), making it ideal for resilient workloads.",
     referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-allocation-strategy.html",
@@ -219,12 +219,12 @@ export const AWS_SAA_QUESTIONS_19 = [
     scenario: "A multinational enterprise operating mission-critical services requires a comprehensive disaster recovery and business continuity architecture. Regulatory standards dictate strict availability and failover guarantees during regional outages. The system relies on Amazon EC2 Auto Scaling to ensure baseline availability with On-Demand instances while handling elastic traffic surges with low-cost Spot instances across multiple instance types.",
     question: "Which architecture or service configuration satisfies these disaster recovery and regional resilience requirements? EC2 Auto Scaling Mixed Instances Policies with Spot and On-Demand is being evaluated.",
     options: [
-      { id: 'A', text: "Configure an Auto Scaling group with a Mixed Instances Policy specifying an On-Demand base capacity and Spot instances for the remaining capacity across multiple instance types." },
-      { id: 'B', text: "Deploy two separate Auto Scaling groups and balance traffic manually using Route 53 Weighted routing." },
+      { id: 'A', text: "Deploy two separate Auto Scaling groups and balance traffic manually using Route 53 Weighted routing." },
+      { id: 'B', text: "Deploy 100% Spot instances without On-Demand base capacity." },
       { id: 'C', text: "Deploy 100% On-Demand instances with Target Tracking scaling policies." },
-      { id: 'D', text: "Deploy 100% Spot instances without On-Demand base capacity." }
+      { id: 'D', text: "Configure an Auto Scaling group with a Mixed Instances Policy specifying an On-Demand base capacity and Spot instances for the remaining capacity across multiple instance types." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure an Auto Scaling group with a Mixed Instances Policy specifying an On-Demand base capacity and Spot instances for the remaining capacity across multiple instance types. Mixed Instances Policies in EC2 Auto Scaling allow a single Auto Scaling group to combine On-Demand and Spot instances across multiple instance families and sizes. Specifying an On-Demand base capacity ensures critical baseline workload availability, while Spot handles burst traffic at up to 90% savings.",
     referenceUrl: "https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html",
@@ -240,12 +240,12 @@ export const AWS_SAA_QUESTIONS_19 = [
     scenario: "A high-volume digital platform experiences sudden, unpredictable surges in user traffic during nationwide marketing campaigns. The engineering team must ensure the architecture scales seamlessly under high throughput while maintaining low latency. The system relies on Amazon EC2 Auto Scaling to ensure baseline availability with On-Demand instances while handling elastic traffic surges with low-cost Spot instances across multiple instance types.",
     question: "Which architectural approach should the solutions architect recommend to accommodate this scale? EC2 Auto Scaling Mixed Instances Policies with Spot and On-Demand is being evaluated.",
     options: [
-      { id: 'A', text: "Configure an Auto Scaling group with a Mixed Instances Policy specifying an On-Demand base capacity and Spot instances for the remaining capacity across multiple instance types." },
-      { id: 'B', text: "Deploy two separate Auto Scaling groups and balance traffic manually using Route 53 Weighted routing." },
-      { id: 'C', text: "Deploy 100% On-Demand instances with Target Tracking scaling policies." },
-      { id: 'D', text: "Deploy 100% Spot instances without On-Demand base capacity." }
+      { id: 'A', text: "Deploy 100% On-Demand instances with Target Tracking scaling policies." },
+      { id: 'B', text: "Deploy 100% Spot instances without On-Demand base capacity." },
+      { id: 'C', text: "Configure an Auto Scaling group with a Mixed Instances Policy specifying an On-Demand base capacity and Spot instances for the remaining capacity across multiple instance types." },
+      { id: 'D', text: "Deploy two separate Auto Scaling groups and balance traffic manually using Route 53 Weighted routing." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure an Auto Scaling group with a Mixed Instances Policy specifying an On-Demand base capacity and Spot instances for the remaining capacity across multiple instance types. Mixed Instances Policies in EC2 Auto Scaling allow a single Auto Scaling group to combine On-Demand and Spot instances across multiple instance families and sizes. Specifying an On-Demand base capacity ensures critical baseline workload availability, while Spot handles burst traffic at up to 90% savings.",
     referenceUrl: "https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html",
@@ -261,12 +261,12 @@ export const AWS_SAA_QUESTIONS_19 = [
     scenario: "A financial and healthcare organization must adhere to stringent regulatory compliance and auditing standards. Security auditors require strict enforcement of data protection, least privilege access, and automated governance. The system relies on Amazon EC2 Auto Scaling to ensure baseline availability with On-Demand instances while handling elastic traffic surges with low-cost Spot instances across multiple instance types.",
     question: "Which solution properly implements these mandatory security and governance controls? EC2 Auto Scaling Mixed Instances Policies with Spot and On-Demand is being evaluated.",
     options: [
-      { id: 'A', text: "Configure an Auto Scaling group with a Mixed Instances Policy specifying an On-Demand base capacity and Spot instances for the remaining capacity across multiple instance types." },
-      { id: 'B', text: "Deploy two separate Auto Scaling groups and balance traffic manually using Route 53 Weighted routing." },
-      { id: 'C', text: "Deploy 100% On-Demand instances with Target Tracking scaling policies." },
-      { id: 'D', text: "Deploy 100% Spot instances without On-Demand base capacity." }
+      { id: 'A', text: "Deploy two separate Auto Scaling groups and balance traffic manually using Route 53 Weighted routing." },
+      { id: 'B', text: "Deploy 100% On-Demand instances with Target Tracking scaling policies." },
+      { id: 'C', text: "Deploy 100% Spot instances without On-Demand base capacity." },
+      { id: 'D', text: "Configure an Auto Scaling group with a Mixed Instances Policy specifying an On-Demand base capacity and Spot instances for the remaining capacity across multiple instance types." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure an Auto Scaling group with a Mixed Instances Policy specifying an On-Demand base capacity and Spot instances for the remaining capacity across multiple instance types. Mixed Instances Policies in EC2 Auto Scaling allow a single Auto Scaling group to combine On-Demand and Spot instances across multiple instance families and sizes. Specifying an On-Demand base capacity ensures critical baseline workload availability, while Spot handles burst traffic at up to 90% savings.",
     referenceUrl: "https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html",
@@ -283,9 +283,9 @@ export const AWS_SAA_QUESTIONS_19 = [
     question: "Which solution enables a robust, highly available architecture while minimizing ongoing operational overhead? EC2 Auto Scaling Mixed Instances Policies with Spot and On-Demand is being evaluated.",
     options: [
       { id: 'A', text: "Configure an Auto Scaling group with a Mixed Instances Policy specifying an On-Demand base capacity and Spot instances for the remaining capacity across multiple instance types." },
-      { id: 'B', text: "Deploy two separate Auto Scaling groups and balance traffic manually using Route 53 Weighted routing." },
-      { id: 'C', text: "Deploy 100% On-Demand instances with Target Tracking scaling policies." },
-      { id: 'D', text: "Deploy 100% Spot instances without On-Demand base capacity." }
+      { id: 'B', text: "Deploy 100% On-Demand instances with Target Tracking scaling policies." },
+      { id: 'C', text: "Deploy 100% Spot instances without On-Demand base capacity." },
+      { id: 'D', text: "Deploy two separate Auto Scaling groups and balance traffic manually using Route 53 Weighted routing." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -303,12 +303,12 @@ export const AWS_SAA_QUESTIONS_19 = [
     scenario: "A distributed microservices application experiences intermittent failures and resource saturation during peak operational windows. The solutions architect must eliminate single points of failure and establish automated recovery mechanisms. The system relies on Amazon EC2 Auto Scaling to ensure baseline availability with On-Demand instances while handling elastic traffic surges with low-cost Spot instances across multiple instance types.",
     question: "Which design pattern or service configuration eliminates single points of failure and provides automated recovery? EC2 Auto Scaling Mixed Instances Policies with Spot and On-Demand is being evaluated.",
     options: [
-      { id: 'A', text: "Configure an Auto Scaling group with a Mixed Instances Policy specifying an On-Demand base capacity and Spot instances for the remaining capacity across multiple instance types." },
-      { id: 'B', text: "Deploy two separate Auto Scaling groups and balance traffic manually using Route 53 Weighted routing." },
-      { id: 'C', text: "Deploy 100% On-Demand instances with Target Tracking scaling policies." },
-      { id: 'D', text: "Deploy 100% Spot instances without On-Demand base capacity." }
+      { id: 'A', text: "Deploy 100% Spot instances without On-Demand base capacity." },
+      { id: 'B', text: "Configure an Auto Scaling group with a Mixed Instances Policy specifying an On-Demand base capacity and Spot instances for the remaining capacity across multiple instance types." },
+      { id: 'C', text: "Deploy two separate Auto Scaling groups and balance traffic manually using Route 53 Weighted routing." },
+      { id: 'D', text: "Deploy 100% On-Demand instances with Target Tracking scaling policies." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure an Auto Scaling group with a Mixed Instances Policy specifying an On-Demand base capacity and Spot instances for the remaining capacity across multiple instance types. Mixed Instances Policies in EC2 Auto Scaling allow a single Auto Scaling group to combine On-Demand and Spot instances across multiple instance families and sizes. Specifying an On-Demand base capacity ensures critical baseline workload availability, while Spot handles burst traffic at up to 90% savings.",
     referenceUrl: "https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html",
@@ -324,12 +324,12 @@ export const AWS_SAA_QUESTIONS_19 = [
     scenario: "A multinational enterprise operating mission-critical services requires a comprehensive disaster recovery and business continuity architecture. Regulatory standards dictate strict availability and failover guarantees during regional outages. The system relies on Amazon EC2 to reduce compute costs by 20% while improving compute performance for containerized Python and Go microservices.",
     question: "Which architecture or service configuration satisfies these disaster recovery and regional resilience requirements? AWS Graviton3 processor-based instance families is being evaluated.",
     options: [
-      { id: 'A', text: "Migrate workloads from x86 instance families (e.g. c6i/m6i) to AWS Graviton3 arm64 instance families (e.g. c7g/m7g)." },
-      { id: 'B', text: "Overclock existing x86 instances using EC2 detailed monitoring." },
-      { id: 'C', text: "Switch instance storage from EBS gp3 to EBS io2 Block Express." },
-      { id: 'D', text: "Migrate workloads from containerized ECS tasks to standalone bare-metal EC2 instances." }
+      { id: 'A', text: "Overclock existing x86 instances using EC2 detailed monitoring." },
+      { id: 'B', text: "Switch instance storage from EBS gp3 to EBS io2 Block Express." },
+      { id: 'C', text: "Migrate workloads from containerized ECS tasks to standalone bare-metal EC2 instances." },
+      { id: 'D', text: "Migrate workloads from x86 instance families (e.g. c6i/m6i) to AWS Graviton3 arm64 instance families (e.g. c7g/m7g)." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Migrate workloads from x86 instance families (e.g. c6i/m6i) to AWS Graviton3 arm64 instance families (e.g. c7g/m7g). AWS Graviton3 processors (custom ARM-based silicon developed by AWS) deliver up to 25% better compute performance and up to 20% lower cost compared to comparable current-generation x86-based instances, delivering the best price-performance ratio in Amazon EC2 for modern applications.",
     referenceUrl: "https://aws.amazon.com/ec2/graviton/",
@@ -345,12 +345,12 @@ export const AWS_SAA_QUESTIONS_19 = [
     scenario: "A high-volume digital platform experiences sudden, unpredictable surges in user traffic during nationwide marketing campaigns. The engineering team must ensure the architecture scales seamlessly under high throughput while maintaining low latency. The system relies on Amazon EC2 to reduce compute costs by 20% while improving compute performance for containerized Python and Go microservices.",
     question: "Which architectural approach should the solutions architect recommend to accommodate this scale? AWS Graviton3 processor-based instance families is being evaluated.",
     options: [
-      { id: 'A', text: "Migrate workloads from x86 instance families (e.g. c6i/m6i) to AWS Graviton3 arm64 instance families (e.g. c7g/m7g)." },
-      { id: 'B', text: "Overclock existing x86 instances using EC2 detailed monitoring." },
+      { id: 'A', text: "Migrate workloads from containerized ECS tasks to standalone bare-metal EC2 instances." },
+      { id: 'B', text: "Migrate workloads from x86 instance families (e.g. c6i/m6i) to AWS Graviton3 arm64 instance families (e.g. c7g/m7g)." },
       { id: 'C', text: "Switch instance storage from EBS gp3 to EBS io2 Block Express." },
-      { id: 'D', text: "Migrate workloads from containerized ECS tasks to standalone bare-metal EC2 instances." }
+      { id: 'D', text: "Overclock existing x86 instances using EC2 detailed monitoring." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Migrate workloads from x86 instance families (e.g. c6i/m6i) to AWS Graviton3 arm64 instance families (e.g. c7g/m7g). AWS Graviton3 processors (custom ARM-based silicon developed by AWS) deliver up to 25% better compute performance and up to 20% lower cost compared to comparable current-generation x86-based instances, delivering the best price-performance ratio in Amazon EC2 for modern applications.",
     referenceUrl: "https://aws.amazon.com/ec2/graviton/",
@@ -366,12 +366,12 @@ export const AWS_SAA_QUESTIONS_19 = [
     scenario: "A financial and healthcare organization must adhere to stringent regulatory compliance and auditing standards. Security auditors require strict enforcement of data protection, least privilege access, and automated governance. The system relies on Amazon EC2 to reduce compute costs by 20% while improving compute performance for containerized Python and Go microservices.",
     question: "Which solution properly implements these mandatory security and governance controls? AWS Graviton3 processor-based instance families is being evaluated.",
     options: [
-      { id: 'A', text: "Migrate workloads from x86 instance families (e.g. c6i/m6i) to AWS Graviton3 arm64 instance families (e.g. c7g/m7g)." },
-      { id: 'B', text: "Overclock existing x86 instances using EC2 detailed monitoring." },
-      { id: 'C', text: "Switch instance storage from EBS gp3 to EBS io2 Block Express." },
-      { id: 'D', text: "Migrate workloads from containerized ECS tasks to standalone bare-metal EC2 instances." }
+      { id: 'A', text: "Overclock existing x86 instances using EC2 detailed monitoring." },
+      { id: 'B', text: "Migrate workloads from containerized ECS tasks to standalone bare-metal EC2 instances." },
+      { id: 'C', text: "Migrate workloads from x86 instance families (e.g. c6i/m6i) to AWS Graviton3 arm64 instance families (e.g. c7g/m7g)." },
+      { id: 'D', text: "Switch instance storage from EBS gp3 to EBS io2 Block Express." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Migrate workloads from x86 instance families (e.g. c6i/m6i) to AWS Graviton3 arm64 instance families (e.g. c7g/m7g). AWS Graviton3 processors (custom ARM-based silicon developed by AWS) deliver up to 25% better compute performance and up to 20% lower cost compared to comparable current-generation x86-based instances, delivering the best price-performance ratio in Amazon EC2 for modern applications.",
     referenceUrl: "https://aws.amazon.com/ec2/graviton/",
@@ -388,8 +388,8 @@ export const AWS_SAA_QUESTIONS_19 = [
     question: "Which solution enables a robust, highly available architecture while minimizing ongoing operational overhead? AWS Graviton3 processor-based instance families is being evaluated.",
     options: [
       { id: 'A', text: "Migrate workloads from x86 instance families (e.g. c6i/m6i) to AWS Graviton3 arm64 instance families (e.g. c7g/m7g)." },
-      { id: 'B', text: "Overclock existing x86 instances using EC2 detailed monitoring." },
-      { id: 'C', text: "Switch instance storage from EBS gp3 to EBS io2 Block Express." },
+      { id: 'B', text: "Switch instance storage from EBS gp3 to EBS io2 Block Express." },
+      { id: 'C', text: "Overclock existing x86 instances using EC2 detailed monitoring." },
       { id: 'D', text: "Migrate workloads from containerized ECS tasks to standalone bare-metal EC2 instances." }
     ],
     correctAnswers: ['A'],
@@ -408,12 +408,12 @@ export const AWS_SAA_QUESTIONS_19 = [
     scenario: "A distributed microservices application experiences intermittent failures and resource saturation during peak operational windows. The solutions architect must eliminate single points of failure and establish automated recovery mechanisms. The system relies on Amazon EC2 to reduce compute costs by 20% while improving compute performance for containerized Python and Go microservices.",
     question: "Which design pattern or service configuration eliminates single points of failure and provides automated recovery? AWS Graviton3 processor-based instance families is being evaluated.",
     options: [
-      { id: 'A', text: "Migrate workloads from x86 instance families (e.g. c6i/m6i) to AWS Graviton3 arm64 instance families (e.g. c7g/m7g)." },
-      { id: 'B', text: "Overclock existing x86 instances using EC2 detailed monitoring." },
-      { id: 'C', text: "Switch instance storage from EBS gp3 to EBS io2 Block Express." },
-      { id: 'D', text: "Migrate workloads from containerized ECS tasks to standalone bare-metal EC2 instances." }
+      { id: 'A', text: "Migrate workloads from containerized ECS tasks to standalone bare-metal EC2 instances." },
+      { id: 'B', text: "Switch instance storage from EBS gp3 to EBS io2 Block Express." },
+      { id: 'C', text: "Migrate workloads from x86 instance families (e.g. c6i/m6i) to AWS Graviton3 arm64 instance families (e.g. c7g/m7g)." },
+      { id: 'D', text: "Overclock existing x86 instances using EC2 detailed monitoring." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Migrate workloads from x86 instance families (e.g. c6i/m6i) to AWS Graviton3 arm64 instance families (e.g. c7g/m7g). AWS Graviton3 processors (custom ARM-based silicon developed by AWS) deliver up to 25% better compute performance and up to 20% lower cost compared to comparable current-generation x86-based instances, delivering the best price-performance ratio in Amazon EC2 for modern applications.",
     referenceUrl: "https://aws.amazon.com/ec2/graviton/",
@@ -429,12 +429,12 @@ export const AWS_SAA_QUESTIONS_19 = [
     scenario: "A multinational enterprise operating mission-critical services requires a comprehensive disaster recovery and business continuity architecture. Regulatory standards dictate strict availability and failover guarantees during regional outages. The system relies on Amazon S3 to automatically reduce storage costs for data with unknown or unpredictable access patterns without incurring retrieval fees or operational lifecycle management.",
     question: "Which architecture or service configuration satisfies these disaster recovery and regional resilience requirements? Amazon S3 Intelligent-Tiering with Archive Access tiers is being evaluated.",
     options: [
-      { id: 'A', text: "Store objects in Amazon S3 Intelligent-Tiering and activate the Archive Access and Deep Archive Access tiers." },
-      { id: 'B', text: "Create an S3 Lifecycle rule transitioning all objects to S3 Glacier Flexible Retrieval after 30 days." },
-      { id: 'C', text: "Store all objects in Amazon S3 One Zone-Infrequent Access (One Zone-IA)." },
+      { id: 'A', text: "Create an S3 Lifecycle rule transitioning all objects to S3 Glacier Flexible Retrieval after 30 days." },
+      { id: 'B', text: "Store all objects in Amazon S3 One Zone-Infrequent Access (One Zone-IA)." },
+      { id: 'C', text: "Store objects in Amazon S3 Intelligent-Tiering and activate the Archive Access and Deep Archive Access tiers." },
       { id: 'D', text: "Configure AWS Storage Gateway to cache all files locally on on-premises storage arrays." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Store objects in Amazon S3 Intelligent-Tiering and activate the Archive Access and Deep Archive Access tiers. S3 Intelligent-Tiering automatically monitors access patterns and moves objects between access tiers (Frequent, Infrequent, Archive Instant, Archive, Deep Archive) without operational overhead or retrieval fees, delivering maximum cost optimization for data with changing or unknown access frequencies.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/intelligent-tiering.html",
@@ -450,12 +450,12 @@ export const AWS_SAA_QUESTIONS_19 = [
     scenario: "A high-volume digital platform experiences sudden, unpredictable surges in user traffic during nationwide marketing campaigns. The engineering team must ensure the architecture scales seamlessly under high throughput while maintaining low latency. The system relies on Amazon S3 to automatically reduce storage costs for data with unknown or unpredictable access patterns without incurring retrieval fees or operational lifecycle management.",
     question: "Which architectural approach should the solutions architect recommend to accommodate this scale? Amazon S3 Intelligent-Tiering with Archive Access tiers is being evaluated.",
     options: [
-      { id: 'A', text: "Store objects in Amazon S3 Intelligent-Tiering and activate the Archive Access and Deep Archive Access tiers." },
-      { id: 'B', text: "Create an S3 Lifecycle rule transitioning all objects to S3 Glacier Flexible Retrieval after 30 days." },
-      { id: 'C', text: "Store all objects in Amazon S3 One Zone-Infrequent Access (One Zone-IA)." },
-      { id: 'D', text: "Configure AWS Storage Gateway to cache all files locally on on-premises storage arrays." }
+      { id: 'A', text: "Configure AWS Storage Gateway to cache all files locally on on-premises storage arrays." },
+      { id: 'B', text: "Store all objects in Amazon S3 One Zone-Infrequent Access (One Zone-IA)." },
+      { id: 'C', text: "Store objects in Amazon S3 Intelligent-Tiering and activate the Archive Access and Deep Archive Access tiers." },
+      { id: 'D', text: "Create an S3 Lifecycle rule transitioning all objects to S3 Glacier Flexible Retrieval after 30 days." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Store objects in Amazon S3 Intelligent-Tiering and activate the Archive Access and Deep Archive Access tiers. S3 Intelligent-Tiering automatically monitors access patterns and moves objects between access tiers (Frequent, Infrequent, Archive Instant, Archive, Deep Archive) without operational overhead or retrieval fees, delivering maximum cost optimization for data with changing or unknown access frequencies.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/intelligent-tiering.html",
@@ -471,12 +471,12 @@ export const AWS_SAA_QUESTIONS_19 = [
     scenario: "A financial and healthcare organization must adhere to stringent regulatory compliance and auditing standards. Security auditors require strict enforcement of data protection, least privilege access, and automated governance. The system relies on Amazon S3 to automatically reduce storage costs for data with unknown or unpredictable access patterns without incurring retrieval fees or operational lifecycle management.",
     question: "Which solution properly implements these mandatory security and governance controls? Amazon S3 Intelligent-Tiering with Archive Access tiers is being evaluated.",
     options: [
-      { id: 'A', text: "Store objects in Amazon S3 Intelligent-Tiering and activate the Archive Access and Deep Archive Access tiers." },
-      { id: 'B', text: "Create an S3 Lifecycle rule transitioning all objects to S3 Glacier Flexible Retrieval after 30 days." },
-      { id: 'C', text: "Store all objects in Amazon S3 One Zone-Infrequent Access (One Zone-IA)." },
-      { id: 'D', text: "Configure AWS Storage Gateway to cache all files locally on on-premises storage arrays." }
+      { id: 'A', text: "Configure AWS Storage Gateway to cache all files locally on on-premises storage arrays." },
+      { id: 'B', text: "Store objects in Amazon S3 Intelligent-Tiering and activate the Archive Access and Deep Archive Access tiers." },
+      { id: 'C', text: "Create an S3 Lifecycle rule transitioning all objects to S3 Glacier Flexible Retrieval after 30 days." },
+      { id: 'D', text: "Store all objects in Amazon S3 One Zone-Infrequent Access (One Zone-IA)." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Store objects in Amazon S3 Intelligent-Tiering and activate the Archive Access and Deep Archive Access tiers. S3 Intelligent-Tiering automatically monitors access patterns and moves objects between access tiers (Frequent, Infrequent, Archive Instant, Archive, Deep Archive) without operational overhead or retrieval fees, delivering maximum cost optimization for data with changing or unknown access frequencies.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/intelligent-tiering.html",
@@ -492,12 +492,12 @@ export const AWS_SAA_QUESTIONS_19 = [
     scenario: "An enterprise is migrating enterprise workloads from on-premises data centers to AWS. The architecture must integrate existing operational processes while leveraging cloud-native managed services to minimize operational complexity. The system relies on Amazon S3 to automatically reduce storage costs for data with unknown or unpredictable access patterns without incurring retrieval fees or operational lifecycle management.",
     question: "Which solution enables a robust, highly available architecture while minimizing ongoing operational overhead? Amazon S3 Intelligent-Tiering with Archive Access tiers is being evaluated.",
     options: [
-      { id: 'A', text: "Store objects in Amazon S3 Intelligent-Tiering and activate the Archive Access and Deep Archive Access tiers." },
+      { id: 'A', text: "Configure AWS Storage Gateway to cache all files locally on on-premises storage arrays." },
       { id: 'B', text: "Create an S3 Lifecycle rule transitioning all objects to S3 Glacier Flexible Retrieval after 30 days." },
       { id: 'C', text: "Store all objects in Amazon S3 One Zone-Infrequent Access (One Zone-IA)." },
-      { id: 'D', text: "Configure AWS Storage Gateway to cache all files locally on on-premises storage arrays." }
+      { id: 'D', text: "Store objects in Amazon S3 Intelligent-Tiering and activate the Archive Access and Deep Archive Access tiers." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Store objects in Amazon S3 Intelligent-Tiering and activate the Archive Access and Deep Archive Access tiers. S3 Intelligent-Tiering automatically monitors access patterns and moves objects between access tiers (Frequent, Infrequent, Archive Instant, Archive, Deep Archive) without operational overhead or retrieval fees, delivering maximum cost optimization for data with changing or unknown access frequencies.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/intelligent-tiering.html",
@@ -513,12 +513,12 @@ export const AWS_SAA_QUESTIONS_19 = [
     scenario: "A distributed microservices application experiences intermittent failures and resource saturation during peak operational windows. The solutions architect must eliminate single points of failure and establish automated recovery mechanisms. The system relies on Amazon S3 to automatically reduce storage costs for data with unknown or unpredictable access patterns without incurring retrieval fees or operational lifecycle management.",
     question: "Which design pattern or service configuration eliminates single points of failure and provides automated recovery? Amazon S3 Intelligent-Tiering with Archive Access tiers is being evaluated.",
     options: [
-      { id: 'A', text: "Store objects in Amazon S3 Intelligent-Tiering and activate the Archive Access and Deep Archive Access tiers." },
+      { id: 'A', text: "Store all objects in Amazon S3 One Zone-Infrequent Access (One Zone-IA)." },
       { id: 'B', text: "Create an S3 Lifecycle rule transitioning all objects to S3 Glacier Flexible Retrieval after 30 days." },
-      { id: 'C', text: "Store all objects in Amazon S3 One Zone-Infrequent Access (One Zone-IA)." },
+      { id: 'C', text: "Store objects in Amazon S3 Intelligent-Tiering and activate the Archive Access and Deep Archive Access tiers." },
       { id: 'D', text: "Configure AWS Storage Gateway to cache all files locally on on-premises storage arrays." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Store objects in Amazon S3 Intelligent-Tiering and activate the Archive Access and Deep Archive Access tiers. S3 Intelligent-Tiering automatically monitors access patterns and moves objects between access tiers (Frequent, Infrequent, Archive Instant, Archive, Deep Archive) without operational overhead or retrieval fees, delivering maximum cost optimization for data with changing or unknown access frequencies.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/intelligent-tiering.html",

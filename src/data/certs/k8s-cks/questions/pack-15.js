@@ -11,8 +11,8 @@ export const K8S_CKS_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Set `allowPrivilegeEscalation: false` in the container `securityContext`." },
       { id: 'B', text: "Set `allowPrivilegeEscalation: true`." },
-      { id: 'C', text: "Run the container as root to bypass escalation checks." },
-      { id: 'D', text: "Grant full sudo capabilities to the container process." }
+      { id: 'C', text: "Grant full sudo capabilities to the container process." },
+      { id: 'D', text: "Run the container as root to bypass escalation checks." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -30,12 +30,12 @@ export const K8S_CKS_QUESTIONS_15 = [
     scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer evaluates Privilege Escalation to prevent child processes inside a container from gaining more privileges than their parent process via setuid or setgid binaries.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks? Configuring allowPrivilegeEscalation: false to block setuid binaries is under consideration.",
     options: [
-      { id: 'A', text: "Set `allowPrivilegeEscalation: false` in the container `securityContext`." },
-      { id: 'B', text: "Set `allowPrivilegeEscalation: true`." },
-      { id: 'C', text: "Run the container as root to bypass escalation checks." },
-      { id: 'D', text: "Grant full sudo capabilities to the container process." }
+      { id: 'A', text: "Run the container as root to bypass escalation checks." },
+      { id: 'B', text: "Set `allowPrivilegeEscalation: false` in the container `securityContext`." },
+      { id: 'C', text: "Grant full sudo capabilities to the container process." },
+      { id: 'D', text: "Set `allowPrivilegeEscalation: true`." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Set `allowPrivilegeEscalation: false` in the container `securityContext`. The `allowPrivilegeEscalation` control governs whether a process can gain more privileges than its parent. Setting it to `false` sets the `no_new_privs` flag on the container process in the Linux kernel, rendering setuid binaries (like `sudo` or `suid` binaries) ineffective.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/security-context/",
@@ -51,12 +51,12 @@ export const K8S_CKS_QUESTIONS_15 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer evaluates Privilege Escalation to prevent child processes inside a container from gaining more privileges than their parent process via setuid or setgid binaries.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls? Configuring allowPrivilegeEscalation: false to block setuid binaries is under consideration.",
     options: [
-      { id: 'A', text: "Set `allowPrivilegeEscalation: false` in the container `securityContext`." },
-      { id: 'B', text: "Set `allowPrivilegeEscalation: true`." },
-      { id: 'C', text: "Run the container as root to bypass escalation checks." },
-      { id: 'D', text: "Grant full sudo capabilities to the container process." }
+      { id: 'A', text: "Run the container as root to bypass escalation checks." },
+      { id: 'B', text: "Set `allowPrivilegeEscalation: false` in the container `securityContext`." },
+      { id: 'C', text: "Grant full sudo capabilities to the container process." },
+      { id: 'D', text: "Set `allowPrivilegeEscalation: true`." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Set `allowPrivilegeEscalation: false` in the container `securityContext`. The `allowPrivilegeEscalation` control governs whether a process can gain more privileges than its parent. Setting it to `false` sets the `no_new_privs` flag on the container process in the Linux kernel, rendering setuid binaries (like `sudo` or `suid` binaries) ineffective.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/security-context/",
@@ -72,12 +72,12 @@ export const K8S_CKS_QUESTIONS_15 = [
     scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer evaluates Privilege Escalation to prevent child processes inside a container from gaining more privileges than their parent process via setuid or setgid binaries.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization? Configuring allowPrivilegeEscalation: false to block setuid binaries is under consideration.",
     options: [
-      { id: 'A', text: "Set `allowPrivilegeEscalation: false` in the container `securityContext`." },
-      { id: 'B', text: "Set `allowPrivilegeEscalation: true`." },
-      { id: 'C', text: "Run the container as root to bypass escalation checks." },
-      { id: 'D', text: "Grant full sudo capabilities to the container process." }
+      { id: 'A', text: "Run the container as root to bypass escalation checks." },
+      { id: 'B', text: "Grant full sudo capabilities to the container process." },
+      { id: 'C', text: "Set `allowPrivilegeEscalation: false` in the container `securityContext`." },
+      { id: 'D', text: "Set `allowPrivilegeEscalation: true`." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Set `allowPrivilegeEscalation: false` in the container `securityContext`. The `allowPrivilegeEscalation` control governs whether a process can gain more privileges than its parent. Setting it to `false` sets the `no_new_privs` flag on the container process in the Linux kernel, rendering setuid binaries (like `sudo` or `suid` binaries) ineffective.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/security-context/",
@@ -94,9 +94,9 @@ export const K8S_CKS_QUESTIONS_15 = [
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection? Configuring allowPrivilegeEscalation: false to block setuid binaries is under consideration.",
     options: [
       { id: 'A', text: "Set `allowPrivilegeEscalation: false` in the container `securityContext`." },
-      { id: 'B', text: "Set `allowPrivilegeEscalation: true`." },
+      { id: 'B', text: "Grant full sudo capabilities to the container process." },
       { id: 'C', text: "Run the container as root to bypass escalation checks." },
-      { id: 'D', text: "Grant full sudo capabilities to the container process." }
+      { id: 'D', text: "Set `allowPrivilegeEscalation: true`." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -114,12 +114,12 @@ export const K8S_CKS_QUESTIONS_15 = [
     scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer evaluates Token Protection to protect microservices that do not communicate with the Kubernetes API from having their ServiceAccount credentials stolen by an attacker.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives? Setting automountServiceAccountToken: false on ServiceAccounts and pods is under consideration.",
     options: [
-      { id: 'A', text: "Set `automountServiceAccountToken: false` on the pod spec or the associated ServiceAccount." },
-      { id: 'B', text: "Allow all pods to mount the default ServiceAccount token automatically." },
-      { id: 'C', text: "Grant cluster-admin permissions to the default ServiceAccount in all namespaces." },
-      { id: 'D', text: "Hardcode the token into a public GitHub repository." }
+      { id: 'A', text: "Grant cluster-admin permissions to the default ServiceAccount in all namespaces." },
+      { id: 'B', text: "Hardcode the token into a public GitHub repository." },
+      { id: 'C', text: "Set `automountServiceAccountToken: false` on the pod spec or the associated ServiceAccount." },
+      { id: 'D', text: "Allow all pods to mount the default ServiceAccount token automatically." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Set `automountServiceAccountToken: false` on the pod spec or the associated ServiceAccount. By default, the kubelet automatically mounts the namespace's default ServiceAccount token into `/var/run/secrets/kubernetes.io/serviceaccount/token`. Setting `automountServiceAccountToken: false` eliminates the credential from the container filesystem entirely, mitigating lateral movement attacks.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/",
@@ -135,12 +135,12 @@ export const K8S_CKS_QUESTIONS_15 = [
     scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer evaluates Token Protection to protect microservices that do not communicate with the Kubernetes API from having their ServiceAccount credentials stolen by an attacker.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks? Setting automountServiceAccountToken: false on ServiceAccounts and pods is under consideration.",
     options: [
-      { id: 'A', text: "Set `automountServiceAccountToken: false` on the pod spec or the associated ServiceAccount." },
+      { id: 'A', text: "Grant cluster-admin permissions to the default ServiceAccount in all namespaces." },
       { id: 'B', text: "Allow all pods to mount the default ServiceAccount token automatically." },
-      { id: 'C', text: "Grant cluster-admin permissions to the default ServiceAccount in all namespaces." },
-      { id: 'D', text: "Hardcode the token into a public GitHub repository." }
+      { id: 'C', text: "Hardcode the token into a public GitHub repository." },
+      { id: 'D', text: "Set `automountServiceAccountToken: false` on the pod spec or the associated ServiceAccount." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Set `automountServiceAccountToken: false` on the pod spec or the associated ServiceAccount. By default, the kubelet automatically mounts the namespace's default ServiceAccount token into `/var/run/secrets/kubernetes.io/serviceaccount/token`. Setting `automountServiceAccountToken: false` eliminates the credential from the container filesystem entirely, mitigating lateral movement attacks.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/",
@@ -156,12 +156,12 @@ export const K8S_CKS_QUESTIONS_15 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer evaluates Token Protection to protect microservices that do not communicate with the Kubernetes API from having their ServiceAccount credentials stolen by an attacker.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls? Setting automountServiceAccountToken: false on ServiceAccounts and pods is under consideration.",
     options: [
-      { id: 'A', text: "Set `automountServiceAccountToken: false` on the pod spec or the associated ServiceAccount." },
-      { id: 'B', text: "Allow all pods to mount the default ServiceAccount token automatically." },
-      { id: 'C', text: "Grant cluster-admin permissions to the default ServiceAccount in all namespaces." },
-      { id: 'D', text: "Hardcode the token into a public GitHub repository." }
+      { id: 'A', text: "Grant cluster-admin permissions to the default ServiceAccount in all namespaces." },
+      { id: 'B', text: "Hardcode the token into a public GitHub repository." },
+      { id: 'C', text: "Allow all pods to mount the default ServiceAccount token automatically." },
+      { id: 'D', text: "Set `automountServiceAccountToken: false` on the pod spec or the associated ServiceAccount." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Set `automountServiceAccountToken: false` on the pod spec or the associated ServiceAccount. By default, the kubelet automatically mounts the namespace's default ServiceAccount token into `/var/run/secrets/kubernetes.io/serviceaccount/token`. Setting `automountServiceAccountToken: false` eliminates the credential from the container filesystem entirely, mitigating lateral movement attacks.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/",
@@ -177,12 +177,12 @@ export const K8S_CKS_QUESTIONS_15 = [
     scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer evaluates Token Protection to protect microservices that do not communicate with the Kubernetes API from having their ServiceAccount credentials stolen by an attacker.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization? Setting automountServiceAccountToken: false on ServiceAccounts and pods is under consideration.",
     options: [
-      { id: 'A', text: "Set `automountServiceAccountToken: false` on the pod spec or the associated ServiceAccount." },
-      { id: 'B', text: "Allow all pods to mount the default ServiceAccount token automatically." },
-      { id: 'C', text: "Grant cluster-admin permissions to the default ServiceAccount in all namespaces." },
+      { id: 'A', text: "Grant cluster-admin permissions to the default ServiceAccount in all namespaces." },
+      { id: 'B', text: "Set `automountServiceAccountToken: false` on the pod spec or the associated ServiceAccount." },
+      { id: 'C', text: "Allow all pods to mount the default ServiceAccount token automatically." },
       { id: 'D', text: "Hardcode the token into a public GitHub repository." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Set `automountServiceAccountToken: false` on the pod spec or the associated ServiceAccount. By default, the kubelet automatically mounts the namespace's default ServiceAccount token into `/var/run/secrets/kubernetes.io/serviceaccount/token`. Setting `automountServiceAccountToken: false` eliminates the credential from the container filesystem entirely, mitigating lateral movement attacks.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/",
@@ -198,12 +198,12 @@ export const K8S_CKS_QUESTIONS_15 = [
     scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer evaluates Token Protection to protect microservices that do not communicate with the Kubernetes API from having their ServiceAccount credentials stolen by an attacker.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection? Setting automountServiceAccountToken: false on ServiceAccounts and pods is under consideration.",
     options: [
-      { id: 'A', text: "Set `automountServiceAccountToken: false` on the pod spec or the associated ServiceAccount." },
-      { id: 'B', text: "Allow all pods to mount the default ServiceAccount token automatically." },
-      { id: 'C', text: "Grant cluster-admin permissions to the default ServiceAccount in all namespaces." },
-      { id: 'D', text: "Hardcode the token into a public GitHub repository." }
+      { id: 'A', text: "Allow all pods to mount the default ServiceAccount token automatically." },
+      { id: 'B', text: "Grant cluster-admin permissions to the default ServiceAccount in all namespaces." },
+      { id: 'C', text: "Hardcode the token into a public GitHub repository." },
+      { id: 'D', text: "Set `automountServiceAccountToken: false` on the pod spec or the associated ServiceAccount." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Set `automountServiceAccountToken: false` on the pod spec or the associated ServiceAccount. By default, the kubelet automatically mounts the namespace's default ServiceAccount token into `/var/run/secrets/kubernetes.io/serviceaccount/token`. Setting `automountServiceAccountToken: false` eliminates the credential from the container filesystem entirely, mitigating lateral movement attacks.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/",
@@ -219,12 +219,12 @@ export const K8S_CKS_QUESTIONS_15 = [
     scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer evaluates Service Mesh mTLS to ensure all inter-service network communications across microservices are encrypted and mutually authenticated without modifying application code.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives? Mutual TLS authentication and encryption with Istio or Linkerd is under consideration.",
     options: [
-      { id: 'A', text: "Deploy a service mesh (such as Istio or Linkerd) and configure strict mutual TLS (`STRICT` mTLS) policies across all namespaces." },
-      { id: 'B', text: "Transmit all traffic in plaintext HTTP over the internal cluster network." },
-      { id: 'C', text: "Implement custom SSL certificate management manually inside every microservice binary." },
-      { id: 'D', text: "Disable network policies and rely on perimeter corporate firewalls." }
+      { id: 'A', text: "Disable network policies and rely on perimeter corporate firewalls." },
+      { id: 'B', text: "Implement custom SSL certificate management manually inside every microservice binary." },
+      { id: 'C', text: "Deploy a service mesh (such as Istio or Linkerd) and configure strict mutual TLS (`STRICT` mTLS) policies across all namespaces." },
+      { id: 'D', text: "Transmit all traffic in plaintext HTTP over the internal cluster network." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy a service mesh (such as Istio or Linkerd) and configure strict mutual TLS (`STRICT` mTLS) policies across all namespaces. A service mesh deploys sidecar proxies (like Envoy) alongside application containers. These proxies automatically encrypt and authenticate all pod-to-pod network traffic using mutual TLS (mTLS) with short-lived cryptographic identities, providing zero-trust security without application changes.",
     referenceUrl: "https://istio.io/latest/docs/concepts/security/#mutual-tls-authentication",
@@ -240,12 +240,12 @@ export const K8S_CKS_QUESTIONS_15 = [
     scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer evaluates Service Mesh mTLS to ensure all inter-service network communications across microservices are encrypted and mutually authenticated without modifying application code.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks? Mutual TLS authentication and encryption with Istio or Linkerd is under consideration.",
     options: [
-      { id: 'A', text: "Deploy a service mesh (such as Istio or Linkerd) and configure strict mutual TLS (`STRICT` mTLS) policies across all namespaces." },
-      { id: 'B', text: "Transmit all traffic in plaintext HTTP over the internal cluster network." },
-      { id: 'C', text: "Implement custom SSL certificate management manually inside every microservice binary." },
-      { id: 'D', text: "Disable network policies and rely on perimeter corporate firewalls." }
+      { id: 'A', text: "Disable network policies and rely on perimeter corporate firewalls." },
+      { id: 'B', text: "Implement custom SSL certificate management manually inside every microservice binary." },
+      { id: 'C', text: "Deploy a service mesh (such as Istio or Linkerd) and configure strict mutual TLS (`STRICT` mTLS) policies across all namespaces." },
+      { id: 'D', text: "Transmit all traffic in plaintext HTTP over the internal cluster network." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy a service mesh (such as Istio or Linkerd) and configure strict mutual TLS (`STRICT` mTLS) policies across all namespaces. A service mesh deploys sidecar proxies (like Envoy) alongside application containers. These proxies automatically encrypt and authenticate all pod-to-pod network traffic using mutual TLS (mTLS) with short-lived cryptographic identities, providing zero-trust security without application changes.",
     referenceUrl: "https://istio.io/latest/docs/concepts/security/#mutual-tls-authentication",
@@ -261,12 +261,12 @@ export const K8S_CKS_QUESTIONS_15 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer evaluates Service Mesh mTLS to ensure all inter-service network communications across microservices are encrypted and mutually authenticated without modifying application code.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls? Mutual TLS authentication and encryption with Istio or Linkerd is under consideration.",
     options: [
-      { id: 'A', text: "Deploy a service mesh (such as Istio or Linkerd) and configure strict mutual TLS (`STRICT` mTLS) policies across all namespaces." },
-      { id: 'B', text: "Transmit all traffic in plaintext HTTP over the internal cluster network." },
-      { id: 'C', text: "Implement custom SSL certificate management manually inside every microservice binary." },
-      { id: 'D', text: "Disable network policies and rely on perimeter corporate firewalls." }
+      { id: 'A', text: "Implement custom SSL certificate management manually inside every microservice binary." },
+      { id: 'B', text: "Disable network policies and rely on perimeter corporate firewalls." },
+      { id: 'C', text: "Deploy a service mesh (such as Istio or Linkerd) and configure strict mutual TLS (`STRICT` mTLS) policies across all namespaces." },
+      { id: 'D', text: "Transmit all traffic in plaintext HTTP over the internal cluster network." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy a service mesh (such as Istio or Linkerd) and configure strict mutual TLS (`STRICT` mTLS) policies across all namespaces. A service mesh deploys sidecar proxies (like Envoy) alongside application containers. These proxies automatically encrypt and authenticate all pod-to-pod network traffic using mutual TLS (mTLS) with short-lived cryptographic identities, providing zero-trust security without application changes.",
     referenceUrl: "https://istio.io/latest/docs/concepts/security/#mutual-tls-authentication",
@@ -282,12 +282,12 @@ export const K8S_CKS_QUESTIONS_15 = [
     scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer evaluates Service Mesh mTLS to ensure all inter-service network communications across microservices are encrypted and mutually authenticated without modifying application code.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization? Mutual TLS authentication and encryption with Istio or Linkerd is under consideration.",
     options: [
-      { id: 'A', text: "Deploy a service mesh (such as Istio or Linkerd) and configure strict mutual TLS (`STRICT` mTLS) policies across all namespaces." },
-      { id: 'B', text: "Transmit all traffic in plaintext HTTP over the internal cluster network." },
-      { id: 'C', text: "Implement custom SSL certificate management manually inside every microservice binary." },
-      { id: 'D', text: "Disable network policies and rely on perimeter corporate firewalls." }
+      { id: 'A', text: "Implement custom SSL certificate management manually inside every microservice binary." },
+      { id: 'B', text: "Deploy a service mesh (such as Istio or Linkerd) and configure strict mutual TLS (`STRICT` mTLS) policies across all namespaces." },
+      { id: 'C', text: "Disable network policies and rely on perimeter corporate firewalls." },
+      { id: 'D', text: "Transmit all traffic in plaintext HTTP over the internal cluster network." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy a service mesh (such as Istio or Linkerd) and configure strict mutual TLS (`STRICT` mTLS) policies across all namespaces. A service mesh deploys sidecar proxies (like Envoy) alongside application containers. These proxies automatically encrypt and authenticate all pod-to-pod network traffic using mutual TLS (mTLS) with short-lived cryptographic identities, providing zero-trust security without application changes.",
     referenceUrl: "https://istio.io/latest/docs/concepts/security/#mutual-tls-authentication",
@@ -303,12 +303,12 @@ export const K8S_CKS_QUESTIONS_15 = [
     scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer evaluates Service Mesh mTLS to ensure all inter-service network communications across microservices are encrypted and mutually authenticated without modifying application code.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection? Mutual TLS authentication and encryption with Istio or Linkerd is under consideration.",
     options: [
-      { id: 'A', text: "Deploy a service mesh (such as Istio or Linkerd) and configure strict mutual TLS (`STRICT` mTLS) policies across all namespaces." },
-      { id: 'B', text: "Transmit all traffic in plaintext HTTP over the internal cluster network." },
-      { id: 'C', text: "Implement custom SSL certificate management manually inside every microservice binary." },
-      { id: 'D', text: "Disable network policies and rely on perimeter corporate firewalls." }
+      { id: 'A', text: "Transmit all traffic in plaintext HTTP over the internal cluster network." },
+      { id: 'B', text: "Implement custom SSL certificate management manually inside every microservice binary." },
+      { id: 'C', text: "Disable network policies and rely on perimeter corporate firewalls." },
+      { id: 'D', text: "Deploy a service mesh (such as Istio or Linkerd) and configure strict mutual TLS (`STRICT` mTLS) policies across all namespaces." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy a service mesh (such as Istio or Linkerd) and configure strict mutual TLS (`STRICT` mTLS) policies across all namespaces. A service mesh deploys sidecar proxies (like Envoy) alongside application containers. These proxies automatically encrypt and authenticate all pod-to-pod network traffic using mutual TLS (mTLS) with short-lived cryptographic identities, providing zero-trust security without application changes.",
     referenceUrl: "https://istio.io/latest/docs/concepts/security/#mutual-tls-authentication",
@@ -324,12 +324,12 @@ export const K8S_CKS_QUESTIONS_15 = [
     scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer evaluates Ingress Security to protect internet-facing microservices against SQL injection, cross-site scripting (XSS), and Layer 7 DDoS attacks.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives? Securing Ingress with HTTPS termination, rate limiting, and Web Application Firewalls is under consideration.",
     options: [
-      { id: 'A', text: "Configure an Ingress controller with TLS termination, rate-limiting annotations, and an integrated Web Application Firewall (WAF) or ModSecurity plugin." },
+      { id: 'A', text: "Rely solely on application developers writing custom sanitization code for every endpoint." },
       { id: 'B', text: "Expose backend microservices directly on unencrypted NodePort services." },
-      { id: 'C', text: "Disable HTTPS to eliminate encryption overhead." },
-      { id: 'D', text: "Rely solely on application developers writing custom sanitization code for every endpoint." }
+      { id: 'C', text: "Configure an Ingress controller with TLS termination, rate-limiting annotations, and an integrated Web Application Firewall (WAF) or ModSecurity plugin." },
+      { id: 'D', text: "Disable HTTPS to eliminate encryption overhead." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure an Ingress controller with TLS termination, rate-limiting annotations, and an integrated Web Application Firewall (WAF) or ModSecurity plugin. Ingress controllers serve as the perimeter gateway into the cluster. Integrating WAF rules (such as ModSecurity or cloud-native WAFs), enforcing HTTPS with modern TLS cipher suites, and applying connection rate limiting protects downstream microservices from common Layer 7 attacks.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/ingress/#tls",
@@ -345,12 +345,12 @@ export const K8S_CKS_QUESTIONS_15 = [
     scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer evaluates Ingress Security to protect internet-facing microservices against SQL injection, cross-site scripting (XSS), and Layer 7 DDoS attacks.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks? Securing Ingress with HTTPS termination, rate limiting, and Web Application Firewalls is under consideration.",
     options: [
-      { id: 'A', text: "Configure an Ingress controller with TLS termination, rate-limiting annotations, and an integrated Web Application Firewall (WAF) or ModSecurity plugin." },
-      { id: 'B', text: "Expose backend microservices directly on unencrypted NodePort services." },
-      { id: 'C', text: "Disable HTTPS to eliminate encryption overhead." },
+      { id: 'A', text: "Expose backend microservices directly on unencrypted NodePort services." },
+      { id: 'B', text: "Disable HTTPS to eliminate encryption overhead." },
+      { id: 'C', text: "Configure an Ingress controller with TLS termination, rate-limiting annotations, and an integrated Web Application Firewall (WAF) or ModSecurity plugin." },
       { id: 'D', text: "Rely solely on application developers writing custom sanitization code for every endpoint." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure an Ingress controller with TLS termination, rate-limiting annotations, and an integrated Web Application Firewall (WAF) or ModSecurity plugin. Ingress controllers serve as the perimeter gateway into the cluster. Integrating WAF rules (such as ModSecurity or cloud-native WAFs), enforcing HTTPS with modern TLS cipher suites, and applying connection rate limiting protects downstream microservices from common Layer 7 attacks.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/ingress/#tls",
@@ -367,9 +367,9 @@ export const K8S_CKS_QUESTIONS_15 = [
     question: "Which solution implements these mandatory Kubernetes security and governance controls? Securing Ingress with HTTPS termination, rate limiting, and Web Application Firewalls is under consideration.",
     options: [
       { id: 'A', text: "Configure an Ingress controller with TLS termination, rate-limiting annotations, and an integrated Web Application Firewall (WAF) or ModSecurity plugin." },
-      { id: 'B', text: "Expose backend microservices directly on unencrypted NodePort services." },
-      { id: 'C', text: "Disable HTTPS to eliminate encryption overhead." },
-      { id: 'D', text: "Rely solely on application developers writing custom sanitization code for every endpoint." }
+      { id: 'B', text: "Rely solely on application developers writing custom sanitization code for every endpoint." },
+      { id: 'C', text: "Expose backend microservices directly on unencrypted NodePort services." },
+      { id: 'D', text: "Disable HTTPS to eliminate encryption overhead." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -387,12 +387,12 @@ export const K8S_CKS_QUESTIONS_15 = [
     scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer evaluates Ingress Security to protect internet-facing microservices against SQL injection, cross-site scripting (XSS), and Layer 7 DDoS attacks.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization? Securing Ingress with HTTPS termination, rate limiting, and Web Application Firewalls is under consideration.",
     options: [
-      { id: 'A', text: "Configure an Ingress controller with TLS termination, rate-limiting annotations, and an integrated Web Application Firewall (WAF) or ModSecurity plugin." },
-      { id: 'B', text: "Expose backend microservices directly on unencrypted NodePort services." },
+      { id: 'A', text: "Expose backend microservices directly on unencrypted NodePort services." },
+      { id: 'B', text: "Configure an Ingress controller with TLS termination, rate-limiting annotations, and an integrated Web Application Firewall (WAF) or ModSecurity plugin." },
       { id: 'C', text: "Disable HTTPS to eliminate encryption overhead." },
       { id: 'D', text: "Rely solely on application developers writing custom sanitization code for every endpoint." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure an Ingress controller with TLS termination, rate-limiting annotations, and an integrated Web Application Firewall (WAF) or ModSecurity plugin. Ingress controllers serve as the perimeter gateway into the cluster. Integrating WAF rules (such as ModSecurity or cloud-native WAFs), enforcing HTTPS with modern TLS cipher suites, and applying connection rate limiting protects downstream microservices from common Layer 7 attacks.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/ingress/#tls",
@@ -408,12 +408,12 @@ export const K8S_CKS_QUESTIONS_15 = [
     scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer evaluates Ingress Security to protect internet-facing microservices against SQL injection, cross-site scripting (XSS), and Layer 7 DDoS attacks.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection? Securing Ingress with HTTPS termination, rate limiting, and Web Application Firewalls is under consideration.",
     options: [
-      { id: 'A', text: "Configure an Ingress controller with TLS termination, rate-limiting annotations, and an integrated Web Application Firewall (WAF) or ModSecurity plugin." },
-      { id: 'B', text: "Expose backend microservices directly on unencrypted NodePort services." },
-      { id: 'C', text: "Disable HTTPS to eliminate encryption overhead." },
-      { id: 'D', text: "Rely solely on application developers writing custom sanitization code for every endpoint." }
+      { id: 'A', text: "Rely solely on application developers writing custom sanitization code for every endpoint." },
+      { id: 'B', text: "Disable HTTPS to eliminate encryption overhead." },
+      { id: 'C', text: "Configure an Ingress controller with TLS termination, rate-limiting annotations, and an integrated Web Application Firewall (WAF) or ModSecurity plugin." },
+      { id: 'D', text: "Expose backend microservices directly on unencrypted NodePort services." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure an Ingress controller with TLS termination, rate-limiting annotations, and an integrated Web Application Firewall (WAF) or ModSecurity plugin. Ingress controllers serve as the perimeter gateway into the cluster. Integrating WAF rules (such as ModSecurity or cloud-native WAFs), enforcing HTTPS with modern TLS cipher suites, and applying connection rate limiting protects downstream microservices from common Layer 7 attacks.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/ingress/#tls",
@@ -429,12 +429,12 @@ export const K8S_CKS_QUESTIONS_15 = [
     scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer evaluates CVE Remediation to remediate critical vulnerabilities discovered in an operating system library bundled inside a production container image.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives? Automated base image rebuilds and dependency updates for vulnerability remediation is under consideration.",
     options: [
-      { id: 'A', text: "Update the Dockerfile base image to the patched release, rebuild the image in CI, re-scan with vulnerability tooling, and deploy the new digest." },
-      { id: 'B', text: "SSH into running production containers and execute apt-get upgrade manually." },
-      { id: 'C', text: "Ignore the vulnerability until the next major annual application release." },
+      { id: 'A', text: "SSH into running production containers and execute apt-get upgrade manually." },
+      { id: 'B', text: "Ignore the vulnerability until the next major annual application release." },
+      { id: 'C', text: "Update the Dockerfile base image to the patched release, rebuild the image in CI, re-scan with vulnerability tooling, and deploy the new digest." },
       { id: 'D', text: "Change the container image tag to latest without rebuilding." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Update the Dockerfile base image to the patched release, rebuild the image in CI, re-scan with vulnerability tooling, and deploy the new digest. Containers must follow immutable infrastructure principles. Patching running containers in-place is an anti-pattern. Remediation requires updating base images or dependencies in source control, running CI automated builds and vulnerability scans, and rolling out the newly built immutable digest.",
     referenceUrl: "https://kubernetes.io/docs/concepts/containers/images/",
@@ -450,12 +450,12 @@ export const K8S_CKS_QUESTIONS_15 = [
     scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer evaluates CVE Remediation to remediate critical vulnerabilities discovered in an operating system library bundled inside a production container image.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks? Automated base image rebuilds and dependency updates for vulnerability remediation is under consideration.",
     options: [
-      { id: 'A', text: "Update the Dockerfile base image to the patched release, rebuild the image in CI, re-scan with vulnerability tooling, and deploy the new digest." },
-      { id: 'B', text: "SSH into running production containers and execute apt-get upgrade manually." },
-      { id: 'C', text: "Ignore the vulnerability until the next major annual application release." },
-      { id: 'D', text: "Change the container image tag to latest without rebuilding." }
+      { id: 'A', text: "Ignore the vulnerability until the next major annual application release." },
+      { id: 'B', text: "Update the Dockerfile base image to the patched release, rebuild the image in CI, re-scan with vulnerability tooling, and deploy the new digest." },
+      { id: 'C', text: "Change the container image tag to latest without rebuilding." },
+      { id: 'D', text: "SSH into running production containers and execute apt-get upgrade manually." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Update the Dockerfile base image to the patched release, rebuild the image in CI, re-scan with vulnerability tooling, and deploy the new digest. Containers must follow immutable infrastructure principles. Patching running containers in-place is an anti-pattern. Remediation requires updating base images or dependencies in source control, running CI automated builds and vulnerability scans, and rolling out the newly built immutable digest.",
     referenceUrl: "https://kubernetes.io/docs/concepts/containers/images/",
@@ -471,12 +471,12 @@ export const K8S_CKS_QUESTIONS_15 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer evaluates CVE Remediation to remediate critical vulnerabilities discovered in an operating system library bundled inside a production container image.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls? Automated base image rebuilds and dependency updates for vulnerability remediation is under consideration.",
     options: [
-      { id: 'A', text: "Update the Dockerfile base image to the patched release, rebuild the image in CI, re-scan with vulnerability tooling, and deploy the new digest." },
-      { id: 'B', text: "SSH into running production containers and execute apt-get upgrade manually." },
-      { id: 'C', text: "Ignore the vulnerability until the next major annual application release." },
-      { id: 'D', text: "Change the container image tag to latest without rebuilding." }
+      { id: 'A', text: "SSH into running production containers and execute apt-get upgrade manually." },
+      { id: 'B', text: "Ignore the vulnerability until the next major annual application release." },
+      { id: 'C', text: "Change the container image tag to latest without rebuilding." },
+      { id: 'D', text: "Update the Dockerfile base image to the patched release, rebuild the image in CI, re-scan with vulnerability tooling, and deploy the new digest." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Update the Dockerfile base image to the patched release, rebuild the image in CI, re-scan with vulnerability tooling, and deploy the new digest. Containers must follow immutable infrastructure principles. Patching running containers in-place is an anti-pattern. Remediation requires updating base images or dependencies in source control, running CI automated builds and vulnerability scans, and rolling out the newly built immutable digest.",
     referenceUrl: "https://kubernetes.io/docs/concepts/containers/images/",
@@ -492,12 +492,12 @@ export const K8S_CKS_QUESTIONS_15 = [
     scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer evaluates CVE Remediation to remediate critical vulnerabilities discovered in an operating system library bundled inside a production container image.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization? Automated base image rebuilds and dependency updates for vulnerability remediation is under consideration.",
     options: [
-      { id: 'A', text: "Update the Dockerfile base image to the patched release, rebuild the image in CI, re-scan with vulnerability tooling, and deploy the new digest." },
-      { id: 'B', text: "SSH into running production containers and execute apt-get upgrade manually." },
-      { id: 'C', text: "Ignore the vulnerability until the next major annual application release." },
-      { id: 'D', text: "Change the container image tag to latest without rebuilding." }
+      { id: 'A', text: "Change the container image tag to latest without rebuilding." },
+      { id: 'B', text: "Ignore the vulnerability until the next major annual application release." },
+      { id: 'C', text: "SSH into running production containers and execute apt-get upgrade manually." },
+      { id: 'D', text: "Update the Dockerfile base image to the patched release, rebuild the image in CI, re-scan with vulnerability tooling, and deploy the new digest." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Update the Dockerfile base image to the patched release, rebuild the image in CI, re-scan with vulnerability tooling, and deploy the new digest. Containers must follow immutable infrastructure principles. Patching running containers in-place is an anti-pattern. Remediation requires updating base images or dependencies in source control, running CI automated builds and vulnerability scans, and rolling out the newly built immutable digest.",
     referenceUrl: "https://kubernetes.io/docs/concepts/containers/images/",
@@ -513,12 +513,12 @@ export const K8S_CKS_QUESTIONS_15 = [
     scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer evaluates CVE Remediation to remediate critical vulnerabilities discovered in an operating system library bundled inside a production container image.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection? Automated base image rebuilds and dependency updates for vulnerability remediation is under consideration.",
     options: [
-      { id: 'A', text: "Update the Dockerfile base image to the patched release, rebuild the image in CI, re-scan with vulnerability tooling, and deploy the new digest." },
-      { id: 'B', text: "SSH into running production containers and execute apt-get upgrade manually." },
+      { id: 'A', text: "SSH into running production containers and execute apt-get upgrade manually." },
+      { id: 'B', text: "Change the container image tag to latest without rebuilding." },
       { id: 'C', text: "Ignore the vulnerability until the next major annual application release." },
-      { id: 'D', text: "Change the container image tag to latest without rebuilding." }
+      { id: 'D', text: "Update the Dockerfile base image to the patched release, rebuild the image in CI, re-scan with vulnerability tooling, and deploy the new digest." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Update the Dockerfile base image to the patched release, rebuild the image in CI, re-scan with vulnerability tooling, and deploy the new digest. Containers must follow immutable infrastructure principles. Patching running containers in-place is an anti-pattern. Remediation requires updating base images or dependencies in source control, running CI automated builds and vulnerability scans, and rolling out the newly built immutable digest.",
     referenceUrl: "https://kubernetes.io/docs/concepts/containers/images/",

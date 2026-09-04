@@ -9,12 +9,12 @@ export const AZURE_AZ204_QUESTIONS_5 = [
     scenario: "A Cosmos DB container stores documents with large 1 MB payload strings under `/largePayload`. The application never queries or filters on this property.",
     question: "How can the developer reduce Request Unit (RU) write consumption when inserting documents?",
     options: [
-      { id: 'A', text: "Add an excludedPath for /largePayload/* in the container indexing policy" },
-      { id: 'B', text: "Change the partition key to largePayload" },
-      { id: 'C', text: "Set indexingMode to None on the whole container" },
-      { id: 'D', text: "Compress the payload client-side only" }
+      { id: 'A', text: "Set indexingMode to None on the whole container" },
+      { id: 'B', text: "Compress the payload client-side only" },
+      { id: 'C', text: "Add an excludedPath for /largePayload/* in the container indexing policy" },
+      { id: 'D', text: "Change the partition key to largePayload" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "By default, Cosmos DB indexes every property in a document. Adding an `excludedPath` (e.g. `path: '/largePayload/*'` to `excludedPaths`) excludes that specific subtree from indexing, significantly reducing RU write charges and index storage overhead.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cosmos-db/index-policy#include-exclude-paths",
@@ -30,12 +30,12 @@ export const AZURE_AZ204_QUESTIONS_5 = [
     scenario: "A developer writes an Azure Cosmos DB JavaScript pre-trigger to validate order totals before saving documents. If the validation check fails, the pre-trigger must abort the document write.",
     question: "How does a Cosmos DB pre-trigger cancel the pending write operation?",
     options: [
-      { id: 'A', text: "Returning false from the function" },
-      { id: 'B', text: "Throwing an error/exception inside the JavaScript trigger function" },
-      { id: 'C', text: "Calling context.abortTransaction()" },
+      { id: 'A', text: "Throwing an error/exception inside the JavaScript trigger function" },
+      { id: 'B', text: "Calling context.abortTransaction()" },
+      { id: 'C', text: "Returning false from the function" },
       { id: 'D', text: "Returning an empty string" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "In Azure Cosmos DB, pre-triggers and post-triggers execute within the same ACID transactional scope as the operation. If a pre-trigger encounters invalid input and throws an exception, the entire transaction is cancelled and the document is not committed.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cosmos-db/sql/how-to-write-stored-procedures-triggers-udfs#pre-triggers",
@@ -51,12 +51,12 @@ export const AZURE_AZ204_QUESTIONS_5 = [
     scenario: "A developer needs to apply a custom mathematical tax formula across product prices in an Azure Cosmos DB SQL query: `SELECT c.id, udf.CalculateTax(c.price) AS total FROM c`.",
     question: "What is a key constraint when writing User-Defined Functions (UDFs) in Cosmos DB?",
     options: [
-      { id: 'A', text: "UDFs can execute transactions across partitions" },
-      { id: 'B', text: "UDFs run only once per container" },
-      { id: 'C', text: "UDFs are read-only, cannot modify documents, and do not have access to the context object for database operations" },
-      { id: 'D', text: "UDFs can only be written in Python" }
+      { id: 'A', text: "UDFs can only be written in Python" },
+      { id: 'B', text: "UDFs can execute transactions across partitions" },
+      { id: 'C', text: "UDFs run only once per container" },
+      { id: 'D', text: "UDFs are read-only, cannot modify documents, and do not have access to the context object for database operations" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Cosmos DB User-Defined Functions (UDFs) extend the SQL query language using JavaScript. UDFs are strictly computational and read-only; they cannot make database calls, read context objects, or perform write operations.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cosmos-db/sql/how-to-write-stored-procedures-triggers-udfs#udfs",
@@ -72,12 +72,12 @@ export const AZURE_AZ204_QUESTIONS_5 = [
     scenario: "An ingestion pipeline imports 1,000,000 records into an Azure Cosmos DB container. Individual `CreateItemAsync` calls suffer high latency and throughput throttling.",
     question: "Which CosmosClient setting enables automated high-throughput batching in the .NET SDK?",
     options: [
-      { id: 'A', text: "AllowBulkExecution = true in CosmosClientOptions" },
+      { id: 'A', text: "EnableTcpKeepAlive = false" },
       { id: 'B', text: "ConnectionMode = Gateway" },
       { id: 'C', text: "MaxRetryAttemptsOnRateLimitedRequests = 0" },
-      { id: 'D', text: "EnableTcpKeepAlive = false" }
+      { id: 'D', text: "AllowBulkExecution = true in CosmosClientOptions" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Setting `AllowBulkExecution = true` in `CosmosClientOptions` optimizes the .NET SDK for high-throughput batch writes. The SDK internally batches concurrent requests across partition keys, optimizing RU utilization and saturating available network bandwidth efficiently.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cosmos-db/sql/how-to-migrate-from-bulk-executor-library",
@@ -93,12 +93,12 @@ export const AZURE_AZ204_QUESTIONS_5 = [
     scenario: "A database administrator needs to restore a Cosmos DB container to its exact state from yesterday at 14:32 UTC following an erroneous data update script.",
     question: "Which backup policy must be configured on the Cosmos DB account to enable minute-by-minute point-in-time recovery?",
     options: [
-      { id: 'A', text: "Offline snapshot backup mode" },
-      { id: 'B', text: "Azure Backup Vault" },
-      { id: 'C', text: "Continuous backup mode (30-day retention)" },
-      { id: 'D', text: "Periodic backup mode (default 4-hour interval)" }
+      { id: 'A', text: "Azure Backup Vault" },
+      { id: 'B', text: "Continuous backup mode (30-day retention)" },
+      { id: 'C', text: "Periodic backup mode (default 4-hour interval)" },
+      { id: 'D', text: "Offline snapshot backup mode" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Cosmos DB `Continuous backup` mode provides continuous background backups with a 30-day retention window. Administrators can restore any container, database, or account to any exact second within the retention window.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cosmos-db/continuous-backup-introduction",
@@ -115,8 +115,8 @@ export const AZURE_AZ204_QUESTIONS_5 = [
     question: "Which feature automatically replicates blobs across storage accounts according to prefix rules?",
     options: [
       { id: 'A', text: "Object Replication" },
-      { id: 'B', text: "Azure Data Factory copy pipeline" },
-      { id: 'C', text: "AzCopy manual cron job" },
+      { id: 'B', text: "AzCopy manual cron job" },
+      { id: 'C', text: "Azure Data Factory copy pipeline" },
       { id: 'D', text: "Storage account failover" }
     ],
     correctAnswers: ['A'],
@@ -135,12 +135,12 @@ export const AZURE_AZ204_QUESTIONS_5 = [
     scenario: "A developer is evaluating whether to use Blob Metadata (`x-ms-meta-`) or Blob Index Tags for storing document attributes like `Author` and `DocStatus`.",
     question: "What is a primary advantage of Blob Index Tags over Blob Metadata?",
     options: [
-      { id: 'A', text: "Index Tags are searchable via SQL-like queries across containers without downloading blobs, whereas Metadata cannot be queried directly without listing and reading each blob" },
-      { id: 'B', text: "Metadata supports up to 10 GB per blob; Index Tags support only 1 byte" },
-      { id: 'C', text: "Index Tags can only contain integer numbers" },
-      { id: 'D', text: "Metadata is automatically encrypted with RSA keys" }
+      { id: 'A', text: "Index Tags can only contain integer numbers" },
+      { id: 'B', text: "Metadata is automatically encrypted with RSA keys" },
+      { id: 'C', text: "Index Tags are searchable via SQL-like queries across containers without downloading blobs, whereas Metadata cannot be queried directly without listing and reading each blob" },
+      { id: 'D', text: "Metadata supports up to 10 GB per blob; Index Tags support only 1 byte" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Blob Metadata consists of key-value pairs stored in HTTP headers that can only be read when retrieving or listing the specific blob. In contrast, Blob Index Tags are automatically indexed by Azure Storage, enabling fast queries (`FindBlobsByTags`) across the entire account without scanning.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/blobs/storage-manage-find-blobs",
@@ -156,12 +156,12 @@ export const AZURE_AZ204_QUESTIONS_5 = [
     scenario: "A developer configures an Azure Blob Storage container. Public anonymous users on the internet need to download images directly via URLs, but must not be allowed to enumerate or list all blobs in the container.",
     question: "Which public access level should the developer set on the container?",
     options: [
-      { id: 'A', text: "Blob (anonymous read access for blobs only)" },
-      { id: 'B', text: "Container (anonymous read and list access)" },
-      { id: 'C', text: "Private (no anonymous access)" },
-      { id: 'D', text: "Full public admin access" }
+      { id: 'A', text: "Container (anonymous read and list access)" },
+      { id: 'B', text: "Blob (anonymous read access for blobs only)" },
+      { id: 'C', text: "Full public admin access" },
+      { id: 'D', text: "Private (no anonymous access)" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Azure Blob Storage supports three container public access levels: `Private` (no anonymous access), `Blob` (anonymous read access to blob contents via direct URL, but container listing is forbidden), and `Container` (anonymous read and listing of all blobs in the container).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/blobs/anonymous-read-access-configure",
@@ -177,12 +177,12 @@ export const AZURE_AZ204_QUESTIONS_5 = [
     scenario: "A user submits a profile update on a web application. The subsequent HTTP request from the same user is routed to a different web server instance.",
     question: "How does the web application ensure the second server reads the user's latest update under Session consistency?",
     options: [
-      { id: 'A', text: "Switch the database to Strong consistency globally" },
-      { id: 'B', text: "Extract the SessionToken from the write response and pass it in the subsequent request's ItemRequestOptions" },
-      { id: 'C', text: "Bind the user to a dedicated physical database replica" },
-      { id: 'D', text: "Add a 10-second sleep before reading" }
+      { id: 'A', text: "Bind the user to a dedicated physical database replica" },
+      { id: 'B', text: "Add a 10-second sleep before reading" },
+      { id: 'C', text: "Extract the SessionToken from the write response and pass it in the subsequent request's ItemRequestOptions" },
+      { id: 'D', text: "Switch the database to Strong consistency globally" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Cosmos DB Session consistency uses session tokens. When a write completes, the response includes an `x-ms-session-token`. By propagating this token to client cookies and passing it into `ItemRequestOptions.SessionToken` on subsequent reads, any server can guarantee read-your-writes consistency.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cosmos-db/consistency-levels#session-consistency",
@@ -198,12 +198,12 @@ export const AZURE_AZ204_QUESTIONS_5 = [
     scenario: "A corporate security policy mandates that access to Azure Storage accounts must only use Microsoft Entra ID (Azure AD) and that legacy Account Keys must be blocked.",
     question: "Which Storage Account configuration setting disables Shared Key authentication?",
     options: [
-      { id: 'A', text: "Enable Storage Account Firewall" },
-      { id: 'B', text: "Enable Static Website hosting" },
-      { id: 'C', text: "Allow Shared Key access set to Disabled (allowSharedKeyAccess = false)" },
-      { id: 'D', text: "Delete Key 1 and Key 2 permanently" }
+      { id: 'A', text: "Delete Key 1 and Key 2 permanently" },
+      { id: 'B', text: "Enable Storage Account Firewall" },
+      { id: 'C', text: "Enable Static Website hosting" },
+      { id: 'D', text: "Allow Shared Key access set to Disabled (allowSharedKeyAccess = false)" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Setting `allowSharedKeyAccess = false` disables authentication via account shared access keys and Account/Service SAS tokens, enforcing that all incoming requests authenticate via Microsoft Entra ID (Azure AD) RBAC roles or User Delegation SAS.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/common/shared-key-authorization-prevent",
@@ -219,12 +219,12 @@ export const AZURE_AZ204_QUESTIONS_5 = [
     scenario: "Multiple telemetry ingestion threads write to an Append Blob using `AppendBlock`. The application must ensure that appends are applied conditionally only if the blob's current size matches an expected offset.",
     question: "Which condition header enforces append offset matching?",
     options: [
-      { id: 'A', text: "x-ms-lease-id" },
-      { id: 'B', text: "x-ms-range" },
-      { id: 'C', text: "If-Match with an ETag only" },
-      { id: 'D', text: "x-ms-blob-condition-appendpos" }
+      { id: 'A', text: "If-Match with an ETag only" },
+      { id: 'B', text: "x-ms-lease-id" },
+      { id: 'C', text: "x-ms-blob-condition-appendpos" },
+      { id: 'D', text: "x-ms-range" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "The `x-ms-blob-condition-appendpos` header specifies that the `AppendBlock` operation will succeed only if the blob's current committed size matches the specified byte position, preventing out-of-order or duplicate concurrent appends.",
     referenceUrl: "https://learn.microsoft.com/en-us/rest/api/storageservices/append-block#request-headers",
@@ -240,12 +240,12 @@ export const AZURE_AZ204_QUESTIONS_5 = [
     scenario: "An application with 10 physical partitions in Azure Cosmos DB generates heavy write spikes on Partition Key A, causing HTTP 429 errors on writes to that key.",
     question: "How does Cosmos DB partition isolation impact reads and writes targeting other partition keys?",
     options: [
-      { id: 'A', text: "Operations targeting other physical partitions continue operating normally because RU/s capacity is allocated independently across physical partitions" },
+      { id: 'A', text: "The container is automatically deleted" },
       { id: 'B', text: "All queries across the entire database are completely frozen" },
-      { id: 'C', text: "The container is automatically deleted" },
+      { id: 'C', text: "Operations targeting other physical partitions continue operating normally because RU/s capacity is allocated independently across physical partitions" },
       { id: 'D', text: "Cosmos DB switches all partitions to read-only mode" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "In Azure Cosmos DB, physical partitions are isolated. Throttling (HTTP 429) on a hot partition key impacts only that specific physical partition. Other partitions with available RU capacity continue to process requests without interference.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cosmos-db/troubleshoot-request-rate-too-large#step-2-determine-if-there-is-a-hot-partition",
@@ -262,9 +262,9 @@ export const AZURE_AZ204_QUESTIONS_5 = [
     question: "Why should the developer use QueryDefinition with parameters instead of raw string concatenation?",
     options: [
       { id: 'A', text: "Parameterized queries prevent SQL injection attacks and optimize query execution plan caching in the database engine" },
-      { id: 'B', text: "Parameters allow queries to span across unrelated Azure subscriptions" },
-      { id: 'C', text: "Cosmos DB does not support string concatenation in SQL queries" },
-      { id: 'D', text: "Parameterized queries bypass Request Unit charges completely" }
+      { id: 'B', text: "Cosmos DB does not support string concatenation in SQL queries" },
+      { id: 'C', text: "Parameterized queries bypass Request Unit charges completely" },
+      { id: 'D', text: "Parameters allow queries to span across unrelated Azure subscriptions" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -283,8 +283,8 @@ export const AZURE_AZ204_QUESTIONS_5 = [
     question: "Which API operation creates and manages exclusive write locks on Azure Blobs?",
     options: [
       { id: 'A', text: "AcquireLease (LeaseBlob)" },
-      { id: 'B', text: "SetBlobMetadata" },
-      { id: 'C', text: "SnapshotBlob" },
+      { id: 'B', text: "SnapshotBlob" },
+      { id: 'C', text: "SetBlobMetadata" },
       { id: 'D', text: "CopyBlob" }
     ],
     correctAnswers: ['A'],
@@ -303,12 +303,12 @@ export const AZURE_AZ204_QUESTIONS_5 = [
     scenario: "A developer is building a batch pipeline that reads changes from Azure Cosmos DB periodically on a schedule, rather than maintaining continuous serverless event listeners.",
     question: "Which Change Feed consumption model allows on-demand polling with FeedIterator?",
     options: [
-      { id: 'A', text: "The Change Feed Pull Model" },
+      { id: 'A', text: "The Cosmos DB Stored Procedure model" },
       { id: 'B', text: "The Change Feed Push Model (Azure Functions trigger)" },
-      { id: 'C', text: "The Cosmos DB Stored Procedure model" },
+      { id: 'C', text: "The Change Feed Pull Model" },
       { id: 'D', text: "The Change Feed Kafka Connector" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Cosmos DB supports two Change Feed models: `Push Model` (event-driven using Azure Functions or Change Feed Processor that processes events continuously as they arrive) and `Pull Model` (pulls changes on demand per partition key or feed iterator, ideal for scheduled batch jobs).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cosmos-db/sql/change-feed-pull-model",
@@ -324,12 +324,12 @@ export const AZURE_AZ204_QUESTIONS_5 = [
     scenario: "A developer is implementing user authentication using the Microsoft Authentication Library (MSAL). The client is a React single-page application running in a browser.",
     question: "Which MSAL client application class should the developer instantiate?",
     options: [
-      { id: 'A', text: "PublicClientApplication (cannot securely store client secrets)" },
-      { id: 'B', text: "ConfidentialClientApplication" },
+      { id: 'A', text: "ConfidentialClientApplication" },
+      { id: 'B', text: "PublicClientApplication (cannot securely store client secrets)" },
       { id: 'C', text: "ServicePrincipalClientApplication" },
       { id: 'D', text: "ManagedIdentityApplication" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "In MSAL, `PublicClientApplication` is designed for apps that run on client devices (web browsers, mobile apps, desktop apps) where client secrets cannot be kept confidential. `ConfidentialClientApplication` is for secure backend servers that safely hold private credentials.",
     referenceUrl: "https://learn.microsoft.com/en-us/entra/msal/dotnet/acquiring-tokens/desktop-mobile/public-client-applications",
@@ -345,12 +345,12 @@ export const AZURE_AZ204_QUESTIONS_5 = [
     scenario: "A single-page application (SPA) authenticates users against Microsoft Entra ID. Security standards prohibit using the legacy Implicit Grant flow due to token interception risks.",
     question: "Which modern OAuth 2.0 flow is recommended for SPAs with Microsoft Entra ID?",
     options: [
-      { id: 'A', text: "Resource Owner Password Credentials (ROPC)" },
-      { id: 'B', text: "Client Credentials Flow" },
-      { id: 'C', text: "Implicit Grant Flow with id_token" },
-      { id: 'D', text: "Authorization Code Flow with Proof Key for Code Exchange (PKCE)" }
+      { id: 'A', text: "Implicit Grant Flow with id_token" },
+      { id: 'B', text: "Resource Owner Password Credentials (ROPC)" },
+      { id: 'C', text: "Authorization Code Flow with Proof Key for Code Exchange (PKCE)" },
+      { id: 'D', text: "Client Credentials Flow" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Microsoft Entra ID recommends the OAuth 2.0 `Authorization Code Flow with PKCE` for all single-page applications. PKCE cryptographically binds the authorization code request to the token exchange using a code challenge and code verifier, preventing code interception attacks.",
     referenceUrl: "https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-auth-code-flow",
@@ -366,12 +366,12 @@ export const AZURE_AZ204_QUESTIONS_5 = [
     scenario: "A nocturnal batch synchronization service runs unattended on an Azure VM. The service needs to authenticate with Microsoft Graph to read tenant user lists without user interaction.",
     question: "Which OAuth 2.0 grant flow should the service use to acquire an access token?",
     options: [
-      { id: 'A', text: "Authorization Code Flow" },
-      { id: 'B', text: "Client Credentials Flow" },
-      { id: 'C', text: "On-Behalf-Of (OBO) Flow" },
-      { id: 'D', text: "Device Code Flow" }
+      { id: 'A', text: "On-Behalf-Of (OBO) Flow" },
+      { id: 'B', text: "Device Code Flow" },
+      { id: 'C', text: "Client Credentials Flow" },
+      { id: 'D', text: "Authorization Code Flow" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "The `Client Credentials Flow` is designed for machine-to-machine (M2M) server-side daemon processes. The application authenticates using its own application ID and client secret (or certificate) to obtain an access token representing the application rather than a delegated user.",
     referenceUrl: "https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-client-creds-grant-flow",
@@ -387,12 +387,12 @@ export const AZURE_AZ204_QUESTIONS_5 = [
     scenario: "An enterprise API registration in Microsoft Entra ID exposes permissions to Microsoft Graph. The API must access calendar items only when an authenticated user is present and has authorized the app.",
     question: "Which permission type must the developer request in the App Registration?",
     options: [
-      { id: 'A', text: "Owner Permissions" },
-      { id: 'B', text: "Subscription Permissions" },
-      { id: 'C', text: "Delegated Permissions (e.g. Calendars.Read)" },
-      { id: 'D', text: "Application Permissions (e.g. Calendars.ReadWrite.All)" }
+      { id: 'A', text: "Subscription Permissions" },
+      { id: 'B', text: "Delegated Permissions (e.g. Calendars.Read)" },
+      { id: 'C', text: "Application Permissions (e.g. Calendars.ReadWrite.All)" },
+      { id: 'D', text: "Owner Permissions" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "`Delegated permissions` are used when an application acts on behalf of a signed-in user, restricting access to resources the user is permitted to access. `Application permissions` allow the app to access resources directly without user presence (typically requiring admin consent).",
     referenceUrl: "https://learn.microsoft.com/en-us/entra/identity-platform/permissions-consent-overview#types-of-permissions",
@@ -408,12 +408,12 @@ export const AZURE_AZ204_QUESTIONS_5 = [
     scenario: "A developer is evaluating Managed Identities for an Azure App Service that will be deployed to 5 identical staging environments. The developer wants a single identity lifecycle that persists across resource deletions.",
     question: "Which Managed Identity type is created as a standalone Azure resource independent of individual service lifecycles?",
     options: [
-      { id: 'A', text: "Service Principal with secret" },
+      { id: 'A', text: "User-Assigned Managed Identity" },
       { id: 'B', text: "System-Assigned Managed Identity" },
-      { id: 'C', text: "Azure AD B2C Account" },
-      { id: 'D', text: "User-Assigned Managed Identity" }
+      { id: 'C', text: "Service Principal with secret" },
+      { id: 'D', text: "Azure AD B2C Account" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "A `User-Assigned Managed Identity` is created as an independent standalone Azure resource that can be shared across multiple Azure resources (e.g. 5 App Services) and persists even if the consuming resources are deleted. A `System-Assigned` identity is tied strictly to the lifecycle of a single resource.",
     referenceUrl: "https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/overview#managed-identity-types",
@@ -430,9 +430,9 @@ export const AZURE_AZ204_QUESTIONS_5 = [
     question: "How does `DefaultAzureCredential` resolve authentication credentials across environments?",
     options: [
       { id: 'A', text: "It sequentially probes environment variables, Workload Identity, Managed Identity, Visual Studio, Azure CLI, and Azure PowerShell until it finds valid credentials" },
-      { id: 'B', text: "It connects to an on-premises Active Directory domain controller only" },
-      { id: 'C', text: "It uses a hardcoded default password embedded in the NuGet package" },
-      { id: 'D', text: "It prompts the user with an interactive browser popup in production" }
+      { id: 'B', text: "It prompts the user with an interactive browser popup in production" },
+      { id: 'C', text: "It connects to an on-premises Active Directory domain controller only" },
+      { id: 'D', text: "It uses a hardcoded default password embedded in the NuGet package" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -450,12 +450,12 @@ export const AZURE_AZ204_QUESTIONS_5 = [
     scenario: "An Azure App Service needs to query an Azure SQL Database without storing usernames, passwords, or connection string credentials in application configuration.",
     question: "How should the developer configure authentication between App Service and Azure SQL?",
     options: [
-      { id: 'A', text: "Enable System-Assigned Managed Identity on the App Service, create a contained database user for the identity, and use Active Directory Default in the connection string" },
-      { id: 'B', text: "Store the SQL SA password in an unencrypted app setting" },
+      { id: 'A', text: "Store the SQL SA password in an unencrypted app setting" },
+      { id: 'B', text: "Enable System-Assigned Managed Identity on the App Service, create a contained database user for the identity, and use Active Directory Default in the connection string" },
       { id: 'C', text: "Open SQL Server firewall to 0.0.0.0/0 with anonymous login" },
       { id: 'D', text: "Embed a plaintext database password in the C# code" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Enabling a Managed Identity on App Service and creating an Azure AD contained database user (`CREATE USER [my-app] FROM EXTERNAL PROVIDER;`) allows the App Service to connect using passwordless Microsoft Entra ID authentication via `Authentication=Active Directory Default`.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell#create-contained-users-mapped-to-azure-ad-identities",
@@ -472,9 +472,9 @@ export const AZURE_AZ204_QUESTIONS_5 = [
     question: "Which Key Vault object types correspond to these three assets respectively?",
     options: [
       { id: 'A', text: "Secrets for API keys, Keys for RSA signing, and Certificates for X.509 SSL bindings" },
-      { id: 'B', text: "Keys for all three assets" },
+      { id: 'B', text: "Certificates for API keys" },
       { id: 'C', text: "Secrets for all three assets" },
-      { id: 'D', text: "Certificates for API keys" }
+      { id: 'D', text: "Keys for all three assets" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,12 +492,12 @@ export const AZURE_AZ204_QUESTIONS_5 = [
     scenario: "A company is modernizing its Key Vault permissions. The team needs to grant a developer read access to a single specific secret without granting access to all secrets in the vault.",
     question: "Which Key Vault permission model supports granular resource-level role assignments?",
     options: [
-      { id: 'A', text: "IP Firewall rules alone" },
-      { id: 'B', text: "Azure role-based access control (Azure RBAC) permission model" },
+      { id: 'A', text: "Azure role-based access control (Azure RBAC) permission model" },
+      { id: 'B', text: "Vault Access Policies" },
       { id: 'C', text: "Storage Account Shared Key" },
-      { id: 'D', text: "Vault Access Policies" }
+      { id: 'D', text: "IP Firewall rules alone" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The Azure RBAC permission model for Key Vault allows role assignments (e.g. `Key Vault Secrets User`) to be scoped down to individual secrets, keys, or certificates. The legacy Vault Access Policy model can only grant permissions across all secrets in the entire vault.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/key-vault/general/rbac-guide",
@@ -513,12 +513,12 @@ export const AZURE_AZ204_QUESTIONS_5 = [
     scenario: "A developer wants an Azure App Service to load a database password from Azure Key Vault automatically at startup using the `@Microsoft.KeyVault` syntax.",
     question: "Which two prerequisites are required for App Service to resolve Key Vault references?",
     options: [
-      { id: 'A', text: "The App Service must run on the Free F1 tier" },
-      { id: 'B', text: "The Key Vault must be completely open to the public internet with no firewall" },
-      { id: 'C', text: "The App Service must have a public static IP address and root FTP enabled" },
-      { id: 'D', text: "The App Service must have an enabled Managed Identity, and the identity must have permissions (or RBAC Key Vault Secrets User) to get secrets from the vault" }
+      { id: 'A', text: "The App Service must have a public static IP address and root FTP enabled" },
+      { id: 'B', text: "The App Service must run on the Free F1 tier" },
+      { id: 'C', text: "The App Service must have an enabled Managed Identity, and the identity must have permissions (or RBAC Key Vault Secrets User) to get secrets from the vault" },
+      { id: 'D', text: "The Key Vault must be completely open to the public internet with no firewall" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Key Vault references in App Service (`@Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/dbpass/)`) require the App Service to have a Managed Identity configured with `Get` secret permissions (or `Key Vault Secrets User` RBAC role) on the target Key Vault.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/app-service/app-service-key-vault-references",

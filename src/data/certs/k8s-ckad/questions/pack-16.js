@@ -11,8 +11,8 @@ export const K8S_CKAD_QUESTIONS_16 = [
     options: [
       { id: 'A', text: "Run `kubectl top pods -n &lt;namespace&gt; --sort-by=cpu` (or `--sort-by=memory`) querying the cluster Metrics Server." },
       { id: 'B', text: "Inspect static YAML manifests to see what resource limits were requested." },
-      { id: 'C', text: "Run top on a developer laptop." },
-      { id: 'D', text: "Guess resource usage based on application response latency." }
+      { id: 'C', text: "Guess resource usage based on application response latency." },
+      { id: 'D', text: "Run top on a developer laptop." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -30,12 +30,12 @@ export const K8S_CKAD_QUESTIONS_16 = [
     scenario: "A high-throughput web application experiences unpredictable spikes in user transactions and requires automated, reliable scaling across Kubernetes clusters. The Kubernetes application developer evaluates Metrics Server to identify which pods in a production namespace are consuming the highest amounts of CPU and memory during a traffic surge.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting backend stability? Viewing real-time pod and node CPU/memory consumption via kubectl top is under consideration.",
     options: [
-      { id: 'A', text: "Run `kubectl top pods -n &lt;namespace&gt; --sort-by=cpu` (or `--sort-by=memory`) querying the cluster Metrics Server." },
+      { id: 'A', text: "Guess resource usage based on application response latency." },
       { id: 'B', text: "Inspect static YAML manifests to see what resource limits were requested." },
-      { id: 'C', text: "Run top on a developer laptop." },
-      { id: 'D', text: "Guess resource usage based on application response latency." }
+      { id: 'C', text: "Run `kubectl top pods -n &lt;namespace&gt; --sort-by=cpu` (or `--sort-by=memory`) querying the cluster Metrics Server." },
+      { id: 'D', text: "Run top on a developer laptop." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Run `kubectl top pods -n &lt;namespace&gt; --sort-by=cpu` (or `--sort-by=memory`) querying the cluster Metrics Server. `kubectl top` queries the Kubernetes Metrics Server API (`metrics.k8s.io`) to report real-time CPU and memory metrics for nodes and pods. Sorting with `--sort-by=cpu` or `--sort-by=memory` quickly identifies resource-intensive workloads.",
     referenceUrl: "https://kubernetes.io/docs/reference/kubectl/generated/kubectl_top/",
@@ -51,12 +51,12 @@ export const K8S_CKAD_QUESTIONS_16 = [
     scenario: "A security compliance auditor requires strict container runtime isolation, least-privilege credential access, and defense-in-depth network policies across all namespaces. The Kubernetes application developer evaluates Metrics Server to identify which pods in a production namespace are consuming the highest amounts of CPU and memory during a traffic surge.",
     question: "Which solution properly implements these mandatory container and cluster security controls? Viewing real-time pod and node CPU/memory consumption via kubectl top is under consideration.",
     options: [
-      { id: 'A', text: "Run `kubectl top pods -n &lt;namespace&gt; --sort-by=cpu` (or `--sort-by=memory`) querying the cluster Metrics Server." },
+      { id: 'A', text: "Run top on a developer laptop." },
       { id: 'B', text: "Inspect static YAML manifests to see what resource limits were requested." },
-      { id: 'C', text: "Run top on a developer laptop." },
+      { id: 'C', text: "Run `kubectl top pods -n &lt;namespace&gt; --sort-by=cpu` (or `--sort-by=memory`) querying the cluster Metrics Server." },
       { id: 'D', text: "Guess resource usage based on application response latency." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Run `kubectl top pods -n &lt;namespace&gt; --sort-by=cpu` (or `--sort-by=memory`) querying the cluster Metrics Server. `kubectl top` queries the Kubernetes Metrics Server API (`metrics.k8s.io`) to report real-time CPU and memory metrics for nodes and pods. Sorting with `--sort-by=cpu` or `--sort-by=memory` quickly identifies resource-intensive workloads.",
     referenceUrl: "https://kubernetes.io/docs/reference/kubectl/generated/kubectl_top/",
@@ -73,9 +73,9 @@ export const K8S_CKAD_QUESTIONS_16 = [
     question: "Which architectural pattern or feature enables the team to modernize services with minimal disruption and low operational friction? Viewing real-time pod and node CPU/memory consumption via kubectl top is under consideration.",
     options: [
       { id: 'A', text: "Run `kubectl top pods -n &lt;namespace&gt; --sort-by=cpu` (or `--sort-by=memory`) querying the cluster Metrics Server." },
-      { id: 'B', text: "Inspect static YAML manifests to see what resource limits were requested." },
-      { id: 'C', text: "Run top on a developer laptop." },
-      { id: 'D', text: "Guess resource usage based on application response latency." }
+      { id: 'B', text: "Run top on a developer laptop." },
+      { id: 'C', text: "Guess resource usage based on application response latency." },
+      { id: 'D', text: "Inspect static YAML manifests to see what resource limits were requested." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -93,12 +93,12 @@ export const K8S_CKAD_QUESTIONS_16 = [
     scenario: "An SRE team is optimizing application stability to eliminate single points of failure, streamline observability, and ensure graceful failure handling. The Kubernetes application developer evaluates Metrics Server to identify which pods in a production namespace are consuming the highest amounts of CPU and memory during a traffic surge.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees service reliability? Viewing real-time pod and node CPU/memory consumption via kubectl top is under consideration.",
     options: [
-      { id: 'A', text: "Run `kubectl top pods -n &lt;namespace&gt; --sort-by=cpu` (or `--sort-by=memory`) querying the cluster Metrics Server." },
+      { id: 'A', text: "Guess resource usage based on application response latency." },
       { id: 'B', text: "Inspect static YAML manifests to see what resource limits were requested." },
       { id: 'C', text: "Run top on a developer laptop." },
-      { id: 'D', text: "Guess resource usage based on application response latency." }
+      { id: 'D', text: "Run `kubectl top pods -n &lt;namespace&gt; --sort-by=cpu` (or `--sort-by=memory`) querying the cluster Metrics Server." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Run `kubectl top pods -n &lt;namespace&gt; --sort-by=cpu` (or `--sort-by=memory`) querying the cluster Metrics Server. `kubectl top` queries the Kubernetes Metrics Server API (`metrics.k8s.io`) to report real-time CPU and memory metrics for nodes and pods. Sorting with `--sort-by=cpu` or `--sort-by=memory` quickly identifies resource-intensive workloads.",
     referenceUrl: "https://kubernetes.io/docs/reference/kubectl/generated/kubectl_top/",
@@ -114,12 +114,12 @@ export const K8S_CKAD_QUESTIONS_16 = [
     scenario: "A cloud-native application engineering team is establishing high-availability deployment patterns and zero-downtime release safeguards for enterprise services. The Kubernetes application developer evaluates Lifecycle Hooks to ensure an application gracefully closes active database connections and drains in-flight transactions before its container is terminated by Kubernetes.",
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives? Executing graceful termination and startup actions with container lifecycle hooks is under consideration.",
     options: [
-      { id: 'A', text: "Define a `preStop` hook in the container lifecycle spec to run a shutdown script or execute an HTTP GET request." },
-      { id: 'B', text: "Rely on immediate SIGKILL signal handling by the Linux kernel." },
-      { id: 'C', text: "Configure a postStart hook to handle graceful termination." },
-      { id: 'D', text: "Block pod deletion by disabling the kubelet eviction manager." }
+      { id: 'A', text: "Block pod deletion by disabling the kubelet eviction manager." },
+      { id: 'B', text: "Define a `preStop` hook in the container lifecycle spec to run a shutdown script or execute an HTTP GET request." },
+      { id: 'C', text: "Rely on immediate SIGKILL signal handling by the Linux kernel." },
+      { id: 'D', text: "Configure a postStart hook to handle graceful termination." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Define a `preStop` hook in the container lifecycle spec to run a shutdown script or execute an HTTP GET request. Kubernetes provides `postStart` and `preStop` container lifecycle hooks. The `preStop` hook is called immediately before a container is terminated due to API request, eviction, or liveness failure. It blocks the delivery of `SIGTERM`, allowing the container to complete cleanup tasks gracefully.",
     referenceUrl: "https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/",
@@ -135,12 +135,12 @@ export const K8S_CKAD_QUESTIONS_16 = [
     scenario: "A high-throughput web application experiences unpredictable spikes in user transactions and requires automated, reliable scaling across Kubernetes clusters. The Kubernetes application developer evaluates Lifecycle Hooks to ensure an application gracefully closes active database connections and drains in-flight transactions before its container is terminated by Kubernetes.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting backend stability? Executing graceful termination and startup actions with container lifecycle hooks is under consideration.",
     options: [
-      { id: 'A', text: "Define a `preStop` hook in the container lifecycle spec to run a shutdown script or execute an HTTP GET request." },
-      { id: 'B', text: "Rely on immediate SIGKILL signal handling by the Linux kernel." },
-      { id: 'C', text: "Configure a postStart hook to handle graceful termination." },
-      { id: 'D', text: "Block pod deletion by disabling the kubelet eviction manager." }
+      { id: 'A', text: "Block pod deletion by disabling the kubelet eviction manager." },
+      { id: 'B', text: "Configure a postStart hook to handle graceful termination." },
+      { id: 'C', text: "Define a `preStop` hook in the container lifecycle spec to run a shutdown script or execute an HTTP GET request." },
+      { id: 'D', text: "Rely on immediate SIGKILL signal handling by the Linux kernel." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Define a `preStop` hook in the container lifecycle spec to run a shutdown script or execute an HTTP GET request. Kubernetes provides `postStart` and `preStop` container lifecycle hooks. The `preStop` hook is called immediately before a container is terminated due to API request, eviction, or liveness failure. It blocks the delivery of `SIGTERM`, allowing the container to complete cleanup tasks gracefully.",
     referenceUrl: "https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/",
@@ -156,12 +156,12 @@ export const K8S_CKAD_QUESTIONS_16 = [
     scenario: "A security compliance auditor requires strict container runtime isolation, least-privilege credential access, and defense-in-depth network policies across all namespaces. The Kubernetes application developer evaluates Lifecycle Hooks to ensure an application gracefully closes active database connections and drains in-flight transactions before its container is terminated by Kubernetes.",
     question: "Which solution properly implements these mandatory container and cluster security controls? Executing graceful termination and startup actions with container lifecycle hooks is under consideration.",
     options: [
-      { id: 'A', text: "Define a `preStop` hook in the container lifecycle spec to run a shutdown script or execute an HTTP GET request." },
-      { id: 'B', text: "Rely on immediate SIGKILL signal handling by the Linux kernel." },
-      { id: 'C', text: "Configure a postStart hook to handle graceful termination." },
-      { id: 'D', text: "Block pod deletion by disabling the kubelet eviction manager." }
+      { id: 'A', text: "Block pod deletion by disabling the kubelet eviction manager." },
+      { id: 'B', text: "Configure a postStart hook to handle graceful termination." },
+      { id: 'C', text: "Rely on immediate SIGKILL signal handling by the Linux kernel." },
+      { id: 'D', text: "Define a `preStop` hook in the container lifecycle spec to run a shutdown script or execute an HTTP GET request." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Define a `preStop` hook in the container lifecycle spec to run a shutdown script or execute an HTTP GET request. Kubernetes provides `postStart` and `preStop` container lifecycle hooks. The `preStop` hook is called immediately before a container is terminated due to API request, eviction, or liveness failure. It blocks the delivery of `SIGTERM`, allowing the container to complete cleanup tasks gracefully.",
     referenceUrl: "https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/",
@@ -177,12 +177,12 @@ export const K8S_CKAD_QUESTIONS_16 = [
     scenario: "An application development team is migrating legacy monolithic applications into containerized microservices running on Kubernetes. The Kubernetes application developer evaluates Lifecycle Hooks to ensure an application gracefully closes active database connections and drains in-flight transactions before its container is terminated by Kubernetes.",
     question: "Which architectural pattern or feature enables the team to modernize services with minimal disruption and low operational friction? Executing graceful termination and startup actions with container lifecycle hooks is under consideration.",
     options: [
-      { id: 'A', text: "Define a `preStop` hook in the container lifecycle spec to run a shutdown script or execute an HTTP GET request." },
-      { id: 'B', text: "Rely on immediate SIGKILL signal handling by the Linux kernel." },
-      { id: 'C', text: "Configure a postStart hook to handle graceful termination." },
-      { id: 'D', text: "Block pod deletion by disabling the kubelet eviction manager." }
+      { id: 'A', text: "Block pod deletion by disabling the kubelet eviction manager." },
+      { id: 'B', text: "Configure a postStart hook to handle graceful termination." },
+      { id: 'C', text: "Define a `preStop` hook in the container lifecycle spec to run a shutdown script or execute an HTTP GET request." },
+      { id: 'D', text: "Rely on immediate SIGKILL signal handling by the Linux kernel." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Define a `preStop` hook in the container lifecycle spec to run a shutdown script or execute an HTTP GET request. Kubernetes provides `postStart` and `preStop` container lifecycle hooks. The `preStop` hook is called immediately before a container is terminated due to API request, eviction, or liveness failure. It blocks the delivery of `SIGTERM`, allowing the container to complete cleanup tasks gracefully.",
     referenceUrl: "https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/",
@@ -200,8 +200,8 @@ export const K8S_CKAD_QUESTIONS_16 = [
     options: [
       { id: 'A', text: "Define a `preStop` hook in the container lifecycle spec to run a shutdown script or execute an HTTP GET request." },
       { id: 'B', text: "Rely on immediate SIGKILL signal handling by the Linux kernel." },
-      { id: 'C', text: "Configure a postStart hook to handle graceful termination." },
-      { id: 'D', text: "Block pod deletion by disabling the kubelet eviction manager." }
+      { id: 'C', text: "Block pod deletion by disabling the kubelet eviction manager." },
+      { id: 'D', text: "Configure a postStart hook to handle graceful termination." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -219,12 +219,12 @@ export const K8S_CKAD_QUESTIONS_16 = [
     scenario: "A cloud-native application engineering team is establishing high-availability deployment patterns and zero-downtime release safeguards for enterprise services. The Kubernetes application developer evaluates Graceful Termination to allow a background data-processing pod up to 120 seconds to finish processing its active batch before being forcibly killed with SIGKILL.",
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives? Configuring pod terminationGracePeriodSeconds for long-running transactions is under consideration.",
     options: [
-      { id: 'A', text: "Set `terminationGracePeriodSeconds: 120` in the pod specification." },
-      { id: 'B', text: "Decrease terminationGracePeriodSeconds to 0 to force graceful termination." },
-      { id: 'C', text: "Modify the kubelet source code to change the default cluster timeout." },
-      { id: 'D', text: "Configure a readiness probe with a 120-second timeout." }
+      { id: 'A', text: "Decrease terminationGracePeriodSeconds to 0 to force graceful termination." },
+      { id: 'B', text: "Modify the kubelet source code to change the default cluster timeout." },
+      { id: 'C', text: "Configure a readiness probe with a 120-second timeout." },
+      { id: 'D', text: "Set `terminationGracePeriodSeconds: 120` in the pod specification." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Set `terminationGracePeriodSeconds: 120` in the pod specification. When Kubernetes terminates a pod, it sends `SIGTERM` and waits `terminationGracePeriodSeconds` (default 30 seconds) before sending `SIGKILL`. Workloads that need additional time to finish open transactions should increase this parameter to prevent abrupt data corruption.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#pod-termination",
@@ -241,8 +241,8 @@ export const K8S_CKAD_QUESTIONS_16 = [
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting backend stability? Configuring pod terminationGracePeriodSeconds for long-running transactions is under consideration.",
     options: [
       { id: 'A', text: "Set `terminationGracePeriodSeconds: 120` in the pod specification." },
-      { id: 'B', text: "Decrease terminationGracePeriodSeconds to 0 to force graceful termination." },
-      { id: 'C', text: "Modify the kubelet source code to change the default cluster timeout." },
+      { id: 'B', text: "Modify the kubelet source code to change the default cluster timeout." },
+      { id: 'C', text: "Decrease terminationGracePeriodSeconds to 0 to force graceful termination." },
       { id: 'D', text: "Configure a readiness probe with a 120-second timeout." }
     ],
     correctAnswers: ['A'],
@@ -261,12 +261,12 @@ export const K8S_CKAD_QUESTIONS_16 = [
     scenario: "A security compliance auditor requires strict container runtime isolation, least-privilege credential access, and defense-in-depth network policies across all namespaces. The Kubernetes application developer evaluates Graceful Termination to allow a background data-processing pod up to 120 seconds to finish processing its active batch before being forcibly killed with SIGKILL.",
     question: "Which solution properly implements these mandatory container and cluster security controls? Configuring pod terminationGracePeriodSeconds for long-running transactions is under consideration.",
     options: [
-      { id: 'A', text: "Set `terminationGracePeriodSeconds: 120` in the pod specification." },
-      { id: 'B', text: "Decrease terminationGracePeriodSeconds to 0 to force graceful termination." },
-      { id: 'C', text: "Modify the kubelet source code to change the default cluster timeout." },
-      { id: 'D', text: "Configure a readiness probe with a 120-second timeout." }
+      { id: 'A', text: "Configure a readiness probe with a 120-second timeout." },
+      { id: 'B', text: "Modify the kubelet source code to change the default cluster timeout." },
+      { id: 'C', text: "Decrease terminationGracePeriodSeconds to 0 to force graceful termination." },
+      { id: 'D', text: "Set `terminationGracePeriodSeconds: 120` in the pod specification." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Set `terminationGracePeriodSeconds: 120` in the pod specification. When Kubernetes terminates a pod, it sends `SIGTERM` and waits `terminationGracePeriodSeconds` (default 30 seconds) before sending `SIGKILL`. Workloads that need additional time to finish open transactions should increase this parameter to prevent abrupt data corruption.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#pod-termination",
@@ -283,9 +283,9 @@ export const K8S_CKAD_QUESTIONS_16 = [
     question: "Which architectural pattern or feature enables the team to modernize services with minimal disruption and low operational friction? Configuring pod terminationGracePeriodSeconds for long-running transactions is under consideration.",
     options: [
       { id: 'A', text: "Set `terminationGracePeriodSeconds: 120` in the pod specification." },
-      { id: 'B', text: "Decrease terminationGracePeriodSeconds to 0 to force graceful termination." },
+      { id: 'B', text: "Configure a readiness probe with a 120-second timeout." },
       { id: 'C', text: "Modify the kubelet source code to change the default cluster timeout." },
-      { id: 'D', text: "Configure a readiness probe with a 120-second timeout." }
+      { id: 'D', text: "Decrease terminationGracePeriodSeconds to 0 to force graceful termination." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -303,12 +303,12 @@ export const K8S_CKAD_QUESTIONS_16 = [
     scenario: "An SRE team is optimizing application stability to eliminate single points of failure, streamline observability, and ensure graceful failure handling. The Kubernetes application developer evaluates Graceful Termination to allow a background data-processing pod up to 120 seconds to finish processing its active batch before being forcibly killed with SIGKILL.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees service reliability? Configuring pod terminationGracePeriodSeconds for long-running transactions is under consideration.",
     options: [
-      { id: 'A', text: "Set `terminationGracePeriodSeconds: 120` in the pod specification." },
-      { id: 'B', text: "Decrease terminationGracePeriodSeconds to 0 to force graceful termination." },
-      { id: 'C', text: "Modify the kubelet source code to change the default cluster timeout." },
-      { id: 'D', text: "Configure a readiness probe with a 120-second timeout." }
+      { id: 'A', text: "Decrease terminationGracePeriodSeconds to 0 to force graceful termination." },
+      { id: 'B', text: "Set `terminationGracePeriodSeconds: 120` in the pod specification." },
+      { id: 'C', text: "Configure a readiness probe with a 120-second timeout." },
+      { id: 'D', text: "Modify the kubelet source code to change the default cluster timeout." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Set `terminationGracePeriodSeconds: 120` in the pod specification. When Kubernetes terminates a pod, it sends `SIGTERM` and waits `terminationGracePeriodSeconds` (default 30 seconds) before sending `SIGKILL`. Workloads that need additional time to finish open transactions should increase this parameter to prevent abrupt data corruption.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#pod-termination",
@@ -324,12 +324,12 @@ export const K8S_CKAD_QUESTIONS_16 = [
     scenario: "A cloud-native application engineering team is establishing high-availability deployment patterns and zero-downtime release safeguards for enterprise services. The Kubernetes application developer evaluates ConfigMaps to pass multiple application configuration settings from a ConfigMap into a container as environment variables at runtime.",
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives? Injecting individual keys and entire ConfigMaps via env and envFrom is under consideration.",
     options: [
-      { id: 'A', text: "Use `envFrom` with `configMapRef` in the container spec to inject all key-value pairs as environment variables." },
-      { id: 'B', text: "Hardcode configuration values directly into the container Dockerfile." },
-      { id: 'C', text: "Pass configuration values through command line flags in the image entrypoint." },
-      { id: 'D', text: "Require the application to query the Kubernetes API server directly on startup." }
+      { id: 'A', text: "Pass configuration values through command line flags in the image entrypoint." },
+      { id: 'B', text: "Use `envFrom` with `configMapRef` in the container spec to inject all key-value pairs as environment variables." },
+      { id: 'C', text: "Require the application to query the Kubernetes API server directly on startup." },
+      { id: 'D', text: "Hardcode configuration values directly into the container Dockerfile." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Use `envFrom` with `configMapRef` in the container spec to inject all key-value pairs as environment variables. `envFrom` references a ConfigMap to inject all its key-value entries as environment variables inside the container. Alternatively, `env` with `valueFrom.configMapKeyRef` injects specific individual keys, decoupling application configuration from container images.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/",
@@ -345,12 +345,12 @@ export const K8S_CKAD_QUESTIONS_16 = [
     scenario: "A high-throughput web application experiences unpredictable spikes in user transactions and requires automated, reliable scaling across Kubernetes clusters. The Kubernetes application developer evaluates ConfigMaps to pass multiple application configuration settings from a ConfigMap into a container as environment variables at runtime.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting backend stability? Injecting individual keys and entire ConfigMaps via env and envFrom is under consideration.",
     options: [
-      { id: 'A', text: "Use `envFrom` with `configMapRef` in the container spec to inject all key-value pairs as environment variables." },
-      { id: 'B', text: "Hardcode configuration values directly into the container Dockerfile." },
-      { id: 'C', text: "Pass configuration values through command line flags in the image entrypoint." },
-      { id: 'D', text: "Require the application to query the Kubernetes API server directly on startup." }
+      { id: 'A', text: "Require the application to query the Kubernetes API server directly on startup." },
+      { id: 'B', text: "Pass configuration values through command line flags in the image entrypoint." },
+      { id: 'C', text: "Use `envFrom` with `configMapRef` in the container spec to inject all key-value pairs as environment variables." },
+      { id: 'D', text: "Hardcode configuration values directly into the container Dockerfile." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Use `envFrom` with `configMapRef` in the container spec to inject all key-value pairs as environment variables. `envFrom` references a ConfigMap to inject all its key-value entries as environment variables inside the container. Alternatively, `env` with `valueFrom.configMapKeyRef` injects specific individual keys, decoupling application configuration from container images.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/",
@@ -366,12 +366,12 @@ export const K8S_CKAD_QUESTIONS_16 = [
     scenario: "A security compliance auditor requires strict container runtime isolation, least-privilege credential access, and defense-in-depth network policies across all namespaces. The Kubernetes application developer evaluates ConfigMaps to pass multiple application configuration settings from a ConfigMap into a container as environment variables at runtime.",
     question: "Which solution properly implements these mandatory container and cluster security controls? Injecting individual keys and entire ConfigMaps via env and envFrom is under consideration.",
     options: [
-      { id: 'A', text: "Use `envFrom` with `configMapRef` in the container spec to inject all key-value pairs as environment variables." },
+      { id: 'A', text: "Require the application to query the Kubernetes API server directly on startup." },
       { id: 'B', text: "Hardcode configuration values directly into the container Dockerfile." },
       { id: 'C', text: "Pass configuration values through command line flags in the image entrypoint." },
-      { id: 'D', text: "Require the application to query the Kubernetes API server directly on startup." }
+      { id: 'D', text: "Use `envFrom` with `configMapRef` in the container spec to inject all key-value pairs as environment variables." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Use `envFrom` with `configMapRef` in the container spec to inject all key-value pairs as environment variables. `envFrom` references a ConfigMap to inject all its key-value entries as environment variables inside the container. Alternatively, `env` with `valueFrom.configMapKeyRef` injects specific individual keys, decoupling application configuration from container images.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/",
@@ -389,8 +389,8 @@ export const K8S_CKAD_QUESTIONS_16 = [
     options: [
       { id: 'A', text: "Use `envFrom` with `configMapRef` in the container spec to inject all key-value pairs as environment variables." },
       { id: 'B', text: "Hardcode configuration values directly into the container Dockerfile." },
-      { id: 'C', text: "Pass configuration values through command line flags in the image entrypoint." },
-      { id: 'D', text: "Require the application to query the Kubernetes API server directly on startup." }
+      { id: 'C', text: "Require the application to query the Kubernetes API server directly on startup." },
+      { id: 'D', text: "Pass configuration values through command line flags in the image entrypoint." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,12 +408,12 @@ export const K8S_CKAD_QUESTIONS_16 = [
     scenario: "An SRE team is optimizing application stability to eliminate single points of failure, streamline observability, and ensure graceful failure handling. The Kubernetes application developer evaluates ConfigMaps to pass multiple application configuration settings from a ConfigMap into a container as environment variables at runtime.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees service reliability? Injecting individual keys and entire ConfigMaps via env and envFrom is under consideration.",
     options: [
-      { id: 'A', text: "Use `envFrom` with `configMapRef` in the container spec to inject all key-value pairs as environment variables." },
-      { id: 'B', text: "Hardcode configuration values directly into the container Dockerfile." },
-      { id: 'C', text: "Pass configuration values through command line flags in the image entrypoint." },
-      { id: 'D', text: "Require the application to query the Kubernetes API server directly on startup." }
+      { id: 'A', text: "Require the application to query the Kubernetes API server directly on startup." },
+      { id: 'B', text: "Pass configuration values through command line flags in the image entrypoint." },
+      { id: 'C', text: "Use `envFrom` with `configMapRef` in the container spec to inject all key-value pairs as environment variables." },
+      { id: 'D', text: "Hardcode configuration values directly into the container Dockerfile." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Use `envFrom` with `configMapRef` in the container spec to inject all key-value pairs as environment variables. `envFrom` references a ConfigMap to inject all its key-value entries as environment variables inside the container. Alternatively, `env` with `valueFrom.configMapKeyRef` injects specific individual keys, decoupling application configuration from container images.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/",
@@ -429,12 +429,12 @@ export const K8S_CKAD_QUESTIONS_16 = [
     scenario: "A cloud-native application engineering team is establishing high-availability deployment patterns and zero-downtime release safeguards for enterprise services. The Kubernetes application developer evaluates Secrets to provide a container access to database credentials stored in a Secret while ensuring values are not exposed in plaintext command-line inspection.",
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives? Consuming sensitive credentials via Secret volumes and secretKeyRef is under consideration.",
     options: [
-      { id: 'A', text: "Mount the Secret as a read-only volume in the container or inject specific keys via `valueFrom.secretKeyRef`." },
+      { id: 'A', text: "Pass credentials via pod annotations visible to all cluster users." },
       { id: 'B', text: "Store passwords in cleartext in a public ConfigMap." },
-      { id: 'C', text: "Hardcode the database password in the container image layer." },
-      { id: 'D', text: "Pass credentials via pod annotations visible to all cluster users." }
+      { id: 'C', text: "Mount the Secret as a read-only volume in the container or inject specific keys via `valueFrom.secretKeyRef`." },
+      { id: 'D', text: "Hardcode the database password in the container image layer." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Mount the Secret as a read-only volume in the container or inject specific keys via `valueFrom.secretKeyRef`. Kubernetes Secrets store sensitive data (tokens, passwords, keys). Consuming Secrets as mounted volumes or via `secretKeyRef` environment variables provides secure access to applications without hardcoding credentials in Dockerfiles or committing them to source control.",
     referenceUrl: "https://kubernetes.io/docs/concepts/configuration/secret/#using-secrets",
@@ -450,12 +450,12 @@ export const K8S_CKAD_QUESTIONS_16 = [
     scenario: "A high-throughput web application experiences unpredictable spikes in user transactions and requires automated, reliable scaling across Kubernetes clusters. The Kubernetes application developer evaluates Secrets to provide a container access to database credentials stored in a Secret while ensuring values are not exposed in plaintext command-line inspection.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting backend stability? Consuming sensitive credentials via Secret volumes and secretKeyRef is under consideration.",
     options: [
-      { id: 'A', text: "Mount the Secret as a read-only volume in the container or inject specific keys via `valueFrom.secretKeyRef`." },
-      { id: 'B', text: "Store passwords in cleartext in a public ConfigMap." },
+      { id: 'A', text: "Store passwords in cleartext in a public ConfigMap." },
+      { id: 'B', text: "Pass credentials via pod annotations visible to all cluster users." },
       { id: 'C', text: "Hardcode the database password in the container image layer." },
-      { id: 'D', text: "Pass credentials via pod annotations visible to all cluster users." }
+      { id: 'D', text: "Mount the Secret as a read-only volume in the container or inject specific keys via `valueFrom.secretKeyRef`." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Mount the Secret as a read-only volume in the container or inject specific keys via `valueFrom.secretKeyRef`. Kubernetes Secrets store sensitive data (tokens, passwords, keys). Consuming Secrets as mounted volumes or via `secretKeyRef` environment variables provides secure access to applications without hardcoding credentials in Dockerfiles or committing them to source control.",
     referenceUrl: "https://kubernetes.io/docs/concepts/configuration/secret/#using-secrets",
@@ -472,8 +472,8 @@ export const K8S_CKAD_QUESTIONS_16 = [
     question: "Which solution properly implements these mandatory container and cluster security controls? Consuming sensitive credentials via Secret volumes and secretKeyRef is under consideration.",
     options: [
       { id: 'A', text: "Mount the Secret as a read-only volume in the container or inject specific keys via `valueFrom.secretKeyRef`." },
-      { id: 'B', text: "Store passwords in cleartext in a public ConfigMap." },
-      { id: 'C', text: "Hardcode the database password in the container image layer." },
+      { id: 'B', text: "Hardcode the database password in the container image layer." },
+      { id: 'C', text: "Store passwords in cleartext in a public ConfigMap." },
       { id: 'D', text: "Pass credentials via pod annotations visible to all cluster users." }
     ],
     correctAnswers: ['A'],
@@ -493,8 +493,8 @@ export const K8S_CKAD_QUESTIONS_16 = [
     question: "Which architectural pattern or feature enables the team to modernize services with minimal disruption and low operational friction? Consuming sensitive credentials via Secret volumes and secretKeyRef is under consideration.",
     options: [
       { id: 'A', text: "Mount the Secret as a read-only volume in the container or inject specific keys via `valueFrom.secretKeyRef`." },
-      { id: 'B', text: "Store passwords in cleartext in a public ConfigMap." },
-      { id: 'C', text: "Hardcode the database password in the container image layer." },
+      { id: 'B', text: "Hardcode the database password in the container image layer." },
+      { id: 'C', text: "Store passwords in cleartext in a public ConfigMap." },
       { id: 'D', text: "Pass credentials via pod annotations visible to all cluster users." }
     ],
     correctAnswers: ['A'],

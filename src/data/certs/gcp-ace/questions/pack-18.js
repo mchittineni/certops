@@ -9,12 +9,12 @@ export const GCP_ACE_QUESTIONS_18 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer evaluates Compute Engine Disks to ensure all Compute Engine persistent disks are backed up automatically every night at midnight with snapshots retained for 30 days.",
     question: "Which concept or service configuration satisfies these operational resilience objectives? Automated disk snapshot schedules for point-in-time recovery is under consideration.",
     options: [
-      { id: 'A', text: "Create a Snapshot Schedule in Compute Engine and attach it to the persistent disks." },
-      { id: 'B', text: "Manually click 'Create Snapshot' on every disk in the console each night." },
-      { id: 'C', text: "Write an in-guest script that copies all files to a secondary local folder." },
+      { id: 'A', text: "Manually click 'Create Snapshot' on every disk in the console each night." },
+      { id: 'B', text: "Write an in-guest script that copies all files to a secondary local folder." },
+      { id: 'C', text: "Create a Snapshot Schedule in Compute Engine and attach it to the persistent disks." },
       { id: 'D', text: "Shut down all production servers every night to export virtual machine images." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Create a Snapshot Schedule in Compute Engine and attach it to the persistent disks. Snapshot schedules in Compute Engine automate the creation and retention of point-in-time persistent disk backups. Snapshots are incremental, compressed, and stored across multiple zones or regions, enabling rapid point-in-time recovery.",
     referenceUrl: "https://cloud.google.com/compute/docs/disks/scheduled-snapshots",
@@ -30,12 +30,12 @@ export const GCP_ACE_QUESTIONS_18 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer evaluates Compute Engine Disks to ensure all Compute Engine persistent disks are backed up automatically every night at midnight with snapshots retained for 30 days.",
     question: "Which architectural approach should the team select to manage this demand efficiently? Automated disk snapshot schedules for point-in-time recovery is under consideration.",
     options: [
-      { id: 'A', text: "Create a Snapshot Schedule in Compute Engine and attach it to the persistent disks." },
-      { id: 'B', text: "Manually click 'Create Snapshot' on every disk in the console each night." },
-      { id: 'C', text: "Write an in-guest script that copies all files to a secondary local folder." },
-      { id: 'D', text: "Shut down all production servers every night to export virtual machine images." }
+      { id: 'A', text: "Write an in-guest script that copies all files to a secondary local folder." },
+      { id: 'B', text: "Create a Snapshot Schedule in Compute Engine and attach it to the persistent disks." },
+      { id: 'C', text: "Shut down all production servers every night to export virtual machine images." },
+      { id: 'D', text: "Manually click 'Create Snapshot' on every disk in the console each night." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Create a Snapshot Schedule in Compute Engine and attach it to the persistent disks. Snapshot schedules in Compute Engine automate the creation and retention of point-in-time persistent disk backups. Snapshots are incremental, compressed, and stored across multiple zones or regions, enabling rapid point-in-time recovery.",
     referenceUrl: "https://cloud.google.com/compute/docs/disks/scheduled-snapshots",
@@ -51,12 +51,12 @@ export const GCP_ACE_QUESTIONS_18 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer evaluates Compute Engine Disks to ensure all Compute Engine persistent disks are backed up automatically every night at midnight with snapshots retained for 30 days.",
     question: "Which solution properly implements these mandatory security and governance controls? Automated disk snapshot schedules for point-in-time recovery is under consideration.",
     options: [
-      { id: 'A', text: "Create a Snapshot Schedule in Compute Engine and attach it to the persistent disks." },
-      { id: 'B', text: "Manually click 'Create Snapshot' on every disk in the console each night." },
-      { id: 'C', text: "Write an in-guest script that copies all files to a secondary local folder." },
-      { id: 'D', text: "Shut down all production servers every night to export virtual machine images." }
+      { id: 'A', text: "Manually click 'Create Snapshot' on every disk in the console each night." },
+      { id: 'B', text: "Create a Snapshot Schedule in Compute Engine and attach it to the persistent disks." },
+      { id: 'C', text: "Shut down all production servers every night to export virtual machine images." },
+      { id: 'D', text: "Write an in-guest script that copies all files to a secondary local folder." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Create a Snapshot Schedule in Compute Engine and attach it to the persistent disks. Snapshot schedules in Compute Engine automate the creation and retention of point-in-time persistent disk backups. Snapshots are incremental, compressed, and stored across multiple zones or regions, enabling rapid point-in-time recovery.",
     referenceUrl: "https://cloud.google.com/compute/docs/disks/scheduled-snapshots",
@@ -74,8 +74,8 @@ export const GCP_ACE_QUESTIONS_18 = [
     options: [
       { id: 'A', text: "Create a Snapshot Schedule in Compute Engine and attach it to the persistent disks." },
       { id: 'B', text: "Manually click 'Create Snapshot' on every disk in the console each night." },
-      { id: 'C', text: "Write an in-guest script that copies all files to a secondary local folder." },
-      { id: 'D', text: "Shut down all production servers every night to export virtual machine images." }
+      { id: 'C', text: "Shut down all production servers every night to export virtual machine images." },
+      { id: 'D', text: "Write an in-guest script that copies all files to a secondary local folder." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -93,12 +93,12 @@ export const GCP_ACE_QUESTIONS_18 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer evaluates Compute Engine Disks to ensure all Compute Engine persistent disks are backed up automatically every night at midnight with snapshots retained for 30 days.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? Automated disk snapshot schedules for point-in-time recovery is under consideration.",
     options: [
-      { id: 'A', text: "Create a Snapshot Schedule in Compute Engine and attach it to the persistent disks." },
-      { id: 'B', text: "Manually click 'Create Snapshot' on every disk in the console each night." },
+      { id: 'A', text: "Shut down all production servers every night to export virtual machine images." },
+      { id: 'B', text: "Create a Snapshot Schedule in Compute Engine and attach it to the persistent disks." },
       { id: 'C', text: "Write an in-guest script that copies all files to a secondary local folder." },
-      { id: 'D', text: "Shut down all production servers every night to export virtual machine images." }
+      { id: 'D', text: "Manually click 'Create Snapshot' on every disk in the console each night." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Create a Snapshot Schedule in Compute Engine and attach it to the persistent disks. Snapshot schedules in Compute Engine automate the creation and retention of point-in-time persistent disk backups. Snapshots are incremental, compressed, and stored across multiple zones or regions, enabling rapid point-in-time recovery.",
     referenceUrl: "https://cloud.google.com/compute/docs/disks/scheduled-snapshots",
@@ -114,12 +114,12 @@ export const GCP_ACE_QUESTIONS_18 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer evaluates Google Kubernetes Engine to automatically increase the number of application pods during traffic spikes, and automatically provision additional GKE worker nodes when existing nodes run out of capacity.",
     question: "Which concept or service configuration satisfies these operational resilience objectives? Horizontal Pod Autoscaler (HPA) and GKE Cluster Autoscaler is under consideration.",
     options: [
-      { id: 'A', text: "Configure the Horizontal Pod Autoscaler (HPA) for application deployments and enable the GKE Cluster Autoscaler on the node pool." },
-      { id: 'B', text: "Manually run 'kubectl scale deployment' whenever response times slow down." },
-      { id: 'C', text: "Deploy 100 oversized virtual machine nodes permanently to ensure capacity is never exceeded." },
+      { id: 'A', text: "Deploy 100 oversized virtual machine nodes permanently to ensure capacity is never exceeded." },
+      { id: 'B', text: "Configure the Horizontal Pod Autoscaler (HPA) for application deployments and enable the GKE Cluster Autoscaler on the node pool." },
+      { id: 'C', text: "Manually run 'kubectl scale deployment' whenever response times slow down." },
       { id: 'D', text: "Restart the Kubernetes cluster every 6 hours to clear memory." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure the Horizontal Pod Autoscaler (HPA) for application deployments and enable the GKE Cluster Autoscaler on the node pool. The Horizontal Pod Autoscaler (HPA) scales the number of pod replicas based on observed CPU/memory utilization or custom metrics. When pending pods cannot be scheduled due to insufficient node resources, the GKE Cluster Autoscaler automatically provisions additional worker nodes.",
     referenceUrl: "https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-autoscaler",
@@ -135,12 +135,12 @@ export const GCP_ACE_QUESTIONS_18 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer evaluates Google Kubernetes Engine to automatically increase the number of application pods during traffic spikes, and automatically provision additional GKE worker nodes when existing nodes run out of capacity.",
     question: "Which architectural approach should the team select to manage this demand efficiently? Horizontal Pod Autoscaler (HPA) and GKE Cluster Autoscaler is under consideration.",
     options: [
-      { id: 'A', text: "Configure the Horizontal Pod Autoscaler (HPA) for application deployments and enable the GKE Cluster Autoscaler on the node pool." },
+      { id: 'A', text: "Deploy 100 oversized virtual machine nodes permanently to ensure capacity is never exceeded." },
       { id: 'B', text: "Manually run 'kubectl scale deployment' whenever response times slow down." },
-      { id: 'C', text: "Deploy 100 oversized virtual machine nodes permanently to ensure capacity is never exceeded." },
-      { id: 'D', text: "Restart the Kubernetes cluster every 6 hours to clear memory." }
+      { id: 'C', text: "Restart the Kubernetes cluster every 6 hours to clear memory." },
+      { id: 'D', text: "Configure the Horizontal Pod Autoscaler (HPA) for application deployments and enable the GKE Cluster Autoscaler on the node pool." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure the Horizontal Pod Autoscaler (HPA) for application deployments and enable the GKE Cluster Autoscaler on the node pool. The Horizontal Pod Autoscaler (HPA) scales the number of pod replicas based on observed CPU/memory utilization or custom metrics. When pending pods cannot be scheduled due to insufficient node resources, the GKE Cluster Autoscaler automatically provisions additional worker nodes.",
     referenceUrl: "https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-autoscaler",
@@ -156,12 +156,12 @@ export const GCP_ACE_QUESTIONS_18 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer evaluates Google Kubernetes Engine to automatically increase the number of application pods during traffic spikes, and automatically provision additional GKE worker nodes when existing nodes run out of capacity.",
     question: "Which solution properly implements these mandatory security and governance controls? Horizontal Pod Autoscaler (HPA) and GKE Cluster Autoscaler is under consideration.",
     options: [
-      { id: 'A', text: "Configure the Horizontal Pod Autoscaler (HPA) for application deployments and enable the GKE Cluster Autoscaler on the node pool." },
+      { id: 'A', text: "Deploy 100 oversized virtual machine nodes permanently to ensure capacity is never exceeded." },
       { id: 'B', text: "Manually run 'kubectl scale deployment' whenever response times slow down." },
-      { id: 'C', text: "Deploy 100 oversized virtual machine nodes permanently to ensure capacity is never exceeded." },
-      { id: 'D', text: "Restart the Kubernetes cluster every 6 hours to clear memory." }
+      { id: 'C', text: "Restart the Kubernetes cluster every 6 hours to clear memory." },
+      { id: 'D', text: "Configure the Horizontal Pod Autoscaler (HPA) for application deployments and enable the GKE Cluster Autoscaler on the node pool." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure the Horizontal Pod Autoscaler (HPA) for application deployments and enable the GKE Cluster Autoscaler on the node pool. The Horizontal Pod Autoscaler (HPA) scales the number of pod replicas based on observed CPU/memory utilization or custom metrics. When pending pods cannot be scheduled due to insufficient node resources, the GKE Cluster Autoscaler automatically provisions additional worker nodes.",
     referenceUrl: "https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-autoscaler",
@@ -177,12 +177,12 @@ export const GCP_ACE_QUESTIONS_18 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer evaluates Google Kubernetes Engine to automatically increase the number of application pods during traffic spikes, and automatically provision additional GKE worker nodes when existing nodes run out of capacity.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? Horizontal Pod Autoscaler (HPA) and GKE Cluster Autoscaler is under consideration.",
     options: [
-      { id: 'A', text: "Configure the Horizontal Pod Autoscaler (HPA) for application deployments and enable the GKE Cluster Autoscaler on the node pool." },
-      { id: 'B', text: "Manually run 'kubectl scale deployment' whenever response times slow down." },
-      { id: 'C', text: "Deploy 100 oversized virtual machine nodes permanently to ensure capacity is never exceeded." },
+      { id: 'A', text: "Deploy 100 oversized virtual machine nodes permanently to ensure capacity is never exceeded." },
+      { id: 'B', text: "Configure the Horizontal Pod Autoscaler (HPA) for application deployments and enable the GKE Cluster Autoscaler on the node pool." },
+      { id: 'C', text: "Manually run 'kubectl scale deployment' whenever response times slow down." },
       { id: 'D', text: "Restart the Kubernetes cluster every 6 hours to clear memory." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure the Horizontal Pod Autoscaler (HPA) for application deployments and enable the GKE Cluster Autoscaler on the node pool. The Horizontal Pod Autoscaler (HPA) scales the number of pod replicas based on observed CPU/memory utilization or custom metrics. When pending pods cannot be scheduled due to insufficient node resources, the GKE Cluster Autoscaler automatically provisions additional worker nodes.",
     referenceUrl: "https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-autoscaler",
@@ -199,9 +199,9 @@ export const GCP_ACE_QUESTIONS_18 = [
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? Horizontal Pod Autoscaler (HPA) and GKE Cluster Autoscaler is under consideration.",
     options: [
       { id: 'A', text: "Configure the Horizontal Pod Autoscaler (HPA) for application deployments and enable the GKE Cluster Autoscaler on the node pool." },
-      { id: 'B', text: "Manually run 'kubectl scale deployment' whenever response times slow down." },
-      { id: 'C', text: "Deploy 100 oversized virtual machine nodes permanently to ensure capacity is never exceeded." },
-      { id: 'D', text: "Restart the Kubernetes cluster every 6 hours to clear memory." }
+      { id: 'B', text: "Restart the Kubernetes cluster every 6 hours to clear memory." },
+      { id: 'C', text: "Manually run 'kubectl scale deployment' whenever response times slow down." },
+      { id: 'D', text: "Deploy 100 oversized virtual machine nodes permanently to ensure capacity is never exceeded." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -219,12 +219,12 @@ export const GCP_ACE_QUESTIONS_18 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer evaluates Cloud Storage to automatically transition Cloud Storage objects from Standard to Coldline after 90 days of creation and permanently delete objects older than 365 days.",
     question: "Which concept or service configuration satisfies these operational resilience objectives? Automated lifecycle management rules for storage class transitions and object deletion is under consideration.",
     options: [
-      { id: 'A', text: "Configure an Object Lifecycle Management rule on the Cloud Storage bucket with Age conditions." },
-      { id: 'B', text: "Write a custom python script scheduled on a VM to check object timestamps daily." },
+      { id: 'A', text: "Download all objects to an on-premises disk after 90 days." },
+      { id: 'B', text: "Configure an Object Lifecycle Management rule on the Cloud Storage bucket with Age conditions." },
       { id: 'C', text: "Manually inspect bucket contents in the console at the end of each month." },
-      { id: 'D', text: "Download all objects to an on-premises disk after 90 days." }
+      { id: 'D', text: "Write a custom python script scheduled on a VM to check object timestamps daily." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure an Object Lifecycle Management rule on the Cloud Storage bucket with Age conditions. Cloud Storage Object Lifecycle Management provides automated, rule-based lifecycle management. Rules define actions (SetStorageClass, Delete, AbortIncompleteMultipartUpload) triggered by conditions (Age, CreatedBefore, IsLive, MatchesPrefix), reducing storage costs automatically.",
     referenceUrl: "https://cloud.google.com/storage/docs/lifecycle",
@@ -240,12 +240,12 @@ export const GCP_ACE_QUESTIONS_18 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer evaluates Cloud Storage to automatically transition Cloud Storage objects from Standard to Coldline after 90 days of creation and permanently delete objects older than 365 days.",
     question: "Which architectural approach should the team select to manage this demand efficiently? Automated lifecycle management rules for storage class transitions and object deletion is under consideration.",
     options: [
-      { id: 'A', text: "Configure an Object Lifecycle Management rule on the Cloud Storage bucket with Age conditions." },
-      { id: 'B', text: "Write a custom python script scheduled on a VM to check object timestamps daily." },
-      { id: 'C', text: "Manually inspect bucket contents in the console at the end of each month." },
-      { id: 'D', text: "Download all objects to an on-premises disk after 90 days." }
+      { id: 'A', text: "Manually inspect bucket contents in the console at the end of each month." },
+      { id: 'B', text: "Download all objects to an on-premises disk after 90 days." },
+      { id: 'C', text: "Configure an Object Lifecycle Management rule on the Cloud Storage bucket with Age conditions." },
+      { id: 'D', text: "Write a custom python script scheduled on a VM to check object timestamps daily." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure an Object Lifecycle Management rule on the Cloud Storage bucket with Age conditions. Cloud Storage Object Lifecycle Management provides automated, rule-based lifecycle management. Rules define actions (SetStorageClass, Delete, AbortIncompleteMultipartUpload) triggered by conditions (Age, CreatedBefore, IsLive, MatchesPrefix), reducing storage costs automatically.",
     referenceUrl: "https://cloud.google.com/storage/docs/lifecycle",
@@ -261,12 +261,12 @@ export const GCP_ACE_QUESTIONS_18 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer evaluates Cloud Storage to automatically transition Cloud Storage objects from Standard to Coldline after 90 days of creation and permanently delete objects older than 365 days.",
     question: "Which solution properly implements these mandatory security and governance controls? Automated lifecycle management rules for storage class transitions and object deletion is under consideration.",
     options: [
-      { id: 'A', text: "Configure an Object Lifecycle Management rule on the Cloud Storage bucket with Age conditions." },
-      { id: 'B', text: "Write a custom python script scheduled on a VM to check object timestamps daily." },
-      { id: 'C', text: "Manually inspect bucket contents in the console at the end of each month." },
+      { id: 'A', text: "Write a custom python script scheduled on a VM to check object timestamps daily." },
+      { id: 'B', text: "Manually inspect bucket contents in the console at the end of each month." },
+      { id: 'C', text: "Configure an Object Lifecycle Management rule on the Cloud Storage bucket with Age conditions." },
       { id: 'D', text: "Download all objects to an on-premises disk after 90 days." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure an Object Lifecycle Management rule on the Cloud Storage bucket with Age conditions. Cloud Storage Object Lifecycle Management provides automated, rule-based lifecycle management. Rules define actions (SetStorageClass, Delete, AbortIncompleteMultipartUpload) triggered by conditions (Age, CreatedBefore, IsLive, MatchesPrefix), reducing storage costs automatically.",
     referenceUrl: "https://cloud.google.com/storage/docs/lifecycle",
@@ -282,12 +282,12 @@ export const GCP_ACE_QUESTIONS_18 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer evaluates Cloud Storage to automatically transition Cloud Storage objects from Standard to Coldline after 90 days of creation and permanently delete objects older than 365 days.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? Automated lifecycle management rules for storage class transitions and object deletion is under consideration.",
     options: [
-      { id: 'A', text: "Configure an Object Lifecycle Management rule on the Cloud Storage bucket with Age conditions." },
-      { id: 'B', text: "Write a custom python script scheduled on a VM to check object timestamps daily." },
+      { id: 'A', text: "Write a custom python script scheduled on a VM to check object timestamps daily." },
+      { id: 'B', text: "Configure an Object Lifecycle Management rule on the Cloud Storage bucket with Age conditions." },
       { id: 'C', text: "Manually inspect bucket contents in the console at the end of each month." },
       { id: 'D', text: "Download all objects to an on-premises disk after 90 days." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure an Object Lifecycle Management rule on the Cloud Storage bucket with Age conditions. Cloud Storage Object Lifecycle Management provides automated, rule-based lifecycle management. Rules define actions (SetStorageClass, Delete, AbortIncompleteMultipartUpload) triggered by conditions (Age, CreatedBefore, IsLive, MatchesPrefix), reducing storage costs automatically.",
     referenceUrl: "https://cloud.google.com/storage/docs/lifecycle",
@@ -303,12 +303,12 @@ export const GCP_ACE_QUESTIONS_18 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer evaluates Cloud Storage to automatically transition Cloud Storage objects from Standard to Coldline after 90 days of creation and permanently delete objects older than 365 days.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? Automated lifecycle management rules for storage class transitions and object deletion is under consideration.",
     options: [
-      { id: 'A', text: "Configure an Object Lifecycle Management rule on the Cloud Storage bucket with Age conditions." },
-      { id: 'B', text: "Write a custom python script scheduled on a VM to check object timestamps daily." },
-      { id: 'C', text: "Manually inspect bucket contents in the console at the end of each month." },
-      { id: 'D', text: "Download all objects to an on-premises disk after 90 days." }
+      { id: 'A', text: "Write a custom python script scheduled on a VM to check object timestamps daily." },
+      { id: 'B', text: "Download all objects to an on-premises disk after 90 days." },
+      { id: 'C', text: "Configure an Object Lifecycle Management rule on the Cloud Storage bucket with Age conditions." },
+      { id: 'D', text: "Manually inspect bucket contents in the console at the end of each month." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure an Object Lifecycle Management rule on the Cloud Storage bucket with Age conditions. Cloud Storage Object Lifecycle Management provides automated, rule-based lifecycle management. Rules define actions (SetStorageClass, Delete, AbortIncompleteMultipartUpload) triggered by conditions (Age, CreatedBefore, IsLive, MatchesPrefix), reducing storage costs automatically.",
     referenceUrl: "https://cloud.google.com/storage/docs/lifecycle",
@@ -324,12 +324,12 @@ export const GCP_ACE_QUESTIONS_18 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer evaluates Compute Engine to automatically detect when an application running inside a Managed Instance Group VM becomes unresponsive to HTTP health probes and recreate the unhealthy instance.",
     question: "Which concept or service configuration satisfies these operational resilience objectives? Application health checks and automated VM auto-healing in MIGs is under consideration.",
     options: [
-      { id: 'A', text: "Attach an HTTP Health Check to the Managed Instance Group with an autohealing policy." },
-      { id: 'B', text: "Rely on operations engineers to manually reboot frozen virtual machines." },
-      { id: 'C', text: "Configure a ping probe against the VM network interface." },
+      { id: 'A', text: "Configure a ping probe against the VM network interface." },
+      { id: 'B', text: "Attach an HTTP Health Check to the Managed Instance Group with an autohealing policy." },
+      { id: 'C', text: "Rely on operations engineers to manually reboot frozen virtual machines." },
       { id: 'D', text: "Disable health checks to prevent instance restarts." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Attach an HTTP Health Check to the Managed Instance Group with an autohealing policy. Compute Engine auto-healing in Managed Instance Groups uses application-level health checks (HTTP, HTTPS, or TCP). If an application fails health check probes for the configured threshold, the MIG automatically stops, deletes, and recreates the VM instance to restore service availability.",
     referenceUrl: "https://cloud.google.com/compute/docs/instance-groups/autohealing-instances-in-migs",
@@ -345,12 +345,12 @@ export const GCP_ACE_QUESTIONS_18 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer evaluates Compute Engine to automatically detect when an application running inside a Managed Instance Group VM becomes unresponsive to HTTP health probes and recreate the unhealthy instance.",
     question: "Which architectural approach should the team select to manage this demand efficiently? Application health checks and automated VM auto-healing in MIGs is under consideration.",
     options: [
-      { id: 'A', text: "Attach an HTTP Health Check to the Managed Instance Group with an autohealing policy." },
+      { id: 'A', text: "Disable health checks to prevent instance restarts." },
       { id: 'B', text: "Rely on operations engineers to manually reboot frozen virtual machines." },
       { id: 'C', text: "Configure a ping probe against the VM network interface." },
-      { id: 'D', text: "Disable health checks to prevent instance restarts." }
+      { id: 'D', text: "Attach an HTTP Health Check to the Managed Instance Group with an autohealing policy." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Attach an HTTP Health Check to the Managed Instance Group with an autohealing policy. Compute Engine auto-healing in Managed Instance Groups uses application-level health checks (HTTP, HTTPS, or TCP). If an application fails health check probes for the configured threshold, the MIG automatically stops, deletes, and recreates the VM instance to restore service availability.",
     referenceUrl: "https://cloud.google.com/compute/docs/instance-groups/autohealing-instances-in-migs",
@@ -366,12 +366,12 @@ export const GCP_ACE_QUESTIONS_18 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer evaluates Compute Engine to automatically detect when an application running inside a Managed Instance Group VM becomes unresponsive to HTTP health probes and recreate the unhealthy instance.",
     question: "Which solution properly implements these mandatory security and governance controls? Application health checks and automated VM auto-healing in MIGs is under consideration.",
     options: [
-      { id: 'A', text: "Attach an HTTP Health Check to the Managed Instance Group with an autohealing policy." },
-      { id: 'B', text: "Rely on operations engineers to manually reboot frozen virtual machines." },
-      { id: 'C', text: "Configure a ping probe against the VM network interface." },
-      { id: 'D', text: "Disable health checks to prevent instance restarts." }
+      { id: 'A', text: "Rely on operations engineers to manually reboot frozen virtual machines." },
+      { id: 'B', text: "Attach an HTTP Health Check to the Managed Instance Group with an autohealing policy." },
+      { id: 'C', text: "Disable health checks to prevent instance restarts." },
+      { id: 'D', text: "Configure a ping probe against the VM network interface." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Attach an HTTP Health Check to the Managed Instance Group with an autohealing policy. Compute Engine auto-healing in Managed Instance Groups uses application-level health checks (HTTP, HTTPS, or TCP). If an application fails health check probes for the configured threshold, the MIG automatically stops, deletes, and recreates the VM instance to restore service availability.",
     referenceUrl: "https://cloud.google.com/compute/docs/instance-groups/autohealing-instances-in-migs",
@@ -387,12 +387,12 @@ export const GCP_ACE_QUESTIONS_18 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer evaluates Compute Engine to automatically detect when an application running inside a Managed Instance Group VM becomes unresponsive to HTTP health probes and recreate the unhealthy instance.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? Application health checks and automated VM auto-healing in MIGs is under consideration.",
     options: [
-      { id: 'A', text: "Attach an HTTP Health Check to the Managed Instance Group with an autohealing policy." },
-      { id: 'B', text: "Rely on operations engineers to manually reboot frozen virtual machines." },
+      { id: 'A', text: "Rely on operations engineers to manually reboot frozen virtual machines." },
+      { id: 'B', text: "Disable health checks to prevent instance restarts." },
       { id: 'C', text: "Configure a ping probe against the VM network interface." },
-      { id: 'D', text: "Disable health checks to prevent instance restarts." }
+      { id: 'D', text: "Attach an HTTP Health Check to the Managed Instance Group with an autohealing policy." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Attach an HTTP Health Check to the Managed Instance Group with an autohealing policy. Compute Engine auto-healing in Managed Instance Groups uses application-level health checks (HTTP, HTTPS, or TCP). If an application fails health check probes for the configured threshold, the MIG automatically stops, deletes, and recreates the VM instance to restore service availability.",
     referenceUrl: "https://cloud.google.com/compute/docs/instance-groups/autohealing-instances-in-migs",
@@ -409,8 +409,8 @@ export const GCP_ACE_QUESTIONS_18 = [
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? Application health checks and automated VM auto-healing in MIGs is under consideration.",
     options: [
       { id: 'A', text: "Attach an HTTP Health Check to the Managed Instance Group with an autohealing policy." },
-      { id: 'B', text: "Rely on operations engineers to manually reboot frozen virtual machines." },
-      { id: 'C', text: "Configure a ping probe against the VM network interface." },
+      { id: 'B', text: "Configure a ping probe against the VM network interface." },
+      { id: 'C', text: "Rely on operations engineers to manually reboot frozen virtual machines." },
       { id: 'D', text: "Disable health checks to prevent instance restarts." }
     ],
     correctAnswers: ['A'],
@@ -430,9 +430,9 @@ export const GCP_ACE_QUESTIONS_18 = [
     question: "Which concept or service configuration satisfies these operational resilience objectives? Automated daily backups and write-ahead transaction log point-in-time recovery is under consideration.",
     options: [
       { id: 'A', text: "Execute a Point-in-Time Recovery (PITR) using automated backups and transaction write-ahead logs." },
-      { id: 'B', text: "Restore from last Sunday's full database export file." },
-      { id: 'C', text: "Recreate the dropped table manually from memory." },
-      { id: 'D', text: "Submit a ticket to Google support requesting disk-level file undeletion." }
+      { id: 'B', text: "Submit a ticket to Google support requesting disk-level file undeletion." },
+      { id: 'C', text: "Restore from last Sunday's full database export file." },
+      { id: 'D', text: "Recreate the dropped table manually from memory." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -451,9 +451,9 @@ export const GCP_ACE_QUESTIONS_18 = [
     question: "Which architectural approach should the team select to manage this demand efficiently? Automated daily backups and write-ahead transaction log point-in-time recovery is under consideration.",
     options: [
       { id: 'A', text: "Execute a Point-in-Time Recovery (PITR) using automated backups and transaction write-ahead logs." },
-      { id: 'B', text: "Restore from last Sunday's full database export file." },
-      { id: 'C', text: "Recreate the dropped table manually from memory." },
-      { id: 'D', text: "Submit a ticket to Google support requesting disk-level file undeletion." }
+      { id: 'B', text: "Submit a ticket to Google support requesting disk-level file undeletion." },
+      { id: 'C', text: "Restore from last Sunday's full database export file." },
+      { id: 'D', text: "Recreate the dropped table manually from memory." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -471,12 +471,12 @@ export const GCP_ACE_QUESTIONS_18 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer evaluates Cloud SQL to recover a Cloud SQL database to its exact state 15 minutes before an accidental DROP TABLE command was executed by an administrator.",
     question: "Which solution properly implements these mandatory security and governance controls? Automated daily backups and write-ahead transaction log point-in-time recovery is under consideration.",
     options: [
-      { id: 'A', text: "Execute a Point-in-Time Recovery (PITR) using automated backups and transaction write-ahead logs." },
+      { id: 'A', text: "Recreate the dropped table manually from memory." },
       { id: 'B', text: "Restore from last Sunday's full database export file." },
-      { id: 'C', text: "Recreate the dropped table manually from memory." },
-      { id: 'D', text: "Submit a ticket to Google support requesting disk-level file undeletion." }
+      { id: 'C', text: "Submit a ticket to Google support requesting disk-level file undeletion." },
+      { id: 'D', text: "Execute a Point-in-Time Recovery (PITR) using automated backups and transaction write-ahead logs." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Execute a Point-in-Time Recovery (PITR) using automated backups and transaction write-ahead logs. Point-in-Time Recovery (PITR) in Cloud SQL uses binary logs (MySQL) or write-ahead logs (PostgreSQL) in conjunction with automated daily backups to restore the database to the exact minute and second prior to data corruption or accidental table deletion.",
     referenceUrl: "https://cloud.google.com/sql/docs/postgres/backup-recovery/pitr",
@@ -492,12 +492,12 @@ export const GCP_ACE_QUESTIONS_18 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer evaluates Cloud SQL to recover a Cloud SQL database to its exact state 15 minutes before an accidental DROP TABLE command was executed by an administrator.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? Automated daily backups and write-ahead transaction log point-in-time recovery is under consideration.",
     options: [
-      { id: 'A', text: "Execute a Point-in-Time Recovery (PITR) using automated backups and transaction write-ahead logs." },
-      { id: 'B', text: "Restore from last Sunday's full database export file." },
-      { id: 'C', text: "Recreate the dropped table manually from memory." },
-      { id: 'D', text: "Submit a ticket to Google support requesting disk-level file undeletion." }
+      { id: 'A', text: "Submit a ticket to Google support requesting disk-level file undeletion." },
+      { id: 'B', text: "Recreate the dropped table manually from memory." },
+      { id: 'C', text: "Restore from last Sunday's full database export file." },
+      { id: 'D', text: "Execute a Point-in-Time Recovery (PITR) using automated backups and transaction write-ahead logs." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Execute a Point-in-Time Recovery (PITR) using automated backups and transaction write-ahead logs. Point-in-Time Recovery (PITR) in Cloud SQL uses binary logs (MySQL) or write-ahead logs (PostgreSQL) in conjunction with automated daily backups to restore the database to the exact minute and second prior to data corruption or accidental table deletion.",
     referenceUrl: "https://cloud.google.com/sql/docs/postgres/backup-recovery/pitr",
@@ -513,12 +513,12 @@ export const GCP_ACE_QUESTIONS_18 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer evaluates Cloud SQL to recover a Cloud SQL database to its exact state 15 minutes before an accidental DROP TABLE command was executed by an administrator.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? Automated daily backups and write-ahead transaction log point-in-time recovery is under consideration.",
     options: [
-      { id: 'A', text: "Execute a Point-in-Time Recovery (PITR) using automated backups and transaction write-ahead logs." },
-      { id: 'B', text: "Restore from last Sunday's full database export file." },
-      { id: 'C', text: "Recreate the dropped table manually from memory." },
-      { id: 'D', text: "Submit a ticket to Google support requesting disk-level file undeletion." }
+      { id: 'A', text: "Submit a ticket to Google support requesting disk-level file undeletion." },
+      { id: 'B', text: "Recreate the dropped table manually from memory." },
+      { id: 'C', text: "Restore from last Sunday's full database export file." },
+      { id: 'D', text: "Execute a Point-in-Time Recovery (PITR) using automated backups and transaction write-ahead logs." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Execute a Point-in-Time Recovery (PITR) using automated backups and transaction write-ahead logs. Point-in-Time Recovery (PITR) in Cloud SQL uses binary logs (MySQL) or write-ahead logs (PostgreSQL) in conjunction with automated daily backups to restore the database to the exact minute and second prior to data corruption or accidental table deletion.",
     referenceUrl: "https://cloud.google.com/sql/docs/postgres/backup-recovery/pitr",

@@ -9,10 +9,10 @@ export const AZURE_AZ400_QUESTIONS_6 = [
     scenario: "An enterprise models their multi-stage release pipeline in YAML targeting Dev, QA, and Production environments. They want deployment history and traceability tracked on each target.",
     question: "Which YAML concept represents the target deployment boundary with integrated approvals and health tracking?",
     options: [
-      { id: 'A', text: "pool: 'Production'" },
-      { id: 'B', text: "stage: 'Production'" },
+      { id: 'A', text: "stage: 'Production'" },
+      { id: 'B', text: "workspace: 'Production'" },
       { id: 'C', text: "environment: 'Production'" },
-      { id: 'D', text: "workspace: 'Production'" }
+      { id: 'D', text: "pool: 'Production'" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -30,12 +30,12 @@ export const AZURE_AZ400_QUESTIONS_6 = [
     scenario: "A compliance policy requires that deployments to the Production environment must be formally approved by at least two Release Managers before any deployment tasks can execute.",
     question: "Where are these approval checks configured for YAML pipelines?",
     options: [
-      { id: 'A', text: "Hardcoded inside azure-pipelines.yml as a bash script" },
-      { id: 'B', text: "In Azure Key Vault" },
-      { id: 'C', text: "In branch protection rules" },
-      { id: 'D', text: "In Project Settings → Pipelines → Environments → Production → Approvals and checks" }
+      { id: 'A', text: "In branch protection rules" },
+      { id: 'B', text: "In Project Settings → Pipelines → Environments → Production → Approvals and checks" },
+      { id: 'C', text: "Hardcoded inside azure-pipelines.yml as a bash script" },
+      { id: 'D', text: "In Azure Key Vault" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Approvals and checks are configured directly on the Environment resource in the Azure DevOps portal. When a deployment job targets that environment, pipeline execution pauses automatically until designated approvers review and approve the run.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/process/approvals",
@@ -51,12 +51,12 @@ export const AZURE_AZ400_QUESTIONS_6 = [
     scenario: "A release pipeline deploys microservices sequentially across three regions. Before deploying to Region 2, the pipeline must verify that no High severity alerts fired in Azure Monitor for Region 1 over the past 30 minutes.",
     question: "Which automated check on an Environment implements this operational verification?",
     options: [
-      { id: 'A', text: "Query Azure Monitor alerts gate" },
-      { id: 'B', text: "Branch policy" },
-      { id: 'C', text: "Invoke REST API gate" },
-      { id: 'D', text: "Manual approval by developer" }
+      { id: 'A', text: "Invoke REST API gate" },
+      { id: 'B', text: "Manual approval by developer" },
+      { id: 'C', text: "Query Azure Monitor alerts gate" },
+      { id: 'D', text: "Branch policy" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "The 'Query Azure Monitor alerts' gate automatically queries Azure Monitor for active alerts matching configured criteria. If any unacknowledged alerts are open during the evaluation window, the gate blocks progression to subsequent deployment stages.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/release/approvals/gates#query-azure-monitor-alerts",
@@ -73,11 +73,11 @@ export const AZURE_AZ400_QUESTIONS_6 = [
     question: "Which deployment strategy supported in Azure Pipelines deployment jobs implements this canary pattern?",
     options: [
       { id: 'A', text: "Recreate deployment strategy" },
-      { id: 'B', text: "strategy: { runOnce: { deploy: { ... } } }" },
-      { id: 'C', text: "strategy: { rolling: { ... } }" },
-      { id: 'D', text: "strategy: { canary: { increments: [10, 100], routeTraffic: { ... } } }" }
+      { id: 'B', text: "strategy: { canary: { increments: [10, 100], routeTraffic: { ... } } }" },
+      { id: 'C', text: "strategy: { runOnce: { deploy: { ... } } }" },
+      { id: 'D', text: "strategy: { rolling: { ... } }" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "The `canary` deployment strategy in Azure Pipelines deployment jobs automates canary rollouts: routing traffic to increments (e.g. 10%, then 100%), executing postRouteTraffic validation tests, and rolling back if metrics degrade.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/process/deployment-jobs#canary-deployment-strategy",
@@ -93,10 +93,10 @@ export const AZURE_AZ400_QUESTIONS_6 = [
     scenario: "An organization deploys web applications using Blue/Green deployments to eliminate production downtime. New code is tested in a staging slot before switching production traffic.",
     question: "Which Azure Pipelines task swaps Azure App Service deployment slots?",
     options: [
-      { id: 'A', text: "CopyFiles@2" },
-      { id: 'B', text: "AzureWebApp@1" },
+      { id: 'A', text: "AzureCLI@2 with az vm restart" },
+      { id: 'B', text: "CopyFiles@2" },
       { id: 'C', text: "AzureAppServiceManage@0 with action: 'Swap Slots'" },
-      { id: 'D', text: "AzureCLI@2 with az vm restart" }
+      { id: 'D', text: "AzureWebApp@1" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -114,12 +114,12 @@ export const AZURE_AZ400_QUESTIONS_6 = [
     scenario: "A legacy stateful application runs across a pool of 10 virtual machines. The release pipeline must update 2 virtual machines at a time, keeping the other 8 VMs serving traffic.",
     question: "Which deployment strategy on an Environment containing Virtual Machine resources handles this batched update?",
     options: [
-      { id: 'A', text: "strategy: { canary: { increments: [50] } }" },
-      { id: 'B', text: "strategy: { recreate: true }" },
-      { id: 'C', text: "strategy: { runOnce: { deploy: { ... } } }" },
-      { id: 'D', text: "strategy: { rolling: { maxParallel: 2, deploy: { ... } } }" }
+      { id: 'A', text: "strategy: { runOnce: { deploy: { ... } } }" },
+      { id: 'B', text: "strategy: { rolling: { maxParallel: 2, deploy: { ... } } }" },
+      { id: 'C', text: "strategy: { recreate: true }" },
+      { id: 'D', text: "strategy: { canary: { increments: [50] } }" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "The `rolling` deployment strategy iterates through target machines in a deployment group or VM environment, updating batches according to `maxParallel` (e.g. 2 instances at a time) to ensure continuous application availability.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/process/deployment-jobs#rolling-deployment-strategy",
@@ -135,12 +135,12 @@ export const AZURE_AZ400_QUESTIONS_6 = [
     scenario: "An enterprise DevOps engineering team is implementing automated CI/CD pipelines, source control governance, and continuous delivery on Microsoft Azure.",
     question: "During a canary deployment, an automated smoke test task in the `postRouteTraffic` hook fails. How does Azure Pipelines execute rollback logic?",
     options: [
-      { id: 'A', text: "By deleting the entire Azure resource group" },
+      { id: 'A', text: "By executing tasks defined in the `on: { failure: { ... } }` lifecycle hook of the deployment strategy" },
       { id: 'B', text: "Rollbacks cannot be automated in YAML pipelines" },
-      { id: 'C', text: "By shutting down all virtual machines" },
-      { id: 'D', text: "By executing tasks defined in the `on: { failure: { ... } }` lifecycle hook of the deployment strategy" }
+      { id: 'C', text: "By deleting the entire Azure resource group" },
+      { id: 'D', text: "By shutting down all virtual machines" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Azure Pipelines deployment jobs support explicit lifecycle failure hooks (`on: { failure: { ... } }`). If any validation step in `deploy` or `postRouteTraffic` fails, the failure hook runs automatically to restore previous configurations or reroute traffic.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/process/deployment-jobs#descriptions-of-lifecycle-hooks",
@@ -156,12 +156,12 @@ export const AZURE_AZ400_QUESTIONS_6 = [
     scenario: "An enterprise policy strictly forbids deploying updates to production systems during weekend business peak hours. Deployments to production must only occur between 1:00 AM and 4:00 AM on Tuesdays.",
     question: "Which Environment check enforces this scheduling restriction?",
     options: [
-      { id: 'A', text: "Setting a 48-hour timeout" },
+      { id: 'A', text: "Writing a cron job on developer laptops" },
       { id: 'B', text: "Disabling the pipeline manually on Friday" },
-      { id: 'C', text: "Writing a cron job on developer laptops" },
-      { id: 'D', text: "Business Hours check on the Environment" }
+      { id: 'C', text: "Business Hours check on the Environment" },
+      { id: 'D', text: "Setting a 48-hour timeout" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "The 'Business Hours' check on an Azure Pipelines Environment defines allowed time windows during which deployment jobs may run. If a pipeline requests deployment outside approved hours, it pauses until the window opens.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/process/approvals#business-hours",
@@ -179,8 +179,8 @@ export const AZURE_AZ400_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "Exclusive lock check" },
       { id: 'B', text: "Branch policy" },
-      { id: 'C', text: "Azure Monitor alert gate" },
-      { id: 'D', text: "Manual approval check" }
+      { id: 'C', text: "Manual approval check" },
+      { id: 'D', text: "Azure Monitor alert gate" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,9 +198,9 @@ export const AZURE_AZ400_QUESTIONS_6 = [
     scenario: "An enterprise requires that a release pipeline must open a Change Request ticket in ServiceNow, poll the change request status, and proceed only after ServiceNow approves the ticket.",
     question: "Which check should be configured on the production Environment?",
     options: [
-      { id: 'A', text: "Artifact download task" },
+      { id: 'A', text: "Manual email confirmation" },
       { id: 'B', text: "Branch policy check" },
-      { id: 'C', text: "Manual email confirmation" },
+      { id: 'C', text: "Artifact download task" },
       { id: 'D', text: "Invoke REST API gate (or ServiceNow Change Management extension gate)" }
     ],
     correctAnswers: ['D'],
@@ -219,12 +219,12 @@ export const AZURE_AZ400_QUESTIONS_6 = [
     scenario: "A team wants to run a complex custom validation algorithm hosted on an Azure Function before allowing a pipeline to deploy to production.",
     question: "Which Environment gate invokes an Azure Function and evaluates its HTTP response?",
     options: [
-      { id: 'A', text: "Invoke Azure Function gate" },
+      { id: 'A', text: "Azure Monitor alert gate" },
       { id: 'B', text: "Query Work Items gate" },
       { id: 'C', text: "Manual intervention task" },
-      { id: 'D', text: "Azure Monitor alert gate" }
+      { id: 'D', text: "Invoke Azure Function gate" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The 'Invoke Azure Function' gate calls a serverless Azure Function endpoint. The function processes signals and returns a success or failure status code to let Azure Pipelines decide whether to permit deployment.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/release/approvals/gates#invoke-azure-function",
@@ -240,12 +240,12 @@ export const AZURE_AZ400_QUESTIONS_6 = [
     scenario: "Before deploying a release to UAT, a project policy mandates that there must be zero open blocker bugs in Azure Boards for the current milestone.",
     question: "Which check queries work items before permitting environment deployment?",
     options: [
-      { id: 'A', text: "Delivery Plans" },
-      { id: 'B', text: "Query Work Items gate" },
-      { id: 'C', text: "Build validation pipeline" },
-      { id: 'D', text: "Azure Artifacts upstream source" }
+      { id: 'A', text: "Build validation pipeline" },
+      { id: 'B', text: "Azure Artifacts upstream source" },
+      { id: 'C', text: "Delivery Plans" },
+      { id: 'D', text: "Query Work Items gate" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The 'Query Work Items' gate executes a shared Azure Boards work item query. If the query returns any matching active blocker bugs, the gate fails and halts deployment to the target environment.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/release/approvals/gates#query-work-items",
@@ -261,12 +261,12 @@ export const AZURE_AZ400_QUESTIONS_6 = [
     scenario: "An enterprise DevOps engineering team is implementing automated CI/CD pipelines, source control governance, and continuous delivery on Microsoft Azure.",
     question: "A multi-stage YAML pipeline compiles an ASP.NET application in the 'Build' stage and deploys it in the 'Production' stage. How does the Production stage retrieve the compiled zip package?",
     options: [
-      { id: 'A', text: "Using the `download: current` step (or `DownloadPipelineArtifact@2`)" },
+      { id: 'A', text: "By running git clone in the production stage" },
       { id: 'B', text: "By copying files over an open SMB share" },
       { id: 'C', text: "By recompiling the source code from scratch on the production agent" },
-      { id: 'D', text: "By running git clone in the production stage" }
+      { id: 'D', text: "Using the `download: current` step (or `DownloadPipelineArtifact@2`)" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The `download: current` step (or `DownloadPipelineArtifact@2`) downloads artifacts produced by prior stages in the same pipeline run. Best practice builds and packages code once in CI and deploys the identical immutable binary across environments.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/artifacts/pipeline-artifacts#download-artifacts",
@@ -282,12 +282,12 @@ export const AZURE_AZ400_QUESTIONS_6 = [
     scenario: "An enterprise DevOps engineering team is implementing automated CI/CD pipelines, source control governance, and continuous delivery on Microsoft Azure.",
     question: "Which native Azure Pipelines task bakes Helm charts or Kustomize overlays and deploys manifests to an AKS cluster with automatic rollout tracking?",
     options: [
-      { id: 'A', text: "CopyFiles@2" },
+      { id: 'A', text: "KubernetesManifest@1 with action: 'deploy'" },
       { id: 'B', text: "Bash@3 running kubectl manually" },
-      { id: 'C', text: "AzureCLI@2 with az aks start" },
-      { id: 'D', text: "KubernetesManifest@1 with action: 'deploy'" }
+      { id: 'C', text: "CopyFiles@2" },
+      { id: 'D', text: "AzureCLI@2 with az aks start" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The `KubernetesManifest@1` task integrates natively with Azure Kubernetes Service. It handles manifest substitution, deploys resources, annotates objects for traceability, and monitors deployment rollout status until pods are healthy.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/reference/kubernetes-manifest-v1",
@@ -304,11 +304,11 @@ export const AZURE_AZ400_QUESTIONS_6 = [
     question: "A GitOps release pipeline maintains application configurations as Helm templates. Which task compiles Helm charts into raw Kubernetes YAML manifests before applying them?",
     options: [
       { id: 'A', text: "PublishBuildArtifacts@1" },
-      { id: 'B', text: "Docker@2 with action: build" },
-      { id: 'C', text: "KubernetesManifest@1 with action: 'bake' and renderType: 'helm'" },
-      { id: 'D', text: "ArchiveFiles@2" }
+      { id: 'B', text: "KubernetesManifest@1 with action: 'bake' and renderType: 'helm'" },
+      { id: 'C', text: "ArchiveFiles@2" },
+      { id: 'D', text: "Docker@2 with action: build" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "The `bake` action of the `KubernetesManifest@1` task uses Helm, Kustomize, or Kompose to render templated configurations into raw Kubernetes YAML manifests, preparing them for canary or direct cluster deployment.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/reference/kubernetes-manifest-v1#bake-action",
@@ -324,12 +324,12 @@ export const AZURE_AZ400_QUESTIONS_6 = [
     scenario: "An enterprise DevOps engineering team is implementing automated CI/CD pipelines, source control governance, and continuous delivery on Microsoft Azure.",
     question: "Why does Microsoft recommend modern Multi-Stage YAML pipelines over Classic Release Pipelines?",
     options: [
-      { id: 'A', text: "Classic pipelines run faster than YAML" },
-      { id: 'B', text: "YAML pipelines enable Pipeline-as-Code: pipeline definitions are versioned in Git alongside application code, branched, code-reviewed in PRs, and audited in commit history" },
-      { id: 'C', text: "YAML pipelines cannot deploy to Azure" },
-      { id: 'D', text: "Classic pipelines are free; YAML pipelines require extra payment" }
+      { id: 'A', text: "Classic pipelines are free; YAML pipelines require extra payment" },
+      { id: 'B', text: "YAML pipelines cannot deploy to Azure" },
+      { id: 'C', text: "YAML pipelines enable Pipeline-as-Code: pipeline definitions are versioned in Git alongside application code, branched, code-reviewed in PRs, and audited in commit history" },
+      { id: 'D', text: "Classic pipelines run faster than YAML" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Multi-stage YAML pipelines treat CI/CD definitions as first-class code (Pipeline-as-Code). They live in the repository, undergo branch reviews and pull request gates, and track revisions alongside application source code.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/get-started/what-is-azure-pipelines#why-use-azure-pipelines",
@@ -345,12 +345,12 @@ export const AZURE_AZ400_QUESTIONS_6 = [
     scenario: "A team migrating from Classic pipelines to YAML wants to replicate reusable collections of tasks across multiple pipelines.",
     question: "What is the YAML equivalent of Classic Task Groups?",
     options: [
-      { id: 'A', text: "Agent Pools" },
-      { id: 'B', text: "YAML Step Templates (`template: steps/common-tasks.yml`)" },
-      { id: 'C', text: "Variable Groups" },
-      { id: 'D', text: "Service Connections" }
+      { id: 'A', text: "Variable Groups" },
+      { id: 'B', text: "Agent Pools" },
+      { id: 'C', text: "Service Connections" },
+      { id: 'D', text: "YAML Step Templates (`template: steps/common-tasks.yml`)" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "In YAML pipelines, reusable sets of tasks are defined as Step Templates (e.g. `template: templates/npm-build.yml`). Pipelines reference them with parameters, replacing legacy Classic Task Groups with version-controlled code.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/process/templates#step-templates",
@@ -366,12 +366,12 @@ export const AZURE_AZ400_QUESTIONS_6 = [
     scenario: "An enterprise DevOps engineering team is implementing automated CI/CD pipelines, source control governance, and continuous delivery on Microsoft Azure.",
     question: "What is the difference between Classic Deployment Groups and modern YAML Environments when managing virtual machine targets?",
     options: [
-      { id: 'A', text: "Deployment Groups run in the cloud; Environments run only on-premises" },
-      { id: 'B', text: "Deployment Groups are legacy Classic constructs; Environments are the modern YAML construct supporting virtual machines, Kubernetes clusters, and resource health tracking" },
-      { id: 'C', text: "Deployment Groups only support Linux; Environments only support Windows" },
+      { id: 'A', text: "Deployment Groups are legacy Classic constructs; Environments are the modern YAML construct supporting virtual machines, Kubernetes clusters, and resource health tracking" },
+      { id: 'B', text: "Deployment Groups only support Linux; Environments only support Windows" },
+      { id: 'C', text: "Deployment Groups run in the cloud; Environments run only on-premises" },
       { id: 'D', text: "Environments do not support virtual machines" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "YAML Environments supersede Classic Deployment Groups. Environments provide unified management for both virtual machines and Kubernetes clusters, incorporating approvals, checks, and deployment history directly into YAML pipelines.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/process/environments-virtual-machines",
@@ -387,9 +387,9 @@ export const AZURE_AZ400_QUESTIONS_6 = [
     scenario: "An enterprise DevOps engineering team is implementing automated CI/CD pipelines, source control governance, and continuous delivery on Microsoft Azure.",
     question: "Which official Azure Pipelines task is purpose-built to deploy packaged web applications, container images, and zip bundles to Azure App Service?",
     options: [
-      { id: 'A', text: "CopyFiles@2" },
-      { id: 'B', text: "FTPUpload@2" },
-      { id: 'C', text: "AzureCLI@2 with az vm run-command" },
+      { id: 'A', text: "FTPUpload@2" },
+      { id: 'B', text: "AzureCLI@2 with az vm run-command" },
+      { id: 'C', text: "CopyFiles@2" },
       { id: 'D', text: "AzureWebApp@1" }
     ],
     correctAnswers: ['D'],
@@ -409,8 +409,8 @@ export const AZURE_AZ400_QUESTIONS_6 = [
     question: "Which pipeline task deploys serverless code packages directly to Azure Function Apps?",
     options: [
       { id: 'A', text: "AzureFunctionApp@2" },
-      { id: 'B', text: "PublishBuildArtifacts@1" },
-      { id: 'C', text: "AzureWebApp@1" },
+      { id: 'B', text: "AzureWebApp@1" },
+      { id: 'C', text: "PublishBuildArtifacts@1" },
       { id: 'D', text: "AzureResourceManagerTemplateDeployment@3" }
     ],
     correctAnswers: ['A'],
@@ -430,11 +430,11 @@ export const AZURE_AZ400_QUESTIONS_6 = [
     question: "Where should the database migration step be positioned in the deployment pipeline?",
     options: [
       { id: 'A', text: "In a post-deployment step after 100% of traffic is switched" },
-      { id: 'B', text: "In a pre-deployment step or pre-deploy lifecycle hook before routing traffic to the updated code" },
-      { id: 'C', text: "After deleting the production database" },
-      { id: 'D', text: "Database migrations should only be executed manually by developers" }
+      { id: 'B', text: "After deleting the production database" },
+      { id: 'C', text: "Database migrations should only be executed manually by developers" },
+      { id: 'D', text: "In a pre-deployment step or pre-deploy lifecycle hook before routing traffic to the updated code" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Database schema migrations (e.g. using Entity Framework migrations, Flyway, or Liquibase) must execute in pre-deployment hooks before new application instances start serving user traffic to ensure required tables and columns exist.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/targets/azure-sqldatabase",
@@ -450,12 +450,12 @@ export const AZURE_AZ400_QUESTIONS_6 = [
     scenario: "An enterprise builds Node.js applications that consume npm packages. Corporate security requires that once a public npm package version is used, a cached copy must be preserved internally even if the author unpublishes it from public npm.",
     question: "Which Azure Artifacts feature ensures package immutability and protection against upstream deletion?",
     options: [
-      { id: 'A', text: "Downloading all 2 million npm packages onto a local hard drive" },
-      { id: 'B', text: "Committing node_modules into git" },
+      { id: 'A', text: "Configuring npmjs.org as an Upstream Source on an internal Azure Artifacts feed" },
+      { id: 'B', text: "Downloading all 2 million npm packages onto a local hard drive" },
       { id: 'C', text: "Disabling external package dependencies" },
-      { id: 'D', text: "Configuring npmjs.org as an Upstream Source on an internal Azure Artifacts feed" }
+      { id: 'D', text: "Committing node_modules into git" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "When an upstream source (such as `npmjs.org` or `nuget.org`) is enabled on an Azure Artifacts feed, the first time a package version is requested, Azure Artifacts saves an immutable copy in the internal feed, insulating teams from external registry outages or package unpublishing.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/artifacts/concepts/upstream-sources",
@@ -492,9 +492,9 @@ export const AZURE_AZ400_QUESTIONS_6 = [
     scenario: "A machine learning pipeline generates 8 GB compiled binary model files and custom datasets that need to be versioned, downloaded by release pipelines, and shared across projects.",
     question: "Which package type supported by Azure Artifacts is designed for arbitrary large files and directories up to 4 TB?",
     options: [
-      { id: 'A', text: "Maven artifacts" },
-      { id: 'B', text: "NuGet packages" },
-      { id: 'C', text: "npm packages" },
+      { id: 'A', text: "NuGet packages" },
+      { id: 'B', text: "npm packages" },
+      { id: 'C', text: "Maven artifacts" },
       { id: 'D', text: "Universal Packages" }
     ],
     correctAnswers: ['D'],
@@ -513,12 +513,12 @@ export const AZURE_AZ400_QUESTIONS_6 = [
     scenario: "An automated continuous integration pipeline publishes a new NuGet package version on every commit to main (100 builds per day), quickly exhausting Azure Artifacts storage limits.",
     question: "How can administrators automatically purge old minor package versions while retaining promoted releases?",
     options: [
-      { id: 'A', text: "Convert NuGet packages into text files" },
-      { id: 'B', text: "Configure automatic package retention policies on the feed, specifying the maximum number of versions to preserve per package" },
-      { id: 'C', text: "Stop publishing packages to Azure Artifacts" },
-      { id: 'D', text: "Manually click delete on 100 packages every evening" }
+      { id: 'A', text: "Manually click delete on 100 packages every evening" },
+      { id: 'B', text: "Stop publishing packages to Azure Artifacts" },
+      { id: 'C', text: "Configure automatic package retention policies on the feed, specifying the maximum number of versions to preserve per package" },
+      { id: 'D', text: "Convert NuGet packages into text files" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Feed settings in Azure Artifacts provide automated Package Retention Policies. Administrators set a maximum number of recent versions to retain (e.g. keep latest 20 versions), automatically purging stale untagged builds while preserving promoted versions.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/artifacts/how-to/delete-and-recover-packages#automatically-delete-old-package-versions-with-retention-policies",

@@ -9,12 +9,12 @@ export const HASHICORP_TFP_QUESTIONS_20 = [
     scenario: "A principal cloud platform architect is establishing high-availability standards, automated disaster recovery procedures, and infrastructure resilience frameworks across multi-region environments using Terraform. The Terraform professional evaluates HCP Workspaces to configure an HCP Terraform workspace that automatically triggers speculative plans on pull requests and executes applies upon merge to `main`.",
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives? Configuring VCS-driven workflows with automatic plan generation on pull requests is under consideration.",
     options: [
-      { id: 'A', text: "Connect the workspace to the GitHub repository using VCS-driven workflow settings with automatic speculative plans enabled." },
-      { id: 'B', text: "Require developers to run `terraform apply` locally on their laptops." },
-      { id: 'C', text: "Trigger runs using manual CLI API tokens with no VCS link." },
+      { id: 'A', text: "Require developers to run `terraform apply` locally on their laptops." },
+      { id: 'B', text: "Trigger runs using manual CLI API tokens with no VCS link." },
+      { id: 'C', text: "Connect the workspace to the GitHub repository using VCS-driven workflow settings with automatic speculative plans enabled." },
       { id: 'D', text: "Disable speculative plans on pull requests to reduce run volume." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Connect the workspace to the GitHub repository using VCS-driven workflow settings with automatic speculative plans enabled. VCS-driven workflows in HCP Terraform bind workspaces directly to Git repositories. Pull requests automatically trigger speculative plans that post formatted plan summaries directly as PR comments, allowing peer review before changes are merged and applied automatically.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cloud-docs/workspaces",
@@ -30,12 +30,12 @@ export const HASHICORP_TFP_QUESTIONS_20 = [
     scenario: "A complex enterprise multi-cloud platform experiences massive scaling requirements and requires modular, automated, and performant infrastructure provisioning across dozens of teams. The Terraform professional evaluates HCP Workspaces to configure an HCP Terraform workspace that automatically triggers speculative plans on pull requests and executes applies upon merge to `main`.",
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift? Configuring VCS-driven workflows with automatic plan generation on pull requests is under consideration.",
     options: [
-      { id: 'A', text: "Connect the workspace to the GitHub repository using VCS-driven workflow settings with automatic speculative plans enabled." },
+      { id: 'A', text: "Trigger runs using manual CLI API tokens with no VCS link." },
       { id: 'B', text: "Require developers to run `terraform apply` locally on their laptops." },
-      { id: 'C', text: "Trigger runs using manual CLI API tokens with no VCS link." },
-      { id: 'D', text: "Disable speculative plans on pull requests to reduce run volume." }
+      { id: 'C', text: "Disable speculative plans on pull requests to reduce run volume." },
+      { id: 'D', text: "Connect the workspace to the GitHub repository using VCS-driven workflow settings with automatic speculative plans enabled." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Connect the workspace to the GitHub repository using VCS-driven workflow settings with automatic speculative plans enabled. VCS-driven workflows in HCP Terraform bind workspaces directly to Git repositories. Pull requests automatically trigger speculative plans that post formatted plan summaries directly as PR comments, allowing peer review before changes are merged and applied automatically.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cloud-docs/workspaces",
@@ -51,12 +51,12 @@ export const HASHICORP_TFP_QUESTIONS_20 = [
     scenario: "A security compliance auditor requires cryptographic state protection, policy-as-code enforcement, and automated governance across all enterprise Terraform delivery pipelines. The Terraform professional evaluates HCP Workspaces to configure an HCP Terraform workspace that automatically triggers speculative plans on pull requests and executes applies upon merge to `main`.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls? Configuring VCS-driven workflows with automatic plan generation on pull requests is under consideration.",
     options: [
-      { id: 'A', text: "Connect the workspace to the GitHub repository using VCS-driven workflow settings with automatic speculative plans enabled." },
+      { id: 'A', text: "Trigger runs using manual CLI API tokens with no VCS link." },
       { id: 'B', text: "Require developers to run `terraform apply` locally on their laptops." },
-      { id: 'C', text: "Trigger runs using manual CLI API tokens with no VCS link." },
-      { id: 'D', text: "Disable speculative plans on pull requests to reduce run volume." }
+      { id: 'C', text: "Disable speculative plans on pull requests to reduce run volume." },
+      { id: 'D', text: "Connect the workspace to the GitHub repository using VCS-driven workflow settings with automatic speculative plans enabled." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Connect the workspace to the GitHub repository using VCS-driven workflow settings with automatic speculative plans enabled. VCS-driven workflows in HCP Terraform bind workspaces directly to Git repositories. Pull requests automatically trigger speculative plans that post formatted plan summaries directly as PR comments, allowing peer review before changes are merged and applied automatically.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cloud-docs/workspaces",
@@ -72,12 +72,12 @@ export const HASHICORP_TFP_QUESTIONS_20 = [
     scenario: "An enterprise is modernizing on-premises infrastructure and refactoring monolithic legacy deployments into modular, cloud-native architectures using advanced Terraform practices. The Terraform professional evaluates HCP Workspaces to configure an HCP Terraform workspace that automatically triggers speculative plans on pull requests and executes applies upon merge to `main`.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction? Configuring VCS-driven workflows with automatic plan generation on pull requests is under consideration.",
     options: [
-      { id: 'A', text: "Connect the workspace to the GitHub repository using VCS-driven workflow settings with automatic speculative plans enabled." },
+      { id: 'A', text: "Trigger runs using manual CLI API tokens with no VCS link." },
       { id: 'B', text: "Require developers to run `terraform apply` locally on their laptops." },
-      { id: 'C', text: "Trigger runs using manual CLI API tokens with no VCS link." },
-      { id: 'D', text: "Disable speculative plans on pull requests to reduce run volume." }
+      { id: 'C', text: "Disable speculative plans on pull requests to reduce run volume." },
+      { id: 'D', text: "Connect the workspace to the GitHub repository using VCS-driven workflow settings with automatic speculative plans enabled." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Connect the workspace to the GitHub repository using VCS-driven workflow settings with automatic speculative plans enabled. VCS-driven workflows in HCP Terraform bind workspaces directly to Git repositories. Pull requests automatically trigger speculative plans that post formatted plan summaries directly as PR comments, allowing peer review before changes are merged and applied automatically.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cloud-docs/workspaces",
@@ -95,8 +95,8 @@ export const HASHICORP_TFP_QUESTIONS_20 = [
     options: [
       { id: 'A', text: "Connect the workspace to the GitHub repository using VCS-driven workflow settings with automatic speculative plans enabled." },
       { id: 'B', text: "Require developers to run `terraform apply` locally on their laptops." },
-      { id: 'C', text: "Trigger runs using manual CLI API tokens with no VCS link." },
-      { id: 'D', text: "Disable speculative plans on pull requests to reduce run volume." }
+      { id: 'C', text: "Disable speculative plans on pull requests to reduce run volume." },
+      { id: 'D', text: "Trigger runs using manual CLI API tokens with no VCS link." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -115,9 +115,9 @@ export const HASHICORP_TFP_QUESTIONS_20 = [
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives? Configuring Advisory, Soft-Mandatory, and Hard-Mandatory policy enforcement in Sentinel is under consideration.",
     options: [
       { id: 'A', text: "Configure the Sentinel policy enforcement level as `soft-mandatory`." },
-      { id: 'B', text: "Configure the enforcement level as `advisory` which only prints warnings without blocking." },
-      { id: 'C', text: "Configure the enforcement level as `hard-mandatory` which forbids any human override under all circumstances." },
-      { id: 'D', text: "Disable policy enforcement across all production workspaces." }
+      { id: 'B', text: "Disable policy enforcement across all production workspaces." },
+      { id: 'C', text: "Configure the enforcement level as `advisory` which only prints warnings without blocking." },
+      { id: 'D', text: "Configure the enforcement level as `hard-mandatory` which forbids any human override under all circumstances." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -135,12 +135,12 @@ export const HASHICORP_TFP_QUESTIONS_20 = [
     scenario: "A complex enterprise multi-cloud platform experiences massive scaling requirements and requires modular, automated, and performant infrastructure provisioning across dozens of teams. The Terraform professional evaluates Sentinel Levels to enforce a security policy where non-compliant resources block deployment unless an authorized security manager explicitly overrides the failure.",
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift? Configuring Advisory, Soft-Mandatory, and Hard-Mandatory policy enforcement in Sentinel is under consideration.",
     options: [
-      { id: 'A', text: "Configure the Sentinel policy enforcement level as `soft-mandatory`." },
-      { id: 'B', text: "Configure the enforcement level as `advisory` which only prints warnings without blocking." },
+      { id: 'A', text: "Configure the enforcement level as `advisory` which only prints warnings without blocking." },
+      { id: 'B', text: "Disable policy enforcement across all production workspaces." },
       { id: 'C', text: "Configure the enforcement level as `hard-mandatory` which forbids any human override under all circumstances." },
-      { id: 'D', text: "Disable policy enforcement across all production workspaces." }
+      { id: 'D', text: "Configure the Sentinel policy enforcement level as `soft-mandatory`." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure the Sentinel policy enforcement level as `soft-mandatory`. Sentinel supports three enforcement levels: `Advisory` (emits warnings, never halts runs), `Soft-Mandatory` (blocks runs unless an authorized user with override permissions approves), and `Hard-Mandatory` (strictly blocks runs with zero override capability), providing flexible governance tiers.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cloud-docs/policy-enforcement/sentinel#enforcement-levels",
@@ -156,12 +156,12 @@ export const HASHICORP_TFP_QUESTIONS_20 = [
     scenario: "A security compliance auditor requires cryptographic state protection, policy-as-code enforcement, and automated governance across all enterprise Terraform delivery pipelines. The Terraform professional evaluates Sentinel Levels to enforce a security policy where non-compliant resources block deployment unless an authorized security manager explicitly overrides the failure.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls? Configuring Advisory, Soft-Mandatory, and Hard-Mandatory policy enforcement in Sentinel is under consideration.",
     options: [
-      { id: 'A', text: "Configure the Sentinel policy enforcement level as `soft-mandatory`." },
-      { id: 'B', text: "Configure the enforcement level as `advisory` which only prints warnings without blocking." },
+      { id: 'A', text: "Configure the enforcement level as `advisory` which only prints warnings without blocking." },
+      { id: 'B', text: "Disable policy enforcement across all production workspaces." },
       { id: 'C', text: "Configure the enforcement level as `hard-mandatory` which forbids any human override under all circumstances." },
-      { id: 'D', text: "Disable policy enforcement across all production workspaces." }
+      { id: 'D', text: "Configure the Sentinel policy enforcement level as `soft-mandatory`." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure the Sentinel policy enforcement level as `soft-mandatory`. Sentinel supports three enforcement levels: `Advisory` (emits warnings, never halts runs), `Soft-Mandatory` (blocks runs unless an authorized user with override permissions approves), and `Hard-Mandatory` (strictly blocks runs with zero override capability), providing flexible governance tiers.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cloud-docs/policy-enforcement/sentinel#enforcement-levels",
@@ -177,12 +177,12 @@ export const HASHICORP_TFP_QUESTIONS_20 = [
     scenario: "An enterprise is modernizing on-premises infrastructure and refactoring monolithic legacy deployments into modular, cloud-native architectures using advanced Terraform practices. The Terraform professional evaluates Sentinel Levels to enforce a security policy where non-compliant resources block deployment unless an authorized security manager explicitly overrides the failure.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction? Configuring Advisory, Soft-Mandatory, and Hard-Mandatory policy enforcement in Sentinel is under consideration.",
     options: [
-      { id: 'A', text: "Configure the Sentinel policy enforcement level as `soft-mandatory`." },
-      { id: 'B', text: "Configure the enforcement level as `advisory` which only prints warnings without blocking." },
-      { id: 'C', text: "Configure the enforcement level as `hard-mandatory` which forbids any human override under all circumstances." },
-      { id: 'D', text: "Disable policy enforcement across all production workspaces." }
+      { id: 'A', text: "Disable policy enforcement across all production workspaces." },
+      { id: 'B', text: "Configure the enforcement level as `hard-mandatory` which forbids any human override under all circumstances." },
+      { id: 'C', text: "Configure the enforcement level as `advisory` which only prints warnings without blocking." },
+      { id: 'D', text: "Configure the Sentinel policy enforcement level as `soft-mandatory`." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure the Sentinel policy enforcement level as `soft-mandatory`. Sentinel supports three enforcement levels: `Advisory` (emits warnings, never halts runs), `Soft-Mandatory` (blocks runs unless an authorized user with override permissions approves), and `Hard-Mandatory` (strictly blocks runs with zero override capability), providing flexible governance tiers.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cloud-docs/policy-enforcement/sentinel#enforcement-levels",
@@ -198,12 +198,12 @@ export const HASHICORP_TFP_QUESTIONS_20 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline zero-downtime state refactoring, and automate operational recovery. The Terraform professional evaluates Sentinel Levels to enforce a security policy where non-compliant resources block deployment unless an authorized security manager explicitly overrides the failure.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability? Configuring Advisory, Soft-Mandatory, and Hard-Mandatory policy enforcement in Sentinel is under consideration.",
     options: [
-      { id: 'A', text: "Configure the Sentinel policy enforcement level as `soft-mandatory`." },
-      { id: 'B', text: "Configure the enforcement level as `advisory` which only prints warnings without blocking." },
-      { id: 'C', text: "Configure the enforcement level as `hard-mandatory` which forbids any human override under all circumstances." },
-      { id: 'D', text: "Disable policy enforcement across all production workspaces." }
+      { id: 'A', text: "Configure the enforcement level as `hard-mandatory` which forbids any human override under all circumstances." },
+      { id: 'B', text: "Configure the Sentinel policy enforcement level as `soft-mandatory`." },
+      { id: 'C', text: "Disable policy enforcement across all production workspaces." },
+      { id: 'D', text: "Configure the enforcement level as `advisory` which only prints warnings without blocking." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure the Sentinel policy enforcement level as `soft-mandatory`. Sentinel supports three enforcement levels: `Advisory` (emits warnings, never halts runs), `Soft-Mandatory` (blocks runs unless an authorized user with override permissions approves), and `Hard-Mandatory` (strictly blocks runs with zero override capability), providing flexible governance tiers.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cloud-docs/policy-enforcement/sentinel#enforcement-levels",
@@ -221,8 +221,8 @@ export const HASHICORP_TFP_QUESTIONS_20 = [
     options: [
       { id: 'A', text: "Create an HCP Terraform Variable Set containing the shared credentials and tags, and apply it globally to all workspaces or specific projects." },
       { id: 'B', text: "Copy-paste the credentials manually into 50 individual workspace settings pages." },
-      { id: 'C', text: "Hardcode the credentials into every child module configuration file." },
-      { id: 'D', text: "Commit cloud access keys directly to the public Git repository." }
+      { id: 'C', text: "Commit cloud access keys directly to the public Git repository." },
+      { id: 'D', text: "Hardcode the credentials into every child module configuration file." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -240,12 +240,12 @@ export const HASHICORP_TFP_QUESTIONS_20 = [
     scenario: "A complex enterprise multi-cloud platform experiences massive scaling requirements and requires modular, automated, and performant infrastructure provisioning across dozens of teams. The Terraform professional evaluates Variable Sets to share common AWS credentials and enterprise organizational tags across 50 distinct HCP Terraform workspaces without manual duplication.",
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift? Reusing environment and Terraform variables across multiple workspaces with Variable Sets is under consideration.",
     options: [
-      { id: 'A', text: "Create an HCP Terraform Variable Set containing the shared credentials and tags, and apply it globally to all workspaces or specific projects." },
-      { id: 'B', text: "Copy-paste the credentials manually into 50 individual workspace settings pages." },
-      { id: 'C', text: "Hardcode the credentials into every child module configuration file." },
-      { id: 'D', text: "Commit cloud access keys directly to the public Git repository." }
+      { id: 'A', text: "Copy-paste the credentials manually into 50 individual workspace settings pages." },
+      { id: 'B', text: "Hardcode the credentials into every child module configuration file." },
+      { id: 'C', text: "Commit cloud access keys directly to the public Git repository." },
+      { id: 'D', text: "Create an HCP Terraform Variable Set containing the shared credentials and tags, and apply it globally to all workspaces or specific projects." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Create an HCP Terraform Variable Set containing the shared credentials and tags, and apply it globally to all workspaces or specific projects. Variable Sets in HCP Terraform allow administrators to define collections of environment variables (e.g., `AWS_ACCESS_KEY_ID`) and Terraform variables once, and apply them across multiple workspaces or entire projects, eliminating credential duplication and simplifying secret rotation.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cloud-docs/workspaces/variables/variable-sets",
@@ -261,12 +261,12 @@ export const HASHICORP_TFP_QUESTIONS_20 = [
     scenario: "A security compliance auditor requires cryptographic state protection, policy-as-code enforcement, and automated governance across all enterprise Terraform delivery pipelines. The Terraform professional evaluates Variable Sets to share common AWS credentials and enterprise organizational tags across 50 distinct HCP Terraform workspaces without manual duplication.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls? Reusing environment and Terraform variables across multiple workspaces with Variable Sets is under consideration.",
     options: [
-      { id: 'A', text: "Create an HCP Terraform Variable Set containing the shared credentials and tags, and apply it globally to all workspaces or specific projects." },
-      { id: 'B', text: "Copy-paste the credentials manually into 50 individual workspace settings pages." },
+      { id: 'A', text: "Copy-paste the credentials manually into 50 individual workspace settings pages." },
+      { id: 'B', text: "Commit cloud access keys directly to the public Git repository." },
       { id: 'C', text: "Hardcode the credentials into every child module configuration file." },
-      { id: 'D', text: "Commit cloud access keys directly to the public Git repository." }
+      { id: 'D', text: "Create an HCP Terraform Variable Set containing the shared credentials and tags, and apply it globally to all workspaces or specific projects." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Create an HCP Terraform Variable Set containing the shared credentials and tags, and apply it globally to all workspaces or specific projects. Variable Sets in HCP Terraform allow administrators to define collections of environment variables (e.g., `AWS_ACCESS_KEY_ID`) and Terraform variables once, and apply them across multiple workspaces or entire projects, eliminating credential duplication and simplifying secret rotation.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cloud-docs/workspaces/variables/variable-sets",
@@ -282,12 +282,12 @@ export const HASHICORP_TFP_QUESTIONS_20 = [
     scenario: "An enterprise is modernizing on-premises infrastructure and refactoring monolithic legacy deployments into modular, cloud-native architectures using advanced Terraform practices. The Terraform professional evaluates Variable Sets to share common AWS credentials and enterprise organizational tags across 50 distinct HCP Terraform workspaces without manual duplication.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction? Reusing environment and Terraform variables across multiple workspaces with Variable Sets is under consideration.",
     options: [
-      { id: 'A', text: "Create an HCP Terraform Variable Set containing the shared credentials and tags, and apply it globally to all workspaces or specific projects." },
-      { id: 'B', text: "Copy-paste the credentials manually into 50 individual workspace settings pages." },
+      { id: 'A', text: "Copy-paste the credentials manually into 50 individual workspace settings pages." },
+      { id: 'B', text: "Create an HCP Terraform Variable Set containing the shared credentials and tags, and apply it globally to all workspaces or specific projects." },
       { id: 'C', text: "Hardcode the credentials into every child module configuration file." },
       { id: 'D', text: "Commit cloud access keys directly to the public Git repository." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Create an HCP Terraform Variable Set containing the shared credentials and tags, and apply it globally to all workspaces or specific projects. Variable Sets in HCP Terraform allow administrators to define collections of environment variables (e.g., `AWS_ACCESS_KEY_ID`) and Terraform variables once, and apply them across multiple workspaces or entire projects, eliminating credential duplication and simplifying secret rotation.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cloud-docs/workspaces/variables/variable-sets",
@@ -303,12 +303,12 @@ export const HASHICORP_TFP_QUESTIONS_20 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline zero-downtime state refactoring, and automate operational recovery. The Terraform professional evaluates Variable Sets to share common AWS credentials and enterprise organizational tags across 50 distinct HCP Terraform workspaces without manual duplication.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability? Reusing environment and Terraform variables across multiple workspaces with Variable Sets is under consideration.",
     options: [
-      { id: 'A', text: "Create an HCP Terraform Variable Set containing the shared credentials and tags, and apply it globally to all workspaces or specific projects." },
-      { id: 'B', text: "Copy-paste the credentials manually into 50 individual workspace settings pages." },
-      { id: 'C', text: "Hardcode the credentials into every child module configuration file." },
+      { id: 'A', text: "Copy-paste the credentials manually into 50 individual workspace settings pages." },
+      { id: 'B', text: "Hardcode the credentials into every child module configuration file." },
+      { id: 'C', text: "Create an HCP Terraform Variable Set containing the shared credentials and tags, and apply it globally to all workspaces or specific projects." },
       { id: 'D', text: "Commit cloud access keys directly to the public Git repository." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Create an HCP Terraform Variable Set containing the shared credentials and tags, and apply it globally to all workspaces or specific projects. Variable Sets in HCP Terraform allow administrators to define collections of environment variables (e.g., `AWS_ACCESS_KEY_ID`) and Terraform variables once, and apply them across multiple workspaces or entire projects, eliminating credential duplication and simplifying secret rotation.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cloud-docs/workspaces/variables/variable-sets",
@@ -324,12 +324,12 @@ export const HASHICORP_TFP_QUESTIONS_20 = [
     scenario: "A principal cloud platform architect is establishing high-availability standards, automated disaster recovery procedures, and infrastructure resilience frameworks across multi-region environments using Terraform. The Terraform professional evaluates Run Triggers to automatically trigger an execution in the application compute workspace whenever changes are applied in the foundational networking workspace.",
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives? Orchestrating cross-workspace execution pipelines using Run Triggers is under consideration.",
     options: [
-      { id: 'A', text: "Configure a Run Trigger on the application workspace targeting the networking workspace as the upstream source." },
+      { id: 'A', text: "Require human operators to remember to manually start application runs after networking updates." },
       { id: 'B', text: "Write a custom bash script that polls the HCP Terraform API every 10 seconds." },
-      { id: 'C', text: "Require human operators to remember to manually start application runs after networking updates." },
+      { id: 'C', text: "Configure a Run Trigger on the application workspace targeting the networking workspace as the upstream source." },
       { id: 'D', text: "Merge networking and application code into a single monolithic workspace." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure a Run Trigger on the application workspace targeting the networking workspace as the upstream source. Run Triggers connect workspaces hierarchically. When a run successfully completes in an upstream workspace (e.g., core networking), HCP Terraform automatically initiates a new plan and apply in downstream workspaces (e.g., application clusters), orchestrating multi-tier infrastructure pipelines.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cloud-docs/workspaces/settings/run-triggers",
@@ -345,12 +345,12 @@ export const HASHICORP_TFP_QUESTIONS_20 = [
     scenario: "A complex enterprise multi-cloud platform experiences massive scaling requirements and requires modular, automated, and performant infrastructure provisioning across dozens of teams. The Terraform professional evaluates Run Triggers to automatically trigger an execution in the application compute workspace whenever changes are applied in the foundational networking workspace.",
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift? Orchestrating cross-workspace execution pipelines using Run Triggers is under consideration.",
     options: [
-      { id: 'A', text: "Configure a Run Trigger on the application workspace targeting the networking workspace as the upstream source." },
+      { id: 'A', text: "Require human operators to remember to manually start application runs after networking updates." },
       { id: 'B', text: "Write a custom bash script that polls the HCP Terraform API every 10 seconds." },
-      { id: 'C', text: "Require human operators to remember to manually start application runs after networking updates." },
+      { id: 'C', text: "Configure a Run Trigger on the application workspace targeting the networking workspace as the upstream source." },
       { id: 'D', text: "Merge networking and application code into a single monolithic workspace." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure a Run Trigger on the application workspace targeting the networking workspace as the upstream source. Run Triggers connect workspaces hierarchically. When a run successfully completes in an upstream workspace (e.g., core networking), HCP Terraform automatically initiates a new plan and apply in downstream workspaces (e.g., application clusters), orchestrating multi-tier infrastructure pipelines.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cloud-docs/workspaces/settings/run-triggers",
@@ -366,12 +366,12 @@ export const HASHICORP_TFP_QUESTIONS_20 = [
     scenario: "A security compliance auditor requires cryptographic state protection, policy-as-code enforcement, and automated governance across all enterprise Terraform delivery pipelines. The Terraform professional evaluates Run Triggers to automatically trigger an execution in the application compute workspace whenever changes are applied in the foundational networking workspace.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls? Orchestrating cross-workspace execution pipelines using Run Triggers is under consideration.",
     options: [
-      { id: 'A', text: "Configure a Run Trigger on the application workspace targeting the networking workspace as the upstream source." },
-      { id: 'B', text: "Write a custom bash script that polls the HCP Terraform API every 10 seconds." },
-      { id: 'C', text: "Require human operators to remember to manually start application runs after networking updates." },
-      { id: 'D', text: "Merge networking and application code into a single monolithic workspace." }
+      { id: 'A', text: "Merge networking and application code into a single monolithic workspace." },
+      { id: 'B', text: "Configure a Run Trigger on the application workspace targeting the networking workspace as the upstream source." },
+      { id: 'C', text: "Write a custom bash script that polls the HCP Terraform API every 10 seconds." },
+      { id: 'D', text: "Require human operators to remember to manually start application runs after networking updates." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure a Run Trigger on the application workspace targeting the networking workspace as the upstream source. Run Triggers connect workspaces hierarchically. When a run successfully completes in an upstream workspace (e.g., core networking), HCP Terraform automatically initiates a new plan and apply in downstream workspaces (e.g., application clusters), orchestrating multi-tier infrastructure pipelines.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cloud-docs/workspaces/settings/run-triggers",
@@ -389,8 +389,8 @@ export const HASHICORP_TFP_QUESTIONS_20 = [
     options: [
       { id: 'A', text: "Configure a Run Trigger on the application workspace targeting the networking workspace as the upstream source." },
       { id: 'B', text: "Write a custom bash script that polls the HCP Terraform API every 10 seconds." },
-      { id: 'C', text: "Require human operators to remember to manually start application runs after networking updates." },
-      { id: 'D', text: "Merge networking and application code into a single monolithic workspace." }
+      { id: 'C', text: "Merge networking and application code into a single monolithic workspace." },
+      { id: 'D', text: "Require human operators to remember to manually start application runs after networking updates." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,12 +408,12 @@ export const HASHICORP_TFP_QUESTIONS_20 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline zero-downtime state refactoring, and automate operational recovery. The Terraform professional evaluates Run Triggers to automatically trigger an execution in the application compute workspace whenever changes are applied in the foundational networking workspace.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability? Orchestrating cross-workspace execution pipelines using Run Triggers is under consideration.",
     options: [
-      { id: 'A', text: "Configure a Run Trigger on the application workspace targeting the networking workspace as the upstream source." },
-      { id: 'B', text: "Write a custom bash script that polls the HCP Terraform API every 10 seconds." },
-      { id: 'C', text: "Require human operators to remember to manually start application runs after networking updates." },
-      { id: 'D', text: "Merge networking and application code into a single monolithic workspace." }
+      { id: 'A', text: "Require human operators to remember to manually start application runs after networking updates." },
+      { id: 'B', text: "Merge networking and application code into a single monolithic workspace." },
+      { id: 'C', text: "Configure a Run Trigger on the application workspace targeting the networking workspace as the upstream source." },
+      { id: 'D', text: "Write a custom bash script that polls the HCP Terraform API every 10 seconds." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure a Run Trigger on the application workspace targeting the networking workspace as the upstream source. Run Triggers connect workspaces hierarchically. When a run successfully completes in an upstream workspace (e.g., core networking), HCP Terraform automatically initiates a new plan and apply in downstream workspaces (e.g., application clusters), orchestrating multi-tier infrastructure pipelines.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cloud-docs/workspaces/settings/run-triggers",
@@ -429,12 +429,12 @@ export const HASHICORP_TFP_QUESTIONS_20 = [
     scenario: "A principal cloud platform architect is establishing high-availability standards, automated disaster recovery procedures, and infrastructure resilience frameworks across multi-region environments using Terraform. The Terraform professional evaluates Team Access to grant a team of developers permission to review plans and queue runs in a workspace without allowing them to edit workspace variables or delete the workspace.",
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives? Managing workspace permissions: Read, Plan, Write, and Admin across enterprise teams is under consideration.",
     options: [
-      { id: 'A', text: "Assign the development team the `Write` permission on the workspace, reserving `Admin` for platform engineers." },
-      { id: 'B', text: "Assign `Admin` permissions to all corporate employees." },
-      { id: 'C', text: "Assign `Read` permissions which does not permit queuing runs." },
-      { id: 'D', text: "Share a single organization owner account credential among all teams." }
+      { id: 'A', text: "Assign `Admin` permissions to all corporate employees." },
+      { id: 'B', text: "Assign `Read` permissions which does not permit queuing runs." },
+      { id: 'C', text: "Share a single organization owner account credential among all teams." },
+      { id: 'D', text: "Assign the development team the `Write` permission on the workspace, reserving `Admin` for platform engineers." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Assign the development team the `Write` permission on the workspace, reserving `Admin` for platform engineers. HCP Terraform provides role-based access control (RBAC) on workspaces: `Read` (view state and outputs), `Plan` (queue speculative plans), `Write` (queue plans and applies), and `Admin` (manage variables, VCS connections, and delete workspace). Scoping teams ensures least-privilege collaboration.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cloud-docs/users-teams-organizations/permissions",
@@ -450,12 +450,12 @@ export const HASHICORP_TFP_QUESTIONS_20 = [
     scenario: "A complex enterprise multi-cloud platform experiences massive scaling requirements and requires modular, automated, and performant infrastructure provisioning across dozens of teams. The Terraform professional evaluates Team Access to grant a team of developers permission to review plans and queue runs in a workspace without allowing them to edit workspace variables or delete the workspace.",
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift? Managing workspace permissions: Read, Plan, Write, and Admin across enterprise teams is under consideration.",
     options: [
-      { id: 'A', text: "Assign the development team the `Write` permission on the workspace, reserving `Admin` for platform engineers." },
+      { id: 'A', text: "Assign `Read` permissions which does not permit queuing runs." },
       { id: 'B', text: "Assign `Admin` permissions to all corporate employees." },
-      { id: 'C', text: "Assign `Read` permissions which does not permit queuing runs." },
-      { id: 'D', text: "Share a single organization owner account credential among all teams." }
+      { id: 'C', text: "Share a single organization owner account credential among all teams." },
+      { id: 'D', text: "Assign the development team the `Write` permission on the workspace, reserving `Admin` for platform engineers." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Assign the development team the `Write` permission on the workspace, reserving `Admin` for platform engineers. HCP Terraform provides role-based access control (RBAC) on workspaces: `Read` (view state and outputs), `Plan` (queue speculative plans), `Write` (queue plans and applies), and `Admin` (manage variables, VCS connections, and delete workspace). Scoping teams ensures least-privilege collaboration.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cloud-docs/users-teams-organizations/permissions",
@@ -471,12 +471,12 @@ export const HASHICORP_TFP_QUESTIONS_20 = [
     scenario: "A security compliance auditor requires cryptographic state protection, policy-as-code enforcement, and automated governance across all enterprise Terraform delivery pipelines. The Terraform professional evaluates Team Access to grant a team of developers permission to review plans and queue runs in a workspace without allowing them to edit workspace variables or delete the workspace.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls? Managing workspace permissions: Read, Plan, Write, and Admin across enterprise teams is under consideration.",
     options: [
-      { id: 'A', text: "Assign the development team the `Write` permission on the workspace, reserving `Admin` for platform engineers." },
+      { id: 'A', text: "Assign `Read` permissions which does not permit queuing runs." },
       { id: 'B', text: "Assign `Admin` permissions to all corporate employees." },
-      { id: 'C', text: "Assign `Read` permissions which does not permit queuing runs." },
-      { id: 'D', text: "Share a single organization owner account credential among all teams." }
+      { id: 'C', text: "Share a single organization owner account credential among all teams." },
+      { id: 'D', text: "Assign the development team the `Write` permission on the workspace, reserving `Admin` for platform engineers." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Assign the development team the `Write` permission on the workspace, reserving `Admin` for platform engineers. HCP Terraform provides role-based access control (RBAC) on workspaces: `Read` (view state and outputs), `Plan` (queue speculative plans), `Write` (queue plans and applies), and `Admin` (manage variables, VCS connections, and delete workspace). Scoping teams ensures least-privilege collaboration.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cloud-docs/users-teams-organizations/permissions",
@@ -492,12 +492,12 @@ export const HASHICORP_TFP_QUESTIONS_20 = [
     scenario: "An enterprise is modernizing on-premises infrastructure and refactoring monolithic legacy deployments into modular, cloud-native architectures using advanced Terraform practices. The Terraform professional evaluates Team Access to grant a team of developers permission to review plans and queue runs in a workspace without allowing them to edit workspace variables or delete the workspace.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction? Managing workspace permissions: Read, Plan, Write, and Admin across enterprise teams is under consideration.",
     options: [
-      { id: 'A', text: "Assign the development team the `Write` permission on the workspace, reserving `Admin` for platform engineers." },
-      { id: 'B', text: "Assign `Admin` permissions to all corporate employees." },
+      { id: 'A', text: "Share a single organization owner account credential among all teams." },
+      { id: 'B', text: "Assign the development team the `Write` permission on the workspace, reserving `Admin` for platform engineers." },
       { id: 'C', text: "Assign `Read` permissions which does not permit queuing runs." },
-      { id: 'D', text: "Share a single organization owner account credential among all teams." }
+      { id: 'D', text: "Assign `Admin` permissions to all corporate employees." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Assign the development team the `Write` permission on the workspace, reserving `Admin` for platform engineers. HCP Terraform provides role-based access control (RBAC) on workspaces: `Read` (view state and outputs), `Plan` (queue speculative plans), `Write` (queue plans and applies), and `Admin` (manage variables, VCS connections, and delete workspace). Scoping teams ensures least-privilege collaboration.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cloud-docs/users-teams-organizations/permissions",
@@ -513,12 +513,12 @@ export const HASHICORP_TFP_QUESTIONS_20 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline zero-downtime state refactoring, and automate operational recovery. The Terraform professional evaluates Team Access to grant a team of developers permission to review plans and queue runs in a workspace without allowing them to edit workspace variables or delete the workspace.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability? Managing workspace permissions: Read, Plan, Write, and Admin across enterprise teams is under consideration.",
     options: [
-      { id: 'A', text: "Assign the development team the `Write` permission on the workspace, reserving `Admin` for platform engineers." },
-      { id: 'B', text: "Assign `Admin` permissions to all corporate employees." },
-      { id: 'C', text: "Assign `Read` permissions which does not permit queuing runs." },
-      { id: 'D', text: "Share a single organization owner account credential among all teams." }
+      { id: 'A', text: "Share a single organization owner account credential among all teams." },
+      { id: 'B', text: "Assign `Read` permissions which does not permit queuing runs." },
+      { id: 'C', text: "Assign the development team the `Write` permission on the workspace, reserving `Admin` for platform engineers." },
+      { id: 'D', text: "Assign `Admin` permissions to all corporate employees." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Assign the development team the `Write` permission on the workspace, reserving `Admin` for platform engineers. HCP Terraform provides role-based access control (RBAC) on workspaces: `Read` (view state and outputs), `Plan` (queue speculative plans), `Write` (queue plans and applies), and `Admin` (manage variables, VCS connections, and delete workspace). Scoping teams ensures least-privilege collaboration.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cloud-docs/users-teams-organizations/permissions",

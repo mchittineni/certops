@@ -9,12 +9,12 @@ export const AWS_DOP_QUESTIONS_5 = [
     scenario: "A payment processing microservice consumes messages from an Amazon SQS standard queue. Occasionally, corrupted transaction payloads cause the consumer Lambda function to throw exceptions and fail repeatedly.",
     question: "How should the architecture be updated to prevent poisoned messages from blocking the processing queue?",
     options: [
-      { id: 'A', text: "Increase the SQS visibility timeout to 12 hours so failed messages remain hidden" },
-      { id: 'B', text: "Configure an Amazon SQS Dead-Letter Queue (DLQ) with a maxReceiveCount threshold, and use SQS dead-letter queue redrive to reprocess messages after fixing the underlying bug" },
-      { id: 'C', text: "Replace the standard queue with an Amazon SNS FIFO topic with zero retries" },
-      { id: 'D', text: "Configure the Lambda function to delete any message that fails on the first attempt without logging" }
+      { id: 'A', text: "Configure the Lambda function to delete any message that fails on the first attempt without logging" },
+      { id: 'B', text: "Replace the standard queue with an Amazon SNS FIFO topic with zero retries" },
+      { id: 'C', text: "Increase the SQS visibility timeout to 12 hours so failed messages remain hidden" },
+      { id: 'D', text: "Configure an Amazon SQS Dead-Letter Queue (DLQ) with a maxReceiveCount threshold, and use SQS dead-letter queue redrive to reprocess messages after fixing the underlying bug" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "An Amazon SQS Dead-Letter Queue (DLQ) isolates messages that cannot be processed successfully after a designated number of attempts (maxReceiveCount). This prevents unprocessable 'poison-pill' messages from looping indefinitely and consuming system capacity, allowing engineers to analyze and redrive messages once remediated.",
     referenceUrl: "https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html",
@@ -30,12 +30,12 @@ export const AWS_DOP_QUESTIONS_5 = [
     scenario: "A DevOps team is architecting fault-tolerant distributed systems capable of surviving zone outages and traffic spikes without degradation.",
     question: "Which architecture provides optimal resilience and high availability for scenario #1?",
     options: [
-      { id: 'A', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" },
-      { id: 'B', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" },
-      { id: 'C', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" },
-      { id: 'D', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" }
+      { id: 'A', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" },
+      { id: 'B', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" },
+      { id: 'C', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" },
+      { id: 'D', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Resilient cloud architectures in AWS require distributing stateless application tiers across multiple Availability Zones with automated health checks, target tracking scaling policies, and managed multi-AZ database backends.",
     referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/welcome.html",
@@ -51,12 +51,12 @@ export const AWS_DOP_QUESTIONS_5 = [
     scenario: "A DevOps team is architecting fault-tolerant distributed systems capable of surviving zone outages and traffic spikes without degradation.",
     question: "Which architecture provides optimal resilience and high availability for scenario #2?",
     options: [
-      { id: 'A', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" },
-      { id: 'B', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" },
+      { id: 'A', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" },
+      { id: 'B', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" },
       { id: 'C', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" },
       { id: 'D', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Resilient cloud architectures in AWS require distributing stateless application tiers across multiple Availability Zones with automated health checks, target tracking scaling policies, and managed multi-AZ database backends.",
     referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/welcome.html",
@@ -72,12 +72,12 @@ export const AWS_DOP_QUESTIONS_5 = [
     scenario: "A DevOps team is architecting fault-tolerant distributed systems capable of surviving zone outages and traffic spikes without degradation.",
     question: "Which architecture provides optimal resilience and high availability for scenario #3?",
     options: [
-      { id: 'A', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" },
-      { id: 'B', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" },
+      { id: 'A', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" },
+      { id: 'B', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" },
       { id: 'C', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" },
-      { id: 'D', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" }
+      { id: 'D', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Resilient cloud architectures in AWS require distributing stateless application tiers across multiple Availability Zones with automated health checks, target tracking scaling policies, and managed multi-AZ database backends.",
     referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/welcome.html",
@@ -94,11 +94,11 @@ export const AWS_DOP_QUESTIONS_5 = [
     question: "Which architecture provides optimal resilience and high availability for scenario #4?",
     options: [
       { id: 'A', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" },
-      { id: 'B', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" },
-      { id: 'C', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" },
+      { id: 'B', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" },
+      { id: 'C', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" },
       { id: 'D', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Resilient cloud architectures in AWS require distributing stateless application tiers across multiple Availability Zones with automated health checks, target tracking scaling policies, and managed multi-AZ database backends.",
     referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/welcome.html",
@@ -114,12 +114,12 @@ export const AWS_DOP_QUESTIONS_5 = [
     scenario: "A DevOps team is architecting fault-tolerant distributed systems capable of surviving zone outages and traffic spikes without degradation.",
     question: "Which architecture provides optimal resilience and high availability for scenario #5?",
     options: [
-      { id: 'A', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" },
-      { id: 'B', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" },
-      { id: 'C', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" },
-      { id: 'D', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" }
+      { id: 'A', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" },
+      { id: 'B', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" },
+      { id: 'C', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" },
+      { id: 'D', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Resilient cloud architectures in AWS require distributing stateless application tiers across multiple Availability Zones with automated health checks, target tracking scaling policies, and managed multi-AZ database backends.",
     referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/welcome.html",
@@ -135,12 +135,12 @@ export const AWS_DOP_QUESTIONS_5 = [
     scenario: "A DevOps team is architecting fault-tolerant distributed systems capable of surviving zone outages and traffic spikes without degradation.",
     question: "Which architecture provides optimal resilience and high availability for scenario #6?",
     options: [
-      { id: 'A', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" },
-      { id: 'B', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" },
-      { id: 'C', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" },
-      { id: 'D', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" }
+      { id: 'A', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" },
+      { id: 'B', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" },
+      { id: 'C', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" },
+      { id: 'D', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Resilient cloud architectures in AWS require distributing stateless application tiers across multiple Availability Zones with automated health checks, target tracking scaling policies, and managed multi-AZ database backends.",
     referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/welcome.html",
@@ -156,12 +156,12 @@ export const AWS_DOP_QUESTIONS_5 = [
     scenario: "A DevOps team is architecting fault-tolerant distributed systems capable of surviving zone outages and traffic spikes without degradation.",
     question: "Which architecture provides optimal resilience and high availability for scenario #7?",
     options: [
-      { id: 'A', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" },
-      { id: 'B', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" },
-      { id: 'C', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" },
-      { id: 'D', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" }
+      { id: 'A', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" },
+      { id: 'B', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" },
+      { id: 'C', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" },
+      { id: 'D', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Resilient cloud architectures in AWS require distributing stateless application tiers across multiple Availability Zones with automated health checks, target tracking scaling policies, and managed multi-AZ database backends.",
     referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/welcome.html",
@@ -177,12 +177,12 @@ export const AWS_DOP_QUESTIONS_5 = [
     scenario: "A DevOps team is architecting fault-tolerant distributed systems capable of surviving zone outages and traffic spikes without degradation.",
     question: "Which architecture provides optimal resilience and high availability for scenario #8?",
     options: [
-      { id: 'A', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" },
-      { id: 'B', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" },
-      { id: 'C', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" },
-      { id: 'D', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" }
+      { id: 'A', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" },
+      { id: 'B', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" },
+      { id: 'C', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" },
+      { id: 'D', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Resilient cloud architectures in AWS require distributing stateless application tiers across multiple Availability Zones with automated health checks, target tracking scaling policies, and managed multi-AZ database backends.",
     referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/welcome.html",
@@ -198,12 +198,12 @@ export const AWS_DOP_QUESTIONS_5 = [
     scenario: "A DevOps team is architecting fault-tolerant distributed systems capable of surviving zone outages and traffic spikes without degradation.",
     question: "Which architecture provides optimal resilience and high availability for scenario #9?",
     options: [
-      { id: 'A', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" },
-      { id: 'B', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" },
-      { id: 'C', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" },
-      { id: 'D', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" }
+      { id: 'A', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" },
+      { id: 'B', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" },
+      { id: 'C', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" },
+      { id: 'D', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Resilient cloud architectures in AWS require distributing stateless application tiers across multiple Availability Zones with automated health checks, target tracking scaling policies, and managed multi-AZ database backends.",
     referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/welcome.html",
@@ -219,12 +219,12 @@ export const AWS_DOP_QUESTIONS_5 = [
     scenario: "A DevOps team is architecting fault-tolerant distributed systems capable of surviving zone outages and traffic spikes without degradation.",
     question: "Which architecture provides optimal resilience and high availability for scenario #10?",
     options: [
-      { id: 'A', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" },
-      { id: 'B', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" },
-      { id: 'C', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" },
-      { id: 'D', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" }
+      { id: 'A', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" },
+      { id: 'B', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" },
+      { id: 'C', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" },
+      { id: 'D', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Resilient cloud architectures in AWS require distributing stateless application tiers across multiple Availability Zones with automated health checks, target tracking scaling policies, and managed multi-AZ database backends.",
     referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/welcome.html",
@@ -240,12 +240,12 @@ export const AWS_DOP_QUESTIONS_5 = [
     scenario: "A DevOps team is architecting fault-tolerant distributed systems capable of surviving zone outages and traffic spikes without degradation.",
     question: "Which architecture provides optimal resilience and high availability for scenario #11?",
     options: [
-      { id: 'A', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" },
-      { id: 'B', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" },
-      { id: 'C', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" },
-      { id: 'D', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" }
+      { id: 'A', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" },
+      { id: 'B', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" },
+      { id: 'C', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" },
+      { id: 'D', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Resilient cloud architectures in AWS require distributing stateless application tiers across multiple Availability Zones with automated health checks, target tracking scaling policies, and managed multi-AZ database backends.",
     referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/welcome.html",
@@ -261,12 +261,12 @@ export const AWS_DOP_QUESTIONS_5 = [
     scenario: "A DevOps team is architecting fault-tolerant distributed systems capable of surviving zone outages and traffic spikes without degradation.",
     question: "Which architecture provides optimal resilience and high availability for scenario #12?",
     options: [
-      { id: 'A', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" },
-      { id: 'B', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" },
-      { id: 'C', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" },
-      { id: 'D', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" }
+      { id: 'A', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" },
+      { id: 'B', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" },
+      { id: 'C', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" },
+      { id: 'D', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Resilient cloud architectures in AWS require distributing stateless application tiers across multiple Availability Zones with automated health checks, target tracking scaling policies, and managed multi-AZ database backends.",
     referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/welcome.html",
@@ -283,11 +283,11 @@ export const AWS_DOP_QUESTIONS_5 = [
     question: "Which architecture provides optimal resilience and high availability for scenario #13?",
     options: [
       { id: 'A', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" },
-      { id: 'B', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" },
-      { id: 'C', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" },
-      { id: 'D', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" }
+      { id: 'B', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" },
+      { id: 'C', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" },
+      { id: 'D', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Resilient cloud architectures in AWS require distributing stateless application tiers across multiple Availability Zones with automated health checks, target tracking scaling policies, and managed multi-AZ database backends.",
     referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/welcome.html",
@@ -303,12 +303,12 @@ export const AWS_DOP_QUESTIONS_5 = [
     scenario: "A DevOps team is architecting fault-tolerant distributed systems capable of surviving zone outages and traffic spikes without degradation.",
     question: "Which architecture provides optimal resilience and high availability for scenario #14?",
     options: [
-      { id: 'A', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" },
-      { id: 'B', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" },
+      { id: 'A', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" },
+      { id: 'B', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" },
       { id: 'C', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" },
-      { id: 'D', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" }
+      { id: 'D', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Resilient cloud architectures in AWS require distributing stateless application tiers across multiple Availability Zones with automated health checks, target tracking scaling policies, and managed multi-AZ database backends.",
     referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/welcome.html",
@@ -325,11 +325,11 @@ export const AWS_DOP_QUESTIONS_5 = [
     question: "Which architecture provides optimal resilience and high availability for scenario #15?",
     options: [
       { id: 'A', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" },
-      { id: 'B', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" },
-      { id: 'C', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" },
+      { id: 'B', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" },
+      { id: 'C', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" },
       { id: 'D', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Resilient cloud architectures in AWS require distributing stateless application tiers across multiple Availability Zones with automated health checks, target tracking scaling policies, and managed multi-AZ database backends.",
     referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/welcome.html",
@@ -347,10 +347,10 @@ export const AWS_DOP_QUESTIONS_5 = [
     options: [
       { id: 'A', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" },
       { id: 'B', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" },
-      { id: 'C', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" },
-      { id: 'D', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" }
+      { id: 'C', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" },
+      { id: 'D', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Resilient cloud architectures in AWS require distributing stateless application tiers across multiple Availability Zones with automated health checks, target tracking scaling policies, and managed multi-AZ database backends.",
     referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/welcome.html",
@@ -366,9 +366,9 @@ export const AWS_DOP_QUESTIONS_5 = [
     scenario: "A DevOps team is architecting fault-tolerant distributed systems capable of surviving zone outages and traffic spikes without degradation.",
     question: "Which architecture provides optimal resilience and high availability for scenario #17?",
     options: [
-      { id: 'A', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" },
+      { id: 'A', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" },
       { id: 'B', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" },
-      { id: 'C', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" },
+      { id: 'C', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" },
       { id: 'D', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" }
     ],
     correctAnswers: ['B'],
@@ -388,9 +388,9 @@ export const AWS_DOP_QUESTIONS_5 = [
     question: "Which architecture provides optimal resilience and high availability for scenario #18?",
     options: [
       { id: 'A', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" },
-      { id: 'B', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" },
-      { id: 'C', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" },
-      { id: 'D', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" }
+      { id: 'B', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" },
+      { id: 'C', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" },
+      { id: 'D', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,12 +408,12 @@ export const AWS_DOP_QUESTIONS_5 = [
     scenario: "A DevOps team is architecting fault-tolerant distributed systems capable of surviving zone outages and traffic spikes without degradation.",
     question: "Which architecture provides optimal resilience and high availability for scenario #19?",
     options: [
-      { id: 'A', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" },
-      { id: 'B', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" },
-      { id: 'C', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" },
-      { id: 'D', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" }
+      { id: 'A', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" },
+      { id: 'B', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" },
+      { id: 'C', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" },
+      { id: 'D', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Resilient cloud architectures in AWS require distributing stateless application tiers across multiple Availability Zones with automated health checks, target tracking scaling policies, and managed multi-AZ database backends.",
     referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/welcome.html",
@@ -429,12 +429,12 @@ export const AWS_DOP_QUESTIONS_5 = [
     scenario: "A DevOps team is architecting fault-tolerant distributed systems capable of surviving zone outages and traffic spikes without degradation.",
     question: "Which architecture provides optimal resilience and high availability for scenario #20?",
     options: [
-      { id: 'A', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" },
-      { id: 'B', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" },
+      { id: 'A', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" },
+      { id: 'B', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" },
       { id: 'C', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" },
-      { id: 'D', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" }
+      { id: 'D', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Resilient cloud architectures in AWS require distributing stateless application tiers across multiple Availability Zones with automated health checks, target tracking scaling policies, and managed multi-AZ database backends.",
     referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/welcome.html",
@@ -471,12 +471,12 @@ export const AWS_DOP_QUESTIONS_5 = [
     scenario: "A DevOps team is architecting fault-tolerant distributed systems capable of surviving zone outages and traffic spikes without degradation.",
     question: "Which architecture provides optimal resilience and high availability for scenario #22?",
     options: [
-      { id: 'A', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" },
-      { id: 'B', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" },
-      { id: 'C', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" },
-      { id: 'D', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" }
+      { id: 'A', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" },
+      { id: 'B', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" },
+      { id: 'C', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" },
+      { id: 'D', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Resilient cloud architectures in AWS require distributing stateless application tiers across multiple Availability Zones with automated health checks, target tracking scaling policies, and managed multi-AZ database backends.",
     referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/welcome.html",
@@ -492,12 +492,12 @@ export const AWS_DOP_QUESTIONS_5 = [
     scenario: "A DevOps team is architecting fault-tolerant distributed systems capable of surviving zone outages and traffic spikes without degradation.",
     question: "Which architecture provides optimal resilience and high availability for scenario #23?",
     options: [
-      { id: 'A', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" },
+      { id: 'A', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" },
       { id: 'B', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" },
       { id: 'C', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" },
-      { id: 'D', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" }
+      { id: 'D', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Resilient cloud architectures in AWS require distributing stateless application tiers across multiple Availability Zones with automated health checks, target tracking scaling policies, and managed multi-AZ database backends.",
     referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/welcome.html",
@@ -513,12 +513,12 @@ export const AWS_DOP_QUESTIONS_5 = [
     scenario: "A DevOps team is architecting fault-tolerant distributed systems capable of surviving zone outages and traffic spikes without degradation.",
     question: "Which architecture provides optimal resilience and high availability for scenario #24?",
     options: [
-      { id: 'A', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" },
-      { id: 'B', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" },
-      { id: 'C', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" },
-      { id: 'D', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" }
+      { id: 'A', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" },
+      { id: 'B', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" },
+      { id: 'C', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" },
+      { id: 'D', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Resilient cloud architectures in AWS require distributing stateless application tiers across multiple Availability Zones with automated health checks, target tracking scaling policies, and managed multi-AZ database backends.",
     referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/welcome.html",

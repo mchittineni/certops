@@ -10,11 +10,11 @@ export const AWS_SCS_QUESTIONS_1 = [
     question: "Which incident response sequence should the security team execute?",
     options: [
       { id: 'A', text: "Add a deny-all rule to the VPC Network ACL for the entire subnet, disconnecting all other healthy workloads" },
-      { id: 'B', text: "Tag the instance, modify its security group to remove all inbound/outbound rules and attach an isolation security group that allows inbound forensic analysis from a secure bastion, create an EBS volume snapshot of all attached volumes, and capture volatile RAM using an SSM Automation document or kernel module prior to stopping" },
-      { id: 'C', text: "Reboot the instance to clear malware from memory and assign a new public Elastic IP address" },
-      { id: 'D', text: "Immediately terminate the EC2 instance using the AWS CLI and delete its attached root EBS volumes to stop data exfiltration" }
+      { id: 'B', text: "Immediately terminate the EC2 instance using the AWS CLI and delete its attached root EBS volumes to stop data exfiltration" },
+      { id: 'C', text: "Tag the instance, modify its security group to remove all inbound/outbound rules and attach an isolation security group that allows inbound forensic analysis from a secure bastion, create an EBS volume snapshot of all attached volumes, and capture volatile RAM using an SSM Automation document or kernel module prior to stopping" },
+      { id: 'D', text: "Reboot the instance to clear malware from memory and assign a new public Elastic IP address" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "When responding to an EC2 compromise, volatile memory (RAM) and disk state must be preserved for forensic chain of custody before terminating or rebooting the instance. Isolating the instance via a restrictive security group containing only authorized forensic access, taking point-in-time EBS snapshots, and collecting memory dumps satisfies incident response best practices without impacting adjacent workloads.",
     referenceUrl: "https://docs.aws.amazon.com/whitepapers/latest/aws-security-incident-response-guide/containment.html",
@@ -32,8 +32,8 @@ export const AWS_SCS_QUESTIONS_1 = [
     options: [
       { id: 'A', text: "Configure Amazon CloudWatch Logs metric filters on VPC Flow Logs to reboot instances" },
       { id: 'B', text: "Configure an Amazon EventBridge rule that filters for GuardDuty findings of type CryptoCurrency:EC2/BitcoinTool.B!, targeting an AWS Systems Manager Automation runbook (AWS-StopEC2Instance) and an Amazon SNS topic for SOC notification" },
-      { id: 'C', text: "Create an AWS Config managed rule that evaluates instance CPU utilization every hour" },
-      { id: 'D', text: "Write a cron job running on an on-premises server that calls aws guardduty list-findings every 30 minutes" }
+      { id: 'C', text: "Write a cron job running on an on-premises server that calls aws guardduty list-findings every 30 minutes" },
+      { id: 'D', text: "Create an AWS Config managed rule that evaluates instance CPU utilization every hour" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -51,12 +51,12 @@ export const AWS_SCS_QUESTIONS_1 = [
     scenario: "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
     question: "Which threat detection architecture best satisfies objective #1?",
     options: [
-      { id: 'A', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" },
-      { id: 'B', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" },
+      { id: 'A', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" },
+      { id: 'B', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" },
       { id: 'C', text: "Relying on end-user email reports as the sole source of threat intelligence" },
-      { id: 'D', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" }
+      { id: 'D', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Threat detection and incident response in AWS combines GuardDuty intelligent threat monitoring, Security Hub central posture aggregation, Detective graph forensics, and EventBridge auto-remediation.",
     referenceUrl: "https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html",
@@ -72,12 +72,12 @@ export const AWS_SCS_QUESTIONS_1 = [
     scenario: "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
     question: "Which threat detection architecture best satisfies objective #2?",
     options: [
-      { id: 'A', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" },
-      { id: 'B', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" },
-      { id: 'C', text: "Relying on end-user email reports as the sole source of threat intelligence" },
-      { id: 'D', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" }
+      { id: 'A', text: "Relying on end-user email reports as the sole source of threat intelligence" },
+      { id: 'B', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" },
+      { id: 'C', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" },
+      { id: 'D', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Threat detection and incident response in AWS combines GuardDuty intelligent threat monitoring, Security Hub central posture aggregation, Detective graph forensics, and EventBridge auto-remediation.",
     referenceUrl: "https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html",
@@ -93,12 +93,12 @@ export const AWS_SCS_QUESTIONS_1 = [
     scenario: "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
     question: "Which threat detection architecture best satisfies objective #3?",
     options: [
-      { id: 'A', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" },
-      { id: 'B', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" },
+      { id: 'A', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" },
+      { id: 'B', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" },
       { id: 'C', text: "Relying on end-user email reports as the sole source of threat intelligence" },
-      { id: 'D', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" }
+      { id: 'D', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Threat detection and incident response in AWS combines GuardDuty intelligent threat monitoring, Security Hub central posture aggregation, Detective graph forensics, and EventBridge auto-remediation.",
     referenceUrl: "https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html",
@@ -114,12 +114,12 @@ export const AWS_SCS_QUESTIONS_1 = [
     scenario: "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
     question: "Which threat detection architecture best satisfies objective #4?",
     options: [
-      { id: 'A', text: "Relying on end-user email reports as the sole source of threat intelligence" },
-      { id: 'B', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" },
-      { id: 'C', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" },
-      { id: 'D', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" }
+      { id: 'A', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" },
+      { id: 'B', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" },
+      { id: 'C', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" },
+      { id: 'D', text: "Relying on end-user email reports as the sole source of threat intelligence" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Threat detection and incident response in AWS combines GuardDuty intelligent threat monitoring, Security Hub central posture aggregation, Detective graph forensics, and EventBridge auto-remediation.",
     referenceUrl: "https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html",
@@ -135,12 +135,12 @@ export const AWS_SCS_QUESTIONS_1 = [
     scenario: "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
     question: "Which threat detection architecture best satisfies objective #5?",
     options: [
-      { id: 'A', text: "Relying on end-user email reports as the sole source of threat intelligence" },
-      { id: 'B', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" },
-      { id: 'C', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" },
-      { id: 'D', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" }
+      { id: 'A', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" },
+      { id: 'B', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" },
+      { id: 'C', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" },
+      { id: 'D', text: "Relying on end-user email reports as the sole source of threat intelligence" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Threat detection and incident response in AWS combines GuardDuty intelligent threat monitoring, Security Hub central posture aggregation, Detective graph forensics, and EventBridge auto-remediation.",
     referenceUrl: "https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html",
@@ -157,11 +157,11 @@ export const AWS_SCS_QUESTIONS_1 = [
     question: "Which threat detection architecture best satisfies objective #6?",
     options: [
       { id: 'A', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" },
-      { id: 'B', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" },
+      { id: 'B', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" },
       { id: 'C', text: "Relying on end-user email reports as the sole source of threat intelligence" },
-      { id: 'D', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" }
+      { id: 'D', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Threat detection and incident response in AWS combines GuardDuty intelligent threat monitoring, Security Hub central posture aggregation, Detective graph forensics, and EventBridge auto-remediation.",
     referenceUrl: "https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html",
@@ -178,11 +178,11 @@ export const AWS_SCS_QUESTIONS_1 = [
     question: "Which threat detection architecture best satisfies objective #7?",
     options: [
       { id: 'A', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" },
-      { id: 'B', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" },
-      { id: 'C', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" },
+      { id: 'B', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" },
+      { id: 'C', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" },
       { id: 'D', text: "Relying on end-user email reports as the sole source of threat intelligence" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Threat detection and incident response in AWS combines GuardDuty intelligent threat monitoring, Security Hub central posture aggregation, Detective graph forensics, and EventBridge auto-remediation.",
     referenceUrl: "https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html",
@@ -198,12 +198,12 @@ export const AWS_SCS_QUESTIONS_1 = [
     scenario: "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
     question: "Which threat detection architecture best satisfies objective #8?",
     options: [
-      { id: 'A', text: "Relying on end-user email reports as the sole source of threat intelligence" },
+      { id: 'A', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" },
       { id: 'B', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" },
       { id: 'C', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" },
-      { id: 'D', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" }
+      { id: 'D', text: "Relying on end-user email reports as the sole source of threat intelligence" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Threat detection and incident response in AWS combines GuardDuty intelligent threat monitoring, Security Hub central posture aggregation, Detective graph forensics, and EventBridge auto-remediation.",
     referenceUrl: "https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html",
@@ -219,12 +219,12 @@ export const AWS_SCS_QUESTIONS_1 = [
     scenario: "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
     question: "Which threat detection architecture best satisfies objective #9?",
     options: [
-      { id: 'A', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" },
+      { id: 'A', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" },
       { id: 'B', text: "Relying on end-user email reports as the sole source of threat intelligence" },
-      { id: 'C', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" },
-      { id: 'D', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" }
+      { id: 'C', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" },
+      { id: 'D', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Threat detection and incident response in AWS combines GuardDuty intelligent threat monitoring, Security Hub central posture aggregation, Detective graph forensics, and EventBridge auto-remediation.",
     referenceUrl: "https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html",
@@ -240,10 +240,10 @@ export const AWS_SCS_QUESTIONS_1 = [
     scenario: "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
     question: "Which threat detection architecture best satisfies objective #10?",
     options: [
-      { id: 'A', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" },
+      { id: 'A', text: "Relying on end-user email reports as the sole source of threat intelligence" },
       { id: 'B', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" },
-      { id: 'C', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" },
-      { id: 'D', text: "Relying on end-user email reports as the sole source of threat intelligence" }
+      { id: 'C', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" },
+      { id: 'D', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -261,12 +261,12 @@ export const AWS_SCS_QUESTIONS_1 = [
     scenario: "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
     question: "Which threat detection architecture best satisfies objective #11?",
     options: [
-      { id: 'A', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" },
-      { id: 'B', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" },
-      { id: 'C', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" },
-      { id: 'D', text: "Relying on end-user email reports as the sole source of threat intelligence" }
+      { id: 'A', text: "Relying on end-user email reports as the sole source of threat intelligence" },
+      { id: 'B', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" },
+      { id: 'C', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" },
+      { id: 'D', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Threat detection and incident response in AWS combines GuardDuty intelligent threat monitoring, Security Hub central posture aggregation, Detective graph forensics, and EventBridge auto-remediation.",
     referenceUrl: "https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html",
@@ -283,11 +283,11 @@ export const AWS_SCS_QUESTIONS_1 = [
     question: "Which threat detection architecture best satisfies objective #12?",
     options: [
       { id: 'A', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" },
-      { id: 'B', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" },
-      { id: 'C', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" },
+      { id: 'B', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" },
+      { id: 'C', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" },
       { id: 'D', text: "Relying on end-user email reports as the sole source of threat intelligence" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Threat detection and incident response in AWS combines GuardDuty intelligent threat monitoring, Security Hub central posture aggregation, Detective graph forensics, and EventBridge auto-remediation.",
     referenceUrl: "https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html",
@@ -303,12 +303,12 @@ export const AWS_SCS_QUESTIONS_1 = [
     scenario: "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
     question: "Which threat detection architecture best satisfies objective #13?",
     options: [
-      { id: 'A', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" },
-      { id: 'B', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" },
-      { id: 'C', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" },
+      { id: 'A', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" },
+      { id: 'B', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" },
+      { id: 'C', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" },
       { id: 'D', text: "Relying on end-user email reports as the sole source of threat intelligence" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Threat detection and incident response in AWS combines GuardDuty intelligent threat monitoring, Security Hub central posture aggregation, Detective graph forensics, and EventBridge auto-remediation.",
     referenceUrl: "https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html",
@@ -324,12 +324,12 @@ export const AWS_SCS_QUESTIONS_1 = [
     scenario: "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
     question: "Which threat detection architecture best satisfies objective #14?",
     options: [
-      { id: 'A', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" },
-      { id: 'B', text: "Relying on end-user email reports as the sole source of threat intelligence" },
+      { id: 'A', text: "Relying on end-user email reports as the sole source of threat intelligence" },
+      { id: 'B', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" },
       { id: 'C', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" },
-      { id: 'D', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" }
+      { id: 'D', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Threat detection and incident response in AWS combines GuardDuty intelligent threat monitoring, Security Hub central posture aggregation, Detective graph forensics, and EventBridge auto-remediation.",
     referenceUrl: "https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html",
@@ -345,10 +345,10 @@ export const AWS_SCS_QUESTIONS_1 = [
     scenario: "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
     question: "Which threat detection architecture best satisfies objective #15?",
     options: [
-      { id: 'A', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" },
+      { id: 'A', text: "Relying on end-user email reports as the sole source of threat intelligence" },
       { id: 'B', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" },
-      { id: 'C', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" },
-      { id: 'D', text: "Relying on end-user email reports as the sole source of threat intelligence" }
+      { id: 'C', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" },
+      { id: 'D', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -366,12 +366,12 @@ export const AWS_SCS_QUESTIONS_1 = [
     scenario: "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
     question: "Which threat detection architecture best satisfies objective #16?",
     options: [
-      { id: 'A', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" },
-      { id: 'B', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" },
-      { id: 'C', text: "Relying on end-user email reports as the sole source of threat intelligence" },
-      { id: 'D', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" }
+      { id: 'A', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" },
+      { id: 'B', text: "Relying on end-user email reports as the sole source of threat intelligence" },
+      { id: 'C', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" },
+      { id: 'D', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Threat detection and incident response in AWS combines GuardDuty intelligent threat monitoring, Security Hub central posture aggregation, Detective graph forensics, and EventBridge auto-remediation.",
     referenceUrl: "https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html",
@@ -387,12 +387,12 @@ export const AWS_SCS_QUESTIONS_1 = [
     scenario: "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
     question: "Which threat detection architecture best satisfies objective #17?",
     options: [
-      { id: 'A', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" },
+      { id: 'A', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" },
       { id: 'B', text: "Relying on end-user email reports as the sole source of threat intelligence" },
-      { id: 'C', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" },
-      { id: 'D', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" }
+      { id: 'C', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" },
+      { id: 'D', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Threat detection and incident response in AWS combines GuardDuty intelligent threat monitoring, Security Hub central posture aggregation, Detective graph forensics, and EventBridge auto-remediation.",
     referenceUrl: "https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html",
@@ -408,9 +408,9 @@ export const AWS_SCS_QUESTIONS_1 = [
     scenario: "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
     question: "Which threat detection architecture best satisfies objective #18?",
     options: [
-      { id: 'A', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" },
+      { id: 'A', text: "Relying on end-user email reports as the sole source of threat intelligence" },
       { id: 'B', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" },
-      { id: 'C', text: "Relying on end-user email reports as the sole source of threat intelligence" },
+      { id: 'C', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" },
       { id: 'D', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" }
     ],
     correctAnswers: ['D'],
@@ -430,11 +430,11 @@ export const AWS_SCS_QUESTIONS_1 = [
     question: "Which threat detection architecture best satisfies objective #19?",
     options: [
       { id: 'A', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" },
-      { id: 'B', text: "Relying on end-user email reports as the sole source of threat intelligence" },
-      { id: 'C', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" },
-      { id: 'D', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" }
+      { id: 'B', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" },
+      { id: 'C', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" },
+      { id: 'D', text: "Relying on end-user email reports as the sole source of threat intelligence" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Threat detection and incident response in AWS combines GuardDuty intelligent threat monitoring, Security Hub central posture aggregation, Detective graph forensics, and EventBridge auto-remediation.",
     referenceUrl: "https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html",
@@ -450,12 +450,12 @@ export const AWS_SCS_QUESTIONS_1 = [
     scenario: "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
     question: "Which threat detection architecture best satisfies objective #20?",
     options: [
-      { id: 'A', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" },
-      { id: 'B', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" },
-      { id: 'C', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" },
-      { id: 'D', text: "Relying on end-user email reports as the sole source of threat intelligence" }
+      { id: 'A', text: "Relying on end-user email reports as the sole source of threat intelligence" },
+      { id: 'B', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" },
+      { id: 'C', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" },
+      { id: 'D', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Threat detection and incident response in AWS combines GuardDuty intelligent threat monitoring, Security Hub central posture aggregation, Detective graph forensics, and EventBridge auto-remediation.",
     referenceUrl: "https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html",
@@ -471,12 +471,12 @@ export const AWS_SCS_QUESTIONS_1 = [
     scenario: "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
     question: "Which threat detection architecture best satisfies objective #21?",
     options: [
-      { id: 'A', text: "Relying on end-user email reports as the sole source of threat intelligence" },
-      { id: 'B', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" },
-      { id: 'C', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" },
-      { id: 'D', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" }
+      { id: 'A', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" },
+      { id: 'B', text: "Relying on end-user email reports as the sole source of threat intelligence" },
+      { id: 'C', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" },
+      { id: 'D', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Threat detection and incident response in AWS combines GuardDuty intelligent threat monitoring, Security Hub central posture aggregation, Detective graph forensics, and EventBridge auto-remediation.",
     referenceUrl: "https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html",
@@ -493,11 +493,11 @@ export const AWS_SCS_QUESTIONS_1 = [
     question: "Which threat detection architecture best satisfies objective #22?",
     options: [
       { id: 'A', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" },
-      { id: 'B', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" },
+      { id: 'B', text: "Relying on end-user email reports as the sole source of threat intelligence" },
       { id: 'C', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" },
-      { id: 'D', text: "Relying on end-user email reports as the sole source of threat intelligence" }
+      { id: 'D', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Threat detection and incident response in AWS combines GuardDuty intelligent threat monitoring, Security Hub central posture aggregation, Detective graph forensics, and EventBridge auto-remediation.",
     referenceUrl: "https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html",
@@ -513,12 +513,12 @@ export const AWS_SCS_QUESTIONS_1 = [
     scenario: "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
     question: "Which threat detection architecture best satisfies objective #23?",
     options: [
-      { id: 'A', text: "Relying on end-user email reports as the sole source of threat intelligence" },
-      { id: 'B', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" },
-      { id: 'C', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" },
-      { id: 'D', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" }
+      { id: 'A', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" },
+      { id: 'B', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" },
+      { id: 'C', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" },
+      { id: 'D', text: "Relying on end-user email reports as the sole source of threat intelligence" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Threat detection and incident response in AWS combines GuardDuty intelligent threat monitoring, Security Hub central posture aggregation, Detective graph forensics, and EventBridge auto-remediation.",
     referenceUrl: "https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html",

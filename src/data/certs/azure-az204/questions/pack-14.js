@@ -9,12 +9,12 @@ export const AZURE_AZ204_QUESTIONS_14 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The developer evaluates Azure Cosmos DB to select the optimal Cosmos DB consistency level for an e-commerce shopping cart requiring read-your-own-writes guarantees within a client session at the lowest cost and latency.",
     question: "Which concept or service configuration satisfies these operational resilience objectives? Five well-defined consistency levels: Strong, Bounded Staleness, Session, Consistent Prefix, Eventual is under consideration.",
     options: [
-      { id: 'A', text: "Configure Session consistency (default level providing read-your-writes guarantees within a session)." },
-      { id: 'B', text: "Configure Strong consistency across all global regions for non-financial read traffic." },
-      { id: 'C', text: "Configure Eventual consistency and accept stale reads during active customer shopping sessions." },
+      { id: 'A', text: "Configure Strong consistency across all global regions for non-financial read traffic." },
+      { id: 'B', text: "Configure Eventual consistency and accept stale reads during active customer shopping sessions." },
+      { id: 'C', text: "Configure Session consistency (default level providing read-your-writes guarantees within a session)." },
       { id: 'D', text: "Disable database consistency checks entirely to minimize billing charges." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure Session consistency (default level providing read-your-writes guarantees within a session). Cosmos DB provides five well-defined consistency levels: Strong, Bounded Staleness, Session, Consistent Prefix, and Eventual. Session consistency is the default and most widely used level, providing monotonic reads, monotonic writes, and read-your-writes guarantees scoped to a client session token.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cosmos-db/consistency-levels",
@@ -51,12 +51,12 @@ export const AZURE_AZ204_QUESTIONS_14 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The developer evaluates Azure Cosmos DB to select the optimal Cosmos DB consistency level for an e-commerce shopping cart requiring read-your-own-writes guarantees within a client session at the lowest cost and latency.",
     question: "Which solution properly implements these mandatory security and governance controls? Five well-defined consistency levels: Strong, Bounded Staleness, Session, Consistent Prefix, Eventual is under consideration.",
     options: [
-      { id: 'A', text: "Configure Session consistency (default level providing read-your-writes guarantees within a session)." },
+      { id: 'A', text: "Disable database consistency checks entirely to minimize billing charges." },
       { id: 'B', text: "Configure Strong consistency across all global regions for non-financial read traffic." },
-      { id: 'C', text: "Configure Eventual consistency and accept stale reads during active customer shopping sessions." },
-      { id: 'D', text: "Disable database consistency checks entirely to minimize billing charges." }
+      { id: 'C', text: "Configure Session consistency (default level providing read-your-writes guarantees within a session)." },
+      { id: 'D', text: "Configure Eventual consistency and accept stale reads during active customer shopping sessions." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure Session consistency (default level providing read-your-writes guarantees within a session). Cosmos DB provides five well-defined consistency levels: Strong, Bounded Staleness, Session, Consistent Prefix, and Eventual. Session consistency is the default and most widely used level, providing monotonic reads, monotonic writes, and read-your-writes guarantees scoped to a client session token.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cosmos-db/consistency-levels",
@@ -73,9 +73,9 @@ export const AZURE_AZ204_QUESTIONS_14 = [
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? Five well-defined consistency levels: Strong, Bounded Staleness, Session, Consistent Prefix, Eventual is under consideration.",
     options: [
       { id: 'A', text: "Configure Session consistency (default level providing read-your-writes guarantees within a session)." },
-      { id: 'B', text: "Configure Strong consistency across all global regions for non-financial read traffic." },
+      { id: 'B', text: "Disable database consistency checks entirely to minimize billing charges." },
       { id: 'C', text: "Configure Eventual consistency and accept stale reads during active customer shopping sessions." },
-      { id: 'D', text: "Disable database consistency checks entirely to minimize billing charges." }
+      { id: 'D', text: "Configure Strong consistency across all global regions for non-financial read traffic." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -93,12 +93,12 @@ export const AZURE_AZ204_QUESTIONS_14 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The developer evaluates Azure Cosmos DB to select the optimal Cosmos DB consistency level for an e-commerce shopping cart requiring read-your-own-writes guarantees within a client session at the lowest cost and latency.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? Five well-defined consistency levels: Strong, Bounded Staleness, Session, Consistent Prefix, Eventual is under consideration.",
     options: [
-      { id: 'A', text: "Configure Session consistency (default level providing read-your-writes guarantees within a session)." },
+      { id: 'A', text: "Configure Eventual consistency and accept stale reads during active customer shopping sessions." },
       { id: 'B', text: "Configure Strong consistency across all global regions for non-financial read traffic." },
-      { id: 'C', text: "Configure Eventual consistency and accept stale reads during active customer shopping sessions." },
+      { id: 'C', text: "Configure Session consistency (default level providing read-your-writes guarantees within a session)." },
       { id: 'D', text: "Disable database consistency checks entirely to minimize billing charges." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure Session consistency (default level providing read-your-writes guarantees within a session). Cosmos DB provides five well-defined consistency levels: Strong, Bounded Staleness, Session, Consistent Prefix, and Eventual. Session consistency is the default and most widely used level, providing monotonic reads, monotonic writes, and read-your-writes guarantees scoped to a client session token.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cosmos-db/consistency-levels",
@@ -114,12 +114,12 @@ export const AZURE_AZ204_QUESTIONS_14 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The developer evaluates Azure Cosmos DB to build an event-driven microservice that processes inserted and updated documents in Azure Cosmos DB in order with automatic state checkpointing and worker load balancing.",
     question: "Which concept or service configuration satisfies these operational resilience objectives? Change Feed Processor library with persistent lease container checkpointing is under consideration.",
     options: [
-      { id: 'A', text: "Implement the Cosmos DB Change Feed Processor library with a dedicated lease container." },
+      { id: 'A', text: "Poll the database using manual HTTP REST calls without checkpointing progress." },
       { id: 'B', text: "Run a cron job that executes a SELECT * FROM c query across the entire database every 5 seconds." },
-      { id: 'C', text: "Trigger an Azure VM restart whenever a document is modified in Cosmos DB." },
-      { id: 'D', text: "Poll the database using manual HTTP REST calls without checkpointing progress." }
+      { id: 'C', text: "Implement the Cosmos DB Change Feed Processor library with a dedicated lease container." },
+      { id: 'D', text: "Trigger an Azure VM restart whenever a document is modified in Cosmos DB." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Implement the Cosmos DB Change Feed Processor library with a dedicated lease container. The Cosmos DB Change Feed Processor library simplifies reading the change feed and distributes event processing across multiple worker instances. It uses a dedicated lease container to maintain state and checkpoints progress automatically, guaranteeing at-least-once processing.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/change-feed-processor",
@@ -135,12 +135,12 @@ export const AZURE_AZ204_QUESTIONS_14 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The developer evaluates Azure Cosmos DB to build an event-driven microservice that processes inserted and updated documents in Azure Cosmos DB in order with automatic state checkpointing and worker load balancing.",
     question: "Which architectural approach should the team select to manage this demand efficiently? Change Feed Processor library with persistent lease container checkpointing is under consideration.",
     options: [
-      { id: 'A', text: "Implement the Cosmos DB Change Feed Processor library with a dedicated lease container." },
+      { id: 'A', text: "Poll the database using manual HTTP REST calls without checkpointing progress." },
       { id: 'B', text: "Run a cron job that executes a SELECT * FROM c query across the entire database every 5 seconds." },
       { id: 'C', text: "Trigger an Azure VM restart whenever a document is modified in Cosmos DB." },
-      { id: 'D', text: "Poll the database using manual HTTP REST calls without checkpointing progress." }
+      { id: 'D', text: "Implement the Cosmos DB Change Feed Processor library with a dedicated lease container." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Implement the Cosmos DB Change Feed Processor library with a dedicated lease container. The Cosmos DB Change Feed Processor library simplifies reading the change feed and distributes event processing across multiple worker instances. It uses a dedicated lease container to maintain state and checkpoints progress automatically, guaranteeing at-least-once processing.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/change-feed-processor",
@@ -156,12 +156,12 @@ export const AZURE_AZ204_QUESTIONS_14 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The developer evaluates Azure Cosmos DB to build an event-driven microservice that processes inserted and updated documents in Azure Cosmos DB in order with automatic state checkpointing and worker load balancing.",
     question: "Which solution properly implements these mandatory security and governance controls? Change Feed Processor library with persistent lease container checkpointing is under consideration.",
     options: [
-      { id: 'A', text: "Implement the Cosmos DB Change Feed Processor library with a dedicated lease container." },
-      { id: 'B', text: "Run a cron job that executes a SELECT * FROM c query across the entire database every 5 seconds." },
-      { id: 'C', text: "Trigger an Azure VM restart whenever a document is modified in Cosmos DB." },
-      { id: 'D', text: "Poll the database using manual HTTP REST calls without checkpointing progress." }
+      { id: 'A', text: "Run a cron job that executes a SELECT * FROM c query across the entire database every 5 seconds." },
+      { id: 'B', text: "Implement the Cosmos DB Change Feed Processor library with a dedicated lease container." },
+      { id: 'C', text: "Poll the database using manual HTTP REST calls without checkpointing progress." },
+      { id: 'D', text: "Trigger an Azure VM restart whenever a document is modified in Cosmos DB." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Implement the Cosmos DB Change Feed Processor library with a dedicated lease container. The Cosmos DB Change Feed Processor library simplifies reading the change feed and distributes event processing across multiple worker instances. It uses a dedicated lease container to maintain state and checkpoints progress automatically, guaranteeing at-least-once processing.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/change-feed-processor",
@@ -177,12 +177,12 @@ export const AZURE_AZ204_QUESTIONS_14 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Microsoft Azure. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The developer evaluates Azure Cosmos DB to build an event-driven microservice that processes inserted and updated documents in Azure Cosmos DB in order with automatic state checkpointing and worker load balancing.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? Change Feed Processor library with persistent lease container checkpointing is under consideration.",
     options: [
-      { id: 'A', text: "Implement the Cosmos DB Change Feed Processor library with a dedicated lease container." },
+      { id: 'A', text: "Poll the database using manual HTTP REST calls without checkpointing progress." },
       { id: 'B', text: "Run a cron job that executes a SELECT * FROM c query across the entire database every 5 seconds." },
       { id: 'C', text: "Trigger an Azure VM restart whenever a document is modified in Cosmos DB." },
-      { id: 'D', text: "Poll the database using manual HTTP REST calls without checkpointing progress." }
+      { id: 'D', text: "Implement the Cosmos DB Change Feed Processor library with a dedicated lease container." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Implement the Cosmos DB Change Feed Processor library with a dedicated lease container. The Cosmos DB Change Feed Processor library simplifies reading the change feed and distributes event processing across multiple worker instances. It uses a dedicated lease container to maintain state and checkpoints progress automatically, guaranteeing at-least-once processing.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/change-feed-processor",
@@ -198,12 +198,12 @@ export const AZURE_AZ204_QUESTIONS_14 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The developer evaluates Azure Cosmos DB to build an event-driven microservice that processes inserted and updated documents in Azure Cosmos DB in order with automatic state checkpointing and worker load balancing.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? Change Feed Processor library with persistent lease container checkpointing is under consideration.",
     options: [
-      { id: 'A', text: "Implement the Cosmos DB Change Feed Processor library with a dedicated lease container." },
-      { id: 'B', text: "Run a cron job that executes a SELECT * FROM c query across the entire database every 5 seconds." },
-      { id: 'C', text: "Trigger an Azure VM restart whenever a document is modified in Cosmos DB." },
-      { id: 'D', text: "Poll the database using manual HTTP REST calls without checkpointing progress." }
+      { id: 'A', text: "Poll the database using manual HTTP REST calls without checkpointing progress." },
+      { id: 'B', text: "Trigger an Azure VM restart whenever a document is modified in Cosmos DB." },
+      { id: 'C', text: "Implement the Cosmos DB Change Feed Processor library with a dedicated lease container." },
+      { id: 'D', text: "Run a cron job that executes a SELECT * FROM c query across the entire database every 5 seconds." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Implement the Cosmos DB Change Feed Processor library with a dedicated lease container. The Cosmos DB Change Feed Processor library simplifies reading the change feed and distributes event processing across multiple worker instances. It uses a dedicated lease container to maintain state and checkpoints progress automatically, guaranteeing at-least-once processing.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/change-feed-processor",
@@ -219,12 +219,12 @@ export const AZURE_AZ204_QUESTIONS_14 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The developer evaluates Azure Cosmos DB to estimate the provisioned throughput required for a Cosmos DB container performing 2,000 point reads per second of items that are 1 KB in size under Session consistency.",
     question: "Which concept or service configuration satisfies these operational resilience objectives? RU/s capacity planning: 1 RU = 1 KB point read is under consideration.",
     options: [
-      { id: 'A', text: "Provision 2,000 RU/s (1 RU per 1 KB point read under Session consistency)." },
-      { id: 'B', text: "Provision 500 RU/s and rely on client HTTP retries for throttled requests." },
-      { id: 'C', text: "Provision 100,000 RU/s regardless of workload size." },
+      { id: 'A', text: "Provision 100,000 RU/s regardless of workload size." },
+      { id: 'B', text: "Provision 2,000 RU/s (1 RU per 1 KB point read under Session consistency)." },
+      { id: 'C', text: "Provision 500 RU/s and rely on client HTTP retries for throttled requests." },
       { id: 'D', text: "Configure a static compute pool on an Azure Virtual Machine." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Provision 2,000 RU/s (1 RU per 1 KB point read under Session consistency). In Azure Cosmos DB, reading a 1 KB item by ID and partition key value (point read) consumes approximately 1 Request Unit (RU) under Session or Eventual consistency. Reading 2,000 items (1 KB each) per second requires provisioning at least 2,000 RU/s.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cosmos-db/request-units",
@@ -240,12 +240,12 @@ export const AZURE_AZ204_QUESTIONS_14 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The developer evaluates Azure Cosmos DB to estimate the provisioned throughput required for a Cosmos DB container performing 2,000 point reads per second of items that are 1 KB in size under Session consistency.",
     question: "Which architectural approach should the team select to manage this demand efficiently? RU/s capacity planning: 1 RU = 1 KB point read is under consideration.",
     options: [
-      { id: 'A', text: "Provision 2,000 RU/s (1 RU per 1 KB point read under Session consistency)." },
+      { id: 'A', text: "Configure a static compute pool on an Azure Virtual Machine." },
       { id: 'B', text: "Provision 500 RU/s and rely on client HTTP retries for throttled requests." },
-      { id: 'C', text: "Provision 100,000 RU/s regardless of workload size." },
-      { id: 'D', text: "Configure a static compute pool on an Azure Virtual Machine." }
+      { id: 'C', text: "Provision 2,000 RU/s (1 RU per 1 KB point read under Session consistency)." },
+      { id: 'D', text: "Provision 100,000 RU/s regardless of workload size." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Provision 2,000 RU/s (1 RU per 1 KB point read under Session consistency). In Azure Cosmos DB, reading a 1 KB item by ID and partition key value (point read) consumes approximately 1 Request Unit (RU) under Session or Eventual consistency. Reading 2,000 items (1 KB each) per second requires provisioning at least 2,000 RU/s.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cosmos-db/request-units",
@@ -262,8 +262,8 @@ export const AZURE_AZ204_QUESTIONS_14 = [
     question: "Which solution properly implements these mandatory security and governance controls? RU/s capacity planning: 1 RU = 1 KB point read is under consideration.",
     options: [
       { id: 'A', text: "Provision 2,000 RU/s (1 RU per 1 KB point read under Session consistency)." },
-      { id: 'B', text: "Provision 500 RU/s and rely on client HTTP retries for throttled requests." },
-      { id: 'C', text: "Provision 100,000 RU/s regardless of workload size." },
+      { id: 'B', text: "Provision 100,000 RU/s regardless of workload size." },
+      { id: 'C', text: "Provision 500 RU/s and rely on client HTTP retries for throttled requests." },
       { id: 'D', text: "Configure a static compute pool on an Azure Virtual Machine." }
     ],
     correctAnswers: ['A'],
@@ -282,12 +282,12 @@ export const AZURE_AZ204_QUESTIONS_14 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Microsoft Azure. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The developer evaluates Azure Cosmos DB to estimate the provisioned throughput required for a Cosmos DB container performing 2,000 point reads per second of items that are 1 KB in size under Session consistency.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? RU/s capacity planning: 1 RU = 1 KB point read is under consideration.",
     options: [
-      { id: 'A', text: "Provision 2,000 RU/s (1 RU per 1 KB point read under Session consistency)." },
-      { id: 'B', text: "Provision 500 RU/s and rely on client HTTP retries for throttled requests." },
-      { id: 'C', text: "Provision 100,000 RU/s regardless of workload size." },
-      { id: 'D', text: "Configure a static compute pool on an Azure Virtual Machine." }
+      { id: 'A', text: "Provision 100,000 RU/s regardless of workload size." },
+      { id: 'B', text: "Configure a static compute pool on an Azure Virtual Machine." },
+      { id: 'C', text: "Provision 2,000 RU/s (1 RU per 1 KB point read under Session consistency)." },
+      { id: 'D', text: "Provision 500 RU/s and rely on client HTTP retries for throttled requests." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Provision 2,000 RU/s (1 RU per 1 KB point read under Session consistency). In Azure Cosmos DB, reading a 1 KB item by ID and partition key value (point read) consumes approximately 1 Request Unit (RU) under Session or Eventual consistency. Reading 2,000 items (1 KB each) per second requires provisioning at least 2,000 RU/s.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cosmos-db/request-units",
@@ -304,8 +304,8 @@ export const AZURE_AZ204_QUESTIONS_14 = [
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? RU/s capacity planning: 1 RU = 1 KB point read is under consideration.",
     options: [
       { id: 'A', text: "Provision 2,000 RU/s (1 RU per 1 KB point read under Session consistency)." },
-      { id: 'B', text: "Provision 500 RU/s and rely on client HTTP retries for throttled requests." },
-      { id: 'C', text: "Provision 100,000 RU/s regardless of workload size." },
+      { id: 'B', text: "Provision 100,000 RU/s regardless of workload size." },
+      { id: 'C', text: "Provision 500 RU/s and rely on client HTTP retries for throttled requests." },
       { id: 'D', text: "Configure a static compute pool on an Azure Virtual Machine." }
     ],
     correctAnswers: ['A'],
@@ -324,12 +324,12 @@ export const AZURE_AZ204_QUESTIONS_14 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The developer evaluates Azure Cosmos DB to prevent lost updates when multiple concurrent users attempt to update the same document simultaneously in Azure Cosmos DB.",
     question: "Which concept or service configuration satisfies these operational resilience objectives? Optimistic Concurrency Control using _etag and AccessCondition is under consideration.",
     options: [
-      { id: 'A', text: "Implement Optimistic Concurrency Control (OCC) using the _etag property and an HTTP If-Match header." },
-      { id: 'B', text: "Implement pessimistic locks by shutting down other user connections on the network." },
-      { id: 'C', text: "Allow all writes to overwrite existing data blindly using last-write-wins without version checks." },
-      { id: 'D', text: "Delete the document before every update to avoid conflicting write states." }
+      { id: 'A', text: "Implement pessimistic locks by shutting down other user connections on the network." },
+      { id: 'B', text: "Implement Optimistic Concurrency Control (OCC) using the _etag property and an HTTP If-Match header." },
+      { id: 'C', text: "Delete the document before every update to avoid conflicting write states." },
+      { id: 'D', text: "Allow all writes to overwrite existing data blindly using last-write-wins without version checks." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Implement Optimistic Concurrency Control (OCC) using the _etag property and an HTTP If-Match header. Cosmos DB supports Optimistic Concurrency Control (OCC) using the system-generated `_etag` property on every document. When updating an item, clients pass the `_etag` in an `If-Match` access condition; if the document was modified by another process, Cosmos DB rejects the write with HTTP 412 Precondition Failed.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/database-transactions-optimistic-concurrency",
@@ -345,12 +345,12 @@ export const AZURE_AZ204_QUESTIONS_14 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The developer evaluates Azure Cosmos DB to prevent lost updates when multiple concurrent users attempt to update the same document simultaneously in Azure Cosmos DB.",
     question: "Which architectural approach should the team select to manage this demand efficiently? Optimistic Concurrency Control using _etag and AccessCondition is under consideration.",
     options: [
-      { id: 'A', text: "Implement Optimistic Concurrency Control (OCC) using the _etag property and an HTTP If-Match header." },
-      { id: 'B', text: "Implement pessimistic locks by shutting down other user connections on the network." },
-      { id: 'C', text: "Allow all writes to overwrite existing data blindly using last-write-wins without version checks." },
-      { id: 'D', text: "Delete the document before every update to avoid conflicting write states." }
+      { id: 'A', text: "Implement pessimistic locks by shutting down other user connections on the network." },
+      { id: 'B', text: "Allow all writes to overwrite existing data blindly using last-write-wins without version checks." },
+      { id: 'C', text: "Delete the document before every update to avoid conflicting write states." },
+      { id: 'D', text: "Implement Optimistic Concurrency Control (OCC) using the _etag property and an HTTP If-Match header." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Implement Optimistic Concurrency Control (OCC) using the _etag property and an HTTP If-Match header. Cosmos DB supports Optimistic Concurrency Control (OCC) using the system-generated `_etag` property on every document. When updating an item, clients pass the `_etag` in an `If-Match` access condition; if the document was modified by another process, Cosmos DB rejects the write with HTTP 412 Precondition Failed.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/database-transactions-optimistic-concurrency",
@@ -367,9 +367,9 @@ export const AZURE_AZ204_QUESTIONS_14 = [
     question: "Which solution properly implements these mandatory security and governance controls? Optimistic Concurrency Control using _etag and AccessCondition is under consideration.",
     options: [
       { id: 'A', text: "Implement Optimistic Concurrency Control (OCC) using the _etag property and an HTTP If-Match header." },
-      { id: 'B', text: "Implement pessimistic locks by shutting down other user connections on the network." },
-      { id: 'C', text: "Allow all writes to overwrite existing data blindly using last-write-wins without version checks." },
-      { id: 'D', text: "Delete the document before every update to avoid conflicting write states." }
+      { id: 'B', text: "Delete the document before every update to avoid conflicting write states." },
+      { id: 'C', text: "Implement pessimistic locks by shutting down other user connections on the network." },
+      { id: 'D', text: "Allow all writes to overwrite existing data blindly using last-write-wins without version checks." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -387,12 +387,12 @@ export const AZURE_AZ204_QUESTIONS_14 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Microsoft Azure. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The developer evaluates Azure Cosmos DB to prevent lost updates when multiple concurrent users attempt to update the same document simultaneously in Azure Cosmos DB.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? Optimistic Concurrency Control using _etag and AccessCondition is under consideration.",
     options: [
-      { id: 'A', text: "Implement Optimistic Concurrency Control (OCC) using the _etag property and an HTTP If-Match header." },
-      { id: 'B', text: "Implement pessimistic locks by shutting down other user connections on the network." },
-      { id: 'C', text: "Allow all writes to overwrite existing data blindly using last-write-wins without version checks." },
-      { id: 'D', text: "Delete the document before every update to avoid conflicting write states." }
+      { id: 'A', text: "Delete the document before every update to avoid conflicting write states." },
+      { id: 'B', text: "Implement Optimistic Concurrency Control (OCC) using the _etag property and an HTTP If-Match header." },
+      { id: 'C', text: "Implement pessimistic locks by shutting down other user connections on the network." },
+      { id: 'D', text: "Allow all writes to overwrite existing data blindly using last-write-wins without version checks." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Implement Optimistic Concurrency Control (OCC) using the _etag property and an HTTP If-Match header. Cosmos DB supports Optimistic Concurrency Control (OCC) using the system-generated `_etag` property on every document. When updating an item, clients pass the `_etag` in an `If-Match` access condition; if the document was modified by another process, Cosmos DB rejects the write with HTTP 412 Precondition Failed.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/database-transactions-optimistic-concurrency",
@@ -408,12 +408,12 @@ export const AZURE_AZ204_QUESTIONS_14 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The developer evaluates Azure Cosmos DB to prevent lost updates when multiple concurrent users attempt to update the same document simultaneously in Azure Cosmos DB.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? Optimistic Concurrency Control using _etag and AccessCondition is under consideration.",
     options: [
-      { id: 'A', text: "Implement Optimistic Concurrency Control (OCC) using the _etag property and an HTTP If-Match header." },
-      { id: 'B', text: "Implement pessimistic locks by shutting down other user connections on the network." },
-      { id: 'C', text: "Allow all writes to overwrite existing data blindly using last-write-wins without version checks." },
-      { id: 'D', text: "Delete the document before every update to avoid conflicting write states." }
+      { id: 'A', text: "Allow all writes to overwrite existing data blindly using last-write-wins without version checks." },
+      { id: 'B', text: "Implement Optimistic Concurrency Control (OCC) using the _etag property and an HTTP If-Match header." },
+      { id: 'C', text: "Delete the document before every update to avoid conflicting write states." },
+      { id: 'D', text: "Implement pessimistic locks by shutting down other user connections on the network." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Implement Optimistic Concurrency Control (OCC) using the _etag property and an HTTP If-Match header. Cosmos DB supports Optimistic Concurrency Control (OCC) using the system-generated `_etag` property on every document. When updating an item, clients pass the `_etag` in an `If-Match` access condition; if the document was modified by another process, Cosmos DB rejects the write with HTTP 412 Precondition Failed.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/database-transactions-optimistic-concurrency",
@@ -429,12 +429,12 @@ export const AZURE_AZ204_QUESTIONS_14 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The developer evaluates Azure Storage to tag millions of PDF files stored in Azure Blob Storage with customer IDs and document categories so they can be queried and filtered without scanning containers.",
     question: "Which concept or service configuration satisfies these operational resilience objectives? Blob index tags vs blob metadata for queryable search is under consideration.",
     options: [
-      { id: 'A', text: "Apply Blob Index Tags (key-value attributes) and query blobs using Find Blobs by Tags API." },
+      { id: 'A', text: "Append customer IDs into the binary image content of the PDF files." },
       { id: 'B', text: "Store customer IDs in custom blob metadata and write code to iterate and read metadata on every blob." },
-      { id: 'C', text: "Create a separate blob container for every individual customer ID in the system." },
-      { id: 'D', text: "Append customer IDs into the binary image content of the PDF files." }
+      { id: 'C', text: "Apply Blob Index Tags (key-value attributes) and query blobs using Find Blobs by Tags API." },
+      { id: 'D', text: "Create a separate blob container for every individual customer ID in the system." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Apply Blob Index Tags (key-value attributes) and query blobs using Find Blobs by Tags API. Blob Index Tags categorize data in your storage account using key-value tag attributes. Azure automatically indexes these tags and exposes a multi-dimensional search index, allowing applications to discover blobs instantly using the `Find Blobs by Tags` API without listing entire containers.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/blobs/storage-manage-find-blobs",
@@ -450,12 +450,12 @@ export const AZURE_AZ204_QUESTIONS_14 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The developer evaluates Azure Storage to tag millions of PDF files stored in Azure Blob Storage with customer IDs and document categories so they can be queried and filtered without scanning containers.",
     question: "Which architectural approach should the team select to manage this demand efficiently? Blob index tags vs blob metadata for queryable search is under consideration.",
     options: [
-      { id: 'A', text: "Apply Blob Index Tags (key-value attributes) and query blobs using Find Blobs by Tags API." },
-      { id: 'B', text: "Store customer IDs in custom blob metadata and write code to iterate and read metadata on every blob." },
-      { id: 'C', text: "Create a separate blob container for every individual customer ID in the system." },
+      { id: 'A', text: "Store customer IDs in custom blob metadata and write code to iterate and read metadata on every blob." },
+      { id: 'B', text: "Create a separate blob container for every individual customer ID in the system." },
+      { id: 'C', text: "Apply Blob Index Tags (key-value attributes) and query blobs using Find Blobs by Tags API." },
       { id: 'D', text: "Append customer IDs into the binary image content of the PDF files." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Apply Blob Index Tags (key-value attributes) and query blobs using Find Blobs by Tags API. Blob Index Tags categorize data in your storage account using key-value tag attributes. Azure automatically indexes these tags and exposes a multi-dimensional search index, allowing applications to discover blobs instantly using the `Find Blobs by Tags` API without listing entire containers.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/blobs/storage-manage-find-blobs",
@@ -471,12 +471,12 @@ export const AZURE_AZ204_QUESTIONS_14 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The developer evaluates Azure Storage to tag millions of PDF files stored in Azure Blob Storage with customer IDs and document categories so they can be queried and filtered without scanning containers.",
     question: "Which solution properly implements these mandatory security and governance controls? Blob index tags vs blob metadata for queryable search is under consideration.",
     options: [
-      { id: 'A', text: "Apply Blob Index Tags (key-value attributes) and query blobs using Find Blobs by Tags API." },
-      { id: 'B', text: "Store customer IDs in custom blob metadata and write code to iterate and read metadata on every blob." },
-      { id: 'C', text: "Create a separate blob container for every individual customer ID in the system." },
-      { id: 'D', text: "Append customer IDs into the binary image content of the PDF files." }
+      { id: 'A', text: "Append customer IDs into the binary image content of the PDF files." },
+      { id: 'B', text: "Create a separate blob container for every individual customer ID in the system." },
+      { id: 'C', text: "Store customer IDs in custom blob metadata and write code to iterate and read metadata on every blob." },
+      { id: 'D', text: "Apply Blob Index Tags (key-value attributes) and query blobs using Find Blobs by Tags API." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Apply Blob Index Tags (key-value attributes) and query blobs using Find Blobs by Tags API. Blob Index Tags categorize data in your storage account using key-value tag attributes. Azure automatically indexes these tags and exposes a multi-dimensional search index, allowing applications to discover blobs instantly using the `Find Blobs by Tags` API without listing entire containers.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/blobs/storage-manage-find-blobs",
@@ -492,12 +492,12 @@ export const AZURE_AZ204_QUESTIONS_14 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Microsoft Azure. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The developer evaluates Azure Storage to tag millions of PDF files stored in Azure Blob Storage with customer IDs and document categories so they can be queried and filtered without scanning containers.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? Blob index tags vs blob metadata for queryable search is under consideration.",
     options: [
-      { id: 'A', text: "Apply Blob Index Tags (key-value attributes) and query blobs using Find Blobs by Tags API." },
-      { id: 'B', text: "Store customer IDs in custom blob metadata and write code to iterate and read metadata on every blob." },
-      { id: 'C', text: "Create a separate blob container for every individual customer ID in the system." },
-      { id: 'D', text: "Append customer IDs into the binary image content of the PDF files." }
+      { id: 'A', text: "Append customer IDs into the binary image content of the PDF files." },
+      { id: 'B', text: "Create a separate blob container for every individual customer ID in the system." },
+      { id: 'C', text: "Apply Blob Index Tags (key-value attributes) and query blobs using Find Blobs by Tags API." },
+      { id: 'D', text: "Store customer IDs in custom blob metadata and write code to iterate and read metadata on every blob." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Apply Blob Index Tags (key-value attributes) and query blobs using Find Blobs by Tags API. Blob Index Tags categorize data in your storage account using key-value tag attributes. Azure automatically indexes these tags and exposes a multi-dimensional search index, allowing applications to discover blobs instantly using the `Find Blobs by Tags` API without listing entire containers.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/blobs/storage-manage-find-blobs",
@@ -513,12 +513,12 @@ export const AZURE_AZ204_QUESTIONS_14 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The developer evaluates Azure Storage to tag millions of PDF files stored in Azure Blob Storage with customer IDs and document categories so they can be queried and filtered without scanning containers.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? Blob index tags vs blob metadata for queryable search is under consideration.",
     options: [
-      { id: 'A', text: "Apply Blob Index Tags (key-value attributes) and query blobs using Find Blobs by Tags API." },
+      { id: 'A', text: "Create a separate blob container for every individual customer ID in the system." },
       { id: 'B', text: "Store customer IDs in custom blob metadata and write code to iterate and read metadata on every blob." },
-      { id: 'C', text: "Create a separate blob container for every individual customer ID in the system." },
-      { id: 'D', text: "Append customer IDs into the binary image content of the PDF files." }
+      { id: 'C', text: "Append customer IDs into the binary image content of the PDF files." },
+      { id: 'D', text: "Apply Blob Index Tags (key-value attributes) and query blobs using Find Blobs by Tags API." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Apply Blob Index Tags (key-value attributes) and query blobs using Find Blobs by Tags API. Blob Index Tags categorize data in your storage account using key-value tag attributes. Azure automatically indexes these tags and exposes a multi-dimensional search index, allowing applications to discover blobs instantly using the `Find Blobs by Tags` API without listing entire containers.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/blobs/storage-manage-find-blobs",

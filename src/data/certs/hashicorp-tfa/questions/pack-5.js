@@ -10,9 +10,9 @@ export const HASHICORP_TFA_QUESTIONS_5 = [
     question: "How does Terraform handle the missing provider configuration?",
     options: [
       { id: 'A', text: "Terraform infers the provider from the resource type prefix ('aws_') and attempts to initialize the official hashicorp/aws provider with default settings" },
-      { id: 'B', text: "Terraform prompts the user to enter provider details interactively" },
-      { id: 'C', text: "Terraform skips provisioning the resource" },
-      { id: 'D', text: "Terraform fails immediately with a fatal syntax error" }
+      { id: 'B', text: "Terraform skips provisioning the resource" },
+      { id: 'C', text: "Terraform fails immediately with a fatal syntax error" },
+      { id: 'D', text: "Terraform prompts the user to enter provider details interactively" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -30,12 +30,12 @@ export const HASHICORP_TFA_QUESTIONS_5 = [
     scenario: "A developer wants to completely reset their local Terraform environment, removing downloaded provider binaries and cached modules without deleting `.tf` configuration files.",
     question: "Which directory in the project root should be deleted to reset the local initialized environment?",
     options: [
-      { id: 'A', text: "terraform.tfstate" },
-      { id: 'B', text: "src/ directory" },
-      { id: 'C', text: ".terraform directory" },
-      { id: 'D', text: ".terraform.lock.hcl alone" }
+      { id: 'A', text: "src/ directory" },
+      { id: 'B', text: ".terraform.lock.hcl alone" },
+      { id: 'C', text: "terraform.tfstate" },
+      { id: 'D', text: ".terraform directory" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The `.terraform` hidden directory contains downloaded provider binaries, external modules, and backend cache. Deleting `.terraform` cleanly resets the environment, requiring a fresh `terraform init` to re-download plugins.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/init",
@@ -51,12 +51,12 @@ export const HASHICORP_TFA_QUESTIONS_5 = [
     scenario: "A DevOps engineer is cleaning up unused resources from a Terraform project.",
     question: "What is the fundamental difference between terraform state rm and terraform destroy?",
     options: [
-      { id: 'A', text: "There is no difference; they are identical aliases" },
-      { id: 'B', text: "terraform state rm only deletes the resource from the state file (leaving the real cloud asset intact); terraform destroy terminates the real cloud asset in the cloud provider" },
-      { id: 'C', text: "terraform state rm is only supported in Terraform Cloud" },
-      { id: 'D', text: "terraform state rm terminates cloud resources; terraform destroy leaves them running" }
+      { id: 'A', text: "terraform state rm is only supported in Terraform Cloud" },
+      { id: 'B', text: "There is no difference; they are identical aliases" },
+      { id: 'C', text: "terraform state rm terminates cloud resources; terraform destroy leaves them running" },
+      { id: 'D', text: "terraform state rm only deletes the resource from the state file (leaving the real cloud asset intact); terraform destroy terminates the real cloud asset in the cloud provider" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "This distinction is crucial: `terraform state rm` alters only Terraform's state tracking (the cloud resource remains running untouched). `terraform destroy` calls cloud APIs to actively terminate and delete the real-world infrastructure.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/state/rm",
@@ -73,9 +73,9 @@ export const HASHICORP_TFA_QUESTIONS_5 = [
     question: "Can the -target flag be specified multiple times in a single command?",
     options: [
       { id: 'A', text: "Yes, multiple -target flags can be passed simultaneously (e.g. -target=aws_instance.web -target=aws_security_group.web_sg)" },
-      { id: 'B', text: "No, multiple targets require commas inside quotes" },
-      { id: 'C', text: "Targeting multiple resources is prohibited by Terraform" },
-      { id: 'D', text: "No, -target only accepts one single resource address" }
+      { id: 'B', text: "Targeting multiple resources is prohibited by Terraform" },
+      { id: 'C', text: "No, -target only accepts one single resource address" },
+      { id: 'D', text: "No, multiple targets require commas inside quotes" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -93,12 +93,12 @@ export const HASHICORP_TFA_QUESTIONS_5 = [
     scenario: "An automated teardown script in CI/CD needs to destroy all resources in an ephemeral preview environment without prompting for user confirmation.",
     question: "Which command combination executes non-interactive destruction of all managed infrastructure?",
     options: [
-      { id: 'A', text: "terraform clean -all" },
-      { id: 'B', text: "terraform delete -y" },
-      { id: 'C', text: "terraform destroy --force" },
-      { id: 'D', text: "terraform apply -destroy -auto-approve (or terraform destroy -auto-approve)" }
+      { id: 'A', text: "terraform destroy --force" },
+      { id: 'B', text: "terraform apply -destroy -auto-approve (or terraform destroy -auto-approve)" },
+      { id: 'C', text: "terraform delete -y" },
+      { id: 'D', text: "terraform clean -all" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Both `terraform destroy -auto-approve` and `terraform apply -destroy -auto-approve` perform immediate, non-interactive destruction of all infrastructure tracked in the state file.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/destroy",
@@ -114,12 +114,12 @@ export const HASHICORP_TFA_QUESTIONS_5 = [
     scenario: "A developer with a slow internet connection is modifying a local tag and wants to quickly verify HCL logic without waiting for Terraform to query 500 cloud APIs to refresh state.",
     question: "Which flag skips the cloud API state refresh phase during terraform plan?",
     options: [
-      { id: 'A', text: "-no-refresh" },
-      { id: 'B', text: "-fast-plan" },
+      { id: 'A', text: "-fast-plan" },
+      { id: 'B', text: "-refresh=false" },
       { id: 'C', text: "-skip-api" },
-      { id: 'D', text: "-refresh=false" }
+      { id: 'D', text: "-no-refresh" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Passing `-refresh=false` instructs Terraform to bypass querying remote cloud APIs for current resource attributes during planning, relying strictly on attributes cached in the local state file to generate the plan quickly.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/plan#refresh-true",
@@ -135,12 +135,12 @@ export const HASHICORP_TFA_QUESTIONS_5 = [
     scenario: "A Terraform output block exports an RDS master password with `sensitive = true`.",
     question: "How does `terraform output` display this value when run without flags in the terminal?",
     options: [
-      { id: 'A', text: "It outputs a cryptographic hash" },
+      { id: 'A', text: "It displays '&lt;sensitive&gt;' to prevent credential leakage in terminal logs" },
       { id: 'B', text: "It outputs the cleartext password" },
       { id: 'C', text: "It generates an error" },
-      { id: 'D', text: "It displays '&lt;sensitive&gt;' to prevent credential leakage in terminal logs" }
+      { id: 'D', text: "It outputs a cryptographic hash" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "When an output has `sensitive = true`, Terraform suppresses its value in normal CLI outputs (displaying `&lt;sensitive&gt;`). To view the cleartext value explicitly, the user must run `terraform output -raw &lt;name&gt;` or `terraform output -json`.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/values/outputs#sensitive-suppressing-values-in-cli-output",
@@ -156,12 +156,12 @@ export const HASHICORP_TFA_QUESTIONS_5 = [
     scenario: "A developer misspells a resource attribute name in HCL (`intance_type = \"t3.micro\"` instead of `instance_type`).",
     question: "Will terraform validate catch this error?",
     options: [
-      { id: 'A', text: "Only if connected to the cloud provider API" },
+      { id: 'A', text: "Yes, terraform validate compares declared attributes against downloaded provider schemas and reports unrecognized arguments" },
       { id: 'B', text: "No, validate only checks matching brackets and braces" },
       { id: 'C', text: "No, attribute typos are only caught during terraform apply" },
-      { id: 'D', text: "Yes, terraform validate compares declared attributes against downloaded provider schemas and reports unrecognized arguments" }
+      { id: 'D', text: "Only if connected to the cloud provider API" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "`terraform validate` verifies attribute names and types against the provider schemas downloaded during `init`. It immediately detects misspelled arguments (e.g. `intance_type`), undeclared variables, and invalid type assignments locally.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/validate",
@@ -177,12 +177,12 @@ export const HASHICORP_TFA_QUESTIONS_5 = [
     scenario: "A developer runs `terraform login` to authenticate with Terraform Cloud or a private module registry.",
     question: "Where does Terraform store the generated API authentication token on the developer's local workstation?",
     options: [
-      { id: 'A', text: "In the root module main.tf" },
-      { id: 'B', text: "In the credentials.tfrc.json file inside ~/.terraform.d/ (or OS credential store)" },
-      { id: 'C', text: "In the .terraform.lock.hcl file" },
-      { id: 'D', text: "In terraform.tfstate" }
+      { id: 'A', text: "In terraform.tfstate" },
+      { id: 'B', text: "In the root module main.tf" },
+      { id: 'C', text: "In the credentials.tfrc.json file inside ~/.terraform.d/ (or OS credential store)" },
+      { id: 'D', text: "In the .terraform.lock.hcl file" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "`terraform login` requests an API token via the browser and stores it in `~/.terraform.d/credentials.tfrc.json` (on Linux/macOS) or `%APPDATA%/terraform.d/credentials.tfrc.json` (on Windows), or delegates to the OS native credential store.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/login",
@@ -198,12 +198,12 @@ export const HASHICORP_TFA_QUESTIONS_5 = [
     scenario: "A developer finishes working on a shared staging machine and runs `terraform logout`.",
     question: "What action does terraform logout perform on the workstation?",
     options: [
-      { id: 'A', text: "It terminates all cloud resources in the account" },
-      { id: 'B', text: "It revokes all SSH keys on the machine" },
+      { id: 'A', text: "It revokes all SSH keys on the machine" },
+      { id: 'B', text: "It deletes the locally stored API token for the specified hostname from credentials.tfrc.json" },
       { id: 'C', text: "It deletes the user's Terraform Cloud account permanently" },
-      { id: 'D', text: "It deletes the locally stored API token for the specified hostname from credentials.tfrc.json" }
+      { id: 'D', text: "It terminates all cloud resources in the account" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "`terraform logout &lt;hostname&gt;` removes the saved API token for the specified registry hostname from the local workstation's `credentials.tfrc.json` file, preventing unauthorized future CLI operations.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/logout",
@@ -219,12 +219,12 @@ export const HASHICORP_TFA_QUESTIONS_5 = [
     scenario: "An enterprise security policy blocks workstations from downloading binary files directly from public registries.",
     question: "Which configuration file allows administrators to define a 'provider_installation' block routing provider downloads to filesystem mirrors?",
     options: [
-      { id: 'A', text: "The terraform.tfstate file" },
-      { id: 'B', text: ".terraform.lock.hcl" },
-      { id: 'C', text: "The CLI configuration file (~/.terraformrc or terraform.rc)" },
-      { id: 'D', text: "The root module main.tf" }
+      { id: 'A', text: "The CLI configuration file (~/.terraformrc or terraform.rc)" },
+      { id: 'B', text: "The root module main.tf" },
+      { id: 'C', text: "The terraform.tfstate file" },
+      { id: 'D', text: ".terraform.lock.hcl" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The CLI configuration file (`~/.terraformrc` on Unix, `%APPDATA%/terraform.rc` on Windows) configures global CLI behavior, including the `provider_installation` block which specifies `filesystem_mirror` or `network_mirror` locations.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/config/config-file#provider-installation",
@@ -240,12 +240,12 @@ export const HASHICORP_TFA_QUESTIONS_5 = [
     scenario: "A developer trained on legacy Terraform 0.12 runs `terraform taint aws_instance.web`.",
     question: "What is the modern, recommended alternative to tainting resources in Terraform 1.0+?",
     options: [
-      { id: 'A', text: "terraform mark-dirty aws_instance.web" },
-      { id: 'B', text: "terraform rebuild aws_instance.web" },
-      { id: 'C', text: "Use terraform apply -replace=\"aws_instance.web\" directly during planning and application" },
-      { id: 'D', text: "terraform recreate aws_instance.web" }
+      { id: 'A', text: "terraform rebuild aws_instance.web" },
+      { id: 'B', text: "terraform recreate aws_instance.web" },
+      { id: 'C', text: "terraform mark-dirty aws_instance.web" },
+      { id: 'D', text: "Use terraform apply -replace=\"aws_instance.web\" directly during planning and application" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "While `terraform taint` still exists for backward compatibility, HashiCorp officially recommends `terraform apply -replace=...`. Unlike `taint` which immediately modifies state, `-replace` allows planning and previewing the recreation safely.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/taint",
@@ -261,12 +261,12 @@ export const HASHICORP_TFA_QUESTIONS_5 = [
     scenario: "A team wants to remove an entire child module and all of its encapsulated resources from Terraform management without destroying the cloud resources.",
     question: "Can terraform state rm target an entire module address?",
     options: [
-      { id: 'A', text: "terraform state rm only supports single attributes" },
-      { id: 'B', text: "Yes, running terraform state rm module.networking removes all resources encapsulated within that module from state in a single command" },
-      { id: 'C', text: "No, each individual resource inside the module must be removed one by one" },
-      { id: 'D', text: "No, modules cannot be untracked from state" }
+      { id: 'A', text: "No, modules cannot be untracked from state" },
+      { id: 'B', text: "terraform state rm only supports single attributes" },
+      { id: 'C', text: "Yes, running terraform state rm module.networking removes all resources encapsulated within that module from state in a single command" },
+      { id: 'D', text: "No, each individual resource inside the module must be removed one by one" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "`terraform state rm` accepts resource addresses, individual instance addresses, or entire module addresses (e.g. `module.vpc` or `module.kubernetes`), removing all child resources belonging to that module from state at once.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/state/rm",
@@ -284,8 +284,8 @@ export const HASHICORP_TFA_QUESTIONS_5 = [
     options: [
       { id: 'A', text: "&lt;namespace&gt;/&lt;name&gt;/&lt;provider&gt; (e.g. terraform-aws-modules/vpc/aws)" },
       { id: 'B', text: "&lt;name&gt;/&lt;provider&gt;/&lt;version&gt;" },
-      { id: 'C', text: "aws/&lt;namespace&gt;/&lt;name&gt;" },
-      { id: 'D', text: "registry.com/&lt;module&gt;" }
+      { id: 'C', text: "registry.com/&lt;module&gt;" },
+      { id: 'D', text: "aws/&lt;namespace&gt;/&lt;name&gt;" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -303,12 +303,12 @@ export const HASHICORP_TFA_QUESTIONS_5 = [
     scenario: "A project structures reusable code into a subdirectory named `modules/database` within the same Git repository.",
     question: "Which source string syntax correctly references this local child module?",
     options: [
-      { id: 'A', text: "source = \"file://modules/database\"" },
-      { id: 'B', text: "source = \"./modules/database\" (or \"../modules/database\")" },
-      { id: 'C', text: "source = \"modules/database\" (without leading dot-slash)" },
-      { id: 'D', text: "source = \"local::modules/database\"" }
+      { id: 'A', text: "source = \"local::modules/database\"" },
+      { id: 'B', text: "source = \"file://modules/database\"" },
+      { id: 'C', text: "source = \"./modules/database\" (or \"../modules/database\")" },
+      { id: 'D', text: "source = \"modules/database\" (without leading dot-slash)" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "A local file path must begin with `./` or `../` to indicate that it is a relative path. Without the leading `./`, Terraform attempts to parse the string as an external registry address and fails.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/modules/sources#local-paths",
@@ -324,12 +324,12 @@ export const HASHICORP_TFA_QUESTIONS_5 = [
     scenario: "A team references a shared company module hosted on a private GitHub repository: `git::https://github.com/example/terraform-aws-vpc.git`.",
     question: "Which URL query parameter pins the module to a specific release tag or commit SHA?",
     options: [
-      { id: 'A', text: "?branch=v2.1.0" },
-      { id: 'B', text: "?tag=v2.1.0" },
-      { id: 'C', text: "?version=v2.1.0" },
-      { id: 'D', text: "?ref=v2.1.0 (or ?ref=commit-hash)" }
+      { id: 'A', text: "?ref=v2.1.0 (or ?ref=commit-hash)" },
+      { id: 'B', text: "?version=v2.1.0" },
+      { id: 'C', text: "?tag=v2.1.0" },
+      { id: 'D', text: "?branch=v2.1.0" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "For Git repositories (Generic Git, GitHub, GitLab, Bitbucket), the `ref` query parameter specifies the Git revision (branch, tag, or commit hash) to checkout: `source = \"git::https://example.com/vpc.git?ref=v2.1.0\"`.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/modules/sources#selecting-a-revision",
@@ -345,12 +345,12 @@ export const HASHICORP_TFA_QUESTIONS_5 = [
     scenario: "A developer attempts to pass `version = \"~> 1.0\"` inside a module block sourcing a local directory (`source = \"./modules/app\"`).",
     question: "Does Terraform support the version argument on local filesystem module calls?",
     options: [
-      { id: 'A', text: "Yes, if package.json exists" },
-      { id: 'B', text: "Terraform requires version on all module blocks" },
-      { id: 'C', text: "No, the version argument is only supported for modules sourced from a Terraform Registry; local filesystem and generic Git sources do not support the version argument" },
-      { id: 'D', text: "Yes, local files must have semantic version numbers in filenames" }
+      { id: 'A', text: "No, the version argument is only supported for modules sourced from a Terraform Registry; local filesystem and generic Git sources do not support the version argument" },
+      { id: 'B', text: "Yes, local files must have semantic version numbers in filenames" },
+      { id: 'C', text: "Yes, if package.json exists" },
+      { id: 'D', text: "Terraform requires version on all module blocks" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The `version` argument inside a `module` block is supported exclusively for modules loaded from a Terraform Registry (public or private). For Git sources, versioning is achieved via `?ref=`; for local paths, `version` is prohibited.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/modules/syntax#version",
@@ -367,9 +367,9 @@ export const HASHICORP_TFA_QUESTIONS_5 = [
     question: "How does the calling root module access this output value in its own resources?",
     options: [
       { id: 'A', text: "module.vpc.vpc_id" },
-      { id: 'B', text: "vpc.outputs.vpc_id" },
+      { id: 'B', text: "module.vpc.output.vpc_id" },
       { id: 'C', text: "module.vpc_id" },
-      { id: 'D', text: "module.vpc.output.vpc_id" }
+      { id: 'D', text: "vpc.outputs.vpc_id" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,12 +408,12 @@ export const HASHICORP_TFA_QUESTIONS_5 = [
     scenario: "A developer edits code inside an external Git repository referenced by a child module (`?ref=main`). Running `terraform plan` does not pick up the updated code from GitHub.",
     question: "Which command instructs Terraform to re-evaluate and download updated module source code?",
     options: [
-      { id: 'A', text: "terraform sync" },
+      { id: 'A', text: "terraform init (or terraform get -update)" },
       { id: 'B', text: "terraform plan -refresh" },
-      { id: 'C', text: "terraform init (or terraform get -update)" },
+      { id: 'C', text: "terraform sync" },
       { id: 'D', text: "terraform module update" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "`terraform init` installs and caches child modules into the local `.terraform/modules` directory. To update external modules from remote sources without a full init, developers can run `terraform get -update`.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/get",
@@ -429,12 +429,12 @@ export const HASHICORP_TFA_QUESTIONS_5 = [
     scenario: "An enterprise needs to deploy 3 identical VPCs across 3 different departments (`dev`, `stage`, `prod`) using a single module block.",
     question: "How does modern Terraform instantiate multiple instances of a child module using a map or set?",
     options: [
-      { id: 'A', text: "By duplicating the module block 3 times manually" },
-      { id: 'B', text: "Modules do not support for_each" },
-      { id: 'C', text: "Using a while loop in HCL" },
-      { id: 'D', text: "By declaring the for_each meta-argument inside the module block" }
+      { id: 'A', text: "Modules do not support for_each" },
+      { id: 'B', text: "Using a while loop in HCL" },
+      { id: 'C', text: "By declaring the for_each meta-argument inside the module block" },
+      { id: 'D', text: "By duplicating the module block 3 times manually" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Starting in Terraform 0.13, `for_each` is supported directly on `module` blocks. It instantiates multiple instances of the module based on a map or set of strings, creating addresses like `module.vpc[\"dev\"]` and `module.vpc[\"prod\"]`.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/meta-arguments/for_each",
@@ -450,12 +450,12 @@ export const HASHICORP_TFA_QUESTIONS_5 = [
     scenario: "A developer needs to conditionally create an entire module only if a boolean flag `enable_monitoring` is true.",
     question: "How can the module creation be toggled conditionally using count?",
     options: [
-      { id: 'A', text: "conditional = var.enable_monitoring" },
-      { id: 'B', text: "count = var.enable_monitoring ? 1 : 0" },
-      { id: 'C', text: "if = var.enable_monitoring" },
-      { id: 'D', text: "enabled = var.enable_monitoring" }
+      { id: 'A', text: "enabled = var.enable_monitoring" },
+      { id: 'B', text: "conditional = var.enable_monitoring" },
+      { id: 'C', text: "count = var.enable_monitoring ? 1 : 0" },
+      { id: 'D', text: "if = var.enable_monitoring" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Adding `count = var.enable_monitoring ? 1 : 0` to a `module` block creates exactly one instance of the module when true (`module.monitoring[0]`), and zero instances (does not create) when false.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/meta-arguments/count",
@@ -471,12 +471,12 @@ export const HASHICORP_TFA_QUESTIONS_5 = [
     scenario: "A child module creates resources in AWS region `us-west-2`, while the root module's default provider is configured for `us-east-1`.",
     question: "Which meta-argument inside the module block passes an aliased provider configuration into the child module?",
     options: [
-      { id: 'A', text: "provider = aws.west" },
-      { id: 'B', text: "provider_alias = aws.west" },
-      { id: 'C', text: "aws_provider = aws.west" },
-      { id: 'D', text: "providers = { aws = aws.west }" }
+      { id: 'A', text: "provider_alias = aws.west" },
+      { id: 'B', text: "aws_provider = aws.west" },
+      { id: 'C', text: "providers = { aws = aws.west }" },
+      { id: 'D', text: "provider = aws.west" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "To pass alternate or aliased provider configurations into a child module, the calling module uses the `providers` map argument: `providers = { aws = aws.west }`, mapping the child module's internal provider name to the caller's aliased configuration.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/meta-arguments/module-providers",
@@ -492,12 +492,12 @@ export const HASHICORP_TFA_QUESTIONS_5 = [
     scenario: "A developer uses the standard local backend and creates two workspaces: `default` and `development`.",
     question: "Where is the state file for the development workspace stored on the local filesystem?",
     options: [
-      { id: 'A', text: "In the root directory as terraform.tfstate" },
-      { id: 'B', text: "In the terraform.tfstate.d/development/terraform.tfstate directory" },
+      { id: 'A', text: "In the terraform.tfstate.d/development/terraform.tfstate directory" },
+      { id: 'B', text: "In the root directory as terraform.tfstate" },
       { id: 'C', text: "In the .terraform/modules directory" },
       { id: 'D', text: "In ~/.terraform/workspaces/development" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "For the local backend, the `default` workspace stores state in `terraform.tfstate` in the current working directory. All other named workspaces store their state in `terraform.tfstate.d/&lt;WORKSPACE_NAME&gt;/terraform.tfstate`.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/state/workspaces#workspace-internals",
@@ -513,12 +513,12 @@ export const HASHICORP_TFA_QUESTIONS_5 = [
     scenario: "An engineering team configures an Amazon S3 remote backend and uses multiple CLI workspaces.",
     question: "Where does Terraform store state files for named workspaces in the S3 bucket?",
     options: [
-      { id: 'A', text: "In completely separate S3 buckets per workspace" },
-      { id: 'B', text: "S3 backend does not support workspaces" },
+      { id: 'A', text: "S3 backend does not support workspaces" },
+      { id: 'B', text: "Under the S3 key path prefix: env:/&lt;WORKSPACE_NAME&gt;/&lt;key&gt;" },
       { id: 'C', text: "In the root of the bucket with workspace name as filename" },
-      { id: 'D', text: "Under the S3 key path prefix: env:/&lt;WORKSPACE_NAME&gt;/&lt;key&gt;" }
+      { id: 'D', text: "In completely separate S3 buckets per workspace" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "In the `s3` remote backend, the `default` workspace writes to the exact key path configured in the backend block. Named workspaces are stored with the prefix `env:/&lt;workspace_name&gt;/&lt;key&gt;` (e.g. `env:/staging/terraform.tfstate`).",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/settings/backends/s3#workspaces",
