@@ -9,12 +9,12 @@ export const K8S_CKAD_QUESTIONS_20 = [
     scenario: "A cloud-native application engineering team is establishing high-availability deployment patterns and zero-downtime release safeguards for enterprise services. The Kubernetes application developer evaluates Egress Filtering to prevent an application container from making outbound network calls to the public internet except to an external payment gateway IP block on port 443.",
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives? Restricting outbound traffic to external CIDRs and specific ports is under consideration.",
     options: [
-      { id: 'A', text: "Create a `NetworkPolicy` with `policyTypes: [Egress]` and an `egress.to` rule specifying `ipBlock.cidr` for the payment gateway on port 443." },
-      { id: 'B', text: "Block outbound traffic using a custom shell script inside the container." },
+      { id: 'A', text: "Block outbound traffic using a custom shell script inside the container." },
+      { id: 'B', text: "Delete the default route on the host operating system." },
       { id: 'C', text: "Set `hostNetwork: false` on the pod." },
-      { id: 'D', text: "Delete the default route on the host operating system." }
+      { id: 'D', text: "Create a `NetworkPolicy` with `policyTypes: [Egress]` and an `egress.to` rule specifying `ipBlock.cidr` for the payment gateway on port 443." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Create a `NetworkPolicy` with `policyTypes: [Egress]` and an `egress.to` rule specifying `ipBlock.cidr` for the payment gateway on port 443. Egress NetworkPolicies restrict outbound connections originating from pods. Specifying an `ipBlock` allows communication only with designated CIDR ranges and ports, preventing compromised containers from exfiltrating data to arbitrary internet IPs.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/network-policies/#egress-rule-example",
@@ -30,12 +30,12 @@ export const K8S_CKAD_QUESTIONS_20 = [
     scenario: "A high-throughput web application experiences unpredictable spikes in user transactions and requires automated, reliable scaling across Kubernetes clusters. The Kubernetes application developer evaluates Egress Filtering to prevent an application container from making outbound network calls to the public internet except to an external payment gateway IP block on port 443.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting backend stability? Restricting outbound traffic to external CIDRs and specific ports is under consideration.",
     options: [
-      { id: 'A', text: "Create a `NetworkPolicy` with `policyTypes: [Egress]` and an `egress.to` rule specifying `ipBlock.cidr` for the payment gateway on port 443." },
-      { id: 'B', text: "Block outbound traffic using a custom shell script inside the container." },
-      { id: 'C', text: "Set `hostNetwork: false` on the pod." },
-      { id: 'D', text: "Delete the default route on the host operating system." }
+      { id: 'A', text: "Set `hostNetwork: false` on the pod." },
+      { id: 'B', text: "Create a `NetworkPolicy` with `policyTypes: [Egress]` and an `egress.to` rule specifying `ipBlock.cidr` for the payment gateway on port 443." },
+      { id: 'C', text: "Delete the default route on the host operating system." },
+      { id: 'D', text: "Block outbound traffic using a custom shell script inside the container." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Create a `NetworkPolicy` with `policyTypes: [Egress]` and an `egress.to` rule specifying `ipBlock.cidr` for the payment gateway on port 443. Egress NetworkPolicies restrict outbound connections originating from pods. Specifying an `ipBlock` allows communication only with designated CIDR ranges and ports, preventing compromised containers from exfiltrating data to arbitrary internet IPs.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/network-policies/#egress-rule-example",
@@ -52,9 +52,9 @@ export const K8S_CKAD_QUESTIONS_20 = [
     question: "Which solution properly implements these mandatory container and cluster security controls? Restricting outbound traffic to external CIDRs and specific ports is under consideration.",
     options: [
       { id: 'A', text: "Create a `NetworkPolicy` with `policyTypes: [Egress]` and an `egress.to` rule specifying `ipBlock.cidr` for the payment gateway on port 443." },
-      { id: 'B', text: "Block outbound traffic using a custom shell script inside the container." },
-      { id: 'C', text: "Set `hostNetwork: false` on the pod." },
-      { id: 'D', text: "Delete the default route on the host operating system." }
+      { id: 'B', text: "Delete the default route on the host operating system." },
+      { id: 'C', text: "Block outbound traffic using a custom shell script inside the container." },
+      { id: 'D', text: "Set `hostNetwork: false` on the pod." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -72,12 +72,12 @@ export const K8S_CKAD_QUESTIONS_20 = [
     scenario: "An application development team is migrating legacy monolithic applications into containerized microservices running on Kubernetes. The Kubernetes application developer evaluates Egress Filtering to prevent an application container from making outbound network calls to the public internet except to an external payment gateway IP block on port 443.",
     question: "Which architectural pattern or feature enables the team to modernize services with minimal disruption and low operational friction? Restricting outbound traffic to external CIDRs and specific ports is under consideration.",
     options: [
-      { id: 'A', text: "Create a `NetworkPolicy` with `policyTypes: [Egress]` and an `egress.to` rule specifying `ipBlock.cidr` for the payment gateway on port 443." },
-      { id: 'B', text: "Block outbound traffic using a custom shell script inside the container." },
-      { id: 'C', text: "Set `hostNetwork: false` on the pod." },
-      { id: 'D', text: "Delete the default route on the host operating system." }
+      { id: 'A', text: "Block outbound traffic using a custom shell script inside the container." },
+      { id: 'B', text: "Set `hostNetwork: false` on the pod." },
+      { id: 'C', text: "Delete the default route on the host operating system." },
+      { id: 'D', text: "Create a `NetworkPolicy` with `policyTypes: [Egress]` and an `egress.to` rule specifying `ipBlock.cidr` for the payment gateway on port 443." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Create a `NetworkPolicy` with `policyTypes: [Egress]` and an `egress.to` rule specifying `ipBlock.cidr` for the payment gateway on port 443. Egress NetworkPolicies restrict outbound connections originating from pods. Specifying an `ipBlock` allows communication only with designated CIDR ranges and ports, preventing compromised containers from exfiltrating data to arbitrary internet IPs.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/network-policies/#egress-rule-example",
@@ -93,12 +93,12 @@ export const K8S_CKAD_QUESTIONS_20 = [
     scenario: "An SRE team is optimizing application stability to eliminate single points of failure, streamline observability, and ensure graceful failure handling. The Kubernetes application developer evaluates Egress Filtering to prevent an application container from making outbound network calls to the public internet except to an external payment gateway IP block on port 443.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees service reliability? Restricting outbound traffic to external CIDRs and specific ports is under consideration.",
     options: [
-      { id: 'A', text: "Create a `NetworkPolicy` with `policyTypes: [Egress]` and an `egress.to` rule specifying `ipBlock.cidr` for the payment gateway on port 443." },
+      { id: 'A', text: "Set `hostNetwork: false` on the pod." },
       { id: 'B', text: "Block outbound traffic using a custom shell script inside the container." },
-      { id: 'C', text: "Set `hostNetwork: false` on the pod." },
+      { id: 'C', text: "Create a `NetworkPolicy` with `policyTypes: [Egress]` and an `egress.to` rule specifying `ipBlock.cidr` for the payment gateway on port 443." },
       { id: 'D', text: "Delete the default route on the host operating system." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Create a `NetworkPolicy` with `policyTypes: [Egress]` and an `egress.to` rule specifying `ipBlock.cidr` for the payment gateway on port 443. Egress NetworkPolicies restrict outbound connections originating from pods. Specifying an `ipBlock` allows communication only with designated CIDR ranges and ports, preventing compromised containers from exfiltrating data to arbitrary internet IPs.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/network-policies/#egress-rule-example",
@@ -114,12 +114,12 @@ export const K8S_CKAD_QUESTIONS_20 = [
     scenario: "A cloud-native application engineering team is establishing high-availability deployment patterns and zero-downtime release safeguards for enterprise services. The Kubernetes application developer evaluates Ingress Routing to route incoming HTTP requests for `api.example.com` to the API Service and requests for `app.example.com` to the Web Service using a single Ingress resource.",
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives? Routing requests based on HTTP Host headers to distinct backend services is under consideration.",
     options: [
-      { id: 'A', text: "Define multiple `rules` in the Ingress resource, each specifying a distinct `host` domain name and target `backend` Service." },
-      { id: 'B', text: "Deploy two separate Ingress Controllers and bind them to different physical network cables." },
-      { id: 'C', text: "Hardcode DNS routing inside client browser cookies." },
+      { id: 'A', text: "Hardcode DNS routing inside client browser cookies." },
+      { id: 'B', text: "Define multiple `rules` in the Ingress resource, each specifying a distinct `host` domain name and target `backend` Service." },
+      { id: 'C', text: "Deploy two separate Ingress Controllers and bind them to different physical network cables." },
       { id: 'D', text: "Configure a NodePort service on port 80 and port 443 simultaneously." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Define multiple `rules` in the Ingress resource, each specifying a distinct `host` domain name and target `backend` Service. Host-based (name-based virtual hosting) Ingress routing inspects the HTTP `Host` header of incoming requests. A single Ingress controller can route requests for `api.example.com` and `app.example.com` to completely different backend Services using one shared public IP address.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/ingress/#name-based-virtual-hosting",
@@ -135,12 +135,12 @@ export const K8S_CKAD_QUESTIONS_20 = [
     scenario: "A high-throughput web application experiences unpredictable spikes in user transactions and requires automated, reliable scaling across Kubernetes clusters. The Kubernetes application developer evaluates Ingress Routing to route incoming HTTP requests for `api.example.com` to the API Service and requests for `app.example.com` to the Web Service using a single Ingress resource.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting backend stability? Routing requests based on HTTP Host headers to distinct backend services is under consideration.",
     options: [
-      { id: 'A', text: "Define multiple `rules` in the Ingress resource, each specifying a distinct `host` domain name and target `backend` Service." },
-      { id: 'B', text: "Deploy two separate Ingress Controllers and bind them to different physical network cables." },
-      { id: 'C', text: "Hardcode DNS routing inside client browser cookies." },
-      { id: 'D', text: "Configure a NodePort service on port 80 and port 443 simultaneously." }
+      { id: 'A', text: "Configure a NodePort service on port 80 and port 443 simultaneously." },
+      { id: 'B', text: "Hardcode DNS routing inside client browser cookies." },
+      { id: 'C', text: "Define multiple `rules` in the Ingress resource, each specifying a distinct `host` domain name and target `backend` Service." },
+      { id: 'D', text: "Deploy two separate Ingress Controllers and bind them to different physical network cables." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Define multiple `rules` in the Ingress resource, each specifying a distinct `host` domain name and target `backend` Service. Host-based (name-based virtual hosting) Ingress routing inspects the HTTP `Host` header of incoming requests. A single Ingress controller can route requests for `api.example.com` and `app.example.com` to completely different backend Services using one shared public IP address.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/ingress/#name-based-virtual-hosting",
@@ -177,12 +177,12 @@ export const K8S_CKAD_QUESTIONS_20 = [
     scenario: "An application development team is migrating legacy monolithic applications into containerized microservices running on Kubernetes. The Kubernetes application developer evaluates Ingress Routing to route incoming HTTP requests for `api.example.com` to the API Service and requests for `app.example.com` to the Web Service using a single Ingress resource.",
     question: "Which architectural pattern or feature enables the team to modernize services with minimal disruption and low operational friction? Routing requests based on HTTP Host headers to distinct backend services is under consideration.",
     options: [
-      { id: 'A', text: "Define multiple `rules` in the Ingress resource, each specifying a distinct `host` domain name and target `backend` Service." },
-      { id: 'B', text: "Deploy two separate Ingress Controllers and bind them to different physical network cables." },
-      { id: 'C', text: "Hardcode DNS routing inside client browser cookies." },
+      { id: 'A', text: "Deploy two separate Ingress Controllers and bind them to different physical network cables." },
+      { id: 'B', text: "Hardcode DNS routing inside client browser cookies." },
+      { id: 'C', text: "Define multiple `rules` in the Ingress resource, each specifying a distinct `host` domain name and target `backend` Service." },
       { id: 'D', text: "Configure a NodePort service on port 80 and port 443 simultaneously." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Define multiple `rules` in the Ingress resource, each specifying a distinct `host` domain name and target `backend` Service. Host-based (name-based virtual hosting) Ingress routing inspects the HTTP `Host` header of incoming requests. A single Ingress controller can route requests for `api.example.com` and `app.example.com` to completely different backend Services using one shared public IP address.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/ingress/#name-based-virtual-hosting",
@@ -198,12 +198,12 @@ export const K8S_CKAD_QUESTIONS_20 = [
     scenario: "An SRE team is optimizing application stability to eliminate single points of failure, streamline observability, and ensure graceful failure handling. The Kubernetes application developer evaluates Ingress Routing to route incoming HTTP requests for `api.example.com` to the API Service and requests for `app.example.com` to the Web Service using a single Ingress resource.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees service reliability? Routing requests based on HTTP Host headers to distinct backend services is under consideration.",
     options: [
-      { id: 'A', text: "Define multiple `rules` in the Ingress resource, each specifying a distinct `host` domain name and target `backend` Service." },
-      { id: 'B', text: "Deploy two separate Ingress Controllers and bind them to different physical network cables." },
-      { id: 'C', text: "Hardcode DNS routing inside client browser cookies." },
-      { id: 'D', text: "Configure a NodePort service on port 80 and port 443 simultaneously." }
+      { id: 'A', text: "Deploy two separate Ingress Controllers and bind them to different physical network cables." },
+      { id: 'B', text: "Hardcode DNS routing inside client browser cookies." },
+      { id: 'C', text: "Configure a NodePort service on port 80 and port 443 simultaneously." },
+      { id: 'D', text: "Define multiple `rules` in the Ingress resource, each specifying a distinct `host` domain name and target `backend` Service." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Define multiple `rules` in the Ingress resource, each specifying a distinct `host` domain name and target `backend` Service. Host-based (name-based virtual hosting) Ingress routing inspects the HTTP `Host` header of incoming requests. A single Ingress controller can route requests for `api.example.com` and `app.example.com` to completely different backend Services using one shared public IP address.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/ingress/#name-based-virtual-hosting",
@@ -219,12 +219,12 @@ export const K8S_CKAD_QUESTIONS_20 = [
     scenario: "A cloud-native application engineering team is establishing high-availability deployment patterns and zero-downtime release safeguards for enterprise services. The Kubernetes application developer evaluates Path Routing to route requests beginning with `/v1/orders` to the orders Service and requests beginning with `/v1/users` to the users Service.",
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives? Prefix and Exact path routing rules with pathType in Ingress manifests is under consideration.",
     options: [
-      { id: 'A', text: "Configure `paths` under an Ingress rule with `pathType: Prefix`, mapping `/v1/orders` and `/v1/users` to their respective backend services." },
-      { id: 'B', text: "Use `pathType: ImplementationSpecific` with undocumented regex strings." },
-      { id: 'C', text: "Deploy an external hardware router inside the Kubernetes cluster." },
-      { id: 'D', text: "Instruct clients to include custom backend IP addresses in URL query parameters." }
+      { id: 'A', text: "Instruct clients to include custom backend IP addresses in URL query parameters." },
+      { id: 'B', text: "Deploy an external hardware router inside the Kubernetes cluster." },
+      { id: 'C', text: "Use `pathType: ImplementationSpecific` with undocumented regex strings." },
+      { id: 'D', text: "Configure `paths` under an Ingress rule with `pathType: Prefix`, mapping `/v1/orders` and `/v1/users` to their respective backend services." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure `paths` under an Ingress rule with `pathType: Prefix`, mapping `/v1/orders` and `/v1/users` to their respective backend services. Path-based Ingress routing matches incoming HTTP request URI paths against defined routing rules. Using `pathType: Prefix` matches path segments hierarchically (e.g., `/v1/orders` matches `/v1/orders/123`), forwarding matched traffic to the designated backend Service.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/ingress/#path-types",
@@ -240,12 +240,12 @@ export const K8S_CKAD_QUESTIONS_20 = [
     scenario: "A high-throughput web application experiences unpredictable spikes in user transactions and requires automated, reliable scaling across Kubernetes clusters. The Kubernetes application developer evaluates Path Routing to route requests beginning with `/v1/orders` to the orders Service and requests beginning with `/v1/users` to the users Service.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting backend stability? Prefix and Exact path routing rules with pathType in Ingress manifests is under consideration.",
     options: [
-      { id: 'A', text: "Configure `paths` under an Ingress rule with `pathType: Prefix`, mapping `/v1/orders` and `/v1/users` to their respective backend services." },
-      { id: 'B', text: "Use `pathType: ImplementationSpecific` with undocumented regex strings." },
-      { id: 'C', text: "Deploy an external hardware router inside the Kubernetes cluster." },
+      { id: 'A', text: "Deploy an external hardware router inside the Kubernetes cluster." },
+      { id: 'B', text: "Configure `paths` under an Ingress rule with `pathType: Prefix`, mapping `/v1/orders` and `/v1/users` to their respective backend services." },
+      { id: 'C', text: "Use `pathType: ImplementationSpecific` with undocumented regex strings." },
       { id: 'D', text: "Instruct clients to include custom backend IP addresses in URL query parameters." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure `paths` under an Ingress rule with `pathType: Prefix`, mapping `/v1/orders` and `/v1/users` to their respective backend services. Path-based Ingress routing matches incoming HTTP request URI paths against defined routing rules. Using `pathType: Prefix` matches path segments hierarchically (e.g., `/v1/orders` matches `/v1/orders/123`), forwarding matched traffic to the designated backend Service.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/ingress/#path-types",
@@ -261,12 +261,12 @@ export const K8S_CKAD_QUESTIONS_20 = [
     scenario: "A security compliance auditor requires strict container runtime isolation, least-privilege credential access, and defense-in-depth network policies across all namespaces. The Kubernetes application developer evaluates Path Routing to route requests beginning with `/v1/orders` to the orders Service and requests beginning with `/v1/users` to the users Service.",
     question: "Which solution properly implements these mandatory container and cluster security controls? Prefix and Exact path routing rules with pathType in Ingress manifests is under consideration.",
     options: [
-      { id: 'A', text: "Configure `paths` under an Ingress rule with `pathType: Prefix`, mapping `/v1/orders` and `/v1/users` to their respective backend services." },
+      { id: 'A', text: "Deploy an external hardware router inside the Kubernetes cluster." },
       { id: 'B', text: "Use `pathType: ImplementationSpecific` with undocumented regex strings." },
-      { id: 'C', text: "Deploy an external hardware router inside the Kubernetes cluster." },
-      { id: 'D', text: "Instruct clients to include custom backend IP addresses in URL query parameters." }
+      { id: 'C', text: "Instruct clients to include custom backend IP addresses in URL query parameters." },
+      { id: 'D', text: "Configure `paths` under an Ingress rule with `pathType: Prefix`, mapping `/v1/orders` and `/v1/users` to their respective backend services." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure `paths` under an Ingress rule with `pathType: Prefix`, mapping `/v1/orders` and `/v1/users` to their respective backend services. Path-based Ingress routing matches incoming HTTP request URI paths against defined routing rules. Using `pathType: Prefix` matches path segments hierarchically (e.g., `/v1/orders` matches `/v1/orders/123`), forwarding matched traffic to the designated backend Service.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/ingress/#path-types",
@@ -282,12 +282,12 @@ export const K8S_CKAD_QUESTIONS_20 = [
     scenario: "An application development team is migrating legacy monolithic applications into containerized microservices running on Kubernetes. The Kubernetes application developer evaluates Path Routing to route requests beginning with `/v1/orders` to the orders Service and requests beginning with `/v1/users` to the users Service.",
     question: "Which architectural pattern or feature enables the team to modernize services with minimal disruption and low operational friction? Prefix and Exact path routing rules with pathType in Ingress manifests is under consideration.",
     options: [
-      { id: 'A', text: "Configure `paths` under an Ingress rule with `pathType: Prefix`, mapping `/v1/orders` and `/v1/users` to their respective backend services." },
-      { id: 'B', text: "Use `pathType: ImplementationSpecific` with undocumented regex strings." },
-      { id: 'C', text: "Deploy an external hardware router inside the Kubernetes cluster." },
-      { id: 'D', text: "Instruct clients to include custom backend IP addresses in URL query parameters." }
+      { id: 'A', text: "Deploy an external hardware router inside the Kubernetes cluster." },
+      { id: 'B', text: "Instruct clients to include custom backend IP addresses in URL query parameters." },
+      { id: 'C', text: "Configure `paths` under an Ingress rule with `pathType: Prefix`, mapping `/v1/orders` and `/v1/users` to their respective backend services." },
+      { id: 'D', text: "Use `pathType: ImplementationSpecific` with undocumented regex strings." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure `paths` under an Ingress rule with `pathType: Prefix`, mapping `/v1/orders` and `/v1/users` to their respective backend services. Path-based Ingress routing matches incoming HTTP request URI paths against defined routing rules. Using `pathType: Prefix` matches path segments hierarchically (e.g., `/v1/orders` matches `/v1/orders/123`), forwarding matched traffic to the designated backend Service.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/ingress/#path-types",
@@ -303,12 +303,12 @@ export const K8S_CKAD_QUESTIONS_20 = [
     scenario: "An SRE team is optimizing application stability to eliminate single points of failure, streamline observability, and ensure graceful failure handling. The Kubernetes application developer evaluates Path Routing to route requests beginning with `/v1/orders` to the orders Service and requests beginning with `/v1/users` to the users Service.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees service reliability? Prefix and Exact path routing rules with pathType in Ingress manifests is under consideration.",
     options: [
-      { id: 'A', text: "Configure `paths` under an Ingress rule with `pathType: Prefix`, mapping `/v1/orders` and `/v1/users` to their respective backend services." },
-      { id: 'B', text: "Use `pathType: ImplementationSpecific` with undocumented regex strings." },
-      { id: 'C', text: "Deploy an external hardware router inside the Kubernetes cluster." },
-      { id: 'D', text: "Instruct clients to include custom backend IP addresses in URL query parameters." }
+      { id: 'A', text: "Instruct clients to include custom backend IP addresses in URL query parameters." },
+      { id: 'B', text: "Deploy an external hardware router inside the Kubernetes cluster." },
+      { id: 'C', text: "Configure `paths` under an Ingress rule with `pathType: Prefix`, mapping `/v1/orders` and `/v1/users` to their respective backend services." },
+      { id: 'D', text: "Use `pathType: ImplementationSpecific` with undocumented regex strings." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure `paths` under an Ingress rule with `pathType: Prefix`, mapping `/v1/orders` and `/v1/users` to their respective backend services. Path-based Ingress routing matches incoming HTTP request URI paths against defined routing rules. Using `pathType: Prefix` matches path segments hierarchically (e.g., `/v1/orders` matches `/v1/orders/123`), forwarding matched traffic to the designated backend Service.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/ingress/#path-types",
@@ -324,12 +324,12 @@ export const K8S_CKAD_QUESTIONS_20 = [
     scenario: "A cloud-native application engineering team is establishing high-availability deployment patterns and zero-downtime release safeguards for enterprise services. The Kubernetes application developer evaluates TLS Termination to enable secure HTTPS termination on an Ingress resource using an SSL certificate and private key stored in Kubernetes.",
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives? Configuring TLS secrets in Ingress resources for HTTPS termination is under consideration.",
     options: [
-      { id: 'A', text: "Create a `kubernetes.io/tls` Secret containing `tls.crt` and `tls.key`, and reference it in the `spec.tls` block of the Ingress manifest." },
-      { id: 'B', text: "Bake the SSL certificate and private key directly into the application container image." },
-      { id: 'C', text: "Terminate TLS inside the application container code on port 8443." },
-      { id: 'D', text: "Transmit all traffic in cleartext HTTP and disable browser SSL warnings." }
+      { id: 'A', text: "Transmit all traffic in cleartext HTTP and disable browser SSL warnings." },
+      { id: 'B', text: "Create a `kubernetes.io/tls` Secret containing `tls.crt` and `tls.key`, and reference it in the `spec.tls` block of the Ingress manifest." },
+      { id: 'C', text: "Bake the SSL certificate and private key directly into the application container image." },
+      { id: 'D', text: "Terminate TLS inside the application container code on port 8443." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Create a `kubernetes.io/tls` Secret containing `tls.crt` and `tls.key`, and reference it in the `spec.tls` block of the Ingress manifest. Ingress controllers support TLS termination by referencing a Secret of type `kubernetes.io/tls`. The controller decrypts incoming HTTPS traffic using the certificates in `spec.tls` before forwarding plain HTTP traffic to backend pods, offloading cryptographic overhead from application containers.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/ingress/#tls",
@@ -345,12 +345,12 @@ export const K8S_CKAD_QUESTIONS_20 = [
     scenario: "A high-throughput web application experiences unpredictable spikes in user transactions and requires automated, reliable scaling across Kubernetes clusters. The Kubernetes application developer evaluates TLS Termination to enable secure HTTPS termination on an Ingress resource using an SSL certificate and private key stored in Kubernetes.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting backend stability? Configuring TLS secrets in Ingress resources for HTTPS termination is under consideration.",
     options: [
-      { id: 'A', text: "Create a `kubernetes.io/tls` Secret containing `tls.crt` and `tls.key`, and reference it in the `spec.tls` block of the Ingress manifest." },
-      { id: 'B', text: "Bake the SSL certificate and private key directly into the application container image." },
-      { id: 'C', text: "Terminate TLS inside the application container code on port 8443." },
-      { id: 'D', text: "Transmit all traffic in cleartext HTTP and disable browser SSL warnings." }
+      { id: 'A', text: "Transmit all traffic in cleartext HTTP and disable browser SSL warnings." },
+      { id: 'B', text: "Terminate TLS inside the application container code on port 8443." },
+      { id: 'C', text: "Create a `kubernetes.io/tls` Secret containing `tls.crt` and `tls.key`, and reference it in the `spec.tls` block of the Ingress manifest." },
+      { id: 'D', text: "Bake the SSL certificate and private key directly into the application container image." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Create a `kubernetes.io/tls` Secret containing `tls.crt` and `tls.key`, and reference it in the `spec.tls` block of the Ingress manifest. Ingress controllers support TLS termination by referencing a Secret of type `kubernetes.io/tls`. The controller decrypts incoming HTTPS traffic using the certificates in `spec.tls` before forwarding plain HTTP traffic to backend pods, offloading cryptographic overhead from application containers.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/ingress/#tls",
@@ -367,8 +367,8 @@ export const K8S_CKAD_QUESTIONS_20 = [
     question: "Which solution properly implements these mandatory container and cluster security controls? Configuring TLS secrets in Ingress resources for HTTPS termination is under consideration.",
     options: [
       { id: 'A', text: "Create a `kubernetes.io/tls` Secret containing `tls.crt` and `tls.key`, and reference it in the `spec.tls` block of the Ingress manifest." },
-      { id: 'B', text: "Bake the SSL certificate and private key directly into the application container image." },
-      { id: 'C', text: "Terminate TLS inside the application container code on port 8443." },
+      { id: 'B', text: "Terminate TLS inside the application container code on port 8443." },
+      { id: 'C', text: "Bake the SSL certificate and private key directly into the application container image." },
       { id: 'D', text: "Transmit all traffic in cleartext HTTP and disable browser SSL warnings." }
     ],
     correctAnswers: ['A'],
@@ -387,12 +387,12 @@ export const K8S_CKAD_QUESTIONS_20 = [
     scenario: "An application development team is migrating legacy monolithic applications into containerized microservices running on Kubernetes. The Kubernetes application developer evaluates TLS Termination to enable secure HTTPS termination on an Ingress resource using an SSL certificate and private key stored in Kubernetes.",
     question: "Which architectural pattern or feature enables the team to modernize services with minimal disruption and low operational friction? Configuring TLS secrets in Ingress resources for HTTPS termination is under consideration.",
     options: [
-      { id: 'A', text: "Create a `kubernetes.io/tls` Secret containing `tls.crt` and `tls.key`, and reference it in the `spec.tls` block of the Ingress manifest." },
-      { id: 'B', text: "Bake the SSL certificate and private key directly into the application container image." },
-      { id: 'C', text: "Terminate TLS inside the application container code on port 8443." },
-      { id: 'D', text: "Transmit all traffic in cleartext HTTP and disable browser SSL warnings." }
+      { id: 'A', text: "Transmit all traffic in cleartext HTTP and disable browser SSL warnings." },
+      { id: 'B', text: "Create a `kubernetes.io/tls` Secret containing `tls.crt` and `tls.key`, and reference it in the `spec.tls` block of the Ingress manifest." },
+      { id: 'C', text: "Bake the SSL certificate and private key directly into the application container image." },
+      { id: 'D', text: "Terminate TLS inside the application container code on port 8443." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Create a `kubernetes.io/tls` Secret containing `tls.crt` and `tls.key`, and reference it in the `spec.tls` block of the Ingress manifest. Ingress controllers support TLS termination by referencing a Secret of type `kubernetes.io/tls`. The controller decrypts incoming HTTPS traffic using the certificates in `spec.tls` before forwarding plain HTTP traffic to backend pods, offloading cryptographic overhead from application containers.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/ingress/#tls",
@@ -408,12 +408,12 @@ export const K8S_CKAD_QUESTIONS_20 = [
     scenario: "An SRE team is optimizing application stability to eliminate single points of failure, streamline observability, and ensure graceful failure handling. The Kubernetes application developer evaluates TLS Termination to enable secure HTTPS termination on an Ingress resource using an SSL certificate and private key stored in Kubernetes.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees service reliability? Configuring TLS secrets in Ingress resources for HTTPS termination is under consideration.",
     options: [
-      { id: 'A', text: "Create a `kubernetes.io/tls` Secret containing `tls.crt` and `tls.key`, and reference it in the `spec.tls` block of the Ingress manifest." },
-      { id: 'B', text: "Bake the SSL certificate and private key directly into the application container image." },
+      { id: 'A', text: "Bake the SSL certificate and private key directly into the application container image." },
+      { id: 'B', text: "Transmit all traffic in cleartext HTTP and disable browser SSL warnings." },
       { id: 'C', text: "Terminate TLS inside the application container code on port 8443." },
-      { id: 'D', text: "Transmit all traffic in cleartext HTTP and disable browser SSL warnings." }
+      { id: 'D', text: "Create a `kubernetes.io/tls` Secret containing `tls.crt` and `tls.key`, and reference it in the `spec.tls` block of the Ingress manifest." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Create a `kubernetes.io/tls` Secret containing `tls.crt` and `tls.key`, and reference it in the `spec.tls` block of the Ingress manifest. Ingress controllers support TLS termination by referencing a Secret of type `kubernetes.io/tls`. The controller decrypts incoming HTTPS traffic using the certificates in `spec.tls` before forwarding plain HTTP traffic to backend pods, offloading cryptographic overhead from application containers.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/ingress/#tls",
@@ -429,12 +429,12 @@ export const K8S_CKAD_QUESTIONS_20 = [
     scenario: "A cloud-native application engineering team is establishing high-availability deployment patterns and zero-downtime release safeguards for enterprise services. The Kubernetes application developer evaluates Cluster DNS to enable a pod in the `development` namespace to query an internal service named `database` running in the `production` namespace.",
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives? Fully Qualified Domain Name (FQDN) syntax for cross-namespace service discovery is under consideration.",
     options: [
-      { id: 'A', text: "Address the service using its Fully Qualified Domain Name (FQDN): `database.production.svc.cluster.local`." },
-      { id: 'B', text: "Address the service using its short name `database`." },
-      { id: 'C', text: "Query `production.database.pod.local`." },
-      { id: 'D', text: "Hardcode the database pod ephemeral IP address in the application code." }
+      { id: 'A', text: "Address the service using its short name `database`." },
+      { id: 'B', text: "Address the service using its Fully Qualified Domain Name (FQDN): `database.production.svc.cluster.local`." },
+      { id: 'C', text: "Hardcode the database pod ephemeral IP address in the application code." },
+      { id: 'D', text: "Query `production.database.pod.local`." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Address the service using its Fully Qualified Domain Name (FQDN): `database.production.svc.cluster.local`. Within Kubernetes, CoreDNS creates standard DNS records for every Service. For cross-namespace resolution, workloads use the FQDN syntax `&lt;service-name&gt;.&lt;namespace&gt;.svc.cluster.local`. Within the same namespace, the short `&lt;service-name&gt;` suffices.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/",
@@ -451,9 +451,9 @@ export const K8S_CKAD_QUESTIONS_20 = [
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting backend stability? Fully Qualified Domain Name (FQDN) syntax for cross-namespace service discovery is under consideration.",
     options: [
       { id: 'A', text: "Address the service using its Fully Qualified Domain Name (FQDN): `database.production.svc.cluster.local`." },
-      { id: 'B', text: "Address the service using its short name `database`." },
-      { id: 'C', text: "Query `production.database.pod.local`." },
-      { id: 'D', text: "Hardcode the database pod ephemeral IP address in the application code." }
+      { id: 'B', text: "Query `production.database.pod.local`." },
+      { id: 'C', text: "Hardcode the database pod ephemeral IP address in the application code." },
+      { id: 'D', text: "Address the service using its short name `database`." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -472,9 +472,9 @@ export const K8S_CKAD_QUESTIONS_20 = [
     question: "Which solution properly implements these mandatory container and cluster security controls? Fully Qualified Domain Name (FQDN) syntax for cross-namespace service discovery is under consideration.",
     options: [
       { id: 'A', text: "Address the service using its Fully Qualified Domain Name (FQDN): `database.production.svc.cluster.local`." },
-      { id: 'B', text: "Address the service using its short name `database`." },
-      { id: 'C', text: "Query `production.database.pod.local`." },
-      { id: 'D', text: "Hardcode the database pod ephemeral IP address in the application code." }
+      { id: 'B', text: "Hardcode the database pod ephemeral IP address in the application code." },
+      { id: 'C', text: "Address the service using its short name `database`." },
+      { id: 'D', text: "Query `production.database.pod.local`." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,12 +492,12 @@ export const K8S_CKAD_QUESTIONS_20 = [
     scenario: "An application development team is migrating legacy monolithic applications into containerized microservices running on Kubernetes. The Kubernetes application developer evaluates Cluster DNS to enable a pod in the `development` namespace to query an internal service named `database` running in the `production` namespace.",
     question: "Which architectural pattern or feature enables the team to modernize services with minimal disruption and low operational friction? Fully Qualified Domain Name (FQDN) syntax for cross-namespace service discovery is under consideration.",
     options: [
-      { id: 'A', text: "Address the service using its Fully Qualified Domain Name (FQDN): `database.production.svc.cluster.local`." },
+      { id: 'A', text: "Query `production.database.pod.local`." },
       { id: 'B', text: "Address the service using its short name `database`." },
-      { id: 'C', text: "Query `production.database.pod.local`." },
-      { id: 'D', text: "Hardcode the database pod ephemeral IP address in the application code." }
+      { id: 'C', text: "Hardcode the database pod ephemeral IP address in the application code." },
+      { id: 'D', text: "Address the service using its Fully Qualified Domain Name (FQDN): `database.production.svc.cluster.local`." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Address the service using its Fully Qualified Domain Name (FQDN): `database.production.svc.cluster.local`. Within Kubernetes, CoreDNS creates standard DNS records for every Service. For cross-namespace resolution, workloads use the FQDN syntax `&lt;service-name&gt;.&lt;namespace&gt;.svc.cluster.local`. Within the same namespace, the short `&lt;service-name&gt;` suffices.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/",
@@ -513,12 +513,12 @@ export const K8S_CKAD_QUESTIONS_20 = [
     scenario: "An SRE team is optimizing application stability to eliminate single points of failure, streamline observability, and ensure graceful failure handling. The Kubernetes application developer evaluates Cluster DNS to enable a pod in the `development` namespace to query an internal service named `database` running in the `production` namespace.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees service reliability? Fully Qualified Domain Name (FQDN) syntax for cross-namespace service discovery is under consideration.",
     options: [
-      { id: 'A', text: "Address the service using its Fully Qualified Domain Name (FQDN): `database.production.svc.cluster.local`." },
-      { id: 'B', text: "Address the service using its short name `database`." },
-      { id: 'C', text: "Query `production.database.pod.local`." },
-      { id: 'D', text: "Hardcode the database pod ephemeral IP address in the application code." }
+      { id: 'A', text: "Query `production.database.pod.local`." },
+      { id: 'B', text: "Hardcode the database pod ephemeral IP address in the application code." },
+      { id: 'C', text: "Address the service using its short name `database`." },
+      { id: 'D', text: "Address the service using its Fully Qualified Domain Name (FQDN): `database.production.svc.cluster.local`." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Address the service using its Fully Qualified Domain Name (FQDN): `database.production.svc.cluster.local`. Within Kubernetes, CoreDNS creates standard DNS records for every Service. For cross-namespace resolution, workloads use the FQDN syntax `&lt;service-name&gt;.&lt;namespace&gt;.svc.cluster.local`. Within the same namespace, the short `&lt;service-name&gt;` suffices.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/",

@@ -9,12 +9,12 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer evaluates Rollback Automation to ensure an automated pipeline automatically reverts an Azure App Service deployment to the previous healthy build if post-deployment smoke tests fail.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives? Automating rollback to previous successful releases upon deployment health check failures is under consideration.",
     options: [
-      { id: 'A', text: "Configure a post-deployment gate or step that checks application health endpoints; if smoke tests fail, execute a slot swap rollback or deploy the previous artifact." },
-      { id: 'B', text: "Leave the broken application in production while developers write an emergency patch." },
-      { id: 'C', text: "Instruct customer support to advise users to clear their browser caches." },
-      { id: 'D', text: "Terminate the application servers and delete all DNS records." }
+      { id: 'A', text: "Terminate the application servers and delete all DNS records." },
+      { id: 'B', text: "Instruct customer support to advise users to clear their browser caches." },
+      { id: 'C', text: "Configure a post-deployment gate or step that checks application health endpoints; if smoke tests fail, execute a slot swap rollback or deploy the previous artifact." },
+      { id: 'D', text: "Leave the broken application in production while developers write an emergency patch." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure a post-deployment gate or step that checks application health endpoints; if smoke tests fail, execute a slot swap rollback or deploy the previous artifact. Automated rollback strategies monitor application health immediately following release. In App Service setups, failing post-deployment verification immediately triggers a reverse slot swap, restoring the proven prior release in seconds while teams investigate offline.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/release/approvals/gates",
@@ -30,12 +30,12 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer evaluates Rollback Automation to ensure an automated pipeline automatically reverts an Azure App Service deployment to the previous healthy build if post-deployment smoke tests fail.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability? Automating rollback to previous successful releases upon deployment health check failures is under consideration.",
     options: [
-      { id: 'A', text: "Configure a post-deployment gate or step that checks application health endpoints; if smoke tests fail, execute a slot swap rollback or deploy the previous artifact." },
-      { id: 'B', text: "Leave the broken application in production while developers write an emergency patch." },
-      { id: 'C', text: "Instruct customer support to advise users to clear their browser caches." },
+      { id: 'A', text: "Instruct customer support to advise users to clear their browser caches." },
+      { id: 'B', text: "Configure a post-deployment gate or step that checks application health endpoints; if smoke tests fail, execute a slot swap rollback or deploy the previous artifact." },
+      { id: 'C', text: "Leave the broken application in production while developers write an emergency patch." },
       { id: 'D', text: "Terminate the application servers and delete all DNS records." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure a post-deployment gate or step that checks application health endpoints; if smoke tests fail, execute a slot swap rollback or deploy the previous artifact. Automated rollback strategies monitor application health immediately following release. In App Service setups, failing post-deployment verification immediately triggers a reverse slot swap, restoring the proven prior release in seconds while teams investigate offline.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/release/approvals/gates",
@@ -52,9 +52,9 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     question: "Which solution implements these mandatory DevOps security and compliance controls? Automating rollback to previous successful releases upon deployment health check failures is under consideration.",
     options: [
       { id: 'A', text: "Configure a post-deployment gate or step that checks application health endpoints; if smoke tests fail, execute a slot swap rollback or deploy the previous artifact." },
-      { id: 'B', text: "Leave the broken application in production while developers write an emergency patch." },
-      { id: 'C', text: "Instruct customer support to advise users to clear their browser caches." },
-      { id: 'D', text: "Terminate the application servers and delete all DNS records." }
+      { id: 'B', text: "Terminate the application servers and delete all DNS records." },
+      { id: 'C', text: "Leave the broken application in production while developers write an emergency patch." },
+      { id: 'D', text: "Instruct customer support to advise users to clear their browser caches." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -72,12 +72,12 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer evaluates Rollback Automation to ensure an automated pipeline automatically reverts an Azure App Service deployment to the previous healthy build if post-deployment smoke tests fail.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction? Automating rollback to previous successful releases upon deployment health check failures is under consideration.",
     options: [
-      { id: 'A', text: "Configure a post-deployment gate or step that checks application health endpoints; if smoke tests fail, execute a slot swap rollback or deploy the previous artifact." },
+      { id: 'A', text: "Instruct customer support to advise users to clear their browser caches." },
       { id: 'B', text: "Leave the broken application in production while developers write an emergency patch." },
-      { id: 'C', text: "Instruct customer support to advise users to clear their browser caches." },
-      { id: 'D', text: "Terminate the application servers and delete all DNS records." }
+      { id: 'C', text: "Terminate the application servers and delete all DNS records." },
+      { id: 'D', text: "Configure a post-deployment gate or step that checks application health endpoints; if smoke tests fail, execute a slot swap rollback or deploy the previous artifact." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure a post-deployment gate or step that checks application health endpoints; if smoke tests fail, execute a slot swap rollback or deploy the previous artifact. Automated rollback strategies monitor application health immediately following release. In App Service setups, failing post-deployment verification immediately triggers a reverse slot swap, restoring the proven prior release in seconds while teams investigate offline.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/release/approvals/gates",
@@ -93,12 +93,12 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer evaluates Rollback Automation to ensure an automated pipeline automatically reverts an Azure App Service deployment to the previous healthy build if post-deployment smoke tests fail.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability? Automating rollback to previous successful releases upon deployment health check failures is under consideration.",
     options: [
-      { id: 'A', text: "Configure a post-deployment gate or step that checks application health endpoints; if smoke tests fail, execute a slot swap rollback or deploy the previous artifact." },
-      { id: 'B', text: "Leave the broken application in production while developers write an emergency patch." },
-      { id: 'C', text: "Instruct customer support to advise users to clear their browser caches." },
-      { id: 'D', text: "Terminate the application servers and delete all DNS records." }
+      { id: 'A', text: "Leave the broken application in production while developers write an emergency patch." },
+      { id: 'B', text: "Terminate the application servers and delete all DNS records." },
+      { id: 'C', text: "Configure a post-deployment gate or step that checks application health endpoints; if smoke tests fail, execute a slot swap rollback or deploy the previous artifact." },
+      { id: 'D', text: "Instruct customer support to advise users to clear their browser caches." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure a post-deployment gate or step that checks application health endpoints; if smoke tests fail, execute a slot swap rollback or deploy the previous artifact. Automated rollback strategies monitor application health immediately following release. In App Service setups, failing post-deployment verification immediately triggers a reverse slot swap, restoring the proven prior release in seconds while teams investigate offline.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/release/approvals/gates",
@@ -114,12 +114,12 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer evaluates SAST to enforce code quality standards and block pull requests that introduce new security vulnerabilities or high technical debt.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives? Integrating SonarQube quality gates and code analysis into pull request validation is under consideration.",
     options: [
-      { id: 'A', text: "Integrate SonarCloud or SonarQube tasks (`SonarCloudPrepare`, `SonarCloudAnalyze`, `SonarCloudPublish`) and configure a Quality Gate check." },
-      { id: 'B', text: "Manually review hundreds of lines of code by sight looking for SQL injection flaws." },
-      { id: 'C', text: "Run static analysis only once a year during external audit reviews." },
-      { id: 'D', text: "Disable code scanning to accelerate pull request merging." }
+      { id: 'A', text: "Run static analysis only once a year during external audit reviews." },
+      { id: 'B', text: "Disable code scanning to accelerate pull request merging." },
+      { id: 'C', text: "Integrate SonarCloud or SonarQube tasks (`SonarCloudPrepare`, `SonarCloudAnalyze`, `SonarCloudPublish`) and configure a Quality Gate check." },
+      { id: 'D', text: "Manually review hundreds of lines of code by sight looking for SQL injection flaws." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Integrate SonarCloud or SonarQube tasks (`SonarCloudPrepare`, `SonarCloudAnalyze`, `SonarCloudPublish`) and configure a Quality Gate check. Static Application Security Testing (SAST) tools like SonarQube analyze source code for bugs, security vulnerabilities, and code smells. Binding SonarQube Quality Gates to Azure Repos pull request policies blocks merging when newly introduced code violates security thresholds.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/ecosystems/dotnet-core#analyze-code-with-sonarqube",
@@ -135,12 +135,12 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer evaluates SAST to enforce code quality standards and block pull requests that introduce new security vulnerabilities or high technical debt.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability? Integrating SonarQube quality gates and code analysis into pull request validation is under consideration.",
     options: [
-      { id: 'A', text: "Integrate SonarCloud or SonarQube tasks (`SonarCloudPrepare`, `SonarCloudAnalyze`, `SonarCloudPublish`) and configure a Quality Gate check." },
-      { id: 'B', text: "Manually review hundreds of lines of code by sight looking for SQL injection flaws." },
-      { id: 'C', text: "Run static analysis only once a year during external audit reviews." },
-      { id: 'D', text: "Disable code scanning to accelerate pull request merging." }
+      { id: 'A', text: "Manually review hundreds of lines of code by sight looking for SQL injection flaws." },
+      { id: 'B', text: "Run static analysis only once a year during external audit reviews." },
+      { id: 'C', text: "Disable code scanning to accelerate pull request merging." },
+      { id: 'D', text: "Integrate SonarCloud or SonarQube tasks (`SonarCloudPrepare`, `SonarCloudAnalyze`, `SonarCloudPublish`) and configure a Quality Gate check." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Integrate SonarCloud or SonarQube tasks (`SonarCloudPrepare`, `SonarCloudAnalyze`, `SonarCloudPublish`) and configure a Quality Gate check. Static Application Security Testing (SAST) tools like SonarQube analyze source code for bugs, security vulnerabilities, and code smells. Binding SonarQube Quality Gates to Azure Repos pull request policies blocks merging when newly introduced code violates security thresholds.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/ecosystems/dotnet-core#analyze-code-with-sonarqube",
@@ -156,12 +156,12 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer evaluates SAST to enforce code quality standards and block pull requests that introduce new security vulnerabilities or high technical debt.",
     question: "Which solution implements these mandatory DevOps security and compliance controls? Integrating SonarQube quality gates and code analysis into pull request validation is under consideration.",
     options: [
-      { id: 'A', text: "Integrate SonarCloud or SonarQube tasks (`SonarCloudPrepare`, `SonarCloudAnalyze`, `SonarCloudPublish`) and configure a Quality Gate check." },
-      { id: 'B', text: "Manually review hundreds of lines of code by sight looking for SQL injection flaws." },
-      { id: 'C', text: "Run static analysis only once a year during external audit reviews." },
-      { id: 'D', text: "Disable code scanning to accelerate pull request merging." }
+      { id: 'A', text: "Run static analysis only once a year during external audit reviews." },
+      { id: 'B', text: "Disable code scanning to accelerate pull request merging." },
+      { id: 'C', text: "Manually review hundreds of lines of code by sight looking for SQL injection flaws." },
+      { id: 'D', text: "Integrate SonarCloud or SonarQube tasks (`SonarCloudPrepare`, `SonarCloudAnalyze`, `SonarCloudPublish`) and configure a Quality Gate check." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Integrate SonarCloud or SonarQube tasks (`SonarCloudPrepare`, `SonarCloudAnalyze`, `SonarCloudPublish`) and configure a Quality Gate check. Static Application Security Testing (SAST) tools like SonarQube analyze source code for bugs, security vulnerabilities, and code smells. Binding SonarQube Quality Gates to Azure Repos pull request policies blocks merging when newly introduced code violates security thresholds.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/ecosystems/dotnet-core#analyze-code-with-sonarqube",
@@ -178,8 +178,8 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction? Integrating SonarQube quality gates and code analysis into pull request validation is under consideration.",
     options: [
       { id: 'A', text: "Integrate SonarCloud or SonarQube tasks (`SonarCloudPrepare`, `SonarCloudAnalyze`, `SonarCloudPublish`) and configure a Quality Gate check." },
-      { id: 'B', text: "Manually review hundreds of lines of code by sight looking for SQL injection flaws." },
-      { id: 'C', text: "Run static analysis only once a year during external audit reviews." },
+      { id: 'B', text: "Run static analysis only once a year during external audit reviews." },
+      { id: 'C', text: "Manually review hundreds of lines of code by sight looking for SQL injection flaws." },
       { id: 'D', text: "Disable code scanning to accelerate pull request merging." }
     ],
     correctAnswers: ['A'],
@@ -198,12 +198,12 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer evaluates SAST to enforce code quality standards and block pull requests that introduce new security vulnerabilities or high technical debt.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability? Integrating SonarQube quality gates and code analysis into pull request validation is under consideration.",
     options: [
-      { id: 'A', text: "Integrate SonarCloud or SonarQube tasks (`SonarCloudPrepare`, `SonarCloudAnalyze`, `SonarCloudPublish`) and configure a Quality Gate check." },
-      { id: 'B', text: "Manually review hundreds of lines of code by sight looking for SQL injection flaws." },
+      { id: 'A', text: "Manually review hundreds of lines of code by sight looking for SQL injection flaws." },
+      { id: 'B', text: "Integrate SonarCloud or SonarQube tasks (`SonarCloudPrepare`, `SonarCloudAnalyze`, `SonarCloudPublish`) and configure a Quality Gate check." },
       { id: 'C', text: "Run static analysis only once a year during external audit reviews." },
       { id: 'D', text: "Disable code scanning to accelerate pull request merging." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Integrate SonarCloud or SonarQube tasks (`SonarCloudPrepare`, `SonarCloudAnalyze`, `SonarCloudPublish`) and configure a Quality Gate check. Static Application Security Testing (SAST) tools like SonarQube analyze source code for bugs, security vulnerabilities, and code smells. Binding SonarQube Quality Gates to Azure Repos pull request policies blocks merging when newly introduced code violates security thresholds.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/ecosystems/dotnet-core#analyze-code-with-sonarqube",
@@ -219,12 +219,12 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer evaluates SCA to identify known vulnerabilities and outdated dependencies in third-party npm and NuGet packages in an Azure DevOps repository.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives? Scanning open-source packages for known CVEs using GitHub Advanced Security for Azure DevOps is under consideration.",
     options: [
-      { id: 'A', text: "Enable Dependency Scanning via GitHub Advanced Security for Azure DevOps (GHAzDO) or integrate tools like Snyk / Mend." },
-      { id: 'B', text: "Assume open-source packages from public package managers are always free of vulnerabilities." },
-      { id: 'C', text: "Rely on developers manually checking CVE databases before importing libraries." },
-      { id: 'D', text: "Prohibit using all third-party and open-source software libraries across the enterprise." }
+      { id: 'A', text: "Rely on developers manually checking CVE databases before importing libraries." },
+      { id: 'B', text: "Prohibit using all third-party and open-source software libraries across the enterprise." },
+      { id: 'C', text: "Assume open-source packages from public package managers are always free of vulnerabilities." },
+      { id: 'D', text: "Enable Dependency Scanning via GitHub Advanced Security for Azure DevOps (GHAzDO) or integrate tools like Snyk / Mend." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Enable Dependency Scanning via GitHub Advanced Security for Azure DevOps (GHAzDO) or integrate tools like Snyk / Mend. Software Composition Analysis (SCA) scans project dependency manifests (e.g., `package.json`, `.csproj`) against comprehensive vulnerability databases. GitHub Advanced Security for Azure DevOps alerts on vulnerable dependencies and provides automated remediation guidance.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/repos/security/github-advanced-security-dependency-scanning",
@@ -240,12 +240,12 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer evaluates SCA to identify known vulnerabilities and outdated dependencies in third-party npm and NuGet packages in an Azure DevOps repository.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability? Scanning open-source packages for known CVEs using GitHub Advanced Security for Azure DevOps is under consideration.",
     options: [
-      { id: 'A', text: "Enable Dependency Scanning via GitHub Advanced Security for Azure DevOps (GHAzDO) or integrate tools like Snyk / Mend." },
-      { id: 'B', text: "Assume open-source packages from public package managers are always free of vulnerabilities." },
-      { id: 'C', text: "Rely on developers manually checking CVE databases before importing libraries." },
-      { id: 'D', text: "Prohibit using all third-party and open-source software libraries across the enterprise." }
+      { id: 'A', text: "Rely on developers manually checking CVE databases before importing libraries." },
+      { id: 'B', text: "Prohibit using all third-party and open-source software libraries across the enterprise." },
+      { id: 'C', text: "Assume open-source packages from public package managers are always free of vulnerabilities." },
+      { id: 'D', text: "Enable Dependency Scanning via GitHub Advanced Security for Azure DevOps (GHAzDO) or integrate tools like Snyk / Mend." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Enable Dependency Scanning via GitHub Advanced Security for Azure DevOps (GHAzDO) or integrate tools like Snyk / Mend. Software Composition Analysis (SCA) scans project dependency manifests (e.g., `package.json`, `.csproj`) against comprehensive vulnerability databases. GitHub Advanced Security for Azure DevOps alerts on vulnerable dependencies and provides automated remediation guidance.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/repos/security/github-advanced-security-dependency-scanning",
@@ -261,12 +261,12 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer evaluates SCA to identify known vulnerabilities and outdated dependencies in third-party npm and NuGet packages in an Azure DevOps repository.",
     question: "Which solution implements these mandatory DevOps security and compliance controls? Scanning open-source packages for known CVEs using GitHub Advanced Security for Azure DevOps is under consideration.",
     options: [
-      { id: 'A', text: "Enable Dependency Scanning via GitHub Advanced Security for Azure DevOps (GHAzDO) or integrate tools like Snyk / Mend." },
+      { id: 'A', text: "Rely on developers manually checking CVE databases before importing libraries." },
       { id: 'B', text: "Assume open-source packages from public package managers are always free of vulnerabilities." },
-      { id: 'C', text: "Rely on developers manually checking CVE databases before importing libraries." },
-      { id: 'D', text: "Prohibit using all third-party and open-source software libraries across the enterprise." }
+      { id: 'C', text: "Prohibit using all third-party and open-source software libraries across the enterprise." },
+      { id: 'D', text: "Enable Dependency Scanning via GitHub Advanced Security for Azure DevOps (GHAzDO) or integrate tools like Snyk / Mend." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Enable Dependency Scanning via GitHub Advanced Security for Azure DevOps (GHAzDO) or integrate tools like Snyk / Mend. Software Composition Analysis (SCA) scans project dependency manifests (e.g., `package.json`, `.csproj`) against comprehensive vulnerability databases. GitHub Advanced Security for Azure DevOps alerts on vulnerable dependencies and provides automated remediation guidance.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/repos/security/github-advanced-security-dependency-scanning",
@@ -282,12 +282,12 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer evaluates SCA to identify known vulnerabilities and outdated dependencies in third-party npm and NuGet packages in an Azure DevOps repository.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction? Scanning open-source packages for known CVEs using GitHub Advanced Security for Azure DevOps is under consideration.",
     options: [
-      { id: 'A', text: "Enable Dependency Scanning via GitHub Advanced Security for Azure DevOps (GHAzDO) or integrate tools like Snyk / Mend." },
+      { id: 'A', text: "Rely on developers manually checking CVE databases before importing libraries." },
       { id: 'B', text: "Assume open-source packages from public package managers are always free of vulnerabilities." },
-      { id: 'C', text: "Rely on developers manually checking CVE databases before importing libraries." },
+      { id: 'C', text: "Enable Dependency Scanning via GitHub Advanced Security for Azure DevOps (GHAzDO) or integrate tools like Snyk / Mend." },
       { id: 'D', text: "Prohibit using all third-party and open-source software libraries across the enterprise." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Enable Dependency Scanning via GitHub Advanced Security for Azure DevOps (GHAzDO) or integrate tools like Snyk / Mend. Software Composition Analysis (SCA) scans project dependency manifests (e.g., `package.json`, `.csproj`) against comprehensive vulnerability databases. GitHub Advanced Security for Azure DevOps alerts on vulnerable dependencies and provides automated remediation guidance.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/repos/security/github-advanced-security-dependency-scanning",
@@ -303,12 +303,12 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer evaluates SCA to identify known vulnerabilities and outdated dependencies in third-party npm and NuGet packages in an Azure DevOps repository.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability? Scanning open-source packages for known CVEs using GitHub Advanced Security for Azure DevOps is under consideration.",
     options: [
-      { id: 'A', text: "Enable Dependency Scanning via GitHub Advanced Security for Azure DevOps (GHAzDO) or integrate tools like Snyk / Mend." },
-      { id: 'B', text: "Assume open-source packages from public package managers are always free of vulnerabilities." },
-      { id: 'C', text: "Rely on developers manually checking CVE databases before importing libraries." },
+      { id: 'A', text: "Rely on developers manually checking CVE databases before importing libraries." },
+      { id: 'B', text: "Enable Dependency Scanning via GitHub Advanced Security for Azure DevOps (GHAzDO) or integrate tools like Snyk / Mend." },
+      { id: 'C', text: "Assume open-source packages from public package managers are always free of vulnerabilities." },
       { id: 'D', text: "Prohibit using all third-party and open-source software libraries across the enterprise." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Enable Dependency Scanning via GitHub Advanced Security for Azure DevOps (GHAzDO) or integrate tools like Snyk / Mend. Software Composition Analysis (SCA) scans project dependency manifests (e.g., `package.json`, `.csproj`) against comprehensive vulnerability databases. GitHub Advanced Security for Azure DevOps alerts on vulnerable dependencies and provides automated remediation guidance.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/repos/security/github-advanced-security-dependency-scanning",
@@ -324,12 +324,12 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer evaluates Secret Scanning to prevent developers from accidentally committing Azure connection strings, API keys, or private SSH keys into Azure Repos.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives? Blocking accidental credential pushes to Git repositories with Secret Scanning push protection is under consideration.",
     options: [
-      { id: 'A', text: "Enable Secret Scanning with Push Protection in GitHub Advanced Security for Azure DevOps." },
-      { id: 'B', text: "Send an email reminder to developers once a quarter reminding them not to commit secrets." },
-      { id: 'C', text: "Scan repositories for secrets only after code is published to public mirrors." },
-      { id: 'D', text: "Store all production credentials in plaintext files committed to source control." }
+      { id: 'A', text: "Scan repositories for secrets only after code is published to public mirrors." },
+      { id: 'B', text: "Enable Secret Scanning with Push Protection in GitHub Advanced Security for Azure DevOps." },
+      { id: 'C', text: "Store all production credentials in plaintext files committed to source control." },
+      { id: 'D', text: "Send an email reminder to developers once a quarter reminding them not to commit secrets." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Enable Secret Scanning with Push Protection in GitHub Advanced Security for Azure DevOps. Secret Scanning with Push Protection intercepts `git push` operations in real time. It evaluates commits against patterns from dozens of credential partners (Azure, AWS, GitHub, Slack) and blocks the push immediately if a secret is detected, preventing exposure before it reaches remote history.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/repos/security/github-advanced-security-secret-scanning",
@@ -345,12 +345,12 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer evaluates Secret Scanning to prevent developers from accidentally committing Azure connection strings, API keys, or private SSH keys into Azure Repos.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability? Blocking accidental credential pushes to Git repositories with Secret Scanning push protection is under consideration.",
     options: [
-      { id: 'A', text: "Enable Secret Scanning with Push Protection in GitHub Advanced Security for Azure DevOps." },
-      { id: 'B', text: "Send an email reminder to developers once a quarter reminding them not to commit secrets." },
-      { id: 'C', text: "Scan repositories for secrets only after code is published to public mirrors." },
-      { id: 'D', text: "Store all production credentials in plaintext files committed to source control." }
+      { id: 'A', text: "Send an email reminder to developers once a quarter reminding them not to commit secrets." },
+      { id: 'B', text: "Enable Secret Scanning with Push Protection in GitHub Advanced Security for Azure DevOps." },
+      { id: 'C', text: "Store all production credentials in plaintext files committed to source control." },
+      { id: 'D', text: "Scan repositories for secrets only after code is published to public mirrors." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Enable Secret Scanning with Push Protection in GitHub Advanced Security for Azure DevOps. Secret Scanning with Push Protection intercepts `git push` operations in real time. It evaluates commits against patterns from dozens of credential partners (Azure, AWS, GitHub, Slack) and blocks the push immediately if a secret is detected, preventing exposure before it reaches remote history.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/repos/security/github-advanced-security-secret-scanning",
@@ -387,12 +387,12 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer evaluates Secret Scanning to prevent developers from accidentally committing Azure connection strings, API keys, or private SSH keys into Azure Repos.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction? Blocking accidental credential pushes to Git repositories with Secret Scanning push protection is under consideration.",
     options: [
-      { id: 'A', text: "Enable Secret Scanning with Push Protection in GitHub Advanced Security for Azure DevOps." },
-      { id: 'B', text: "Send an email reminder to developers once a quarter reminding them not to commit secrets." },
-      { id: 'C', text: "Scan repositories for secrets only after code is published to public mirrors." },
-      { id: 'D', text: "Store all production credentials in plaintext files committed to source control." }
+      { id: 'A', text: "Scan repositories for secrets only after code is published to public mirrors." },
+      { id: 'B', text: "Store all production credentials in plaintext files committed to source control." },
+      { id: 'C', text: "Send an email reminder to developers once a quarter reminding them not to commit secrets." },
+      { id: 'D', text: "Enable Secret Scanning with Push Protection in GitHub Advanced Security for Azure DevOps." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Enable Secret Scanning with Push Protection in GitHub Advanced Security for Azure DevOps. Secret Scanning with Push Protection intercepts `git push` operations in real time. It evaluates commits against patterns from dozens of credential partners (Azure, AWS, GitHub, Slack) and blocks the push immediately if a secret is detected, preventing exposure before it reaches remote history.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/repos/security/github-advanced-security-secret-scanning",
@@ -409,9 +409,9 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability? Blocking accidental credential pushes to Git repositories with Secret Scanning push protection is under consideration.",
     options: [
       { id: 'A', text: "Enable Secret Scanning with Push Protection in GitHub Advanced Security for Azure DevOps." },
-      { id: 'B', text: "Send an email reminder to developers once a quarter reminding them not to commit secrets." },
-      { id: 'C', text: "Scan repositories for secrets only after code is published to public mirrors." },
-      { id: 'D', text: "Store all production credentials in plaintext files committed to source control." }
+      { id: 'B', text: "Store all production credentials in plaintext files committed to source control." },
+      { id: 'C', text: "Send an email reminder to developers once a quarter reminding them not to commit secrets." },
+      { id: 'D', text: "Scan repositories for secrets only after code is published to public mirrors." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -429,12 +429,12 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer evaluates Container Security to ensure container images uploaded to Azure Container Registry (ACR) are automatically scanned for OS and package vulnerabilities.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives? Vulnerability scanning of container images stored in Azure Container Registry (ACR) is under consideration.",
     options: [
-      { id: 'A', text: "Enable Microsoft Defender for Container Registries on the target Azure Container Registry." },
-      { id: 'B', text: "Rely on developer self-attestation that container images are safe." },
-      { id: 'C', text: "Scan containers only after they have run in production for twelve months." },
-      { id: 'D', text: "Disable container vulnerability scanning to reduce registry storage costs." }
+      { id: 'A', text: "Rely on developer self-attestation that container images are safe." },
+      { id: 'B', text: "Disable container vulnerability scanning to reduce registry storage costs." },
+      { id: 'C', text: "Enable Microsoft Defender for Container Registries on the target Azure Container Registry." },
+      { id: 'D', text: "Scan containers only after they have run in production for twelve months." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Enable Microsoft Defender for Container Registries on the target Azure Container Registry. Microsoft Defender for Container Registries continuously scans images pushed to Azure Container Registry (ACR). It provides detailed vulnerability assessments, severity scores, and actionable remediation instructions, alerting security teams before vulnerable images are scheduled to run in AKS.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-containers-usage#vulnerability-assessment-for-images-in-acr",
@@ -451,8 +451,8 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability? Vulnerability scanning of container images stored in Azure Container Registry (ACR) is under consideration.",
     options: [
       { id: 'A', text: "Enable Microsoft Defender for Container Registries on the target Azure Container Registry." },
-      { id: 'B', text: "Rely on developer self-attestation that container images are safe." },
-      { id: 'C', text: "Scan containers only after they have run in production for twelve months." },
+      { id: 'B', text: "Scan containers only after they have run in production for twelve months." },
+      { id: 'C', text: "Rely on developer self-attestation that container images are safe." },
       { id: 'D', text: "Disable container vulnerability scanning to reduce registry storage costs." }
     ],
     correctAnswers: ['A'],
@@ -471,12 +471,12 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer evaluates Container Security to ensure container images uploaded to Azure Container Registry (ACR) are automatically scanned for OS and package vulnerabilities.",
     question: "Which solution implements these mandatory DevOps security and compliance controls? Vulnerability scanning of container images stored in Azure Container Registry (ACR) is under consideration.",
     options: [
-      { id: 'A', text: "Enable Microsoft Defender for Container Registries on the target Azure Container Registry." },
+      { id: 'A', text: "Disable container vulnerability scanning to reduce registry storage costs." },
       { id: 'B', text: "Rely on developer self-attestation that container images are safe." },
-      { id: 'C', text: "Scan containers only after they have run in production for twelve months." },
-      { id: 'D', text: "Disable container vulnerability scanning to reduce registry storage costs." }
+      { id: 'C', text: "Enable Microsoft Defender for Container Registries on the target Azure Container Registry." },
+      { id: 'D', text: "Scan containers only after they have run in production for twelve months." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Enable Microsoft Defender for Container Registries on the target Azure Container Registry. Microsoft Defender for Container Registries continuously scans images pushed to Azure Container Registry (ACR). It provides detailed vulnerability assessments, severity scores, and actionable remediation instructions, alerting security teams before vulnerable images are scheduled to run in AKS.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-containers-usage#vulnerability-assessment-for-images-in-acr",
@@ -492,12 +492,12 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer evaluates Container Security to ensure container images uploaded to Azure Container Registry (ACR) are automatically scanned for OS and package vulnerabilities.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction? Vulnerability scanning of container images stored in Azure Container Registry (ACR) is under consideration.",
     options: [
-      { id: 'A', text: "Enable Microsoft Defender for Container Registries on the target Azure Container Registry." },
-      { id: 'B', text: "Rely on developer self-attestation that container images are safe." },
-      { id: 'C', text: "Scan containers only after they have run in production for twelve months." },
-      { id: 'D', text: "Disable container vulnerability scanning to reduce registry storage costs." }
+      { id: 'A', text: "Rely on developer self-attestation that container images are safe." },
+      { id: 'B', text: "Scan containers only after they have run in production for twelve months." },
+      { id: 'C', text: "Disable container vulnerability scanning to reduce registry storage costs." },
+      { id: 'D', text: "Enable Microsoft Defender for Container Registries on the target Azure Container Registry." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Enable Microsoft Defender for Container Registries on the target Azure Container Registry. Microsoft Defender for Container Registries continuously scans images pushed to Azure Container Registry (ACR). It provides detailed vulnerability assessments, severity scores, and actionable remediation instructions, alerting security teams before vulnerable images are scheduled to run in AKS.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-containers-usage#vulnerability-assessment-for-images-in-acr",
@@ -514,9 +514,9 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability? Vulnerability scanning of container images stored in Azure Container Registry (ACR) is under consideration.",
     options: [
       { id: 'A', text: "Enable Microsoft Defender for Container Registries on the target Azure Container Registry." },
-      { id: 'B', text: "Rely on developer self-attestation that container images are safe." },
-      { id: 'C', text: "Scan containers only after they have run in production for twelve months." },
-      { id: 'D', text: "Disable container vulnerability scanning to reduce registry storage costs." }
+      { id: 'B', text: "Disable container vulnerability scanning to reduce registry storage costs." },
+      { id: 'C', text: "Rely on developer self-attestation that container images are safe." },
+      { id: 'D', text: "Scan containers only after they have run in production for twelve months." }
     ],
     correctAnswers: ['A'],
     type: "single",

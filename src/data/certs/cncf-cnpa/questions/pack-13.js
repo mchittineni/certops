@@ -9,12 +9,12 @@ export const CNCF_CNPA_QUESTIONS_13 = [
     scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates Autoscaling Substrate to scale streaming consumer pods from 0 to 1,000 based on Kafka queue lag and rapidly provision optimized compute nodes.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives? Event-driven pod autoscaling with KEDA and dynamic node provisioning with Karpenter is under consideration.",
     options: [
-      { id: 'A', text: "Combine Kubernetes Event-driven Autoscaling (KEDA) for queue-based pod scaling with Karpenter for just-in-time compute node provisioning." },
-      { id: 'B', text: "Overprovision static high-end compute instances running at 100% capacity 24/7." },
+      { id: 'A', text: "Require human operators to manually add cloud servers during traffic surges." },
+      { id: 'B', text: "Combine Kubernetes Event-driven Autoscaling (KEDA) for queue-based pod scaling with Karpenter for just-in-time compute node provisioning." },
       { id: 'C', text: "Rely exclusively on CPU utilization metrics that lag significantly behind queue message spikes." },
-      { id: 'D', text: "Require human operators to manually add cloud servers during traffic surges." }
+      { id: 'D', text: "Overprovision static high-end compute instances running at 100% capacity 24/7." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Combine Kubernetes Event-driven Autoscaling (KEDA) for queue-based pod scaling with Karpenter for just-in-time compute node provisioning. Modern platform substrates separate pod autoscaling from node provisioning. KEDA scales pods based on event sources (Kafka lag, SQS queues, Prometheus metrics), while Karpenter provisions right-sized EC2/compute instances in seconds directly bypassing node-group constraints.",
     referenceUrl: "https://keda.sh/",
@@ -30,12 +30,12 @@ export const CNCF_CNPA_QUESTIONS_13 = [
     scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates Autoscaling Substrate to scale streaming consumer pods from 0 to 1,000 based on Kafka queue lag and rapidly provision optimized compute nodes.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks? Event-driven pod autoscaling with KEDA and dynamic node provisioning with Karpenter is under consideration.",
     options: [
-      { id: 'A', text: "Combine Kubernetes Event-driven Autoscaling (KEDA) for queue-based pod scaling with Karpenter for just-in-time compute node provisioning." },
-      { id: 'B', text: "Overprovision static high-end compute instances running at 100% capacity 24/7." },
+      { id: 'A', text: "Overprovision static high-end compute instances running at 100% capacity 24/7." },
+      { id: 'B', text: "Require human operators to manually add cloud servers during traffic surges." },
       { id: 'C', text: "Rely exclusively on CPU utilization metrics that lag significantly behind queue message spikes." },
-      { id: 'D', text: "Require human operators to manually add cloud servers during traffic surges." }
+      { id: 'D', text: "Combine Kubernetes Event-driven Autoscaling (KEDA) for queue-based pod scaling with Karpenter for just-in-time compute node provisioning." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Combine Kubernetes Event-driven Autoscaling (KEDA) for queue-based pod scaling with Karpenter for just-in-time compute node provisioning. Modern platform substrates separate pod autoscaling from node provisioning. KEDA scales pods based on event sources (Kafka lag, SQS queues, Prometheus metrics), while Karpenter provisions right-sized EC2/compute instances in seconds directly bypassing node-group constraints.",
     referenceUrl: "https://keda.sh/",
@@ -51,12 +51,12 @@ export const CNCF_CNPA_QUESTIONS_13 = [
     scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates Autoscaling Substrate to scale streaming consumer pods from 0 to 1,000 based on Kafka queue lag and rapidly provision optimized compute nodes.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls? Event-driven pod autoscaling with KEDA and dynamic node provisioning with Karpenter is under consideration.",
     options: [
-      { id: 'A', text: "Combine Kubernetes Event-driven Autoscaling (KEDA) for queue-based pod scaling with Karpenter for just-in-time compute node provisioning." },
-      { id: 'B', text: "Overprovision static high-end compute instances running at 100% capacity 24/7." },
-      { id: 'C', text: "Rely exclusively on CPU utilization metrics that lag significantly behind queue message spikes." },
-      { id: 'D', text: "Require human operators to manually add cloud servers during traffic surges." }
+      { id: 'A', text: "Rely exclusively on CPU utilization metrics that lag significantly behind queue message spikes." },
+      { id: 'B', text: "Require human operators to manually add cloud servers during traffic surges." },
+      { id: 'C', text: "Overprovision static high-end compute instances running at 100% capacity 24/7." },
+      { id: 'D', text: "Combine Kubernetes Event-driven Autoscaling (KEDA) for queue-based pod scaling with Karpenter for just-in-time compute node provisioning." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Combine Kubernetes Event-driven Autoscaling (KEDA) for queue-based pod scaling with Karpenter for just-in-time compute node provisioning. Modern platform substrates separate pod autoscaling from node provisioning. KEDA scales pods based on event sources (Kafka lag, SQS queues, Prometheus metrics), while Karpenter provisions right-sized EC2/compute instances in seconds directly bypassing node-group constraints.",
     referenceUrl: "https://keda.sh/",
@@ -72,12 +72,12 @@ export const CNCF_CNPA_QUESTIONS_13 = [
     scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates Autoscaling Substrate to scale streaming consumer pods from 0 to 1,000 based on Kafka queue lag and rapidly provision optimized compute nodes.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely? Event-driven pod autoscaling with KEDA and dynamic node provisioning with Karpenter is under consideration.",
     options: [
-      { id: 'A', text: "Combine Kubernetes Event-driven Autoscaling (KEDA) for queue-based pod scaling with Karpenter for just-in-time compute node provisioning." },
-      { id: 'B', text: "Overprovision static high-end compute instances running at 100% capacity 24/7." },
+      { id: 'A', text: "Require human operators to manually add cloud servers during traffic surges." },
+      { id: 'B', text: "Combine Kubernetes Event-driven Autoscaling (KEDA) for queue-based pod scaling with Karpenter for just-in-time compute node provisioning." },
       { id: 'C', text: "Rely exclusively on CPU utilization metrics that lag significantly behind queue message spikes." },
-      { id: 'D', text: "Require human operators to manually add cloud servers during traffic surges." }
+      { id: 'D', text: "Overprovision static high-end compute instances running at 100% capacity 24/7." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Combine Kubernetes Event-driven Autoscaling (KEDA) for queue-based pod scaling with Karpenter for just-in-time compute node provisioning. Modern platform substrates separate pod autoscaling from node provisioning. KEDA scales pods based on event sources (Kafka lag, SQS queues, Prometheus metrics), while Karpenter provisions right-sized EC2/compute instances in seconds directly bypassing node-group constraints.",
     referenceUrl: "https://keda.sh/",
@@ -93,12 +93,12 @@ export const CNCF_CNPA_QUESTIONS_13 = [
     scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates Autoscaling Substrate to scale streaming consumer pods from 0 to 1,000 based on Kafka queue lag and rapidly provision optimized compute nodes.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation? Event-driven pod autoscaling with KEDA and dynamic node provisioning with Karpenter is under consideration.",
     options: [
-      { id: 'A', text: "Combine Kubernetes Event-driven Autoscaling (KEDA) for queue-based pod scaling with Karpenter for just-in-time compute node provisioning." },
+      { id: 'A', text: "Rely exclusively on CPU utilization metrics that lag significantly behind queue message spikes." },
       { id: 'B', text: "Overprovision static high-end compute instances running at 100% capacity 24/7." },
-      { id: 'C', text: "Rely exclusively on CPU utilization metrics that lag significantly behind queue message spikes." },
+      { id: 'C', text: "Combine Kubernetes Event-driven Autoscaling (KEDA) for queue-based pod scaling with Karpenter for just-in-time compute node provisioning." },
       { id: 'D', text: "Require human operators to manually add cloud servers during traffic surges." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Combine Kubernetes Event-driven Autoscaling (KEDA) for queue-based pod scaling with Karpenter for just-in-time compute node provisioning. Modern platform substrates separate pod autoscaling from node provisioning. KEDA scales pods based on event sources (Kafka lag, SQS queues, Prometheus metrics), while Karpenter provisions right-sized EC2/compute instances in seconds directly bypassing node-group constraints.",
     referenceUrl: "https://keda.sh/",
@@ -114,12 +114,12 @@ export const CNCF_CNPA_QUESTIONS_13 = [
     scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates Edge Substrates to operate microservices across thousands of edge retail kiosks that must continue transacting even during regional internet outages.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives? Deploying lightweight Kubernetes (K3s) with autonomous edge operation and intermittent connectivity is under consideration.",
     options: [
-      { id: 'A', text: "Deploy lightweight K3s clusters engineered for resource efficiency and autonomous local operation during network partition." },
-      { id: 'B', text: "Require a continuous high-speed fiber-optic connection to centralized cloud control planes to process every local transaction." },
+      { id: 'A', text: "Require a continuous high-speed fiber-optic connection to centralized cloud control planes to process every local transaction." },
+      { id: 'B', text: "Disable local container storage and pull images over 2G cellular connections on every pod restart." },
       { id: 'C', text: "Run full-scale high-availability production control planes requiring 32 CPU cores on every single edge kiosk." },
-      { id: 'D', text: "Disable local container storage and pull images over 2G cellular connections on every pod restart." }
+      { id: 'D', text: "Deploy lightweight K3s clusters engineered for resource efficiency and autonomous local operation during network partition." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy lightweight K3s clusters engineered for resource efficiency and autonomous local operation during network partition. Edge platform substrates utilize lightweight Kubernetes distributions like CNCF K3s. Packaged as a single binary with bundled SQLite/etcd, K3s provides autonomous local scheduling and fault tolerance during WAN disconnects.",
     referenceUrl: "https://k3s.io/",
@@ -135,12 +135,12 @@ export const CNCF_CNPA_QUESTIONS_13 = [
     scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates Edge Substrates to operate microservices across thousands of edge retail kiosks that must continue transacting even during regional internet outages.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks? Deploying lightweight Kubernetes (K3s) with autonomous edge operation and intermittent connectivity is under consideration.",
     options: [
-      { id: 'A', text: "Deploy lightweight K3s clusters engineered for resource efficiency and autonomous local operation during network partition." },
-      { id: 'B', text: "Require a continuous high-speed fiber-optic connection to centralized cloud control planes to process every local transaction." },
+      { id: 'A', text: "Disable local container storage and pull images over 2G cellular connections on every pod restart." },
+      { id: 'B', text: "Deploy lightweight K3s clusters engineered for resource efficiency and autonomous local operation during network partition." },
       { id: 'C', text: "Run full-scale high-availability production control planes requiring 32 CPU cores on every single edge kiosk." },
-      { id: 'D', text: "Disable local container storage and pull images over 2G cellular connections on every pod restart." }
+      { id: 'D', text: "Require a continuous high-speed fiber-optic connection to centralized cloud control planes to process every local transaction." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy lightweight K3s clusters engineered for resource efficiency and autonomous local operation during network partition. Edge platform substrates utilize lightweight Kubernetes distributions like CNCF K3s. Packaged as a single binary with bundled SQLite/etcd, K3s provides autonomous local scheduling and fault tolerance during WAN disconnects.",
     referenceUrl: "https://k3s.io/",
@@ -156,12 +156,12 @@ export const CNCF_CNPA_QUESTIONS_13 = [
     scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates Edge Substrates to operate microservices across thousands of edge retail kiosks that must continue transacting even during regional internet outages.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls? Deploying lightweight Kubernetes (K3s) with autonomous edge operation and intermittent connectivity is under consideration.",
     options: [
-      { id: 'A', text: "Deploy lightweight K3s clusters engineered for resource efficiency and autonomous local operation during network partition." },
-      { id: 'B', text: "Require a continuous high-speed fiber-optic connection to centralized cloud control planes to process every local transaction." },
-      { id: 'C', text: "Run full-scale high-availability production control planes requiring 32 CPU cores on every single edge kiosk." },
-      { id: 'D', text: "Disable local container storage and pull images over 2G cellular connections on every pod restart." }
+      { id: 'A', text: "Require a continuous high-speed fiber-optic connection to centralized cloud control planes to process every local transaction." },
+      { id: 'B', text: "Disable local container storage and pull images over 2G cellular connections on every pod restart." },
+      { id: 'C', text: "Deploy lightweight K3s clusters engineered for resource efficiency and autonomous local operation during network partition." },
+      { id: 'D', text: "Run full-scale high-availability production control planes requiring 32 CPU cores on every single edge kiosk." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy lightweight K3s clusters engineered for resource efficiency and autonomous local operation during network partition. Edge platform substrates utilize lightweight Kubernetes distributions like CNCF K3s. Packaged as a single binary with bundled SQLite/etcd, K3s provides autonomous local scheduling and fault tolerance during WAN disconnects.",
     referenceUrl: "https://k3s.io/",
@@ -198,12 +198,12 @@ export const CNCF_CNPA_QUESTIONS_13 = [
     scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates Edge Substrates to operate microservices across thousands of edge retail kiosks that must continue transacting even during regional internet outages.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation? Deploying lightweight Kubernetes (K3s) with autonomous edge operation and intermittent connectivity is under consideration.",
     options: [
-      { id: 'A', text: "Deploy lightweight K3s clusters engineered for resource efficiency and autonomous local operation during network partition." },
-      { id: 'B', text: "Require a continuous high-speed fiber-optic connection to centralized cloud control planes to process every local transaction." },
-      { id: 'C', text: "Run full-scale high-availability production control planes requiring 32 CPU cores on every single edge kiosk." },
-      { id: 'D', text: "Disable local container storage and pull images over 2G cellular connections on every pod restart." }
+      { id: 'A', text: "Require a continuous high-speed fiber-optic connection to centralized cloud control planes to process every local transaction." },
+      { id: 'B', text: "Deploy lightweight K3s clusters engineered for resource efficiency and autonomous local operation during network partition." },
+      { id: 'C', text: "Disable local container storage and pull images over 2G cellular connections on every pod restart." },
+      { id: 'D', text: "Run full-scale high-availability production control planes requiring 32 CPU cores on every single edge kiosk." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy lightweight K3s clusters engineered for resource efficiency and autonomous local operation during network partition. Edge platform substrates utilize lightweight Kubernetes distributions like CNCF K3s. Packaged as a single binary with bundled SQLite/etcd, K3s provides autonomous local scheduling and fault tolerance during WAN disconnects.",
     referenceUrl: "https://k3s.io/",
@@ -220,8 +220,8 @@ export const CNCF_CNPA_QUESTIONS_13 = [
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives? Treating internal developers as customers, establishing product roadmaps, and measuring developer satisfaction is under consideration.",
     options: [
       { id: 'A', text: "Adopt Platform as a Product (PaaP): treat internal developers as customers, gather user feedback, and measure DevEx metrics." },
-      { id: 'B', text: "Force developers to use rigid, mandate-driven tooling without gathering feedback or measuring developer friction." },
-      { id: 'C', text: "Require developers to file IT support tickets for every single routine change." },
+      { id: 'B', text: "Require developers to file IT support tickets for every single routine change." },
+      { id: 'C', text: "Force developers to use rigid, mandate-driven tooling without gathering feedback or measuring developer friction." },
       { id: 'D', text: "Treat the internal platform as a one-off project that receives no maintenance after launch." }
     ],
     correctAnswers: ['A'],
@@ -242,8 +242,8 @@ export const CNCF_CNPA_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "Adopt Platform as a Product (PaaP): treat internal developers as customers, gather user feedback, and measure DevEx metrics." },
       { id: 'B', text: "Force developers to use rigid, mandate-driven tooling without gathering feedback or measuring developer friction." },
-      { id: 'C', text: "Require developers to file IT support tickets for every single routine change." },
-      { id: 'D', text: "Treat the internal platform as a one-off project that receives no maintenance after launch." }
+      { id: 'C', text: "Treat the internal platform as a one-off project that receives no maintenance after launch." },
+      { id: 'D', text: "Require developers to file IT support tickets for every single routine change." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -261,12 +261,12 @@ export const CNCF_CNPA_QUESTIONS_13 = [
     scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates Platform as a Product to transition a traditional ticket-based infrastructure operations team into a modern high-performing platform engineering organization.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls? Treating internal developers as customers, establishing product roadmaps, and measuring developer satisfaction is under consideration.",
     options: [
-      { id: 'A', text: "Adopt Platform as a Product (PaaP): treat internal developers as customers, gather user feedback, and measure DevEx metrics." },
-      { id: 'B', text: "Force developers to use rigid, mandate-driven tooling without gathering feedback or measuring developer friction." },
-      { id: 'C', text: "Require developers to file IT support tickets for every single routine change." },
-      { id: 'D', text: "Treat the internal platform as a one-off project that receives no maintenance after launch." }
+      { id: 'A', text: "Force developers to use rigid, mandate-driven tooling without gathering feedback or measuring developer friction." },
+      { id: 'B', text: "Adopt Platform as a Product (PaaP): treat internal developers as customers, gather user feedback, and measure DevEx metrics." },
+      { id: 'C', text: "Treat the internal platform as a one-off project that receives no maintenance after launch." },
+      { id: 'D', text: "Require developers to file IT support tickets for every single routine change." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Adopt Platform as a Product (PaaP): treat internal developers as customers, gather user feedback, and measure DevEx metrics. Platform as a Product (PaaP) is the foundational philosophy of platform engineering. Instead of treating infrastructure as a gatekeeping function, platform teams treat internal developers as customers, establishing roadmaps, measuring Net Promoter Scores (NPS), and optimizing for user adoption.",
     referenceUrl: "https://www.cncf.io/reports/cloud-native-platform-engineering-whitepaper/",
@@ -283,8 +283,8 @@ export const CNCF_CNPA_QUESTIONS_13 = [
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely? Treating internal developers as customers, establishing product roadmaps, and measuring developer satisfaction is under consideration.",
     options: [
       { id: 'A', text: "Adopt Platform as a Product (PaaP): treat internal developers as customers, gather user feedback, and measure DevEx metrics." },
-      { id: 'B', text: "Force developers to use rigid, mandate-driven tooling without gathering feedback or measuring developer friction." },
-      { id: 'C', text: "Require developers to file IT support tickets for every single routine change." },
+      { id: 'B', text: "Require developers to file IT support tickets for every single routine change." },
+      { id: 'C', text: "Force developers to use rigid, mandate-driven tooling without gathering feedback or measuring developer friction." },
       { id: 'D', text: "Treat the internal platform as a one-off project that receives no maintenance after launch." }
     ],
     correctAnswers: ['A'],
@@ -305,8 +305,8 @@ export const CNCF_CNPA_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "Adopt Platform as a Product (PaaP): treat internal developers as customers, gather user feedback, and measure DevEx metrics." },
       { id: 'B', text: "Force developers to use rigid, mandate-driven tooling without gathering feedback or measuring developer friction." },
-      { id: 'C', text: "Require developers to file IT support tickets for every single routine change." },
-      { id: 'D', text: "Treat the internal platform as a one-off project that receives no maintenance after launch." }
+      { id: 'C', text: "Treat the internal platform as a one-off project that receives no maintenance after launch." },
+      { id: 'D', text: "Require developers to file IT support tickets for every single routine change." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -324,12 +324,12 @@ export const CNCF_CNPA_QUESTIONS_13 = [
     scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates Thinnest Viable Platform to deliver immediate developer velocity improvements without building an overly complex, unmaintainable in-house platform monolith.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives? Minimizing platform cognitive load and avoiding over-engineering (Team Topologies) is under consideration.",
     options: [
-      { id: 'A', text: "Build a Thinnest Viable Platform (TVP) by leveraging established open-source tools and abstracting only the highest-friction bottlenecks." },
+      { id: 'A', text: "Over-engineer complex custom systems before identifying developer pain points." },
       { id: 'B', text: "Spend two years writing a proprietary, custom-coded cloud orchestrator from scratch." },
-      { id: 'C', text: "Expose raw cloud provider infrastructure consoles with no abstractions or documentation." },
-      { id: 'D', text: "Over-engineer complex custom systems before identifying developer pain points." }
+      { id: 'C', text: "Build a Thinnest Viable Platform (TVP) by leveraging established open-source tools and abstracting only the highest-friction bottlenecks." },
+      { id: 'D', text: "Expose raw cloud provider infrastructure consoles with no abstractions or documentation." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Build a Thinnest Viable Platform (TVP) by leveraging established open-source tools and abstracting only the highest-friction bottlenecks. The Thinnest Viable Platform (TVP) concept, popularized by Team Topologies, advocates for building the minimum necessary abstraction layer. Platform teams avoid over-engineering by utilizing existing cloud-native tools and focusing strictly on eliminating developer friction.",
     referenceUrl: "https://teamtopologies.com/key-concepts-content/what-is-a-thinnest-viable-platform-tvp",
@@ -345,12 +345,12 @@ export const CNCF_CNPA_QUESTIONS_13 = [
     scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates Thinnest Viable Platform to deliver immediate developer velocity improvements without building an overly complex, unmaintainable in-house platform monolith.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks? Minimizing platform cognitive load and avoiding over-engineering (Team Topologies) is under consideration.",
     options: [
-      { id: 'A', text: "Build a Thinnest Viable Platform (TVP) by leveraging established open-source tools and abstracting only the highest-friction bottlenecks." },
+      { id: 'A', text: "Expose raw cloud provider infrastructure consoles with no abstractions or documentation." },
       { id: 'B', text: "Spend two years writing a proprietary, custom-coded cloud orchestrator from scratch." },
-      { id: 'C', text: "Expose raw cloud provider infrastructure consoles with no abstractions or documentation." },
+      { id: 'C', text: "Build a Thinnest Viable Platform (TVP) by leveraging established open-source tools and abstracting only the highest-friction bottlenecks." },
       { id: 'D', text: "Over-engineer complex custom systems before identifying developer pain points." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Build a Thinnest Viable Platform (TVP) by leveraging established open-source tools and abstracting only the highest-friction bottlenecks. The Thinnest Viable Platform (TVP) concept, popularized by Team Topologies, advocates for building the minimum necessary abstraction layer. Platform teams avoid over-engineering by utilizing existing cloud-native tools and focusing strictly on eliminating developer friction.",
     referenceUrl: "https://teamtopologies.com/key-concepts-content/what-is-a-thinnest-viable-platform-tvp",
@@ -367,8 +367,8 @@ export const CNCF_CNPA_QUESTIONS_13 = [
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls? Minimizing platform cognitive load and avoiding over-engineering (Team Topologies) is under consideration.",
     options: [
       { id: 'A', text: "Build a Thinnest Viable Platform (TVP) by leveraging established open-source tools and abstracting only the highest-friction bottlenecks." },
-      { id: 'B', text: "Spend two years writing a proprietary, custom-coded cloud orchestrator from scratch." },
-      { id: 'C', text: "Expose raw cloud provider infrastructure consoles with no abstractions or documentation." },
+      { id: 'B', text: "Expose raw cloud provider infrastructure consoles with no abstractions or documentation." },
+      { id: 'C', text: "Spend two years writing a proprietary, custom-coded cloud orchestrator from scratch." },
       { id: 'D', text: "Over-engineer complex custom systems before identifying developer pain points." }
     ],
     correctAnswers: ['A'],
@@ -387,12 +387,12 @@ export const CNCF_CNPA_QUESTIONS_13 = [
     scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates Thinnest Viable Platform to deliver immediate developer velocity improvements without building an overly complex, unmaintainable in-house platform monolith.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely? Minimizing platform cognitive load and avoiding over-engineering (Team Topologies) is under consideration.",
     options: [
-      { id: 'A', text: "Build a Thinnest Viable Platform (TVP) by leveraging established open-source tools and abstracting only the highest-friction bottlenecks." },
-      { id: 'B', text: "Spend two years writing a proprietary, custom-coded cloud orchestrator from scratch." },
-      { id: 'C', text: "Expose raw cloud provider infrastructure consoles with no abstractions or documentation." },
-      { id: 'D', text: "Over-engineer complex custom systems before identifying developer pain points." }
+      { id: 'A', text: "Expose raw cloud provider infrastructure consoles with no abstractions or documentation." },
+      { id: 'B', text: "Over-engineer complex custom systems before identifying developer pain points." },
+      { id: 'C', text: "Spend two years writing a proprietary, custom-coded cloud orchestrator from scratch." },
+      { id: 'D', text: "Build a Thinnest Viable Platform (TVP) by leveraging established open-source tools and abstracting only the highest-friction bottlenecks." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Build a Thinnest Viable Platform (TVP) by leveraging established open-source tools and abstracting only the highest-friction bottlenecks. The Thinnest Viable Platform (TVP) concept, popularized by Team Topologies, advocates for building the minimum necessary abstraction layer. Platform teams avoid over-engineering by utilizing existing cloud-native tools and focusing strictly on eliminating developer friction.",
     referenceUrl: "https://teamtopologies.com/key-concepts-content/what-is-a-thinnest-viable-platform-tvp",
@@ -409,9 +409,9 @@ export const CNCF_CNPA_QUESTIONS_13 = [
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation? Minimizing platform cognitive load and avoiding over-engineering (Team Topologies) is under consideration.",
     options: [
       { id: 'A', text: "Build a Thinnest Viable Platform (TVP) by leveraging established open-source tools and abstracting only the highest-friction bottlenecks." },
-      { id: 'B', text: "Spend two years writing a proprietary, custom-coded cloud orchestrator from scratch." },
+      { id: 'B', text: "Over-engineer complex custom systems before identifying developer pain points." },
       { id: 'C', text: "Expose raw cloud provider infrastructure consoles with no abstractions or documentation." },
-      { id: 'D', text: "Over-engineer complex custom systems before identifying developer pain points." }
+      { id: 'D', text: "Spend two years writing a proprietary, custom-coded cloud orchestrator from scratch." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -431,8 +431,8 @@ export const CNCF_CNPA_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "Recognize the Developer Portal as the user interface layer (e.g., Backstage) and the Developer Platform as the complete engine (orchestrators, substrates, pipelines)." },
       { id: 'B', text: "Assume the developer portal and the developer platform are completely identical terms with no architectural distinction." },
-      { id: 'C', text: "Replace all underlying cloud infrastructure, databases, and CI/CD pipelines with a single standalone React website." },
-      { id: 'D', text: "Build developer portals without any underlying automation or orchestration engine." }
+      { id: 'C', text: "Build developer portals without any underlying automation or orchestration engine." },
+      { id: 'D', text: "Replace all underlying cloud infrastructure, databases, and CI/CD pipelines with a single standalone React website." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -451,9 +451,9 @@ export const CNCF_CNPA_QUESTIONS_13 = [
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks? Distinguishing the UI/UX frontend (Backstage/Port) from the underlying platform orchestrators and substrates is under consideration.",
     options: [
       { id: 'A', text: "Recognize the Developer Portal as the user interface layer (e.g., Backstage) and the Developer Platform as the complete engine (orchestrators, substrates, pipelines)." },
-      { id: 'B', text: "Assume the developer portal and the developer platform are completely identical terms with no architectural distinction." },
-      { id: 'C', text: "Replace all underlying cloud infrastructure, databases, and CI/CD pipelines with a single standalone React website." },
-      { id: 'D', text: "Build developer portals without any underlying automation or orchestration engine." }
+      { id: 'B', text: "Build developer portals without any underlying automation or orchestration engine." },
+      { id: 'C', text: "Assume the developer portal and the developer platform are completely identical terms with no architectural distinction." },
+      { id: 'D', text: "Replace all underlying cloud infrastructure, databases, and CI/CD pipelines with a single standalone React website." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -471,12 +471,12 @@ export const CNCF_CNPA_QUESTIONS_13 = [
     scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates Portal vs Platform to clarify organizational terminology and architectural boundaries when designing internal developer tooling.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls? Distinguishing the UI/UX frontend (Backstage/Port) from the underlying platform orchestrators and substrates is under consideration.",
     options: [
-      { id: 'A', text: "Recognize the Developer Portal as the user interface layer (e.g., Backstage) and the Developer Platform as the complete engine (orchestrators, substrates, pipelines)." },
-      { id: 'B', text: "Assume the developer portal and the developer platform are completely identical terms with no architectural distinction." },
-      { id: 'C', text: "Replace all underlying cloud infrastructure, databases, and CI/CD pipelines with a single standalone React website." },
-      { id: 'D', text: "Build developer portals without any underlying automation or orchestration engine." }
+      { id: 'A', text: "Replace all underlying cloud infrastructure, databases, and CI/CD pipelines with a single standalone React website." },
+      { id: 'B', text: "Build developer portals without any underlying automation or orchestration engine." },
+      { id: 'C', text: "Assume the developer portal and the developer platform are completely identical terms with no architectural distinction." },
+      { id: 'D', text: "Recognize the Developer Portal as the user interface layer (e.g., Backstage) and the Developer Platform as the complete engine (orchestrators, substrates, pipelines)." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Recognize the Developer Portal as the user interface layer (e.g., Backstage) and the Developer Platform as the complete engine (orchestrators, substrates, pipelines). A Developer Portal (such as Backstage or Port) is the frontend pane of glass providing service discovery, documentation, and UI forms. The Developer Platform is the broader socio-technical system encompassing control planes, CI/CD, security policies, and cloud infrastructure.",
     referenceUrl: "https://www.cncf.io/reports/cloud-native-platform-engineering-whitepaper/",
@@ -492,12 +492,12 @@ export const CNCF_CNPA_QUESTIONS_13 = [
     scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates Portal vs Platform to clarify organizational terminology and architectural boundaries when designing internal developer tooling.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely? Distinguishing the UI/UX frontend (Backstage/Port) from the underlying platform orchestrators and substrates is under consideration.",
     options: [
-      { id: 'A', text: "Recognize the Developer Portal as the user interface layer (e.g., Backstage) and the Developer Platform as the complete engine (orchestrators, substrates, pipelines)." },
-      { id: 'B', text: "Assume the developer portal and the developer platform are completely identical terms with no architectural distinction." },
-      { id: 'C', text: "Replace all underlying cloud infrastructure, databases, and CI/CD pipelines with a single standalone React website." },
-      { id: 'D', text: "Build developer portals without any underlying automation or orchestration engine." }
+      { id: 'A', text: "Build developer portals without any underlying automation or orchestration engine." },
+      { id: 'B', text: "Replace all underlying cloud infrastructure, databases, and CI/CD pipelines with a single standalone React website." },
+      { id: 'C', text: "Assume the developer portal and the developer platform are completely identical terms with no architectural distinction." },
+      { id: 'D', text: "Recognize the Developer Portal as the user interface layer (e.g., Backstage) and the Developer Platform as the complete engine (orchestrators, substrates, pipelines)." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Recognize the Developer Portal as the user interface layer (e.g., Backstage) and the Developer Platform as the complete engine (orchestrators, substrates, pipelines). A Developer Portal (such as Backstage or Port) is the frontend pane of glass providing service discovery, documentation, and UI forms. The Developer Platform is the broader socio-technical system encompassing control planes, CI/CD, security policies, and cloud infrastructure.",
     referenceUrl: "https://www.cncf.io/reports/cloud-native-platform-engineering-whitepaper/",
@@ -513,12 +513,12 @@ export const CNCF_CNPA_QUESTIONS_13 = [
     scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates Portal vs Platform to clarify organizational terminology and architectural boundaries when designing internal developer tooling.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation? Distinguishing the UI/UX frontend (Backstage/Port) from the underlying platform orchestrators and substrates is under consideration.",
     options: [
-      { id: 'A', text: "Recognize the Developer Portal as the user interface layer (e.g., Backstage) and the Developer Platform as the complete engine (orchestrators, substrates, pipelines)." },
-      { id: 'B', text: "Assume the developer portal and the developer platform are completely identical terms with no architectural distinction." },
-      { id: 'C', text: "Replace all underlying cloud infrastructure, databases, and CI/CD pipelines with a single standalone React website." },
-      { id: 'D', text: "Build developer portals without any underlying automation or orchestration engine." }
+      { id: 'A', text: "Assume the developer portal and the developer platform are completely identical terms with no architectural distinction." },
+      { id: 'B', text: "Replace all underlying cloud infrastructure, databases, and CI/CD pipelines with a single standalone React website." },
+      { id: 'C', text: "Build developer portals without any underlying automation or orchestration engine." },
+      { id: 'D', text: "Recognize the Developer Portal as the user interface layer (e.g., Backstage) and the Developer Platform as the complete engine (orchestrators, substrates, pipelines)." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Recognize the Developer Portal as the user interface layer (e.g., Backstage) and the Developer Platform as the complete engine (orchestrators, substrates, pipelines). A Developer Portal (such as Backstage or Port) is the frontend pane of glass providing service discovery, documentation, and UI forms. The Developer Platform is the broader socio-technical system encompassing control planes, CI/CD, security policies, and cloud infrastructure.",
     referenceUrl: "https://www.cncf.io/reports/cloud-native-platform-engineering-whitepaper/",

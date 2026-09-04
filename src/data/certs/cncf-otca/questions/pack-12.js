@@ -10,9 +10,9 @@ export const CNCF_OTCA_QUESTIONS_12 = [
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives? Propagating cross-cutting business metadata (e.g., customerId, tier) across service boundaries is under consideration.",
     options: [
       { id: 'A', text: "Use the OpenTelemetry Baggage API to attach key-value pairs that are propagated across network boundaries via W3C Baggage headers." },
-      { id: 'B', text: "Append customer IDs to every database column name." },
+      { id: 'B', text: "Baggage is not supported in OpenTelemetry architectures." },
       { id: 'C', text: "Pass customer metadata in raw TCP socket options." },
-      { id: 'D', text: "Baggage is not supported in OpenTelemetry architectures." }
+      { id: 'D', text: "Append customer IDs to every database column name." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -31,9 +31,9 @@ export const CNCF_OTCA_QUESTIONS_12 = [
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends? Propagating cross-cutting business metadata (e.g., customerId, tier) across service boundaries is under consideration.",
     options: [
       { id: 'A', text: "Use the OpenTelemetry Baggage API to attach key-value pairs that are propagated across network boundaries via W3C Baggage headers." },
-      { id: 'B', text: "Append customer IDs to every database column name." },
-      { id: 'C', text: "Pass customer metadata in raw TCP socket options." },
-      { id: 'D', text: "Baggage is not supported in OpenTelemetry architectures." }
+      { id: 'B', text: "Baggage is not supported in OpenTelemetry architectures." },
+      { id: 'C', text: "Append customer IDs to every database column name." },
+      { id: 'D', text: "Pass customer metadata in raw TCP socket options." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -51,12 +51,12 @@ export const CNCF_OTCA_QUESTIONS_12 = [
     scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer evaluates Baggage Propagation to propagate a business-level `customerId` and `accountTier` across an entire microservice call graph without recording them in trace span names.",
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls? Propagating cross-cutting business metadata (e.g., customerId, tier) across service boundaries is under consideration.",
     options: [
-      { id: 'A', text: "Use the OpenTelemetry Baggage API to attach key-value pairs that are propagated across network boundaries via W3C Baggage headers." },
-      { id: 'B', text: "Append customer IDs to every database column name." },
-      { id: 'C', text: "Pass customer metadata in raw TCP socket options." },
-      { id: 'D', text: "Baggage is not supported in OpenTelemetry architectures." }
+      { id: 'A', text: "Append customer IDs to every database column name." },
+      { id: 'B', text: "Use the OpenTelemetry Baggage API to attach key-value pairs that are propagated across network boundaries via W3C Baggage headers." },
+      { id: 'C', text: "Baggage is not supported in OpenTelemetry architectures." },
+      { id: 'D', text: "Pass customer metadata in raw TCP socket options." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Use the OpenTelemetry Baggage API to attach key-value pairs that are propagated across network boundaries via W3C Baggage headers. While TraceContext carries identifiers required for tracing (trace ID, span ID), OpenTelemetry Baggage carries arbitrary contextual key-value pairs across service boundaries. Baggage travels via the `baggage` HTTP header, making business metadata available to downstream services for tagging or routing.",
     referenceUrl: "https://opentelemetry.io/docs/concepts/signals/baggage/",
@@ -94,9 +94,9 @@ export const CNCF_OTCA_QUESTIONS_12 = [
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation? Propagating cross-cutting business metadata (e.g., customerId, tier) across service boundaries is under consideration.",
     options: [
       { id: 'A', text: "Use the OpenTelemetry Baggage API to attach key-value pairs that are propagated across network boundaries via W3C Baggage headers." },
-      { id: 'B', text: "Append customer IDs to every database column name." },
-      { id: 'C', text: "Pass customer metadata in raw TCP socket options." },
-      { id: 'D', text: "Baggage is not supported in OpenTelemetry architectures." }
+      { id: 'B', text: "Baggage is not supported in OpenTelemetry architectures." },
+      { id: 'C', text: "Append customer IDs to every database column name." },
+      { id: 'D', text: "Pass customer metadata in raw TCP socket options." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -115,9 +115,9 @@ export const CNCF_OTCA_QUESTIONS_12 = [
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives? Understanding the hierarchy of TracerProvider, Tracer, Spans, Events, and Links is under consideration.",
     options: [
       { id: 'A', text: "Create a Span from the Tracer, record start/end timestamps, add attributes (`payment.amount`), and record point-in-time Events." },
-      { id: 'B', text: "Create a new Trace ID for every individual function call." },
-      { id: 'C', text: "Write timestamps to a flat text file on disk." },
-      { id: 'D', text: "Spans cannot contain attributes or events." }
+      { id: 'B', text: "Spans cannot contain attributes or events." },
+      { id: 'C', text: "Create a new Trace ID for every individual function call." },
+      { id: 'D', text: "Write timestamps to a flat text file on disk." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -135,12 +135,12 @@ export const CNCF_OTCA_QUESTIONS_12 = [
     scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer evaluates Trace Model to model an operation within a payment service that performs an external credit card authorization and records fraud check timestamps.",
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends? Understanding the hierarchy of TracerProvider, Tracer, Spans, Events, and Links is under consideration.",
     options: [
-      { id: 'A', text: "Create a Span from the Tracer, record start/end timestamps, add attributes (`payment.amount`), and record point-in-time Events." },
-      { id: 'B', text: "Create a new Trace ID for every individual function call." },
-      { id: 'C', text: "Write timestamps to a flat text file on disk." },
-      { id: 'D', text: "Spans cannot contain attributes or events." }
+      { id: 'A', text: "Spans cannot contain attributes or events." },
+      { id: 'B', text: "Write timestamps to a flat text file on disk." },
+      { id: 'C', text: "Create a new Trace ID for every individual function call." },
+      { id: 'D', text: "Create a Span from the Tracer, record start/end timestamps, add attributes (`payment.amount`), and record point-in-time Events." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Create a Span from the Tracer, record start/end timestamps, add attributes (`payment.amount`), and record point-in-time Events. In OpenTelemetry, a Trace is a directed acyclic graph of Spans representing an end-to-end request journey. A Span represents a single unit of work with a name, start/end timestamps, attributes (key-value metadata), Span Events (timestamped annotations like exceptions), and Links.",
     referenceUrl: "https://opentelemetry.io/docs/concepts/signals/traces/",
@@ -157,9 +157,9 @@ export const CNCF_OTCA_QUESTIONS_12 = [
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls? Understanding the hierarchy of TracerProvider, Tracer, Spans, Events, and Links is under consideration.",
     options: [
       { id: 'A', text: "Create a Span from the Tracer, record start/end timestamps, add attributes (`payment.amount`), and record point-in-time Events." },
-      { id: 'B', text: "Create a new Trace ID for every individual function call." },
-      { id: 'C', text: "Write timestamps to a flat text file on disk." },
-      { id: 'D', text: "Spans cannot contain attributes or events." }
+      { id: 'B', text: "Spans cannot contain attributes or events." },
+      { id: 'C', text: "Create a new Trace ID for every individual function call." },
+      { id: 'D', text: "Write timestamps to a flat text file on disk." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -177,12 +177,12 @@ export const CNCF_OTCA_QUESTIONS_12 = [
     scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer evaluates Trace Model to model an operation within a payment service that performs an external credit card authorization and records fraud check timestamps.",
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption? Understanding the hierarchy of TracerProvider, Tracer, Spans, Events, and Links is under consideration.",
     options: [
-      { id: 'A', text: "Create a Span from the Tracer, record start/end timestamps, add attributes (`payment.amount`), and record point-in-time Events." },
-      { id: 'B', text: "Create a new Trace ID for every individual function call." },
-      { id: 'C', text: "Write timestamps to a flat text file on disk." },
-      { id: 'D', text: "Spans cannot contain attributes or events." }
+      { id: 'A', text: "Write timestamps to a flat text file on disk." },
+      { id: 'B', text: "Spans cannot contain attributes or events." },
+      { id: 'C', text: "Create a Span from the Tracer, record start/end timestamps, add attributes (`payment.amount`), and record point-in-time Events." },
+      { id: 'D', text: "Create a new Trace ID for every individual function call." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Create a Span from the Tracer, record start/end timestamps, add attributes (`payment.amount`), and record point-in-time Events. In OpenTelemetry, a Trace is a directed acyclic graph of Spans representing an end-to-end request journey. A Span represents a single unit of work with a name, start/end timestamps, attributes (key-value metadata), Span Events (timestamped annotations like exceptions), and Links.",
     referenceUrl: "https://opentelemetry.io/docs/concepts/signals/traces/",
@@ -198,12 +198,12 @@ export const CNCF_OTCA_QUESTIONS_12 = [
     scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer evaluates Trace Model to model an operation within a payment service that performs an external credit card authorization and records fraud check timestamps.",
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation? Understanding the hierarchy of TracerProvider, Tracer, Spans, Events, and Links is under consideration.",
     options: [
-      { id: 'A', text: "Create a Span from the Tracer, record start/end timestamps, add attributes (`payment.amount`), and record point-in-time Events." },
-      { id: 'B', text: "Create a new Trace ID for every individual function call." },
-      { id: 'C', text: "Write timestamps to a flat text file on disk." },
-      { id: 'D', text: "Spans cannot contain attributes or events." }
+      { id: 'A', text: "Write timestamps to a flat text file on disk." },
+      { id: 'B', text: "Spans cannot contain attributes or events." },
+      { id: 'C', text: "Create a Span from the Tracer, record start/end timestamps, add attributes (`payment.amount`), and record point-in-time Events." },
+      { id: 'D', text: "Create a new Trace ID for every individual function call." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Create a Span from the Tracer, record start/end timestamps, add attributes (`payment.amount`), and record point-in-time Events. In OpenTelemetry, a Trace is a directed acyclic graph of Spans representing an end-to-end request journey. A Span represents a single unit of work with a name, start/end timestamps, attributes (key-value metadata), Span Events (timestamped annotations like exceptions), and Links.",
     referenceUrl: "https://opentelemetry.io/docs/concepts/signals/traces/",
@@ -219,12 +219,12 @@ export const CNCF_OTCA_QUESTIONS_12 = [
     scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer evaluates Metrics Model to choose the correct OpenTelemetry metric instruments to measure total HTTP requests, current active WebSocket connections, and request latencies.",
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives? Selecting appropriate metric instruments: Counter, Asynchronous Gauge, Histogram is under consideration.",
     options: [
-      { id: 'A', text: "Use a `Counter` for total requests, an `UpDownCounter` or `Gauge` for active connections, and a `Histogram` for request durations." },
-      { id: 'B', text: "Use a Counter for request latency." },
-      { id: 'C', text: "Use an UpDownCounter for cumulative lifetime requests." },
-      { id: 'D', text: "Measure all values using distributed traces instead of metric instruments." }
+      { id: 'A', text: "Measure all values using distributed traces instead of metric instruments." },
+      { id: 'B', text: "Use a `Counter` for total requests, an `UpDownCounter` or `Gauge` for active connections, and a `Histogram` for request durations." },
+      { id: 'C', text: "Use a Counter for request latency." },
+      { id: 'D', text: "Use an UpDownCounter for cumulative lifetime requests." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Use a `Counter` for total requests, an `UpDownCounter` or `Gauge` for active connections, and a `Histogram` for request durations. OpenTelemetry provides synchronous and asynchronous metric instruments: `Counter` (monotonically increasing values like total requests), `UpDownCounter` (values that increase and decrease like queue size), `Gauge` (current non-additive values like temperature), and `Histogram` (statistical distribution like latency).",
     referenceUrl: "https://opentelemetry.io/docs/concepts/signals/metrics/",
@@ -240,12 +240,12 @@ export const CNCF_OTCA_QUESTIONS_12 = [
     scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer evaluates Metrics Model to choose the correct OpenTelemetry metric instruments to measure total HTTP requests, current active WebSocket connections, and request latencies.",
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends? Selecting appropriate metric instruments: Counter, Asynchronous Gauge, Histogram is under consideration.",
     options: [
-      { id: 'A', text: "Use a `Counter` for total requests, an `UpDownCounter` or `Gauge` for active connections, and a `Histogram` for request durations." },
+      { id: 'A', text: "Use an UpDownCounter for cumulative lifetime requests." },
       { id: 'B', text: "Use a Counter for request latency." },
-      { id: 'C', text: "Use an UpDownCounter for cumulative lifetime requests." },
+      { id: 'C', text: "Use a `Counter` for total requests, an `UpDownCounter` or `Gauge` for active connections, and a `Histogram` for request durations." },
       { id: 'D', text: "Measure all values using distributed traces instead of metric instruments." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Use a `Counter` for total requests, an `UpDownCounter` or `Gauge` for active connections, and a `Histogram` for request durations. OpenTelemetry provides synchronous and asynchronous metric instruments: `Counter` (monotonically increasing values like total requests), `UpDownCounter` (values that increase and decrease like queue size), `Gauge` (current non-additive values like temperature), and `Histogram` (statistical distribution like latency).",
     referenceUrl: "https://opentelemetry.io/docs/concepts/signals/metrics/",
@@ -261,12 +261,12 @@ export const CNCF_OTCA_QUESTIONS_12 = [
     scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer evaluates Metrics Model to choose the correct OpenTelemetry metric instruments to measure total HTTP requests, current active WebSocket connections, and request latencies.",
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls? Selecting appropriate metric instruments: Counter, Asynchronous Gauge, Histogram is under consideration.",
     options: [
-      { id: 'A', text: "Use a `Counter` for total requests, an `UpDownCounter` or `Gauge` for active connections, and a `Histogram` for request durations." },
+      { id: 'A', text: "Use an UpDownCounter for cumulative lifetime requests." },
       { id: 'B', text: "Use a Counter for request latency." },
-      { id: 'C', text: "Use an UpDownCounter for cumulative lifetime requests." },
+      { id: 'C', text: "Use a `Counter` for total requests, an `UpDownCounter` or `Gauge` for active connections, and a `Histogram` for request durations." },
       { id: 'D', text: "Measure all values using distributed traces instead of metric instruments." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Use a `Counter` for total requests, an `UpDownCounter` or `Gauge` for active connections, and a `Histogram` for request durations. OpenTelemetry provides synchronous and asynchronous metric instruments: `Counter` (monotonically increasing values like total requests), `UpDownCounter` (values that increase and decrease like queue size), `Gauge` (current non-additive values like temperature), and `Histogram` (statistical distribution like latency).",
     referenceUrl: "https://opentelemetry.io/docs/concepts/signals/metrics/",
@@ -282,12 +282,12 @@ export const CNCF_OTCA_QUESTIONS_12 = [
     scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer evaluates Metrics Model to choose the correct OpenTelemetry metric instruments to measure total HTTP requests, current active WebSocket connections, and request latencies.",
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption? Selecting appropriate metric instruments: Counter, Asynchronous Gauge, Histogram is under consideration.",
     options: [
-      { id: 'A', text: "Use a `Counter` for total requests, an `UpDownCounter` or `Gauge` for active connections, and a `Histogram` for request durations." },
-      { id: 'B', text: "Use a Counter for request latency." },
+      { id: 'A', text: "Measure all values using distributed traces instead of metric instruments." },
+      { id: 'B', text: "Use a `Counter` for total requests, an `UpDownCounter` or `Gauge` for active connections, and a `Histogram` for request durations." },
       { id: 'C', text: "Use an UpDownCounter for cumulative lifetime requests." },
-      { id: 'D', text: "Measure all values using distributed traces instead of metric instruments." }
+      { id: 'D', text: "Use a Counter for request latency." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Use a `Counter` for total requests, an `UpDownCounter` or `Gauge` for active connections, and a `Histogram` for request durations. OpenTelemetry provides synchronous and asynchronous metric instruments: `Counter` (monotonically increasing values like total requests), `UpDownCounter` (values that increase and decrease like queue size), `Gauge` (current non-additive values like temperature), and `Histogram` (statistical distribution like latency).",
     referenceUrl: "https://opentelemetry.io/docs/concepts/signals/metrics/",
@@ -303,12 +303,12 @@ export const CNCF_OTCA_QUESTIONS_12 = [
     scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer evaluates Metrics Model to choose the correct OpenTelemetry metric instruments to measure total HTTP requests, current active WebSocket connections, and request latencies.",
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation? Selecting appropriate metric instruments: Counter, Asynchronous Gauge, Histogram is under consideration.",
     options: [
-      { id: 'A', text: "Use a `Counter` for total requests, an `UpDownCounter` or `Gauge` for active connections, and a `Histogram` for request durations." },
-      { id: 'B', text: "Use a Counter for request latency." },
-      { id: 'C', text: "Use an UpDownCounter for cumulative lifetime requests." },
-      { id: 'D', text: "Measure all values using distributed traces instead of metric instruments." }
+      { id: 'A', text: "Use an UpDownCounter for cumulative lifetime requests." },
+      { id: 'B', text: "Measure all values using distributed traces instead of metric instruments." },
+      { id: 'C', text: "Use a `Counter` for total requests, an `UpDownCounter` or `Gauge` for active connections, and a `Histogram` for request durations." },
+      { id: 'D', text: "Use a Counter for request latency." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Use a `Counter` for total requests, an `UpDownCounter` or `Gauge` for active connections, and a `Histogram` for request durations. OpenTelemetry provides synchronous and asynchronous metric instruments: `Counter` (monotonically increasing values like total requests), `UpDownCounter` (values that increase and decrease like queue size), `Gauge` (current non-additive values like temperature), and `Histogram` (statistical distribution like latency).",
     referenceUrl: "https://opentelemetry.io/docs/concepts/signals/metrics/",
@@ -324,12 +324,12 @@ export const CNCF_OTCA_QUESTIONS_12 = [
     scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer evaluates Logs Model to integrate existing application logging frameworks (Log4j, Zap, Serilog, Winston) into OpenTelemetry without rewriting all logging calls.",
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives? Integrating legacy application logging frameworks into OpenTelemetry via Log Appenders is under consideration.",
     options: [
-      { id: 'A', text: "Install the appropriate OpenTelemetry Log Appender/Bridge library that intercepts logs from existing frameworks and emits OTel log records." },
-      { id: 'B', text: "Manually rewrite thousands of log statements across the entire application codebase." },
+      { id: 'A', text: "Pipe stdout logs directly into an unencrypted public web server." },
+      { id: 'B', text: "Install the appropriate OpenTelemetry Log Appender/Bridge library that intercepts logs from existing frameworks and emits OTel log records." },
       { id: 'C', text: "Disable application logging and rely solely on distributed traces." },
-      { id: 'D', text: "Pipe stdout logs directly into an unencrypted public web server." }
+      { id: 'D', text: "Manually rewrite thousands of log statements across the entire application codebase." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Install the appropriate OpenTelemetry Log Appender/Bridge library that intercepts logs from existing frameworks and emits OTel log records. OpenTelemetry does not aim to replace established logging libraries. Instead, it provides the Log Bridge API and SDK Log Appenders. Log appenders hook into existing frameworks (e.g., Logback, Winston), translating standard log events into OpenTelemetry log records enriched with active TraceID and SpanID.",
     referenceUrl: "https://opentelemetry.io/docs/concepts/signals/logs/",
@@ -346,8 +346,8 @@ export const CNCF_OTCA_QUESTIONS_12 = [
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends? Integrating legacy application logging frameworks into OpenTelemetry via Log Appenders is under consideration.",
     options: [
       { id: 'A', text: "Install the appropriate OpenTelemetry Log Appender/Bridge library that intercepts logs from existing frameworks and emits OTel log records." },
-      { id: 'B', text: "Manually rewrite thousands of log statements across the entire application codebase." },
-      { id: 'C', text: "Disable application logging and rely solely on distributed traces." },
+      { id: 'B', text: "Disable application logging and rely solely on distributed traces." },
+      { id: 'C', text: "Manually rewrite thousands of log statements across the entire application codebase." },
       { id: 'D', text: "Pipe stdout logs directly into an unencrypted public web server." }
     ],
     correctAnswers: ['A'],
@@ -367,9 +367,9 @@ export const CNCF_OTCA_QUESTIONS_12 = [
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls? Integrating legacy application logging frameworks into OpenTelemetry via Log Appenders is under consideration.",
     options: [
       { id: 'A', text: "Install the appropriate OpenTelemetry Log Appender/Bridge library that intercepts logs from existing frameworks and emits OTel log records." },
-      { id: 'B', text: "Manually rewrite thousands of log statements across the entire application codebase." },
-      { id: 'C', text: "Disable application logging and rely solely on distributed traces." },
-      { id: 'D', text: "Pipe stdout logs directly into an unencrypted public web server." }
+      { id: 'B', text: "Disable application logging and rely solely on distributed traces." },
+      { id: 'C', text: "Pipe stdout logs directly into an unencrypted public web server." },
+      { id: 'D', text: "Manually rewrite thousands of log statements across the entire application codebase." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -387,12 +387,12 @@ export const CNCF_OTCA_QUESTIONS_12 = [
     scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer evaluates Logs Model to integrate existing application logging frameworks (Log4j, Zap, Serilog, Winston) into OpenTelemetry without rewriting all logging calls.",
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption? Integrating legacy application logging frameworks into OpenTelemetry via Log Appenders is under consideration.",
     options: [
-      { id: 'A', text: "Install the appropriate OpenTelemetry Log Appender/Bridge library that intercepts logs from existing frameworks and emits OTel log records." },
-      { id: 'B', text: "Manually rewrite thousands of log statements across the entire application codebase." },
-      { id: 'C', text: "Disable application logging and rely solely on distributed traces." },
-      { id: 'D', text: "Pipe stdout logs directly into an unencrypted public web server." }
+      { id: 'A', text: "Disable application logging and rely solely on distributed traces." },
+      { id: 'B', text: "Install the appropriate OpenTelemetry Log Appender/Bridge library that intercepts logs from existing frameworks and emits OTel log records." },
+      { id: 'C', text: "Pipe stdout logs directly into an unencrypted public web server." },
+      { id: 'D', text: "Manually rewrite thousands of log statements across the entire application codebase." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Install the appropriate OpenTelemetry Log Appender/Bridge library that intercepts logs from existing frameworks and emits OTel log records. OpenTelemetry does not aim to replace established logging libraries. Instead, it provides the Log Bridge API and SDK Log Appenders. Log appenders hook into existing frameworks (e.g., Logback, Winston), translating standard log events into OpenTelemetry log records enriched with active TraceID and SpanID.",
     referenceUrl: "https://opentelemetry.io/docs/concepts/signals/logs/",
@@ -408,12 +408,12 @@ export const CNCF_OTCA_QUESTIONS_12 = [
     scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer evaluates Logs Model to integrate existing application logging frameworks (Log4j, Zap, Serilog, Winston) into OpenTelemetry without rewriting all logging calls.",
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation? Integrating legacy application logging frameworks into OpenTelemetry via Log Appenders is under consideration.",
     options: [
-      { id: 'A', text: "Install the appropriate OpenTelemetry Log Appender/Bridge library that intercepts logs from existing frameworks and emits OTel log records." },
-      { id: 'B', text: "Manually rewrite thousands of log statements across the entire application codebase." },
-      { id: 'C', text: "Disable application logging and rely solely on distributed traces." },
-      { id: 'D', text: "Pipe stdout logs directly into an unencrypted public web server." }
+      { id: 'A', text: "Pipe stdout logs directly into an unencrypted public web server." },
+      { id: 'B', text: "Disable application logging and rely solely on distributed traces." },
+      { id: 'C', text: "Install the appropriate OpenTelemetry Log Appender/Bridge library that intercepts logs from existing frameworks and emits OTel log records." },
+      { id: 'D', text: "Manually rewrite thousands of log statements across the entire application codebase." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Install the appropriate OpenTelemetry Log Appender/Bridge library that intercepts logs from existing frameworks and emits OTel log records. OpenTelemetry does not aim to replace established logging libraries. Instead, it provides the Log Bridge API and SDK Log Appenders. Log appenders hook into existing frameworks (e.g., Logback, Winston), translating standard log events into OpenTelemetry log records enriched with active TraceID and SpanID.",
     referenceUrl: "https://opentelemetry.io/docs/concepts/signals/logs/",
@@ -430,8 +430,8 @@ export const CNCF_OTCA_QUESTIONS_12 = [
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives? Trade-offs between head-based sampling at SDK and tail-based sampling in Collectors is under consideration.",
     options: [
       { id: 'A', text: "Implement Tail-Based Sampling in the OpenTelemetry Collector, evaluating complete traces after completion to retain errors and high latencies." },
-      { id: 'B', text: "Use 1% Head-Based sampling at the application SDK, which randomly discards 99% of error traces before they complete." },
-      { id: 'C', text: "Capture 100% of all traces unconditionally, overwhelming storage backends and incurring massive network bills." },
+      { id: 'B', text: "Capture 100% of all traces unconditionally, overwhelming storage backends and incurring massive network bills." },
+      { id: 'C', text: "Use 1% Head-Based sampling at the application SDK, which randomly discards 99% of error traces before they complete." },
       { id: 'D', text: "Disable sampling completely and collect zero traces." }
     ],
     correctAnswers: ['A'],
@@ -450,12 +450,12 @@ export const CNCF_OTCA_QUESTIONS_12 = [
     scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer evaluates Sampling Strategies to ensure that 100% of failed HTTP requests (5xx) and high-latency spans are captured while discarding 99% of fast, repetitive health checks.",
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends? Trade-offs between head-based sampling at SDK and tail-based sampling in Collectors is under consideration.",
     options: [
-      { id: 'A', text: "Implement Tail-Based Sampling in the OpenTelemetry Collector, evaluating complete traces after completion to retain errors and high latencies." },
-      { id: 'B', text: "Use 1% Head-Based sampling at the application SDK, which randomly discards 99% of error traces before they complete." },
-      { id: 'C', text: "Capture 100% of all traces unconditionally, overwhelming storage backends and incurring massive network bills." },
-      { id: 'D', text: "Disable sampling completely and collect zero traces." }
+      { id: 'A', text: "Use 1% Head-Based sampling at the application SDK, which randomly discards 99% of error traces before they complete." },
+      { id: 'B', text: "Implement Tail-Based Sampling in the OpenTelemetry Collector, evaluating complete traces after completion to retain errors and high latencies." },
+      { id: 'C', text: "Disable sampling completely and collect zero traces." },
+      { id: 'D', text: "Capture 100% of all traces unconditionally, overwhelming storage backends and incurring massive network bills." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Implement Tail-Based Sampling in the OpenTelemetry Collector, evaluating complete traces after completion to retain errors and high latencies. Head-based sampling decides whether to sample at the start of a trace (before outcome is known), risking dropping rare errors. Tail-based sampling buffers spans in an OpenTelemetry Collector until the trace completes, making sampling decisions based on actual outcome (e.g., HTTP status 500, duration &gt; 2s).",
     referenceUrl: "https://opentelemetry.io/docs/concepts/sampling/",
@@ -471,12 +471,12 @@ export const CNCF_OTCA_QUESTIONS_12 = [
     scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer evaluates Sampling Strategies to ensure that 100% of failed HTTP requests (5xx) and high-latency spans are captured while discarding 99% of fast, repetitive health checks.",
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls? Trade-offs between head-based sampling at SDK and tail-based sampling in Collectors is under consideration.",
     options: [
-      { id: 'A', text: "Implement Tail-Based Sampling in the OpenTelemetry Collector, evaluating complete traces after completion to retain errors and high latencies." },
-      { id: 'B', text: "Use 1% Head-Based sampling at the application SDK, which randomly discards 99% of error traces before they complete." },
-      { id: 'C', text: "Capture 100% of all traces unconditionally, overwhelming storage backends and incurring massive network bills." },
-      { id: 'D', text: "Disable sampling completely and collect zero traces." }
+      { id: 'A', text: "Capture 100% of all traces unconditionally, overwhelming storage backends and incurring massive network bills." },
+      { id: 'B', text: "Disable sampling completely and collect zero traces." },
+      { id: 'C', text: "Use 1% Head-Based sampling at the application SDK, which randomly discards 99% of error traces before they complete." },
+      { id: 'D', text: "Implement Tail-Based Sampling in the OpenTelemetry Collector, evaluating complete traces after completion to retain errors and high latencies." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Implement Tail-Based Sampling in the OpenTelemetry Collector, evaluating complete traces after completion to retain errors and high latencies. Head-based sampling decides whether to sample at the start of a trace (before outcome is known), risking dropping rare errors. Tail-based sampling buffers spans in an OpenTelemetry Collector until the trace completes, making sampling decisions based on actual outcome (e.g., HTTP status 500, duration &gt; 2s).",
     referenceUrl: "https://opentelemetry.io/docs/concepts/sampling/",
@@ -492,12 +492,12 @@ export const CNCF_OTCA_QUESTIONS_12 = [
     scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer evaluates Sampling Strategies to ensure that 100% of failed HTTP requests (5xx) and high-latency spans are captured while discarding 99% of fast, repetitive health checks.",
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption? Trade-offs between head-based sampling at SDK and tail-based sampling in Collectors is under consideration.",
     options: [
-      { id: 'A', text: "Implement Tail-Based Sampling in the OpenTelemetry Collector, evaluating complete traces after completion to retain errors and high latencies." },
-      { id: 'B', text: "Use 1% Head-Based sampling at the application SDK, which randomly discards 99% of error traces before they complete." },
-      { id: 'C', text: "Capture 100% of all traces unconditionally, overwhelming storage backends and incurring massive network bills." },
-      { id: 'D', text: "Disable sampling completely and collect zero traces." }
+      { id: 'A', text: "Capture 100% of all traces unconditionally, overwhelming storage backends and incurring massive network bills." },
+      { id: 'B', text: "Disable sampling completely and collect zero traces." },
+      { id: 'C', text: "Implement Tail-Based Sampling in the OpenTelemetry Collector, evaluating complete traces after completion to retain errors and high latencies." },
+      { id: 'D', text: "Use 1% Head-Based sampling at the application SDK, which randomly discards 99% of error traces before they complete." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Implement Tail-Based Sampling in the OpenTelemetry Collector, evaluating complete traces after completion to retain errors and high latencies. Head-based sampling decides whether to sample at the start of a trace (before outcome is known), risking dropping rare errors. Tail-based sampling buffers spans in an OpenTelemetry Collector until the trace completes, making sampling decisions based on actual outcome (e.g., HTTP status 500, duration &gt; 2s).",
     referenceUrl: "https://opentelemetry.io/docs/concepts/sampling/",
@@ -513,12 +513,12 @@ export const CNCF_OTCA_QUESTIONS_12 = [
     scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer evaluates Sampling Strategies to ensure that 100% of failed HTTP requests (5xx) and high-latency spans are captured while discarding 99% of fast, repetitive health checks.",
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation? Trade-offs between head-based sampling at SDK and tail-based sampling in Collectors is under consideration.",
     options: [
-      { id: 'A', text: "Implement Tail-Based Sampling in the OpenTelemetry Collector, evaluating complete traces after completion to retain errors and high latencies." },
-      { id: 'B', text: "Use 1% Head-Based sampling at the application SDK, which randomly discards 99% of error traces before they complete." },
-      { id: 'C', text: "Capture 100% of all traces unconditionally, overwhelming storage backends and incurring massive network bills." },
-      { id: 'D', text: "Disable sampling completely and collect zero traces." }
+      { id: 'A', text: "Capture 100% of all traces unconditionally, overwhelming storage backends and incurring massive network bills." },
+      { id: 'B', text: "Disable sampling completely and collect zero traces." },
+      { id: 'C', text: "Use 1% Head-Based sampling at the application SDK, which randomly discards 99% of error traces before they complete." },
+      { id: 'D', text: "Implement Tail-Based Sampling in the OpenTelemetry Collector, evaluating complete traces after completion to retain errors and high latencies." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Implement Tail-Based Sampling in the OpenTelemetry Collector, evaluating complete traces after completion to retain errors and high latencies. Head-based sampling decides whether to sample at the start of a trace (before outcome is known), risking dropping rare errors. Tail-based sampling buffers spans in an OpenTelemetry Collector until the trace completes, making sampling decisions based on actual outcome (e.g., HTTP status 500, duration &gt; 2s).",
     referenceUrl: "https://opentelemetry.io/docs/concepts/sampling/",

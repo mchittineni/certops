@@ -9,12 +9,12 @@ export const AWS_DVA_QUESTIONS_7 = [
     scenario: "A CI/CD pipeline on AWS CodePipeline must compile code in CodeBuild, pause for a release manager to approve the release, and then deploy to production in CodeDeploy.",
     question: "Which CodePipeline action type halts the pipeline until a designated user confirms the release?",
     options: [
-      { id: 'A', text: "A CloudWatch Alarm trigger" },
-      { id: 'B', text: "A Manual Approval action" },
-      { id: 'C', text: "A Step Functions Wait state" },
-      { id: 'D', text: "A Lambda Invocation action" }
+      { id: 'A', text: "A Lambda Invocation action" },
+      { id: 'B', text: "A Step Functions Wait state" },
+      { id: 'C', text: "A CloudWatch Alarm trigger" },
+      { id: 'D', text: "A Manual Approval action" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "CodePipeline supports `Manual Approval` actions. When a pipeline reaches a manual approval action, execution halts, an Amazon SNS notification is sent to approvers, and execution only proceeds once an authorized user approves the release through the console or API.",
     referenceUrl: "https://docs.aws.amazon.com/codepipeline/latest/userguide/approvals.html",
@@ -30,12 +30,12 @@ export const AWS_DVA_QUESTIONS_7 = [
     scenario: "A developer is building a serverless application consisting of Lambda functions, API Gateway HTTP endpoints, and DynamoDB tables using AWS Serverless Application Model (SAM).",
     question: "Which declaration at the top of the template instructs CloudFormation to process SAM serverless resource types?",
     options: [
-      { id: 'A', text: "TemplateVersion: SAM-v2" },
-      { id: 'B', text: "Transform: AWS::Serverless-2016-10-31" },
-      { id: 'C', text: "Type: AWS::Serverless::Application" },
+      { id: 'A', text: "Transform: AWS::Serverless-2016-10-31" },
+      { id: 'B', text: "Type: AWS::Serverless::Application" },
+      { id: 'C', text: "TemplateVersion: SAM-v2" },
       { id: 'D', text: "AWSTemplateFormatVersion: 2010-09-09 alone" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The `Transform: AWS::Serverless-2016-10-31` macro header instructs CloudFormation to expand concise SAM resources (such as `AWS::Serverless::Function`, `AWS::Serverless::Api`, and `AWS::Serverless::SimpleTable`) into standard CloudFormation resources during deployment.",
     referenceUrl: "https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-specification-template-anatomy.html",
@@ -52,8 +52,8 @@ export const AWS_DVA_QUESTIONS_7 = [
     question: "Which AWS SAM CLI command compiles dependencies and builds the deployment artifacts into the .aws-sam directory?",
     options: [
       { id: 'A', text: "sam build" },
-      { id: 'B', text: "sam local invoke" },
-      { id: 'C', text: "sam deploy" },
+      { id: 'B', text: "sam deploy" },
+      { id: 'C', text: "sam local invoke" },
       { id: 'D', text: "sam package" }
     ],
     correctAnswers: ['A'],
@@ -72,12 +72,12 @@ export const AWS_DVA_QUESTIONS_7 = [
     scenario: "A CloudFormation template needs to dynamically generate a resource name by combining an environment parameter `Env` and an account ID: `my-bucket-${Env}-${AWS::AccountId}`.",
     question: "Which CloudFormation intrinsic function performs this string variable substitution?",
     options: [
-      { id: 'A', text: "!Join with a single argument" },
-      { id: 'B', text: "!GetAtt" },
-      { id: 'C', text: "!Ref" },
-      { id: 'D', text: "!Sub" }
+      { id: 'A', text: "!Ref" },
+      { id: 'B', text: "!Join with a single argument" },
+      { id: 'C', text: "!Sub" },
+      { id: 'D', text: "!GetAtt" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "The `!Sub` (Fn::Sub) intrinsic function substitutes variables in an input string with values that you specify or attributes from pseudo parameters (like `${AWS::AccountId}`) and template parameters (like `${Env}`). `!Ref` returns only the literal value of a single parameter or resource identifier.",
     referenceUrl: "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-sub.html",
@@ -94,9 +94,9 @@ export const AWS_DVA_QUESTIONS_7 = [
     question: "Which intrinsic function retrieves resource-specific attributes like Arn?",
     options: [
       { id: 'A', text: "!GetAtt MyBucket.Arn" },
-      { id: 'B', text: "!Select MyBucket" },
-      { id: 'C', text: "!Ref MyBucket" },
-      { id: 'D', text: "!Sub MyBucket.Arn" }
+      { id: 'B', text: "!Ref MyBucket" },
+      { id: 'C', text: "!Sub MyBucket.Arn" },
+      { id: 'D', text: "!Select MyBucket" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -114,12 +114,12 @@ export const AWS_DVA_QUESTIONS_7 = [
     scenario: "A CloudFormation stack fails because a database user initialization script attempts to run before the database instance is completely available, even though no direct parameter reference links the two resources.",
     question: "Which CloudFormation attribute explicitly forces one resource to be created after another?",
     options: [
-      { id: 'A', text: "Condition" },
-      { id: 'B', text: "DependsOn" },
-      { id: 'C', text: "DeletionPolicy" },
-      { id: 'D', text: "Metadata" }
+      { id: 'A', text: "Metadata" },
+      { id: 'B', text: "DeletionPolicy" },
+      { id: 'C', text: "Condition" },
+      { id: 'D', text: "DependsOn" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The `DependsOn` attribute specifies that the creation of a specific resource follows another. When a developer adds `DependsOn: MyDatabase` to a resource, CloudFormation guarantees that `MyDatabase` is successfully provisioned and ready before creating the dependent resource.",
     referenceUrl: "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html",
@@ -136,9 +136,9 @@ export const AWS_DVA_QUESTIONS_7 = [
     question: "Which combination of CloudFormation helper scripts coordinates package installation and status notification?",
     options: [
       { id: 'A', text: "Use cfn-init to install packages defined in AWS::CloudFormation::Init metadata and cfn-signal to notify CloudFormation of success" },
-      { id: 'B', text: "Use cfn-hup alone with cron jobs" },
+      { id: 'B', text: "Hardcode a 30-minute sleep command in the user data script" },
       { id: 'C', text: "Use cfn-get-metadata and reboot the instance" },
-      { id: 'D', text: "Hardcode a 30-minute sleep command in the user data script" }
+      { id: 'D', text: "Use cfn-hup alone with cron jobs" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -158,8 +158,8 @@ export const AWS_DVA_QUESTIONS_7 = [
     options: [
       { id: 'A', text: "Immutable" },
       { id: 'B', text: "All at once" },
-      { id: 'C', text: "Rolling" },
-      { id: 'D', text: "Rolling with additional batch" }
+      { id: 'C', text: "Rolling with additional batch" },
+      { id: 'D', text: "Rolling" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -177,12 +177,12 @@ export const AWS_DVA_QUESTIONS_7 = [
     scenario: "A developer needs to configure custom Nginx reverse proxy directives and install operating system dependencies on an Amazon Linux 2 Elastic Beanstalk environment.",
     question: "Where should custom configuration files and platform hooks be placed in the source bundle?",
     options: [
-      { id: 'A', text: "In an Amazon S3 public bucket root" },
-      { id: 'B', text: "In the .ebextensions/ directory for YAML configs and .platform/hooks/ for shell scripts" },
+      { id: 'A', text: "In the .ebextensions/ directory for YAML configs and .platform/hooks/ for shell scripts" },
+      { id: 'B', text: "In the /var/log/eb-engine/ directory" },
       { id: 'C', text: "In the package.json dependencies array" },
-      { id: 'D', text: "In the /var/log/eb-engine/ directory" }
+      { id: 'D', text: "In an Amazon S3 public bucket root" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "In Elastic Beanstalk, `.ebextensions/*.config` files configure AWS resources, packages, and environment options, while the `.platform/` directory (introduced in Amazon Linux 2 platforms) allows developers to place shell scripts in `hooks/prebuild`, `hooks/predeploy`, and `hooks/postdeploy`.",
     referenceUrl: "https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/ebextensions.html",
@@ -199,8 +199,8 @@ export const AWS_DVA_QUESTIONS_7 = [
     question: "Which Elastic Beanstalk environment tier is designed for asynchronous background workers?",
     options: [
       { id: 'A', text: "Worker Environment Tier" },
-      { id: 'B', text: "Web Server Environment Tier" },
-      { id: 'C', text: "Single Instance Tier" },
+      { id: 'B', text: "Single Instance Tier" },
+      { id: 'C', text: "Web Server Environment Tier" },
       { id: 'D', text: "Serverless Fargate Tier" }
     ],
     correctAnswers: ['A'],
@@ -219,12 +219,12 @@ export const AWS_DVA_QUESTIONS_7 = [
     scenario: "An enterprise microservice running on Amazon ECS on AWS Fargate must receive its own dedicated Elastic Network Interface (ENI) and private IP address within the VPC.",
     question: "Which network mode must be specified in the ECS task definition?",
     options: [
-      { id: 'A', text: "host" },
-      { id: 'B', text: "none" },
-      { id: 'C', text: "awsvpc" },
-      { id: 'D', text: "bridge" }
+      { id: 'A', text: "none" },
+      { id: 'B', text: "awsvpc" },
+      { id: 'C', text: "bridge" },
+      { id: 'D', text: "host" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "The `awsvpc` network mode assigns each ECS task its own Elastic Network Interface (ENI) and private IP address directly inside the VPC. `awsvpc` is required for AWS Fargate and enables task-level security groups, VPC Flow Logs, and private subnet routing.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html",
@@ -241,9 +241,9 @@ export const AWS_DVA_QUESTIONS_7 = [
     question: "How can an Application Load Balancer route traffic to these container instances without port collisions?",
     options: [
       { id: 'A', text: "Set hostPort to 0 in the task definition port mapping to enable dynamic host port assignment" },
-      { id: 'B', text: "Assign a unique static host port to every container manually" },
+      { id: 'B', text: "Disable security groups on the container instances" },
       { id: 'C', text: "Switch the EC2 instance to the awsvpc mode" },
-      { id: 'D', text: "Disable security groups on the container instances" }
+      { id: 'D', text: "Assign a unique static host port to every container manually" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -261,12 +261,12 @@ export const AWS_DVA_QUESTIONS_7 = [
     scenario: "An ECS task definition requires permissions to pull container images from Amazon ECR and send logs to CloudWatch, while the application code inside the container needs permissions to query a DynamoDB table.",
     question: "How should the developer configure IAM roles in the task definition?",
     options: [
-      { id: 'A', text: "Assign all permissions to the Task Role only" },
-      { id: 'B', text: "Hardcode IAM access keys inside the Dockerfile" },
-      { id: 'C', text: "Assign the ECR and CloudWatch permissions to the Task Execution Role, and assign the DynamoDB permissions to the Task Role" },
-      { id: 'D', text: "Assign all permissions to the EC2 instance profile only" }
+      { id: 'A', text: "Assign all permissions to the EC2 instance profile only" },
+      { id: 'B', text: "Assign all permissions to the Task Role only" },
+      { id: 'C', text: "Hardcode IAM access keys inside the Dockerfile" },
+      { id: 'D', text: "Assign the ECR and CloudWatch permissions to the Task Execution Role, and assign the DynamoDB permissions to the Task Role" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The `Task Execution Role` grants permissions to the ECS container agent (to pull images from ECR, decrypt secrets from Secrets Manager, and push logs to CloudWatch). The `Task Role` grants permissions to the application running inside the container (e.g. calling DynamoDB, S3, or SQS).",
     referenceUrl: "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html",
@@ -282,12 +282,12 @@ export const AWS_DVA_QUESTIONS_7 = [
     scenario: "A team wants to prevent direct commits to the `main` branch in AWS CodeCommit and require approval from at least two senior engineers on all pull requests.",
     question: "Which combination of features enforces this governance workflow?",
     options: [
-      { id: 'A', text: "IAM deny policy on codecommit:GitPush for the main branch paired with a CodeCommit Approval Rule Template" },
-      { id: 'B', text: "An S3 bucket lifecycle rule" },
+      { id: 'A', text: "An S3 bucket lifecycle rule" },
+      { id: 'B', text: "IAM deny policy on codecommit:GitPush for the main branch paired with a CodeCommit Approval Rule Template" },
       { id: 'C', text: "A CloudWatch Events rule with SNS" },
       { id: 'D', text: "A Lambda function polling Git logs" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "To protect CodeCommit branches, an IAM policy statement with `Deny` on `codecommit:GitPush` targeting `refs/heads/main` prevents direct pushing. An Approval Rule Template enforces pull request approval rules (e.g. minimum 2 approvers) across repositories.",
     referenceUrl: "https://docs.aws.amazon.com/codecommit/latest/userguide/how-to-create-approval-rule-template.html",
@@ -303,12 +303,12 @@ export const AWS_DVA_QUESTIONS_7 = [
     scenario: "Whenever code is pushed to a specific branch in AWS CodeCommit, a notification must be published to Amazon SNS and a build script must execute in AWS Lambda.",
     question: "Which CodeCommit feature directly triggers downstream notifications upon repository events?",
     options: [
-      { id: 'A', text: "CodeCommit Repository Triggers" },
-      { id: 'B', text: "Git pre-commit hooks in client local repositories" },
-      { id: 'C', text: "CloudFront distribution invalidation" },
-      { id: 'D', text: "S3 event notifications" }
+      { id: 'A', text: "S3 event notifications" },
+      { id: 'B', text: "CloudFront distribution invalidation" },
+      { id: 'C', text: "Git pre-commit hooks in client local repositories" },
+      { id: 'D', text: "CodeCommit Repository Triggers" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "CodeCommit repository triggers can be created for events such as pushes to specific branches or creation/deletion of branches. The trigger sends notifications directly to an Amazon SNS topic or invokes an AWS Lambda function automatically.",
     referenceUrl: "https://docs.aws.amazon.com/codecommit/latest/userguide/how-to-notify.html",
@@ -324,12 +324,12 @@ export const AWS_DVA_QUESTIONS_7 = [
     scenario: "A CodeBuild project builds an application and generates two distinct output artifacts: a compiled production zip and a code coverage test report.",
     question: "How can the developer output both distinct files into separate Amazon S3 locations from buildspec.yml?",
     options: [
-      { id: 'A', text: "Run two independent CodeBuild projects sequentially" },
-      { id: 'B', text: "Define a secondary-artifacts block in the artifacts section of buildspec.yml" },
-      { id: 'C', text: "Secondary artifacts are not supported in AWS CodeBuild" },
-      { id: 'D', text: "Manually call aws s3 cp in the post_build phase without artifact declarations" }
+      { id: 'A', text: "Secondary artifacts are not supported in AWS CodeBuild" },
+      { id: 'B', text: "Manually call aws s3 cp in the post_build phase without artifact declarations" },
+      { id: 'C', text: "Define a secondary-artifacts block in the artifacts section of buildspec.yml" },
+      { id: 'D', text: "Run two independent CodeBuild projects sequentially" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "AWS CodeBuild supports multiple artifact outputs via the `secondary-artifacts` block in `buildspec.yml`. Each secondary artifact identifier can specify its own file pattern, base directory, and discard-paths setting.",
     referenceUrl: "https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-artifacts",
@@ -345,12 +345,12 @@ export const AWS_DVA_QUESTIONS_7 = [
     scenario: "A developer needs to securely inject an API key stored in Systems Manager Parameter Store into a CodeBuild container without hardcoding it in source control.",
     question: "Which section of `buildspec.yml` references Parameter Store parameters directly?",
     options: [
-      { id: 'A', text: "cache: paths:" },
-      { id: 'B', text: "env: parameter-store: section" },
+      { id: 'A', text: "env: parameter-store: section" },
+      { id: 'B', text: "env: variables: section" },
       { id: 'C', text: "phases: install: commands:" },
-      { id: 'D', text: "env: variables: section" }
+      { id: 'D', text: "cache: paths:" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "In `buildspec.yml`, the `env: parameter-store:` section maps environment variable names directly to Systems Manager Parameter Store parameter keys. CodeBuild automatically fetches and decrypts values before running build phases.",
     referenceUrl: "https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-env",
@@ -387,12 +387,12 @@ export const AWS_DVA_QUESTIONS_7 = [
     scenario: "A web deployment on EC2 causes HTTP 500 error spikes. The team needs CodeDeploy to automatically halt the deployment and roll back to the prior version immediately when error rates spike.",
     question: "How should the developer configure automated rollbacks in CodeDeploy?",
     options: [
-      { id: 'A', text: "Configure Rollback Triggers in the deployment group associated with a CloudWatch Alarm monitoring 5XX errors" },
-      { id: 'B', text: "Write a Lambda function that deletes the deployment group" },
-      { id: 'C', text: "Deploy an immutable stack in CloudFormation manually" },
-      { id: 'D', text: "CodeDeploy does not support automated rollbacks" }
+      { id: 'A', text: "Deploy an immutable stack in CloudFormation manually" },
+      { id: 'B', text: "CodeDeploy does not support automated rollbacks" },
+      { id: 'C', text: "Configure Rollback Triggers in the deployment group associated with a CloudWatch Alarm monitoring 5XX errors" },
+      { id: 'D', text: "Write a Lambda function that deletes the deployment group" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "AWS CodeDeploy allows developers to specify CloudWatch Alarms as deployment rollback triggers. If any configured alarm transitions to `ALARM` state during deployment, CodeDeploy instantly halts traffic shifting and redeploys the last known successful revision.",
     referenceUrl: "https://docs.aws.amazon.com/codedeploy/latest/userguide/deployments-rollback-and-redeploy.html#deployments-rollback-alarms",
@@ -408,12 +408,12 @@ export const AWS_DVA_QUESTIONS_7 = [
     scenario: "A developer launches an EC2 instance to participate in CodeDeploy deployments. Deployments fail with `The CodeDeploy agent did not register`.",
     question: "Which two prerequisites must be met on the EC2 instance for CodeDeploy to operate?",
     options: [
-      { id: 'A', text: "Docker must be installed and port 80 must be open to 0.0.0.0/0" },
-      { id: 'B', text: "The CodeDeploy Agent must be installed and running, and the instance must have an IAM instance profile with AmazonEC2RoleforAWSCodeDeploy permissions" },
-      { id: 'C', text: "CodeCommit credentials must be placed in /root/.gitconfig" },
-      { id: 'D', text: "The instance must have a static Elastic IP and root SSH enabled" }
+      { id: 'A', text: "CodeCommit credentials must be placed in /root/.gitconfig" },
+      { id: 'B', text: "The instance must have a static Elastic IP and root SSH enabled" },
+      { id: 'C', text: "The CodeDeploy Agent must be installed and running, and the instance must have an IAM instance profile with AmazonEC2RoleforAWSCodeDeploy permissions" },
+      { id: 'D', text: "Docker must be installed and port 80 must be open to 0.0.0.0/0" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "The CodeDeploy agent must be installed on the instance OS, and the instance must have an IAM instance profile granting permissions to communicate with CodeDeploy and download artifacts from Amazon S3.",
     referenceUrl: "https://docs.aws.amazon.com/codedeploy/latest/userguide/codedeploy-agent.html",
@@ -429,12 +429,12 @@ export const AWS_DVA_QUESTIONS_7 = [
     scenario: "A developer deploys a new version of an EC2 web application using CodeDeploy Blue/Green. CodeDeploy must shift HTTP traffic smoothly from the original instances to replacement instances.",
     question: "Which AWS service component reroutes user traffic between the Blue and Green instance sets?",
     options: [
-      { id: 'A', text: "Network Access Control Lists" },
-      { id: 'B', text: "NAT Gateway route tables" },
-      { id: 'C', text: "Application Load Balancer (ALB) Target Groups" },
-      { id: 'D', text: "Amazon Route 53 DNS record weighting alone" }
+      { id: 'A', text: "Amazon Route 53 DNS record weighting alone" },
+      { id: 'B', text: "Network Access Control Lists" },
+      { id: 'C', text: "NAT Gateway route tables" },
+      { id: 'D', text: "Application Load Balancer (ALB) Target Groups" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "In CodeDeploy Blue/Green deployments for EC2, CodeDeploy integrates with Application Load Balancer Target Groups. It registers the replacement instances to a new target group and reroutes production listener traffic to the replacement target group once health checks pass.",
     referenceUrl: "https://docs.aws.amazon.com/codedeploy/latest/userguide/integrations-aws-elb.html",
@@ -450,12 +450,12 @@ export const AWS_DVA_QUESTIONS_7 = [
     scenario: "A team uses CodeDeploy to deploy container updates on Amazon ECS. The deployment must create a replacement task set, run tests on a test port, and shift production traffic.",
     question: "Which deployment controller must be specified in the Amazon ECS service definition?",
     options: [
-      { id: 'A', text: "CODE_DEPLOY" },
+      { id: 'A', text: "KUBERNETES" },
       { id: 'B', text: "ECS (Rolling update)" },
       { id: 'C', text: "EXTERNAL" },
-      { id: 'D', text: "KUBERNETES" }
+      { id: 'D', text: "CODE_DEPLOY" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "To enable Blue/Green deployments with traffic shifting for Amazon ECS, the service definition must configure `deploymentController: { type: 'CODE_DEPLOY' }`, enabling CodeDeploy to manage task set creation and ALB listener rule routing.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-bluegreen.html",
@@ -471,12 +471,12 @@ export const AWS_DVA_QUESTIONS_7 = [
     scenario: "A developer uses GitHub for version control and AWS CodePipeline for CI/CD. The pipeline must trigger immediately within seconds whenever code is pushed to the repository.",
     question: "Which mechanism enables instant pipeline execution upon GitHub push events?",
     options: [
-      { id: 'A', text: "A CodePipeline Webhook (or AWS CodeStar Source Connections)" },
-      { id: 'B', text: "A 1-minute cron poll schedule in CodePipeline" },
+      { id: 'A', text: "A 1-minute cron poll schedule in CodePipeline" },
+      { id: 'B', text: "A CodePipeline Webhook (or AWS CodeStar Source Connections)" },
       { id: 'C', text: "An S3 bucket notification on commit logs" },
       { id: 'D', text: "CloudTrail monitoring of GitHub API calls" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "AWS CodePipeline webhooks (and AWS CodeStar Connections) receive real-time push event payloads from external Git providers via HTTPS webhooks, triggering pipeline executions instantaneously rather than relying on periodic polling.",
     referenceUrl: "https://docs.aws.amazon.com/codepipeline/latest/userguide/connections-github.html",
@@ -493,9 +493,9 @@ export const AWS_DVA_QUESTIONS_7 = [
     question: "What is required to allow Account B to decrypt pipeline artifacts in Account A's S3 bucket?",
     options: [
       { id: 'A', text: "Encrypt the S3 artifact bucket with a Customer Managed Key (CMK) and grant Account B kms:Decrypt permissions in the key policy" },
-      { id: 'B', text: "Copy artifacts via public unauthenticated URLs" },
-      { id: 'C', text: "Use the default AWS-managed aws/s3 KMS key" },
-      { id: 'D', text: "Disable all encryption on the artifact S3 bucket" }
+      { id: 'B', text: "Use the default AWS-managed aws/s3 KMS key" },
+      { id: 'C', text: "Disable all encryption on the artifact S3 bucket" },
+      { id: 'D', text: "Copy artifacts via public unauthenticated URLs" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -515,8 +515,8 @@ export const AWS_DVA_QUESTIONS_7 = [
     options: [
       { id: 'A', text: "Configure an Amazon S3 Lifecycle rule on the artifact bucket to expire noncurrent versions or objects after 30 days" },
       { id: 'B', text: "Write a daily cron job that deletes the entire S3 bucket" },
-      { id: 'C', text: "Disable artifact generation in CodeBuild buildspec.yml" },
-      { id: 'D', text: "Move the CodePipeline to AWS Organizations root account" }
+      { id: 'C', text: "Move the CodePipeline to AWS Organizations root account" },
+      { id: 'D', text: "Disable artifact generation in CodeBuild buildspec.yml" }
     ],
     correctAnswers: ['A'],
     type: "single",

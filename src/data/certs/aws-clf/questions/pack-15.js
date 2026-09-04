@@ -9,12 +9,12 @@ export const AWS_CLF_QUESTIONS_15 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The organization evaluates AWS Certificate Manager to provision, manage, and automatically renew public SSL/TLS certificates for public websites hosted on Amazon CloudFront and Elastic Load Balancing.",
     question: "Which concept or service configuration satisfies these operational resilience objectives? AWS Certificate Manager for SSL/TLS encryption in transit is under consideration.",
     options: [
-      { id: 'A', text: "Use AWS Certificate Manager (ACM) to provision and renew free public SSL/TLS certificates." },
-      { id: 'B', text: "Purchase SSL certificates manually from third-party registrars and reinstall them every year." },
-      { id: 'C', text: "Use AWS KMS to generate public SSL/TLS website certificates." },
-      { id: 'D', text: "Disable HTTPS encryption and serve web traffic over plaintext HTTP port 80." }
+      { id: 'A', text: "Use AWS KMS to generate public SSL/TLS website certificates." },
+      { id: 'B', text: "Use AWS Certificate Manager (ACM) to provision and renew free public SSL/TLS certificates." },
+      { id: 'C', text: "Disable HTTPS encryption and serve web traffic over plaintext HTTP port 80." },
+      { id: 'D', text: "Purchase SSL certificates manually from third-party registrars and reinstall them every year." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Use AWS Certificate Manager (ACM) to provision and renew free public SSL/TLS certificates. AWS Certificate Manager (ACM) simplifies the provisioning, management, and deployment of public and private SSL/TLS certificates for use with AWS services like Elastic Load Balancing, CloudFront, and API Gateway. ACM handles automated certificate renewals at zero additional cost for public certificates.",
     referenceUrl: "https://aws.amazon.com/certificate-manager/",
@@ -30,12 +30,12 @@ export const AWS_CLF_QUESTIONS_15 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The organization evaluates AWS Certificate Manager to provision, manage, and automatically renew public SSL/TLS certificates for public websites hosted on Amazon CloudFront and Elastic Load Balancing.",
     question: "Which architectural approach should the team select to manage this demand efficiently? AWS Certificate Manager for SSL/TLS encryption in transit is under consideration.",
     options: [
-      { id: 'A', text: "Use AWS Certificate Manager (ACM) to provision and renew free public SSL/TLS certificates." },
-      { id: 'B', text: "Purchase SSL certificates manually from third-party registrars and reinstall them every year." },
-      { id: 'C', text: "Use AWS KMS to generate public SSL/TLS website certificates." },
-      { id: 'D', text: "Disable HTTPS encryption and serve web traffic over plaintext HTTP port 80." }
+      { id: 'A', text: "Purchase SSL certificates manually from third-party registrars and reinstall them every year." },
+      { id: 'B', text: "Use AWS KMS to generate public SSL/TLS website certificates." },
+      { id: 'C', text: "Disable HTTPS encryption and serve web traffic over plaintext HTTP port 80." },
+      { id: 'D', text: "Use AWS Certificate Manager (ACM) to provision and renew free public SSL/TLS certificates." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Use AWS Certificate Manager (ACM) to provision and renew free public SSL/TLS certificates. AWS Certificate Manager (ACM) simplifies the provisioning, management, and deployment of public and private SSL/TLS certificates for use with AWS services like Elastic Load Balancing, CloudFront, and API Gateway. ACM handles automated certificate renewals at zero additional cost for public certificates.",
     referenceUrl: "https://aws.amazon.com/certificate-manager/",
@@ -51,12 +51,12 @@ export const AWS_CLF_QUESTIONS_15 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The organization evaluates AWS Certificate Manager to provision, manage, and automatically renew public SSL/TLS certificates for public websites hosted on Amazon CloudFront and Elastic Load Balancing.",
     question: "Which solution properly implements these mandatory security and governance controls? AWS Certificate Manager for SSL/TLS encryption in transit is under consideration.",
     options: [
-      { id: 'A', text: "Use AWS Certificate Manager (ACM) to provision and renew free public SSL/TLS certificates." },
-      { id: 'B', text: "Purchase SSL certificates manually from third-party registrars and reinstall them every year." },
-      { id: 'C', text: "Use AWS KMS to generate public SSL/TLS website certificates." },
-      { id: 'D', text: "Disable HTTPS encryption and serve web traffic over plaintext HTTP port 80." }
+      { id: 'A', text: "Purchase SSL certificates manually from third-party registrars and reinstall them every year." },
+      { id: 'B', text: "Use AWS Certificate Manager (ACM) to provision and renew free public SSL/TLS certificates." },
+      { id: 'C', text: "Disable HTTPS encryption and serve web traffic over plaintext HTTP port 80." },
+      { id: 'D', text: "Use AWS KMS to generate public SSL/TLS website certificates." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Use AWS Certificate Manager (ACM) to provision and renew free public SSL/TLS certificates. AWS Certificate Manager (ACM) simplifies the provisioning, management, and deployment of public and private SSL/TLS certificates for use with AWS services like Elastic Load Balancing, CloudFront, and API Gateway. ACM handles automated certificate renewals at zero additional cost for public certificates.",
     referenceUrl: "https://aws.amazon.com/certificate-manager/",
@@ -72,12 +72,12 @@ export const AWS_CLF_QUESTIONS_15 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to the AWS Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The organization evaluates AWS Certificate Manager to provision, manage, and automatically renew public SSL/TLS certificates for public websites hosted on Amazon CloudFront and Elastic Load Balancing.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? AWS Certificate Manager for SSL/TLS encryption in transit is under consideration.",
     options: [
-      { id: 'A', text: "Use AWS Certificate Manager (ACM) to provision and renew free public SSL/TLS certificates." },
-      { id: 'B', text: "Purchase SSL certificates manually from third-party registrars and reinstall them every year." },
-      { id: 'C', text: "Use AWS KMS to generate public SSL/TLS website certificates." },
-      { id: 'D', text: "Disable HTTPS encryption and serve web traffic over plaintext HTTP port 80." }
+      { id: 'A', text: "Disable HTTPS encryption and serve web traffic over plaintext HTTP port 80." },
+      { id: 'B', text: "Use AWS KMS to generate public SSL/TLS website certificates." },
+      { id: 'C', text: "Purchase SSL certificates manually from third-party registrars and reinstall them every year." },
+      { id: 'D', text: "Use AWS Certificate Manager (ACM) to provision and renew free public SSL/TLS certificates." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Use AWS Certificate Manager (ACM) to provision and renew free public SSL/TLS certificates. AWS Certificate Manager (ACM) simplifies the provisioning, management, and deployment of public and private SSL/TLS certificates for use with AWS services like Elastic Load Balancing, CloudFront, and API Gateway. ACM handles automated certificate renewals at zero additional cost for public certificates.",
     referenceUrl: "https://aws.amazon.com/certificate-manager/",
@@ -93,12 +93,12 @@ export const AWS_CLF_QUESTIONS_15 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The organization evaluates AWS Certificate Manager to provision, manage, and automatically renew public SSL/TLS certificates for public websites hosted on Amazon CloudFront and Elastic Load Balancing.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? AWS Certificate Manager for SSL/TLS encryption in transit is under consideration.",
     options: [
-      { id: 'A', text: "Use AWS Certificate Manager (ACM) to provision and renew free public SSL/TLS certificates." },
-      { id: 'B', text: "Purchase SSL certificates manually from third-party registrars and reinstall them every year." },
-      { id: 'C', text: "Use AWS KMS to generate public SSL/TLS website certificates." },
-      { id: 'D', text: "Disable HTTPS encryption and serve web traffic over plaintext HTTP port 80." }
+      { id: 'A', text: "Purchase SSL certificates manually from third-party registrars and reinstall them every year." },
+      { id: 'B', text: "Use AWS KMS to generate public SSL/TLS website certificates." },
+      { id: 'C', text: "Disable HTTPS encryption and serve web traffic over plaintext HTTP port 80." },
+      { id: 'D', text: "Use AWS Certificate Manager (ACM) to provision and renew free public SSL/TLS certificates." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Use AWS Certificate Manager (ACM) to provision and renew free public SSL/TLS certificates. AWS Certificate Manager (ACM) simplifies the provisioning, management, and deployment of public and private SSL/TLS certificates for use with AWS services like Elastic Load Balancing, CloudFront, and API Gateway. ACM handles automated certificate renewals at zero additional cost for public certificates.",
     referenceUrl: "https://aws.amazon.com/certificate-manager/",
@@ -114,12 +114,12 @@ export const AWS_CLF_QUESTIONS_15 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The organization evaluates AWS WAF to protect web applications running on Application Load Balancers or CloudFront from common web exploits like SQL injection and cross-site scripting (XSS).",
     question: "Which concept or service configuration satisfies these operational resilience objectives? AWS WAF layer 7 web application protection is under consideration.",
     options: [
-      { id: 'A', text: "Deploy AWS WAF and configure Web Access Control Lists (Web ACLs) with managed rules for SQL injection and XSS protection." },
+      { id: 'A', text: "Deploy Amazon Inspector on the backend EC2 instances." },
       { id: 'B', text: "Configure a Network Access Control List (NACL) to block HTTP ports." },
-      { id: 'C', text: "Deploy Amazon Inspector on the backend EC2 instances." },
+      { id: 'C', text: "Deploy AWS WAF and configure Web Access Control Lists (Web ACLs) with managed rules for SQL injection and XSS protection." },
       { id: 'D', text: "Configure Amazon Route 53 to block malicious IP addresses." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy AWS WAF and configure Web Access Control Lists (Web ACLs) with managed rules for SQL injection and XSS protection. AWS WAF is a web application firewall that monitors HTTP and HTTPS requests forwarded to Amazon CloudFront, Application Load Balancers, Amazon API Gateway, or AWS AppSync. It protects web applications from common web exploits (like SQL injection and XSS) and bot traffic.",
     referenceUrl: "https://aws.amazon.com/waf/",
@@ -136,9 +136,9 @@ export const AWS_CLF_QUESTIONS_15 = [
     question: "Which architectural approach should the team select to manage this demand efficiently? AWS WAF layer 7 web application protection is under consideration.",
     options: [
       { id: 'A', text: "Deploy AWS WAF and configure Web Access Control Lists (Web ACLs) with managed rules for SQL injection and XSS protection." },
-      { id: 'B', text: "Configure a Network Access Control List (NACL) to block HTTP ports." },
-      { id: 'C', text: "Deploy Amazon Inspector on the backend EC2 instances." },
-      { id: 'D', text: "Configure Amazon Route 53 to block malicious IP addresses." }
+      { id: 'B', text: "Deploy Amazon Inspector on the backend EC2 instances." },
+      { id: 'C', text: "Configure Amazon Route 53 to block malicious IP addresses." },
+      { id: 'D', text: "Configure a Network Access Control List (NACL) to block HTTP ports." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -156,12 +156,12 @@ export const AWS_CLF_QUESTIONS_15 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The organization evaluates AWS WAF to protect web applications running on Application Load Balancers or CloudFront from common web exploits like SQL injection and cross-site scripting (XSS).",
     question: "Which solution properly implements these mandatory security and governance controls? AWS WAF layer 7 web application protection is under consideration.",
     options: [
-      { id: 'A', text: "Deploy AWS WAF and configure Web Access Control Lists (Web ACLs) with managed rules for SQL injection and XSS protection." },
-      { id: 'B', text: "Configure a Network Access Control List (NACL) to block HTTP ports." },
-      { id: 'C', text: "Deploy Amazon Inspector on the backend EC2 instances." },
-      { id: 'D', text: "Configure Amazon Route 53 to block malicious IP addresses." }
+      { id: 'A', text: "Deploy Amazon Inspector on the backend EC2 instances." },
+      { id: 'B', text: "Configure Amazon Route 53 to block malicious IP addresses." },
+      { id: 'C', text: "Deploy AWS WAF and configure Web Access Control Lists (Web ACLs) with managed rules for SQL injection and XSS protection." },
+      { id: 'D', text: "Configure a Network Access Control List (NACL) to block HTTP ports." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy AWS WAF and configure Web Access Control Lists (Web ACLs) with managed rules for SQL injection and XSS protection. AWS WAF is a web application firewall that monitors HTTP and HTTPS requests forwarded to Amazon CloudFront, Application Load Balancers, Amazon API Gateway, or AWS AppSync. It protects web applications from common web exploits (like SQL injection and XSS) and bot traffic.",
     referenceUrl: "https://aws.amazon.com/waf/",
@@ -177,12 +177,12 @@ export const AWS_CLF_QUESTIONS_15 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to the AWS Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The organization evaluates AWS WAF to protect web applications running on Application Load Balancers or CloudFront from common web exploits like SQL injection and cross-site scripting (XSS).",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? AWS WAF layer 7 web application protection is under consideration.",
     options: [
-      { id: 'A', text: "Deploy AWS WAF and configure Web Access Control Lists (Web ACLs) with managed rules for SQL injection and XSS protection." },
-      { id: 'B', text: "Configure a Network Access Control List (NACL) to block HTTP ports." },
-      { id: 'C', text: "Deploy Amazon Inspector on the backend EC2 instances." },
-      { id: 'D', text: "Configure Amazon Route 53 to block malicious IP addresses." }
+      { id: 'A', text: "Configure a Network Access Control List (NACL) to block HTTP ports." },
+      { id: 'B', text: "Deploy Amazon Inspector on the backend EC2 instances." },
+      { id: 'C', text: "Configure Amazon Route 53 to block malicious IP addresses." },
+      { id: 'D', text: "Deploy AWS WAF and configure Web Access Control Lists (Web ACLs) with managed rules for SQL injection and XSS protection." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy AWS WAF and configure Web Access Control Lists (Web ACLs) with managed rules for SQL injection and XSS protection. AWS WAF is a web application firewall that monitors HTTP and HTTPS requests forwarded to Amazon CloudFront, Application Load Balancers, Amazon API Gateway, or AWS AppSync. It protects web applications from common web exploits (like SQL injection and XSS) and bot traffic.",
     referenceUrl: "https://aws.amazon.com/waf/",
@@ -198,12 +198,12 @@ export const AWS_CLF_QUESTIONS_15 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The organization evaluates AWS WAF to protect web applications running on Application Load Balancers or CloudFront from common web exploits like SQL injection and cross-site scripting (XSS).",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? AWS WAF layer 7 web application protection is under consideration.",
     options: [
-      { id: 'A', text: "Deploy AWS WAF and configure Web Access Control Lists (Web ACLs) with managed rules for SQL injection and XSS protection." },
+      { id: 'A', text: "Configure Amazon Route 53 to block malicious IP addresses." },
       { id: 'B', text: "Configure a Network Access Control List (NACL) to block HTTP ports." },
       { id: 'C', text: "Deploy Amazon Inspector on the backend EC2 instances." },
-      { id: 'D', text: "Configure Amazon Route 53 to block malicious IP addresses." }
+      { id: 'D', text: "Deploy AWS WAF and configure Web Access Control Lists (Web ACLs) with managed rules for SQL injection and XSS protection." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy AWS WAF and configure Web Access Control Lists (Web ACLs) with managed rules for SQL injection and XSS protection. AWS WAF is a web application firewall that monitors HTTP and HTTPS requests forwarded to Amazon CloudFront, Application Load Balancers, Amazon API Gateway, or AWS AppSync. It protects web applications from common web exploits (like SQL injection and XSS) and bot traffic.",
     referenceUrl: "https://aws.amazon.com/waf/",
@@ -219,12 +219,12 @@ export const AWS_CLF_QUESTIONS_15 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The organization evaluates AWS Shield to understand the baseline Distributed Denial of Service (DDoS) protection provided automatically to all AWS customers at no additional cost.",
     question: "Which concept or service configuration satisfies these operational resilience objectives? AWS Shield Standard vs. Shield Advanced DDoS protection is under consideration.",
     options: [
-      { id: 'A', text: "AWS Shield Standard provides automatic, baseline protection against common network and transport layer (Layer 3 and 4) DDoS attacks for all AWS customers at no extra cost." },
-      { id: 'B', text: "AWS Shield Advanced is free for all accounts and protects against all layer 7 attacks automatically." },
-      { id: 'C', text: "AWS customers must purchase third-party hardware appliances to obtain basic DDoS protection." },
-      { id: 'D', text: "AWS provides no DDoS protection unless AWS WAF is deployed with custom rules." }
+      { id: 'A', text: "AWS provides no DDoS protection unless AWS WAF is deployed with custom rules." },
+      { id: 'B', text: "AWS customers must purchase third-party hardware appliances to obtain basic DDoS protection." },
+      { id: 'C', text: "AWS Shield Standard provides automatic, baseline protection against common network and transport layer (Layer 3 and 4) DDoS attacks for all AWS customers at no extra cost." },
+      { id: 'D', text: "AWS Shield Advanced is free for all accounts and protects against all layer 7 attacks automatically." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "AWS Shield Standard provides automatic, baseline protection against common network and transport layer (Layer 3 and 4) DDoS attacks for all AWS customers at no extra cost. AWS Shield Standard is automatically enabled for all AWS customers at no extra charge, defending against common Layer 3 and Layer 4 attacks (such as SYN/UDP floods). AWS Shield Advanced requires a paid subscription and provides specialized Layer 7 mitigation, 24/7 access to the Shield Response Team (SRT), and DDoS cost protection.",
     referenceUrl: "https://aws.amazon.com/shield/",
@@ -240,12 +240,12 @@ export const AWS_CLF_QUESTIONS_15 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The organization evaluates AWS Shield to understand the baseline Distributed Denial of Service (DDoS) protection provided automatically to all AWS customers at no additional cost.",
     question: "Which architectural approach should the team select to manage this demand efficiently? AWS Shield Standard vs. Shield Advanced DDoS protection is under consideration.",
     options: [
-      { id: 'A', text: "AWS Shield Standard provides automatic, baseline protection against common network and transport layer (Layer 3 and 4) DDoS attacks for all AWS customers at no extra cost." },
-      { id: 'B', text: "AWS Shield Advanced is free for all accounts and protects against all layer 7 attacks automatically." },
-      { id: 'C', text: "AWS customers must purchase third-party hardware appliances to obtain basic DDoS protection." },
-      { id: 'D', text: "AWS provides no DDoS protection unless AWS WAF is deployed with custom rules." }
+      { id: 'A', text: "AWS customers must purchase third-party hardware appliances to obtain basic DDoS protection." },
+      { id: 'B', text: "AWS Shield Standard provides automatic, baseline protection against common network and transport layer (Layer 3 and 4) DDoS attacks for all AWS customers at no extra cost." },
+      { id: 'C', text: "AWS provides no DDoS protection unless AWS WAF is deployed with custom rules." },
+      { id: 'D', text: "AWS Shield Advanced is free for all accounts and protects against all layer 7 attacks automatically." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "AWS Shield Standard provides automatic, baseline protection against common network and transport layer (Layer 3 and 4) DDoS attacks for all AWS customers at no extra cost. AWS Shield Standard is automatically enabled for all AWS customers at no extra charge, defending against common Layer 3 and Layer 4 attacks (such as SYN/UDP floods). AWS Shield Advanced requires a paid subscription and provides specialized Layer 7 mitigation, 24/7 access to the Shield Response Team (SRT), and DDoS cost protection.",
     referenceUrl: "https://aws.amazon.com/shield/",
@@ -261,12 +261,12 @@ export const AWS_CLF_QUESTIONS_15 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The organization evaluates AWS Shield to understand the baseline Distributed Denial of Service (DDoS) protection provided automatically to all AWS customers at no additional cost.",
     question: "Which solution properly implements these mandatory security and governance controls? AWS Shield Standard vs. Shield Advanced DDoS protection is under consideration.",
     options: [
-      { id: 'A', text: "AWS Shield Standard provides automatic, baseline protection against common network and transport layer (Layer 3 and 4) DDoS attacks for all AWS customers at no extra cost." },
-      { id: 'B', text: "AWS Shield Advanced is free for all accounts and protects against all layer 7 attacks automatically." },
-      { id: 'C', text: "AWS customers must purchase third-party hardware appliances to obtain basic DDoS protection." },
-      { id: 'D', text: "AWS provides no DDoS protection unless AWS WAF is deployed with custom rules." }
+      { id: 'A', text: "AWS customers must purchase third-party hardware appliances to obtain basic DDoS protection." },
+      { id: 'B', text: "AWS provides no DDoS protection unless AWS WAF is deployed with custom rules." },
+      { id: 'C', text: "AWS Shield Standard provides automatic, baseline protection against common network and transport layer (Layer 3 and 4) DDoS attacks for all AWS customers at no extra cost." },
+      { id: 'D', text: "AWS Shield Advanced is free for all accounts and protects against all layer 7 attacks automatically." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "AWS Shield Standard provides automatic, baseline protection against common network and transport layer (Layer 3 and 4) DDoS attacks for all AWS customers at no extra cost. AWS Shield Standard is automatically enabled for all AWS customers at no extra charge, defending against common Layer 3 and Layer 4 attacks (such as SYN/UDP floods). AWS Shield Advanced requires a paid subscription and provides specialized Layer 7 mitigation, 24/7 access to the Shield Response Team (SRT), and DDoS cost protection.",
     referenceUrl: "https://aws.amazon.com/shield/",
@@ -282,12 +282,12 @@ export const AWS_CLF_QUESTIONS_15 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to the AWS Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The organization evaluates AWS Shield to understand the baseline Distributed Denial of Service (DDoS) protection provided automatically to all AWS customers at no additional cost.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? AWS Shield Standard vs. Shield Advanced DDoS protection is under consideration.",
     options: [
-      { id: 'A', text: "AWS Shield Standard provides automatic, baseline protection against common network and transport layer (Layer 3 and 4) DDoS attacks for all AWS customers at no extra cost." },
+      { id: 'A', text: "AWS customers must purchase third-party hardware appliances to obtain basic DDoS protection." },
       { id: 'B', text: "AWS Shield Advanced is free for all accounts and protects against all layer 7 attacks automatically." },
-      { id: 'C', text: "AWS customers must purchase third-party hardware appliances to obtain basic DDoS protection." },
+      { id: 'C', text: "AWS Shield Standard provides automatic, baseline protection against common network and transport layer (Layer 3 and 4) DDoS attacks for all AWS customers at no extra cost." },
       { id: 'D', text: "AWS provides no DDoS protection unless AWS WAF is deployed with custom rules." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "AWS Shield Standard provides automatic, baseline protection against common network and transport layer (Layer 3 and 4) DDoS attacks for all AWS customers at no extra cost. AWS Shield Standard is automatically enabled for all AWS customers at no extra charge, defending against common Layer 3 and Layer 4 attacks (such as SYN/UDP floods). AWS Shield Advanced requires a paid subscription and provides specialized Layer 7 mitigation, 24/7 access to the Shield Response Team (SRT), and DDoS cost protection.",
     referenceUrl: "https://aws.amazon.com/shield/",
@@ -303,12 +303,12 @@ export const AWS_CLF_QUESTIONS_15 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The organization evaluates AWS Shield to understand the baseline Distributed Denial of Service (DDoS) protection provided automatically to all AWS customers at no additional cost.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? AWS Shield Standard vs. Shield Advanced DDoS protection is under consideration.",
     options: [
-      { id: 'A', text: "AWS Shield Standard provides automatic, baseline protection against common network and transport layer (Layer 3 and 4) DDoS attacks for all AWS customers at no extra cost." },
-      { id: 'B', text: "AWS Shield Advanced is free for all accounts and protects against all layer 7 attacks automatically." },
-      { id: 'C', text: "AWS customers must purchase third-party hardware appliances to obtain basic DDoS protection." },
+      { id: 'A', text: "AWS customers must purchase third-party hardware appliances to obtain basic DDoS protection." },
+      { id: 'B', text: "AWS Shield Standard provides automatic, baseline protection against common network and transport layer (Layer 3 and 4) DDoS attacks for all AWS customers at no extra cost." },
+      { id: 'C', text: "AWS Shield Advanced is free for all accounts and protects against all layer 7 attacks automatically." },
       { id: 'D', text: "AWS provides no DDoS protection unless AWS WAF is deployed with custom rules." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "AWS Shield Standard provides automatic, baseline protection against common network and transport layer (Layer 3 and 4) DDoS attacks for all AWS customers at no extra cost. AWS Shield Standard is automatically enabled for all AWS customers at no extra charge, defending against common Layer 3 and Layer 4 attacks (such as SYN/UDP floods). AWS Shield Advanced requires a paid subscription and provides specialized Layer 7 mitigation, 24/7 access to the Shield Response Team (SRT), and DDoS cost protection.",
     referenceUrl: "https://aws.amazon.com/shield/",
@@ -324,12 +324,12 @@ export const AWS_CLF_QUESTIONS_15 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The organization evaluates Amazon GuardDuty to continually monitor AWS accounts and workloads for malicious activity and unauthorized behavior using machine learning without deploying security agents.",
     question: "Which concept or service configuration satisfies these operational resilience objectives? Amazon GuardDuty intelligent threat detection is under consideration.",
     options: [
-      { id: 'A', text: "Enable Amazon GuardDuty to analyze VPC Flow Logs, DNS logs, and CloudTrail management events using machine learning." },
-      { id: 'B', text: "Install antivirus software manually on all Amazon EC2 instances." },
-      { id: 'C', text: "Deploy AWS Systems Manager Patch Manager to scan logs." },
-      { id: 'D', text: "Configure Amazon CloudWatch Logs metric filters to search for keyword 'hack'." }
+      { id: 'A', text: "Deploy AWS Systems Manager Patch Manager to scan logs." },
+      { id: 'B', text: "Enable Amazon GuardDuty to analyze VPC Flow Logs, DNS logs, and CloudTrail management events using machine learning." },
+      { id: 'C', text: "Configure Amazon CloudWatch Logs metric filters to search for keyword 'hack'." },
+      { id: 'D', text: "Install antivirus software manually on all Amazon EC2 instances." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Enable Amazon GuardDuty to analyze VPC Flow Logs, DNS logs, and CloudTrail management events using machine learning. Amazon GuardDuty is an intelligent threat detection service that continuously monitors your AWS accounts and workloads for malicious activity (like crypto-mining, reconnaissance, or compromised credentials). It uses machine learning, anomaly detection, and integrated threat intelligence without requiring any agent installation.",
     referenceUrl: "https://aws.amazon.com/guardduty/",
@@ -345,12 +345,12 @@ export const AWS_CLF_QUESTIONS_15 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The organization evaluates Amazon GuardDuty to continually monitor AWS accounts and workloads for malicious activity and unauthorized behavior using machine learning without deploying security agents.",
     question: "Which architectural approach should the team select to manage this demand efficiently? Amazon GuardDuty intelligent threat detection is under consideration.",
     options: [
-      { id: 'A', text: "Enable Amazon GuardDuty to analyze VPC Flow Logs, DNS logs, and CloudTrail management events using machine learning." },
+      { id: 'A', text: "Configure Amazon CloudWatch Logs metric filters to search for keyword 'hack'." },
       { id: 'B', text: "Install antivirus software manually on all Amazon EC2 instances." },
-      { id: 'C', text: "Deploy AWS Systems Manager Patch Manager to scan logs." },
-      { id: 'D', text: "Configure Amazon CloudWatch Logs metric filters to search for keyword 'hack'." }
+      { id: 'C', text: "Enable Amazon GuardDuty to analyze VPC Flow Logs, DNS logs, and CloudTrail management events using machine learning." },
+      { id: 'D', text: "Deploy AWS Systems Manager Patch Manager to scan logs." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Enable Amazon GuardDuty to analyze VPC Flow Logs, DNS logs, and CloudTrail management events using machine learning. Amazon GuardDuty is an intelligent threat detection service that continuously monitors your AWS accounts and workloads for malicious activity (like crypto-mining, reconnaissance, or compromised credentials). It uses machine learning, anomaly detection, and integrated threat intelligence without requiring any agent installation.",
     referenceUrl: "https://aws.amazon.com/guardduty/",
@@ -367,8 +367,8 @@ export const AWS_CLF_QUESTIONS_15 = [
     question: "Which solution properly implements these mandatory security and governance controls? Amazon GuardDuty intelligent threat detection is under consideration.",
     options: [
       { id: 'A', text: "Enable Amazon GuardDuty to analyze VPC Flow Logs, DNS logs, and CloudTrail management events using machine learning." },
-      { id: 'B', text: "Install antivirus software manually on all Amazon EC2 instances." },
-      { id: 'C', text: "Deploy AWS Systems Manager Patch Manager to scan logs." },
+      { id: 'B', text: "Deploy AWS Systems Manager Patch Manager to scan logs." },
+      { id: 'C', text: "Install antivirus software manually on all Amazon EC2 instances." },
       { id: 'D', text: "Configure Amazon CloudWatch Logs metric filters to search for keyword 'hack'." }
     ],
     correctAnswers: ['A'],
@@ -387,12 +387,12 @@ export const AWS_CLF_QUESTIONS_15 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to the AWS Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The organization evaluates Amazon GuardDuty to continually monitor AWS accounts and workloads for malicious activity and unauthorized behavior using machine learning without deploying security agents.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? Amazon GuardDuty intelligent threat detection is under consideration.",
     options: [
-      { id: 'A', text: "Enable Amazon GuardDuty to analyze VPC Flow Logs, DNS logs, and CloudTrail management events using machine learning." },
-      { id: 'B', text: "Install antivirus software manually on all Amazon EC2 instances." },
-      { id: 'C', text: "Deploy AWS Systems Manager Patch Manager to scan logs." },
-      { id: 'D', text: "Configure Amazon CloudWatch Logs metric filters to search for keyword 'hack'." }
+      { id: 'A', text: "Configure Amazon CloudWatch Logs metric filters to search for keyword 'hack'." },
+      { id: 'B', text: "Enable Amazon GuardDuty to analyze VPC Flow Logs, DNS logs, and CloudTrail management events using machine learning." },
+      { id: 'C', text: "Install antivirus software manually on all Amazon EC2 instances." },
+      { id: 'D', text: "Deploy AWS Systems Manager Patch Manager to scan logs." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Enable Amazon GuardDuty to analyze VPC Flow Logs, DNS logs, and CloudTrail management events using machine learning. Amazon GuardDuty is an intelligent threat detection service that continuously monitors your AWS accounts and workloads for malicious activity (like crypto-mining, reconnaissance, or compromised credentials). It uses machine learning, anomaly detection, and integrated threat intelligence without requiring any agent installation.",
     referenceUrl: "https://aws.amazon.com/guardduty/",
@@ -410,8 +410,8 @@ export const AWS_CLF_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Enable Amazon GuardDuty to analyze VPC Flow Logs, DNS logs, and CloudTrail management events using machine learning." },
       { id: 'B', text: "Install antivirus software manually on all Amazon EC2 instances." },
-      { id: 'C', text: "Deploy AWS Systems Manager Patch Manager to scan logs." },
-      { id: 'D', text: "Configure Amazon CloudWatch Logs metric filters to search for keyword 'hack'." }
+      { id: 'C', text: "Configure Amazon CloudWatch Logs metric filters to search for keyword 'hack'." },
+      { id: 'D', text: "Deploy AWS Systems Manager Patch Manager to scan logs." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -429,12 +429,12 @@ export const AWS_CLF_QUESTIONS_15 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The organization evaluates Amazon Inspector to automatically discover software vulnerabilities and unintended network exposure on Amazon EC2 instances and Amazon ECR container images.",
     question: "Which concept or service configuration satisfies these operational resilience objectives? Amazon Inspector automated vulnerability assessment is under consideration.",
     options: [
-      { id: 'A', text: "Use Amazon Inspector to perform automated security and vulnerability assessments on EC2 instances and container images." },
-      { id: 'B', text: "Use Amazon GuardDuty to scan source code for software bugs." },
-      { id: 'C', text: "Use AWS Trusted Advisor to inspect application binaries." },
-      { id: 'D', text: "Use AWS Artifact to perform weekly server penetration testing." }
+      { id: 'A', text: "Use AWS Trusted Advisor to inspect application binaries." },
+      { id: 'B', text: "Use AWS Artifact to perform weekly server penetration testing." },
+      { id: 'C', text: "Use Amazon GuardDuty to scan source code for software bugs." },
+      { id: 'D', text: "Use Amazon Inspector to perform automated security and vulnerability assessments on EC2 instances and container images." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Use Amazon Inspector to perform automated security and vulnerability assessments on EC2 instances and container images. Amazon Inspector is an automated vulnerability management service that continually scans Amazon EC2 instances and container images in Amazon ECR for software vulnerabilities (CVEs) and unintended network accessibility, providing prioritized risk scores and remediation guidance.",
     referenceUrl: "https://aws.amazon.com/inspector/",
@@ -450,12 +450,12 @@ export const AWS_CLF_QUESTIONS_15 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The organization evaluates Amazon Inspector to automatically discover software vulnerabilities and unintended network exposure on Amazon EC2 instances and Amazon ECR container images.",
     question: "Which architectural approach should the team select to manage this demand efficiently? Amazon Inspector automated vulnerability assessment is under consideration.",
     options: [
-      { id: 'A', text: "Use Amazon Inspector to perform automated security and vulnerability assessments on EC2 instances and container images." },
+      { id: 'A', text: "Use AWS Artifact to perform weekly server penetration testing." },
       { id: 'B', text: "Use Amazon GuardDuty to scan source code for software bugs." },
       { id: 'C', text: "Use AWS Trusted Advisor to inspect application binaries." },
-      { id: 'D', text: "Use AWS Artifact to perform weekly server penetration testing." }
+      { id: 'D', text: "Use Amazon Inspector to perform automated security and vulnerability assessments on EC2 instances and container images." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Use Amazon Inspector to perform automated security and vulnerability assessments on EC2 instances and container images. Amazon Inspector is an automated vulnerability management service that continually scans Amazon EC2 instances and container images in Amazon ECR for software vulnerabilities (CVEs) and unintended network accessibility, providing prioritized risk scores and remediation guidance.",
     referenceUrl: "https://aws.amazon.com/inspector/",
@@ -472,9 +472,9 @@ export const AWS_CLF_QUESTIONS_15 = [
     question: "Which solution properly implements these mandatory security and governance controls? Amazon Inspector automated vulnerability assessment is under consideration.",
     options: [
       { id: 'A', text: "Use Amazon Inspector to perform automated security and vulnerability assessments on EC2 instances and container images." },
-      { id: 'B', text: "Use Amazon GuardDuty to scan source code for software bugs." },
-      { id: 'C', text: "Use AWS Trusted Advisor to inspect application binaries." },
-      { id: 'D', text: "Use AWS Artifact to perform weekly server penetration testing." }
+      { id: 'B', text: "Use AWS Artifact to perform weekly server penetration testing." },
+      { id: 'C', text: "Use Amazon GuardDuty to scan source code for software bugs." },
+      { id: 'D', text: "Use AWS Trusted Advisor to inspect application binaries." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,12 +492,12 @@ export const AWS_CLF_QUESTIONS_15 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to the AWS Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The organization evaluates Amazon Inspector to automatically discover software vulnerabilities and unintended network exposure on Amazon EC2 instances and Amazon ECR container images.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? Amazon Inspector automated vulnerability assessment is under consideration.",
     options: [
-      { id: 'A', text: "Use Amazon Inspector to perform automated security and vulnerability assessments on EC2 instances and container images." },
+      { id: 'A', text: "Use AWS Artifact to perform weekly server penetration testing." },
       { id: 'B', text: "Use Amazon GuardDuty to scan source code for software bugs." },
       { id: 'C', text: "Use AWS Trusted Advisor to inspect application binaries." },
-      { id: 'D', text: "Use AWS Artifact to perform weekly server penetration testing." }
+      { id: 'D', text: "Use Amazon Inspector to perform automated security and vulnerability assessments on EC2 instances and container images." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Use Amazon Inspector to perform automated security and vulnerability assessments on EC2 instances and container images. Amazon Inspector is an automated vulnerability management service that continually scans Amazon EC2 instances and container images in Amazon ECR for software vulnerabilities (CVEs) and unintended network accessibility, providing prioritized risk scores and remediation guidance.",
     referenceUrl: "https://aws.amazon.com/inspector/",
@@ -513,12 +513,12 @@ export const AWS_CLF_QUESTIONS_15 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The organization evaluates Amazon Inspector to automatically discover software vulnerabilities and unintended network exposure on Amazon EC2 instances and Amazon ECR container images.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? Amazon Inspector automated vulnerability assessment is under consideration.",
     options: [
-      { id: 'A', text: "Use Amazon Inspector to perform automated security and vulnerability assessments on EC2 instances and container images." },
+      { id: 'A', text: "Use AWS Artifact to perform weekly server penetration testing." },
       { id: 'B', text: "Use Amazon GuardDuty to scan source code for software bugs." },
       { id: 'C', text: "Use AWS Trusted Advisor to inspect application binaries." },
-      { id: 'D', text: "Use AWS Artifact to perform weekly server penetration testing." }
+      { id: 'D', text: "Use Amazon Inspector to perform automated security and vulnerability assessments on EC2 instances and container images." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Use Amazon Inspector to perform automated security and vulnerability assessments on EC2 instances and container images. Amazon Inspector is an automated vulnerability management service that continually scans Amazon EC2 instances and container images in Amazon ECR for software vulnerabilities (CVEs) and unintended network accessibility, providing prioritized risk scores and remediation guidance.",
     referenceUrl: "https://aws.amazon.com/inspector/",

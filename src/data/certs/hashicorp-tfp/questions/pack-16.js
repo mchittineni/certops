@@ -30,12 +30,12 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     scenario: "A complex enterprise multi-cloud platform experiences massive scaling requirements and requires modular, automated, and performant infrastructure provisioning across dozens of teams. The Terraform professional evaluates State Encryption to protect sensitive database passwords and private keys stored in Terraform state with customer-managed cryptographic keys and automated key rotation.",
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift? Configuring native state encryption and key rotation in modern Terraform is under consideration.",
     options: [
-      { id: 'A', text: "Configure the native `encryption {}` block in Terraform configuration with KMS key providers and method configurations." },
-      { id: 'B', text: "Encode the state file with base64 and assume it is cryptographically secure." },
-      { id: 'C', text: "Commit the state file to private GitHub repositories with no encryption." },
-      { id: 'D', text: "Disable state persistence to avoid storing secrets." }
+      { id: 'A', text: "Encode the state file with base64 and assume it is cryptographically secure." },
+      { id: 'B', text: "Disable state persistence to avoid storing secrets." },
+      { id: 'C', text: "Configure the native `encryption {}` block in Terraform configuration with KMS key providers and method configurations." },
+      { id: 'D', text: "Commit the state file to private GitHub repositories with no encryption." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure the native `encryption {}` block in Terraform configuration with KMS key providers and method configurations. Terraform 1.4+ introduced native state encryption configurations. Defining an `encryption {}` block in the root module enables client-side encryption of state files and plan files using cloud KMS keys, ensuring secrets remain encrypted even before being transmitted to the backend.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/v1.4.x/encryption",
@@ -51,12 +51,12 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     scenario: "A security compliance auditor requires cryptographic state protection, policy-as-code enforcement, and automated governance across all enterprise Terraform delivery pipelines. The Terraform professional evaluates State Encryption to protect sensitive database passwords and private keys stored in Terraform state with customer-managed cryptographic keys and automated key rotation.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls? Configuring native state encryption and key rotation in modern Terraform is under consideration.",
     options: [
-      { id: 'A', text: "Configure the native `encryption {}` block in Terraform configuration with KMS key providers and method configurations." },
-      { id: 'B', text: "Encode the state file with base64 and assume it is cryptographically secure." },
-      { id: 'C', text: "Commit the state file to private GitHub repositories with no encryption." },
-      { id: 'D', text: "Disable state persistence to avoid storing secrets." }
+      { id: 'A', text: "Commit the state file to private GitHub repositories with no encryption." },
+      { id: 'B', text: "Disable state persistence to avoid storing secrets." },
+      { id: 'C', text: "Configure the native `encryption {}` block in Terraform configuration with KMS key providers and method configurations." },
+      { id: 'D', text: "Encode the state file with base64 and assume it is cryptographically secure." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure the native `encryption {}` block in Terraform configuration with KMS key providers and method configurations. Terraform 1.4+ introduced native state encryption configurations. Defining an `encryption {}` block in the root module enables client-side encryption of state files and plan files using cloud KMS keys, ensuring secrets remain encrypted even before being transmitted to the backend.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/v1.4.x/encryption",
@@ -72,12 +72,12 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     scenario: "An enterprise is modernizing on-premises infrastructure and refactoring monolithic legacy deployments into modular, cloud-native architectures using advanced Terraform practices. The Terraform professional evaluates State Encryption to protect sensitive database passwords and private keys stored in Terraform state with customer-managed cryptographic keys and automated key rotation.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction? Configuring native state encryption and key rotation in modern Terraform is under consideration.",
     options: [
-      { id: 'A', text: "Configure the native `encryption {}` block in Terraform configuration with KMS key providers and method configurations." },
-      { id: 'B', text: "Encode the state file with base64 and assume it is cryptographically secure." },
-      { id: 'C', text: "Commit the state file to private GitHub repositories with no encryption." },
-      { id: 'D', text: "Disable state persistence to avoid storing secrets." }
+      { id: 'A', text: "Encode the state file with base64 and assume it is cryptographically secure." },
+      { id: 'B', text: "Commit the state file to private GitHub repositories with no encryption." },
+      { id: 'C', text: "Disable state persistence to avoid storing secrets." },
+      { id: 'D', text: "Configure the native `encryption {}` block in Terraform configuration with KMS key providers and method configurations." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure the native `encryption {}` block in Terraform configuration with KMS key providers and method configurations. Terraform 1.4+ introduced native state encryption configurations. Defining an `encryption {}` block in the root module enables client-side encryption of state files and plan files using cloud KMS keys, ensuring secrets remain encrypted even before being transmitted to the backend.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/v1.4.x/encryption",
@@ -93,12 +93,12 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline zero-downtime state refactoring, and automate operational recovery. The Terraform professional evaluates State Encryption to protect sensitive database passwords and private keys stored in Terraform state with customer-managed cryptographic keys and automated key rotation.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability? Configuring native state encryption and key rotation in modern Terraform is under consideration.",
     options: [
-      { id: 'A', text: "Configure the native `encryption {}` block in Terraform configuration with KMS key providers and method configurations." },
-      { id: 'B', text: "Encode the state file with base64 and assume it is cryptographically secure." },
-      { id: 'C', text: "Commit the state file to private GitHub repositories with no encryption." },
-      { id: 'D', text: "Disable state persistence to avoid storing secrets." }
+      { id: 'A', text: "Encode the state file with base64 and assume it is cryptographically secure." },
+      { id: 'B', text: "Disable state persistence to avoid storing secrets." },
+      { id: 'C', text: "Configure the native `encryption {}` block in Terraform configuration with KMS key providers and method configurations." },
+      { id: 'D', text: "Commit the state file to private GitHub repositories with no encryption." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure the native `encryption {}` block in Terraform configuration with KMS key providers and method configurations. Terraform 1.4+ introduced native state encryption configurations. Defining an `encryption {}` block in the root module enables client-side encryption of state files and plan files using cloud KMS keys, ensuring secrets remain encrypted even before being transmitted to the backend.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/v1.4.x/encryption",
@@ -114,12 +114,12 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     scenario: "A principal cloud platform architect is establishing high-availability standards, automated disaster recovery procedures, and infrastructure resilience frameworks across multi-region environments using Terraform. The Terraform professional evaluates State Disaster Recovery to repair an edge-case state corruption issue in a remote backend by safely downloading the raw state JSON and pushing the corrected file.",
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives? Safely downloading, inspecting, and pushing state with terraform state pull and push is under consideration.",
     options: [
-      { id: 'A', text: "Run `terraform state pull &gt; state.json`, make precise modifications, increment the serial number, and upload via `terraform state push state.json`." },
-      { id: 'B', text: "Directly overwrite the remote S3 object using AWS CLI s3 cp without serial verification." },
-      { id: 'C', text: "Delete the state file and rebuild all infrastructure from memory." },
+      { id: 'A', text: "Delete the state file and rebuild all infrastructure from memory." },
+      { id: 'B', text: "Run `terraform state pull &gt; state.json`, make precise modifications, increment the serial number, and upload via `terraform state push state.json`." },
+      { id: 'C', text: "Directly overwrite the remote S3 object using AWS CLI s3 cp without serial verification." },
       { id: 'D', text: "Execute `terraform destroy -force`." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Run `terraform state pull &gt; state.json`, make precise modifications, increment the serial number, and upload via `terraform state push state.json`. `terraform state pull` safely streams remote state to stdout, preserving formatting. If manual surgical repairs are necessary, updating the state and running `terraform state push` performs sanity checks and validates the state serial number, preventing accidental overwrites of newer state.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/state/pull",
@@ -136,9 +136,9 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift? Safely downloading, inspecting, and pushing state with terraform state pull and push is under consideration.",
     options: [
       { id: 'A', text: "Run `terraform state pull &gt; state.json`, make precise modifications, increment the serial number, and upload via `terraform state push state.json`." },
-      { id: 'B', text: "Directly overwrite the remote S3 object using AWS CLI s3 cp without serial verification." },
-      { id: 'C', text: "Delete the state file and rebuild all infrastructure from memory." },
-      { id: 'D', text: "Execute `terraform destroy -force`." }
+      { id: 'B', text: "Delete the state file and rebuild all infrastructure from memory." },
+      { id: 'C', text: "Execute `terraform destroy -force`." },
+      { id: 'D', text: "Directly overwrite the remote S3 object using AWS CLI s3 cp without serial verification." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -156,12 +156,12 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     scenario: "A security compliance auditor requires cryptographic state protection, policy-as-code enforcement, and automated governance across all enterprise Terraform delivery pipelines. The Terraform professional evaluates State Disaster Recovery to repair an edge-case state corruption issue in a remote backend by safely downloading the raw state JSON and pushing the corrected file.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls? Safely downloading, inspecting, and pushing state with terraform state pull and push is under consideration.",
     options: [
-      { id: 'A', text: "Run `terraform state pull &gt; state.json`, make precise modifications, increment the serial number, and upload via `terraform state push state.json`." },
-      { id: 'B', text: "Directly overwrite the remote S3 object using AWS CLI s3 cp without serial verification." },
-      { id: 'C', text: "Delete the state file and rebuild all infrastructure from memory." },
-      { id: 'D', text: "Execute `terraform destroy -force`." }
+      { id: 'A', text: "Execute `terraform destroy -force`." },
+      { id: 'B', text: "Delete the state file and rebuild all infrastructure from memory." },
+      { id: 'C', text: "Directly overwrite the remote S3 object using AWS CLI s3 cp without serial verification." },
+      { id: 'D', text: "Run `terraform state pull &gt; state.json`, make precise modifications, increment the serial number, and upload via `terraform state push state.json`." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Run `terraform state pull &gt; state.json`, make precise modifications, increment the serial number, and upload via `terraform state push state.json`. `terraform state pull` safely streams remote state to stdout, preserving formatting. If manual surgical repairs are necessary, updating the state and running `terraform state push` performs sanity checks and validates the state serial number, preventing accidental overwrites of newer state.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/state/pull",
@@ -177,12 +177,12 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     scenario: "An enterprise is modernizing on-premises infrastructure and refactoring monolithic legacy deployments into modular, cloud-native architectures using advanced Terraform practices. The Terraform professional evaluates State Disaster Recovery to repair an edge-case state corruption issue in a remote backend by safely downloading the raw state JSON and pushing the corrected file.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction? Safely downloading, inspecting, and pushing state with terraform state pull and push is under consideration.",
     options: [
-      { id: 'A', text: "Run `terraform state pull &gt; state.json`, make precise modifications, increment the serial number, and upload via `terraform state push state.json`." },
-      { id: 'B', text: "Directly overwrite the remote S3 object using AWS CLI s3 cp without serial verification." },
+      { id: 'A', text: "Directly overwrite the remote S3 object using AWS CLI s3 cp without serial verification." },
+      { id: 'B', text: "Execute `terraform destroy -force`." },
       { id: 'C', text: "Delete the state file and rebuild all infrastructure from memory." },
-      { id: 'D', text: "Execute `terraform destroy -force`." }
+      { id: 'D', text: "Run `terraform state pull &gt; state.json`, make precise modifications, increment the serial number, and upload via `terraform state push state.json`." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Run `terraform state pull &gt; state.json`, make precise modifications, increment the serial number, and upload via `terraform state push state.json`. `terraform state pull` safely streams remote state to stdout, preserving formatting. If manual surgical repairs are necessary, updating the state and running `terraform state push` performs sanity checks and validates the state serial number, preventing accidental overwrites of newer state.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/state/pull",
@@ -198,12 +198,12 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline zero-downtime state refactoring, and automate operational recovery. The Terraform professional evaluates State Disaster Recovery to repair an edge-case state corruption issue in a remote backend by safely downloading the raw state JSON and pushing the corrected file.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability? Safely downloading, inspecting, and pushing state with terraform state pull and push is under consideration.",
     options: [
-      { id: 'A', text: "Run `terraform state pull &gt; state.json`, make precise modifications, increment the serial number, and upload via `terraform state push state.json`." },
+      { id: 'A', text: "Execute `terraform destroy -force`." },
       { id: 'B', text: "Directly overwrite the remote S3 object using AWS CLI s3 cp without serial verification." },
       { id: 'C', text: "Delete the state file and rebuild all infrastructure from memory." },
-      { id: 'D', text: "Execute `terraform destroy -force`." }
+      { id: 'D', text: "Run `terraform state pull &gt; state.json`, make precise modifications, increment the serial number, and upload via `terraform state push state.json`." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Run `terraform state pull &gt; state.json`, make precise modifications, increment the serial number, and upload via `terraform state push state.json`. `terraform state pull` safely streams remote state to stdout, preserving formatting. If manual surgical repairs are necessary, updating the state and running `terraform state push` performs sanity checks and validates the state serial number, preventing accidental overwrites of newer state.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/state/pull",
@@ -219,12 +219,12 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     scenario: "A principal cloud platform architect is establishing high-availability standards, automated disaster recovery procedures, and infrastructure resilience frameworks across multi-region environments using Terraform. The Terraform professional evaluates State Architecture to improve plan execution speed and eliminate lock contention across a team by decomposing a 5,000-resource state file.",
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives? Decomposing monolithic state files into smaller, decoupled state domains is under consideration.",
     options: [
-      { id: 'A', text: "Split the monolithic configuration into multiple smaller root modules (networking, compute, data) and connect them via `terraform_remote_state`." },
-      { id: 'B', text: "Increase the timeout of `terraform apply` to 24 hours." },
-      { id: 'C', text: "Run `terraform apply` with `-parallelism=500` to overwhelm cloud provider rate limits." },
-      { id: 'D', text: "Disable state locking to allow simultaneous runs on the monolith." }
+      { id: 'A', text: "Run `terraform apply` with `-parallelism=500` to overwhelm cloud provider rate limits." },
+      { id: 'B', text: "Disable state locking to allow simultaneous runs on the monolith." },
+      { id: 'C', text: "Split the monolithic configuration into multiple smaller root modules (networking, compute, data) and connect them via `terraform_remote_state`." },
+      { id: 'D', text: "Increase the timeout of `terraform apply` to 24 hours." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Split the monolithic configuration into multiple smaller root modules (networking, compute, data) and connect them via `terraform_remote_state`. Large state files cause slow plan generation, API throttling from cloud providers, and severe lock contention among engineers. Decomposing infrastructure into smaller, decoupled state domains isolates lifecycles, accelerates execution, and shrinks failure domains.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/state/purpose",
@@ -242,8 +242,8 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     options: [
       { id: 'A', text: "Split the monolithic configuration into multiple smaller root modules (networking, compute, data) and connect them via `terraform_remote_state`." },
       { id: 'B', text: "Increase the timeout of `terraform apply` to 24 hours." },
-      { id: 'C', text: "Run `terraform apply` with `-parallelism=500` to overwhelm cloud provider rate limits." },
-      { id: 'D', text: "Disable state locking to allow simultaneous runs on the monolith." }
+      { id: 'C', text: "Disable state locking to allow simultaneous runs on the monolith." },
+      { id: 'D', text: "Run `terraform apply` with `-parallelism=500` to overwhelm cloud provider rate limits." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -262,9 +262,9 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     question: "Which solution implements these mandatory infrastructure as code security and governance controls? Decomposing monolithic state files into smaller, decoupled state domains is under consideration.",
     options: [
       { id: 'A', text: "Split the monolithic configuration into multiple smaller root modules (networking, compute, data) and connect them via `terraform_remote_state`." },
-      { id: 'B', text: "Increase the timeout of `terraform apply` to 24 hours." },
-      { id: 'C', text: "Run `terraform apply` with `-parallelism=500` to overwhelm cloud provider rate limits." },
-      { id: 'D', text: "Disable state locking to allow simultaneous runs on the monolith." }
+      { id: 'B', text: "Disable state locking to allow simultaneous runs on the monolith." },
+      { id: 'C', text: "Increase the timeout of `terraform apply` to 24 hours." },
+      { id: 'D', text: "Run `terraform apply` with `-parallelism=500` to overwhelm cloud provider rate limits." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -282,12 +282,12 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     scenario: "An enterprise is modernizing on-premises infrastructure and refactoring monolithic legacy deployments into modular, cloud-native architectures using advanced Terraform practices. The Terraform professional evaluates State Architecture to improve plan execution speed and eliminate lock contention across a team by decomposing a 5,000-resource state file.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction? Decomposing monolithic state files into smaller, decoupled state domains is under consideration.",
     options: [
-      { id: 'A', text: "Split the monolithic configuration into multiple smaller root modules (networking, compute, data) and connect them via `terraform_remote_state`." },
-      { id: 'B', text: "Increase the timeout of `terraform apply` to 24 hours." },
+      { id: 'A', text: "Increase the timeout of `terraform apply` to 24 hours." },
+      { id: 'B', text: "Disable state locking to allow simultaneous runs on the monolith." },
       { id: 'C', text: "Run `terraform apply` with `-parallelism=500` to overwhelm cloud provider rate limits." },
-      { id: 'D', text: "Disable state locking to allow simultaneous runs on the monolith." }
+      { id: 'D', text: "Split the monolithic configuration into multiple smaller root modules (networking, compute, data) and connect them via `terraform_remote_state`." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Split the monolithic configuration into multiple smaller root modules (networking, compute, data) and connect them via `terraform_remote_state`. Large state files cause slow plan generation, API throttling from cloud providers, and severe lock contention among engineers. Decomposing infrastructure into smaller, decoupled state domains isolates lifecycles, accelerates execution, and shrinks failure domains.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/state/purpose",
@@ -303,12 +303,12 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline zero-downtime state refactoring, and automate operational recovery. The Terraform professional evaluates State Architecture to improve plan execution speed and eliminate lock contention across a team by decomposing a 5,000-resource state file.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability? Decomposing monolithic state files into smaller, decoupled state domains is under consideration.",
     options: [
-      { id: 'A', text: "Split the monolithic configuration into multiple smaller root modules (networking, compute, data) and connect them via `terraform_remote_state`." },
+      { id: 'A', text: "Run `terraform apply` with `-parallelism=500` to overwhelm cloud provider rate limits." },
       { id: 'B', text: "Increase the timeout of `terraform apply` to 24 hours." },
-      { id: 'C', text: "Run `terraform apply` with `-parallelism=500` to overwhelm cloud provider rate limits." },
+      { id: 'C', text: "Split the monolithic configuration into multiple smaller root modules (networking, compute, data) and connect them via `terraform_remote_state`." },
       { id: 'D', text: "Disable state locking to allow simultaneous runs on the monolith." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Split the monolithic configuration into multiple smaller root modules (networking, compute, data) and connect them via `terraform_remote_state`. Large state files cause slow plan generation, API throttling from cloud providers, and severe lock contention among engineers. Decomposing infrastructure into smaller, decoupled state domains isolates lifecycles, accelerates execution, and shrinks failure domains.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/state/purpose",
@@ -325,9 +325,9 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives? Identifying and removing sensitive values or compromised credentials from state history is under consideration.",
     options: [
       { id: 'A', text: "Rotate the credential in the database immediately, update Terraform code, apply changes, and purge historical state versions in S3." },
-      { id: 'B', text: "Change the database username and leave the old password active." },
-      { id: 'C', text: "Delete the Terraform codebase and stop using infrastructure as code." },
-      { id: 'D', text: "Rely on GitHub commit deletion to purge remote S3 objects." }
+      { id: 'B', text: "Delete the Terraform codebase and stop using infrastructure as code." },
+      { id: 'C', text: "Rely on GitHub commit deletion to purge remote S3 objects." },
+      { id: 'D', text: "Change the database username and leave the old password active." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -345,12 +345,12 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     scenario: "A complex enterprise multi-cloud platform experiences massive scaling requirements and requires modular, automated, and performant infrastructure provisioning across dozens of teams. The Terraform professional evaluates State Sanitization to cleanse an accidentally exposed production database credential recorded in historical remote state bucket versions.",
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift? Identifying and removing sensitive values or compromised credentials from state history is under consideration.",
     options: [
-      { id: 'A', text: "Rotate the credential in the database immediately, update Terraform code, apply changes, and purge historical state versions in S3." },
-      { id: 'B', text: "Change the database username and leave the old password active." },
-      { id: 'C', text: "Delete the Terraform codebase and stop using infrastructure as code." },
-      { id: 'D', text: "Rely on GitHub commit deletion to purge remote S3 objects." }
+      { id: 'A', text: "Rely on GitHub commit deletion to purge remote S3 objects." },
+      { id: 'B', text: "Delete the Terraform codebase and stop using infrastructure as code." },
+      { id: 'C', text: "Rotate the credential in the database immediately, update Terraform code, apply changes, and purge historical state versions in S3." },
+      { id: 'D', text: "Change the database username and leave the old password active." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Rotate the credential in the database immediately, update Terraform code, apply changes, and purge historical state versions in S3. Because cloud storage backends (S3, GCS, Azure Blob) often retain object versions, an exposed secret remains in historical state snapshots even after being removed from the current state. Complete remediation requires rotating the secret and purging historical state versions from storage.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/state/sensitive-data",
@@ -388,9 +388,9 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction? Identifying and removing sensitive values or compromised credentials from state history is under consideration.",
     options: [
       { id: 'A', text: "Rotate the credential in the database immediately, update Terraform code, apply changes, and purge historical state versions in S3." },
-      { id: 'B', text: "Change the database username and leave the old password active." },
+      { id: 'B', text: "Rely on GitHub commit deletion to purge remote S3 objects." },
       { id: 'C', text: "Delete the Terraform codebase and stop using infrastructure as code." },
-      { id: 'D', text: "Rely on GitHub commit deletion to purge remote S3 objects." }
+      { id: 'D', text: "Change the database username and leave the old password active." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,12 +408,12 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline zero-downtime state refactoring, and automate operational recovery. The Terraform professional evaluates State Sanitization to cleanse an accidentally exposed production database credential recorded in historical remote state bucket versions.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability? Identifying and removing sensitive values or compromised credentials from state history is under consideration.",
     options: [
-      { id: 'A', text: "Rotate the credential in the database immediately, update Terraform code, apply changes, and purge historical state versions in S3." },
-      { id: 'B', text: "Change the database username and leave the old password active." },
-      { id: 'C', text: "Delete the Terraform codebase and stop using infrastructure as code." },
+      { id: 'A', text: "Change the database username and leave the old password active." },
+      { id: 'B', text: "Delete the Terraform codebase and stop using infrastructure as code." },
+      { id: 'C', text: "Rotate the credential in the database immediately, update Terraform code, apply changes, and purge historical state versions in S3." },
       { id: 'D', text: "Rely on GitHub commit deletion to purge remote S3 objects." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Rotate the credential in the database immediately, update Terraform code, apply changes, and purge historical state versions in S3. Because cloud storage backends (S3, GCS, Azure Blob) often retain object versions, an exposed secret remains in historical state snapshots even after being removed from the current state. Complete remediation requires rotating the secret and purging historical state versions from storage.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/state/sensitive-data",
@@ -429,12 +429,12 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     scenario: "A principal cloud platform architect is establishing high-availability standards, automated disaster recovery procedures, and infrastructure resilience frameworks across multi-region environments using Terraform. The Terraform professional evaluates Targeting Risks to understand the operational risks of using `terraform apply -target=resource` for everyday infrastructure updates.",
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives? Understanding risks, state divergence, and appropriate use cases of -target is under consideration.",
     options: [
-      { id: 'A', text: "`-target` can introduce state divergence, violate hidden dependencies, and lead to unintended configuration drift; it is intended only for emergency recovery." },
+      { id: 'A', text: "`-target` permanently deletes all un-targeted resources from the state file." },
       { id: 'B', text: "`-target` is the recommended way to deploy routine production updates daily." },
       { id: 'C', text: "`-target` automatically updates all dependent resources in the graph." },
-      { id: 'D', text: "`-target` permanently deletes all un-targeted resources from the state file." }
+      { id: 'D', text: "`-target` can introduce state divergence, violate hidden dependencies, and lead to unintended configuration drift; it is intended only for emergency recovery." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "`-target` can introduce state divergence, violate hidden dependencies, and lead to unintended configuration drift; it is intended only for emergency recovery. Using `-target` isolates execution to a specific resource, bypassing the rest of the dependency graph. While useful for bootstrapping or recovering from broken dependencies, routine use creates state divergence and hidden dependency errors; normal deployments should always evaluate the full configuration.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/plan#targeting-resources",
@@ -450,12 +450,12 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     scenario: "A complex enterprise multi-cloud platform experiences massive scaling requirements and requires modular, automated, and performant infrastructure provisioning across dozens of teams. The Terraform professional evaluates Targeting Risks to understand the operational risks of using `terraform apply -target=resource` for everyday infrastructure updates.",
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift? Understanding risks, state divergence, and appropriate use cases of -target is under consideration.",
     options: [
-      { id: 'A', text: "`-target` can introduce state divergence, violate hidden dependencies, and lead to unintended configuration drift; it is intended only for emergency recovery." },
-      { id: 'B', text: "`-target` is the recommended way to deploy routine production updates daily." },
-      { id: 'C', text: "`-target` automatically updates all dependent resources in the graph." },
+      { id: 'A', text: "`-target` is the recommended way to deploy routine production updates daily." },
+      { id: 'B', text: "`-target` automatically updates all dependent resources in the graph." },
+      { id: 'C', text: "`-target` can introduce state divergence, violate hidden dependencies, and lead to unintended configuration drift; it is intended only for emergency recovery." },
       { id: 'D', text: "`-target` permanently deletes all un-targeted resources from the state file." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "`-target` can introduce state divergence, violate hidden dependencies, and lead to unintended configuration drift; it is intended only for emergency recovery. Using `-target` isolates execution to a specific resource, bypassing the rest of the dependency graph. While useful for bootstrapping or recovering from broken dependencies, routine use creates state divergence and hidden dependency errors; normal deployments should always evaluate the full configuration.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/plan#targeting-resources",
@@ -472,9 +472,9 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     question: "Which solution implements these mandatory infrastructure as code security and governance controls? Understanding risks, state divergence, and appropriate use cases of -target is under consideration.",
     options: [
       { id: 'A', text: "`-target` can introduce state divergence, violate hidden dependencies, and lead to unintended configuration drift; it is intended only for emergency recovery." },
-      { id: 'B', text: "`-target` is the recommended way to deploy routine production updates daily." },
-      { id: 'C', text: "`-target` automatically updates all dependent resources in the graph." },
-      { id: 'D', text: "`-target` permanently deletes all un-targeted resources from the state file." }
+      { id: 'B', text: "`-target` permanently deletes all un-targeted resources from the state file." },
+      { id: 'C', text: "`-target` is the recommended way to deploy routine production updates daily." },
+      { id: 'D', text: "`-target` automatically updates all dependent resources in the graph." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,12 +492,12 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     scenario: "An enterprise is modernizing on-premises infrastructure and refactoring monolithic legacy deployments into modular, cloud-native architectures using advanced Terraform practices. The Terraform professional evaluates Targeting Risks to understand the operational risks of using `terraform apply -target=resource` for everyday infrastructure updates.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction? Understanding risks, state divergence, and appropriate use cases of -target is under consideration.",
     options: [
-      { id: 'A', text: "`-target` can introduce state divergence, violate hidden dependencies, and lead to unintended configuration drift; it is intended only for emergency recovery." },
-      { id: 'B', text: "`-target` is the recommended way to deploy routine production updates daily." },
-      { id: 'C', text: "`-target` automatically updates all dependent resources in the graph." },
-      { id: 'D', text: "`-target` permanently deletes all un-targeted resources from the state file." }
+      { id: 'A', text: "`-target` automatically updates all dependent resources in the graph." },
+      { id: 'B', text: "`-target` can introduce state divergence, violate hidden dependencies, and lead to unintended configuration drift; it is intended only for emergency recovery." },
+      { id: 'C', text: "`-target` permanently deletes all un-targeted resources from the state file." },
+      { id: 'D', text: "`-target` is the recommended way to deploy routine production updates daily." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "`-target` can introduce state divergence, violate hidden dependencies, and lead to unintended configuration drift; it is intended only for emergency recovery. Using `-target` isolates execution to a specific resource, bypassing the rest of the dependency graph. While useful for bootstrapping or recovering from broken dependencies, routine use creates state divergence and hidden dependency errors; normal deployments should always evaluate the full configuration.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/plan#targeting-resources",
@@ -513,12 +513,12 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline zero-downtime state refactoring, and automate operational recovery. The Terraform professional evaluates Targeting Risks to understand the operational risks of using `terraform apply -target=resource` for everyday infrastructure updates.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability? Understanding risks, state divergence, and appropriate use cases of -target is under consideration.",
     options: [
-      { id: 'A', text: "`-target` can introduce state divergence, violate hidden dependencies, and lead to unintended configuration drift; it is intended only for emergency recovery." },
-      { id: 'B', text: "`-target` is the recommended way to deploy routine production updates daily." },
-      { id: 'C', text: "`-target` automatically updates all dependent resources in the graph." },
-      { id: 'D', text: "`-target` permanently deletes all un-targeted resources from the state file." }
+      { id: 'A', text: "`-target` is the recommended way to deploy routine production updates daily." },
+      { id: 'B', text: "`-target` automatically updates all dependent resources in the graph." },
+      { id: 'C', text: "`-target` permanently deletes all un-targeted resources from the state file." },
+      { id: 'D', text: "`-target` can introduce state divergence, violate hidden dependencies, and lead to unintended configuration drift; it is intended only for emergency recovery." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "`-target` can introduce state divergence, violate hidden dependencies, and lead to unintended configuration drift; it is intended only for emergency recovery. Using `-target` isolates execution to a specific resource, bypassing the rest of the dependency graph. While useful for bootstrapping or recovering from broken dependencies, routine use creates state divergence and hidden dependency errors; normal deployments should always evaluate the full configuration.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/plan#targeting-resources",

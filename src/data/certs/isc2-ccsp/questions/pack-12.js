@@ -10,9 +10,9 @@ export const ISC2_CCSP_QUESTIONS_12 = [
     question: "Which architectural approach or cloud security control satisfies these enterprise governance objectives? Recovery Time Objective (RTO) and Recovery Point Objective (RPO) trade-offs in cloud failover is under consideration.",
     options: [
       { id: 'A', text: "Establish RPO = 15 minutes and RTO = 1 hour, implementing continuous asynchronous cross-region database replication with automated failover." },
-      { id: 'B', text: "Perform manual weekly tape backups stored in an office filing cabinet." },
+      { id: 'B', text: "Set RTO to zero seconds using un-replicated standalone database instances." },
       { id: 'C', text: "Assume the cloud provider automatically guarantees zero data loss and instantaneous recovery without architecture planning." },
-      { id: 'D', text: "Set RTO to zero seconds using un-replicated standalone database instances." }
+      { id: 'D', text: "Perform manual weekly tape backups stored in an office filing cabinet." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -30,12 +30,12 @@ export const ISC2_CCSP_QUESTIONS_12 = [
     scenario: "A global data protection officer is implementing cryptographic data lifecycles, crypto-shredding sanitization, and data loss prevention across sensitive cloud repositories. The cloud security professional evaluates Business Continuity to architect a disaster recovery solution for a core transactional financial database requiring maximum 15 minutes data loss and 1 hour downtime.",
     question: "Which data security mechanism or cryptographic architecture guarantees compliance with international privacy mandates? Recovery Time Objective (RTO) and Recovery Point Objective (RPO) trade-offs in cloud failover is under consideration.",
     options: [
-      { id: 'A', text: "Establish RPO = 15 minutes and RTO = 1 hour, implementing continuous asynchronous cross-region database replication with automated failover." },
-      { id: 'B', text: "Perform manual weekly tape backups stored in an office filing cabinet." },
-      { id: 'C', text: "Assume the cloud provider automatically guarantees zero data loss and instantaneous recovery without architecture planning." },
-      { id: 'D', text: "Set RTO to zero seconds using un-replicated standalone database instances." }
+      { id: 'A', text: "Set RTO to zero seconds using un-replicated standalone database instances." },
+      { id: 'B', text: "Establish RPO = 15 minutes and RTO = 1 hour, implementing continuous asynchronous cross-region database replication with automated failover." },
+      { id: 'C', text: "Perform manual weekly tape backups stored in an office filing cabinet." },
+      { id: 'D', text: "Assume the cloud provider automatically guarantees zero data loss and instantaneous recovery without architecture planning." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Establish RPO = 15 minutes and RTO = 1 hour, implementing continuous asynchronous cross-region database replication with automated failover. Recovery Point Objective (RPO) is the maximum acceptable data loss measured in time (e.g., 15 minutes of transactions). Recovery Time Objective (RTO) is the maximum acceptable duration of service downtime before restoration. High-availability cloud architectures use active-active or warm-standby replication to satisfy tight RTO/RPO targets.",
     referenceUrl: "https://csrc.nist.gov/glossary/term/recovery_time_objective",
@@ -51,12 +51,12 @@ export const ISC2_CCSP_QUESTIONS_12 = [
     scenario: "A cloud platform security team is hardening virtualization substrates, implementing micro-segmentation, and enforcing immutable infrastructure across multi-tenant environments. The cloud security professional evaluates Business Continuity to architect a disaster recovery solution for a core transactional financial database requiring maximum 15 minutes data loss and 1 hour downtime.",
     question: "Which infrastructure security design or platform control prevents unauthorized lateral movement and hypervisor compromise? Recovery Time Objective (RTO) and Recovery Point Objective (RPO) trade-offs in cloud failover is under consideration.",
     options: [
-      { id: 'A', text: "Establish RPO = 15 minutes and RTO = 1 hour, implementing continuous asynchronous cross-region database replication with automated failover." },
-      { id: 'B', text: "Perform manual weekly tape backups stored in an office filing cabinet." },
-      { id: 'C', text: "Assume the cloud provider automatically guarantees zero data loss and instantaneous recovery without architecture planning." },
-      { id: 'D', text: "Set RTO to zero seconds using un-replicated standalone database instances." }
+      { id: 'A', text: "Assume the cloud provider automatically guarantees zero data loss and instantaneous recovery without architecture planning." },
+      { id: 'B', text: "Set RTO to zero seconds using un-replicated standalone database instances." },
+      { id: 'C', text: "Perform manual weekly tape backups stored in an office filing cabinet." },
+      { id: 'D', text: "Establish RPO = 15 minutes and RTO = 1 hour, implementing continuous asynchronous cross-region database replication with automated failover." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Establish RPO = 15 minutes and RTO = 1 hour, implementing continuous asynchronous cross-region database replication with automated failover. Recovery Point Objective (RPO) is the maximum acceptable data loss measured in time (e.g., 15 minutes of transactions). Recovery Time Objective (RTO) is the maximum acceptable duration of service downtime before restoration. High-availability cloud architectures use active-active or warm-standby replication to satisfy tight RTO/RPO targets.",
     referenceUrl: "https://csrc.nist.gov/glossary/term/recovery_time_objective",
@@ -74,8 +74,8 @@ export const ISC2_CCSP_QUESTIONS_12 = [
     options: [
       { id: 'A', text: "Establish RPO = 15 minutes and RTO = 1 hour, implementing continuous asynchronous cross-region database replication with automated failover." },
       { id: 'B', text: "Perform manual weekly tape backups stored in an office filing cabinet." },
-      { id: 'C', text: "Assume the cloud provider automatically guarantees zero data loss and instantaneous recovery without architecture planning." },
-      { id: 'D', text: "Set RTO to zero seconds using un-replicated standalone database instances." }
+      { id: 'C', text: "Set RTO to zero seconds using un-replicated standalone database instances." },
+      { id: 'D', text: "Assume the cloud provider automatically guarantees zero data loss and instantaneous recovery without architecture planning." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -93,12 +93,12 @@ export const ISC2_CCSP_QUESTIONS_12 = [
     scenario: "A corporate compliance auditor is evaluating cloud service level agreements, independent SOC 2 Type II audit attestations, and legal hold eDiscovery preservation policies. The cloud security professional evaluates Business Continuity to architect a disaster recovery solution for a core transactional financial database requiring maximum 15 minutes data loss and 1 hour downtime.",
     question: "Which legal, risk, or compliance procedure guarantees due diligence and satisfies regulatory requirements? Recovery Time Objective (RTO) and Recovery Point Objective (RPO) trade-offs in cloud failover is under consideration.",
     options: [
-      { id: 'A', text: "Establish RPO = 15 minutes and RTO = 1 hour, implementing continuous asynchronous cross-region database replication with automated failover." },
+      { id: 'A', text: "Assume the cloud provider automatically guarantees zero data loss and instantaneous recovery without architecture planning." },
       { id: 'B', text: "Perform manual weekly tape backups stored in an office filing cabinet." },
-      { id: 'C', text: "Assume the cloud provider automatically guarantees zero data loss and instantaneous recovery without architecture planning." },
+      { id: 'C', text: "Establish RPO = 15 minutes and RTO = 1 hour, implementing continuous asynchronous cross-region database replication with automated failover." },
       { id: 'D', text: "Set RTO to zero seconds using un-replicated standalone database instances." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Establish RPO = 15 minutes and RTO = 1 hour, implementing continuous asynchronous cross-region database replication with automated failover. Recovery Point Objective (RPO) is the maximum acceptable data loss measured in time (e.g., 15 minutes of transactions). Recovery Time Objective (RTO) is the maximum acceptable duration of service downtime before restoration. High-availability cloud architectures use active-active or warm-standby replication to satisfy tight RTO/RPO targets.",
     referenceUrl: "https://csrc.nist.gov/glossary/term/recovery_time_objective",
@@ -114,12 +114,12 @@ export const ISC2_CCSP_QUESTIONS_12 = [
     scenario: "An enterprise chief information security officer (CISO) is establishing multi-cloud governance frameworks, shared responsibility models, and Zero Trust architectures across global business units. The cloud security professional evaluates Hypervisor Security to prevent malicious code running inside a tenant virtual machine from breaking out into the host hypervisor or compromising co-tenants.",
     question: "Which architectural approach or cloud security control satisfies these enterprise governance objectives? Type 1 (bare-metal) vs Type 2 hypervisors, VM escape attacks, and noisy neighbor mitigation is under consideration.",
     options: [
-      { id: 'A', text: "Use bare-metal Type 1 hypervisors with hardened microkernels, CPU hardware virtualization extensions, and strict resource isolation." },
-      { id: 'B', text: "Run tenant workloads on consumer Type 2 desktop hypervisors sharing administrative host accounts." },
-      { id: 'C', text: "Disable hardware-enforced CPU memory isolation to improve virtual machine booting speed." },
+      { id: 'A', text: "Disable hardware-enforced CPU memory isolation to improve virtual machine booting speed." },
+      { id: 'B', text: "Use bare-metal Type 1 hypervisors with hardened microkernels, CPU hardware virtualization extensions, and strict resource isolation." },
+      { id: 'C', text: "Run tenant workloads on consumer Type 2 desktop hypervisors sharing administrative host accounts." },
       { id: 'D', text: "Allow tenant virtual machines to modify host kernel memory tables directly." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Use bare-metal Type 1 hypervisors with hardened microkernels, CPU hardware virtualization extensions, and strict resource isolation. Type 1 hypervisors run directly on bare metal hardware, offering a smaller attack surface than Type 2 hypervisors running on top of an OS. Security controls mitigate VM escape vulnerabilities (where guest code attacks the hypervisor) and prevent noisy neighbors through CPU core pinning and memory isolation.",
     referenceUrl: "https://csrc.nist.gov/publications/detail/sp/800-125/final",
@@ -135,12 +135,12 @@ export const ISC2_CCSP_QUESTIONS_12 = [
     scenario: "A global data protection officer is implementing cryptographic data lifecycles, crypto-shredding sanitization, and data loss prevention across sensitive cloud repositories. The cloud security professional evaluates Hypervisor Security to prevent malicious code running inside a tenant virtual machine from breaking out into the host hypervisor or compromising co-tenants.",
     question: "Which data security mechanism or cryptographic architecture guarantees compliance with international privacy mandates? Type 1 (bare-metal) vs Type 2 hypervisors, VM escape attacks, and noisy neighbor mitigation is under consideration.",
     options: [
-      { id: 'A', text: "Use bare-metal Type 1 hypervisors with hardened microkernels, CPU hardware virtualization extensions, and strict resource isolation." },
-      { id: 'B', text: "Run tenant workloads on consumer Type 2 desktop hypervisors sharing administrative host accounts." },
-      { id: 'C', text: "Disable hardware-enforced CPU memory isolation to improve virtual machine booting speed." },
-      { id: 'D', text: "Allow tenant virtual machines to modify host kernel memory tables directly." }
+      { id: 'A', text: "Run tenant workloads on consumer Type 2 desktop hypervisors sharing administrative host accounts." },
+      { id: 'B', text: "Use bare-metal Type 1 hypervisors with hardened microkernels, CPU hardware virtualization extensions, and strict resource isolation." },
+      { id: 'C', text: "Allow tenant virtual machines to modify host kernel memory tables directly." },
+      { id: 'D', text: "Disable hardware-enforced CPU memory isolation to improve virtual machine booting speed." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Use bare-metal Type 1 hypervisors with hardened microkernels, CPU hardware virtualization extensions, and strict resource isolation. Type 1 hypervisors run directly on bare metal hardware, offering a smaller attack surface than Type 2 hypervisors running on top of an OS. Security controls mitigate VM escape vulnerabilities (where guest code attacks the hypervisor) and prevent noisy neighbors through CPU core pinning and memory isolation.",
     referenceUrl: "https://csrc.nist.gov/publications/detail/sp/800-125/final",
@@ -156,12 +156,12 @@ export const ISC2_CCSP_QUESTIONS_12 = [
     scenario: "A cloud platform security team is hardening virtualization substrates, implementing micro-segmentation, and enforcing immutable infrastructure across multi-tenant environments. The cloud security professional evaluates Hypervisor Security to prevent malicious code running inside a tenant virtual machine from breaking out into the host hypervisor or compromising co-tenants.",
     question: "Which infrastructure security design or platform control prevents unauthorized lateral movement and hypervisor compromise? Type 1 (bare-metal) vs Type 2 hypervisors, VM escape attacks, and noisy neighbor mitigation is under consideration.",
     options: [
-      { id: 'A', text: "Use bare-metal Type 1 hypervisors with hardened microkernels, CPU hardware virtualization extensions, and strict resource isolation." },
-      { id: 'B', text: "Run tenant workloads on consumer Type 2 desktop hypervisors sharing administrative host accounts." },
-      { id: 'C', text: "Disable hardware-enforced CPU memory isolation to improve virtual machine booting speed." },
-      { id: 'D', text: "Allow tenant virtual machines to modify host kernel memory tables directly." }
+      { id: 'A', text: "Run tenant workloads on consumer Type 2 desktop hypervisors sharing administrative host accounts." },
+      { id: 'B', text: "Allow tenant virtual machines to modify host kernel memory tables directly." },
+      { id: 'C', text: "Use bare-metal Type 1 hypervisors with hardened microkernels, CPU hardware virtualization extensions, and strict resource isolation." },
+      { id: 'D', text: "Disable hardware-enforced CPU memory isolation to improve virtual machine booting speed." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Use bare-metal Type 1 hypervisors with hardened microkernels, CPU hardware virtualization extensions, and strict resource isolation. Type 1 hypervisors run directly on bare metal hardware, offering a smaller attack surface than Type 2 hypervisors running on top of an OS. Security controls mitigate VM escape vulnerabilities (where guest code attacks the hypervisor) and prevent noisy neighbors through CPU core pinning and memory isolation.",
     referenceUrl: "https://csrc.nist.gov/publications/detail/sp/800-125/final",
@@ -177,12 +177,12 @@ export const ISC2_CCSP_QUESTIONS_12 = [
     scenario: "A devsecops engineering group is embedding threat modeling, automated SAST/DAST testing, and API gateway security into continuous cloud application delivery lifecycles. The cloud security professional evaluates Hypervisor Security to prevent malicious code running inside a tenant virtual machine from breaking out into the host hypervisor or compromising co-tenants.",
     question: "Which application security practice or runtime defense mitigates critical OWASP vulnerabilities before deployment? Type 1 (bare-metal) vs Type 2 hypervisors, VM escape attacks, and noisy neighbor mitigation is under consideration.",
     options: [
-      { id: 'A', text: "Use bare-metal Type 1 hypervisors with hardened microkernels, CPU hardware virtualization extensions, and strict resource isolation." },
+      { id: 'A', text: "Allow tenant virtual machines to modify host kernel memory tables directly." },
       { id: 'B', text: "Run tenant workloads on consumer Type 2 desktop hypervisors sharing administrative host accounts." },
-      { id: 'C', text: "Disable hardware-enforced CPU memory isolation to improve virtual machine booting speed." },
-      { id: 'D', text: "Allow tenant virtual machines to modify host kernel memory tables directly." }
+      { id: 'C', text: "Use bare-metal Type 1 hypervisors with hardened microkernels, CPU hardware virtualization extensions, and strict resource isolation." },
+      { id: 'D', text: "Disable hardware-enforced CPU memory isolation to improve virtual machine booting speed." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Use bare-metal Type 1 hypervisors with hardened microkernels, CPU hardware virtualization extensions, and strict resource isolation. Type 1 hypervisors run directly on bare metal hardware, offering a smaller attack surface than Type 2 hypervisors running on top of an OS. Security controls mitigate VM escape vulnerabilities (where guest code attacks the hypervisor) and prevent noisy neighbors through CPU core pinning and memory isolation.",
     referenceUrl: "https://csrc.nist.gov/publications/detail/sp/800-125/final",
@@ -198,12 +198,12 @@ export const ISC2_CCSP_QUESTIONS_12 = [
     scenario: "A corporate compliance auditor is evaluating cloud service level agreements, independent SOC 2 Type II audit attestations, and legal hold eDiscovery preservation policies. The cloud security professional evaluates Hypervisor Security to prevent malicious code running inside a tenant virtual machine from breaking out into the host hypervisor or compromising co-tenants.",
     question: "Which legal, risk, or compliance procedure guarantees due diligence and satisfies regulatory requirements? Type 1 (bare-metal) vs Type 2 hypervisors, VM escape attacks, and noisy neighbor mitigation is under consideration.",
     options: [
-      { id: 'A', text: "Use bare-metal Type 1 hypervisors with hardened microkernels, CPU hardware virtualization extensions, and strict resource isolation." },
-      { id: 'B', text: "Run tenant workloads on consumer Type 2 desktop hypervisors sharing administrative host accounts." },
-      { id: 'C', text: "Disable hardware-enforced CPU memory isolation to improve virtual machine booting speed." },
-      { id: 'D', text: "Allow tenant virtual machines to modify host kernel memory tables directly." }
+      { id: 'A', text: "Allow tenant virtual machines to modify host kernel memory tables directly." },
+      { id: 'B', text: "Use bare-metal Type 1 hypervisors with hardened microkernels, CPU hardware virtualization extensions, and strict resource isolation." },
+      { id: 'C', text: "Run tenant workloads on consumer Type 2 desktop hypervisors sharing administrative host accounts." },
+      { id: 'D', text: "Disable hardware-enforced CPU memory isolation to improve virtual machine booting speed." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Use bare-metal Type 1 hypervisors with hardened microkernels, CPU hardware virtualization extensions, and strict resource isolation. Type 1 hypervisors run directly on bare metal hardware, offering a smaller attack surface than Type 2 hypervisors running on top of an OS. Security controls mitigate VM escape vulnerabilities (where guest code attacks the hypervisor) and prevent noisy neighbors through CPU core pinning and memory isolation.",
     referenceUrl: "https://csrc.nist.gov/publications/detail/sp/800-125/final",
@@ -219,12 +219,12 @@ export const ISC2_CCSP_QUESTIONS_12 = [
     scenario: "An enterprise chief information security officer (CISO) is establishing multi-cloud governance frameworks, shared responsibility models, and Zero Trust architectures across global business units. The cloud security professional evaluates Confidential Computing to process highly sensitive financial fraud machine learning algorithms on cloud infrastructure without exposing plaintext data to the hypervisor.",
     question: "Which architectural approach or cloud security control satisfies these enterprise governance objectives? Protecting data in use via hardware-based Trusted Execution Environments (TEEs) and memory encryption is under consideration.",
     options: [
-      { id: 'A', text: "Deploy Confidential Computing virtual machines utilizing hardware-based Trusted Execution Environments (TEEs, e.g., AMD SEV, Intel SGX)." },
+      { id: 'A', text: "Disable hardware encryption to maximize CPU calculation throughput." },
       { id: 'B', text: "Process plaintext financial data in standard unencrypted virtual machine memory accessible to hypervisor administrators." },
-      { id: 'C', text: "Disable hardware encryption to maximize CPU calculation throughput." },
+      { id: 'C', text: "Deploy Confidential Computing virtual machines utilizing hardware-based Trusted Execution Environments (TEEs, e.g., AMD SEV, Intel SGX)." },
       { id: 'D', text: "Rely on non-disclosure agreements to prevent cloud provider system administrators from viewing RAM contents." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy Confidential Computing virtual machines utilizing hardware-based Trusted Execution Environments (TEEs, e.g., AMD SEV, Intel SGX). Confidential Computing protects data in use. By utilizing hardware-based Trusted Execution Environments (TEEs) with CPU memory encryption (AMD SEV, Intel SGX/TDX), sensitive workloads run in secure enclaves where neither cloud provider administrators, host operating systems, nor hypervisors can inspect memory.",
     referenceUrl: "https://confidentialcomputing.io/",
@@ -240,12 +240,12 @@ export const ISC2_CCSP_QUESTIONS_12 = [
     scenario: "A global data protection officer is implementing cryptographic data lifecycles, crypto-shredding sanitization, and data loss prevention across sensitive cloud repositories. The cloud security professional evaluates Confidential Computing to process highly sensitive financial fraud machine learning algorithms on cloud infrastructure without exposing plaintext data to the hypervisor.",
     question: "Which data security mechanism or cryptographic architecture guarantees compliance with international privacy mandates? Protecting data in use via hardware-based Trusted Execution Environments (TEEs) and memory encryption is under consideration.",
     options: [
-      { id: 'A', text: "Deploy Confidential Computing virtual machines utilizing hardware-based Trusted Execution Environments (TEEs, e.g., AMD SEV, Intel SGX)." },
+      { id: 'A', text: "Rely on non-disclosure agreements to prevent cloud provider system administrators from viewing RAM contents." },
       { id: 'B', text: "Process plaintext financial data in standard unencrypted virtual machine memory accessible to hypervisor administrators." },
       { id: 'C', text: "Disable hardware encryption to maximize CPU calculation throughput." },
-      { id: 'D', text: "Rely on non-disclosure agreements to prevent cloud provider system administrators from viewing RAM contents." }
+      { id: 'D', text: "Deploy Confidential Computing virtual machines utilizing hardware-based Trusted Execution Environments (TEEs, e.g., AMD SEV, Intel SGX)." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy Confidential Computing virtual machines utilizing hardware-based Trusted Execution Environments (TEEs, e.g., AMD SEV, Intel SGX). Confidential Computing protects data in use. By utilizing hardware-based Trusted Execution Environments (TEEs) with CPU memory encryption (AMD SEV, Intel SGX/TDX), sensitive workloads run in secure enclaves where neither cloud provider administrators, host operating systems, nor hypervisors can inspect memory.",
     referenceUrl: "https://confidentialcomputing.io/",
@@ -263,8 +263,8 @@ export const ISC2_CCSP_QUESTIONS_12 = [
     options: [
       { id: 'A', text: "Deploy Confidential Computing virtual machines utilizing hardware-based Trusted Execution Environments (TEEs, e.g., AMD SEV, Intel SGX)." },
       { id: 'B', text: "Process plaintext financial data in standard unencrypted virtual machine memory accessible to hypervisor administrators." },
-      { id: 'C', text: "Disable hardware encryption to maximize CPU calculation throughput." },
-      { id: 'D', text: "Rely on non-disclosure agreements to prevent cloud provider system administrators from viewing RAM contents." }
+      { id: 'C', text: "Rely on non-disclosure agreements to prevent cloud provider system administrators from viewing RAM contents." },
+      { id: 'D', text: "Disable hardware encryption to maximize CPU calculation throughput." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -282,12 +282,12 @@ export const ISC2_CCSP_QUESTIONS_12 = [
     scenario: "A devsecops engineering group is embedding threat modeling, automated SAST/DAST testing, and API gateway security into continuous cloud application delivery lifecycles. The cloud security professional evaluates Confidential Computing to process highly sensitive financial fraud machine learning algorithms on cloud infrastructure without exposing plaintext data to the hypervisor.",
     question: "Which application security practice or runtime defense mitigates critical OWASP vulnerabilities before deployment? Protecting data in use via hardware-based Trusted Execution Environments (TEEs) and memory encryption is under consideration.",
     options: [
-      { id: 'A', text: "Deploy Confidential Computing virtual machines utilizing hardware-based Trusted Execution Environments (TEEs, e.g., AMD SEV, Intel SGX)." },
+      { id: 'A', text: "Disable hardware encryption to maximize CPU calculation throughput." },
       { id: 'B', text: "Process plaintext financial data in standard unencrypted virtual machine memory accessible to hypervisor administrators." },
-      { id: 'C', text: "Disable hardware encryption to maximize CPU calculation throughput." },
-      { id: 'D', text: "Rely on non-disclosure agreements to prevent cloud provider system administrators from viewing RAM contents." }
+      { id: 'C', text: "Rely on non-disclosure agreements to prevent cloud provider system administrators from viewing RAM contents." },
+      { id: 'D', text: "Deploy Confidential Computing virtual machines utilizing hardware-based Trusted Execution Environments (TEEs, e.g., AMD SEV, Intel SGX)." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy Confidential Computing virtual machines utilizing hardware-based Trusted Execution Environments (TEEs, e.g., AMD SEV, Intel SGX). Confidential Computing protects data in use. By utilizing hardware-based Trusted Execution Environments (TEEs) with CPU memory encryption (AMD SEV, Intel SGX/TDX), sensitive workloads run in secure enclaves where neither cloud provider administrators, host operating systems, nor hypervisors can inspect memory.",
     referenceUrl: "https://confidentialcomputing.io/",
@@ -324,12 +324,12 @@ export const ISC2_CCSP_QUESTIONS_12 = [
     scenario: "An enterprise chief information security officer (CISO) is establishing multi-cloud governance frameworks, shared responsibility models, and Zero Trust architectures across global business units. The cloud security professional evaluates Data Life Cycle to implement appropriate security controls at each distinct phase of customer financial data traversing cloud systems.",
     question: "Which architectural approach or cloud security control satisfies these enterprise governance objectives? Create, Store, Use, Share, Archive, and Destroy lifecycle phases and security controls is under consideration.",
     options: [
-      { id: 'A', text: "Apply the Cloud Data Life Cycle framework: Create (classify/SSL), Store (encrypt/WORM), Use (memory encrypt), Share (DLP/IAM), Archive (retention), Destroy (crypto-shred)." },
-      { id: 'B', text: "Apply encryption only during initial data creation and leave stored and archived records unencrypted." },
-      { id: 'C', text: "Treat all lifecycle phases identically with no differentiation between active usage and long-term archiving." },
-      { id: 'D', text: "Delete data by simply removing pointer references while leaving raw sectors intact on shared storage." }
+      { id: 'A', text: "Apply encryption only during initial data creation and leave stored and archived records unencrypted." },
+      { id: 'B', text: "Treat all lifecycle phases identically with no differentiation between active usage and long-term archiving." },
+      { id: 'C', text: "Delete data by simply removing pointer references while leaving raw sectors intact on shared storage." },
+      { id: 'D', text: "Apply the Cloud Data Life Cycle framework: Create (classify/SSL), Store (encrypt/WORM), Use (memory encrypt), Share (DLP/IAM), Archive (retention), Destroy (crypto-shred)." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Apply the Cloud Data Life Cycle framework: Create (classify/SSL), Store (encrypt/WORM), Use (memory encrypt), Share (DLP/IAM), Archive (retention), Destroy (crypto-shred). The CSA Cloud Data Life Cycle encompasses six phases: Create (data generation and classification), Store (committing to repository with encryption), Use (active processing in memory), Share (exchanging across trust boundaries), Archive (long-term compliance storage), and Destroy (sanitization/crypto-shredding).",
     referenceUrl: "https://cloudsecurityalliance.org/research/guidance/",
@@ -346,9 +346,9 @@ export const ISC2_CCSP_QUESTIONS_12 = [
     question: "Which data security mechanism or cryptographic architecture guarantees compliance with international privacy mandates? Create, Store, Use, Share, Archive, and Destroy lifecycle phases and security controls is under consideration.",
     options: [
       { id: 'A', text: "Apply the Cloud Data Life Cycle framework: Create (classify/SSL), Store (encrypt/WORM), Use (memory encrypt), Share (DLP/IAM), Archive (retention), Destroy (crypto-shred)." },
-      { id: 'B', text: "Apply encryption only during initial data creation and leave stored and archived records unencrypted." },
-      { id: 'C', text: "Treat all lifecycle phases identically with no differentiation between active usage and long-term archiving." },
-      { id: 'D', text: "Delete data by simply removing pointer references while leaving raw sectors intact on shared storage." }
+      { id: 'B', text: "Treat all lifecycle phases identically with no differentiation between active usage and long-term archiving." },
+      { id: 'C', text: "Delete data by simply removing pointer references while leaving raw sectors intact on shared storage." },
+      { id: 'D', text: "Apply encryption only during initial data creation and leave stored and archived records unencrypted." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -367,8 +367,8 @@ export const ISC2_CCSP_QUESTIONS_12 = [
     question: "Which infrastructure security design or platform control prevents unauthorized lateral movement and hypervisor compromise? Create, Store, Use, Share, Archive, and Destroy lifecycle phases and security controls is under consideration.",
     options: [
       { id: 'A', text: "Apply the Cloud Data Life Cycle framework: Create (classify/SSL), Store (encrypt/WORM), Use (memory encrypt), Share (DLP/IAM), Archive (retention), Destroy (crypto-shred)." },
-      { id: 'B', text: "Apply encryption only during initial data creation and leave stored and archived records unencrypted." },
-      { id: 'C', text: "Treat all lifecycle phases identically with no differentiation between active usage and long-term archiving." },
+      { id: 'B', text: "Treat all lifecycle phases identically with no differentiation between active usage and long-term archiving." },
+      { id: 'C', text: "Apply encryption only during initial data creation and leave stored and archived records unencrypted." },
       { id: 'D', text: "Delete data by simply removing pointer references while leaving raw sectors intact on shared storage." }
     ],
     correctAnswers: ['A'],
@@ -387,12 +387,12 @@ export const ISC2_CCSP_QUESTIONS_12 = [
     scenario: "A devsecops engineering group is embedding threat modeling, automated SAST/DAST testing, and API gateway security into continuous cloud application delivery lifecycles. The cloud security professional evaluates Data Life Cycle to implement appropriate security controls at each distinct phase of customer financial data traversing cloud systems.",
     question: "Which application security practice or runtime defense mitigates critical OWASP vulnerabilities before deployment? Create, Store, Use, Share, Archive, and Destroy lifecycle phases and security controls is under consideration.",
     options: [
-      { id: 'A', text: "Apply the Cloud Data Life Cycle framework: Create (classify/SSL), Store (encrypt/WORM), Use (memory encrypt), Share (DLP/IAM), Archive (retention), Destroy (crypto-shred)." },
-      { id: 'B', text: "Apply encryption only during initial data creation and leave stored and archived records unencrypted." },
-      { id: 'C', text: "Treat all lifecycle phases identically with no differentiation between active usage and long-term archiving." },
-      { id: 'D', text: "Delete data by simply removing pointer references while leaving raw sectors intact on shared storage." }
+      { id: 'A', text: "Treat all lifecycle phases identically with no differentiation between active usage and long-term archiving." },
+      { id: 'B', text: "Apply the Cloud Data Life Cycle framework: Create (classify/SSL), Store (encrypt/WORM), Use (memory encrypt), Share (DLP/IAM), Archive (retention), Destroy (crypto-shred)." },
+      { id: 'C', text: "Delete data by simply removing pointer references while leaving raw sectors intact on shared storage." },
+      { id: 'D', text: "Apply encryption only during initial data creation and leave stored and archived records unencrypted." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Apply the Cloud Data Life Cycle framework: Create (classify/SSL), Store (encrypt/WORM), Use (memory encrypt), Share (DLP/IAM), Archive (retention), Destroy (crypto-shred). The CSA Cloud Data Life Cycle encompasses six phases: Create (data generation and classification), Store (committing to repository with encryption), Use (active processing in memory), Share (exchanging across trust boundaries), Archive (long-term compliance storage), and Destroy (sanitization/crypto-shredding).",
     referenceUrl: "https://cloudsecurityalliance.org/research/guidance/",
@@ -408,12 +408,12 @@ export const ISC2_CCSP_QUESTIONS_12 = [
     scenario: "A corporate compliance auditor is evaluating cloud service level agreements, independent SOC 2 Type II audit attestations, and legal hold eDiscovery preservation policies. The cloud security professional evaluates Data Life Cycle to implement appropriate security controls at each distinct phase of customer financial data traversing cloud systems.",
     question: "Which legal, risk, or compliance procedure guarantees due diligence and satisfies regulatory requirements? Create, Store, Use, Share, Archive, and Destroy lifecycle phases and security controls is under consideration.",
     options: [
-      { id: 'A', text: "Apply the Cloud Data Life Cycle framework: Create (classify/SSL), Store (encrypt/WORM), Use (memory encrypt), Share (DLP/IAM), Archive (retention), Destroy (crypto-shred)." },
+      { id: 'A', text: "Treat all lifecycle phases identically with no differentiation between active usage and long-term archiving." },
       { id: 'B', text: "Apply encryption only during initial data creation and leave stored and archived records unencrypted." },
-      { id: 'C', text: "Treat all lifecycle phases identically with no differentiation between active usage and long-term archiving." },
-      { id: 'D', text: "Delete data by simply removing pointer references while leaving raw sectors intact on shared storage." }
+      { id: 'C', text: "Delete data by simply removing pointer references while leaving raw sectors intact on shared storage." },
+      { id: 'D', text: "Apply the Cloud Data Life Cycle framework: Create (classify/SSL), Store (encrypt/WORM), Use (memory encrypt), Share (DLP/IAM), Archive (retention), Destroy (crypto-shred)." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Apply the Cloud Data Life Cycle framework: Create (classify/SSL), Store (encrypt/WORM), Use (memory encrypt), Share (DLP/IAM), Archive (retention), Destroy (crypto-shred). The CSA Cloud Data Life Cycle encompasses six phases: Create (data generation and classification), Store (committing to repository with encryption), Use (active processing in memory), Share (exchanging across trust boundaries), Archive (long-term compliance storage), and Destroy (sanitization/crypto-shredding).",
     referenceUrl: "https://cloudsecurityalliance.org/research/guidance/",
@@ -429,12 +429,12 @@ export const ISC2_CCSP_QUESTIONS_12 = [
     scenario: "An enterprise chief information security officer (CISO) is establishing multi-cloud governance frameworks, shared responsibility models, and Zero Trust architectures across global business units. The cloud security professional evaluates Data Classification to ensure that newly ingested customer records containing Social Security numbers are automatically tagged and restricted.",
     question: "Which architectural approach or cloud security control satisfies these enterprise governance objectives? Automated discovery of PII, classification taxonomies (Confidential, Restricted, Public), and metadata tagging is under consideration.",
     options: [
-      { id: 'A', text: "Deploy automated data discovery and classification engines that scan repositories, identify sensitive patterns, and apply mandatory classification tags." },
-      { id: 'B', text: "Rely on manual human inspection of every uploaded file across petabytes of object storage." },
-      { id: 'C', text: "Label all enterprise data as Public to simplify employee access policies." },
-      { id: 'D', text: "Refuse to classify data because classification taxonomies require administrative overhead." }
+      { id: 'A', text: "Label all enterprise data as Public to simplify employee access policies." },
+      { id: 'B', text: "Refuse to classify data because classification taxonomies require administrative overhead." },
+      { id: 'C', text: "Deploy automated data discovery and classification engines that scan repositories, identify sensitive patterns, and apply mandatory classification tags." },
+      { id: 'D', text: "Rely on manual human inspection of every uploaded file across petabytes of object storage." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy automated data discovery and classification engines that scan repositories, identify sensitive patterns, and apply mandatory classification tags. Data classification categorizes assets based on sensitivity and business impact (e.g., Public, Internal, Confidential, Restricted). Automated cloud discovery tools scan data stores using pattern matching and machine learning, applying metadata tags that drive automated encryption and DLP policies.",
     referenceUrl: "https://csrc.nist.gov/publications/detail/sp/800-60/vol-1-rev-1/final",
@@ -450,12 +450,12 @@ export const ISC2_CCSP_QUESTIONS_12 = [
     scenario: "A global data protection officer is implementing cryptographic data lifecycles, crypto-shredding sanitization, and data loss prevention across sensitive cloud repositories. The cloud security professional evaluates Data Classification to ensure that newly ingested customer records containing Social Security numbers are automatically tagged and restricted.",
     question: "Which data security mechanism or cryptographic architecture guarantees compliance with international privacy mandates? Automated discovery of PII, classification taxonomies (Confidential, Restricted, Public), and metadata tagging is under consideration.",
     options: [
-      { id: 'A', text: "Deploy automated data discovery and classification engines that scan repositories, identify sensitive patterns, and apply mandatory classification tags." },
-      { id: 'B', text: "Rely on manual human inspection of every uploaded file across petabytes of object storage." },
+      { id: 'A', text: "Refuse to classify data because classification taxonomies require administrative overhead." },
+      { id: 'B', text: "Deploy automated data discovery and classification engines that scan repositories, identify sensitive patterns, and apply mandatory classification tags." },
       { id: 'C', text: "Label all enterprise data as Public to simplify employee access policies." },
-      { id: 'D', text: "Refuse to classify data because classification taxonomies require administrative overhead." }
+      { id: 'D', text: "Rely on manual human inspection of every uploaded file across petabytes of object storage." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy automated data discovery and classification engines that scan repositories, identify sensitive patterns, and apply mandatory classification tags. Data classification categorizes assets based on sensitivity and business impact (e.g., Public, Internal, Confidential, Restricted). Automated cloud discovery tools scan data stores using pattern matching and machine learning, applying metadata tags that drive automated encryption and DLP policies.",
     referenceUrl: "https://csrc.nist.gov/publications/detail/sp/800-60/vol-1-rev-1/final",
@@ -471,12 +471,12 @@ export const ISC2_CCSP_QUESTIONS_12 = [
     scenario: "A cloud platform security team is hardening virtualization substrates, implementing micro-segmentation, and enforcing immutable infrastructure across multi-tenant environments. The cloud security professional evaluates Data Classification to ensure that newly ingested customer records containing Social Security numbers are automatically tagged and restricted.",
     question: "Which infrastructure security design or platform control prevents unauthorized lateral movement and hypervisor compromise? Automated discovery of PII, classification taxonomies (Confidential, Restricted, Public), and metadata tagging is under consideration.",
     options: [
-      { id: 'A', text: "Deploy automated data discovery and classification engines that scan repositories, identify sensitive patterns, and apply mandatory classification tags." },
+      { id: 'A', text: "Refuse to classify data because classification taxonomies require administrative overhead." },
       { id: 'B', text: "Rely on manual human inspection of every uploaded file across petabytes of object storage." },
-      { id: 'C', text: "Label all enterprise data as Public to simplify employee access policies." },
-      { id: 'D', text: "Refuse to classify data because classification taxonomies require administrative overhead." }
+      { id: 'C', text: "Deploy automated data discovery and classification engines that scan repositories, identify sensitive patterns, and apply mandatory classification tags." },
+      { id: 'D', text: "Label all enterprise data as Public to simplify employee access policies." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy automated data discovery and classification engines that scan repositories, identify sensitive patterns, and apply mandatory classification tags. Data classification categorizes assets based on sensitivity and business impact (e.g., Public, Internal, Confidential, Restricted). Automated cloud discovery tools scan data stores using pattern matching and machine learning, applying metadata tags that drive automated encryption and DLP policies.",
     referenceUrl: "https://csrc.nist.gov/publications/detail/sp/800-60/vol-1-rev-1/final",
@@ -492,12 +492,12 @@ export const ISC2_CCSP_QUESTIONS_12 = [
     scenario: "A devsecops engineering group is embedding threat modeling, automated SAST/DAST testing, and API gateway security into continuous cloud application delivery lifecycles. The cloud security professional evaluates Data Classification to ensure that newly ingested customer records containing Social Security numbers are automatically tagged and restricted.",
     question: "Which application security practice or runtime defense mitigates critical OWASP vulnerabilities before deployment? Automated discovery of PII, classification taxonomies (Confidential, Restricted, Public), and metadata tagging is under consideration.",
     options: [
-      { id: 'A', text: "Deploy automated data discovery and classification engines that scan repositories, identify sensitive patterns, and apply mandatory classification tags." },
+      { id: 'A', text: "Label all enterprise data as Public to simplify employee access policies." },
       { id: 'B', text: "Rely on manual human inspection of every uploaded file across petabytes of object storage." },
-      { id: 'C', text: "Label all enterprise data as Public to simplify employee access policies." },
+      { id: 'C', text: "Deploy automated data discovery and classification engines that scan repositories, identify sensitive patterns, and apply mandatory classification tags." },
       { id: 'D', text: "Refuse to classify data because classification taxonomies require administrative overhead." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy automated data discovery and classification engines that scan repositories, identify sensitive patterns, and apply mandatory classification tags. Data classification categorizes assets based on sensitivity and business impact (e.g., Public, Internal, Confidential, Restricted). Automated cloud discovery tools scan data stores using pattern matching and machine learning, applying metadata tags that drive automated encryption and DLP policies.",
     referenceUrl: "https://csrc.nist.gov/publications/detail/sp/800-60/vol-1-rev-1/final",
@@ -513,12 +513,12 @@ export const ISC2_CCSP_QUESTIONS_12 = [
     scenario: "A corporate compliance auditor is evaluating cloud service level agreements, independent SOC 2 Type II audit attestations, and legal hold eDiscovery preservation policies. The cloud security professional evaluates Data Classification to ensure that newly ingested customer records containing Social Security numbers are automatically tagged and restricted.",
     question: "Which legal, risk, or compliance procedure guarantees due diligence and satisfies regulatory requirements? Automated discovery of PII, classification taxonomies (Confidential, Restricted, Public), and metadata tagging is under consideration.",
     options: [
-      { id: 'A', text: "Deploy automated data discovery and classification engines that scan repositories, identify sensitive patterns, and apply mandatory classification tags." },
-      { id: 'B', text: "Rely on manual human inspection of every uploaded file across petabytes of object storage." },
+      { id: 'A', text: "Refuse to classify data because classification taxonomies require administrative overhead." },
+      { id: 'B', text: "Deploy automated data discovery and classification engines that scan repositories, identify sensitive patterns, and apply mandatory classification tags." },
       { id: 'C', text: "Label all enterprise data as Public to simplify employee access policies." },
-      { id: 'D', text: "Refuse to classify data because classification taxonomies require administrative overhead." }
+      { id: 'D', text: "Rely on manual human inspection of every uploaded file across petabytes of object storage." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy automated data discovery and classification engines that scan repositories, identify sensitive patterns, and apply mandatory classification tags. Data classification categorizes assets based on sensitivity and business impact (e.g., Public, Internal, Confidential, Restricted). Automated cloud discovery tools scan data stores using pattern matching and machine learning, applying metadata tags that drive automated encryption and DLP policies.",
     referenceUrl: "https://csrc.nist.gov/publications/detail/sp/800-60/vol-1-rev-1/final",

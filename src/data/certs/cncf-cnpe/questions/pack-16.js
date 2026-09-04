@@ -9,12 +9,12 @@ export const CNCF_CNPE_QUESTIONS_16 = [
     scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer evaluates Multi-Region Deployment to orchestrate a safe application release across three geographic cloud regions without causing global routing disruption.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives? Coordinating active-active multi-region rollouts with global traffic management via Anycast/DNS is under consideration.",
     options: [
-      { id: 'A', text: "Execute progressive region-by-region rollouts, validating regional health probes and updating global traffic routing dynamically." },
-      { id: 'B', text: "Update all global regions simultaneously in a single command without monitoring regional telemetry." },
-      { id: 'C', text: "Route 100% of global user traffic to a single unmonitored container in one region." },
-      { id: 'D', text: "Disable global DNS routing and force users to connect directly to static regional IP addresses." }
+      { id: 'A', text: "Route 100% of global user traffic to a single unmonitored container in one region." },
+      { id: 'B', text: "Execute progressive region-by-region rollouts, validating regional health probes and updating global traffic routing dynamically." },
+      { id: 'C', text: "Disable global DNS routing and force users to connect directly to static regional IP addresses." },
+      { id: 'D', text: "Update all global regions simultaneously in a single command without monitoring regional telemetry." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Execute progressive region-by-region rollouts, validating regional health probes and updating global traffic routing dynamically. Multi-region deployment orchestration coordinates releases across independent fault domains. Platforms execute staged regional deployments (e.g., Region A -&gt; canary -&gt; Region B/C), ensuring that if a release encounters issues, global Anycast/DNS traffic shifts away seamlessly.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/service/#external-traffic-policy",
@@ -30,12 +30,12 @@ export const CNCF_CNPE_QUESTIONS_16 = [
     scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer evaluates Multi-Region Deployment to orchestrate a safe application release across three geographic cloud regions without causing global routing disruption.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift? Coordinating active-active multi-region rollouts with global traffic management via Anycast/DNS is under consideration.",
     options: [
-      { id: 'A', text: "Execute progressive region-by-region rollouts, validating regional health probes and updating global traffic routing dynamically." },
+      { id: 'A', text: "Route 100% of global user traffic to a single unmonitored container in one region." },
       { id: 'B', text: "Update all global regions simultaneously in a single command without monitoring regional telemetry." },
-      { id: 'C', text: "Route 100% of global user traffic to a single unmonitored container in one region." },
-      { id: 'D', text: "Disable global DNS routing and force users to connect directly to static regional IP addresses." }
+      { id: 'C', text: "Disable global DNS routing and force users to connect directly to static regional IP addresses." },
+      { id: 'D', text: "Execute progressive region-by-region rollouts, validating regional health probes and updating global traffic routing dynamically." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Execute progressive region-by-region rollouts, validating regional health probes and updating global traffic routing dynamically. Multi-region deployment orchestration coordinates releases across independent fault domains. Platforms execute staged regional deployments (e.g., Region A -&gt; canary -&gt; Region B/C), ensuring that if a release encounters issues, global Anycast/DNS traffic shifts away seamlessly.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/service/#external-traffic-policy",
@@ -51,12 +51,12 @@ export const CNCF_CNPE_QUESTIONS_16 = [
     scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer evaluates Multi-Region Deployment to orchestrate a safe application release across three geographic cloud regions without causing global routing disruption.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls? Coordinating active-active multi-region rollouts with global traffic management via Anycast/DNS is under consideration.",
     options: [
-      { id: 'A', text: "Execute progressive region-by-region rollouts, validating regional health probes and updating global traffic routing dynamically." },
-      { id: 'B', text: "Update all global regions simultaneously in a single command without monitoring regional telemetry." },
-      { id: 'C', text: "Route 100% of global user traffic to a single unmonitored container in one region." },
+      { id: 'A', text: "Update all global regions simultaneously in a single command without monitoring regional telemetry." },
+      { id: 'B', text: "Route 100% of global user traffic to a single unmonitored container in one region." },
+      { id: 'C', text: "Execute progressive region-by-region rollouts, validating regional health probes and updating global traffic routing dynamically." },
       { id: 'D', text: "Disable global DNS routing and force users to connect directly to static regional IP addresses." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Execute progressive region-by-region rollouts, validating regional health probes and updating global traffic routing dynamically. Multi-region deployment orchestration coordinates releases across independent fault domains. Platforms execute staged regional deployments (e.g., Region A -&gt; canary -&gt; Region B/C), ensuring that if a release encounters issues, global Anycast/DNS traffic shifts away seamlessly.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/service/#external-traffic-policy",
@@ -94,8 +94,8 @@ export const CNCF_CNPE_QUESTIONS_16 = [
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution? Coordinating active-active multi-region rollouts with global traffic management via Anycast/DNS is under consideration.",
     options: [
       { id: 'A', text: "Execute progressive region-by-region rollouts, validating regional health probes and updating global traffic routing dynamically." },
-      { id: 'B', text: "Update all global regions simultaneously in a single command without monitoring regional telemetry." },
-      { id: 'C', text: "Route 100% of global user traffic to a single unmonitored container in one region." },
+      { id: 'B', text: "Route 100% of global user traffic to a single unmonitored container in one region." },
+      { id: 'C', text: "Update all global regions simultaneously in a single command without monitoring regional telemetry." },
       { id: 'D', text: "Disable global DNS routing and force users to connect directly to static regional IP addresses." }
     ],
     correctAnswers: ['A'],
@@ -114,12 +114,12 @@ export const CNCF_CNPE_QUESTIONS_16 = [
     scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer evaluates Argo Workflows to orchestrate complex multi-stage machine learning pipelines and long-running platform data migration workflows in Kubernetes.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives? Directed Acyclic Graph (DAG) execution, container-native step retries, and artifact passing is under consideration.",
     options: [
-      { id: 'A', text: "Deploy Argo Workflows to execute containerized Directed Acyclic Graphs (DAGs) with automated step retries and artifact management." },
-      { id: 'B', text: "Run long-running multi-day batch scripts synchronously inside fragile web server request handlers." },
+      { id: 'A', text: "Run long-running multi-day batch scripts synchronously inside fragile web server request handlers." },
+      { id: 'B', text: "Disable container orchestration and run batch jobs directly on developer laptops." },
       { id: 'C', text: "Require human operators to execute individual pipeline steps manually one by one in terminal sessions." },
-      { id: 'D', text: "Disable container orchestration and run batch jobs directly on developer laptops." }
+      { id: 'D', text: "Deploy Argo Workflows to execute containerized Directed Acyclic Graphs (DAGs) with automated step retries and artifact management." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy Argo Workflows to execute containerized Directed Acyclic Graphs (DAGs) with automated step retries and artifact management. Argo Workflows is a container-native workflow engine for Kubernetes. It models complex pipelines as Directed Acyclic Graphs (DAGs) where each step runs in an isolated container. It features native artifact passing (S3/GCS), automated step retries, and dynamic matrix parallelization.",
     referenceUrl: "https://argoproj.github.io/argo-workflows/",
@@ -135,12 +135,12 @@ export const CNCF_CNPE_QUESTIONS_16 = [
     scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer evaluates Argo Workflows to orchestrate complex multi-stage machine learning pipelines and long-running platform data migration workflows in Kubernetes.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift? Directed Acyclic Graph (DAG) execution, container-native step retries, and artifact passing is under consideration.",
     options: [
-      { id: 'A', text: "Deploy Argo Workflows to execute containerized Directed Acyclic Graphs (DAGs) with automated step retries and artifact management." },
-      { id: 'B', text: "Run long-running multi-day batch scripts synchronously inside fragile web server request handlers." },
-      { id: 'C', text: "Require human operators to execute individual pipeline steps manually one by one in terminal sessions." },
-      { id: 'D', text: "Disable container orchestration and run batch jobs directly on developer laptops." }
+      { id: 'A', text: "Disable container orchestration and run batch jobs directly on developer laptops." },
+      { id: 'B', text: "Require human operators to execute individual pipeline steps manually one by one in terminal sessions." },
+      { id: 'C', text: "Deploy Argo Workflows to execute containerized Directed Acyclic Graphs (DAGs) with automated step retries and artifact management." },
+      { id: 'D', text: "Run long-running multi-day batch scripts synchronously inside fragile web server request handlers." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy Argo Workflows to execute containerized Directed Acyclic Graphs (DAGs) with automated step retries and artifact management. Argo Workflows is a container-native workflow engine for Kubernetes. It models complex pipelines as Directed Acyclic Graphs (DAGs) where each step runs in an isolated container. It features native artifact passing (S3/GCS), automated step retries, and dynamic matrix parallelization.",
     referenceUrl: "https://argoproj.github.io/argo-workflows/",
@@ -156,12 +156,12 @@ export const CNCF_CNPE_QUESTIONS_16 = [
     scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer evaluates Argo Workflows to orchestrate complex multi-stage machine learning pipelines and long-running platform data migration workflows in Kubernetes.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls? Directed Acyclic Graph (DAG) execution, container-native step retries, and artifact passing is under consideration.",
     options: [
-      { id: 'A', text: "Deploy Argo Workflows to execute containerized Directed Acyclic Graphs (DAGs) with automated step retries and artifact management." },
-      { id: 'B', text: "Run long-running multi-day batch scripts synchronously inside fragile web server request handlers." },
-      { id: 'C', text: "Require human operators to execute individual pipeline steps manually one by one in terminal sessions." },
-      { id: 'D', text: "Disable container orchestration and run batch jobs directly on developer laptops." }
+      { id: 'A', text: "Require human operators to execute individual pipeline steps manually one by one in terminal sessions." },
+      { id: 'B', text: "Disable container orchestration and run batch jobs directly on developer laptops." },
+      { id: 'C', text: "Run long-running multi-day batch scripts synchronously inside fragile web server request handlers." },
+      { id: 'D', text: "Deploy Argo Workflows to execute containerized Directed Acyclic Graphs (DAGs) with automated step retries and artifact management." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy Argo Workflows to execute containerized Directed Acyclic Graphs (DAGs) with automated step retries and artifact management. Argo Workflows is a container-native workflow engine for Kubernetes. It models complex pipelines as Directed Acyclic Graphs (DAGs) where each step runs in an isolated container. It features native artifact passing (S3/GCS), automated step retries, and dynamic matrix parallelization.",
     referenceUrl: "https://argoproj.github.io/argo-workflows/",
@@ -178,9 +178,9 @@ export const CNCF_CNPE_QUESTIONS_16 = [
     question: "Which platform capability or automation workflow enables application teams to self-serve safely? Directed Acyclic Graph (DAG) execution, container-native step retries, and artifact passing is under consideration.",
     options: [
       { id: 'A', text: "Deploy Argo Workflows to execute containerized Directed Acyclic Graphs (DAGs) with automated step retries and artifact management." },
-      { id: 'B', text: "Run long-running multi-day batch scripts synchronously inside fragile web server request handlers." },
+      { id: 'B', text: "Disable container orchestration and run batch jobs directly on developer laptops." },
       { id: 'C', text: "Require human operators to execute individual pipeline steps manually one by one in terminal sessions." },
-      { id: 'D', text: "Disable container orchestration and run batch jobs directly on developer laptops." }
+      { id: 'D', text: "Run long-running multi-day batch scripts synchronously inside fragile web server request handlers." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,12 +198,12 @@ export const CNCF_CNPE_QUESTIONS_16 = [
     scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer evaluates Argo Workflows to orchestrate complex multi-stage machine learning pipelines and long-running platform data migration workflows in Kubernetes.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution? Directed Acyclic Graph (DAG) execution, container-native step retries, and artifact passing is under consideration.",
     options: [
-      { id: 'A', text: "Deploy Argo Workflows to execute containerized Directed Acyclic Graphs (DAGs) with automated step retries and artifact management." },
-      { id: 'B', text: "Run long-running multi-day batch scripts synchronously inside fragile web server request handlers." },
-      { id: 'C', text: "Require human operators to execute individual pipeline steps manually one by one in terminal sessions." },
-      { id: 'D', text: "Disable container orchestration and run batch jobs directly on developer laptops." }
+      { id: 'A', text: "Run long-running multi-day batch scripts synchronously inside fragile web server request handlers." },
+      { id: 'B', text: "Disable container orchestration and run batch jobs directly on developer laptops." },
+      { id: 'C', text: "Deploy Argo Workflows to execute containerized Directed Acyclic Graphs (DAGs) with automated step retries and artifact management." },
+      { id: 'D', text: "Require human operators to execute individual pipeline steps manually one by one in terminal sessions." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy Argo Workflows to execute containerized Directed Acyclic Graphs (DAGs) with automated step retries and artifact management. Argo Workflows is a container-native workflow engine for Kubernetes. It models complex pipelines as Directed Acyclic Graphs (DAGs) where each step runs in an isolated container. It features native artifact passing (S3/GCS), automated step retries, and dynamic matrix parallelization.",
     referenceUrl: "https://argoproj.github.io/argo-workflows/",
@@ -219,12 +219,12 @@ export const CNCF_CNPE_QUESTIONS_16 = [
     scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer evaluates Crossplane Readiness to ensure composite platform resources only report `Ready: True` when all underlying cloud databases and security groups are completely operational.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives? Custom readiness checks, field transforms, and environment configs in Compositions is under consideration.",
     options: [
-      { id: 'A', text: "Define custom `readinessChecks` (MatchString, MatchCondition) and field transforms directly in the Crossplane Composition." },
-      { id: 'B', text: "Assume cloud resources become ready instantly upon manifest submission without verifying operational state." },
-      { id: 'C', text: "Mark all infrastructure resources as perpetually Ready regardless of whether they exist." },
-      { id: 'D', text: "Poll cloud APIs manually via developer workstation scripts to check database status." }
+      { id: 'A', text: "Assume cloud resources become ready instantly upon manifest submission without verifying operational state." },
+      { id: 'B', text: "Mark all infrastructure resources as perpetually Ready regardless of whether they exist." },
+      { id: 'C', text: "Poll cloud APIs manually via developer workstation scripts to check database status." },
+      { id: 'D', text: "Define custom `readinessChecks` (MatchString, MatchCondition) and field transforms directly in the Crossplane Composition." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Define custom `readinessChecks` (MatchString, MatchCondition) and field transforms directly in the Crossplane Composition. Crossplane Compositions support advanced readiness checks (`MatchString`, `MatchCondition`, `NonEmpty`). Platform engineers define conditions that determine when managed resources are truly operational before signaling ready status to the consuming claim.",
     referenceUrl: "https://docs.crossplane.io/latest/concepts/compositions/#readiness-checks",
@@ -240,12 +240,12 @@ export const CNCF_CNPE_QUESTIONS_16 = [
     scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer evaluates Crossplane Readiness to ensure composite platform resources only report `Ready: True` when all underlying cloud databases and security groups are completely operational.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift? Custom readiness checks, field transforms, and environment configs in Compositions is under consideration.",
     options: [
-      { id: 'A', text: "Define custom `readinessChecks` (MatchString, MatchCondition) and field transforms directly in the Crossplane Composition." },
-      { id: 'B', text: "Assume cloud resources become ready instantly upon manifest submission without verifying operational state." },
-      { id: 'C', text: "Mark all infrastructure resources as perpetually Ready regardless of whether they exist." },
-      { id: 'D', text: "Poll cloud APIs manually via developer workstation scripts to check database status." }
+      { id: 'A', text: "Mark all infrastructure resources as perpetually Ready regardless of whether they exist." },
+      { id: 'B', text: "Define custom `readinessChecks` (MatchString, MatchCondition) and field transforms directly in the Crossplane Composition." },
+      { id: 'C', text: "Poll cloud APIs manually via developer workstation scripts to check database status." },
+      { id: 'D', text: "Assume cloud resources become ready instantly upon manifest submission without verifying operational state." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Define custom `readinessChecks` (MatchString, MatchCondition) and field transforms directly in the Crossplane Composition. Crossplane Compositions support advanced readiness checks (`MatchString`, `MatchCondition`, `NonEmpty`). Platform engineers define conditions that determine when managed resources are truly operational before signaling ready status to the consuming claim.",
     referenceUrl: "https://docs.crossplane.io/latest/concepts/compositions/#readiness-checks",
@@ -261,12 +261,12 @@ export const CNCF_CNPE_QUESTIONS_16 = [
     scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer evaluates Crossplane Readiness to ensure composite platform resources only report `Ready: True` when all underlying cloud databases and security groups are completely operational.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls? Custom readiness checks, field transforms, and environment configs in Compositions is under consideration.",
     options: [
-      { id: 'A', text: "Define custom `readinessChecks` (MatchString, MatchCondition) and field transforms directly in the Crossplane Composition." },
-      { id: 'B', text: "Assume cloud resources become ready instantly upon manifest submission without verifying operational state." },
-      { id: 'C', text: "Mark all infrastructure resources as perpetually Ready regardless of whether they exist." },
-      { id: 'D', text: "Poll cloud APIs manually via developer workstation scripts to check database status." }
+      { id: 'A', text: "Assume cloud resources become ready instantly upon manifest submission without verifying operational state." },
+      { id: 'B', text: "Mark all infrastructure resources as perpetually Ready regardless of whether they exist." },
+      { id: 'C', text: "Poll cloud APIs manually via developer workstation scripts to check database status." },
+      { id: 'D', text: "Define custom `readinessChecks` (MatchString, MatchCondition) and field transforms directly in the Crossplane Composition." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Define custom `readinessChecks` (MatchString, MatchCondition) and field transforms directly in the Crossplane Composition. Crossplane Compositions support advanced readiness checks (`MatchString`, `MatchCondition`, `NonEmpty`). Platform engineers define conditions that determine when managed resources are truly operational before signaling ready status to the consuming claim.",
     referenceUrl: "https://docs.crossplane.io/latest/concepts/compositions/#readiness-checks",
@@ -282,12 +282,12 @@ export const CNCF_CNPE_QUESTIONS_16 = [
     scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer evaluates Crossplane Readiness to ensure composite platform resources only report `Ready: True` when all underlying cloud databases and security groups are completely operational.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely? Custom readiness checks, field transforms, and environment configs in Compositions is under consideration.",
     options: [
-      { id: 'A', text: "Define custom `readinessChecks` (MatchString, MatchCondition) and field transforms directly in the Crossplane Composition." },
+      { id: 'A', text: "Poll cloud APIs manually via developer workstation scripts to check database status." },
       { id: 'B', text: "Assume cloud resources become ready instantly upon manifest submission without verifying operational state." },
-      { id: 'C', text: "Mark all infrastructure resources as perpetually Ready regardless of whether they exist." },
-      { id: 'D', text: "Poll cloud APIs manually via developer workstation scripts to check database status." }
+      { id: 'C', text: "Define custom `readinessChecks` (MatchString, MatchCondition) and field transforms directly in the Crossplane Composition." },
+      { id: 'D', text: "Mark all infrastructure resources as perpetually Ready regardless of whether they exist." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Define custom `readinessChecks` (MatchString, MatchCondition) and field transforms directly in the Crossplane Composition. Crossplane Compositions support advanced readiness checks (`MatchString`, `MatchCondition`, `NonEmpty`). Platform engineers define conditions that determine when managed resources are truly operational before signaling ready status to the consuming claim.",
     referenceUrl: "https://docs.crossplane.io/latest/concepts/compositions/#readiness-checks",
@@ -303,12 +303,12 @@ export const CNCF_CNPE_QUESTIONS_16 = [
     scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer evaluates Crossplane Readiness to ensure composite platform resources only report `Ready: True` when all underlying cloud databases and security groups are completely operational.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution? Custom readiness checks, field transforms, and environment configs in Compositions is under consideration.",
     options: [
-      { id: 'A', text: "Define custom `readinessChecks` (MatchString, MatchCondition) and field transforms directly in the Crossplane Composition." },
-      { id: 'B', text: "Assume cloud resources become ready instantly upon manifest submission without verifying operational state." },
-      { id: 'C', text: "Mark all infrastructure resources as perpetually Ready regardless of whether they exist." },
-      { id: 'D', text: "Poll cloud APIs manually via developer workstation scripts to check database status." }
+      { id: 'A', text: "Assume cloud resources become ready instantly upon manifest submission without verifying operational state." },
+      { id: 'B', text: "Define custom `readinessChecks` (MatchString, MatchCondition) and field transforms directly in the Crossplane Composition." },
+      { id: 'C', text: "Poll cloud APIs manually via developer workstation scripts to check database status." },
+      { id: 'D', text: "Mark all infrastructure resources as perpetually Ready regardless of whether they exist." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Define custom `readinessChecks` (MatchString, MatchCondition) and field transforms directly in the Crossplane Composition. Crossplane Compositions support advanced readiness checks (`MatchString`, `MatchCondition`, `NonEmpty`). Platform engineers define conditions that determine when managed resources are truly operational before signaling ready status to the consuming claim.",
     referenceUrl: "https://docs.crossplane.io/latest/concepts/compositions/#readiness-checks",
@@ -324,12 +324,12 @@ export const CNCF_CNPE_QUESTIONS_16 = [
     scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer evaluates Crossplane Packages to distribute versioned, immutable infrastructure building blocks across enterprise platform clusters using standard container registries.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives? Modular distribution of infrastructure APIs via OCI-packaged Providers and Configuration packages is under consideration.",
     options: [
-      { id: 'A', text: "Package XRDs and Compositions as Crossplane Configuration packages published to an OCI container registry with semantic versioning." },
-      { id: 'B', text: "Email raw unversioned YAML snippets across engineering teams to manually paste into cluster terminals." },
+      { id: 'A', text: "Email raw unversioned YAML snippets across engineering teams to manually paste into cluster terminals." },
+      { id: 'B', text: "Package XRDs and Compositions as Crossplane Configuration packages published to an OCI container registry with semantic versioning." },
       { id: 'C', text: "Store composition definitions on ephemeral laptop drives without version tracking." },
       { id: 'D', text: "Deploy unverified third-party binaries with root cluster permissions directly onto production nodes." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Package XRDs and Compositions as Crossplane Configuration packages published to an OCI container registry with semantic versioning. Crossplane uses OCI container registries to distribute Providers and Configurations. Platform teams build immutable, versioned Configuration packages containing XRDs and Compositions, allowing deterministic upgrades and dependencies across cluster environments.",
     referenceUrl: "https://docs.crossplane.io/latest/concepts/packages/",
@@ -345,12 +345,12 @@ export const CNCF_CNPE_QUESTIONS_16 = [
     scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer evaluates Crossplane Packages to distribute versioned, immutable infrastructure building blocks across enterprise platform clusters using standard container registries.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift? Modular distribution of infrastructure APIs via OCI-packaged Providers and Configuration packages is under consideration.",
     options: [
-      { id: 'A', text: "Package XRDs and Compositions as Crossplane Configuration packages published to an OCI container registry with semantic versioning." },
-      { id: 'B', text: "Email raw unversioned YAML snippets across engineering teams to manually paste into cluster terminals." },
-      { id: 'C', text: "Store composition definitions on ephemeral laptop drives without version tracking." },
-      { id: 'D', text: "Deploy unverified third-party binaries with root cluster permissions directly onto production nodes." }
+      { id: 'A', text: "Email raw unversioned YAML snippets across engineering teams to manually paste into cluster terminals." },
+      { id: 'B', text: "Deploy unverified third-party binaries with root cluster permissions directly onto production nodes." },
+      { id: 'C', text: "Package XRDs and Compositions as Crossplane Configuration packages published to an OCI container registry with semantic versioning." },
+      { id: 'D', text: "Store composition definitions on ephemeral laptop drives without version tracking." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Package XRDs and Compositions as Crossplane Configuration packages published to an OCI container registry with semantic versioning. Crossplane uses OCI container registries to distribute Providers and Configurations. Platform teams build immutable, versioned Configuration packages containing XRDs and Compositions, allowing deterministic upgrades and dependencies across cluster environments.",
     referenceUrl: "https://docs.crossplane.io/latest/concepts/packages/",
@@ -366,12 +366,12 @@ export const CNCF_CNPE_QUESTIONS_16 = [
     scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer evaluates Crossplane Packages to distribute versioned, immutable infrastructure building blocks across enterprise platform clusters using standard container registries.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls? Modular distribution of infrastructure APIs via OCI-packaged Providers and Configuration packages is under consideration.",
     options: [
-      { id: 'A', text: "Package XRDs and Compositions as Crossplane Configuration packages published to an OCI container registry with semantic versioning." },
-      { id: 'B', text: "Email raw unversioned YAML snippets across engineering teams to manually paste into cluster terminals." },
-      { id: 'C', text: "Store composition definitions on ephemeral laptop drives without version tracking." },
-      { id: 'D', text: "Deploy unverified third-party binaries with root cluster permissions directly onto production nodes." }
+      { id: 'A', text: "Email raw unversioned YAML snippets across engineering teams to manually paste into cluster terminals." },
+      { id: 'B', text: "Deploy unverified third-party binaries with root cluster permissions directly onto production nodes." },
+      { id: 'C', text: "Package XRDs and Compositions as Crossplane Configuration packages published to an OCI container registry with semantic versioning." },
+      { id: 'D', text: "Store composition definitions on ephemeral laptop drives without version tracking." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Package XRDs and Compositions as Crossplane Configuration packages published to an OCI container registry with semantic versioning. Crossplane uses OCI container registries to distribute Providers and Configurations. Platform teams build immutable, versioned Configuration packages containing XRDs and Compositions, allowing deterministic upgrades and dependencies across cluster environments.",
     referenceUrl: "https://docs.crossplane.io/latest/concepts/packages/",
@@ -408,12 +408,12 @@ export const CNCF_CNPE_QUESTIONS_16 = [
     scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer evaluates Crossplane Packages to distribute versioned, immutable infrastructure building blocks across enterprise platform clusters using standard container registries.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution? Modular distribution of infrastructure APIs via OCI-packaged Providers and Configuration packages is under consideration.",
     options: [
-      { id: 'A', text: "Package XRDs and Compositions as Crossplane Configuration packages published to an OCI container registry with semantic versioning." },
-      { id: 'B', text: "Email raw unversioned YAML snippets across engineering teams to manually paste into cluster terminals." },
-      { id: 'C', text: "Store composition definitions on ephemeral laptop drives without version tracking." },
+      { id: 'A', text: "Email raw unversioned YAML snippets across engineering teams to manually paste into cluster terminals." },
+      { id: 'B', text: "Store composition definitions on ephemeral laptop drives without version tracking." },
+      { id: 'C', text: "Package XRDs and Compositions as Crossplane Configuration packages published to an OCI container registry with semantic versioning." },
       { id: 'D', text: "Deploy unverified third-party binaries with root cluster permissions directly onto production nodes." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Package XRDs and Compositions as Crossplane Configuration packages published to an OCI container registry with semantic versioning. Crossplane uses OCI container registries to distribute Providers and Configurations. Platform teams build immutable, versioned Configuration packages containing XRDs and Compositions, allowing deterministic upgrades and dependencies across cluster environments.",
     referenceUrl: "https://docs.crossplane.io/latest/concepts/packages/",
@@ -429,12 +429,12 @@ export const CNCF_CNPE_QUESTIONS_16 = [
     scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer evaluates CAPI Upgrades to upgrade 50 production Kubernetes clusters from version 1.29 to 1.30 without dropping in-flight application traffic.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives? Automating Kubernetes control plane and worker node rolling upgrades using KubeadmControlPlane is under consideration.",
     options: [
-      { id: 'A', text: "Update the Kubernetes version in the Cluster API `KubeadmControlPlane` and `MachineDeployment` manifests to trigger an automated rolling upgrade." },
-      { id: 'B', text: "Delete all running worker nodes simultaneously, incurring total cluster-wide application downtime." },
-      { id: 'C', text: "Manually compile kubelet binaries from source on every live node over interactive SSH." },
-      { id: 'D', text: "Refuse to ever upgrade Kubernetes versions, leaving clusters exposed to known security vulnerabilities." }
+      { id: 'A', text: "Refuse to ever upgrade Kubernetes versions, leaving clusters exposed to known security vulnerabilities." },
+      { id: 'B', text: "Update the Kubernetes version in the Cluster API `KubeadmControlPlane` and `MachineDeployment` manifests to trigger an automated rolling upgrade." },
+      { id: 'C', text: "Delete all running worker nodes simultaneously, incurring total cluster-wide application downtime." },
+      { id: 'D', text: "Manually compile kubelet binaries from source on every live node over interactive SSH." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Update the Kubernetes version in the Cluster API `KubeadmControlPlane` and `MachineDeployment` manifests to trigger an automated rolling upgrade. Cluster API manages cluster lifecycle declaratively. Updating the `spec.version` on `KubeadmControlPlane` and `MachineDeployment` triggers a rolling update: new control plane nodes join, etcd synchronizes, old nodes drain gracefully, and worker nodes surge without downtime.",
     referenceUrl: "https://cluster-api.sigs.k8s.io/tasks/upgrading-clusters.html",
@@ -450,12 +450,12 @@ export const CNCF_CNPE_QUESTIONS_16 = [
     scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer evaluates CAPI Upgrades to upgrade 50 production Kubernetes clusters from version 1.29 to 1.30 without dropping in-flight application traffic.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift? Automating Kubernetes control plane and worker node rolling upgrades using KubeadmControlPlane is under consideration.",
     options: [
-      { id: 'A', text: "Update the Kubernetes version in the Cluster API `KubeadmControlPlane` and `MachineDeployment` manifests to trigger an automated rolling upgrade." },
-      { id: 'B', text: "Delete all running worker nodes simultaneously, incurring total cluster-wide application downtime." },
+      { id: 'A', text: "Delete all running worker nodes simultaneously, incurring total cluster-wide application downtime." },
+      { id: 'B', text: "Refuse to ever upgrade Kubernetes versions, leaving clusters exposed to known security vulnerabilities." },
       { id: 'C', text: "Manually compile kubelet binaries from source on every live node over interactive SSH." },
-      { id: 'D', text: "Refuse to ever upgrade Kubernetes versions, leaving clusters exposed to known security vulnerabilities." }
+      { id: 'D', text: "Update the Kubernetes version in the Cluster API `KubeadmControlPlane` and `MachineDeployment` manifests to trigger an automated rolling upgrade." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Update the Kubernetes version in the Cluster API `KubeadmControlPlane` and `MachineDeployment` manifests to trigger an automated rolling upgrade. Cluster API manages cluster lifecycle declaratively. Updating the `spec.version` on `KubeadmControlPlane` and `MachineDeployment` triggers a rolling update: new control plane nodes join, etcd synchronizes, old nodes drain gracefully, and worker nodes surge without downtime.",
     referenceUrl: "https://cluster-api.sigs.k8s.io/tasks/upgrading-clusters.html",
@@ -471,12 +471,12 @@ export const CNCF_CNPE_QUESTIONS_16 = [
     scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer evaluates CAPI Upgrades to upgrade 50 production Kubernetes clusters from version 1.29 to 1.30 without dropping in-flight application traffic.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls? Automating Kubernetes control plane and worker node rolling upgrades using KubeadmControlPlane is under consideration.",
     options: [
-      { id: 'A', text: "Update the Kubernetes version in the Cluster API `KubeadmControlPlane` and `MachineDeployment` manifests to trigger an automated rolling upgrade." },
-      { id: 'B', text: "Delete all running worker nodes simultaneously, incurring total cluster-wide application downtime." },
+      { id: 'A', text: "Delete all running worker nodes simultaneously, incurring total cluster-wide application downtime." },
+      { id: 'B', text: "Update the Kubernetes version in the Cluster API `KubeadmControlPlane` and `MachineDeployment` manifests to trigger an automated rolling upgrade." },
       { id: 'C', text: "Manually compile kubelet binaries from source on every live node over interactive SSH." },
       { id: 'D', text: "Refuse to ever upgrade Kubernetes versions, leaving clusters exposed to known security vulnerabilities." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Update the Kubernetes version in the Cluster API `KubeadmControlPlane` and `MachineDeployment` manifests to trigger an automated rolling upgrade. Cluster API manages cluster lifecycle declaratively. Updating the `spec.version` on `KubeadmControlPlane` and `MachineDeployment` triggers a rolling update: new control plane nodes join, etcd synchronizes, old nodes drain gracefully, and worker nodes surge without downtime.",
     referenceUrl: "https://cluster-api.sigs.k8s.io/tasks/upgrading-clusters.html",
@@ -492,12 +492,12 @@ export const CNCF_CNPE_QUESTIONS_16 = [
     scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer evaluates CAPI Upgrades to upgrade 50 production Kubernetes clusters from version 1.29 to 1.30 without dropping in-flight application traffic.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely? Automating Kubernetes control plane and worker node rolling upgrades using KubeadmControlPlane is under consideration.",
     options: [
-      { id: 'A', text: "Update the Kubernetes version in the Cluster API `KubeadmControlPlane` and `MachineDeployment` manifests to trigger an automated rolling upgrade." },
-      { id: 'B', text: "Delete all running worker nodes simultaneously, incurring total cluster-wide application downtime." },
-      { id: 'C', text: "Manually compile kubelet binaries from source on every live node over interactive SSH." },
-      { id: 'D', text: "Refuse to ever upgrade Kubernetes versions, leaving clusters exposed to known security vulnerabilities." }
+      { id: 'A', text: "Manually compile kubelet binaries from source on every live node over interactive SSH." },
+      { id: 'B', text: "Update the Kubernetes version in the Cluster API `KubeadmControlPlane` and `MachineDeployment` manifests to trigger an automated rolling upgrade." },
+      { id: 'C', text: "Refuse to ever upgrade Kubernetes versions, leaving clusters exposed to known security vulnerabilities." },
+      { id: 'D', text: "Delete all running worker nodes simultaneously, incurring total cluster-wide application downtime." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Update the Kubernetes version in the Cluster API `KubeadmControlPlane` and `MachineDeployment` manifests to trigger an automated rolling upgrade. Cluster API manages cluster lifecycle declaratively. Updating the `spec.version` on `KubeadmControlPlane` and `MachineDeployment` triggers a rolling update: new control plane nodes join, etcd synchronizes, old nodes drain gracefully, and worker nodes surge without downtime.",
     referenceUrl: "https://cluster-api.sigs.k8s.io/tasks/upgrading-clusters.html",
@@ -514,9 +514,9 @@ export const CNCF_CNPE_QUESTIONS_16 = [
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution? Automating Kubernetes control plane and worker node rolling upgrades using KubeadmControlPlane is under consideration.",
     options: [
       { id: 'A', text: "Update the Kubernetes version in the Cluster API `KubeadmControlPlane` and `MachineDeployment` manifests to trigger an automated rolling upgrade." },
-      { id: 'B', text: "Delete all running worker nodes simultaneously, incurring total cluster-wide application downtime." },
+      { id: 'B', text: "Refuse to ever upgrade Kubernetes versions, leaving clusters exposed to known security vulnerabilities." },
       { id: 'C', text: "Manually compile kubelet binaries from source on every live node over interactive SSH." },
-      { id: 'D', text: "Refuse to ever upgrade Kubernetes versions, leaving clusters exposed to known security vulnerabilities." }
+      { id: 'D', text: "Delete all running worker nodes simultaneously, incurring total cluster-wide application downtime." }
     ],
     correctAnswers: ['A'],
     type: "single",

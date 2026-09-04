@@ -11,8 +11,8 @@ export const GITHUB_ACTIONS_QUESTIONS_8 = [
     options: [
       { id: 'A', text: "The merge_group event, which fires when the queue asks for checks against the combined branch." },
       { id: 'B', text: "The push event with a branches filter matching the queue temporary branch pattern." },
-      { id: 'C', text: "Nothing; the queue reuses the pull request check results from before enqueueing." },
-      { id: 'D', text: "The workflow_run event chained to the existing pull request workflow." }
+      { id: 'C', text: "The workflow_run event chained to the existing pull request workflow." },
+      { id: 'D', text: "Nothing; the queue reuses the pull request check results from before enqueueing." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -31,11 +31,11 @@ export const GITHUB_ACTIONS_QUESTIONS_8 = [
     question: "Which context value identifies the latter?",
     options: [
       { id: 'A', text: "The github.run_attempt value, which encodes the account." },
-      { id: 'B', text: "There is no such value; the re-running account is only visible in the audit log." },
-      { id: 'C', text: "The github.triggering_actor value, which is the account that initiated this attempt, while github.actor remains the account associated with the original run." },
-      { id: 'D', text: "The github.actor value, which is updated on each attempt." }
+      { id: 'B', text: "The github.actor value, which is updated on each attempt." },
+      { id: 'C', text: "There is no such value; the re-running account is only visible in the audit log." },
+      { id: 'D', text: "The github.triggering_actor value, which is the account that initiated this attempt, while github.actor remains the account associated with the original run." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The context exposes both the actor associated with the run and the actor who initiated the current attempt, and the latter is what changes when someone else presses re-run, which is exactly the distinction the audit needs. The actor value is not rewritten per attempt, the attempt number is a counter carrying no identity, and the information is available in the workflow rather than only in the audit log.",
     referenceUrl: "https://docs.github.com/en/actions/learn-github-actions/contexts",
@@ -51,12 +51,12 @@ export const GITHUB_ACTIONS_QUESTIONS_8 = [
     scenario: "A matrix of five jobs each sets a job output holding its measured duration. A summary job declaring needs on the matrix job reads the output and finds only one value, seemingly at random.",
     question: "What is happening, and what is the usual remedy?",
     options: [
-      { id: 'A', text: "All matrix legs write to the same single set of job outputs so they overwrite one another; each leg should upload its result as a distinctly named artifact, or write to a distinctly keyed output, which the summary job then collects." },
+      { id: 'A', text: "Only the leg that finishes first is permitted to set an output, so the matrix must be serialised." },
       { id: 'B', text: "Job outputs from a matrix are exposed as an array in the needs context, so the summary job is reading it incorrectly." },
-      { id: 'C', text: "Only the leg that finishes first is permitted to set an output, so the matrix must be serialised." },
-      { id: 'D', text: "Matrix jobs cannot set outputs at all, and the single value observed comes from a default." }
+      { id: 'C', text: "Matrix jobs cannot set outputs at all, and the single value observed comes from a default." },
+      { id: 'D', text: "All matrix legs write to the same single set of job outputs so they overwrite one another; each leg should upload its result as a distinctly named artifact, or write to a distinctly keyed output, which the summary job then collects." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "A matrix expands into several jobs that nonetheless share one job identifier and therefore one output map, so each leg overwrites the previous value and the survivor depends on completion order; collecting per-leg results means giving each one a distinct destination, most commonly an artifact named after its matrix values that a summary job downloads together. Outputs are not aggregated into an array, every leg may write, and matrix jobs can set outputs.",
     referenceUrl: "https://docs.github.com/en/actions/using-jobs/defining-outputs-for-jobs",
@@ -73,11 +73,11 @@ export const GITHUB_ACTIONS_QUESTIONS_8 = [
     question: "What is the underlying behaviour?",
     options: [
       { id: 'A', text: "The hash function falls back to hashing the repository contents, which is identical across branches at that commit." },
-      { id: 'B', text: "Cache keys are truncated to the platform portion once they exceed a length limit." },
-      { id: 'C', text: "The hash function returns an empty string when its pattern matches no files, so the varying portion of the key vanished and every run now computes the same key." },
-      { id: 'D', text: "The hash function fails the step when its pattern matches no files, so the observed behaviour must have another cause." }
+      { id: 'B', text: "The hash function fails the step when its pattern matches no files, so the observed behaviour must have another cause." },
+      { id: 'C', text: "Cache keys are truncated to the platform portion once they exceed a length limit." },
+      { id: 'D', text: "The hash function returns an empty string when its pattern matches no files, so the varying portion of the key vanished and every run now computes the same key." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "When no file matches the supplied pattern the hash function returns an empty string rather than failing, so a key built by concatenation quietly loses its distinguishing part and collapses to a constant, which is exactly the symptom described and a good argument for asserting that the dependency file exists. It does not fail the step, there is no fallback to hashing the whole repository, and keys are not truncated in that way.",
     referenceUrl: "https://docs.github.com/en/actions/learn-github-actions/expressions",
@@ -93,12 +93,12 @@ export const GITHUB_ACTIONS_QUESTIONS_8 = [
     scenario: "The standard cache step saves at the end of the job even when the build failed part way through, which has repeatedly persisted a half-populated dependency directory that later runs then restore.",
     question: "Which approach gives control over when the save happens?",
     options: [
-      { id: 'A', text: "Use the separate restore and save actions, placing the restore at the start and the save at a point of the job that is only reached after a successful build." },
-      { id: 'B', text: "Add continue-on-error to the cache step so it declines to save after a failure." },
+      { id: 'A', text: "Add a condition to the main cache step, which controls both restore and save together." },
+      { id: 'B', text: "Use the separate restore and save actions, placing the restore at the start and the save at a point of the job that is only reached after a successful build." },
       { id: 'C', text: "Set a shorter retention on the cache so a bad entry expires quickly." },
-      { id: 'D', text: "Add a condition to the main cache step, which controls both restore and save together." }
+      { id: 'D', text: "Add continue-on-error to the cache step so it declines to save after a failure." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "The cache functionality is also published as separate restore and save actions precisely so the two halves can be placed independently, letting the save be conditioned on the build having succeeded. Tolerating errors on the combined step does not change its post-job save behaviour, retention does not stop a bad entry being served in the meantime, and conditioning the combined step would also skip the restore.",
     referenceUrl: "https://docs.github.com/en/actions/using-workflows/caching-dependencies-to-speed-up-workflows",
@@ -115,8 +115,8 @@ export const GITHUB_ACTIONS_QUESTIONS_8 = [
     question: "Which mechanism adds it?",
     options: [
       { id: 'A', text: "Append the directory to the file named by GITHUB_PATH, which the runner prepends to the search path for every subsequent step." },
-      { id: 'B', text: "Copy the binary into the runner tool cache, which is always on the search path." },
-      { id: 'C', text: "Set a PATH entry in the step env block, which persists to later steps." },
+      { id: 'B', text: "Set a PATH entry in the step env block, which persists to later steps." },
+      { id: 'C', text: "Copy the binary into the runner tool cache, which is always on the search path." },
       { id: 'D', text: "Add a defaults block naming the directory as an executable path." }
     ],
     correctAnswers: ['A'],
@@ -135,12 +135,12 @@ export const GITHUB_ACTIONS_QUESTIONS_8 = [
     scenario: "Deployments are performed by an external delivery tool that reports its progress back as deployment statuses. A workflow should run smoke tests whenever a deployment is reported successful, regardless of which system performed it.",
     question: "Which trigger fits?",
     options: [
-      { id: 'A', text: "The push event on the deployed branch." },
-      { id: 'B', text: "The deployment_status event, with a condition on the state carried in the payload." },
-      { id: 'C', text: "The release event with a published type." },
-      { id: 'D', text: "The workflow_run event, which fires for deployments made by external systems." }
+      { id: 'A', text: "The deployment_status event, with a condition on the state carried in the payload." },
+      { id: 'B', text: "The workflow_run event, which fires for deployments made by external systems." },
+      { id: 'C', text: "The push event on the deployed branch." },
+      { id: 'D', text: "The release event with a published type." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Deployment statuses are first-class objects that any system can create, and the deployment_status event fires when one is recorded, carrying the state so the workflow can act only on success. The workflow_run event chains to other workflow runs in the same repository rather than to external deployments, a push happens before deployment and says nothing about its outcome, and releases are a separate concept.",
     referenceUrl: "https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows",
@@ -157,8 +157,8 @@ export const GITHUB_ACTIONS_QUESTIONS_8 = [
     question: "What is the correct access path?",
     options: [
       { id: 'A', text: "Map the container port to the host with a ports entry and connect over localhost on the mapped port, because hostname resolution by service name is available to steps running inside a job container rather than directly on the runner." },
-      { id: 'B', text: "Reference the service by its container identifier, which the runner resolves for both cases." },
-      { id: 'C', text: "Add a network entry to the service so the runner joins the container network, since ports cannot be mapped." },
+      { id: 'B', text: "Add a network entry to the service so the runner joins the container network, since ports cannot be mapped." },
+      { id: 'C', text: "Reference the service by its container identifier, which the runner resolves for both cases." },
       { id: 'D', text: "Service containers are only usable from a job container, so the job must be moved into one." }
     ],
     correctAnswers: ['A'],
@@ -178,8 +178,8 @@ export const GITHUB_ACTIONS_QUESTIONS_8 = [
     question: "Which context value makes the name unique per attempt?",
     options: [
       { id: 'A', text: "The github.run_attempt value, which increments with each attempt of the same run." },
-      { id: 'B', text: "The github.run_number value, which increments per attempt." },
-      { id: 'C', text: "The github.run_id value, which is different on each attempt." },
+      { id: 'B', text: "The github.run_id value, which is different on each attempt." },
+      { id: 'C', text: "The github.run_number value, which increments per attempt." },
       { id: 'D', text: "The github.sha value, which differs between attempts of the same run." }
     ],
     correctAnswers: ['A'],
@@ -198,12 +198,12 @@ export const GITHUB_ACTIONS_QUESTIONS_8 = [
     scenario: "A workflow builds, then deploys. Overlapping builds should supersede one another freely, but deployments must never overlap and must never be cancelled once started.",
     question: "How should concurrency be declared?",
     options: [
-      { id: 'A', text: "Declare concurrency on the build job with cancel-in-progress enabled, and separately on the deploy job with a different group and cancel-in-progress disabled, rather than one workflow-level block." },
-      { id: 'B', text: "Declare one workflow-level concurrency block with cancel-in-progress enabled, which the deploy job is exempt from." },
-      { id: 'C', text: "Declare one workflow-level block with cancel-in-progress disabled, which gives builds the supersede behaviour automatically." },
+      { id: 'A', text: "Declare one workflow-level concurrency block with cancel-in-progress enabled, which the deploy job is exempt from." },
+      { id: 'B', text: "Declare one workflow-level block with cancel-in-progress disabled, which gives builds the supersede behaviour automatically." },
+      { id: 'C', text: "Declare concurrency on the build job with cancel-in-progress enabled, and separately on the deploy job with a different group and cancel-in-progress disabled, rather than one workflow-level block." },
       { id: 'D', text: "Concurrency can only be declared at workflow level, so the deployment must be moved to a separate workflow." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "A workflow-level concurrency block governs the whole run with one policy, which cannot express two different behaviours, whereas job-level blocks let the build supersede its predecessors while the deployment queues and runs to completion. There is no exemption mechanism for a job under a workflow-level block, disabling cancellation globally would make builds queue rather than supersede, and concurrency is available at job level as well as workflow level.",
     referenceUrl: "https://docs.github.com/en/actions/using-jobs/using-concurrency",
@@ -219,12 +219,12 @@ export const GITHUB_ACTIONS_QUESTIONS_8 = [
     scenario: "A workflow uses a language setup action that offers a caching option, and also has a separate general cache step configured with a hand-written key for the same dependency directory. Cache statistics show both writing entries.",
     question: "What is the appropriate simplification?",
     options: [
-      { id: 'A', text: "Replace both with an artifact uploaded at the end of the job and downloaded at the start of the next." },
-      { id: 'B', text: "Keep both, because each writes to a different storage pool and neither counts against the repository cache quota." },
-      { id: 'C', text: "Remove the setup action caching option, because a hand-written key is always more precise." },
-      { id: 'D', text: "Keep the setup action caching option for the standard dependency directory, since it derives an appropriate key and path automatically, and reserve a separate cache step for anything the setup action does not cover." }
+      { id: 'A', text: "Keep the setup action caching option for the standard dependency directory, since it derives an appropriate key and path automatically, and reserve a separate cache step for anything the setup action does not cover." },
+      { id: 'B', text: "Remove the setup action caching option, because a hand-written key is always more precise." },
+      { id: 'C', text: "Keep both, because each writes to a different storage pool and neither counts against the repository cache quota." },
+      { id: 'D', text: "Replace both with an artifact uploaded at the end of the job and downloaded at the start of the next." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Setup actions for common language toolchains build on the same cache service and already know the standard directory and a sensible key derived from the lockfile, so letting them handle the ordinary case removes hand-maintained key logic while a separate step still covers anything unusual. Both mechanisms consume the same repository quota rather than separate pools, and artifacts are not a substitute for a cache since they are neither keyed nor restored automatically.",
     referenceUrl: "https://docs.github.com/en/actions/using-workflows/caching-dependencies-to-speed-up-workflows",
@@ -240,12 +240,12 @@ export const GITHUB_ACTIONS_QUESTIONS_8 = [
     scenario: "A dashboard built on the API groups runs by conclusion. Alongside success and failure it encounters conclusions of skipped, cancelled, timed_out and action_required, and the author must decide how to treat each.",
     question: "Which reading is correct?",
     options: [
-      { id: 'A', text: "The conclusion field only ever holds success or failure; the other values appear in the status field instead." },
-      { id: 'B', text: "Skipped means conditions excluded the work, cancelled means it was stopped deliberately or superseded, timed_out means a limit was reached, and action_required means the run is waiting on a human such as an environment approval or a fork approval." },
-      { id: 'C', text: "All four are variants of failure and should be alerted on identically." },
-      { id: 'D', text: "Skipped and cancelled are failures, while timed_out and action_required are successes with a note." }
+      { id: 'A', text: "Skipped means conditions excluded the work, cancelled means it was stopped deliberately or superseded, timed_out means a limit was reached, and action_required means the run is waiting on a human such as an environment approval or a fork approval." },
+      { id: 'B', text: "All four are variants of failure and should be alerted on identically." },
+      { id: 'C', text: "Skipped and cancelled are failures, while timed_out and action_required are successes with a note." },
+      { id: 'D', text: "The conclusion field only ever holds success or failure; the other values appear in the status field instead." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The conclusion field distinguishes several genuinely different endings, and treating them as one blurs a deliberate cancellation, work that was correctly excluded, a real timeout worth investigating and a run parked awaiting an approval that someone must give. They are not all failures, none of them are successes, and the status field reports whether a run is queued, in progress or completed rather than carrying these values.",
     referenceUrl: "https://docs.github.com/en/rest/actions/workflow-runs",
@@ -262,9 +262,9 @@ export const GITHUB_ACTIONS_QUESTIONS_8 = [
     question: "Which integration is designed for that?",
     options: [
       { id: 'A', text: "Subscribe to the workflow_job webhook, whose queued, in_progress and completed activities carry the requested labels, and scale in response." },
-      { id: 'B', text: "Subscribe to the workflow_run webhook, which fires once per job with its labels." },
-      { id: 'C', text: "Poll the self-hosted runner API endpoint, which is the only supported source of queue depth." },
-      { id: 'D', text: "Have each workflow call the autoscaler from its first step, before requesting a runner." }
+      { id: 'B', text: "Poll the self-hosted runner API endpoint, which is the only supported source of queue depth." },
+      { id: 'C', text: "Have each workflow call the autoscaler from its first step, before requesting a runner." },
+      { id: 'D', text: "Subscribe to the workflow_run webhook, which fires once per job with its labels." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -283,9 +283,9 @@ export const GITHUB_ACTIONS_QUESTIONS_8 = [
     question: "Which setting expresses that?",
     options: [
       { id: 'A', text: "Change the fork pull request approval setting to require approval for all outside collaborators." },
-      { id: 'B', text: "Disable Actions for the repository and re-enable it per pull request." },
-      { id: 'C', text: "Add every outside collaborator to a team with read access, which triggers approval automatically." },
-      { id: 'D', text: "Enable required reviewers on an environment, which also gates whether workflows start." }
+      { id: 'B', text: "Enable required reviewers on an environment, which also gates whether workflows start." },
+      { id: 'C', text: "Disable Actions for the repository and re-enable it per pull request." },
+      { id: 'D', text: "Add every outside collaborator to a team with read access, which triggers approval automatically." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -303,12 +303,12 @@ export const GITHUB_ACTIONS_QUESTIONS_8 = [
     scenario: "A single workflow file has reached six hundred lines. Three blocks of steps are copied verbatim into four jobs, and two whole jobs are duplicated in five other repositories.",
     question: "Which decomposition matches each kind of duplication?",
     options: [
-      { id: 'A', text: "Extract everything into composite actions, since reusable workflows cannot accept inputs." },
-      { id: 'B', text: "Leave the file intact and add comments, because splitting increases the number of places to maintain." },
-      { id: 'C', text: "Extract the repeated step blocks into composite actions used within jobs, and extract the duplicated jobs into a reusable workflow that the five repositories call." },
+      { id: 'A', text: "Extract the repeated step blocks into composite actions used within jobs, and extract the duplicated jobs into a reusable workflow that the five repositories call." },
+      { id: 'B', text: "Extract everything into composite actions, since reusable workflows cannot accept inputs." },
+      { id: 'C', text: "Leave the file intact and add comments, because splitting increases the number of places to maintain." },
       { id: 'D', text: "Extract everything into reusable workflows, since composite actions cannot be shared between repositories." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The two kinds of duplication call for different tools: repeated steps inside a job are what a composite action packages, while whole jobs duplicated across repositories are what a reusable workflow packages, and applying each to its own case keeps the abstraction honest. Composite actions are shareable across repositories, reusable workflows do accept typed inputs, and comments do not address duplication that has already spread to five repositories.",
     referenceUrl: "https://docs.github.com/en/actions/using-workflows/reusing-workflows",
@@ -324,9 +324,9 @@ export const GITHUB_ACTIONS_QUESTIONS_8 = [
     scenario: "An engineer expects a workflow to have run after a push but sees no run in the list, no failure and no annotation anywhere.",
     question: "Which explanations should be checked first?",
     options: [
-      { id: 'A', text: "Whether the previous run is still in progress, since only one run per workflow can exist at a time." },
-      { id: 'B', text: "Whether artifact storage is full, which prevents runs from being created." },
-      { id: 'C', text: "Whether the runner pool is exhausted, which removes runs from the list rather than queueing them." },
+      { id: 'A', text: "Whether the runner pool is exhausted, which removes runs from the list rather than queueing them." },
+      { id: 'B', text: "Whether the previous run is still in progress, since only one run per workflow can exist at a time." },
+      { id: 'C', text: "Whether artifact storage is full, which prevents runs from being created." },
       { id: 'D', text: "Whether the trigger filters exclude the branch or paths that changed, whether the workflow is disabled, whether the commit message carried a skip directive, and whether the file is valid and on the branch the event concerns." }
     ],
     correctAnswers: ['D'],
@@ -345,12 +345,12 @@ export const GITHUB_ACTIONS_QUESTIONS_8 = [
     scenario: "A composite action downloads a helper binary published as a release asset of the action own repository. Hard-coding the version means the action and its helper drift apart whenever one is released without the other.",
     question: "Which context values let the action resolve its own identity?",
     options: [
-      { id: 'A', text: "The github.action_repository and github.action_ref values, which name the repository the running action came from and the reference it was called with." },
-      { id: 'B', text: "The github.repository and github.ref values, which name the action repository during action execution." },
+      { id: 'A', text: "There is no such value; the version must be passed in as an input by every caller." },
+      { id: 'B', text: "The github.action_repository and github.action_ref values, which name the repository the running action came from and the reference it was called with." },
       { id: 'C', text: "The github.workflow_ref value, which encodes the action version." },
-      { id: 'D', text: "There is no such value; the version must be passed in as an input by every caller." }
+      { id: 'D', text: "The github.repository and github.ref values, which name the action repository during action execution." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "While an action is executing the context exposes the repository the action itself came from and the reference the caller used, which lets the action fetch an asset matching the exact version being run and keeps the two in step automatically. The plain repository and ref values describe the consuming repository and its event rather than the action, the workflow reference identifies the workflow file, and requiring every caller to pass a version is the coupling being removed.",
     referenceUrl: "https://docs.github.com/en/actions/learn-github-actions/contexts",
@@ -366,12 +366,12 @@ export const GITHUB_ACTIONS_QUESTIONS_8 = [
     scenario: "A Docker container action writes generated files into the workspace. Steps that run after it on the runner fail with permission errors when they try to modify or delete those files, and a cleanup step cannot remove the directory.",
     question: "What is the cause, and how is it usually addressed?",
     options: [
-      { id: 'A', text: "The container runs as root by default, so files it creates in the mounted workspace are owned by root while later steps run as the unprivileged runner user; the action should create files as the calling user or adjust ownership before exiting." },
+      { id: 'A', text: "Container actions run in a separate workspace that is discarded, so the later failures are unrelated." },
       { id: 'B', text: "The workspace is mounted read-only into the container, so the files are actually copies that later steps cannot see." },
-      { id: 'C', text: "Container actions run in a separate workspace that is discarded, so the later failures are unrelated." },
-      { id: 'D', text: "The runner deliberately locks files written by an action to preserve them for artifact upload." }
+      { id: 'C', text: "The runner deliberately locks files written by an action to preserve them for artifact upload." },
+      { id: 'D', text: "The container runs as root by default, so files it creates in the mounted workspace are owned by root while later steps run as the unprivileged runner user; the action should create files as the calling user or adjust ownership before exiting." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "A container action executes as root unless told otherwise, and because the workspace is bind-mounted the ownership of anything it creates persists into the rest of the job, where steps run as the ordinary runner account and cannot modify it. Handling ownership inside the action, or running it as the calling user, avoids the trap. The workspace is mounted writable and shared rather than read-only or separate, and the runner does not lock files.",
     referenceUrl: "https://docs.github.com/en/actions/creating-actions/dockerfile-support-for-github-actions",
@@ -388,9 +388,9 @@ export const GITHUB_ACTIONS_QUESTIONS_8 = [
     question: "Which fields must be present?",
     options: [
       { id: 'A', text: "The name, description and runs fields are required, with inputs, outputs and branding optional, and the file may be called action.yml or action.yaml." },
-      { id: 'B', text: "Only the runs field is required; the failure must come from the runs block contents." },
-      { id: 'C', text: "The name, author and runs fields are required, while description is optional." },
-      { id: 'D', text: "All of name, description, author, inputs, outputs and runs are required." }
+      { id: 'B', text: "The name, author and runs fields are required, while description is optional." },
+      { id: 'C', text: "All of name, description, author, inputs, outputs and runs are required." },
+      { id: 'D', text: "Only the runs field is required; the failure must come from the runs block contents." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,12 +408,12 @@ export const GITHUB_ACTIONS_QUESTIONS_8 = [
     scenario: "An internal action has grown three inputs and two outputs. Consumers keep raising issues asking what the inputs mean, what permissions the calling job needs and which platforms are supported.",
     question: "Which documentation practice addresses these directly?",
     options: [
-      { id: 'A', text: "Reply to each issue individually, since a versioned action cannot document behaviour that varies by version." },
-      { id: 'B', text: "Rely on the Marketplace listing, which is generated from the code and covers permissions automatically." },
-      { id: 'C', text: "Write a description for every input and output in the metadata so the contract is machine-readable, and cover the required token permissions, supported runner platforms and a worked usage example in the README." },
-      { id: 'D', text: "Add the explanations as comments inside the action implementation, where maintainers will see them." }
+      { id: 'A', text: "Write a description for every input and output in the metadata so the contract is machine-readable, and cover the required token permissions, supported runner platforms and a worked usage example in the README." },
+      { id: 'B', text: "Add the explanations as comments inside the action implementation, where maintainers will see them." },
+      { id: 'C', text: "Rely on the Marketplace listing, which is generated from the code and covers permissions automatically." },
+      { id: 'D', text: "Reply to each issue individually, since a versioned action cannot document behaviour that varies by version." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Descriptions in the metadata document the contract where tooling and readers of the file will find it, while the permissions a calling job must grant, the platforms the action is verified on and a complete usage example belong in the README because none of them can be inferred from the metadata. Implementation comments are invisible to consumers, listings are not generated from the code and do not describe required permissions, and versioned documentation is entirely normal.",
     referenceUrl: "https://docs.github.com/en/actions/creating-actions/about-custom-actions",
@@ -431,8 +431,8 @@ export const GITHUB_ACTIONS_QUESTIONS_8 = [
     options: [
       { id: 'A', text: "Generate a build provenance attestation from the workflow, which requires the job to hold id-token: write and attestations: write, and which consumers verify against the repository and workflow identity." },
       { id: 'B', text: "Publish a checksum file alongside the binary in the same release." },
-      { id: 'C', text: "Sign the release commit, which transfers provenance to the built binary." },
-      { id: 'D', text: "Upload the binary as an artifact rather than a release asset, since artifacts record the producing run." }
+      { id: 'C', text: "Upload the binary as an artifact rather than a release asset, since artifacts record the producing run." },
+      { id: 'D', text: "Sign the release commit, which transfers provenance to the built binary." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -451,11 +451,11 @@ export const GITHUB_ACTIONS_QUESTIONS_8 = [
     question: "Which capability is relevant?",
     options: [
       { id: 'A', text: "Runner groups can only be scoped to repositories, so the deployment must be moved into its own repository." },
-      { id: 'B', text: "A labels-only approach is sufficient, since only the deployment workflow will request the label." },
+      { id: 'B', text: "A runner group may be restricted to selected workflows as well as selected repositories, so the group can name the specific deployment workflow reference." },
       { id: 'C', text: "An environment protection rule on the group restricts which workflows may target it." },
-      { id: 'D', text: "A runner group may be restricted to selected workflows as well as selected repositories, so the group can name the specific deployment workflow reference." }
+      { id: 'D', text: "A labels-only approach is sufficient, since only the deployment workflow will request the label." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Runner group access can be narrowed to named workflows in addition to named repositories, which is what allows one repository to reach a sensitive fleet from its deployment workflow while its other workflows cannot. Splitting the repository is unnecessary given that capability, labels are routing hints that any workflow in the repository could request, and environments protect deployments rather than governing runner group access.",
     referenceUrl: "https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups",
@@ -473,8 +473,8 @@ export const GITHUB_ACTIONS_QUESTIONS_8 = [
     options: [
       { id: 'A', text: "Revoke and rotate the credential immediately, then remove it from the file and move the replacement into a secret or federated access, treating history rewriting as secondary because the key must be assumed compromised." },
       { id: 'B', text: "Rewrite the git history to remove the commit, after which the credential is safe to keep using." },
-      { id: 'C', text: "Make the repository private, which withdraws the credential from the forks." },
-      { id: 'D', text: "Add the value to the mask register so it is redacted in future logs, then leave it in place until the next release." }
+      { id: 'C', text: "Add the value to the mask register so it is redacted in future logs, then leave it in place until the next release." },
+      { id: 'D', text: "Make the repository private, which withdraws the credential from the forks." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,12 +492,12 @@ export const GITHUB_ACTIONS_QUESTIONS_8 = [
     scenario: "A long-running job obtains the automatic token in its first step and stores it for a later step. A reviewer asks what the exposure window is if that value were somehow captured.",
     question: "Which statement is accurate?",
     options: [
-      { id: 'A', text: "The token is issued per step and cannot be used by a later step at all." },
-      { id: 'B', text: "The token never expires, which is why it must be stored as a secret." },
-      { id: 'C', text: "The token is issued per job and is invalidated when the job completes, with a maximum lifetime of twenty-four hours, so its window is bounded but a capture during the job is still fully usable." },
-      { id: 'D', text: "The token is issued per repository and remains valid until an administrator rotates it." }
+      { id: 'A', text: "The token is issued per job and is invalidated when the job completes, with a maximum lifetime of twenty-four hours, so its window is bounded but a capture during the job is still fully usable." },
+      { id: 'B', text: "The token is issued per repository and remains valid until an administrator rotates it." },
+      { id: 'C', text: "The token is issued per step and cannot be used by a later step at all." },
+      { id: 'D', text: "The token never expires, which is why it must be stored as a secret." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "A fresh token is minted for each job, expires when that job finishes and in any case lasts no longer than twenty-four hours, which bounds the damage from a leak but does not eliminate it because anything captured while the job runs can be used immediately with whatever scopes the job requested. It is not a repository-wide standing credential, it is usable across the steps of its job, and it certainly does expire.",
     referenceUrl: "https://docs.github.com/en/actions/security-for-github-actions/security-guides/automatic-token-authentication",
@@ -514,11 +514,11 @@ export const GITHUB_ACTIONS_QUESTIONS_8 = [
     question: "Where is that answered?",
     options: [
       { id: 'A', text: "In the repository Actions permissions policy, which lists the runner labels the repository may request." },
-      { id: 'B', text: "In the runner group settings at organization or enterprise level, which list the repositories granted access and the runners the group contains." },
-      { id: 'C', text: "In the workflow run annotations, which state why a job was not dispatched." },
-      { id: 'D', text: "In the audit log, which is the only place runner entitlements are recorded." }
+      { id: 'B', text: "In the audit log, which is the only place runner entitlements are recorded." },
+      { id: 'C', text: "In the runner group settings at organization or enterprise level, which list the repositories granted access and the runners the group contains." },
+      { id: 'D', text: "In the workflow run annotations, which state why a job was not dispatched." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Entitlement to self-hosted runners is expressed by runner group membership and the repository access list on that group, so the group settings show both which machines are in it and which repositories may use them, which is exactly what an indefinitely queued job points at. The Actions permissions policy governs which actions may run rather than runner labels, the audit log records changes rather than current state, and a queued job produces no annotation explaining the mismatch.",
     referenceUrl: "https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups",

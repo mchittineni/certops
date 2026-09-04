@@ -30,12 +30,12 @@ export const K8S_CKA_QUESTIONS_13 = [
     scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator evaluates Pod Diagnostics to diagnose why a container in a production pod crashes immediately upon startup and enters CrashLoopBackOff.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability? Inspecting previous container logs and exit codes for CrashLoopBackOff is under consideration.",
     options: [
-      { id: 'A', text: "Execute `kubectl logs &lt;pod-name&gt; --previous` to inspect stdout/stderr before termination and review container exit codes via `kubectl describe pod`." },
-      { id: 'B', text: "Delete the cluster control plane to force pod redeployment." },
-      { id: 'C', text: "Increase CPU and memory limits indefinitely without checking container logs." },
-      { id: 'D', text: "Assume the network switch failed and reboot all physical worker nodes." }
+      { id: 'A', text: "Assume the network switch failed and reboot all physical worker nodes." },
+      { id: 'B', text: "Increase CPU and memory limits indefinitely without checking container logs." },
+      { id: 'C', text: "Delete the cluster control plane to force pod redeployment." },
+      { id: 'D', text: "Execute `kubectl logs &lt;pod-name&gt; --previous` to inspect stdout/stderr before termination and review container exit codes via `kubectl describe pod`." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Execute `kubectl logs &lt;pod-name&gt; --previous` to inspect stdout/stderr before termination and review container exit codes via `kubectl describe pod`. When a container enters CrashLoopBackOff, it has repeatedly failed and restarted. Running `kubectl logs &lt;pod&gt; --previous` retrieves logs from the terminated container instance, while `kubectl describe pod` reveals exit codes (e.g., 1 for generic error, 137 for OOMKilled), pinpointing the failure.",
     referenceUrl: "https://kubernetes.io/docs/tasks/debug/debug-application/debug-pods/",
@@ -52,9 +52,9 @@ export const K8S_CKA_QUESTIONS_13 = [
     question: "Which solution implements these mandatory Kubernetes security and governance controls? Inspecting previous container logs and exit codes for CrashLoopBackOff is under consideration.",
     options: [
       { id: 'A', text: "Execute `kubectl logs &lt;pod-name&gt; --previous` to inspect stdout/stderr before termination and review container exit codes via `kubectl describe pod`." },
-      { id: 'B', text: "Delete the cluster control plane to force pod redeployment." },
+      { id: 'B', text: "Assume the network switch failed and reboot all physical worker nodes." },
       { id: 'C', text: "Increase CPU and memory limits indefinitely without checking container logs." },
-      { id: 'D', text: "Assume the network switch failed and reboot all physical worker nodes." }
+      { id: 'D', text: "Delete the cluster control plane to force pod redeployment." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -72,12 +72,12 @@ export const K8S_CKA_QUESTIONS_13 = [
     scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator evaluates Pod Diagnostics to diagnose why a container in a production pod crashes immediately upon startup and enters CrashLoopBackOff.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity? Inspecting previous container logs and exit codes for CrashLoopBackOff is under consideration.",
     options: [
-      { id: 'A', text: "Execute `kubectl logs &lt;pod-name&gt; --previous` to inspect stdout/stderr before termination and review container exit codes via `kubectl describe pod`." },
+      { id: 'A', text: "Increase CPU and memory limits indefinitely without checking container logs." },
       { id: 'B', text: "Delete the cluster control plane to force pod redeployment." },
-      { id: 'C', text: "Increase CPU and memory limits indefinitely without checking container logs." },
+      { id: 'C', text: "Execute `kubectl logs &lt;pod-name&gt; --previous` to inspect stdout/stderr before termination and review container exit codes via `kubectl describe pod`." },
       { id: 'D', text: "Assume the network switch failed and reboot all physical worker nodes." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Execute `kubectl logs &lt;pod-name&gt; --previous` to inspect stdout/stderr before termination and review container exit codes via `kubectl describe pod`. When a container enters CrashLoopBackOff, it has repeatedly failed and restarted. Running `kubectl logs &lt;pod&gt; --previous` retrieves logs from the terminated container instance, while `kubectl describe pod` reveals exit codes (e.g., 1 for generic error, 137 for OOMKilled), pinpointing the failure.",
     referenceUrl: "https://kubernetes.io/docs/tasks/debug/debug-application/debug-pods/",
@@ -94,9 +94,9 @@ export const K8S_CKA_QUESTIONS_13 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability? Inspecting previous container logs and exit codes for CrashLoopBackOff is under consideration.",
     options: [
       { id: 'A', text: "Execute `kubectl logs &lt;pod-name&gt; --previous` to inspect stdout/stderr before termination and review container exit codes via `kubectl describe pod`." },
-      { id: 'B', text: "Delete the cluster control plane to force pod redeployment." },
-      { id: 'C', text: "Increase CPU and memory limits indefinitely without checking container logs." },
-      { id: 'D', text: "Assume the network switch failed and reboot all physical worker nodes." }
+      { id: 'B', text: "Assume the network switch failed and reboot all physical worker nodes." },
+      { id: 'C', text: "Delete the cluster control plane to force pod redeployment." },
+      { id: 'D', text: "Increase CPU and memory limits indefinitely without checking container logs." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -114,12 +114,12 @@ export const K8S_CKA_QUESTIONS_13 = [
     scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator evaluates Memory Limits to determine why a high-throughput Java microservice container was killed unexpectedly with exit code 137.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements? Diagnosing exit code 137 and out-of-memory kernel termination is under consideration.",
     options: [
-      { id: 'A', text: "Inspect `kubectl describe pod` for `OOMKilled: true` (exit code 137) and adjust the container memory limit or JVM heap settings." },
-      { id: 'B', text: "Assume the host node ran out of disk space and truncate the root filesystem." },
-      { id: 'C', text: "Change the pod restart policy to Never to prevent restarts." },
-      { id: 'D', text: "Add more CPU cores to resolve out-of-memory errors." }
+      { id: 'A', text: "Assume the host node ran out of disk space and truncate the root filesystem." },
+      { id: 'B', text: "Change the pod restart policy to Never to prevent restarts." },
+      { id: 'C', text: "Add more CPU cores to resolve out-of-memory errors." },
+      { id: 'D', text: "Inspect `kubectl describe pod` for `OOMKilled: true` (exit code 137) and adjust the container memory limit or JVM heap settings." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Inspect `kubectl describe pod` for `OOMKilled: true` (exit code 137) and adjust the container memory limit or JVM heap settings. Exit code 137 occurs when a container process is terminated by the Linux kernel Out-Of-Memory (OOM) killer because its memory usage exceeded the configured container `limits.memory`. Examining pod details confirms `OOMKilled: true`, indicating the memory limit must be increased or memory leaks resolved.",
     referenceUrl: "https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
@@ -136,8 +136,8 @@ export const K8S_CKA_QUESTIONS_13 = [
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability? Diagnosing exit code 137 and out-of-memory kernel termination is under consideration.",
     options: [
       { id: 'A', text: "Inspect `kubectl describe pod` for `OOMKilled: true` (exit code 137) and adjust the container memory limit or JVM heap settings." },
-      { id: 'B', text: "Assume the host node ran out of disk space and truncate the root filesystem." },
-      { id: 'C', text: "Change the pod restart policy to Never to prevent restarts." },
+      { id: 'B', text: "Change the pod restart policy to Never to prevent restarts." },
+      { id: 'C', text: "Assume the host node ran out of disk space and truncate the root filesystem." },
       { id: 'D', text: "Add more CPU cores to resolve out-of-memory errors." }
     ],
     correctAnswers: ['A'],
@@ -156,12 +156,12 @@ export const K8S_CKA_QUESTIONS_13 = [
     scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator evaluates Memory Limits to determine why a high-throughput Java microservice container was killed unexpectedly with exit code 137.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls? Diagnosing exit code 137 and out-of-memory kernel termination is under consideration.",
     options: [
-      { id: 'A', text: "Inspect `kubectl describe pod` for `OOMKilled: true` (exit code 137) and adjust the container memory limit or JVM heap settings." },
-      { id: 'B', text: "Assume the host node ran out of disk space and truncate the root filesystem." },
-      { id: 'C', text: "Change the pod restart policy to Never to prevent restarts." },
-      { id: 'D', text: "Add more CPU cores to resolve out-of-memory errors." }
+      { id: 'A', text: "Assume the host node ran out of disk space and truncate the root filesystem." },
+      { id: 'B', text: "Inspect `kubectl describe pod` for `OOMKilled: true` (exit code 137) and adjust the container memory limit or JVM heap settings." },
+      { id: 'C', text: "Add more CPU cores to resolve out-of-memory errors." },
+      { id: 'D', text: "Change the pod restart policy to Never to prevent restarts." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Inspect `kubectl describe pod` for `OOMKilled: true` (exit code 137) and adjust the container memory limit or JVM heap settings. Exit code 137 occurs when a container process is terminated by the Linux kernel Out-Of-Memory (OOM) killer because its memory usage exceeded the configured container `limits.memory`. Examining pod details confirms `OOMKilled: true`, indicating the memory limit must be increased or memory leaks resolved.",
     referenceUrl: "https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
@@ -177,12 +177,12 @@ export const K8S_CKA_QUESTIONS_13 = [
     scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator evaluates Memory Limits to determine why a high-throughput Java microservice container was killed unexpectedly with exit code 137.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity? Diagnosing exit code 137 and out-of-memory kernel termination is under consideration.",
     options: [
-      { id: 'A', text: "Inspect `kubectl describe pod` for `OOMKilled: true` (exit code 137) and adjust the container memory limit or JVM heap settings." },
-      { id: 'B', text: "Assume the host node ran out of disk space and truncate the root filesystem." },
+      { id: 'A', text: "Add more CPU cores to resolve out-of-memory errors." },
+      { id: 'B', text: "Inspect `kubectl describe pod` for `OOMKilled: true` (exit code 137) and adjust the container memory limit or JVM heap settings." },
       { id: 'C', text: "Change the pod restart policy to Never to prevent restarts." },
-      { id: 'D', text: "Add more CPU cores to resolve out-of-memory errors." }
+      { id: 'D', text: "Assume the host node ran out of disk space and truncate the root filesystem." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Inspect `kubectl describe pod` for `OOMKilled: true` (exit code 137) and adjust the container memory limit or JVM heap settings. Exit code 137 occurs when a container process is terminated by the Linux kernel Out-Of-Memory (OOM) killer because its memory usage exceeded the configured container `limits.memory`. Examining pod details confirms `OOMKilled: true`, indicating the memory limit must be increased or memory leaks resolved.",
     referenceUrl: "https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
@@ -198,12 +198,12 @@ export const K8S_CKA_QUESTIONS_13 = [
     scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator evaluates Memory Limits to determine why a high-throughput Java microservice container was killed unexpectedly with exit code 137.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability? Diagnosing exit code 137 and out-of-memory kernel termination is under consideration.",
     options: [
-      { id: 'A', text: "Inspect `kubectl describe pod` for `OOMKilled: true` (exit code 137) and adjust the container memory limit or JVM heap settings." },
+      { id: 'A', text: "Add more CPU cores to resolve out-of-memory errors." },
       { id: 'B', text: "Assume the host node ran out of disk space and truncate the root filesystem." },
-      { id: 'C', text: "Change the pod restart policy to Never to prevent restarts." },
-      { id: 'D', text: "Add more CPU cores to resolve out-of-memory errors." }
+      { id: 'C', text: "Inspect `kubectl describe pod` for `OOMKilled: true` (exit code 137) and adjust the container memory limit or JVM heap settings." },
+      { id: 'D', text: "Change the pod restart policy to Never to prevent restarts." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Inspect `kubectl describe pod` for `OOMKilled: true` (exit code 137) and adjust the container memory limit or JVM heap settings. Exit code 137 occurs when a container process is terminated by the Linux kernel Out-Of-Memory (OOM) killer because its memory usage exceeded the configured container `limits.memory`. Examining pod details confirms `OOMKilled: true`, indicating the memory limit must be increased or memory leaks resolved.",
     referenceUrl: "https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
@@ -219,12 +219,12 @@ export const K8S_CKA_QUESTIONS_13 = [
     scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator evaluates Image Pull Errors to resolve an `ImagePullBackOff` error on a newly deployed pod attempting to pull an image from a private container registry.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements? Diagnosing image name typos, tag mismatches, and imagePullSecrets is under consideration.",
     options: [
-      { id: 'A', text: "Verify the container image repository name and tag, and confirm that the pod references a valid `imagePullSecrets` containing registry credentials." },
-      { id: 'B', text: "Restart the kube-apiserver service on all master nodes." },
-      { id: 'C', text: "Disable authentication on the private registry to bypass security credentials." },
-      { id: 'D', text: "Change the container port from 8080 to 80." }
+      { id: 'A', text: "Restart the kube-apiserver service on all master nodes." },
+      { id: 'B', text: "Disable authentication on the private registry to bypass security credentials." },
+      { id: 'C', text: "Change the container port from 8080 to 80." },
+      { id: 'D', text: "Verify the container image repository name and tag, and confirm that the pod references a valid `imagePullSecrets` containing registry credentials." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Verify the container image repository name and tag, and confirm that the pod references a valid `imagePullSecrets` containing registry credentials. `ImagePullBackOff` occurs when the kubelet fails to retrieve the specified container image. Common causes include typos in the image name or tag, non-existent images, network connectivity issues, or missing authentication credentials via `imagePullSecrets` for private registries.",
     referenceUrl: "https://kubernetes.io/docs/concepts/containers/images/#specifying-imagepullsecrets-on-a-pod",
@@ -241,9 +241,9 @@ export const K8S_CKA_QUESTIONS_13 = [
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability? Diagnosing image name typos, tag mismatches, and imagePullSecrets is under consideration.",
     options: [
       { id: 'A', text: "Verify the container image repository name and tag, and confirm that the pod references a valid `imagePullSecrets` containing registry credentials." },
-      { id: 'B', text: "Restart the kube-apiserver service on all master nodes." },
-      { id: 'C', text: "Disable authentication on the private registry to bypass security credentials." },
-      { id: 'D', text: "Change the container port from 8080 to 80." }
+      { id: 'B', text: "Change the container port from 8080 to 80." },
+      { id: 'C', text: "Restart the kube-apiserver service on all master nodes." },
+      { id: 'D', text: "Disable authentication on the private registry to bypass security credentials." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -261,12 +261,12 @@ export const K8S_CKA_QUESTIONS_13 = [
     scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator evaluates Image Pull Errors to resolve an `ImagePullBackOff` error on a newly deployed pod attempting to pull an image from a private container registry.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls? Diagnosing image name typos, tag mismatches, and imagePullSecrets is under consideration.",
     options: [
-      { id: 'A', text: "Verify the container image repository name and tag, and confirm that the pod references a valid `imagePullSecrets` containing registry credentials." },
-      { id: 'B', text: "Restart the kube-apiserver service on all master nodes." },
-      { id: 'C', text: "Disable authentication on the private registry to bypass security credentials." },
-      { id: 'D', text: "Change the container port from 8080 to 80." }
+      { id: 'A', text: "Restart the kube-apiserver service on all master nodes." },
+      { id: 'B', text: "Verify the container image repository name and tag, and confirm that the pod references a valid `imagePullSecrets` containing registry credentials." },
+      { id: 'C', text: "Change the container port from 8080 to 80." },
+      { id: 'D', text: "Disable authentication on the private registry to bypass security credentials." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Verify the container image repository name and tag, and confirm that the pod references a valid `imagePullSecrets` containing registry credentials. `ImagePullBackOff` occurs when the kubelet fails to retrieve the specified container image. Common causes include typos in the image name or tag, non-existent images, network connectivity issues, or missing authentication credentials via `imagePullSecrets` for private registries.",
     referenceUrl: "https://kubernetes.io/docs/concepts/containers/images/#specifying-imagepullsecrets-on-a-pod",
@@ -282,12 +282,12 @@ export const K8S_CKA_QUESTIONS_13 = [
     scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator evaluates Image Pull Errors to resolve an `ImagePullBackOff` error on a newly deployed pod attempting to pull an image from a private container registry.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity? Diagnosing image name typos, tag mismatches, and imagePullSecrets is under consideration.",
     options: [
-      { id: 'A', text: "Verify the container image repository name and tag, and confirm that the pod references a valid `imagePullSecrets` containing registry credentials." },
-      { id: 'B', text: "Restart the kube-apiserver service on all master nodes." },
-      { id: 'C', text: "Disable authentication on the private registry to bypass security credentials." },
-      { id: 'D', text: "Change the container port from 8080 to 80." }
+      { id: 'A', text: "Restart the kube-apiserver service on all master nodes." },
+      { id: 'B', text: "Disable authentication on the private registry to bypass security credentials." },
+      { id: 'C', text: "Change the container port from 8080 to 80." },
+      { id: 'D', text: "Verify the container image repository name and tag, and confirm that the pod references a valid `imagePullSecrets` containing registry credentials." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Verify the container image repository name and tag, and confirm that the pod references a valid `imagePullSecrets` containing registry credentials. `ImagePullBackOff` occurs when the kubelet fails to retrieve the specified container image. Common causes include typos in the image name or tag, non-existent images, network connectivity issues, or missing authentication credentials via `imagePullSecrets` for private registries.",
     referenceUrl: "https://kubernetes.io/docs/concepts/containers/images/#specifying-imagepullsecrets-on-a-pod",
@@ -303,12 +303,12 @@ export const K8S_CKA_QUESTIONS_13 = [
     scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator evaluates Image Pull Errors to resolve an `ImagePullBackOff` error on a newly deployed pod attempting to pull an image from a private container registry.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability? Diagnosing image name typos, tag mismatches, and imagePullSecrets is under consideration.",
     options: [
-      { id: 'A', text: "Verify the container image repository name and tag, and confirm that the pod references a valid `imagePullSecrets` containing registry credentials." },
-      { id: 'B', text: "Restart the kube-apiserver service on all master nodes." },
-      { id: 'C', text: "Disable authentication on the private registry to bypass security credentials." },
-      { id: 'D', text: "Change the container port from 8080 to 80." }
+      { id: 'A', text: "Change the container port from 8080 to 80." },
+      { id: 'B', text: "Disable authentication on the private registry to bypass security credentials." },
+      { id: 'C', text: "Verify the container image repository name and tag, and confirm that the pod references a valid `imagePullSecrets` containing registry credentials." },
+      { id: 'D', text: "Restart the kube-apiserver service on all master nodes." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Verify the container image repository name and tag, and confirm that the pod references a valid `imagePullSecrets` containing registry credentials. `ImagePullBackOff` occurs when the kubelet fails to retrieve the specified container image. Common causes include typos in the image name or tag, non-existent images, network connectivity issues, or missing authentication credentials via `imagePullSecrets` for private registries.",
     referenceUrl: "https://kubernetes.io/docs/concepts/containers/images/#specifying-imagepullsecrets-on-a-pod",
@@ -324,12 +324,12 @@ export const K8S_CKA_QUESTIONS_13 = [
     scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator evaluates Node Maintenance to troubleshoot a Kubernetes worker node that transitioned to `NotReady` status following a host operating system upgrade.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements? Investigating systemd kubelet failures, logs, and configuration errors is under consideration.",
     options: [
-      { id: 'A', text: "SSH into the worker node, check `systemctl status kubelet`, and inspect recent journal logs using `journalctl -u kubelet -e`." },
+      { id: 'A', text: "Assume the pod network crashed and reinstall the container runtime blindly." },
       { id: 'B', text: "Delete the cluster etcd data directory from the master node." },
-      { id: 'C', text: "Assume the pod network crashed and reinstall the container runtime blindly." },
-      { id: 'D', text: "Drain and cordon all other healthy nodes in the cluster." }
+      { id: 'C', text: "Drain and cordon all other healthy nodes in the cluster." },
+      { id: 'D', text: "SSH into the worker node, check `systemctl status kubelet`, and inspect recent journal logs using `journalctl -u kubelet -e`." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "SSH into the worker node, check `systemctl status kubelet`, and inspect recent journal logs using `journalctl -u kubelet -e`. When a worker node shows `NotReady`, the kubelet daemon has stopped reporting heartbeats to the API server. Logging into the node and examining `systemctl status kubelet` and `journalctl -u kubelet -e` reveals certificate expiration, configuration syntax errors, or container runtime socket disconnects.",
     referenceUrl: "https://kubernetes.io/docs/tasks/debug/debug-cluster/monitor-node-health/",
@@ -345,12 +345,12 @@ export const K8S_CKA_QUESTIONS_13 = [
     scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator evaluates Node Maintenance to troubleshoot a Kubernetes worker node that transitioned to `NotReady` status following a host operating system upgrade.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability? Investigating systemd kubelet failures, logs, and configuration errors is under consideration.",
     options: [
-      { id: 'A', text: "SSH into the worker node, check `systemctl status kubelet`, and inspect recent journal logs using `journalctl -u kubelet -e`." },
-      { id: 'B', text: "Delete the cluster etcd data directory from the master node." },
-      { id: 'C', text: "Assume the pod network crashed and reinstall the container runtime blindly." },
-      { id: 'D', text: "Drain and cordon all other healthy nodes in the cluster." }
+      { id: 'A', text: "Drain and cordon all other healthy nodes in the cluster." },
+      { id: 'B', text: "Assume the pod network crashed and reinstall the container runtime blindly." },
+      { id: 'C', text: "SSH into the worker node, check `systemctl status kubelet`, and inspect recent journal logs using `journalctl -u kubelet -e`." },
+      { id: 'D', text: "Delete the cluster etcd data directory from the master node." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "SSH into the worker node, check `systemctl status kubelet`, and inspect recent journal logs using `journalctl -u kubelet -e`. When a worker node shows `NotReady`, the kubelet daemon has stopped reporting heartbeats to the API server. Logging into the node and examining `systemctl status kubelet` and `journalctl -u kubelet -e` reveals certificate expiration, configuration syntax errors, or container runtime socket disconnects.",
     referenceUrl: "https://kubernetes.io/docs/tasks/debug/debug-cluster/monitor-node-health/",
@@ -366,12 +366,12 @@ export const K8S_CKA_QUESTIONS_13 = [
     scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator evaluates Node Maintenance to troubleshoot a Kubernetes worker node that transitioned to `NotReady` status following a host operating system upgrade.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls? Investigating systemd kubelet failures, logs, and configuration errors is under consideration.",
     options: [
-      { id: 'A', text: "SSH into the worker node, check `systemctl status kubelet`, and inspect recent journal logs using `journalctl -u kubelet -e`." },
-      { id: 'B', text: "Delete the cluster etcd data directory from the master node." },
-      { id: 'C', text: "Assume the pod network crashed and reinstall the container runtime blindly." },
-      { id: 'D', text: "Drain and cordon all other healthy nodes in the cluster." }
+      { id: 'A', text: "Assume the pod network crashed and reinstall the container runtime blindly." },
+      { id: 'B', text: "Drain and cordon all other healthy nodes in the cluster." },
+      { id: 'C', text: "Delete the cluster etcd data directory from the master node." },
+      { id: 'D', text: "SSH into the worker node, check `systemctl status kubelet`, and inspect recent journal logs using `journalctl -u kubelet -e`." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "SSH into the worker node, check `systemctl status kubelet`, and inspect recent journal logs using `journalctl -u kubelet -e`. When a worker node shows `NotReady`, the kubelet daemon has stopped reporting heartbeats to the API server. Logging into the node and examining `systemctl status kubelet` and `journalctl -u kubelet -e` reveals certificate expiration, configuration syntax errors, or container runtime socket disconnects.",
     referenceUrl: "https://kubernetes.io/docs/tasks/debug/debug-cluster/monitor-node-health/",
@@ -387,12 +387,12 @@ export const K8S_CKA_QUESTIONS_13 = [
     scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator evaluates Node Maintenance to troubleshoot a Kubernetes worker node that transitioned to `NotReady` status following a host operating system upgrade.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity? Investigating systemd kubelet failures, logs, and configuration errors is under consideration.",
     options: [
-      { id: 'A', text: "SSH into the worker node, check `systemctl status kubelet`, and inspect recent journal logs using `journalctl -u kubelet -e`." },
-      { id: 'B', text: "Delete the cluster etcd data directory from the master node." },
-      { id: 'C', text: "Assume the pod network crashed and reinstall the container runtime blindly." },
-      { id: 'D', text: "Drain and cordon all other healthy nodes in the cluster." }
+      { id: 'A', text: "Assume the pod network crashed and reinstall the container runtime blindly." },
+      { id: 'B', text: "Drain and cordon all other healthy nodes in the cluster." },
+      { id: 'C', text: "SSH into the worker node, check `systemctl status kubelet`, and inspect recent journal logs using `journalctl -u kubelet -e`." },
+      { id: 'D', text: "Delete the cluster etcd data directory from the master node." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "SSH into the worker node, check `systemctl status kubelet`, and inspect recent journal logs using `journalctl -u kubelet -e`. When a worker node shows `NotReady`, the kubelet daemon has stopped reporting heartbeats to the API server. Logging into the node and examining `systemctl status kubelet` and `journalctl -u kubelet -e` reveals certificate expiration, configuration syntax errors, or container runtime socket disconnects.",
     referenceUrl: "https://kubernetes.io/docs/tasks/debug/debug-cluster/monitor-node-health/",
@@ -408,12 +408,12 @@ export const K8S_CKA_QUESTIONS_13 = [
     scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator evaluates Node Maintenance to troubleshoot a Kubernetes worker node that transitioned to `NotReady` status following a host operating system upgrade.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability? Investigating systemd kubelet failures, logs, and configuration errors is under consideration.",
     options: [
-      { id: 'A', text: "SSH into the worker node, check `systemctl status kubelet`, and inspect recent journal logs using `journalctl -u kubelet -e`." },
-      { id: 'B', text: "Delete the cluster etcd data directory from the master node." },
+      { id: 'A', text: "Delete the cluster etcd data directory from the master node." },
+      { id: 'B', text: "SSH into the worker node, check `systemctl status kubelet`, and inspect recent journal logs using `journalctl -u kubelet -e`." },
       { id: 'C', text: "Assume the pod network crashed and reinstall the container runtime blindly." },
       { id: 'D', text: "Drain and cordon all other healthy nodes in the cluster." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "SSH into the worker node, check `systemctl status kubelet`, and inspect recent journal logs using `journalctl -u kubelet -e`. When a worker node shows `NotReady`, the kubelet daemon has stopped reporting heartbeats to the API server. Logging into the node and examining `systemctl status kubelet` and `journalctl -u kubelet -e` reveals certificate expiration, configuration syntax errors, or container runtime socket disconnects.",
     referenceUrl: "https://kubernetes.io/docs/tasks/debug/debug-cluster/monitor-node-health/",
@@ -430,9 +430,9 @@ export const K8S_CKA_QUESTIONS_13 = [
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements? Kubelet eviction thresholds and garbage collection during disk pressure is under consideration.",
     options: [
       { id: 'A', text: "Inspect disk utilization on the node, clean up unreferenced container images via crictl, and increase the node root/data filesystem capacity." },
-      { id: 'B', text: "Increase pod memory requests to prevent eviction." },
+      { id: 'B', text: "Disable kubelet eviction thresholds entirely by setting them to 100%." },
       { id: 'C', text: "Delete the kube-proxy daemonset across all worker nodes." },
-      { id: 'D', text: "Disable kubelet eviction thresholds entirely by setting them to 100%." }
+      { id: 'D', text: "Increase pod memory requests to prevent eviction." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -450,12 +450,12 @@ export const K8S_CKA_QUESTIONS_13 = [
     scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator evaluates Node Eviction to resolve an issue where pods on a worker node are evicted with reason `Evicted` and condition `DiskPressure: True`.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability? Kubelet eviction thresholds and garbage collection during disk pressure is under consideration.",
     options: [
-      { id: 'A', text: "Inspect disk utilization on the node, clean up unreferenced container images via crictl, and increase the node root/data filesystem capacity." },
-      { id: 'B', text: "Increase pod memory requests to prevent eviction." },
-      { id: 'C', text: "Delete the kube-proxy daemonset across all worker nodes." },
-      { id: 'D', text: "Disable kubelet eviction thresholds entirely by setting them to 100%." }
+      { id: 'A', text: "Delete the kube-proxy daemonset across all worker nodes." },
+      { id: 'B', text: "Disable kubelet eviction thresholds entirely by setting them to 100%." },
+      { id: 'C', text: "Inspect disk utilization on the node, clean up unreferenced container images via crictl, and increase the node root/data filesystem capacity." },
+      { id: 'D', text: "Increase pod memory requests to prevent eviction." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Inspect disk utilization on the node, clean up unreferenced container images via crictl, and increase the node root/data filesystem capacity. The kubelet continuously monitors node filesystem thresholds. When available disk space falls below eviction thresholds (e.g., `imagefs.available &lt; 15%`), the kubelet sets `DiskPressure: True` and evicts pods according to QoS classes to protect node stability.",
     referenceUrl: "https://kubernetes.io/docs/concepts/scheduling-eviction/node-pressure-eviction/",
@@ -471,12 +471,12 @@ export const K8S_CKA_QUESTIONS_13 = [
     scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator evaluates Node Eviction to resolve an issue where pods on a worker node are evicted with reason `Evicted` and condition `DiskPressure: True`.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls? Kubelet eviction thresholds and garbage collection during disk pressure is under consideration.",
     options: [
-      { id: 'A', text: "Inspect disk utilization on the node, clean up unreferenced container images via crictl, and increase the node root/data filesystem capacity." },
-      { id: 'B', text: "Increase pod memory requests to prevent eviction." },
-      { id: 'C', text: "Delete the kube-proxy daemonset across all worker nodes." },
+      { id: 'A', text: "Delete the kube-proxy daemonset across all worker nodes." },
+      { id: 'B', text: "Inspect disk utilization on the node, clean up unreferenced container images via crictl, and increase the node root/data filesystem capacity." },
+      { id: 'C', text: "Increase pod memory requests to prevent eviction." },
       { id: 'D', text: "Disable kubelet eviction thresholds entirely by setting them to 100%." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Inspect disk utilization on the node, clean up unreferenced container images via crictl, and increase the node root/data filesystem capacity. The kubelet continuously monitors node filesystem thresholds. When available disk space falls below eviction thresholds (e.g., `imagefs.available &lt; 15%`), the kubelet sets `DiskPressure: True` and evicts pods according to QoS classes to protect node stability.",
     referenceUrl: "https://kubernetes.io/docs/concepts/scheduling-eviction/node-pressure-eviction/",
@@ -492,12 +492,12 @@ export const K8S_CKA_QUESTIONS_13 = [
     scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator evaluates Node Eviction to resolve an issue where pods on a worker node are evicted with reason `Evicted` and condition `DiskPressure: True`.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity? Kubelet eviction thresholds and garbage collection during disk pressure is under consideration.",
     options: [
-      { id: 'A', text: "Inspect disk utilization on the node, clean up unreferenced container images via crictl, and increase the node root/data filesystem capacity." },
-      { id: 'B', text: "Increase pod memory requests to prevent eviction." },
-      { id: 'C', text: "Delete the kube-proxy daemonset across all worker nodes." },
-      { id: 'D', text: "Disable kubelet eviction thresholds entirely by setting them to 100%." }
+      { id: 'A', text: "Increase pod memory requests to prevent eviction." },
+      { id: 'B', text: "Delete the kube-proxy daemonset across all worker nodes." },
+      { id: 'C', text: "Disable kubelet eviction thresholds entirely by setting them to 100%." },
+      { id: 'D', text: "Inspect disk utilization on the node, clean up unreferenced container images via crictl, and increase the node root/data filesystem capacity." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Inspect disk utilization on the node, clean up unreferenced container images via crictl, and increase the node root/data filesystem capacity. The kubelet continuously monitors node filesystem thresholds. When available disk space falls below eviction thresholds (e.g., `imagefs.available &lt; 15%`), the kubelet sets `DiskPressure: True` and evicts pods according to QoS classes to protect node stability.",
     referenceUrl: "https://kubernetes.io/docs/concepts/scheduling-eviction/node-pressure-eviction/",
@@ -513,12 +513,12 @@ export const K8S_CKA_QUESTIONS_13 = [
     scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator evaluates Node Eviction to resolve an issue where pods on a worker node are evicted with reason `Evicted` and condition `DiskPressure: True`.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability? Kubelet eviction thresholds and garbage collection during disk pressure is under consideration.",
     options: [
-      { id: 'A', text: "Inspect disk utilization on the node, clean up unreferenced container images via crictl, and increase the node root/data filesystem capacity." },
-      { id: 'B', text: "Increase pod memory requests to prevent eviction." },
+      { id: 'A', text: "Disable kubelet eviction thresholds entirely by setting them to 100%." },
+      { id: 'B', text: "Inspect disk utilization on the node, clean up unreferenced container images via crictl, and increase the node root/data filesystem capacity." },
       { id: 'C', text: "Delete the kube-proxy daemonset across all worker nodes." },
-      { id: 'D', text: "Disable kubelet eviction thresholds entirely by setting them to 100%." }
+      { id: 'D', text: "Increase pod memory requests to prevent eviction." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Inspect disk utilization on the node, clean up unreferenced container images via crictl, and increase the node root/data filesystem capacity. The kubelet continuously monitors node filesystem thresholds. When available disk space falls below eviction thresholds (e.g., `imagefs.available &lt; 15%`), the kubelet sets `DiskPressure: True` and evicts pods according to QoS classes to protect node stability.",
     referenceUrl: "https://kubernetes.io/docs/concepts/scheduling-eviction/node-pressure-eviction/",

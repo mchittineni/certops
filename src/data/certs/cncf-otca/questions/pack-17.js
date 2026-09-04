@@ -9,12 +9,12 @@ export const CNCF_OTCA_QUESTIONS_17 = [
     scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer evaluates Span Status to ensure that an unhandled database exception caught in a microservice is properly reflected in the distributed trace and marks the span as failed.",
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives? Using recordException and setStatus(StatusCode.ERROR) for failure diagnostics is under consideration.",
     options: [
-      { id: 'A', text: "Call `span.RecordError(err)` to attach exception details as a Span Event and call `span.SetStatus(codes.Error, err.Error())` to set the error flag." },
-      { id: 'B', text: "Log the error to a text file and leave the span status as OK." },
-      { id: 'C', text: "Delete the span so it does not show up in the tracing dashboard." },
-      { id: 'D', text: "Catch the exception silently and return HTTP 200." }
+      { id: 'A', text: "Delete the span so it does not show up in the tracing dashboard." },
+      { id: 'B', text: "Catch the exception silently and return HTTP 200." },
+      { id: 'C', text: "Log the error to a text file and leave the span status as OK." },
+      { id: 'D', text: "Call `span.RecordError(err)` to attach exception details as a Span Event and call `span.SetStatus(codes.Error, err.Error())` to set the error flag." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Call `span.RecordError(err)` to attach exception details as a Span Event and call `span.SetStatus(codes.Error, err.Error())` to set the error flag. In OpenTelemetry, simply recording an error event via `RecordError()` does not automatically mark the span status as an error. To ensure tracing backends display the span in red as a failure, developers must explicitly call `SetStatus(StatusCode.ERROR, description)`.",
     referenceUrl: "https://opentelemetry.io/docs/languages/python/instrumentation/#record-exceptions-in-spans",
@@ -32,8 +32,8 @@ export const CNCF_OTCA_QUESTIONS_17 = [
     options: [
       { id: 'A', text: "Call `span.RecordError(err)` to attach exception details as a Span Event and call `span.SetStatus(codes.Error, err.Error())` to set the error flag." },
       { id: 'B', text: "Log the error to a text file and leave the span status as OK." },
-      { id: 'C', text: "Delete the span so it does not show up in the tracing dashboard." },
-      { id: 'D', text: "Catch the exception silently and return HTTP 200." }
+      { id: 'C', text: "Catch the exception silently and return HTTP 200." },
+      { id: 'D', text: "Delete the span so it does not show up in the tracing dashboard." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -51,12 +51,12 @@ export const CNCF_OTCA_QUESTIONS_17 = [
     scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer evaluates Span Status to ensure that an unhandled database exception caught in a microservice is properly reflected in the distributed trace and marks the span as failed.",
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls? Using recordException and setStatus(StatusCode.ERROR) for failure diagnostics is under consideration.",
     options: [
-      { id: 'A', text: "Call `span.RecordError(err)` to attach exception details as a Span Event and call `span.SetStatus(codes.Error, err.Error())` to set the error flag." },
-      { id: 'B', text: "Log the error to a text file and leave the span status as OK." },
+      { id: 'A', text: "Log the error to a text file and leave the span status as OK." },
+      { id: 'B', text: "Call `span.RecordError(err)` to attach exception details as a Span Event and call `span.SetStatus(codes.Error, err.Error())` to set the error flag." },
       { id: 'C', text: "Delete the span so it does not show up in the tracing dashboard." },
       { id: 'D', text: "Catch the exception silently and return HTTP 200." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Call `span.RecordError(err)` to attach exception details as a Span Event and call `span.SetStatus(codes.Error, err.Error())` to set the error flag. In OpenTelemetry, simply recording an error event via `RecordError()` does not automatically mark the span status as an error. To ensure tracing backends display the span in red as a failure, developers must explicitly call `SetStatus(StatusCode.ERROR, description)`.",
     referenceUrl: "https://opentelemetry.io/docs/languages/python/instrumentation/#record-exceptions-in-spans",
@@ -72,12 +72,12 @@ export const CNCF_OTCA_QUESTIONS_17 = [
     scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer evaluates Span Status to ensure that an unhandled database exception caught in a microservice is properly reflected in the distributed trace and marks the span as failed.",
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption? Using recordException and setStatus(StatusCode.ERROR) for failure diagnostics is under consideration.",
     options: [
-      { id: 'A', text: "Call `span.RecordError(err)` to attach exception details as a Span Event and call `span.SetStatus(codes.Error, err.Error())` to set the error flag." },
+      { id: 'A', text: "Catch the exception silently and return HTTP 200." },
       { id: 'B', text: "Log the error to a text file and leave the span status as OK." },
-      { id: 'C', text: "Delete the span so it does not show up in the tracing dashboard." },
-      { id: 'D', text: "Catch the exception silently and return HTTP 200." }
+      { id: 'C', text: "Call `span.RecordError(err)` to attach exception details as a Span Event and call `span.SetStatus(codes.Error, err.Error())` to set the error flag." },
+      { id: 'D', text: "Delete the span so it does not show up in the tracing dashboard." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Call `span.RecordError(err)` to attach exception details as a Span Event and call `span.SetStatus(codes.Error, err.Error())` to set the error flag. In OpenTelemetry, simply recording an error event via `RecordError()` does not automatically mark the span status as an error. To ensure tracing backends display the span in red as a failure, developers must explicitly call `SetStatus(StatusCode.ERROR, description)`.",
     referenceUrl: "https://opentelemetry.io/docs/languages/python/instrumentation/#record-exceptions-in-spans",
@@ -93,12 +93,12 @@ export const CNCF_OTCA_QUESTIONS_17 = [
     scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer evaluates Span Status to ensure that an unhandled database exception caught in a microservice is properly reflected in the distributed trace and marks the span as failed.",
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation? Using recordException and setStatus(StatusCode.ERROR) for failure diagnostics is under consideration.",
     options: [
-      { id: 'A', text: "Call `span.RecordError(err)` to attach exception details as a Span Event and call `span.SetStatus(codes.Error, err.Error())` to set the error flag." },
-      { id: 'B', text: "Log the error to a text file and leave the span status as OK." },
-      { id: 'C', text: "Delete the span so it does not show up in the tracing dashboard." },
-      { id: 'D', text: "Catch the exception silently and return HTTP 200." }
+      { id: 'A', text: "Log the error to a text file and leave the span status as OK." },
+      { id: 'B', text: "Delete the span so it does not show up in the tracing dashboard." },
+      { id: 'C', text: "Catch the exception silently and return HTTP 200." },
+      { id: 'D', text: "Call `span.RecordError(err)` to attach exception details as a Span Event and call `span.SetStatus(codes.Error, err.Error())` to set the error flag." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Call `span.RecordError(err)` to attach exception details as a Span Event and call `span.SetStatus(codes.Error, err.Error())` to set the error flag. In OpenTelemetry, simply recording an error event via `RecordError()` does not automatically mark the span status as an error. To ensure tracing backends display the span in red as a failure, developers must explicitly call `SetStatus(StatusCode.ERROR, description)`.",
     referenceUrl: "https://opentelemetry.io/docs/languages/python/instrumentation/#record-exceptions-in-spans",
@@ -114,12 +114,12 @@ export const CNCF_OTCA_QUESTIONS_17 = [
     scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer evaluates Span Links to model a batch processing job that pulls 50 orders from an Amazon SQS queue and processes them in a single transaction.",
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives? Linking causally related traces across batch jobs and message queues using Span Links is under consideration.",
     options: [
-      { id: 'A', text: "Create a span for the batch job and add `Span Links` pointing to each of the 50 individual originating order trace contexts." },
-      { id: 'B', text: "Force all 50 orders to share a single parent trace ID sequentially." },
-      { id: 'C', text: "Drop the trace contexts of all 50 orders." },
-      { id: 'D', text: "Create 50 duplicate batch processing jobs." }
+      { id: 'A', text: "Create 50 duplicate batch processing jobs." },
+      { id: 'B', text: "Create a span for the batch job and add `Span Links` pointing to each of the 50 individual originating order trace contexts." },
+      { id: 'C', text: "Force all 50 orders to share a single parent trace ID sequentially." },
+      { id: 'D', text: "Drop the trace contexts of all 50 orders." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Create a span for the batch job and add `Span Links` pointing to each of the 50 individual originating order trace contexts. While parent-child relationships model direct synchronous calls, `Span Links` connect a span to one or more causally related spans across different traces. Links are the standard mechanism for modeling asynchronous fan-in/fan-out batch processors and message consumer workflows.",
     referenceUrl: "https://opentelemetry.io/docs/concepts/signals/traces/#span-links",
@@ -135,12 +135,12 @@ export const CNCF_OTCA_QUESTIONS_17 = [
     scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer evaluates Span Links to model a batch processing job that pulls 50 orders from an Amazon SQS queue and processes them in a single transaction.",
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends? Linking causally related traces across batch jobs and message queues using Span Links is under consideration.",
     options: [
-      { id: 'A', text: "Create a span for the batch job and add `Span Links` pointing to each of the 50 individual originating order trace contexts." },
-      { id: 'B', text: "Force all 50 orders to share a single parent trace ID sequentially." },
-      { id: 'C', text: "Drop the trace contexts of all 50 orders." },
-      { id: 'D', text: "Create 50 duplicate batch processing jobs." }
+      { id: 'A', text: "Force all 50 orders to share a single parent trace ID sequentially." },
+      { id: 'B', text: "Drop the trace contexts of all 50 orders." },
+      { id: 'C', text: "Create 50 duplicate batch processing jobs." },
+      { id: 'D', text: "Create a span for the batch job and add `Span Links` pointing to each of the 50 individual originating order trace contexts." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Create a span for the batch job and add `Span Links` pointing to each of the 50 individual originating order trace contexts. While parent-child relationships model direct synchronous calls, `Span Links` connect a span to one or more causally related spans across different traces. Links are the standard mechanism for modeling asynchronous fan-in/fan-out batch processors and message consumer workflows.",
     referenceUrl: "https://opentelemetry.io/docs/concepts/signals/traces/#span-links",
@@ -156,12 +156,12 @@ export const CNCF_OTCA_QUESTIONS_17 = [
     scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer evaluates Span Links to model a batch processing job that pulls 50 orders from an Amazon SQS queue and processes them in a single transaction.",
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls? Linking causally related traces across batch jobs and message queues using Span Links is under consideration.",
     options: [
-      { id: 'A', text: "Create a span for the batch job and add `Span Links` pointing to each of the 50 individual originating order trace contexts." },
-      { id: 'B', text: "Force all 50 orders to share a single parent trace ID sequentially." },
-      { id: 'C', text: "Drop the trace contexts of all 50 orders." },
-      { id: 'D', text: "Create 50 duplicate batch processing jobs." }
+      { id: 'A', text: "Force all 50 orders to share a single parent trace ID sequentially." },
+      { id: 'B', text: "Create 50 duplicate batch processing jobs." },
+      { id: 'C', text: "Create a span for the batch job and add `Span Links` pointing to each of the 50 individual originating order trace contexts." },
+      { id: 'D', text: "Drop the trace contexts of all 50 orders." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Create a span for the batch job and add `Span Links` pointing to each of the 50 individual originating order trace contexts. While parent-child relationships model direct synchronous calls, `Span Links` connect a span to one or more causally related spans across different traces. Links are the standard mechanism for modeling asynchronous fan-in/fan-out batch processors and message consumer workflows.",
     referenceUrl: "https://opentelemetry.io/docs/concepts/signals/traces/#span-links",
@@ -177,12 +177,12 @@ export const CNCF_OTCA_QUESTIONS_17 = [
     scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer evaluates Span Links to model a batch processing job that pulls 50 orders from an Amazon SQS queue and processes them in a single transaction.",
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption? Linking causally related traces across batch jobs and message queues using Span Links is under consideration.",
     options: [
-      { id: 'A', text: "Create a span for the batch job and add `Span Links` pointing to each of the 50 individual originating order trace contexts." },
-      { id: 'B', text: "Force all 50 orders to share a single parent trace ID sequentially." },
-      { id: 'C', text: "Drop the trace contexts of all 50 orders." },
-      { id: 'D', text: "Create 50 duplicate batch processing jobs." }
+      { id: 'A', text: "Create 50 duplicate batch processing jobs." },
+      { id: 'B', text: "Create a span for the batch job and add `Span Links` pointing to each of the 50 individual originating order trace contexts." },
+      { id: 'C', text: "Force all 50 orders to share a single parent trace ID sequentially." },
+      { id: 'D', text: "Drop the trace contexts of all 50 orders." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Create a span for the batch job and add `Span Links` pointing to each of the 50 individual originating order trace contexts. While parent-child relationships model direct synchronous calls, `Span Links` connect a span to one or more causally related spans across different traces. Links are the standard mechanism for modeling asynchronous fan-in/fan-out batch processors and message consumer workflows.",
     referenceUrl: "https://opentelemetry.io/docs/concepts/signals/traces/#span-links",
@@ -198,12 +198,12 @@ export const CNCF_OTCA_QUESTIONS_17 = [
     scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer evaluates Span Links to model a batch processing job that pulls 50 orders from an Amazon SQS queue and processes them in a single transaction.",
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation? Linking causally related traces across batch jobs and message queues using Span Links is under consideration.",
     options: [
-      { id: 'A', text: "Create a span for the batch job and add `Span Links` pointing to each of the 50 individual originating order trace contexts." },
+      { id: 'A', text: "Create 50 duplicate batch processing jobs." },
       { id: 'B', text: "Force all 50 orders to share a single parent trace ID sequentially." },
       { id: 'C', text: "Drop the trace contexts of all 50 orders." },
-      { id: 'D', text: "Create 50 duplicate batch processing jobs." }
+      { id: 'D', text: "Create a span for the batch job and add `Span Links` pointing to each of the 50 individual originating order trace contexts." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Create a span for the batch job and add `Span Links` pointing to each of the 50 individual originating order trace contexts. While parent-child relationships model direct synchronous calls, `Span Links` connect a span to one or more causally related spans across different traces. Links are the standard mechanism for modeling asynchronous fan-in/fan-out batch processors and message consumer workflows.",
     referenceUrl: "https://opentelemetry.io/docs/concepts/signals/traces/#span-links",
@@ -219,12 +219,12 @@ export const CNCF_OTCA_QUESTIONS_17 = [
     scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer evaluates Metrics Instrumentation to instrument a payment processing endpoint to track the total volume of processed transactions and the 95th percentile latency distribution.",
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives? Instrumenting request rates with Counter and response durations with Histogram is under consideration.",
     options: [
-      { id: 'A', text: "Create a `Counter` instrument (`payments.processed.total`) and a `Histogram` instrument (`payments.processing.duration`)." },
+      { id: 'A', text: "Create a single Counter instrument to measure both latency and total volume." },
       { id: 'B', text: "Create a Gauge instrument for total payments." },
-      { id: 'C', text: "Create a single Counter instrument to measure both latency and total volume." },
-      { id: 'D', text: "Calculate percentiles in client code and emit static strings." }
+      { id: 'C', text: "Calculate percentiles in client code and emit static strings." },
+      { id: 'D', text: "Create a `Counter` instrument (`payments.processed.total`) and a `Histogram` instrument (`payments.processing.duration`)." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Create a `Counter` instrument (`payments.processed.total`) and a `Histogram` instrument (`payments.processing.duration`). Counters represent cumulative values that only increase (transaction counts). Histograms measure the statistical distribution of values (latencies, payload sizes), allowing backends to calculate averages, medians, and percentiles (p95, p99) dynamically.",
     referenceUrl: "https://opentelemetry.io/docs/concepts/signals/metrics/#metric-instruments",
@@ -240,12 +240,12 @@ export const CNCF_OTCA_QUESTIONS_17 = [
     scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer evaluates Metrics Instrumentation to instrument a payment processing endpoint to track the total volume of processed transactions and the 95th percentile latency distribution.",
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends? Instrumenting request rates with Counter and response durations with Histogram is under consideration.",
     options: [
-      { id: 'A', text: "Create a `Counter` instrument (`payments.processed.total`) and a `Histogram` instrument (`payments.processing.duration`)." },
-      { id: 'B', text: "Create a Gauge instrument for total payments." },
-      { id: 'C', text: "Create a single Counter instrument to measure both latency and total volume." },
-      { id: 'D', text: "Calculate percentiles in client code and emit static strings." }
+      { id: 'A', text: "Create a Gauge instrument for total payments." },
+      { id: 'B', text: "Create a single Counter instrument to measure both latency and total volume." },
+      { id: 'C', text: "Calculate percentiles in client code and emit static strings." },
+      { id: 'D', text: "Create a `Counter` instrument (`payments.processed.total`) and a `Histogram` instrument (`payments.processing.duration`)." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Create a `Counter` instrument (`payments.processed.total`) and a `Histogram` instrument (`payments.processing.duration`). Counters represent cumulative values that only increase (transaction counts). Histograms measure the statistical distribution of values (latencies, payload sizes), allowing backends to calculate averages, medians, and percentiles (p95, p99) dynamically.",
     referenceUrl: "https://opentelemetry.io/docs/concepts/signals/metrics/#metric-instruments",
@@ -261,12 +261,12 @@ export const CNCF_OTCA_QUESTIONS_17 = [
     scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer evaluates Metrics Instrumentation to instrument a payment processing endpoint to track the total volume of processed transactions and the 95th percentile latency distribution.",
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls? Instrumenting request rates with Counter and response durations with Histogram is under consideration.",
     options: [
-      { id: 'A', text: "Create a `Counter` instrument (`payments.processed.total`) and a `Histogram` instrument (`payments.processing.duration`)." },
-      { id: 'B', text: "Create a Gauge instrument for total payments." },
+      { id: 'A', text: "Create a Gauge instrument for total payments." },
+      { id: 'B', text: "Calculate percentiles in client code and emit static strings." },
       { id: 'C', text: "Create a single Counter instrument to measure both latency and total volume." },
-      { id: 'D', text: "Calculate percentiles in client code and emit static strings." }
+      { id: 'D', text: "Create a `Counter` instrument (`payments.processed.total`) and a `Histogram` instrument (`payments.processing.duration`)." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Create a `Counter` instrument (`payments.processed.total`) and a `Histogram` instrument (`payments.processing.duration`). Counters represent cumulative values that only increase (transaction counts). Histograms measure the statistical distribution of values (latencies, payload sizes), allowing backends to calculate averages, medians, and percentiles (p95, p99) dynamically.",
     referenceUrl: "https://opentelemetry.io/docs/concepts/signals/metrics/#metric-instruments",
@@ -283,9 +283,9 @@ export const CNCF_OTCA_QUESTIONS_17 = [
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption? Instrumenting request rates with Counter and response durations with Histogram is under consideration.",
     options: [
       { id: 'A', text: "Create a `Counter` instrument (`payments.processed.total`) and a `Histogram` instrument (`payments.processing.duration`)." },
-      { id: 'B', text: "Create a Gauge instrument for total payments." },
+      { id: 'B', text: "Calculate percentiles in client code and emit static strings." },
       { id: 'C', text: "Create a single Counter instrument to measure both latency and total volume." },
-      { id: 'D', text: "Calculate percentiles in client code and emit static strings." }
+      { id: 'D', text: "Create a Gauge instrument for total payments." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -303,12 +303,12 @@ export const CNCF_OTCA_QUESTIONS_17 = [
     scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer evaluates Metrics Instrumentation to instrument a payment processing endpoint to track the total volume of processed transactions and the 95th percentile latency distribution.",
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation? Instrumenting request rates with Counter and response durations with Histogram is under consideration.",
     options: [
-      { id: 'A', text: "Create a `Counter` instrument (`payments.processed.total`) and a `Histogram` instrument (`payments.processing.duration`)." },
-      { id: 'B', text: "Create a Gauge instrument for total payments." },
-      { id: 'C', text: "Create a single Counter instrument to measure both latency and total volume." },
-      { id: 'D', text: "Calculate percentiles in client code and emit static strings." }
+      { id: 'A', text: "Calculate percentiles in client code and emit static strings." },
+      { id: 'B', text: "Create a `Counter` instrument (`payments.processed.total`) and a `Histogram` instrument (`payments.processing.duration`)." },
+      { id: 'C', text: "Create a Gauge instrument for total payments." },
+      { id: 'D', text: "Create a single Counter instrument to measure both latency and total volume." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Create a `Counter` instrument (`payments.processed.total`) and a `Histogram` instrument (`payments.processing.duration`). Counters represent cumulative values that only increase (transaction counts). Histograms measure the statistical distribution of values (latencies, payload sizes), allowing backends to calculate averages, medians, and percentiles (p95, p99) dynamically.",
     referenceUrl: "https://opentelemetry.io/docs/concepts/signals/metrics/#metric-instruments",
@@ -326,8 +326,8 @@ export const CNCF_OTCA_QUESTIONS_17 = [
     options: [
       { id: 'A', text: "Register an `ObservableGauge` with a callback function that queries the runtime memory API whenever the metric reader collects data." },
       { id: 'B', text: "Call a synchronous Counter inside every application function." },
-      { id: 'C', text: "Spawn a background thread that sleeps in an infinite loop pushing data every millisecond." },
-      { id: 'D', text: "Asynchronous instruments are not supported in OpenTelemetry." }
+      { id: 'C', text: "Asynchronous instruments are not supported in OpenTelemetry." },
+      { id: 'D', text: "Spawn a background thread that sleeps in an infinite loop pushing data every millisecond." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -345,12 +345,12 @@ export const CNCF_OTCA_QUESTIONS_17 = [
     scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer evaluates Asynchronous Metrics to report current memory usage and active thread counts from the underlying runtime environment without modifying application transaction loops.",
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends? Registering callback-based observable instruments for polled system state is under consideration.",
     options: [
-      { id: 'A', text: "Register an `ObservableGauge` with a callback function that queries the runtime memory API whenever the metric reader collects data." },
-      { id: 'B', text: "Call a synchronous Counter inside every application function." },
-      { id: 'C', text: "Spawn a background thread that sleeps in an infinite loop pushing data every millisecond." },
-      { id: 'D', text: "Asynchronous instruments are not supported in OpenTelemetry." }
+      { id: 'A', text: "Call a synchronous Counter inside every application function." },
+      { id: 'B', text: "Asynchronous instruments are not supported in OpenTelemetry." },
+      { id: 'C', text: "Register an `ObservableGauge` with a callback function that queries the runtime memory API whenever the metric reader collects data." },
+      { id: 'D', text: "Spawn a background thread that sleeps in an infinite loop pushing data every millisecond." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Register an `ObservableGauge` with a callback function that queries the runtime memory API whenever the metric reader collects data. Asynchronous (observable) instruments (`ObservableGauge`, `ObservableCounter`) execute a registered callback function on-demand when metrics are scraped or read. This avoids runtime overhead during normal transactions and is ideal for reporting system metrics (memory, thread counts).",
     referenceUrl: "https://opentelemetry.io/docs/concepts/signals/metrics/#asynchronous-instruments",
@@ -366,12 +366,12 @@ export const CNCF_OTCA_QUESTIONS_17 = [
     scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer evaluates Asynchronous Metrics to report current memory usage and active thread counts from the underlying runtime environment without modifying application transaction loops.",
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls? Registering callback-based observable instruments for polled system state is under consideration.",
     options: [
-      { id: 'A', text: "Register an `ObservableGauge` with a callback function that queries the runtime memory API whenever the metric reader collects data." },
-      { id: 'B', text: "Call a synchronous Counter inside every application function." },
+      { id: 'A', text: "Asynchronous instruments are not supported in OpenTelemetry." },
+      { id: 'B', text: "Register an `ObservableGauge` with a callback function that queries the runtime memory API whenever the metric reader collects data." },
       { id: 'C', text: "Spawn a background thread that sleeps in an infinite loop pushing data every millisecond." },
-      { id: 'D', text: "Asynchronous instruments are not supported in OpenTelemetry." }
+      { id: 'D', text: "Call a synchronous Counter inside every application function." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Register an `ObservableGauge` with a callback function that queries the runtime memory API whenever the metric reader collects data. Asynchronous (observable) instruments (`ObservableGauge`, `ObservableCounter`) execute a registered callback function on-demand when metrics are scraped or read. This avoids runtime overhead during normal transactions and is ideal for reporting system metrics (memory, thread counts).",
     referenceUrl: "https://opentelemetry.io/docs/concepts/signals/metrics/#asynchronous-instruments",
@@ -387,12 +387,12 @@ export const CNCF_OTCA_QUESTIONS_17 = [
     scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer evaluates Asynchronous Metrics to report current memory usage and active thread counts from the underlying runtime environment without modifying application transaction loops.",
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption? Registering callback-based observable instruments for polled system state is under consideration.",
     options: [
-      { id: 'A', text: "Register an `ObservableGauge` with a callback function that queries the runtime memory API whenever the metric reader collects data." },
-      { id: 'B', text: "Call a synchronous Counter inside every application function." },
-      { id: 'C', text: "Spawn a background thread that sleeps in an infinite loop pushing data every millisecond." },
-      { id: 'D', text: "Asynchronous instruments are not supported in OpenTelemetry." }
+      { id: 'A', text: "Asynchronous instruments are not supported in OpenTelemetry." },
+      { id: 'B', text: "Register an `ObservableGauge` with a callback function that queries the runtime memory API whenever the metric reader collects data." },
+      { id: 'C', text: "Call a synchronous Counter inside every application function." },
+      { id: 'D', text: "Spawn a background thread that sleeps in an infinite loop pushing data every millisecond." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Register an `ObservableGauge` with a callback function that queries the runtime memory API whenever the metric reader collects data. Asynchronous (observable) instruments (`ObservableGauge`, `ObservableCounter`) execute a registered callback function on-demand when metrics are scraped or read. This avoids runtime overhead during normal transactions and is ideal for reporting system metrics (memory, thread counts).",
     referenceUrl: "https://opentelemetry.io/docs/concepts/signals/metrics/#asynchronous-instruments",
@@ -408,12 +408,12 @@ export const CNCF_OTCA_QUESTIONS_17 = [
     scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer evaluates Asynchronous Metrics to report current memory usage and active thread counts from the underlying runtime environment without modifying application transaction loops.",
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation? Registering callback-based observable instruments for polled system state is under consideration.",
     options: [
-      { id: 'A', text: "Register an `ObservableGauge` with a callback function that queries the runtime memory API whenever the metric reader collects data." },
-      { id: 'B', text: "Call a synchronous Counter inside every application function." },
-      { id: 'C', text: "Spawn a background thread that sleeps in an infinite loop pushing data every millisecond." },
-      { id: 'D', text: "Asynchronous instruments are not supported in OpenTelemetry." }
+      { id: 'A', text: "Asynchronous instruments are not supported in OpenTelemetry." },
+      { id: 'B', text: "Register an `ObservableGauge` with a callback function that queries the runtime memory API whenever the metric reader collects data." },
+      { id: 'C', text: "Call a synchronous Counter inside every application function." },
+      { id: 'D', text: "Spawn a background thread that sleeps in an infinite loop pushing data every millisecond." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Register an `ObservableGauge` with a callback function that queries the runtime memory API whenever the metric reader collects data. Asynchronous (observable) instruments (`ObservableGauge`, `ObservableCounter`) execute a registered callback function on-demand when metrics are scraped or read. This avoids runtime overhead during normal transactions and is ideal for reporting system metrics (memory, thread counts).",
     referenceUrl: "https://opentelemetry.io/docs/concepts/signals/metrics/#asynchronous-instruments",
@@ -429,12 +429,12 @@ export const CNCF_OTCA_QUESTIONS_17 = [
     scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer evaluates Metric Exemplars to investigate an unexpected latency spike in a Prometheus histogram bucket and immediately jump to the exact distributed trace of the outlier request.",
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives? Attaching trace IDs to metric histogram buckets to inspect outlier requests is under consideration.",
     options: [
-      { id: 'A', text: "Enable `Exemplars` in the OpenTelemetry metric reader to automatically sample and attach active TraceIDs to histogram observations." },
-      { id: 'B', text: "Manually log the trace ID and search through billions of log lines by eye." },
-      { id: 'C', text: "Disable histograms and use distributed traces exclusively." },
-      { id: 'D', text: "Exemplars require third-party proprietary software." }
+      { id: 'A', text: "Manually log the trace ID and search through billions of log lines by eye." },
+      { id: 'B', text: "Exemplars require third-party proprietary software." },
+      { id: 'C', text: "Enable `Exemplars` in the OpenTelemetry metric reader to automatically sample and attach active TraceIDs to histogram observations." },
+      { id: 'D', text: "Disable histograms and use distributed traces exclusively." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Enable `Exemplars` in the OpenTelemetry metric reader to automatically sample and attach active TraceIDs to histogram observations. Exemplars link metric measurements to distributed traces. When a latency histogram records an observation, an Exemplar attaches the active `trace_id` and `span_id`. Observability tools (like Grafana) allow engineers clicking on a histogram bucket to jump directly to the trace.",
     referenceUrl: "https://opentelemetry.io/docs/specs/otel/metrics/data-model/#exemplars",
@@ -450,12 +450,12 @@ export const CNCF_OTCA_QUESTIONS_17 = [
     scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer evaluates Metric Exemplars to investigate an unexpected latency spike in a Prometheus histogram bucket and immediately jump to the exact distributed trace of the outlier request.",
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends? Attaching trace IDs to metric histogram buckets to inspect outlier requests is under consideration.",
     options: [
-      { id: 'A', text: "Enable `Exemplars` in the OpenTelemetry metric reader to automatically sample and attach active TraceIDs to histogram observations." },
+      { id: 'A', text: "Disable histograms and use distributed traces exclusively." },
       { id: 'B', text: "Manually log the trace ID and search through billions of log lines by eye." },
-      { id: 'C', text: "Disable histograms and use distributed traces exclusively." },
-      { id: 'D', text: "Exemplars require third-party proprietary software." }
+      { id: 'C', text: "Exemplars require third-party proprietary software." },
+      { id: 'D', text: "Enable `Exemplars` in the OpenTelemetry metric reader to automatically sample and attach active TraceIDs to histogram observations." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Enable `Exemplars` in the OpenTelemetry metric reader to automatically sample and attach active TraceIDs to histogram observations. Exemplars link metric measurements to distributed traces. When a latency histogram records an observation, an Exemplar attaches the active `trace_id` and `span_id`. Observability tools (like Grafana) allow engineers clicking on a histogram bucket to jump directly to the trace.",
     referenceUrl: "https://opentelemetry.io/docs/specs/otel/metrics/data-model/#exemplars",
@@ -471,12 +471,12 @@ export const CNCF_OTCA_QUESTIONS_17 = [
     scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer evaluates Metric Exemplars to investigate an unexpected latency spike in a Prometheus histogram bucket and immediately jump to the exact distributed trace of the outlier request.",
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls? Attaching trace IDs to metric histogram buckets to inspect outlier requests is under consideration.",
     options: [
-      { id: 'A', text: "Enable `Exemplars` in the OpenTelemetry metric reader to automatically sample and attach active TraceIDs to histogram observations." },
-      { id: 'B', text: "Manually log the trace ID and search through billions of log lines by eye." },
-      { id: 'C', text: "Disable histograms and use distributed traces exclusively." },
-      { id: 'D', text: "Exemplars require third-party proprietary software." }
+      { id: 'A', text: "Exemplars require third-party proprietary software." },
+      { id: 'B', text: "Enable `Exemplars` in the OpenTelemetry metric reader to automatically sample and attach active TraceIDs to histogram observations." },
+      { id: 'C', text: "Manually log the trace ID and search through billions of log lines by eye." },
+      { id: 'D', text: "Disable histograms and use distributed traces exclusively." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Enable `Exemplars` in the OpenTelemetry metric reader to automatically sample and attach active TraceIDs to histogram observations. Exemplars link metric measurements to distributed traces. When a latency histogram records an observation, an Exemplar attaches the active `trace_id` and `span_id`. Observability tools (like Grafana) allow engineers clicking on a histogram bucket to jump directly to the trace.",
     referenceUrl: "https://opentelemetry.io/docs/specs/otel/metrics/data-model/#exemplars",
@@ -492,12 +492,12 @@ export const CNCF_OTCA_QUESTIONS_17 = [
     scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer evaluates Metric Exemplars to investigate an unexpected latency spike in a Prometheus histogram bucket and immediately jump to the exact distributed trace of the outlier request.",
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption? Attaching trace IDs to metric histogram buckets to inspect outlier requests is under consideration.",
     options: [
-      { id: 'A', text: "Enable `Exemplars` in the OpenTelemetry metric reader to automatically sample and attach active TraceIDs to histogram observations." },
-      { id: 'B', text: "Manually log the trace ID and search through billions of log lines by eye." },
-      { id: 'C', text: "Disable histograms and use distributed traces exclusively." },
-      { id: 'D', text: "Exemplars require third-party proprietary software." }
+      { id: 'A', text: "Disable histograms and use distributed traces exclusively." },
+      { id: 'B', text: "Exemplars require third-party proprietary software." },
+      { id: 'C', text: "Manually log the trace ID and search through billions of log lines by eye." },
+      { id: 'D', text: "Enable `Exemplars` in the OpenTelemetry metric reader to automatically sample and attach active TraceIDs to histogram observations." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Enable `Exemplars` in the OpenTelemetry metric reader to automatically sample and attach active TraceIDs to histogram observations. Exemplars link metric measurements to distributed traces. When a latency histogram records an observation, an Exemplar attaches the active `trace_id` and `span_id`. Observability tools (like Grafana) allow engineers clicking on a histogram bucket to jump directly to the trace.",
     referenceUrl: "https://opentelemetry.io/docs/specs/otel/metrics/data-model/#exemplars",
@@ -513,12 +513,12 @@ export const CNCF_OTCA_QUESTIONS_17 = [
     scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer evaluates Metric Exemplars to investigate an unexpected latency spike in a Prometheus histogram bucket and immediately jump to the exact distributed trace of the outlier request.",
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation? Attaching trace IDs to metric histogram buckets to inspect outlier requests is under consideration.",
     options: [
-      { id: 'A', text: "Enable `Exemplars` in the OpenTelemetry metric reader to automatically sample and attach active TraceIDs to histogram observations." },
+      { id: 'A', text: "Disable histograms and use distributed traces exclusively." },
       { id: 'B', text: "Manually log the trace ID and search through billions of log lines by eye." },
-      { id: 'C', text: "Disable histograms and use distributed traces exclusively." },
-      { id: 'D', text: "Exemplars require third-party proprietary software." }
+      { id: 'C', text: "Exemplars require third-party proprietary software." },
+      { id: 'D', text: "Enable `Exemplars` in the OpenTelemetry metric reader to automatically sample and attach active TraceIDs to histogram observations." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Enable `Exemplars` in the OpenTelemetry metric reader to automatically sample and attach active TraceIDs to histogram observations. Exemplars link metric measurements to distributed traces. When a latency histogram records an observation, an Exemplar attaches the active `trace_id` and `span_id`. Observability tools (like Grafana) allow engineers clicking on a histogram bucket to jump directly to the trace.",
     referenceUrl: "https://opentelemetry.io/docs/specs/otel/metrics/data-model/#exemplars",

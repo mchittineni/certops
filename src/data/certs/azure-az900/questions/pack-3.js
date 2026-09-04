@@ -9,12 +9,12 @@ export const AZURE_AZ900_QUESTIONS_3 = [
     scenario: "A healthcare company hosts sensitive patient records in an on-premises datacenter while hosting a public patient scheduling portal in Microsoft Azure.",
     question: "Which cloud deployment model is this organization utilizing?",
     options: [
-      { id: 'A', text: "Private cloud exclusively" },
-      { id: 'B', text: "Public cloud exclusively" },
-      { id: 'C', text: "Community cloud" },
-      { id: 'D', text: "Hybrid cloud" }
+      { id: 'A', text: "Community cloud" },
+      { id: 'B', text: "Hybrid cloud" },
+      { id: 'C', text: "Public cloud exclusively" },
+      { id: 'D', text: "Private cloud exclusively" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "A Hybrid cloud deployment model combines on-premises private datacenter infrastructure with public cloud services (like Microsoft Azure), allowing data and applications to be shared across environments via secure networking.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/strategy/cloud-migration-guide",
@@ -30,12 +30,12 @@ export const AZURE_AZ900_QUESTIONS_3 = [
     scenario: "A startup wants to test a new machine learning algorithm without waiting weeks to procure and configure physical hardware.",
     question: "Which cloud characteristic enables the startup to provision complete development environments in minutes?",
     options: [
-      { id: 'A', text: "High latency" },
-      { id: 'B', text: "Data residency" },
-      { id: 'C', text: "Agility" },
-      { id: 'D', text: "Disaster recovery" }
+      { id: 'A', text: "Data residency" },
+      { id: 'B', text: "High latency" },
+      { id: 'C', text: "Disaster recovery" },
+      { id: 'D', text: "Agility" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Cloud agility refers to the ability to rapidly develop, test, and launch software applications by instantly provisioning, iterating, and scaling computing infrastructure on demand without procurement delays.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/strategy/business-outcomes/agility-outcomes",
@@ -51,10 +51,10 @@ export const AZURE_AZ900_QUESTIONS_3 = [
     scenario: "A software team wants to deploy a Node.js web application. They want to focus entirely on writing code without managing virtual machines, operating system updates, or web server patching.",
     question: "Which Azure cloud service category best satisfies this requirement?",
     options: [
-      { id: 'A', text: "On-premises virtualization" },
+      { id: 'A', text: "Software as a Service (SaaS)" },
       { id: 'B', text: "Platform as a Service (PaaS)" },
       { id: 'C', text: "Infrastructure as a Service (IaaS)" },
-      { id: 'D', text: "Software as a Service (SaaS)" }
+      { id: 'D', text: "On-premises virtualization" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -72,12 +72,12 @@ export const AZURE_AZ900_QUESTIONS_3 = [
     scenario: "An organization uses Azure Functions to process image uploads. Code runs only when an image is uploaded, and the company incurs zero cost when no files are processed.",
     question: "Which cloud compute model characterizes this event-driven, execution-duration billing structure?",
     options: [
-      { id: 'A', text: "Colocation hosting" },
-      { id: 'B', text: "Dedicated virtual machines" },
-      { id: 'C', text: "Serverless computing" },
+      { id: 'A', text: "Dedicated virtual machines" },
+      { id: 'B', text: "Serverless computing" },
+      { id: 'C', text: "Colocation hosting" },
       { id: 'D', text: "Bare-metal computing" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Serverless computing (like Azure Functions) is event-driven and abstracts all server management. Resources scale automatically based on event triggers, and customers pay strictly for compute time consumed during active execution, with zero cost when idle.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview",
@@ -95,10 +95,10 @@ export const AZURE_AZ900_QUESTIONS_3 = [
     options: [
       { id: 'A', text: "Geographic scaling" },
       { id: 'B', text: "Horizontal scaling (scaling out)" },
-      { id: 'C', text: "Elastic scaling" },
-      { id: 'D', text: "Vertical scaling (scaling up)" }
+      { id: 'C', text: "Vertical scaling (scaling up)" },
+      { id: 'D', text: "Elastic scaling" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Vertical scaling (scaling up or down) increases or decreases the compute capacity (CPU, RAM, disk) of an existing single resource. Horizontal scaling (scaling out or in) adds or removes additional instances of resources (e.g. in a scale set).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/architecture/framework/cost/design-scale",
@@ -114,9 +114,9 @@ export const AZURE_AZ900_QUESTIONS_3 = [
     scenario: "What is the definition of an Azure Region?",
     question: "Which statement accurately describes an Azure Region?",
     options: [
-      { id: 'A', text: "A single physical server rack located in Microsoft headquarters" },
+      { id: 'A', text: "A private virtual network configured inside a customer subscription" },
       { id: 'B', text: "A global backup storage vault" },
-      { id: 'C', text: "A private virtual network configured inside a customer subscription" },
+      { id: 'C', text: "A single physical server rack located in Microsoft headquarters" },
       { id: 'D', text: "A geographical area containing at least one, but typically multiple, datacenters connected by a low-latency dedicated regional network" }
     ],
     correctAnswers: ['D'],
@@ -157,11 +157,11 @@ export const AZURE_AZ900_QUESTIONS_3 = [
     question: "An enterprise configures geo-redundant storage for database backups in the East US region. Which paired region automatically hosts the secondary copy?",
     options: [
       { id: 'A', text: "North Europe" },
-      { id: 'B', text: "West US" },
+      { id: 'B', text: "Southeast Asia" },
       { id: 'C', text: "UK South" },
-      { id: 'D', text: "Southeast Asia" }
+      { id: 'D', text: "West US" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Each Azure region is permanently paired with another region within the same geographic boundary (e.g. East US is paired with West US). Region pairs share cross-region replication for storage and staged platform updates to prevent simultaneous outages.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/reliability/cross-region-replication-azure",
@@ -177,9 +177,9 @@ export const AZURE_AZ900_QUESTIONS_3 = [
     scenario: "A United States defense contractor must comply with strict FedRAMP High and ITAR regulatory compliance mandates.",
     question: "Which specialized Azure cloud environment should the contractor deploy workloads into?",
     options: [
-      { id: 'A', text: "Azure Germany" },
-      { id: 'B', text: "Standard public commercial Azure regions" },
-      { id: 'C', text: "Azure China" },
+      { id: 'A', text: "Azure China" },
+      { id: 'B', text: "Azure Germany" },
+      { id: 'C', text: "Standard public commercial Azure regions" },
       { id: 'D', text: "Azure Government" }
     ],
     correctAnswers: ['D'],
@@ -198,12 +198,12 @@ export const AZURE_AZ900_QUESTIONS_3 = [
     scenario: "An administrator wants to delete all virtual machines, virtual networks, and storage accounts created for a temporary three-week training project.",
     question: "What is the most efficient management approach?",
     options: [
-      { id: 'A', text: "Delete each resource individually in alphabetical order" },
+      { id: 'A', text: "Delete the single Resource Group containing all project resources, which automatically deletes all contained resources simultaneously" },
       { id: 'B', text: "Restart the training virtual machines" },
-      { id: 'C', text: "Delete the single Resource Group containing all project resources, which automatically deletes all contained resources simultaneously" },
+      { id: 'C', text: "Delete each resource individually in alphabetical order" },
       { id: 'D', text: "Cancel the entire corporate Azure subscription" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "A Resource Group is a logical container that groups resources sharing a common deployment lifecycle. Deleting a Resource Group cascades and deletes all member resources in a single operation, preventing orphaned cloud waste.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal",
@@ -219,12 +219,12 @@ export const AZURE_AZ900_QUESTIONS_3 = [
     scenario: "An enterprise has 40 Azure subscriptions across multiple business units and wants to apply unified governance and access policies across all of them.",
     question: "Which organizational container hierarchy should the enterprise configure above the subscriptions?",
     options: [
-      { id: 'A', text: "Availability Sets" },
-      { id: 'B', text: "Resource Groups" },
-      { id: 'C', text: "Virtual Networks" },
-      { id: 'D', text: "Management Groups" }
+      { id: 'A', text: "Resource Groups" },
+      { id: 'B', text: "Management Groups" },
+      { id: 'C', text: "Availability Sets" },
+      { id: 'D', text: "Virtual Networks" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Management Groups provide a governance container level above subscriptions. Organizing subscriptions into a Management Group hierarchy allows administrators to apply Azure Policies, RBAC role assignments, and compliance rules that inherit downwards.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/management-groups/overview",
@@ -240,10 +240,10 @@ export const AZURE_AZ900_QUESTIONS_3 = [
     scenario: "A company needs full control over the underlying operating system to install proprietary custom device drivers and legacy software binaries.",
     question: "Which Azure compute service is the appropriate choice?",
     options: [
-      { id: 'A', text: "Azure Functions" },
+      { id: 'A', text: "Azure App Service" },
       { id: 'B', text: "Azure Logic Apps" },
       { id: 'C', text: "Azure Virtual Machines" },
-      { id: 'D', text: "Azure App Service" }
+      { id: 'D', text: "Azure Functions" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -261,12 +261,12 @@ export const AZURE_AZ900_QUESTIONS_3 = [
     scenario: "A web application hosted on Azure must automatically add identical VM instances when average CPU utilization exceeds 75% and remove instances when CPU drops below 25%.",
     question: "Which Azure service provides this automated load-balanced scaling capability?",
     options: [
-      { id: 'A', text: "Azure Virtual Machine Scale Sets (VMSS)" },
-      { id: 'B', text: "Azure Availability Sets" },
-      { id: 'C', text: "Azure Batch" },
-      { id: 'D', text: "Azure Dedicated Host" }
+      { id: 'A', text: "Azure Availability Sets" },
+      { id: 'B', text: "Azure Dedicated Host" },
+      { id: 'C', text: "Azure Virtual Machine Scale Sets (VMSS)" },
+      { id: 'D', text: "Azure Batch" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Azure Virtual Machine Scale Sets (VMSS) allow deployment and management of a group of identical, load-balanced VMs that automatically increase or decrease instance count based on demand metrics or scheduled rules.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview",
@@ -282,12 +282,12 @@ export const AZURE_AZ900_QUESTIONS_3 = [
     scenario: "An organization needs to deliver secure, remote Windows 11 desktop experiences to 500 remote employees accessing from home laptops.",
     question: "Which cloud Desktop as a Service (DaaS) solution does Microsoft provide?",
     options: [
-      { id: 'A', text: "Azure ExpressRoute" },
-      { id: 'B', text: "Azure Virtual Desktop (AVD)" },
-      { id: 'C', text: "Azure Container Instances" },
-      { id: 'D', text: "Azure App Service" }
+      { id: 'A', text: "Azure Virtual Desktop (AVD)" },
+      { id: 'B', text: "Azure App Service" },
+      { id: 'C', text: "Azure ExpressRoute" },
+      { id: 'D', text: "Azure Container Instances" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Azure Virtual Desktop (AVD) is a comprehensive cloud desktop and application virtualization service that delivers multi-session Windows 11 and Windows 10 experiences securely to remote users across any device.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-desktop/overview",
@@ -303,10 +303,10 @@ export const AZURE_AZ900_QUESTIONS_3 = [
     scenario: "A developer wants to run a single containerized script that executes once an hour for 2 minutes without managing a cluster orchestrator.",
     question: "Which Azure container service is the simplest and most cost-effective choice?",
     options: [
-      { id: 'A', text: "Azure Batch" },
+      { id: 'A', text: "Azure Virtual Machines" },
       { id: 'B', text: "Azure Container Instances (ACI)" },
-      { id: 'C', text: "Azure Virtual Machines" },
-      { id: 'D', text: "Azure Kubernetes Service (AKS)" }
+      { id: 'C', text: "Azure Kubernetes Service (AKS)" },
+      { id: 'D', text: "Azure Batch" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -324,12 +324,12 @@ export const AZURE_AZ900_QUESTIONS_3 = [
     scenario: "An enterprise operates 100 microservices packaged as Docker containers requiring automated self-healing, service discovery, rolling updates, and cluster autoscaling.",
     question: "Which Azure service is purpose-built for enterprise container orchestration?",
     options: [
-      { id: 'A', text: "Azure App Service Web Apps" },
+      { id: 'A', text: "Azure Virtual Desktop" },
       { id: 'B', text: "Azure Container Instances" },
-      { id: 'C', text: "Azure Kubernetes Service (AKS)" },
-      { id: 'D', text: "Azure Virtual Desktop" }
+      { id: 'C', text: "Azure App Service Web Apps" },
+      { id: 'D', text: "Azure Kubernetes Service (AKS)" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Azure Kubernetes Service (AKS) is a fully managed open-source Kubernetes service that simplifies deploying, managing, and scaling complex microservice container clusters with integrated enterprise security and monitoring.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/aks/intro-kubernetes",
@@ -345,10 +345,10 @@ export const AZURE_AZ900_QUESTIONS_3 = [
     scenario: "What is the primary function of an Azure Virtual Network (VNet)?",
     question: "Which statement correctly describes an Azure VNet?",
     options: [
-      { id: 'A', text: "A storage bucket for database backups" },
+      { id: 'A', text: "A public web domain registration service" },
       { id: 'B', text: "A logically isolated private network inside an Azure subscription that enables secure communication between Azure resources, the internet, and on-premises networks" },
-      { id: 'C', text: "A public web domain registration service" },
-      { id: 'D', text: "A physical network cable connecting Azure to the customer's office" }
+      { id: 'C', text: "A physical network cable connecting Azure to the customer's office" },
+      { id: 'D', text: "A storage bucket for database backups" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -366,12 +366,12 @@ export const AZURE_AZ900_QUESTIONS_3 = [
     scenario: "An organization has two VNets: VNet-Sales and VNet-Marketing in the same region. VMs in VNet-Sales must communicate with VMs in VNet-Marketing using private IP addresses with minimal latency.",
     question: "Which networking feature should the network engineer configure?",
     options: [
-      { id: 'A', text: "Virtual Network (VNet) Peering" },
-      { id: 'B', text: "Azure ExpressRoute" },
-      { id: 'C', text: "Public IP addresses on all VMs" },
-      { id: 'D', text: "A site-to-site IPsec VPN over the public internet" }
+      { id: 'A', text: "A site-to-site IPsec VPN over the public internet" },
+      { id: 'B', text: "Public IP addresses on all VMs" },
+      { id: 'C', text: "Virtual Network (VNet) Peering" },
+      { id: 'D', text: "Azure ExpressRoute" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Virtual Network (VNet) Peering connects two Azure VNets directly through the private Microsoft backbone network. Traffic between peered VNets flows completely on private IP addresses with high bandwidth and low latency.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview",
@@ -387,8 +387,8 @@ export const AZURE_AZ900_QUESTIONS_3 = [
     scenario: "A financial trading firm requires a private, dedicated physical connection between its corporate headquarters and Azure that does not traverse the public internet, offering consistent sub-5ms latency.",
     question: "Which Azure networking service fulfills this requirement?",
     options: [
-      { id: 'A', text: "Azure Bastion" },
-      { id: 'B', text: "Azure Point-to-Site VPN" },
+      { id: 'A', text: "Azure Point-to-Site VPN" },
+      { id: 'B', text: "Azure Bastion" },
       { id: 'C', text: "Azure ExpressRoute" },
       { id: 'D', text: "Azure Site-to-Site VPN Gateway" }
     ],
@@ -408,10 +408,10 @@ export const AZURE_AZ900_QUESTIONS_3 = [
     scenario: "A small startup wants to connect its local office branch router securely to an Azure VNet over the public internet at low cost.",
     question: "Which Azure connectivity service should they deploy?",
     options: [
-      { id: 'A', text: "Azure Traffic Manager" },
-      { id: 'B', text: "Azure Front Door" },
+      { id: 'A', text: "Azure Front Door" },
+      { id: 'B', text: "Azure ExpressRoute Direct" },
       { id: 'C', text: "Azure VPN Gateway (Site-to-Site)" },
-      { id: 'D', text: "Azure ExpressRoute Direct" }
+      { id: 'D', text: "Azure Traffic Manager" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -429,10 +429,10 @@ export const AZURE_AZ900_QUESTIONS_3 = [
     scenario: "An enterprise archives historical tax audit documents that must be preserved for 10 years, are rarely accessed, and can tolerate several hours of retrieval latency.",
     question: "Which Azure Blob Storage tier provides the lowest monthly storage cost?",
     options: [
-      { id: 'A', text: "Hot tier" },
+      { id: 'A', text: "Cool tier" },
       { id: 'B', text: "Archive tier" },
-      { id: 'C', text: "Cold tier" },
-      { id: 'D', text: "Cool tier" }
+      { id: 'C', text: "Hot tier" },
+      { id: 'D', text: "Cold tier" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -450,12 +450,12 @@ export const AZURE_AZ900_QUESTIONS_3 = [
     scenario: "A company migrates a legacy Windows desktop application that requires a shared file system mountable concurrently across 50 virtual machines using the standard SMB 3.0 protocol.",
     question: "Which Azure storage service satisfies this shared protocol requirement?",
     options: [
-      { id: 'A', text: "Azure Blob Storage" },
-      { id: 'B', text: "Azure Files" },
-      { id: 'C', text: "Azure Data Lake Storage" },
-      { id: 'D', text: "Azure Table Storage" }
+      { id: 'A', text: "Azure Files" },
+      { id: 'B', text: "Azure Blob Storage" },
+      { id: 'C', text: "Azure Table Storage" },
+      { id: 'D', text: "Azure Data Lake Storage" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Azure Files offers fully managed cloud file shares accessible via the industry-standard Server Message Block (SMB) and Network File System (NFS) protocols, mountable concurrently by cloud and on-premises Windows, Linux, and macOS systems.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/files/storage-files-introduction",
@@ -471,12 +471,12 @@ export const AZURE_AZ900_QUESTIONS_3 = [
     scenario: "A geological survey firm needs to migrate 150 terabytes of satellite imagery from an offline remote research station to Azure Blob Storage where internet connectivity is slow and unreliable.",
     question: "Which data transfer solution should the firm use?",
     options: [
-      { id: 'A', text: "Azure ExpressRoute" },
-      { id: 'B', text: "Azure Data Box physical appliance shipped directly by Microsoft" },
-      { id: 'C', text: "Uploading over public internet using AzCopy" },
+      { id: 'A', text: "Uploading over public internet using AzCopy" },
+      { id: 'B', text: "Azure ExpressRoute" },
+      { id: 'C', text: "Azure Data Box physical appliance shipped directly by Microsoft" },
       { id: 'D', text: "Azure Storage Explorer over satellite link" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Azure Data Box appliances are ruggedized physical storage devices shipped directly to customer sites by Microsoft. Customers copy terabytes to petabytes of data locally over high-speed LAN, then ship the appliance back to an Azure datacenter for rapid upload.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/databox/data-box-overview",
@@ -493,9 +493,9 @@ export const AZURE_AZ900_QUESTIONS_3 = [
     question: "Which task is AzCopy designed to perform?",
     options: [
       { id: 'A', text: "Deploying virtual machines from ARM templates" },
-      { id: 'B', text: "Auditing Azure subscription role assignments" },
+      { id: 'B', text: "Compiling C# applications into Docker container images" },
       { id: 'C', text: "High-performance command-line copying of blobs and files to and from Azure Storage accounts" },
-      { id: 'D', text: "Compiling C# applications into Docker container images" }
+      { id: 'D', text: "Auditing Azure subscription role assignments" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -514,11 +514,11 @@ export const AZURE_AZ900_QUESTIONS_3 = [
     question: "Which Azure database service meets all these requirements?",
     options: [
       { id: 'A', text: "Azure SQL Database" },
-      { id: 'B', text: "Azure Cosmos DB" },
-      { id: 'C', text: "SQL Server on Azure VMs" },
+      { id: 'B', text: "SQL Server on Azure VMs" },
+      { id: 'C', text: "Azure Cosmos DB" },
       { id: 'D', text: "Azure Database for MySQL" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Azure Cosmos DB is Microsoft's globally distributed, multi-model NoSQL database service. It guarantees single-digit millisecond read/write latency at the 99th percentile with turnkey multi-region replication and comprehensive SLAs.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cosmos-db/introduction",

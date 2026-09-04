@@ -10,11 +10,11 @@ export const FINOPS_FOCP_QUESTIONS_2 = [
     question: "Which FinOps principle or foundational concept is demonstrated in scenario #8?",
     options: [
       { id: 'A', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" },
-      { id: 'B', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" },
-      { id: 'C', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" },
-      { id: 'D', text: "Managing cloud spend strictly through retrospective annual audits" }
+      { id: 'B', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" },
+      { id: 'C', text: "Managing cloud spend strictly through retrospective annual audits" },
+      { id: 'D', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "FinOps principles mandate continuous cross-functional collaboration and real-time visibility. Aligning engineering, finance, and procurement ensures that cloud spending decisions are data-driven, agile, and aligned with core business value.",
     referenceUrl: "https://www.finops.org/framework/principles/",
@@ -30,12 +30,12 @@ export const FINOPS_FOCP_QUESTIONS_2 = [
     scenario: "An organization is modernizing its cloud financial operations, aligning cross-functional teams to eliminate waste and maximize business value.",
     question: "Which FinOps principle or foundational concept is demonstrated in scenario #9?",
     options: [
-      { id: 'A', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" },
-      { id: 'B', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" },
-      { id: 'C', text: "Managing cloud spend strictly through retrospective annual audits" },
-      { id: 'D', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" }
+      { id: 'A', text: "Managing cloud spend strictly through retrospective annual audits" },
+      { id: 'B', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" },
+      { id: 'C', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" },
+      { id: 'D', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "FinOps principles mandate continuous cross-functional collaboration and real-time visibility. Aligning engineering, finance, and procurement ensures that cloud spending decisions are data-driven, agile, and aligned with core business value.",
     referenceUrl: "https://www.finops.org/framework/principles/",
@@ -51,12 +51,12 @@ export const FINOPS_FOCP_QUESTIONS_2 = [
     scenario: "An organization is modernizing its cloud financial operations, aligning cross-functional teams to eliminate waste and maximize business value.",
     question: "Which FinOps principle or foundational concept is demonstrated in scenario #10?",
     options: [
-      { id: 'A', text: "Managing cloud spend strictly through retrospective annual audits" },
-      { id: 'B', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" },
-      { id: 'C', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" },
+      { id: 'A', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" },
+      { id: 'B', text: "Managing cloud spend strictly through retrospective annual audits" },
+      { id: 'C', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" },
       { id: 'D', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "FinOps principles mandate continuous cross-functional collaboration and real-time visibility. Aligning engineering, finance, and procurement ensures that cloud spending decisions are data-driven, agile, and aligned with core business value.",
     referenceUrl: "https://www.finops.org/framework/principles/",
@@ -72,12 +72,12 @@ export const FINOPS_FOCP_QUESTIONS_2 = [
     scenario: "An organization is modernizing its cloud financial operations, aligning cross-functional teams to eliminate waste and maximize business value.",
     question: "Which FinOps principle or foundational concept is demonstrated in scenario #11?",
     options: [
-      { id: 'A', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" },
-      { id: 'B', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" },
+      { id: 'A', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" },
+      { id: 'B', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" },
       { id: 'C', text: "Managing cloud spend strictly through retrospective annual audits" },
       { id: 'D', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "FinOps principles mandate continuous cross-functional collaboration and real-time visibility. Aligning engineering, finance, and procurement ensures that cloud spending decisions are data-driven, agile, and aligned with core business value.",
     referenceUrl: "https://www.finops.org/framework/principles/",
@@ -93,12 +93,12 @@ export const FINOPS_FOCP_QUESTIONS_2 = [
     scenario: "An organization is modernizing its cloud financial operations, aligning cross-functional teams to eliminate waste and maximize business value.",
     question: "Which FinOps principle or foundational concept is demonstrated in scenario #12?",
     options: [
-      { id: 'A', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" },
-      { id: 'B', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" },
+      { id: 'A', text: "Managing cloud spend strictly through retrospective annual audits" },
+      { id: 'B', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" },
       { id: 'C', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" },
-      { id: 'D', text: "Managing cloud spend strictly through retrospective annual audits" }
+      { id: 'D', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "FinOps principles mandate continuous cross-functional collaboration and real-time visibility. Aligning engineering, finance, and procurement ensures that cloud spending decisions are data-driven, agile, and aligned with core business value.",
     referenceUrl: "https://www.finops.org/framework/principles/",
@@ -115,11 +115,11 @@ export const FINOPS_FOCP_QUESTIONS_2 = [
     question: "Which FinOps principle or foundational concept is demonstrated in scenario #13?",
     options: [
       { id: 'A', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" },
-      { id: 'B', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" },
-      { id: 'C', text: "Managing cloud spend strictly through retrospective annual audits" },
-      { id: 'D', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" }
+      { id: 'B', text: "Managing cloud spend strictly through retrospective annual audits" },
+      { id: 'C', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" },
+      { id: 'D', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "FinOps principles mandate continuous cross-functional collaboration and real-time visibility. Aligning engineering, finance, and procurement ensures that cloud spending decisions are data-driven, agile, and aligned with core business value.",
     referenceUrl: "https://www.finops.org/framework/principles/",
@@ -136,11 +136,11 @@ export const FINOPS_FOCP_QUESTIONS_2 = [
     question: "Which FinOps principle or foundational concept is demonstrated in scenario #14?",
     options: [
       { id: 'A', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" },
-      { id: 'B', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" },
-      { id: 'C', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" },
+      { id: 'B', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" },
+      { id: 'C', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" },
       { id: 'D', text: "Managing cloud spend strictly through retrospective annual audits" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "FinOps principles mandate continuous cross-functional collaboration and real-time visibility. Aligning engineering, finance, and procurement ensures that cloud spending decisions are data-driven, agile, and aligned with core business value.",
     referenceUrl: "https://www.finops.org/framework/principles/",
@@ -157,11 +157,11 @@ export const FINOPS_FOCP_QUESTIONS_2 = [
     question: "Which FinOps principle or foundational concept is demonstrated in scenario #15?",
     options: [
       { id: 'A', text: "Managing cloud spend strictly through retrospective annual audits" },
-      { id: 'B', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" },
-      { id: 'C', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" },
-      { id: 'D', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" }
+      { id: 'B', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" },
+      { id: 'C', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" },
+      { id: 'D', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "FinOps principles mandate continuous cross-functional collaboration and real-time visibility. Aligning engineering, finance, and procurement ensures that cloud spending decisions are data-driven, agile, and aligned with core business value.",
     referenceUrl: "https://www.finops.org/framework/principles/",
@@ -177,9 +177,9 @@ export const FINOPS_FOCP_QUESTIONS_2 = [
     scenario: "An organization is modernizing its cloud financial operations, aligning cross-functional teams to eliminate waste and maximize business value.",
     question: "Which FinOps principle or foundational concept is demonstrated in scenario #16?",
     options: [
-      { id: 'A', text: "Managing cloud spend strictly through retrospective annual audits" },
+      { id: 'A', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" },
       { id: 'B', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" },
-      { id: 'C', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" },
+      { id: 'C', text: "Managing cloud spend strictly through retrospective annual audits" },
       { id: 'D', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" }
     ],
     correctAnswers: ['B'],
@@ -198,12 +198,12 @@ export const FINOPS_FOCP_QUESTIONS_2 = [
     scenario: "An organization is modernizing its cloud financial operations, aligning cross-functional teams to eliminate waste and maximize business value.",
     question: "Which FinOps principle or foundational concept is demonstrated in scenario #17?",
     options: [
-      { id: 'A', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" },
-      { id: 'B', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" },
-      { id: 'C', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" },
-      { id: 'D', text: "Managing cloud spend strictly through retrospective annual audits" }
+      { id: 'A', text: "Managing cloud spend strictly through retrospective annual audits" },
+      { id: 'B', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" },
+      { id: 'C', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" },
+      { id: 'D', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "FinOps principles mandate continuous cross-functional collaboration and real-time visibility. Aligning engineering, finance, and procurement ensures that cloud spending decisions are data-driven, agile, and aligned with core business value.",
     referenceUrl: "https://www.finops.org/framework/principles/",
@@ -219,12 +219,12 @@ export const FINOPS_FOCP_QUESTIONS_2 = [
     scenario: "An organization is modernizing its cloud financial operations, aligning cross-functional teams to eliminate waste and maximize business value.",
     question: "Which FinOps principle or foundational concept is demonstrated in scenario #18?",
     options: [
-      { id: 'A', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" },
-      { id: 'B', text: "Managing cloud spend strictly through retrospective annual audits" },
-      { id: 'C', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" },
-      { id: 'D', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" }
+      { id: 'A', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" },
+      { id: 'B', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" },
+      { id: 'C', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" },
+      { id: 'D', text: "Managing cloud spend strictly through retrospective annual audits" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "FinOps principles mandate continuous cross-functional collaboration and real-time visibility. Aligning engineering, finance, and procurement ensures that cloud spending decisions are data-driven, agile, and aligned with core business value.",
     referenceUrl: "https://www.finops.org/framework/principles/",
@@ -240,12 +240,12 @@ export const FINOPS_FOCP_QUESTIONS_2 = [
     scenario: "An organization is modernizing its cloud financial operations, aligning cross-functional teams to eliminate waste and maximize business value.",
     question: "Which FinOps principle or foundational concept is demonstrated in scenario #19?",
     options: [
-      { id: 'A', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" },
-      { id: 'B', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" },
+      { id: 'A', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" },
+      { id: 'B', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" },
       { id: 'C', text: "Managing cloud spend strictly through retrospective annual audits" },
-      { id: 'D', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" }
+      { id: 'D', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "FinOps principles mandate continuous cross-functional collaboration and real-time visibility. Aligning engineering, finance, and procurement ensures that cloud spending decisions are data-driven, agile, and aligned with core business value.",
     referenceUrl: "https://www.finops.org/framework/principles/",
@@ -261,12 +261,12 @@ export const FINOPS_FOCP_QUESTIONS_2 = [
     scenario: "An organization is modernizing its cloud financial operations, aligning cross-functional teams to eliminate waste and maximize business value.",
     question: "Which FinOps principle or foundational concept is demonstrated in scenario #20?",
     options: [
-      { id: 'A', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" },
-      { id: 'B', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" },
-      { id: 'C', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" },
-      { id: 'D', text: "Managing cloud spend strictly through retrospective annual audits" }
+      { id: 'A', text: "Managing cloud spend strictly through retrospective annual audits" },
+      { id: 'B', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" },
+      { id: 'C', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" },
+      { id: 'D', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "FinOps principles mandate continuous cross-functional collaboration and real-time visibility. Aligning engineering, finance, and procurement ensures that cloud spending decisions are data-driven, agile, and aligned with core business value.",
     referenceUrl: "https://www.finops.org/framework/principles/",
@@ -282,12 +282,12 @@ export const FINOPS_FOCP_QUESTIONS_2 = [
     scenario: "An organization is modernizing its cloud financial operations, aligning cross-functional teams to eliminate waste and maximize business value.",
     question: "Which FinOps principle or foundational concept is demonstrated in scenario #21?",
     options: [
-      { id: 'A', text: "Managing cloud spend strictly through retrospective annual audits" },
+      { id: 'A', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" },
       { id: 'B', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" },
-      { id: 'C', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" },
-      { id: 'D', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" }
+      { id: 'C', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" },
+      { id: 'D', text: "Managing cloud spend strictly through retrospective annual audits" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "FinOps principles mandate continuous cross-functional collaboration and real-time visibility. Aligning engineering, finance, and procurement ensures that cloud spending decisions are data-driven, agile, and aligned with core business value.",
     referenceUrl: "https://www.finops.org/framework/principles/",
@@ -303,12 +303,12 @@ export const FINOPS_FOCP_QUESTIONS_2 = [
     scenario: "An organization is modernizing its cloud financial operations, aligning cross-functional teams to eliminate waste and maximize business value.",
     question: "Which FinOps principle or foundational concept is demonstrated in scenario #22?",
     options: [
-      { id: 'A', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" },
-      { id: 'B', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" },
-      { id: 'C', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" },
-      { id: 'D', text: "Managing cloud spend strictly through retrospective annual audits" }
+      { id: 'A', text: "Managing cloud spend strictly through retrospective annual audits" },
+      { id: 'B', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" },
+      { id: 'C', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" },
+      { id: 'D', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "FinOps principles mandate continuous cross-functional collaboration and real-time visibility. Aligning engineering, finance, and procurement ensures that cloud spending decisions are data-driven, agile, and aligned with core business value.",
     referenceUrl: "https://www.finops.org/framework/principles/",
@@ -325,11 +325,11 @@ export const FINOPS_FOCP_QUESTIONS_2 = [
     question: "Which FinOps principle or foundational concept is demonstrated in scenario #23?",
     options: [
       { id: 'A', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" },
-      { id: 'B', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" },
+      { id: 'B', text: "Managing cloud spend strictly through retrospective annual audits" },
       { id: 'C', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" },
-      { id: 'D', text: "Managing cloud spend strictly through retrospective annual audits" }
+      { id: 'D', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "FinOps principles mandate continuous cross-functional collaboration and real-time visibility. Aligning engineering, finance, and procurement ensures that cloud spending decisions are data-driven, agile, and aligned with core business value.",
     referenceUrl: "https://www.finops.org/framework/principles/",
@@ -345,12 +345,12 @@ export const FINOPS_FOCP_QUESTIONS_2 = [
     scenario: "An organization is modernizing its cloud financial operations, aligning cross-functional teams to eliminate waste and maximize business value.",
     question: "Which FinOps principle or foundational concept is demonstrated in scenario #24?",
     options: [
-      { id: 'A', text: "Managing cloud spend strictly through retrospective annual audits" },
-      { id: 'B', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" },
+      { id: 'A', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" },
+      { id: 'B', text: "Managing cloud spend strictly through retrospective annual audits" },
       { id: 'C', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" },
-      { id: 'D', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" }
+      { id: 'D', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "FinOps principles mandate continuous cross-functional collaboration and real-time visibility. Aligning engineering, finance, and procurement ensures that cloud spending decisions are data-driven, agile, and aligned with core business value.",
     referenceUrl: "https://www.finops.org/framework/principles/",
@@ -366,10 +366,10 @@ export const FINOPS_FOCP_QUESTIONS_2 = [
     scenario: "An organization is modernizing its cloud financial operations, aligning cross-functional teams to eliminate waste and maximize business value.",
     question: "Which FinOps principle or foundational concept is demonstrated in scenario #25?",
     options: [
-      { id: 'A', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" },
+      { id: 'A', text: "Managing cloud spend strictly through retrospective annual audits" },
       { id: 'B', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" },
-      { id: 'C', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" },
-      { id: 'D', text: "Managing cloud spend strictly through retrospective annual audits" }
+      { id: 'C', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" },
+      { id: 'D', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -387,12 +387,12 @@ export const FINOPS_FOCP_QUESTIONS_2 = [
     scenario: "An organization is modernizing its cloud financial operations, aligning cross-functional teams to eliminate waste and maximize business value.",
     question: "Which FinOps principle or foundational concept is demonstrated in scenario #26?",
     options: [
-      { id: 'A', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" },
-      { id: 'B', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" },
+      { id: 'A', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" },
+      { id: 'B', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" },
       { id: 'C', text: "Managing cloud spend strictly through retrospective annual audits" },
-      { id: 'D', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" }
+      { id: 'D', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "FinOps principles mandate continuous cross-functional collaboration and real-time visibility. Aligning engineering, finance, and procurement ensures that cloud spending decisions are data-driven, agile, and aligned with core business value.",
     referenceUrl: "https://www.finops.org/framework/principles/",
@@ -408,9 +408,9 @@ export const FINOPS_FOCP_QUESTIONS_2 = [
     scenario: "An organization is modernizing its cloud financial operations, aligning cross-functional teams to eliminate waste and maximize business value.",
     question: "Which FinOps principle or foundational concept is demonstrated in scenario #27?",
     options: [
-      { id: 'A', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" },
+      { id: 'A', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" },
       { id: 'B', text: "Managing cloud spend strictly through retrospective annual audits" },
-      { id: 'C', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" },
+      { id: 'C', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" },
       { id: 'D', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" }
     ],
     correctAnswers: ['D'],
@@ -429,12 +429,12 @@ export const FINOPS_FOCP_QUESTIONS_2 = [
     scenario: "An organization is modernizing its cloud financial operations, aligning cross-functional teams to eliminate waste and maximize business value.",
     question: "Which FinOps principle or foundational concept is demonstrated in scenario #28?",
     options: [
-      { id: 'A', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" },
-      { id: 'B', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" },
-      { id: 'C', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" },
+      { id: 'A', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" },
+      { id: 'B', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" },
+      { id: 'C', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" },
       { id: 'D', text: "Managing cloud spend strictly through retrospective annual audits" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "FinOps principles mandate continuous cross-functional collaboration and real-time visibility. Aligning engineering, finance, and procurement ensures that cloud spending decisions are data-driven, agile, and aligned with core business value.",
     referenceUrl: "https://www.finops.org/framework/principles/",
@@ -450,9 +450,9 @@ export const FINOPS_FOCP_QUESTIONS_2 = [
     scenario: "An organization is modernizing its cloud financial operations, aligning cross-functional teams to eliminate waste and maximize business value.",
     question: "Which FinOps principle or foundational concept is demonstrated in scenario #29?",
     options: [
-      { id: 'A', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" },
+      { id: 'A', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" },
       { id: 'B', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" },
-      { id: 'C', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" },
+      { id: 'C', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" },
       { id: 'D', text: "Managing cloud spend strictly through retrospective annual audits" }
     ],
     correctAnswers: ['B'],
@@ -471,12 +471,12 @@ export const FINOPS_FOCP_QUESTIONS_2 = [
     scenario: "An organization is modernizing its cloud financial operations, aligning cross-functional teams to eliminate waste and maximize business value.",
     question: "Which FinOps principle or foundational concept is demonstrated in scenario #30?",
     options: [
-      { id: 'A', text: "Managing cloud spend strictly through retrospective annual audits" },
-      { id: 'B', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" },
-      { id: 'C', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" },
+      { id: 'A', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" },
+      { id: 'B', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" },
+      { id: 'C', text: "Managing cloud spend strictly through retrospective annual audits" },
       { id: 'D', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "FinOps principles mandate continuous cross-functional collaboration and real-time visibility. Aligning engineering, finance, and procurement ensures that cloud spending decisions are data-driven, agile, and aligned with core business value.",
     referenceUrl: "https://www.finops.org/framework/principles/",
@@ -492,12 +492,12 @@ export const FINOPS_FOCP_QUESTIONS_2 = [
     scenario: "An organization is modernizing its cloud financial operations, aligning cross-functional teams to eliminate waste and maximize business value.",
     question: "Which FinOps principle or foundational concept is demonstrated in scenario #31?",
     options: [
-      { id: 'A', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" },
-      { id: 'B', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" },
-      { id: 'C', text: "Managing cloud spend strictly through retrospective annual audits" },
-      { id: 'D', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" }
+      { id: 'A', text: "Managing cloud spend strictly through retrospective annual audits" },
+      { id: 'B', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" },
+      { id: 'C', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" },
+      { id: 'D', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "FinOps principles mandate continuous cross-functional collaboration and real-time visibility. Aligning engineering, finance, and procurement ensures that cloud spending decisions are data-driven, agile, and aligned with core business value.",
     referenceUrl: "https://www.finops.org/framework/principles/",
@@ -514,11 +514,11 @@ export const FINOPS_FOCP_QUESTIONS_2 = [
     question: "Which FinOps principle or foundational concept is demonstrated in scenario #32?",
     options: [
       { id: 'A', text: "Managing cloud spend strictly through retrospective annual audits" },
-      { id: 'B', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" },
+      { id: 'B', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" },
       { id: 'C', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" },
-      { id: 'D', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" }
+      { id: 'D', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "FinOps principles mandate continuous cross-functional collaboration and real-time visibility. Aligning engineering, finance, and procurement ensures that cloud spending decisions are data-driven, agile, and aligned with core business value.",
     referenceUrl: "https://www.finops.org/framework/principles/",

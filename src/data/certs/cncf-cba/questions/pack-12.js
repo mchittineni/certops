@@ -9,12 +9,12 @@ export const CNCF_CBA_QUESTIONS_12 = [
     scenario: "An enterprise developer experience team is architecting an internal developer portal to standardize service catalogs, software scaffolding, and documentation across hundreds of teams. The platform engineer evaluates Service Authentication to prevent unauthorized HTTP requests between internal Backstage backend plugins and external service endpoints.",
     question: "Which architectural approach or Backstage configuration satisfies these enterprise portal objectives? Inter-plugin security using Backstage token manager and cryptographic service credentials is under consideration.",
     options: [
-      { id: 'A', text: "Enable the Backstage backend token manager to issue and verify signed JWT service tokens for inter-plugin RPC requests." },
-      { id: 'B', text: "Allow all internal network traffic to communicate without any authentication or authorization headers." },
-      { id: 'C', text: "Embed static static long-lived database master credentials inside every HTTP GET query parameter." },
-      { id: 'D', text: "Disable network firewalls between production and untrusted public networks." }
+      { id: 'A', text: "Allow all internal network traffic to communicate without any authentication or authorization headers." },
+      { id: 'B', text: "Embed static static long-lived database master credentials inside every HTTP GET query parameter." },
+      { id: 'C', text: "Disable network firewalls between production and untrusted public networks." },
+      { id: 'D', text: "Enable the Backstage backend token manager to issue and verify signed JWT service tokens for inter-plugin RPC requests." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Enable the Backstage backend token manager to issue and verify signed JWT service tokens for inter-plugin RPC requests. The Backstage backend token manager issues signed JSON Web Tokens (JWTs) for service-to-service communication between backend plugins. Plugin routers validate these tokens to enforce mutual trust and prevent unauthorized intra-cluster calls.",
     referenceUrl: "https://backstage.io/docs/auth/service-to-service-auth",
@@ -31,8 +31,8 @@ export const CNCF_CBA_QUESTIONS_12 = [
     question: "Which Backstage catalog pattern or ingestion configuration handles this volume efficiently while preventing database contention? Inter-plugin security using Backstage token manager and cryptographic service credentials is under consideration.",
     options: [
       { id: 'A', text: "Enable the Backstage backend token manager to issue and verify signed JWT service tokens for inter-plugin RPC requests." },
-      { id: 'B', text: "Allow all internal network traffic to communicate without any authentication or authorization headers." },
-      { id: 'C', text: "Embed static static long-lived database master credentials inside every HTTP GET query parameter." },
+      { id: 'B', text: "Embed static static long-lived database master credentials inside every HTTP GET query parameter." },
+      { id: 'C', text: "Allow all internal network traffic to communicate without any authentication or authorization headers." },
       { id: 'D', text: "Disable network firewalls between production and untrusted public networks." }
     ],
     correctAnswers: ['A'],
@@ -51,12 +51,12 @@ export const CNCF_CBA_QUESTIONS_12 = [
     scenario: "A platform security auditor requires strict role-based access control, cryptographic service communication, and audit logging across the internal developer portal. The platform engineer evaluates Service Authentication to prevent unauthorized HTTP requests between internal Backstage backend plugins and external service endpoints.",
     question: "Which Backstage security mechanism or configuration satisfies these compliance controls? Inter-plugin security using Backstage token manager and cryptographic service credentials is under consideration.",
     options: [
-      { id: 'A', text: "Enable the Backstage backend token manager to issue and verify signed JWT service tokens for inter-plugin RPC requests." },
-      { id: 'B', text: "Allow all internal network traffic to communicate without any authentication or authorization headers." },
+      { id: 'A', text: "Allow all internal network traffic to communicate without any authentication or authorization headers." },
+      { id: 'B', text: "Enable the Backstage backend token manager to issue and verify signed JWT service tokens for inter-plugin RPC requests." },
       { id: 'C', text: "Embed static static long-lived database master credentials inside every HTTP GET query parameter." },
       { id: 'D', text: "Disable network firewalls between production and untrusted public networks." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Enable the Backstage backend token manager to issue and verify signed JWT service tokens for inter-plugin RPC requests. The Backstage backend token manager issues signed JSON Web Tokens (JWTs) for service-to-service communication between backend plugins. Plugin routers validate these tokens to enforce mutual trust and prevent unauthorized intra-cluster calls.",
     referenceUrl: "https://backstage.io/docs/auth/service-to-service-auth",
@@ -72,12 +72,12 @@ export const CNCF_CBA_QUESTIONS_12 = [
     scenario: "A platform engineering team is establishing Golden Path templates and automated scaffolding workflows to accelerate developer onboarding and eliminate delivery friction. The platform engineer evaluates Service Authentication to prevent unauthorized HTTP requests between internal Backstage backend plugins and external service endpoints.",
     question: "Which Backstage scaffolder practice or template feature enables developers to self-serve new projects safely? Inter-plugin security using Backstage token manager and cryptographic service credentials is under consideration.",
     options: [
-      { id: 'A', text: "Enable the Backstage backend token manager to issue and verify signed JWT service tokens for inter-plugin RPC requests." },
-      { id: 'B', text: "Allow all internal network traffic to communicate without any authentication or authorization headers." },
-      { id: 'C', text: "Embed static static long-lived database master credentials inside every HTTP GET query parameter." },
+      { id: 'A', text: "Allow all internal network traffic to communicate without any authentication or authorization headers." },
+      { id: 'B', text: "Embed static static long-lived database master credentials inside every HTTP GET query parameter." },
+      { id: 'C', text: "Enable the Backstage backend token manager to issue and verify signed JWT service tokens for inter-plugin RPC requests." },
       { id: 'D', text: "Disable network firewalls between production and untrusted public networks." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Enable the Backstage backend token manager to issue and verify signed JWT service tokens for inter-plugin RPC requests. The Backstage backend token manager issues signed JSON Web Tokens (JWTs) for service-to-service communication between backend plugins. Plugin routers validate these tokens to enforce mutual trust and prevent unauthorized intra-cluster calls.",
     referenceUrl: "https://backstage.io/docs/auth/service-to-service-auth",
@@ -93,12 +93,12 @@ export const CNCF_CBA_QUESTIONS_12 = [
     scenario: "A site reliability engineering team is operating Backstage on Kubernetes and optimizing system resilience, health monitoring, and documentation publishing pipelines. The platform engineer evaluates Service Authentication to prevent unauthorized HTTP requests between internal Backstage backend plugins and external service endpoints.",
     question: "Which operational design or plugin architecture guarantees high availability and reliable portal performance? Inter-plugin security using Backstage token manager and cryptographic service credentials is under consideration.",
     options: [
-      { id: 'A', text: "Enable the Backstage backend token manager to issue and verify signed JWT service tokens for inter-plugin RPC requests." },
+      { id: 'A', text: "Disable network firewalls between production and untrusted public networks." },
       { id: 'B', text: "Allow all internal network traffic to communicate without any authentication or authorization headers." },
       { id: 'C', text: "Embed static static long-lived database master credentials inside every HTTP GET query parameter." },
-      { id: 'D', text: "Disable network firewalls between production and untrusted public networks." }
+      { id: 'D', text: "Enable the Backstage backend token manager to issue and verify signed JWT service tokens for inter-plugin RPC requests." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Enable the Backstage backend token manager to issue and verify signed JWT service tokens for inter-plugin RPC requests. The Backstage backend token manager issues signed JSON Web Tokens (JWTs) for service-to-service communication between backend plugins. Plugin routers validate these tokens to enforce mutual trust and prevent unauthorized intra-cluster calls.",
     referenceUrl: "https://backstage.io/docs/auth/service-to-service-auth",
@@ -116,8 +116,8 @@ export const CNCF_CBA_QUESTIONS_12 = [
     options: [
       { id: 'A', text: "Implement a custom `PermissionPolicy` in `@backstage/plugin-permission-backend` that evaluates incoming requests against entity ownership and role attributes." },
       { id: 'B', text: "Rely on client-side CSS `display: none` to hide sensitive production action buttons from unauthorized users." },
-      { id: 'C', text: "Grant full administrative permissions to all authenticated users unconditionally." },
-      { id: 'D', text: "Hardcode authorization logic into individual React button onClick event handlers." }
+      { id: 'C', text: "Hardcode authorization logic into individual React button onClick event handlers." },
+      { id: 'D', text: "Grant full administrative permissions to all authenticated users unconditionally." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -135,12 +135,12 @@ export const CNCF_CBA_QUESTIONS_12 = [
     scenario: "A large engineering organization manages tens of thousands of microservices, APIs, and infrastructure components across hybrid cloud environments. The platform engineer evaluates Permission Framework to restrict access to sensitive catalog entities and scaffolder templates so only authorized team members can execute them.",
     question: "Which Backstage catalog pattern or ingestion configuration handles this volume efficiently while preventing database contention? Fine-grained policy decision point using PermissionPolicy and authorize() checks is under consideration.",
     options: [
-      { id: 'A', text: "Implement a custom `PermissionPolicy` in `@backstage/plugin-permission-backend` that evaluates incoming requests against entity ownership and role attributes." },
-      { id: 'B', text: "Rely on client-side CSS `display: none` to hide sensitive production action buttons from unauthorized users." },
+      { id: 'A', text: "Rely on client-side CSS `display: none` to hide sensitive production action buttons from unauthorized users." },
+      { id: 'B', text: "Implement a custom `PermissionPolicy` in `@backstage/plugin-permission-backend` that evaluates incoming requests against entity ownership and role attributes." },
       { id: 'C', text: "Grant full administrative permissions to all authenticated users unconditionally." },
       { id: 'D', text: "Hardcode authorization logic into individual React button onClick event handlers." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Implement a custom `PermissionPolicy` in `@backstage/plugin-permission-backend` that evaluates incoming requests against entity ownership and role attributes. The Backstage Permission Framework provides a centralized Policy Decision Point (PDP). The `PermissionPolicy` receives authorization requests (`authorize()`) from plugins and returns `DEFINITIVE` (`ALLOW`/`DENY`) or `CONDITIONAL` decisions based on resource ownership rules.",
     referenceUrl: "https://backstage.io/docs/permissions/overview",
@@ -157,9 +157,9 @@ export const CNCF_CBA_QUESTIONS_12 = [
     question: "Which Backstage security mechanism or configuration satisfies these compliance controls? Fine-grained policy decision point using PermissionPolicy and authorize() checks is under consideration.",
     options: [
       { id: 'A', text: "Implement a custom `PermissionPolicy` in `@backstage/plugin-permission-backend` that evaluates incoming requests against entity ownership and role attributes." },
-      { id: 'B', text: "Rely on client-side CSS `display: none` to hide sensitive production action buttons from unauthorized users." },
-      { id: 'C', text: "Grant full administrative permissions to all authenticated users unconditionally." },
-      { id: 'D', text: "Hardcode authorization logic into individual React button onClick event handlers." }
+      { id: 'B', text: "Hardcode authorization logic into individual React button onClick event handlers." },
+      { id: 'C', text: "Rely on client-side CSS `display: none` to hide sensitive production action buttons from unauthorized users." },
+      { id: 'D', text: "Grant full administrative permissions to all authenticated users unconditionally." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -177,12 +177,12 @@ export const CNCF_CBA_QUESTIONS_12 = [
     scenario: "A platform engineering team is establishing Golden Path templates and automated scaffolding workflows to accelerate developer onboarding and eliminate delivery friction. The platform engineer evaluates Permission Framework to restrict access to sensitive catalog entities and scaffolder templates so only authorized team members can execute them.",
     question: "Which Backstage scaffolder practice or template feature enables developers to self-serve new projects safely? Fine-grained policy decision point using PermissionPolicy and authorize() checks is under consideration.",
     options: [
-      { id: 'A', text: "Implement a custom `PermissionPolicy` in `@backstage/plugin-permission-backend` that evaluates incoming requests against entity ownership and role attributes." },
+      { id: 'A', text: "Grant full administrative permissions to all authenticated users unconditionally." },
       { id: 'B', text: "Rely on client-side CSS `display: none` to hide sensitive production action buttons from unauthorized users." },
-      { id: 'C', text: "Grant full administrative permissions to all authenticated users unconditionally." },
+      { id: 'C', text: "Implement a custom `PermissionPolicy` in `@backstage/plugin-permission-backend` that evaluates incoming requests against entity ownership and role attributes." },
       { id: 'D', text: "Hardcode authorization logic into individual React button onClick event handlers." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Implement a custom `PermissionPolicy` in `@backstage/plugin-permission-backend` that evaluates incoming requests against entity ownership and role attributes. The Backstage Permission Framework provides a centralized Policy Decision Point (PDP). The `PermissionPolicy` receives authorization requests (`authorize()`) from plugins and returns `DEFINITIVE` (`ALLOW`/`DENY`) or `CONDITIONAL` decisions based on resource ownership rules.",
     referenceUrl: "https://backstage.io/docs/permissions/overview",
@@ -198,12 +198,12 @@ export const CNCF_CBA_QUESTIONS_12 = [
     scenario: "A site reliability engineering team is operating Backstage on Kubernetes and optimizing system resilience, health monitoring, and documentation publishing pipelines. The platform engineer evaluates Permission Framework to restrict access to sensitive catalog entities and scaffolder templates so only authorized team members can execute them.",
     question: "Which operational design or plugin architecture guarantees high availability and reliable portal performance? Fine-grained policy decision point using PermissionPolicy and authorize() checks is under consideration.",
     options: [
-      { id: 'A', text: "Implement a custom `PermissionPolicy` in `@backstage/plugin-permission-backend` that evaluates incoming requests against entity ownership and role attributes." },
-      { id: 'B', text: "Rely on client-side CSS `display: none` to hide sensitive production action buttons from unauthorized users." },
-      { id: 'C', text: "Grant full administrative permissions to all authenticated users unconditionally." },
-      { id: 'D', text: "Hardcode authorization logic into individual React button onClick event handlers." }
+      { id: 'A', text: "Grant full administrative permissions to all authenticated users unconditionally." },
+      { id: 'B', text: "Hardcode authorization logic into individual React button onClick event handlers." },
+      { id: 'C', text: "Implement a custom `PermissionPolicy` in `@backstage/plugin-permission-backend` that evaluates incoming requests against entity ownership and role attributes." },
+      { id: 'D', text: "Rely on client-side CSS `display: none` to hide sensitive production action buttons from unauthorized users." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Implement a custom `PermissionPolicy` in `@backstage/plugin-permission-backend` that evaluates incoming requests against entity ownership and role attributes. The Backstage Permission Framework provides a centralized Policy Decision Point (PDP). The `PermissionPolicy` receives authorization requests (`authorize()`) from plugins and returns `DEFINITIVE` (`ALLOW`/`DENY`) or `CONDITIONAL` decisions based on resource ownership rules.",
     referenceUrl: "https://backstage.io/docs/permissions/overview",
@@ -219,12 +219,12 @@ export const CNCF_CBA_QUESTIONS_12 = [
     scenario: "An enterprise developer experience team is architecting an internal developer portal to standardize service catalogs, software scaffolding, and documentation across hundreds of teams. The platform engineer evaluates Database Architecture to persist software catalog entities, scaffolder task state, and user settings reliably in a high-availability production deployment.",
     question: "Which architectural approach or Backstage configuration satisfies these enterprise portal objectives? Knex.js query builder with SQLite for local prototyping and PostgreSQL for enterprise production is under consideration.",
     options: [
-      { id: 'A', text: "Configure a clustered PostgreSQL database backend in `app-config.production.yaml` managed through Knex.js migrations." },
-      { id: 'B', text: "Use ephemeral in-memory SQLite instances in production that lose all state upon container restart." },
-      { id: 'C', text: "Save all relational database records into temporary local text files inside /tmp." },
-      { id: 'D', text: "Store database rows in unindexed client browser local storage cookies." }
+      { id: 'A', text: "Save all relational database records into temporary local text files inside /tmp." },
+      { id: 'B', text: "Store database rows in unindexed client browser local storage cookies." },
+      { id: 'C', text: "Configure a clustered PostgreSQL database backend in `app-config.production.yaml` managed through Knex.js migrations." },
+      { id: 'D', text: "Use ephemeral in-memory SQLite instances in production that lose all state upon container restart." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure a clustered PostgreSQL database backend in `app-config.production.yaml` managed through Knex.js migrations. Backstage uses Knex.js as an SQL abstraction layer. While SQLite is provided for rapid local development, production enterprise deployments require PostgreSQL to support clustering, concurrent catalog ingestion, and durable task state persistence.",
     referenceUrl: "https://backstage.io/docs/tutorials/quickstart-app-database",
@@ -240,12 +240,12 @@ export const CNCF_CBA_QUESTIONS_12 = [
     scenario: "A large engineering organization manages tens of thousands of microservices, APIs, and infrastructure components across hybrid cloud environments. The platform engineer evaluates Database Architecture to persist software catalog entities, scaffolder task state, and user settings reliably in a high-availability production deployment.",
     question: "Which Backstage catalog pattern or ingestion configuration handles this volume efficiently while preventing database contention? Knex.js query builder with SQLite for local prototyping and PostgreSQL for enterprise production is under consideration.",
     options: [
-      { id: 'A', text: "Configure a clustered PostgreSQL database backend in `app-config.production.yaml` managed through Knex.js migrations." },
-      { id: 'B', text: "Use ephemeral in-memory SQLite instances in production that lose all state upon container restart." },
-      { id: 'C', text: "Save all relational database records into temporary local text files inside /tmp." },
-      { id: 'D', text: "Store database rows in unindexed client browser local storage cookies." }
+      { id: 'A', text: "Save all relational database records into temporary local text files inside /tmp." },
+      { id: 'B', text: "Store database rows in unindexed client browser local storage cookies." },
+      { id: 'C', text: "Use ephemeral in-memory SQLite instances in production that lose all state upon container restart." },
+      { id: 'D', text: "Configure a clustered PostgreSQL database backend in `app-config.production.yaml` managed through Knex.js migrations." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure a clustered PostgreSQL database backend in `app-config.production.yaml` managed through Knex.js migrations. Backstage uses Knex.js as an SQL abstraction layer. While SQLite is provided for rapid local development, production enterprise deployments require PostgreSQL to support clustering, concurrent catalog ingestion, and durable task state persistence.",
     referenceUrl: "https://backstage.io/docs/tutorials/quickstart-app-database",
@@ -261,12 +261,12 @@ export const CNCF_CBA_QUESTIONS_12 = [
     scenario: "A platform security auditor requires strict role-based access control, cryptographic service communication, and audit logging across the internal developer portal. The platform engineer evaluates Database Architecture to persist software catalog entities, scaffolder task state, and user settings reliably in a high-availability production deployment.",
     question: "Which Backstage security mechanism or configuration satisfies these compliance controls? Knex.js query builder with SQLite for local prototyping and PostgreSQL for enterprise production is under consideration.",
     options: [
-      { id: 'A', text: "Configure a clustered PostgreSQL database backend in `app-config.production.yaml` managed through Knex.js migrations." },
-      { id: 'B', text: "Use ephemeral in-memory SQLite instances in production that lose all state upon container restart." },
-      { id: 'C', text: "Save all relational database records into temporary local text files inside /tmp." },
-      { id: 'D', text: "Store database rows in unindexed client browser local storage cookies." }
+      { id: 'A', text: "Store database rows in unindexed client browser local storage cookies." },
+      { id: 'B', text: "Configure a clustered PostgreSQL database backend in `app-config.production.yaml` managed through Knex.js migrations." },
+      { id: 'C', text: "Use ephemeral in-memory SQLite instances in production that lose all state upon container restart." },
+      { id: 'D', text: "Save all relational database records into temporary local text files inside /tmp." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure a clustered PostgreSQL database backend in `app-config.production.yaml` managed through Knex.js migrations. Backstage uses Knex.js as an SQL abstraction layer. While SQLite is provided for rapid local development, production enterprise deployments require PostgreSQL to support clustering, concurrent catalog ingestion, and durable task state persistence.",
     referenceUrl: "https://backstage.io/docs/tutorials/quickstart-app-database",
@@ -282,12 +282,12 @@ export const CNCF_CBA_QUESTIONS_12 = [
     scenario: "A platform engineering team is establishing Golden Path templates and automated scaffolding workflows to accelerate developer onboarding and eliminate delivery friction. The platform engineer evaluates Database Architecture to persist software catalog entities, scaffolder task state, and user settings reliably in a high-availability production deployment.",
     question: "Which Backstage scaffolder practice or template feature enables developers to self-serve new projects safely? Knex.js query builder with SQLite for local prototyping and PostgreSQL for enterprise production is under consideration.",
     options: [
-      { id: 'A', text: "Configure a clustered PostgreSQL database backend in `app-config.production.yaml` managed through Knex.js migrations." },
-      { id: 'B', text: "Use ephemeral in-memory SQLite instances in production that lose all state upon container restart." },
-      { id: 'C', text: "Save all relational database records into temporary local text files inside /tmp." },
-      { id: 'D', text: "Store database rows in unindexed client browser local storage cookies." }
+      { id: 'A', text: "Store database rows in unindexed client browser local storage cookies." },
+      { id: 'B', text: "Configure a clustered PostgreSQL database backend in `app-config.production.yaml` managed through Knex.js migrations." },
+      { id: 'C', text: "Use ephemeral in-memory SQLite instances in production that lose all state upon container restart." },
+      { id: 'D', text: "Save all relational database records into temporary local text files inside /tmp." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure a clustered PostgreSQL database backend in `app-config.production.yaml` managed through Knex.js migrations. Backstage uses Knex.js as an SQL abstraction layer. While SQLite is provided for rapid local development, production enterprise deployments require PostgreSQL to support clustering, concurrent catalog ingestion, and durable task state persistence.",
     referenceUrl: "https://backstage.io/docs/tutorials/quickstart-app-database",
@@ -303,12 +303,12 @@ export const CNCF_CBA_QUESTIONS_12 = [
     scenario: "A site reliability engineering team is operating Backstage on Kubernetes and optimizing system resilience, health monitoring, and documentation publishing pipelines. The platform engineer evaluates Database Architecture to persist software catalog entities, scaffolder task state, and user settings reliably in a high-availability production deployment.",
     question: "Which operational design or plugin architecture guarantees high availability and reliable portal performance? Knex.js query builder with SQLite for local prototyping and PostgreSQL for enterprise production is under consideration.",
     options: [
-      { id: 'A', text: "Configure a clustered PostgreSQL database backend in `app-config.production.yaml` managed through Knex.js migrations." },
-      { id: 'B', text: "Use ephemeral in-memory SQLite instances in production that lose all state upon container restart." },
-      { id: 'C', text: "Save all relational database records into temporary local text files inside /tmp." },
-      { id: 'D', text: "Store database rows in unindexed client browser local storage cookies." }
+      { id: 'A', text: "Store database rows in unindexed client browser local storage cookies." },
+      { id: 'B', text: "Configure a clustered PostgreSQL database backend in `app-config.production.yaml` managed through Knex.js migrations." },
+      { id: 'C', text: "Use ephemeral in-memory SQLite instances in production that lose all state upon container restart." },
+      { id: 'D', text: "Save all relational database records into temporary local text files inside /tmp." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure a clustered PostgreSQL database backend in `app-config.production.yaml` managed through Knex.js migrations. Backstage uses Knex.js as an SQL abstraction layer. While SQLite is provided for rapid local development, production enterprise deployments require PostgreSQL to support clustering, concurrent catalog ingestion, and durable task state persistence.",
     referenceUrl: "https://backstage.io/docs/tutorials/quickstart-app-database",
@@ -324,12 +324,12 @@ export const CNCF_CBA_QUESTIONS_12 = [
     scenario: "An enterprise developer experience team is architecting an internal developer portal to standardize service catalogs, software scaffolding, and documentation across hundreds of teams. The platform engineer evaluates Events System to trigger automated catalog refreshes and workflow notifications whenever a webhook arrives from a GitHub or GitLab repository.",
     question: "Which architectural approach or Backstage configuration satisfies these enterprise portal objectives? Asynchronous publish-subscribe messaging using EventsService and EventBroker is under consideration.",
     options: [
-      { id: 'A', text: "Deploy the Backstage `EventsService` and `EventBroker` to publish incoming webhook payloads to subscribing plugins asynchronously." },
-      { id: 'B', text: "Execute synchronous blocking network calls that freeze the web server until long-running operations finish." },
-      { id: 'C', text: "Poll third-party Git APIs every 100 milliseconds with unauthenticated HTTP requests." },
+      { id: 'A', text: "Poll third-party Git APIs every 100 milliseconds with unauthenticated HTTP requests." },
+      { id: 'B', text: "Deploy the Backstage `EventsService` and `EventBroker` to publish incoming webhook payloads to subscribing plugins asynchronously." },
+      { id: 'C', text: "Execute synchronous blocking network calls that freeze the web server until long-running operations finish." },
       { id: 'D', text: "Write raw event payloads directly to disk without routing them to any listeners." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy the Backstage `EventsService` and `EventBroker` to publish incoming webhook payloads to subscribing plugins asynchronously. The Backstage Events subsystem (`@backstage/plugin-events-node`) provides an `EventsService` and `EventBroker`. Ingress plugins (such as webhook receivers) publish CloudEvents onto topics, which subscribing plugins consume asynchronously.",
     referenceUrl: "https://backstage.io/docs/features/events/",
@@ -345,12 +345,12 @@ export const CNCF_CBA_QUESTIONS_12 = [
     scenario: "A large engineering organization manages tens of thousands of microservices, APIs, and infrastructure components across hybrid cloud environments. The platform engineer evaluates Events System to trigger automated catalog refreshes and workflow notifications whenever a webhook arrives from a GitHub or GitLab repository.",
     question: "Which Backstage catalog pattern or ingestion configuration handles this volume efficiently while preventing database contention? Asynchronous publish-subscribe messaging using EventsService and EventBroker is under consideration.",
     options: [
-      { id: 'A', text: "Deploy the Backstage `EventsService` and `EventBroker` to publish incoming webhook payloads to subscribing plugins asynchronously." },
-      { id: 'B', text: "Execute synchronous blocking network calls that freeze the web server until long-running operations finish." },
+      { id: 'A', text: "Write raw event payloads directly to disk without routing them to any listeners." },
+      { id: 'B', text: "Deploy the Backstage `EventsService` and `EventBroker` to publish incoming webhook payloads to subscribing plugins asynchronously." },
       { id: 'C', text: "Poll third-party Git APIs every 100 milliseconds with unauthenticated HTTP requests." },
-      { id: 'D', text: "Write raw event payloads directly to disk without routing them to any listeners." }
+      { id: 'D', text: "Execute synchronous blocking network calls that freeze the web server until long-running operations finish." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy the Backstage `EventsService` and `EventBroker` to publish incoming webhook payloads to subscribing plugins asynchronously. The Backstage Events subsystem (`@backstage/plugin-events-node`) provides an `EventsService` and `EventBroker`. Ingress plugins (such as webhook receivers) publish CloudEvents onto topics, which subscribing plugins consume asynchronously.",
     referenceUrl: "https://backstage.io/docs/features/events/",
@@ -366,12 +366,12 @@ export const CNCF_CBA_QUESTIONS_12 = [
     scenario: "A platform security auditor requires strict role-based access control, cryptographic service communication, and audit logging across the internal developer portal. The platform engineer evaluates Events System to trigger automated catalog refreshes and workflow notifications whenever a webhook arrives from a GitHub or GitLab repository.",
     question: "Which Backstage security mechanism or configuration satisfies these compliance controls? Asynchronous publish-subscribe messaging using EventsService and EventBroker is under consideration.",
     options: [
-      { id: 'A', text: "Deploy the Backstage `EventsService` and `EventBroker` to publish incoming webhook payloads to subscribing plugins asynchronously." },
-      { id: 'B', text: "Execute synchronous blocking network calls that freeze the web server until long-running operations finish." },
-      { id: 'C', text: "Poll third-party Git APIs every 100 milliseconds with unauthenticated HTTP requests." },
-      { id: 'D', text: "Write raw event payloads directly to disk without routing them to any listeners." }
+      { id: 'A', text: "Execute synchronous blocking network calls that freeze the web server until long-running operations finish." },
+      { id: 'B', text: "Deploy the Backstage `EventsService` and `EventBroker` to publish incoming webhook payloads to subscribing plugins asynchronously." },
+      { id: 'C', text: "Write raw event payloads directly to disk without routing them to any listeners." },
+      { id: 'D', text: "Poll third-party Git APIs every 100 milliseconds with unauthenticated HTTP requests." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy the Backstage `EventsService` and `EventBroker` to publish incoming webhook payloads to subscribing plugins asynchronously. The Backstage Events subsystem (`@backstage/plugin-events-node`) provides an `EventsService` and `EventBroker`. Ingress plugins (such as webhook receivers) publish CloudEvents onto topics, which subscribing plugins consume asynchronously.",
     referenceUrl: "https://backstage.io/docs/features/events/",
@@ -388,9 +388,9 @@ export const CNCF_CBA_QUESTIONS_12 = [
     question: "Which Backstage scaffolder practice or template feature enables developers to self-serve new projects safely? Asynchronous publish-subscribe messaging using EventsService and EventBroker is under consideration.",
     options: [
       { id: 'A', text: "Deploy the Backstage `EventsService` and `EventBroker` to publish incoming webhook payloads to subscribing plugins asynchronously." },
-      { id: 'B', text: "Execute synchronous blocking network calls that freeze the web server until long-running operations finish." },
-      { id: 'C', text: "Poll third-party Git APIs every 100 milliseconds with unauthenticated HTTP requests." },
-      { id: 'D', text: "Write raw event payloads directly to disk without routing them to any listeners." }
+      { id: 'B', text: "Poll third-party Git APIs every 100 milliseconds with unauthenticated HTTP requests." },
+      { id: 'C', text: "Write raw event payloads directly to disk without routing them to any listeners." },
+      { id: 'D', text: "Execute synchronous blocking network calls that freeze the web server until long-running operations finish." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,12 +408,12 @@ export const CNCF_CBA_QUESTIONS_12 = [
     scenario: "A site reliability engineering team is operating Backstage on Kubernetes and optimizing system resilience, health monitoring, and documentation publishing pipelines. The platform engineer evaluates Events System to trigger automated catalog refreshes and workflow notifications whenever a webhook arrives from a GitHub or GitLab repository.",
     question: "Which operational design or plugin architecture guarantees high availability and reliable portal performance? Asynchronous publish-subscribe messaging using EventsService and EventBroker is under consideration.",
     options: [
-      { id: 'A', text: "Deploy the Backstage `EventsService` and `EventBroker` to publish incoming webhook payloads to subscribing plugins asynchronously." },
-      { id: 'B', text: "Execute synchronous blocking network calls that freeze the web server until long-running operations finish." },
-      { id: 'C', text: "Poll third-party Git APIs every 100 milliseconds with unauthenticated HTTP requests." },
-      { id: 'D', text: "Write raw event payloads directly to disk without routing them to any listeners." }
+      { id: 'A', text: "Poll third-party Git APIs every 100 milliseconds with unauthenticated HTTP requests." },
+      { id: 'B', text: "Write raw event payloads directly to disk without routing them to any listeners." },
+      { id: 'C', text: "Deploy the Backstage `EventsService` and `EventBroker` to publish incoming webhook payloads to subscribing plugins asynchronously." },
+      { id: 'D', text: "Execute synchronous blocking network calls that freeze the web server until long-running operations finish." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy the Backstage `EventsService` and `EventBroker` to publish incoming webhook payloads to subscribing plugins asynchronously. The Backstage Events subsystem (`@backstage/plugin-events-node`) provides an `EventsService` and `EventBroker`. Ingress plugins (such as webhook receivers) publish CloudEvents onto topics, which subscribing plugins consume asynchronously.",
     referenceUrl: "https://backstage.io/docs/features/events/",
@@ -429,12 +429,12 @@ export const CNCF_CBA_QUESTIONS_12 = [
     scenario: "An enterprise developer experience team is architecting an internal developer portal to standardize service catalogs, software scaffolding, and documentation across hundreds of teams. The platform engineer evaluates Discovery API to enable frontend plugins to communicate with backend APIs without hardcoding hostnames, IP addresses, or ports.",
     question: "Which architectural approach or Backstage configuration satisfies these enterprise portal objectives? Resolving dynamic backend microservice URLs via DiscoveryApi is under consideration.",
     options: [
-      { id: 'A', text: "Inject the `discoveryApi` utility into frontend plugins and call `await discoveryApi.getBaseUrl(pluginId)` to resolve endpoints dynamically." },
-      { id: 'B', text: "Hardcode static localhost URLs across all client-side JavaScript components." },
-      { id: 'C', text: "Require developers to recompile the frontend application whenever backend IP addresses change." },
-      { id: 'D', text: "Route all client traffic through unauthenticated public web proxies." }
+      { id: 'A', text: "Route all client traffic through unauthenticated public web proxies." },
+      { id: 'B', text: "Require developers to recompile the frontend application whenever backend IP addresses change." },
+      { id: 'C', text: "Hardcode static localhost URLs across all client-side JavaScript components." },
+      { id: 'D', text: "Inject the `discoveryApi` utility into frontend plugins and call `await discoveryApi.getBaseUrl(pluginId)` to resolve endpoints dynamically." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Inject the `discoveryApi` utility into frontend plugins and call `await discoveryApi.getBaseUrl(pluginId)` to resolve endpoints dynamically. Backstage provides the `DiscoveryApi` (`@backstage/core-plugin-api`) on the frontend and `DiscoveryService` on the backend. Plugins use `discoveryApi.getBaseUrl('plugin-name')` to dynamically determine the correct URL for backend service endpoints across environments.",
     referenceUrl: "https://backstage.io/docs/reference/core-plugin-api.discoveryapi",
@@ -450,12 +450,12 @@ export const CNCF_CBA_QUESTIONS_12 = [
     scenario: "A large engineering organization manages tens of thousands of microservices, APIs, and infrastructure components across hybrid cloud environments. The platform engineer evaluates Discovery API to enable frontend plugins to communicate with backend APIs without hardcoding hostnames, IP addresses, or ports.",
     question: "Which Backstage catalog pattern or ingestion configuration handles this volume efficiently while preventing database contention? Resolving dynamic backend microservice URLs via DiscoveryApi is under consideration.",
     options: [
-      { id: 'A', text: "Inject the `discoveryApi` utility into frontend plugins and call `await discoveryApi.getBaseUrl(pluginId)` to resolve endpoints dynamically." },
-      { id: 'B', text: "Hardcode static localhost URLs across all client-side JavaScript components." },
-      { id: 'C', text: "Require developers to recompile the frontend application whenever backend IP addresses change." },
-      { id: 'D', text: "Route all client traffic through unauthenticated public web proxies." }
+      { id: 'A', text: "Require developers to recompile the frontend application whenever backend IP addresses change." },
+      { id: 'B', text: "Route all client traffic through unauthenticated public web proxies." },
+      { id: 'C', text: "Inject the `discoveryApi` utility into frontend plugins and call `await discoveryApi.getBaseUrl(pluginId)` to resolve endpoints dynamically." },
+      { id: 'D', text: "Hardcode static localhost URLs across all client-side JavaScript components." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Inject the `discoveryApi` utility into frontend plugins and call `await discoveryApi.getBaseUrl(pluginId)` to resolve endpoints dynamically. Backstage provides the `DiscoveryApi` (`@backstage/core-plugin-api`) on the frontend and `DiscoveryService` on the backend. Plugins use `discoveryApi.getBaseUrl('plugin-name')` to dynamically determine the correct URL for backend service endpoints across environments.",
     referenceUrl: "https://backstage.io/docs/reference/core-plugin-api.discoveryapi",
@@ -471,12 +471,12 @@ export const CNCF_CBA_QUESTIONS_12 = [
     scenario: "A platform security auditor requires strict role-based access control, cryptographic service communication, and audit logging across the internal developer portal. The platform engineer evaluates Discovery API to enable frontend plugins to communicate with backend APIs without hardcoding hostnames, IP addresses, or ports.",
     question: "Which Backstage security mechanism or configuration satisfies these compliance controls? Resolving dynamic backend microservice URLs via DiscoveryApi is under consideration.",
     options: [
-      { id: 'A', text: "Inject the `discoveryApi` utility into frontend plugins and call `await discoveryApi.getBaseUrl(pluginId)` to resolve endpoints dynamically." },
-      { id: 'B', text: "Hardcode static localhost URLs across all client-side JavaScript components." },
-      { id: 'C', text: "Require developers to recompile the frontend application whenever backend IP addresses change." },
-      { id: 'D', text: "Route all client traffic through unauthenticated public web proxies." }
+      { id: 'A', text: "Hardcode static localhost URLs across all client-side JavaScript components." },
+      { id: 'B', text: "Route all client traffic through unauthenticated public web proxies." },
+      { id: 'C', text: "Inject the `discoveryApi` utility into frontend plugins and call `await discoveryApi.getBaseUrl(pluginId)` to resolve endpoints dynamically." },
+      { id: 'D', text: "Require developers to recompile the frontend application whenever backend IP addresses change." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Inject the `discoveryApi` utility into frontend plugins and call `await discoveryApi.getBaseUrl(pluginId)` to resolve endpoints dynamically. Backstage provides the `DiscoveryApi` (`@backstage/core-plugin-api`) on the frontend and `DiscoveryService` on the backend. Plugins use `discoveryApi.getBaseUrl('plugin-name')` to dynamically determine the correct URL for backend service endpoints across environments.",
     referenceUrl: "https://backstage.io/docs/reference/core-plugin-api.discoveryapi",
@@ -492,12 +492,12 @@ export const CNCF_CBA_QUESTIONS_12 = [
     scenario: "A platform engineering team is establishing Golden Path templates and automated scaffolding workflows to accelerate developer onboarding and eliminate delivery friction. The platform engineer evaluates Discovery API to enable frontend plugins to communicate with backend APIs without hardcoding hostnames, IP addresses, or ports.",
     question: "Which Backstage scaffolder practice or template feature enables developers to self-serve new projects safely? Resolving dynamic backend microservice URLs via DiscoveryApi is under consideration.",
     options: [
-      { id: 'A', text: "Inject the `discoveryApi` utility into frontend plugins and call `await discoveryApi.getBaseUrl(pluginId)` to resolve endpoints dynamically." },
-      { id: 'B', text: "Hardcode static localhost URLs across all client-side JavaScript components." },
-      { id: 'C', text: "Require developers to recompile the frontend application whenever backend IP addresses change." },
-      { id: 'D', text: "Route all client traffic through unauthenticated public web proxies." }
+      { id: 'A', text: "Require developers to recompile the frontend application whenever backend IP addresses change." },
+      { id: 'B', text: "Route all client traffic through unauthenticated public web proxies." },
+      { id: 'C', text: "Inject the `discoveryApi` utility into frontend plugins and call `await discoveryApi.getBaseUrl(pluginId)` to resolve endpoints dynamically." },
+      { id: 'D', text: "Hardcode static localhost URLs across all client-side JavaScript components." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Inject the `discoveryApi` utility into frontend plugins and call `await discoveryApi.getBaseUrl(pluginId)` to resolve endpoints dynamically. Backstage provides the `DiscoveryApi` (`@backstage/core-plugin-api`) on the frontend and `DiscoveryService` on the backend. Plugins use `discoveryApi.getBaseUrl('plugin-name')` to dynamically determine the correct URL for backend service endpoints across environments.",
     referenceUrl: "https://backstage.io/docs/reference/core-plugin-api.discoveryapi",
@@ -513,12 +513,12 @@ export const CNCF_CBA_QUESTIONS_12 = [
     scenario: "A site reliability engineering team is operating Backstage on Kubernetes and optimizing system resilience, health monitoring, and documentation publishing pipelines. The platform engineer evaluates Discovery API to enable frontend plugins to communicate with backend APIs without hardcoding hostnames, IP addresses, or ports.",
     question: "Which operational design or plugin architecture guarantees high availability and reliable portal performance? Resolving dynamic backend microservice URLs via DiscoveryApi is under consideration.",
     options: [
-      { id: 'A', text: "Inject the `discoveryApi` utility into frontend plugins and call `await discoveryApi.getBaseUrl(pluginId)` to resolve endpoints dynamically." },
+      { id: 'A', text: "Require developers to recompile the frontend application whenever backend IP addresses change." },
       { id: 'B', text: "Hardcode static localhost URLs across all client-side JavaScript components." },
-      { id: 'C', text: "Require developers to recompile the frontend application whenever backend IP addresses change." },
-      { id: 'D', text: "Route all client traffic through unauthenticated public web proxies." }
+      { id: 'C', text: "Route all client traffic through unauthenticated public web proxies." },
+      { id: 'D', text: "Inject the `discoveryApi` utility into frontend plugins and call `await discoveryApi.getBaseUrl(pluginId)` to resolve endpoints dynamically." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Inject the `discoveryApi` utility into frontend plugins and call `await discoveryApi.getBaseUrl(pluginId)` to resolve endpoints dynamically. Backstage provides the `DiscoveryApi` (`@backstage/core-plugin-api`) on the frontend and `DiscoveryService` on the backend. Plugins use `discoveryApi.getBaseUrl('plugin-name')` to dynamically determine the correct URL for backend service endpoints across environments.",
     referenceUrl: "https://backstage.io/docs/reference/core-plugin-api.discoveryapi",

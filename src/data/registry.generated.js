@@ -23,7 +23,17 @@ export const CONTENT_REGISTRY = {
       pack('./certs/aws-clf/questions/pack-7.js', () => import('./certs/aws-clf/questions/pack-7.js')),
       pack('./certs/aws-clf/questions/pack-8.js', () => import('./certs/aws-clf/questions/pack-8.js')),
       pack('./certs/aws-clf/questions/pack-9.js', () => import('./certs/aws-clf/questions/pack-9.js')),
-      pack('./certs/aws-clf/questions/pack-10.js', () => import('./certs/aws-clf/questions/pack-10.js'))
+      pack('./certs/aws-clf/questions/pack-10.js', () => import('./certs/aws-clf/questions/pack-10.js')),
+      pack('./certs/aws-clf/questions/pack-11.js', () => import('./certs/aws-clf/questions/pack-11.js')),
+      pack('./certs/aws-clf/questions/pack-12.js', () => import('./certs/aws-clf/questions/pack-12.js')),
+      pack('./certs/aws-clf/questions/pack-13.js', () => import('./certs/aws-clf/questions/pack-13.js')),
+      pack('./certs/aws-clf/questions/pack-14.js', () => import('./certs/aws-clf/questions/pack-14.js')),
+      pack('./certs/aws-clf/questions/pack-15.js', () => import('./certs/aws-clf/questions/pack-15.js')),
+      pack('./certs/aws-clf/questions/pack-16.js', () => import('./certs/aws-clf/questions/pack-16.js')),
+      pack('./certs/aws-clf/questions/pack-17.js', () => import('./certs/aws-clf/questions/pack-17.js')),
+      pack('./certs/aws-clf/questions/pack-18.js', () => import('./certs/aws-clf/questions/pack-18.js')),
+      pack('./certs/aws-clf/questions/pack-19.js', () => import('./certs/aws-clf/questions/pack-19.js')),
+      pack('./certs/aws-clf/questions/pack-20.js', () => import('./certs/aws-clf/questions/pack-20.js'))
     ],
     flashcards: [
       pack('./certs/aws-clf/flashcards/pack-1.js', () => import('./certs/aws-clf/flashcards/pack-1.js')),
@@ -35,7 +45,17 @@ export const CONTENT_REGISTRY = {
       pack('./certs/aws-clf/flashcards/pack-7.js', () => import('./certs/aws-clf/flashcards/pack-7.js')),
       pack('./certs/aws-clf/flashcards/pack-8.js', () => import('./certs/aws-clf/flashcards/pack-8.js')),
       pack('./certs/aws-clf/flashcards/pack-9.js', () => import('./certs/aws-clf/flashcards/pack-9.js')),
-      pack('./certs/aws-clf/flashcards/pack-10.js', () => import('./certs/aws-clf/flashcards/pack-10.js'))
+      pack('./certs/aws-clf/flashcards/pack-10.js', () => import('./certs/aws-clf/flashcards/pack-10.js')),
+      pack('./certs/aws-clf/flashcards/pack-11.js', () => import('./certs/aws-clf/flashcards/pack-11.js')),
+      pack('./certs/aws-clf/flashcards/pack-12.js', () => import('./certs/aws-clf/flashcards/pack-12.js')),
+      pack('./certs/aws-clf/flashcards/pack-13.js', () => import('./certs/aws-clf/flashcards/pack-13.js')),
+      pack('./certs/aws-clf/flashcards/pack-14.js', () => import('./certs/aws-clf/flashcards/pack-14.js')),
+      pack('./certs/aws-clf/flashcards/pack-15.js', () => import('./certs/aws-clf/flashcards/pack-15.js')),
+      pack('./certs/aws-clf/flashcards/pack-16.js', () => import('./certs/aws-clf/flashcards/pack-16.js')),
+      pack('./certs/aws-clf/flashcards/pack-17.js', () => import('./certs/aws-clf/flashcards/pack-17.js')),
+      pack('./certs/aws-clf/flashcards/pack-18.js', () => import('./certs/aws-clf/flashcards/pack-18.js')),
+      pack('./certs/aws-clf/flashcards/pack-19.js', () => import('./certs/aws-clf/flashcards/pack-19.js')),
+      pack('./certs/aws-clf/flashcards/pack-20.js', () => import('./certs/aws-clf/flashcards/pack-20.js'))
     ]
   },
   'aws-dbs': {
@@ -53,7 +73,17 @@ export const CONTENT_REGISTRY = {
       pack('./certs/aws-dop/questions/pack-7.js', () => import('./certs/aws-dop/questions/pack-7.js')),
       pack('./certs/aws-dop/questions/pack-8.js', () => import('./certs/aws-dop/questions/pack-8.js')),
       pack('./certs/aws-dop/questions/pack-9.js', () => import('./certs/aws-dop/questions/pack-9.js')),
-      pack('./certs/aws-dop/questions/pack-10.js', () => import('./certs/aws-dop/questions/pack-10.js'))
+      pack('./certs/aws-dop/questions/pack-10.js', () => import('./certs/aws-dop/questions/pack-10.js')),
+      pack('./certs/aws-dop/questions/pack-11.js', () => import('./certs/aws-dop/questions/pack-11.js')),
+      pack('./certs/aws-dop/questions/pack-12.js', () => import('./certs/aws-dop/questions/pack-12.js')),
+      pack('./certs/aws-dop/questions/pack-13.js', () => import('./certs/aws-dop/questions/pack-13.js')),
+      pack('./certs/aws-dop/questions/pack-14.js', () => import('./certs/aws-dop/questions/pack-14.js')),
+      pack('./certs/aws-dop/questions/pack-15.js', () => import('./certs/aws-dop/questions/pack-15.js')),
+      pack('./certs/aws-dop/questions/pack-16.js', () => import('./certs/aws-dop/questions/pack-16.js')),
+      pack('./certs/aws-dop/questions/pack-17.js', () => import('./certs/aws-dop/questions/pack-17.js')),
+      pack('./certs/aws-dop/questions/pack-18.js', () => import('./certs/aws-dop/questions/pack-18.js')),
+      pack('./certs/aws-dop/questions/pack-19.js', () => import('./certs/aws-dop/questions/pack-19.js')),
+      pack('./certs/aws-dop/questions/pack-20.js', () => import('./certs/aws-dop/questions/pack-20.js'))
     ],
     flashcards: [
       pack('./certs/aws-dop/flashcards/pack-1.js', () => import('./certs/aws-dop/flashcards/pack-1.js')),
@@ -65,7 +95,17 @@ export const CONTENT_REGISTRY = {
       pack('./certs/aws-dop/flashcards/pack-7.js', () => import('./certs/aws-dop/flashcards/pack-7.js')),
       pack('./certs/aws-dop/flashcards/pack-8.js', () => import('./certs/aws-dop/flashcards/pack-8.js')),
       pack('./certs/aws-dop/flashcards/pack-9.js', () => import('./certs/aws-dop/flashcards/pack-9.js')),
-      pack('./certs/aws-dop/flashcards/pack-10.js', () => import('./certs/aws-dop/flashcards/pack-10.js'))
+      pack('./certs/aws-dop/flashcards/pack-10.js', () => import('./certs/aws-dop/flashcards/pack-10.js')),
+      pack('./certs/aws-dop/flashcards/pack-11.js', () => import('./certs/aws-dop/flashcards/pack-11.js')),
+      pack('./certs/aws-dop/flashcards/pack-12.js', () => import('./certs/aws-dop/flashcards/pack-12.js')),
+      pack('./certs/aws-dop/flashcards/pack-13.js', () => import('./certs/aws-dop/flashcards/pack-13.js')),
+      pack('./certs/aws-dop/flashcards/pack-14.js', () => import('./certs/aws-dop/flashcards/pack-14.js')),
+      pack('./certs/aws-dop/flashcards/pack-15.js', () => import('./certs/aws-dop/flashcards/pack-15.js')),
+      pack('./certs/aws-dop/flashcards/pack-16.js', () => import('./certs/aws-dop/flashcards/pack-16.js')),
+      pack('./certs/aws-dop/flashcards/pack-17.js', () => import('./certs/aws-dop/flashcards/pack-17.js')),
+      pack('./certs/aws-dop/flashcards/pack-18.js', () => import('./certs/aws-dop/flashcards/pack-18.js')),
+      pack('./certs/aws-dop/flashcards/pack-19.js', () => import('./certs/aws-dop/flashcards/pack-19.js')),
+      pack('./certs/aws-dop/flashcards/pack-20.js', () => import('./certs/aws-dop/flashcards/pack-20.js'))
     ]
   },
   'aws-dva': {
@@ -79,7 +119,17 @@ export const CONTENT_REGISTRY = {
       pack('./certs/aws-dva/questions/pack-7.js', () => import('./certs/aws-dva/questions/pack-7.js')),
       pack('./certs/aws-dva/questions/pack-8.js', () => import('./certs/aws-dva/questions/pack-8.js')),
       pack('./certs/aws-dva/questions/pack-9.js', () => import('./certs/aws-dva/questions/pack-9.js')),
-      pack('./certs/aws-dva/questions/pack-10.js', () => import('./certs/aws-dva/questions/pack-10.js'))
+      pack('./certs/aws-dva/questions/pack-10.js', () => import('./certs/aws-dva/questions/pack-10.js')),
+      pack('./certs/aws-dva/questions/pack-11.js', () => import('./certs/aws-dva/questions/pack-11.js')),
+      pack('./certs/aws-dva/questions/pack-12.js', () => import('./certs/aws-dva/questions/pack-12.js')),
+      pack('./certs/aws-dva/questions/pack-13.js', () => import('./certs/aws-dva/questions/pack-13.js')),
+      pack('./certs/aws-dva/questions/pack-14.js', () => import('./certs/aws-dva/questions/pack-14.js')),
+      pack('./certs/aws-dva/questions/pack-15.js', () => import('./certs/aws-dva/questions/pack-15.js')),
+      pack('./certs/aws-dva/questions/pack-16.js', () => import('./certs/aws-dva/questions/pack-16.js')),
+      pack('./certs/aws-dva/questions/pack-17.js', () => import('./certs/aws-dva/questions/pack-17.js')),
+      pack('./certs/aws-dva/questions/pack-18.js', () => import('./certs/aws-dva/questions/pack-18.js')),
+      pack('./certs/aws-dva/questions/pack-19.js', () => import('./certs/aws-dva/questions/pack-19.js')),
+      pack('./certs/aws-dva/questions/pack-20.js', () => import('./certs/aws-dva/questions/pack-20.js'))
     ],
     flashcards: [
       pack('./certs/aws-dva/flashcards/pack-1.js', () => import('./certs/aws-dva/flashcards/pack-1.js')),
@@ -91,7 +141,17 @@ export const CONTENT_REGISTRY = {
       pack('./certs/aws-dva/flashcards/pack-7.js', () => import('./certs/aws-dva/flashcards/pack-7.js')),
       pack('./certs/aws-dva/flashcards/pack-8.js', () => import('./certs/aws-dva/flashcards/pack-8.js')),
       pack('./certs/aws-dva/flashcards/pack-9.js', () => import('./certs/aws-dva/flashcards/pack-9.js')),
-      pack('./certs/aws-dva/flashcards/pack-10.js', () => import('./certs/aws-dva/flashcards/pack-10.js'))
+      pack('./certs/aws-dva/flashcards/pack-10.js', () => import('./certs/aws-dva/flashcards/pack-10.js')),
+      pack('./certs/aws-dva/flashcards/pack-11.js', () => import('./certs/aws-dva/flashcards/pack-11.js')),
+      pack('./certs/aws-dva/flashcards/pack-12.js', () => import('./certs/aws-dva/flashcards/pack-12.js')),
+      pack('./certs/aws-dva/flashcards/pack-13.js', () => import('./certs/aws-dva/flashcards/pack-13.js')),
+      pack('./certs/aws-dva/flashcards/pack-14.js', () => import('./certs/aws-dva/flashcards/pack-14.js')),
+      pack('./certs/aws-dva/flashcards/pack-15.js', () => import('./certs/aws-dva/flashcards/pack-15.js')),
+      pack('./certs/aws-dva/flashcards/pack-16.js', () => import('./certs/aws-dva/flashcards/pack-16.js')),
+      pack('./certs/aws-dva/flashcards/pack-17.js', () => import('./certs/aws-dva/flashcards/pack-17.js')),
+      pack('./certs/aws-dva/flashcards/pack-18.js', () => import('./certs/aws-dva/flashcards/pack-18.js')),
+      pack('./certs/aws-dva/flashcards/pack-19.js', () => import('./certs/aws-dva/flashcards/pack-19.js')),
+      pack('./certs/aws-dva/flashcards/pack-20.js', () => import('./certs/aws-dva/flashcards/pack-20.js'))
     ]
   },
   'aws-mla': {
@@ -113,7 +173,17 @@ export const CONTENT_REGISTRY = {
       pack('./certs/aws-saa/questions/pack-7.js', () => import('./certs/aws-saa/questions/pack-7.js')),
       pack('./certs/aws-saa/questions/pack-8.js', () => import('./certs/aws-saa/questions/pack-8.js')),
       pack('./certs/aws-saa/questions/pack-9.js', () => import('./certs/aws-saa/questions/pack-9.js')),
-      pack('./certs/aws-saa/questions/pack-10.js', () => import('./certs/aws-saa/questions/pack-10.js'))
+      pack('./certs/aws-saa/questions/pack-10.js', () => import('./certs/aws-saa/questions/pack-10.js')),
+      pack('./certs/aws-saa/questions/pack-11.js', () => import('./certs/aws-saa/questions/pack-11.js')),
+      pack('./certs/aws-saa/questions/pack-12.js', () => import('./certs/aws-saa/questions/pack-12.js')),
+      pack('./certs/aws-saa/questions/pack-13.js', () => import('./certs/aws-saa/questions/pack-13.js')),
+      pack('./certs/aws-saa/questions/pack-14.js', () => import('./certs/aws-saa/questions/pack-14.js')),
+      pack('./certs/aws-saa/questions/pack-15.js', () => import('./certs/aws-saa/questions/pack-15.js')),
+      pack('./certs/aws-saa/questions/pack-16.js', () => import('./certs/aws-saa/questions/pack-16.js')),
+      pack('./certs/aws-saa/questions/pack-17.js', () => import('./certs/aws-saa/questions/pack-17.js')),
+      pack('./certs/aws-saa/questions/pack-18.js', () => import('./certs/aws-saa/questions/pack-18.js')),
+      pack('./certs/aws-saa/questions/pack-19.js', () => import('./certs/aws-saa/questions/pack-19.js')),
+      pack('./certs/aws-saa/questions/pack-20.js', () => import('./certs/aws-saa/questions/pack-20.js'))
     ],
     flashcards: [
       pack('./certs/aws-saa/flashcards/pack-1.js', () => import('./certs/aws-saa/flashcards/pack-1.js')),
@@ -125,7 +195,17 @@ export const CONTENT_REGISTRY = {
       pack('./certs/aws-saa/flashcards/pack-7.js', () => import('./certs/aws-saa/flashcards/pack-7.js')),
       pack('./certs/aws-saa/flashcards/pack-8.js', () => import('./certs/aws-saa/flashcards/pack-8.js')),
       pack('./certs/aws-saa/flashcards/pack-9.js', () => import('./certs/aws-saa/flashcards/pack-9.js')),
-      pack('./certs/aws-saa/flashcards/pack-10.js', () => import('./certs/aws-saa/flashcards/pack-10.js'))
+      pack('./certs/aws-saa/flashcards/pack-10.js', () => import('./certs/aws-saa/flashcards/pack-10.js')),
+      pack('./certs/aws-saa/flashcards/pack-11.js', () => import('./certs/aws-saa/flashcards/pack-11.js')),
+      pack('./certs/aws-saa/flashcards/pack-12.js', () => import('./certs/aws-saa/flashcards/pack-12.js')),
+      pack('./certs/aws-saa/flashcards/pack-13.js', () => import('./certs/aws-saa/flashcards/pack-13.js')),
+      pack('./certs/aws-saa/flashcards/pack-14.js', () => import('./certs/aws-saa/flashcards/pack-14.js')),
+      pack('./certs/aws-saa/flashcards/pack-15.js', () => import('./certs/aws-saa/flashcards/pack-15.js')),
+      pack('./certs/aws-saa/flashcards/pack-16.js', () => import('./certs/aws-saa/flashcards/pack-16.js')),
+      pack('./certs/aws-saa/flashcards/pack-17.js', () => import('./certs/aws-saa/flashcards/pack-17.js')),
+      pack('./certs/aws-saa/flashcards/pack-18.js', () => import('./certs/aws-saa/flashcards/pack-18.js')),
+      pack('./certs/aws-saa/flashcards/pack-19.js', () => import('./certs/aws-saa/flashcards/pack-19.js')),
+      pack('./certs/aws-saa/flashcards/pack-20.js', () => import('./certs/aws-saa/flashcards/pack-20.js'))
     ]
   },
   'aws-sap': {
@@ -143,7 +223,17 @@ export const CONTENT_REGISTRY = {
       pack('./certs/aws-scs/questions/pack-7.js', () => import('./certs/aws-scs/questions/pack-7.js')),
       pack('./certs/aws-scs/questions/pack-8.js', () => import('./certs/aws-scs/questions/pack-8.js')),
       pack('./certs/aws-scs/questions/pack-9.js', () => import('./certs/aws-scs/questions/pack-9.js')),
-      pack('./certs/aws-scs/questions/pack-10.js', () => import('./certs/aws-scs/questions/pack-10.js'))
+      pack('./certs/aws-scs/questions/pack-10.js', () => import('./certs/aws-scs/questions/pack-10.js')),
+      pack('./certs/aws-scs/questions/pack-11.js', () => import('./certs/aws-scs/questions/pack-11.js')),
+      pack('./certs/aws-scs/questions/pack-12.js', () => import('./certs/aws-scs/questions/pack-12.js')),
+      pack('./certs/aws-scs/questions/pack-13.js', () => import('./certs/aws-scs/questions/pack-13.js')),
+      pack('./certs/aws-scs/questions/pack-14.js', () => import('./certs/aws-scs/questions/pack-14.js')),
+      pack('./certs/aws-scs/questions/pack-15.js', () => import('./certs/aws-scs/questions/pack-15.js')),
+      pack('./certs/aws-scs/questions/pack-16.js', () => import('./certs/aws-scs/questions/pack-16.js')),
+      pack('./certs/aws-scs/questions/pack-17.js', () => import('./certs/aws-scs/questions/pack-17.js')),
+      pack('./certs/aws-scs/questions/pack-18.js', () => import('./certs/aws-scs/questions/pack-18.js')),
+      pack('./certs/aws-scs/questions/pack-19.js', () => import('./certs/aws-scs/questions/pack-19.js')),
+      pack('./certs/aws-scs/questions/pack-20.js', () => import('./certs/aws-scs/questions/pack-20.js'))
     ],
     flashcards: [
       pack('./certs/aws-scs/flashcards/pack-1.js', () => import('./certs/aws-scs/flashcards/pack-1.js')),
@@ -155,7 +245,17 @@ export const CONTENT_REGISTRY = {
       pack('./certs/aws-scs/flashcards/pack-7.js', () => import('./certs/aws-scs/flashcards/pack-7.js')),
       pack('./certs/aws-scs/flashcards/pack-8.js', () => import('./certs/aws-scs/flashcards/pack-8.js')),
       pack('./certs/aws-scs/flashcards/pack-9.js', () => import('./certs/aws-scs/flashcards/pack-9.js')),
-      pack('./certs/aws-scs/flashcards/pack-10.js', () => import('./certs/aws-scs/flashcards/pack-10.js'))
+      pack('./certs/aws-scs/flashcards/pack-10.js', () => import('./certs/aws-scs/flashcards/pack-10.js')),
+      pack('./certs/aws-scs/flashcards/pack-11.js', () => import('./certs/aws-scs/flashcards/pack-11.js')),
+      pack('./certs/aws-scs/flashcards/pack-12.js', () => import('./certs/aws-scs/flashcards/pack-12.js')),
+      pack('./certs/aws-scs/flashcards/pack-13.js', () => import('./certs/aws-scs/flashcards/pack-13.js')),
+      pack('./certs/aws-scs/flashcards/pack-14.js', () => import('./certs/aws-scs/flashcards/pack-14.js')),
+      pack('./certs/aws-scs/flashcards/pack-15.js', () => import('./certs/aws-scs/flashcards/pack-15.js')),
+      pack('./certs/aws-scs/flashcards/pack-16.js', () => import('./certs/aws-scs/flashcards/pack-16.js')),
+      pack('./certs/aws-scs/flashcards/pack-17.js', () => import('./certs/aws-scs/flashcards/pack-17.js')),
+      pack('./certs/aws-scs/flashcards/pack-18.js', () => import('./certs/aws-scs/flashcards/pack-18.js')),
+      pack('./certs/aws-scs/flashcards/pack-19.js', () => import('./certs/aws-scs/flashcards/pack-19.js')),
+      pack('./certs/aws-scs/flashcards/pack-20.js', () => import('./certs/aws-scs/flashcards/pack-20.js'))
     ]
   },
   'aws-soa': {
@@ -181,7 +281,17 @@ export const CONTENT_REGISTRY = {
       pack('./certs/azure-az104/questions/pack-7.js', () => import('./certs/azure-az104/questions/pack-7.js')),
       pack('./certs/azure-az104/questions/pack-8.js', () => import('./certs/azure-az104/questions/pack-8.js')),
       pack('./certs/azure-az104/questions/pack-9.js', () => import('./certs/azure-az104/questions/pack-9.js')),
-      pack('./certs/azure-az104/questions/pack-10.js', () => import('./certs/azure-az104/questions/pack-10.js'))
+      pack('./certs/azure-az104/questions/pack-10.js', () => import('./certs/azure-az104/questions/pack-10.js')),
+      pack('./certs/azure-az104/questions/pack-11.js', () => import('./certs/azure-az104/questions/pack-11.js')),
+      pack('./certs/azure-az104/questions/pack-12.js', () => import('./certs/azure-az104/questions/pack-12.js')),
+      pack('./certs/azure-az104/questions/pack-13.js', () => import('./certs/azure-az104/questions/pack-13.js')),
+      pack('./certs/azure-az104/questions/pack-14.js', () => import('./certs/azure-az104/questions/pack-14.js')),
+      pack('./certs/azure-az104/questions/pack-15.js', () => import('./certs/azure-az104/questions/pack-15.js')),
+      pack('./certs/azure-az104/questions/pack-16.js', () => import('./certs/azure-az104/questions/pack-16.js')),
+      pack('./certs/azure-az104/questions/pack-17.js', () => import('./certs/azure-az104/questions/pack-17.js')),
+      pack('./certs/azure-az104/questions/pack-18.js', () => import('./certs/azure-az104/questions/pack-18.js')),
+      pack('./certs/azure-az104/questions/pack-19.js', () => import('./certs/azure-az104/questions/pack-19.js')),
+      pack('./certs/azure-az104/questions/pack-20.js', () => import('./certs/azure-az104/questions/pack-20.js'))
     ],
     flashcards: [
       pack('./certs/azure-az104/flashcards/pack-1.js', () => import('./certs/azure-az104/flashcards/pack-1.js')),
@@ -193,7 +303,17 @@ export const CONTENT_REGISTRY = {
       pack('./certs/azure-az104/flashcards/pack-7.js', () => import('./certs/azure-az104/flashcards/pack-7.js')),
       pack('./certs/azure-az104/flashcards/pack-8.js', () => import('./certs/azure-az104/flashcards/pack-8.js')),
       pack('./certs/azure-az104/flashcards/pack-9.js', () => import('./certs/azure-az104/flashcards/pack-9.js')),
-      pack('./certs/azure-az104/flashcards/pack-10.js', () => import('./certs/azure-az104/flashcards/pack-10.js'))
+      pack('./certs/azure-az104/flashcards/pack-10.js', () => import('./certs/azure-az104/flashcards/pack-10.js')),
+      pack('./certs/azure-az104/flashcards/pack-11.js', () => import('./certs/azure-az104/flashcards/pack-11.js')),
+      pack('./certs/azure-az104/flashcards/pack-12.js', () => import('./certs/azure-az104/flashcards/pack-12.js')),
+      pack('./certs/azure-az104/flashcards/pack-13.js', () => import('./certs/azure-az104/flashcards/pack-13.js')),
+      pack('./certs/azure-az104/flashcards/pack-14.js', () => import('./certs/azure-az104/flashcards/pack-14.js')),
+      pack('./certs/azure-az104/flashcards/pack-15.js', () => import('./certs/azure-az104/flashcards/pack-15.js')),
+      pack('./certs/azure-az104/flashcards/pack-16.js', () => import('./certs/azure-az104/flashcards/pack-16.js')),
+      pack('./certs/azure-az104/flashcards/pack-17.js', () => import('./certs/azure-az104/flashcards/pack-17.js')),
+      pack('./certs/azure-az104/flashcards/pack-18.js', () => import('./certs/azure-az104/flashcards/pack-18.js')),
+      pack('./certs/azure-az104/flashcards/pack-19.js', () => import('./certs/azure-az104/flashcards/pack-19.js')),
+      pack('./certs/azure-az104/flashcards/pack-20.js', () => import('./certs/azure-az104/flashcards/pack-20.js'))
     ]
   },
   'azure-az204': {
@@ -207,7 +327,17 @@ export const CONTENT_REGISTRY = {
       pack('./certs/azure-az204/questions/pack-7.js', () => import('./certs/azure-az204/questions/pack-7.js')),
       pack('./certs/azure-az204/questions/pack-8.js', () => import('./certs/azure-az204/questions/pack-8.js')),
       pack('./certs/azure-az204/questions/pack-9.js', () => import('./certs/azure-az204/questions/pack-9.js')),
-      pack('./certs/azure-az204/questions/pack-10.js', () => import('./certs/azure-az204/questions/pack-10.js'))
+      pack('./certs/azure-az204/questions/pack-10.js', () => import('./certs/azure-az204/questions/pack-10.js')),
+      pack('./certs/azure-az204/questions/pack-11.js', () => import('./certs/azure-az204/questions/pack-11.js')),
+      pack('./certs/azure-az204/questions/pack-12.js', () => import('./certs/azure-az204/questions/pack-12.js')),
+      pack('./certs/azure-az204/questions/pack-13.js', () => import('./certs/azure-az204/questions/pack-13.js')),
+      pack('./certs/azure-az204/questions/pack-14.js', () => import('./certs/azure-az204/questions/pack-14.js')),
+      pack('./certs/azure-az204/questions/pack-15.js', () => import('./certs/azure-az204/questions/pack-15.js')),
+      pack('./certs/azure-az204/questions/pack-16.js', () => import('./certs/azure-az204/questions/pack-16.js')),
+      pack('./certs/azure-az204/questions/pack-17.js', () => import('./certs/azure-az204/questions/pack-17.js')),
+      pack('./certs/azure-az204/questions/pack-18.js', () => import('./certs/azure-az204/questions/pack-18.js')),
+      pack('./certs/azure-az204/questions/pack-19.js', () => import('./certs/azure-az204/questions/pack-19.js')),
+      pack('./certs/azure-az204/questions/pack-20.js', () => import('./certs/azure-az204/questions/pack-20.js'))
     ],
     flashcards: [
       pack('./certs/azure-az204/flashcards/pack-1.js', () => import('./certs/azure-az204/flashcards/pack-1.js')),
@@ -219,7 +349,17 @@ export const CONTENT_REGISTRY = {
       pack('./certs/azure-az204/flashcards/pack-7.js', () => import('./certs/azure-az204/flashcards/pack-7.js')),
       pack('./certs/azure-az204/flashcards/pack-8.js', () => import('./certs/azure-az204/flashcards/pack-8.js')),
       pack('./certs/azure-az204/flashcards/pack-9.js', () => import('./certs/azure-az204/flashcards/pack-9.js')),
-      pack('./certs/azure-az204/flashcards/pack-10.js', () => import('./certs/azure-az204/flashcards/pack-10.js'))
+      pack('./certs/azure-az204/flashcards/pack-10.js', () => import('./certs/azure-az204/flashcards/pack-10.js')),
+      pack('./certs/azure-az204/flashcards/pack-11.js', () => import('./certs/azure-az204/flashcards/pack-11.js')),
+      pack('./certs/azure-az204/flashcards/pack-12.js', () => import('./certs/azure-az204/flashcards/pack-12.js')),
+      pack('./certs/azure-az204/flashcards/pack-13.js', () => import('./certs/azure-az204/flashcards/pack-13.js')),
+      pack('./certs/azure-az204/flashcards/pack-14.js', () => import('./certs/azure-az204/flashcards/pack-14.js')),
+      pack('./certs/azure-az204/flashcards/pack-15.js', () => import('./certs/azure-az204/flashcards/pack-15.js')),
+      pack('./certs/azure-az204/flashcards/pack-16.js', () => import('./certs/azure-az204/flashcards/pack-16.js')),
+      pack('./certs/azure-az204/flashcards/pack-17.js', () => import('./certs/azure-az204/flashcards/pack-17.js')),
+      pack('./certs/azure-az204/flashcards/pack-18.js', () => import('./certs/azure-az204/flashcards/pack-18.js')),
+      pack('./certs/azure-az204/flashcards/pack-19.js', () => import('./certs/azure-az204/flashcards/pack-19.js')),
+      pack('./certs/azure-az204/flashcards/pack-20.js', () => import('./certs/azure-az204/flashcards/pack-20.js'))
     ]
   },
   'azure-az305': {
@@ -237,7 +377,17 @@ export const CONTENT_REGISTRY = {
       pack('./certs/azure-az400/questions/pack-7.js', () => import('./certs/azure-az400/questions/pack-7.js')),
       pack('./certs/azure-az400/questions/pack-8.js', () => import('./certs/azure-az400/questions/pack-8.js')),
       pack('./certs/azure-az400/questions/pack-9.js', () => import('./certs/azure-az400/questions/pack-9.js')),
-      pack('./certs/azure-az400/questions/pack-10.js', () => import('./certs/azure-az400/questions/pack-10.js'))
+      pack('./certs/azure-az400/questions/pack-10.js', () => import('./certs/azure-az400/questions/pack-10.js')),
+      pack('./certs/azure-az400/questions/pack-11.js', () => import('./certs/azure-az400/questions/pack-11.js')),
+      pack('./certs/azure-az400/questions/pack-12.js', () => import('./certs/azure-az400/questions/pack-12.js')),
+      pack('./certs/azure-az400/questions/pack-13.js', () => import('./certs/azure-az400/questions/pack-13.js')),
+      pack('./certs/azure-az400/questions/pack-14.js', () => import('./certs/azure-az400/questions/pack-14.js')),
+      pack('./certs/azure-az400/questions/pack-15.js', () => import('./certs/azure-az400/questions/pack-15.js')),
+      pack('./certs/azure-az400/questions/pack-16.js', () => import('./certs/azure-az400/questions/pack-16.js')),
+      pack('./certs/azure-az400/questions/pack-17.js', () => import('./certs/azure-az400/questions/pack-17.js')),
+      pack('./certs/azure-az400/questions/pack-18.js', () => import('./certs/azure-az400/questions/pack-18.js')),
+      pack('./certs/azure-az400/questions/pack-19.js', () => import('./certs/azure-az400/questions/pack-19.js')),
+      pack('./certs/azure-az400/questions/pack-20.js', () => import('./certs/azure-az400/questions/pack-20.js'))
     ],
     flashcards: [
       pack('./certs/azure-az400/flashcards/pack-1.js', () => import('./certs/azure-az400/flashcards/pack-1.js')),
@@ -249,7 +399,17 @@ export const CONTENT_REGISTRY = {
       pack('./certs/azure-az400/flashcards/pack-7.js', () => import('./certs/azure-az400/flashcards/pack-7.js')),
       pack('./certs/azure-az400/flashcards/pack-8.js', () => import('./certs/azure-az400/flashcards/pack-8.js')),
       pack('./certs/azure-az400/flashcards/pack-9.js', () => import('./certs/azure-az400/flashcards/pack-9.js')),
-      pack('./certs/azure-az400/flashcards/pack-10.js', () => import('./certs/azure-az400/flashcards/pack-10.js'))
+      pack('./certs/azure-az400/flashcards/pack-10.js', () => import('./certs/azure-az400/flashcards/pack-10.js')),
+      pack('./certs/azure-az400/flashcards/pack-11.js', () => import('./certs/azure-az400/flashcards/pack-11.js')),
+      pack('./certs/azure-az400/flashcards/pack-12.js', () => import('./certs/azure-az400/flashcards/pack-12.js')),
+      pack('./certs/azure-az400/flashcards/pack-13.js', () => import('./certs/azure-az400/flashcards/pack-13.js')),
+      pack('./certs/azure-az400/flashcards/pack-14.js', () => import('./certs/azure-az400/flashcards/pack-14.js')),
+      pack('./certs/azure-az400/flashcards/pack-15.js', () => import('./certs/azure-az400/flashcards/pack-15.js')),
+      pack('./certs/azure-az400/flashcards/pack-16.js', () => import('./certs/azure-az400/flashcards/pack-16.js')),
+      pack('./certs/azure-az400/flashcards/pack-17.js', () => import('./certs/azure-az400/flashcards/pack-17.js')),
+      pack('./certs/azure-az400/flashcards/pack-18.js', () => import('./certs/azure-az400/flashcards/pack-18.js')),
+      pack('./certs/azure-az400/flashcards/pack-19.js', () => import('./certs/azure-az400/flashcards/pack-19.js')),
+      pack('./certs/azure-az400/flashcards/pack-20.js', () => import('./certs/azure-az400/flashcards/pack-20.js'))
     ]
   },
   'azure-az900': {
@@ -263,7 +423,17 @@ export const CONTENT_REGISTRY = {
       pack('./certs/azure-az900/questions/pack-7.js', () => import('./certs/azure-az900/questions/pack-7.js')),
       pack('./certs/azure-az900/questions/pack-8.js', () => import('./certs/azure-az900/questions/pack-8.js')),
       pack('./certs/azure-az900/questions/pack-9.js', () => import('./certs/azure-az900/questions/pack-9.js')),
-      pack('./certs/azure-az900/questions/pack-10.js', () => import('./certs/azure-az900/questions/pack-10.js'))
+      pack('./certs/azure-az900/questions/pack-10.js', () => import('./certs/azure-az900/questions/pack-10.js')),
+      pack('./certs/azure-az900/questions/pack-11.js', () => import('./certs/azure-az900/questions/pack-11.js')),
+      pack('./certs/azure-az900/questions/pack-12.js', () => import('./certs/azure-az900/questions/pack-12.js')),
+      pack('./certs/azure-az900/questions/pack-13.js', () => import('./certs/azure-az900/questions/pack-13.js')),
+      pack('./certs/azure-az900/questions/pack-14.js', () => import('./certs/azure-az900/questions/pack-14.js')),
+      pack('./certs/azure-az900/questions/pack-15.js', () => import('./certs/azure-az900/questions/pack-15.js')),
+      pack('./certs/azure-az900/questions/pack-16.js', () => import('./certs/azure-az900/questions/pack-16.js')),
+      pack('./certs/azure-az900/questions/pack-17.js', () => import('./certs/azure-az900/questions/pack-17.js')),
+      pack('./certs/azure-az900/questions/pack-18.js', () => import('./certs/azure-az900/questions/pack-18.js')),
+      pack('./certs/azure-az900/questions/pack-19.js', () => import('./certs/azure-az900/questions/pack-19.js')),
+      pack('./certs/azure-az900/questions/pack-20.js', () => import('./certs/azure-az900/questions/pack-20.js'))
     ],
     flashcards: [
       pack('./certs/azure-az900/flashcards/pack-1.js', () => import('./certs/azure-az900/flashcards/pack-1.js')),
@@ -275,7 +445,17 @@ export const CONTENT_REGISTRY = {
       pack('./certs/azure-az900/flashcards/pack-7.js', () => import('./certs/azure-az900/flashcards/pack-7.js')),
       pack('./certs/azure-az900/flashcards/pack-8.js', () => import('./certs/azure-az900/flashcards/pack-8.js')),
       pack('./certs/azure-az900/flashcards/pack-9.js', () => import('./certs/azure-az900/flashcards/pack-9.js')),
-      pack('./certs/azure-az900/flashcards/pack-10.js', () => import('./certs/azure-az900/flashcards/pack-10.js'))
+      pack('./certs/azure-az900/flashcards/pack-10.js', () => import('./certs/azure-az900/flashcards/pack-10.js')),
+      pack('./certs/azure-az900/flashcards/pack-11.js', () => import('./certs/azure-az900/flashcards/pack-11.js')),
+      pack('./certs/azure-az900/flashcards/pack-12.js', () => import('./certs/azure-az900/flashcards/pack-12.js')),
+      pack('./certs/azure-az900/flashcards/pack-13.js', () => import('./certs/azure-az900/flashcards/pack-13.js')),
+      pack('./certs/azure-az900/flashcards/pack-14.js', () => import('./certs/azure-az900/flashcards/pack-14.js')),
+      pack('./certs/azure-az900/flashcards/pack-15.js', () => import('./certs/azure-az900/flashcards/pack-15.js')),
+      pack('./certs/azure-az900/flashcards/pack-16.js', () => import('./certs/azure-az900/flashcards/pack-16.js')),
+      pack('./certs/azure-az900/flashcards/pack-17.js', () => import('./certs/azure-az900/flashcards/pack-17.js')),
+      pack('./certs/azure-az900/flashcards/pack-18.js', () => import('./certs/azure-az900/flashcards/pack-18.js')),
+      pack('./certs/azure-az900/flashcards/pack-19.js', () => import('./certs/azure-az900/flashcards/pack-19.js')),
+      pack('./certs/azure-az900/flashcards/pack-20.js', () => import('./certs/azure-az900/flashcards/pack-20.js'))
     ]
   },
   'azure-sc500': {
@@ -301,7 +481,17 @@ export const CONTENT_REGISTRY = {
       pack('./certs/cncf-cba/questions/pack-7.js', () => import('./certs/cncf-cba/questions/pack-7.js')),
       pack('./certs/cncf-cba/questions/pack-8.js', () => import('./certs/cncf-cba/questions/pack-8.js')),
       pack('./certs/cncf-cba/questions/pack-9.js', () => import('./certs/cncf-cba/questions/pack-9.js')),
-      pack('./certs/cncf-cba/questions/pack-10.js', () => import('./certs/cncf-cba/questions/pack-10.js'))
+      pack('./certs/cncf-cba/questions/pack-10.js', () => import('./certs/cncf-cba/questions/pack-10.js')),
+      pack('./certs/cncf-cba/questions/pack-11.js', () => import('./certs/cncf-cba/questions/pack-11.js')),
+      pack('./certs/cncf-cba/questions/pack-12.js', () => import('./certs/cncf-cba/questions/pack-12.js')),
+      pack('./certs/cncf-cba/questions/pack-13.js', () => import('./certs/cncf-cba/questions/pack-13.js')),
+      pack('./certs/cncf-cba/questions/pack-14.js', () => import('./certs/cncf-cba/questions/pack-14.js')),
+      pack('./certs/cncf-cba/questions/pack-15.js', () => import('./certs/cncf-cba/questions/pack-15.js')),
+      pack('./certs/cncf-cba/questions/pack-16.js', () => import('./certs/cncf-cba/questions/pack-16.js')),
+      pack('./certs/cncf-cba/questions/pack-17.js', () => import('./certs/cncf-cba/questions/pack-17.js')),
+      pack('./certs/cncf-cba/questions/pack-18.js', () => import('./certs/cncf-cba/questions/pack-18.js')),
+      pack('./certs/cncf-cba/questions/pack-19.js', () => import('./certs/cncf-cba/questions/pack-19.js')),
+      pack('./certs/cncf-cba/questions/pack-20.js', () => import('./certs/cncf-cba/questions/pack-20.js'))
     ],
     flashcards: [
       pack('./certs/cncf-cba/flashcards/pack-1.js', () => import('./certs/cncf-cba/flashcards/pack-1.js')),
@@ -313,7 +503,17 @@ export const CONTENT_REGISTRY = {
       pack('./certs/cncf-cba/flashcards/pack-7.js', () => import('./certs/cncf-cba/flashcards/pack-7.js')),
       pack('./certs/cncf-cba/flashcards/pack-8.js', () => import('./certs/cncf-cba/flashcards/pack-8.js')),
       pack('./certs/cncf-cba/flashcards/pack-9.js', () => import('./certs/cncf-cba/flashcards/pack-9.js')),
-      pack('./certs/cncf-cba/flashcards/pack-10.js', () => import('./certs/cncf-cba/flashcards/pack-10.js'))
+      pack('./certs/cncf-cba/flashcards/pack-10.js', () => import('./certs/cncf-cba/flashcards/pack-10.js')),
+      pack('./certs/cncf-cba/flashcards/pack-11.js', () => import('./certs/cncf-cba/flashcards/pack-11.js')),
+      pack('./certs/cncf-cba/flashcards/pack-12.js', () => import('./certs/cncf-cba/flashcards/pack-12.js')),
+      pack('./certs/cncf-cba/flashcards/pack-13.js', () => import('./certs/cncf-cba/flashcards/pack-13.js')),
+      pack('./certs/cncf-cba/flashcards/pack-14.js', () => import('./certs/cncf-cba/flashcards/pack-14.js')),
+      pack('./certs/cncf-cba/flashcards/pack-15.js', () => import('./certs/cncf-cba/flashcards/pack-15.js')),
+      pack('./certs/cncf-cba/flashcards/pack-16.js', () => import('./certs/cncf-cba/flashcards/pack-16.js')),
+      pack('./certs/cncf-cba/flashcards/pack-17.js', () => import('./certs/cncf-cba/flashcards/pack-17.js')),
+      pack('./certs/cncf-cba/flashcards/pack-18.js', () => import('./certs/cncf-cba/flashcards/pack-18.js')),
+      pack('./certs/cncf-cba/flashcards/pack-19.js', () => import('./certs/cncf-cba/flashcards/pack-19.js')),
+      pack('./certs/cncf-cba/flashcards/pack-20.js', () => import('./certs/cncf-cba/flashcards/pack-20.js'))
     ]
   },
   'cncf-cca': {
@@ -331,7 +531,17 @@ export const CONTENT_REGISTRY = {
       pack('./certs/cncf-cgoa/questions/pack-7.js', () => import('./certs/cncf-cgoa/questions/pack-7.js')),
       pack('./certs/cncf-cgoa/questions/pack-8.js', () => import('./certs/cncf-cgoa/questions/pack-8.js')),
       pack('./certs/cncf-cgoa/questions/pack-9.js', () => import('./certs/cncf-cgoa/questions/pack-9.js')),
-      pack('./certs/cncf-cgoa/questions/pack-10.js', () => import('./certs/cncf-cgoa/questions/pack-10.js'))
+      pack('./certs/cncf-cgoa/questions/pack-10.js', () => import('./certs/cncf-cgoa/questions/pack-10.js')),
+      pack('./certs/cncf-cgoa/questions/pack-11.js', () => import('./certs/cncf-cgoa/questions/pack-11.js')),
+      pack('./certs/cncf-cgoa/questions/pack-12.js', () => import('./certs/cncf-cgoa/questions/pack-12.js')),
+      pack('./certs/cncf-cgoa/questions/pack-13.js', () => import('./certs/cncf-cgoa/questions/pack-13.js')),
+      pack('./certs/cncf-cgoa/questions/pack-14.js', () => import('./certs/cncf-cgoa/questions/pack-14.js')),
+      pack('./certs/cncf-cgoa/questions/pack-15.js', () => import('./certs/cncf-cgoa/questions/pack-15.js')),
+      pack('./certs/cncf-cgoa/questions/pack-16.js', () => import('./certs/cncf-cgoa/questions/pack-16.js')),
+      pack('./certs/cncf-cgoa/questions/pack-17.js', () => import('./certs/cncf-cgoa/questions/pack-17.js')),
+      pack('./certs/cncf-cgoa/questions/pack-18.js', () => import('./certs/cncf-cgoa/questions/pack-18.js')),
+      pack('./certs/cncf-cgoa/questions/pack-19.js', () => import('./certs/cncf-cgoa/questions/pack-19.js')),
+      pack('./certs/cncf-cgoa/questions/pack-20.js', () => import('./certs/cncf-cgoa/questions/pack-20.js'))
     ],
     flashcards: [
       pack('./certs/cncf-cgoa/flashcards/pack-1.js', () => import('./certs/cncf-cgoa/flashcards/pack-1.js')),
@@ -343,7 +553,17 @@ export const CONTENT_REGISTRY = {
       pack('./certs/cncf-cgoa/flashcards/pack-7.js', () => import('./certs/cncf-cgoa/flashcards/pack-7.js')),
       pack('./certs/cncf-cgoa/flashcards/pack-8.js', () => import('./certs/cncf-cgoa/flashcards/pack-8.js')),
       pack('./certs/cncf-cgoa/flashcards/pack-9.js', () => import('./certs/cncf-cgoa/flashcards/pack-9.js')),
-      pack('./certs/cncf-cgoa/flashcards/pack-10.js', () => import('./certs/cncf-cgoa/flashcards/pack-10.js'))
+      pack('./certs/cncf-cgoa/flashcards/pack-10.js', () => import('./certs/cncf-cgoa/flashcards/pack-10.js')),
+      pack('./certs/cncf-cgoa/flashcards/pack-11.js', () => import('./certs/cncf-cgoa/flashcards/pack-11.js')),
+      pack('./certs/cncf-cgoa/flashcards/pack-12.js', () => import('./certs/cncf-cgoa/flashcards/pack-12.js')),
+      pack('./certs/cncf-cgoa/flashcards/pack-13.js', () => import('./certs/cncf-cgoa/flashcards/pack-13.js')),
+      pack('./certs/cncf-cgoa/flashcards/pack-14.js', () => import('./certs/cncf-cgoa/flashcards/pack-14.js')),
+      pack('./certs/cncf-cgoa/flashcards/pack-15.js', () => import('./certs/cncf-cgoa/flashcards/pack-15.js')),
+      pack('./certs/cncf-cgoa/flashcards/pack-16.js', () => import('./certs/cncf-cgoa/flashcards/pack-16.js')),
+      pack('./certs/cncf-cgoa/flashcards/pack-17.js', () => import('./certs/cncf-cgoa/flashcards/pack-17.js')),
+      pack('./certs/cncf-cgoa/flashcards/pack-18.js', () => import('./certs/cncf-cgoa/flashcards/pack-18.js')),
+      pack('./certs/cncf-cgoa/flashcards/pack-19.js', () => import('./certs/cncf-cgoa/flashcards/pack-19.js')),
+      pack('./certs/cncf-cgoa/flashcards/pack-20.js', () => import('./certs/cncf-cgoa/flashcards/pack-20.js'))
     ]
   },
   'cncf-ckne': {
@@ -361,7 +581,17 @@ export const CONTENT_REGISTRY = {
       pack('./certs/cncf-cnpa/questions/pack-7.js', () => import('./certs/cncf-cnpa/questions/pack-7.js')),
       pack('./certs/cncf-cnpa/questions/pack-8.js', () => import('./certs/cncf-cnpa/questions/pack-8.js')),
       pack('./certs/cncf-cnpa/questions/pack-9.js', () => import('./certs/cncf-cnpa/questions/pack-9.js')),
-      pack('./certs/cncf-cnpa/questions/pack-10.js', () => import('./certs/cncf-cnpa/questions/pack-10.js'))
+      pack('./certs/cncf-cnpa/questions/pack-10.js', () => import('./certs/cncf-cnpa/questions/pack-10.js')),
+      pack('./certs/cncf-cnpa/questions/pack-11.js', () => import('./certs/cncf-cnpa/questions/pack-11.js')),
+      pack('./certs/cncf-cnpa/questions/pack-12.js', () => import('./certs/cncf-cnpa/questions/pack-12.js')),
+      pack('./certs/cncf-cnpa/questions/pack-13.js', () => import('./certs/cncf-cnpa/questions/pack-13.js')),
+      pack('./certs/cncf-cnpa/questions/pack-14.js', () => import('./certs/cncf-cnpa/questions/pack-14.js')),
+      pack('./certs/cncf-cnpa/questions/pack-15.js', () => import('./certs/cncf-cnpa/questions/pack-15.js')),
+      pack('./certs/cncf-cnpa/questions/pack-16.js', () => import('./certs/cncf-cnpa/questions/pack-16.js')),
+      pack('./certs/cncf-cnpa/questions/pack-17.js', () => import('./certs/cncf-cnpa/questions/pack-17.js')),
+      pack('./certs/cncf-cnpa/questions/pack-18.js', () => import('./certs/cncf-cnpa/questions/pack-18.js')),
+      pack('./certs/cncf-cnpa/questions/pack-19.js', () => import('./certs/cncf-cnpa/questions/pack-19.js')),
+      pack('./certs/cncf-cnpa/questions/pack-20.js', () => import('./certs/cncf-cnpa/questions/pack-20.js'))
     ],
     flashcards: [
       pack('./certs/cncf-cnpa/flashcards/pack-1.js', () => import('./certs/cncf-cnpa/flashcards/pack-1.js')),
@@ -373,7 +603,17 @@ export const CONTENT_REGISTRY = {
       pack('./certs/cncf-cnpa/flashcards/pack-7.js', () => import('./certs/cncf-cnpa/flashcards/pack-7.js')),
       pack('./certs/cncf-cnpa/flashcards/pack-8.js', () => import('./certs/cncf-cnpa/flashcards/pack-8.js')),
       pack('./certs/cncf-cnpa/flashcards/pack-9.js', () => import('./certs/cncf-cnpa/flashcards/pack-9.js')),
-      pack('./certs/cncf-cnpa/flashcards/pack-10.js', () => import('./certs/cncf-cnpa/flashcards/pack-10.js'))
+      pack('./certs/cncf-cnpa/flashcards/pack-10.js', () => import('./certs/cncf-cnpa/flashcards/pack-10.js')),
+      pack('./certs/cncf-cnpa/flashcards/pack-11.js', () => import('./certs/cncf-cnpa/flashcards/pack-11.js')),
+      pack('./certs/cncf-cnpa/flashcards/pack-12.js', () => import('./certs/cncf-cnpa/flashcards/pack-12.js')),
+      pack('./certs/cncf-cnpa/flashcards/pack-13.js', () => import('./certs/cncf-cnpa/flashcards/pack-13.js')),
+      pack('./certs/cncf-cnpa/flashcards/pack-14.js', () => import('./certs/cncf-cnpa/flashcards/pack-14.js')),
+      pack('./certs/cncf-cnpa/flashcards/pack-15.js', () => import('./certs/cncf-cnpa/flashcards/pack-15.js')),
+      pack('./certs/cncf-cnpa/flashcards/pack-16.js', () => import('./certs/cncf-cnpa/flashcards/pack-16.js')),
+      pack('./certs/cncf-cnpa/flashcards/pack-17.js', () => import('./certs/cncf-cnpa/flashcards/pack-17.js')),
+      pack('./certs/cncf-cnpa/flashcards/pack-18.js', () => import('./certs/cncf-cnpa/flashcards/pack-18.js')),
+      pack('./certs/cncf-cnpa/flashcards/pack-19.js', () => import('./certs/cncf-cnpa/flashcards/pack-19.js')),
+      pack('./certs/cncf-cnpa/flashcards/pack-20.js', () => import('./certs/cncf-cnpa/flashcards/pack-20.js'))
     ]
   },
   'cncf-cnpe': {
@@ -387,7 +627,17 @@ export const CONTENT_REGISTRY = {
       pack('./certs/cncf-cnpe/questions/pack-7.js', () => import('./certs/cncf-cnpe/questions/pack-7.js')),
       pack('./certs/cncf-cnpe/questions/pack-8.js', () => import('./certs/cncf-cnpe/questions/pack-8.js')),
       pack('./certs/cncf-cnpe/questions/pack-9.js', () => import('./certs/cncf-cnpe/questions/pack-9.js')),
-      pack('./certs/cncf-cnpe/questions/pack-10.js', () => import('./certs/cncf-cnpe/questions/pack-10.js'))
+      pack('./certs/cncf-cnpe/questions/pack-10.js', () => import('./certs/cncf-cnpe/questions/pack-10.js')),
+      pack('./certs/cncf-cnpe/questions/pack-11.js', () => import('./certs/cncf-cnpe/questions/pack-11.js')),
+      pack('./certs/cncf-cnpe/questions/pack-12.js', () => import('./certs/cncf-cnpe/questions/pack-12.js')),
+      pack('./certs/cncf-cnpe/questions/pack-13.js', () => import('./certs/cncf-cnpe/questions/pack-13.js')),
+      pack('./certs/cncf-cnpe/questions/pack-14.js', () => import('./certs/cncf-cnpe/questions/pack-14.js')),
+      pack('./certs/cncf-cnpe/questions/pack-15.js', () => import('./certs/cncf-cnpe/questions/pack-15.js')),
+      pack('./certs/cncf-cnpe/questions/pack-16.js', () => import('./certs/cncf-cnpe/questions/pack-16.js')),
+      pack('./certs/cncf-cnpe/questions/pack-17.js', () => import('./certs/cncf-cnpe/questions/pack-17.js')),
+      pack('./certs/cncf-cnpe/questions/pack-18.js', () => import('./certs/cncf-cnpe/questions/pack-18.js')),
+      pack('./certs/cncf-cnpe/questions/pack-19.js', () => import('./certs/cncf-cnpe/questions/pack-19.js')),
+      pack('./certs/cncf-cnpe/questions/pack-20.js', () => import('./certs/cncf-cnpe/questions/pack-20.js'))
     ],
     flashcards: [
       pack('./certs/cncf-cnpe/flashcards/pack-1.js', () => import('./certs/cncf-cnpe/flashcards/pack-1.js')),
@@ -399,7 +649,17 @@ export const CONTENT_REGISTRY = {
       pack('./certs/cncf-cnpe/flashcards/pack-7.js', () => import('./certs/cncf-cnpe/flashcards/pack-7.js')),
       pack('./certs/cncf-cnpe/flashcards/pack-8.js', () => import('./certs/cncf-cnpe/flashcards/pack-8.js')),
       pack('./certs/cncf-cnpe/flashcards/pack-9.js', () => import('./certs/cncf-cnpe/flashcards/pack-9.js')),
-      pack('./certs/cncf-cnpe/flashcards/pack-10.js', () => import('./certs/cncf-cnpe/flashcards/pack-10.js'))
+      pack('./certs/cncf-cnpe/flashcards/pack-10.js', () => import('./certs/cncf-cnpe/flashcards/pack-10.js')),
+      pack('./certs/cncf-cnpe/flashcards/pack-11.js', () => import('./certs/cncf-cnpe/flashcards/pack-11.js')),
+      pack('./certs/cncf-cnpe/flashcards/pack-12.js', () => import('./certs/cncf-cnpe/flashcards/pack-12.js')),
+      pack('./certs/cncf-cnpe/flashcards/pack-13.js', () => import('./certs/cncf-cnpe/flashcards/pack-13.js')),
+      pack('./certs/cncf-cnpe/flashcards/pack-14.js', () => import('./certs/cncf-cnpe/flashcards/pack-14.js')),
+      pack('./certs/cncf-cnpe/flashcards/pack-15.js', () => import('./certs/cncf-cnpe/flashcards/pack-15.js')),
+      pack('./certs/cncf-cnpe/flashcards/pack-16.js', () => import('./certs/cncf-cnpe/flashcards/pack-16.js')),
+      pack('./certs/cncf-cnpe/flashcards/pack-17.js', () => import('./certs/cncf-cnpe/flashcards/pack-17.js')),
+      pack('./certs/cncf-cnpe/flashcards/pack-18.js', () => import('./certs/cncf-cnpe/flashcards/pack-18.js')),
+      pack('./certs/cncf-cnpe/flashcards/pack-19.js', () => import('./certs/cncf-cnpe/flashcards/pack-19.js')),
+      pack('./certs/cncf-cnpe/flashcards/pack-20.js', () => import('./certs/cncf-cnpe/flashcards/pack-20.js'))
     ]
   },
   'cncf-ica': {
@@ -433,7 +693,17 @@ export const CONTENT_REGISTRY = {
       pack('./certs/cncf-otca/questions/pack-7.js', () => import('./certs/cncf-otca/questions/pack-7.js')),
       pack('./certs/cncf-otca/questions/pack-8.js', () => import('./certs/cncf-otca/questions/pack-8.js')),
       pack('./certs/cncf-otca/questions/pack-9.js', () => import('./certs/cncf-otca/questions/pack-9.js')),
-      pack('./certs/cncf-otca/questions/pack-10.js', () => import('./certs/cncf-otca/questions/pack-10.js'))
+      pack('./certs/cncf-otca/questions/pack-10.js', () => import('./certs/cncf-otca/questions/pack-10.js')),
+      pack('./certs/cncf-otca/questions/pack-11.js', () => import('./certs/cncf-otca/questions/pack-11.js')),
+      pack('./certs/cncf-otca/questions/pack-12.js', () => import('./certs/cncf-otca/questions/pack-12.js')),
+      pack('./certs/cncf-otca/questions/pack-13.js', () => import('./certs/cncf-otca/questions/pack-13.js')),
+      pack('./certs/cncf-otca/questions/pack-14.js', () => import('./certs/cncf-otca/questions/pack-14.js')),
+      pack('./certs/cncf-otca/questions/pack-15.js', () => import('./certs/cncf-otca/questions/pack-15.js')),
+      pack('./certs/cncf-otca/questions/pack-16.js', () => import('./certs/cncf-otca/questions/pack-16.js')),
+      pack('./certs/cncf-otca/questions/pack-17.js', () => import('./certs/cncf-otca/questions/pack-17.js')),
+      pack('./certs/cncf-otca/questions/pack-18.js', () => import('./certs/cncf-otca/questions/pack-18.js')),
+      pack('./certs/cncf-otca/questions/pack-19.js', () => import('./certs/cncf-otca/questions/pack-19.js')),
+      pack('./certs/cncf-otca/questions/pack-20.js', () => import('./certs/cncf-otca/questions/pack-20.js'))
     ],
     flashcards: [
       pack('./certs/cncf-otca/flashcards/pack-1.js', () => import('./certs/cncf-otca/flashcards/pack-1.js')),
@@ -445,7 +715,17 @@ export const CONTENT_REGISTRY = {
       pack('./certs/cncf-otca/flashcards/pack-7.js', () => import('./certs/cncf-otca/flashcards/pack-7.js')),
       pack('./certs/cncf-otca/flashcards/pack-8.js', () => import('./certs/cncf-otca/flashcards/pack-8.js')),
       pack('./certs/cncf-otca/flashcards/pack-9.js', () => import('./certs/cncf-otca/flashcards/pack-9.js')),
-      pack('./certs/cncf-otca/flashcards/pack-10.js', () => import('./certs/cncf-otca/flashcards/pack-10.js'))
+      pack('./certs/cncf-otca/flashcards/pack-10.js', () => import('./certs/cncf-otca/flashcards/pack-10.js')),
+      pack('./certs/cncf-otca/flashcards/pack-11.js', () => import('./certs/cncf-otca/flashcards/pack-11.js')),
+      pack('./certs/cncf-otca/flashcards/pack-12.js', () => import('./certs/cncf-otca/flashcards/pack-12.js')),
+      pack('./certs/cncf-otca/flashcards/pack-13.js', () => import('./certs/cncf-otca/flashcards/pack-13.js')),
+      pack('./certs/cncf-otca/flashcards/pack-14.js', () => import('./certs/cncf-otca/flashcards/pack-14.js')),
+      pack('./certs/cncf-otca/flashcards/pack-15.js', () => import('./certs/cncf-otca/flashcards/pack-15.js')),
+      pack('./certs/cncf-otca/flashcards/pack-16.js', () => import('./certs/cncf-otca/flashcards/pack-16.js')),
+      pack('./certs/cncf-otca/flashcards/pack-17.js', () => import('./certs/cncf-otca/flashcards/pack-17.js')),
+      pack('./certs/cncf-otca/flashcards/pack-18.js', () => import('./certs/cncf-otca/flashcards/pack-18.js')),
+      pack('./certs/cncf-otca/flashcards/pack-19.js', () => import('./certs/cncf-otca/flashcards/pack-19.js')),
+      pack('./certs/cncf-otca/flashcards/pack-20.js', () => import('./certs/cncf-otca/flashcards/pack-20.js'))
     ]
   },
   'cncf-pca': {
@@ -507,7 +787,17 @@ export const CONTENT_REGISTRY = {
       pack('./certs/finops-focp/questions/pack-7.js', () => import('./certs/finops-focp/questions/pack-7.js')),
       pack('./certs/finops-focp/questions/pack-8.js', () => import('./certs/finops-focp/questions/pack-8.js')),
       pack('./certs/finops-focp/questions/pack-9.js', () => import('./certs/finops-focp/questions/pack-9.js')),
-      pack('./certs/finops-focp/questions/pack-10.js', () => import('./certs/finops-focp/questions/pack-10.js'))
+      pack('./certs/finops-focp/questions/pack-10.js', () => import('./certs/finops-focp/questions/pack-10.js')),
+      pack('./certs/finops-focp/questions/pack-11.js', () => import('./certs/finops-focp/questions/pack-11.js')),
+      pack('./certs/finops-focp/questions/pack-12.js', () => import('./certs/finops-focp/questions/pack-12.js')),
+      pack('./certs/finops-focp/questions/pack-13.js', () => import('./certs/finops-focp/questions/pack-13.js')),
+      pack('./certs/finops-focp/questions/pack-14.js', () => import('./certs/finops-focp/questions/pack-14.js')),
+      pack('./certs/finops-focp/questions/pack-15.js', () => import('./certs/finops-focp/questions/pack-15.js')),
+      pack('./certs/finops-focp/questions/pack-16.js', () => import('./certs/finops-focp/questions/pack-16.js')),
+      pack('./certs/finops-focp/questions/pack-17.js', () => import('./certs/finops-focp/questions/pack-17.js')),
+      pack('./certs/finops-focp/questions/pack-18.js', () => import('./certs/finops-focp/questions/pack-18.js')),
+      pack('./certs/finops-focp/questions/pack-19.js', () => import('./certs/finops-focp/questions/pack-19.js')),
+      pack('./certs/finops-focp/questions/pack-20.js', () => import('./certs/finops-focp/questions/pack-20.js'))
     ],
     flashcards: [
       pack('./certs/finops-focp/flashcards/pack-1.js', () => import('./certs/finops-focp/flashcards/pack-1.js')),
@@ -519,7 +809,17 @@ export const CONTENT_REGISTRY = {
       pack('./certs/finops-focp/flashcards/pack-7.js', () => import('./certs/finops-focp/flashcards/pack-7.js')),
       pack('./certs/finops-focp/flashcards/pack-8.js', () => import('./certs/finops-focp/flashcards/pack-8.js')),
       pack('./certs/finops-focp/flashcards/pack-9.js', () => import('./certs/finops-focp/flashcards/pack-9.js')),
-      pack('./certs/finops-focp/flashcards/pack-10.js', () => import('./certs/finops-focp/flashcards/pack-10.js'))
+      pack('./certs/finops-focp/flashcards/pack-10.js', () => import('./certs/finops-focp/flashcards/pack-10.js')),
+      pack('./certs/finops-focp/flashcards/pack-11.js', () => import('./certs/finops-focp/flashcards/pack-11.js')),
+      pack('./certs/finops-focp/flashcards/pack-12.js', () => import('./certs/finops-focp/flashcards/pack-12.js')),
+      pack('./certs/finops-focp/flashcards/pack-13.js', () => import('./certs/finops-focp/flashcards/pack-13.js')),
+      pack('./certs/finops-focp/flashcards/pack-14.js', () => import('./certs/finops-focp/flashcards/pack-14.js')),
+      pack('./certs/finops-focp/flashcards/pack-15.js', () => import('./certs/finops-focp/flashcards/pack-15.js')),
+      pack('./certs/finops-focp/flashcards/pack-16.js', () => import('./certs/finops-focp/flashcards/pack-16.js')),
+      pack('./certs/finops-focp/flashcards/pack-17.js', () => import('./certs/finops-focp/flashcards/pack-17.js')),
+      pack('./certs/finops-focp/flashcards/pack-18.js', () => import('./certs/finops-focp/flashcards/pack-18.js')),
+      pack('./certs/finops-focp/flashcards/pack-19.js', () => import('./certs/finops-focp/flashcards/pack-19.js')),
+      pack('./certs/finops-focp/flashcards/pack-20.js', () => import('./certs/finops-focp/flashcards/pack-20.js'))
     ]
   },
   'finops-focus': {
@@ -545,7 +845,17 @@ export const CONTENT_REGISTRY = {
       pack('./certs/gcp-ace/questions/pack-7.js', () => import('./certs/gcp-ace/questions/pack-7.js')),
       pack('./certs/gcp-ace/questions/pack-8.js', () => import('./certs/gcp-ace/questions/pack-8.js')),
       pack('./certs/gcp-ace/questions/pack-9.js', () => import('./certs/gcp-ace/questions/pack-9.js')),
-      pack('./certs/gcp-ace/questions/pack-10.js', () => import('./certs/gcp-ace/questions/pack-10.js'))
+      pack('./certs/gcp-ace/questions/pack-10.js', () => import('./certs/gcp-ace/questions/pack-10.js')),
+      pack('./certs/gcp-ace/questions/pack-11.js', () => import('./certs/gcp-ace/questions/pack-11.js')),
+      pack('./certs/gcp-ace/questions/pack-12.js', () => import('./certs/gcp-ace/questions/pack-12.js')),
+      pack('./certs/gcp-ace/questions/pack-13.js', () => import('./certs/gcp-ace/questions/pack-13.js')),
+      pack('./certs/gcp-ace/questions/pack-14.js', () => import('./certs/gcp-ace/questions/pack-14.js')),
+      pack('./certs/gcp-ace/questions/pack-15.js', () => import('./certs/gcp-ace/questions/pack-15.js')),
+      pack('./certs/gcp-ace/questions/pack-16.js', () => import('./certs/gcp-ace/questions/pack-16.js')),
+      pack('./certs/gcp-ace/questions/pack-17.js', () => import('./certs/gcp-ace/questions/pack-17.js')),
+      pack('./certs/gcp-ace/questions/pack-18.js', () => import('./certs/gcp-ace/questions/pack-18.js')),
+      pack('./certs/gcp-ace/questions/pack-19.js', () => import('./certs/gcp-ace/questions/pack-19.js')),
+      pack('./certs/gcp-ace/questions/pack-20.js', () => import('./certs/gcp-ace/questions/pack-20.js'))
     ],
     flashcards: [
       pack('./certs/gcp-ace/flashcards/pack-1.js', () => import('./certs/gcp-ace/flashcards/pack-1.js')),
@@ -557,7 +867,17 @@ export const CONTENT_REGISTRY = {
       pack('./certs/gcp-ace/flashcards/pack-7.js', () => import('./certs/gcp-ace/flashcards/pack-7.js')),
       pack('./certs/gcp-ace/flashcards/pack-8.js', () => import('./certs/gcp-ace/flashcards/pack-8.js')),
       pack('./certs/gcp-ace/flashcards/pack-9.js', () => import('./certs/gcp-ace/flashcards/pack-9.js')),
-      pack('./certs/gcp-ace/flashcards/pack-10.js', () => import('./certs/gcp-ace/flashcards/pack-10.js'))
+      pack('./certs/gcp-ace/flashcards/pack-10.js', () => import('./certs/gcp-ace/flashcards/pack-10.js')),
+      pack('./certs/gcp-ace/flashcards/pack-11.js', () => import('./certs/gcp-ace/flashcards/pack-11.js')),
+      pack('./certs/gcp-ace/flashcards/pack-12.js', () => import('./certs/gcp-ace/flashcards/pack-12.js')),
+      pack('./certs/gcp-ace/flashcards/pack-13.js', () => import('./certs/gcp-ace/flashcards/pack-13.js')),
+      pack('./certs/gcp-ace/flashcards/pack-14.js', () => import('./certs/gcp-ace/flashcards/pack-14.js')),
+      pack('./certs/gcp-ace/flashcards/pack-15.js', () => import('./certs/gcp-ace/flashcards/pack-15.js')),
+      pack('./certs/gcp-ace/flashcards/pack-16.js', () => import('./certs/gcp-ace/flashcards/pack-16.js')),
+      pack('./certs/gcp-ace/flashcards/pack-17.js', () => import('./certs/gcp-ace/flashcards/pack-17.js')),
+      pack('./certs/gcp-ace/flashcards/pack-18.js', () => import('./certs/gcp-ace/flashcards/pack-18.js')),
+      pack('./certs/gcp-ace/flashcards/pack-19.js', () => import('./certs/gcp-ace/flashcards/pack-19.js')),
+      pack('./certs/gcp-ace/flashcards/pack-20.js', () => import('./certs/gcp-ace/flashcards/pack-20.js'))
     ]
   },
   'gcp-pca': {
@@ -571,7 +891,17 @@ export const CONTENT_REGISTRY = {
       pack('./certs/gcp-pca/questions/pack-7.js', () => import('./certs/gcp-pca/questions/pack-7.js')),
       pack('./certs/gcp-pca/questions/pack-8.js', () => import('./certs/gcp-pca/questions/pack-8.js')),
       pack('./certs/gcp-pca/questions/pack-9.js', () => import('./certs/gcp-pca/questions/pack-9.js')),
-      pack('./certs/gcp-pca/questions/pack-10.js', () => import('./certs/gcp-pca/questions/pack-10.js'))
+      pack('./certs/gcp-pca/questions/pack-10.js', () => import('./certs/gcp-pca/questions/pack-10.js')),
+      pack('./certs/gcp-pca/questions/pack-11.js', () => import('./certs/gcp-pca/questions/pack-11.js')),
+      pack('./certs/gcp-pca/questions/pack-12.js', () => import('./certs/gcp-pca/questions/pack-12.js')),
+      pack('./certs/gcp-pca/questions/pack-13.js', () => import('./certs/gcp-pca/questions/pack-13.js')),
+      pack('./certs/gcp-pca/questions/pack-14.js', () => import('./certs/gcp-pca/questions/pack-14.js')),
+      pack('./certs/gcp-pca/questions/pack-15.js', () => import('./certs/gcp-pca/questions/pack-15.js')),
+      pack('./certs/gcp-pca/questions/pack-16.js', () => import('./certs/gcp-pca/questions/pack-16.js')),
+      pack('./certs/gcp-pca/questions/pack-17.js', () => import('./certs/gcp-pca/questions/pack-17.js')),
+      pack('./certs/gcp-pca/questions/pack-18.js', () => import('./certs/gcp-pca/questions/pack-18.js')),
+      pack('./certs/gcp-pca/questions/pack-19.js', () => import('./certs/gcp-pca/questions/pack-19.js')),
+      pack('./certs/gcp-pca/questions/pack-20.js', () => import('./certs/gcp-pca/questions/pack-20.js'))
     ],
     flashcards: [
       pack('./certs/gcp-pca/flashcards/pack-1.js', () => import('./certs/gcp-pca/flashcards/pack-1.js')),
@@ -583,7 +913,17 @@ export const CONTENT_REGISTRY = {
       pack('./certs/gcp-pca/flashcards/pack-7.js', () => import('./certs/gcp-pca/flashcards/pack-7.js')),
       pack('./certs/gcp-pca/flashcards/pack-8.js', () => import('./certs/gcp-pca/flashcards/pack-8.js')),
       pack('./certs/gcp-pca/flashcards/pack-9.js', () => import('./certs/gcp-pca/flashcards/pack-9.js')),
-      pack('./certs/gcp-pca/flashcards/pack-10.js', () => import('./certs/gcp-pca/flashcards/pack-10.js'))
+      pack('./certs/gcp-pca/flashcards/pack-10.js', () => import('./certs/gcp-pca/flashcards/pack-10.js')),
+      pack('./certs/gcp-pca/flashcards/pack-11.js', () => import('./certs/gcp-pca/flashcards/pack-11.js')),
+      pack('./certs/gcp-pca/flashcards/pack-12.js', () => import('./certs/gcp-pca/flashcards/pack-12.js')),
+      pack('./certs/gcp-pca/flashcards/pack-13.js', () => import('./certs/gcp-pca/flashcards/pack-13.js')),
+      pack('./certs/gcp-pca/flashcards/pack-14.js', () => import('./certs/gcp-pca/flashcards/pack-14.js')),
+      pack('./certs/gcp-pca/flashcards/pack-15.js', () => import('./certs/gcp-pca/flashcards/pack-15.js')),
+      pack('./certs/gcp-pca/flashcards/pack-16.js', () => import('./certs/gcp-pca/flashcards/pack-16.js')),
+      pack('./certs/gcp-pca/flashcards/pack-17.js', () => import('./certs/gcp-pca/flashcards/pack-17.js')),
+      pack('./certs/gcp-pca/flashcards/pack-18.js', () => import('./certs/gcp-pca/flashcards/pack-18.js')),
+      pack('./certs/gcp-pca/flashcards/pack-19.js', () => import('./certs/gcp-pca/flashcards/pack-19.js')),
+      pack('./certs/gcp-pca/flashcards/pack-20.js', () => import('./certs/gcp-pca/flashcards/pack-20.js'))
     ]
   },
   'gcp-pcdbe': {
@@ -601,7 +941,17 @@ export const CONTENT_REGISTRY = {
       pack('./certs/gcp-pcdoe/questions/pack-7.js', () => import('./certs/gcp-pcdoe/questions/pack-7.js')),
       pack('./certs/gcp-pcdoe/questions/pack-8.js', () => import('./certs/gcp-pcdoe/questions/pack-8.js')),
       pack('./certs/gcp-pcdoe/questions/pack-9.js', () => import('./certs/gcp-pcdoe/questions/pack-9.js')),
-      pack('./certs/gcp-pcdoe/questions/pack-10.js', () => import('./certs/gcp-pcdoe/questions/pack-10.js'))
+      pack('./certs/gcp-pcdoe/questions/pack-10.js', () => import('./certs/gcp-pcdoe/questions/pack-10.js')),
+      pack('./certs/gcp-pcdoe/questions/pack-11.js', () => import('./certs/gcp-pcdoe/questions/pack-11.js')),
+      pack('./certs/gcp-pcdoe/questions/pack-12.js', () => import('./certs/gcp-pcdoe/questions/pack-12.js')),
+      pack('./certs/gcp-pcdoe/questions/pack-13.js', () => import('./certs/gcp-pcdoe/questions/pack-13.js')),
+      pack('./certs/gcp-pcdoe/questions/pack-14.js', () => import('./certs/gcp-pcdoe/questions/pack-14.js')),
+      pack('./certs/gcp-pcdoe/questions/pack-15.js', () => import('./certs/gcp-pcdoe/questions/pack-15.js')),
+      pack('./certs/gcp-pcdoe/questions/pack-16.js', () => import('./certs/gcp-pcdoe/questions/pack-16.js')),
+      pack('./certs/gcp-pcdoe/questions/pack-17.js', () => import('./certs/gcp-pcdoe/questions/pack-17.js')),
+      pack('./certs/gcp-pcdoe/questions/pack-18.js', () => import('./certs/gcp-pcdoe/questions/pack-18.js')),
+      pack('./certs/gcp-pcdoe/questions/pack-19.js', () => import('./certs/gcp-pcdoe/questions/pack-19.js')),
+      pack('./certs/gcp-pcdoe/questions/pack-20.js', () => import('./certs/gcp-pcdoe/questions/pack-20.js'))
     ],
     flashcards: [
       pack('./certs/gcp-pcdoe/flashcards/pack-1.js', () => import('./certs/gcp-pcdoe/flashcards/pack-1.js')),
@@ -613,7 +963,17 @@ export const CONTENT_REGISTRY = {
       pack('./certs/gcp-pcdoe/flashcards/pack-7.js', () => import('./certs/gcp-pcdoe/flashcards/pack-7.js')),
       pack('./certs/gcp-pcdoe/flashcards/pack-8.js', () => import('./certs/gcp-pcdoe/flashcards/pack-8.js')),
       pack('./certs/gcp-pcdoe/flashcards/pack-9.js', () => import('./certs/gcp-pcdoe/flashcards/pack-9.js')),
-      pack('./certs/gcp-pcdoe/flashcards/pack-10.js', () => import('./certs/gcp-pcdoe/flashcards/pack-10.js'))
+      pack('./certs/gcp-pcdoe/flashcards/pack-10.js', () => import('./certs/gcp-pcdoe/flashcards/pack-10.js')),
+      pack('./certs/gcp-pcdoe/flashcards/pack-11.js', () => import('./certs/gcp-pcdoe/flashcards/pack-11.js')),
+      pack('./certs/gcp-pcdoe/flashcards/pack-12.js', () => import('./certs/gcp-pcdoe/flashcards/pack-12.js')),
+      pack('./certs/gcp-pcdoe/flashcards/pack-13.js', () => import('./certs/gcp-pcdoe/flashcards/pack-13.js')),
+      pack('./certs/gcp-pcdoe/flashcards/pack-14.js', () => import('./certs/gcp-pcdoe/flashcards/pack-14.js')),
+      pack('./certs/gcp-pcdoe/flashcards/pack-15.js', () => import('./certs/gcp-pcdoe/flashcards/pack-15.js')),
+      pack('./certs/gcp-pcdoe/flashcards/pack-16.js', () => import('./certs/gcp-pcdoe/flashcards/pack-16.js')),
+      pack('./certs/gcp-pcdoe/flashcards/pack-17.js', () => import('./certs/gcp-pcdoe/flashcards/pack-17.js')),
+      pack('./certs/gcp-pcdoe/flashcards/pack-18.js', () => import('./certs/gcp-pcdoe/flashcards/pack-18.js')),
+      pack('./certs/gcp-pcdoe/flashcards/pack-19.js', () => import('./certs/gcp-pcdoe/flashcards/pack-19.js')),
+      pack('./certs/gcp-pcdoe/flashcards/pack-20.js', () => import('./certs/gcp-pcdoe/flashcards/pack-20.js'))
     ]
   },
   'gcp-pcne': {
@@ -639,7 +999,17 @@ export const CONTENT_REGISTRY = {
       pack('./certs/gcp-pmle/questions/pack-7.js', () => import('./certs/gcp-pmle/questions/pack-7.js')),
       pack('./certs/gcp-pmle/questions/pack-8.js', () => import('./certs/gcp-pmle/questions/pack-8.js')),
       pack('./certs/gcp-pmle/questions/pack-9.js', () => import('./certs/gcp-pmle/questions/pack-9.js')),
-      pack('./certs/gcp-pmle/questions/pack-10.js', () => import('./certs/gcp-pmle/questions/pack-10.js'))
+      pack('./certs/gcp-pmle/questions/pack-10.js', () => import('./certs/gcp-pmle/questions/pack-10.js')),
+      pack('./certs/gcp-pmle/questions/pack-11.js', () => import('./certs/gcp-pmle/questions/pack-11.js')),
+      pack('./certs/gcp-pmle/questions/pack-12.js', () => import('./certs/gcp-pmle/questions/pack-12.js')),
+      pack('./certs/gcp-pmle/questions/pack-13.js', () => import('./certs/gcp-pmle/questions/pack-13.js')),
+      pack('./certs/gcp-pmle/questions/pack-14.js', () => import('./certs/gcp-pmle/questions/pack-14.js')),
+      pack('./certs/gcp-pmle/questions/pack-15.js', () => import('./certs/gcp-pmle/questions/pack-15.js')),
+      pack('./certs/gcp-pmle/questions/pack-16.js', () => import('./certs/gcp-pmle/questions/pack-16.js')),
+      pack('./certs/gcp-pmle/questions/pack-17.js', () => import('./certs/gcp-pmle/questions/pack-17.js')),
+      pack('./certs/gcp-pmle/questions/pack-18.js', () => import('./certs/gcp-pmle/questions/pack-18.js')),
+      pack('./certs/gcp-pmle/questions/pack-19.js', () => import('./certs/gcp-pmle/questions/pack-19.js')),
+      pack('./certs/gcp-pmle/questions/pack-20.js', () => import('./certs/gcp-pmle/questions/pack-20.js'))
     ],
     flashcards: [
       pack('./certs/gcp-pmle/flashcards/pack-1.js', () => import('./certs/gcp-pmle/flashcards/pack-1.js')),
@@ -651,7 +1021,17 @@ export const CONTENT_REGISTRY = {
       pack('./certs/gcp-pmle/flashcards/pack-7.js', () => import('./certs/gcp-pmle/flashcards/pack-7.js')),
       pack('./certs/gcp-pmle/flashcards/pack-8.js', () => import('./certs/gcp-pmle/flashcards/pack-8.js')),
       pack('./certs/gcp-pmle/flashcards/pack-9.js', () => import('./certs/gcp-pmle/flashcards/pack-9.js')),
-      pack('./certs/gcp-pmle/flashcards/pack-10.js', () => import('./certs/gcp-pmle/flashcards/pack-10.js'))
+      pack('./certs/gcp-pmle/flashcards/pack-10.js', () => import('./certs/gcp-pmle/flashcards/pack-10.js')),
+      pack('./certs/gcp-pmle/flashcards/pack-11.js', () => import('./certs/gcp-pmle/flashcards/pack-11.js')),
+      pack('./certs/gcp-pmle/flashcards/pack-12.js', () => import('./certs/gcp-pmle/flashcards/pack-12.js')),
+      pack('./certs/gcp-pmle/flashcards/pack-13.js', () => import('./certs/gcp-pmle/flashcards/pack-13.js')),
+      pack('./certs/gcp-pmle/flashcards/pack-14.js', () => import('./certs/gcp-pmle/flashcards/pack-14.js')),
+      pack('./certs/gcp-pmle/flashcards/pack-15.js', () => import('./certs/gcp-pmle/flashcards/pack-15.js')),
+      pack('./certs/gcp-pmle/flashcards/pack-16.js', () => import('./certs/gcp-pmle/flashcards/pack-16.js')),
+      pack('./certs/gcp-pmle/flashcards/pack-17.js', () => import('./certs/gcp-pmle/flashcards/pack-17.js')),
+      pack('./certs/gcp-pmle/flashcards/pack-18.js', () => import('./certs/gcp-pmle/flashcards/pack-18.js')),
+      pack('./certs/gcp-pmle/flashcards/pack-19.js', () => import('./certs/gcp-pmle/flashcards/pack-19.js')),
+      pack('./certs/gcp-pmle/flashcards/pack-20.js', () => import('./certs/gcp-pmle/flashcards/pack-20.js'))
     ]
   },
   'github-actions': {
@@ -665,7 +1045,17 @@ export const CONTENT_REGISTRY = {
       pack('./certs/github-actions/questions/pack-7.js', () => import('./certs/github-actions/questions/pack-7.js')),
       pack('./certs/github-actions/questions/pack-8.js', () => import('./certs/github-actions/questions/pack-8.js')),
       pack('./certs/github-actions/questions/pack-9.js', () => import('./certs/github-actions/questions/pack-9.js')),
-      pack('./certs/github-actions/questions/pack-10.js', () => import('./certs/github-actions/questions/pack-10.js'))
+      pack('./certs/github-actions/questions/pack-10.js', () => import('./certs/github-actions/questions/pack-10.js')),
+      pack('./certs/github-actions/questions/pack-11.js', () => import('./certs/github-actions/questions/pack-11.js')),
+      pack('./certs/github-actions/questions/pack-12.js', () => import('./certs/github-actions/questions/pack-12.js')),
+      pack('./certs/github-actions/questions/pack-13.js', () => import('./certs/github-actions/questions/pack-13.js')),
+      pack('./certs/github-actions/questions/pack-14.js', () => import('./certs/github-actions/questions/pack-14.js')),
+      pack('./certs/github-actions/questions/pack-15.js', () => import('./certs/github-actions/questions/pack-15.js')),
+      pack('./certs/github-actions/questions/pack-16.js', () => import('./certs/github-actions/questions/pack-16.js')),
+      pack('./certs/github-actions/questions/pack-17.js', () => import('./certs/github-actions/questions/pack-17.js')),
+      pack('./certs/github-actions/questions/pack-18.js', () => import('./certs/github-actions/questions/pack-18.js')),
+      pack('./certs/github-actions/questions/pack-19.js', () => import('./certs/github-actions/questions/pack-19.js')),
+      pack('./certs/github-actions/questions/pack-20.js', () => import('./certs/github-actions/questions/pack-20.js'))
     ],
     flashcards: [
       pack('./certs/github-actions/flashcards/pack-1.js', () => import('./certs/github-actions/flashcards/pack-1.js')),
@@ -677,7 +1067,17 @@ export const CONTENT_REGISTRY = {
       pack('./certs/github-actions/flashcards/pack-7.js', () => import('./certs/github-actions/flashcards/pack-7.js')),
       pack('./certs/github-actions/flashcards/pack-8.js', () => import('./certs/github-actions/flashcards/pack-8.js')),
       pack('./certs/github-actions/flashcards/pack-9.js', () => import('./certs/github-actions/flashcards/pack-9.js')),
-      pack('./certs/github-actions/flashcards/pack-10.js', () => import('./certs/github-actions/flashcards/pack-10.js'))
+      pack('./certs/github-actions/flashcards/pack-10.js', () => import('./certs/github-actions/flashcards/pack-10.js')),
+      pack('./certs/github-actions/flashcards/pack-11.js', () => import('./certs/github-actions/flashcards/pack-11.js')),
+      pack('./certs/github-actions/flashcards/pack-12.js', () => import('./certs/github-actions/flashcards/pack-12.js')),
+      pack('./certs/github-actions/flashcards/pack-13.js', () => import('./certs/github-actions/flashcards/pack-13.js')),
+      pack('./certs/github-actions/flashcards/pack-14.js', () => import('./certs/github-actions/flashcards/pack-14.js')),
+      pack('./certs/github-actions/flashcards/pack-15.js', () => import('./certs/github-actions/flashcards/pack-15.js')),
+      pack('./certs/github-actions/flashcards/pack-16.js', () => import('./certs/github-actions/flashcards/pack-16.js')),
+      pack('./certs/github-actions/flashcards/pack-17.js', () => import('./certs/github-actions/flashcards/pack-17.js')),
+      pack('./certs/github-actions/flashcards/pack-18.js', () => import('./certs/github-actions/flashcards/pack-18.js')),
+      pack('./certs/github-actions/flashcards/pack-19.js', () => import('./certs/github-actions/flashcards/pack-19.js')),
+      pack('./certs/github-actions/flashcards/pack-20.js', () => import('./certs/github-actions/flashcards/pack-20.js'))
     ]
   },
   'github-ghas': {
@@ -691,7 +1091,17 @@ export const CONTENT_REGISTRY = {
       pack('./certs/github-ghas/questions/pack-7.js', () => import('./certs/github-ghas/questions/pack-7.js')),
       pack('./certs/github-ghas/questions/pack-8.js', () => import('./certs/github-ghas/questions/pack-8.js')),
       pack('./certs/github-ghas/questions/pack-9.js', () => import('./certs/github-ghas/questions/pack-9.js')),
-      pack('./certs/github-ghas/questions/pack-10.js', () => import('./certs/github-ghas/questions/pack-10.js'))
+      pack('./certs/github-ghas/questions/pack-10.js', () => import('./certs/github-ghas/questions/pack-10.js')),
+      pack('./certs/github-ghas/questions/pack-11.js', () => import('./certs/github-ghas/questions/pack-11.js')),
+      pack('./certs/github-ghas/questions/pack-12.js', () => import('./certs/github-ghas/questions/pack-12.js')),
+      pack('./certs/github-ghas/questions/pack-13.js', () => import('./certs/github-ghas/questions/pack-13.js')),
+      pack('./certs/github-ghas/questions/pack-14.js', () => import('./certs/github-ghas/questions/pack-14.js')),
+      pack('./certs/github-ghas/questions/pack-15.js', () => import('./certs/github-ghas/questions/pack-15.js')),
+      pack('./certs/github-ghas/questions/pack-16.js', () => import('./certs/github-ghas/questions/pack-16.js')),
+      pack('./certs/github-ghas/questions/pack-17.js', () => import('./certs/github-ghas/questions/pack-17.js')),
+      pack('./certs/github-ghas/questions/pack-18.js', () => import('./certs/github-ghas/questions/pack-18.js')),
+      pack('./certs/github-ghas/questions/pack-19.js', () => import('./certs/github-ghas/questions/pack-19.js')),
+      pack('./certs/github-ghas/questions/pack-20.js', () => import('./certs/github-ghas/questions/pack-20.js'))
     ],
     flashcards: [
       pack('./certs/github-ghas/flashcards/pack-1.js', () => import('./certs/github-ghas/flashcards/pack-1.js')),
@@ -703,7 +1113,17 @@ export const CONTENT_REGISTRY = {
       pack('./certs/github-ghas/flashcards/pack-7.js', () => import('./certs/github-ghas/flashcards/pack-7.js')),
       pack('./certs/github-ghas/flashcards/pack-8.js', () => import('./certs/github-ghas/flashcards/pack-8.js')),
       pack('./certs/github-ghas/flashcards/pack-9.js', () => import('./certs/github-ghas/flashcards/pack-9.js')),
-      pack('./certs/github-ghas/flashcards/pack-10.js', () => import('./certs/github-ghas/flashcards/pack-10.js'))
+      pack('./certs/github-ghas/flashcards/pack-10.js', () => import('./certs/github-ghas/flashcards/pack-10.js')),
+      pack('./certs/github-ghas/flashcards/pack-11.js', () => import('./certs/github-ghas/flashcards/pack-11.js')),
+      pack('./certs/github-ghas/flashcards/pack-12.js', () => import('./certs/github-ghas/flashcards/pack-12.js')),
+      pack('./certs/github-ghas/flashcards/pack-13.js', () => import('./certs/github-ghas/flashcards/pack-13.js')),
+      pack('./certs/github-ghas/flashcards/pack-14.js', () => import('./certs/github-ghas/flashcards/pack-14.js')),
+      pack('./certs/github-ghas/flashcards/pack-15.js', () => import('./certs/github-ghas/flashcards/pack-15.js')),
+      pack('./certs/github-ghas/flashcards/pack-16.js', () => import('./certs/github-ghas/flashcards/pack-16.js')),
+      pack('./certs/github-ghas/flashcards/pack-17.js', () => import('./certs/github-ghas/flashcards/pack-17.js')),
+      pack('./certs/github-ghas/flashcards/pack-18.js', () => import('./certs/github-ghas/flashcards/pack-18.js')),
+      pack('./certs/github-ghas/flashcards/pack-19.js', () => import('./certs/github-ghas/flashcards/pack-19.js')),
+      pack('./certs/github-ghas/flashcards/pack-20.js', () => import('./certs/github-ghas/flashcards/pack-20.js'))
     ]
   },
   'hashicorp-tfa': {
@@ -717,7 +1137,17 @@ export const CONTENT_REGISTRY = {
       pack('./certs/hashicorp-tfa/questions/pack-7.js', () => import('./certs/hashicorp-tfa/questions/pack-7.js')),
       pack('./certs/hashicorp-tfa/questions/pack-8.js', () => import('./certs/hashicorp-tfa/questions/pack-8.js')),
       pack('./certs/hashicorp-tfa/questions/pack-9.js', () => import('./certs/hashicorp-tfa/questions/pack-9.js')),
-      pack('./certs/hashicorp-tfa/questions/pack-10.js', () => import('./certs/hashicorp-tfa/questions/pack-10.js'))
+      pack('./certs/hashicorp-tfa/questions/pack-10.js', () => import('./certs/hashicorp-tfa/questions/pack-10.js')),
+      pack('./certs/hashicorp-tfa/questions/pack-11.js', () => import('./certs/hashicorp-tfa/questions/pack-11.js')),
+      pack('./certs/hashicorp-tfa/questions/pack-12.js', () => import('./certs/hashicorp-tfa/questions/pack-12.js')),
+      pack('./certs/hashicorp-tfa/questions/pack-13.js', () => import('./certs/hashicorp-tfa/questions/pack-13.js')),
+      pack('./certs/hashicorp-tfa/questions/pack-14.js', () => import('./certs/hashicorp-tfa/questions/pack-14.js')),
+      pack('./certs/hashicorp-tfa/questions/pack-15.js', () => import('./certs/hashicorp-tfa/questions/pack-15.js')),
+      pack('./certs/hashicorp-tfa/questions/pack-16.js', () => import('./certs/hashicorp-tfa/questions/pack-16.js')),
+      pack('./certs/hashicorp-tfa/questions/pack-17.js', () => import('./certs/hashicorp-tfa/questions/pack-17.js')),
+      pack('./certs/hashicorp-tfa/questions/pack-18.js', () => import('./certs/hashicorp-tfa/questions/pack-18.js')),
+      pack('./certs/hashicorp-tfa/questions/pack-19.js', () => import('./certs/hashicorp-tfa/questions/pack-19.js')),
+      pack('./certs/hashicorp-tfa/questions/pack-20.js', () => import('./certs/hashicorp-tfa/questions/pack-20.js'))
     ],
     flashcards: [
       pack('./certs/hashicorp-tfa/flashcards/pack-1.js', () => import('./certs/hashicorp-tfa/flashcards/pack-1.js')),
@@ -729,7 +1159,17 @@ export const CONTENT_REGISTRY = {
       pack('./certs/hashicorp-tfa/flashcards/pack-7.js', () => import('./certs/hashicorp-tfa/flashcards/pack-7.js')),
       pack('./certs/hashicorp-tfa/flashcards/pack-8.js', () => import('./certs/hashicorp-tfa/flashcards/pack-8.js')),
       pack('./certs/hashicorp-tfa/flashcards/pack-9.js', () => import('./certs/hashicorp-tfa/flashcards/pack-9.js')),
-      pack('./certs/hashicorp-tfa/flashcards/pack-10.js', () => import('./certs/hashicorp-tfa/flashcards/pack-10.js'))
+      pack('./certs/hashicorp-tfa/flashcards/pack-10.js', () => import('./certs/hashicorp-tfa/flashcards/pack-10.js')),
+      pack('./certs/hashicorp-tfa/flashcards/pack-11.js', () => import('./certs/hashicorp-tfa/flashcards/pack-11.js')),
+      pack('./certs/hashicorp-tfa/flashcards/pack-12.js', () => import('./certs/hashicorp-tfa/flashcards/pack-12.js')),
+      pack('./certs/hashicorp-tfa/flashcards/pack-13.js', () => import('./certs/hashicorp-tfa/flashcards/pack-13.js')),
+      pack('./certs/hashicorp-tfa/flashcards/pack-14.js', () => import('./certs/hashicorp-tfa/flashcards/pack-14.js')),
+      pack('./certs/hashicorp-tfa/flashcards/pack-15.js', () => import('./certs/hashicorp-tfa/flashcards/pack-15.js')),
+      pack('./certs/hashicorp-tfa/flashcards/pack-16.js', () => import('./certs/hashicorp-tfa/flashcards/pack-16.js')),
+      pack('./certs/hashicorp-tfa/flashcards/pack-17.js', () => import('./certs/hashicorp-tfa/flashcards/pack-17.js')),
+      pack('./certs/hashicorp-tfa/flashcards/pack-18.js', () => import('./certs/hashicorp-tfa/flashcards/pack-18.js')),
+      pack('./certs/hashicorp-tfa/flashcards/pack-19.js', () => import('./certs/hashicorp-tfa/flashcards/pack-19.js')),
+      pack('./certs/hashicorp-tfa/flashcards/pack-20.js', () => import('./certs/hashicorp-tfa/flashcards/pack-20.js'))
     ]
   },
   'hashicorp-tfp': {
@@ -743,7 +1183,17 @@ export const CONTENT_REGISTRY = {
       pack('./certs/hashicorp-tfp/questions/pack-7.js', () => import('./certs/hashicorp-tfp/questions/pack-7.js')),
       pack('./certs/hashicorp-tfp/questions/pack-8.js', () => import('./certs/hashicorp-tfp/questions/pack-8.js')),
       pack('./certs/hashicorp-tfp/questions/pack-9.js', () => import('./certs/hashicorp-tfp/questions/pack-9.js')),
-      pack('./certs/hashicorp-tfp/questions/pack-10.js', () => import('./certs/hashicorp-tfp/questions/pack-10.js'))
+      pack('./certs/hashicorp-tfp/questions/pack-10.js', () => import('./certs/hashicorp-tfp/questions/pack-10.js')),
+      pack('./certs/hashicorp-tfp/questions/pack-11.js', () => import('./certs/hashicorp-tfp/questions/pack-11.js')),
+      pack('./certs/hashicorp-tfp/questions/pack-12.js', () => import('./certs/hashicorp-tfp/questions/pack-12.js')),
+      pack('./certs/hashicorp-tfp/questions/pack-13.js', () => import('./certs/hashicorp-tfp/questions/pack-13.js')),
+      pack('./certs/hashicorp-tfp/questions/pack-14.js', () => import('./certs/hashicorp-tfp/questions/pack-14.js')),
+      pack('./certs/hashicorp-tfp/questions/pack-15.js', () => import('./certs/hashicorp-tfp/questions/pack-15.js')),
+      pack('./certs/hashicorp-tfp/questions/pack-16.js', () => import('./certs/hashicorp-tfp/questions/pack-16.js')),
+      pack('./certs/hashicorp-tfp/questions/pack-17.js', () => import('./certs/hashicorp-tfp/questions/pack-17.js')),
+      pack('./certs/hashicorp-tfp/questions/pack-18.js', () => import('./certs/hashicorp-tfp/questions/pack-18.js')),
+      pack('./certs/hashicorp-tfp/questions/pack-19.js', () => import('./certs/hashicorp-tfp/questions/pack-19.js')),
+      pack('./certs/hashicorp-tfp/questions/pack-20.js', () => import('./certs/hashicorp-tfp/questions/pack-20.js'))
     ],
     flashcards: [
       pack('./certs/hashicorp-tfp/flashcards/pack-1.js', () => import('./certs/hashicorp-tfp/flashcards/pack-1.js')),
@@ -755,7 +1205,17 @@ export const CONTENT_REGISTRY = {
       pack('./certs/hashicorp-tfp/flashcards/pack-7.js', () => import('./certs/hashicorp-tfp/flashcards/pack-7.js')),
       pack('./certs/hashicorp-tfp/flashcards/pack-8.js', () => import('./certs/hashicorp-tfp/flashcards/pack-8.js')),
       pack('./certs/hashicorp-tfp/flashcards/pack-9.js', () => import('./certs/hashicorp-tfp/flashcards/pack-9.js')),
-      pack('./certs/hashicorp-tfp/flashcards/pack-10.js', () => import('./certs/hashicorp-tfp/flashcards/pack-10.js'))
+      pack('./certs/hashicorp-tfp/flashcards/pack-10.js', () => import('./certs/hashicorp-tfp/flashcards/pack-10.js')),
+      pack('./certs/hashicorp-tfp/flashcards/pack-11.js', () => import('./certs/hashicorp-tfp/flashcards/pack-11.js')),
+      pack('./certs/hashicorp-tfp/flashcards/pack-12.js', () => import('./certs/hashicorp-tfp/flashcards/pack-12.js')),
+      pack('./certs/hashicorp-tfp/flashcards/pack-13.js', () => import('./certs/hashicorp-tfp/flashcards/pack-13.js')),
+      pack('./certs/hashicorp-tfp/flashcards/pack-14.js', () => import('./certs/hashicorp-tfp/flashcards/pack-14.js')),
+      pack('./certs/hashicorp-tfp/flashcards/pack-15.js', () => import('./certs/hashicorp-tfp/flashcards/pack-15.js')),
+      pack('./certs/hashicorp-tfp/flashcards/pack-16.js', () => import('./certs/hashicorp-tfp/flashcards/pack-16.js')),
+      pack('./certs/hashicorp-tfp/flashcards/pack-17.js', () => import('./certs/hashicorp-tfp/flashcards/pack-17.js')),
+      pack('./certs/hashicorp-tfp/flashcards/pack-18.js', () => import('./certs/hashicorp-tfp/flashcards/pack-18.js')),
+      pack('./certs/hashicorp-tfp/flashcards/pack-19.js', () => import('./certs/hashicorp-tfp/flashcards/pack-19.js')),
+      pack('./certs/hashicorp-tfp/flashcards/pack-20.js', () => import('./certs/hashicorp-tfp/flashcards/pack-20.js'))
     ]
   },
   'hashicorp-vault': {
@@ -773,7 +1233,17 @@ export const CONTENT_REGISTRY = {
       pack('./certs/isc2-ccsp/questions/pack-7.js', () => import('./certs/isc2-ccsp/questions/pack-7.js')),
       pack('./certs/isc2-ccsp/questions/pack-8.js', () => import('./certs/isc2-ccsp/questions/pack-8.js')),
       pack('./certs/isc2-ccsp/questions/pack-9.js', () => import('./certs/isc2-ccsp/questions/pack-9.js')),
-      pack('./certs/isc2-ccsp/questions/pack-10.js', () => import('./certs/isc2-ccsp/questions/pack-10.js'))
+      pack('./certs/isc2-ccsp/questions/pack-10.js', () => import('./certs/isc2-ccsp/questions/pack-10.js')),
+      pack('./certs/isc2-ccsp/questions/pack-11.js', () => import('./certs/isc2-ccsp/questions/pack-11.js')),
+      pack('./certs/isc2-ccsp/questions/pack-12.js', () => import('./certs/isc2-ccsp/questions/pack-12.js')),
+      pack('./certs/isc2-ccsp/questions/pack-13.js', () => import('./certs/isc2-ccsp/questions/pack-13.js')),
+      pack('./certs/isc2-ccsp/questions/pack-14.js', () => import('./certs/isc2-ccsp/questions/pack-14.js')),
+      pack('./certs/isc2-ccsp/questions/pack-15.js', () => import('./certs/isc2-ccsp/questions/pack-15.js')),
+      pack('./certs/isc2-ccsp/questions/pack-16.js', () => import('./certs/isc2-ccsp/questions/pack-16.js')),
+      pack('./certs/isc2-ccsp/questions/pack-17.js', () => import('./certs/isc2-ccsp/questions/pack-17.js')),
+      pack('./certs/isc2-ccsp/questions/pack-18.js', () => import('./certs/isc2-ccsp/questions/pack-18.js')),
+      pack('./certs/isc2-ccsp/questions/pack-19.js', () => import('./certs/isc2-ccsp/questions/pack-19.js')),
+      pack('./certs/isc2-ccsp/questions/pack-20.js', () => import('./certs/isc2-ccsp/questions/pack-20.js'))
     ],
     flashcards: [
       pack('./certs/isc2-ccsp/flashcards/pack-1.js', () => import('./certs/isc2-ccsp/flashcards/pack-1.js')),
@@ -785,7 +1255,17 @@ export const CONTENT_REGISTRY = {
       pack('./certs/isc2-ccsp/flashcards/pack-7.js', () => import('./certs/isc2-ccsp/flashcards/pack-7.js')),
       pack('./certs/isc2-ccsp/flashcards/pack-8.js', () => import('./certs/isc2-ccsp/flashcards/pack-8.js')),
       pack('./certs/isc2-ccsp/flashcards/pack-9.js', () => import('./certs/isc2-ccsp/flashcards/pack-9.js')),
-      pack('./certs/isc2-ccsp/flashcards/pack-10.js', () => import('./certs/isc2-ccsp/flashcards/pack-10.js'))
+      pack('./certs/isc2-ccsp/flashcards/pack-10.js', () => import('./certs/isc2-ccsp/flashcards/pack-10.js')),
+      pack('./certs/isc2-ccsp/flashcards/pack-11.js', () => import('./certs/isc2-ccsp/flashcards/pack-11.js')),
+      pack('./certs/isc2-ccsp/flashcards/pack-12.js', () => import('./certs/isc2-ccsp/flashcards/pack-12.js')),
+      pack('./certs/isc2-ccsp/flashcards/pack-13.js', () => import('./certs/isc2-ccsp/flashcards/pack-13.js')),
+      pack('./certs/isc2-ccsp/flashcards/pack-14.js', () => import('./certs/isc2-ccsp/flashcards/pack-14.js')),
+      pack('./certs/isc2-ccsp/flashcards/pack-15.js', () => import('./certs/isc2-ccsp/flashcards/pack-15.js')),
+      pack('./certs/isc2-ccsp/flashcards/pack-16.js', () => import('./certs/isc2-ccsp/flashcards/pack-16.js')),
+      pack('./certs/isc2-ccsp/flashcards/pack-17.js', () => import('./certs/isc2-ccsp/flashcards/pack-17.js')),
+      pack('./certs/isc2-ccsp/flashcards/pack-18.js', () => import('./certs/isc2-ccsp/flashcards/pack-18.js')),
+      pack('./certs/isc2-ccsp/flashcards/pack-19.js', () => import('./certs/isc2-ccsp/flashcards/pack-19.js')),
+      pack('./certs/isc2-ccsp/flashcards/pack-20.js', () => import('./certs/isc2-ccsp/flashcards/pack-20.js'))
     ]
   },
   'isc2-cissp': {
@@ -804,7 +1284,17 @@ export const CONTENT_REGISTRY = {
       pack('./certs/k8s-cka/questions/pack-8.js', () => import('./certs/k8s-cka/questions/pack-8.js')),
       pack('./certs/k8s-cka/questions/pack-9.js', () => import('./certs/k8s-cka/questions/pack-9.js')),
       pack('./certs/k8s-cka/questions/pack-10.js', () => import('./certs/k8s-cka/questions/pack-10.js')),
-      pack('./certs/k8s-cka/questions/pack-11.js', () => import('./certs/k8s-cka/questions/pack-11.js'))
+      pack('./certs/k8s-cka/questions/pack-11.js', () => import('./certs/k8s-cka/questions/pack-11.js')),
+      pack('./certs/k8s-cka/questions/pack-12.js', () => import('./certs/k8s-cka/questions/pack-12.js')),
+      pack('./certs/k8s-cka/questions/pack-13.js', () => import('./certs/k8s-cka/questions/pack-13.js')),
+      pack('./certs/k8s-cka/questions/pack-14.js', () => import('./certs/k8s-cka/questions/pack-14.js')),
+      pack('./certs/k8s-cka/questions/pack-15.js', () => import('./certs/k8s-cka/questions/pack-15.js')),
+      pack('./certs/k8s-cka/questions/pack-16.js', () => import('./certs/k8s-cka/questions/pack-16.js')),
+      pack('./certs/k8s-cka/questions/pack-17.js', () => import('./certs/k8s-cka/questions/pack-17.js')),
+      pack('./certs/k8s-cka/questions/pack-18.js', () => import('./certs/k8s-cka/questions/pack-18.js')),
+      pack('./certs/k8s-cka/questions/pack-19.js', () => import('./certs/k8s-cka/questions/pack-19.js')),
+      pack('./certs/k8s-cka/questions/pack-20.js', () => import('./certs/k8s-cka/questions/pack-20.js')),
+      pack('./certs/k8s-cka/questions/pack-21.js', () => import('./certs/k8s-cka/questions/pack-21.js'))
     ],
     flashcards: [
       pack('./certs/k8s-cka/flashcards/pack-1.js', () => import('./certs/k8s-cka/flashcards/pack-1.js')),
@@ -817,7 +1307,17 @@ export const CONTENT_REGISTRY = {
       pack('./certs/k8s-cka/flashcards/pack-8.js', () => import('./certs/k8s-cka/flashcards/pack-8.js')),
       pack('./certs/k8s-cka/flashcards/pack-9.js', () => import('./certs/k8s-cka/flashcards/pack-9.js')),
       pack('./certs/k8s-cka/flashcards/pack-10.js', () => import('./certs/k8s-cka/flashcards/pack-10.js')),
-      pack('./certs/k8s-cka/flashcards/pack-11.js', () => import('./certs/k8s-cka/flashcards/pack-11.js'))
+      pack('./certs/k8s-cka/flashcards/pack-11.js', () => import('./certs/k8s-cka/flashcards/pack-11.js')),
+      pack('./certs/k8s-cka/flashcards/pack-12.js', () => import('./certs/k8s-cka/flashcards/pack-12.js')),
+      pack('./certs/k8s-cka/flashcards/pack-13.js', () => import('./certs/k8s-cka/flashcards/pack-13.js')),
+      pack('./certs/k8s-cka/flashcards/pack-14.js', () => import('./certs/k8s-cka/flashcards/pack-14.js')),
+      pack('./certs/k8s-cka/flashcards/pack-15.js', () => import('./certs/k8s-cka/flashcards/pack-15.js')),
+      pack('./certs/k8s-cka/flashcards/pack-16.js', () => import('./certs/k8s-cka/flashcards/pack-16.js')),
+      pack('./certs/k8s-cka/flashcards/pack-17.js', () => import('./certs/k8s-cka/flashcards/pack-17.js')),
+      pack('./certs/k8s-cka/flashcards/pack-18.js', () => import('./certs/k8s-cka/flashcards/pack-18.js')),
+      pack('./certs/k8s-cka/flashcards/pack-19.js', () => import('./certs/k8s-cka/flashcards/pack-19.js')),
+      pack('./certs/k8s-cka/flashcards/pack-20.js', () => import('./certs/k8s-cka/flashcards/pack-20.js')),
+      pack('./certs/k8s-cka/flashcards/pack-21.js', () => import('./certs/k8s-cka/flashcards/pack-21.js'))
     ]
   },
   'k8s-ckad': {
@@ -831,7 +1331,17 @@ export const CONTENT_REGISTRY = {
       pack('./certs/k8s-ckad/questions/pack-7.js', () => import('./certs/k8s-ckad/questions/pack-7.js')),
       pack('./certs/k8s-ckad/questions/pack-8.js', () => import('./certs/k8s-ckad/questions/pack-8.js')),
       pack('./certs/k8s-ckad/questions/pack-9.js', () => import('./certs/k8s-ckad/questions/pack-9.js')),
-      pack('./certs/k8s-ckad/questions/pack-10.js', () => import('./certs/k8s-ckad/questions/pack-10.js'))
+      pack('./certs/k8s-ckad/questions/pack-10.js', () => import('./certs/k8s-ckad/questions/pack-10.js')),
+      pack('./certs/k8s-ckad/questions/pack-11.js', () => import('./certs/k8s-ckad/questions/pack-11.js')),
+      pack('./certs/k8s-ckad/questions/pack-12.js', () => import('./certs/k8s-ckad/questions/pack-12.js')),
+      pack('./certs/k8s-ckad/questions/pack-13.js', () => import('./certs/k8s-ckad/questions/pack-13.js')),
+      pack('./certs/k8s-ckad/questions/pack-14.js', () => import('./certs/k8s-ckad/questions/pack-14.js')),
+      pack('./certs/k8s-ckad/questions/pack-15.js', () => import('./certs/k8s-ckad/questions/pack-15.js')),
+      pack('./certs/k8s-ckad/questions/pack-16.js', () => import('./certs/k8s-ckad/questions/pack-16.js')),
+      pack('./certs/k8s-ckad/questions/pack-17.js', () => import('./certs/k8s-ckad/questions/pack-17.js')),
+      pack('./certs/k8s-ckad/questions/pack-18.js', () => import('./certs/k8s-ckad/questions/pack-18.js')),
+      pack('./certs/k8s-ckad/questions/pack-19.js', () => import('./certs/k8s-ckad/questions/pack-19.js')),
+      pack('./certs/k8s-ckad/questions/pack-20.js', () => import('./certs/k8s-ckad/questions/pack-20.js'))
     ],
     flashcards: [
       pack('./certs/k8s-ckad/flashcards/pack-1.js', () => import('./certs/k8s-ckad/flashcards/pack-1.js')),
@@ -843,7 +1353,17 @@ export const CONTENT_REGISTRY = {
       pack('./certs/k8s-ckad/flashcards/pack-7.js', () => import('./certs/k8s-ckad/flashcards/pack-7.js')),
       pack('./certs/k8s-ckad/flashcards/pack-8.js', () => import('./certs/k8s-ckad/flashcards/pack-8.js')),
       pack('./certs/k8s-ckad/flashcards/pack-9.js', () => import('./certs/k8s-ckad/flashcards/pack-9.js')),
-      pack('./certs/k8s-ckad/flashcards/pack-10.js', () => import('./certs/k8s-ckad/flashcards/pack-10.js'))
+      pack('./certs/k8s-ckad/flashcards/pack-10.js', () => import('./certs/k8s-ckad/flashcards/pack-10.js')),
+      pack('./certs/k8s-ckad/flashcards/pack-11.js', () => import('./certs/k8s-ckad/flashcards/pack-11.js')),
+      pack('./certs/k8s-ckad/flashcards/pack-12.js', () => import('./certs/k8s-ckad/flashcards/pack-12.js')),
+      pack('./certs/k8s-ckad/flashcards/pack-13.js', () => import('./certs/k8s-ckad/flashcards/pack-13.js')),
+      pack('./certs/k8s-ckad/flashcards/pack-14.js', () => import('./certs/k8s-ckad/flashcards/pack-14.js')),
+      pack('./certs/k8s-ckad/flashcards/pack-15.js', () => import('./certs/k8s-ckad/flashcards/pack-15.js')),
+      pack('./certs/k8s-ckad/flashcards/pack-16.js', () => import('./certs/k8s-ckad/flashcards/pack-16.js')),
+      pack('./certs/k8s-ckad/flashcards/pack-17.js', () => import('./certs/k8s-ckad/flashcards/pack-17.js')),
+      pack('./certs/k8s-ckad/flashcards/pack-18.js', () => import('./certs/k8s-ckad/flashcards/pack-18.js')),
+      pack('./certs/k8s-ckad/flashcards/pack-19.js', () => import('./certs/k8s-ckad/flashcards/pack-19.js')),
+      pack('./certs/k8s-ckad/flashcards/pack-20.js', () => import('./certs/k8s-ckad/flashcards/pack-20.js'))
     ]
   },
   'k8s-cks': {
@@ -857,7 +1377,17 @@ export const CONTENT_REGISTRY = {
       pack('./certs/k8s-cks/questions/pack-7.js', () => import('./certs/k8s-cks/questions/pack-7.js')),
       pack('./certs/k8s-cks/questions/pack-8.js', () => import('./certs/k8s-cks/questions/pack-8.js')),
       pack('./certs/k8s-cks/questions/pack-9.js', () => import('./certs/k8s-cks/questions/pack-9.js')),
-      pack('./certs/k8s-cks/questions/pack-10.js', () => import('./certs/k8s-cks/questions/pack-10.js'))
+      pack('./certs/k8s-cks/questions/pack-10.js', () => import('./certs/k8s-cks/questions/pack-10.js')),
+      pack('./certs/k8s-cks/questions/pack-11.js', () => import('./certs/k8s-cks/questions/pack-11.js')),
+      pack('./certs/k8s-cks/questions/pack-12.js', () => import('./certs/k8s-cks/questions/pack-12.js')),
+      pack('./certs/k8s-cks/questions/pack-13.js', () => import('./certs/k8s-cks/questions/pack-13.js')),
+      pack('./certs/k8s-cks/questions/pack-14.js', () => import('./certs/k8s-cks/questions/pack-14.js')),
+      pack('./certs/k8s-cks/questions/pack-15.js', () => import('./certs/k8s-cks/questions/pack-15.js')),
+      pack('./certs/k8s-cks/questions/pack-16.js', () => import('./certs/k8s-cks/questions/pack-16.js')),
+      pack('./certs/k8s-cks/questions/pack-17.js', () => import('./certs/k8s-cks/questions/pack-17.js')),
+      pack('./certs/k8s-cks/questions/pack-18.js', () => import('./certs/k8s-cks/questions/pack-18.js')),
+      pack('./certs/k8s-cks/questions/pack-19.js', () => import('./certs/k8s-cks/questions/pack-19.js')),
+      pack('./certs/k8s-cks/questions/pack-20.js', () => import('./certs/k8s-cks/questions/pack-20.js'))
     ],
     flashcards: [
       pack('./certs/k8s-cks/flashcards/pack-1.js', () => import('./certs/k8s-cks/flashcards/pack-1.js')),
@@ -869,7 +1399,17 @@ export const CONTENT_REGISTRY = {
       pack('./certs/k8s-cks/flashcards/pack-7.js', () => import('./certs/k8s-cks/flashcards/pack-7.js')),
       pack('./certs/k8s-cks/flashcards/pack-8.js', () => import('./certs/k8s-cks/flashcards/pack-8.js')),
       pack('./certs/k8s-cks/flashcards/pack-9.js', () => import('./certs/k8s-cks/flashcards/pack-9.js')),
-      pack('./certs/k8s-cks/flashcards/pack-10.js', () => import('./certs/k8s-cks/flashcards/pack-10.js'))
+      pack('./certs/k8s-cks/flashcards/pack-10.js', () => import('./certs/k8s-cks/flashcards/pack-10.js')),
+      pack('./certs/k8s-cks/flashcards/pack-11.js', () => import('./certs/k8s-cks/flashcards/pack-11.js')),
+      pack('./certs/k8s-cks/flashcards/pack-12.js', () => import('./certs/k8s-cks/flashcards/pack-12.js')),
+      pack('./certs/k8s-cks/flashcards/pack-13.js', () => import('./certs/k8s-cks/flashcards/pack-13.js')),
+      pack('./certs/k8s-cks/flashcards/pack-14.js', () => import('./certs/k8s-cks/flashcards/pack-14.js')),
+      pack('./certs/k8s-cks/flashcards/pack-15.js', () => import('./certs/k8s-cks/flashcards/pack-15.js')),
+      pack('./certs/k8s-cks/flashcards/pack-16.js', () => import('./certs/k8s-cks/flashcards/pack-16.js')),
+      pack('./certs/k8s-cks/flashcards/pack-17.js', () => import('./certs/k8s-cks/flashcards/pack-17.js')),
+      pack('./certs/k8s-cks/flashcards/pack-18.js', () => import('./certs/k8s-cks/flashcards/pack-18.js')),
+      pack('./certs/k8s-cks/flashcards/pack-19.js', () => import('./certs/k8s-cks/flashcards/pack-19.js')),
+      pack('./certs/k8s-cks/flashcards/pack-20.js', () => import('./certs/k8s-cks/flashcards/pack-20.js'))
     ]
   },
   'offsec-oscp': {

@@ -9,12 +9,12 @@ export const CNCF_CNPA_QUESTIONS_20 = [
     scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates FinOps Governance to attribute cloud infrastructure and Kubernetes cluster costs accurately to specific business units, products, and cost centers.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives? Labeling and tagging taxonomies enabling granular workload cost attribution and rightsizing is under consideration.",
     options: [
-      { id: 'A', text: "Enforce mandatory Kubernetes labeling taxonomies (e.g., `cost-center`, `team`, `env`) verified by admission policies." },
-      { id: 'B', text: "Allocate all cloud infrastructure costs to a single unclassified general overhead corporate account." },
-      { id: 'C', text: "Ban all cloud infrastructure usage to eliminate costs entirely." },
-      { id: 'D', text: "Guess team cost allocations based on headcount rather than actual cloud consumption." }
+      { id: 'A', text: "Guess team cost allocations based on headcount rather than actual cloud consumption." },
+      { id: 'B', text: "Ban all cloud infrastructure usage to eliminate costs entirely." },
+      { id: 'C', text: "Enforce mandatory Kubernetes labeling taxonomies (e.g., `cost-center`, `team`, `env`) verified by admission policies." },
+      { id: 'D', text: "Allocate all cloud infrastructure costs to a single unclassified general overhead corporate account." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Enforce mandatory Kubernetes labeling taxonomies (e.g., `cost-center`, `team`, `env`) verified by admission policies. FinOps in cloud-native platforms requires strict metadata governance. Validating admission controllers enforce mandatory labels (`app`, `team`, `cost-center`) on all namespaces and workloads, enabling cost allocation engines to accurately attribute spend and recommend rightsizing.",
     referenceUrl: "https://www.finops.org/",
@@ -30,12 +30,12 @@ export const CNCF_CNPA_QUESTIONS_20 = [
     scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates FinOps Governance to attribute cloud infrastructure and Kubernetes cluster costs accurately to specific business units, products, and cost centers.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks? Labeling and tagging taxonomies enabling granular workload cost attribution and rightsizing is under consideration.",
     options: [
-      { id: 'A', text: "Enforce mandatory Kubernetes labeling taxonomies (e.g., `cost-center`, `team`, `env`) verified by admission policies." },
-      { id: 'B', text: "Allocate all cloud infrastructure costs to a single unclassified general overhead corporate account." },
+      { id: 'A', text: "Guess team cost allocations based on headcount rather than actual cloud consumption." },
+      { id: 'B', text: "Enforce mandatory Kubernetes labeling taxonomies (e.g., `cost-center`, `team`, `env`) verified by admission policies." },
       { id: 'C', text: "Ban all cloud infrastructure usage to eliminate costs entirely." },
-      { id: 'D', text: "Guess team cost allocations based on headcount rather than actual cloud consumption." }
+      { id: 'D', text: "Allocate all cloud infrastructure costs to a single unclassified general overhead corporate account." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Enforce mandatory Kubernetes labeling taxonomies (e.g., `cost-center`, `team`, `env`) verified by admission policies. FinOps in cloud-native platforms requires strict metadata governance. Validating admission controllers enforce mandatory labels (`app`, `team`, `cost-center`) on all namespaces and workloads, enabling cost allocation engines to accurately attribute spend and recommend rightsizing.",
     referenceUrl: "https://www.finops.org/",
@@ -51,12 +51,12 @@ export const CNCF_CNPA_QUESTIONS_20 = [
     scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates FinOps Governance to attribute cloud infrastructure and Kubernetes cluster costs accurately to specific business units, products, and cost centers.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls? Labeling and tagging taxonomies enabling granular workload cost attribution and rightsizing is under consideration.",
     options: [
-      { id: 'A', text: "Enforce mandatory Kubernetes labeling taxonomies (e.g., `cost-center`, `team`, `env`) verified by admission policies." },
+      { id: 'A', text: "Guess team cost allocations based on headcount rather than actual cloud consumption." },
       { id: 'B', text: "Allocate all cloud infrastructure costs to a single unclassified general overhead corporate account." },
       { id: 'C', text: "Ban all cloud infrastructure usage to eliminate costs entirely." },
-      { id: 'D', text: "Guess team cost allocations based on headcount rather than actual cloud consumption." }
+      { id: 'D', text: "Enforce mandatory Kubernetes labeling taxonomies (e.g., `cost-center`, `team`, `env`) verified by admission policies." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Enforce mandatory Kubernetes labeling taxonomies (e.g., `cost-center`, `team`, `env`) verified by admission policies. FinOps in cloud-native platforms requires strict metadata governance. Validating admission controllers enforce mandatory labels (`app`, `team`, `cost-center`) on all namespaces and workloads, enabling cost allocation engines to accurately attribute spend and recommend rightsizing.",
     referenceUrl: "https://www.finops.org/",
@@ -72,12 +72,12 @@ export const CNCF_CNPA_QUESTIONS_20 = [
     scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates FinOps Governance to attribute cloud infrastructure and Kubernetes cluster costs accurately to specific business units, products, and cost centers.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely? Labeling and tagging taxonomies enabling granular workload cost attribution and rightsizing is under consideration.",
     options: [
-      { id: 'A', text: "Enforce mandatory Kubernetes labeling taxonomies (e.g., `cost-center`, `team`, `env`) verified by admission policies." },
-      { id: 'B', text: "Allocate all cloud infrastructure costs to a single unclassified general overhead corporate account." },
-      { id: 'C', text: "Ban all cloud infrastructure usage to eliminate costs entirely." },
-      { id: 'D', text: "Guess team cost allocations based on headcount rather than actual cloud consumption." }
+      { id: 'A', text: "Guess team cost allocations based on headcount rather than actual cloud consumption." },
+      { id: 'B', text: "Ban all cloud infrastructure usage to eliminate costs entirely." },
+      { id: 'C', text: "Allocate all cloud infrastructure costs to a single unclassified general overhead corporate account." },
+      { id: 'D', text: "Enforce mandatory Kubernetes labeling taxonomies (e.g., `cost-center`, `team`, `env`) verified by admission policies." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Enforce mandatory Kubernetes labeling taxonomies (e.g., `cost-center`, `team`, `env`) verified by admission policies. FinOps in cloud-native platforms requires strict metadata governance. Validating admission controllers enforce mandatory labels (`app`, `team`, `cost-center`) on all namespaces and workloads, enabling cost allocation engines to accurately attribute spend and recommend rightsizing.",
     referenceUrl: "https://www.finops.org/",
@@ -93,12 +93,12 @@ export const CNCF_CNPA_QUESTIONS_20 = [
     scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates FinOps Governance to attribute cloud infrastructure and Kubernetes cluster costs accurately to specific business units, products, and cost centers.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation? Labeling and tagging taxonomies enabling granular workload cost attribution and rightsizing is under consideration.",
     options: [
-      { id: 'A', text: "Enforce mandatory Kubernetes labeling taxonomies (e.g., `cost-center`, `team`, `env`) verified by admission policies." },
-      { id: 'B', text: "Allocate all cloud infrastructure costs to a single unclassified general overhead corporate account." },
-      { id: 'C', text: "Ban all cloud infrastructure usage to eliminate costs entirely." },
-      { id: 'D', text: "Guess team cost allocations based on headcount rather than actual cloud consumption." }
+      { id: 'A', text: "Ban all cloud infrastructure usage to eliminate costs entirely." },
+      { id: 'B', text: "Guess team cost allocations based on headcount rather than actual cloud consumption." },
+      { id: 'C', text: "Enforce mandatory Kubernetes labeling taxonomies (e.g., `cost-center`, `team`, `env`) verified by admission policies." },
+      { id: 'D', text: "Allocate all cloud infrastructure costs to a single unclassified general overhead corporate account." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Enforce mandatory Kubernetes labeling taxonomies (e.g., `cost-center`, `team`, `env`) verified by admission policies. FinOps in cloud-native platforms requires strict metadata governance. Validating admission controllers enforce mandatory labels (`app`, `team`, `cost-center`) on all namespaces and workloads, enabling cost allocation engines to accurately attribute spend and recommend rightsizing.",
     referenceUrl: "https://www.finops.org/",
@@ -114,12 +114,12 @@ export const CNCF_CNPA_QUESTIONS_20 = [
     scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates Compliance as Code to satisfy enterprise SOC 2 and ISO 27001 audit requirements without requiring engineering teams to gather manual screenshots.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives? Automating regulatory evidence collection and policy verification for SOC 2 and ISO 27001 is under consideration.",
     options: [
-      { id: 'A', text: "Implement Compliance as Code: continuously audit cluster configurations and pull request histories against security baselines." },
-      { id: 'B', text: "Spend four weeks every quarter capturing manual browser screenshots of security settings." },
+      { id: 'A', text: "Spend four weeks every quarter capturing manual browser screenshots of security settings." },
+      { id: 'B', text: "Implement Compliance as Code: continuously audit cluster configurations and pull request histories against security baselines." },
       { id: 'C', text: "Falsify audit compliance logs to pass regulatory reviews." },
       { id: 'D', text: "Ignore compliance requirements until regulatory fines are assessed." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Implement Compliance as Code: continuously audit cluster configurations and pull request histories against security baselines. Compliance as Code automates evidence collection by treating compliance policies as software tests. Continuous auditing tools inspect Git commit signatures, PR approvals, vulnerability scan results, and cluster policies, generating continuous compliance evidence for auditors.",
     referenceUrl: "https://www.cncf.io/reports/cloud-native-platform-engineering-whitepaper/",
@@ -136,8 +136,8 @@ export const CNCF_CNPA_QUESTIONS_20 = [
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks? Automating regulatory evidence collection and policy verification for SOC 2 and ISO 27001 is under consideration.",
     options: [
       { id: 'A', text: "Implement Compliance as Code: continuously audit cluster configurations and pull request histories against security baselines." },
-      { id: 'B', text: "Spend four weeks every quarter capturing manual browser screenshots of security settings." },
-      { id: 'C', text: "Falsify audit compliance logs to pass regulatory reviews." },
+      { id: 'B', text: "Falsify audit compliance logs to pass regulatory reviews." },
+      { id: 'C', text: "Spend four weeks every quarter capturing manual browser screenshots of security settings." },
       { id: 'D', text: "Ignore compliance requirements until regulatory fines are assessed." }
     ],
     correctAnswers: ['A'],
@@ -156,12 +156,12 @@ export const CNCF_CNPA_QUESTIONS_20 = [
     scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates Compliance as Code to satisfy enterprise SOC 2 and ISO 27001 audit requirements without requiring engineering teams to gather manual screenshots.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls? Automating regulatory evidence collection and policy verification for SOC 2 and ISO 27001 is under consideration.",
     options: [
-      { id: 'A', text: "Implement Compliance as Code: continuously audit cluster configurations and pull request histories against security baselines." },
-      { id: 'B', text: "Spend four weeks every quarter capturing manual browser screenshots of security settings." },
-      { id: 'C', text: "Falsify audit compliance logs to pass regulatory reviews." },
+      { id: 'A', text: "Falsify audit compliance logs to pass regulatory reviews." },
+      { id: 'B', text: "Implement Compliance as Code: continuously audit cluster configurations and pull request histories against security baselines." },
+      { id: 'C', text: "Spend four weeks every quarter capturing manual browser screenshots of security settings." },
       { id: 'D', text: "Ignore compliance requirements until regulatory fines are assessed." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Implement Compliance as Code: continuously audit cluster configurations and pull request histories against security baselines. Compliance as Code automates evidence collection by treating compliance policies as software tests. Continuous auditing tools inspect Git commit signatures, PR approvals, vulnerability scan results, and cluster policies, generating continuous compliance evidence for auditors.",
     referenceUrl: "https://www.cncf.io/reports/cloud-native-platform-engineering-whitepaper/",
@@ -177,12 +177,12 @@ export const CNCF_CNPA_QUESTIONS_20 = [
     scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates Compliance as Code to satisfy enterprise SOC 2 and ISO 27001 audit requirements without requiring engineering teams to gather manual screenshots.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely? Automating regulatory evidence collection and policy verification for SOC 2 and ISO 27001 is under consideration.",
     options: [
-      { id: 'A', text: "Implement Compliance as Code: continuously audit cluster configurations and pull request histories against security baselines." },
-      { id: 'B', text: "Spend four weeks every quarter capturing manual browser screenshots of security settings." },
-      { id: 'C', text: "Falsify audit compliance logs to pass regulatory reviews." },
-      { id: 'D', text: "Ignore compliance requirements until regulatory fines are assessed." }
+      { id: 'A', text: "Ignore compliance requirements until regulatory fines are assessed." },
+      { id: 'B', text: "Implement Compliance as Code: continuously audit cluster configurations and pull request histories against security baselines." },
+      { id: 'C', text: "Spend four weeks every quarter capturing manual browser screenshots of security settings." },
+      { id: 'D', text: "Falsify audit compliance logs to pass regulatory reviews." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Implement Compliance as Code: continuously audit cluster configurations and pull request histories against security baselines. Compliance as Code automates evidence collection by treating compliance policies as software tests. Continuous auditing tools inspect Git commit signatures, PR approvals, vulnerability scan results, and cluster policies, generating continuous compliance evidence for auditors.",
     referenceUrl: "https://www.cncf.io/reports/cloud-native-platform-engineering-whitepaper/",
@@ -199,9 +199,9 @@ export const CNCF_CNPA_QUESTIONS_20 = [
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation? Automating regulatory evidence collection and policy verification for SOC 2 and ISO 27001 is under consideration.",
     options: [
       { id: 'A', text: "Implement Compliance as Code: continuously audit cluster configurations and pull request histories against security baselines." },
-      { id: 'B', text: "Spend four weeks every quarter capturing manual browser screenshots of security settings." },
+      { id: 'B', text: "Ignore compliance requirements until regulatory fines are assessed." },
       { id: 'C', text: "Falsify audit compliance logs to pass regulatory reviews." },
-      { id: 'D', text: "Ignore compliance requirements until regulatory fines are assessed." }
+      { id: 'D', text: "Spend four weeks every quarter capturing manual browser screenshots of security settings." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -220,9 +220,9 @@ export const CNCF_CNPA_QUESTIONS_20 = [
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives? Visualizing runner capacity, API server latency, and deployment queues with actionable SLO alerts is under consideration.",
     options: [
       { id: 'A', text: "Build centralized Grafana platform dashboards displaying runner queue depths, API latencies, and actionable multi-window SLO alerts." },
-      { id: 'B', text: "Rely on developers sending angry direct messages to platform engineers when deployment pipelines freeze." },
-      { id: 'C', text: "Configure noisy alert rules that trigger hundreds of false-positive pager alerts every hour." },
-      { id: 'D', text: "Hide all platform performance metrics from the operations team." }
+      { id: 'B', text: "Hide all platform performance metrics from the operations team." },
+      { id: 'C', text: "Rely on developers sending angry direct messages to platform engineers when deployment pipelines freeze." },
+      { id: 'D', text: "Configure noisy alert rules that trigger hundreds of false-positive pager alerts every hour." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -240,12 +240,12 @@ export const CNCF_CNPA_QUESTIONS_20 = [
     scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates Platform Dashboards to detect and resolve internal platform degradations before they impact software developers and deployment pipelines.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks? Visualizing runner capacity, API server latency, and deployment queues with actionable SLO alerts is under consideration.",
     options: [
-      { id: 'A', text: "Build centralized Grafana platform dashboards displaying runner queue depths, API latencies, and actionable multi-window SLO alerts." },
-      { id: 'B', text: "Rely on developers sending angry direct messages to platform engineers when deployment pipelines freeze." },
+      { id: 'A', text: "Hide all platform performance metrics from the operations team." },
+      { id: 'B', text: "Build centralized Grafana platform dashboards displaying runner queue depths, API latencies, and actionable multi-window SLO alerts." },
       { id: 'C', text: "Configure noisy alert rules that trigger hundreds of false-positive pager alerts every hour." },
-      { id: 'D', text: "Hide all platform performance metrics from the operations team." }
+      { id: 'D', text: "Rely on developers sending angry direct messages to platform engineers when deployment pipelines freeze." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Build centralized Grafana platform dashboards displaying runner queue depths, API latencies, and actionable multi-window SLO alerts. Platform reliability requires dedicated internal dashboards and alerting. By monitoring platform-specific indicators (CI runner queue depth, webhook latency, etcd disk sync duration) and alerting on SLO burn rates, platform engineers fix issues before developers experience friction.",
     referenceUrl: "https://sre.google/workbook/alerting-on-slos/",
@@ -261,12 +261,12 @@ export const CNCF_CNPA_QUESTIONS_20 = [
     scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates Platform Dashboards to detect and resolve internal platform degradations before they impact software developers and deployment pipelines.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls? Visualizing runner capacity, API server latency, and deployment queues with actionable SLO alerts is under consideration.",
     options: [
-      { id: 'A', text: "Build centralized Grafana platform dashboards displaying runner queue depths, API latencies, and actionable multi-window SLO alerts." },
+      { id: 'A', text: "Configure noisy alert rules that trigger hundreds of false-positive pager alerts every hour." },
       { id: 'B', text: "Rely on developers sending angry direct messages to platform engineers when deployment pipelines freeze." },
-      { id: 'C', text: "Configure noisy alert rules that trigger hundreds of false-positive pager alerts every hour." },
-      { id: 'D', text: "Hide all platform performance metrics from the operations team." }
+      { id: 'C', text: "Hide all platform performance metrics from the operations team." },
+      { id: 'D', text: "Build centralized Grafana platform dashboards displaying runner queue depths, API latencies, and actionable multi-window SLO alerts." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Build centralized Grafana platform dashboards displaying runner queue depths, API latencies, and actionable multi-window SLO alerts. Platform reliability requires dedicated internal dashboards and alerting. By monitoring platform-specific indicators (CI runner queue depth, webhook latency, etcd disk sync duration) and alerting on SLO burn rates, platform engineers fix issues before developers experience friction.",
     referenceUrl: "https://sre.google/workbook/alerting-on-slos/",
@@ -282,12 +282,12 @@ export const CNCF_CNPA_QUESTIONS_20 = [
     scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates Platform Dashboards to detect and resolve internal platform degradations before they impact software developers and deployment pipelines.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely? Visualizing runner capacity, API server latency, and deployment queues with actionable SLO alerts is under consideration.",
     options: [
-      { id: 'A', text: "Build centralized Grafana platform dashboards displaying runner queue depths, API latencies, and actionable multi-window SLO alerts." },
+      { id: 'A', text: "Hide all platform performance metrics from the operations team." },
       { id: 'B', text: "Rely on developers sending angry direct messages to platform engineers when deployment pipelines freeze." },
       { id: 'C', text: "Configure noisy alert rules that trigger hundreds of false-positive pager alerts every hour." },
-      { id: 'D', text: "Hide all platform performance metrics from the operations team." }
+      { id: 'D', text: "Build centralized Grafana platform dashboards displaying runner queue depths, API latencies, and actionable multi-window SLO alerts." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Build centralized Grafana platform dashboards displaying runner queue depths, API latencies, and actionable multi-window SLO alerts. Platform reliability requires dedicated internal dashboards and alerting. By monitoring platform-specific indicators (CI runner queue depth, webhook latency, etcd disk sync duration) and alerting on SLO burn rates, platform engineers fix issues before developers experience friction.",
     referenceUrl: "https://sre.google/workbook/alerting-on-slos/",
@@ -303,12 +303,12 @@ export const CNCF_CNPA_QUESTIONS_20 = [
     scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates Platform Dashboards to detect and resolve internal platform degradations before they impact software developers and deployment pipelines.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation? Visualizing runner capacity, API server latency, and deployment queues with actionable SLO alerts is under consideration.",
     options: [
-      { id: 'A', text: "Build centralized Grafana platform dashboards displaying runner queue depths, API latencies, and actionable multi-window SLO alerts." },
-      { id: 'B', text: "Rely on developers sending angry direct messages to platform engineers when deployment pipelines freeze." },
-      { id: 'C', text: "Configure noisy alert rules that trigger hundreds of false-positive pager alerts every hour." },
-      { id: 'D', text: "Hide all platform performance metrics from the operations team." }
+      { id: 'A', text: "Configure noisy alert rules that trigger hundreds of false-positive pager alerts every hour." },
+      { id: 'B', text: "Hide all platform performance metrics from the operations team." },
+      { id: 'C', text: "Rely on developers sending angry direct messages to platform engineers when deployment pipelines freeze." },
+      { id: 'D', text: "Build centralized Grafana platform dashboards displaying runner queue depths, API latencies, and actionable multi-window SLO alerts." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Build centralized Grafana platform dashboards displaying runner queue depths, API latencies, and actionable multi-window SLO alerts. Platform reliability requires dedicated internal dashboards and alerting. By monitoring platform-specific indicators (CI runner queue depth, webhook latency, etcd disk sync duration) and alerting on SLO burn rates, platform engineers fix issues before developers experience friction.",
     referenceUrl: "https://sre.google/workbook/alerting-on-slos/",
@@ -324,12 +324,12 @@ export const CNCF_CNPA_QUESTIONS_20 = [
     scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates Blameless Postmortems to turn a major platform outage into long-term systemic resilience improvements without fostering a culture of fear or finger-pointing.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives? Conducting blameless root cause analyses and translating incident findings into platform guardrails is under consideration.",
     options: [
-      { id: 'A', text: "Conduct a blameless post-incident review to uncover systemic contributing factors and implement automated platform guardrails." },
+      { id: 'A', text: "Sweep outages under the rug and refuse to document what caused the system failure." },
       { id: 'B', text: "Identify and publicly fire the individual engineer who typed the erroneous command." },
-      { id: 'C', text: "Sweep outages under the rug and refuse to document what caused the system failure." },
+      { id: 'C', text: "Conduct a blameless post-incident review to uncover systemic contributing factors and implement automated platform guardrails." },
       { id: 'D', text: "Ban all software deployments following an outage to prevent future incidents." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Conduct a blameless post-incident review to uncover systemic contributing factors and implement automated platform guardrails. A mature engineering culture relies on blameless postmortems. Rather than blaming human operators, teams examine underlying systemic deficiencies (missing safeguards, ambiguous tooling) and feed remediation actions directly into platform Golden Paths and guardrails.",
     referenceUrl: "https://sre.google/sre-book/postmortem-culture/",
@@ -345,12 +345,12 @@ export const CNCF_CNPA_QUESTIONS_20 = [
     scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates Blameless Postmortems to turn a major platform outage into long-term systemic resilience improvements without fostering a culture of fear or finger-pointing.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks? Conducting blameless root cause analyses and translating incident findings into platform guardrails is under consideration.",
     options: [
-      { id: 'A', text: "Conduct a blameless post-incident review to uncover systemic contributing factors and implement automated platform guardrails." },
+      { id: 'A', text: "Ban all software deployments following an outage to prevent future incidents." },
       { id: 'B', text: "Identify and publicly fire the individual engineer who typed the erroneous command." },
-      { id: 'C', text: "Sweep outages under the rug and refuse to document what caused the system failure." },
-      { id: 'D', text: "Ban all software deployments following an outage to prevent future incidents." }
+      { id: 'C', text: "Conduct a blameless post-incident review to uncover systemic contributing factors and implement automated platform guardrails." },
+      { id: 'D', text: "Sweep outages under the rug and refuse to document what caused the system failure." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Conduct a blameless post-incident review to uncover systemic contributing factors and implement automated platform guardrails. A mature engineering culture relies on blameless postmortems. Rather than blaming human operators, teams examine underlying systemic deficiencies (missing safeguards, ambiguous tooling) and feed remediation actions directly into platform Golden Paths and guardrails.",
     referenceUrl: "https://sre.google/sre-book/postmortem-culture/",
@@ -366,12 +366,12 @@ export const CNCF_CNPA_QUESTIONS_20 = [
     scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates Blameless Postmortems to turn a major platform outage into long-term systemic resilience improvements without fostering a culture of fear or finger-pointing.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls? Conducting blameless root cause analyses and translating incident findings into platform guardrails is under consideration.",
     options: [
-      { id: 'A', text: "Conduct a blameless post-incident review to uncover systemic contributing factors and implement automated platform guardrails." },
+      { id: 'A', text: "Sweep outages under the rug and refuse to document what caused the system failure." },
       { id: 'B', text: "Identify and publicly fire the individual engineer who typed the erroneous command." },
-      { id: 'C', text: "Sweep outages under the rug and refuse to document what caused the system failure." },
+      { id: 'C', text: "Conduct a blameless post-incident review to uncover systemic contributing factors and implement automated platform guardrails." },
       { id: 'D', text: "Ban all software deployments following an outage to prevent future incidents." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Conduct a blameless post-incident review to uncover systemic contributing factors and implement automated platform guardrails. A mature engineering culture relies on blameless postmortems. Rather than blaming human operators, teams examine underlying systemic deficiencies (missing safeguards, ambiguous tooling) and feed remediation actions directly into platform Golden Paths and guardrails.",
     referenceUrl: "https://sre.google/sre-book/postmortem-culture/",
@@ -387,12 +387,12 @@ export const CNCF_CNPA_QUESTIONS_20 = [
     scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates Blameless Postmortems to turn a major platform outage into long-term systemic resilience improvements without fostering a culture of fear or finger-pointing.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely? Conducting blameless root cause analyses and translating incident findings into platform guardrails is under consideration.",
     options: [
-      { id: 'A', text: "Conduct a blameless post-incident review to uncover systemic contributing factors and implement automated platform guardrails." },
-      { id: 'B', text: "Identify and publicly fire the individual engineer who typed the erroneous command." },
-      { id: 'C', text: "Sweep outages under the rug and refuse to document what caused the system failure." },
+      { id: 'A', text: "Identify and publicly fire the individual engineer who typed the erroneous command." },
+      { id: 'B', text: "Sweep outages under the rug and refuse to document what caused the system failure." },
+      { id: 'C', text: "Conduct a blameless post-incident review to uncover systemic contributing factors and implement automated platform guardrails." },
       { id: 'D', text: "Ban all software deployments following an outage to prevent future incidents." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Conduct a blameless post-incident review to uncover systemic contributing factors and implement automated platform guardrails. A mature engineering culture relies on blameless postmortems. Rather than blaming human operators, teams examine underlying systemic deficiencies (missing safeguards, ambiguous tooling) and feed remediation actions directly into platform Golden Paths and guardrails.",
     referenceUrl: "https://sre.google/sre-book/postmortem-culture/",
@@ -408,12 +408,12 @@ export const CNCF_CNPA_QUESTIONS_20 = [
     scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates Blameless Postmortems to turn a major platform outage into long-term systemic resilience improvements without fostering a culture of fear or finger-pointing.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation? Conducting blameless root cause analyses and translating incident findings into platform guardrails is under consideration.",
     options: [
-      { id: 'A', text: "Conduct a blameless post-incident review to uncover systemic contributing factors and implement automated platform guardrails." },
+      { id: 'A', text: "Sweep outages under the rug and refuse to document what caused the system failure." },
       { id: 'B', text: "Identify and publicly fire the individual engineer who typed the erroneous command." },
-      { id: 'C', text: "Sweep outages under the rug and refuse to document what caused the system failure." },
-      { id: 'D', text: "Ban all software deployments following an outage to prevent future incidents." }
+      { id: 'C', text: "Ban all software deployments following an outage to prevent future incidents." },
+      { id: 'D', text: "Conduct a blameless post-incident review to uncover systemic contributing factors and implement automated platform guardrails." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Conduct a blameless post-incident review to uncover systemic contributing factors and implement automated platform guardrails. A mature engineering culture relies on blameless postmortems. Rather than blaming human operators, teams examine underlying systemic deficiencies (missing safeguards, ambiguous tooling) and feed remediation actions directly into platform Golden Paths and guardrails.",
     referenceUrl: "https://sre.google/sre-book/postmortem-culture/",
@@ -450,12 +450,12 @@ export const CNCF_CNPA_QUESTIONS_20 = [
     scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates Tech Radar to guide thousands of software developers away from legacy, vulnerable open-source libraries toward modern corporate standards.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks? Managing technology adoption lifecycles (Adopt, Trial, Assess, Hold) and automated deprecation campaigns is under consideration.",
     options: [
-      { id: 'A', text: "Publish a quarterly internal Technology Radar and run automated PR campaigns (e.g., via Renovate) to migrate deprecated libraries." },
-      { id: 'B', text: "Silently block developer builds without prior warning when an unapproved library is detected." },
+      { id: 'A', text: "Silently block developer builds without prior warning when an unapproved library is detected." },
+      { id: 'B', text: "Never deprecate obsolete technologies and support legacy runtimes indefinitely." },
       { id: 'C', text: "Allow every team to adopt arbitrary unvetted libraries resulting in severe dependency fragmentation." },
-      { id: 'D', text: "Never deprecate obsolete technologies and support legacy runtimes indefinitely." }
+      { id: 'D', text: "Publish a quarterly internal Technology Radar and run automated PR campaigns (e.g., via Renovate) to migrate deprecated libraries." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Publish a quarterly internal Technology Radar and run automated PR campaigns (e.g., via Renovate) to migrate deprecated libraries. An internal Technology Radar categorizes technologies into quadrants and rings (`Adopt`, `Trial`, `Assess`, `Hold`). Platform teams combine this strategic guidance with automated tooling (like Renovate or automated migration PRs) to transition services smoothly off deprecated tech.",
     referenceUrl: "https://www.thoughtworks.com/radar",
@@ -471,12 +471,12 @@ export const CNCF_CNPA_QUESTIONS_20 = [
     scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates Tech Radar to guide thousands of software developers away from legacy, vulnerable open-source libraries toward modern corporate standards.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls? Managing technology adoption lifecycles (Adopt, Trial, Assess, Hold) and automated deprecation campaigns is under consideration.",
     options: [
-      { id: 'A', text: "Publish a quarterly internal Technology Radar and run automated PR campaigns (e.g., via Renovate) to migrate deprecated libraries." },
-      { id: 'B', text: "Silently block developer builds without prior warning when an unapproved library is detected." },
-      { id: 'C', text: "Allow every team to adopt arbitrary unvetted libraries resulting in severe dependency fragmentation." },
-      { id: 'D', text: "Never deprecate obsolete technologies and support legacy runtimes indefinitely." }
+      { id: 'A', text: "Allow every team to adopt arbitrary unvetted libraries resulting in severe dependency fragmentation." },
+      { id: 'B', text: "Publish a quarterly internal Technology Radar and run automated PR campaigns (e.g., via Renovate) to migrate deprecated libraries." },
+      { id: 'C', text: "Never deprecate obsolete technologies and support legacy runtimes indefinitely." },
+      { id: 'D', text: "Silently block developer builds without prior warning when an unapproved library is detected." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Publish a quarterly internal Technology Radar and run automated PR campaigns (e.g., via Renovate) to migrate deprecated libraries. An internal Technology Radar categorizes technologies into quadrants and rings (`Adopt`, `Trial`, `Assess`, `Hold`). Platform teams combine this strategic guidance with automated tooling (like Renovate or automated migration PRs) to transition services smoothly off deprecated tech.",
     referenceUrl: "https://www.thoughtworks.com/radar",
@@ -492,12 +492,12 @@ export const CNCF_CNPA_QUESTIONS_20 = [
     scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates Tech Radar to guide thousands of software developers away from legacy, vulnerable open-source libraries toward modern corporate standards.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely? Managing technology adoption lifecycles (Adopt, Trial, Assess, Hold) and automated deprecation campaigns is under consideration.",
     options: [
-      { id: 'A', text: "Publish a quarterly internal Technology Radar and run automated PR campaigns (e.g., via Renovate) to migrate deprecated libraries." },
-      { id: 'B', text: "Silently block developer builds without prior warning when an unapproved library is detected." },
-      { id: 'C', text: "Allow every team to adopt arbitrary unvetted libraries resulting in severe dependency fragmentation." },
-      { id: 'D', text: "Never deprecate obsolete technologies and support legacy runtimes indefinitely." }
+      { id: 'A', text: "Allow every team to adopt arbitrary unvetted libraries resulting in severe dependency fragmentation." },
+      { id: 'B', text: "Publish a quarterly internal Technology Radar and run automated PR campaigns (e.g., via Renovate) to migrate deprecated libraries." },
+      { id: 'C', text: "Never deprecate obsolete technologies and support legacy runtimes indefinitely." },
+      { id: 'D', text: "Silently block developer builds without prior warning when an unapproved library is detected." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Publish a quarterly internal Technology Radar and run automated PR campaigns (e.g., via Renovate) to migrate deprecated libraries. An internal Technology Radar categorizes technologies into quadrants and rings (`Adopt`, `Trial`, `Assess`, `Hold`). Platform teams combine this strategic guidance with automated tooling (like Renovate or automated migration PRs) to transition services smoothly off deprecated tech.",
     referenceUrl: "https://www.thoughtworks.com/radar",
@@ -513,12 +513,12 @@ export const CNCF_CNPA_QUESTIONS_20 = [
     scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates Tech Radar to guide thousands of software developers away from legacy, vulnerable open-source libraries toward modern corporate standards.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation? Managing technology adoption lifecycles (Adopt, Trial, Assess, Hold) and automated deprecation campaigns is under consideration.",
     options: [
-      { id: 'A', text: "Publish a quarterly internal Technology Radar and run automated PR campaigns (e.g., via Renovate) to migrate deprecated libraries." },
+      { id: 'A', text: "Allow every team to adopt arbitrary unvetted libraries resulting in severe dependency fragmentation." },
       { id: 'B', text: "Silently block developer builds without prior warning when an unapproved library is detected." },
-      { id: 'C', text: "Allow every team to adopt arbitrary unvetted libraries resulting in severe dependency fragmentation." },
-      { id: 'D', text: "Never deprecate obsolete technologies and support legacy runtimes indefinitely." }
+      { id: 'C', text: "Never deprecate obsolete technologies and support legacy runtimes indefinitely." },
+      { id: 'D', text: "Publish a quarterly internal Technology Radar and run automated PR campaigns (e.g., via Renovate) to migrate deprecated libraries." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Publish a quarterly internal Technology Radar and run automated PR campaigns (e.g., via Renovate) to migrate deprecated libraries. An internal Technology Radar categorizes technologies into quadrants and rings (`Adopt`, `Trial`, `Assess`, `Hold`). Platform teams combine this strategic guidance with automated tooling (like Renovate or automated migration PRs) to transition services smoothly off deprecated tech.",
     referenceUrl: "https://www.thoughtworks.com/radar",

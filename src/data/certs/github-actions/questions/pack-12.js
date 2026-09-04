@@ -9,12 +9,12 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer evaluates Artifact Management to compile an application binary in a build job and pass it to a separate security scanning job and deployment job.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives? Sharing build outputs and test reports between jobs using v4 artifact actions is under consideration.",
     options: [
-      { id: 'A', text: "Use `actions/upload-artifact@v4` in the build job and `actions/download-artifact@v4` in consuming jobs." },
-      { id: 'B', text: "Commit the compiled binary into the Git repository branch." },
-      { id: 'C', text: "Store the binary on an external unauthenticated public web server." },
-      { id: 'D', text: "Assume job workspaces persist across different runner virtual machines." }
+      { id: 'A', text: "Store the binary on an external unauthenticated public web server." },
+      { id: 'B', text: "Assume job workspaces persist across different runner virtual machines." },
+      { id: 'C', text: "Use `actions/upload-artifact@v4` in the build job and `actions/download-artifact@v4` in consuming jobs." },
+      { id: 'D', text: "Commit the compiled binary into the Git repository branch." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Use `actions/upload-artifact@v4` in the build job and `actions/download-artifact@v4` in consuming jobs. Each job in a workflow runs on an isolated virtual machine or container. Artifact actions (`actions/upload-artifact` and `actions/download-artifact`) upload files to GitHub storage and download them into downstream jobs, preserving build integrity across distributed runner instances.",
     referenceUrl: "https://docs.github.com/en/actions/using-workflows/storing-workflow-data-as-artifacts",
@@ -30,12 +30,12 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer evaluates Artifact Management to compile an application binary in a build job and pass it to a separate security scanning job and deployment job.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency? Sharing build outputs and test reports between jobs using v4 artifact actions is under consideration.",
     options: [
-      { id: 'A', text: "Use `actions/upload-artifact@v4` in the build job and `actions/download-artifact@v4` in consuming jobs." },
-      { id: 'B', text: "Commit the compiled binary into the Git repository branch." },
+      { id: 'A', text: "Commit the compiled binary into the Git repository branch." },
+      { id: 'B', text: "Assume job workspaces persist across different runner virtual machines." },
       { id: 'C', text: "Store the binary on an external unauthenticated public web server." },
-      { id: 'D', text: "Assume job workspaces persist across different runner virtual machines." }
+      { id: 'D', text: "Use `actions/upload-artifact@v4` in the build job and `actions/download-artifact@v4` in consuming jobs." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Use `actions/upload-artifact@v4` in the build job and `actions/download-artifact@v4` in consuming jobs. Each job in a workflow runs on an isolated virtual machine or container. Artifact actions (`actions/upload-artifact` and `actions/download-artifact`) upload files to GitHub storage and download them into downstream jobs, preserving build integrity across distributed runner instances.",
     referenceUrl: "https://docs.github.com/en/actions/using-workflows/storing-workflow-data-as-artifacts",
@@ -51,12 +51,12 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer evaluates Artifact Management to compile an application binary in a build job and pass it to a separate security scanning job and deployment job.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls? Sharing build outputs and test reports between jobs using v4 artifact actions is under consideration.",
     options: [
-      { id: 'A', text: "Use `actions/upload-artifact@v4` in the build job and `actions/download-artifact@v4` in consuming jobs." },
+      { id: 'A', text: "Store the binary on an external unauthenticated public web server." },
       { id: 'B', text: "Commit the compiled binary into the Git repository branch." },
-      { id: 'C', text: "Store the binary on an external unauthenticated public web server." },
+      { id: 'C', text: "Use `actions/upload-artifact@v4` in the build job and `actions/download-artifact@v4` in consuming jobs." },
       { id: 'D', text: "Assume job workspaces persist across different runner virtual machines." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Use `actions/upload-artifact@v4` in the build job and `actions/download-artifact@v4` in consuming jobs. Each job in a workflow runs on an isolated virtual machine or container. Artifact actions (`actions/upload-artifact` and `actions/download-artifact`) upload files to GitHub storage and download them into downstream jobs, preserving build integrity across distributed runner instances.",
     referenceUrl: "https://docs.github.com/en/actions/using-workflows/storing-workflow-data-as-artifacts",
@@ -72,12 +72,12 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer evaluates Artifact Management to compile an application binary in a build job and pass it to a separate security scanning job and deployment job.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction? Sharing build outputs and test reports between jobs using v4 artifact actions is under consideration.",
     options: [
-      { id: 'A', text: "Use `actions/upload-artifact@v4` in the build job and `actions/download-artifact@v4` in consuming jobs." },
-      { id: 'B', text: "Commit the compiled binary into the Git repository branch." },
-      { id: 'C', text: "Store the binary on an external unauthenticated public web server." },
-      { id: 'D', text: "Assume job workspaces persist across different runner virtual machines." }
+      { id: 'A', text: "Assume job workspaces persist across different runner virtual machines." },
+      { id: 'B', text: "Store the binary on an external unauthenticated public web server." },
+      { id: 'C', text: "Commit the compiled binary into the Git repository branch." },
+      { id: 'D', text: "Use `actions/upload-artifact@v4` in the build job and `actions/download-artifact@v4` in consuming jobs." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Use `actions/upload-artifact@v4` in the build job and `actions/download-artifact@v4` in consuming jobs. Each job in a workflow runs on an isolated virtual machine or container. Artifact actions (`actions/upload-artifact` and `actions/download-artifact`) upload files to GitHub storage and download them into downstream jobs, preserving build integrity across distributed runner instances.",
     referenceUrl: "https://docs.github.com/en/actions/using-workflows/storing-workflow-data-as-artifacts",
@@ -93,12 +93,12 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer evaluates Artifact Management to compile an application binary in a build job and pass it to a separate security scanning job and deployment job.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability? Sharing build outputs and test reports between jobs using v4 artifact actions is under consideration.",
     options: [
-      { id: 'A', text: "Use `actions/upload-artifact@v4` in the build job and `actions/download-artifact@v4` in consuming jobs." },
-      { id: 'B', text: "Commit the compiled binary into the Git repository branch." },
-      { id: 'C', text: "Store the binary on an external unauthenticated public web server." },
-      { id: 'D', text: "Assume job workspaces persist across different runner virtual machines." }
+      { id: 'A', text: "Store the binary on an external unauthenticated public web server." },
+      { id: 'B', text: "Assume job workspaces persist across different runner virtual machines." },
+      { id: 'C', text: "Commit the compiled binary into the Git repository branch." },
+      { id: 'D', text: "Use `actions/upload-artifact@v4` in the build job and `actions/download-artifact@v4` in consuming jobs." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Use `actions/upload-artifact@v4` in the build job and `actions/download-artifact@v4` in consuming jobs. Each job in a workflow runs on an isolated virtual machine or container. Artifact actions (`actions/upload-artifact` and `actions/download-artifact`) upload files to GitHub storage and download them into downstream jobs, preserving build integrity across distributed runner instances.",
     referenceUrl: "https://docs.github.com/en/actions/using-workflows/storing-workflow-data-as-artifacts",
@@ -114,12 +114,12 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer evaluates Workflow Caching to reduce workflow execution duration by avoiding re-downloading thousands of npm packages on every single commit.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives? Speeding up workflow execution by caching npm, pip, and Maven dependencies is under consideration.",
     options: [
-      { id: 'A', text: "Use `actions/cache@v4` specifying a cache `path` and a `key` based on `hashFiles('**/package-lock.json')`." },
-      { id: 'B', text: "Store dependencies in Git LFS." },
-      { id: 'C', text: "Run `npm install` without package lockfiles." },
-      { id: 'D', text: "Reinstall operating system packages on every run." }
+      { id: 'A', text: "Run `npm install` without package lockfiles." },
+      { id: 'B', text: "Use `actions/cache@v4` specifying a cache `path` and a `key` based on `hashFiles('**/package-lock.json')`." },
+      { id: 'C', text: "Reinstall operating system packages on every run." },
+      { id: 'D', text: "Store dependencies in Git LFS." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Use `actions/cache@v4` specifying a cache `path` and a `key` based on `hashFiles('**/package-lock.json')`. `actions/cache` preserves dependencies and build outputs across workflow runs. By hashing package lockfiles (e.g., `hashFiles('**/package-lock.json')`) as the cache key, the action restores cached packages in seconds if dependencies have not changed, reducing build times by 70%+.",
     referenceUrl: "https://docs.github.com/en/actions/using-workflows/caching-dependencies-to-speed-up-workflows",
@@ -135,12 +135,12 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer evaluates Workflow Caching to reduce workflow execution duration by avoiding re-downloading thousands of npm packages on every single commit.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency? Speeding up workflow execution by caching npm, pip, and Maven dependencies is under consideration.",
     options: [
-      { id: 'A', text: "Use `actions/cache@v4` specifying a cache `path` and a `key` based on `hashFiles('**/package-lock.json')`." },
-      { id: 'B', text: "Store dependencies in Git LFS." },
-      { id: 'C', text: "Run `npm install` without package lockfiles." },
-      { id: 'D', text: "Reinstall operating system packages on every run." }
+      { id: 'A', text: "Store dependencies in Git LFS." },
+      { id: 'B', text: "Reinstall operating system packages on every run." },
+      { id: 'C', text: "Use `actions/cache@v4` specifying a cache `path` and a `key` based on `hashFiles('**/package-lock.json')`." },
+      { id: 'D', text: "Run `npm install` without package lockfiles." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Use `actions/cache@v4` specifying a cache `path` and a `key` based on `hashFiles('**/package-lock.json')`. `actions/cache` preserves dependencies and build outputs across workflow runs. By hashing package lockfiles (e.g., `hashFiles('**/package-lock.json')`) as the cache key, the action restores cached packages in seconds if dependencies have not changed, reducing build times by 70%+.",
     referenceUrl: "https://docs.github.com/en/actions/using-workflows/caching-dependencies-to-speed-up-workflows",
@@ -156,12 +156,12 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer evaluates Workflow Caching to reduce workflow execution duration by avoiding re-downloading thousands of npm packages on every single commit.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls? Speeding up workflow execution by caching npm, pip, and Maven dependencies is under consideration.",
     options: [
-      { id: 'A', text: "Use `actions/cache@v4` specifying a cache `path` and a `key` based on `hashFiles('**/package-lock.json')`." },
-      { id: 'B', text: "Store dependencies in Git LFS." },
+      { id: 'A', text: "Reinstall operating system packages on every run." },
+      { id: 'B', text: "Use `actions/cache@v4` specifying a cache `path` and a `key` based on `hashFiles('**/package-lock.json')`." },
       { id: 'C', text: "Run `npm install` without package lockfiles." },
-      { id: 'D', text: "Reinstall operating system packages on every run." }
+      { id: 'D', text: "Store dependencies in Git LFS." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Use `actions/cache@v4` specifying a cache `path` and a `key` based on `hashFiles('**/package-lock.json')`. `actions/cache` preserves dependencies and build outputs across workflow runs. By hashing package lockfiles (e.g., `hashFiles('**/package-lock.json')`) as the cache key, the action restores cached packages in seconds if dependencies have not changed, reducing build times by 70%+.",
     referenceUrl: "https://docs.github.com/en/actions/using-workflows/caching-dependencies-to-speed-up-workflows",
@@ -177,12 +177,12 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer evaluates Workflow Caching to reduce workflow execution duration by avoiding re-downloading thousands of npm packages on every single commit.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction? Speeding up workflow execution by caching npm, pip, and Maven dependencies is under consideration.",
     options: [
-      { id: 'A', text: "Use `actions/cache@v4` specifying a cache `path` and a `key` based on `hashFiles('**/package-lock.json')`." },
-      { id: 'B', text: "Store dependencies in Git LFS." },
-      { id: 'C', text: "Run `npm install` without package lockfiles." },
-      { id: 'D', text: "Reinstall operating system packages on every run." }
+      { id: 'A', text: "Run `npm install` without package lockfiles." },
+      { id: 'B', text: "Reinstall operating system packages on every run." },
+      { id: 'C', text: "Use `actions/cache@v4` specifying a cache `path` and a `key` based on `hashFiles('**/package-lock.json')`." },
+      { id: 'D', text: "Store dependencies in Git LFS." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Use `actions/cache@v4` specifying a cache `path` and a `key` based on `hashFiles('**/package-lock.json')`. `actions/cache` preserves dependencies and build outputs across workflow runs. By hashing package lockfiles (e.g., `hashFiles('**/package-lock.json')`) as the cache key, the action restores cached packages in seconds if dependencies have not changed, reducing build times by 70%+.",
     referenceUrl: "https://docs.github.com/en/actions/using-workflows/caching-dependencies-to-speed-up-workflows",
@@ -198,12 +198,12 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer evaluates Workflow Caching to reduce workflow execution duration by avoiding re-downloading thousands of npm packages on every single commit.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability? Speeding up workflow execution by caching npm, pip, and Maven dependencies is under consideration.",
     options: [
-      { id: 'A', text: "Use `actions/cache@v4` specifying a cache `path` and a `key` based on `hashFiles('**/package-lock.json')`." },
-      { id: 'B', text: "Store dependencies in Git LFS." },
-      { id: 'C', text: "Run `npm install` without package lockfiles." },
-      { id: 'D', text: "Reinstall operating system packages on every run." }
+      { id: 'A', text: "Store dependencies in Git LFS." },
+      { id: 'B', text: "Use `actions/cache@v4` specifying a cache `path` and a `key` based on `hashFiles('**/package-lock.json')`." },
+      { id: 'C', text: "Reinstall operating system packages on every run." },
+      { id: 'D', text: "Run `npm install` without package lockfiles." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Use `actions/cache@v4` specifying a cache `path` and a `key` based on `hashFiles('**/package-lock.json')`. `actions/cache` preserves dependencies and build outputs across workflow runs. By hashing package lockfiles (e.g., `hashFiles('**/package-lock.json')`) as the cache key, the action restores cached packages in seconds if dependencies have not changed, reducing build times by 70%+.",
     referenceUrl: "https://docs.github.com/en/actions/using-workflows/caching-dependencies-to-speed-up-workflows",
@@ -221,8 +221,8 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     options: [
       { id: 'A', text: "Configure `on: workflow_dispatch:` with `inputs:` defining types (`choice`, `string`, `boolean`), descriptions, and defaults." },
       { id: 'B', text: "Instruct engineers to push empty commits to Git to trigger workflows." },
-      { id: 'C', text: "Hardcode parameters inside the workflow YAML file before every run." },
-      { id: 'D', text: "Write a custom terminal script using raw SSH connections." }
+      { id: 'C', text: "Write a custom terminal script using raw SSH connections." },
+      { id: 'D', text: "Hardcode parameters inside the workflow YAML file before every run." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -240,12 +240,12 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer evaluates Manual Workflows to allow operations engineers to trigger an on-demand deployment workflow manually via the GitHub UI with environment and debug parameters.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency? Triggering workflows manually with typed inputs, choice dropdowns, and defaults is under consideration.",
     options: [
-      { id: 'A', text: "Configure `on: workflow_dispatch:` with `inputs:` defining types (`choice`, `string`, `boolean`), descriptions, and defaults." },
-      { id: 'B', text: "Instruct engineers to push empty commits to Git to trigger workflows." },
-      { id: 'C', text: "Hardcode parameters inside the workflow YAML file before every run." },
-      { id: 'D', text: "Write a custom terminal script using raw SSH connections." }
+      { id: 'A', text: "Instruct engineers to push empty commits to Git to trigger workflows." },
+      { id: 'B', text: "Configure `on: workflow_dispatch:` with `inputs:` defining types (`choice`, `string`, `boolean`), descriptions, and defaults." },
+      { id: 'C', text: "Write a custom terminal script using raw SSH connections." },
+      { id: 'D', text: "Hardcode parameters inside the workflow YAML file before every run." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure `on: workflow_dispatch:` with `inputs:` defining types (`choice`, `string`, `boolean`), descriptions, and defaults. `workflow_dispatch` enables manual workflow triggers from the GitHub web interface, GitHub CLI (`gh workflow run`), or REST API. Defining typed `inputs` (such as environment dropdowns or boolean flags) allows parameterized, on-demand operational executions with input validation.",
     referenceUrl: "https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#onworkflow_dispatch",
@@ -261,12 +261,12 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer evaluates Manual Workflows to allow operations engineers to trigger an on-demand deployment workflow manually via the GitHub UI with environment and debug parameters.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls? Triggering workflows manually with typed inputs, choice dropdowns, and defaults is under consideration.",
     options: [
-      { id: 'A', text: "Configure `on: workflow_dispatch:` with `inputs:` defining types (`choice`, `string`, `boolean`), descriptions, and defaults." },
-      { id: 'B', text: "Instruct engineers to push empty commits to Git to trigger workflows." },
+      { id: 'A', text: "Instruct engineers to push empty commits to Git to trigger workflows." },
+      { id: 'B', text: "Write a custom terminal script using raw SSH connections." },
       { id: 'C', text: "Hardcode parameters inside the workflow YAML file before every run." },
-      { id: 'D', text: "Write a custom terminal script using raw SSH connections." }
+      { id: 'D', text: "Configure `on: workflow_dispatch:` with `inputs:` defining types (`choice`, `string`, `boolean`), descriptions, and defaults." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure `on: workflow_dispatch:` with `inputs:` defining types (`choice`, `string`, `boolean`), descriptions, and defaults. `workflow_dispatch` enables manual workflow triggers from the GitHub web interface, GitHub CLI (`gh workflow run`), or REST API. Defining typed `inputs` (such as environment dropdowns or boolean flags) allows parameterized, on-demand operational executions with input validation.",
     referenceUrl: "https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#onworkflow_dispatch",
@@ -283,8 +283,8 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction? Triggering workflows manually with typed inputs, choice dropdowns, and defaults is under consideration.",
     options: [
       { id: 'A', text: "Configure `on: workflow_dispatch:` with `inputs:` defining types (`choice`, `string`, `boolean`), descriptions, and defaults." },
-      { id: 'B', text: "Instruct engineers to push empty commits to Git to trigger workflows." },
-      { id: 'C', text: "Hardcode parameters inside the workflow YAML file before every run." },
+      { id: 'B', text: "Hardcode parameters inside the workflow YAML file before every run." },
+      { id: 'C', text: "Instruct engineers to push empty commits to Git to trigger workflows." },
       { id: 'D', text: "Write a custom terminal script using raw SSH connections." }
     ],
     correctAnswers: ['A'],
@@ -303,12 +303,12 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer evaluates Manual Workflows to allow operations engineers to trigger an on-demand deployment workflow manually via the GitHub UI with environment and debug parameters.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability? Triggering workflows manually with typed inputs, choice dropdowns, and defaults is under consideration.",
     options: [
-      { id: 'A', text: "Configure `on: workflow_dispatch:` with `inputs:` defining types (`choice`, `string`, `boolean`), descriptions, and defaults." },
-      { id: 'B', text: "Instruct engineers to push empty commits to Git to trigger workflows." },
+      { id: 'A', text: "Instruct engineers to push empty commits to Git to trigger workflows." },
+      { id: 'B', text: "Configure `on: workflow_dispatch:` with `inputs:` defining types (`choice`, `string`, `boolean`), descriptions, and defaults." },
       { id: 'C', text: "Hardcode parameters inside the workflow YAML file before every run." },
       { id: 'D', text: "Write a custom terminal script using raw SSH connections." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure `on: workflow_dispatch:` with `inputs:` defining types (`choice`, `string`, `boolean`), descriptions, and defaults. `workflow_dispatch` enables manual workflow triggers from the GitHub web interface, GitHub CLI (`gh workflow run`), or REST API. Defining typed `inputs` (such as environment dropdowns or boolean flags) allows parameterized, on-demand operational executions with input validation.",
     referenceUrl: "https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#onworkflow_dispatch",
@@ -324,12 +324,12 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer evaluates Reusable Workflows to standardize a multi-job build, test, and container push workflow across 50 enterprise repositories without code duplication.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives? Standardizing multi-job CI/CD workflows across repositories with workflow_call is under consideration.",
     options: [
-      { id: 'A', text: "Author a reusable workflow in a central repository with `on: workflow_call:` and invoke it using `uses: org/repo/.github/workflows/reusable.yml@v1`." },
-      { id: 'B', text: "Copy-paste 400 lines of workflow YAML into 50 repositories." },
-      { id: 'C', text: "Write a custom shell script that calls the GitHub API sequentially." },
-      { id: 'D', text: "Use composite actions for multi-job orchestration." }
+      { id: 'A', text: "Use composite actions for multi-job orchestration." },
+      { id: 'B', text: "Author a reusable workflow in a central repository with `on: workflow_call:` and invoke it using `uses: org/repo/.github/workflows/reusable.yml@v1`." },
+      { id: 'C', text: "Copy-paste 400 lines of workflow YAML into 50 repositories." },
+      { id: 'D', text: "Write a custom shell script that calls the GitHub API sequentially." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Author a reusable workflow in a central repository with `on: workflow_call:` and invoke it using `uses: org/repo/.github/workflows/reusable.yml@v1`. Reusable workflows (`workflow_call`) allow central engineering teams to define standardized, multi-job workflows that can be invoked from other repositories. Unlike composite actions (which only group steps inside a single job), reusable workflows orchestrate entire multi-job pipelines.",
     referenceUrl: "https://docs.github.com/en/actions/using-workflows/reusing-workflows",
@@ -347,8 +347,8 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     options: [
       { id: 'A', text: "Author a reusable workflow in a central repository with `on: workflow_call:` and invoke it using `uses: org/repo/.github/workflows/reusable.yml@v1`." },
       { id: 'B', text: "Copy-paste 400 lines of workflow YAML into 50 repositories." },
-      { id: 'C', text: "Write a custom shell script that calls the GitHub API sequentially." },
-      { id: 'D', text: "Use composite actions for multi-job orchestration." }
+      { id: 'C', text: "Use composite actions for multi-job orchestration." },
+      { id: 'D', text: "Write a custom shell script that calls the GitHub API sequentially." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -366,12 +366,12 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer evaluates Reusable Workflows to standardize a multi-job build, test, and container push workflow across 50 enterprise repositories without code duplication.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls? Standardizing multi-job CI/CD workflows across repositories with workflow_call is under consideration.",
     options: [
-      { id: 'A', text: "Author a reusable workflow in a central repository with `on: workflow_call:` and invoke it using `uses: org/repo/.github/workflows/reusable.yml@v1`." },
-      { id: 'B', text: "Copy-paste 400 lines of workflow YAML into 50 repositories." },
-      { id: 'C', text: "Write a custom shell script that calls the GitHub API sequentially." },
-      { id: 'D', text: "Use composite actions for multi-job orchestration." }
+      { id: 'A', text: "Use composite actions for multi-job orchestration." },
+      { id: 'B', text: "Write a custom shell script that calls the GitHub API sequentially." },
+      { id: 'C', text: "Author a reusable workflow in a central repository with `on: workflow_call:` and invoke it using `uses: org/repo/.github/workflows/reusable.yml@v1`." },
+      { id: 'D', text: "Copy-paste 400 lines of workflow YAML into 50 repositories." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Author a reusable workflow in a central repository with `on: workflow_call:` and invoke it using `uses: org/repo/.github/workflows/reusable.yml@v1`. Reusable workflows (`workflow_call`) allow central engineering teams to define standardized, multi-job workflows that can be invoked from other repositories. Unlike composite actions (which only group steps inside a single job), reusable workflows orchestrate entire multi-job pipelines.",
     referenceUrl: "https://docs.github.com/en/actions/using-workflows/reusing-workflows",
@@ -387,12 +387,12 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer evaluates Reusable Workflows to standardize a multi-job build, test, and container push workflow across 50 enterprise repositories without code duplication.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction? Standardizing multi-job CI/CD workflows across repositories with workflow_call is under consideration.",
     options: [
-      { id: 'A', text: "Author a reusable workflow in a central repository with `on: workflow_call:` and invoke it using `uses: org/repo/.github/workflows/reusable.yml@v1`." },
+      { id: 'A', text: "Use composite actions for multi-job orchestration." },
       { id: 'B', text: "Copy-paste 400 lines of workflow YAML into 50 repositories." },
       { id: 'C', text: "Write a custom shell script that calls the GitHub API sequentially." },
-      { id: 'D', text: "Use composite actions for multi-job orchestration." }
+      { id: 'D', text: "Author a reusable workflow in a central repository with `on: workflow_call:` and invoke it using `uses: org/repo/.github/workflows/reusable.yml@v1`." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Author a reusable workflow in a central repository with `on: workflow_call:` and invoke it using `uses: org/repo/.github/workflows/reusable.yml@v1`. Reusable workflows (`workflow_call`) allow central engineering teams to define standardized, multi-job workflows that can be invoked from other repositories. Unlike composite actions (which only group steps inside a single job), reusable workflows orchestrate entire multi-job pipelines.",
     referenceUrl: "https://docs.github.com/en/actions/using-workflows/reusing-workflows",
@@ -408,12 +408,12 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer evaluates Reusable Workflows to standardize a multi-job build, test, and container push workflow across 50 enterprise repositories without code duplication.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability? Standardizing multi-job CI/CD workflows across repositories with workflow_call is under consideration.",
     options: [
-      { id: 'A', text: "Author a reusable workflow in a central repository with `on: workflow_call:` and invoke it using `uses: org/repo/.github/workflows/reusable.yml@v1`." },
+      { id: 'A', text: "Write a custom shell script that calls the GitHub API sequentially." },
       { id: 'B', text: "Copy-paste 400 lines of workflow YAML into 50 repositories." },
-      { id: 'C', text: "Write a custom shell script that calls the GitHub API sequentially." },
-      { id: 'D', text: "Use composite actions for multi-job orchestration." }
+      { id: 'C', text: "Use composite actions for multi-job orchestration." },
+      { id: 'D', text: "Author a reusable workflow in a central repository with `on: workflow_call:` and invoke it using `uses: org/repo/.github/workflows/reusable.yml@v1`." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Author a reusable workflow in a central repository with `on: workflow_call:` and invoke it using `uses: org/repo/.github/workflows/reusable.yml@v1`. Reusable workflows (`workflow_call`) allow central engineering teams to define standardized, multi-job workflows that can be invoked from other repositories. Unlike composite actions (which only group steps inside a single job), reusable workflows orchestrate entire multi-job pipelines.",
     referenceUrl: "https://docs.github.com/en/actions/using-workflows/reusing-workflows",
@@ -429,12 +429,12 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer evaluates Environments to prevent production deployments from executing until a senior security engineer approves and an automated 15-minute wait timer expires.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives? Restricting deployments to protected environments with required reviewers and wait timers is under consideration.",
     options: [
-      { id: 'A', text: "Target an `environment: production` in the job, and configure Required Reviewers and Wait Timer in repository environment settings." },
-      { id: 'B', text: "Put a `sleep 900` command inside the deployment bash script." },
-      { id: 'C', text: "Delete the production branch protection rules." },
+      { id: 'A', text: "Put a `sleep 900` command inside the deployment bash script." },
+      { id: 'B', text: "Delete the production branch protection rules." },
+      { id: 'C', text: "Target an `environment: production` in the job, and configure Required Reviewers and Wait Timer in repository environment settings." },
       { id: 'D', text: "Rely on developers verbally confirming approval in chat." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Target an `environment: production` in the job, and configure Required Reviewers and Wait Timer in repository environment settings. GitHub Actions Environments represent deployment targets (e.g., `production`, `staging`). Configuring environment protection rules enforces manual approval gates from specific users/teams, deployment branch restrictions, and wait timers before environment secrets are decrypted.",
     referenceUrl: "https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment",
@@ -450,12 +450,12 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer evaluates Environments to prevent production deployments from executing until a senior security engineer approves and an automated 15-minute wait timer expires.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency? Restricting deployments to protected environments with required reviewers and wait timers is under consideration.",
     options: [
-      { id: 'A', text: "Target an `environment: production` in the job, and configure Required Reviewers and Wait Timer in repository environment settings." },
+      { id: 'A', text: "Delete the production branch protection rules." },
       { id: 'B', text: "Put a `sleep 900` command inside the deployment bash script." },
-      { id: 'C', text: "Delete the production branch protection rules." },
-      { id: 'D', text: "Rely on developers verbally confirming approval in chat." }
+      { id: 'C', text: "Rely on developers verbally confirming approval in chat." },
+      { id: 'D', text: "Target an `environment: production` in the job, and configure Required Reviewers and Wait Timer in repository environment settings." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Target an `environment: production` in the job, and configure Required Reviewers and Wait Timer in repository environment settings. GitHub Actions Environments represent deployment targets (e.g., `production`, `staging`). Configuring environment protection rules enforces manual approval gates from specific users/teams, deployment branch restrictions, and wait timers before environment secrets are decrypted.",
     referenceUrl: "https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment",
@@ -471,12 +471,12 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer evaluates Environments to prevent production deployments from executing until a senior security engineer approves and an automated 15-minute wait timer expires.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls? Restricting deployments to protected environments with required reviewers and wait timers is under consideration.",
     options: [
-      { id: 'A', text: "Target an `environment: production` in the job, and configure Required Reviewers and Wait Timer in repository environment settings." },
-      { id: 'B', text: "Put a `sleep 900` command inside the deployment bash script." },
-      { id: 'C', text: "Delete the production branch protection rules." },
-      { id: 'D', text: "Rely on developers verbally confirming approval in chat." }
+      { id: 'A', text: "Put a `sleep 900` command inside the deployment bash script." },
+      { id: 'B', text: "Delete the production branch protection rules." },
+      { id: 'C', text: "Rely on developers verbally confirming approval in chat." },
+      { id: 'D', text: "Target an `environment: production` in the job, and configure Required Reviewers and Wait Timer in repository environment settings." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Target an `environment: production` in the job, and configure Required Reviewers and Wait Timer in repository environment settings. GitHub Actions Environments represent deployment targets (e.g., `production`, `staging`). Configuring environment protection rules enforces manual approval gates from specific users/teams, deployment branch restrictions, and wait timers before environment secrets are decrypted.",
     referenceUrl: "https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment",
@@ -513,12 +513,12 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer evaluates Environments to prevent production deployments from executing until a senior security engineer approves and an automated 15-minute wait timer expires.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability? Restricting deployments to protected environments with required reviewers and wait timers is under consideration.",
     options: [
-      { id: 'A', text: "Target an `environment: production` in the job, and configure Required Reviewers and Wait Timer in repository environment settings." },
-      { id: 'B', text: "Put a `sleep 900` command inside the deployment bash script." },
+      { id: 'A', text: "Rely on developers verbally confirming approval in chat." },
+      { id: 'B', text: "Target an `environment: production` in the job, and configure Required Reviewers and Wait Timer in repository environment settings." },
       { id: 'C', text: "Delete the production branch protection rules." },
-      { id: 'D', text: "Rely on developers verbally confirming approval in chat." }
+      { id: 'D', text: "Put a `sleep 900` command inside the deployment bash script." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Target an `environment: production` in the job, and configure Required Reviewers and Wait Timer in repository environment settings. GitHub Actions Environments represent deployment targets (e.g., `production`, `staging`). Configuring environment protection rules enforces manual approval gates from specific users/teams, deployment branch restrictions, and wait timers before environment secrets are decrypted.",
     referenceUrl: "https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment",

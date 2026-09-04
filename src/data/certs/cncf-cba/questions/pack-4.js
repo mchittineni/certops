@@ -30,12 +30,12 @@ export const CNCF_CBA_QUESTIONS_4 = [
     scenario: "A healthcare telemedicine network is evaluating Certified Backstage Associate practices specifically regarding Backstage plugin architecture core plugins vs community plugins. The engineering group is modernizing legacy components to achieve zero-downtime deployments under unpredictable traffic spikes for service tier #77.",
     question: "Which configuration provides the most cost-effective and secure solution to achieve these criteria?",
     options: [
-      { id: 'A', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
+      { id: 'A', text: "Deploy native automation for backstage plugin architecture core plugins vs community plugins utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
       { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
       { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'D', text: "Deploy native automation for backstage plugin architecture core plugins vs community plugins utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." }
+      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for backstage plugin architecture core plugins vs community plugins provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Backstage Associate standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.cncf.io/certification/cba/",
@@ -52,9 +52,9 @@ export const CNCF_CBA_QUESTIONS_4 = [
     question: "Which architectural approach fulfills these operational objectives while maintaining reliability and minimal engineering overhead?",
     options: [
       { id: 'A', text: "Deploy native automation for catalog processors, entity providers, and automated repository ingestion utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
+      { id: 'B', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
+      { id: 'C', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
+      { id: 'D', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -73,11 +73,11 @@ export const CNCF_CBA_QUESTIONS_4 = [
     question: "How should the engineering team configure the platform to ensure resilient, automated operation without manual intervention?",
     options: [
       { id: 'A', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'C', text: "Deploy native automation for dry-run testing and debugging template execution logs utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'D', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." }
+      { id: 'B', text: "Deploy native automation for dry-run testing and debugging template execution logs utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
+      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
+      { id: 'D', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for dry-run testing and debugging template execution logs provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Backstage Associate standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.cncf.io/certification/cba/",
@@ -93,12 +93,12 @@ export const CNCF_CBA_QUESTIONS_4 = [
     scenario: "An algorithmic trading exchange is evaluating Certified Backstage Associate practices specifically regarding Production deployment topology containerization, PostgreSQL, and caching. The engineering group is migrating mission-critical workloads while enforcing strict organizational security guardrails for service tier #80.",
     question: "Which design pattern should be implemented to ensure continuous compliance, automated validation, and high availability?",
     options: [
-      { id: 'A', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
+      { id: 'A', text: "Deploy native automation for production deployment topology containerization, postgresql, and caching utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
       { id: 'B', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'C', text: "Deploy native automation for production deployment topology containerization, postgresql, and caching utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
+      { id: 'C', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
       { id: 'D', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for production deployment topology containerization, postgresql, and caching provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Backstage Associate standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.cncf.io/certification/cba/",
@@ -114,12 +114,12 @@ export const CNCF_CBA_QUESTIONS_4 = [
     scenario: "A logistics and supply chain optimization service is evaluating Certified Backstage Associate practices specifically regarding Backstage monorepo architecture React frontend and Node.js backend. The engineering group needs to eliminate manual operational toil and enforce declarative infrastructure reconciliation for service tier #81.",
     question: "What is the recommended implementation strategy to satisfy these technical requirements according to official best practices?",
     options: [
-      { id: 'A', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'B', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'C', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'D', text: "Deploy native automation for backstage monorepo architecture react frontend and node.js backend utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." }
+      { id: 'A', text: "Deploy native automation for backstage monorepo architecture react frontend and node.js backend utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
+      { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
+      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
+      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for backstage monorepo architecture react frontend and node.js backend provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Backstage Associate standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.cncf.io/certification/cba/",
@@ -136,8 +136,8 @@ export const CNCF_CBA_QUESTIONS_4 = [
     question: "Which configuration provides the most cost-effective and secure solution to achieve these criteria?",
     options: [
       { id: 'A', text: "Deploy native automation for catalog-info.yaml metadata schema syntax and api versions utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'B', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'C', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
+      { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
+      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
       { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
     ],
     correctAnswers: ['A'],
@@ -156,12 +156,12 @@ export const CNCF_CBA_QUESTIONS_4 = [
     scenario: "A multi-tenant enterprise SaaS provider is evaluating Certified Backstage Associate practices specifically regarding Backstage Software Templates Scaffolder syntax and template parameters. The engineering group must enforce zero-trust identity boundaries and cryptographic verification across all service endpoints for service tier #83.",
     question: "Which architectural approach fulfills these operational objectives while maintaining reliability and minimal engineering overhead?",
     options: [
-      { id: 'A', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'B', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'C', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'D', text: "Deploy native automation for backstage software templates scaffolder syntax and template parameters utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." }
+      { id: 'A', text: "Deploy native automation for backstage software templates scaffolder syntax and template parameters utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
+      { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
+      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
+      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for backstage software templates scaffolder syntax and template parameters provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Backstage Associate standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.cncf.io/certification/cba/",
@@ -178,9 +178,9 @@ export const CNCF_CBA_QUESTIONS_4 = [
     question: "How should the engineering team configure the platform to ensure resilient, automated operation without manual intervention?",
     options: [
       { id: 'A', text: "Deploy native automation for techdocs architecture mkdocs generation and cloud storage publishing utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
+      { id: 'B', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
+      { id: 'C', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
+      { id: 'D', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,12 +198,12 @@ export const CNCF_CBA_QUESTIONS_4 = [
     scenario: "An automotive connected-vehicle fleet manager is evaluating Certified Backstage Associate practices specifically regarding Core concepts Software Catalog, Software Templates, TechDocs, and Search. The engineering group is resolving cross-account network latency bottlenecks and transient connection timeouts for service tier #85.",
     question: "Which design pattern should be implemented to ensure continuous compliance, automated validation, and high availability?",
     options: [
-      { id: 'A', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'B', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'C', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'D', text: "Deploy native automation for core concepts software catalog, software templates, techdocs, and search utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." }
+      { id: 'A', text: "Deploy native automation for core concepts software catalog, software templates, techdocs, and search utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
+      { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
+      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
+      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for core concepts software catalog, software templates, techdocs, and search provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Backstage Associate standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.cncf.io/certification/cba/",
@@ -219,12 +219,12 @@ export const CNCF_CBA_QUESTIONS_4 = [
     scenario: "A digital media publishing network is evaluating Certified Backstage Associate practices specifically regarding Entity model taxonomy Component, API, Resource, System, and Domain. The engineering group must establish centralized audit logging and automated incident containment for security operations for service tier #86.",
     question: "What is the recommended implementation strategy to satisfy these technical requirements according to official best practices?",
     options: [
-      { id: 'A', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'C', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'D', text: "Deploy native automation for entity model taxonomy component, api, resource, system, and domain utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." }
+      { id: 'A', text: "Deploy native automation for entity model taxonomy component, api, resource, system, and domain utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
+      { id: 'B', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
+      { id: 'C', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
+      { id: 'D', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for entity model taxonomy component, api, resource, system, and domain provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Backstage Associate standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.cncf.io/certification/cba/",
@@ -240,12 +240,12 @@ export const CNCF_CBA_QUESTIONS_4 = [
     scenario: "A pharmaceutical clinical trial data service is evaluating Certified Backstage Associate practices specifically regarding Scaffolder step actions fetch:template, publish:github, and catalog:register. The engineering group is modernizing legacy components to achieve zero-downtime deployments under unpredictable traffic spikes for service tier #87.",
     question: "Which configuration provides the most cost-effective and secure solution to achieve these criteria?",
     options: [
-      { id: 'A', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
+      { id: 'A', text: "Deploy native automation for scaffolder step actions fetch:template, publish:github, and catalog:register utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
       { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'C', text: "Deploy native automation for scaffolder step actions fetch:template, publish:github, and catalog:register utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
+      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
       { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for scaffolder step actions fetch:template, publish:github, and catalog:register provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Backstage Associate standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.cncf.io/certification/cba/",
@@ -261,12 +261,12 @@ export const CNCF_CBA_QUESTIONS_4 = [
     scenario: "A renewable energy smart-grid operator is evaluating Certified Backstage Associate practices specifically regarding Configuring Kubernetes plugin for multi-cluster pod and deployment views. The engineering group is remediating compliance audit findings regarding unauthorized configuration drift across staging and production for service tier #88.",
     question: "Which architectural approach fulfills these operational objectives while maintaining reliability and minimal engineering overhead?",
     options: [
-      { id: 'A', text: "Deploy native automation for configuring kubernetes plugin for multi-cluster pod and deployment views utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
+      { id: 'A', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
+      { id: 'B', text: "Deploy native automation for configuring kubernetes plugin for multi-cluster pod and deployment views utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
       { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
+      { id: 'D', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for configuring kubernetes plugin for multi-cluster pod and deployment views provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Backstage Associate standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.cncf.io/certification/cba/",
@@ -282,12 +282,12 @@ export const CNCF_CBA_QUESTIONS_4 = [
     scenario: "A mobile gaming backend architecture is evaluating Certified Backstage Associate practices specifically regarding Service discovery and app-config.yaml configuration hierarchy. The engineering group must minimize mean time to recovery (MTTR) and prevent cascading failures during regional outages for service tier #89.",
     question: "How should the engineering team configure the platform to ensure resilient, automated operation without manual intervention?",
     options: [
-      { id: 'A', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'B', text: "Deploy native automation for service discovery and app-config.yaml configuration hierarchy utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
+      { id: 'A', text: "Deploy native automation for service discovery and app-config.yaml configuration hierarchy utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
+      { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
       { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
       { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for service discovery and app-config.yaml configuration hierarchy provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Backstage Associate standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.cncf.io/certification/cba/",
@@ -303,12 +303,12 @@ export const CNCF_CBA_QUESTIONS_4 = [
     scenario: "A ride-sharing dispatch system is evaluating Certified Backstage Associate practices specifically regarding Organizational entities User and Group defining service ownership. The engineering group is migrating mission-critical workloads while enforcing strict organizational security guardrails for service tier #90.",
     question: "Which design pattern should be implemented to ensure continuous compliance, automated validation, and high availability?",
     options: [
-      { id: 'A', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'B', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'C', text: "Deploy native automation for organizational entities user and group defining service ownership utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'D', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." }
+      { id: 'A', text: "Deploy native automation for organizational entities user and group defining service ownership utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
+      { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
+      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
+      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for organizational entities user and group defining service ownership provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Backstage Associate standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.cncf.io/certification/cba/",
@@ -324,12 +324,12 @@ export const CNCF_CBA_QUESTIONS_4 = [
     scenario: "An insurance claims processing engine is evaluating Certified Backstage Associate practices specifically regarding Building dynamic UI parameter forms with react-jsonschema-form. The engineering group needs to eliminate manual operational toil and enforce declarative infrastructure reconciliation for service tier #91.",
     question: "What is the recommended implementation strategy to satisfy these technical requirements according to official best practices?",
     options: [
-      { id: 'A', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'B', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'C', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'D', text: "Deploy native automation for building dynamic ui parameter forms with react-jsonschema-form utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." }
+      { id: 'A', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
+      { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
+      { id: 'C', text: "Deploy native automation for building dynamic ui parameter forms with react-jsonschema-form utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
+      { id: 'D', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for building dynamic ui parameter forms with react-jsonschema-form provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Backstage Associate standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.cncf.io/certification/cba/",
@@ -347,8 +347,8 @@ export const CNCF_CBA_QUESTIONS_4 = [
     options: [
       { id: 'A', text: "Deploy native automation for ci/cd plugins integrating github actions, gitlab ci, and jenkins utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
       { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'C', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'D', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." }
+      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
+      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -366,12 +366,12 @@ export const CNCF_CBA_QUESTIONS_4 = [
     scenario: "A cybersecurity threat intelligence agency is evaluating Certified Backstage Associate practices specifically regarding Authentication providers GitHub, Google, Okta, and Guest access. The engineering group must enforce zero-trust identity boundaries and cryptographic verification across all service endpoints for service tier #93.",
     question: "Which architectural approach fulfills these operational objectives while maintaining reliability and minimal engineering overhead?",
     options: [
-      { id: 'A', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'B', text: "Deploy native automation for authentication providers github, google, okta, and guest access utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'C', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
+      { id: 'A', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
+      { id: 'B', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
+      { id: 'C', text: "Deploy native automation for authentication providers github, google, okta, and guest access utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
       { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for authentication providers github, google, okta, and guest access provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Backstage Associate standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.cncf.io/certification/cba/",
@@ -387,12 +387,12 @@ export const CNCF_CBA_QUESTIONS_4 = [
     scenario: "A real estate property management portal is evaluating Certified Backstage Associate practices specifically regarding Entity relations owner, dependsOn, providesApi, and consumesApi. The engineering group needs to optimize cloud expenditure and implement real-time cost attribution across engineering teams for service tier #94.",
     question: "How should the engineering team configure the platform to ensure resilient, automated operation without manual intervention?",
     options: [
-      { id: 'A', text: "Deploy native automation for entity relations owner, dependson, providesapi, and consumesapi utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
+      { id: 'A', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
+      { id: 'B', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
+      { id: 'C', text: "Deploy native automation for entity relations owner, dependson, providesapi, and consumesapi utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
       { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for entity relations owner, dependson, providesapi, and consumesapi provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Backstage Associate standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.cncf.io/certification/cba/",
@@ -408,9 +408,9 @@ export const CNCF_CBA_QUESTIONS_4 = [
     scenario: "An autonomous robotics manufacturing facility is evaluating Certified Backstage Associate practices specifically regarding Authoring custom Scaffolder actions in the Backstage backend. The engineering group is resolving cross-account network latency bottlenecks and transient connection timeouts for service tier #95.",
     question: "Which design pattern should be implemented to ensure continuous compliance, automated validation, and high availability?",
     options: [
-      { id: 'A', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'C', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
+      { id: 'A', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
+      { id: 'B', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
+      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
       { id: 'D', text: "Deploy native automation for authoring custom scaffolder actions in the backstage backend utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." }
     ],
     correctAnswers: ['D'],
@@ -429,12 +429,12 @@ export const CNCF_CBA_QUESTIONS_4 = [
     scenario: "A higher education student information system is evaluating Certified Backstage Associate practices specifically regarding Backstage Permissions framework role-based catalog access control. The engineering group must establish centralized audit logging and automated incident containment for security operations for service tier #96.",
     question: "What is the recommended implementation strategy to satisfy these technical requirements according to official best practices?",
     options: [
-      { id: 'A', text: "Deploy native automation for backstage permissions framework role-based catalog access control utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
+      { id: 'A', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
       { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
+      { id: 'C', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
+      { id: 'D', text: "Deploy native automation for backstage permissions framework role-based catalog access control utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for backstage permissions framework role-based catalog access control provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Backstage Associate standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.cncf.io/certification/cba/",
@@ -452,10 +452,10 @@ export const CNCF_CBA_QUESTIONS_4 = [
     options: [
       { id: 'A', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
       { id: 'B', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'C', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'D', text: "Deploy native automation for backstage plugin architecture core plugins vs community plugins utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." }
+      { id: 'C', text: "Deploy native automation for backstage plugin architecture core plugins vs community plugins utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
+      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for backstage plugin architecture core plugins vs community plugins provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Backstage Associate standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.cncf.io/certification/cba/",
@@ -471,12 +471,12 @@ export const CNCF_CBA_QUESTIONS_4 = [
     scenario: "A digital payments settlement processor is evaluating Certified Backstage Associate practices specifically regarding Catalog processors, entity providers, and automated repository ingestion. The engineering group is remediating compliance audit findings regarding unauthorized configuration drift across staging and production for service tier #98.",
     question: "Which architectural approach fulfills these operational objectives while maintaining reliability and minimal engineering overhead?",
     options: [
-      { id: 'A', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
-      { id: 'B', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'C', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'D', text: "Deploy native automation for catalog processors, entity providers, and automated repository ingestion utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." }
+      { id: 'A', text: "Deploy native automation for catalog processors, entity providers, and automated repository ingestion utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
+      { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
+      { id: 'C', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
+      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for catalog processors, entity providers, and automated repository ingestion provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Backstage Associate standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.cncf.io/certification/cba/",
@@ -494,10 +494,10 @@ export const CNCF_CBA_QUESTIONS_4 = [
     options: [
       { id: 'A', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
       { id: 'B', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'C', text: "Deploy native automation for dry-run testing and debugging template execution logs utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'D', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." }
+      { id: 'C', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
+      { id: 'D', text: "Deploy native automation for dry-run testing and debugging template execution logs utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for dry-run testing and debugging template execution logs provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Backstage Associate standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.cncf.io/certification/cba/",
@@ -513,12 +513,12 @@ export const CNCF_CBA_QUESTIONS_4 = [
     scenario: "A cloud-native telecommunications provider is evaluating Certified Backstage Associate practices specifically regarding Production deployment topology containerization, PostgreSQL, and caching. The engineering group is migrating mission-critical workloads while enforcing strict organizational security guardrails for service tier #100.",
     question: "Which design pattern should be implemented to ensure continuous compliance, automated validation, and high availability?",
     options: [
-      { id: 'A', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
-      { id: 'B', text: "Deploy native automation for production deployment topology containerization, postgresql, and caching utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
-      { id: 'C', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." },
-      { id: 'D', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." }
+      { id: 'A', text: "Deploy native automation for production deployment topology containerization, postgresql, and caching utilizing declarative specifications, validated policy controls, and centralized telemetry tracking." },
+      { id: 'B', text: "Grant unconstrained administrative access to application runtime service accounts to bypass permission evaluation checks." },
+      { id: 'C', text: "Disable continuous monitoring and automated health checks to conserve computational overhead during peak customer traffic." },
+      { id: 'D', text: "Execute ad-hoc maintenance scripts directly on live production hosts during off-peak hours without version control tracking." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for production deployment topology containerization, postgresql, and caching provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Backstage Associate standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.cncf.io/certification/cba/",

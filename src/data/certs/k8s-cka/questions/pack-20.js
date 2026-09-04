@@ -9,12 +9,12 @@ export const K8S_CKA_QUESTIONS_20 = [
     scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator evaluates Service Types to expose an internal backend microservice so that only other pods within the cluster can communicate with it across a stable IP address.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements? Exposing workloads internally, on node ports, and via cloud load balancers is under consideration.",
     options: [
-      { id: 'A', text: "Create a Service with `type: ClusterIP` (the default service type)." },
-      { id: 'B', text: "Create a Service with `type: LoadBalancer` provisioning a public IP address." },
-      { id: 'C', text: "Create a Service with `type: NodePort` exposing high port 30000+ on every worker node." },
-      { id: 'D', text: "Configure pods with `hostNetwork: true` and bind to port 80." }
+      { id: 'A', text: "Create a Service with `type: NodePort` exposing high port 30000+ on every worker node." },
+      { id: 'B', text: "Configure pods with `hostNetwork: true` and bind to port 80." },
+      { id: 'C', text: "Create a Service with `type: ClusterIP` (the default service type)." },
+      { id: 'D', text: "Create a Service with `type: LoadBalancer` provisioning a public IP address." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Create a Service with `type: ClusterIP` (the default service type). `ClusterIP` assigns a stable, cluster-internal virtual IP address that is only reachable from within the cluster. It is the default and recommended service type for inter-service microservice communication.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types",
@@ -30,12 +30,12 @@ export const K8S_CKA_QUESTIONS_20 = [
     scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator evaluates Service Types to expose an internal backend microservice so that only other pods within the cluster can communicate with it across a stable IP address.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability? Exposing workloads internally, on node ports, and via cloud load balancers is under consideration.",
     options: [
-      { id: 'A', text: "Create a Service with `type: ClusterIP` (the default service type)." },
-      { id: 'B', text: "Create a Service with `type: LoadBalancer` provisioning a public IP address." },
-      { id: 'C', text: "Create a Service with `type: NodePort` exposing high port 30000+ on every worker node." },
-      { id: 'D', text: "Configure pods with `hostNetwork: true` and bind to port 80." }
+      { id: 'A', text: "Create a Service with `type: LoadBalancer` provisioning a public IP address." },
+      { id: 'B', text: "Configure pods with `hostNetwork: true` and bind to port 80." },
+      { id: 'C', text: "Create a Service with `type: ClusterIP` (the default service type)." },
+      { id: 'D', text: "Create a Service with `type: NodePort` exposing high port 30000+ on every worker node." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Create a Service with `type: ClusterIP` (the default service type). `ClusterIP` assigns a stable, cluster-internal virtual IP address that is only reachable from within the cluster. It is the default and recommended service type for inter-service microservice communication.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types",
@@ -51,12 +51,12 @@ export const K8S_CKA_QUESTIONS_20 = [
     scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator evaluates Service Types to expose an internal backend microservice so that only other pods within the cluster can communicate with it across a stable IP address.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls? Exposing workloads internally, on node ports, and via cloud load balancers is under consideration.",
     options: [
-      { id: 'A', text: "Create a Service with `type: ClusterIP` (the default service type)." },
+      { id: 'A', text: "Configure pods with `hostNetwork: true` and bind to port 80." },
       { id: 'B', text: "Create a Service with `type: LoadBalancer` provisioning a public IP address." },
-      { id: 'C', text: "Create a Service with `type: NodePort` exposing high port 30000+ on every worker node." },
-      { id: 'D', text: "Configure pods with `hostNetwork: true` and bind to port 80." }
+      { id: 'C', text: "Create a Service with `type: ClusterIP` (the default service type)." },
+      { id: 'D', text: "Create a Service with `type: NodePort` exposing high port 30000+ on every worker node." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Create a Service with `type: ClusterIP` (the default service type). `ClusterIP` assigns a stable, cluster-internal virtual IP address that is only reachable from within the cluster. It is the default and recommended service type for inter-service microservice communication.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types",
@@ -72,12 +72,12 @@ export const K8S_CKA_QUESTIONS_20 = [
     scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator evaluates Service Types to expose an internal backend microservice so that only other pods within the cluster can communicate with it across a stable IP address.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity? Exposing workloads internally, on node ports, and via cloud load balancers is under consideration.",
     options: [
-      { id: 'A', text: "Create a Service with `type: ClusterIP` (the default service type)." },
-      { id: 'B', text: "Create a Service with `type: LoadBalancer` provisioning a public IP address." },
-      { id: 'C', text: "Create a Service with `type: NodePort` exposing high port 30000+ on every worker node." },
-      { id: 'D', text: "Configure pods with `hostNetwork: true` and bind to port 80." }
+      { id: 'A', text: "Create a Service with `type: LoadBalancer` provisioning a public IP address." },
+      { id: 'B', text: "Create a Service with `type: ClusterIP` (the default service type)." },
+      { id: 'C', text: "Configure pods with `hostNetwork: true` and bind to port 80." },
+      { id: 'D', text: "Create a Service with `type: NodePort` exposing high port 30000+ on every worker node." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Create a Service with `type: ClusterIP` (the default service type). `ClusterIP` assigns a stable, cluster-internal virtual IP address that is only reachable from within the cluster. It is the default and recommended service type for inter-service microservice communication.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types",
@@ -94,9 +94,9 @@ export const K8S_CKA_QUESTIONS_20 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability? Exposing workloads internally, on node ports, and via cloud load balancers is under consideration.",
     options: [
       { id: 'A', text: "Create a Service with `type: ClusterIP` (the default service type)." },
-      { id: 'B', text: "Create a Service with `type: LoadBalancer` provisioning a public IP address." },
-      { id: 'C', text: "Create a Service with `type: NodePort` exposing high port 30000+ on every worker node." },
-      { id: 'D', text: "Configure pods with `hostNetwork: true` and bind to port 80." }
+      { id: 'B', text: "Create a Service with `type: NodePort` exposing high port 30000+ on every worker node." },
+      { id: 'C', text: "Configure pods with `hostNetwork: true` and bind to port 80." },
+      { id: 'D', text: "Create a Service with `type: LoadBalancer` provisioning a public IP address." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -114,12 +114,12 @@ export const K8S_CKA_QUESTIONS_20 = [
     scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator evaluates Headless Services to allow client pods to discover and connect directly to individual stateful database replica pod IPs without routing through proxy load balancing.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements? Configuring clusterIP: None for direct pod DNS resolution in StatefulSets is under consideration.",
     options: [
-      { id: 'A', text: "Create a Service with `clusterIP: None` (Headless Service) matching the StatefulSet pod selector." },
-      { id: 'B', text: "Create a NodePort service on port 3306." },
-      { id: 'C', text: "Configure a standard ClusterIP service with round-robin load balancing." },
-      { id: 'D', text: "Assign public static elastic IP addresses to each database container." }
+      { id: 'A', text: "Create a NodePort service on port 3306." },
+      { id: 'B', text: "Configure a standard ClusterIP service with round-robin load balancing." },
+      { id: 'C', text: "Assign public static elastic IP addresses to each database container." },
+      { id: 'D', text: "Create a Service with `clusterIP: None` (Headless Service) matching the StatefulSet pod selector." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Create a Service with `clusterIP: None` (Headless Service) matching the StatefulSet pod selector. A Headless Service (`clusterIP: None`) does not allocate a virtual IP or use kube-proxy. Instead, CoreDNS returns direct DNS A/AAAA records for each backing pod IP, allowing clients to establish direct point-to-point connections with specific stateful replicas.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/service/#headless-services",
@@ -135,12 +135,12 @@ export const K8S_CKA_QUESTIONS_20 = [
     scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator evaluates Headless Services to allow client pods to discover and connect directly to individual stateful database replica pod IPs without routing through proxy load balancing.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability? Configuring clusterIP: None for direct pod DNS resolution in StatefulSets is under consideration.",
     options: [
-      { id: 'A', text: "Create a Service with `clusterIP: None` (Headless Service) matching the StatefulSet pod selector." },
+      { id: 'A', text: "Assign public static elastic IP addresses to each database container." },
       { id: 'B', text: "Create a NodePort service on port 3306." },
-      { id: 'C', text: "Configure a standard ClusterIP service with round-robin load balancing." },
-      { id: 'D', text: "Assign public static elastic IP addresses to each database container." }
+      { id: 'C', text: "Create a Service with `clusterIP: None` (Headless Service) matching the StatefulSet pod selector." },
+      { id: 'D', text: "Configure a standard ClusterIP service with round-robin load balancing." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Create a Service with `clusterIP: None` (Headless Service) matching the StatefulSet pod selector. A Headless Service (`clusterIP: None`) does not allocate a virtual IP or use kube-proxy. Instead, CoreDNS returns direct DNS A/AAAA records for each backing pod IP, allowing clients to establish direct point-to-point connections with specific stateful replicas.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/service/#headless-services",
@@ -157,8 +157,8 @@ export const K8S_CKA_QUESTIONS_20 = [
     question: "Which solution implements these mandatory Kubernetes security and governance controls? Configuring clusterIP: None for direct pod DNS resolution in StatefulSets is under consideration.",
     options: [
       { id: 'A', text: "Create a Service with `clusterIP: None` (Headless Service) matching the StatefulSet pod selector." },
-      { id: 'B', text: "Create a NodePort service on port 3306." },
-      { id: 'C', text: "Configure a standard ClusterIP service with round-robin load balancing." },
+      { id: 'B', text: "Configure a standard ClusterIP service with round-robin load balancing." },
+      { id: 'C', text: "Create a NodePort service on port 3306." },
       { id: 'D', text: "Assign public static elastic IP addresses to each database container." }
     ],
     correctAnswers: ['A'],
@@ -177,12 +177,12 @@ export const K8S_CKA_QUESTIONS_20 = [
     scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator evaluates Headless Services to allow client pods to discover and connect directly to individual stateful database replica pod IPs without routing through proxy load balancing.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity? Configuring clusterIP: None for direct pod DNS resolution in StatefulSets is under consideration.",
     options: [
-      { id: 'A', text: "Create a Service with `clusterIP: None` (Headless Service) matching the StatefulSet pod selector." },
-      { id: 'B', text: "Create a NodePort service on port 3306." },
-      { id: 'C', text: "Configure a standard ClusterIP service with round-robin load balancing." },
+      { id: 'A', text: "Configure a standard ClusterIP service with round-robin load balancing." },
+      { id: 'B', text: "Create a Service with `clusterIP: None` (Headless Service) matching the StatefulSet pod selector." },
+      { id: 'C', text: "Create a NodePort service on port 3306." },
       { id: 'D', text: "Assign public static elastic IP addresses to each database container." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Create a Service with `clusterIP: None` (Headless Service) matching the StatefulSet pod selector. A Headless Service (`clusterIP: None`) does not allocate a virtual IP or use kube-proxy. Instead, CoreDNS returns direct DNS A/AAAA records for each backing pod IP, allowing clients to establish direct point-to-point connections with specific stateful replicas.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/service/#headless-services",
@@ -198,12 +198,12 @@ export const K8S_CKA_QUESTIONS_20 = [
     scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator evaluates Headless Services to allow client pods to discover and connect directly to individual stateful database replica pod IPs without routing through proxy load balancing.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability? Configuring clusterIP: None for direct pod DNS resolution in StatefulSets is under consideration.",
     options: [
-      { id: 'A', text: "Create a Service with `clusterIP: None` (Headless Service) matching the StatefulSet pod selector." },
-      { id: 'B', text: "Create a NodePort service on port 3306." },
+      { id: 'A', text: "Create a NodePort service on port 3306." },
+      { id: 'B', text: "Create a Service with `clusterIP: None` (Headless Service) matching the StatefulSet pod selector." },
       { id: 'C', text: "Configure a standard ClusterIP service with round-robin load balancing." },
       { id: 'D', text: "Assign public static elastic IP addresses to each database container." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Create a Service with `clusterIP: None` (Headless Service) matching the StatefulSet pod selector. A Headless Service (`clusterIP: None`) does not allocate a virtual IP or use kube-proxy. Instead, CoreDNS returns direct DNS A/AAAA records for each backing pod IP, allowing clients to establish direct point-to-point connections with specific stateful replicas.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/service/#headless-services",
@@ -241,9 +241,9 @@ export const K8S_CKA_QUESTIONS_20 = [
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability? HTTP/HTTPS path and host-based routing via Ingress controllers is under consideration.",
     options: [
       { id: 'A', text: "Deploy an Ingress Controller (e.g., ingress-nginx) and define an `Ingress` resource specifying host and path routing rules." },
-      { id: 'B', text: "Create separate LoadBalancer services for each path, requiring multiple public IP addresses." },
+      { id: 'B', text: "Instruct clients to connect directly to worker node internal IP addresses." },
       { id: 'C', text: "Manually configure iptables on every worker node to route port 80 traffic." },
-      { id: 'D', text: "Instruct clients to connect directly to worker node internal IP addresses." }
+      { id: 'D', text: "Create separate LoadBalancer services for each path, requiring multiple public IP addresses." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -261,12 +261,12 @@ export const K8S_CKA_QUESTIONS_20 = [
     scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator evaluates Ingress Routing to route external HTTP traffic based on URL paths (`/api` and `/web`) to different internal backend services using a single entry point and TLS certificate.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls? HTTP/HTTPS path and host-based routing via Ingress controllers is under consideration.",
     options: [
-      { id: 'A', text: "Deploy an Ingress Controller (e.g., ingress-nginx) and define an `Ingress` resource specifying host and path routing rules." },
+      { id: 'A', text: "Manually configure iptables on every worker node to route port 80 traffic." },
       { id: 'B', text: "Create separate LoadBalancer services for each path, requiring multiple public IP addresses." },
-      { id: 'C', text: "Manually configure iptables on every worker node to route port 80 traffic." },
-      { id: 'D', text: "Instruct clients to connect directly to worker node internal IP addresses." }
+      { id: 'C', text: "Instruct clients to connect directly to worker node internal IP addresses." },
+      { id: 'D', text: "Deploy an Ingress Controller (e.g., ingress-nginx) and define an `Ingress` resource specifying host and path routing rules." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy an Ingress Controller (e.g., ingress-nginx) and define an `Ingress` resource specifying host and path routing rules. An Ingress resource defines rules for routing external HTTP and HTTPS traffic to services within the cluster. An Ingress Controller (like NGINX or Traefik) implements those rules, providing SSL termination, path-based routing, and name-based virtual hosting.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/ingress/",
@@ -283,9 +283,9 @@ export const K8S_CKA_QUESTIONS_20 = [
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity? HTTP/HTTPS path and host-based routing via Ingress controllers is under consideration.",
     options: [
       { id: 'A', text: "Deploy an Ingress Controller (e.g., ingress-nginx) and define an `Ingress` resource specifying host and path routing rules." },
-      { id: 'B', text: "Create separate LoadBalancer services for each path, requiring multiple public IP addresses." },
-      { id: 'C', text: "Manually configure iptables on every worker node to route port 80 traffic." },
-      { id: 'D', text: "Instruct clients to connect directly to worker node internal IP addresses." }
+      { id: 'B', text: "Instruct clients to connect directly to worker node internal IP addresses." },
+      { id: 'C', text: "Create separate LoadBalancer services for each path, requiring multiple public IP addresses." },
+      { id: 'D', text: "Manually configure iptables on every worker node to route port 80 traffic." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -303,12 +303,12 @@ export const K8S_CKA_QUESTIONS_20 = [
     scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator evaluates Ingress Routing to route external HTTP traffic based on URL paths (`/api` and `/web`) to different internal backend services using a single entry point and TLS certificate.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability? HTTP/HTTPS path and host-based routing via Ingress controllers is under consideration.",
     options: [
-      { id: 'A', text: "Deploy an Ingress Controller (e.g., ingress-nginx) and define an `Ingress` resource specifying host and path routing rules." },
-      { id: 'B', text: "Create separate LoadBalancer services for each path, requiring multiple public IP addresses." },
-      { id: 'C', text: "Manually configure iptables on every worker node to route port 80 traffic." },
-      { id: 'D', text: "Instruct clients to connect directly to worker node internal IP addresses." }
+      { id: 'A', text: "Instruct clients to connect directly to worker node internal IP addresses." },
+      { id: 'B', text: "Manually configure iptables on every worker node to route port 80 traffic." },
+      { id: 'C', text: "Create separate LoadBalancer services for each path, requiring multiple public IP addresses." },
+      { id: 'D', text: "Deploy an Ingress Controller (e.g., ingress-nginx) and define an `Ingress` resource specifying host and path routing rules." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy an Ingress Controller (e.g., ingress-nginx) and define an `Ingress` resource specifying host and path routing rules. An Ingress resource defines rules for routing external HTTP and HTTPS traffic to services within the cluster. An Ingress Controller (like NGINX or Traefik) implements those rules, providing SSL termination, path-based routing, and name-based virtual hosting.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/ingress/",
@@ -324,12 +324,12 @@ export const K8S_CKA_QUESTIONS_20 = [
     scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator evaluates Network Policies to isolate a database pod so that it only accepts incoming TCP connections on port 5432 from pods labeled `app=backend` and blocks all other traffic.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements? Default-deny network policies and podSelector/namespaceSelector rules is under consideration.",
     options: [
-      { id: 'A', text: "Create a `NetworkPolicy` targeting the database pods with an `ingress` rule permitting traffic only from pods matching `podSelector: matchLabels: app: backend`." },
-      { id: 'B', text: "Install a host-based firewall manually on each worker node operating system." },
-      { id: 'C', text: "Rely on Linux file permissions inside the container filesystem to restrict network packets." },
-      { id: 'D', text: "Delete all other pods in the cluster to prevent them from sending traffic." }
+      { id: 'A', text: "Install a host-based firewall manually on each worker node operating system." },
+      { id: 'B', text: "Rely on Linux file permissions inside the container filesystem to restrict network packets." },
+      { id: 'C', text: "Delete all other pods in the cluster to prevent them from sending traffic." },
+      { id: 'D', text: "Create a `NetworkPolicy` targeting the database pods with an `ingress` rule permitting traffic only from pods matching `podSelector: matchLabels: app: backend`." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Create a `NetworkPolicy` targeting the database pods with an `ingress` rule permitting traffic only from pods matching `podSelector: matchLabels: app: backend`. By default, all pods in a Kubernetes cluster can communicate with each other without restriction. Applying a `NetworkPolicy` isolates selected pods, enforcing ingress and egress firewall rules based on pod selectors, namespace selectors, and CIDR blocks (requires a CNI plugin supporting NetworkPolicies).",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/network-policies/",
@@ -345,12 +345,12 @@ export const K8S_CKA_QUESTIONS_20 = [
     scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator evaluates Network Policies to isolate a database pod so that it only accepts incoming TCP connections on port 5432 from pods labeled `app=backend` and blocks all other traffic.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability? Default-deny network policies and podSelector/namespaceSelector rules is under consideration.",
     options: [
-      { id: 'A', text: "Create a `NetworkPolicy` targeting the database pods with an `ingress` rule permitting traffic only from pods matching `podSelector: matchLabels: app: backend`." },
-      { id: 'B', text: "Install a host-based firewall manually on each worker node operating system." },
-      { id: 'C', text: "Rely on Linux file permissions inside the container filesystem to restrict network packets." },
-      { id: 'D', text: "Delete all other pods in the cluster to prevent them from sending traffic." }
+      { id: 'A', text: "Delete all other pods in the cluster to prevent them from sending traffic." },
+      { id: 'B', text: "Rely on Linux file permissions inside the container filesystem to restrict network packets." },
+      { id: 'C', text: "Install a host-based firewall manually on each worker node operating system." },
+      { id: 'D', text: "Create a `NetworkPolicy` targeting the database pods with an `ingress` rule permitting traffic only from pods matching `podSelector: matchLabels: app: backend`." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Create a `NetworkPolicy` targeting the database pods with an `ingress` rule permitting traffic only from pods matching `podSelector: matchLabels: app: backend`. By default, all pods in a Kubernetes cluster can communicate with each other without restriction. Applying a `NetworkPolicy` isolates selected pods, enforcing ingress and egress firewall rules based on pod selectors, namespace selectors, and CIDR blocks (requires a CNI plugin supporting NetworkPolicies).",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/network-policies/",
@@ -366,12 +366,12 @@ export const K8S_CKA_QUESTIONS_20 = [
     scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator evaluates Network Policies to isolate a database pod so that it only accepts incoming TCP connections on port 5432 from pods labeled `app=backend` and blocks all other traffic.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls? Default-deny network policies and podSelector/namespaceSelector rules is under consideration.",
     options: [
-      { id: 'A', text: "Create a `NetworkPolicy` targeting the database pods with an `ingress` rule permitting traffic only from pods matching `podSelector: matchLabels: app: backend`." },
-      { id: 'B', text: "Install a host-based firewall manually on each worker node operating system." },
-      { id: 'C', text: "Rely on Linux file permissions inside the container filesystem to restrict network packets." },
-      { id: 'D', text: "Delete all other pods in the cluster to prevent them from sending traffic." }
+      { id: 'A', text: "Delete all other pods in the cluster to prevent them from sending traffic." },
+      { id: 'B', text: "Rely on Linux file permissions inside the container filesystem to restrict network packets." },
+      { id: 'C', text: "Create a `NetworkPolicy` targeting the database pods with an `ingress` rule permitting traffic only from pods matching `podSelector: matchLabels: app: backend`." },
+      { id: 'D', text: "Install a host-based firewall manually on each worker node operating system." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Create a `NetworkPolicy` targeting the database pods with an `ingress` rule permitting traffic only from pods matching `podSelector: matchLabels: app: backend`. By default, all pods in a Kubernetes cluster can communicate with each other without restriction. Applying a `NetworkPolicy` isolates selected pods, enforcing ingress and egress firewall rules based on pod selectors, namespace selectors, and CIDR blocks (requires a CNI plugin supporting NetworkPolicies).",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/network-policies/",
@@ -388,9 +388,9 @@ export const K8S_CKA_QUESTIONS_20 = [
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity? Default-deny network policies and podSelector/namespaceSelector rules is under consideration.",
     options: [
       { id: 'A', text: "Create a `NetworkPolicy` targeting the database pods with an `ingress` rule permitting traffic only from pods matching `podSelector: matchLabels: app: backend`." },
-      { id: 'B', text: "Install a host-based firewall manually on each worker node operating system." },
+      { id: 'B', text: "Delete all other pods in the cluster to prevent them from sending traffic." },
       { id: 'C', text: "Rely on Linux file permissions inside the container filesystem to restrict network packets." },
-      { id: 'D', text: "Delete all other pods in the cluster to prevent them from sending traffic." }
+      { id: 'D', text: "Install a host-based firewall manually on each worker node operating system." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,12 +408,12 @@ export const K8S_CKA_QUESTIONS_20 = [
     scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator evaluates Network Policies to isolate a database pod so that it only accepts incoming TCP connections on port 5432 from pods labeled `app=backend` and blocks all other traffic.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability? Default-deny network policies and podSelector/namespaceSelector rules is under consideration.",
     options: [
-      { id: 'A', text: "Create a `NetworkPolicy` targeting the database pods with an `ingress` rule permitting traffic only from pods matching `podSelector: matchLabels: app: backend`." },
-      { id: 'B', text: "Install a host-based firewall manually on each worker node operating system." },
-      { id: 'C', text: "Rely on Linux file permissions inside the container filesystem to restrict network packets." },
+      { id: 'A', text: "Rely on Linux file permissions inside the container filesystem to restrict network packets." },
+      { id: 'B', text: "Create a `NetworkPolicy` targeting the database pods with an `ingress` rule permitting traffic only from pods matching `podSelector: matchLabels: app: backend`." },
+      { id: 'C', text: "Install a host-based firewall manually on each worker node operating system." },
       { id: 'D', text: "Delete all other pods in the cluster to prevent them from sending traffic." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Create a `NetworkPolicy` targeting the database pods with an `ingress` rule permitting traffic only from pods matching `podSelector: matchLabels: app: backend`. By default, all pods in a Kubernetes cluster can communicate with each other without restriction. Applying a `NetworkPolicy` isolates selected pods, enforcing ingress and egress firewall rules based on pod selectors, namespace selectors, and CIDR blocks (requires a CNI plugin supporting NetworkPolicies).",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/network-policies/",
@@ -431,8 +431,8 @@ export const K8S_CKA_QUESTIONS_20 = [
     options: [
       { id: 'A', text: "Create a `NetworkPolicy` with an empty `podSelector: {}` and `policyTypes: [Ingress, Egress]` without defining any ingress or egress allow rules." },
       { id: 'B', text: "Disable the CNI network plugin in that namespace." },
-      { id: 'C', text: "Change the namespace label to `isolation: maximum`." },
-      { id: 'D', text: "Block DNS port 53 traffic across the entire cluster." }
+      { id: 'C', text: "Block DNS port 53 traffic across the entire cluster." },
+      { id: 'D', text: "Change the namespace label to `isolation: maximum`." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -450,12 +450,12 @@ export const K8S_CKA_QUESTIONS_20 = [
     scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator evaluates Network Security to enforce a zero-trust network posture in a sensitive namespace where all pod communication is blocked by default until explicitly permitted.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability? Implementing namespace-wide default-deny ingress and egress rules is under consideration.",
     options: [
-      { id: 'A', text: "Create a `NetworkPolicy` with an empty `podSelector: {}` and `policyTypes: [Ingress, Egress]` without defining any ingress or egress allow rules." },
-      { id: 'B', text: "Disable the CNI network plugin in that namespace." },
-      { id: 'C', text: "Change the namespace label to `isolation: maximum`." },
-      { id: 'D', text: "Block DNS port 53 traffic across the entire cluster." }
+      { id: 'A', text: "Block DNS port 53 traffic across the entire cluster." },
+      { id: 'B', text: "Change the namespace label to `isolation: maximum`." },
+      { id: 'C', text: "Disable the CNI network plugin in that namespace." },
+      { id: 'D', text: "Create a `NetworkPolicy` with an empty `podSelector: {}` and `policyTypes: [Ingress, Egress]` without defining any ingress or egress allow rules." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Create a `NetworkPolicy` with an empty `podSelector: {}` and `policyTypes: [Ingress, Egress]` without defining any ingress or egress allow rules. A NetworkPolicy with `podSelector: {}` selects all pods in the namespace. Specifying `policyTypes: [Ingress, Egress]` without allow rules establishes a default-deny posture, isolating every pod from incoming and outgoing traffic until explicit whitelist policies are added.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/network-policies/#default-deny-all-ingress-traffic",
@@ -471,12 +471,12 @@ export const K8S_CKA_QUESTIONS_20 = [
     scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator evaluates Network Security to enforce a zero-trust network posture in a sensitive namespace where all pod communication is blocked by default until explicitly permitted.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls? Implementing namespace-wide default-deny ingress and egress rules is under consideration.",
     options: [
-      { id: 'A', text: "Create a `NetworkPolicy` with an empty `podSelector: {}` and `policyTypes: [Ingress, Egress]` without defining any ingress or egress allow rules." },
-      { id: 'B', text: "Disable the CNI network plugin in that namespace." },
-      { id: 'C', text: "Change the namespace label to `isolation: maximum`." },
+      { id: 'A', text: "Disable the CNI network plugin in that namespace." },
+      { id: 'B', text: "Change the namespace label to `isolation: maximum`." },
+      { id: 'C', text: "Create a `NetworkPolicy` with an empty `podSelector: {}` and `policyTypes: [Ingress, Egress]` without defining any ingress or egress allow rules." },
       { id: 'D', text: "Block DNS port 53 traffic across the entire cluster." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Create a `NetworkPolicy` with an empty `podSelector: {}` and `policyTypes: [Ingress, Egress]` without defining any ingress or egress allow rules. A NetworkPolicy with `podSelector: {}` selects all pods in the namespace. Specifying `policyTypes: [Ingress, Egress]` without allow rules establishes a default-deny posture, isolating every pod from incoming and outgoing traffic until explicit whitelist policies are added.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/network-policies/#default-deny-all-ingress-traffic",
@@ -492,12 +492,12 @@ export const K8S_CKA_QUESTIONS_20 = [
     scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator evaluates Network Security to enforce a zero-trust network posture in a sensitive namespace where all pod communication is blocked by default until explicitly permitted.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity? Implementing namespace-wide default-deny ingress and egress rules is under consideration.",
     options: [
-      { id: 'A', text: "Create a `NetworkPolicy` with an empty `podSelector: {}` and `policyTypes: [Ingress, Egress]` without defining any ingress or egress allow rules." },
+      { id: 'A', text: "Change the namespace label to `isolation: maximum`." },
       { id: 'B', text: "Disable the CNI network plugin in that namespace." },
-      { id: 'C', text: "Change the namespace label to `isolation: maximum`." },
+      { id: 'C', text: "Create a `NetworkPolicy` with an empty `podSelector: {}` and `policyTypes: [Ingress, Egress]` without defining any ingress or egress allow rules." },
       { id: 'D', text: "Block DNS port 53 traffic across the entire cluster." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Create a `NetworkPolicy` with an empty `podSelector: {}` and `policyTypes: [Ingress, Egress]` without defining any ingress or egress allow rules. A NetworkPolicy with `podSelector: {}` selects all pods in the namespace. Specifying `policyTypes: [Ingress, Egress]` without allow rules establishes a default-deny posture, isolating every pod from incoming and outgoing traffic until explicit whitelist policies are added.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/network-policies/#default-deny-all-ingress-traffic",
@@ -513,12 +513,12 @@ export const K8S_CKA_QUESTIONS_20 = [
     scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator evaluates Network Security to enforce a zero-trust network posture in a sensitive namespace where all pod communication is blocked by default until explicitly permitted.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability? Implementing namespace-wide default-deny ingress and egress rules is under consideration.",
     options: [
-      { id: 'A', text: "Create a `NetworkPolicy` with an empty `podSelector: {}` and `policyTypes: [Ingress, Egress]` without defining any ingress or egress allow rules." },
-      { id: 'B', text: "Disable the CNI network plugin in that namespace." },
-      { id: 'C', text: "Change the namespace label to `isolation: maximum`." },
-      { id: 'D', text: "Block DNS port 53 traffic across the entire cluster." }
+      { id: 'A', text: "Change the namespace label to `isolation: maximum`." },
+      { id: 'B', text: "Block DNS port 53 traffic across the entire cluster." },
+      { id: 'C', text: "Disable the CNI network plugin in that namespace." },
+      { id: 'D', text: "Create a `NetworkPolicy` with an empty `podSelector: {}` and `policyTypes: [Ingress, Egress]` without defining any ingress or egress allow rules." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Create a `NetworkPolicy` with an empty `podSelector: {}` and `policyTypes: [Ingress, Egress]` without defining any ingress or egress allow rules. A NetworkPolicy with `podSelector: {}` selects all pods in the namespace. Specifying `policyTypes: [Ingress, Egress]` without allow rules establishes a default-deny posture, isolating every pod from incoming and outgoing traffic until explicit whitelist policies are added.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/network-policies/#default-deny-all-ingress-traffic",

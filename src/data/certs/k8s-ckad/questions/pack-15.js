@@ -9,12 +9,12 @@ export const K8S_CKAD_QUESTIONS_15 = [
     scenario: "A cloud-native application engineering team is establishing high-availability deployment patterns and zero-downtime release safeguards for enterprise services. The Kubernetes application developer evaluates Liveness Probes to detect and automatically restart a web server container that has encountered an internal thread deadlock and stopped serving requests.",
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives? Restarting stalled or deadlocked containers using httpGet, tcpSocket, and exec probes is under consideration.",
     options: [
-      { id: 'A', text: "Configure a `livenessProbe` in the container spec with an HTTP GET check against `/healthz` or an exec probe." },
-      { id: 'B', text: "Rely on the container runtime process table to detect deadlocks." },
-      { id: 'C', text: "Configure a readiness probe without a liveness probe." },
-      { id: 'D', text: "Manually restart the pod whenever end-user customers complain of timeouts." }
+      { id: 'A', text: "Rely on the container runtime process table to detect deadlocks." },
+      { id: 'B', text: "Configure a `livenessProbe` in the container spec with an HTTP GET check against `/healthz` or an exec probe." },
+      { id: 'C', text: "Manually restart the pod whenever end-user customers complain of timeouts." },
+      { id: 'D', text: "Configure a readiness probe without a liveness probe." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure a `livenessProbe` in the container spec with an HTTP GET check against `/healthz` or an exec probe. The kubelet uses `livenessProbes` to know when to restart a container. If an application enters a deadlocked state where the process is running but unresponsive, the liveness probe fails, triggering the kubelet to terminate and restart the container.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/",
@@ -30,12 +30,12 @@ export const K8S_CKAD_QUESTIONS_15 = [
     scenario: "A high-throughput web application experiences unpredictable spikes in user transactions and requires automated, reliable scaling across Kubernetes clusters. The Kubernetes application developer evaluates Liveness Probes to detect and automatically restart a web server container that has encountered an internal thread deadlock and stopped serving requests.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting backend stability? Restarting stalled or deadlocked containers using httpGet, tcpSocket, and exec probes is under consideration.",
     options: [
-      { id: 'A', text: "Configure a `livenessProbe` in the container spec with an HTTP GET check against `/healthz` or an exec probe." },
+      { id: 'A', text: "Configure a readiness probe without a liveness probe." },
       { id: 'B', text: "Rely on the container runtime process table to detect deadlocks." },
-      { id: 'C', text: "Configure a readiness probe without a liveness probe." },
-      { id: 'D', text: "Manually restart the pod whenever end-user customers complain of timeouts." }
+      { id: 'C', text: "Manually restart the pod whenever end-user customers complain of timeouts." },
+      { id: 'D', text: "Configure a `livenessProbe` in the container spec with an HTTP GET check against `/healthz` or an exec probe." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure a `livenessProbe` in the container spec with an HTTP GET check against `/healthz` or an exec probe. The kubelet uses `livenessProbes` to know when to restart a container. If an application enters a deadlocked state where the process is running but unresponsive, the liveness probe fails, triggering the kubelet to terminate and restart the container.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/",
@@ -52,8 +52,8 @@ export const K8S_CKAD_QUESTIONS_15 = [
     question: "Which solution properly implements these mandatory container and cluster security controls? Restarting stalled or deadlocked containers using httpGet, tcpSocket, and exec probes is under consideration.",
     options: [
       { id: 'A', text: "Configure a `livenessProbe` in the container spec with an HTTP GET check against `/healthz` or an exec probe." },
-      { id: 'B', text: "Rely on the container runtime process table to detect deadlocks." },
-      { id: 'C', text: "Configure a readiness probe without a liveness probe." },
+      { id: 'B', text: "Configure a readiness probe without a liveness probe." },
+      { id: 'C', text: "Rely on the container runtime process table to detect deadlocks." },
       { id: 'D', text: "Manually restart the pod whenever end-user customers complain of timeouts." }
     ],
     correctAnswers: ['A'],
@@ -74,8 +74,8 @@ export const K8S_CKAD_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Configure a `livenessProbe` in the container spec with an HTTP GET check against `/healthz` or an exec probe." },
       { id: 'B', text: "Rely on the container runtime process table to detect deadlocks." },
-      { id: 'C', text: "Configure a readiness probe without a liveness probe." },
-      { id: 'D', text: "Manually restart the pod whenever end-user customers complain of timeouts." }
+      { id: 'C', text: "Manually restart the pod whenever end-user customers complain of timeouts." },
+      { id: 'D', text: "Configure a readiness probe without a liveness probe." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -93,12 +93,12 @@ export const K8S_CKAD_QUESTIONS_15 = [
     scenario: "An SRE team is optimizing application stability to eliminate single points of failure, streamline observability, and ensure graceful failure handling. The Kubernetes application developer evaluates Liveness Probes to detect and automatically restart a web server container that has encountered an internal thread deadlock and stopped serving requests.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees service reliability? Restarting stalled or deadlocked containers using httpGet, tcpSocket, and exec probes is under consideration.",
     options: [
-      { id: 'A', text: "Configure a `livenessProbe` in the container spec with an HTTP GET check against `/healthz` or an exec probe." },
-      { id: 'B', text: "Rely on the container runtime process table to detect deadlocks." },
-      { id: 'C', text: "Configure a readiness probe without a liveness probe." },
-      { id: 'D', text: "Manually restart the pod whenever end-user customers complain of timeouts." }
+      { id: 'A', text: "Rely on the container runtime process table to detect deadlocks." },
+      { id: 'B', text: "Configure a `livenessProbe` in the container spec with an HTTP GET check against `/healthz` or an exec probe." },
+      { id: 'C', text: "Manually restart the pod whenever end-user customers complain of timeouts." },
+      { id: 'D', text: "Configure a readiness probe without a liveness probe." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure a `livenessProbe` in the container spec with an HTTP GET check against `/healthz` or an exec probe. The kubelet uses `livenessProbes` to know when to restart a container. If an application enters a deadlocked state where the process is running but unresponsive, the liveness probe fails, triggering the kubelet to terminate and restart the container.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/",
@@ -114,12 +114,12 @@ export const K8S_CKAD_QUESTIONS_15 = [
     scenario: "A cloud-native application engineering team is establishing high-availability deployment patterns and zero-downtime release safeguards for enterprise services. The Kubernetes application developer evaluates Readiness Probes to ensure that an application container does not receive incoming network traffic from a Service until its in-memory caches and database connections are fully initialized.",
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives? Preventing traffic from reaching initializing or overloaded containers is under consideration.",
     options: [
-      { id: 'A', text: "Configure a `readinessProbe` with appropriate `initialDelaySeconds` and `periodSeconds` checking `/ready`." },
-      { id: 'B', text: "Configure a liveness probe with a 10-minute timeout." },
-      { id: 'C', text: "Rely on manual verification before registering pods in DNS." },
-      { id: 'D', text: "Assume the Service will naturally delay traffic until the process opens a port." }
+      { id: 'A', text: "Assume the Service will naturally delay traffic until the process opens a port." },
+      { id: 'B', text: "Configure a `readinessProbe` with appropriate `initialDelaySeconds` and `periodSeconds` checking `/ready`." },
+      { id: 'C', text: "Configure a liveness probe with a 10-minute timeout." },
+      { id: 'D', text: "Rely on manual verification before registering pods in DNS." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure a `readinessProbe` with appropriate `initialDelaySeconds` and `periodSeconds` checking `/ready`. The kubelet uses `readinessProbes` to determine if a container is ready to accept traffic. If a readiness probe fails, the pod's IP is temporarily removed from the endpoints of all Services matching the pod, preventing user requests from hitting an unready backend.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-readiness-probes",
@@ -135,12 +135,12 @@ export const K8S_CKAD_QUESTIONS_15 = [
     scenario: "A high-throughput web application experiences unpredictable spikes in user transactions and requires automated, reliable scaling across Kubernetes clusters. The Kubernetes application developer evaluates Readiness Probes to ensure that an application container does not receive incoming network traffic from a Service until its in-memory caches and database connections are fully initialized.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting backend stability? Preventing traffic from reaching initializing or overloaded containers is under consideration.",
     options: [
-      { id: 'A', text: "Configure a `readinessProbe` with appropriate `initialDelaySeconds` and `periodSeconds` checking `/ready`." },
-      { id: 'B', text: "Configure a liveness probe with a 10-minute timeout." },
-      { id: 'C', text: "Rely on manual verification before registering pods in DNS." },
-      { id: 'D', text: "Assume the Service will naturally delay traffic until the process opens a port." }
+      { id: 'A', text: "Assume the Service will naturally delay traffic until the process opens a port." },
+      { id: 'B', text: "Rely on manual verification before registering pods in DNS." },
+      { id: 'C', text: "Configure a `readinessProbe` with appropriate `initialDelaySeconds` and `periodSeconds` checking `/ready`." },
+      { id: 'D', text: "Configure a liveness probe with a 10-minute timeout." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure a `readinessProbe` with appropriate `initialDelaySeconds` and `periodSeconds` checking `/ready`. The kubelet uses `readinessProbes` to determine if a container is ready to accept traffic. If a readiness probe fails, the pod's IP is temporarily removed from the endpoints of all Services matching the pod, preventing user requests from hitting an unready backend.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-readiness-probes",
@@ -157,9 +157,9 @@ export const K8S_CKAD_QUESTIONS_15 = [
     question: "Which solution properly implements these mandatory container and cluster security controls? Preventing traffic from reaching initializing or overloaded containers is under consideration.",
     options: [
       { id: 'A', text: "Configure a `readinessProbe` with appropriate `initialDelaySeconds` and `periodSeconds` checking `/ready`." },
-      { id: 'B', text: "Configure a liveness probe with a 10-minute timeout." },
-      { id: 'C', text: "Rely on manual verification before registering pods in DNS." },
-      { id: 'D', text: "Assume the Service will naturally delay traffic until the process opens a port." }
+      { id: 'B', text: "Assume the Service will naturally delay traffic until the process opens a port." },
+      { id: 'C', text: "Configure a liveness probe with a 10-minute timeout." },
+      { id: 'D', text: "Rely on manual verification before registering pods in DNS." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -178,9 +178,9 @@ export const K8S_CKAD_QUESTIONS_15 = [
     question: "Which architectural pattern or feature enables the team to modernize services with minimal disruption and low operational friction? Preventing traffic from reaching initializing or overloaded containers is under consideration.",
     options: [
       { id: 'A', text: "Configure a `readinessProbe` with appropriate `initialDelaySeconds` and `periodSeconds` checking `/ready`." },
-      { id: 'B', text: "Configure a liveness probe with a 10-minute timeout." },
+      { id: 'B', text: "Assume the Service will naturally delay traffic until the process opens a port." },
       { id: 'C', text: "Rely on manual verification before registering pods in DNS." },
-      { id: 'D', text: "Assume the Service will naturally delay traffic until the process opens a port." }
+      { id: 'D', text: "Configure a liveness probe with a 10-minute timeout." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -199,8 +199,8 @@ export const K8S_CKAD_QUESTIONS_15 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees service reliability? Preventing traffic from reaching initializing or overloaded containers is under consideration.",
     options: [
       { id: 'A', text: "Configure a `readinessProbe` with appropriate `initialDelaySeconds` and `periodSeconds` checking `/ready`." },
-      { id: 'B', text: "Configure a liveness probe with a 10-minute timeout." },
-      { id: 'C', text: "Rely on manual verification before registering pods in DNS." },
+      { id: 'B', text: "Rely on manual verification before registering pods in DNS." },
+      { id: 'C', text: "Configure a liveness probe with a 10-minute timeout." },
       { id: 'D', text: "Assume the Service will naturally delay traffic until the process opens a port." }
     ],
     correctAnswers: ['A'],
@@ -219,12 +219,12 @@ export const K8S_CKAD_QUESTIONS_15 = [
     scenario: "A cloud-native application engineering team is establishing high-availability deployment patterns and zero-downtime release safeguards for enterprise services. The Kubernetes application developer evaluates Startup Probes to prevent a legacy monolithic application that takes five minutes to load large datasets on startup from being killed prematurely by liveness probes.",
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives? Startup probes protecting slow legacy containers from premature liveness kills is under consideration.",
     options: [
-      { id: 'A', text: "Define a `startupProbe` with `failureThreshold: 30` and `periodSeconds: 10`, disabling liveness checks until the startup probe succeeds." },
-      { id: 'B', text: "Increase the liveness probe initialDelaySeconds to one hour, disabling crash recovery permanently." },
-      { id: 'C', text: "Remove all probes from the pod specification entirely." },
-      { id: 'D', text: "Run the application without containerization on a bare metal server." }
+      { id: 'A', text: "Remove all probes from the pod specification entirely." },
+      { id: 'B', text: "Run the application without containerization on a bare metal server." },
+      { id: 'C', text: "Increase the liveness probe initialDelaySeconds to one hour, disabling crash recovery permanently." },
+      { id: 'D', text: "Define a `startupProbe` with `failureThreshold: 30` and `periodSeconds: 10`, disabling liveness checks until the startup probe succeeds." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Define a `startupProbe` with `failureThreshold: 30` and `periodSeconds: 10`, disabling liveness checks until the startup probe succeeds. A `startupProbe` verifies whether the application within a container has started. All other probes (liveness and readiness) are disabled until the startup probe succeeds. This allows slow-starting legacy apps to boot without risking premature termination by aggressive liveness probes.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-startup-probes",
@@ -240,12 +240,12 @@ export const K8S_CKAD_QUESTIONS_15 = [
     scenario: "A high-throughput web application experiences unpredictable spikes in user transactions and requires automated, reliable scaling across Kubernetes clusters. The Kubernetes application developer evaluates Startup Probes to prevent a legacy monolithic application that takes five minutes to load large datasets on startup from being killed prematurely by liveness probes.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting backend stability? Startup probes protecting slow legacy containers from premature liveness kills is under consideration.",
     options: [
-      { id: 'A', text: "Define a `startupProbe` with `failureThreshold: 30` and `periodSeconds: 10`, disabling liveness checks until the startup probe succeeds." },
-      { id: 'B', text: "Increase the liveness probe initialDelaySeconds to one hour, disabling crash recovery permanently." },
-      { id: 'C', text: "Remove all probes from the pod specification entirely." },
-      { id: 'D', text: "Run the application without containerization on a bare metal server." }
+      { id: 'A', text: "Remove all probes from the pod specification entirely." },
+      { id: 'B', text: "Define a `startupProbe` with `failureThreshold: 30` and `periodSeconds: 10`, disabling liveness checks until the startup probe succeeds." },
+      { id: 'C', text: "Run the application without containerization on a bare metal server." },
+      { id: 'D', text: "Increase the liveness probe initialDelaySeconds to one hour, disabling crash recovery permanently." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Define a `startupProbe` with `failureThreshold: 30` and `periodSeconds: 10`, disabling liveness checks until the startup probe succeeds. A `startupProbe` verifies whether the application within a container has started. All other probes (liveness and readiness) are disabled until the startup probe succeeds. This allows slow-starting legacy apps to boot without risking premature termination by aggressive liveness probes.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-startup-probes",
@@ -262,9 +262,9 @@ export const K8S_CKAD_QUESTIONS_15 = [
     question: "Which solution properly implements these mandatory container and cluster security controls? Startup probes protecting slow legacy containers from premature liveness kills is under consideration.",
     options: [
       { id: 'A', text: "Define a `startupProbe` with `failureThreshold: 30` and `periodSeconds: 10`, disabling liveness checks until the startup probe succeeds." },
-      { id: 'B', text: "Increase the liveness probe initialDelaySeconds to one hour, disabling crash recovery permanently." },
-      { id: 'C', text: "Remove all probes from the pod specification entirely." },
-      { id: 'D', text: "Run the application without containerization on a bare metal server." }
+      { id: 'B', text: "Remove all probes from the pod specification entirely." },
+      { id: 'C', text: "Run the application without containerization on a bare metal server." },
+      { id: 'D', text: "Increase the liveness probe initialDelaySeconds to one hour, disabling crash recovery permanently." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -305,8 +305,8 @@ export const K8S_CKAD_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Define a `startupProbe` with `failureThreshold: 30` and `periodSeconds: 10`, disabling liveness checks until the startup probe succeeds." },
       { id: 'B', text: "Increase the liveness probe initialDelaySeconds to one hour, disabling crash recovery permanently." },
-      { id: 'C', text: "Remove all probes from the pod specification entirely." },
-      { id: 'D', text: "Run the application without containerization on a bare metal server." }
+      { id: 'C', text: "Run the application without containerization on a bare metal server." },
+      { id: 'D', text: "Remove all probes from the pod specification entirely." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -324,12 +324,12 @@ export const K8S_CKAD_QUESTIONS_15 = [
     scenario: "A cloud-native application engineering team is establishing high-availability deployment patterns and zero-downtime release safeguards for enterprise services. The Kubernetes application developer evaluates Container Logging to view and stream stdout/stderr log output from a specific logging sidecar container running inside a multi-container pod.",
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives? Streaming logs from specific containers in multi-container pods with -c is under consideration.",
     options: [
-      { id: 'A', text: "Execute `kubectl logs &lt;pod-name&gt; -c &lt;container-name&gt; -f` to target the specific container stream." },
+      { id: 'A', text: "SSH into the worker node and tail docker JSON log files directly." },
       { id: 'B', text: "Run `kubectl logs &lt;pod-name&gt;` without container flags and accept the command failure." },
-      { id: 'C', text: "SSH into the worker node and tail docker JSON log files directly." },
+      { id: 'C', text: "Execute `kubectl logs &lt;pod-name&gt; -c &lt;container-name&gt; -f` to target the specific container stream." },
       { id: 'D', text: "Reboot the pod to print all logs to the master node console." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Execute `kubectl logs &lt;pod-name&gt; -c &lt;container-name&gt; -f` to target the specific container stream. When a pod contains multiple containers, running `kubectl logs` without specifying a container returns an error listing the available container names. Adding `-c &lt;container-name&gt;` targets the exact container, while `-f` follows the stream in real time.",
     referenceUrl: "https://kubernetes.io/docs/reference/kubectl/generated/kubectl_logs/",
@@ -345,12 +345,12 @@ export const K8S_CKAD_QUESTIONS_15 = [
     scenario: "A high-throughput web application experiences unpredictable spikes in user transactions and requires automated, reliable scaling across Kubernetes clusters. The Kubernetes application developer evaluates Container Logging to view and stream stdout/stderr log output from a specific logging sidecar container running inside a multi-container pod.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting backend stability? Streaming logs from specific containers in multi-container pods with -c is under consideration.",
     options: [
-      { id: 'A', text: "Execute `kubectl logs &lt;pod-name&gt; -c &lt;container-name&gt; -f` to target the specific container stream." },
-      { id: 'B', text: "Run `kubectl logs &lt;pod-name&gt;` without container flags and accept the command failure." },
-      { id: 'C', text: "SSH into the worker node and tail docker JSON log files directly." },
-      { id: 'D', text: "Reboot the pod to print all logs to the master node console." }
+      { id: 'A', text: "Reboot the pod to print all logs to the master node console." },
+      { id: 'B', text: "SSH into the worker node and tail docker JSON log files directly." },
+      { id: 'C', text: "Execute `kubectl logs &lt;pod-name&gt; -c &lt;container-name&gt; -f` to target the specific container stream." },
+      { id: 'D', text: "Run `kubectl logs &lt;pod-name&gt;` without container flags and accept the command failure." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Execute `kubectl logs &lt;pod-name&gt; -c &lt;container-name&gt; -f` to target the specific container stream. When a pod contains multiple containers, running `kubectl logs` without specifying a container returns an error listing the available container names. Adding `-c &lt;container-name&gt;` targets the exact container, while `-f` follows the stream in real time.",
     referenceUrl: "https://kubernetes.io/docs/reference/kubectl/generated/kubectl_logs/",
@@ -367,9 +367,9 @@ export const K8S_CKAD_QUESTIONS_15 = [
     question: "Which solution properly implements these mandatory container and cluster security controls? Streaming logs from specific containers in multi-container pods with -c is under consideration.",
     options: [
       { id: 'A', text: "Execute `kubectl logs &lt;pod-name&gt; -c &lt;container-name&gt; -f` to target the specific container stream." },
-      { id: 'B', text: "Run `kubectl logs &lt;pod-name&gt;` without container flags and accept the command failure." },
+      { id: 'B', text: "Reboot the pod to print all logs to the master node console." },
       { id: 'C', text: "SSH into the worker node and tail docker JSON log files directly." },
-      { id: 'D', text: "Reboot the pod to print all logs to the master node console." }
+      { id: 'D', text: "Run `kubectl logs &lt;pod-name&gt;` without container flags and accept the command failure." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -388,9 +388,9 @@ export const K8S_CKAD_QUESTIONS_15 = [
     question: "Which architectural pattern or feature enables the team to modernize services with minimal disruption and low operational friction? Streaming logs from specific containers in multi-container pods with -c is under consideration.",
     options: [
       { id: 'A', text: "Execute `kubectl logs &lt;pod-name&gt; -c &lt;container-name&gt; -f` to target the specific container stream." },
-      { id: 'B', text: "Run `kubectl logs &lt;pod-name&gt;` without container flags and accept the command failure." },
-      { id: 'C', text: "SSH into the worker node and tail docker JSON log files directly." },
-      { id: 'D', text: "Reboot the pod to print all logs to the master node console." }
+      { id: 'B', text: "SSH into the worker node and tail docker JSON log files directly." },
+      { id: 'C', text: "Reboot the pod to print all logs to the master node console." },
+      { id: 'D', text: "Run `kubectl logs &lt;pod-name&gt;` without container flags and accept the command failure." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,12 +408,12 @@ export const K8S_CKAD_QUESTIONS_15 = [
     scenario: "An SRE team is optimizing application stability to eliminate single points of failure, streamline observability, and ensure graceful failure handling. The Kubernetes application developer evaluates Container Logging to view and stream stdout/stderr log output from a specific logging sidecar container running inside a multi-container pod.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees service reliability? Streaming logs from specific containers in multi-container pods with -c is under consideration.",
     options: [
-      { id: 'A', text: "Execute `kubectl logs &lt;pod-name&gt; -c &lt;container-name&gt; -f` to target the specific container stream." },
-      { id: 'B', text: "Run `kubectl logs &lt;pod-name&gt;` without container flags and accept the command failure." },
-      { id: 'C', text: "SSH into the worker node and tail docker JSON log files directly." },
-      { id: 'D', text: "Reboot the pod to print all logs to the master node console." }
+      { id: 'A', text: "Reboot the pod to print all logs to the master node console." },
+      { id: 'B', text: "SSH into the worker node and tail docker JSON log files directly." },
+      { id: 'C', text: "Run `kubectl logs &lt;pod-name&gt;` without container flags and accept the command failure." },
+      { id: 'D', text: "Execute `kubectl logs &lt;pod-name&gt; -c &lt;container-name&gt; -f` to target the specific container stream." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Execute `kubectl logs &lt;pod-name&gt; -c &lt;container-name&gt; -f` to target the specific container stream. When a pod contains multiple containers, running `kubectl logs` without specifying a container returns an error listing the available container names. Adding `-c &lt;container-name&gt;` targets the exact container, while `-f` follows the stream in real time.",
     referenceUrl: "https://kubernetes.io/docs/reference/kubectl/generated/kubectl_logs/",
@@ -429,12 +429,12 @@ export const K8S_CKAD_QUESTIONS_15 = [
     scenario: "A cloud-native application engineering team is establishing high-availability deployment patterns and zero-downtime release safeguards for enterprise services. The Kubernetes application developer evaluates Container Inspection to execute an interactive bash shell or network diagnostic command inside a running application container to inspect local configuration files.",
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives? Executing interactive commands inside running containers for debugging is under consideration.",
     options: [
-      { id: 'A', text: "Run `kubectl exec -it &lt;pod-name&gt; -c &lt;container-name&gt; -- /bin/sh` to launch an interactive session." },
-      { id: 'B', text: "Modify the pod manifest to add a telnet daemon and redeploy." },
-      { id: 'C', text: "Log in to the cloud provider console and restart the virtual machine." },
-      { id: 'D', text: "Run `kubectl describe pod` to view container filesystem contents." }
+      { id: 'A', text: "Run `kubectl describe pod` to view container filesystem contents." },
+      { id: 'B', text: "Run `kubectl exec -it &lt;pod-name&gt; -c &lt;container-name&gt; -- /bin/sh` to launch an interactive session." },
+      { id: 'C', text: "Modify the pod manifest to add a telnet daemon and redeploy." },
+      { id: 'D', text: "Log in to the cloud provider console and restart the virtual machine." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Run `kubectl exec -it &lt;pod-name&gt; -c &lt;container-name&gt; -- /bin/sh` to launch an interactive session. `kubectl exec` executes a command directly inside a running container. Using `-it` allocates a pseudo-TTY and keeps stdin open, enabling interactive debugging sessions (such as `/bin/sh` or curl commands) directly within the container runtime environment.",
     referenceUrl: "https://kubernetes.io/docs/reference/kubectl/generated/kubectl_exec/",
@@ -471,12 +471,12 @@ export const K8S_CKAD_QUESTIONS_15 = [
     scenario: "A security compliance auditor requires strict container runtime isolation, least-privilege credential access, and defense-in-depth network policies across all namespaces. The Kubernetes application developer evaluates Container Inspection to execute an interactive bash shell or network diagnostic command inside a running application container to inspect local configuration files.",
     question: "Which solution properly implements these mandatory container and cluster security controls? Executing interactive commands inside running containers for debugging is under consideration.",
     options: [
-      { id: 'A', text: "Run `kubectl exec -it &lt;pod-name&gt; -c &lt;container-name&gt; -- /bin/sh` to launch an interactive session." },
-      { id: 'B', text: "Modify the pod manifest to add a telnet daemon and redeploy." },
+      { id: 'A', text: "Modify the pod manifest to add a telnet daemon and redeploy." },
+      { id: 'B', text: "Run `kubectl describe pod` to view container filesystem contents." },
       { id: 'C', text: "Log in to the cloud provider console and restart the virtual machine." },
-      { id: 'D', text: "Run `kubectl describe pod` to view container filesystem contents." }
+      { id: 'D', text: "Run `kubectl exec -it &lt;pod-name&gt; -c &lt;container-name&gt; -- /bin/sh` to launch an interactive session." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Run `kubectl exec -it &lt;pod-name&gt; -c &lt;container-name&gt; -- /bin/sh` to launch an interactive session. `kubectl exec` executes a command directly inside a running container. Using `-it` allocates a pseudo-TTY and keeps stdin open, enabling interactive debugging sessions (such as `/bin/sh` or curl commands) directly within the container runtime environment.",
     referenceUrl: "https://kubernetes.io/docs/reference/kubectl/generated/kubectl_exec/",
@@ -492,12 +492,12 @@ export const K8S_CKAD_QUESTIONS_15 = [
     scenario: "An application development team is migrating legacy monolithic applications into containerized microservices running on Kubernetes. The Kubernetes application developer evaluates Container Inspection to execute an interactive bash shell or network diagnostic command inside a running application container to inspect local configuration files.",
     question: "Which architectural pattern or feature enables the team to modernize services with minimal disruption and low operational friction? Executing interactive commands inside running containers for debugging is under consideration.",
     options: [
-      { id: 'A', text: "Run `kubectl exec -it &lt;pod-name&gt; -c &lt;container-name&gt; -- /bin/sh` to launch an interactive session." },
+      { id: 'A', text: "Log in to the cloud provider console and restart the virtual machine." },
       { id: 'B', text: "Modify the pod manifest to add a telnet daemon and redeploy." },
-      { id: 'C', text: "Log in to the cloud provider console and restart the virtual machine." },
+      { id: 'C', text: "Run `kubectl exec -it &lt;pod-name&gt; -c &lt;container-name&gt; -- /bin/sh` to launch an interactive session." },
       { id: 'D', text: "Run `kubectl describe pod` to view container filesystem contents." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Run `kubectl exec -it &lt;pod-name&gt; -c &lt;container-name&gt; -- /bin/sh` to launch an interactive session. `kubectl exec` executes a command directly inside a running container. Using `-it` allocates a pseudo-TTY and keeps stdin open, enabling interactive debugging sessions (such as `/bin/sh` or curl commands) directly within the container runtime environment.",
     referenceUrl: "https://kubernetes.io/docs/reference/kubectl/generated/kubectl_exec/",
@@ -513,12 +513,12 @@ export const K8S_CKAD_QUESTIONS_15 = [
     scenario: "An SRE team is optimizing application stability to eliminate single points of failure, streamline observability, and ensure graceful failure handling. The Kubernetes application developer evaluates Container Inspection to execute an interactive bash shell or network diagnostic command inside a running application container to inspect local configuration files.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees service reliability? Executing interactive commands inside running containers for debugging is under consideration.",
     options: [
-      { id: 'A', text: "Run `kubectl exec -it &lt;pod-name&gt; -c &lt;container-name&gt; -- /bin/sh` to launch an interactive session." },
-      { id: 'B', text: "Modify the pod manifest to add a telnet daemon and redeploy." },
+      { id: 'A', text: "Modify the pod manifest to add a telnet daemon and redeploy." },
+      { id: 'B', text: "Run `kubectl exec -it &lt;pod-name&gt; -c &lt;container-name&gt; -- /bin/sh` to launch an interactive session." },
       { id: 'C', text: "Log in to the cloud provider console and restart the virtual machine." },
       { id: 'D', text: "Run `kubectl describe pod` to view container filesystem contents." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Run `kubectl exec -it &lt;pod-name&gt; -c &lt;container-name&gt; -- /bin/sh` to launch an interactive session. `kubectl exec` executes a command directly inside a running container. Using `-it` allocates a pseudo-TTY and keeps stdin open, enabling interactive debugging sessions (such as `/bin/sh` or curl commands) directly within the container runtime environment.",
     referenceUrl: "https://kubernetes.io/docs/reference/kubectl/generated/kubectl_exec/",

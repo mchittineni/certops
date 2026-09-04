@@ -9,12 +9,12 @@ export const GCP_ACE_QUESTIONS_15 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer evaluates Compute Engine to deploy a fleet of identical, auto-healing Compute Engine virtual machines that automatically scale across multiple zones within a region based on CPU utilization.",
     question: "Which concept or service configuration satisfies these operational resilience objectives? Instance Templates defining configuration for regional Managed Instance Groups is under consideration.",
     options: [
-      { id: 'A', text: "Create an Instance Template and deploy a regional Managed Instance Group (MIG) with autoscaling enabled." },
-      { id: 'B', text: "Deploy five independent standalone VMs in a single zone without an instance template." },
-      { id: 'C', text: "Use an unmanaged instance group without health checks or autoscaling." },
-      { id: 'D', text: "Configure an on-premises hypervisor cluster to clone virtual machines manually." }
+      { id: 'A', text: "Use an unmanaged instance group without health checks or autoscaling." },
+      { id: 'B', text: "Create an Instance Template and deploy a regional Managed Instance Group (MIG) with autoscaling enabled." },
+      { id: 'C', text: "Configure an on-premises hypervisor cluster to clone virtual machines manually." },
+      { id: 'D', text: "Deploy five independent standalone VMs in a single zone without an instance template." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Create an Instance Template and deploy a regional Managed Instance Group (MIG) with autoscaling enabled. A regional Managed Instance Group (MIG) uses an Instance Template to deploy and manage identical VMs across multiple zones in a region. It provides automatic scaling, automated health checking and auto-healing, and coordinated rolling updates.",
     referenceUrl: "https://cloud.google.com/compute/docs/instance-groups",
@@ -30,12 +30,12 @@ export const GCP_ACE_QUESTIONS_15 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer evaluates Compute Engine to deploy a fleet of identical, auto-healing Compute Engine virtual machines that automatically scale across multiple zones within a region based on CPU utilization.",
     question: "Which architectural approach should the team select to manage this demand efficiently? Instance Templates defining configuration for regional Managed Instance Groups is under consideration.",
     options: [
-      { id: 'A', text: "Create an Instance Template and deploy a regional Managed Instance Group (MIG) with autoscaling enabled." },
-      { id: 'B', text: "Deploy five independent standalone VMs in a single zone without an instance template." },
+      { id: 'A', text: "Deploy five independent standalone VMs in a single zone without an instance template." },
+      { id: 'B', text: "Create an Instance Template and deploy a regional Managed Instance Group (MIG) with autoscaling enabled." },
       { id: 'C', text: "Use an unmanaged instance group without health checks or autoscaling." },
       { id: 'D', text: "Configure an on-premises hypervisor cluster to clone virtual machines manually." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Create an Instance Template and deploy a regional Managed Instance Group (MIG) with autoscaling enabled. A regional Managed Instance Group (MIG) uses an Instance Template to deploy and manage identical VMs across multiple zones in a region. It provides automatic scaling, automated health checking and auto-healing, and coordinated rolling updates.",
     referenceUrl: "https://cloud.google.com/compute/docs/instance-groups",
@@ -51,12 +51,12 @@ export const GCP_ACE_QUESTIONS_15 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer evaluates Compute Engine to deploy a fleet of identical, auto-healing Compute Engine virtual machines that automatically scale across multiple zones within a region based on CPU utilization.",
     question: "Which solution properly implements these mandatory security and governance controls? Instance Templates defining configuration for regional Managed Instance Groups is under consideration.",
     options: [
-      { id: 'A', text: "Create an Instance Template and deploy a regional Managed Instance Group (MIG) with autoscaling enabled." },
-      { id: 'B', text: "Deploy five independent standalone VMs in a single zone without an instance template." },
-      { id: 'C', text: "Use an unmanaged instance group without health checks or autoscaling." },
+      { id: 'A', text: "Use an unmanaged instance group without health checks or autoscaling." },
+      { id: 'B', text: "Create an Instance Template and deploy a regional Managed Instance Group (MIG) with autoscaling enabled." },
+      { id: 'C', text: "Deploy five independent standalone VMs in a single zone without an instance template." },
       { id: 'D', text: "Configure an on-premises hypervisor cluster to clone virtual machines manually." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Create an Instance Template and deploy a regional Managed Instance Group (MIG) with autoscaling enabled. A regional Managed Instance Group (MIG) uses an Instance Template to deploy and manage identical VMs across multiple zones in a region. It provides automatic scaling, automated health checking and auto-healing, and coordinated rolling updates.",
     referenceUrl: "https://cloud.google.com/compute/docs/instance-groups",
@@ -74,8 +74,8 @@ export const GCP_ACE_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Create an Instance Template and deploy a regional Managed Instance Group (MIG) with autoscaling enabled." },
       { id: 'B', text: "Deploy five independent standalone VMs in a single zone without an instance template." },
-      { id: 'C', text: "Use an unmanaged instance group without health checks or autoscaling." },
-      { id: 'D', text: "Configure an on-premises hypervisor cluster to clone virtual machines manually." }
+      { id: 'C', text: "Configure an on-premises hypervisor cluster to clone virtual machines manually." },
+      { id: 'D', text: "Use an unmanaged instance group without health checks or autoscaling." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -93,12 +93,12 @@ export const GCP_ACE_QUESTIONS_15 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer evaluates Compute Engine to deploy a fleet of identical, auto-healing Compute Engine virtual machines that automatically scale across multiple zones within a region based on CPU utilization.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? Instance Templates defining configuration for regional Managed Instance Groups is under consideration.",
     options: [
-      { id: 'A', text: "Create an Instance Template and deploy a regional Managed Instance Group (MIG) with autoscaling enabled." },
-      { id: 'B', text: "Deploy five independent standalone VMs in a single zone without an instance template." },
-      { id: 'C', text: "Use an unmanaged instance group without health checks or autoscaling." },
-      { id: 'D', text: "Configure an on-premises hypervisor cluster to clone virtual machines manually." }
+      { id: 'A', text: "Configure an on-premises hypervisor cluster to clone virtual machines manually." },
+      { id: 'B', text: "Use an unmanaged instance group without health checks or autoscaling." },
+      { id: 'C', text: "Deploy five independent standalone VMs in a single zone without an instance template." },
+      { id: 'D', text: "Create an Instance Template and deploy a regional Managed Instance Group (MIG) with autoscaling enabled." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Create an Instance Template and deploy a regional Managed Instance Group (MIG) with autoscaling enabled. A regional Managed Instance Group (MIG) uses an Instance Template to deploy and manage identical VMs across multiple zones in a region. It provides automatic scaling, automated health checking and auto-healing, and coordinated rolling updates.",
     referenceUrl: "https://cloud.google.com/compute/docs/instance-groups",
@@ -114,12 +114,12 @@ export const GCP_ACE_QUESTIONS_15 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer evaluates Google Kubernetes Engine to deploy a production-grade Kubernetes cluster in Google Cloud with automated node management, security hardening, and Google-managed control planes.",
     question: "Which concept or service configuration satisfies these operational resilience objectives? gcloud container clusters create for Autopilot and Standard clusters is under consideration.",
     options: [
-      { id: 'A', text: "Execute 'gcloud container clusters create-auto' to provision a GKE Autopilot cluster." },
+      { id: 'A', text: "Deploy a bare-metal Kubernetes cluster on on-premises physical servers." },
       { id: 'B', text: "Install Minikube on a single Compute Engine virtual machine." },
-      { id: 'C', text: "Deploy a bare-metal Kubernetes cluster on on-premises physical servers." },
-      { id: 'D', text: "Run Docker containers manually using docker-compose on a standalone VM." }
+      { id: 'C', text: "Run Docker containers manually using docker-compose on a standalone VM." },
+      { id: 'D', text: "Execute 'gcloud container clusters create-auto' to provision a GKE Autopilot cluster." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Execute 'gcloud container clusters create-auto' to provision a GKE Autopilot cluster. GKE Autopilot is an optimized mode of operation in which Google provisions and manages the cluster's underlying infrastructure, including nodes and node pools, enforcing security baselines and charging only for pod resource requests.",
     referenceUrl: "https://cloud.google.com/kubernetes-engine/docs/how-to/creating-an-autopilot-cluster",
@@ -135,12 +135,12 @@ export const GCP_ACE_QUESTIONS_15 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer evaluates Google Kubernetes Engine to deploy a production-grade Kubernetes cluster in Google Cloud with automated node management, security hardening, and Google-managed control planes.",
     question: "Which architectural approach should the team select to manage this demand efficiently? gcloud container clusters create for Autopilot and Standard clusters is under consideration.",
     options: [
-      { id: 'A', text: "Execute 'gcloud container clusters create-auto' to provision a GKE Autopilot cluster." },
-      { id: 'B', text: "Install Minikube on a single Compute Engine virtual machine." },
+      { id: 'A', text: "Install Minikube on a single Compute Engine virtual machine." },
+      { id: 'B', text: "Execute 'gcloud container clusters create-auto' to provision a GKE Autopilot cluster." },
       { id: 'C', text: "Deploy a bare-metal Kubernetes cluster on on-premises physical servers." },
       { id: 'D', text: "Run Docker containers manually using docker-compose on a standalone VM." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Execute 'gcloud container clusters create-auto' to provision a GKE Autopilot cluster. GKE Autopilot is an optimized mode of operation in which Google provisions and manages the cluster's underlying infrastructure, including nodes and node pools, enforcing security baselines and charging only for pod resource requests.",
     referenceUrl: "https://cloud.google.com/kubernetes-engine/docs/how-to/creating-an-autopilot-cluster",
@@ -156,12 +156,12 @@ export const GCP_ACE_QUESTIONS_15 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer evaluates Google Kubernetes Engine to deploy a production-grade Kubernetes cluster in Google Cloud with automated node management, security hardening, and Google-managed control planes.",
     question: "Which solution properly implements these mandatory security and governance controls? gcloud container clusters create for Autopilot and Standard clusters is under consideration.",
     options: [
-      { id: 'A', text: "Execute 'gcloud container clusters create-auto' to provision a GKE Autopilot cluster." },
+      { id: 'A', text: "Run Docker containers manually using docker-compose on a standalone VM." },
       { id: 'B', text: "Install Minikube on a single Compute Engine virtual machine." },
-      { id: 'C', text: "Deploy a bare-metal Kubernetes cluster on on-premises physical servers." },
-      { id: 'D', text: "Run Docker containers manually using docker-compose on a standalone VM." }
+      { id: 'C', text: "Execute 'gcloud container clusters create-auto' to provision a GKE Autopilot cluster." },
+      { id: 'D', text: "Deploy a bare-metal Kubernetes cluster on on-premises physical servers." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Execute 'gcloud container clusters create-auto' to provision a GKE Autopilot cluster. GKE Autopilot is an optimized mode of operation in which Google provisions and manages the cluster's underlying infrastructure, including nodes and node pools, enforcing security baselines and charging only for pod resource requests.",
     referenceUrl: "https://cloud.google.com/kubernetes-engine/docs/how-to/creating-an-autopilot-cluster",
@@ -177,12 +177,12 @@ export const GCP_ACE_QUESTIONS_15 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer evaluates Google Kubernetes Engine to deploy a production-grade Kubernetes cluster in Google Cloud with automated node management, security hardening, and Google-managed control planes.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? gcloud container clusters create for Autopilot and Standard clusters is under consideration.",
     options: [
-      { id: 'A', text: "Execute 'gcloud container clusters create-auto' to provision a GKE Autopilot cluster." },
+      { id: 'A', text: "Run Docker containers manually using docker-compose on a standalone VM." },
       { id: 'B', text: "Install Minikube on a single Compute Engine virtual machine." },
       { id: 'C', text: "Deploy a bare-metal Kubernetes cluster on on-premises physical servers." },
-      { id: 'D', text: "Run Docker containers manually using docker-compose on a standalone VM." }
+      { id: 'D', text: "Execute 'gcloud container clusters create-auto' to provision a GKE Autopilot cluster." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Execute 'gcloud container clusters create-auto' to provision a GKE Autopilot cluster. GKE Autopilot is an optimized mode of operation in which Google provisions and manages the cluster's underlying infrastructure, including nodes and node pools, enforcing security baselines and charging only for pod resource requests.",
     referenceUrl: "https://cloud.google.com/kubernetes-engine/docs/how-to/creating-an-autopilot-cluster",
@@ -198,12 +198,12 @@ export const GCP_ACE_QUESTIONS_15 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer evaluates Google Kubernetes Engine to deploy a production-grade Kubernetes cluster in Google Cloud with automated node management, security hardening, and Google-managed control planes.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? gcloud container clusters create for Autopilot and Standard clusters is under consideration.",
     options: [
-      { id: 'A', text: "Execute 'gcloud container clusters create-auto' to provision a GKE Autopilot cluster." },
-      { id: 'B', text: "Install Minikube on a single Compute Engine virtual machine." },
+      { id: 'A', text: "Install Minikube on a single Compute Engine virtual machine." },
+      { id: 'B', text: "Run Docker containers manually using docker-compose on a standalone VM." },
       { id: 'C', text: "Deploy a bare-metal Kubernetes cluster on on-premises physical servers." },
-      { id: 'D', text: "Run Docker containers manually using docker-compose on a standalone VM." }
+      { id: 'D', text: "Execute 'gcloud container clusters create-auto' to provision a GKE Autopilot cluster." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Execute 'gcloud container clusters create-auto' to provision a GKE Autopilot cluster. GKE Autopilot is an optimized mode of operation in which Google provisions and manages the cluster's underlying infrastructure, including nodes and node pools, enforcing security baselines and charging only for pod resource requests.",
     referenceUrl: "https://cloud.google.com/kubernetes-engine/docs/how-to/creating-an-autopilot-cluster",
@@ -220,9 +220,9 @@ export const GCP_ACE_QUESTIONS_15 = [
     question: "Which concept or service configuration satisfies these operational resilience objectives? Declarative YAML deployments and ClusterIP / LoadBalancer services is under consideration.",
     options: [
       { id: 'A', text: "Apply a Kubernetes Deployment manifest with readiness probes and expose it via a Service of type: LoadBalancer." },
-      { id: 'B', text: "Deploy a single standalone Pod with no controller or service definition." },
+      { id: 'B', text: "Manually install nginx inside each running node container filesystem." },
       { id: 'C', text: "Expose the pod directly using hostPort on a worker node without a Kubernetes service." },
-      { id: 'D', text: "Manually install nginx inside each running node container filesystem." }
+      { id: 'D', text: "Deploy a single standalone Pod with no controller or service definition." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -241,9 +241,9 @@ export const GCP_ACE_QUESTIONS_15 = [
     question: "Which architectural approach should the team select to manage this demand efficiently? Declarative YAML deployments and ClusterIP / LoadBalancer services is under consideration.",
     options: [
       { id: 'A', text: "Apply a Kubernetes Deployment manifest with readiness probes and expose it via a Service of type: LoadBalancer." },
-      { id: 'B', text: "Deploy a single standalone Pod with no controller or service definition." },
-      { id: 'C', text: "Expose the pod directly using hostPort on a worker node without a Kubernetes service." },
-      { id: 'D', text: "Manually install nginx inside each running node container filesystem." }
+      { id: 'B', text: "Manually install nginx inside each running node container filesystem." },
+      { id: 'C', text: "Deploy a single standalone Pod with no controller or service definition." },
+      { id: 'D', text: "Expose the pod directly using hostPort on a worker node without a Kubernetes service." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -262,9 +262,9 @@ export const GCP_ACE_QUESTIONS_15 = [
     question: "Which solution properly implements these mandatory security and governance controls? Declarative YAML deployments and ClusterIP / LoadBalancer services is under consideration.",
     options: [
       { id: 'A', text: "Apply a Kubernetes Deployment manifest with readiness probes and expose it via a Service of type: LoadBalancer." },
-      { id: 'B', text: "Deploy a single standalone Pod with no controller or service definition." },
-      { id: 'C', text: "Expose the pod directly using hostPort on a worker node without a Kubernetes service." },
-      { id: 'D', text: "Manually install nginx inside each running node container filesystem." }
+      { id: 'B', text: "Manually install nginx inside each running node container filesystem." },
+      { id: 'C', text: "Deploy a single standalone Pod with no controller or service definition." },
+      { id: 'D', text: "Expose the pod directly using hostPort on a worker node without a Kubernetes service." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -282,12 +282,12 @@ export const GCP_ACE_QUESTIONS_15 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer evaluates Kubernetes to deploy a multi-replica web application to a GKE cluster and expose it to the internet with an external IP address and automated health probes.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? Declarative YAML deployments and ClusterIP / LoadBalancer services is under consideration.",
     options: [
-      { id: 'A', text: "Apply a Kubernetes Deployment manifest with readiness probes and expose it via a Service of type: LoadBalancer." },
+      { id: 'A', text: "Manually install nginx inside each running node container filesystem." },
       { id: 'B', text: "Deploy a single standalone Pod with no controller or service definition." },
       { id: 'C', text: "Expose the pod directly using hostPort on a worker node without a Kubernetes service." },
-      { id: 'D', text: "Manually install nginx inside each running node container filesystem." }
+      { id: 'D', text: "Apply a Kubernetes Deployment manifest with readiness probes and expose it via a Service of type: LoadBalancer." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Apply a Kubernetes Deployment manifest with readiness probes and expose it via a Service of type: LoadBalancer. In Kubernetes, a Deployment manages the desired state and rolling updates for a replica set of Pods. A Service of `type: LoadBalancer` automatically provisions a Google Cloud Network Load Balancer with an external IP, forwarding internet traffic to healthy pods.",
     referenceUrl: "https://cloud.google.com/kubernetes-engine/docs/how-to/exposing-apps",
@@ -305,8 +305,8 @@ export const GCP_ACE_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Apply a Kubernetes Deployment manifest with readiness probes and expose it via a Service of type: LoadBalancer." },
       { id: 'B', text: "Deploy a single standalone Pod with no controller or service definition." },
-      { id: 'C', text: "Expose the pod directly using hostPort on a worker node without a Kubernetes service." },
-      { id: 'D', text: "Manually install nginx inside each running node container filesystem." }
+      { id: 'C', text: "Manually install nginx inside each running node container filesystem." },
+      { id: 'D', text: "Expose the pod directly using hostPort on a worker node without a Kubernetes service." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -324,12 +324,12 @@ export const GCP_ACE_QUESTIONS_15 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer evaluates Cloud Run to deploy a stateless microservice packaged as a Docker container that automatically scales to zero when idle and scales out to 1,000 instances under load.",
     question: "Which concept or service configuration satisfies these operational resilience objectives? Serverless container deployment with scale-to-zero and HTTPS endpoints is under consideration.",
     options: [
-      { id: 'A', text: "Deploy the container image to Cloud Run using 'gcloud run deploy' with authentication flags." },
-      { id: 'B', text: "Deploy the container on a dedicated Compute Engine instance running 24/7." },
-      { id: 'C', text: "Host the application inside an App Engine Standard environment without container support." },
-      { id: 'D', text: "Run the container on an on-premises developer laptop connected to the internet." }
+      { id: 'A', text: "Host the application inside an App Engine Standard environment without container support." },
+      { id: 'B', text: "Run the container on an on-premises developer laptop connected to the internet." },
+      { id: 'C', text: "Deploy the container image to Cloud Run using 'gcloud run deploy' with authentication flags." },
+      { id: 'D', text: "Deploy the container on a dedicated Compute Engine instance running 24/7." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy the container image to Cloud Run using 'gcloud run deploy' with authentication flags. Cloud Run is a fully managed serverless platform that enables deploying containerized applications directly on top of Google's scalable infrastructure. It provisions an automated HTTPS URL, scales dynamically based on concurrent requests, and scales to zero when no traffic arrives.",
     referenceUrl: "https://cloud.google.com/run/docs/deploying",
@@ -345,12 +345,12 @@ export const GCP_ACE_QUESTIONS_15 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer evaluates Cloud Run to deploy a stateless microservice packaged as a Docker container that automatically scales to zero when idle and scales out to 1,000 instances under load.",
     question: "Which architectural approach should the team select to manage this demand efficiently? Serverless container deployment with scale-to-zero and HTTPS endpoints is under consideration.",
     options: [
-      { id: 'A', text: "Deploy the container image to Cloud Run using 'gcloud run deploy' with authentication flags." },
-      { id: 'B', text: "Deploy the container on a dedicated Compute Engine instance running 24/7." },
-      { id: 'C', text: "Host the application inside an App Engine Standard environment without container support." },
-      { id: 'D', text: "Run the container on an on-premises developer laptop connected to the internet." }
+      { id: 'A', text: "Host the application inside an App Engine Standard environment without container support." },
+      { id: 'B', text: "Run the container on an on-premises developer laptop connected to the internet." },
+      { id: 'C', text: "Deploy the container image to Cloud Run using 'gcloud run deploy' with authentication flags." },
+      { id: 'D', text: "Deploy the container on a dedicated Compute Engine instance running 24/7." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy the container image to Cloud Run using 'gcloud run deploy' with authentication flags. Cloud Run is a fully managed serverless platform that enables deploying containerized applications directly on top of Google's scalable infrastructure. It provisions an automated HTTPS URL, scales dynamically based on concurrent requests, and scales to zero when no traffic arrives.",
     referenceUrl: "https://cloud.google.com/run/docs/deploying",
@@ -366,12 +366,12 @@ export const GCP_ACE_QUESTIONS_15 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer evaluates Cloud Run to deploy a stateless microservice packaged as a Docker container that automatically scales to zero when idle and scales out to 1,000 instances under load.",
     question: "Which solution properly implements these mandatory security and governance controls? Serverless container deployment with scale-to-zero and HTTPS endpoints is under consideration.",
     options: [
-      { id: 'A', text: "Deploy the container image to Cloud Run using 'gcloud run deploy' with authentication flags." },
-      { id: 'B', text: "Deploy the container on a dedicated Compute Engine instance running 24/7." },
-      { id: 'C', text: "Host the application inside an App Engine Standard environment without container support." },
+      { id: 'A', text: "Host the application inside an App Engine Standard environment without container support." },
+      { id: 'B', text: "Deploy the container image to Cloud Run using 'gcloud run deploy' with authentication flags." },
+      { id: 'C', text: "Deploy the container on a dedicated Compute Engine instance running 24/7." },
       { id: 'D', text: "Run the container on an on-premises developer laptop connected to the internet." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy the container image to Cloud Run using 'gcloud run deploy' with authentication flags. Cloud Run is a fully managed serverless platform that enables deploying containerized applications directly on top of Google's scalable infrastructure. It provisions an automated HTTPS URL, scales dynamically based on concurrent requests, and scales to zero when no traffic arrives.",
     referenceUrl: "https://cloud.google.com/run/docs/deploying",
@@ -388,9 +388,9 @@ export const GCP_ACE_QUESTIONS_15 = [
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? Serverless container deployment with scale-to-zero and HTTPS endpoints is under consideration.",
     options: [
       { id: 'A', text: "Deploy the container image to Cloud Run using 'gcloud run deploy' with authentication flags." },
-      { id: 'B', text: "Deploy the container on a dedicated Compute Engine instance running 24/7." },
-      { id: 'C', text: "Host the application inside an App Engine Standard environment without container support." },
-      { id: 'D', text: "Run the container on an on-premises developer laptop connected to the internet." }
+      { id: 'B', text: "Run the container on an on-premises developer laptop connected to the internet." },
+      { id: 'C', text: "Deploy the container on a dedicated Compute Engine instance running 24/7." },
+      { id: 'D', text: "Host the application inside an App Engine Standard environment without container support." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,12 +408,12 @@ export const GCP_ACE_QUESTIONS_15 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer evaluates Cloud Run to deploy a stateless microservice packaged as a Docker container that automatically scales to zero when idle and scales out to 1,000 instances under load.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? Serverless container deployment with scale-to-zero and HTTPS endpoints is under consideration.",
     options: [
-      { id: 'A', text: "Deploy the container image to Cloud Run using 'gcloud run deploy' with authentication flags." },
+      { id: 'A', text: "Host the application inside an App Engine Standard environment without container support." },
       { id: 'B', text: "Deploy the container on a dedicated Compute Engine instance running 24/7." },
-      { id: 'C', text: "Host the application inside an App Engine Standard environment without container support." },
+      { id: 'C', text: "Deploy the container image to Cloud Run using 'gcloud run deploy' with authentication flags." },
       { id: 'D', text: "Run the container on an on-premises developer laptop connected to the internet." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy the container image to Cloud Run using 'gcloud run deploy' with authentication flags. Cloud Run is a fully managed serverless platform that enables deploying containerized applications directly on top of Google's scalable infrastructure. It provisions an automated HTTPS URL, scales dynamically based on concurrent requests, and scales to zero when no traffic arrives.",
     referenceUrl: "https://cloud.google.com/run/docs/deploying",
@@ -429,12 +429,12 @@ export const GCP_ACE_QUESTIONS_15 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer evaluates Cloud Functions to execute lightweight Python code in response to a new file being uploaded to a specific Cloud Storage bucket without managing server infrastructure.",
     question: "Which concept or service configuration satisfies these operational resilience objectives? Event-driven functions built on Cloud Run with Eventarc triggers is under consideration.",
     options: [
-      { id: 'A', text: "Deploy a Cloud Function (2nd gen) with a Cloud Storage Eventarc trigger using 'gcloud functions deploy'." },
-      { id: 'B', text: "Run an infinite while loop on a Compute Engine VM polling the Cloud Storage API." },
-      { id: 'C', text: "Deploy an on-premises Windows server to check the bucket every 10 minutes." },
-      { id: 'D', text: "Configure a cron job inside a local database server." }
+      { id: 'A', text: "Configure a cron job inside a local database server." },
+      { id: 'B', text: "Deploy an on-premises Windows server to check the bucket every 10 minutes." },
+      { id: 'C', text: "Run an infinite while loop on a Compute Engine VM polling the Cloud Storage API." },
+      { id: 'D', text: "Deploy a Cloud Function (2nd gen) with a Cloud Storage Eventarc trigger using 'gcloud functions deploy'." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy a Cloud Function (2nd gen) with a Cloud Storage Eventarc trigger using 'gcloud functions deploy'. Cloud Functions (2nd gen) is Google Cloud's event-driven serverless compute platform built on Cloud Run and Eventarc. It allows running code in response to Cloud Storage, Pub/Sub, and hundreds of Google Cloud events without managing servers or runtimes.",
     referenceUrl: "https://cloud.google.com/functions/docs/deploy",
@@ -450,12 +450,12 @@ export const GCP_ACE_QUESTIONS_15 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer evaluates Cloud Functions to execute lightweight Python code in response to a new file being uploaded to a specific Cloud Storage bucket without managing server infrastructure.",
     question: "Which architectural approach should the team select to manage this demand efficiently? Event-driven functions built on Cloud Run with Eventarc triggers is under consideration.",
     options: [
-      { id: 'A', text: "Deploy a Cloud Function (2nd gen) with a Cloud Storage Eventarc trigger using 'gcloud functions deploy'." },
-      { id: 'B', text: "Run an infinite while loop on a Compute Engine VM polling the Cloud Storage API." },
-      { id: 'C', text: "Deploy an on-premises Windows server to check the bucket every 10 minutes." },
+      { id: 'A', text: "Run an infinite while loop on a Compute Engine VM polling the Cloud Storage API." },
+      { id: 'B', text: "Deploy an on-premises Windows server to check the bucket every 10 minutes." },
+      { id: 'C', text: "Deploy a Cloud Function (2nd gen) with a Cloud Storage Eventarc trigger using 'gcloud functions deploy'." },
       { id: 'D', text: "Configure a cron job inside a local database server." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy a Cloud Function (2nd gen) with a Cloud Storage Eventarc trigger using 'gcloud functions deploy'. Cloud Functions (2nd gen) is Google Cloud's event-driven serverless compute platform built on Cloud Run and Eventarc. It allows running code in response to Cloud Storage, Pub/Sub, and hundreds of Google Cloud events without managing servers or runtimes.",
     referenceUrl: "https://cloud.google.com/functions/docs/deploy",
@@ -472,9 +472,9 @@ export const GCP_ACE_QUESTIONS_15 = [
     question: "Which solution properly implements these mandatory security and governance controls? Event-driven functions built on Cloud Run with Eventarc triggers is under consideration.",
     options: [
       { id: 'A', text: "Deploy a Cloud Function (2nd gen) with a Cloud Storage Eventarc trigger using 'gcloud functions deploy'." },
-      { id: 'B', text: "Run an infinite while loop on a Compute Engine VM polling the Cloud Storage API." },
-      { id: 'C', text: "Deploy an on-premises Windows server to check the bucket every 10 minutes." },
-      { id: 'D', text: "Configure a cron job inside a local database server." }
+      { id: 'B', text: "Configure a cron job inside a local database server." },
+      { id: 'C', text: "Run an infinite while loop on a Compute Engine VM polling the Cloud Storage API." },
+      { id: 'D', text: "Deploy an on-premises Windows server to check the bucket every 10 minutes." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,12 +492,12 @@ export const GCP_ACE_QUESTIONS_15 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer evaluates Cloud Functions to execute lightweight Python code in response to a new file being uploaded to a specific Cloud Storage bucket without managing server infrastructure.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? Event-driven functions built on Cloud Run with Eventarc triggers is under consideration.",
     options: [
-      { id: 'A', text: "Deploy a Cloud Function (2nd gen) with a Cloud Storage Eventarc trigger using 'gcloud functions deploy'." },
+      { id: 'A', text: "Configure a cron job inside a local database server." },
       { id: 'B', text: "Run an infinite while loop on a Compute Engine VM polling the Cloud Storage API." },
-      { id: 'C', text: "Deploy an on-premises Windows server to check the bucket every 10 minutes." },
-      { id: 'D', text: "Configure a cron job inside a local database server." }
+      { id: 'C', text: "Deploy a Cloud Function (2nd gen) with a Cloud Storage Eventarc trigger using 'gcloud functions deploy'." },
+      { id: 'D', text: "Deploy an on-premises Windows server to check the bucket every 10 minutes." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy a Cloud Function (2nd gen) with a Cloud Storage Eventarc trigger using 'gcloud functions deploy'. Cloud Functions (2nd gen) is Google Cloud's event-driven serverless compute platform built on Cloud Run and Eventarc. It allows running code in response to Cloud Storage, Pub/Sub, and hundreds of Google Cloud events without managing servers or runtimes.",
     referenceUrl: "https://cloud.google.com/functions/docs/deploy",
@@ -515,8 +515,8 @@ export const GCP_ACE_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Deploy a Cloud Function (2nd gen) with a Cloud Storage Eventarc trigger using 'gcloud functions deploy'." },
       { id: 'B', text: "Run an infinite while loop on a Compute Engine VM polling the Cloud Storage API." },
-      { id: 'C', text: "Deploy an on-premises Windows server to check the bucket every 10 minutes." },
-      { id: 'D', text: "Configure a cron job inside a local database server." }
+      { id: 'C', text: "Configure a cron job inside a local database server." },
+      { id: 'D', text: "Deploy an on-premises Windows server to check the bucket every 10 minutes." }
     ],
     correctAnswers: ['A'],
     type: "single",

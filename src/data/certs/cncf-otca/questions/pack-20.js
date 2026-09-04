@@ -9,12 +9,12 @@ export const CNCF_OTCA_QUESTIONS_20 = [
     scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer evaluates Collector Security to prevent unauthorized clients from submitting telemetry and ensure sensitive user data (passwords, PII) is redacted before export.",
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives? Securing collector endpoints with mTLS, bearer token auth, and redacting PII is under consideration.",
     options: [
-      { id: 'A', text: "Configure TLS/mTLS and authentication extensions (`bearertokenauth`) on receivers, and use `redaction` processor to scrub sensitive attributes." },
-      { id: 'B', text: "Allow unauthenticated, unencrypted public internet access to collector ports." },
-      { id: 'C', text: "Store plain text authentication passwords inside Git repositories." },
+      { id: 'A', text: "Store plain text authentication passwords inside Git repositories." },
+      { id: 'B', text: "Configure TLS/mTLS and authentication extensions (`bearertokenauth`) on receivers, and use `redaction` processor to scrub sensitive attributes." },
+      { id: 'C', text: "Allow unauthenticated, unencrypted public internet access to collector ports." },
       { id: 'D', text: "Never redact customer passwords from telemetry traces." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure TLS/mTLS and authentication extensions (`bearertokenauth`) on receivers, and use `redaction` processor to scrub sensitive attributes. Securing the telemetry pipeline requires defense-in-depth: enforcing TLS/mTLS on receivers, requiring authentication (bearer tokens, OIDC) via auth extensions, and applying redaction or transform processors to sanitize sensitive attributes (PII, tokens) before export.",
     referenceUrl: "https://opentelemetry.io/docs/collector/configuration/#authentication",
@@ -30,12 +30,12 @@ export const CNCF_OTCA_QUESTIONS_20 = [
     scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer evaluates Collector Security to prevent unauthorized clients from submitting telemetry and ensure sensitive user data (passwords, PII) is redacted before export.",
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends? Securing collector endpoints with mTLS, bearer token auth, and redacting PII is under consideration.",
     options: [
-      { id: 'A', text: "Configure TLS/mTLS and authentication extensions (`bearertokenauth`) on receivers, and use `redaction` processor to scrub sensitive attributes." },
-      { id: 'B', text: "Allow unauthenticated, unencrypted public internet access to collector ports." },
-      { id: 'C', text: "Store plain text authentication passwords inside Git repositories." },
-      { id: 'D', text: "Never redact customer passwords from telemetry traces." }
+      { id: 'A', text: "Allow unauthenticated, unencrypted public internet access to collector ports." },
+      { id: 'B', text: "Configure TLS/mTLS and authentication extensions (`bearertokenauth`) on receivers, and use `redaction` processor to scrub sensitive attributes." },
+      { id: 'C', text: "Never redact customer passwords from telemetry traces." },
+      { id: 'D', text: "Store plain text authentication passwords inside Git repositories." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure TLS/mTLS and authentication extensions (`bearertokenauth`) on receivers, and use `redaction` processor to scrub sensitive attributes. Securing the telemetry pipeline requires defense-in-depth: enforcing TLS/mTLS on receivers, requiring authentication (bearer tokens, OIDC) via auth extensions, and applying redaction or transform processors to sanitize sensitive attributes (PII, tokens) before export.",
     referenceUrl: "https://opentelemetry.io/docs/collector/configuration/#authentication",
@@ -51,12 +51,12 @@ export const CNCF_OTCA_QUESTIONS_20 = [
     scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer evaluates Collector Security to prevent unauthorized clients from submitting telemetry and ensure sensitive user data (passwords, PII) is redacted before export.",
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls? Securing collector endpoints with mTLS, bearer token auth, and redacting PII is under consideration.",
     options: [
-      { id: 'A', text: "Configure TLS/mTLS and authentication extensions (`bearertokenauth`) on receivers, and use `redaction` processor to scrub sensitive attributes." },
-      { id: 'B', text: "Allow unauthenticated, unencrypted public internet access to collector ports." },
-      { id: 'C', text: "Store plain text authentication passwords inside Git repositories." },
-      { id: 'D', text: "Never redact customer passwords from telemetry traces." }
+      { id: 'A', text: "Store plain text authentication passwords inside Git repositories." },
+      { id: 'B', text: "Configure TLS/mTLS and authentication extensions (`bearertokenauth`) on receivers, and use `redaction` processor to scrub sensitive attributes." },
+      { id: 'C', text: "Never redact customer passwords from telemetry traces." },
+      { id: 'D', text: "Allow unauthenticated, unencrypted public internet access to collector ports." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure TLS/mTLS and authentication extensions (`bearertokenauth`) on receivers, and use `redaction` processor to scrub sensitive attributes. Securing the telemetry pipeline requires defense-in-depth: enforcing TLS/mTLS on receivers, requiring authentication (bearer tokens, OIDC) via auth extensions, and applying redaction or transform processors to sanitize sensitive attributes (PII, tokens) before export.",
     referenceUrl: "https://opentelemetry.io/docs/collector/configuration/#authentication",
@@ -72,12 +72,12 @@ export const CNCF_OTCA_QUESTIONS_20 = [
     scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer evaluates Collector Security to prevent unauthorized clients from submitting telemetry and ensure sensitive user data (passwords, PII) is redacted before export.",
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption? Securing collector endpoints with mTLS, bearer token auth, and redacting PII is under consideration.",
     options: [
-      { id: 'A', text: "Configure TLS/mTLS and authentication extensions (`bearertokenauth`) on receivers, and use `redaction` processor to scrub sensitive attributes." },
-      { id: 'B', text: "Allow unauthenticated, unencrypted public internet access to collector ports." },
-      { id: 'C', text: "Store plain text authentication passwords inside Git repositories." },
-      { id: 'D', text: "Never redact customer passwords from telemetry traces." }
+      { id: 'A', text: "Allow unauthenticated, unencrypted public internet access to collector ports." },
+      { id: 'B', text: "Configure TLS/mTLS and authentication extensions (`bearertokenauth`) on receivers, and use `redaction` processor to scrub sensitive attributes." },
+      { id: 'C', text: "Never redact customer passwords from telemetry traces." },
+      { id: 'D', text: "Store plain text authentication passwords inside Git repositories." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure TLS/mTLS and authentication extensions (`bearertokenauth`) on receivers, and use `redaction` processor to scrub sensitive attributes. Securing the telemetry pipeline requires defense-in-depth: enforcing TLS/mTLS on receivers, requiring authentication (bearer tokens, OIDC) via auth extensions, and applying redaction or transform processors to sanitize sensitive attributes (PII, tokens) before export.",
     referenceUrl: "https://opentelemetry.io/docs/collector/configuration/#authentication",
@@ -93,12 +93,12 @@ export const CNCF_OTCA_QUESTIONS_20 = [
     scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer evaluates Collector Security to prevent unauthorized clients from submitting telemetry and ensure sensitive user data (passwords, PII) is redacted before export.",
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation? Securing collector endpoints with mTLS, bearer token auth, and redacting PII is under consideration.",
     options: [
-      { id: 'A', text: "Configure TLS/mTLS and authentication extensions (`bearertokenauth`) on receivers, and use `redaction` processor to scrub sensitive attributes." },
-      { id: 'B', text: "Allow unauthenticated, unencrypted public internet access to collector ports." },
-      { id: 'C', text: "Store plain text authentication passwords inside Git repositories." },
-      { id: 'D', text: "Never redact customer passwords from telemetry traces." }
+      { id: 'A', text: "Store plain text authentication passwords inside Git repositories." },
+      { id: 'B', text: "Never redact customer passwords from telemetry traces." },
+      { id: 'C', text: "Allow unauthenticated, unencrypted public internet access to collector ports." },
+      { id: 'D', text: "Configure TLS/mTLS and authentication extensions (`bearertokenauth`) on receivers, and use `redaction` processor to scrub sensitive attributes." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure TLS/mTLS and authentication extensions (`bearertokenauth`) on receivers, and use `redaction` processor to scrub sensitive attributes. Securing the telemetry pipeline requires defense-in-depth: enforcing TLS/mTLS on receivers, requiring authentication (bearer tokens, OIDC) via auth extensions, and applying redaction or transform processors to sanitize sensitive attributes (PII, tokens) before export.",
     referenceUrl: "https://opentelemetry.io/docs/collector/configuration/#authentication",
@@ -116,8 +116,8 @@ export const CNCF_OTCA_QUESTIONS_20 = [
     options: [
       { id: 'A', text: "Configure `memory_limiter` to return backpressure (HTTP 429 / gRPC ResourceExhausted) to upstream clients, forcing senders to throttle." },
       { id: 'B', text: "Silently buffer infinite data in unconstrained memory until OOM crash." },
-      { id: 'C', text: "Crash the entire Kubernetes node to shed load." },
-      { id: 'D', text: "Disable all rate limiting and backpressure mechanisms." }
+      { id: 'C', text: "Disable all rate limiting and backpressure mechanisms." },
+      { id: 'D', text: "Crash the entire Kubernetes node to shed load." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -135,12 +135,12 @@ export const CNCF_OTCA_QUESTIONS_20 = [
     scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer evaluates Backpressure Handling to prevent an OpenTelemetry Collector gateway from crashing when incoming telemetry volume exceeds processing capacity by 300%.",
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends? Propagating backpressure upstream to prevent collector resource exhaustion is under consideration.",
     options: [
-      { id: 'A', text: "Configure `memory_limiter` to return backpressure (HTTP 429 / gRPC ResourceExhausted) to upstream clients, forcing senders to throttle." },
-      { id: 'B', text: "Silently buffer infinite data in unconstrained memory until OOM crash." },
-      { id: 'C', text: "Crash the entire Kubernetes node to shed load." },
-      { id: 'D', text: "Disable all rate limiting and backpressure mechanisms." }
+      { id: 'A', text: "Disable all rate limiting and backpressure mechanisms." },
+      { id: 'B', text: "Configure `memory_limiter` to return backpressure (HTTP 429 / gRPC ResourceExhausted) to upstream clients, forcing senders to throttle." },
+      { id: 'C', text: "Silently buffer infinite data in unconstrained memory until OOM crash." },
+      { id: 'D', text: "Crash the entire Kubernetes node to shed load." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure `memory_limiter` to return backpressure (HTTP 429 / gRPC ResourceExhausted) to upstream clients, forcing senders to throttle. When collectors experience overload, returning backpressure (gRPC `UNAVAILABLE` or HTTP `429 Too Many Requests`) signals upstream SDKs and agent collectors to throttle transmission and buffer data locally, preventing catastrophic gateway crashes.",
     referenceUrl: "https://opentelemetry.io/docs/collector/scaling/",
@@ -156,12 +156,12 @@ export const CNCF_OTCA_QUESTIONS_20 = [
     scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer evaluates Backpressure Handling to prevent an OpenTelemetry Collector gateway from crashing when incoming telemetry volume exceeds processing capacity by 300%.",
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls? Propagating backpressure upstream to prevent collector resource exhaustion is under consideration.",
     options: [
-      { id: 'A', text: "Configure `memory_limiter` to return backpressure (HTTP 429 / gRPC ResourceExhausted) to upstream clients, forcing senders to throttle." },
-      { id: 'B', text: "Silently buffer infinite data in unconstrained memory until OOM crash." },
-      { id: 'C', text: "Crash the entire Kubernetes node to shed load." },
-      { id: 'D', text: "Disable all rate limiting and backpressure mechanisms." }
+      { id: 'A', text: "Silently buffer infinite data in unconstrained memory until OOM crash." },
+      { id: 'B', text: "Crash the entire Kubernetes node to shed load." },
+      { id: 'C', text: "Disable all rate limiting and backpressure mechanisms." },
+      { id: 'D', text: "Configure `memory_limiter` to return backpressure (HTTP 429 / gRPC ResourceExhausted) to upstream clients, forcing senders to throttle." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure `memory_limiter` to return backpressure (HTTP 429 / gRPC ResourceExhausted) to upstream clients, forcing senders to throttle. When collectors experience overload, returning backpressure (gRPC `UNAVAILABLE` or HTTP `429 Too Many Requests`) signals upstream SDKs and agent collectors to throttle transmission and buffer data locally, preventing catastrophic gateway crashes.",
     referenceUrl: "https://opentelemetry.io/docs/collector/scaling/",
@@ -177,12 +177,12 @@ export const CNCF_OTCA_QUESTIONS_20 = [
     scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer evaluates Backpressure Handling to prevent an OpenTelemetry Collector gateway from crashing when incoming telemetry volume exceeds processing capacity by 300%.",
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption? Propagating backpressure upstream to prevent collector resource exhaustion is under consideration.",
     options: [
-      { id: 'A', text: "Configure `memory_limiter` to return backpressure (HTTP 429 / gRPC ResourceExhausted) to upstream clients, forcing senders to throttle." },
-      { id: 'B', text: "Silently buffer infinite data in unconstrained memory until OOM crash." },
-      { id: 'C', text: "Crash the entire Kubernetes node to shed load." },
-      { id: 'D', text: "Disable all rate limiting and backpressure mechanisms." }
+      { id: 'A', text: "Silently buffer infinite data in unconstrained memory until OOM crash." },
+      { id: 'B', text: "Configure `memory_limiter` to return backpressure (HTTP 429 / gRPC ResourceExhausted) to upstream clients, forcing senders to throttle." },
+      { id: 'C', text: "Disable all rate limiting and backpressure mechanisms." },
+      { id: 'D', text: "Crash the entire Kubernetes node to shed load." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure `memory_limiter` to return backpressure (HTTP 429 / gRPC ResourceExhausted) to upstream clients, forcing senders to throttle. When collectors experience overload, returning backpressure (gRPC `UNAVAILABLE` or HTTP `429 Too Many Requests`) signals upstream SDKs and agent collectors to throttle transmission and buffer data locally, preventing catastrophic gateway crashes.",
     referenceUrl: "https://opentelemetry.io/docs/collector/scaling/",
@@ -199,9 +199,9 @@ export const CNCF_OTCA_QUESTIONS_20 = [
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation? Propagating backpressure upstream to prevent collector resource exhaustion is under consideration.",
     options: [
       { id: 'A', text: "Configure `memory_limiter` to return backpressure (HTTP 429 / gRPC ResourceExhausted) to upstream clients, forcing senders to throttle." },
-      { id: 'B', text: "Silently buffer infinite data in unconstrained memory until OOM crash." },
-      { id: 'C', text: "Crash the entire Kubernetes node to shed load." },
-      { id: 'D', text: "Disable all rate limiting and backpressure mechanisms." }
+      { id: 'B', text: "Crash the entire Kubernetes node to shed load." },
+      { id: 'C', text: "Disable all rate limiting and backpressure mechanisms." },
+      { id: 'D', text: "Silently buffer infinite data in unconstrained memory until OOM crash." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -221,8 +221,8 @@ export const CNCF_OTCA_QUESTIONS_20 = [
     options: [
       { id: 'A', text: "Configure the standard `otlp` or `otlphttp` exporter pointing directly to the cloud vendor's native OTLP ingestion endpoint with API headers." },
       { id: 'B', text: "Install separate proprietary vendor agents on every host operating system." },
-      { id: 'C', text: "Convert all telemetry to custom proprietary vendor formats before transmission." },
-      { id: 'D', text: "Export telemetry to local text files and email them to vendor support." }
+      { id: 'C', text: "Export telemetry to local text files and email them to vendor support." },
+      { id: 'D', text: "Convert all telemetry to custom proprietary vendor formats before transmission." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -242,8 +242,8 @@ export const CNCF_OTCA_QUESTIONS_20 = [
     options: [
       { id: 'A', text: "Configure the standard `otlp` or `otlphttp` exporter pointing directly to the cloud vendor's native OTLP ingestion endpoint with API headers." },
       { id: 'B', text: "Install separate proprietary vendor agents on every host operating system." },
-      { id: 'C', text: "Convert all telemetry to custom proprietary vendor formats before transmission." },
-      { id: 'D', text: "Export telemetry to local text files and email them to vendor support." }
+      { id: 'C', text: "Export telemetry to local text files and email them to vendor support." },
+      { id: 'D', text: "Convert all telemetry to custom proprietary vendor formats before transmission." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -261,12 +261,12 @@ export const CNCF_OTCA_QUESTIONS_20 = [
     scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer evaluates Cloud Ingestion to stream telemetry from an OpenTelemetry Collector directly into commercial cloud APM backends without installing proprietary vendor collectors.",
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls? Direct OTLP ingestion support across Datadog, Dynatrace, New Relic, Honeycomb, and AWS is under consideration.",
     options: [
-      { id: 'A', text: "Configure the standard `otlp` or `otlphttp` exporter pointing directly to the cloud vendor's native OTLP ingestion endpoint with API headers." },
+      { id: 'A', text: "Export telemetry to local text files and email them to vendor support." },
       { id: 'B', text: "Install separate proprietary vendor agents on every host operating system." },
       { id: 'C', text: "Convert all telemetry to custom proprietary vendor formats before transmission." },
-      { id: 'D', text: "Export telemetry to local text files and email them to vendor support." }
+      { id: 'D', text: "Configure the standard `otlp` or `otlphttp` exporter pointing directly to the cloud vendor's native OTLP ingestion endpoint with API headers." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure the standard `otlp` or `otlphttp` exporter pointing directly to the cloud vendor's native OTLP ingestion endpoint with API headers. Major cloud and APM vendors (Honeycomb, Lightstep, Datadog, New Relic, Dynatrace, AWS X-Ray, Google Cloud) natively support OTLP ingestion. A standard `otlp` or `otlphttp` exporter pointing to the vendor's OTLP endpoint with API keys is all that is required, proving vendor neutrality.",
     referenceUrl: "https://opentelemetry.io/ecosystem/vendors/",
@@ -282,12 +282,12 @@ export const CNCF_OTCA_QUESTIONS_20 = [
     scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer evaluates Cloud Ingestion to stream telemetry from an OpenTelemetry Collector directly into commercial cloud APM backends without installing proprietary vendor collectors.",
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption? Direct OTLP ingestion support across Datadog, Dynatrace, New Relic, Honeycomb, and AWS is under consideration.",
     options: [
-      { id: 'A', text: "Configure the standard `otlp` or `otlphttp` exporter pointing directly to the cloud vendor's native OTLP ingestion endpoint with API headers." },
-      { id: 'B', text: "Install separate proprietary vendor agents on every host operating system." },
-      { id: 'C', text: "Convert all telemetry to custom proprietary vendor formats before transmission." },
-      { id: 'D', text: "Export telemetry to local text files and email them to vendor support." }
+      { id: 'A', text: "Convert all telemetry to custom proprietary vendor formats before transmission." },
+      { id: 'B', text: "Export telemetry to local text files and email them to vendor support." },
+      { id: 'C', text: "Configure the standard `otlp` or `otlphttp` exporter pointing directly to the cloud vendor's native OTLP ingestion endpoint with API headers." },
+      { id: 'D', text: "Install separate proprietary vendor agents on every host operating system." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure the standard `otlp` or `otlphttp` exporter pointing directly to the cloud vendor's native OTLP ingestion endpoint with API headers. Major cloud and APM vendors (Honeycomb, Lightstep, Datadog, New Relic, Dynatrace, AWS X-Ray, Google Cloud) natively support OTLP ingestion. A standard `otlp` or `otlphttp` exporter pointing to the vendor's OTLP endpoint with API keys is all that is required, proving vendor neutrality.",
     referenceUrl: "https://opentelemetry.io/ecosystem/vendors/",
@@ -303,12 +303,12 @@ export const CNCF_OTCA_QUESTIONS_20 = [
     scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer evaluates Cloud Ingestion to stream telemetry from an OpenTelemetry Collector directly into commercial cloud APM backends without installing proprietary vendor collectors.",
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation? Direct OTLP ingestion support across Datadog, Dynatrace, New Relic, Honeycomb, and AWS is under consideration.",
     options: [
-      { id: 'A', text: "Configure the standard `otlp` or `otlphttp` exporter pointing directly to the cloud vendor's native OTLP ingestion endpoint with API headers." },
-      { id: 'B', text: "Install separate proprietary vendor agents on every host operating system." },
-      { id: 'C', text: "Convert all telemetry to custom proprietary vendor formats before transmission." },
-      { id: 'D', text: "Export telemetry to local text files and email them to vendor support." }
+      { id: 'A', text: "Convert all telemetry to custom proprietary vendor formats before transmission." },
+      { id: 'B', text: "Export telemetry to local text files and email them to vendor support." },
+      { id: 'C', text: "Configure the standard `otlp` or `otlphttp` exporter pointing directly to the cloud vendor's native OTLP ingestion endpoint with API headers." },
+      { id: 'D', text: "Install separate proprietary vendor agents on every host operating system." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure the standard `otlp` or `otlphttp` exporter pointing directly to the cloud vendor's native OTLP ingestion endpoint with API headers. Major cloud and APM vendors (Honeycomb, Lightstep, Datadog, New Relic, Dynatrace, AWS X-Ray, Google Cloud) natively support OTLP ingestion. A standard `otlp` or `otlphttp` exporter pointing to the vendor's OTLP endpoint with API keys is all that is required, proving vendor neutrality.",
     referenceUrl: "https://opentelemetry.io/ecosystem/vendors/",
@@ -325,9 +325,9 @@ export const CNCF_OTCA_QUESTIONS_20 = [
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives? Configuring prometheus receiver in Collector to scrape third-party Prometheus endpoints is under consideration.",
     options: [
       { id: 'A', text: "Configure the `prometheus` receiver in the OpenTelemetry Collector with standard Prometheus scrape configurations and job definitions." },
-      { id: 'B', text: "Deploy a standalone Prometheus server, a Thanos cluster, and a Grafana instance solely to scrape one endpoint." },
-      { id: 'C', text: "Recompile third-party database exporters from source code." },
-      { id: 'D', text: "Prometheus format metrics cannot be ingested by OpenTelemetry." }
+      { id: 'B', text: "Recompile third-party database exporters from source code." },
+      { id: 'C', text: "Prometheus format metrics cannot be ingested by OpenTelemetry." },
+      { id: 'D', text: "Deploy a standalone Prometheus server, a Thanos cluster, and a Grafana instance solely to scrape one endpoint." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -345,12 +345,12 @@ export const CNCF_OTCA_QUESTIONS_20 = [
     scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer evaluates Prometheus Scraping to collect metrics from third-party infrastructure (e.g., MySQL exporter, NGINX exporter, Redis) without running a standalone Prometheus server.",
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends? Configuring prometheus receiver in Collector to scrape third-party Prometheus endpoints is under consideration.",
     options: [
-      { id: 'A', text: "Configure the `prometheus` receiver in the OpenTelemetry Collector with standard Prometheus scrape configurations and job definitions." },
+      { id: 'A', text: "Prometheus format metrics cannot be ingested by OpenTelemetry." },
       { id: 'B', text: "Deploy a standalone Prometheus server, a Thanos cluster, and a Grafana instance solely to scrape one endpoint." },
       { id: 'C', text: "Recompile third-party database exporters from source code." },
-      { id: 'D', text: "Prometheus format metrics cannot be ingested by OpenTelemetry." }
+      { id: 'D', text: "Configure the `prometheus` receiver in the OpenTelemetry Collector with standard Prometheus scrape configurations and job definitions." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure the `prometheus` receiver in the OpenTelemetry Collector with standard Prometheus scrape configurations and job definitions. The `prometheus` receiver embedded in the OpenTelemetry Collector acts as a full-featured Prometheus scraper. It parses standard Prometheus `scrape_configs` (service discovery, relabel configs), pulls metrics from endpoints, and converts them to OTel metric streams.",
     referenceUrl: "https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver/prometheusreceiver",
@@ -366,12 +366,12 @@ export const CNCF_OTCA_QUESTIONS_20 = [
     scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer evaluates Prometheus Scraping to collect metrics from third-party infrastructure (e.g., MySQL exporter, NGINX exporter, Redis) without running a standalone Prometheus server.",
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls? Configuring prometheus receiver in Collector to scrape third-party Prometheus endpoints is under consideration.",
     options: [
-      { id: 'A', text: "Configure the `prometheus` receiver in the OpenTelemetry Collector with standard Prometheus scrape configurations and job definitions." },
-      { id: 'B', text: "Deploy a standalone Prometheus server, a Thanos cluster, and a Grafana instance solely to scrape one endpoint." },
-      { id: 'C', text: "Recompile third-party database exporters from source code." },
+      { id: 'A', text: "Recompile third-party database exporters from source code." },
+      { id: 'B', text: "Configure the `prometheus` receiver in the OpenTelemetry Collector with standard Prometheus scrape configurations and job definitions." },
+      { id: 'C', text: "Deploy a standalone Prometheus server, a Thanos cluster, and a Grafana instance solely to scrape one endpoint." },
       { id: 'D', text: "Prometheus format metrics cannot be ingested by OpenTelemetry." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure the `prometheus` receiver in the OpenTelemetry Collector with standard Prometheus scrape configurations and job definitions. The `prometheus` receiver embedded in the OpenTelemetry Collector acts as a full-featured Prometheus scraper. It parses standard Prometheus `scrape_configs` (service discovery, relabel configs), pulls metrics from endpoints, and converts them to OTel metric streams.",
     referenceUrl: "https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver/prometheusreceiver",
@@ -388,9 +388,9 @@ export const CNCF_OTCA_QUESTIONS_20 = [
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption? Configuring prometheus receiver in Collector to scrape third-party Prometheus endpoints is under consideration.",
     options: [
       { id: 'A', text: "Configure the `prometheus` receiver in the OpenTelemetry Collector with standard Prometheus scrape configurations and job definitions." },
-      { id: 'B', text: "Deploy a standalone Prometheus server, a Thanos cluster, and a Grafana instance solely to scrape one endpoint." },
+      { id: 'B', text: "Prometheus format metrics cannot be ingested by OpenTelemetry." },
       { id: 'C', text: "Recompile third-party database exporters from source code." },
-      { id: 'D', text: "Prometheus format metrics cannot be ingested by OpenTelemetry." }
+      { id: 'D', text: "Deploy a standalone Prometheus server, a Thanos cluster, and a Grafana instance solely to scrape one endpoint." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,12 +408,12 @@ export const CNCF_OTCA_QUESTIONS_20 = [
     scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer evaluates Prometheus Scraping to collect metrics from third-party infrastructure (e.g., MySQL exporter, NGINX exporter, Redis) without running a standalone Prometheus server.",
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation? Configuring prometheus receiver in Collector to scrape third-party Prometheus endpoints is under consideration.",
     options: [
-      { id: 'A', text: "Configure the `prometheus` receiver in the OpenTelemetry Collector with standard Prometheus scrape configurations and job definitions." },
-      { id: 'B', text: "Deploy a standalone Prometheus server, a Thanos cluster, and a Grafana instance solely to scrape one endpoint." },
+      { id: 'A', text: "Prometheus format metrics cannot be ingested by OpenTelemetry." },
+      { id: 'B', text: "Configure the `prometheus` receiver in the OpenTelemetry Collector with standard Prometheus scrape configurations and job definitions." },
       { id: 'C', text: "Recompile third-party database exporters from source code." },
-      { id: 'D', text: "Prometheus format metrics cannot be ingested by OpenTelemetry." }
+      { id: 'D', text: "Deploy a standalone Prometheus server, a Thanos cluster, and a Grafana instance solely to scrape one endpoint." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure the `prometheus` receiver in the OpenTelemetry Collector with standard Prometheus scrape configurations and job definitions. The `prometheus` receiver embedded in the OpenTelemetry Collector acts as a full-featured Prometheus scraper. It parses standard Prometheus `scrape_configs` (service discovery, relabel configs), pulls metrics from endpoints, and converts them to OTel metric streams.",
     referenceUrl: "https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver/prometheusreceiver",
@@ -429,12 +429,12 @@ export const CNCF_OTCA_QUESTIONS_20 = [
     scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer evaluates Telemetry Validation to generate synthetic telemetry to test collector pipeline rules, sampling filters, and load performance in a pre-production environment.",
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives? Validating pipeline throughput, dropped spans, and exporter error metrics with telemetrygen is under consideration.",
     options: [
-      { id: 'A', text: "Use `telemetrygen` to generate synthetic traces, metrics, and logs, and monitor `otelcol_processor_dropped_spans` metrics on the Collector." },
+      { id: 'A', text: "Assume collectors never drop telemetry under load." },
       { id: 'B', text: "Test pipelines by intentionally triggering production outages during business hours." },
       { id: 'C', text: "Manually write curl scripts sending malformed JSON." },
-      { id: 'D', text: "Assume collectors never drop telemetry under load." }
+      { id: 'D', text: "Use `telemetrygen` to generate synthetic traces, metrics, and logs, and monitor `otelcol_processor_dropped_spans` metrics on the Collector." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Use `telemetrygen` to generate synthetic traces, metrics, and logs, and monitor `otelcol_processor_dropped_spans` metrics on the Collector. `telemetrygen` is an official OpenTelemetry utility designed to simulate realistic telemetry traffic (configurable rates, worker threads, error rates). Combined with internal Collector self-monitoring metrics (`otelcol_exporter_enqueue_failed_spans`), it enables thorough load and validation testing.",
     referenceUrl: "https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/cmd/telemetrygen",
@@ -450,12 +450,12 @@ export const CNCF_OTCA_QUESTIONS_20 = [
     scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer evaluates Telemetry Validation to generate synthetic telemetry to test collector pipeline rules, sampling filters, and load performance in a pre-production environment.",
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends? Validating pipeline throughput, dropped spans, and exporter error metrics with telemetrygen is under consideration.",
     options: [
-      { id: 'A', text: "Use `telemetrygen` to generate synthetic traces, metrics, and logs, and monitor `otelcol_processor_dropped_spans` metrics on the Collector." },
-      { id: 'B', text: "Test pipelines by intentionally triggering production outages during business hours." },
-      { id: 'C', text: "Manually write curl scripts sending malformed JSON." },
-      { id: 'D', text: "Assume collectors never drop telemetry under load." }
+      { id: 'A', text: "Manually write curl scripts sending malformed JSON." },
+      { id: 'B', text: "Assume collectors never drop telemetry under load." },
+      { id: 'C', text: "Use `telemetrygen` to generate synthetic traces, metrics, and logs, and monitor `otelcol_processor_dropped_spans` metrics on the Collector." },
+      { id: 'D', text: "Test pipelines by intentionally triggering production outages during business hours." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Use `telemetrygen` to generate synthetic traces, metrics, and logs, and monitor `otelcol_processor_dropped_spans` metrics on the Collector. `telemetrygen` is an official OpenTelemetry utility designed to simulate realistic telemetry traffic (configurable rates, worker threads, error rates). Combined with internal Collector self-monitoring metrics (`otelcol_exporter_enqueue_failed_spans`), it enables thorough load and validation testing.",
     referenceUrl: "https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/cmd/telemetrygen",
@@ -471,12 +471,12 @@ export const CNCF_OTCA_QUESTIONS_20 = [
     scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer evaluates Telemetry Validation to generate synthetic telemetry to test collector pipeline rules, sampling filters, and load performance in a pre-production environment.",
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls? Validating pipeline throughput, dropped spans, and exporter error metrics with telemetrygen is under consideration.",
     options: [
-      { id: 'A', text: "Use `telemetrygen` to generate synthetic traces, metrics, and logs, and monitor `otelcol_processor_dropped_spans` metrics on the Collector." },
-      { id: 'B', text: "Test pipelines by intentionally triggering production outages during business hours." },
-      { id: 'C', text: "Manually write curl scripts sending malformed JSON." },
-      { id: 'D', text: "Assume collectors never drop telemetry under load." }
+      { id: 'A', text: "Manually write curl scripts sending malformed JSON." },
+      { id: 'B', text: "Use `telemetrygen` to generate synthetic traces, metrics, and logs, and monitor `otelcol_processor_dropped_spans` metrics on the Collector." },
+      { id: 'C', text: "Assume collectors never drop telemetry under load." },
+      { id: 'D', text: "Test pipelines by intentionally triggering production outages during business hours." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Use `telemetrygen` to generate synthetic traces, metrics, and logs, and monitor `otelcol_processor_dropped_spans` metrics on the Collector. `telemetrygen` is an official OpenTelemetry utility designed to simulate realistic telemetry traffic (configurable rates, worker threads, error rates). Combined with internal Collector self-monitoring metrics (`otelcol_exporter_enqueue_failed_spans`), it enables thorough load and validation testing.",
     referenceUrl: "https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/cmd/telemetrygen",
@@ -492,12 +492,12 @@ export const CNCF_OTCA_QUESTIONS_20 = [
     scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer evaluates Telemetry Validation to generate synthetic telemetry to test collector pipeline rules, sampling filters, and load performance in a pre-production environment.",
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption? Validating pipeline throughput, dropped spans, and exporter error metrics with telemetrygen is under consideration.",
     options: [
-      { id: 'A', text: "Use `telemetrygen` to generate synthetic traces, metrics, and logs, and monitor `otelcol_processor_dropped_spans` metrics on the Collector." },
-      { id: 'B', text: "Test pipelines by intentionally triggering production outages during business hours." },
-      { id: 'C', text: "Manually write curl scripts sending malformed JSON." },
-      { id: 'D', text: "Assume collectors never drop telemetry under load." }
+      { id: 'A', text: "Assume collectors never drop telemetry under load." },
+      { id: 'B', text: "Use `telemetrygen` to generate synthetic traces, metrics, and logs, and monitor `otelcol_processor_dropped_spans` metrics on the Collector." },
+      { id: 'C', text: "Test pipelines by intentionally triggering production outages during business hours." },
+      { id: 'D', text: "Manually write curl scripts sending malformed JSON." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Use `telemetrygen` to generate synthetic traces, metrics, and logs, and monitor `otelcol_processor_dropped_spans` metrics on the Collector. `telemetrygen` is an official OpenTelemetry utility designed to simulate realistic telemetry traffic (configurable rates, worker threads, error rates). Combined with internal Collector self-monitoring metrics (`otelcol_exporter_enqueue_failed_spans`), it enables thorough load and validation testing.",
     referenceUrl: "https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/cmd/telemetrygen",
@@ -514,8 +514,8 @@ export const CNCF_OTCA_QUESTIONS_20 = [
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation? Validating pipeline throughput, dropped spans, and exporter error metrics with telemetrygen is under consideration.",
     options: [
       { id: 'A', text: "Use `telemetrygen` to generate synthetic traces, metrics, and logs, and monitor `otelcol_processor_dropped_spans` metrics on the Collector." },
-      { id: 'B', text: "Test pipelines by intentionally triggering production outages during business hours." },
-      { id: 'C', text: "Manually write curl scripts sending malformed JSON." },
+      { id: 'B', text: "Manually write curl scripts sending malformed JSON." },
+      { id: 'C', text: "Test pipelines by intentionally triggering production outages during business hours." },
       { id: 'D', text: "Assume collectors never drop telemetry under load." }
     ],
     correctAnswers: ['A'],

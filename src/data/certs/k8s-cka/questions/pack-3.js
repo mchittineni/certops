@@ -9,12 +9,12 @@ export const K8S_CKA_QUESTIONS_3 = [
     scenario: "The bootstrap token printed by kubeadm init has expired and a new worker node must join the existing cluster.",
     question: "Which command produces a usable join command?",
     options: [
-      { id: 'A', text: "kubeadm init phase upload-certs" },
-      { id: 'B', text: "kubeadm reset on the control plane node" },
-      { id: 'C', text: "kubectl create token default -n kube-system" },
-      { id: 'D', text: "kubeadm token create --print-join-command" }
+      { id: 'A', text: "kubeadm reset on the control plane node" },
+      { id: 'B', text: "kubeadm token create --print-join-command" },
+      { id: 'C', text: "kubeadm init phase upload-certs" },
+      { id: 'D', text: "kubectl create token default -n kube-system" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "kubeadm token create --print-join-command mints a fresh bootstrap token and prints the full kubeadm join line including the CA certificate hash. upload-certs is only for adding control plane nodes, kubeadm reset destroys the node configuration, and a ServiceAccount token is not a bootstrap credential.",
     referenceUrl: "https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm-token/",
@@ -30,12 +30,12 @@ export const K8S_CKA_QUESTIONS_3 = [
     scenario: "Pods across every namespace suddenly fail to resolve any name. Pod-to-pod traffic by IP address still works, and the CoreDNS deployment shows 0/2 pods ready.",
     question: "Which investigation is most likely to find the cause?",
     options: [
-      { id: 'A', text: "Recreate every application Deployment so pods get new DNS settings." },
-      { id: 'B', text: "Check the CoreDNS pod logs and events, plus the kube-dns Service endpoints in kube-system." },
+      { id: 'A', text: "Increase the dnsPolicy timeout on each pod spec." },
+      { id: 'B', text: "Recreate every application Deployment so pods get new DNS settings." },
       { id: 'C', text: "Edit /etc/resolv.conf inside each application pod." },
-      { id: 'D', text: "Increase the dnsPolicy timeout on each pod spec." }
+      { id: 'D', text: "Check the CoreDNS pod logs and events, plus the kube-dns Service endpoints in kube-system." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "CoreDNS reporting no ready replicas is the cause rather than a symptom, so its pod logs, events, and the kube-dns Service endpoints show whether the Corefile is invalid, the pods are unschedulable, or the upstream resolver is unreachable. Editing resolv.conf in pods, recreating Deployments, and tuning dnsPolicy all leave the broken DNS backend in place.",
     referenceUrl: "https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/",
@@ -53,10 +53,10 @@ export const K8S_CKA_QUESTIONS_3 = [
     options: [
       { id: 'A', text: "kubectl set image deployment/web web=web:10" },
       { id: 'B', text: "kubectl edit replicaset web" },
-      { id: 'C', text: "kubectl autoscale deployment/web --max=10" },
-      { id: 'D', text: "kubectl scale deployment/web --replicas=10" }
+      { id: 'C', text: "kubectl scale deployment/web --replicas=10" },
+      { id: 'D', text: "kubectl autoscale deployment/web --max=10" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "kubectl scale sets the replica count on the Deployment immediately. autoscale only creates an HPA that may or may not scale up right away, set image changes the container image, and editing the ReplicaSet directly is overwritten by the Deployment controller.",
     referenceUrl: "https://kubernetes.io/docs/reference/kubectl/generated/kubectl_scale/",
@@ -72,12 +72,12 @@ export const K8S_CKA_QUESTIONS_3 = [
     scenario: "A PVC bound to a CSI volume needs to grow from 20Gi to 50Gi without recreating the pod data.",
     question: "What must be true for the resize to succeed?",
     options: [
-      { id: 'A', text: "The StorageClass must set allowVolumeExpansion: true and the PVC spec.resources.requests.storage must be increased." },
-      { id: 'B', text: "The PVC must be deleted and recreated with the larger size." },
-      { id: 'C', text: "The PersistentVolume capacity must be edited directly; PVCs are immutable." },
-      { id: 'D', text: "The pod must set a resizePolicy of RestartContainer." }
+      { id: 'A', text: "The pod must set a resizePolicy of RestartContainer." },
+      { id: 'B', text: "The StorageClass must set allowVolumeExpansion: true and the PVC spec.resources.requests.storage must be increased." },
+      { id: 'C', text: "The PVC must be deleted and recreated with the larger size." },
+      { id: 'D', text: "The PersistentVolume capacity must be edited directly; PVCs are immutable." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Volume expansion requires the StorageClass to allow it, after which raising the storage request on the PVC triggers the CSI driver to expand the volume and the kubelet to grow the filesystem. Editing the PV capacity by hand does not resize the backing volume, deleting the PVC risks the data, and resizePolicy applies to in-place CPU and memory resizing of containers.",
     referenceUrl: "https://kubernetes.io/docs/concepts/storage/persistent-volumes/",
@@ -93,12 +93,12 @@ export const K8S_CKA_QUESTIONS_3 = [
     scenario: "Pods labelled app=db in the data namespace must accept connections on port 5432 only from pods in the namespace labelled team=payments, and from nowhere else.",
     question: "Which NetworkPolicy rule expresses that?",
     options: [
-      { id: 'A', text: "An ingress rule with from: [{ podSelector: { matchLabels: { team: payments } } }]." },
-      { id: 'B', text: "An ingress rule with from: [{ namespaceSelector: { matchLabels: { team: payments } } }] and ports: [{ port: 5432 }]." },
-      { id: 'C', text: "An ingress rule with ipBlock cidr set to the payments pod CIDR." },
-      { id: 'D', text: "An egress rule with to: [{ namespaceSelector: { matchLabels: { team: payments } } }]." }
+      { id: 'A', text: "An ingress rule with ipBlock cidr set to the payments pod CIDR." },
+      { id: 'B', text: "An ingress rule with from: [{ podSelector: { matchLabels: { team: payments } } }]." },
+      { id: 'C', text: "An egress rule with to: [{ namespaceSelector: { matchLabels: { team: payments } } }]." },
+      { id: 'D', text: "An ingress rule with from: [{ namespaceSelector: { matchLabels: { team: payments } } }] and ports: [{ port: 5432 }]." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "namespaceSelector matches the labels on the namespace object, so selecting team=payments and restricting the port to 5432 allows exactly the intended source. A bare podSelector only matches pods in the policy own namespace, an egress rule controls outbound traffic from the selected pods, and an ipBlock hard-codes addresses that change as pods reschedule.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/network-policies/",
@@ -114,12 +114,12 @@ export const K8S_CKA_QUESTIONS_3 = [
     scenario: "A new user submitted a CSR for client authentication. kubectl get csr shows the request in Pending state and the user cannot yet authenticate.",
     question: "Which command issues the certificate?",
     options: [
-      { id: 'A', text: "kubectl certificate approve dev-user" },
-      { id: 'B', text: "kubeadm certs renew all" },
-      { id: 'C', text: "kubectl auth reconcile -f role.yaml" },
-      { id: 'D', text: "kubectl apply -f csr.yaml a second time" }
+      { id: 'A', text: "kubeadm certs renew all" },
+      { id: 'B', text: "kubectl apply -f csr.yaml a second time" },
+      { id: 'C', text: "kubectl certificate approve dev-user" },
+      { id: 'D', text: "kubectl auth reconcile -f role.yaml" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "kubectl certificate approve marks the CSR approved so the signing controller issues the certificate, which is then readable from status.certificate. Reapplying the CSR changes nothing, kubeadm certs renew rotates control plane certificates rather than user CSRs, and auth reconcile only creates RBAC objects.",
     referenceUrl: "https://kubernetes.io/docs/reference/access-authn-authz/certificate-signing-requests/",
@@ -135,12 +135,12 @@ export const K8S_CKA_QUESTIONS_3 = [
     scenario: "Something went wrong in the last few minutes across several namespaces and the operator wants a chronological picture.",
     question: "Which command lists cluster events newest last, across all namespaces?",
     options: [
-      { id: 'A', text: "kubectl get all -A --show-labels" },
+      { id: 'A', text: "kubectl get events -A --sort-by=.lastTimestamp" },
       { id: 'B', text: "kubectl logs -n kube-system --all-containers --since=5m" },
-      { id: 'C', text: "kubectl get events -A --sort-by=.lastTimestamp" },
+      { id: 'C', text: "kubectl get all -A --show-labels" },
       { id: 'D', text: "kubectl describe events -A" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "kubectl get events with -A and --sort-by=.lastTimestamp produces a chronological, cluster-wide event feed, which is the fastest triage view. describe expects a named object, control plane logs cover only kube-system components, and get all lists objects with no event history.",
     referenceUrl: "https://kubernetes.io/docs/tasks/debug/",
@@ -156,12 +156,12 @@ export const K8S_CKA_QUESTIONS_3 = [
     scenario: "A service takes ninety seconds to warm its cache at startup. During that window it must not receive traffic, but it must also not be restarted.",
     question: "Which probe configuration fits?",
     options: [
-      { id: 'A', text: "Only a readiness probe with failureThreshold: 1." },
-      { id: 'B', text: "Only a liveness probe with a one-second period." },
-      { id: 'C', text: "A startup probe alone, with no readiness probe." },
-      { id: 'D', text: "A readiness probe on the health endpoint, plus a liveness probe with an initialDelaySeconds or startupProbe long enough to cover warm-up." }
+      { id: 'A', text: "A readiness probe on the health endpoint, plus a liveness probe with an initialDelaySeconds or startupProbe long enough to cover warm-up." },
+      { id: 'B', text: "A startup probe alone, with no readiness probe." },
+      { id: 'C', text: "Only a liveness probe with a one-second period." },
+      { id: 'D', text: "Only a readiness probe with failureThreshold: 1." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The readiness probe keeps the pod out of Service endpoints until the cache is warm, while a startup probe or a sufficient initial delay stops the liveness probe from killing the container during that window. An aggressive liveness-only setup restarts the pod forever, a readiness probe alone never detects a later deadlock, and a startup probe alone still admits traffic as soon as the container is running.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/",
@@ -177,10 +177,10 @@ export const K8S_CKA_QUESTIONS_3 = [
     scenario: "A new administrator asks what breaks if kube-proxy stops running on a node while the CNI plugin keeps working.",
     question: "Which statement is correct?",
     options: [
-      { id: 'A', text: "All pod networking stops immediately, including pod IP traffic." },
+      { id: 'A', text: "The node is marked NotReady within seconds." },
       { id: 'B', text: "DNS keeps working but pods lose their IP addresses." },
       { id: 'C', text: "Pod-to-pod traffic by pod IP keeps working, but new ClusterIP Service routing on that node is no longer programmed." },
-      { id: 'D', text: "The node is marked NotReady within seconds." }
+      { id: 'D', text: "All pod networking stops immediately, including pod IP traffic." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -199,9 +199,9 @@ export const K8S_CKA_QUESTIONS_3 = [
     question: "Which StorageClass setting prevents the mismatch?",
     options: [
       { id: 'A', text: "volumeBindingMode: WaitForFirstConsumer" },
-      { id: 'B', text: "reclaimPolicy: Retain" },
-      { id: 'C', text: "allowVolumeExpansion: true" },
-      { id: 'D', text: "volumeBindingMode: Immediate" }
+      { id: 'B', text: "allowVolumeExpansion: true" },
+      { id: 'C', text: "volumeBindingMode: Immediate" },
+      { id: 'D', text: "reclaimPolicy: Retain" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -219,12 +219,12 @@ export const K8S_CKA_QUESTIONS_3 = [
     scenario: "An administrator is deciding which objects can be isolated per team by namespace.",
     question: "Which resource is cluster scoped rather than namespaced?",
     options: [
-      { id: 'A', text: "Role" },
-      { id: 'B', text: "ServiceAccount" },
-      { id: 'C', text: "ConfigMap" },
-      { id: 'D', text: "PersistentVolume" }
+      { id: 'A', text: "ServiceAccount" },
+      { id: 'B', text: "PersistentVolume" },
+      { id: 'C', text: "Role" },
+      { id: 'D', text: "ConfigMap" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "PersistentVolume is a cluster-scoped object; the namespaced counterpart is the PersistentVolumeClaim that binds to it. ConfigMaps, Roles, and ServiceAccounts all live inside a namespace, which is why kubectl api-resources --namespaced=false is a useful check.",
     referenceUrl: "https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/",
@@ -240,12 +240,12 @@ export const K8S_CKA_QUESTIONS_3 = [
     scenario: "A pod requesting 4 CPU stays Pending. describe shows the event \"0/3 nodes are available: 3 Insufficient cpu\".",
     question: "Which action can make the pod schedulable? (Choose two.)",
     options: [
-      { id: 'A', text: "Lower the CPU request to a value a node can satisfy." },
-      { id: 'B', text: "Add a node with enough allocatable CPU." },
+      { id: 'A', text: "Remove the CPU limit while leaving the request at 4." },
+      { id: 'B', text: "Lower the CPU request to a value a node can satisfy." },
       { id: 'C', text: "Add a toleration for node-role.kubernetes.io/control-plane." },
-      { id: 'D', text: "Remove the CPU limit while leaving the request at 4." }
+      { id: 'D', text: "Add a node with enough allocatable CPU." }
     ],
-    correctAnswers: ['A', 'B'],
+    correctAnswers: ['B', 'D'],
     type: "multiple",
     explanation: "The scheduler compares the CPU request against allocatable capacity, so either reducing the request or adding capacity resolves it. Removing the limit changes only the cgroup ceiling and leaves the request unchanged, and tolerating the control plane taint does not help unless a control plane node has four spare CPUs, which the event says no node does.",
     referenceUrl: "https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
@@ -261,12 +261,12 @@ export const K8S_CKA_QUESTIONS_3 = [
     scenario: "A batch Job must process twelve work items, running at most four pods at any one time, and is finished only when twelve pods have completed successfully.",
     question: "Which Job spec matches?",
     options: [
-      { id: 'A', text: "completions: 4 and parallelism: 12" },
-      { id: 'B', text: "completions: 12 and backoffLimit: 4" },
-      { id: 'C', text: "backoffLimit: 12 and parallelism: 4" },
-      { id: 'D', text: "completions: 12 and parallelism: 4" }
+      { id: 'A', text: "backoffLimit: 12 and parallelism: 4" },
+      { id: 'B', text: "completions: 4 and parallelism: 12" },
+      { id: 'C', text: "completions: 12 and parallelism: 4" },
+      { id: 'D', text: "completions: 12 and backoffLimit: 4" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "completions is the number of successful pod runs required and parallelism caps how many run at once, so twelve and four express the requirement directly. Setting completions to 4 and parallelism to 12 inverts the two, and backoffLimit only counts retries before the Job is marked failed.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/job/",
@@ -282,12 +282,12 @@ export const K8S_CKA_QUESTIONS_3 = [
     scenario: "A platform team wants route configuration owned by application teams while cluster operators keep control of the listener, TLS certificates, and load balancer address.",
     question: "Which model provides that split of responsibility?",
     options: [
-      { id: 'A', text: "Gateway API, where a GatewayClass and Gateway are operator-owned and HTTPRoutes are application-owned." },
+      { id: 'A', text: "One LoadBalancer Service per application team." },
       { id: 'B', text: "A NetworkPolicy per route with L7 path selectors." },
       { id: 'C', text: "A single Ingress object per cluster shared by all teams." },
-      { id: 'D', text: "One LoadBalancer Service per application team." }
+      { id: 'D', text: "Gateway API, where a GatewayClass and Gateway are operator-owned and HTTPRoutes are application-owned." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Gateway API was designed around role separation: infrastructure providers own the GatewayClass, cluster operators own the Gateway and its listeners and TLS, and application developers attach HTTPRoutes. A shared Ingress mixes both concerns in one object, per-team LoadBalancers multiply external addresses and cost, and NetworkPolicy has no L7 routing at all.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/gateway/",
@@ -303,10 +303,10 @@ export const K8S_CKA_QUESTIONS_3 = [
     scenario: "Two containers in the same pod must exchange files through a directory that lives only as long as the pod.",
     question: "Which volume type fits?",
     options: [
-      { id: 'A', text: "configMap" },
-      { id: 'B', text: "hostPath" },
+      { id: 'A', text: "hostPath" },
+      { id: 'B', text: "persistentVolumeClaim" },
       { id: 'C', text: "emptyDir" },
-      { id: 'D', text: "persistentVolumeClaim" }
+      { id: 'D', text: "configMap" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -324,12 +324,12 @@ export const K8S_CKA_QUESTIONS_3 = [
     scenario: "Before granting more permissions, an administrator wants to confirm whether the ServiceAccount build in namespace ci may already delete deployments there.",
     question: "Which command answers that?",
     options: [
-      { id: 'A', text: "kubectl auth reconcile -n ci" },
-      { id: 'B', text: "kubectl auth can-i delete deployments --as=system:serviceaccount:ci:build -n ci" },
-      { id: 'C', text: "kubectl describe serviceaccount build -n ci" },
-      { id: 'D', text: "kubectl get rolebindings -n ci" }
+      { id: 'A', text: "kubectl auth can-i delete deployments --as=system:serviceaccount:ci:build -n ci" },
+      { id: 'B', text: "kubectl get rolebindings -n ci" },
+      { id: 'C', text: "kubectl auth reconcile -n ci" },
+      { id: 'D', text: "kubectl describe serviceaccount build -n ci" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "kubectl auth can-i with --as impersonation asks the API server authorizer directly and returns yes or no for that exact verb, resource, and namespace. Describing the ServiceAccount shows its secrets rather than its permissions, listing RoleBindings requires manual correlation with ClusterRoleBindings too, and auth reconcile writes RBAC objects instead of querying them.",
     referenceUrl: "https://kubernetes.io/docs/reference/access-authn-authz/authorization/",
@@ -345,10 +345,10 @@ export const K8S_CKA_QUESTIONS_3 = [
     scenario: "A crashing container is built from a distroless image with no shell, so kubectl exec fails. The pod is still running and must not be recreated.",
     question: "Which approach gives an interactive debugging environment inside that pod?",
     options: [
-      { id: 'A', text: "kubectl attach POD -c app" },
+      { id: 'A', text: "kubectl edit pod POD and add a sidecar container." },
       { id: 'B', text: "kubectl debug -it POD --image=busybox --target=app to attach an ephemeral container." },
-      { id: 'C', text: "kubectl edit pod POD and add a sidecar container." },
-      { id: 'D', text: "kubectl cp a shell binary into the container filesystem." }
+      { id: 'C', text: "kubectl cp a shell binary into the container filesystem." },
+      { id: 'D', text: "kubectl attach POD -c app" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -366,12 +366,12 @@ export const K8S_CKA_QUESTIONS_3 = [
     scenario: "A deployment must spread its replicas across availability zones so no zone carries more than one replica more than any other, and pods should still schedule if perfect balance is impossible.",
     question: "Which configuration expresses that?",
     options: [
-      { id: 'A', text: "topologySpreadConstraints with maxSkew: 1 and whenUnsatisfiable: DoNotSchedule." },
-      { id: 'B', text: "A nodeSelector on topology.kubernetes.io/zone." },
-      { id: 'C', text: "topologySpreadConstraints with maxSkew: 1, topologyKey: topology.kubernetes.io/zone and whenUnsatisfiable: ScheduleAnyway." },
+      { id: 'A', text: "A nodeSelector on topology.kubernetes.io/zone." },
+      { id: 'B', text: "topologySpreadConstraints with maxSkew: 1, topologyKey: topology.kubernetes.io/zone and whenUnsatisfiable: ScheduleAnyway." },
+      { id: 'C', text: "topologySpreadConstraints with maxSkew: 1 and whenUnsatisfiable: DoNotSchedule." },
       { id: 'D', text: "requiredDuringSchedulingIgnoredDuringExecution podAntiAffinity on the zone topology key." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "A topology spread constraint with maxSkew 1 on the zone key encodes the balance requirement, and ScheduleAnyway keeps it a soft preference so pods still schedule when balance cannot be achieved. DoNotSchedule would leave pods Pending instead, zone-level required anti-affinity would cap the deployment at one pod per zone, and a nodeSelector pins everything to a single zone.",
     referenceUrl: "https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/",
@@ -387,12 +387,12 @@ export const K8S_CKA_QUESTIONS_3 = [
     scenario: "A deployment named api listens on container port 8080 and needs a stable internal address on port 80 for other pods.",
     question: "Which command creates it in one step?",
     options: [
-      { id: 'A', text: "kubectl create ingress api --rule=\"/=api:8080\"" },
-      { id: 'B', text: "kubectl port-forward deployment/api 80:8080" },
-      { id: 'C', text: "kubectl expose deployment api --port=80 --target-port=8080" },
-      { id: 'D', text: "kubectl set port deployment/api 80" }
+      { id: 'A', text: "kubectl set port deployment/api 80" },
+      { id: 'B', text: "kubectl create ingress api --rule=\"/=api:8080\"" },
+      { id: 'C', text: "kubectl port-forward deployment/api 80:8080" },
+      { id: 'D', text: "kubectl expose deployment api --port=80 --target-port=8080" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "kubectl expose creates a ClusterIP Service whose port is 80 and whose targetPort is the container port 8080, with a selector copied from the deployment. port-forward is a temporary local tunnel tied to one kubectl process, an Ingress needs a Service to point at, and kubectl set port is not a command.",
     referenceUrl: "https://kubernetes.io/docs/reference/kubectl/generated/kubectl_expose/",
@@ -408,12 +408,12 @@ export const K8S_CKA_QUESTIONS_3 = [
     scenario: "Each team namespace must not consume more than 20 CPU and 40Gi of memory in aggregate across all its pods.",
     question: "Which object enforces the aggregate cap?",
     options: [
-      { id: 'A', text: "PriorityClass" },
+      { id: 'A', text: "PodDisruptionBudget" },
       { id: 'B', text: "LimitRange" },
-      { id: 'C', text: "PodDisruptionBudget" },
-      { id: 'D', text: "ResourceQuota" }
+      { id: 'C', text: "ResourceQuota" },
+      { id: 'D', text: "PriorityClass" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "ResourceQuota caps the total requests and limits that all objects in a namespace may consume and rejects objects that would exceed it. LimitRange sets per-container defaults, minimums, and maximums rather than a namespace total, PriorityClass influences preemption, and a PodDisruptionBudget governs evictions.",
     referenceUrl: "https://kubernetes.io/docs/concepts/policy/resource-quotas/",
@@ -450,12 +450,12 @@ export const K8S_CKA_QUESTIONS_3 = [
     scenario: "A pod using a CSI block volume is stuck in Terminating after its node crashed. The replacement pod cannot start because the volume is still attached to the dead node.",
     question: "Which action is the correct recovery?",
     options: [
-      { id: 'A', text: "Delete the Node object for the crashed node so the attach-detach controller can force-detach the volume." },
-      { id: 'B', text: "Delete the PersistentVolume so a new one is provisioned." },
+      { id: 'A', text: "Delete the PersistentVolume so a new one is provisioned." },
+      { id: 'B', text: "Delete the Node object for the crashed node so the attach-detach controller can force-detach the volume." },
       { id: 'C', text: "Restart kube-proxy on the surviving nodes." },
       { id: 'D', text: "Remove the finalizer from the PersistentVolumeClaim." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "While the Node object exists, Kubernetes assumes the kubelet may still be writing and refuses to detach; removing the Node object lets the attach-detach controller release the volume so it can attach elsewhere. Deleting the PV discards the data, stripping a PVC finalizer only hides bookkeeping and risks orphaning the volume, and kube-proxy plays no part in volume attachment.",
     referenceUrl: "https://kubernetes.io/docs/concepts/storage/persistent-volumes/",
@@ -471,12 +471,12 @@ export const K8S_CKA_QUESTIONS_3 = [
     scenario: "A pod must run a schema migration to completion before its application container is allowed to start.",
     question: "Which pod construct guarantees that ordering?",
     options: [
-      { id: 'A', text: "A sidecar container with a readiness probe." },
-      { id: 'B', text: "A postStart lifecycle hook on the application container." },
-      { id: 'C', text: "A separate Job with the same labels as the pod." },
-      { id: 'D', text: "An initContainer running the migration." }
+      { id: 'A', text: "A postStart lifecycle hook on the application container." },
+      { id: 'B', text: "A sidecar container with a readiness probe." },
+      { id: 'C', text: "An initContainer running the migration." },
+      { id: 'D', text: "A separate Job with the same labels as the pod." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Init containers run to completion in order before any regular container starts, which is precisely the migration-then-app ordering required. A sidecar starts alongside the app, a postStart hook runs after the app container has already been created, and a separate Job has no ordering relationship with the pod.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/pods/init-containers/",
@@ -492,12 +492,12 @@ export const K8S_CKA_QUESTIONS_3 = [
     scenario: "An Ingress must serve https for shop.example.com using a certificate and key already held in a Secret named shop-tls in the same namespace.",
     question: "How is the certificate wired to the Ingress?",
     options: [
-      { id: 'A', text: "A volume mount of the Secret into the ingress controller pod." },
-      { id: 'B', text: "An annotation naming the Secret on the backend Service." },
-      { id: 'C', text: "A ConfigMap referencing the certificate path." },
-      { id: 'D', text: "A spec.tls entry listing the host shop.example.com and secretName shop-tls." }
+      { id: 'A', text: "A ConfigMap referencing the certificate path." },
+      { id: 'B', text: "A volume mount of the Secret into the ingress controller pod." },
+      { id: 'C', text: "A spec.tls entry listing the host shop.example.com and secretName shop-tls." },
+      { id: 'D', text: "An annotation naming the Secret on the backend Service." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "The Ingress spec.tls list maps hosts to a kubernetes.io/tls Secret, and the ingress controller loads that certificate to terminate TLS for those hosts. Mounting the Secret into the controller bypasses the Ingress API, Services carry no TLS binding for Ingress, and ConfigMaps are the wrong object for private key material.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/ingress/",
@@ -513,12 +513,12 @@ export const K8S_CKA_QUESTIONS_3 = [
     scenario: "A cluster add-on installed with Helm needs a new values file applied while keeping its release history and existing resources.",
     question: "Which command is appropriate?",
     options: [
-      { id: 'A', text: "helm upgrade RELEASE CHART -f values.yaml" },
-      { id: 'B', text: "helm rollback RELEASE" },
-      { id: 'C', text: "helm template CHART | kubectl apply -f -" },
-      { id: 'D', text: "helm uninstall RELEASE followed by helm install" }
+      { id: 'A', text: "helm uninstall RELEASE followed by helm install" },
+      { id: 'B', text: "helm template CHART | kubectl apply -f -" },
+      { id: 'C', text: "helm upgrade RELEASE CHART -f values.yaml" },
+      { id: 'D', text: "helm rollback RELEASE" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "helm upgrade renders the chart with the new values, applies the diff, and records a new revision that can later be rolled back. Uninstall and reinstall causes an outage and discards history, helm template plus kubectl apply drops Helm release tracking altogether, and rollback moves to a previous revision rather than applying new values.",
     referenceUrl: "https://helm.sh/docs/helm/helm_upgrade/",

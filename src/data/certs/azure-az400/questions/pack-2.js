@@ -9,12 +9,12 @@ export const AZURE_AZ400_QUESTIONS_2 = [
     scenario: "A DevOps lead is standardizing team notification channels, sprint cadence, and cross-tool integrations between Azure DevOps and chat platforms.",
     question: "Which configuration best satisfies process objective #24?",
     options: [
-      { id: 'A', text: "Exporting weekly work item reports to static text files on shared file drives" },
-      { id: 'B', text: "Configuring Azure DevOps service hooks with filtered event subscriptions delivering real-time status alerts to Microsoft Teams" },
-      { id: 'C', text: "Disabling all automated pipeline notifications to reduce developer email volume" },
+      { id: 'A', text: "Disabling all automated pipeline notifications to reduce developer email volume" },
+      { id: 'B', text: "Exporting weekly work item reports to static text files on shared file drives" },
+      { id: 'C', text: "Configuring Azure DevOps service hooks with filtered event subscriptions delivering real-time status alerts to Microsoft Teams" },
       { id: 'D', text: "Granting Project Administrator rights to all external third-party guest users" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configuring processes and communication in Azure DevOps focuses on establishing structured process templates, real-time service hook webhooks, and seamless cross-functional team collaboration.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/service-hooks/overview",
@@ -30,12 +30,12 @@ export const AZURE_AZ400_QUESTIONS_2 = [
     scenario: "A DevOps lead is standardizing team notification channels, sprint cadence, and cross-tool integrations between Azure DevOps and chat platforms.",
     question: "Which configuration best satisfies process objective #25?",
     options: [
-      { id: 'A', text: "Granting Project Administrator rights to all external third-party guest users" },
-      { id: 'B', text: "Disabling all automated pipeline notifications to reduce developer email volume" },
-      { id: 'C', text: "Configuring Azure DevOps service hooks with filtered event subscriptions delivering real-time status alerts to Microsoft Teams" },
-      { id: 'D', text: "Exporting weekly work item reports to static text files on shared file drives" }
+      { id: 'A', text: "Configuring Azure DevOps service hooks with filtered event subscriptions delivering real-time status alerts to Microsoft Teams" },
+      { id: 'B', text: "Exporting weekly work item reports to static text files on shared file drives" },
+      { id: 'C', text: "Granting Project Administrator rights to all external third-party guest users" },
+      { id: 'D', text: "Disabling all automated pipeline notifications to reduce developer email volume" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Configuring processes and communication in Azure DevOps focuses on establishing structured process templates, real-time service hook webhooks, and seamless cross-functional team collaboration.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/service-hooks/overview",
@@ -51,9 +51,9 @@ export const AZURE_AZ400_QUESTIONS_2 = [
     scenario: "A DevOps lead is standardizing team notification channels, sprint cadence, and cross-tool integrations between Azure DevOps and chat platforms.",
     question: "Which configuration best satisfies process objective #26?",
     options: [
-      { id: 'A', text: "Disabling all automated pipeline notifications to reduce developer email volume" },
-      { id: 'B', text: "Exporting weekly work item reports to static text files on shared file drives" },
-      { id: 'C', text: "Granting Project Administrator rights to all external third-party guest users" },
+      { id: 'A', text: "Granting Project Administrator rights to all external third-party guest users" },
+      { id: 'B', text: "Disabling all automated pipeline notifications to reduce developer email volume" },
+      { id: 'C', text: "Exporting weekly work item reports to static text files on shared file drives" },
       { id: 'D', text: "Configuring Azure DevOps service hooks with filtered event subscriptions delivering real-time status alerts to Microsoft Teams" }
     ],
     correctAnswers: ['D'],
@@ -72,12 +72,12 @@ export const AZURE_AZ400_QUESTIONS_2 = [
     scenario: "A DevOps lead is standardizing team notification channels, sprint cadence, and cross-tool integrations between Azure DevOps and chat platforms.",
     question: "Which configuration best satisfies process objective #27?",
     options: [
-      { id: 'A', text: "Granting Project Administrator rights to all external third-party guest users" },
-      { id: 'B', text: "Disabling all automated pipeline notifications to reduce developer email volume" },
-      { id: 'C', text: "Exporting weekly work item reports to static text files on shared file drives" },
-      { id: 'D', text: "Configuring Azure DevOps service hooks with filtered event subscriptions delivering real-time status alerts to Microsoft Teams" }
+      { id: 'A', text: "Disabling all automated pipeline notifications to reduce developer email volume" },
+      { id: 'B', text: "Exporting weekly work item reports to static text files on shared file drives" },
+      { id: 'C', text: "Configuring Azure DevOps service hooks with filtered event subscriptions delivering real-time status alerts to Microsoft Teams" },
+      { id: 'D', text: "Granting Project Administrator rights to all external third-party guest users" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configuring processes and communication in Azure DevOps focuses on establishing structured process templates, real-time service hook webhooks, and seamless cross-functional team collaboration.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/service-hooks/overview",
@@ -93,12 +93,12 @@ export const AZURE_AZ400_QUESTIONS_2 = [
     scenario: "A DevOps lead is standardizing team notification channels, sprint cadence, and cross-tool integrations between Azure DevOps and chat platforms.",
     question: "Which configuration best satisfies process objective #28?",
     options: [
-      { id: 'A', text: "Granting Project Administrator rights to all external third-party guest users" },
-      { id: 'B', text: "Disabling all automated pipeline notifications to reduce developer email volume" },
-      { id: 'C', text: "Exporting weekly work item reports to static text files on shared file drives" },
-      { id: 'D', text: "Configuring Azure DevOps service hooks with filtered event subscriptions delivering real-time status alerts to Microsoft Teams" }
+      { id: 'A', text: "Configuring Azure DevOps service hooks with filtered event subscriptions delivering real-time status alerts to Microsoft Teams" },
+      { id: 'B', text: "Exporting weekly work item reports to static text files on shared file drives" },
+      { id: 'C', text: "Disabling all automated pipeline notifications to reduce developer email volume" },
+      { id: 'D', text: "Granting Project Administrator rights to all external third-party guest users" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Configuring processes and communication in Azure DevOps focuses on establishing structured process templates, real-time service hook webhooks, and seamless cross-functional team collaboration.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/service-hooks/overview",
@@ -114,12 +114,12 @@ export const AZURE_AZ400_QUESTIONS_2 = [
     scenario: "A DevOps lead is standardizing team notification channels, sprint cadence, and cross-tool integrations between Azure DevOps and chat platforms.",
     question: "Which configuration best satisfies process objective #29?",
     options: [
-      { id: 'A', text: "Disabling all automated pipeline notifications to reduce developer email volume" },
-      { id: 'B', text: "Configuring Azure DevOps service hooks with filtered event subscriptions delivering real-time status alerts to Microsoft Teams" },
+      { id: 'A', text: "Configuring Azure DevOps service hooks with filtered event subscriptions delivering real-time status alerts to Microsoft Teams" },
+      { id: 'B', text: "Exporting weekly work item reports to static text files on shared file drives" },
       { id: 'C', text: "Granting Project Administrator rights to all external third-party guest users" },
-      { id: 'D', text: "Exporting weekly work item reports to static text files on shared file drives" }
+      { id: 'D', text: "Disabling all automated pipeline notifications to reduce developer email volume" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Configuring processes and communication in Azure DevOps focuses on establishing structured process templates, real-time service hook webhooks, and seamless cross-functional team collaboration.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/service-hooks/overview",
@@ -135,12 +135,12 @@ export const AZURE_AZ400_QUESTIONS_2 = [
     scenario: "A DevOps lead is standardizing team notification channels, sprint cadence, and cross-tool integrations between Azure DevOps and chat platforms.",
     question: "Which configuration best satisfies process objective #30?",
     options: [
-      { id: 'A', text: "Disabling all automated pipeline notifications to reduce developer email volume" },
+      { id: 'A', text: "Configuring Azure DevOps service hooks with filtered event subscriptions delivering real-time status alerts to Microsoft Teams" },
       { id: 'B', text: "Granting Project Administrator rights to all external third-party guest users" },
       { id: 'C', text: "Exporting weekly work item reports to static text files on shared file drives" },
-      { id: 'D', text: "Configuring Azure DevOps service hooks with filtered event subscriptions delivering real-time status alerts to Microsoft Teams" }
+      { id: 'D', text: "Disabling all automated pipeline notifications to reduce developer email volume" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Configuring processes and communication in Azure DevOps focuses on establishing structured process templates, real-time service hook webhooks, and seamless cross-functional team collaboration.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/service-hooks/overview",
@@ -156,12 +156,12 @@ export const AZURE_AZ400_QUESTIONS_2 = [
     scenario: "A DevOps lead is standardizing team notification channels, sprint cadence, and cross-tool integrations between Azure DevOps and chat platforms.",
     question: "Which configuration best satisfies process objective #31?",
     options: [
-      { id: 'A', text: "Granting Project Administrator rights to all external third-party guest users" },
-      { id: 'B', text: "Exporting weekly work item reports to static text files on shared file drives" },
-      { id: 'C', text: "Disabling all automated pipeline notifications to reduce developer email volume" },
-      { id: 'D', text: "Configuring Azure DevOps service hooks with filtered event subscriptions delivering real-time status alerts to Microsoft Teams" }
+      { id: 'A', text: "Configuring Azure DevOps service hooks with filtered event subscriptions delivering real-time status alerts to Microsoft Teams" },
+      { id: 'B', text: "Disabling all automated pipeline notifications to reduce developer email volume" },
+      { id: 'C', text: "Granting Project Administrator rights to all external third-party guest users" },
+      { id: 'D', text: "Exporting weekly work item reports to static text files on shared file drives" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Configuring processes and communication in Azure DevOps focuses on establishing structured process templates, real-time service hook webhooks, and seamless cross-functional team collaboration.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/service-hooks/overview",
@@ -177,12 +177,12 @@ export const AZURE_AZ400_QUESTIONS_2 = [
     scenario: "A DevOps lead is standardizing team notification channels, sprint cadence, and cross-tool integrations between Azure DevOps and chat platforms.",
     question: "Which configuration best satisfies process objective #32?",
     options: [
-      { id: 'A', text: "Exporting weekly work item reports to static text files on shared file drives" },
-      { id: 'B', text: "Configuring Azure DevOps service hooks with filtered event subscriptions delivering real-time status alerts to Microsoft Teams" },
-      { id: 'C', text: "Granting Project Administrator rights to all external third-party guest users" },
-      { id: 'D', text: "Disabling all automated pipeline notifications to reduce developer email volume" }
+      { id: 'A', text: "Configuring Azure DevOps service hooks with filtered event subscriptions delivering real-time status alerts to Microsoft Teams" },
+      { id: 'B', text: "Exporting weekly work item reports to static text files on shared file drives" },
+      { id: 'C', text: "Disabling all automated pipeline notifications to reduce developer email volume" },
+      { id: 'D', text: "Granting Project Administrator rights to all external third-party guest users" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Configuring processes and communication in Azure DevOps focuses on establishing structured process templates, real-time service hook webhooks, and seamless cross-functional team collaboration.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/service-hooks/overview",
@@ -198,12 +198,12 @@ export const AZURE_AZ400_QUESTIONS_2 = [
     scenario: "A DevOps lead is standardizing team notification channels, sprint cadence, and cross-tool integrations between Azure DevOps and chat platforms.",
     question: "Which configuration best satisfies process objective #33?",
     options: [
-      { id: 'A', text: "Disabling all automated pipeline notifications to reduce developer email volume" },
-      { id: 'B', text: "Exporting weekly work item reports to static text files on shared file drives" },
-      { id: 'C', text: "Configuring Azure DevOps service hooks with filtered event subscriptions delivering real-time status alerts to Microsoft Teams" },
-      { id: 'D', text: "Granting Project Administrator rights to all external third-party guest users" }
+      { id: 'A', text: "Configuring Azure DevOps service hooks with filtered event subscriptions delivering real-time status alerts to Microsoft Teams" },
+      { id: 'B', text: "Granting Project Administrator rights to all external third-party guest users" },
+      { id: 'C', text: "Disabling all automated pipeline notifications to reduce developer email volume" },
+      { id: 'D', text: "Exporting weekly work item reports to static text files on shared file drives" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Configuring processes and communication in Azure DevOps focuses on establishing structured process templates, real-time service hook webhooks, and seamless cross-functional team collaboration.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/service-hooks/overview",
@@ -220,8 +220,8 @@ export const AZURE_AZ400_QUESTIONS_2 = [
     question: "Which configuration best satisfies process objective #34?",
     options: [
       { id: 'A', text: "Granting Project Administrator rights to all external third-party guest users" },
-      { id: 'B', text: "Disabling all automated pipeline notifications to reduce developer email volume" },
-      { id: 'C', text: "Exporting weekly work item reports to static text files on shared file drives" },
+      { id: 'B', text: "Exporting weekly work item reports to static text files on shared file drives" },
+      { id: 'C', text: "Disabling all automated pipeline notifications to reduce developer email volume" },
       { id: 'D', text: "Configuring Azure DevOps service hooks with filtered event subscriptions delivering real-time status alerts to Microsoft Teams" }
     ],
     correctAnswers: ['D'],
@@ -240,12 +240,12 @@ export const AZURE_AZ400_QUESTIONS_2 = [
     scenario: "A DevOps lead is standardizing team notification channels, sprint cadence, and cross-tool integrations between Azure DevOps and chat platforms.",
     question: "Which configuration best satisfies process objective #35?",
     options: [
-      { id: 'A', text: "Granting Project Administrator rights to all external third-party guest users" },
+      { id: 'A', text: "Configuring Azure DevOps service hooks with filtered event subscriptions delivering real-time status alerts to Microsoft Teams" },
       { id: 'B', text: "Exporting weekly work item reports to static text files on shared file drives" },
-      { id: 'C', text: "Configuring Azure DevOps service hooks with filtered event subscriptions delivering real-time status alerts to Microsoft Teams" },
-      { id: 'D', text: "Disabling all automated pipeline notifications to reduce developer email volume" }
+      { id: 'C', text: "Disabling all automated pipeline notifications to reduce developer email volume" },
+      { id: 'D', text: "Granting Project Administrator rights to all external third-party guest users" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Configuring processes and communication in Azure DevOps focuses on establishing structured process templates, real-time service hook webhooks, and seamless cross-functional team collaboration.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/service-hooks/overview",
@@ -261,10 +261,10 @@ export const AZURE_AZ400_QUESTIONS_2 = [
     scenario: "A DevOps lead is standardizing team notification channels, sprint cadence, and cross-tool integrations between Azure DevOps and chat platforms.",
     question: "Which configuration best satisfies process objective #36?",
     options: [
-      { id: 'A', text: "Granting Project Administrator rights to all external third-party guest users" },
-      { id: 'B', text: "Exporting weekly work item reports to static text files on shared file drives" },
+      { id: 'A', text: "Exporting weekly work item reports to static text files on shared file drives" },
+      { id: 'B', text: "Disabling all automated pipeline notifications to reduce developer email volume" },
       { id: 'C', text: "Configuring Azure DevOps service hooks with filtered event subscriptions delivering real-time status alerts to Microsoft Teams" },
-      { id: 'D', text: "Disabling all automated pipeline notifications to reduce developer email volume" }
+      { id: 'D', text: "Granting Project Administrator rights to all external third-party guest users" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -283,9 +283,9 @@ export const AZURE_AZ400_QUESTIONS_2 = [
     question: "Which branching strategy should the team adopt to support continuous delivery?",
     options: [
       { id: 'A', text: "Trunk-Based Development using short-lived feature branches merged frequently into the main branch with feature flags" },
-      { id: 'B', text: "Forking workflow where every developer works in a private disconnected repository without merging" },
-      { id: 'C', text: "GitFlow with additional long-lived staging and integration branches" },
-      { id: 'D', text: "Release branching where developers commit code directly to hotfix branches" }
+      { id: 'B', text: "Release branching where developers commit code directly to hotfix branches" },
+      { id: 'C', text: "Forking workflow where every developer works in a private disconnected repository without merging" },
+      { id: 'D', text: "GitFlow with additional long-lived staging and integration branches" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -303,12 +303,12 @@ export const AZURE_AZ400_QUESTIONS_2 = [
     scenario: "A company needs to ensure that no code can be pushed directly to the main branch of an Azure Repos repository. All changes must be reviewed by at least two senior engineers, pass an automated CI build pipeline, and have all reviewer comments resolved before merging.",
     question: "Which feature in Azure Repos enforces these requirements?",
     options: [
-      { id: 'A', text: "Branch policies configured on the main branch requiring a minimum number of reviewers, build validation, and comment resolution" },
+      { id: 'A', text: "Pre-commit hooks installed manually on each developer's personal laptop" },
       { id: 'B', text: "Azure Policy assigned at the subscription level restricting Git CLI push commands" },
-      { id: 'C', text: "Pre-commit hooks installed manually on each developer's personal laptop" },
-      { id: 'D', text: "Converting the repository to read-only and deploying code via FTP" }
+      { id: 'C', text: "Converting the repository to read-only and deploying code via FTP" },
+      { id: 'D', text: "Branch policies configured on the main branch requiring a minimum number of reviewers, build validation, and comment resolution" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Azure Repos branch policies protect critical branches by intercepting merge attempts. Policies can mandate a minimum number of designated reviewers, automated build validation (triggering a CI build that must succeed), linked work items, and resolution of all code review comment threads.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/repos/git/branch-policies",
@@ -324,12 +324,12 @@ export const AZURE_AZ400_QUESTIONS_2 = [
     scenario: "A game development team stores 3D graphic models, textures, and compiled binary assets (several gigabytes each) in a Git repository. Developers complain that git clone and fetch operations take hours because the full binary history is downloaded on every checkout.",
     question: "What is the recommended solution to manage large binary files in Git?",
     options: [
-      { id: 'A', text: "Split the repository into 500 individual micro-repositories" },
-      { id: 'B', text: "Compress all 3D assets into a multi-part ZIP archive committed directly to the main branch" },
-      { id: 'C', text: "Implement Git Large File Storage (Git LFS) to store binary pointer files in the Git tree and host binary payloads on a dedicated remote storage server" },
-      { id: 'D', text: "Instruct developers to use git commit --amend exclusively to overwrite history" }
+      { id: 'A', text: "Implement Git Large File Storage (Git LFS) to store binary pointer files in the Git tree and host binary payloads on a dedicated remote storage server" },
+      { id: 'B', text: "Instruct developers to use git commit --amend exclusively to overwrite history" },
+      { id: 'C', text: "Compress all 3D assets into a multi-part ZIP archive committed directly to the main branch" },
+      { id: 'D', text: "Split the repository into 500 individual micro-repositories" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Git Large File Storage (Git LFS) replaces large binary files (audio, video, datasets, graphics) with tiny pointer references inside the Git repository, while storing the actual file contents on remote LFS servers. This keeps the Git repository lightweight, dramatically accelerating clone and fetch operations.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/repos/git/manage-large-files",
@@ -346,11 +346,11 @@ export const AZURE_AZ400_QUESTIONS_2 = [
     question: "How should the Azure DevOps administrator implement these customizations?",
     options: [
       { id: 'A', text: "Edit the locked XML system files directly inside the default Scrum process" },
-      { id: 'B', text: "Instruct developers to write the security sign-off status in the description text area" },
-      { id: 'C', text: "Create an inherited process from the Scrum template, make the customizations in the inherited process, and change the project's process to the inherited one" },
+      { id: 'B', text: "Create an inherited process from the Scrum template, make the customizations in the inherited process, and change the project's process to the inherited one" },
+      { id: 'C', text: "Instruct developers to write the security sign-off status in the description text area" },
       { id: 'D', text: "Export the project to an on-premises TFS server, edit work item definitions, and re-import" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Default system processes (Agile, Scrum, CMMI, Basic) are locked and cannot be directly modified. To customize fields, states, or work item types, administrators create an inherited process, apply custom rules and fields, and switch projects to use the inherited process.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/organizations/settings/work/manage-process",
@@ -366,12 +366,12 @@ export const AZURE_AZ400_QUESTIONS_2 = [
     scenario: "An engineering director manages five distinct projects within an Azure DevOps organization and wants a single burndown chart and unified backlog view of high-priority bugs across all five projects.",
     question: "Which Azure Boards capability enables aggregating work items across multiple projects?",
     options: [
-      { id: 'A', text: "Exporting work items to Microsoft Excel every morning" },
-      { id: 'B', text: "Consolidating all five repositories into a single Git repository" },
-      { id: 'C', text: "Creating a cross-project query with 'Query across projects' enabled, and pinning a Query Results or Chart widget to an organization dashboard" },
-      { id: 'D', text: "Assigning all bugs to a single developer account" }
+      { id: 'A', text: "Consolidating all five repositories into a single Git repository" },
+      { id: 'B', text: "Assigning all bugs to a single developer account" },
+      { id: 'C', text: "Exporting work items to Microsoft Excel every morning" },
+      { id: 'D', text: "Creating a cross-project query with 'Query across projects' enabled, and pinning a Query Results or Chart widget to an organization dashboard" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Azure Boards work item queries support the 'Query across projects' checkbox. Once saved as a shared cross-project query, team leads can attach query tiles, pie charts, and burndown widgets to shared dashboards for organization-wide visibility.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/boards/queries/query-across-projects",
@@ -387,12 +387,12 @@ export const AZURE_AZ400_QUESTIONS_2 = [
     scenario: "A software squad wants to receive real-time interactive notifications in their Microsoft Teams channel whenever a build pipeline fails or a pull request is created in Azure Repos.",
     question: "Which mechanism establishes this event-driven collaboration channel?",
     options: [
-      { id: 'A', text: "Installing the Azure Pipelines and Azure Repos apps for Microsoft Teams and configuring subscriptions using Service Hooks" },
-      { id: 'B', text: "Writing a custom Windows Service that polls the Azure DevOps REST API every second" },
-      { id: 'C', text: "Setting up an automated email forwarder to personal inboxes" },
-      { id: 'D', text: "Sharing administrator credentials with the Teams bot" }
+      { id: 'A', text: "Setting up an automated email forwarder to personal inboxes" },
+      { id: 'B', text: "Sharing administrator credentials with the Teams bot" },
+      { id: 'C', text: "Installing the Azure Pipelines and Azure Repos apps for Microsoft Teams and configuring subscriptions using Service Hooks" },
+      { id: 'D', text: "Writing a custom Windows Service that polls the Azure DevOps REST API every second" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Azure DevOps integrates natively with Microsoft Teams via official marketplace apps (Azure Pipelines, Azure Boards, Azure Repos) powered by Service Hooks, delivering actionable card notifications with direct links and approval buttons.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/service-hooks/services/teams",
@@ -408,12 +408,12 @@ export const AZURE_AZ400_QUESTIONS_2 = [
     scenario: "A development team hosts their source code in GitHub Enterprise Cloud but manages sprints, backlogs, and user stories in Azure Boards.",
     question: "How can developers automatically link Git commits and pull requests to specific Azure Boards work items?",
     options: [
-      { id: 'A', text: "Manually attach git log screenshots to the work item card in Azure Boards" },
-      { id: 'B', text: "Rename the git branch to match the work item title" },
-      { id: 'C', text: "Install the Azure Boards app for GitHub and reference the work item ID using AB#ID (e.g. AB#1234) in commit messages or pull request descriptions" },
+      { id: 'A', text: "Rename the git branch to match the work item title" },
+      { id: 'B', text: "Install the Azure Boards app for GitHub and reference the work item ID using AB#ID (e.g. AB#1234) in commit messages or pull request descriptions" },
+      { id: 'C', text: "Manually attach git log screenshots to the work item card in Azure Boards" },
       { id: 'D', text: "Copy and paste the entire work item URL into the git tag" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "By configuring the Azure Boards app for GitHub, developers can link commits, pull requests, and branch names by including the `AB#ID` syntax (e.g. `AB#54321`) in commit messages, which automatically transitions work item states upon PR merge.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/boards/github/link-to-from-github",
@@ -429,12 +429,12 @@ export const AZURE_AZ400_QUESTIONS_2 = [
     scenario: "A SecOps team wants to trigger an external security analysis Lambda function whenever a new release pipeline deployment finishes.",
     question: "Which Azure DevOps feature publishes JSON payloads to external HTTP endpoints upon specific project events?",
     options: [
-      { id: 'A', text: "Service Hooks with Web Hooks consumer" },
-      { id: 'B', text: "Notification email alerts" },
-      { id: 'C', text: "Audit Log exports" },
-      { id: 'D', text: "Azure Artifacts upstream sources" }
+      { id: 'A', text: "Notification email alerts" },
+      { id: 'B', text: "Service Hooks with Web Hooks consumer" },
+      { id: 'C', text: "Azure Artifacts upstream sources" },
+      { id: 'D', text: "Audit Log exports" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Service Hooks let publishers trigger tasks on external services (like webhooks, Jenkins, Slack, AWS Lambda) when events happen in Azure DevOps (such as build completed, work item created, or release stage deployed).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/service-hooks/overview",
@@ -450,12 +450,12 @@ export const AZURE_AZ400_QUESTIONS_2 = [
     scenario: "An engineering team wants technical documentation stored alongside application source code in markdown format, version-controlled with Git and reviewed via standard pull requests.",
     question: "Which Azure DevOps Wiki mode satisfies this requirement?",
     options: [
-      { id: 'A', text: "Store documentation in Word files on OneDrive" },
-      { id: 'B', text: "Publish code as wiki (linking an existing Git repository folder)" },
+      { id: 'A', text: "Use Work Item description fields" },
+      { id: 'B', text: "Store documentation in Word files on OneDrive" },
       { id: 'C', text: "Provision a default Project Wiki" },
-      { id: 'D', text: "Use Work Item description fields" }
+      { id: 'D', text: "Publish code as wiki (linking an existing Git repository folder)" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Azure DevOps supports 'Publish code as wiki', which maps markdown files in an existing Git repository to the Wiki interface, allowing engineers to update documentation via standard branch policies and pull requests.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/project/wiki/publish-repo-to-wiki",
@@ -471,12 +471,12 @@ export const AZURE_AZ400_QUESTIONS_2 = [
     scenario: "An enterprise has three squad teams (Frontend, Backend, Mobile) working in 2-week synchronized sprints within a single Azure DevOps project.",
     question: "How should the project structure be configured to isolate squad backlogs while maintaining synchronized cadence?",
     options: [
-      { id: 'A', text: "Use separate Git repositories with no shared boards" },
-      { id: 'B', text: "Create three separate Azure DevOps organizations" },
-      { id: 'C', text: "Assign all squads to a single backlog column without filters" },
-      { id: 'D', text: "Configure distinct Area Paths for each squad and share common Iteration Paths (sprints) across all squads" }
+      { id: 'A', text: "Assign all squads to a single backlog column without filters" },
+      { id: 'B', text: "Use separate Git repositories with no shared boards" },
+      { id: 'C', text: "Configure distinct Area Paths for each squad and share common Iteration Paths (sprints) across all squads" },
+      { id: 'D', text: "Create three separate Azure DevOps organizations" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Area Paths logically group work items by functional ownership or squad (Frontend, Backend, Mobile), giving each team its own backlog view. Iteration Paths define timeboxed sprint cadences shared across teams for coordinated planning.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/organizations/settings/set-area-paths",
@@ -492,12 +492,12 @@ export const AZURE_AZ400_QUESTIONS_2 = [
     scenario: "To comply with corporate security standards, an administrator must ensure that members of the corporate 'Cloud-Architects' security group in Microsoft Entra ID are automatically granted Project Administrator privileges in Azure DevOps.",
     question: "What is the recommended permission assignment method?",
     options: [
-      { id: 'A', text: "Manually add each architect's personal Microsoft account one by one" },
+      { id: 'A', text: "Add the Microsoft Entra security group directly to the Azure DevOps 'Project Administrators' group" },
       { id: 'B', text: "Grant all users organization owner permissions" },
-      { id: 'C', text: "Add the Microsoft Entra security group directly to the Azure DevOps 'Project Administrators' group" },
+      { id: 'C', text: "Manually add each architect's personal Microsoft account one by one" },
       { id: 'D', text: "Share a single administrator username and password" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "When Azure DevOps is connected to Microsoft Entra ID (Azure AD), administrators should add corporate Entra security groups directly into built-in Azure DevOps groups (e.g. Project Administrators), ensuring access lifecycle is automated via corporate directory membership.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/organizations/accounts/manage-azure-active-directory-groups-users",
@@ -513,10 +513,10 @@ export const AZURE_AZ400_QUESTIONS_2 = [
     scenario: "A program manager needs a multi-team visual roadmap showing sprint timelines, milestone dates, and work item dependencies across four engineering teams.",
     question: "Which native Azure Boards feature provides this cross-team timeline view?",
     options: [
-      { id: 'A', text: "Git network graph" },
+      { id: 'A', text: "Taskboard" },
       { id: 'B', text: "Delivery Plans" },
       { id: 'C', text: "Azure Artifacts" },
-      { id: 'D', text: "Taskboard" }
+      { id: 'D', text: "Git network graph" }
     ],
     correctAnswers: ['B'],
     type: "single",

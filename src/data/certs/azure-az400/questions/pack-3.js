@@ -9,12 +9,12 @@ export const AZURE_AZ400_QUESTIONS_3 = [
     scenario: "An organization requires that no developer can push commits directly to the main branch. Every change must be reviewed by at least two senior engineers and pass a continuous integration build.",
     question: "Which Azure Repos feature enforces these constraints?",
     options: [
-      { id: 'A', text: "Branch policies on the main branch (requiring minimum number of reviewers, build validation, and comment resolution)" },
-      { id: 'B', text: "Disabling write permissions for all developers in the organization" },
-      { id: 'C', text: "Converting the repository to read-only mode" },
-      { id: 'D', text: "Creating a Git tag named main" }
+      { id: 'A', text: "Disabling write permissions for all developers in the organization" },
+      { id: 'B', text: "Branch policies on the main branch (requiring minimum number of reviewers, build validation, and comment resolution)" },
+      { id: 'C', text: "Creating a Git tag named main" },
+      { id: 'D', text: "Converting the repository to read-only mode" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Branch policies protect critical branches by enforcing quality gates before merge: requiring a minimum number of reviewers, successful build validation pipelines, linked work items, and resolution of all review comments.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/repos/git/branch-policies",
@@ -30,12 +30,12 @@ export const AZURE_AZ400_QUESTIONS_3 = [
     scenario: "A development team wants to keep the commit history on the main branch clean and linear, where each pull request appears as a single atomic commit containing the PR title and description.",
     question: "Which pull request merge type should be enforced in branch policies?",
     options: [
-      { id: 'A', text: "Rebase and merge" },
-      { id: 'B', text: "Fast-forward merge only" },
-      { id: 'C', text: "Squash merge" },
-      { id: 'D', text: "Basic merge (no-fast-forward merge commit)" }
+      { id: 'A', text: "Squash merge" },
+      { id: 'B', text: "Rebase and merge" },
+      { id: 'C', text: "Basic merge (no-fast-forward merge commit)" },
+      { id: 'D', text: "Fast-forward merge only" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Squash merging condenses all commits from the topic feature branch into a single commit on the target branch. This preserves a clean linear commit history on main without cluttering it with intermediate work-in-progress commits.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/repos/git/merging",
@@ -51,8 +51,8 @@ export const AZURE_AZ400_QUESTIONS_3 = [
     scenario: "A gaming development team stores 20 GB of 3D game models and texture files in an Azure Repos Git repository. Cloning the repository takes over an hour and exhausts runner memory.",
     question: "Which Git mechanism should be implemented to manage large binary assets efficiently?",
     options: [
-      { id: 'A', text: "Deleting the git repository after each commit" },
-      { id: 'B', text: "Zipping the binaries into encrypted text files" },
+      { id: 'A', text: "Zipping the binaries into encrypted text files" },
+      { id: 'B', text: "Deleting the git repository after each commit" },
       { id: 'C', text: "Git Large File Storage (Git LFS)" },
       { id: 'D', text: "Git submodules pointing to FTP servers" }
     ],
@@ -72,12 +72,12 @@ export const AZURE_AZ400_QUESTIONS_3 = [
     scenario: "An enterprise maintains a massive multi-gigabyte monorepo with 500,000 files. Local `git status` and checkout operations take several minutes.",
     question: "Which tool optimized by Microsoft accelerates Git operations on ultra-large repositories by enabling sparse checkouts and filesystem virtualization?",
     options: [
-      { id: 'A', text: "Docker Desktop" },
-      { id: 'B', text: "AzCopy" },
-      { id: 'C', text: "Git submodule" },
-      { id: 'D', text: "Scalar (formerly VFS for Git)" }
+      { id: 'A', text: "AzCopy" },
+      { id: 'B', text: "Scalar (formerly VFS for Git)" },
+      { id: 'C', text: "Docker Desktop" },
+      { id: 'D', text: "Git submodule" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Scalar is a Git extension optimized by Microsoft for massive enterprise monorepos. It configures advanced Git features (sparse-checkout, partial clone, background maintenance, and filesystem monitoring) to keep Git operations fast regardless of repository size.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/repos/git/monorepos",
@@ -93,12 +93,12 @@ export const AZURE_AZ400_QUESTIONS_3 = [
     scenario: "An agile software organization wants to practice continuous integration and deploy to production multiple times a day with minimal merge friction.",
     question: "Which branching strategy best aligns with high-velocity continuous delivery?",
     options: [
-      { id: 'A', text: "Trunk-Based Development with short-lived feature branches merged daily into main using automated tests and feature flags" },
-      { id: 'B', text: "Forking workflow where every developer works in a personal clone" },
+      { id: 'A', text: "Forking workflow where every developer works in a personal clone" },
+      { id: 'B', text: "Maintaining separate branches for each customer tenant" },
       { id: 'C', text: "GitFlow with long-lived feature, develop, release, and hotfix branches" },
-      { id: 'D', text: "Maintaining separate branches for each customer tenant" }
+      { id: 'D', text: "Trunk-Based Development with short-lived feature branches merged daily into main using automated tests and feature flags" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Trunk-Based Development is the industry-standard branching model for DevOps. Developers merge small, frequent batches into a single shared trunk (main) multiple times a day, relying on robust CI pipelines and feature flags to decouple deployment from release.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/repos/git/git-branching-guidance",
@@ -114,10 +114,10 @@ export const AZURE_AZ400_QUESTIONS_3 = [
     scenario: "A company requires that whenever a pull request modifies files in `/infrastructure/terraform/`, the Core Cloud Architecture team must be added as mandatory reviewers.",
     question: "Which Azure Repos branch policy setting configures this path-based review enforcement?",
     options: [
-      { id: 'A', text: "Git commit hook on local machines" },
+      { id: 'A', text: "Build validation pipeline" },
       { id: 'B', text: "Automatically included reviewers with a path filter (e.g. /infrastructure/terraform/*)" },
       { id: 'C', text: "Work item linking" },
-      { id: 'D', text: "Build validation pipeline" }
+      { id: 'D', text: "Git commit hook on local machines" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -136,11 +136,11 @@ export const AZURE_AZ400_QUESTIONS_3 = [
     question: "What is the recommended DevOps approach for sharing reusable component libraries across enterprise projects?",
     options: [
       { id: 'A', text: "Using Git Submodules pinned to the HEAD of master" },
-      { id: 'B', text: "Publishing versioned NuGet packages to an internal Azure Artifacts feed" },
+      { id: 'B', text: "Storing the code in a public GitHub Gist" },
       { id: 'C', text: "Copying and pasting the source code files into all 10 repositories" },
-      { id: 'D', text: "Storing the code in a public GitHub Gist" }
+      { id: 'D', text: "Publishing versioned NuGet packages to an internal Azure Artifacts feed" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Package management via Azure Artifacts (NuGet, npm, Maven) provides clean semantic versioning, immutable release binaries, dependency tracking, and decoupled lifecycles, avoiding the operational complexity and merge friction inherent in Git submodules.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/artifacts/overview",
@@ -156,12 +156,12 @@ export const AZURE_AZ400_QUESTIONS_3 = [
     scenario: "A developer wants to prevent credentials and private keys from being committed to local Git branches before executing `git commit`.",
     question: "Which tool should be configured on developer workstations to inspect staged files locally?",
     options: [
-      { id: 'A', text: "Client-side pre-commit hooks (e.g. using pre-commit framework or detect-secrets)" },
-      { id: 'B', text: "Azure Storage Explorer" },
-      { id: 'C', text: "Azure Boards delivery plans" },
-      { id: 'D', text: "Azure Artifacts upstream sources" }
+      { id: 'A', text: "Azure Artifacts upstream sources" },
+      { id: 'B', text: "Azure Boards delivery plans" },
+      { id: 'C', text: "Client-side pre-commit hooks (e.g. using pre-commit framework or detect-secrets)" },
+      { id: 'D', text: "Azure Storage Explorer" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Pre-commit hooks execute locally during `git commit`, inspecting staged files for high-entropy strings, passwords, and API keys, halting the commit process locally before secrets can be recorded in Git blobs.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/repos/security/configure-secret-scanning-github-advanced-security",
@@ -177,12 +177,12 @@ export const AZURE_AZ400_QUESTIONS_3 = [
     scenario: "An enterprise DevOps engineering team is implementing automated CI/CD pipelines, source control governance, and continuous delivery on Microsoft Azure.",
     question: "When is a Forking branching workflow recommended over a centralized branch-based model in Azure Repos?",
     options: [
-      { id: 'A', text: "When deploying to production multiple times a day" },
-      { id: 'B', text: "When collaborating with untrusted third-party contractors or open-source contributors where direct write access to the origin repository is prohibited" },
-      { id: 'C', text: "When repositories only contain documentation" },
-      { id: 'D', text: "For small teams of 3 developers working in the same office" }
+      { id: 'A', text: "For small teams of 3 developers working in the same office" },
+      { id: 'B', text: "When repositories only contain documentation" },
+      { id: 'C', text: "When collaborating with untrusted third-party contractors or open-source contributors where direct write access to the origin repository is prohibited" },
+      { id: 'D', text: "When deploying to production multiple times a day" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Forking is ideal when external contractors or open-source contributors need to propose changes without granting them write or branch-creation permissions on the core upstream repository.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/repos/git/forks",
@@ -198,12 +198,12 @@ export const AZURE_AZ400_QUESTIONS_3 = [
     scenario: "An engineering standard forbids 3-way merge commits on the main branch to simplify `git bisect` automated debugging.",
     question: "Which branch policy requirement ensures that pull requests can only be merged using squash or rebase?",
     options: [
-      { id: 'A', text: "Delete all branch tags" },
-      { id: 'B', text: "Enforce 'Limit merge types' in branch policies and allow only 'Squash merge' or 'Rebase and fast-forward'" },
-      { id: 'C', text: "Use subversion instead of git" },
-      { id: 'D', text: "Disable pull requests completely" }
+      { id: 'A', text: "Enforce 'Limit merge types' in branch policies and allow only 'Squash merge' or 'Rebase and fast-forward'" },
+      { id: 'B', text: "Use subversion instead of git" },
+      { id: 'C', text: "Disable pull requests completely" },
+      { id: 'D', text: "Delete all branch tags" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Under branch policies in Azure Repos, administrators can check 'Limit merge types' and select only 'Squash merge' or 'Rebase and fast-forward', preventing developers from creating standard non-linear merge commits.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/repos/git/branch-policies#limit-merge-types",
@@ -220,8 +220,8 @@ export const AZURE_AZ400_QUESTIONS_3 = [
     question: "What is a primary advantage of Git Subtrees over Git Submodules when embedding shared libraries?",
     options: [
       { id: 'A', text: "Git Subtrees embed the external library's code directly into the main repository tree, meaning collaborators do not need to initialize or update submodules separately" },
-      { id: 'B', text: "Git Subtrees can only store text files under 1 KB" },
-      { id: 'C', text: "Git Subtrees automatically compile source code into binaries" },
+      { id: 'B', text: "Git Subtrees automatically compile source code into binaries" },
+      { id: 'C', text: "Git Subtrees can only store text files under 1 KB" },
       { id: 'D', text: "Git Subtrees eliminate the need for Git version control" }
     ],
     correctAnswers: ['A'],
@@ -240,9 +240,9 @@ export const AZURE_AZ400_QUESTIONS_3 = [
     scenario: "An organization migrates a legacy codebase from centralized TFVC to distributed Git in Azure Repos while preserving the past 180 days of commit history.",
     question: "Which native migration tool in Azure Repos facilitates this import?",
     options: [
-      { id: 'A', text: "Azure Data Box" },
-      { id: 'B', text: "Copying files manually using Windows Explorer" },
-      { id: 'C', text: "AzCopy data transfer" },
+      { id: 'A', text: "AzCopy data transfer" },
+      { id: 'B', text: "Azure Data Box" },
+      { id: 'C', text: "Copying files manually using Windows Explorer" },
       { id: 'D', text: "Import repository wizard in Azure Repos, selecting TFVC as the source type and specifying history depth" }
     ],
     correctAnswers: ['D'],
@@ -261,8 +261,8 @@ export const AZURE_AZ400_QUESTIONS_3 = [
     scenario: "An administrator needs to freeze the 'release-v2.0' branch temporarily during a compliance audit to prevent any new commits, while allowing the team to unlock it next week.",
     question: "What is the simplest way to temporarily freeze a branch in Azure Repos?",
     options: [
-      { id: 'A', text: "Disable Azure Repos in project settings" },
-      { id: 'B', text: "Remove all developers from the project" },
+      { id: 'A', text: "Remove all developers from the project" },
+      { id: 'B', text: "Disable Azure Repos in project settings" },
       { id: 'C', text: "Click 'Lock' on the branch in the Azure Repos branch list" },
       { id: 'D', text: "Delete the branch and restore it later" }
     ],
@@ -282,12 +282,12 @@ export const AZURE_AZ400_QUESTIONS_3 = [
     scenario: "A CI pipeline clones a 10-year-old Git repository on every build, spending 8 minutes downloading 200,000 historical commits.",
     question: "How should the checkout step in the YAML pipeline be configured to speed up pipeline execution?",
     options: [
-      { id: 'A', text: "checkout: self, with fetchDepth: 1" },
-      { id: 'B', text: "checkout: none" },
-      { id: 'C', text: "git pull --all" },
-      { id: 'D', text: "clean: true" }
+      { id: 'A', text: "checkout: none" },
+      { id: 'B', text: "git pull --all" },
+      { id: 'C', text: "clean: true" },
+      { id: 'D', text: "checkout: self, with fetchDepth: 1" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Setting `fetchDepth: 1` on the `checkout` step creates a shallow Git clone containing only the latest commit. This dramatically reduces bandwidth and clone times on CI runners without affecting build outputs.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/yaml-schema/steps-checkout",
@@ -303,12 +303,12 @@ export const AZURE_AZ400_QUESTIONS_3 = [
     scenario: "An enterprise integrates a third-party static code analysis engine running on-premises that must report a pass/fail status directly onto Azure Repos pull requests.",
     question: "Which REST API resource in Azure DevOps posts external status checks to a pull request?",
     options: [
-      { id: 'A', text: "Sending an email to the repository owner" },
+      { id: 'A', text: "POST to the Pull Request Statuses API (/pullRequests/{id}/statuses)" },
       { id: 'B', text: "Writing a file to the Git repository" },
       { id: 'C', text: "Updating an Azure Boards work item" },
-      { id: 'D', text: "POST to the Pull Request Statuses API (/pullRequests/{id}/statuses)" }
+      { id: 'D', text: "Sending an email to the repository owner" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The Pull Request Statuses REST API allows external systems (such as Jenkins, custom linters, or on-premises security scanners) to post custom status checks with state, description, and target URL directly to the PR overview.",
     referenceUrl: "https://learn.microsoft.com/en-us/rest/api/azure/devops/git/pull-request-statuses/create",
@@ -326,8 +326,8 @@ export const AZURE_AZ400_QUESTIONS_3 = [
     options: [
       { id: 'A', text: "PATCH" },
       { id: 'B', text: "MINOR" },
-      { id: 'C', text: "BUILD" },
-      { id: 'D', text: "MAJOR" }
+      { id: 'C', text: "MAJOR" },
+      { id: 'D', text: "BUILD" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -345,12 +345,12 @@ export const AZURE_AZ400_QUESTIONS_3 = [
     scenario: "An enterprise DevOps engineering team is implementing automated CI/CD pipelines, source control governance, and continuous delivery on Microsoft Azure.",
     question: "What is the primary architectural difference between a Git Branch and a Git Tag?",
     options: [
-      { id: 'A', text: "Tags can only be created by administrators" },
-      { id: 'B', text: "A branch is a movable reference that automatically advances when new commits are pushed; a tag is an immutable reference pointing permanently to a specific commit snapshot" },
-      { id: 'C', text: "Branches only exist locally; tags only exist on the server" },
-      { id: 'D', text: "A tag can be modified by anyone; a branch can never be changed" }
+      { id: 'A', text: "Branches only exist locally; tags only exist on the server" },
+      { id: 'B', text: "A tag can be modified by anyone; a branch can never be changed" },
+      { id: 'C', text: "Tags can only be created by administrators" },
+      { id: 'D', text: "A branch is a movable reference that automatically advances when new commits are pushed; a tag is an immutable reference pointing permanently to a specific commit snapshot" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "In Git, a branch is a dynamic pointer that moves forward with every commit. A tag is an immutable bookmark pointing to a fixed commit SHA, designed to mark formal release milestones (e.g. `v1.2.0`).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/repos/git/tags",
@@ -366,10 +366,10 @@ export const AZURE_AZ400_QUESTIONS_3 = [
     scenario: "An enterprise DevOps engineering team is implementing automated CI/CD pipelines, source control governance, and continuous delivery on Microsoft Azure.",
     question: "A developer on a feature branch runs `git rebase main`. What happens to the developer's feature branch commits?",
     options: [
-      { id: 'A', text: "A 3-way merge commit is generated joining the branches" },
+      { id: 'A', text: "The feature commits are permanently deleted" },
       { id: 'B', text: "The feature commits are temporarily replayed on top of the tip of the main branch, creating new commit SHAs and producing a linear history" },
-      { id: 'C', text: "The main branch is reset to the initial commit" },
-      { id: 'D', text: "The feature commits are permanently deleted" }
+      { id: 'C', text: "A 3-way merge commit is generated joining the branches" },
+      { id: 'D', text: "The main branch is reset to the initial commit" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -387,9 +387,9 @@ export const AZURE_AZ400_QUESTIONS_3 = [
     scenario: "A pull request cannot be merged automatically because the same lines in `config.json` were modified in both the source branch and main branch.",
     question: "How can the developer resolve this merge conflict?",
     options: [
-      { id: 'A', text: "Close the pull request and delete the repository" },
+      { id: 'A', text: "Force-push directly to the main branch" },
       { id: 'B', text: "Delete config.json from git history" },
-      { id: 'C', text: "Force-push directly to the main branch" },
+      { id: 'C', text: "Close the pull request and delete the repository" },
       { id: 'D', text: "Use the Pull Request Merge Conflict Extension in Azure Repos web UI, or check out the branch locally, run git merge main, resolve conflicts, commit, and push" }
     ],
     correctAnswers: ['D'],
@@ -430,11 +430,11 @@ export const AZURE_AZ400_QUESTIONS_3 = [
     question: "Which feature in Azure Repos accomplishes this?",
     options: [
       { id: 'A', text: "Run git push --force" },
-      { id: 'B', text: "Merge the PR immediately using administrator bypass" },
-      { id: 'C', text: "Set auto-complete on the pull request" },
-      { id: 'D', text: "Disable build validation" }
+      { id: 'B', text: "Set auto-complete on the pull request" },
+      { id: 'C', text: "Disable build validation" },
+      { id: 'D', text: "Merge the PR immediately using administrator bypass" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Selecting 'Set auto-complete' on an Azure Repos pull request instructs the system to automatically merge the PR as soon as all required branch policies, reviewer approvals, and build checks complete successfully.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/repos/git/complete-pull-requests#auto-complete",
@@ -450,10 +450,10 @@ export const AZURE_AZ400_QUESTIONS_3 = [
     scenario: "A developer notices that local build output folders (`bin/`, `obj/`, `node_modules/`) are constantly being staged for commit.",
     question: "What file should be placed at the repository root to prevent temporary build artifacts from entering Git tracking?",
     options: [
-      { id: 'A', text: "azure-pipelines.yml" },
+      { id: 'A', text: "package.json" },
       { id: 'B', text: ".gitignore" },
-      { id: 'C', text: "README.md" },
-      { id: 'D', text: "package.json" }
+      { id: 'C', text: "azure-pipelines.yml" },
+      { id: 'D', text: "README.md" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -472,11 +472,11 @@ export const AZURE_AZ400_QUESTIONS_3 = [
     question: "Which pull request mode should the engineer select?",
     options: [
       { id: 'A', text: "Assign the PR to a non-existent user" },
-      { id: 'B', text: "Create as draft (Draft pull request)" },
-      { id: 'C', text: "Set the PR title to DO NOT MERGE" },
+      { id: 'B', text: "Set the PR title to DO NOT MERGE" },
+      { id: 'C', text: "Create as draft (Draft pull request)" },
       { id: 'D', text: "Lock the branch" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Creating a Draft Pull Request signals that work is in progress. Draft PRs run automated build validations and facilitate discussion while blocking the Complete/Merge button until the author clicks 'Publish'.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/repos/git/pull-requests#draft-pull-requests",
@@ -492,12 +492,12 @@ export const AZURE_AZ400_QUESTIONS_3 = [
     scenario: "A core infrastructure repository requires that whenever a PR is created, it must trigger a build in a secondary consuming application repository to verify that changes do not break downstream APIs.",
     question: "How can cross-repository validation be implemented in Azure Pipelines?",
     options: [
-      { id: 'A', text: "Configure pipeline resource triggers (resources.repositories) and use pipeline status checks via REST API or service connections" },
-      { id: 'B', text: "Combine both repositories into a single Git branch" },
-      { id: 'C', text: "Send manual emails to the downstream application team" },
-      { id: 'D', text: "Disable branch policies" }
+      { id: 'A', text: "Send manual emails to the downstream application team" },
+      { id: 'B', text: "Configure pipeline resource triggers (resources.repositories) and use pipeline status checks via REST API or service connections" },
+      { id: 'C', text: "Disable branch policies" },
+      { id: 'D', text: "Combine both repositories into a single Git branch" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Azure Pipelines YAML supports referencing multiple repositories via `resources.repositories`. A validation pipeline can checkout both repositories and test downstream integration, reporting status back to the initiating pull request.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/repos/multi-repo-checkout",
@@ -513,12 +513,12 @@ export const AZURE_AZ400_QUESTIONS_3 = [
     scenario: "An enterprise DevOps engineering team is implementing automated CI/CD pipelines, source control governance, and continuous delivery on Microsoft Azure.",
     question: "A pipeline task modifies files during the build. How can a CI validation step verify that no untracked files or unstaged changes were left behind?",
     options: [
-      { id: 'A', text: "Run `git diff --exit-code && git status --porcelain` in a script task" },
-      { id: 'B', text: "Run git init" },
+      { id: 'A', text: "Run git init" },
+      { id: 'B', text: "Run `git diff --exit-code && git status --porcelain` in a script task" },
       { id: 'C', text: "Delete the git folder" },
       { id: 'D', text: "Reboot the build agent" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Executing `git diff --exit-code` and checking `git status --porcelain` ensures that code generation or formatting tasks did not produce uncommitted modifications, failing the CI build if the worktree is dirty.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/scripts/cross-platform-scripting",

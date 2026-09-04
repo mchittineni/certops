@@ -10,11 +10,11 @@ export const AWS_SCS_QUESTIONS_4 = [
     question: "Which EventBridge event pattern matches the creation of an unencrypted EBS volume from CloudTrail?",
     options: [
       { id: 'A', text: "An EventBridge rule matching <code>AttachVolume</code> where <code>detail.requestParameters.device</code> is <code>/dev/xvda</code>" },
-      { id: 'B', text: "An EventBridge rule matching <code>CreateVolume</code> where <code>detail.responseElements.encrypted</code> is <code>false</code>" },
+      { id: 'B', text: "A CloudWatch Logs subscription filter on <code>dmesg</code>" },
       { id: 'C', text: "An AWS Config rule running once per week" },
-      { id: 'D', text: "A CloudWatch Logs subscription filter on <code>dmesg</code>" }
+      { id: 'D', text: "An EventBridge rule matching <code>CreateVolume</code> where <code>detail.responseElements.encrypted</code> is <code>false</code>" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "When `CreateVolume` succeeds, the CloudTrail response elements record `encrypted: false` if encryption was not enabled. An EventBridge rule matching `detail.responseElements.encrypted = false` immediately triggers a Lambda function to take corrective containment action within seconds.",
     referenceUrl: "https://docs.aws.amazon.com/security/",
@@ -51,12 +51,12 @@ export const AWS_SCS_QUESTIONS_4 = [
     scenario: "An auditor flags that AWS Lambda functions might expose sensitive API tokens in plain text if helper encryption is not enabled.",
     question: "Which AWS Config managed rule checks whether AWS Lambda environment variables are encrypted with a customer managed KMS key?",
     options: [
-      { id: 'A', text: "<code>lambda-function-settings-check</code>" },
-      { id: 'B', text: "<code>ec2-volume-inuse-check</code>" },
-      { id: 'C', text: "<code>iam-password-policy</code>" },
+      { id: 'A', text: "<code>ec2-volume-inuse-check</code>" },
+      { id: 'B', text: "<code>iam-password-policy</code>" },
+      { id: 'C', text: "<code>lambda-function-settings-check</code>" },
       { id: 'D', text: "<code>s3-bucket-ssl-requests-only</code>" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "The AWS Config managed rule `lambda-function-settings-check` evaluates Lambda function configurations, verifying that function settings (including environment variable encryption with customer managed KMS keys, runtime version, and VPC attachment) comply with organizational security policies.",
     referenceUrl: "https://docs.aws.amazon.com/security/",
@@ -72,12 +72,12 @@ export const AWS_SCS_QUESTIONS_4 = [
     scenario: "AWS Network Firewall is deployed in an inspection VPC. The security team needs to analyze all packets dropped by stateful Suricata rules to track active exploit attempts.",
     question: "How should AWS Network Firewall logging be configured to capture dropped packet metadata?",
     options: [
-      { id: 'A', text: "Configure Network Firewall to log only <code>Flow</code> logs" },
-      { id: 'B', text: "Rely on VPC Flow Logs on the transit gateway" },
-      { id: 'C', text: "Attach an AWS WAF Web ACL to the Network Firewall endpoint" },
-      { id: 'D', text: "Configure Network Firewall logging to write <code>Alert</code> log types to an Amazon CloudWatch Log group or S3 bucket" }
+      { id: 'A', text: "Attach an AWS WAF Web ACL to the Network Firewall endpoint" },
+      { id: 'B', text: "Configure Network Firewall logging to write <code>Alert</code> log types to an Amazon CloudWatch Log group or S3 bucket" },
+      { id: 'C', text: "Rely on VPC Flow Logs on the transit gateway" },
+      { id: 'D', text: "Configure Network Firewall to log only <code>Flow</code> logs" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "AWS Network Firewall provides two types of logs: **Flow logs** (standard network traffic metadata for all evaluated packets) and **Alert logs** (detailed records generated when stateful rules trigger an action, including `drop`, `reject`, or `alert`). Dropped packets and Suricata rule signatures are recorded in Alert logs.",
     referenceUrl: "https://docs.aws.amazon.com/security/",
@@ -93,9 +93,9 @@ export const AWS_SCS_QUESTIONS_4 = [
     scenario: "To prevent stealthy tampering with compliance logging, an alert must trigger immediately if any administrator updates or deletes a CloudTrail trail configuration.",
     question: "Which metric filter pattern satisfies CIS Benchmark compliance for CloudTrail trail changes?",
     options: [
-      { id: 'A', text: "<code>{ $.errorCode = \"404\" }</code>" },
-      { id: 'B', text: "<code>{ $.userIdentity.type = \"IAMUser\" }</code>" },
-      { id: 'C', text: "<code>{ $.eventSource = \"ec2.amazonaws.com\" }</code>" },
+      { id: 'A', text: "<code>{ $.userIdentity.type = \"IAMUser\" }</code>" },
+      { id: 'B', text: "<code>{ $.eventSource = \"ec2.amazonaws.com\" }</code>" },
+      { id: 'C', text: "<code>{ $.errorCode = \"404\" }</code>" },
       { id: 'D', text: "<code>{($.eventName=CreateTrail)||($.eventName=UpdateTrail)||($.eventName=DeleteTrail)||($.eventName=StartLogging)||($.eventName=StopLogging)}</code>" }
     ],
     correctAnswers: ['D'],
@@ -114,12 +114,12 @@ export const AWS_SCS_QUESTIONS_4 = [
     scenario: "A public-facing e-commerce API running behind an Application Load Balancer is targeted by a distributed brute-force login attack from rotating IP addresses. The security team needs to automatically block any client IP address that sends more than 100 requests per 5-minute period to the /api/login endpoint.",
     question: "Which AWS WAF configuration implements this protection?",
     options: [
-      { id: 'A', text: "Configure an Auto Scaling group scaling policy to terminate instances under high HTTP load" },
+      { id: 'A', text: "Add a deny rule in the VPC Network ACL for every individual IP address observed in logs" },
       { id: 'B', text: "Configure an AWS Shield Advanced proactive engagement rule on the ALB" },
-      { id: 'C', text: "Create an AWS WAF Web ACL with a rate-based rule evaluating requests matching the URI path /api/login, setting the rate limit to 100 requests per 5-minute evaluation window with a Block action" },
-      { id: 'D', text: "Add a deny rule in the VPC Network ACL for every individual IP address observed in logs" }
+      { id: 'C', text: "Configure an Auto Scaling group scaling policy to terminate instances under high HTTP load" },
+      { id: 'D', text: "Create an AWS WAF Web ACL with a rate-based rule evaluating requests matching the URI path /api/login, setting the rate limit to 100 requests per 5-minute evaluation window with a Block action" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "AWS WAF rate-based rules track the number of requests arriving from each IP address over a sliding 5-minute evaluation window. When combined with a scope-down statement (such as matching requests with URI path /api/login), AWS WAF automatically blocks or CAPTCHA-challenges offending IPs that exceed the threshold.",
     referenceUrl: "https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-type-rate-based.html",
@@ -137,8 +137,8 @@ export const AWS_SCS_QUESTIONS_4 = [
     options: [
       { id: 'A', text: "Configure a security group on the interface endpoint allowing port 443 outbound to 0.0.0.0/0" },
       { id: 'B', text: "Attach a VPC endpoint policy to the interface endpoint that allows s3:* actions only when Resource equals arn:aws:s3:::corp-internal-data and arn:aws:s3:::corp-internal-data/*" },
-      { id: 'C', text: "Attach a bucket policy on the internal S3 bucket denying access to all external VPCs" },
-      { id: 'D', text: "Add an entry in the VPC route table pointing 0.0.0.0/0 to an egress-only internet gateway" }
+      { id: 'C', text: "Add an entry in the VPC route table pointing 0.0.0.0/0 to an egress-only internet gateway" },
+      { id: 'D', text: "Attach a bucket policy on the internal S3 bucket denying access to all external VPCs" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -157,11 +157,11 @@ export const AWS_SCS_QUESTIONS_4 = [
     question: "Which configuration must be enforced across all EC2 instances to neutralize this SSRF attack vector?",
     options: [
       { id: 'A', text: "Disable the instance metadata service completely on all application instances" },
-      { id: 'B', text: "Store the instance credentials in an Amazon S3 bucket instead of an IAM role" },
-      { id: 'C', text: "Enforce Instance Metadata Service Version 2 (IMDSv2) by setting <code>HttpTokens=required</code> and setting <code>HttpPutResponseHopLimit=1</code>" },
-      { id: 'D', text: "Attach a VPC Network ACL rule blocking traffic to 169.254.169.254" }
+      { id: 'B', text: "Attach a VPC Network ACL rule blocking traffic to 169.254.169.254" },
+      { id: 'C', text: "Store the instance credentials in an Amazon S3 bucket instead of an IAM role" },
+      { id: 'D', text: "Enforce Instance Metadata Service Version 2 (IMDSv2) by setting <code>HttpTokens=required</code> and setting <code>HttpPutResponseHopLimit=1</code>" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "IMDSv2 mitigates SSRF by requiring session-oriented authentication. Callers must first send an HTTP PUT request with the header `X-aws-ec2-metadata-token-ttl-seconds` to obtain a session token, and subsequent requests must pass this token in the `X-aws-ec2-metadata-token` header. Most SSRF vulnerabilities cannot execute arbitrary PUT requests with custom headers. Setting `HttpPutResponseHopLimit=1` additionally blocks containers or pods running on the instance from reaching IMDSv2.",
     referenceUrl: "https://docs.aws.amazon.com/security/",
@@ -178,11 +178,11 @@ export const AWS_SCS_QUESTIONS_4 = [
     question: "Which AWS WAF rule configuration achieves this rate-limiting defense?",
     options: [
       { id: 'A', text: "Create a Network ACL rule that denies TCP port 443 after 100 packets" },
-      { id: 'B', text: "Configure an ALB listener rule with a fixed response of 429 Too Many Requests" },
-      { id: 'C', text: "Deploy an AWS Shield Standard rule on the ALB target group" },
-      { id: 'D', text: "Create an AWS WAF rate-based rule evaluated on IP address with a rate limit of 100, scoped with a condition statement matching URI path equals <code>/api/v1/login</code>, and set the action to Block" }
+      { id: 'B', text: "Deploy an AWS Shield Standard rule on the ALB target group" },
+      { id: 'C', text: "Create an AWS WAF rate-based rule evaluated on IP address with a rate limit of 100, scoped with a condition statement matching URI path equals <code>/api/v1/login</code>, and set the action to Block" },
+      { id: 'D', text: "Configure an ALB listener rule with a fixed response of 429 Too Many Requests" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "AWS WAF supports rate-based rules that track request counts from client IPs over a sliding 5-minute evaluation window. Scoping down the rate-based rule with a nested statement (URI path equals `/api/v1/login`) ensures that the rate limit applies specifically to the sensitive login endpoint without impacting normal browsing traffic.",
     referenceUrl: "https://docs.aws.amazon.com/security/",
@@ -198,12 +198,12 @@ export const AWS_SCS_QUESTIONS_4 = [
     scenario: "An enterprise requires that all outbound internet traffic from 20 application VPCs must route through a centralized inspection VPC to perform deep packet inspection, domain allow-listing, and Suricata intrusion prevention before reaching an Internet Gateway.",
     question: "Which routing architecture securely routes outbound traffic through AWS Network Firewall?",
     options: [
-      { id: 'A', text: "Connect the application VPCs to an AWS Transit Gateway (TGW). In the TGW route table for application VPCs, set the default route (0.0.0.0/0) to the Inspection VPC attachment. Route traffic within the Inspection VPC to the AWS Network Firewall endpoint, and from the firewall subnet to the NAT Gateway / Internet Gateway" },
+      { id: 'A', text: "Deploy an Internet Gateway in every application VPC with public subnets" },
       { id: 'B', text: "Attach an AWS WAF Web ACL to the Transit Gateway route table" },
-      { id: 'C', text: "Deploy an Internet Gateway in every application VPC with public subnets" },
-      { id: 'D', text: "Configure VPC peering between all 20 application VPCs in a full mesh" }
+      { id: 'C', text: "Configure VPC peering between all 20 application VPCs in a full mesh" },
+      { id: 'D', text: "Connect the application VPCs to an AWS Transit Gateway (TGW). In the TGW route table for application VPCs, set the default route (0.0.0.0/0) to the Inspection VPC attachment. Route traffic within the Inspection VPC to the AWS Network Firewall endpoint, and from the firewall subnet to the NAT Gateway / Internet Gateway" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The centralized egress inspection architecture connects spoke VPCs via Transit Gateway. The spoke route table directs 0.0.0.0/0 to the inspection VPC attachment. Inside the inspection VPC, traffic enters through TGW attachment subnets, routes to Network Firewall endpoints for stateful inspection and domain filtering, passes through a NAT Gateway, and exits through the Internet Gateway.",
     referenceUrl: "https://docs.aws.amazon.com/security/",
@@ -219,12 +219,12 @@ export const AWS_SCS_QUESTIONS_4 = [
     scenario: "A compliance standard requires that production database instances must only connect to external update repositories on approved domain names (e.g. *.github.com, packages.microsoft.com). All other outbound internet connections must be dropped.",
     question: "Which AWS Network Firewall rule group type and configuration enforces this domain-based restriction?",
     options: [
-      { id: 'A', text: "An AWS WAF Web ACL attached to the private subnet route table" },
-      { id: 'B', text: "A VPC Network ACL with DNS domain names in rule entries" },
-      { id: 'C', text: "A stateless rule group with 5-tuple IP match rules" },
-      { id: 'D', text: "A stateful rule group configured with Domain List filtering, specifying allowed domain names, target type HTTP_HOST and TLS_SNI, and default action to Drop" }
+      { id: 'A', text: "A VPC Network ACL with DNS domain names in rule entries" },
+      { id: 'B', text: "A stateful rule group configured with Domain List filtering, specifying allowed domain names, target type HTTP_HOST and TLS_SNI, and default action to Drop" },
+      { id: 'C', text: "An AWS WAF Web ACL attached to the private subnet route table" },
+      { id: 'D', text: "A stateless rule group with 5-tuple IP match rules" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "AWS Network Firewall stateful rule groups support Domain List rules. The firewall inspects both the HTTP `Host` header and the TLS Server Name Indication (`SNI`) extension in the TLS ClientHello handshake. Setting the domain list to allow specific FQDNs and dropping all other destinations enforces strict outbound egress control.",
     referenceUrl: "https://docs.aws.amazon.com/security/",
@@ -241,11 +241,11 @@ export const AWS_SCS_QUESTIONS_4 = [
     question: "Which architecture provides secure, auditable terminal access to private EC2 instances without opening inbound firewall ports?",
     options: [
       { id: 'A', text: "Store all private SSH keys in an encrypted public S3 bucket" },
-      { id: 'B', text: "Open port 22 in the security group only for the corporate office public IP address" },
+      { id: 'B', text: "Install the AWS Systems Manager (SSM) Agent on private instances, assign an IAM role with <code>AmazonSSMManagedInstanceCore</code>, and access the instances via AWS Systems Manager Session Manager over HTTPS using private VPC endpoints" },
       { id: 'C', text: "Deploy an OpenVPN Access Server in a public subnet" },
-      { id: 'D', text: "Install the AWS Systems Manager (SSM) Agent on private instances, assign an IAM role with <code>AmazonSSMManagedInstanceCore</code>, and access the instances via AWS Systems Manager Session Manager over HTTPS using private VPC endpoints" }
+      { id: 'D', text: "Open port 22 in the security group only for the corporate office public IP address" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "AWS Systems Manager Session Manager provides secure remote instance management via the SSM Agent. The agent initiates outbound TLS connections (port 443) to the Systems Manager service, requiring zero inbound ports in Security Groups or Network ACLs. Access is authorized via IAM, and all terminal keystrokes and session logs can be encrypted with KMS and delivered to S3/CloudWatch.",
     referenceUrl: "https://docs.aws.amazon.com/security/",
@@ -283,9 +283,9 @@ export const AWS_SCS_QUESTIONS_4 = [
     question: "Which centralized AWS service enforces and auto-remediates security group rules across all member accounts in an organization?",
     options: [
       { id: 'A', text: "AWS Firewall Manager using a Common Security Group policy with automated remediation enabled" },
-      { id: 'B', text: "Amazon GuardDuty Runtime Monitoring" },
-      { id: 'C', text: "Deploying a Python cron script on an EC2 instance in the management account" },
-      { id: 'D', text: "AWS Shield Advanced applied to each member account" }
+      { id: 'B', text: "Deploying a Python cron script on an EC2 instance in the management account" },
+      { id: 'C', text: "AWS Shield Advanced applied to each member account" },
+      { id: 'D', text: "Amazon GuardDuty Runtime Monitoring" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -304,11 +304,11 @@ export const AWS_SCS_QUESTIONS_4 = [
     question: "Which security control enforces this boundary at the network layer?",
     options: [
       { id: 'A', text: "Use Network ACLs to block port 443" },
-      { id: 'B', text: "Attach an S3 bucket policy to the personal external buckets" },
-      { id: 'C', text: "Remove the S3 VPC Gateway Endpoint and route S3 traffic through an Internet Gateway" },
-      { id: 'D', text: "Attach a VPC Endpoint Policy to the S3 VPC Gateway Endpoint that allows S3 actions only when <code>aws:ResourceAccount</code> matches the corporate AWS account ID (or specific bucket ARNs)" }
+      { id: 'B', text: "Attach a VPC Endpoint Policy to the S3 VPC Gateway Endpoint that allows S3 actions only when <code>aws:ResourceAccount</code> matches the corporate AWS account ID (or specific bucket ARNs)" },
+      { id: 'C', text: "Attach an S3 bucket policy to the personal external buckets" },
+      { id: 'D', text: "Remove the S3 VPC Gateway Endpoint and route S3 traffic through an Internet Gateway" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "VPC Endpoint policies attach directly to VPC endpoints (Gateway or Interface endpoints). By restricting the `Resource` or using the `aws:ResourceAccount` / `aws:PrincipalOrgID` condition key, the endpoint will drop any requests targeting S3 buckets outside the corporate organization, preventing exfiltration to unauthorized accounts.",
     referenceUrl: "https://docs.aws.amazon.com/security/",
@@ -324,12 +324,12 @@ export const AWS_SCS_QUESTIONS_4 = [
     scenario: "A database instance in a private subnet must connect outbound to an external software repository on TCP port 443. The security group has an outbound rule allowing TCP 443 to 0.0.0.0/0, but the Network ACL denies all inbound traffic. Outbound connections are timing out.",
     question: "Why is the connection failing, and how should the Network ACL be updated?",
     options: [
-      { id: 'A', text: "Security groups are stateless; an inbound rule on port 443 must be added to the security group" },
+      { id: 'A', text: "The private subnet must be converted to a public subnet" },
       { id: 'B', text: "Network ACLs do not support TCP port 443" },
-      { id: 'C', text: "The private subnet must be converted to a public subnet" },
-      { id: 'D', text: "Network ACLs are stateless; an inbound rule allowing return traffic on ephemeral ports (TCP 1024-65535) from 0.0.0.0/0 must be added to the private subnet Network ACL" }
+      { id: 'C', text: "Network ACLs are stateless; an inbound rule allowing return traffic on ephemeral ports (TCP 1024-65535) from 0.0.0.0/0 must be added to the private subnet Network ACL" },
+      { id: 'D', text: "Security groups are stateless; an inbound rule on port 443 must be added to the security group" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Unlike Security Groups (which are stateful and automatically permit return traffic), Network ACLs are stateless. When an EC2 instance initiates an outbound connection on port 443, the remote server responds on a temporary ephemeral port (typically TCP 1024–65535). The subnet's Network ACL must have an inbound rule allowing return traffic on the ephemeral port range.",
     referenceUrl: "https://docs.aws.amazon.com/security/",
@@ -345,9 +345,9 @@ export const AWS_SCS_QUESTIONS_4 = [
     scenario: "A ticketing website is overwhelmed by automated scraping bots that enumerate seat availability and execute high-frequency HTTP requests, bypassing simple rate-limiting rules.",
     question: "Which AWS WAF managed rule group detects and blocks sophisticated bot signatures and scrapers?",
     options: [
-      { id: 'A', text: "AWS Managed Rules for SQL Database (AWSManagedRulesSQLiRuleSet)" },
-      { id: 'B', text: "AWS Managed Rules for Known Bad Inputs (AWSManagedRulesKnownBadInputsRuleSet)" },
-      { id: 'C', text: "AWS Managed Rules for Core Rule Set (AWSManagedRulesCommonRuleSet)" },
+      { id: 'A', text: "AWS Managed Rules for Core Rule Set (AWSManagedRulesCommonRuleSet)" },
+      { id: 'B', text: "AWS Managed Rules for SQL Database (AWSManagedRulesSQLiRuleSet)" },
+      { id: 'C', text: "AWS Managed Rules for Known Bad Inputs (AWSManagedRulesKnownBadInputsRuleSet)" },
       { id: 'D', text: "AWS Managed Rules for Bot Control (AWSManagedRulesBotControlRuleSet)" }
     ],
     correctAnswers: ['D'],
@@ -367,8 +367,8 @@ export const AWS_SCS_QUESTIONS_4 = [
     question: "How must the ALB listeners and security policies be configured?",
     options: [
       { id: 'A', text: "Create an HTTP listener on port 80 that redirects all requests to HTTPS port 443 with a 301 redirect, and attach the <code>ELBSecurityPolicy-TLS13-1-2-2021-06</code> security policy to the HTTPS port 443 listener" },
-      { id: 'B', text: "Deploy an AWS WAF rule that blocks HTTP requests" },
-      { id: 'C', text: "Attach an SSL certificate directly to the EC2 instances in private subnets" },
+      { id: 'B', text: "Attach an SSL certificate directly to the EC2 instances in private subnets" },
+      { id: 'C', text: "Deploy an AWS WAF rule that blocks HTTP requests" },
       { id: 'D', text: "Delete the port 80 listener and configure an IAM policy restricting TLS versions" }
     ],
     correctAnswers: ['A'],
@@ -408,12 +408,12 @@ export const AWS_SCS_QUESTIONS_4 = [
     scenario: "A global media company hosting their web application on Amazon CloudFront and ALB experiences a multi-gigabit Layer 7 distributed denial of service attack that escalates AWS auto-scaling costs significantly.",
     question: "Which features provided by AWS Shield Advanced protect the organization during this event?",
     options: [
-      { id: 'A', text: "Access to the 24/7 AWS Shield Response Team (SRT), automated application layer DDoS mitigation, and Cost Protection for Spike Coverage to credit charges incurred by DDoS scaling" },
-      { id: 'B', text: "Automatic deletion of all EC2 instances under high CPU utilization" },
-      { id: 'C', text: "Free SSL/TLS certificates with automated email renewal" },
-      { id: 'D', text: "Instant conversion of dynamic web applications into static S3 sites" }
+      { id: 'A', text: "Automatic deletion of all EC2 instances under high CPU utilization" },
+      { id: 'B', text: "Free SSL/TLS certificates with automated email renewal" },
+      { id: 'C', text: "Instant conversion of dynamic web applications into static S3 sites" },
+      { id: 'D', text: "Access to the 24/7 AWS Shield Response Team (SRT), automated application layer DDoS mitigation, and Cost Protection for Spike Coverage to credit charges incurred by DDoS scaling" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "AWS Shield Advanced provides enterprise DDoS protection. Key benefits include 24/7 engagement with the Shield Response Team (SRT), automated creation of custom AWS WAF mitigation rules against Layer 7 attacks, and Cost Protection for Spike Coverage (which refunds auto-scaling costs incurred due to DDoS attacks).",
     referenceUrl: "https://docs.aws.amazon.com/security/",
@@ -429,10 +429,10 @@ export const AWS_SCS_QUESTIONS_4 = [
     scenario: "An enterprise must ensure that all EC2 instances deployed across 30 development and production accounts originate from a hardened Amazon Linux 2023 AMI that complies with the CIS Level 1 Benchmark.",
     question: "Which AWS native pipeline automates the continuous building, testing, and distribution of hardened AMIs?",
     options: [
-      { id: 'A', text: "AWS Cloud9 integrated development environment" },
+      { id: 'A', text: "AWS CodeDeploy deploying bash scripts on running instances" },
       { id: 'B', text: "EC2 Image Builder with a CIS benchmark component recipe, automated validation tests, and distribution configuration sharing the AMI across AWS Organizations accounts" },
       { id: 'C', text: "Manual snapshotting of a single EC2 instance in the default VPC" },
-      { id: 'D', text: "AWS CodeDeploy deploying bash scripts on running instances" }
+      { id: 'D', text: "AWS Cloud9 integrated development environment" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -450,12 +450,12 @@ export const AWS_SCS_QUESTIONS_4 = [
     scenario: "An S3 bucket storing sensitive medical imaging files must be accessible only from applications running within a specific VPC. Requests originating from any other network, including other corporate VPCs or the public internet, must be rejected.",
     question: "Which condition block in the S3 bucket policy restricts access strictly to the VPC's Gateway Endpoint?",
     options: [
-      { id: 'A', text: "<code>\"Condition\": { \"IpAddress\": { \"aws:SourceIp\": \"10.0.0.0/16\" } }, \"Effect\": \"Allow\"</code>" },
-      { id: 'B', text: "<code>\"Condition\": { \"Bool\": { \"aws:SecureTransport\": \"false\" } }</code>" },
-      { id: 'C', text: "<code>\"Condition\": { \"StringEquals\": { \"aws:PrincipalArn\": \"*\" } }</code>" },
-      { id: 'D', text: "<code>\"Condition\": { \"StringNotEquals\": { \"aws:sourceVpce\": \"vpce-12345678\" } }, \"Effect\": \"Deny\"</code>" }
+      { id: 'A', text: "<code>\"Condition\": { \"StringNotEquals\": { \"aws:sourceVpce\": \"vpce-12345678\" } }, \"Effect\": \"Deny\"</code>" },
+      { id: 'B', text: "<code>\"Condition\": { \"StringEquals\": { \"aws:PrincipalArn\": \"*\" } }</code>" },
+      { id: 'C', text: "<code>\"Condition\": { \"IpAddress\": { \"aws:SourceIp\": \"10.0.0.0/16\" } }, \"Effect\": \"Allow\"</code>" },
+      { id: 'D', text: "<code>\"Condition\": { \"Bool\": { \"aws:SecureTransport\": \"false\" } }</code>" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "To restrict an S3 bucket strictly to a designated VPC endpoint, an explicit Deny policy is attached with the condition `StringNotEquals: { 'aws:sourceVpce': 'vpce-12345678' }`. Any request that does not traverse that specific endpoint ID is immediately denied.",
     referenceUrl: "https://docs.aws.amazon.com/security/",
@@ -492,12 +492,12 @@ export const AWS_SCS_QUESTIONS_4 = [
     scenario: "A company operating strictly in North America wants to block all web requests originating from outside the US and Canada, and also reject any request that does not include a proprietary authorization header (X-Custom-Auth).",
     question: "Which combination of AWS WAF rules enforces these requirements?",
     options: [
-      { id: 'A', text: "A Network ACL denying all IP addresses outside North America" },
-      { id: 'B', text: "A Route 53 latency routing policy that excludes European DNS queries" },
-      { id: 'C', text: "An ALB listener rule forwarding traffic to an on-premises proxy" },
-      { id: 'D', text: "A Web ACL with: 1. A geo match statement configured to Block requests if country code is not US or CA; 2. A size constraint or string match statement checking that the header <code>X-Custom-Auth</code> exists and contains the valid secret" }
+      { id: 'A', text: "An ALB listener rule forwarding traffic to an on-premises proxy" },
+      { id: 'B', text: "A Web ACL with: 1. A geo match statement configured to Block requests if country code is not US or CA; 2. A size constraint or string match statement checking that the header <code>X-Custom-Auth</code> exists and contains the valid secret" },
+      { id: 'C', text: "A Network ACL denying all IP addresses outside North America" },
+      { id: 'D', text: "A Route 53 latency routing policy that excludes European DNS queries" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "AWS WAF Web ACLs support geographic match statements (inspecting the client IP against MaxMind databases) to allow or block traffic by country code. Custom header rules inspect incoming HTTP headers, verifying the presence and value of custom authentication tokens.",
     referenceUrl: "https://docs.aws.amazon.com/security/",
@@ -514,11 +514,11 @@ export const AWS_SCS_QUESTIONS_4 = [
     question: "How do VPC Flow Logs capture traffic to the link-local metadata address?",
     options: [
       { id: 'A', text: "AWS WAF logs metadata traffic when attached to the private subnet" },
-      { id: 'B', text: "VPC Flow Logs automatically capture link-local packets with action ACCEPT" },
-      { id: 'C', text: "VPC Flow Logs do not capture link-local traffic (169.254.169.254); host-level monitoring (e.g. iptables, GuardDuty Runtime Monitoring, or osquery via SSM) must be used" },
-      { id: 'D', text: "Route 53 Resolver query logs record all link-local HTTP requests" }
+      { id: 'B', text: "Route 53 Resolver query logs record all link-local HTTP requests" },
+      { id: 'C', text: "VPC Flow Logs automatically capture link-local packets with action ACCEPT" },
+      { id: 'D', text: "VPC Flow Logs do not capture link-local traffic (169.254.169.254); host-level monitoring (e.g. iptables, GuardDuty Runtime Monitoring, or osquery via SSM) must be used" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "A critical AWS networking limitation: VPC Flow Logs do **not** capture traffic to the link-local address `169.254.169.254`, traffic to Amazon DNS (VPC base+2), or DHCP traffic. To detect probing of instance metadata or link-local endpoints, security teams must deploy in-guest monitoring (such as Amazon GuardDuty Runtime Monitoring, auditd, or iptables logging).",
     referenceUrl: "https://docs.aws.amazon.com/security/",

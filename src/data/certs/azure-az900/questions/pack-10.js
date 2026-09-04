@@ -9,12 +9,12 @@ export const AZURE_AZ900_QUESTIONS_10 = [
     scenario: "An enterprise policy mandates that no employee may deploy virtual machines outside of European Azure regions (West Europe and North Europe) to satisfy GDPR compliance.",
     question: "Which Azure governance tool should the administrator use to enforce this restriction?",
     options: [
-      { id: 'A', text: "Azure Virtual Network Gateway" },
-      { id: 'B', text: "Azure Front Door" },
-      { id: 'C', text: "Azure Policy with an 'Allowed locations' policy definition" },
-      { id: 'D', text: "Azure Cost Management alerts" }
+      { id: 'A', text: "Azure Front Door" },
+      { id: 'B', text: "Azure Virtual Network Gateway" },
+      { id: 'C', text: "Azure Cost Management alerts" },
+      { id: 'D', text: "Azure Policy with an 'Allowed locations' policy definition" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Azure Policy enforces organizational standards and assesses compliance at scale. Assigning the built-in 'Allowed locations' policy definition to a management group or subscription blocks any attempt to provision resources outside specified regions.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/policy/overview",
@@ -30,12 +30,12 @@ export const AZURE_AZ900_QUESTIONS_10 = [
     scenario: "An organization needs to enforce 30 distinct security policies required for PCI-DSS compliance across all production subscriptions.",
     question: "Rather than assigning 30 individual policies one by one, which Azure Policy feature should be used?",
     options: [
-      { id: 'A', text: "A Cost Budget" },
-      { id: 'B', text: "An Initiative (Policy Set Definition)" },
-      { id: 'C', text: "An Action Group" },
-      { id: 'D', text: "A Resource Lock" }
+      { id: 'A', text: "An Initiative (Policy Set Definition)" },
+      { id: 'B', text: "A Resource Lock" },
+      { id: 'C', text: "A Cost Budget" },
+      { id: 'D', text: "An Action Group" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "An Initiative (also known as a Policy Set definition) is a collection of individual policy definitions grouped together toward a single overarching goal (such as PCI-DSS or CIS benchmark compliance), simplifying management and tracking.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/policy/overview#initiative-definition",
@@ -51,12 +51,12 @@ export const AZURE_AZ900_QUESTIONS_10 = [
     scenario: "An enterprise IT organization is designing cloud architectures, governance standards, and operational policies on Microsoft Azure.",
     question: "An administrator creates a new policy requiring all storage accounts to enforce HTTPS traffic. What happens to existing storage accounts that currently allow HTTP?",
     options: [
-      { id: 'A', text: "Existing non-compliant storage accounts are deleted immediately" },
-      { id: 'B', text: "All subscription billing is suspended" },
-      { id: 'C', text: "Existing resources are marked as 'Non-compliant' in the compliance dashboard, and remediation tasks can be executed to bring them into compliance without breaking workloads" },
+      { id: 'A', text: "Existing resources are marked as 'Non-compliant' in the compliance dashboard, and remediation tasks can be executed to bring them into compliance without breaking workloads" },
+      { id: 'B', text: "Existing non-compliant storage accounts are deleted immediately" },
+      { id: 'C', text: "All subscription billing is suspended" },
       { id: 'D', text: "All data inside the storage accounts is erased" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Azure Policy evaluates existing resources without deleting them. Non-compliant resources are flagged in the Azure Policy compliance dashboard, and automated or manual remediation tasks can update their configuration to compliant states.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/policy/how-to/remediate-resources",
@@ -72,12 +72,12 @@ export const AZURE_AZ900_QUESTIONS_10 = [
     scenario: "An enterprise compliance officer needs to download official SOC 1, SOC 2, and ISO 27001 third-party audit reports proving Microsoft Azure's regulatory compliance.",
     question: "Where does Microsoft provide on-demand access to independent audit reports and compliance documentation?",
     options: [
-      { id: 'A', text: "Public news websites" },
-      { id: 'B', text: "Azure Cloud Shell" },
-      { id: 'C', text: "The Azure Pricing Calculator" },
-      { id: 'D', text: "Microsoft Service Trust Portal" }
+      { id: 'A', text: "Azure Cloud Shell" },
+      { id: 'B', text: "Public news websites" },
+      { id: 'C', text: "Microsoft Service Trust Portal" },
+      { id: 'D', text: "The Azure Pricing Calculator" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "The Microsoft Service Trust Portal is the public portal where customers can access and download official third-party audit reports (SOC, ISO, FedRAMP, PCI-DSS), compliance guides, and security whitepapers for Microsoft cloud services.",
     referenceUrl: "https://learn.microsoft.com/en-us/compliance/regulatory/offering-home",
@@ -93,12 +93,12 @@ export const AZURE_AZ900_QUESTIONS_10 = [
     scenario: "An enterprise IT organization is designing cloud architectures, governance standards, and operational policies on Microsoft Azure.",
     question: "Where in the Azure portal can a finance manager view interactive cost charts, filter spending by tags, and analyze monthly invoice breakdown reports?",
     options: [
-      { id: 'A', text: "Azure Sentinel" },
-      { id: 'B', text: "Azure Network Watcher" },
+      { id: 'A', text: "Azure Network Watcher" },
+      { id: 'B', text: "Microsoft Cost Management + Billing" },
       { id: 'C', text: "Azure Service Health" },
-      { id: 'D', text: "Microsoft Cost Management + Billing" }
+      { id: 'D', text: "Azure Sentinel" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Microsoft Cost Management + Billing provides comprehensive cost analysis dashboards to visualize historical expenditure, group spending by tags and resource groups, track budgets, and manage enterprise billing profiles.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/quick-acm-cost-analysis",
@@ -114,12 +114,12 @@ export const AZURE_AZ900_QUESTIONS_10 = [
     scenario: "An enterprise IT organization is designing cloud architectures, governance standards, and operational policies on Microsoft Azure.",
     question: "How does Microsoft Azure bill for network data transfer between Azure datacenters and the public internet?",
     options: [
-      { id: 'A', text: "Network data transfer is billed based on cable length" },
-      { id: 'B', text: "All network data transfer is 100% free of charge" },
-      { id: 'C', text: "Inbound data transfer is billed at $1 per gigabyte; Outbound data transfer is completely free" },
-      { id: 'D', text: "Inbound data transfer into Azure is free; Outbound data transfer (egress) from Azure to the internet is billed per gigabyte" }
+      { id: 'A', text: "Inbound data transfer is billed at $1 per gigabyte; Outbound data transfer is completely free" },
+      { id: 'B', text: "Inbound data transfer into Azure is free; Outbound data transfer (egress) from Azure to the internet is billed per gigabyte" },
+      { id: 'C', text: "All network data transfer is 100% free of charge" },
+      { id: 'D', text: "Network data transfer is billed based on cable length" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Across virtually all public clouds, inbound data transfer (ingress) into Azure datacenters is free of charge. Outbound data transfer (egress) leaving Azure to the internet is billed per gigabyte based on volume pricing tiers.",
     referenceUrl: "https://azure.microsoft.com/en-us/pricing/details/bandwidth/",
@@ -135,12 +135,12 @@ export const AZURE_AZ900_QUESTIONS_10 = [
     scenario: "An enterprise IT organization is designing cloud architectures, governance standards, and operational policies on Microsoft Azure.",
     question: "An architect compares two identical Virtual Machines deployed in East US versus Switzerland North. Why is the monthly cost different between the two regions?",
     options: [
-      { id: 'A', text: "Cloud resource pricing varies by geography based on local datacenter construction costs, electricity rates, taxes, and hardware availability" },
+      { id: 'A', text: "Microsoft changes prices based on customer currency exchange rates randomly" },
       { id: 'B', text: "Prices are legally required to double outside North America" },
-      { id: 'C', text: "All Azure regions charge identical prices worldwide" },
-      { id: 'D', text: "Microsoft changes prices based on customer currency exchange rates randomly" }
+      { id: 'C', text: "Cloud resource pricing varies by geography based on local datacenter construction costs, electricity rates, taxes, and hardware availability" },
+      { id: 'D', text: "All Azure regions charge identical prices worldwide" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Azure pricing reflects real-world infrastructure operational costs: local power, real estate, hardware procurement, and regulatory overhead vary by region, causing identical VM sizes to carry slightly different price tags across regions.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/plan-manage-costs#cost-factors",
@@ -157,9 +157,9 @@ export const AZURE_AZ900_QUESTIONS_10 = [
     question: "A student signs up for an Azure Free Account. How does the default 'Spending Limit' feature protect the student from unexpected credit card charges?",
     options: [
       { id: 'A', text: "It pauses and deallocates compute resources automatically as soon as the included free monthly credit ($200) is exhausted, preventing any unexpected charges" },
-      { id: 'B', text: "It deletes all student files permanently" },
-      { id: 'C', text: "It reduces virtual machine screen resolution" },
-      { id: 'D', text: "It cancels the student's credit card immediately" }
+      { id: 'B', text: "It reduces virtual machine screen resolution" },
+      { id: 'C', text: "It cancels the student's credit card immediately" },
+      { id: 'D', text: "It deletes all student files permanently" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -177,12 +177,12 @@ export const AZURE_AZ900_QUESTIONS_10 = [
     scenario: "An enterprise IT organization is designing cloud architectures, governance standards, and operational policies on Microsoft Azure.",
     question: "An administrator assigns the 'Contributor' role to an engineer at the Management Group level. What permissions does the engineer have on subscriptions and resource groups within that hierarchy?",
     options: [
-      { id: 'A', text: "The engineer only has Reader access" },
-      { id: 'B', text: "Permissions are blocked by default unless re-assigned at every level" },
-      { id: 'C', text: "The Contributor role inherits downwards: the engineer automatically has Contributor permissions on all subscriptions, resource groups, and resources within that Management Group" },
+      { id: 'A', text: "The Contributor role inherits downwards: the engineer automatically has Contributor permissions on all subscriptions, resource groups, and resources within that Management Group" },
+      { id: 'B', text: "The engineer only has Reader access" },
+      { id: 'C', text: "Permissions are blocked by default unless re-assigned at every level" },
       { id: 'D', text: "The engineer has Contributor access only to the Management Group itself" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Azure RBAC supports hierarchical scope inheritance: Management Group → Subscription → Resource Group → Resource. Permissions granted at a parent scope automatically cascade down to all child containers.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/role-based-access-control/scope-overview",
@@ -199,11 +199,11 @@ export const AZURE_AZ900_QUESTIONS_10 = [
     question: "Which Policy effect should be specified in the policy rule?",
     options: [
       { id: 'A', text: "Audit" },
-      { id: 'B', text: "AuditIfNotExists" },
-      { id: 'C', text: "Deny" },
+      { id: 'B', text: "Deny" },
+      { id: 'C', text: "AuditIfNotExists" },
       { id: 'D', text: "Disabled" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "The `Deny` policy effect blocks the ARM deployment request immediately before the resource is created, returning a failure error to the caller. The `Audit` effect allows the deployment to succeed but logs a compliance warning.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects#deny",
@@ -219,12 +219,12 @@ export const AZURE_AZ900_QUESTIONS_10 = [
     scenario: "What is the Microsoft Cloud Adoption Framework (CAF) for Azure?",
     question: "Which statement best describes the Cloud Adoption Framework?",
     options: [
-      { id: 'A', text: "A pricing model for purchasing hardware" },
-      { id: 'B', text: "A legal contract between Microsoft and local governments" },
-      { id: 'C', text: "A proprietary software tool that must be installed on servers" },
-      { id: 'D', text: "A comprehensive collection of documentation, guidance, best practices, and tools designed to help organizations create and implement business and technology strategies for cloud adoption" }
+      { id: 'A', text: "A proprietary software tool that must be installed on servers" },
+      { id: 'B', text: "A comprehensive collection of documentation, guidance, best practices, and tools designed to help organizations create and implement business and technology strategies for cloud adoption" },
+      { id: 'C', text: "A pricing model for purchasing hardware" },
+      { id: 'D', text: "A legal contract between Microsoft and local governments" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "The Microsoft Cloud Adoption Framework (CAF) for Azure provides guidance, best practices, architectural documentation, and governance frameworks to guide organizations through strategy, plan, ready, adopt, govern, and manage phases.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/overview",
@@ -240,12 +240,12 @@ export const AZURE_AZ900_QUESTIONS_10 = [
     scenario: "An enterprise IT organization is designing cloud architectures, governance standards, and operational policies on Microsoft Azure.",
     question: "Which set of pillars forms the foundation of the Microsoft Azure Well-Architected Framework?",
     options: [
-      { id: 'A', text: "Windows, Linux, Docker, Kubernetes, and Terraform" },
+      { id: 'A', text: "Cost Optimization, Operational Excellence, Performance Efficiency, Reliability, and Security" },
       { id: 'B', text: "Compute, Storage, Networking, Databases, and Monitoring" },
-      { id: 'C', text: "Cost Optimization, Operational Excellence, Performance Efficiency, Reliability, and Security" },
+      { id: 'C', text: "Windows, Linux, Docker, Kubernetes, and Terraform" },
       { id: 'D', text: "Plan, Develop, Deliver, Operate, and Deprecate" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The Azure Well-Architected Framework is anchored on five core pillars: Reliability (resilience), Security, Cost Optimization (ROI), Operational Excellence, and Performance Efficiency.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/well-architected/pillars",
@@ -261,12 +261,12 @@ export const AZURE_AZ900_QUESTIONS_10 = [
     scenario: "An enterprise IT organization is designing cloud architectures, governance standards, and operational policies on Microsoft Azure.",
     question: "An administrator tags a Resource Group with `Department=Finance`. Are resources subsequently created inside that Resource Group automatically tagged with `Department=Finance` by default?",
     options: [
-      { id: 'A', text: "No, tags applied to a resource group are not inherited by resources inside that resource group by default; an Azure Policy must be used to enforce tag inheritance" },
+      { id: 'A', text: "Tags can only be applied to subscriptions" },
       { id: 'B', text: "Yes, tags inherit automatically down to all child resources" },
       { id: 'C', text: "Tags are deleted upon resource creation" },
-      { id: 'D', text: "Tags can only be applied to subscriptions" }
+      { id: 'D', text: "No, tags applied to a resource group are not inherited by resources inside that resource group by default; an Azure Policy must be used to enforce tag inheritance" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "In Azure, tags applied to a resource group or subscription do NOT automatically inherit down to contained resources. Organizations must use Azure Policy (with `Modify` or `Append` effects) to automate tag inheritance.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources#tag-inheritance",
@@ -282,12 +282,12 @@ export const AZURE_AZ900_QUESTIONS_10 = [
     scenario: "An engineer needs to write a query analyzing web server error logs stored in Azure Monitor to find the top 5 most common HTTP 500 error paths.",
     question: "Which query language is used to interrogate Log Analytics workspaces in Azure Monitor?",
     options: [
-      { id: 'A', text: "Bash" },
+      { id: 'A', text: "SQL (Structured Query Language)" },
       { id: 'B', text: "GraphQL" },
-      { id: 'C', text: "KQL (Kusto Query Language)" },
-      { id: 'D', text: "SQL (Structured Query Language)" }
+      { id: 'C', text: "Bash" },
+      { id: 'D', text: "KQL (Kusto Query Language)" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Azure Monitor Log Analytics workspaces use Kusto Query Language (KQL)—a powerful, expressive language optimized for querying structured and semi-structured time-series telemetry data.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-overview",
@@ -303,12 +303,12 @@ export const AZURE_AZ900_QUESTIONS_10 = [
     scenario: "An enterprise IT organization is designing cloud architectures, governance standards, and operational policies on Microsoft Azure.",
     question: "An administrator configures an alert rule in Azure Monitor that triggers when CPU utilization exceeds 90%. How can Azure automatically send an SMS, an email, and trigger a runbook simultaneously?",
     options: [
-      { id: 'A', text: "By sending manual emails from the portal" },
-      { id: 'B', text: "By writing a C# program on the virtual machine" },
-      { id: 'C', text: "By attaching an Azure Action Group to the alert rule" },
+      { id: 'A', text: "By attaching an Azure Action Group to the alert rule" },
+      { id: 'B', text: "By sending manual emails from the portal" },
+      { id: 'C', text: "By writing a C# program on the virtual machine" },
       { id: 'D', text: "By deleting the alert rule" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "An Azure Action Group is a collection of notification preferences and automated actions defined by a subscription owner. When an alert rule fires, it invokes the Action Group, triggering emails, SMS, webhooks, or automation runbooks.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/action-groups",
@@ -324,8 +324,8 @@ export const AZURE_AZ900_QUESTIONS_10 = [
     scenario: "A network engineer needs to test whether a virtual machine can establish a TCP connection to an internal database server on port 1433 and diagnose which security rule is blocking traffic.",
     question: "Which Azure Network Watcher tool performs this verification?",
     options: [
-      { id: 'A', text: "Azure Front Door" },
-      { id: 'B', text: "Azure ExpressRoute" },
+      { id: 'A', text: "Azure ExpressRoute" },
+      { id: 'B', text: "Azure Front Door" },
       { id: 'C', text: "IP flow verify / Connection troubleshoot" },
       { id: 'D', text: "Azure DNS Private Resolver" }
     ],
@@ -345,10 +345,10 @@ export const AZURE_AZ900_QUESTIONS_10 = [
     scenario: "A developer attempts to launch 50 new virtual machines in East US but the deployment fails stating that the regional vCPU quota has been exceeded.",
     question: "How can the organization increase its regional vCPU service quota?",
     options: [
-      { id: 'A', text: "Purchase a physical server and ship it to Microsoft" },
+      { id: 'A', text: "Create a brand new Azure user account" },
       { id: 'B', text: "Submit an online Quota Increase request directly through the Azure portal or Azure Support; standard quota increases are approved automatically at zero cost" },
       { id: 'C', text: "Quotas are permanent hard physical limits that cannot be changed" },
-      { id: 'D', text: "Create a brand new Azure user account" }
+      { id: 'D', text: "Purchase a physical server and ship it to Microsoft" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -366,12 +366,12 @@ export const AZURE_AZ900_QUESTIONS_10 = [
     scenario: "A company is deploying production workloads to Azure and requires 24/7 technical phone and email support with a guaranteed response time under 1 hour for business-critical system down issues.",
     question: "Which minimum Azure Support plan satisfies this production SLA?",
     options: [
-      { id: 'A', text: "Developer Support" },
-      { id: 'B', text: "Standard Support" },
-      { id: 'C', text: "Community forum support" },
+      { id: 'A', text: "Standard Support" },
+      { id: 'B', text: "Community forum support" },
+      { id: 'C', text: "Developer Support" },
       { id: 'D', text: "Basic Support (free)" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The `Standard` support plan is the minimum tier intended for production workloads, providing 24/7 phone and email technical support with response times under 1 hour for Severity A (critical system down) issues. `Developer` only covers business hours.",
     referenceUrl: "https://azure.microsoft.com/en-us/support/plans/",
@@ -387,12 +387,12 @@ export const AZURE_AZ900_QUESTIONS_10 = [
     scenario: "An enterprise IT organization is designing cloud architectures, governance standards, and operational policies on Microsoft Azure.",
     question: "Which highest support tier provides dedicated Technical Account Managers (Customer Success Account Managers / CSAM) and proactive architectural advisory reviews?",
     options: [
-      { id: 'A', text: "Developer Support" },
-      { id: 'B', text: "Basic Support" },
-      { id: 'C', text: "Pay-as-you-go support" },
-      { id: 'D', text: "Microsoft Unified / Premier Enterprise Support" }
+      { id: 'A', text: "Microsoft Unified / Premier Enterprise Support" },
+      { id: 'B', text: "Pay-as-you-go support" },
+      { id: 'C', text: "Developer Support" },
+      { id: 'D', text: "Basic Support" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Microsoft Unified Enterprise Support delivers comprehensive enterprise coverage: dedicated CSAMs, 15-minute response times for critical outages, proactive architectural reviews, and prioritized escalation paths across all Microsoft technologies.",
     referenceUrl: "https://www.microsoft.com/en-us/unifiedsupport",
@@ -408,12 +408,12 @@ export const AZURE_AZ900_QUESTIONS_10 = [
     scenario: "An enterprise IT organization is designing cloud architectures, governance standards, and operational policies on Microsoft Azure.",
     question: "How does Microsoft guarantee that customer data stored in European Azure regions is treated under EU data protection regulations (GDPR)?",
     options: [
-      { id: 'A', text: "By enforcing the EU Data Boundary and contractual commitments declared in the Microsoft Privacy Statement and Online Services Terms" },
-      { id: 'B', text: "By transferring all data to US datacenters" },
-      { id: 'C', text: "By converting all data to publicly readable formats" },
-      { id: 'D', text: "By deleting customer databases once a week" }
+      { id: 'A', text: "By transferring all data to US datacenters" },
+      { id: 'B', text: "By deleting customer databases once a week" },
+      { id: 'C', text: "By enforcing the EU Data Boundary and contractual commitments declared in the Microsoft Privacy Statement and Online Services Terms" },
+      { id: 'D', text: "By converting all data to publicly readable formats" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Through the EU Data Boundary and official Microsoft Cloud contractual commitments, Microsoft commits to processing and storing European customer data exclusively within EU datacenters in full compliance with GDPR mandates.",
     referenceUrl: "https://privacy.microsoft.com/en-us/privacystatement",
@@ -450,9 +450,9 @@ export const AZURE_AZ900_QUESTIONS_10 = [
     scenario: "An enterprise has shared infrastructure costs (like centralized security firewalls and ExpressRoute circuits) that need to be proportionally allocated to individual department subscriptions.",
     question: "Which feature in Microsoft Cost Management distributes shared costs across subscriptions without moving resources?",
     options: [
-      { id: 'A', text: "Resource group locks" },
-      { id: 'B', text: "Azure DNS routing" },
-      { id: 'C', text: "Network peering" },
+      { id: 'A', text: "Network peering" },
+      { id: 'B', text: "Resource group locks" },
+      { id: 'C', text: "Azure DNS routing" },
       { id: 'D', text: "Cost Allocation Rules" }
     ],
     correctAnswers: ['D'],
@@ -471,12 +471,12 @@ export const AZURE_AZ900_QUESTIONS_10 = [
     scenario: "An enterprise IT organization is designing cloud architectures, governance standards, and operational policies on Microsoft Azure.",
     question: "An administrator needs to grant 50 members of the QA department access to a set of testing virtual machines. What is the recommended management practice?",
     options: [
-      { id: 'A', text: "Create a security group in Microsoft Entra ID, add the 50 users as members, and assign the RBAC role to the group" },
-      { id: 'B', text: "Share a single username and password among all 50 QA testers" },
-      { id: 'C', text: "Assign the RBAC role individually to all 50 separate user accounts" },
-      { id: 'D', text: "Make all 50 testers subscription Owners" }
+      { id: 'A', text: "Share a single username and password among all 50 QA testers" },
+      { id: 'B', text: "Make all 50 testers subscription Owners" },
+      { id: 'C', text: "Create a security group in Microsoft Entra ID, add the 50 users as members, and assign the RBAC role to the group" },
+      { id: 'D', text: "Assign the RBAC role individually to all 50 separate user accounts" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Best practice manages permissions through groups: creating a security group in Microsoft Entra ID and assigning the role to the group simplifies onboarding and offboarding, ensuring permissions inherit cleanly.",
     referenceUrl: "https://learn.microsoft.com/en-us/entra/fundamentals/concept-learn-about-groups",
@@ -492,12 +492,12 @@ export const AZURE_AZ900_QUESTIONS_10 = [
     scenario: "An enterprise IT organization is designing cloud architectures, governance standards, and operational policies on Microsoft Azure.",
     question: "Which underlying service processes all management operations regardless of whether an engineer uses the Azure Portal, CLI, PowerShell, or ARM templates?",
     options: [
-      { id: 'A', text: "Azure Resource Manager (ARM)" },
-      { id: 'B', text: "Azure Active Directory Domain Services" },
-      { id: 'C', text: "Azure Front Door" },
-      { id: 'D', text: "Azure ExpressRoute" }
+      { id: 'A', text: "Azure Active Directory Domain Services" },
+      { id: 'B', text: "Azure ExpressRoute" },
+      { id: 'C', text: "Azure Resource Manager (ARM)" },
+      { id: 'D', text: "Azure Front Door" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Azure Resource Manager (ARM) is the single consistent management layer. All tools (Portal, Azure CLI, Azure PowerShell, REST API, Bicep) send requests to the ARM endpoint, which authenticates via Entra ID and enforces RBAC and Azure Policies.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview",
@@ -513,12 +513,12 @@ export const AZURE_AZ900_QUESTIONS_10 = [
     scenario: "An enterprise IT organization is designing cloud architectures, governance standards, and operational policies on Microsoft Azure.",
     question: "What core summary statement captures the strategic business value of migrating infrastructure to Microsoft Azure?",
     options: [
-      { id: 'A', text: "It enables organizations to shift from maintaining physical hardware to focusing on business innovation, providing global scalability, high availability, and operational agility on a pay-as-you-go model" },
+      { id: 'A', text: "It eliminates all financial costs permanently" },
       { id: 'B', text: "It replaces software engineers with cloud algorithms" },
-      { id: 'C', text: "It forces all companies to use identical software configurations" },
-      { id: 'D', text: "It eliminates all financial costs permanently" }
+      { id: 'C', text: "It enables organizations to shift from maintaining physical hardware to focusing on business innovation, providing global scalability, high availability, and operational agility on a pay-as-you-go model" },
+      { id: 'D', text: "It forces all companies to use identical software configurations" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Cloud computing on Microsoft Azure eliminates the undifferentiated heavy lifting of managing physical datacenters, empowering organizations to scale globally, achieve high availability, innovate rapidly, and optimize costs through consumption-based pricing.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/strategy/business-outcomes/",

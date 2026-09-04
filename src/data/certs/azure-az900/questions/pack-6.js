@@ -9,12 +9,12 @@ export const AZURE_AZ900_QUESTIONS_6 = [
     scenario: "What capability does Azure DNS provide for domain owners?",
     question: "Which statement accurately describes Azure DNS?",
     options: [
-      { id: 'A', text: "It generates SSL certificates automatically" },
-      { id: 'B', text: "It provides domain registration and purchases top-level domains" },
-      { id: 'C', text: "It acts as a physical router inside client offices" },
-      { id: 'D', text: "It is a hosting service for DNS domains that provides name resolution using global Microsoft infrastructure" }
+      { id: 'A', text: "It provides domain registration and purchases top-level domains" },
+      { id: 'B', text: "It generates SSL certificates automatically" },
+      { id: 'C', text: "It is a hosting service for DNS domains that provides name resolution using global Microsoft infrastructure" },
+      { id: 'D', text: "It acts as a physical router inside client offices" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Azure DNS is a hosting service for DNS domains, resolving domain queries with high availability and fast response times using Microsoft's global anycast DNS infrastructure.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/dns/dns-overview",
@@ -30,12 +30,12 @@ export const AZURE_AZ900_QUESTIONS_6 = [
     scenario: "An administrator wants to block all inbound HTTP traffic on port 80 to a subnet containing database virtual machines while permitting inbound traffic on port 1433 from an application subnet.",
     question: "Which Azure networking feature filters traffic at the subnet and network interface level using 5-tuple security rules?",
     options: [
-      { id: 'A', text: "Network Security Groups (NSGs)" },
-      { id: 'B', text: "Azure Front Door" },
-      { id: 'C', text: "Azure DNS Private Zones" },
-      { id: 'D', text: "Azure Traffic Manager" }
+      { id: 'A', text: "Azure Front Door" },
+      { id: 'B', text: "Network Security Groups (NSGs)" },
+      { id: 'C', text: "Azure Traffic Manager" },
+      { id: 'D', text: "Azure DNS Private Zones" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Network Security Groups (NSGs) filter network traffic to and from Azure resources in a VNet using 5-tuple rules (source, source port, destination, destination port, protocol), evaluating priority numbers to allow or deny traffic.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview",
@@ -51,12 +51,12 @@ export const AZURE_AZ900_QUESTIONS_6 = [
     scenario: "An engineer wants to write NSG rules that reference logical application tiers (e.g. 'WebServers', 'DatabaseServers') without managing individual static IP addresses.",
     question: "Which Azure networking feature enables grouping virtual network interfaces into logical application tags?",
     options: [
-      { id: 'A', text: "Local Network Gateways" },
-      { id: 'B', text: "Virtual Network NAT" },
-      { id: 'C', text: "Route Tables" },
-      { id: 'D', text: "Application Security Groups (ASGs)" }
+      { id: 'A', text: "Route Tables" },
+      { id: 'B', text: "Local Network Gateways" },
+      { id: 'C', text: "Application Security Groups (ASGs)" },
+      { id: 'D', text: "Virtual Network NAT" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Application Security Groups (ASGs) allow administrators to group virtual machines and network interfaces logically into application roles, enabling simplified, reusable NSG rules based on application semantics rather than static IPs.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-network/application-security-groups",
@@ -72,10 +72,10 @@ export const AZURE_AZ900_QUESTIONS_6 = [
     scenario: "A security policy prohibits virtual machines from having public IP addresses and forbids exposing open RDP (port 3389) or SSH (port 22) ports to the internet.",
     question: "Which managed service allows administrators to connect securely to private VMs via RDP/SSH directly inside an HTML5 web browser?",
     options: [
-      { id: 'A', text: "Azure Application Gateway" },
+      { id: 'A', text: "Azure Load Balancer" },
       { id: 'B', text: "Azure Bastion" },
-      { id: 'C', text: "Azure ExpressRoute" },
-      { id: 'D', text: "Azure Load Balancer" }
+      { id: 'C', text: "Azure Application Gateway" },
+      { id: 'D', text: "Azure ExpressRoute" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -93,12 +93,12 @@ export const AZURE_AZ900_QUESTIONS_6 = [
     scenario: "An enterprise needs a centralized, stateful network firewall with built-in high availability, threat intelligence filtering, and fully qualified domain name (FQDN) filtering across all VNets.",
     question: "Which Azure service provides these centralized perimeter firewall capabilities?",
     options: [
-      { id: 'A', text: "Azure DDoS Protection" },
-      { id: 'B', text: "Azure Firewall" },
-      { id: 'C', text: "Azure DNS" },
-      { id: 'D', text: "Network Security Groups (NSGs)" }
+      { id: 'A', text: "Network Security Groups (NSGs)" },
+      { id: 'B', text: "Azure DNS" },
+      { id: 'C', text: "Azure DDoS Protection" },
+      { id: 'D', text: "Azure Firewall" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Azure Firewall is a managed, cloud-based network security service that protects Azure Virtual Network resources. It is a fully stateful firewall with built-in high availability, unrestricted cloud scalability, and threat intelligence filtering.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/firewall/overview",
@@ -114,12 +114,12 @@ export const AZURE_AZ900_QUESTIONS_6 = [
     scenario: "An enterprise IT organization is designing cloud architectures, governance standards, and operational policies on Microsoft Azure.",
     question: "How does Azure protect all cloud resources against volumetric distributed denial-of-service (DDoS) infrastructure attacks by default?",
     options: [
-      { id: 'A', text: "By converting all web traffic to email messages" },
-      { id: 'B', text: "By charging customers extra for every blocked packet" },
-      { id: 'C', text: "Through default infrastructure-level DDoS protection enabled automatically at no additional cost for all Azure customers" },
-      { id: 'D', text: "By shutting down all virtual machines during attacks" }
+      { id: 'A', text: "Through default infrastructure-level DDoS protection enabled automatically at no additional cost for all Azure customers" },
+      { id: 'B', text: "By shutting down all virtual machines during attacks" },
+      { id: 'C', text: "By converting all web traffic to email messages" },
+      { id: 'D', text: "By charging customers extra for every blocked packet" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Azure provides infrastructure-level DDoS protection enabled automatically at no cost across the entire platform, defending against common Layer 3 and Layer 4 volumetric flood attacks.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/ddos-protection/ddos-protection-overview",
@@ -135,10 +135,10 @@ export const AZURE_AZ900_QUESTIONS_6 = [
     scenario: "An organization requires that data stored in an Azure Storage account is replicated synchronously across three distinct Availability Zones within the primary region.",
     question: "Which redundancy tier must be configured?",
     options: [
-      { id: 'A', text: "Geo-redundant storage (GRS)" },
+      { id: 'A', text: "Read-access geo-redundant storage (RA-GRS)" },
       { id: 'B', text: "Locally redundant storage (LRS)" },
       { id: 'C', text: "Zone-redundant storage (ZRS)" },
-      { id: 'D', text: "Read-access geo-redundant storage (RA-GRS)" }
+      { id: 'D', text: "Geo-redundant storage (GRS)" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -156,12 +156,12 @@ export const AZURE_AZ900_QUESTIONS_6 = [
     scenario: "A developer selects Locally Redundant Storage (LRS) for temporary test data.",
     question: "How many copies of data does LRS maintain within a single datacenter in the primary region?",
     options: [
-      { id: 'A', text: "Twelve copies" },
-      { id: 'B', text: "One single copy" },
-      { id: 'C', text: "Three copies" },
-      { id: 'D', text: "Six copies" }
+      { id: 'A', text: "Six copies" },
+      { id: 'B', text: "Twelve copies" },
+      { id: 'C', text: "One single copy" },
+      { id: 'D', text: "Three copies" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Locally redundant storage (LRS) replicates data three times within a single physical datacenter in the primary region, providing at least 99.999999999% (11 nines) of durability over a given year.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/common/storage-redundancy#locally-redundant-storage",
@@ -177,12 +177,12 @@ export const AZURE_AZ900_QUESTIONS_6 = [
     scenario: "An architect configures Geo-Redundant Storage (GRS) for critical long-term enterprise backups.",
     question: "How many total copies of data are stored across the primary and secondary paired regions in GRS?",
     options: [
-      { id: 'A', text: "Two copies in the primary region and two in the secondary" },
-      { id: 'B', text: "Three copies in the primary region and three copies in the secondary paired region (six total copies)" },
-      { id: 'C', text: "Ten copies across cloud providers" },
-      { id: 'D', text: "One copy in each global region" }
+      { id: 'A', text: "One copy in each global region" },
+      { id: 'B', text: "Ten copies across cloud providers" },
+      { id: 'C', text: "Two copies in the primary region and two in the secondary" },
+      { id: 'D', text: "Three copies in the primary region and three copies in the secondary paired region (six total copies)" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Geo-redundant storage (GRS) copies data synchronously three times within a single physical location in the primary region using LRS, then replicates data asynchronously to a physical location in a secondary paired region (yielding six total copies).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/common/storage-redundancy#geo-redundant-storage",
@@ -240,12 +240,12 @@ export const AZURE_AZ900_QUESTIONS_6 = [
     scenario: "A high-throughput gaming service requires ultra-low latency load balancing across 20 virtual machines at the network and transport layer (TCP and UDP).",
     question: "Which Azure load balancer operates at Layer 4 of the OSI model?",
     options: [
-      { id: 'A', text: "Azure Load Balancer" },
-      { id: 'B', text: "Azure Application Gateway" },
-      { id: 'C', text: "Azure Traffic Manager" },
-      { id: 'D', text: "Azure Front Door" }
+      { id: 'A', text: "Azure Traffic Manager" },
+      { id: 'B', text: "Azure Front Door" },
+      { id: 'C', text: "Azure Load Balancer" },
+      { id: 'D', text: "Azure Application Gateway" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Azure Load Balancer is an ultra-low latency Layer 4 load balancer that distributes incoming network traffic across backend VM instances based on configured 5-tuple hash rules for TCP and UDP traffic.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/load-balancer/load-balancer-overview",
@@ -261,12 +261,12 @@ export const AZURE_AZ900_QUESTIONS_6 = [
     scenario: "An e-commerce website requires URL path-based routing (e.g. routing `/images/*` to image servers and `/checkout/*` to payment servers) and SSL termination.",
     question: "Which Azure load balancing solution operates at Layer 7 (HTTP/HTTPS)?",
     options: [
-      { id: 'A', text: "Azure Load Balancer" },
+      { id: 'A', text: "Azure Application Gateway" },
       { id: 'B', text: "Azure ExpressRoute" },
-      { id: 'C', text: "Azure Application Gateway" },
-      { id: 'D', text: "Azure Network Security Group" }
+      { id: 'C', text: "Azure Network Security Group" },
+      { id: 'D', text: "Azure Load Balancer" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Azure Application Gateway is a Layer 7 web traffic load balancer that enables URL path-based routing, cookie-based session affinity, SSL termination, and integrated Web Application Firewall (WAF) protection.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/application-gateway/overview",
@@ -282,10 +282,10 @@ export const AZURE_AZ900_QUESTIONS_6 = [
     scenario: "A multinational enterprise needs a global web entry point that combines Anycast network acceleration, global HTTP load balancing across multi-region backends, and SSL offloading.",
     question: "Which Azure service provides global Layer 7 content delivery and security acceleration?",
     options: [
-      { id: 'A', text: "Azure Load Balancer" },
+      { id: 'A', text: "Azure VPN Gateway" },
       { id: 'B', text: "Azure Traffic Manager" },
       { id: 'C', text: "Azure Front Door" },
-      { id: 'D', text: "Azure VPN Gateway" }
+      { id: 'D', text: "Azure Load Balancer" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -303,12 +303,12 @@ export const AZURE_AZ900_QUESTIONS_6 = [
     scenario: "A global application uses DNS resolution to route users to the nearest regional datacenter offering the lowest network latency.",
     question: "Which Azure service operates as a DNS-based traffic distributor?",
     options: [
-      { id: 'A', text: "Azure Traffic Manager" },
-      { id: 'B', text: "Azure Front Door" },
-      { id: 'C', text: "Azure Application Gateway" },
-      { id: 'D', text: "Azure ExpressRoute" }
+      { id: 'A', text: "Azure ExpressRoute" },
+      { id: 'B', text: "Azure Application Gateway" },
+      { id: 'C', text: "Azure Front Door" },
+      { id: 'D', text: "Azure Traffic Manager" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Azure Traffic Manager is a DNS-based traffic load balancer that routes client requests to optimal regional endpoints based on DNS routing methods (Priority, Weighted, Performance, Geographic).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/traffic-manager/traffic-manager-overview",
@@ -324,12 +324,12 @@ export const AZURE_AZ900_QUESTIONS_6 = [
     scenario: "An organization wants to build an automated workflow that connects Office 365 emails, Salesforce records, and ServiceNow tickets using visual drag-and-drop connectors with zero code.",
     question: "Which Azure serverless integration service fulfills this requirement?",
     options: [
-      { id: 'A', text: "Azure Logic Apps" },
-      { id: 'B', text: "Azure Functions" },
-      { id: 'C', text: "Azure Synapse" },
-      { id: 'D', text: "Azure Virtual Machines" }
+      { id: 'A', text: "Azure Synapse" },
+      { id: 'B', text: "Azure Virtual Machines" },
+      { id: 'C', text: "Azure Logic Apps" },
+      { id: 'D', text: "Azure Functions" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Azure Logic Apps is a serverless cloud service for creating automated workflows that integrate apps, data, services, and systems across enterprises using hundreds of pre-built connectors with minimal to no code.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/logic-apps/logic-apps-overview",
@@ -345,12 +345,12 @@ export const AZURE_AZ900_QUESTIONS_6 = [
     scenario: "An application requires a central event router that listens to Azure Blob creation events and fans out notifications to Azure Functions and webhooks in milliseconds.",
     question: "Which Azure messaging service provides reactive publish-subscribe event routing?",
     options: [
-      { id: 'A', text: "Azure Queue Storage" },
-      { id: 'B', text: "Azure Event Grid" },
-      { id: 'C', text: "Azure Service Bus" },
-      { id: 'D', text: "Azure Data Factory" }
+      { id: 'A', text: "Azure Data Factory" },
+      { id: 'B', text: "Azure Service Bus" },
+      { id: 'C', text: "Azure Event Grid" },
+      { id: 'D', text: "Azure Queue Storage" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Azure Event Grid is a highly scalable, serverless event broker that uses a publish-subscribe model to route discrete events from Azure resources (like Blob Storage) to event handlers (like Functions or webhooks).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/event-grid/overview",
@@ -366,12 +366,12 @@ export const AZURE_AZ900_QUESTIONS_6 = [
     scenario: "A banking payment processing platform requires guaranteed FIFO (First-In, First-Out) message ordering, transactions, message deduplication, and dead-lettering.",
     question: "Which Azure messaging service is built for complex enterprise messaging patterns?",
     options: [
-      { id: 'A', text: "Azure Notification Hubs" },
-      { id: 'B', text: "Azure Service Bus" },
-      { id: 'C', text: "Azure Event Grid" },
-      { id: 'D', text: "Azure DNS" }
+      { id: 'A', text: "Azure Service Bus" },
+      { id: 'B', text: "Azure Notification Hubs" },
+      { id: 'C', text: "Azure DNS" },
+      { id: 'D', text: "Azure Event Grid" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Azure Service Bus is a fully managed enterprise integration message broker featuring queues for one-to-one communication and topics for publish-subscribe, supporting FIFO ordering, transactions, and dead-letter queues.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messaging-overview",
@@ -389,10 +389,10 @@ export const AZURE_AZ900_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "Azure Table Storage" },
       { id: 'B', text: "Azure Database for MySQL" },
-      { id: 'C', text: "Azure Cache for Redis" },
-      { id: 'D', text: "Azure Synapse Analytics" }
+      { id: 'C', text: "Azure Synapse Analytics" },
+      { id: 'D', text: "Azure Cache for Redis" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Azure Synapse Analytics is an enterprise analytics service that accelerates time to insight across data warehouses and big data systems, integrating SQL data warehousing, Apache Spark, and Azure Data Lake.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/synapse-analytics/overview-what-is",
@@ -408,12 +408,12 @@ export const AZURE_AZ900_QUESTIONS_6 = [
     scenario: "A data science team wants a managed Apache Spark analytics platform optimized specifically for machine learning collaboration and notebook workflows.",
     question: "Which collaborative data platform developed jointly with Apache Spark creators should they deploy?",
     options: [
-      { id: 'A', text: "Azure Virtual Desktop" },
-      { id: 'B', text: "Azure Databricks" },
-      { id: 'C', text: "Azure Front Door" },
-      { id: 'D', text: "Azure File Sync" }
+      { id: 'A', text: "Azure Front Door" },
+      { id: 'B', text: "Azure Virtual Desktop" },
+      { id: 'C', text: "Azure File Sync" },
+      { id: 'D', text: "Azure Databricks" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Azure Databricks is a fast, easy, and collaborative Apache Spark-based analytics platform optimized for Azure, providing interactive shared workspace notebooks for data engineers and machine learning scientists.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/databricks/introduction/",
@@ -429,12 +429,12 @@ export const AZURE_AZ900_QUESTIONS_6 = [
     scenario: "A developer needs to add speech-to-text transcription, optical character recognition (OCR), and language translation to a mobile app using simple REST API calls without building custom ML models.",
     question: "Which suite of pre-built AI APIs should the developer use?",
     options: [
-      { id: 'A', text: "Azure Machine Learning Studio" },
+      { id: 'A', text: "Azure AI Services (formerly Cognitive Services)" },
       { id: 'B', text: "Azure Kubernetes Service" },
-      { id: 'C', text: "Azure AI Services (formerly Cognitive Services)" },
+      { id: 'C', text: "Azure Machine Learning Studio" },
       { id: 'D', text: "Azure DevOps" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Azure AI Services (formerly Cognitive Services) provides pre-trained, turnkey machine learning models accessible through simple REST APIs for computer vision, natural language processing, speech synthesis, and translation.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/what-are-ai-services",
@@ -450,12 +450,12 @@ export const AZURE_AZ900_QUESTIONS_6 = [
     scenario: "A team of data scientists needs an enterprise platform to train, version, track experiments, tune hyperparameters, and deploy custom machine learning models to production endpoints.",
     question: "Which Azure service provides end-to-end MLOps capabilities?",
     options: [
-      { id: 'A', text: "Azure Machine Learning" },
+      { id: 'A', text: "Azure AI Search" },
       { id: 'B', text: "Azure Event Hubs" },
-      { id: 'C', text: "Azure Bot Service" },
-      { id: 'D', text: "Azure AI Search" }
+      { id: 'C', text: "Azure Machine Learning" },
+      { id: 'D', text: "Azure Bot Service" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Azure Machine Learning is an enterprise cloud service that empowers data scientists and ML engineers to train, evaluate, track, register, and deploy custom machine learning models at scale with MLOps governance.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/machine-learning/overview-what-is-azure-machine-learning",
@@ -471,12 +471,12 @@ export const AZURE_AZ900_QUESTIONS_6 = [
     scenario: "An enterprise wants to incorporate generative AI capabilities (GPT-4) into an internal customer service chatbot while keeping all proprietary data within private Azure security boundaries.",
     question: "Which Azure service provides enterprise-governed access to OpenAI foundation models?",
     options: [
-      { id: 'A', text: "Azure OpenAI Service" },
-      { id: 'B', text: "Azure Logic Apps" },
-      { id: 'C', text: "Azure Stream Analytics" },
-      { id: 'D', text: "Azure Cognitive Search" }
+      { id: 'A', text: "Azure Logic Apps" },
+      { id: 'B', text: "Azure Cognitive Search" },
+      { id: 'C', text: "Azure OpenAI Service" },
+      { id: 'D', text: "Azure Stream Analytics" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Azure OpenAI Service provides access to OpenAI's powerful language models (including GPT-4 and DALL-E) combined with Azure's enterprise-grade security, private virtual networking, compliance, and responsible AI guardrails.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/openai/overview",
@@ -492,10 +492,10 @@ export const AZURE_AZ900_QUESTIONS_6 = [
     scenario: "A security policy requires that database passwords, encryption keys, and TLS certificates must never be hardcoded into application source code or config files.",
     question: "Which Azure service securely stores and manages access to cryptographic keys, application secrets, and TLS certificates?",
     options: [
-      { id: 'A', text: "Azure Policy" },
-      { id: 'B', text: "Azure Storage Account" },
+      { id: 'A', text: "Azure Storage Account" },
+      { id: 'B', text: "Azure Active Directory Domain Services" },
       { id: 'C', text: "Azure Key Vault" },
-      { id: 'D', text: "Azure Active Directory Domain Services" }
+      { id: 'D', text: "Azure Policy" }
     ],
     correctAnswers: ['C'],
     type: "single",

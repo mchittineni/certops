@@ -9,12 +9,12 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer evaluates Service Connections to authenticate an Azure DevOps pipeline to deploy resources into an Azure subscription without managing or rotating client secret passwords.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives? Configuring Azure Resource Manager service connections with Workload Identity Federation is under consideration.",
     options: [
-      { id: 'A', text: "Configure an Azure Resource Manager Service Connection using Workload Identity Federation (OIDC) with Microsoft Entra ID." },
-      { id: 'B', text: "Create a Service Principal with a permanent client secret and never rotate the password." },
-      { id: 'C', text: "Hardcode Azure global administrator credentials inside the pipeline YAML file." },
-      { id: 'D', text: "Disable authentication on the Azure Resource Manager API." }
+      { id: 'A', text: "Create a Service Principal with a permanent client secret and never rotate the password." },
+      { id: 'B', text: "Configure an Azure Resource Manager Service Connection using Workload Identity Federation (OIDC) with Microsoft Entra ID." },
+      { id: 'C', text: "Disable authentication on the Azure Resource Manager API." },
+      { id: 'D', text: "Hardcode Azure global administrator credentials inside the pipeline YAML file." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure an Azure Resource Manager Service Connection using Workload Identity Federation (OIDC) with Microsoft Entra ID. Azure DevOps supports Workload Identity Federation for Azure Resource Manager service connections. Using OpenID Connect (OIDC), Azure DevOps trades short-lived tokens with Microsoft Entra ID, eliminating the operational risk and maintenance overhead of long-lived service principal secrets.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/library/connect-to-azure#create-an-azure-resource-manager-service-connection-with-workload-identity-federation",
@@ -30,12 +30,12 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer evaluates Service Connections to authenticate an Azure DevOps pipeline to deploy resources into an Azure subscription without managing or rotating client secret passwords.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability? Configuring Azure Resource Manager service connections with Workload Identity Federation is under consideration.",
     options: [
-      { id: 'A', text: "Configure an Azure Resource Manager Service Connection using Workload Identity Federation (OIDC) with Microsoft Entra ID." },
-      { id: 'B', text: "Create a Service Principal with a permanent client secret and never rotate the password." },
-      { id: 'C', text: "Hardcode Azure global administrator credentials inside the pipeline YAML file." },
-      { id: 'D', text: "Disable authentication on the Azure Resource Manager API." }
+      { id: 'A', text: "Disable authentication on the Azure Resource Manager API." },
+      { id: 'B', text: "Configure an Azure Resource Manager Service Connection using Workload Identity Federation (OIDC) with Microsoft Entra ID." },
+      { id: 'C', text: "Create a Service Principal with a permanent client secret and never rotate the password." },
+      { id: 'D', text: "Hardcode Azure global administrator credentials inside the pipeline YAML file." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure an Azure Resource Manager Service Connection using Workload Identity Federation (OIDC) with Microsoft Entra ID. Azure DevOps supports Workload Identity Federation for Azure Resource Manager service connections. Using OpenID Connect (OIDC), Azure DevOps trades short-lived tokens with Microsoft Entra ID, eliminating the operational risk and maintenance overhead of long-lived service principal secrets.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/library/connect-to-azure#create-an-azure-resource-manager-service-connection-with-workload-identity-federation",
@@ -52,8 +52,8 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     question: "Which solution implements these mandatory DevOps security and compliance controls? Configuring Azure Resource Manager service connections with Workload Identity Federation is under consideration.",
     options: [
       { id: 'A', text: "Configure an Azure Resource Manager Service Connection using Workload Identity Federation (OIDC) with Microsoft Entra ID." },
-      { id: 'B', text: "Create a Service Principal with a permanent client secret and never rotate the password." },
-      { id: 'C', text: "Hardcode Azure global administrator credentials inside the pipeline YAML file." },
+      { id: 'B', text: "Hardcode Azure global administrator credentials inside the pipeline YAML file." },
+      { id: 'C', text: "Create a Service Principal with a permanent client secret and never rotate the password." },
       { id: 'D', text: "Disable authentication on the Azure Resource Manager API." }
     ],
     correctAnswers: ['A'],
@@ -73,9 +73,9 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction? Configuring Azure Resource Manager service connections with Workload Identity Federation is under consideration.",
     options: [
       { id: 'A', text: "Configure an Azure Resource Manager Service Connection using Workload Identity Federation (OIDC) with Microsoft Entra ID." },
-      { id: 'B', text: "Create a Service Principal with a permanent client secret and never rotate the password." },
+      { id: 'B', text: "Disable authentication on the Azure Resource Manager API." },
       { id: 'C', text: "Hardcode Azure global administrator credentials inside the pipeline YAML file." },
-      { id: 'D', text: "Disable authentication on the Azure Resource Manager API." }
+      { id: 'D', text: "Create a Service Principal with a permanent client secret and never rotate the password." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -93,12 +93,12 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer evaluates Service Connections to authenticate an Azure DevOps pipeline to deploy resources into an Azure subscription without managing or rotating client secret passwords.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability? Configuring Azure Resource Manager service connections with Workload Identity Federation is under consideration.",
     options: [
-      { id: 'A', text: "Configure an Azure Resource Manager Service Connection using Workload Identity Federation (OIDC) with Microsoft Entra ID." },
-      { id: 'B', text: "Create a Service Principal with a permanent client secret and never rotate the password." },
-      { id: 'C', text: "Hardcode Azure global administrator credentials inside the pipeline YAML file." },
+      { id: 'A', text: "Hardcode Azure global administrator credentials inside the pipeline YAML file." },
+      { id: 'B', text: "Configure an Azure Resource Manager Service Connection using Workload Identity Federation (OIDC) with Microsoft Entra ID." },
+      { id: 'C', text: "Create a Service Principal with a permanent client secret and never rotate the password." },
       { id: 'D', text: "Disable authentication on the Azure Resource Manager API." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure an Azure Resource Manager Service Connection using Workload Identity Federation (OIDC) with Microsoft Entra ID. Azure DevOps supports Workload Identity Federation for Azure Resource Manager service connections. Using OpenID Connect (OIDC), Azure DevOps trades short-lived tokens with Microsoft Entra ID, eliminating the operational risk and maintenance overhead of long-lived service principal secrets.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/library/connect-to-azure#create-an-azure-resource-manager-service-connection-with-workload-identity-federation",
@@ -114,12 +114,12 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer evaluates Azure Artifacts to manage internal NuGet and npm packages securely while caching public dependencies to protect builds from upstream outages.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives? Creating package feeds with upstream sources (NuGet, npm, PyPI) and views is under consideration.",
     options: [
-      { id: 'A', text: "Create an Azure Artifacts feed, configure upstream sources to public registries, and publish packages using feed views (e.g., Release)." },
-      { id: 'B', text: "Instruct developers to commit compiled NuGet DLLs directly to Git repositories." },
-      { id: 'C', text: "Host packages on an unauthenticated FTP server on the public internet." },
+      { id: 'A', text: "Host packages on an unauthenticated FTP server on the public internet." },
+      { id: 'B', text: "Create an Azure Artifacts feed, configure upstream sources to public registries, and publish packages using feed views (e.g., Release)." },
+      { id: 'C', text: "Instruct developers to commit compiled NuGet DLLs directly to Git repositories." },
       { id: 'D', text: "Disable package management and compile all dependencies from raw source every time." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Create an Azure Artifacts feed, configure upstream sources to public registries, and publish packages using feed views (e.g., Release). Azure Artifacts allows hosting private NuGet, npm, Maven, and Python feeds. Enabling upstream sources automatically caches consumed public packages in the private feed, ensuring build reproducibility and immunity against external public registry outages or malicious package retractions.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/artifacts/concepts/upstream-sources",
@@ -135,12 +135,12 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer evaluates Azure Artifacts to manage internal NuGet and npm packages securely while caching public dependencies to protect builds from upstream outages.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability? Creating package feeds with upstream sources (NuGet, npm, PyPI) and views is under consideration.",
     options: [
-      { id: 'A', text: "Create an Azure Artifacts feed, configure upstream sources to public registries, and publish packages using feed views (e.g., Release)." },
-      { id: 'B', text: "Instruct developers to commit compiled NuGet DLLs directly to Git repositories." },
+      { id: 'A', text: "Instruct developers to commit compiled NuGet DLLs directly to Git repositories." },
+      { id: 'B', text: "Disable package management and compile all dependencies from raw source every time." },
       { id: 'C', text: "Host packages on an unauthenticated FTP server on the public internet." },
-      { id: 'D', text: "Disable package management and compile all dependencies from raw source every time." }
+      { id: 'D', text: "Create an Azure Artifacts feed, configure upstream sources to public registries, and publish packages using feed views (e.g., Release)." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Create an Azure Artifacts feed, configure upstream sources to public registries, and publish packages using feed views (e.g., Release). Azure Artifacts allows hosting private NuGet, npm, Maven, and Python feeds. Enabling upstream sources automatically caches consumed public packages in the private feed, ensuring build reproducibility and immunity against external public registry outages or malicious package retractions.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/artifacts/concepts/upstream-sources",
@@ -156,12 +156,12 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer evaluates Azure Artifacts to manage internal NuGet and npm packages securely while caching public dependencies to protect builds from upstream outages.",
     question: "Which solution implements these mandatory DevOps security and compliance controls? Creating package feeds with upstream sources (NuGet, npm, PyPI) and views is under consideration.",
     options: [
-      { id: 'A', text: "Create an Azure Artifacts feed, configure upstream sources to public registries, and publish packages using feed views (e.g., Release)." },
-      { id: 'B', text: "Instruct developers to commit compiled NuGet DLLs directly to Git repositories." },
+      { id: 'A', text: "Instruct developers to commit compiled NuGet DLLs directly to Git repositories." },
+      { id: 'B', text: "Disable package management and compile all dependencies from raw source every time." },
       { id: 'C', text: "Host packages on an unauthenticated FTP server on the public internet." },
-      { id: 'D', text: "Disable package management and compile all dependencies from raw source every time." }
+      { id: 'D', text: "Create an Azure Artifacts feed, configure upstream sources to public registries, and publish packages using feed views (e.g., Release)." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Create an Azure Artifacts feed, configure upstream sources to public registries, and publish packages using feed views (e.g., Release). Azure Artifacts allows hosting private NuGet, npm, Maven, and Python feeds. Enabling upstream sources automatically caches consumed public packages in the private feed, ensuring build reproducibility and immunity against external public registry outages or malicious package retractions.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/artifacts/concepts/upstream-sources",
@@ -177,12 +177,12 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer evaluates Azure Artifacts to manage internal NuGet and npm packages securely while caching public dependencies to protect builds from upstream outages.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction? Creating package feeds with upstream sources (NuGet, npm, PyPI) and views is under consideration.",
     options: [
-      { id: 'A', text: "Create an Azure Artifacts feed, configure upstream sources to public registries, and publish packages using feed views (e.g., Release)." },
+      { id: 'A', text: "Disable package management and compile all dependencies from raw source every time." },
       { id: 'B', text: "Instruct developers to commit compiled NuGet DLLs directly to Git repositories." },
-      { id: 'C', text: "Host packages on an unauthenticated FTP server on the public internet." },
-      { id: 'D', text: "Disable package management and compile all dependencies from raw source every time." }
+      { id: 'C', text: "Create an Azure Artifacts feed, configure upstream sources to public registries, and publish packages using feed views (e.g., Release)." },
+      { id: 'D', text: "Host packages on an unauthenticated FTP server on the public internet." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Create an Azure Artifacts feed, configure upstream sources to public registries, and publish packages using feed views (e.g., Release). Azure Artifacts allows hosting private NuGet, npm, Maven, and Python feeds. Enabling upstream sources automatically caches consumed public packages in the private feed, ensuring build reproducibility and immunity against external public registry outages or malicious package retractions.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/artifacts/concepts/upstream-sources",
@@ -198,12 +198,12 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer evaluates Azure Artifacts to manage internal NuGet and npm packages securely while caching public dependencies to protect builds from upstream outages.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability? Creating package feeds with upstream sources (NuGet, npm, PyPI) and views is under consideration.",
     options: [
-      { id: 'A', text: "Create an Azure Artifacts feed, configure upstream sources to public registries, and publish packages using feed views (e.g., Release)." },
+      { id: 'A', text: "Disable package management and compile all dependencies from raw source every time." },
       { id: 'B', text: "Instruct developers to commit compiled NuGet DLLs directly to Git repositories." },
       { id: 'C', text: "Host packages on an unauthenticated FTP server on the public internet." },
-      { id: 'D', text: "Disable package management and compile all dependencies from raw source every time." }
+      { id: 'D', text: "Create an Azure Artifacts feed, configure upstream sources to public registries, and publish packages using feed views (e.g., Release)." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Create an Azure Artifacts feed, configure upstream sources to public registries, and publish packages using feed views (e.g., Release). Azure Artifacts allows hosting private NuGet, npm, Maven, and Python feeds. Enabling upstream sources automatically caches consumed public packages in the private feed, ensuring build reproducibility and immunity against external public registry outages or malicious package retractions.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/artifacts/concepts/upstream-sources",
@@ -219,12 +219,12 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer evaluates Matrix Builds to test a cross-platform application across Ubuntu, Windows, and macOS agents and multiple Node.js versions concurrently.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives? Running parallel matrix configurations across OS platforms and language versions is under consideration.",
     options: [
-      { id: 'A', text: "Use `strategy: matrix:` in the YAML job definition, specifying combinations of OS images and runtime versions with `maxParallel`." },
-      { id: 'B', text: "Write three completely separate 1,000-line pipeline YAML files." },
-      { id: 'C', text: "Run tests sequentially on a single slow virtual machine over 12 hours." },
-      { id: 'D', text: "Skip cross-platform testing and only test on a developer laptop." }
+      { id: 'A', text: "Write three completely separate 1,000-line pipeline YAML files." },
+      { id: 'B', text: "Run tests sequentially on a single slow virtual machine over 12 hours." },
+      { id: 'C', text: "Skip cross-platform testing and only test on a developer laptop." },
+      { id: 'D', text: "Use `strategy: matrix:` in the YAML job definition, specifying combinations of OS images and runtime versions with `maxParallel`." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Use `strategy: matrix:` in the YAML job definition, specifying combinations of OS images and runtime versions with `maxParallel`. A matrix strategy generates multiple parallel job dispatches from a single job specification. Each combination of matrix variables (e.g., OS: Ubuntu/Windows/macOS, Node: 18/20) executes on a separate agent concurrently, accelerating cross-platform test cycles.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/yaml-schema/jobs-job-strategy",
@@ -240,12 +240,12 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer evaluates Matrix Builds to test a cross-platform application across Ubuntu, Windows, and macOS agents and multiple Node.js versions concurrently.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability? Running parallel matrix configurations across OS platforms and language versions is under consideration.",
     options: [
-      { id: 'A', text: "Use `strategy: matrix:` in the YAML job definition, specifying combinations of OS images and runtime versions with `maxParallel`." },
-      { id: 'B', text: "Write three completely separate 1,000-line pipeline YAML files." },
+      { id: 'A', text: "Skip cross-platform testing and only test on a developer laptop." },
+      { id: 'B', text: "Use `strategy: matrix:` in the YAML job definition, specifying combinations of OS images and runtime versions with `maxParallel`." },
       { id: 'C', text: "Run tests sequentially on a single slow virtual machine over 12 hours." },
-      { id: 'D', text: "Skip cross-platform testing and only test on a developer laptop." }
+      { id: 'D', text: "Write three completely separate 1,000-line pipeline YAML files." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Use `strategy: matrix:` in the YAML job definition, specifying combinations of OS images and runtime versions with `maxParallel`. A matrix strategy generates multiple parallel job dispatches from a single job specification. Each combination of matrix variables (e.g., OS: Ubuntu/Windows/macOS, Node: 18/20) executes on a separate agent concurrently, accelerating cross-platform test cycles.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/yaml-schema/jobs-job-strategy",
@@ -261,12 +261,12 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer evaluates Matrix Builds to test a cross-platform application across Ubuntu, Windows, and macOS agents and multiple Node.js versions concurrently.",
     question: "Which solution implements these mandatory DevOps security and compliance controls? Running parallel matrix configurations across OS platforms and language versions is under consideration.",
     options: [
-      { id: 'A', text: "Use `strategy: matrix:` in the YAML job definition, specifying combinations of OS images and runtime versions with `maxParallel`." },
-      { id: 'B', text: "Write three completely separate 1,000-line pipeline YAML files." },
-      { id: 'C', text: "Run tests sequentially on a single slow virtual machine over 12 hours." },
-      { id: 'D', text: "Skip cross-platform testing and only test on a developer laptop." }
+      { id: 'A', text: "Run tests sequentially on a single slow virtual machine over 12 hours." },
+      { id: 'B', text: "Use `strategy: matrix:` in the YAML job definition, specifying combinations of OS images and runtime versions with `maxParallel`." },
+      { id: 'C', text: "Skip cross-platform testing and only test on a developer laptop." },
+      { id: 'D', text: "Write three completely separate 1,000-line pipeline YAML files." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Use `strategy: matrix:` in the YAML job definition, specifying combinations of OS images and runtime versions with `maxParallel`. A matrix strategy generates multiple parallel job dispatches from a single job specification. Each combination of matrix variables (e.g., OS: Ubuntu/Windows/macOS, Node: 18/20) executes on a separate agent concurrently, accelerating cross-platform test cycles.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/yaml-schema/jobs-job-strategy",
@@ -282,12 +282,12 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer evaluates Matrix Builds to test a cross-platform application across Ubuntu, Windows, and macOS agents and multiple Node.js versions concurrently.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction? Running parallel matrix configurations across OS platforms and language versions is under consideration.",
     options: [
-      { id: 'A', text: "Use `strategy: matrix:` in the YAML job definition, specifying combinations of OS images and runtime versions with `maxParallel`." },
+      { id: 'A', text: "Run tests sequentially on a single slow virtual machine over 12 hours." },
       { id: 'B', text: "Write three completely separate 1,000-line pipeline YAML files." },
-      { id: 'C', text: "Run tests sequentially on a single slow virtual machine over 12 hours." },
+      { id: 'C', text: "Use `strategy: matrix:` in the YAML job definition, specifying combinations of OS images and runtime versions with `maxParallel`." },
       { id: 'D', text: "Skip cross-platform testing and only test on a developer laptop." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Use `strategy: matrix:` in the YAML job definition, specifying combinations of OS images and runtime versions with `maxParallel`. A matrix strategy generates multiple parallel job dispatches from a single job specification. Each combination of matrix variables (e.g., OS: Ubuntu/Windows/macOS, Node: 18/20) executes on a separate agent concurrently, accelerating cross-platform test cycles.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/yaml-schema/jobs-job-strategy",
@@ -303,12 +303,12 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer evaluates Matrix Builds to test a cross-platform application across Ubuntu, Windows, and macOS agents and multiple Node.js versions concurrently.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability? Running parallel matrix configurations across OS platforms and language versions is under consideration.",
     options: [
-      { id: 'A', text: "Use `strategy: matrix:` in the YAML job definition, specifying combinations of OS images and runtime versions with `maxParallel`." },
-      { id: 'B', text: "Write three completely separate 1,000-line pipeline YAML files." },
-      { id: 'C', text: "Run tests sequentially on a single slow virtual machine over 12 hours." },
-      { id: 'D', text: "Skip cross-platform testing and only test on a developer laptop." }
+      { id: 'A', text: "Run tests sequentially on a single slow virtual machine over 12 hours." },
+      { id: 'B', text: "Skip cross-platform testing and only test on a developer laptop." },
+      { id: 'C', text: "Use `strategy: matrix:` in the YAML job definition, specifying combinations of OS images and runtime versions with `maxParallel`." },
+      { id: 'D', text: "Write three completely separate 1,000-line pipeline YAML files." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Use `strategy: matrix:` in the YAML job definition, specifying combinations of OS images and runtime versions with `maxParallel`. A matrix strategy generates multiple parallel job dispatches from a single job specification. Each combination of matrix variables (e.g., OS: Ubuntu/Windows/macOS, Node: 18/20) executes on a separate agent concurrently, accelerating cross-platform test cycles.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/yaml-schema/jobs-job-strategy",
@@ -324,12 +324,12 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer evaluates Build Optimization to shorten continuous integration build times by caching `node_modules` or `~/.m2` dependencies between pipeline runs.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives? Accelerating build pipelines with Cache@2 task for npm, NuGet, and Maven dependencies is under consideration.",
     options: [
-      { id: 'A', text: "Implement the `Cache@2` task in the pipeline specifying a cache `key` based on lockfiles (`package-lock.json`) and cache `path`." },
+      { id: 'A', text: "Store dependencies on an external public file-sharing website." },
       { id: 'B', text: "Download all dependencies afresh over the internet on every single build commit." },
-      { id: 'C', text: "Run builds on a single physical server without wiping workspaces between unrelated builds." },
-      { id: 'D', text: "Store dependencies on an external public file-sharing website." }
+      { id: 'C', text: "Implement the `Cache@2` task in the pipeline specifying a cache `key` based on lockfiles (`package-lock.json`) and cache `path`." },
+      { id: 'D', text: "Run builds on a single physical server without wiping workspaces between unrelated builds." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Implement the `Cache@2` task in the pipeline specifying a cache `key` based on lockfiles (`package-lock.json`) and cache `path`. The `Cache@2` task stores and restores dependency directories between pipeline runs. By hashing package lockfiles as the cache key, the task restores dependencies from Azure DevOps cache storage in seconds if dependencies have not changed, reducing build durations drastically.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/release/caching",
@@ -345,12 +345,12 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer evaluates Build Optimization to shorten continuous integration build times by caching `node_modules` or `~/.m2` dependencies between pipeline runs.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability? Accelerating build pipelines with Cache@2 task for npm, NuGet, and Maven dependencies is under consideration.",
     options: [
-      { id: 'A', text: "Implement the `Cache@2` task in the pipeline specifying a cache `key` based on lockfiles (`package-lock.json`) and cache `path`." },
-      { id: 'B', text: "Download all dependencies afresh over the internet on every single build commit." },
-      { id: 'C', text: "Run builds on a single physical server without wiping workspaces between unrelated builds." },
-      { id: 'D', text: "Store dependencies on an external public file-sharing website." }
+      { id: 'A', text: "Run builds on a single physical server without wiping workspaces between unrelated builds." },
+      { id: 'B', text: "Store dependencies on an external public file-sharing website." },
+      { id: 'C', text: "Download all dependencies afresh over the internet on every single build commit." },
+      { id: 'D', text: "Implement the `Cache@2` task in the pipeline specifying a cache `key` based on lockfiles (`package-lock.json`) and cache `path`." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Implement the `Cache@2` task in the pipeline specifying a cache `key` based on lockfiles (`package-lock.json`) and cache `path`. The `Cache@2` task stores and restores dependency directories between pipeline runs. By hashing package lockfiles as the cache key, the task restores dependencies from Azure DevOps cache storage in seconds if dependencies have not changed, reducing build durations drastically.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/release/caching",
@@ -366,12 +366,12 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer evaluates Build Optimization to shorten continuous integration build times by caching `node_modules` or `~/.m2` dependencies between pipeline runs.",
     question: "Which solution implements these mandatory DevOps security and compliance controls? Accelerating build pipelines with Cache@2 task for npm, NuGet, and Maven dependencies is under consideration.",
     options: [
-      { id: 'A', text: "Implement the `Cache@2` task in the pipeline specifying a cache `key` based on lockfiles (`package-lock.json`) and cache `path`." },
-      { id: 'B', text: "Download all dependencies afresh over the internet on every single build commit." },
-      { id: 'C', text: "Run builds on a single physical server without wiping workspaces between unrelated builds." },
-      { id: 'D', text: "Store dependencies on an external public file-sharing website." }
+      { id: 'A', text: "Run builds on a single physical server without wiping workspaces between unrelated builds." },
+      { id: 'B', text: "Store dependencies on an external public file-sharing website." },
+      { id: 'C', text: "Download all dependencies afresh over the internet on every single build commit." },
+      { id: 'D', text: "Implement the `Cache@2` task in the pipeline specifying a cache `key` based on lockfiles (`package-lock.json`) and cache `path`." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Implement the `Cache@2` task in the pipeline specifying a cache `key` based on lockfiles (`package-lock.json`) and cache `path`. The `Cache@2` task stores and restores dependency directories between pipeline runs. By hashing package lockfiles as the cache key, the task restores dependencies from Azure DevOps cache storage in seconds if dependencies have not changed, reducing build durations drastically.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/release/caching",
@@ -388,9 +388,9 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction? Accelerating build pipelines with Cache@2 task for npm, NuGet, and Maven dependencies is under consideration.",
     options: [
       { id: 'A', text: "Implement the `Cache@2` task in the pipeline specifying a cache `key` based on lockfiles (`package-lock.json`) and cache `path`." },
-      { id: 'B', text: "Download all dependencies afresh over the internet on every single build commit." },
-      { id: 'C', text: "Run builds on a single physical server without wiping workspaces between unrelated builds." },
-      { id: 'D', text: "Store dependencies on an external public file-sharing website." }
+      { id: 'B', text: "Store dependencies on an external public file-sharing website." },
+      { id: 'C', text: "Download all dependencies afresh over the internet on every single build commit." },
+      { id: 'D', text: "Run builds on a single physical server without wiping workspaces between unrelated builds." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -409,9 +409,9 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability? Accelerating build pipelines with Cache@2 task for npm, NuGet, and Maven dependencies is under consideration.",
     options: [
       { id: 'A', text: "Implement the `Cache@2` task in the pipeline specifying a cache `key` based on lockfiles (`package-lock.json`) and cache `path`." },
-      { id: 'B', text: "Download all dependencies afresh over the internet on every single build commit." },
+      { id: 'B', text: "Store dependencies on an external public file-sharing website." },
       { id: 'C', text: "Run builds on a single physical server without wiping workspaces between unrelated builds." },
-      { id: 'D', text: "Store dependencies on an external public file-sharing website." }
+      { id: 'D', text: "Download all dependencies afresh over the internet on every single build commit." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -429,12 +429,12 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer evaluates App Service Slots to deploy a new release of a critical web application to Azure App Service without dropping user connections or incurring cold start latency.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives? Staging deployment slots with slot swapping and auto-swap in Azure App Service is under consideration.",
     options: [
-      { id: 'A', text: "Deploy the new version to a staging deployment slot, warm up the application, and execute a slot swap to swap staging and production." },
-      { id: 'B', text: "Deploy directly into the active production slot during peak business traffic." },
-      { id: 'C', text: "Stop the production App Service for 30 minutes while deploying new code." },
-      { id: 'D', text: "Delete the App Service instance and recreate it using ARM templates." }
+      { id: 'A', text: "Stop the production App Service for 30 minutes while deploying new code." },
+      { id: 'B', text: "Deploy the new version to a staging deployment slot, warm up the application, and execute a slot swap to swap staging and production." },
+      { id: 'C', text: "Delete the App Service instance and recreate it using ARM templates." },
+      { id: 'D', text: "Deploy directly into the active production slot during peak business traffic." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy the new version to a staging deployment slot, warm up the application, and execute a slot swap to swap staging and production. Azure App Service deployment slots allow deploying to a non-production staging slot. The application warms up in staging without user impact. Swapping slots re-routes traffic instantly at the load balancer level with zero downtime and eliminates cold start delays.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/app-service/deploy-staging-slots",
@@ -452,8 +452,8 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     options: [
       { id: 'A', text: "Deploy the new version to a staging deployment slot, warm up the application, and execute a slot swap to swap staging and production." },
       { id: 'B', text: "Deploy directly into the active production slot during peak business traffic." },
-      { id: 'C', text: "Stop the production App Service for 30 minutes while deploying new code." },
-      { id: 'D', text: "Delete the App Service instance and recreate it using ARM templates." }
+      { id: 'C', text: "Delete the App Service instance and recreate it using ARM templates." },
+      { id: 'D', text: "Stop the production App Service for 30 minutes while deploying new code." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -471,12 +471,12 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer evaluates App Service Slots to deploy a new release of a critical web application to Azure App Service without dropping user connections or incurring cold start latency.",
     question: "Which solution implements these mandatory DevOps security and compliance controls? Staging deployment slots with slot swapping and auto-swap in Azure App Service is under consideration.",
     options: [
-      { id: 'A', text: "Deploy the new version to a staging deployment slot, warm up the application, and execute a slot swap to swap staging and production." },
-      { id: 'B', text: "Deploy directly into the active production slot during peak business traffic." },
-      { id: 'C', text: "Stop the production App Service for 30 minutes while deploying new code." },
-      { id: 'D', text: "Delete the App Service instance and recreate it using ARM templates." }
+      { id: 'A', text: "Delete the App Service instance and recreate it using ARM templates." },
+      { id: 'B', text: "Stop the production App Service for 30 minutes while deploying new code." },
+      { id: 'C', text: "Deploy directly into the active production slot during peak business traffic." },
+      { id: 'D', text: "Deploy the new version to a staging deployment slot, warm up the application, and execute a slot swap to swap staging and production." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy the new version to a staging deployment slot, warm up the application, and execute a slot swap to swap staging and production. Azure App Service deployment slots allow deploying to a non-production staging slot. The application warms up in staging without user impact. Swapping slots re-routes traffic instantly at the load balancer level with zero downtime and eliminates cold start delays.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/app-service/deploy-staging-slots",
@@ -492,12 +492,12 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer evaluates App Service Slots to deploy a new release of a critical web application to Azure App Service without dropping user connections or incurring cold start latency.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction? Staging deployment slots with slot swapping and auto-swap in Azure App Service is under consideration.",
     options: [
-      { id: 'A', text: "Deploy the new version to a staging deployment slot, warm up the application, and execute a slot swap to swap staging and production." },
-      { id: 'B', text: "Deploy directly into the active production slot during peak business traffic." },
+      { id: 'A', text: "Delete the App Service instance and recreate it using ARM templates." },
+      { id: 'B', text: "Deploy the new version to a staging deployment slot, warm up the application, and execute a slot swap to swap staging and production." },
       { id: 'C', text: "Stop the production App Service for 30 minutes while deploying new code." },
-      { id: 'D', text: "Delete the App Service instance and recreate it using ARM templates." }
+      { id: 'D', text: "Deploy directly into the active production slot during peak business traffic." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy the new version to a staging deployment slot, warm up the application, and execute a slot swap to swap staging and production. Azure App Service deployment slots allow deploying to a non-production staging slot. The application warms up in staging without user impact. Swapping slots re-routes traffic instantly at the load balancer level with zero downtime and eliminates cold start delays.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/app-service/deploy-staging-slots",

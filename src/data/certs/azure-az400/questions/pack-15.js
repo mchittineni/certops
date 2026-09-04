@@ -10,8 +10,8 @@ export const AZURE_AZ400_QUESTIONS_15 = [
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives? Publishing and downloading pipeline artifacts across stages with PublishPipelineArtifact is under consideration.",
     options: [
       { id: 'A', text: "Use `publish: $(Build.ArtifactStagingDirectory)` to publish a Pipeline Artifact, and `download: current` in deployment jobs to consume it." },
-      { id: 'B', text: "Store compiled binaries in temporary agent local folders that are wiped between jobs." },
-      { id: 'C', text: "Commit compiled binary executables directly to the Git source code repository." },
+      { id: 'B', text: "Commit compiled binary executables directly to the Git source code repository." },
+      { id: 'C', text: "Store compiled binaries in temporary agent local folders that are wiped between jobs." },
       { id: 'D', text: "Email compiled binaries between engineering team members." }
     ],
     correctAnswers: ['A'],
@@ -30,12 +30,12 @@ export const AZURE_AZ400_QUESTIONS_15 = [
     scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer evaluates Artifact Management to pass compiled application binaries from the `Build` stage to subsequent `Staging` and `Production` deployment stages in a multi-stage YAML pipeline.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability? Publishing and downloading pipeline artifacts across stages with PublishPipelineArtifact is under consideration.",
     options: [
-      { id: 'A', text: "Use `publish: $(Build.ArtifactStagingDirectory)` to publish a Pipeline Artifact, and `download: current` in deployment jobs to consume it." },
-      { id: 'B', text: "Store compiled binaries in temporary agent local folders that are wiped between jobs." },
+      { id: 'A', text: "Store compiled binaries in temporary agent local folders that are wiped between jobs." },
+      { id: 'B', text: "Use `publish: $(Build.ArtifactStagingDirectory)` to publish a Pipeline Artifact, and `download: current` in deployment jobs to consume it." },
       { id: 'C', text: "Commit compiled binary executables directly to the Git source code repository." },
       { id: 'D', text: "Email compiled binaries between engineering team members." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Use `publish: $(Build.ArtifactStagingDirectory)` to publish a Pipeline Artifact, and `download: current` in deployment jobs to consume it. Pipeline Artifacts are the recommended way to share files between stages in Azure Pipelines. The `publish` task uploads build outputs to Azure DevOps artifact storage, where subsequent stages and deployment jobs retrieve them using the `download` task, ensuring artifact immutability.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/artifacts/pipeline-artifacts",
@@ -51,12 +51,12 @@ export const AZURE_AZ400_QUESTIONS_15 = [
     scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer evaluates Artifact Management to pass compiled application binaries from the `Build` stage to subsequent `Staging` and `Production` deployment stages in a multi-stage YAML pipeline.",
     question: "Which solution implements these mandatory DevOps security and compliance controls? Publishing and downloading pipeline artifacts across stages with PublishPipelineArtifact is under consideration.",
     options: [
-      { id: 'A', text: "Use `publish: $(Build.ArtifactStagingDirectory)` to publish a Pipeline Artifact, and `download: current` in deployment jobs to consume it." },
-      { id: 'B', text: "Store compiled binaries in temporary agent local folders that are wiped between jobs." },
-      { id: 'C', text: "Commit compiled binary executables directly to the Git source code repository." },
-      { id: 'D', text: "Email compiled binaries between engineering team members." }
+      { id: 'A', text: "Commit compiled binary executables directly to the Git source code repository." },
+      { id: 'B', text: "Email compiled binaries between engineering team members." },
+      { id: 'C', text: "Store compiled binaries in temporary agent local folders that are wiped between jobs." },
+      { id: 'D', text: "Use `publish: $(Build.ArtifactStagingDirectory)` to publish a Pipeline Artifact, and `download: current` in deployment jobs to consume it." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Use `publish: $(Build.ArtifactStagingDirectory)` to publish a Pipeline Artifact, and `download: current` in deployment jobs to consume it. Pipeline Artifacts are the recommended way to share files between stages in Azure Pipelines. The `publish` task uploads build outputs to Azure DevOps artifact storage, where subsequent stages and deployment jobs retrieve them using the `download` task, ensuring artifact immutability.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/artifacts/pipeline-artifacts",
@@ -72,12 +72,12 @@ export const AZURE_AZ400_QUESTIONS_15 = [
     scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer evaluates Artifact Management to pass compiled application binaries from the `Build` stage to subsequent `Staging` and `Production` deployment stages in a multi-stage YAML pipeline.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction? Publishing and downloading pipeline artifacts across stages with PublishPipelineArtifact is under consideration.",
     options: [
-      { id: 'A', text: "Use `publish: $(Build.ArtifactStagingDirectory)` to publish a Pipeline Artifact, and `download: current` in deployment jobs to consume it." },
-      { id: 'B', text: "Store compiled binaries in temporary agent local folders that are wiped between jobs." },
-      { id: 'C', text: "Commit compiled binary executables directly to the Git source code repository." },
-      { id: 'D', text: "Email compiled binaries between engineering team members." }
+      { id: 'A', text: "Store compiled binaries in temporary agent local folders that are wiped between jobs." },
+      { id: 'B', text: "Email compiled binaries between engineering team members." },
+      { id: 'C', text: "Use `publish: $(Build.ArtifactStagingDirectory)` to publish a Pipeline Artifact, and `download: current` in deployment jobs to consume it." },
+      { id: 'D', text: "Commit compiled binary executables directly to the Git source code repository." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Use `publish: $(Build.ArtifactStagingDirectory)` to publish a Pipeline Artifact, and `download: current` in deployment jobs to consume it. Pipeline Artifacts are the recommended way to share files between stages in Azure Pipelines. The `publish` task uploads build outputs to Azure DevOps artifact storage, where subsequent stages and deployment jobs retrieve them using the `download` task, ensuring artifact immutability.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/artifacts/pipeline-artifacts",
@@ -93,12 +93,12 @@ export const AZURE_AZ400_QUESTIONS_15 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer evaluates Artifact Management to pass compiled application binaries from the `Build` stage to subsequent `Staging` and `Production` deployment stages in a multi-stage YAML pipeline.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability? Publishing and downloading pipeline artifacts across stages with PublishPipelineArtifact is under consideration.",
     options: [
-      { id: 'A', text: "Use `publish: $(Build.ArtifactStagingDirectory)` to publish a Pipeline Artifact, and `download: current` in deployment jobs to consume it." },
+      { id: 'A', text: "Commit compiled binary executables directly to the Git source code repository." },
       { id: 'B', text: "Store compiled binaries in temporary agent local folders that are wiped between jobs." },
-      { id: 'C', text: "Commit compiled binary executables directly to the Git source code repository." },
-      { id: 'D', text: "Email compiled binaries between engineering team members." }
+      { id: 'C', text: "Email compiled binaries between engineering team members." },
+      { id: 'D', text: "Use `publish: $(Build.ArtifactStagingDirectory)` to publish a Pipeline Artifact, and `download: current` in deployment jobs to consume it." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Use `publish: $(Build.ArtifactStagingDirectory)` to publish a Pipeline Artifact, and `download: current` in deployment jobs to consume it. Pipeline Artifacts are the recommended way to share files between stages in Azure Pipelines. The `publish` task uploads build outputs to Azure DevOps artifact storage, where subsequent stages and deployment jobs retrieve them using the `download` task, ensuring artifact immutability.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/artifacts/pipeline-artifacts",
@@ -114,12 +114,12 @@ export const AZURE_AZ400_QUESTIONS_15 = [
     scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer evaluates Environments to protect production deployments by requiring manual approval from designated release managers and business hour execution checks.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives? Targeting environments with approvals, checks, and deployment history is under consideration.",
     options: [
-      { id: 'A', text: "Define an `environment: 'production'` in the deployment job and configure Approvals and Business Hours checks on the Environment in Azure DevOps." },
-      { id: 'B', text: "Write a sleep loop of 12 hours in a bash deployment script." },
-      { id: 'C', text: "Delete the production deployment stage until approval is verbally granted." },
-      { id: 'D', text: "Disable automated deployment and perform all production updates by hand." }
+      { id: 'A', text: "Write a sleep loop of 12 hours in a bash deployment script." },
+      { id: 'B', text: "Delete the production deployment stage until approval is verbally granted." },
+      { id: 'C', text: "Disable automated deployment and perform all production updates by hand." },
+      { id: 'D', text: "Define an `environment: 'production'` in the deployment job and configure Approvals and Business Hours checks on the Environment in Azure DevOps." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Define an `environment: 'production'` in the deployment job and configure Approvals and Business Hours checks on the Environment in Azure DevOps. Environments in Azure DevOps represent collection of target resources (Kubernetes, VMs). Configuring Approvals and Checks on an Environment pauses pipeline execution targeting that environment until specified reviewers approve or automated checks (business hours, branch control, REST API) pass.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/process/environments",
@@ -135,12 +135,12 @@ export const AZURE_AZ400_QUESTIONS_15 = [
     scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer evaluates Environments to protect production deployments by requiring manual approval from designated release managers and business hour execution checks.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability? Targeting environments with approvals, checks, and deployment history is under consideration.",
     options: [
-      { id: 'A', text: "Define an `environment: 'production'` in the deployment job and configure Approvals and Business Hours checks on the Environment in Azure DevOps." },
-      { id: 'B', text: "Write a sleep loop of 12 hours in a bash deployment script." },
-      { id: 'C', text: "Delete the production deployment stage until approval is verbally granted." },
+      { id: 'A', text: "Write a sleep loop of 12 hours in a bash deployment script." },
+      { id: 'B', text: "Delete the production deployment stage until approval is verbally granted." },
+      { id: 'C', text: "Define an `environment: 'production'` in the deployment job and configure Approvals and Business Hours checks on the Environment in Azure DevOps." },
       { id: 'D', text: "Disable automated deployment and perform all production updates by hand." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Define an `environment: 'production'` in the deployment job and configure Approvals and Business Hours checks on the Environment in Azure DevOps. Environments in Azure DevOps represent collection of target resources (Kubernetes, VMs). Configuring Approvals and Checks on an Environment pauses pipeline execution targeting that environment until specified reviewers approve or automated checks (business hours, branch control, REST API) pass.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/process/environments",
@@ -156,12 +156,12 @@ export const AZURE_AZ400_QUESTIONS_15 = [
     scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer evaluates Environments to protect production deployments by requiring manual approval from designated release managers and business hour execution checks.",
     question: "Which solution implements these mandatory DevOps security and compliance controls? Targeting environments with approvals, checks, and deployment history is under consideration.",
     options: [
-      { id: 'A', text: "Define an `environment: 'production'` in the deployment job and configure Approvals and Business Hours checks on the Environment in Azure DevOps." },
-      { id: 'B', text: "Write a sleep loop of 12 hours in a bash deployment script." },
+      { id: 'A', text: "Disable automated deployment and perform all production updates by hand." },
+      { id: 'B', text: "Define an `environment: 'production'` in the deployment job and configure Approvals and Business Hours checks on the Environment in Azure DevOps." },
       { id: 'C', text: "Delete the production deployment stage until approval is verbally granted." },
-      { id: 'D', text: "Disable automated deployment and perform all production updates by hand." }
+      { id: 'D', text: "Write a sleep loop of 12 hours in a bash deployment script." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Define an `environment: 'production'` in the deployment job and configure Approvals and Business Hours checks on the Environment in Azure DevOps. Environments in Azure DevOps represent collection of target resources (Kubernetes, VMs). Configuring Approvals and Checks on an Environment pauses pipeline execution targeting that environment until specified reviewers approve or automated checks (business hours, branch control, REST API) pass.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/process/environments",
@@ -178,8 +178,8 @@ export const AZURE_AZ400_QUESTIONS_15 = [
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction? Targeting environments with approvals, checks, and deployment history is under consideration.",
     options: [
       { id: 'A', text: "Define an `environment: 'production'` in the deployment job and configure Approvals and Business Hours checks on the Environment in Azure DevOps." },
-      { id: 'B', text: "Write a sleep loop of 12 hours in a bash deployment script." },
-      { id: 'C', text: "Delete the production deployment stage until approval is verbally granted." },
+      { id: 'B', text: "Delete the production deployment stage until approval is verbally granted." },
+      { id: 'C', text: "Write a sleep loop of 12 hours in a bash deployment script." },
       { id: 'D', text: "Disable automated deployment and perform all production updates by hand." }
     ],
     correctAnswers: ['A'],
@@ -198,12 +198,12 @@ export const AZURE_AZ400_QUESTIONS_15 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer evaluates Environments to protect production deployments by requiring manual approval from designated release managers and business hour execution checks.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability? Targeting environments with approvals, checks, and deployment history is under consideration.",
     options: [
-      { id: 'A', text: "Define an `environment: 'production'` in the deployment job and configure Approvals and Business Hours checks on the Environment in Azure DevOps." },
-      { id: 'B', text: "Write a sleep loop of 12 hours in a bash deployment script." },
+      { id: 'A', text: "Write a sleep loop of 12 hours in a bash deployment script." },
+      { id: 'B', text: "Define an `environment: 'production'` in the deployment job and configure Approvals and Business Hours checks on the Environment in Azure DevOps." },
       { id: 'C', text: "Delete the production deployment stage until approval is verbally granted." },
       { id: 'D', text: "Disable automated deployment and perform all production updates by hand." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Define an `environment: 'production'` in the deployment job and configure Approvals and Business Hours checks on the Environment in Azure DevOps. Environments in Azure DevOps represent collection of target resources (Kubernetes, VMs). Configuring Approvals and Checks on an Environment pauses pipeline execution targeting that environment until specified reviewers approve or automated checks (business hours, branch control, REST API) pass.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/process/environments",
@@ -219,12 +219,12 @@ export const AZURE_AZ400_QUESTIONS_15 = [
     scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer evaluates Deployment Strategies to deploy an update to a fleet of virtual machines in batches of 25% while monitoring health checks between batches.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives? Configuring runOnce, rolling, and canary deployment strategies in deployment jobs is under consideration.",
     options: [
-      { id: 'A', text: "Use a `deployment` job targeting an environment with `strategy: rolling: maxParallel: 25%` and health verification hooks." },
-      { id: 'B', text: "Deploy all instances simultaneously using a standard script without health checks." },
-      { id: 'C', text: "Terminate the entire fleet of virtual machines before deploying new code." },
-      { id: 'D', text: "Deploy to one machine and let the remaining 99 machines run old code permanently." }
+      { id: 'A', text: "Terminate the entire fleet of virtual machines before deploying new code." },
+      { id: 'B', text: "Use a `deployment` job targeting an environment with `strategy: rolling: maxParallel: 25%` and health verification hooks." },
+      { id: 'C', text: "Deploy to one machine and let the remaining 99 machines run old code permanently." },
+      { id: 'D', text: "Deploy all instances simultaneously using a standard script without health checks." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Use a `deployment` job targeting an environment with `strategy: rolling: maxParallel: 25%` and health verification hooks. Deployment jobs support dedicated strategies: `runOnce` (all targets at once), `rolling` (updates targets in batches defined by `maxParallel`), and `canary` (deploys to a small percentage first). Strategy lifecycle hooks (`preDeploy`, `deploy`, `routeTraffic`, `postRouteTraffic`) enable automated validation.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/process/deployment-jobs",
@@ -240,12 +240,12 @@ export const AZURE_AZ400_QUESTIONS_15 = [
     scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer evaluates Deployment Strategies to deploy an update to a fleet of virtual machines in batches of 25% while monitoring health checks between batches.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability? Configuring runOnce, rolling, and canary deployment strategies in deployment jobs is under consideration.",
     options: [
-      { id: 'A', text: "Use a `deployment` job targeting an environment with `strategy: rolling: maxParallel: 25%` and health verification hooks." },
-      { id: 'B', text: "Deploy all instances simultaneously using a standard script without health checks." },
-      { id: 'C', text: "Terminate the entire fleet of virtual machines before deploying new code." },
-      { id: 'D', text: "Deploy to one machine and let the remaining 99 machines run old code permanently." }
+      { id: 'A', text: "Deploy all instances simultaneously using a standard script without health checks." },
+      { id: 'B', text: "Deploy to one machine and let the remaining 99 machines run old code permanently." },
+      { id: 'C', text: "Use a `deployment` job targeting an environment with `strategy: rolling: maxParallel: 25%` and health verification hooks." },
+      { id: 'D', text: "Terminate the entire fleet of virtual machines before deploying new code." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Use a `deployment` job targeting an environment with `strategy: rolling: maxParallel: 25%` and health verification hooks. Deployment jobs support dedicated strategies: `runOnce` (all targets at once), `rolling` (updates targets in batches defined by `maxParallel`), and `canary` (deploys to a small percentage first). Strategy lifecycle hooks (`preDeploy`, `deploy`, `routeTraffic`, `postRouteTraffic`) enable automated validation.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/process/deployment-jobs",
@@ -261,12 +261,12 @@ export const AZURE_AZ400_QUESTIONS_15 = [
     scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer evaluates Deployment Strategies to deploy an update to a fleet of virtual machines in batches of 25% while monitoring health checks between batches.",
     question: "Which solution implements these mandatory DevOps security and compliance controls? Configuring runOnce, rolling, and canary deployment strategies in deployment jobs is under consideration.",
     options: [
-      { id: 'A', text: "Use a `deployment` job targeting an environment with `strategy: rolling: maxParallel: 25%` and health verification hooks." },
-      { id: 'B', text: "Deploy all instances simultaneously using a standard script without health checks." },
-      { id: 'C', text: "Terminate the entire fleet of virtual machines before deploying new code." },
-      { id: 'D', text: "Deploy to one machine and let the remaining 99 machines run old code permanently." }
+      { id: 'A', text: "Terminate the entire fleet of virtual machines before deploying new code." },
+      { id: 'B', text: "Deploy to one machine and let the remaining 99 machines run old code permanently." },
+      { id: 'C', text: "Deploy all instances simultaneously using a standard script without health checks." },
+      { id: 'D', text: "Use a `deployment` job targeting an environment with `strategy: rolling: maxParallel: 25%` and health verification hooks." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Use a `deployment` job targeting an environment with `strategy: rolling: maxParallel: 25%` and health verification hooks. Deployment jobs support dedicated strategies: `runOnce` (all targets at once), `rolling` (updates targets in batches defined by `maxParallel`), and `canary` (deploys to a small percentage first). Strategy lifecycle hooks (`preDeploy`, `deploy`, `routeTraffic`, `postRouteTraffic`) enable automated validation.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/process/deployment-jobs",
@@ -282,12 +282,12 @@ export const AZURE_AZ400_QUESTIONS_15 = [
     scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer evaluates Deployment Strategies to deploy an update to a fleet of virtual machines in batches of 25% while monitoring health checks between batches.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction? Configuring runOnce, rolling, and canary deployment strategies in deployment jobs is under consideration.",
     options: [
-      { id: 'A', text: "Use a `deployment` job targeting an environment with `strategy: rolling: maxParallel: 25%` and health verification hooks." },
+      { id: 'A', text: "Terminate the entire fleet of virtual machines before deploying new code." },
       { id: 'B', text: "Deploy all instances simultaneously using a standard script without health checks." },
-      { id: 'C', text: "Terminate the entire fleet of virtual machines before deploying new code." },
+      { id: 'C', text: "Use a `deployment` job targeting an environment with `strategy: rolling: maxParallel: 25%` and health verification hooks." },
       { id: 'D', text: "Deploy to one machine and let the remaining 99 machines run old code permanently." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Use a `deployment` job targeting an environment with `strategy: rolling: maxParallel: 25%` and health verification hooks. Deployment jobs support dedicated strategies: `runOnce` (all targets at once), `rolling` (updates targets in batches defined by `maxParallel`), and `canary` (deploys to a small percentage first). Strategy lifecycle hooks (`preDeploy`, `deploy`, `routeTraffic`, `postRouteTraffic`) enable automated validation.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/process/deployment-jobs",
@@ -303,12 +303,12 @@ export const AZURE_AZ400_QUESTIONS_15 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer evaluates Deployment Strategies to deploy an update to a fleet of virtual machines in batches of 25% while monitoring health checks between batches.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability? Configuring runOnce, rolling, and canary deployment strategies in deployment jobs is under consideration.",
     options: [
-      { id: 'A', text: "Use a `deployment` job targeting an environment with `strategy: rolling: maxParallel: 25%` and health verification hooks." },
-      { id: 'B', text: "Deploy all instances simultaneously using a standard script without health checks." },
+      { id: 'A', text: "Deploy all instances simultaneously using a standard script without health checks." },
+      { id: 'B', text: "Use a `deployment` job targeting an environment with `strategy: rolling: maxParallel: 25%` and health verification hooks." },
       { id: 'C', text: "Terminate the entire fleet of virtual machines before deploying new code." },
       { id: 'D', text: "Deploy to one machine and let the remaining 99 machines run old code permanently." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Use a `deployment` job targeting an environment with `strategy: rolling: maxParallel: 25%` and health verification hooks. Deployment jobs support dedicated strategies: `runOnce` (all targets at once), `rolling` (updates targets in batches defined by `maxParallel`), and `canary` (deploys to a small percentage first). Strategy lifecycle hooks (`preDeploy`, `deploy`, `routeTraffic`, `postRouteTraffic`) enable automated validation.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/process/deployment-jobs",
@@ -324,12 +324,12 @@ export const AZURE_AZ400_QUESTIONS_15 = [
     scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer evaluates Pipeline Templates to standardize build and security scanning steps across 200 microservice repositories while maintaining centralized template governance.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives? Step, job, and stage templates for standardized, reusable pipeline definitions is under consideration.",
     options: [
-      { id: 'A', text: "Author centralized YAML templates in a central governance repository and reference them in microservice pipelines using `template: steps.yml@templates-repo`." },
-      { id: 'B', text: "Copy-paste 500 lines of identical YAML code across all 200 repositories." },
+      { id: 'A', text: "Copy-paste 500 lines of identical YAML code across all 200 repositories." },
+      { id: 'B', text: "Hardcode security scanning commands in each developer's personal shell profile." },
       { id: 'C', text: "Allow each team to write completely unstructured deployment scripts." },
-      { id: 'D', text: "Hardcode security scanning commands in each developer's personal shell profile." }
+      { id: 'D', text: "Author centralized YAML templates in a central governance repository and reference them in microservice pipelines using `template: steps.yml@templates-repo`." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Author centralized YAML templates in a central governance repository and reference them in microservice pipelines using `template: steps.yml@templates-repo`. YAML templates allow reusing steps, jobs, or entire stages across repositories. Centralizing templates enables organizations to mandate security scanning, compliance checks, and build standards across hundreds of repositories from a single, peer-reviewed source of truth.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/process/templates",
@@ -345,12 +345,12 @@ export const AZURE_AZ400_QUESTIONS_15 = [
     scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer evaluates Pipeline Templates to standardize build and security scanning steps across 200 microservice repositories while maintaining centralized template governance.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability? Step, job, and stage templates for standardized, reusable pipeline definitions is under consideration.",
     options: [
-      { id: 'A', text: "Author centralized YAML templates in a central governance repository and reference them in microservice pipelines using `template: steps.yml@templates-repo`." },
-      { id: 'B', text: "Copy-paste 500 lines of identical YAML code across all 200 repositories." },
-      { id: 'C', text: "Allow each team to write completely unstructured deployment scripts." },
-      { id: 'D', text: "Hardcode security scanning commands in each developer's personal shell profile." }
+      { id: 'A', text: "Copy-paste 500 lines of identical YAML code across all 200 repositories." },
+      { id: 'B', text: "Author centralized YAML templates in a central governance repository and reference them in microservice pipelines using `template: steps.yml@templates-repo`." },
+      { id: 'C', text: "Hardcode security scanning commands in each developer's personal shell profile." },
+      { id: 'D', text: "Allow each team to write completely unstructured deployment scripts." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Author centralized YAML templates in a central governance repository and reference them in microservice pipelines using `template: steps.yml@templates-repo`. YAML templates allow reusing steps, jobs, or entire stages across repositories. Centralizing templates enables organizations to mandate security scanning, compliance checks, and build standards across hundreds of repositories from a single, peer-reviewed source of truth.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/process/templates",
@@ -366,12 +366,12 @@ export const AZURE_AZ400_QUESTIONS_15 = [
     scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer evaluates Pipeline Templates to standardize build and security scanning steps across 200 microservice repositories while maintaining centralized template governance.",
     question: "Which solution implements these mandatory DevOps security and compliance controls? Step, job, and stage templates for standardized, reusable pipeline definitions is under consideration.",
     options: [
-      { id: 'A', text: "Author centralized YAML templates in a central governance repository and reference them in microservice pipelines using `template: steps.yml@templates-repo`." },
-      { id: 'B', text: "Copy-paste 500 lines of identical YAML code across all 200 repositories." },
-      { id: 'C', text: "Allow each team to write completely unstructured deployment scripts." },
+      { id: 'A', text: "Copy-paste 500 lines of identical YAML code across all 200 repositories." },
+      { id: 'B', text: "Allow each team to write completely unstructured deployment scripts." },
+      { id: 'C', text: "Author centralized YAML templates in a central governance repository and reference them in microservice pipelines using `template: steps.yml@templates-repo`." },
       { id: 'D', text: "Hardcode security scanning commands in each developer's personal shell profile." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Author centralized YAML templates in a central governance repository and reference them in microservice pipelines using `template: steps.yml@templates-repo`. YAML templates allow reusing steps, jobs, or entire stages across repositories. Centralizing templates enables organizations to mandate security scanning, compliance checks, and build standards across hundreds of repositories from a single, peer-reviewed source of truth.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/process/templates",
@@ -387,12 +387,12 @@ export const AZURE_AZ400_QUESTIONS_15 = [
     scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer evaluates Pipeline Templates to standardize build and security scanning steps across 200 microservice repositories while maintaining centralized template governance.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction? Step, job, and stage templates for standardized, reusable pipeline definitions is under consideration.",
     options: [
-      { id: 'A', text: "Author centralized YAML templates in a central governance repository and reference them in microservice pipelines using `template: steps.yml@templates-repo`." },
-      { id: 'B', text: "Copy-paste 500 lines of identical YAML code across all 200 repositories." },
-      { id: 'C', text: "Allow each team to write completely unstructured deployment scripts." },
-      { id: 'D', text: "Hardcode security scanning commands in each developer's personal shell profile." }
+      { id: 'A', text: "Hardcode security scanning commands in each developer's personal shell profile." },
+      { id: 'B', text: "Allow each team to write completely unstructured deployment scripts." },
+      { id: 'C', text: "Copy-paste 500 lines of identical YAML code across all 200 repositories." },
+      { id: 'D', text: "Author centralized YAML templates in a central governance repository and reference them in microservice pipelines using `template: steps.yml@templates-repo`." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Author centralized YAML templates in a central governance repository and reference them in microservice pipelines using `template: steps.yml@templates-repo`. YAML templates allow reusing steps, jobs, or entire stages across repositories. Centralizing templates enables organizations to mandate security scanning, compliance checks, and build standards across hundreds of repositories from a single, peer-reviewed source of truth.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/process/templates",
@@ -408,12 +408,12 @@ export const AZURE_AZ400_QUESTIONS_15 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer evaluates Pipeline Templates to standardize build and security scanning steps across 200 microservice repositories while maintaining centralized template governance.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability? Step, job, and stage templates for standardized, reusable pipeline definitions is under consideration.",
     options: [
-      { id: 'A', text: "Author centralized YAML templates in a central governance repository and reference them in microservice pipelines using `template: steps.yml@templates-repo`." },
-      { id: 'B', text: "Copy-paste 500 lines of identical YAML code across all 200 repositories." },
-      { id: 'C', text: "Allow each team to write completely unstructured deployment scripts." },
+      { id: 'A', text: "Copy-paste 500 lines of identical YAML code across all 200 repositories." },
+      { id: 'B', text: "Allow each team to write completely unstructured deployment scripts." },
+      { id: 'C', text: "Author centralized YAML templates in a central governance repository and reference them in microservice pipelines using `template: steps.yml@templates-repo`." },
       { id: 'D', text: "Hardcode security scanning commands in each developer's personal shell profile." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Author centralized YAML templates in a central governance repository and reference them in microservice pipelines using `template: steps.yml@templates-repo`. YAML templates allow reusing steps, jobs, or entire stages across repositories. Centralizing templates enables organizations to mandate security scanning, compliance checks, and build standards across hundreds of repositories from a single, peer-reviewed source of truth.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/process/templates",
@@ -429,12 +429,12 @@ export const AZURE_AZ400_QUESTIONS_15 = [
     scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer evaluates Variable Groups to inject production database connection strings and third-party API keys securely into pipelines without exposing secret values in plaintext YAML.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives? Linking Azure Key Vault secrets to Azure Pipelines Variable Groups is under consideration.",
     options: [
-      { id: 'A', text: "Create a Variable Group in Azure DevOps linked directly to an Azure Key Vault, authorizing the pipeline service connection." },
-      { id: 'B', text: "Store secrets in plaintext variables committed to the Git repository." },
+      { id: 'A', text: "Store secrets in plaintext variables committed to the Git repository." },
+      { id: 'B', text: "Create a Variable Group in Azure DevOps linked directly to an Azure Key Vault, authorizing the pipeline service connection." },
       { id: 'C', text: "Echo secret tokens to build logs to verify they exist." },
       { id: 'D', text: "Pass secret passwords as plaintext command-line arguments in scripts." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Create a Variable Group in Azure DevOps linked directly to an Azure Key Vault, authorizing the pipeline service connection. Variable Groups can link directly to an Azure Key Vault. When linked, secret keys in the vault become available as pipeline variables. The values are retrieved securely at runtime and automatically masked (`***`) in build logs, eliminating credential leakage.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/library/variable-groups#link-secrets-from-an-azure-key-vault",
@@ -450,12 +450,12 @@ export const AZURE_AZ400_QUESTIONS_15 = [
     scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer evaluates Variable Groups to inject production database connection strings and third-party API keys securely into pipelines without exposing secret values in plaintext YAML.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability? Linking Azure Key Vault secrets to Azure Pipelines Variable Groups is under consideration.",
     options: [
-      { id: 'A', text: "Create a Variable Group in Azure DevOps linked directly to an Azure Key Vault, authorizing the pipeline service connection." },
+      { id: 'A', text: "Echo secret tokens to build logs to verify they exist." },
       { id: 'B', text: "Store secrets in plaintext variables committed to the Git repository." },
-      { id: 'C', text: "Echo secret tokens to build logs to verify they exist." },
+      { id: 'C', text: "Create a Variable Group in Azure DevOps linked directly to an Azure Key Vault, authorizing the pipeline service connection." },
       { id: 'D', text: "Pass secret passwords as plaintext command-line arguments in scripts." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Create a Variable Group in Azure DevOps linked directly to an Azure Key Vault, authorizing the pipeline service connection. Variable Groups can link directly to an Azure Key Vault. When linked, secret keys in the vault become available as pipeline variables. The values are retrieved securely at runtime and automatically masked (`***`) in build logs, eliminating credential leakage.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/library/variable-groups#link-secrets-from-an-azure-key-vault",
@@ -471,12 +471,12 @@ export const AZURE_AZ400_QUESTIONS_15 = [
     scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer evaluates Variable Groups to inject production database connection strings and third-party API keys securely into pipelines without exposing secret values in plaintext YAML.",
     question: "Which solution implements these mandatory DevOps security and compliance controls? Linking Azure Key Vault secrets to Azure Pipelines Variable Groups is under consideration.",
     options: [
-      { id: 'A', text: "Create a Variable Group in Azure DevOps linked directly to an Azure Key Vault, authorizing the pipeline service connection." },
+      { id: 'A', text: "Pass secret passwords as plaintext command-line arguments in scripts." },
       { id: 'B', text: "Store secrets in plaintext variables committed to the Git repository." },
       { id: 'C', text: "Echo secret tokens to build logs to verify they exist." },
-      { id: 'D', text: "Pass secret passwords as plaintext command-line arguments in scripts." }
+      { id: 'D', text: "Create a Variable Group in Azure DevOps linked directly to an Azure Key Vault, authorizing the pipeline service connection." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Create a Variable Group in Azure DevOps linked directly to an Azure Key Vault, authorizing the pipeline service connection. Variable Groups can link directly to an Azure Key Vault. When linked, secret keys in the vault become available as pipeline variables. The values are retrieved securely at runtime and automatically masked (`***`) in build logs, eliminating credential leakage.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/library/variable-groups#link-secrets-from-an-azure-key-vault",
@@ -494,8 +494,8 @@ export const AZURE_AZ400_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Create a Variable Group in Azure DevOps linked directly to an Azure Key Vault, authorizing the pipeline service connection." },
       { id: 'B', text: "Store secrets in plaintext variables committed to the Git repository." },
-      { id: 'C', text: "Echo secret tokens to build logs to verify they exist." },
-      { id: 'D', text: "Pass secret passwords as plaintext command-line arguments in scripts." }
+      { id: 'C', text: "Pass secret passwords as plaintext command-line arguments in scripts." },
+      { id: 'D', text: "Echo secret tokens to build logs to verify they exist." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -513,12 +513,12 @@ export const AZURE_AZ400_QUESTIONS_15 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer evaluates Variable Groups to inject production database connection strings and third-party API keys securely into pipelines without exposing secret values in plaintext YAML.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability? Linking Azure Key Vault secrets to Azure Pipelines Variable Groups is under consideration.",
     options: [
-      { id: 'A', text: "Create a Variable Group in Azure DevOps linked directly to an Azure Key Vault, authorizing the pipeline service connection." },
-      { id: 'B', text: "Store secrets in plaintext variables committed to the Git repository." },
+      { id: 'A', text: "Store secrets in plaintext variables committed to the Git repository." },
+      { id: 'B', text: "Create a Variable Group in Azure DevOps linked directly to an Azure Key Vault, authorizing the pipeline service connection." },
       { id: 'C', text: "Echo secret tokens to build logs to verify they exist." },
       { id: 'D', text: "Pass secret passwords as plaintext command-line arguments in scripts." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Create a Variable Group in Azure DevOps linked directly to an Azure Key Vault, authorizing the pipeline service connection. Variable Groups can link directly to an Azure Key Vault. When linked, secret keys in the vault become available as pipeline variables. The values are retrieved securely at runtime and automatically masked (`***`) in build logs, eliminating credential leakage.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/library/variable-groups#link-secrets-from-an-azure-key-vault",

@@ -9,12 +9,12 @@ export const AWS_DOP_QUESTIONS_15 = [
     scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer evaluates Route 53 ARC to orchestrate safe, reliable failover of application traffic between AWS regions without relying on impaired regional control planes during an outage.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives? Multi-region traffic failover using ARC routing controls and readiness checks is under consideration.",
     options: [
-      { id: 'A', text: "Implement Route 53 Application Recovery Controller (ARC) routing controls with regional readiness checks and zonal shift capabilities." },
-      { id: 'B', text: "Perform manual Route 53 DNS record updates using the AWS Console during an active outage." },
-      { id: 'C', text: "Use basic Route 53 health checks without evaluating recovery readiness." },
-      { id: 'D', text: "Route all traffic through a single EC2 instance running BIND DNS." }
+      { id: 'A', text: "Route all traffic through a single EC2 instance running BIND DNS." },
+      { id: 'B', text: "Use basic Route 53 health checks without evaluating recovery readiness." },
+      { id: 'C', text: "Implement Route 53 Application Recovery Controller (ARC) routing controls with regional readiness checks and zonal shift capabilities." },
+      { id: 'D', text: "Perform manual Route 53 DNS record updates using the AWS Console during an active outage." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Implement Route 53 Application Recovery Controller (ARC) routing controls with regional readiness checks and zonal shift capabilities. Route 53 Application Recovery Controller (ARC) provides highly reliable routing controls that operate independently of regional control planes. ARC evaluates regional readiness (capacity, quotas) and executes instant traffic shifts via simple on/off routing control switches.",
     referenceUrl: "https://docs.aws.amazon.com/r53recovery/latest/dg/what-is-route-53-recovery-control.html",
@@ -30,12 +30,12 @@ export const AWS_DOP_QUESTIONS_15 = [
     scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer evaluates Route 53 ARC to orchestrate safe, reliable failover of application traffic between AWS regions without relying on impaired regional control planes during an outage.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention? Multi-region traffic failover using ARC routing controls and readiness checks is under consideration.",
     options: [
-      { id: 'A', text: "Implement Route 53 Application Recovery Controller (ARC) routing controls with regional readiness checks and zonal shift capabilities." },
-      { id: 'B', text: "Perform manual Route 53 DNS record updates using the AWS Console during an active outage." },
+      { id: 'A', text: "Perform manual Route 53 DNS record updates using the AWS Console during an active outage." },
+      { id: 'B', text: "Implement Route 53 Application Recovery Controller (ARC) routing controls with regional readiness checks and zonal shift capabilities." },
       { id: 'C', text: "Use basic Route 53 health checks without evaluating recovery readiness." },
       { id: 'D', text: "Route all traffic through a single EC2 instance running BIND DNS." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Implement Route 53 Application Recovery Controller (ARC) routing controls with regional readiness checks and zonal shift capabilities. Route 53 Application Recovery Controller (ARC) provides highly reliable routing controls that operate independently of regional control planes. ARC evaluates regional readiness (capacity, quotas) and executes instant traffic shifts via simple on/off routing control switches.",
     referenceUrl: "https://docs.aws.amazon.com/r53recovery/latest/dg/what-is-route-53-recovery-control.html",
@@ -51,12 +51,12 @@ export const AWS_DOP_QUESTIONS_15 = [
     scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer evaluates Route 53 ARC to orchestrate safe, reliable failover of application traffic between AWS regions without relying on impaired regional control planes during an outage.",
     question: "Which solution implements these mandatory compliance and security controls? Multi-region traffic failover using ARC routing controls and readiness checks is under consideration.",
     options: [
-      { id: 'A', text: "Implement Route 53 Application Recovery Controller (ARC) routing controls with regional readiness checks and zonal shift capabilities." },
+      { id: 'A', text: "Route all traffic through a single EC2 instance running BIND DNS." },
       { id: 'B', text: "Perform manual Route 53 DNS record updates using the AWS Console during an active outage." },
       { id: 'C', text: "Use basic Route 53 health checks without evaluating recovery readiness." },
-      { id: 'D', text: "Route all traffic through a single EC2 instance running BIND DNS." }
+      { id: 'D', text: "Implement Route 53 Application Recovery Controller (ARC) routing controls with regional readiness checks and zonal shift capabilities." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Implement Route 53 Application Recovery Controller (ARC) routing controls with regional readiness checks and zonal shift capabilities. Route 53 Application Recovery Controller (ARC) provides highly reliable routing controls that operate independently of regional control planes. ARC evaluates regional readiness (capacity, quotas) and executes instant traffic shifts via simple on/off routing control switches.",
     referenceUrl: "https://docs.aws.amazon.com/r53recovery/latest/dg/what-is-route-53-recovery-control.html",
@@ -72,12 +72,12 @@ export const AWS_DOP_QUESTIONS_15 = [
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer evaluates Route 53 ARC to orchestrate safe, reliable failover of application traffic between AWS regions without relying on impaired regional control planes during an outage.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead? Multi-region traffic failover using ARC routing controls and readiness checks is under consideration.",
     options: [
-      { id: 'A', text: "Implement Route 53 Application Recovery Controller (ARC) routing controls with regional readiness checks and zonal shift capabilities." },
-      { id: 'B', text: "Perform manual Route 53 DNS record updates using the AWS Console during an active outage." },
+      { id: 'A', text: "Perform manual Route 53 DNS record updates using the AWS Console during an active outage." },
+      { id: 'B', text: "Implement Route 53 Application Recovery Controller (ARC) routing controls with regional readiness checks and zonal shift capabilities." },
       { id: 'C', text: "Use basic Route 53 health checks without evaluating recovery readiness." },
       { id: 'D', text: "Route all traffic through a single EC2 instance running BIND DNS." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Implement Route 53 Application Recovery Controller (ARC) routing controls with regional readiness checks and zonal shift capabilities. Route 53 Application Recovery Controller (ARC) provides highly reliable routing controls that operate independently of regional control planes. ARC evaluates regional readiness (capacity, quotas) and executes instant traffic shifts via simple on/off routing control switches.",
     referenceUrl: "https://docs.aws.amazon.com/r53recovery/latest/dg/what-is-route-53-recovery-control.html",
@@ -93,12 +93,12 @@ export const AWS_DOP_QUESTIONS_15 = [
     scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer evaluates Route 53 ARC to orchestrate safe, reliable failover of application traffic between AWS regions without relying on impaired regional control planes during an outage.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability? Multi-region traffic failover using ARC routing controls and readiness checks is under consideration.",
     options: [
-      { id: 'A', text: "Implement Route 53 Application Recovery Controller (ARC) routing controls with regional readiness checks and zonal shift capabilities." },
-      { id: 'B', text: "Perform manual Route 53 DNS record updates using the AWS Console during an active outage." },
-      { id: 'C', text: "Use basic Route 53 health checks without evaluating recovery readiness." },
+      { id: 'A', text: "Perform manual Route 53 DNS record updates using the AWS Console during an active outage." },
+      { id: 'B', text: "Use basic Route 53 health checks without evaluating recovery readiness." },
+      { id: 'C', text: "Implement Route 53 Application Recovery Controller (ARC) routing controls with regional readiness checks and zonal shift capabilities." },
       { id: 'D', text: "Route all traffic through a single EC2 instance running BIND DNS." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Implement Route 53 Application Recovery Controller (ARC) routing controls with regional readiness checks and zonal shift capabilities. Route 53 Application Recovery Controller (ARC) provides highly reliable routing controls that operate independently of regional control planes. ARC evaluates regional readiness (capacity, quotas) and executes instant traffic shifts via simple on/off routing control switches.",
     referenceUrl: "https://docs.aws.amazon.com/r53recovery/latest/dg/what-is-route-53-recovery-control.html",
@@ -114,12 +114,12 @@ export const AWS_DOP_QUESTIONS_15 = [
     scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer evaluates Auto Scaling to scale an Amazon EC2 Auto Scaling group proactively to handle predictable daily traffic surges that spike sharply every morning at 8:00 AM.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives? Combining Target Tracking scaling policies with Predictive Scaling for traffic surges is under consideration.",
     options: [
-      { id: 'A', text: "Configure Predictive Scaling based on historical metrics combined with a Target Tracking scaling policy maintaining 60% average CPU utilization." },
+      { id: 'A', text: "Over-provision thousands of static EC2 instances permanently." },
       { id: 'B', text: "Use Simple Scaling policies with static thresholds and 10-minute cooldown periods." },
-      { id: 'C', text: "Manually scale instance counts by hand at 8:00 AM every single morning." },
-      { id: 'D', text: "Over-provision thousands of static EC2 instances permanently." }
+      { id: 'C', text: "Configure Predictive Scaling based on historical metrics combined with a Target Tracking scaling policy maintaining 60% average CPU utilization." },
+      { id: 'D', text: "Manually scale instance counts by hand at 8:00 AM every single morning." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure Predictive Scaling based on historical metrics combined with a Target Tracking scaling policy maintaining 60% average CPU utilization. Predictive Scaling uses machine learning to forecast upcoming traffic patterns based on historical CloudWatch metrics and provisions capacity in advance. Pairing it with Target Tracking scaling ensures unexpected real-time spikes are handled smoothly while maintaining optimal resource efficiency.",
     referenceUrl: "https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-predictive-scaling.html",
@@ -135,12 +135,12 @@ export const AWS_DOP_QUESTIONS_15 = [
     scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer evaluates Auto Scaling to scale an Amazon EC2 Auto Scaling group proactively to handle predictable daily traffic surges that spike sharply every morning at 8:00 AM.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention? Combining Target Tracking scaling policies with Predictive Scaling for traffic surges is under consideration.",
     options: [
-      { id: 'A', text: "Configure Predictive Scaling based on historical metrics combined with a Target Tracking scaling policy maintaining 60% average CPU utilization." },
-      { id: 'B', text: "Use Simple Scaling policies with static thresholds and 10-minute cooldown periods." },
-      { id: 'C', text: "Manually scale instance counts by hand at 8:00 AM every single morning." },
-      { id: 'D', text: "Over-provision thousands of static EC2 instances permanently." }
+      { id: 'A', text: "Use Simple Scaling policies with static thresholds and 10-minute cooldown periods." },
+      { id: 'B', text: "Configure Predictive Scaling based on historical metrics combined with a Target Tracking scaling policy maintaining 60% average CPU utilization." },
+      { id: 'C', text: "Over-provision thousands of static EC2 instances permanently." },
+      { id: 'D', text: "Manually scale instance counts by hand at 8:00 AM every single morning." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure Predictive Scaling based on historical metrics combined with a Target Tracking scaling policy maintaining 60% average CPU utilization. Predictive Scaling uses machine learning to forecast upcoming traffic patterns based on historical CloudWatch metrics and provisions capacity in advance. Pairing it with Target Tracking scaling ensures unexpected real-time spikes are handled smoothly while maintaining optimal resource efficiency.",
     referenceUrl: "https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-predictive-scaling.html",
@@ -177,12 +177,12 @@ export const AWS_DOP_QUESTIONS_15 = [
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer evaluates Auto Scaling to scale an Amazon EC2 Auto Scaling group proactively to handle predictable daily traffic surges that spike sharply every morning at 8:00 AM.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead? Combining Target Tracking scaling policies with Predictive Scaling for traffic surges is under consideration.",
     options: [
-      { id: 'A', text: "Configure Predictive Scaling based on historical metrics combined with a Target Tracking scaling policy maintaining 60% average CPU utilization." },
-      { id: 'B', text: "Use Simple Scaling policies with static thresholds and 10-minute cooldown periods." },
-      { id: 'C', text: "Manually scale instance counts by hand at 8:00 AM every single morning." },
-      { id: 'D', text: "Over-provision thousands of static EC2 instances permanently." }
+      { id: 'A', text: "Use Simple Scaling policies with static thresholds and 10-minute cooldown periods." },
+      { id: 'B', text: "Manually scale instance counts by hand at 8:00 AM every single morning." },
+      { id: 'C', text: "Over-provision thousands of static EC2 instances permanently." },
+      { id: 'D', text: "Configure Predictive Scaling based on historical metrics combined with a Target Tracking scaling policy maintaining 60% average CPU utilization." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure Predictive Scaling based on historical metrics combined with a Target Tracking scaling policy maintaining 60% average CPU utilization. Predictive Scaling uses machine learning to forecast upcoming traffic patterns based on historical CloudWatch metrics and provisions capacity in advance. Pairing it with Target Tracking scaling ensures unexpected real-time spikes are handled smoothly while maintaining optimal resource efficiency.",
     referenceUrl: "https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-predictive-scaling.html",
@@ -200,8 +200,8 @@ export const AWS_DOP_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Configure Predictive Scaling based on historical metrics combined with a Target Tracking scaling policy maintaining 60% average CPU utilization." },
       { id: 'B', text: "Use Simple Scaling policies with static thresholds and 10-minute cooldown periods." },
-      { id: 'C', text: "Manually scale instance counts by hand at 8:00 AM every single morning." },
-      { id: 'D', text: "Over-provision thousands of static EC2 instances permanently." }
+      { id: 'C', text: "Over-provision thousands of static EC2 instances permanently." },
+      { id: 'D', text: "Manually scale instance counts by hand at 8:00 AM every single morning." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -220,8 +220,8 @@ export const AWS_DOP_QUESTIONS_15 = [
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives? Controlled fault injection testing of AZ failures and CPU stress with AWS FIS is under consideration.",
     options: [
       { id: 'A', text: "Design and execute controlled experiments using AWS Fault Injection Service (FIS) to inject AZ network disruptions, latency, and RDS failovers." },
-      { id: 'B', text: "Shut down random production servers during peak business hours without stop conditions." },
-      { id: 'C', text: "Assume multi-AZ deployment guarantees high availability without empirical validation." },
+      { id: 'B', text: "Assume multi-AZ deployment guarantees high availability without empirical validation." },
+      { id: 'C', text: "Shut down random production servers during peak business hours without stop conditions." },
       { id: 'D', text: "Simulate failures only in non-cloud local desktop environments." }
     ],
     correctAnswers: ['A'],
@@ -240,12 +240,12 @@ export const AWS_DOP_QUESTIONS_15 = [
     scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer evaluates Chaos Engineering to test whether an auto-scaling, multi-AZ application gracefully survives sudden availability zone disconnects and database failovers before going live to customers.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention? Controlled fault injection testing of AZ failures and CPU stress with AWS FIS is under consideration.",
     options: [
-      { id: 'A', text: "Design and execute controlled experiments using AWS Fault Injection Service (FIS) to inject AZ network disruptions, latency, and RDS failovers." },
+      { id: 'A', text: "Assume multi-AZ deployment guarantees high availability without empirical validation." },
       { id: 'B', text: "Shut down random production servers during peak business hours without stop conditions." },
-      { id: 'C', text: "Assume multi-AZ deployment guarantees high availability without empirical validation." },
+      { id: 'C', text: "Design and execute controlled experiments using AWS Fault Injection Service (FIS) to inject AZ network disruptions, latency, and RDS failovers." },
       { id: 'D', text: "Simulate failures only in non-cloud local desktop environments." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Design and execute controlled experiments using AWS Fault Injection Service (FIS) to inject AZ network disruptions, latency, and RDS failovers. AWS Fault Injection Service (FIS) is a managed service for running chaos engineering experiments. It provides pre-configured fault injection templates (stopping instances, throttling APIs, killing RDS primaries) with safety stop conditions to validate system resilience under real-world stress safely.",
     referenceUrl: "https://docs.aws.amazon.com/fis/latest/userguide/what-is.html",
@@ -261,12 +261,12 @@ export const AWS_DOP_QUESTIONS_15 = [
     scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer evaluates Chaos Engineering to test whether an auto-scaling, multi-AZ application gracefully survives sudden availability zone disconnects and database failovers before going live to customers.",
     question: "Which solution implements these mandatory compliance and security controls? Controlled fault injection testing of AZ failures and CPU stress with AWS FIS is under consideration.",
     options: [
-      { id: 'A', text: "Design and execute controlled experiments using AWS Fault Injection Service (FIS) to inject AZ network disruptions, latency, and RDS failovers." },
-      { id: 'B', text: "Shut down random production servers during peak business hours without stop conditions." },
-      { id: 'C', text: "Assume multi-AZ deployment guarantees high availability without empirical validation." },
+      { id: 'A', text: "Shut down random production servers during peak business hours without stop conditions." },
+      { id: 'B', text: "Assume multi-AZ deployment guarantees high availability without empirical validation." },
+      { id: 'C', text: "Design and execute controlled experiments using AWS Fault Injection Service (FIS) to inject AZ network disruptions, latency, and RDS failovers." },
       { id: 'D', text: "Simulate failures only in non-cloud local desktop environments." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Design and execute controlled experiments using AWS Fault Injection Service (FIS) to inject AZ network disruptions, latency, and RDS failovers. AWS Fault Injection Service (FIS) is a managed service for running chaos engineering experiments. It provides pre-configured fault injection templates (stopping instances, throttling APIs, killing RDS primaries) with safety stop conditions to validate system resilience under real-world stress safely.",
     referenceUrl: "https://docs.aws.amazon.com/fis/latest/userguide/what-is.html",
@@ -282,12 +282,12 @@ export const AWS_DOP_QUESTIONS_15 = [
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer evaluates Chaos Engineering to test whether an auto-scaling, multi-AZ application gracefully survives sudden availability zone disconnects and database failovers before going live to customers.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead? Controlled fault injection testing of AZ failures and CPU stress with AWS FIS is under consideration.",
     options: [
-      { id: 'A', text: "Design and execute controlled experiments using AWS Fault Injection Service (FIS) to inject AZ network disruptions, latency, and RDS failovers." },
-      { id: 'B', text: "Shut down random production servers during peak business hours without stop conditions." },
-      { id: 'C', text: "Assume multi-AZ deployment guarantees high availability without empirical validation." },
-      { id: 'D', text: "Simulate failures only in non-cloud local desktop environments." }
+      { id: 'A', text: "Shut down random production servers during peak business hours without stop conditions." },
+      { id: 'B', text: "Design and execute controlled experiments using AWS Fault Injection Service (FIS) to inject AZ network disruptions, latency, and RDS failovers." },
+      { id: 'C', text: "Simulate failures only in non-cloud local desktop environments." },
+      { id: 'D', text: "Assume multi-AZ deployment guarantees high availability without empirical validation." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Design and execute controlled experiments using AWS Fault Injection Service (FIS) to inject AZ network disruptions, latency, and RDS failovers. AWS Fault Injection Service (FIS) is a managed service for running chaos engineering experiments. It provides pre-configured fault injection templates (stopping instances, throttling APIs, killing RDS primaries) with safety stop conditions to validate system resilience under real-world stress safely.",
     referenceUrl: "https://docs.aws.amazon.com/fis/latest/userguide/what-is.html",
@@ -303,12 +303,12 @@ export const AWS_DOP_QUESTIONS_15 = [
     scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer evaluates Chaos Engineering to test whether an auto-scaling, multi-AZ application gracefully survives sudden availability zone disconnects and database failovers before going live to customers.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability? Controlled fault injection testing of AZ failures and CPU stress with AWS FIS is under consideration.",
     options: [
-      { id: 'A', text: "Design and execute controlled experiments using AWS Fault Injection Service (FIS) to inject AZ network disruptions, latency, and RDS failovers." },
-      { id: 'B', text: "Shut down random production servers during peak business hours without stop conditions." },
-      { id: 'C', text: "Assume multi-AZ deployment guarantees high availability without empirical validation." },
-      { id: 'D', text: "Simulate failures only in non-cloud local desktop environments." }
+      { id: 'A', text: "Assume multi-AZ deployment guarantees high availability without empirical validation." },
+      { id: 'B', text: "Design and execute controlled experiments using AWS Fault Injection Service (FIS) to inject AZ network disruptions, latency, and RDS failovers." },
+      { id: 'C', text: "Simulate failures only in non-cloud local desktop environments." },
+      { id: 'D', text: "Shut down random production servers during peak business hours without stop conditions." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Design and execute controlled experiments using AWS Fault Injection Service (FIS) to inject AZ network disruptions, latency, and RDS failovers. AWS Fault Injection Service (FIS) is a managed service for running chaos engineering experiments. It provides pre-configured fault injection templates (stopping instances, throttling APIs, killing RDS primaries) with safety stop conditions to validate system resilience under real-world stress safely.",
     referenceUrl: "https://docs.aws.amazon.com/fis/latest/userguide/what-is.html",
@@ -324,12 +324,12 @@ export const AWS_DOP_QUESTIONS_15 = [
     scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer evaluates Asynchronous Decoupling to prevent backend order processing services from crashing during traffic spikes while isolating malformed messages that fail processing repeatedly.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives? Buffering transaction bursts and isolating poisonous messages with SQS DLQs is under consideration.",
     options: [
-      { id: 'A', text: "Place an Amazon SQS queue between frontend APIs and backend workers, and configure a Dead Letter Queue (DLQ) with `maxReceiveCount: 5` and a CloudWatch alarm." },
-      { id: 'B', text: "Call backend worker APIs synchronously from the frontend web servers." },
+      { id: 'A', text: "Call backend worker APIs synchronously from the frontend web servers." },
+      { id: 'B', text: "Place an Amazon SQS queue between frontend APIs and backend workers, and configure a Dead Letter Queue (DLQ) with `maxReceiveCount: 5` and a CloudWatch alarm." },
       { id: 'C', text: "Discard any message that encounters an error immediately without logging." },
       { id: 'D', text: "Store orders in a flat text file on an ephemeral EC2 instance disk." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Place an Amazon SQS queue between frontend APIs and backend workers, and configure a Dead Letter Queue (DLQ) with `maxReceiveCount: 5` and a CloudWatch alarm. Amazon SQS buffers unpredictable request spikes, decoupling producers from consumers. Configuring a Dead Letter Queue (DLQ) moves poisonous or unparseable messages aside after `maxReceiveCount` retries, preventing head-of-line blocking and allowing engineering analysis.",
     referenceUrl: "https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html",
@@ -346,9 +346,9 @@ export const AWS_DOP_QUESTIONS_15 = [
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention? Buffering transaction bursts and isolating poisonous messages with SQS DLQs is under consideration.",
     options: [
       { id: 'A', text: "Place an Amazon SQS queue between frontend APIs and backend workers, and configure a Dead Letter Queue (DLQ) with `maxReceiveCount: 5` and a CloudWatch alarm." },
-      { id: 'B', text: "Call backend worker APIs synchronously from the frontend web servers." },
+      { id: 'B', text: "Store orders in a flat text file on an ephemeral EC2 instance disk." },
       { id: 'C', text: "Discard any message that encounters an error immediately without logging." },
-      { id: 'D', text: "Store orders in a flat text file on an ephemeral EC2 instance disk." }
+      { id: 'D', text: "Call backend worker APIs synchronously from the frontend web servers." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -367,9 +367,9 @@ export const AWS_DOP_QUESTIONS_15 = [
     question: "Which solution implements these mandatory compliance and security controls? Buffering transaction bursts and isolating poisonous messages with SQS DLQs is under consideration.",
     options: [
       { id: 'A', text: "Place an Amazon SQS queue between frontend APIs and backend workers, and configure a Dead Letter Queue (DLQ) with `maxReceiveCount: 5` and a CloudWatch alarm." },
-      { id: 'B', text: "Call backend worker APIs synchronously from the frontend web servers." },
-      { id: 'C', text: "Discard any message that encounters an error immediately without logging." },
-      { id: 'D', text: "Store orders in a flat text file on an ephemeral EC2 instance disk." }
+      { id: 'B', text: "Discard any message that encounters an error immediately without logging." },
+      { id: 'C', text: "Store orders in a flat text file on an ephemeral EC2 instance disk." },
+      { id: 'D', text: "Call backend worker APIs synchronously from the frontend web servers." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -387,12 +387,12 @@ export const AWS_DOP_QUESTIONS_15 = [
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer evaluates Asynchronous Decoupling to prevent backend order processing services from crashing during traffic spikes while isolating malformed messages that fail processing repeatedly.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead? Buffering transaction bursts and isolating poisonous messages with SQS DLQs is under consideration.",
     options: [
-      { id: 'A', text: "Place an Amazon SQS queue between frontend APIs and backend workers, and configure a Dead Letter Queue (DLQ) with `maxReceiveCount: 5` and a CloudWatch alarm." },
-      { id: 'B', text: "Call backend worker APIs synchronously from the frontend web servers." },
-      { id: 'C', text: "Discard any message that encounters an error immediately without logging." },
-      { id: 'D', text: "Store orders in a flat text file on an ephemeral EC2 instance disk." }
+      { id: 'A', text: "Call backend worker APIs synchronously from the frontend web servers." },
+      { id: 'B', text: "Store orders in a flat text file on an ephemeral EC2 instance disk." },
+      { id: 'C', text: "Place an Amazon SQS queue between frontend APIs and backend workers, and configure a Dead Letter Queue (DLQ) with `maxReceiveCount: 5` and a CloudWatch alarm." },
+      { id: 'D', text: "Discard any message that encounters an error immediately without logging." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Place an Amazon SQS queue between frontend APIs and backend workers, and configure a Dead Letter Queue (DLQ) with `maxReceiveCount: 5` and a CloudWatch alarm. Amazon SQS buffers unpredictable request spikes, decoupling producers from consumers. Configuring a Dead Letter Queue (DLQ) moves poisonous or unparseable messages aside after `maxReceiveCount` retries, preventing head-of-line blocking and allowing engineering analysis.",
     referenceUrl: "https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html",
@@ -408,12 +408,12 @@ export const AWS_DOP_QUESTIONS_15 = [
     scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer evaluates Asynchronous Decoupling to prevent backend order processing services from crashing during traffic spikes while isolating malformed messages that fail processing repeatedly.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability? Buffering transaction bursts and isolating poisonous messages with SQS DLQs is under consideration.",
     options: [
-      { id: 'A', text: "Place an Amazon SQS queue between frontend APIs and backend workers, and configure a Dead Letter Queue (DLQ) with `maxReceiveCount: 5` and a CloudWatch alarm." },
+      { id: 'A', text: "Discard any message that encounters an error immediately without logging." },
       { id: 'B', text: "Call backend worker APIs synchronously from the frontend web servers." },
-      { id: 'C', text: "Discard any message that encounters an error immediately without logging." },
-      { id: 'D', text: "Store orders in a flat text file on an ephemeral EC2 instance disk." }
+      { id: 'C', text: "Store orders in a flat text file on an ephemeral EC2 instance disk." },
+      { id: 'D', text: "Place an Amazon SQS queue between frontend APIs and backend workers, and configure a Dead Letter Queue (DLQ) with `maxReceiveCount: 5` and a CloudWatch alarm." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Place an Amazon SQS queue between frontend APIs and backend workers, and configure a Dead Letter Queue (DLQ) with `maxReceiveCount: 5` and a CloudWatch alarm. Amazon SQS buffers unpredictable request spikes, decoupling producers from consumers. Configuring a Dead Letter Queue (DLQ) moves poisonous or unparseable messages aside after `maxReceiveCount` retries, preventing head-of-line blocking and allowing engineering analysis.",
     referenceUrl: "https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html",
@@ -429,12 +429,12 @@ export const AWS_DOP_QUESTIONS_15 = [
     scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer evaluates Database Resilience to ensure database recovery point objectives (RPO) are maintained even in the catastrophic event of a complete AWS regional failure.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives? Enforcing automated RDS snapshots and scheduled cross-region snapshot replication is under consideration.",
     options: [
-      { id: 'A', text: "Enable automated RDS backups with a retention period and configure AWS Backup or RDS automated cross-region snapshot copy with KMS encryption." },
-      { id: 'B', text: "Take manual database dumps using mysqldump and store them on the local database host disk." },
+      { id: 'A', text: "Take manual database dumps using mysqldump and store them on the local database host disk." },
+      { id: 'B', text: "Disable snapshot encryption to speed up copy times." },
       { id: 'C', text: "Rely on single-AZ database storage without backups." },
-      { id: 'D', text: "Disable snapshot encryption to speed up copy times." }
+      { id: 'D', text: "Enable automated RDS backups with a retention period and configure AWS Backup or RDS automated cross-region snapshot copy with KMS encryption." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Enable automated RDS backups with a retention period and configure AWS Backup or RDS automated cross-region snapshot copy with KMS encryption. AWS Backup and RDS support automated cross-region snapshot replication. When an automated backup is taken in the primary region, it is copied asynchronously to a secondary disaster recovery region, encrypted with a regional KMS key, guaranteeing data durability against regional catastrophes.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopySnapshot.CrossRegion",
@@ -450,12 +450,12 @@ export const AWS_DOP_QUESTIONS_15 = [
     scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer evaluates Database Resilience to ensure database recovery point objectives (RPO) are maintained even in the catastrophic event of a complete AWS regional failure.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention? Enforcing automated RDS snapshots and scheduled cross-region snapshot replication is under consideration.",
     options: [
-      { id: 'A', text: "Enable automated RDS backups with a retention period and configure AWS Backup or RDS automated cross-region snapshot copy with KMS encryption." },
-      { id: 'B', text: "Take manual database dumps using mysqldump and store them on the local database host disk." },
-      { id: 'C', text: "Rely on single-AZ database storage without backups." },
-      { id: 'D', text: "Disable snapshot encryption to speed up copy times." }
+      { id: 'A', text: "Disable snapshot encryption to speed up copy times." },
+      { id: 'B', text: "Rely on single-AZ database storage without backups." },
+      { id: 'C', text: "Enable automated RDS backups with a retention period and configure AWS Backup or RDS automated cross-region snapshot copy with KMS encryption." },
+      { id: 'D', text: "Take manual database dumps using mysqldump and store them on the local database host disk." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Enable automated RDS backups with a retention period and configure AWS Backup or RDS automated cross-region snapshot copy with KMS encryption. AWS Backup and RDS support automated cross-region snapshot replication. When an automated backup is taken in the primary region, it is copied asynchronously to a secondary disaster recovery region, encrypted with a regional KMS key, guaranteeing data durability against regional catastrophes.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopySnapshot.CrossRegion",
@@ -471,12 +471,12 @@ export const AWS_DOP_QUESTIONS_15 = [
     scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer evaluates Database Resilience to ensure database recovery point objectives (RPO) are maintained even in the catastrophic event of a complete AWS regional failure.",
     question: "Which solution implements these mandatory compliance and security controls? Enforcing automated RDS snapshots and scheduled cross-region snapshot replication is under consideration.",
     options: [
-      { id: 'A', text: "Enable automated RDS backups with a retention period and configure AWS Backup or RDS automated cross-region snapshot copy with KMS encryption." },
-      { id: 'B', text: "Take manual database dumps using mysqldump and store them on the local database host disk." },
-      { id: 'C', text: "Rely on single-AZ database storage without backups." },
-      { id: 'D', text: "Disable snapshot encryption to speed up copy times." }
+      { id: 'A', text: "Take manual database dumps using mysqldump and store them on the local database host disk." },
+      { id: 'B', text: "Rely on single-AZ database storage without backups." },
+      { id: 'C', text: "Disable snapshot encryption to speed up copy times." },
+      { id: 'D', text: "Enable automated RDS backups with a retention period and configure AWS Backup or RDS automated cross-region snapshot copy with KMS encryption." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Enable automated RDS backups with a retention period and configure AWS Backup or RDS automated cross-region snapshot copy with KMS encryption. AWS Backup and RDS support automated cross-region snapshot replication. When an automated backup is taken in the primary region, it is copied asynchronously to a secondary disaster recovery region, encrypted with a regional KMS key, guaranteeing data durability against regional catastrophes.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopySnapshot.CrossRegion",
@@ -492,12 +492,12 @@ export const AWS_DOP_QUESTIONS_15 = [
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer evaluates Database Resilience to ensure database recovery point objectives (RPO) are maintained even in the catastrophic event of a complete AWS regional failure.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead? Enforcing automated RDS snapshots and scheduled cross-region snapshot replication is under consideration.",
     options: [
-      { id: 'A', text: "Enable automated RDS backups with a retention period and configure AWS Backup or RDS automated cross-region snapshot copy with KMS encryption." },
-      { id: 'B', text: "Take manual database dumps using mysqldump and store them on the local database host disk." },
-      { id: 'C', text: "Rely on single-AZ database storage without backups." },
-      { id: 'D', text: "Disable snapshot encryption to speed up copy times." }
+      { id: 'A', text: "Rely on single-AZ database storage without backups." },
+      { id: 'B', text: "Enable automated RDS backups with a retention period and configure AWS Backup or RDS automated cross-region snapshot copy with KMS encryption." },
+      { id: 'C', text: "Disable snapshot encryption to speed up copy times." },
+      { id: 'D', text: "Take manual database dumps using mysqldump and store them on the local database host disk." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Enable automated RDS backups with a retention period and configure AWS Backup or RDS automated cross-region snapshot copy with KMS encryption. AWS Backup and RDS support automated cross-region snapshot replication. When an automated backup is taken in the primary region, it is copied asynchronously to a secondary disaster recovery region, encrypted with a regional KMS key, guaranteeing data durability against regional catastrophes.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopySnapshot.CrossRegion",
@@ -513,12 +513,12 @@ export const AWS_DOP_QUESTIONS_15 = [
     scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer evaluates Database Resilience to ensure database recovery point objectives (RPO) are maintained even in the catastrophic event of a complete AWS regional failure.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability? Enforcing automated RDS snapshots and scheduled cross-region snapshot replication is under consideration.",
     options: [
-      { id: 'A', text: "Enable automated RDS backups with a retention period and configure AWS Backup or RDS automated cross-region snapshot copy with KMS encryption." },
-      { id: 'B', text: "Take manual database dumps using mysqldump and store them on the local database host disk." },
-      { id: 'C', text: "Rely on single-AZ database storage without backups." },
+      { id: 'A', text: "Rely on single-AZ database storage without backups." },
+      { id: 'B', text: "Enable automated RDS backups with a retention period and configure AWS Backup or RDS automated cross-region snapshot copy with KMS encryption." },
+      { id: 'C', text: "Take manual database dumps using mysqldump and store them on the local database host disk." },
       { id: 'D', text: "Disable snapshot encryption to speed up copy times." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Enable automated RDS backups with a retention period and configure AWS Backup or RDS automated cross-region snapshot copy with KMS encryption. AWS Backup and RDS support automated cross-region snapshot replication. When an automated backup is taken in the primary region, it is copied asynchronously to a secondary disaster recovery region, encrypted with a regional KMS key, guaranteeing data durability against regional catastrophes.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopySnapshot.CrossRegion",

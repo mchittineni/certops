@@ -9,12 +9,12 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer evaluates Cross-State Sharing to allow an application deployment configuration to read the VPC and subnet IDs produced by a separate networking Terraform pipeline.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives? Consuming root outputs from other state files via terraform_remote_state is under consideration.",
     options: [
-      { id: 'A', text: "Use a `data \"terraform_remote_state\" \"network\"` block pointing to the networking project's remote backend configuration." },
-      { id: 'B', text: "Hardcode the subnet IDs directly into the application `.tf` file." },
-      { id: 'C', text: "Merge the networking and application configurations into a single massive 50,000-line codebase." },
-      { id: 'D', text: "Grant full read access to all developer AWS accounts." }
+      { id: 'A', text: "Hardcode the subnet IDs directly into the application `.tf` file." },
+      { id: 'B', text: "Use a `data \"terraform_remote_state\" \"network\"` block pointing to the networking project's remote backend configuration." },
+      { id: 'C', text: "Grant full read access to all developer AWS accounts." },
+      { id: 'D', text: "Merge the networking and application configurations into a single massive 50,000-line codebase." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Use a `data \"terraform_remote_state\" \"network\"` block pointing to the networking project's remote backend configuration. The `terraform_remote_state` data source uses the latest state snapshot from another remote backend to expose its root output values. This allows teams to decouple infrastructure into independent layers (e.g., foundational networking vs application compute) with isolated lifecycles and blast radiuses.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/state/remote-state-data",
@@ -30,12 +30,12 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer evaluates Cross-State Sharing to allow an application deployment configuration to read the VPC and subnet IDs produced by a separate networking Terraform pipeline.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks? Consuming root outputs from other state files via terraform_remote_state is under consideration.",
     options: [
-      { id: 'A', text: "Use a `data \"terraform_remote_state\" \"network\"` block pointing to the networking project's remote backend configuration." },
-      { id: 'B', text: "Hardcode the subnet IDs directly into the application `.tf` file." },
-      { id: 'C', text: "Merge the networking and application configurations into a single massive 50,000-line codebase." },
-      { id: 'D', text: "Grant full read access to all developer AWS accounts." }
+      { id: 'A', text: "Grant full read access to all developer AWS accounts." },
+      { id: 'B', text: "Merge the networking and application configurations into a single massive 50,000-line codebase." },
+      { id: 'C', text: "Hardcode the subnet IDs directly into the application `.tf` file." },
+      { id: 'D', text: "Use a `data \"terraform_remote_state\" \"network\"` block pointing to the networking project's remote backend configuration." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Use a `data \"terraform_remote_state\" \"network\"` block pointing to the networking project's remote backend configuration. The `terraform_remote_state` data source uses the latest state snapshot from another remote backend to expose its root output values. This allows teams to decouple infrastructure into independent layers (e.g., foundational networking vs application compute) with isolated lifecycles and blast radiuses.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/state/remote-state-data",
@@ -51,12 +51,12 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer evaluates Cross-State Sharing to allow an application deployment configuration to read the VPC and subnet IDs produced by a separate networking Terraform pipeline.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls? Consuming root outputs from other state files via terraform_remote_state is under consideration.",
     options: [
-      { id: 'A', text: "Use a `data \"terraform_remote_state\" \"network\"` block pointing to the networking project's remote backend configuration." },
-      { id: 'B', text: "Hardcode the subnet IDs directly into the application `.tf` file." },
-      { id: 'C', text: "Merge the networking and application configurations into a single massive 50,000-line codebase." },
-      { id: 'D', text: "Grant full read access to all developer AWS accounts." }
+      { id: 'A', text: "Hardcode the subnet IDs directly into the application `.tf` file." },
+      { id: 'B', text: "Merge the networking and application configurations into a single massive 50,000-line codebase." },
+      { id: 'C', text: "Grant full read access to all developer AWS accounts." },
+      { id: 'D', text: "Use a `data \"terraform_remote_state\" \"network\"` block pointing to the networking project's remote backend configuration." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Use a `data \"terraform_remote_state\" \"network\"` block pointing to the networking project's remote backend configuration. The `terraform_remote_state` data source uses the latest state snapshot from another remote backend to expose its root output values. This allows teams to decouple infrastructure into independent layers (e.g., foundational networking vs application compute) with isolated lifecycles and blast radiuses.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/state/remote-state-data",
@@ -72,12 +72,12 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer evaluates Cross-State Sharing to allow an application deployment configuration to read the VPC and subnet IDs produced by a separate networking Terraform pipeline.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction? Consuming root outputs from other state files via terraform_remote_state is under consideration.",
     options: [
-      { id: 'A', text: "Use a `data \"terraform_remote_state\" \"network\"` block pointing to the networking project's remote backend configuration." },
-      { id: 'B', text: "Hardcode the subnet IDs directly into the application `.tf` file." },
-      { id: 'C', text: "Merge the networking and application configurations into a single massive 50,000-line codebase." },
-      { id: 'D', text: "Grant full read access to all developer AWS accounts." }
+      { id: 'A', text: "Hardcode the subnet IDs directly into the application `.tf` file." },
+      { id: 'B', text: "Merge the networking and application configurations into a single massive 50,000-line codebase." },
+      { id: 'C', text: "Grant full read access to all developer AWS accounts." },
+      { id: 'D', text: "Use a `data \"terraform_remote_state\" \"network\"` block pointing to the networking project's remote backend configuration." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Use a `data \"terraform_remote_state\" \"network\"` block pointing to the networking project's remote backend configuration. The `terraform_remote_state` data source uses the latest state snapshot from another remote backend to expose its root output values. This allows teams to decouple infrastructure into independent layers (e.g., foundational networking vs application compute) with isolated lifecycles and blast radiuses.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/state/remote-state-data",
@@ -93,12 +93,12 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer evaluates Cross-State Sharing to allow an application deployment configuration to read the VPC and subnet IDs produced by a separate networking Terraform pipeline.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability? Consuming root outputs from other state files via terraform_remote_state is under consideration.",
     options: [
-      { id: 'A', text: "Use a `data \"terraform_remote_state\" \"network\"` block pointing to the networking project's remote backend configuration." },
-      { id: 'B', text: "Hardcode the subnet IDs directly into the application `.tf` file." },
+      { id: 'A', text: "Hardcode the subnet IDs directly into the application `.tf` file." },
+      { id: 'B', text: "Grant full read access to all developer AWS accounts." },
       { id: 'C', text: "Merge the networking and application configurations into a single massive 50,000-line codebase." },
-      { id: 'D', text: "Grant full read access to all developer AWS accounts." }
+      { id: 'D', text: "Use a `data \"terraform_remote_state\" \"network\"` block pointing to the networking project's remote backend configuration." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Use a `data \"terraform_remote_state\" \"network\"` block pointing to the networking project's remote backend configuration. The `terraform_remote_state` data source uses the latest state snapshot from another remote backend to expose its root output values. This allows teams to decouple infrastructure into independent layers (e.g., foundational networking vs application compute) with isolated lifecycles and blast radiuses.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/state/remote-state-data",
@@ -114,12 +114,12 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer evaluates HCL Data Types to declare a strongly typed variable representing a collection of server configurations with names, port numbers, and enabled flags.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives? Working with string, number, bool, list, set, map, object, and tuple types is under consideration.",
     options: [
-      { id: 'A', text: "Define the variable type as `list(object({ name = string, port = number, enabled = bool }))`." },
-      { id: 'B', text: "Define the variable type as `any` without type constraints." },
-      { id: 'C', text: "Store all configurations as comma-separated strings inside a single text variable." },
-      { id: 'D', text: "Terraform variables only support string and number types." }
+      { id: 'A', text: "Store all configurations as comma-separated strings inside a single text variable." },
+      { id: 'B', text: "Terraform variables only support string and number types." },
+      { id: 'C', text: "Define the variable type as `list(object({ name = string, port = number, enabled = bool }))`." },
+      { id: 'D', text: "Define the variable type as `any` without type constraints." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Define the variable type as `list(object({ name = string, port = number, enabled = bool }))`. Terraform HCL provides primitive types (`string`, `number`, `bool`) and complex collection/structural types (`list`, `set`, `map`, `object`, `tuple`). Defining explicit structural types ensures early validation of configuration data and catches typos before plan execution.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/expressions/types",
@@ -135,12 +135,12 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer evaluates HCL Data Types to declare a strongly typed variable representing a collection of server configurations with names, port numbers, and enabled flags.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks? Working with string, number, bool, list, set, map, object, and tuple types is under consideration.",
     options: [
-      { id: 'A', text: "Define the variable type as `list(object({ name = string, port = number, enabled = bool }))`." },
-      { id: 'B', text: "Define the variable type as `any` without type constraints." },
-      { id: 'C', text: "Store all configurations as comma-separated strings inside a single text variable." },
-      { id: 'D', text: "Terraform variables only support string and number types." }
+      { id: 'A', text: "Terraform variables only support string and number types." },
+      { id: 'B', text: "Store all configurations as comma-separated strings inside a single text variable." },
+      { id: 'C', text: "Define the variable type as `any` without type constraints." },
+      { id: 'D', text: "Define the variable type as `list(object({ name = string, port = number, enabled = bool }))`." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Define the variable type as `list(object({ name = string, port = number, enabled = bool }))`. Terraform HCL provides primitive types (`string`, `number`, `bool`) and complex collection/structural types (`list`, `set`, `map`, `object`, `tuple`). Defining explicit structural types ensures early validation of configuration data and catches typos before plan execution.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/expressions/types",
@@ -157,9 +157,9 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     question: "Which solution implements these mandatory infrastructure as code security and governance controls? Working with string, number, bool, list, set, map, object, and tuple types is under consideration.",
     options: [
       { id: 'A', text: "Define the variable type as `list(object({ name = string, port = number, enabled = bool }))`." },
-      { id: 'B', text: "Define the variable type as `any` without type constraints." },
+      { id: 'B', text: "Terraform variables only support string and number types." },
       { id: 'C', text: "Store all configurations as comma-separated strings inside a single text variable." },
-      { id: 'D', text: "Terraform variables only support string and number types." }
+      { id: 'D', text: "Define the variable type as `any` without type constraints." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -179,8 +179,8 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Define the variable type as `list(object({ name = string, port = number, enabled = bool }))`." },
       { id: 'B', text: "Define the variable type as `any` without type constraints." },
-      { id: 'C', text: "Store all configurations as comma-separated strings inside a single text variable." },
-      { id: 'D', text: "Terraform variables only support string and number types." }
+      { id: 'C', text: "Terraform variables only support string and number types." },
+      { id: 'D', text: "Store all configurations as comma-separated strings inside a single text variable." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -199,9 +199,9 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability? Working with string, number, bool, list, set, map, object, and tuple types is under consideration.",
     options: [
       { id: 'A', text: "Define the variable type as `list(object({ name = string, port = number, enabled = bool }))`." },
-      { id: 'B', text: "Define the variable type as `any` without type constraints." },
-      { id: 'C', text: "Store all configurations as comma-separated strings inside a single text variable." },
-      { id: 'D', text: "Terraform variables only support string and number types." }
+      { id: 'B', text: "Terraform variables only support string and number types." },
+      { id: 'C', text: "Define the variable type as `any` without type constraints." },
+      { id: 'D', text: "Store all configurations as comma-separated strings inside a single text variable." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -219,12 +219,12 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer evaluates HCL Functions to merge default server tags with environment-specific tags into a single unified tag map across all cloud resources.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives? Manipulating data using lookup, merge, coalesce, and format functions is under consideration.",
     options: [
-      { id: 'A', text: "Use the built-in `merge(var.default_tags, var.environment_tags)` function in the resource `tags` attribute." },
-      { id: 'B', text: "Write a custom Python script to concatenate dictionaries outside of Terraform." },
+      { id: 'A', text: "Write a custom Python script to concatenate dictionaries outside of Terraform." },
+      { id: 'B', text: "Use the built-in `merge(var.default_tags, var.environment_tags)` function in the resource `tags` attribute." },
       { id: 'C', text: "Hand-code all tags repeatedly on every single resource block." },
       { id: 'D', text: "Functions are not supported in Terraform HCL expressions." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Use the built-in `merge(var.default_tags, var.environment_tags)` function in the resource `tags` attribute. Terraform HCL includes built-in functions for string, collection, numeric, and filesystem manipulation (e.g., `merge`, `lookup`, `coalesce`, `element`, `jsonencode`). Functions allow dynamic transformation of configuration data without writing external scripts.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/functions",
@@ -241,9 +241,9 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks? Manipulating data using lookup, merge, coalesce, and format functions is under consideration.",
     options: [
       { id: 'A', text: "Use the built-in `merge(var.default_tags, var.environment_tags)` function in the resource `tags` attribute." },
-      { id: 'B', text: "Write a custom Python script to concatenate dictionaries outside of Terraform." },
-      { id: 'C', text: "Hand-code all tags repeatedly on every single resource block." },
-      { id: 'D', text: "Functions are not supported in Terraform HCL expressions." }
+      { id: 'B', text: "Functions are not supported in Terraform HCL expressions." },
+      { id: 'C', text: "Write a custom Python script to concatenate dictionaries outside of Terraform." },
+      { id: 'D', text: "Hand-code all tags repeatedly on every single resource block." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -261,12 +261,12 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer evaluates HCL Functions to merge default server tags with environment-specific tags into a single unified tag map across all cloud resources.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls? Manipulating data using lookup, merge, coalesce, and format functions is under consideration.",
     options: [
-      { id: 'A', text: "Use the built-in `merge(var.default_tags, var.environment_tags)` function in the resource `tags` attribute." },
-      { id: 'B', text: "Write a custom Python script to concatenate dictionaries outside of Terraform." },
-      { id: 'C', text: "Hand-code all tags repeatedly on every single resource block." },
-      { id: 'D', text: "Functions are not supported in Terraform HCL expressions." }
+      { id: 'A', text: "Hand-code all tags repeatedly on every single resource block." },
+      { id: 'B', text: "Functions are not supported in Terraform HCL expressions." },
+      { id: 'C', text: "Write a custom Python script to concatenate dictionaries outside of Terraform." },
+      { id: 'D', text: "Use the built-in `merge(var.default_tags, var.environment_tags)` function in the resource `tags` attribute." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Use the built-in `merge(var.default_tags, var.environment_tags)` function in the resource `tags` attribute. Terraform HCL includes built-in functions for string, collection, numeric, and filesystem manipulation (e.g., `merge`, `lookup`, `coalesce`, `element`, `jsonencode`). Functions allow dynamic transformation of configuration data without writing external scripts.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/functions",
@@ -303,12 +303,12 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer evaluates HCL Functions to merge default server tags with environment-specific tags into a single unified tag map across all cloud resources.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability? Manipulating data using lookup, merge, coalesce, and format functions is under consideration.",
     options: [
-      { id: 'A', text: "Use the built-in `merge(var.default_tags, var.environment_tags)` function in the resource `tags` attribute." },
-      { id: 'B', text: "Write a custom Python script to concatenate dictionaries outside of Terraform." },
+      { id: 'A', text: "Functions are not supported in Terraform HCL expressions." },
+      { id: 'B', text: "Use the built-in `merge(var.default_tags, var.environment_tags)` function in the resource `tags` attribute." },
       { id: 'C', text: "Hand-code all tags repeatedly on every single resource block." },
-      { id: 'D', text: "Functions are not supported in Terraform HCL expressions." }
+      { id: 'D', text: "Write a custom Python script to concatenate dictionaries outside of Terraform." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Use the built-in `merge(var.default_tags, var.environment_tags)` function in the resource `tags` attribute. Terraform HCL includes built-in functions for string, collection, numeric, and filesystem manipulation (e.g., `merge`, `lookup`, `coalesce`, `element`, `jsonencode`). Functions allow dynamic transformation of configuration data without writing external scripts.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/functions",
@@ -324,12 +324,12 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer evaluates Dynamic Blocks to dynamically generate multiple ingress rule blocks inside an AWS security group based on a list of approved ports.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives? Generating repeated nested configuration blocks using dynamic and content is under consideration.",
     options: [
-      { id: 'A', text: "Use a `dynamic \"ingress\"` block iterating over `var.service_ports` with a `content` block defining port parameters." },
-      { id: 'B', text: "Manually write out 20 identical ingress blocks by hand in the configuration file." },
-      { id: 'C', text: "Use `for_each` on the entire security group resource, creating 20 separate security groups." },
-      { id: 'D', text: "Nested blocks cannot be generated dynamically in Terraform." }
+      { id: 'A', text: "Manually write out 20 identical ingress blocks by hand in the configuration file." },
+      { id: 'B', text: "Nested blocks cannot be generated dynamically in Terraform." },
+      { id: 'C', text: "Use a `dynamic \"ingress\"` block iterating over `var.service_ports` with a `content` block defining port parameters." },
+      { id: 'D', text: "Use `for_each` on the entire security group resource, creating 20 separate security groups." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Use a `dynamic \"ingress\"` block iterating over `var.service_ports` with a `content` block defining port parameters. `dynamic` blocks construct repeated nested configuration blocks (like `ingress` in security groups or `setting` in App Service) within top-level resources. Iterating over a collection via `dynamic` keeps configurations DRY without duplicating boilerplate code.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/expressions/dynamic-blocks",
@@ -345,12 +345,12 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer evaluates Dynamic Blocks to dynamically generate multiple ingress rule blocks inside an AWS security group based on a list of approved ports.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks? Generating repeated nested configuration blocks using dynamic and content is under consideration.",
     options: [
-      { id: 'A', text: "Use a `dynamic \"ingress\"` block iterating over `var.service_ports` with a `content` block defining port parameters." },
-      { id: 'B', text: "Manually write out 20 identical ingress blocks by hand in the configuration file." },
-      { id: 'C', text: "Use `for_each` on the entire security group resource, creating 20 separate security groups." },
-      { id: 'D', text: "Nested blocks cannot be generated dynamically in Terraform." }
+      { id: 'A', text: "Use `for_each` on the entire security group resource, creating 20 separate security groups." },
+      { id: 'B', text: "Nested blocks cannot be generated dynamically in Terraform." },
+      { id: 'C', text: "Manually write out 20 identical ingress blocks by hand in the configuration file." },
+      { id: 'D', text: "Use a `dynamic \"ingress\"` block iterating over `var.service_ports` with a `content` block defining port parameters." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Use a `dynamic \"ingress\"` block iterating over `var.service_ports` with a `content` block defining port parameters. `dynamic` blocks construct repeated nested configuration blocks (like `ingress` in security groups or `setting` in App Service) within top-level resources. Iterating over a collection via `dynamic` keeps configurations DRY without duplicating boilerplate code.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/expressions/dynamic-blocks",
@@ -366,12 +366,12 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer evaluates Dynamic Blocks to dynamically generate multiple ingress rule blocks inside an AWS security group based on a list of approved ports.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls? Generating repeated nested configuration blocks using dynamic and content is under consideration.",
     options: [
-      { id: 'A', text: "Use a `dynamic \"ingress\"` block iterating over `var.service_ports` with a `content` block defining port parameters." },
-      { id: 'B', text: "Manually write out 20 identical ingress blocks by hand in the configuration file." },
+      { id: 'A', text: "Nested blocks cannot be generated dynamically in Terraform." },
+      { id: 'B', text: "Use a `dynamic \"ingress\"` block iterating over `var.service_ports` with a `content` block defining port parameters." },
       { id: 'C', text: "Use `for_each` on the entire security group resource, creating 20 separate security groups." },
-      { id: 'D', text: "Nested blocks cannot be generated dynamically in Terraform." }
+      { id: 'D', text: "Manually write out 20 identical ingress blocks by hand in the configuration file." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Use a `dynamic \"ingress\"` block iterating over `var.service_ports` with a `content` block defining port parameters. `dynamic` blocks construct repeated nested configuration blocks (like `ingress` in security groups or `setting` in App Service) within top-level resources. Iterating over a collection via `dynamic` keeps configurations DRY without duplicating boilerplate code.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/expressions/dynamic-blocks",
@@ -388,9 +388,9 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction? Generating repeated nested configuration blocks using dynamic and content is under consideration.",
     options: [
       { id: 'A', text: "Use a `dynamic \"ingress\"` block iterating over `var.service_ports` with a `content` block defining port parameters." },
-      { id: 'B', text: "Manually write out 20 identical ingress blocks by hand in the configuration file." },
+      { id: 'B', text: "Nested blocks cannot be generated dynamically in Terraform." },
       { id: 'C', text: "Use `for_each` on the entire security group resource, creating 20 separate security groups." },
-      { id: 'D', text: "Nested blocks cannot be generated dynamically in Terraform." }
+      { id: 'D', text: "Manually write out 20 identical ingress blocks by hand in the configuration file." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,12 +408,12 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer evaluates Dynamic Blocks to dynamically generate multiple ingress rule blocks inside an AWS security group based on a list of approved ports.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability? Generating repeated nested configuration blocks using dynamic and content is under consideration.",
     options: [
-      { id: 'A', text: "Use a `dynamic \"ingress\"` block iterating over `var.service_ports` with a `content` block defining port parameters." },
-      { id: 'B', text: "Manually write out 20 identical ingress blocks by hand in the configuration file." },
-      { id: 'C', text: "Use `for_each` on the entire security group resource, creating 20 separate security groups." },
-      { id: 'D', text: "Nested blocks cannot be generated dynamically in Terraform." }
+      { id: 'A', text: "Nested blocks cannot be generated dynamically in Terraform." },
+      { id: 'B', text: "Use `for_each` on the entire security group resource, creating 20 separate security groups." },
+      { id: 'C', text: "Use a `dynamic \"ingress\"` block iterating over `var.service_ports` with a `content` block defining port parameters." },
+      { id: 'D', text: "Manually write out 20 identical ingress blocks by hand in the configuration file." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Use a `dynamic \"ingress\"` block iterating over `var.service_ports` with a `content` block defining port parameters. `dynamic` blocks construct repeated nested configuration blocks (like `ingress` in security groups or `setting` in App Service) within top-level resources. Iterating over a collection via `dynamic` keeps configurations DRY without duplicating boilerplate code.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/expressions/dynamic-blocks",
@@ -429,12 +429,12 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer evaluates for Expressions to transform a list of uppercase server names into lowercase strings with an environment suffix for resource naming.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives? Transforming collections using [for x in list : transform] and {for k, v in map : k =&gt; v} is under consideration.",
     options: [
-      { id: 'A', text: "Use a list comprehension `[for name in var.server_names : lower(\"${name}-${var.env}\")]`." },
+      { id: 'A', text: "Write a custom provider to handle string formatting." },
       { id: 'B', text: "Run a shell script to rewrite the variable file before applying." },
-      { id: 'C', text: "Write a custom provider to handle string formatting." },
-      { id: 'D', text: "Use a while loop inside a local block." }
+      { id: 'C', text: "Use a while loop inside a local block." },
+      { id: 'D', text: "Use a list comprehension `[for name in var.server_names : lower(\"${name}-${var.env}\")]`." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Use a list comprehension `[for name in var.server_names : lower(\"${name}-${var.env}\")]`. `for` expressions transform one collection type into another. A tuple comprehension (`[for x in list : ...]`) produces a list, while an object comprehension (`{for k, v in map : k =&gt; ...}`) produces a map, enabling elegant and concise data transformations directly in HCL.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/expressions/for",
@@ -471,12 +471,12 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer evaluates for Expressions to transform a list of uppercase server names into lowercase strings with an environment suffix for resource naming.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls? Transforming collections using [for x in list : transform] and {for k, v in map : k =&gt; v} is under consideration.",
     options: [
-      { id: 'A', text: "Use a list comprehension `[for name in var.server_names : lower(\"${name}-${var.env}\")]`." },
-      { id: 'B', text: "Run a shell script to rewrite the variable file before applying." },
+      { id: 'A', text: "Run a shell script to rewrite the variable file before applying." },
+      { id: 'B', text: "Use a while loop inside a local block." },
       { id: 'C', text: "Write a custom provider to handle string formatting." },
-      { id: 'D', text: "Use a while loop inside a local block." }
+      { id: 'D', text: "Use a list comprehension `[for name in var.server_names : lower(\"${name}-${var.env}\")]`." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Use a list comprehension `[for name in var.server_names : lower(\"${name}-${var.env}\")]`. `for` expressions transform one collection type into another. A tuple comprehension (`[for x in list : ...]`) produces a list, while an object comprehension (`{for k, v in map : k =&gt; ...}`) produces a map, enabling elegant and concise data transformations directly in HCL.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/expressions/for",
@@ -492,12 +492,12 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer evaluates for Expressions to transform a list of uppercase server names into lowercase strings with an environment suffix for resource naming.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction? Transforming collections using [for x in list : transform] and {for k, v in map : k =&gt; v} is under consideration.",
     options: [
-      { id: 'A', text: "Use a list comprehension `[for name in var.server_names : lower(\"${name}-${var.env}\")]`." },
-      { id: 'B', text: "Run a shell script to rewrite the variable file before applying." },
-      { id: 'C', text: "Write a custom provider to handle string formatting." },
+      { id: 'A', text: "Write a custom provider to handle string formatting." },
+      { id: 'B', text: "Use a list comprehension `[for name in var.server_names : lower(\"${name}-${var.env}\")]`." },
+      { id: 'C', text: "Run a shell script to rewrite the variable file before applying." },
       { id: 'D', text: "Use a while loop inside a local block." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Use a list comprehension `[for name in var.server_names : lower(\"${name}-${var.env}\")]`. `for` expressions transform one collection type into another. A tuple comprehension (`[for x in list : ...]`) produces a list, while an object comprehension (`{for k, v in map : k =&gt; ...}`) produces a map, enabling elegant and concise data transformations directly in HCL.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/expressions/for",

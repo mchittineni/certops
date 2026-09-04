@@ -10,8 +10,8 @@ export const HASHICORP_TFP_QUESTIONS_9 = [
     question: "Which construct scales better?",
     options: [
       { id: 'A', text: "A map local keyed by environment with a lookup and a sensible default." },
-      { id: 'B', text: "A separate resource block per environment guarded by count." },
-      { id: 'C', text: "Nested conditional expressions, one per environment." },
+      { id: 'B', text: "Nested conditional expressions, one per environment." },
+      { id: 'C', text: "A separate resource block per environment guarded by count." },
       { id: 'D', text: "A workspace-specific tfvars file per environment containing the literal size." }
     ],
     correctAnswers: ['A'],
@@ -32,8 +32,8 @@ export const HASHICORP_TFP_QUESTIONS_9 = [
     options: [
       { id: 'A', text: "The rule is managed as an inline block or is not in the configuration at all, or the run did not refresh - Terraform only reconciles what its configuration and state describe." },
       { id: 'B', text: "The provider cached the previous result." },
-      { id: 'C', text: "Terraform never repairs deleted resources." },
-      { id: 'D', text: "Apply always skips security groups." }
+      { id: 'C', text: "Apply always skips security groups." },
+      { id: 'D', text: "Terraform never repairs deleted resources." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -51,12 +51,12 @@ export const HASHICORP_TFP_QUESTIONS_9 = [
     scenario: "A git repository holds many modules under a modules directory, and only one is needed.",
     question: "Which source syntax selects it?",
     options: [
-      { id: 'A', text: "A double slash before the subdirectory, as in git::https://example.com/repo.git//modules/vpc?ref=v1.0.0" },
+      { id: 'A', text: "A path argument in the module block." },
       { id: 'B', text: "A subdir argument alongside source." },
-      { id: 'C', text: "A path argument in the module block." },
+      { id: 'C', text: "A double slash before the subdirectory, as in git::https://example.com/repo.git//modules/vpc?ref=v1.0.0" },
       { id: 'D', text: "A single slash before the subdirectory." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "The double slash separates the repository from the subdirectory within it, and ref selects a tag, branch, or commit. A single slash is read as part of the repository path, and there are no subdir or path arguments on a module block.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/modules/sources",
@@ -72,12 +72,12 @@ export const HASHICORP_TFP_QUESTIONS_9 = [
     scenario: "After restoring a state version following an incident, the team must confirm the restore is right before resuming normal operations.",
     question: "Which check gives that confidence?",
     options: [
-      { id: 'A', text: "A full terraform plan showing no changes, which proves state, configuration, and reality agree." },
-      { id: 'B', text: "Checking that terraform state list returns any output." },
-      { id: 'C', text: "Comparing state file sizes." },
+      { id: 'A', text: "Comparing state file sizes." },
+      { id: 'B', text: "A full terraform plan showing no changes, which proves state, configuration, and reality agree." },
+      { id: 'C', text: "Checking that terraform state list returns any output." },
       { id: 'D', text: "Confirming the state serial increased." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "An empty plan is the strongest available evidence that the restored state matches both the configuration and the live infrastructure. File size, a non-empty listing, and a higher serial say nothing about whether the contents are correct.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/plan",
@@ -93,12 +93,12 @@ export const HASHICORP_TFP_QUESTIONS_9 = [
     scenario: "A network change must land before an application change in a different state, and both are managed by different pipelines.",
     question: "Which approach makes the ordering reliable?",
     options: [
-      { id: 'A', text: "Apply the application change twice." },
-      { id: 'B', text: "Schedule the two pipelines a few minutes apart." },
-      { id: 'C', text: "Merge both configurations into one state permanently." },
-      { id: 'D', text: "Make the dependency explicit - run triggers or a pipeline dependency - and have the consumer read the producer outputs so it fails clearly if the change has not landed." }
+      { id: 'A', text: "Schedule the two pipelines a few minutes apart." },
+      { id: 'B', text: "Apply the application change twice." },
+      { id: 'C', text: "Make the dependency explicit - run triggers or a pipeline dependency - and have the consumer read the producer outputs so it fails clearly if the change has not landed." },
+      { id: 'D', text: "Merge both configurations into one state permanently." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Cross-state ordering must be expressed as an explicit dependency plus a data dependency that fails loudly when unmet, rather than left to timing. Time-based coordination is a race, merging states surrenders the isolation that motivated the split, and retrying hides the ordering problem.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cloud-docs/workspaces/settings/run-triggers",
@@ -115,11 +115,11 @@ export const HASHICORP_TFP_QUESTIONS_9 = [
     question: "Which approach addresses that?",
     options: [
       { id: 'A', text: "Restrict UI access to one administrator." },
-      { id: 'B', text: "Manage the organisation with the tfe provider from a dedicated administration configuration, so workspaces and permissions are themselves reviewed code." },
-      { id: 'C', text: "Write a runbook describing the manual steps precisely." },
-      { id: 'D', text: "Export the settings to a spreadsheet weekly." }
+      { id: 'B', text: "Write a runbook describing the manual steps precisely." },
+      { id: 'C', text: "Export the settings to a spreadsheet weekly." },
+      { id: 'D', text: "Manage the organisation with the tfe provider from a dedicated administration configuration, so workspaces and permissions are themselves reviewed code." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The tfe provider lets the platform itself be declared, reviewed, and versioned, which is the standard answer to configuration drift in the control plane. Runbooks and spreadsheets document rather than enforce, and funnelling changes through one person creates a bottleneck without an audit trail of intent.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cloud-docs/api-docs",
@@ -136,9 +136,9 @@ export const HASHICORP_TFP_QUESTIONS_9 = [
     question: "Which syntax is appropriate?",
     options: [
       { id: 'A', text: "Backtick-delimited template literals." },
-      { id: 'B', text: "Concatenating lines with the plus operator." },
+      { id: 'B', text: "A single-quoted multi-line string." },
       { id: 'C', text: "An indented heredoc introduced with <<-EOT and terminated by EOT, which strips the leading indentation." },
-      { id: 'D', text: "A single-quoted multi-line string." }
+      { id: 'D', text: "Concatenating lines with the plus operator." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -156,10 +156,10 @@ export const HASHICORP_TFP_QUESTIONS_9 = [
     scenario: "An IAM policy document is currently a heredoc containing hand-written JSON, and a missing comma broke a deployment.",
     question: "Which alternative is more robust?",
     options: [
-      { id: 'A', text: "Store the JSON in a file and read it with the file function." },
-      { id: 'B', text: "Keep the heredoc but validate it with a shell script before apply." },
+      { id: 'A', text: "Keep the heredoc but validate it with a shell script before apply." },
+      { id: 'B', text: "Base64-encode the JSON to avoid syntax issues." },
       { id: 'C', text: "Build the document as an HCL object and pass it through jsonencode, or use the provider dedicated policy document data source." },
-      { id: 'D', text: "Base64-encode the JSON to avoid syntax issues." }
+      { id: 'D', text: "Store the JSON in a file and read it with the file function." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -177,12 +177,12 @@ export const HASHICORP_TFP_QUESTIONS_9 = [
     scenario: "A handful of manually created development resources could be imported or simply destroyed and recreated by Terraform.",
     question: "Which consideration should decide it?",
     options: [
-      { id: 'A', text: "The decision depends only on the provider." },
-      { id: 'B', text: "Whether the objects hold state or identity that cannot be recreated cheaply - data, DNS names, certificates, allow-list entries - in which case import; otherwise recreation is simpler and yields cleaner configuration." },
-      { id: 'C', text: "Import is always preferable because it is faster." },
-      { id: 'D', text: "Recreation is always preferable because imported resources cannot be managed normally." }
+      { id: 'A', text: "Import is always preferable because it is faster." },
+      { id: 'B', text: "Recreation is always preferable because imported resources cannot be managed normally." },
+      { id: 'C', text: "Whether the objects hold state or identity that cannot be recreated cheaply - data, DNS names, certificates, allow-list entries - in which case import; otherwise recreation is simpler and yields cleaner configuration." },
+      { id: 'D', text: "The decision depends only on the provider." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Import earns its extra effort when destroying the object would lose something irreplaceable or externally referenced; where nothing is lost, letting Terraform create the object gives configuration that certainly matches reality. Imported resources are managed exactly like any other once their configuration matches.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/import",
@@ -198,12 +198,12 @@ export const HASHICORP_TFP_QUESTIONS_9 = [
     scenario: "A plan fails with \"Invalid count argument: the count value depends on resource attributes that cannot be determined until apply\".",
     question: "Which remedy is correct?",
     options: [
-      { id: 'A', text: "Wrap the count expression in tonumber." },
-      { id: 'B', text: "Increase parallelism so the value resolves sooner." },
-      { id: 'C', text: "Add depends_on so the other resource is created first." },
-      { id: 'D', text: "Derive the count from values known at plan time, such as variables or the length of an input list, rather than from an attribute produced by another resource." }
+      { id: 'A', text: "Derive the count from values known at plan time, such as variables or the length of an input list, rather than from an attribute produced by another resource." },
+      { id: 'B', text: "Add depends_on so the other resource is created first." },
+      { id: 'C', text: "Increase parallelism so the value resolves sooner." },
+      { id: 'D', text: "Wrap the count expression in tonumber." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Terraform must know instance counts while building the graph, so the count expression cannot depend on anything computed during apply; the fix is to source it from known input data or split the work into stages. Type conversion cannot make an unknown value known, and ordering does not change when the value becomes available within a single plan.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/meta-arguments/count",
@@ -219,12 +219,12 @@ export const HASHICORP_TFP_QUESTIONS_9 = [
     scenario: "An engineer inheriting a configuration wants to see every provider it needs, including those pulled in by modules.",
     question: "Which command reports that?",
     options: [
-      { id: 'A', text: "terraform state list" },
-      { id: 'B', text: "terraform providers" },
+      { id: 'A', text: "terraform providers" },
+      { id: 'B', text: "terraform output" },
       { id: 'C', text: "terraform version" },
-      { id: 'D', text: "terraform output" }
+      { id: 'D', text: "terraform state list" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "terraform providers prints the provider requirements of the configuration as a tree including those declared by child modules. version reports the CLI and installed provider versions without the module tree, state list shows managed resources, and output reads output values.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/providers",
@@ -240,12 +240,12 @@ export const HASHICORP_TFP_QUESTIONS_9 = [
     scenario: "A for_each is keyed by an availability zone id fetched from a data source, and occasionally the plan proposes to destroy and recreate every instance.",
     question: "What is happening and how is it fixed?",
     options: [
-      { id: 'A', text: "The provider is caching the data source incorrectly; disable refresh." },
-      { id: 'B', text: "The data source returns zones in a different order or with different values, changing the keys; key on stable business identifiers and sort or filter the data deterministically." },
-      { id: 'C', text: "The state file has lost its lineage." },
+      { id: 'A', text: "The state file has lost its lineage." },
+      { id: 'B', text: "The provider is caching the data source incorrectly; disable refresh." },
+      { id: 'C', text: "The data source returns zones in a different order or with different values, changing the keys; key on stable business identifiers and sort or filter the data deterministically." },
       { id: 'D', text: "for_each cannot be used with data sources at all." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Instance identity is the for_each key, so any instability in the values that produce those keys shows up as mass replacement; deriving keys from stable names and sorting the source data removes the churn. for_each works fine with data sources when the results are deterministic, and disabling refresh only hides the change.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/meta-arguments/for_each",
@@ -262,9 +262,9 @@ export const HASHICORP_TFP_QUESTIONS_9 = [
     question: "Which control applies?",
     options: [
       { id: 'A', text: "Workspace team permissions, where the state download capability is granted by admin or explicitly configured custom permissions rather than by plan or write access alone." },
-      { id: 'B', text: "Enabling remote state sharing, which restricts access." },
-      { id: 'C', text: "Marking every output sensitive, which blocks downloads." },
-      { id: 'D', text: "Setting the workspace to local execution." }
+      { id: 'B', text: "Marking every output sensitive, which blocks downloads." },
+      { id: 'C', text: "Setting the workspace to local execution." },
+      { id: 'D', text: "Enabling remote state sharing, which restricts access." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -283,11 +283,11 @@ export const HASHICORP_TFP_QUESTIONS_9 = [
     question: "Which review points matter most?",
     options: [
       { id: 'A', text: "Only whether the resource names are consistent." },
-      { id: 'B', text: "Only whether terraform fmt passes." },
-      { id: 'C', text: "Whether the new input is typed, described, and defaulted compatibly, and whether the changed default alters existing consumers plans - which would make it a breaking change." },
-      { id: 'D', text: "Whether the module pins exact provider versions." }
+      { id: 'B', text: "Whether the new input is typed, described, and defaulted compatibly, and whether the changed default alters existing consumers plans - which would make it a breaking change." },
+      { id: 'C', text: "Whether the module pins exact provider versions." },
+      { id: 'D', text: "Only whether terraform fmt passes." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "The interface and the behavioural impact on existing callers are what a module review is for, since a changed default silently alters everyone next plan. Formatting and naming matter but are secondary, and exact provider pins inside a shared module are usually undesirable.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/modules/develop",
@@ -324,12 +324,12 @@ export const HASHICORP_TFP_QUESTIONS_9 = [
     scenario: "A plan shows lines beginning with plus, minus, tilde, and a minus followed by a plus.",
     question: "What do those indicate?",
     options: [
-      { id: 'A', text: "Managed, unmanaged, imported, and tainted." },
-      { id: 'B', text: "Create, destroy, update in place, and destroy then create (replacement) respectively." },
-      { id: 'C', text: "Warning, error, info, and debug." },
-      { id: 'D', text: "Added, removed, renamed, and moved." }
+      { id: 'A', text: "Create, destroy, update in place, and destroy then create (replacement) respectively." },
+      { id: 'B', text: "Managed, unmanaged, imported, and tainted." },
+      { id: 'C', text: "Added, removed, renamed, and moved." },
+      { id: 'D', text: "Warning, error, info, and debug." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The plan legend maps those symbols to create, destroy, in-place update, and replacement, with a plus-minus form indicating create before destroy. Reading them correctly is the quickest way to spot an unintended replacement before approving.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/plan",
@@ -345,12 +345,12 @@ export const HASHICORP_TFP_QUESTIONS_9 = [
     scenario: "Plans posted to pull requests are thousands of lines long and reviewers stop reading them.",
     question: "Which improvements genuinely help? (Choose two.)",
     options: [
-      { id: 'A', text: "Run plan with -no-color so the output is shorter." },
+      { id: 'A', text: "Post only the exit code." },
       { id: 'B', text: "Summarise the change counts and highlight destroy and replace actions from the JSON plan, collapsing the full output behind a details block." },
-      { id: 'C', text: "Reduce the size of each configuration so a typical change touches fewer resources." },
-      { id: 'D', text: "Post only the exit code." }
+      { id: 'C', text: "Run plan with -no-color so the output is shorter." },
+      { id: 'D', text: "Reduce the size of each configuration so a typical change touches fewer resources." }
     ],
-    correctAnswers: ['B', 'C'],
+    correctAnswers: ['B', 'D'],
     type: "multiple",
     explanation: "Reviewability improves by surfacing the dangerous actions from the structured plan and by keeping the blast radius of a single configuration small enough that plans stay human-sized. Colour settings do not reduce length, and an exit code alone removes the review entirely.",
     referenceUrl: "https://developer.hashicorp.com/terraform/internals/json-format",
@@ -367,9 +367,9 @@ export const HASHICORP_TFP_QUESTIONS_9 = [
     question: "Which combination is most effective?",
     options: [
       { id: 'A', text: "An email asking teams not to upgrade." },
-      { id: 'B', text: "Deleting the provider from the plugin cache on the agents." },
+      { id: 'B', text: "Setting the lock file to read-only." },
       { id: 'C', text: "A policy that fails runs using the affected version, plus updating the shared module and root constraints to exclude it, for example with a != or upper-bound constraint." },
-      { id: 'D', text: "Setting the lock file to read-only." }
+      { id: 'D', text: "Deleting the provider from the plugin cache on the agents." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -388,8 +388,8 @@ export const HASHICORP_TFP_QUESTIONS_9 = [
     question: "How does Terraform resolve it?",
     options: [
       { id: 'A', text: "It selects a single version satisfying the intersection of every constraint in the configuration, and fails if no such version exists." },
-      { id: 'B', text: "Each module gets its own provider version." },
-      { id: 'C', text: "The newest constraint encountered wins." },
+      { id: 'B', text: "The newest constraint encountered wins." },
+      { id: 'C', text: "Each module gets its own provider version." },
       { id: 'D', text: "The root module constraint always wins." }
     ],
     correctAnswers: ['A'],
@@ -408,12 +408,12 @@ export const HASHICORP_TFP_QUESTIONS_9 = [
     scenario: "A module repository contains a file named versions.tf.",
     question: "What does it conventionally hold?",
     options: [
-      { id: 'A', text: "The module semantic version number." },
-      { id: 'B', text: "The terraform block with required_version and required_providers." },
+      { id: 'A', text: "The terraform block with required_version and required_providers." },
+      { id: 'B', text: "A changelog of module releases." },
       { id: 'C', text: "Provider credentials." },
-      { id: 'D', text: "A changelog of module releases." }
+      { id: 'D', text: "The module semantic version number." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "By convention versions.tf isolates the terraform settings block declaring the CLI and provider requirements, keeping them easy to find and review. Module versions come from git tags, changelogs live in markdown, and credentials never belong in configuration.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/modules/develop/structure",
@@ -450,12 +450,12 @@ export const HASHICORP_TFP_QUESTIONS_9 = [
     scenario: "A module applies correctly from a local path but fails when consumed from the private registry at the same version tag.",
     question: "Which cause should be checked first?",
     options: [
-      { id: 'A', text: "Local modules use a different provider version." },
-      { id: 'B', text: "Registry modules ignore variable defaults." },
-      { id: 'C', text: "Registry modules cannot use for_each." },
-      { id: 'D', text: "The published tag does not contain the same code - the change was never committed, tagged, or the tag points at an older commit - so compare the published contents with the local working tree." }
+      { id: 'A', text: "Registry modules ignore variable defaults." },
+      { id: 'B', text: "Local modules use a different provider version." },
+      { id: 'C', text: "The published tag does not contain the same code - the change was never committed, tagged, or the tag points at an older commit - so compare the published contents with the local working tree." },
+      { id: 'D', text: "Registry modules cannot use for_each." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "A local path reads the working tree while a registry source reads a published immutable tag, so the first hypothesis is that the two differ. Registry modules have identical language semantics, and provider resolution is driven by the whole configuration rather than the module source type.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/modules/sources",
@@ -471,12 +471,12 @@ export const HASHICORP_TFP_QUESTIONS_9 = [
     scenario: "A pipeline stores plan files as build artifacts so they can be applied after approval.",
     question: "Which precaution matters?",
     options: [
-      { id: 'A', text: "Treat the plan file as sensitive, because it can contain resource attribute values including secrets, and restrict who can download build artifacts." },
-      { id: 'B', text: "Nothing, because plan files contain only action verbs." },
+      { id: 'A', text: "Nothing, because plan files contain only action verbs." },
+      { id: 'B', text: "Treat the plan file as sensitive, because it can contain resource attribute values including secrets, and restrict who can download build artifacts." },
       { id: 'C', text: "Convert the plan to JSON, which redacts secrets." },
       { id: 'D', text: "Nothing, because plan files are encrypted by Terraform." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "A saved plan embeds the values Terraform intends to write, so it must be protected like state; Terraform does not encrypt it and the JSON rendering marks sensitivity without removing every value. Restricting artifact access and lifetime is the practical control.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/plan",
@@ -493,11 +493,11 @@ export const HASHICORP_TFP_QUESTIONS_9 = [
     question: "Which construct emits the block conditionally?",
     options: [
       { id: 'A', text: "A conditional expression returning null for the whole block." },
-      { id: 'B', text: "count on the resource." },
+      { id: 'B', text: "A dynamic \"logging\" block whose for_each iterates over a list that is empty when logging is disabled." },
       { id: 'C', text: "An if statement before the block." },
-      { id: 'D', text: "A dynamic \"logging\" block whose for_each iterates over a list that is empty when logging is disabled." }
+      { id: 'D', text: "count on the resource." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "A dynamic block over a collection that is empty or single-element is the standard way to include a nested block conditionally, since blocks are structural rather than values. HCL has no if statement, count would remove the whole resource, and a block cannot be replaced by a null expression.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/expressions/dynamic-blocks",
@@ -513,12 +513,12 @@ export const HASHICORP_TFP_QUESTIONS_9 = [
     scenario: "Two business units with separate HCP Terraform organisations need the same internal modules.",
     question: "Which options are realistic?",
     options: [
-      { id: 'A', text: "Publish the modules to a git repository both can read and consume them by git source with tags, or publish them in each organisation private registry from the same repository." },
-      { id: 'B', text: "Use a local path that crosses organisation boundaries." },
-      { id: 'C', text: "Private registries are automatically shared across all organisations in an account." },
-      { id: 'D', text: "Copy the module files into each consuming repository." }
+      { id: 'A', text: "Copy the module files into each consuming repository." },
+      { id: 'B', text: "Private registries are automatically shared across all organisations in an account." },
+      { id: 'C', text: "Publish the modules to a git repository both can read and consume them by git source with tags, or publish them in each organisation private registry from the same repository." },
+      { id: 'D', text: "Use a local path that crosses organisation boundaries." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "A private registry is scoped to its organisation, so cross-organisation reuse means either consuming a shared git source directly or publishing the same repository into both registries. Copying files forks maintenance immediately, and local paths only work within one working directory tree.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cloud-docs/registry/publish-modules",

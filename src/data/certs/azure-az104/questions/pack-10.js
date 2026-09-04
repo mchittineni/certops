@@ -9,12 +9,12 @@ export const AZURE_AZ104_QUESTIONS_10 = [
     scenario: "An IT department wants team leaders to manage membership of their respective project security groups directly through the `myapps.microsoft.com` or `myaccess.microsoft.com` portals without submitting IT support helpdesk tickets.",
     question: "Which Microsoft Entra feature enables delegated group ownership and self-service membership approvals?",
     options: [
-      { id: 'A', text: "Azure Resource Locks." },
-      { id: 'B', text: "Self-service group management enabled in Microsoft Entra ID with assigned Group Owners." },
+      { id: 'A', text: "Self-service group management enabled in Microsoft Entra ID with assigned Group Owners." },
+      { id: 'B', text: "Azure Resource Locks." },
       { id: 'C', text: "Administrative Units with dynamic device rules." },
       { id: 'D', text: "Azure Policy with Modify effect." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Self-service group management in Microsoft Entra ID allows tenant administrators to delegate group management to group owners. Group owners can approve or deny membership requests and manage memberships directly via the My Groups or My Access portals without requiring elevated directory administrator roles.",
     referenceUrl: "https://learn.microsoft.com/en-us/entra/identity/users/groups-self-service-management",
@@ -30,12 +30,12 @@ export const AZURE_AZ104_QUESTIONS_10 = [
     scenario: "A cloud security policy mandates that database administrators must NOT have standing Owner or Contributor permissions on production database resource groups. Instead, engineers must request just-in-time (JIT) role activation for up to 4 hours with mandatory ticket number entry and manager approval.",
     question: "Which Microsoft Entra feature enforces Just-In-Time role activation for Azure resources?",
     options: [
-      { id: 'A', text: "Microsoft Entra Privileged Identity Management (PIM) for Azure resources." },
-      { id: 'B', text: "Azure Policy initiative." },
-      { id: 'C', text: "Azure Key Vault access policies." },
-      { id: 'D', text: "Microsoft Entra ID Protection sign-in risk." }
+      { id: 'A', text: "Azure Policy initiative." },
+      { id: 'B', text: "Azure Key Vault access policies." },
+      { id: 'C', text: "Microsoft Entra ID Protection sign-in risk." },
+      { id: 'D', text: "Microsoft Entra Privileged Identity Management (PIM) for Azure resources." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Microsoft Entra Privileged Identity Management (PIM) provides time-bound, just-in-time (JIT) privileged access to both Microsoft Entra roles and Azure Resource Manager roles. Eligible users must explicitly activate their role assignment, complete MFA, provide business justification/ticket numbers, and receive approval.",
     referenceUrl: "https://learn.microsoft.com/en-us/entra/id-governance/privileged-identity-management/pim-configure",
@@ -51,12 +51,12 @@ export const AZURE_AZ104_QUESTIONS_10 = [
     scenario: "A DevOps platform team deploys standardized microservice environments using Bicep templates. When an infrastructure component is removed from the updated Bicep template, the underlying Azure resource must automatically be cleaned up (deleted) from the resource group rather than remaining orphaned.",
     question: "Which Azure Resource Manager capability manages the lifecycle of resource collections and automatically deletes resources removed from template definitions?",
     options: [
-      { id: 'A', text: "Azure Deployment Stacks (with `actionOnUnmanage` set to `delete`)." },
-      { id: 'B', text: "Azure Policy with Audit effect." },
-      { id: 'C', text: "Azure Resource Locks." },
-      { id: 'D', text: "Standard ARM incremental deployment mode." }
+      { id: 'A', text: "Standard ARM incremental deployment mode." },
+      { id: 'B', text: "Azure Resource Locks." },
+      { id: 'C', text: "Azure Policy with Audit effect." },
+      { id: 'D', text: "Azure Deployment Stacks (with `actionOnUnmanage` set to `delete`)." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Azure Deployment Stacks is an ARM native resource type that manages a collection of resources as a single cohesive unit. When updating a deployment stack, setting `actionOnUnmanage` to `delete` (or `detach`) automatically terminates and deletes any managed resources that were removed from the updated template definition.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/deployment-stacks",
@@ -72,12 +72,12 @@ export const AZURE_AZ104_QUESTIONS_10 = [
     scenario: "An organization needs to enforce Conditional Access, zero-trust traffic inspection, and web content filtering for remote employees accessing external SaaS apps and internal private corporate resources without deploying full-tunnel legacy VPNs.",
     question: "Which Microsoft Entra solution provides unified Security Service Edge (SSE) capabilities including Microsoft Entra Internet Access and Microsoft Entra Private Access?",
     options: [
-      { id: 'A', text: "Azure Virtual Network NAT Gateway." },
+      { id: 'A', text: "Microsoft Entra Global Secure Access (SSE)." },
       { id: 'B', text: "Azure App Service Isolated Plan." },
-      { id: 'C', text: "Microsoft Entra Global Secure Access (SSE)." },
-      { id: 'D', text: "Azure Bastion." }
+      { id: 'C', text: "Azure Bastion." },
+      { id: 'D', text: "Azure Virtual Network NAT Gateway." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Microsoft Entra Global Secure Access is Microsoft's Security Service Edge (SSE) solution, comprising **Microsoft Entra Internet Access** (securing traffic to internet, SaaS, and M365 apps) and **Microsoft Entra Private Access** (securing zero-trust access to private corporate resources on any port/protocol without VPNs).",
     referenceUrl: "https://learn.microsoft.com/en-us/entra/global-secure-access/overview-what-is-global-secure-access",
@@ -93,12 +93,12 @@ export const AZURE_AZ104_QUESTIONS_10 = [
     scenario: "A high-security financial application in Azure requires that administrators must authenticate exclusively using phishing-resistant credentials (such as FIDO2 security keys or Windows Hello for Business), explicitly disallowing SMS text codes and standard push notifications.",
     question: "Which Conditional Access grant control enforces specific cryptographic credential requirements?",
     options: [
-      { id: 'A', text: "Terms of Use consent." },
-      { id: 'B', text: "Require Authentication Strength (set to \"Phishing-resistant MFA\")." },
-      { id: 'C', text: "Require compliant device only." },
-      { id: 'D', text: "Require MFA (standard)." }
+      { id: 'A', text: "Require Authentication Strength (set to \"Phishing-resistant MFA\")." },
+      { id: 'B', text: "Require MFA (standard)." },
+      { id: 'C', text: "Terms of Use consent." },
+      { id: 'D', text: "Require compliant device only." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Authentication Strengths in Microsoft Entra Conditional Access allow administrators to specify exactly which MFA methods are acceptable for accessing sensitive resources. Selecting **Phishing-resistant MFA** strictly requires FIDO2 hardware security keys, Windows Hello for Business, or Certificate-Based Authentication.",
     referenceUrl: "https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-authentication-strengths",
@@ -114,12 +114,12 @@ export const AZURE_AZ104_QUESTIONS_10 = [
     scenario: "An Azure Storage Account has its firewall configured to block all public networks and allow access only from selected virtual networks. An Azure Backup Recovery Services Vault and an Azure Data Factory instance need to access the storage account to perform backup and ETL jobs.",
     question: "Which storage firewall exception setting allows authorized first-party Azure services to access the storage account?",
     options: [
-      { id: 'A', text: "Set firewall to \"Enabled from all networks\"." },
-      { id: 'B', text: "Check \"Allow Azure services on the trusted services list to access this storage account\"." },
+      { id: 'A', text: "Check \"Allow Azure services on the trusted services list to access this storage account\"." },
+      { id: 'B', text: "Set firewall to \"Enabled from all networks\"." },
       { id: 'C', text: "Generate an Account SAS with IP restrictions." },
       { id: 'D', text: "Deploy an Azure Bastion host." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Checking the exception **\"Allow Azure services on the trusted services list to access this storage account\"** in the Azure Storage firewall configuration permits trusted first-party Microsoft services (such as Azure Backup, Azure Site Recovery, Azure Data Factory, and Microsoft Sentinel) using strong authentication to connect securely over the Azure backbone.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security#exceptions",
@@ -135,12 +135,12 @@ export const AZURE_AZ104_QUESTIONS_10 = [
     scenario: "An enterprise uses Geo-Redundant Storage (GRS) in East US (primary) and West US (secondary). Due to a severe prolonged disaster in East US, the IT director decides to initiate a customer-directed storage account failover to West US.",
     question: "What is the consequence of executing a customer-initiated storage account failover on the primary region and account redundancy?",
     options: [
-      { id: 'A', text: "The storage account automatically converts to ZRS in East US." },
-      { id: 'B', text: "The secondary region (West US) becomes the new primary read-write endpoint, and the storage account redundancy is converted to Locally Redundant Storage (LRS)." },
-      { id: 'C', text: "The data in the primary region is instantly recovered." },
-      { id: 'D', text: "The storage account is deleted." }
+      { id: 'A', text: "The secondary region (West US) becomes the new primary read-write endpoint, and the storage account redundancy is converted to Locally Redundant Storage (LRS)." },
+      { id: 'B', text: "The storage account is deleted." },
+      { id: 'C', text: "The storage account automatically converts to ZRS in East US." },
+      { id: 'D', text: "The data in the primary region is instantly recovered." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "When you trigger a customer-initiated account failover, Azure Storage updates DNS records so that the secondary region becomes the new primary read-write endpoint. Because replication to the original failed region is broken, the account redundancy is automatically downgraded to **Locally Redundant Storage (LRS)** until the administrator manually reconfigures GRS/GZRS.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/common/storage-initiate-account-failover",
@@ -156,12 +156,12 @@ export const AZURE_AZ104_QUESTIONS_10 = [
     scenario: "A high-performance computing (HPC) file processing workload on Azure Linux and Windows VMs connects to a Premium Azure File Share over SMB 3.0. The team needs to maximize IOPS and network throughput by establishing multiple parallel TCP network connections per client VM NIC.",
     question: "Which SMB feature should be enabled on the Azure File Share and client operating system?",
     options: [
-      { id: 'A', text: "SMB Multichannel." },
+      { id: 'A', text: "Blob Versioning." },
       { id: 'B', text: "Cloud Tiering." },
-      { id: 'C', text: "Blob Versioning." },
-      { id: 'D', text: "NFS v4.1." }
+      { id: 'C', text: "NFS v4.1." },
+      { id: 'D', text: "SMB Multichannel." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "SMB Multichannel is a feature supported on Premium Azure Files that allows SMB 3.0 clients to establish multiple simultaneous TCP connections to the storage endpoint across single or multiple NICs, aggregating bandwidth, increasing IOPS, and providing network connection fault tolerance.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/files/storage-files-smb-multichannel-performance",
@@ -177,12 +177,12 @@ export const AZURE_AZ104_QUESTIONS_10 = [
     scenario: "A company stores monthly financial audit spreadsheets that are accessed approximately once every 60 to 90 days. The storage administrator wants lower capacity storage pricing than Cool tier without paying the high retrieval and rehydration delay of Archive tier.",
     question: "Which Azure Blob Storage access tier is optimized for data accessed at least once every 90 days with instant online read access?",
     options: [
-      { id: 'A', text: "Cool access tier." },
-      { id: 'B', text: "Cold access tier." },
+      { id: 'A', text: "Hot access tier." },
+      { id: 'B', text: "Cool access tier." },
       { id: 'C', text: "Archive access tier." },
-      { id: 'D', text: "Hot access tier." }
+      { id: 'D', text: "Cold access tier." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The **Cold access tier** in Azure Blob Storage provides intermediate cost optimization between Cool and Archive. It offers lower storage capacity costs than Cool (up to 30% savings) with **instant online millisecond read latency** (unlike Archive, which requires hours of rehydration) and a minimum retention requirement of 90 days.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/blobs/access-tiers-overview#cold-access-tier",
@@ -198,12 +198,12 @@ export const AZURE_AZ104_QUESTIONS_10 = [
     scenario: "An administrator needs to synchronize an on-premises folder `C:\\Data` to an Azure Blob Storage container `https://mystorage.blob.core.windows.net/data` using AzCopy, copying new and modified files and removing files from the destination that were deleted locally.",
     question: "Which AzCopy command and flag performs one-way directory synchronization with destination file deletion?",
     options: [
-      { id: 'A', text: "`azcopy sync \"C:\\Data\" \"https://mystorage.blob.core.windows.net/data\" --delete-destination=true`" },
-      { id: 'B', text: "`azcopy make \"https://mystorage.blob.core.windows.net/data\"`" },
-      { id: 'C', text: "`azcopy copy \"C:\\Data\" \"https://mystorage.blob.core.windows.net/data\" --recursive`" },
-      { id: 'D', text: "`azcopy list \"C:\\Data\"`" }
+      { id: 'A', text: "`azcopy copy \"C:\\Data\" \"https://mystorage.blob.core.windows.net/data\" --recursive`" },
+      { id: 'B', text: "`azcopy sync \"C:\\Data\" \"https://mystorage.blob.core.windows.net/data\" --delete-destination=true`" },
+      { id: 'C', text: "`azcopy list \"C:\\Data\"`" },
+      { id: 'D', text: "`azcopy make \"https://mystorage.blob.core.windows.net/data\"`" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "The `azcopy sync` command compares file names and last modified timestamps between source and destination, copying only new or updated files. Adding `--delete-destination=true` (or `prompt`) deletes files from the destination container if they no longer exist in the local source directory.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-blobs-synchronize",
@@ -219,12 +219,12 @@ export const AZURE_AZ104_QUESTIONS_10 = [
     scenario: "An enterprise runs mission-critical in-memory databases on Azure Virtual Machines. When Microsoft schedules underlying physical host server maintenance, the database application needs to receive a 15-minute advance notification inside the VM via a REST metadata endpoint so it can gracefully fail over.",
     question: "Which Azure Virtual Machine metadata service delivers advance programmatic notifications of upcoming VM maintenance, host reboots, and Spot evictions?",
     options: [
-      { id: 'A', text: "Azure Scheduled Events (via Azure Instance Metadata Service / IMDS)." },
-      { id: 'B', text: "Azure Advisor alerts." },
-      { id: 'C', text: "Azure Network Watcher." },
-      { id: 'D', text: "Azure Activity Log." }
+      { id: 'A', text: "Azure Advisor alerts." },
+      { id: 'B', text: "Azure Activity Log." },
+      { id: 'C', text: "Azure Scheduled Events (via Azure Instance Metadata Service / IMDS)." },
+      { id: 'D', text: "Azure Network Watcher." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Azure Scheduled Events is a component of the Azure Instance Metadata Service (IMDS) available at `http://169.254.169.254/metadata/scheduledevents`. Applications query this endpoint to receive programmatic advance notifications about impending host maintenance, VM redeployments, restarts, and Spot evictions.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machines/linux/scheduled-events",
@@ -241,8 +241,8 @@ export const AZURE_AZ104_QUESTIONS_10 = [
     question: "Which VMSS orchestration mode provides maximum flexibility across heterogeneous VM sizes and individual VM management?",
     options: [
       { id: 'A', text: "Classic Scale Set." },
-      { id: 'B', text: "Dedicated Host Group." },
-      { id: 'C', text: "Uniform Orchestration Mode (`Uniform`)." },
+      { id: 'B', text: "Uniform Orchestration Mode (`Uniform`)." },
+      { id: 'C', text: "Dedicated Host Group." },
       { id: 'D', text: "Flexible Orchestration Mode (`Flexible`)." }
     ],
     correctAnswers: ['D'],
@@ -261,9 +261,9 @@ export const AZURE_AZ104_QUESTIONS_10 = [
     scenario: "A development team deploys updates to a `staging` deployment slot on Azure App Service. To ensure the new version is tested with production application configuration settings (connection strings) before live users hit the app, the team needs to execute a two-phase slot swap.",
     question: "Which deployment slot feature allows validating configuration changes on the staging slot using production app settings prior to completing the swap?",
     options: [
-      { id: 'A', text: "Standard immediate swap." },
-      { id: 'B', text: "Auto Swap." },
-      { id: 'C', text: "Traffic routing percentage." },
+      { id: 'A', text: "Traffic routing percentage." },
+      { id: 'B', text: "Standard immediate swap." },
+      { id: 'C', text: "Auto Swap." },
       { id: 'D', text: "Swap with Preview." }
     ],
     correctAnswers: ['D'],
@@ -282,12 +282,12 @@ export const AZURE_AZ104_QUESTIONS_10 = [
     scenario: "A high-frequency algorithmic trading application requires microsecond-level network latency between application virtual machines and an in-memory database VM cluster in the same Azure region.",
     question: "Which Azure compute resource physically collocates virtual machines within the same datacenter fabric to minimize network latency?",
     options: [
-      { id: 'A', text: "Scale-In Policy." },
-      { id: 'B', text: "Availability Zone." },
-      { id: 'C', text: "Proximity Placement Group (PPG)." },
-      { id: 'D', text: "Dedicated Host." }
+      { id: 'A', text: "Availability Zone." },
+      { id: 'B', text: "Proximity Placement Group (PPG)." },
+      { id: 'C', text: "Dedicated Host." },
+      { id: 'D', text: "Scale-In Policy." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "A Proximity Placement Group (PPG) is an Azure logical grouping resource that ensures virtual machines, scale sets, and availability sets are physically located as close as possible to each other within the same datacenter hardware cluster, minimizing inter-VM network latency.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machines/co-location",
@@ -303,12 +303,12 @@ export const AZURE_AZ104_QUESTIONS_10 = [
     scenario: "A batch data migration container job on Azure Container Instances (ACI) runs for 20 minutes to import CSV records, exits with status code 0 upon completion, and must NOT restart automatically after completing successfully.",
     question: "Which Restart Policy should be configured on the ACI container group?",
     options: [
-      { id: 'A', text: "`OnFailure` (or `Never`)." },
-      { id: 'B', text: "`RestartHourly`." },
-      { id: 'C', text: "`AutoHeal`." },
-      { id: 'D', text: "`Always`." }
+      { id: 'A', text: "`RestartHourly`." },
+      { id: 'B', text: "`AutoHeal`." },
+      { id: 'C', text: "`Always`." },
+      { id: 'D', text: "`OnFailure` (or `Never`)." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Azure Container Instances supports three restart policies: 1) `Always` (for long-running web servers), 2) `OnFailure` (restarts only if the container process crashes with a non-zero exit code; stays stopped on exit code 0, ideal for batch jobs), and 3) `Never` (runs once and never restarts).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/container-instances/container-instances-restart-policy",
@@ -324,12 +324,12 @@ export const AZURE_AZ104_QUESTIONS_10 = [
     scenario: "An administrator creates a new subnet with address prefix `10.0.5.0/27` inside an Azure Virtual Network.",
     question: "How many total IP addresses are available in a `/27` subnet, and how many are usable by Azure Virtual Machines?",
     options: [
-      { id: 'A', text: "16 total IP addresses, with 11 usable IP addresses." },
-      { id: 'B', text: "32 total IP addresses, with 27 usable IP addresses (since Azure reserves 5 IP addresses)." },
-      { id: 'C', text: "32 total IP addresses, with 30 usable IP addresses." },
-      { id: 'D', text: "64 total IP addresses, with 59 usable IP addresses." }
+      { id: 'A', text: "64 total IP addresses, with 59 usable IP addresses." },
+      { id: 'B', text: "16 total IP addresses, with 11 usable IP addresses." },
+      { id: 'C', text: "32 total IP addresses, with 27 usable IP addresses (since Azure reserves 5 IP addresses)." },
+      { id: 'D', text: "32 total IP addresses, with 30 usable IP addresses." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "A `/27` CIDR block contains $2^{(32-27)} = 32$ total IP addresses. Azure always reserves 5 IP addresses in every subnet (.0 network, .1 default gateway, .2 & .3 Azure DNS, and .255 broadcast), leaving exactly $32 - 5 = 27$ usable IP addresses for VM NICs and resources.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-faq#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets",
@@ -345,12 +345,12 @@ export const AZURE_AZ104_QUESTIONS_10 = [
     scenario: "Users accessing a web application via an Azure Application Gateway receive `HTTP 502 Bad Gateway`. The administrator checks the \"Backend Health\" blade and sees that all VM instances in the backend pool are reporting `Unhealthy` with status `Probe timeout`.",
     question: "What is the most probable root cause of the health probe timeout?",
     options: [
-      { id: 'A', text: "A Network Security Group (NSG) or VM guest firewall is blocking probe traffic on the backend port from the Application Gateway subnet IP range." },
-      { id: 'B', text: "The frontend public IP was deallocated." },
-      { id: 'C', text: "The storage account was deleted." },
-      { id: 'D', text: "The DNS record for the public domain expired." }
+      { id: 'A', text: "The frontend public IP was deallocated." },
+      { id: 'B', text: "The DNS record for the public domain expired." },
+      { id: 'C', text: "A Network Security Group (NSG) or VM guest firewall is blocking probe traffic on the backend port from the Application Gateway subnet IP range." },
+      { id: 'D', text: "The storage account was deleted." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Application Gateway health probes originate from the Application Gateway's private subnet IP addresses. If an NSG attached to the backend VM subnet or a host guest OS firewall (e.g. Windows Firewall / iptables) blocks incoming TCP connections from the gateway subnet, health probes time out and the gateway returns HTTP 502 Bad Gateway.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/application-gateway/application-gateway-troubleshooting-502",
@@ -368,10 +368,10 @@ export const AZURE_AZ104_QUESTIONS_10 = [
     options: [
       { id: 'A', text: "Route `0.0.0.0/0` with Next Hop Type `None`." },
       { id: 'B', text: "Route `0.0.0.0/0` with Next Hop Type `Internet`." },
-      { id: 'C', text: "Route `0.0.0.0/0` with Next Hop Type `Virtual appliance` and Next Hop IP `10.0.0.4`, and route `10.2.0.0/16` with Next Hop Type `Virtual appliance` and Next Hop IP `10.0.0.4`." },
-      { id: 'D', text: "Route `10.1.0.0/16` with Next Hop Type `Virtual network gateway`." }
+      { id: 'C', text: "Route `10.1.0.0/16` with Next Hop Type `Virtual network gateway`." },
+      { id: 'D', text: "Route `0.0.0.0/0` with Next Hop Type `Virtual appliance` and Next Hop IP `10.0.0.4`, and route `10.2.0.0/16` with Next Hop Type `Virtual appliance` and Next Hop IP `10.0.0.4`." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "To force spoke traffic through a centralized NVA or Azure Firewall in the hub VNet, a custom Route Table attached to spoke subnets must define: 1) A default route (`0.0.0.0/0`) pointing to the firewall private IP (`10.0.0.4`) for internet inspection, and 2) A route for the other spoke address spaces (`10.2.0.0/16`) pointing to `10.0.0.4` for inter-spoke transit inspection.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/hub-spoke",
@@ -387,12 +387,12 @@ export const AZURE_AZ104_QUESTIONS_10 = [
     scenario: "A cloud security architect is standardizing secure access to Azure SQL Database across on-premises corporate datacenters and multi-region Azure VNets. The solution must provide access over private IP addresses reachable across ExpressRoute from on-premises without opening public IP firewall rules on Azure SQL.",
     question: "Why is Azure Private Endpoint preferred over Service Endpoints for hybrid on-premises connectivity?",
     options: [
-      { id: 'A', text: "Private Endpoints do not require DNS." },
-      { id: 'B', text: "Private Endpoints allocate a private IP address directly from the customer VNet that is fully routable over ExpressRoute and VPN from on-premises, whereas Service Endpoints cannot be reached from on-premises." },
-      { id: 'C', text: "Service Endpoints only work with Azure Storage." },
-      { id: 'D', text: "Service Endpoints require public IPs on VMs." }
+      { id: 'A', text: "Service Endpoints require public IPs on VMs." },
+      { id: 'B', text: "Private Endpoints do not require DNS." },
+      { id: 'C', text: "Private Endpoints allocate a private IP address directly from the customer VNet that is fully routable over ExpressRoute and VPN from on-premises, whereas Service Endpoints cannot be reached from on-premises." },
+      { id: 'D', text: "Service Endpoints only work with Azure Storage." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Azure Private Endpoints assign a private IP address from your VNet subnet directly to the PaaS resource. Because the endpoint has a real private IP in your VNet address space, on-premises clients can reach the PaaS service directly over ExpressRoute or VPN. Service Endpoints cannot route on-premises traffic over VPN/ExpressRoute.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/private-link/private-endpoint-overview#private-link-resource-vs-service-endpoint",
@@ -408,12 +408,12 @@ export const AZURE_AZ104_QUESTIONS_10 = [
     scenario: "A company needs to grant a third-party vendor temporary, secure RDP access to a specific Azure virtual machine for 2 hours without granting the vendor access to the Azure portal or creating an Entra ID user account in the tenant.",
     question: "Which Azure Bastion feature generates temporary, direct URL links to virtual machines?",
     options: [
-      { id: 'A', text: "Azure Policy with Audit effect." },
-      { id: 'B', text: "Public IP assignment on the VM." },
-      { id: 'C', text: "Azure Storage SAS tokens." },
-      { id: 'D', text: "Azure Bastion Shareable Links (available on Standard/Premium SKU)." }
+      { id: 'A', text: "Public IP assignment on the VM." },
+      { id: 'B', text: "Azure Bastion Shareable Links (available on Standard/Premium SKU)." },
+      { id: 'C', text: "Azure Policy with Audit effect." },
+      { id: 'D', text: "Azure Storage SAS tokens." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Azure Bastion Shareable Links (Standard/Premium SKU) allows administrators to generate a unique, shareable URL for a specific VM. Users can click the link in any web browser to connect directly to the VM via RDP/SSH without logging into the Azure portal or possessing Azure RBAC permissions.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/bastion/shareable-link",
@@ -429,12 +429,12 @@ export const AZURE_AZ104_QUESTIONS_10 = [
     scenario: "A forensic security audit requires querying raw historical security logs from 3 years ago stored in the Log Analytics Archive tier. The query needs to scan 20 TB of archived logs without timing out.",
     question: "Which Azure Log Analytics feature executes asynchronous, long-running queries across archived data and writes results to a new search table?",
     options: [
-      { id: 'A', text: "Standard interactive KQL query." },
-      { id: 'B', text: "Log Analytics Search Jobs." },
-      { id: 'C', text: "Live Metrics Stream." },
-      { id: 'D', text: "Activity Log alert." }
+      { id: 'A', text: "Live Metrics Stream." },
+      { id: 'B', text: "Activity Log alert." },
+      { id: 'C', text: "Log Analytics Search Jobs." },
+      { id: 'D', text: "Standard interactive KQL query." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Log Analytics Search Jobs are asynchronous queries that fetch records from archived logs and write the results to a new search results table (`_SRCH`) in your workspace. Search jobs can run for hours across petabytes of archived data without hitting interactive query timeout limits.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/logs/search-jobs",
@@ -451,11 +451,11 @@ export const AZURE_AZ104_QUESTIONS_10 = [
     question: "Which Azure Backup feature allows restoring recovery points in the secondary paired region at any time?",
     options: [
       { id: 'A', text: "Standard GRS restore." },
-      { id: 'B', text: "Cross-Region Restore (CRR)." },
-      { id: 'C', text: "Soft Delete undelete." },
-      { id: 'D', text: "Instant Restore snapshot." }
+      { id: 'B', text: "Soft Delete undelete." },
+      { id: 'C', text: "Instant Restore snapshot." },
+      { id: 'D', text: "Cross-Region Restore (CRR)." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Cross-Region Restore (CRR) is a feature on Geo-Redundant Recovery Services Vaults that allows restoring backup data (VMs, SQL DBs, HANA) directly in the secondary paired region at any time—including during DR drills or when the primary region is fully healthy—without waiting for Microsoft to declare a regional disaster.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/backup/backup-azure-arm-restore-vms#cross-region-restore",
@@ -471,12 +471,12 @@ export const AZURE_AZ104_QUESTIONS_10 = [
     scenario: "A FinOps team wants to identify all virtual machines in an Azure subscription whose CPU utilization has been under 5% and network utilization under 2% for the past 7 days to right-size or shut them down.",
     question: "Which Azure Advisor recommendation category surfaces underutilized or idle virtual machines?",
     options: [
-      { id: 'A', text: "Azure Advisor Cost recommendations." },
-      { id: 'B', text: "Azure Advisor Security recommendations." },
-      { id: 'C', text: "Azure Advisor Operational Excellence recommendations." },
+      { id: 'A', text: "Azure Advisor Security recommendations." },
+      { id: 'B', text: "Azure Advisor Operational Excellence recommendations." },
+      { id: 'C', text: "Azure Advisor Cost recommendations." },
       { id: 'D', text: "Azure Advisor Reliability recommendations." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Azure Advisor **Cost** recommendations continuously evaluate resource usage telemetry, automatically identifying idle or underutilized virtual machines (e.g. low CPU/network usage over a 7-day period) and recommending resizing to smaller VM sizes or shutting them down to reduce spend.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/advisor/advisor-cost-recommendations",
@@ -492,10 +492,10 @@ export const AZURE_AZ104_QUESTIONS_10 = [
     scenario: "A network operations team needs to continuously monitor network round-trip time (RTT), latency, and packet loss between Azure Virtual Machines and an on-premises database endpoint every 60 seconds, triggering an alert if packet loss exceeds 5%.",
     question: "Which Azure Network Watcher tool provides continuous multi-endpoint connectivity monitoring with alerting?",
     options: [
-      { id: 'A', text: "Security Group View." },
+      { id: 'A', text: "Next Hop." },
       { id: 'B', text: "IP Flow Verify." },
       { id: 'C', text: "Connection Monitor." },
-      { id: 'D', text: "Next Hop." }
+      { id: 'D', text: "Security Group View." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -513,12 +513,12 @@ export const AZURE_AZ104_QUESTIONS_10 = [
     scenario: "An enterprise IT director needs to receive automated SMS and email notifications whenever Microsoft publishes an active Azure Service Issue outage affecting virtual machines or storage accounts in the East US region.",
     question: "Which Azure Monitor alert type is configured to notify on regional cloud service incidents?",
     options: [
-      { id: 'A', text: "Metric Alert rule on VM CPU." },
-      { id: 'B', text: "Log Analytics KQL query alert." },
-      { id: 'C', text: "Service Health Alert rule associated with an Action Group." },
-      { id: 'D', text: "Application Insights availability test." }
+      { id: 'A', text: "Service Health Alert rule associated with an Action Group." },
+      { id: 'B', text: "Metric Alert rule on VM CPU." },
+      { id: 'C', text: "Application Insights availability test." },
+      { id: 'D', text: "Log Analytics KQL query alert." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Service Health Alerts in Azure Monitor notify administrators about platform outages, planned maintenance, and service advisories affecting specific subscriptions, services, and regions. Associating the alert rule with an Action Group ensures incident notifications are dispatched immediately via email, SMS, push notifications, or webhooks.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/service-health/alerts-activity-log-service-notifications-portal",

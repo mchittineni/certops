@@ -9,12 +9,12 @@ export const K8S_CKA_QUESTIONS_8 = [
     scenario: "A cluster uses both a mutating webhook that injects a sidecar and a validating webhook that rejects pods without a sidecar.",
     question: "In which order does the API server run them?",
     options: [
-      { id: 'A', text: "Authentication, authorization, mutating admission, schema validation, validating admission, then persistence." },
-      { id: 'B', text: "Validating admission first, then mutating admission." },
+      { id: 'A', text: "Validating admission first, then mutating admission." },
+      { id: 'B', text: "Authentication, authorization, mutating admission, schema validation, validating admission, then persistence." },
       { id: 'C', text: "Both webhook types run concurrently in arbitrary order." },
       { id: 'D', text: "Admission runs after the object is written to etcd." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "A request is authenticated and authorized, then mutating admission plugins and webhooks may change the object, then the object is validated and validating admission runs, and only after that is it persisted - which is why a validating webhook can rely on the sidecar already being injected. The other orders would make mutation invisible to validation or bypass admission entirely.",
     referenceUrl: "https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/",
@@ -30,8 +30,8 @@ export const K8S_CKA_QUESTIONS_8 = [
     scenario: "The web container of the web deployment must move from nginx:1.25 to nginx:1.27, triggering a rolling update.",
     question: "Which command does that?",
     options: [
-      { id: 'A', text: "kubectl rollout restart deployment/web" },
-      { id: 'B', text: "kubectl patch deployment web --type=json -p latest" },
+      { id: 'A', text: "kubectl patch deployment web --type=json -p latest" },
+      { id: 'B', text: "kubectl rollout restart deployment/web" },
       { id: 'C', text: "kubectl set image deployment/web web=nginx:1.27" },
       { id: 'D', text: "kubectl replace deployment/web --image=nginx:1.27" }
     ],
@@ -51,12 +51,12 @@ export const K8S_CKA_QUESTIONS_8 = [
     scenario: "A correct-looking default-deny NetworkPolicy was applied but all traffic still flows freely between pods.",
     question: "What is the most likely reason?",
     options: [
-      { id: 'A', text: "The policy must be created in the kube-system namespace." },
-      { id: 'B', text: "NetworkPolicies require a restart of kube-proxy to take effect." },
-      { id: 'C', text: "NetworkPolicies only apply to traffic entering the cluster from outside." },
-      { id: 'D', text: "The installed CNI plugin does not implement NetworkPolicy, so the objects are stored but never enforced." }
+      { id: 'A', text: "NetworkPolicies require a restart of kube-proxy to take effect." },
+      { id: 'B', text: "The installed CNI plugin does not implement NetworkPolicy, so the objects are stored but never enforced." },
+      { id: 'C', text: "The policy must be created in the kube-system namespace." },
+      { id: 'D', text: "NetworkPolicies only apply to traffic entering the cluster from outside." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "NetworkPolicy is an API that a network plugin must implement; with a plugin that does not support it, the objects are accepted by the API server and silently ignored. No kube-proxy restart is involved, policies are namespaced and belong where the pods are, and they govern pod-level traffic including pod-to-pod inside the cluster.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/network-policies/",
@@ -73,11 +73,11 @@ export const K8S_CKA_QUESTIONS_8 = [
     question: "Which pod-level setting fixes it for volume types that support ownership management?",
     options: [
       { id: 'A', text: "securityContext.runAsUser: 0 on the container" },
-      { id: 'B', text: "securityContext.fsGroup: 1000 on the pod" },
-      { id: 'C', text: "An initContainer running chmod 777 on the volume every start" },
-      { id: 'D', text: "automountServiceAccountToken: false" }
+      { id: 'B', text: "An initContainer running chmod 777 on the volume every start" },
+      { id: 'C', text: "automountServiceAccountToken: false" },
+      { id: 'D', text: "securityContext.fsGroup: 1000 on the pod" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "fsGroup makes the kubelet set group ownership and the setgid bit on the volume so a non-root process in that supplementary group can write, with fsGroupChangePolicy controlling whether the recursive change is repeated. Running as root defeats the hardening goal, a chmod init container is a slow and permissive workaround, and the ServiceAccount token setting is unrelated.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/security-context/",
@@ -93,9 +93,9 @@ export const K8S_CKA_QUESTIONS_8 = [
     scenario: "A pod is Pending with no scheduling event beyond \"0/6 nodes are available\", and the operator wants the scheduler own reasoning at higher detail.",
     question: "Where should they look?",
     options: [
-      { id: 'A', text: "The etcd member logs." },
+      { id: 'A', text: "The kubelet journal on each candidate node." },
       { id: 'B', text: "The kube-scheduler pod logs in kube-system, optionally at a higher verbosity level." },
-      { id: 'C', text: "The kubelet journal on each candidate node." },
+      { id: 'C', text: "The etcd member logs." },
       { id: 'D', text: "The CoreDNS pod logs." }
     ],
     correctAnswers: ['B'],
@@ -135,10 +135,10 @@ export const K8S_CKA_QUESTIONS_8 = [
     scenario: "A junior engineer asks why a Service has an IP address that does not respond to ping and belongs to no interface.",
     question: "Which explanation is correct?",
     options: [
-      { id: 'A', text: "ClusterIPs only work for HTTP traffic." },
+      { id: 'A', text: "The ClusterIP belongs to a hidden proxy pod that must be running." },
       { id: 'B', text: "A ClusterIP is a virtual address implemented by kube-proxy rules that rewrite traffic to a backend pod; nothing owns the address, so ICMP to it is not meaningful." },
-      { id: 'C', text: "The ClusterIP belongs to a hidden proxy pod that must be running." },
-      { id: 'D', text: "The ClusterIP is assigned to the node primary interface." }
+      { id: 'C', text: "The ClusterIP is assigned to the node primary interface." },
+      { id: 'D', text: "ClusterIPs only work for HTTP traffic." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -157,8 +157,8 @@ export const K8S_CKA_QUESTIONS_8 = [
     question: "What is required for each?",
     options: [
       { id: 'A', text: "Both workloads need tolerations, with different effects." },
-      { id: 'B', text: "The critical workload needs a toleration with operator: DoesNotExist." },
-      { id: 'C', text: "The critical workload needs an anti-affinity rule and the batch workload a nodeSelector." },
+      { id: 'B', text: "The critical workload needs an anti-affinity rule and the batch workload a nodeSelector." },
+      { id: 'C', text: "The critical workload needs a toleration with operator: DoesNotExist." },
       { id: 'D', text: "The critical workload needs no change, and the batch workload needs a toleration for spot=true:NoSchedule." }
     ],
     correctAnswers: ['D'],
@@ -177,8 +177,8 @@ export const K8S_CKA_QUESTIONS_8 = [
     scenario: "On a freshly provisioned control plane node, kubectl get nodes returns \"The connection to the server localhost:8080 was refused\".",
     question: "What does that indicate?",
     options: [
-      { id: 'A', text: "The API server is listening on the wrong port and must be reconfigured." },
-      { id: 'B', text: "The user lacks RBAC permission to list nodes." },
+      { id: 'A', text: "The user lacks RBAC permission to list nodes." },
+      { id: 'B', text: "The API server is listening on the wrong port and must be reconfigured." },
       { id: 'C', text: "etcd is down." },
       { id: 'D', text: "kubectl found no kubeconfig, so it fell back to the default localhost endpoint; KUBECONFIG or ~/.kube/config must point at admin.conf." }
     ],
@@ -198,12 +198,12 @@ export const K8S_CKA_QUESTIONS_8 = [
     scenario: "An operator deletes a StorageClass that dynamically provisioned dozens of bound PersistentVolumes.",
     question: "What is the effect on existing volumes?",
     options: [
-      { id: 'A', text: "The volumes are converted to static provisioning and lose their reclaim policy." },
-      { id: 'B', text: "Bound PersistentVolumes and their data are unaffected, but no new claims can be provisioned with that class." },
-      { id: 'C', text: "All PersistentVolumes provisioned by that class are deleted immediately." },
-      { id: 'D', text: "Pods using those volumes are evicted." }
+      { id: 'A', text: "All PersistentVolumes provisioned by that class are deleted immediately." },
+      { id: 'B', text: "Pods using those volumes are evicted." },
+      { id: 'C', text: "The volumes are converted to static provisioning and lose their reclaim policy." },
+      { id: 'D', text: "Bound PersistentVolumes and their data are unaffected, but no new claims can be provisioned with that class." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "A StorageClass is only consulted at provisioning time, so removing it leaves existing PersistentVolumes bound and intact - each PV keeps its own reclaim policy - while future claims naming it stay Pending. Nothing is deleted, converted, or evicted by the removal.",
     referenceUrl: "https://kubernetes.io/docs/concepts/storage/storage-classes/",
@@ -219,12 +219,12 @@ export const K8S_CKA_QUESTIONS_8 = [
     scenario: "A script needs just the internal IP address of the node named worker1.",
     question: "Which command prints only that value?",
     options: [
-      { id: 'A', text: "kubectl get node worker1 --show-labels" },
+      { id: 'A', text: "kubectl get node worker1 -o jsonpath=\"{.status.addresses[?(@.type=='InternalIP')].address}\"" },
       { id: 'B', text: "kubectl describe node worker1 | grep IP" },
-      { id: 'C', text: "kubectl get node worker1 -o jsonpath=\"{.status.addresses[?(@.type=='InternalIP')].address}\"" },
+      { id: 'C', text: "kubectl get node worker1 --show-labels" },
       { id: 'D', text: "kubectl get node worker1 -o yaml" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "A JSONPath filter expression selects the address entry whose type is InternalIP and prints only its value, which is what a script can consume directly. Grepping describe output is brittle and returns extra lines, full YAML needs further parsing, and labels contain no addresses.",
     referenceUrl: "https://kubernetes.io/docs/reference/kubectl/jsonpath/",
@@ -240,12 +240,12 @@ export const K8S_CKA_QUESTIONS_8 = [
     scenario: "An operator must make several edits to a deployment - image, resources, and environment - and wants only one rollout at the end.",
     question: "Which workflow achieves that?",
     options: [
-      { id: 'A', text: "Set maxSurge to 0 during the edits." },
-      { id: 'B', text: "Apply each change with --dry-run=server and then apply once." },
-      { id: 'C', text: "kubectl rollout pause, make the edits, then kubectl rollout resume." },
+      { id: 'A', text: "kubectl rollout pause, make the edits, then kubectl rollout resume." },
+      { id: 'B', text: "Set maxSurge to 0 during the edits." },
+      { id: 'C', text: "Apply each change with --dry-run=server and then apply once." },
       { id: 'D', text: "Scale to zero, edit, then scale up." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Pausing a Deployment stops the controller from acting on pod template changes, so several edits are batched into a single rollout when it is resumed. Scaling to zero causes an outage, a zero maxSurge with default maxUnavailable still rolls, and repeated server dry runs do not batch real changes.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/deployment/",
@@ -261,12 +261,12 @@ export const K8S_CKA_QUESTIONS_8 = [
     scenario: "A DNS-like service inside the cluster must be reachable on UDP port 5353 as well as TCP 5353.",
     question: "How is that expressed on one Service?",
     options: [
-      { id: 'A', text: "Two entries in spec.ports with distinct names, one with protocol TCP and one with protocol UDP." },
-      { id: 'B', text: "Two separate Services, because a Service supports only one protocol." },
+      { id: 'A', text: "Two separate Services, because a Service supports only one protocol." },
+      { id: 'B', text: "A single port entry, because UDP is implied." },
       { id: 'C', text: "One port entry with protocol: TCP,UDP." },
-      { id: 'D', text: "A single port entry, because UDP is implied." }
+      { id: 'D', text: "Two entries in spec.ports with distinct names, one with protocol TCP and one with protocol UDP." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "A Service can list multiple ports, and each entry carries its own protocol; when more than one port is defined every entry must be named. There is no combined protocol value, one Service handles both protocols, and TCP is the default rather than UDP being implied.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/service/",
@@ -284,10 +284,10 @@ export const K8S_CKA_QUESTIONS_8 = [
     options: [
       { id: 'A', text: "The API server certificate has expired." },
       { id: 'B', text: "CoreDNS is misconfigured for external names." },
-      { id: 'C', text: "The pods lack a ServiceAccount." },
-      { id: 'D', text: "A NetworkPolicy or kube-proxy rule problem is blocking traffic to the kubernetes Service ClusterIP in the default namespace." }
+      { id: 'C', text: "A NetworkPolicy or kube-proxy rule problem is blocking traffic to the kubernetes Service ClusterIP in the default namespace." },
+      { id: 'D', text: "The pods lack a ServiceAccount." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "The API is reachable from pods through the kubernetes Service ClusterIP, so when the node can reach the API but pods cannot, the fault lies in the pod network path - typically an egress NetworkPolicy that forgot the API endpoint, or stale kube-proxy rules for that Service. An expired certificate would break node access too, every pod gets a default ServiceAccount, and external DNS forwarding is unrelated to an in-cluster Service name.",
     referenceUrl: "https://kubernetes.io/docs/tasks/debug/debug-application/debug-service/",
@@ -303,12 +303,12 @@ export const K8S_CKA_QUESTIONS_8 = [
     scenario: "A cluster uses a pod CIDR of 10.244.0.0/16 with a node CIDR mask size of /24.",
     question: "What does that imply?",
     options: [
-      { id: 'A', text: "Each node gets 65,534 pod addresses and the cluster supports one node." },
-      { id: 'B', text: "The mask size affects Service ClusterIP allocation." },
-      { id: 'C', text: "Each node gets a /24 with roughly 254 usable pod addresses, and the cluster supports up to 256 nodes from that range." },
-      { id: 'D', text: "Each pod gets a /24 network of its own." }
+      { id: 'A', text: "The mask size affects Service ClusterIP allocation." },
+      { id: 'B', text: "Each pod gets a /24 network of its own." },
+      { id: 'C', text: "Each node gets 65,534 pod addresses and the cluster supports one node." },
+      { id: 'D', text: "Each node gets a /24 with roughly 254 usable pod addresses, and the cluster supports up to 256 nodes from that range." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The controller manager carves the cluster pod CIDR into per-node subnets of the configured mask size, so a /16 split into /24 blocks yields 256 node subnets of about 254 addresses each - a hard ceiling worth checking before a cluster grows. Pods receive single addresses rather than subnets, and Service IPs come from the separate Service CIDR.",
     referenceUrl: "https://kubernetes.io/docs/concepts/cluster-administration/networking/",
@@ -324,12 +324,12 @@ export const K8S_CKA_QUESTIONS_8 = [
     scenario: "A TLS certificate and private key on disk must become a Secret usable by an Ingress.",
     question: "Which command creates it correctly?",
     options: [
-      { id: 'A', text: "kubectl create secret generic shop-tls --from-literal=cert=tls.crt" },
+      { id: 'A', text: "kubectl create secret tls shop-tls --cert=tls.crt --key=tls.key" },
       { id: 'B', text: "kubectl create configmap shop-tls --from-file=tls.crt --from-file=tls.key" },
-      { id: 'C', text: "kubectl apply -f tls.crt" },
-      { id: 'D', text: "kubectl create secret tls shop-tls --cert=tls.crt --key=tls.key" }
+      { id: 'C', text: "kubectl create secret generic shop-tls --from-literal=cert=tls.crt" },
+      { id: 'D', text: "kubectl apply -f tls.crt" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The tls subcommand creates a kubernetes.io/tls Secret with the required tls.crt and tls.key keys, which is what an Ingress expects. A generic Secret from a literal stores the filename rather than its contents, a ConfigMap is the wrong type for a private key, and a certificate file is not a Kubernetes manifest.",
     referenceUrl: "https://kubernetes.io/docs/reference/kubectl/generated/kubectl_create/kubectl_create_secret_tls/",
@@ -345,12 +345,12 @@ export const K8S_CKA_QUESTIONS_8 = [
     scenario: "New pods pass their readiness probe instantly but crash roughly twenty seconds later, and the rollout still completes and removes all old pods.",
     question: "Which setting would make the rollout wait long enough to notice?",
     options: [
-      { id: 'A', text: "maxSurge set to 100 percent." },
+      { id: 'A', text: "minReadySeconds set to a value larger than the crash window, so a pod counts as available only after staying ready that long." },
       { id: 'B', text: "revisionHistoryLimit set to 1." },
-      { id: 'C', text: "minReadySeconds set to a value larger than the crash window, so a pod counts as available only after staying ready that long." },
-      { id: 'D', text: "progressDeadlineSeconds set to 10." }
+      { id: 'C', text: "progressDeadlineSeconds set to 10." },
+      { id: 'D', text: "maxSurge set to 100 percent." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "minReadySeconds requires a new pod to remain ready for that duration before it is counted as available, so a rollout stalls instead of completing when pods die shortly after starting. progressDeadlineSeconds only bounds total rollout time, history limit trims revisions, and a larger surge merely creates more pods faster.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/deployment/",
@@ -366,12 +366,12 @@ export const K8S_CKA_QUESTIONS_8 = [
     scenario: "Pods on the same node communicate normally, but pod-to-pod traffic between different nodes times out. Services and DNS behave the same way.",
     question: "Where is the fault most likely?",
     options: [
-      { id: 'A', text: "In the API server admission plugins." },
-      { id: 'B', text: "In the Service selector labels." },
-      { id: 'C', text: "In the pod network overlay or routing between nodes - a CNI misconfiguration or a firewall blocking the overlay ports such as VXLAN." },
-      { id: 'D', text: "In the kubelet configuration on each node." }
+      { id: 'A', text: "In the Service selector labels." },
+      { id: 'B', text: "In the pod network overlay or routing between nodes - a CNI misconfiguration or a firewall blocking the overlay ports such as VXLAN." },
+      { id: 'C', text: "In the kubelet configuration on each node." },
+      { id: 'D', text: "In the API server admission plugins." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Intra-node traffic uses a local bridge while inter-node traffic depends on the overlay or route programming, so a clean split like this points at the CNI plugin or a firewall dropping its encapsulation or BGP traffic. Kubelet configuration, admission plugins, and Service selectors would not produce a same-node versus cross-node distinction.",
     referenceUrl: "https://kubernetes.io/docs/concepts/cluster-administration/networking/",
@@ -387,12 +387,12 @@ export const K8S_CKA_QUESTIONS_8 = [
     scenario: "A CI pipeline fails with: pods is forbidden: User \"system:serviceaccount:ci:deployer\" cannot create resource \"pods\" in API group \"\" in the namespace \"prod\".",
     question: "What does this tell the operator?",
     options: [
-      { id: 'A', text: "The prod namespace does not exist." },
-      { id: 'B', text: "The ServiceAccount token is invalid and must be recreated." },
-      { id: 'C', text: "Authentication succeeded and authorization failed, so the ServiceAccount needs an RBAC binding granting create on pods in prod." },
-      { id: 'D', text: "An admission webhook rejected the pod." }
+      { id: 'A', text: "Authentication succeeded and authorization failed, so the ServiceAccount needs an RBAC binding granting create on pods in prod." },
+      { id: 'B', text: "An admission webhook rejected the pod." },
+      { id: 'C', text: "The ServiceAccount token is invalid and must be recreated." },
+      { id: 'D', text: "The prod namespace does not exist." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "A forbidden message that names the authenticated user means the identity was accepted and the authorizer denied the verb, so the remedy is a Role or ClusterRole plus a binding in prod. An invalid token yields Unauthorized, a missing namespace yields a not found error, and webhook rejections cite the webhook name.",
     referenceUrl: "https://kubernetes.io/docs/reference/access-authn-authz/rbac/",
@@ -408,12 +408,12 @@ export const K8S_CKA_QUESTIONS_8 = [
     scenario: "A node is being prepared to join a modern Kubernetes cluster and the team asks what container runtime interface is required.",
     question: "Which statement is accurate?",
     options: [
-      { id: 'A', text: "The kubelet talks only to CRI-compatible runtimes such as containerd or CRI-O over a CRI socket; dockershim was removed in v1.24." },
-      { id: 'B', text: "Any OCI runtime can be used without a CRI implementation." },
-      { id: 'C', text: "The kubelet runs containers itself without a runtime." },
-      { id: 'D', text: "The kubelet requires Docker Engine and communicates with it directly." }
+      { id: 'A', text: "The kubelet requires Docker Engine and communicates with it directly." },
+      { id: 'B', text: "The kubelet runs containers itself without a runtime." },
+      { id: 'C', text: "Any OCI runtime can be used without a CRI implementation." },
+      { id: 'D', text: "The kubelet talks only to CRI-compatible runtimes such as containerd or CRI-O over a CRI socket; dockershim was removed in v1.24." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Since dockershim was removed, the kubelet requires a runtime implementing the Container Runtime Interface, configured through --container-runtime-endpoint. Docker Engine needs an adapter such as cri-dockerd, the kubelet delegates all container execution, and a low-level OCI runtime like runc sits beneath a CRI implementation rather than replacing it.",
     referenceUrl: "https://kubernetes.io/docs/setup/production-environment/container-runtimes/",
@@ -429,12 +429,12 @@ export const K8S_CKA_QUESTIONS_8 = [
     scenario: "A ConfigMap holds five keys but only app.properties should appear in the container at /config/app.properties.",
     question: "Which volume configuration does that?",
     options: [
-      { id: 'A', text: "A configMap volume with defaultMode set to 0400." },
-      { id: 'B', text: "A secret volume referencing the ConfigMap name." },
-      { id: 'C', text: "An envFrom reference to the ConfigMap." },
-      { id: 'D', text: "A configMap volume with an items list mapping the key app.properties to the path app.properties." }
+      { id: 'A', text: "An envFrom reference to the ConfigMap." },
+      { id: 'B', text: "A configMap volume with an items list mapping the key app.properties to the path app.properties." },
+      { id: 'C', text: "A secret volume referencing the ConfigMap name." },
+      { id: 'D', text: "A configMap volume with defaultMode set to 0400." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "The items list projects only the named keys into the volume at the given paths, leaving the other four keys out. defaultMode changes file permissions rather than selection, envFrom produces environment variables, and a secret volume cannot reference a ConfigMap.",
     referenceUrl: "https://kubernetes.io/docs/concepts/storage/volumes/",
@@ -450,12 +450,12 @@ export const K8S_CKA_QUESTIONS_8 = [
     scenario: "A single-threaded application cannot use more than one CPU no matter how much load arrives, and its memory need grows with the dataset it holds.",
     question: "Which autoscaling approach fits best?",
     options: [
-      { id: 'A', text: "Cluster Autoscaler alone." },
-      { id: 'B', text: "Both HPA and VPA on the same CPU metric simultaneously." },
-      { id: 'C', text: "Vertical Pod Autoscaler, because the workload needs larger resource allocations rather than more replicas." },
-      { id: 'D', text: "Horizontal Pod Autoscaler on CPU utilisation." }
+      { id: 'A', text: "Both HPA and VPA on the same CPU metric simultaneously." },
+      { id: 'B', text: "Vertical Pod Autoscaler, because the workload needs larger resource allocations rather than more replicas." },
+      { id: 'C', text: "Horizontal Pod Autoscaler on CPU utilisation." },
+      { id: 'D', text: "Cluster Autoscaler alone." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "A workload that cannot parallelise gains nothing from more replicas, so the Vertical Pod Autoscaler adjusting requests and limits is the right tool. HPA scales replicas, the Cluster Autoscaler only adds nodes when pods are unschedulable, and running HPA and VPA on the same resource metric makes them fight.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/autoscaling/",
@@ -471,12 +471,12 @@ export const K8S_CKA_QUESTIONS_8 = [
     scenario: "A disaster recovery runbook is being reviewed. It currently contains only an etcd snapshot step.",
     question: "What else must be preserved to rebuild a kubeadm control plane?",
     options: [
-      { id: 'A', text: "The CoreDNS Corefile only." },
-      { id: 'B', text: "The kubelet log files from every node." },
-      { id: 'C', text: "The /etc/kubernetes/pki certificate authority material and the static pod manifests, because a restored etcd is unusable without a matching CA." },
-      { id: 'D', text: "The container images of every workload." }
+      { id: 'A', text: "The /etc/kubernetes/pki certificate authority material and the static pod manifests, because a restored etcd is unusable without a matching CA." },
+      { id: 'B', text: "The CoreDNS Corefile only." },
+      { id: 'C', text: "The container images of every workload." },
+      { id: 'D', text: "The kubelet log files from every node." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "A restored etcd contains objects such as ServiceAccount tokens and certificates issued by the cluster CA, so losing /etc/kubernetes/pki means the restored control plane cannot authenticate its own components; the static pod manifests capture the API server configuration alongside it. Images come from registries, kubelet logs are diagnostics rather than state, and the Corefile is one object among many already in etcd.",
     referenceUrl: "https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/",
@@ -492,12 +492,12 @@ export const K8S_CKA_QUESTIONS_8 = [
     scenario: "A pod declares containerPort 8080 with the name http and containerPort 9090 with the name metrics. The Service should stay valid if those numbers change later.",
     question: "Which Service definition is most robust?",
     options: [
-      { id: 'A', text: "A headless Service, because named ports require clusterIP: None." },
-      { id: 'B', text: "Two named Service ports whose targetPort values are the container port names http and metrics." },
-      { id: 'C', text: "One Service port with targetPort set to the pod IP." },
-      { id: 'D', text: "Two Service ports with numeric targetPort values 8080 and 9090." }
+      { id: 'A', text: "Two named Service ports whose targetPort values are the container port names http and metrics." },
+      { id: 'B', text: "Two Service ports with numeric targetPort values 8080 and 9090." },
+      { id: 'C', text: "A headless Service, because named ports require clusterIP: None." },
+      { id: 'D', text: "One Service port with targetPort set to the pod IP." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "targetPort accepts a container port name, so the Service follows the pod definition even if the numbers change - a useful indirection across many workloads. Numeric targets break silently on a port change, targetPort is never an IP address, and named ports work with any Service type.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/service/",
@@ -513,12 +513,12 @@ export const K8S_CKA_QUESTIONS_8 = [
     scenario: "After a planned node reboot without draining, pods on that node all restarted and some Jobs re-ran their work.",
     question: "Which practice would have prevented the disruption?",
     options: [
-      { id: 'A', text: "Cordon and drain the node before rebooting so workloads move gracefully and disruption budgets are respected." },
-      { id: 'B', text: "Set restartPolicy: Never on all pods." },
-      { id: 'C', text: "Delete the node object before rebooting." },
-      { id: 'D', text: "Increase terminationGracePeriodSeconds on every pod." }
+      { id: 'A', text: "Set restartPolicy: Never on all pods." },
+      { id: 'B', text: "Increase terminationGracePeriodSeconds on every pod." },
+      { id: 'C', text: "Cordon and drain the node before rebooting so workloads move gracefully and disruption budgets are respected." },
+      { id: 'D', text: "Delete the node object before rebooting." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Draining evicts pods through the eviction API so replacements start elsewhere first and PodDisruptionBudgets are honoured, which is the whole point of the maintenance workflow. A Never restart policy leaves failed pods dead, deleting the node object is more disruptive rather than less, and a longer grace period does not help when the machine simply goes away.",
     referenceUrl: "https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/",

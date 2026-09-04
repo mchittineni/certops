@@ -30,12 +30,12 @@ export const GCP_ACE_QUESTIONS_14 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer evaluates Cloud Spanner to architect a globally distributed e-commerce inventory database requiring relational ACID transactions, multi-region synchronous writes, and 99.999% availability.",
     question: "Which architectural approach should the team select to manage this demand efficiently? Cloud Spanner horizontal scale-out with external global consistency is under consideration.",
     options: [
-      { id: 'A', text: "Deploy Cloud Spanner with a multi-region instance configuration." },
-      { id: 'B', text: "Deploy Cloud SQL with cross-region read replicas." },
-      { id: 'C', text: "Deploy a self-managed MySQL database on a single Compute Engine instance." },
-      { id: 'D', text: "Store inventory transactions in a Cloud Storage multi-region bucket." }
+      { id: 'A', text: "Deploy Cloud SQL with cross-region read replicas." },
+      { id: 'B', text: "Deploy Cloud Spanner with a multi-region instance configuration." },
+      { id: 'C', text: "Store inventory transactions in a Cloud Storage multi-region bucket." },
+      { id: 'D', text: "Deploy a self-managed MySQL database on a single Compute Engine instance." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy Cloud Spanner with a multi-region instance configuration. Cloud Spanner is a fully managed, mission-critical relational database service that provides transactional consistency at global scale, automatic horizontal sharding, schema updates with zero downtime, and up to 99.999% availability SLA, which single-primary Cloud SQL cannot match.",
     referenceUrl: "https://cloud.google.com/spanner/docs/overview",
@@ -51,12 +51,12 @@ export const GCP_ACE_QUESTIONS_14 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer evaluates Cloud Spanner to architect a globally distributed e-commerce inventory database requiring relational ACID transactions, multi-region synchronous writes, and 99.999% availability.",
     question: "Which solution properly implements these mandatory security and governance controls? Cloud Spanner horizontal scale-out with external global consistency is under consideration.",
     options: [
-      { id: 'A', text: "Deploy Cloud Spanner with a multi-region instance configuration." },
-      { id: 'B', text: "Deploy Cloud SQL with cross-region read replicas." },
-      { id: 'C', text: "Deploy a self-managed MySQL database on a single Compute Engine instance." },
-      { id: 'D', text: "Store inventory transactions in a Cloud Storage multi-region bucket." }
+      { id: 'A', text: "Store inventory transactions in a Cloud Storage multi-region bucket." },
+      { id: 'B', text: "Deploy Cloud Spanner with a multi-region instance configuration." },
+      { id: 'C', text: "Deploy Cloud SQL with cross-region read replicas." },
+      { id: 'D', text: "Deploy a self-managed MySQL database on a single Compute Engine instance." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy Cloud Spanner with a multi-region instance configuration. Cloud Spanner is a fully managed, mission-critical relational database service that provides transactional consistency at global scale, automatic horizontal sharding, schema updates with zero downtime, and up to 99.999% availability SLA, which single-primary Cloud SQL cannot match.",
     referenceUrl: "https://cloud.google.com/spanner/docs/overview",
@@ -72,12 +72,12 @@ export const GCP_ACE_QUESTIONS_14 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer evaluates Cloud Spanner to architect a globally distributed e-commerce inventory database requiring relational ACID transactions, multi-region synchronous writes, and 99.999% availability.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? Cloud Spanner horizontal scale-out with external global consistency is under consideration.",
     options: [
-      { id: 'A', text: "Deploy Cloud Spanner with a multi-region instance configuration." },
-      { id: 'B', text: "Deploy Cloud SQL with cross-region read replicas." },
-      { id: 'C', text: "Deploy a self-managed MySQL database on a single Compute Engine instance." },
-      { id: 'D', text: "Store inventory transactions in a Cloud Storage multi-region bucket." }
+      { id: 'A', text: "Deploy Cloud SQL with cross-region read replicas." },
+      { id: 'B', text: "Deploy Cloud Spanner with a multi-region instance configuration." },
+      { id: 'C', text: "Store inventory transactions in a Cloud Storage multi-region bucket." },
+      { id: 'D', text: "Deploy a self-managed MySQL database on a single Compute Engine instance." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy Cloud Spanner with a multi-region instance configuration. Cloud Spanner is a fully managed, mission-critical relational database service that provides transactional consistency at global scale, automatic horizontal sharding, schema updates with zero downtime, and up to 99.999% availability SLA, which single-primary Cloud SQL cannot match.",
     referenceUrl: "https://cloud.google.com/spanner/docs/overview",
@@ -93,12 +93,12 @@ export const GCP_ACE_QUESTIONS_14 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer evaluates Cloud Spanner to architect a globally distributed e-commerce inventory database requiring relational ACID transactions, multi-region synchronous writes, and 99.999% availability.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? Cloud Spanner horizontal scale-out with external global consistency is under consideration.",
     options: [
-      { id: 'A', text: "Deploy Cloud Spanner with a multi-region instance configuration." },
-      { id: 'B', text: "Deploy Cloud SQL with cross-region read replicas." },
+      { id: 'A', text: "Deploy Cloud SQL with cross-region read replicas." },
+      { id: 'B', text: "Store inventory transactions in a Cloud Storage multi-region bucket." },
       { id: 'C', text: "Deploy a self-managed MySQL database on a single Compute Engine instance." },
-      { id: 'D', text: "Store inventory transactions in a Cloud Storage multi-region bucket." }
+      { id: 'D', text: "Deploy Cloud Spanner with a multi-region instance configuration." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy Cloud Spanner with a multi-region instance configuration. Cloud Spanner is a fully managed, mission-critical relational database service that provides transactional consistency at global scale, automatic horizontal sharding, schema updates with zero downtime, and up to 99.999% availability SLA, which single-primary Cloud SQL cannot match.",
     referenceUrl: "https://cloud.google.com/spanner/docs/overview",
@@ -114,12 +114,12 @@ export const GCP_ACE_QUESTIONS_14 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer evaluates Cloud Bigtable to store hundreds of terabytes of time-series IoT sensor data with sub-10ms read and write latency while avoiding tablet server hotspotting.",
     question: "Which concept or service configuration satisfies these operational resilience objectives? Bigtable wide-column schema design and row key selection is under consideration.",
     options: [
-      { id: 'A', text: "Deploy Cloud Bigtable and design row keys with a non-sequential prefix (e.g. device_id#timestamp)." },
-      { id: 'B', text: "Deploy Cloud SQL for PostgreSQL and store all readings in a single table with an auto-incrementing ID." },
-      { id: 'C', text: "Store sensor readings in flat text files on a Compute Engine standard persistent disk." },
-      { id: 'D', text: "Use Firestore in Native mode with a sequential timestamp document ID." }
+      { id: 'A', text: "Deploy Cloud SQL for PostgreSQL and store all readings in a single table with an auto-incrementing ID." },
+      { id: 'B', text: "Deploy Cloud Bigtable and design row keys with a non-sequential prefix (e.g. device_id#timestamp)." },
+      { id: 'C', text: "Use Firestore in Native mode with a sequential timestamp document ID." },
+      { id: 'D', text: "Store sensor readings in flat text files on a Compute Engine standard persistent disk." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy Cloud Bigtable and design row keys with a non-sequential prefix (e.g. device_id#timestamp). Cloud Bigtable is a sparsely populated table that can scale to billions of rows and thousands of columns, ideal for petabyte-scale low-latency operational data. Designing row keys to avoid sequential timestamps (which concentrate writes on a single tablet) ensures uniform distribution across nodes.",
     referenceUrl: "https://cloud.google.com/bigtable/docs/schema-design",
@@ -135,12 +135,12 @@ export const GCP_ACE_QUESTIONS_14 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer evaluates Cloud Bigtable to store hundreds of terabytes of time-series IoT sensor data with sub-10ms read and write latency while avoiding tablet server hotspotting.",
     question: "Which architectural approach should the team select to manage this demand efficiently? Bigtable wide-column schema design and row key selection is under consideration.",
     options: [
-      { id: 'A', text: "Deploy Cloud Bigtable and design row keys with a non-sequential prefix (e.g. device_id#timestamp)." },
-      { id: 'B', text: "Deploy Cloud SQL for PostgreSQL and store all readings in a single table with an auto-incrementing ID." },
-      { id: 'C', text: "Store sensor readings in flat text files on a Compute Engine standard persistent disk." },
-      { id: 'D', text: "Use Firestore in Native mode with a sequential timestamp document ID." }
+      { id: 'A', text: "Use Firestore in Native mode with a sequential timestamp document ID." },
+      { id: 'B', text: "Deploy Cloud Bigtable and design row keys with a non-sequential prefix (e.g. device_id#timestamp)." },
+      { id: 'C', text: "Deploy Cloud SQL for PostgreSQL and store all readings in a single table with an auto-incrementing ID." },
+      { id: 'D', text: "Store sensor readings in flat text files on a Compute Engine standard persistent disk." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy Cloud Bigtable and design row keys with a non-sequential prefix (e.g. device_id#timestamp). Cloud Bigtable is a sparsely populated table that can scale to billions of rows and thousands of columns, ideal for petabyte-scale low-latency operational data. Designing row keys to avoid sequential timestamps (which concentrate writes on a single tablet) ensures uniform distribution across nodes.",
     referenceUrl: "https://cloud.google.com/bigtable/docs/schema-design",
@@ -156,12 +156,12 @@ export const GCP_ACE_QUESTIONS_14 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer evaluates Cloud Bigtable to store hundreds of terabytes of time-series IoT sensor data with sub-10ms read and write latency while avoiding tablet server hotspotting.",
     question: "Which solution properly implements these mandatory security and governance controls? Bigtable wide-column schema design and row key selection is under consideration.",
     options: [
-      { id: 'A', text: "Deploy Cloud Bigtable and design row keys with a non-sequential prefix (e.g. device_id#timestamp)." },
-      { id: 'B', text: "Deploy Cloud SQL for PostgreSQL and store all readings in a single table with an auto-incrementing ID." },
-      { id: 'C', text: "Store sensor readings in flat text files on a Compute Engine standard persistent disk." },
+      { id: 'A', text: "Deploy Cloud SQL for PostgreSQL and store all readings in a single table with an auto-incrementing ID." },
+      { id: 'B', text: "Store sensor readings in flat text files on a Compute Engine standard persistent disk." },
+      { id: 'C', text: "Deploy Cloud Bigtable and design row keys with a non-sequential prefix (e.g. device_id#timestamp)." },
       { id: 'D', text: "Use Firestore in Native mode with a sequential timestamp document ID." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy Cloud Bigtable and design row keys with a non-sequential prefix (e.g. device_id#timestamp). Cloud Bigtable is a sparsely populated table that can scale to billions of rows and thousands of columns, ideal for petabyte-scale low-latency operational data. Designing row keys to avoid sequential timestamps (which concentrate writes on a single tablet) ensures uniform distribution across nodes.",
     referenceUrl: "https://cloud.google.com/bigtable/docs/schema-design",
@@ -177,12 +177,12 @@ export const GCP_ACE_QUESTIONS_14 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer evaluates Cloud Bigtable to store hundreds of terabytes of time-series IoT sensor data with sub-10ms read and write latency while avoiding tablet server hotspotting.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? Bigtable wide-column schema design and row key selection is under consideration.",
     options: [
-      { id: 'A', text: "Deploy Cloud Bigtable and design row keys with a non-sequential prefix (e.g. device_id#timestamp)." },
+      { id: 'A', text: "Use Firestore in Native mode with a sequential timestamp document ID." },
       { id: 'B', text: "Deploy Cloud SQL for PostgreSQL and store all readings in a single table with an auto-incrementing ID." },
       { id: 'C', text: "Store sensor readings in flat text files on a Compute Engine standard persistent disk." },
-      { id: 'D', text: "Use Firestore in Native mode with a sequential timestamp document ID." }
+      { id: 'D', text: "Deploy Cloud Bigtable and design row keys with a non-sequential prefix (e.g. device_id#timestamp)." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy Cloud Bigtable and design row keys with a non-sequential prefix (e.g. device_id#timestamp). Cloud Bigtable is a sparsely populated table that can scale to billions of rows and thousands of columns, ideal for petabyte-scale low-latency operational data. Designing row keys to avoid sequential timestamps (which concentrate writes on a single tablet) ensures uniform distribution across nodes.",
     referenceUrl: "https://cloud.google.com/bigtable/docs/schema-design",
@@ -198,12 +198,12 @@ export const GCP_ACE_QUESTIONS_14 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer evaluates Cloud Bigtable to store hundreds of terabytes of time-series IoT sensor data with sub-10ms read and write latency while avoiding tablet server hotspotting.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? Bigtable wide-column schema design and row key selection is under consideration.",
     options: [
-      { id: 'A', text: "Deploy Cloud Bigtable and design row keys with a non-sequential prefix (e.g. device_id#timestamp)." },
-      { id: 'B', text: "Deploy Cloud SQL for PostgreSQL and store all readings in a single table with an auto-incrementing ID." },
-      { id: 'C', text: "Store sensor readings in flat text files on a Compute Engine standard persistent disk." },
+      { id: 'A', text: "Store sensor readings in flat text files on a Compute Engine standard persistent disk." },
+      { id: 'B', text: "Deploy Cloud Bigtable and design row keys with a non-sequential prefix (e.g. device_id#timestamp)." },
+      { id: 'C', text: "Deploy Cloud SQL for PostgreSQL and store all readings in a single table with an auto-incrementing ID." },
       { id: 'D', text: "Use Firestore in Native mode with a sequential timestamp document ID." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy Cloud Bigtable and design row keys with a non-sequential prefix (e.g. device_id#timestamp). Cloud Bigtable is a sparsely populated table that can scale to billions of rows and thousands of columns, ideal for petabyte-scale low-latency operational data. Designing row keys to avoid sequential timestamps (which concentrate writes on a single tablet) ensures uniform distribution across nodes.",
     referenceUrl: "https://cloud.google.com/bigtable/docs/schema-design",
@@ -219,12 +219,12 @@ export const GCP_ACE_QUESTIONS_14 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer evaluates Firestore to select a managed serverless document database for a real-time mobile application requiring client offline synchronization and live event listeners.",
     question: "Which concept or service configuration satisfies these operational resilience objectives? Firestore Native mode for mobile/web vs Datastore mode for backend servers is under consideration.",
     options: [
-      { id: 'A', text: "Deploy Firestore in Native mode." },
-      { id: 'B', text: "Deploy Firestore in Datastore mode." },
-      { id: 'C', text: "Deploy an on-premises MongoDB cluster on physical hardware." },
-      { id: 'D', text: "Use Cloud Memorystore for Redis as the primary permanent storage layer." }
+      { id: 'A', text: "Deploy Firestore in Datastore mode." },
+      { id: 'B', text: "Deploy an on-premises MongoDB cluster on physical hardware." },
+      { id: 'C', text: "Use Cloud Memorystore for Redis as the primary permanent storage layer." },
+      { id: 'D', text: "Deploy Firestore in Native mode." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy Firestore in Native mode. Firestore offers two modes: Native mode (recommended for mobile and web apps, providing real-time data synchronization, offline support, and client SDKs) and Datastore mode (optimized for server-side architectures requiring high-throughput batch writes without client SDK features).",
     referenceUrl: "https://cloud.google.com/datastore/docs/firestore-or-datastore",
@@ -240,12 +240,12 @@ export const GCP_ACE_QUESTIONS_14 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer evaluates Firestore to select a managed serverless document database for a real-time mobile application requiring client offline synchronization and live event listeners.",
     question: "Which architectural approach should the team select to manage this demand efficiently? Firestore Native mode for mobile/web vs Datastore mode for backend servers is under consideration.",
     options: [
-      { id: 'A', text: "Deploy Firestore in Native mode." },
-      { id: 'B', text: "Deploy Firestore in Datastore mode." },
-      { id: 'C', text: "Deploy an on-premises MongoDB cluster on physical hardware." },
-      { id: 'D', text: "Use Cloud Memorystore for Redis as the primary permanent storage layer." }
+      { id: 'A', text: "Use Cloud Memorystore for Redis as the primary permanent storage layer." },
+      { id: 'B', text: "Deploy an on-premises MongoDB cluster on physical hardware." },
+      { id: 'C', text: "Deploy Firestore in Native mode." },
+      { id: 'D', text: "Deploy Firestore in Datastore mode." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy Firestore in Native mode. Firestore offers two modes: Native mode (recommended for mobile and web apps, providing real-time data synchronization, offline support, and client SDKs) and Datastore mode (optimized for server-side architectures requiring high-throughput batch writes without client SDK features).",
     referenceUrl: "https://cloud.google.com/datastore/docs/firestore-or-datastore",
@@ -261,12 +261,12 @@ export const GCP_ACE_QUESTIONS_14 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer evaluates Firestore to select a managed serverless document database for a real-time mobile application requiring client offline synchronization and live event listeners.",
     question: "Which solution properly implements these mandatory security and governance controls? Firestore Native mode for mobile/web vs Datastore mode for backend servers is under consideration.",
     options: [
-      { id: 'A', text: "Deploy Firestore in Native mode." },
-      { id: 'B', text: "Deploy Firestore in Datastore mode." },
-      { id: 'C', text: "Deploy an on-premises MongoDB cluster on physical hardware." },
+      { id: 'A', text: "Deploy Firestore in Datastore mode." },
+      { id: 'B', text: "Deploy an on-premises MongoDB cluster on physical hardware." },
+      { id: 'C', text: "Deploy Firestore in Native mode." },
       { id: 'D', text: "Use Cloud Memorystore for Redis as the primary permanent storage layer." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy Firestore in Native mode. Firestore offers two modes: Native mode (recommended for mobile and web apps, providing real-time data synchronization, offline support, and client SDKs) and Datastore mode (optimized for server-side architectures requiring high-throughput batch writes without client SDK features).",
     referenceUrl: "https://cloud.google.com/datastore/docs/firestore-or-datastore",
@@ -283,9 +283,9 @@ export const GCP_ACE_QUESTIONS_14 = [
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? Firestore Native mode for mobile/web vs Datastore mode for backend servers is under consideration.",
     options: [
       { id: 'A', text: "Deploy Firestore in Native mode." },
-      { id: 'B', text: "Deploy Firestore in Datastore mode." },
-      { id: 'C', text: "Deploy an on-premises MongoDB cluster on physical hardware." },
-      { id: 'D', text: "Use Cloud Memorystore for Redis as the primary permanent storage layer." }
+      { id: 'B', text: "Deploy an on-premises MongoDB cluster on physical hardware." },
+      { id: 'C', text: "Use Cloud Memorystore for Redis as the primary permanent storage layer." },
+      { id: 'D', text: "Deploy Firestore in Datastore mode." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -303,12 +303,12 @@ export const GCP_ACE_QUESTIONS_14 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer evaluates Firestore to select a managed serverless document database for a real-time mobile application requiring client offline synchronization and live event listeners.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? Firestore Native mode for mobile/web vs Datastore mode for backend servers is under consideration.",
     options: [
-      { id: 'A', text: "Deploy Firestore in Native mode." },
-      { id: 'B', text: "Deploy Firestore in Datastore mode." },
-      { id: 'C', text: "Deploy an on-premises MongoDB cluster on physical hardware." },
-      { id: 'D', text: "Use Cloud Memorystore for Redis as the primary permanent storage layer." }
+      { id: 'A', text: "Deploy Firestore in Datastore mode." },
+      { id: 'B', text: "Deploy Firestore in Native mode." },
+      { id: 'C', text: "Use Cloud Memorystore for Redis as the primary permanent storage layer." },
+      { id: 'D', text: "Deploy an on-premises MongoDB cluster on physical hardware." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy Firestore in Native mode. Firestore offers two modes: Native mode (recommended for mobile and web apps, providing real-time data synchronization, offline support, and client SDKs) and Datastore mode (optimized for server-side architectures requiring high-throughput batch writes without client SDK features).",
     referenceUrl: "https://cloud.google.com/datastore/docs/firestore-or-datastore",
@@ -324,12 +324,12 @@ export const GCP_ACE_QUESTIONS_14 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer evaluates BigQuery to analyze petabytes of enterprise sales data using standard SQL without provisioning, configuring, or managing database clusters or indexing.",
     question: "Which concept or service configuration satisfies these operational resilience objectives? Decoupled compute and storage with columnar architecture is under consideration.",
     options: [
-      { id: 'A', text: "Ingest data into BigQuery and execute analytical SQL queries." },
-      { id: 'B', text: "Deploy an Apache Hadoop cluster on Compute Engine virtual machines." },
-      { id: 'C', text: "Export data to CSV files and analyze them using desktop spreadsheet software." },
-      { id: 'D', text: "Create a relational database in Cloud SQL with a 10 GB storage disk." }
+      { id: 'A', text: "Deploy an Apache Hadoop cluster on Compute Engine virtual machines." },
+      { id: 'B', text: "Ingest data into BigQuery and execute analytical SQL queries." },
+      { id: 'C', text: "Create a relational database in Cloud SQL with a 10 GB storage disk." },
+      { id: 'D', text: "Export data to CSV files and analyze them using desktop spreadsheet software." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Ingest data into BigQuery and execute analytical SQL queries. BigQuery is Google Cloud's fully managed, serverless enterprise data warehouse. It separates compute (Dremel execution engine) from storage (Colossus distributed file system) over a petabit Jupiter network, allowing petabyte-scale queries to execute in seconds without cluster administration.",
     referenceUrl: "https://cloud.google.com/bigquery/docs/introduction",
@@ -345,12 +345,12 @@ export const GCP_ACE_QUESTIONS_14 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer evaluates BigQuery to analyze petabytes of enterprise sales data using standard SQL without provisioning, configuring, or managing database clusters or indexing.",
     question: "Which architectural approach should the team select to manage this demand efficiently? Decoupled compute and storage with columnar architecture is under consideration.",
     options: [
-      { id: 'A', text: "Ingest data into BigQuery and execute analytical SQL queries." },
-      { id: 'B', text: "Deploy an Apache Hadoop cluster on Compute Engine virtual machines." },
-      { id: 'C', text: "Export data to CSV files and analyze them using desktop spreadsheet software." },
+      { id: 'A', text: "Export data to CSV files and analyze them using desktop spreadsheet software." },
+      { id: 'B', text: "Ingest data into BigQuery and execute analytical SQL queries." },
+      { id: 'C', text: "Deploy an Apache Hadoop cluster on Compute Engine virtual machines." },
       { id: 'D', text: "Create a relational database in Cloud SQL with a 10 GB storage disk." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Ingest data into BigQuery and execute analytical SQL queries. BigQuery is Google Cloud's fully managed, serverless enterprise data warehouse. It separates compute (Dremel execution engine) from storage (Colossus distributed file system) over a petabit Jupiter network, allowing petabyte-scale queries to execute in seconds without cluster administration.",
     referenceUrl: "https://cloud.google.com/bigquery/docs/introduction",
@@ -366,12 +366,12 @@ export const GCP_ACE_QUESTIONS_14 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer evaluates BigQuery to analyze petabytes of enterprise sales data using standard SQL without provisioning, configuring, or managing database clusters or indexing.",
     question: "Which solution properly implements these mandatory security and governance controls? Decoupled compute and storage with columnar architecture is under consideration.",
     options: [
-      { id: 'A', text: "Ingest data into BigQuery and execute analytical SQL queries." },
-      { id: 'B', text: "Deploy an Apache Hadoop cluster on Compute Engine virtual machines." },
-      { id: 'C', text: "Export data to CSV files and analyze them using desktop spreadsheet software." },
-      { id: 'D', text: "Create a relational database in Cloud SQL with a 10 GB storage disk." }
+      { id: 'A', text: "Create a relational database in Cloud SQL with a 10 GB storage disk." },
+      { id: 'B', text: "Export data to CSV files and analyze them using desktop spreadsheet software." },
+      { id: 'C', text: "Ingest data into BigQuery and execute analytical SQL queries." },
+      { id: 'D', text: "Deploy an Apache Hadoop cluster on Compute Engine virtual machines." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Ingest data into BigQuery and execute analytical SQL queries. BigQuery is Google Cloud's fully managed, serverless enterprise data warehouse. It separates compute (Dremel execution engine) from storage (Colossus distributed file system) over a petabit Jupiter network, allowing petabyte-scale queries to execute in seconds without cluster administration.",
     referenceUrl: "https://cloud.google.com/bigquery/docs/introduction",
@@ -387,12 +387,12 @@ export const GCP_ACE_QUESTIONS_14 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer evaluates BigQuery to analyze petabytes of enterprise sales data using standard SQL without provisioning, configuring, or managing database clusters or indexing.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? Decoupled compute and storage with columnar architecture is under consideration.",
     options: [
-      { id: 'A', text: "Ingest data into BigQuery and execute analytical SQL queries." },
-      { id: 'B', text: "Deploy an Apache Hadoop cluster on Compute Engine virtual machines." },
+      { id: 'A', text: "Deploy an Apache Hadoop cluster on Compute Engine virtual machines." },
+      { id: 'B', text: "Ingest data into BigQuery and execute analytical SQL queries." },
       { id: 'C', text: "Export data to CSV files and analyze them using desktop spreadsheet software." },
       { id: 'D', text: "Create a relational database in Cloud SQL with a 10 GB storage disk." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Ingest data into BigQuery and execute analytical SQL queries. BigQuery is Google Cloud's fully managed, serverless enterprise data warehouse. It separates compute (Dremel execution engine) from storage (Colossus distributed file system) over a petabit Jupiter network, allowing petabyte-scale queries to execute in seconds without cluster administration.",
     referenceUrl: "https://cloud.google.com/bigquery/docs/introduction",
@@ -408,12 +408,12 @@ export const GCP_ACE_QUESTIONS_14 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer evaluates BigQuery to analyze petabytes of enterprise sales data using standard SQL without provisioning, configuring, or managing database clusters or indexing.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? Decoupled compute and storage with columnar architecture is under consideration.",
     options: [
-      { id: 'A', text: "Ingest data into BigQuery and execute analytical SQL queries." },
-      { id: 'B', text: "Deploy an Apache Hadoop cluster on Compute Engine virtual machines." },
-      { id: 'C', text: "Export data to CSV files and analyze them using desktop spreadsheet software." },
-      { id: 'D', text: "Create a relational database in Cloud SQL with a 10 GB storage disk." }
+      { id: 'A', text: "Deploy an Apache Hadoop cluster on Compute Engine virtual machines." },
+      { id: 'B', text: "Ingest data into BigQuery and execute analytical SQL queries." },
+      { id: 'C', text: "Create a relational database in Cloud SQL with a 10 GB storage disk." },
+      { id: 'D', text: "Export data to CSV files and analyze them using desktop spreadsheet software." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Ingest data into BigQuery and execute analytical SQL queries. BigQuery is Google Cloud's fully managed, serverless enterprise data warehouse. It separates compute (Dremel execution engine) from storage (Colossus distributed file system) over a petabit Jupiter network, allowing petabyte-scale queries to execute in seconds without cluster administration.",
     referenceUrl: "https://cloud.google.com/bigquery/docs/introduction",
@@ -431,8 +431,8 @@ export const GCP_ACE_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Execute 'gcloud compute instances create' specifying the zone, image-family, service-account, and tags flags." },
       { id: 'B', text: "Click through the Cloud Console UI wizard manually." },
-      { id: 'C', text: "Deploy an unmanaged container image directly to Cloud Storage." },
-      { id: 'D', text: "Write a custom bash script that issues raw TCP socket packets to Google Cloud data centers." }
+      { id: 'C', text: "Write a custom bash script that issues raw TCP socket packets to Google Cloud data centers." },
+      { id: 'D', text: "Deploy an unmanaged container image directly to Cloud Storage." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -450,12 +450,12 @@ export const GCP_ACE_QUESTIONS_14 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer evaluates Compute Engine to deploy an Ubuntu 22.04 Compute Engine virtual machine in us-central1-a with a specific service account and network tag via the command line.",
     question: "Which architectural approach should the team select to manage this demand efficiently? gcloud compute instances create with network, tags, and metadata flags is under consideration.",
     options: [
-      { id: 'A', text: "Execute 'gcloud compute instances create' specifying the zone, image-family, service-account, and tags flags." },
-      { id: 'B', text: "Click through the Cloud Console UI wizard manually." },
+      { id: 'A', text: "Click through the Cloud Console UI wizard manually." },
+      { id: 'B', text: "Execute 'gcloud compute instances create' specifying the zone, image-family, service-account, and tags flags." },
       { id: 'C', text: "Deploy an unmanaged container image directly to Cloud Storage." },
       { id: 'D', text: "Write a custom bash script that issues raw TCP socket packets to Google Cloud data centers." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Execute 'gcloud compute instances create' specifying the zone, image-family, service-account, and tags flags. The command 'gcloud compute instances create [NAME] --zone=[ZONE] --image-family=ubuntu-2204-lts --image-project=ubuntu-os-cloud --service-account=[SA_EMAIL] --tags=[TAGS]' automates repeatable, scriptable VM deployments with defined identities and network configurations.",
     referenceUrl: "https://cloud.google.com/compute/docs/instances/create-start-instance#gcloud",
@@ -471,12 +471,12 @@ export const GCP_ACE_QUESTIONS_14 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer evaluates Compute Engine to deploy an Ubuntu 22.04 Compute Engine virtual machine in us-central1-a with a specific service account and network tag via the command line.",
     question: "Which solution properly implements these mandatory security and governance controls? gcloud compute instances create with network, tags, and metadata flags is under consideration.",
     options: [
-      { id: 'A', text: "Execute 'gcloud compute instances create' specifying the zone, image-family, service-account, and tags flags." },
-      { id: 'B', text: "Click through the Cloud Console UI wizard manually." },
+      { id: 'A', text: "Click through the Cloud Console UI wizard manually." },
+      { id: 'B', text: "Write a custom bash script that issues raw TCP socket packets to Google Cloud data centers." },
       { id: 'C', text: "Deploy an unmanaged container image directly to Cloud Storage." },
-      { id: 'D', text: "Write a custom bash script that issues raw TCP socket packets to Google Cloud data centers." }
+      { id: 'D', text: "Execute 'gcloud compute instances create' specifying the zone, image-family, service-account, and tags flags." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Execute 'gcloud compute instances create' specifying the zone, image-family, service-account, and tags flags. The command 'gcloud compute instances create [NAME] --zone=[ZONE] --image-family=ubuntu-2204-lts --image-project=ubuntu-os-cloud --service-account=[SA_EMAIL] --tags=[TAGS]' automates repeatable, scriptable VM deployments with defined identities and network configurations.",
     referenceUrl: "https://cloud.google.com/compute/docs/instances/create-start-instance#gcloud",
@@ -492,12 +492,12 @@ export const GCP_ACE_QUESTIONS_14 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer evaluates Compute Engine to deploy an Ubuntu 22.04 Compute Engine virtual machine in us-central1-a with a specific service account and network tag via the command line.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? gcloud compute instances create with network, tags, and metadata flags is under consideration.",
     options: [
-      { id: 'A', text: "Execute 'gcloud compute instances create' specifying the zone, image-family, service-account, and tags flags." },
-      { id: 'B', text: "Click through the Cloud Console UI wizard manually." },
-      { id: 'C', text: "Deploy an unmanaged container image directly to Cloud Storage." },
-      { id: 'D', text: "Write a custom bash script that issues raw TCP socket packets to Google Cloud data centers." }
+      { id: 'A', text: "Deploy an unmanaged container image directly to Cloud Storage." },
+      { id: 'B', text: "Write a custom bash script that issues raw TCP socket packets to Google Cloud data centers." },
+      { id: 'C', text: "Execute 'gcloud compute instances create' specifying the zone, image-family, service-account, and tags flags." },
+      { id: 'D', text: "Click through the Cloud Console UI wizard manually." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Execute 'gcloud compute instances create' specifying the zone, image-family, service-account, and tags flags. The command 'gcloud compute instances create [NAME] --zone=[ZONE] --image-family=ubuntu-2204-lts --image-project=ubuntu-os-cloud --service-account=[SA_EMAIL] --tags=[TAGS]' automates repeatable, scriptable VM deployments with defined identities and network configurations.",
     referenceUrl: "https://cloud.google.com/compute/docs/instances/create-start-instance#gcloud",
@@ -513,12 +513,12 @@ export const GCP_ACE_QUESTIONS_14 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer evaluates Compute Engine to deploy an Ubuntu 22.04 Compute Engine virtual machine in us-central1-a with a specific service account and network tag via the command line.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? gcloud compute instances create with network, tags, and metadata flags is under consideration.",
     options: [
-      { id: 'A', text: "Execute 'gcloud compute instances create' specifying the zone, image-family, service-account, and tags flags." },
-      { id: 'B', text: "Click through the Cloud Console UI wizard manually." },
-      { id: 'C', text: "Deploy an unmanaged container image directly to Cloud Storage." },
-      { id: 'D', text: "Write a custom bash script that issues raw TCP socket packets to Google Cloud data centers." }
+      { id: 'A', text: "Write a custom bash script that issues raw TCP socket packets to Google Cloud data centers." },
+      { id: 'B', text: "Deploy an unmanaged container image directly to Cloud Storage." },
+      { id: 'C', text: "Click through the Cloud Console UI wizard manually." },
+      { id: 'D', text: "Execute 'gcloud compute instances create' specifying the zone, image-family, service-account, and tags flags." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Execute 'gcloud compute instances create' specifying the zone, image-family, service-account, and tags flags. The command 'gcloud compute instances create [NAME] --zone=[ZONE] --image-family=ubuntu-2204-lts --image-project=ubuntu-os-cloud --service-account=[SA_EMAIL] --tags=[TAGS]' automates repeatable, scriptable VM deployments with defined identities and network configurations.",
     referenceUrl: "https://cloud.google.com/compute/docs/instances/create-start-instance#gcloud",

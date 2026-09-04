@@ -9,12 +9,12 @@ export const AWS_DVA_QUESTIONS_10 = [
     scenario: "An operations engineer monitors an API with separate CloudWatch metrics for `TotalRequests` and `ErrorCount`. The team needs to trigger an alarm if the error rate exceeds 2% of total requests.",
     question: "Which CloudWatch feature computes mathematical expressions across multiple metrics?",
     options: [
-      { id: 'A', text: "CloudWatch Metric Math" },
-      { id: 'B', text: "CloudWatch Metric Filters" },
+      { id: 'A', text: "CloudWatch Metric Filters" },
+      { id: 'B', text: "CloudWatch Metric Math" },
       { id: 'C', text: "CloudWatch Logs Insights" },
       { id: 'D', text: "AWS CloudTrail Insights" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "CloudWatch Metric Math allows developers to query multiple metrics and use mathematical expressions (e.g. `(ErrorCount / TotalRequests) * 100`) to create new calculated metrics on dashboards and associate them directly with CloudWatch Alarms.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html",
@@ -30,12 +30,12 @@ export const AWS_DVA_QUESTIONS_10 = [
     scenario: "An on-call team suffers from alert fatigue because an EC2 CPU alarm, a memory alarm, and an application latency alarm all fire separately during the same incident.",
     question: "Which CloudWatch feature combines multiple existing alarms using boolean logic into a single alert?",
     options: [
-      { id: 'A', text: "CloudWatch High-Resolution Alarms" },
-      { id: 'B', text: "CloudWatch Anomaly Detection" },
+      { id: 'A', text: "CloudWatch Composite Alarms" },
+      { id: 'B', text: "CloudWatch High-Resolution Alarms" },
       { id: 'C', text: "AWS EventBridge Rules alone" },
-      { id: 'D', text: "CloudWatch Composite Alarms" }
+      { id: 'D', text: "CloudWatch Anomaly Detection" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "CloudWatch Composite Alarms evaluate the states of multiple individual metric alarms using boolean logic (`ALARM(\"AlarmA\") AND ALARM(\"AlarmB\") OR ALARM(\"AlarmC\")`). This prevents alert storms by firing only when a composite condition is satisfied.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html",
@@ -72,12 +72,12 @@ export const AWS_DVA_QUESTIONS_10 = [
     scenario: "A sysadmin is monitoring EC2 instances. The CloudWatch console shows CPU and network metrics, but memory utilization (RAM) and free disk space metrics are missing.",
     question: "How should the developer collect OS-level memory and disk utilization metrics from EC2 instances?",
     options: [
-      { id: 'A', text: "Memory metrics are unavailable on AWS" },
-      { id: 'B', text: "Install and configure the unified CloudWatch Agent on the EC2 instances" },
+      { id: 'A', text: "Install and configure the unified CloudWatch Agent on the EC2 instances" },
+      { id: 'B', text: "Enable Enhanced Monitoring in the EC2 Console" },
       { id: 'C', text: "Reboot instances into Nitro Hypervisor mode" },
-      { id: 'D', text: "Enable Enhanced Monitoring in the EC2 Console" }
+      { id: 'D', text: "Memory metrics are unavailable on AWS" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Amazon CloudWatch monitors EC2 hypervisor-level metrics (CPU, disk I/O, network) by default. Operating system-level metrics like RAM utilization and disk space require installing the unified CloudWatch Agent inside the guest OS.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.html",
@@ -93,12 +93,12 @@ export const AWS_DVA_QUESTIONS_10 = [
     scenario: "An application cache dataset exceeds 500 GB, surpassing the maximum RAM capacity of a single Redis node. The application requires sharded caching across multiple nodes with horizontal write scaling.",
     question: "Which Amazon ElastiCache for Redis topology supports data sharding across multiple shards?",
     options: [
-      { id: 'A', text: "Redis Cluster Mode Disabled" },
-      { id: 'B', text: "DynamoDB DAX" },
+      { id: 'A', text: "Redis Cluster Mode Enabled" },
+      { id: 'B', text: "Redis Cluster Mode Disabled" },
       { id: 'C', text: "Memcached Single Node" },
-      { id: 'D', text: "Redis Cluster Mode Enabled" }
+      { id: 'D', text: "DynamoDB DAX" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "When `Cluster Mode Enabled` is configured, ElastiCache for Redis partitions data across multiple shards (up to 500 shards using 16,384 hash slots). This provides horizontal scaling of both memory and write throughput.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/WhatIs.html#WhatIs.ClusterModes",
@@ -114,12 +114,12 @@ export const AWS_DVA_QUESTIONS_10 = [
     scenario: "A Redis cache reaches maximum memory capacity. The developer wants Redis to automatically evict the least recently used keys, but only among keys that have an explicit expiration (TTL) set.",
     question: "Which Redis maxmemory eviction policy should the developer configure in the cache parameter group?",
     options: [
-      { id: 'A', text: "allkeys-random" },
-      { id: 'B', text: "noeviction" },
-      { id: 'C', text: "allkeys-lru" },
-      { id: 'D', text: "volatile-lru" }
+      { id: 'A', text: "noeviction" },
+      { id: 'B', text: "volatile-lru" },
+      { id: 'C', text: "allkeys-random" },
+      { id: 'D', text: "allkeys-lru" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "The `volatile-lru` eviction policy evicts the least recently used keys among those that have an expiration (TTL) set. In contrast, `allkeys-lru` evicts any key regardless of whether a TTL was set, while `noeviction` returns an out-of-memory error on writes.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ParameterGroups.Redis.html#ParameterGroups.Redis.NodeTypes",
@@ -135,12 +135,12 @@ export const AWS_DVA_QUESTIONS_10 = [
     scenario: "A developer notices that `PutItem` requests on a DynamoDB base table are failing with `ProvisionedThroughputExceededException`, even though the base table has 80% unused write capacity.",
     question: "What is the most likely cause of this write throttling?",
     options: [
-      { id: 'A', text: "Point-in-time recovery is taking a backup" },
+      { id: 'A', text: "A Global Secondary Index (GSI) on the table has insufficient provisioned write capacity" },
       { id: 'B', text: "The table partition key is too long" },
-      { id: 'C', text: "The IAM role has expired" },
-      { id: 'D', text: "A Global Secondary Index (GSI) on the table has insufficient provisioned write capacity" }
+      { id: 'C', text: "Point-in-time recovery is taking a backup" },
+      { id: 'D', text: "The IAM role has expired" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "In Amazon DynamoDB, writes to a base table also consume write capacity on all Global Secondary Indexes (GSIs) containing the updated attributes. If any GSI lacks sufficient write capacity, it throttles the write operation on the entire base table to maintain consistency.",
     referenceUrl: "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.html#GSI.ThroughputConsiderations",
@@ -156,12 +156,12 @@ export const AWS_DVA_QUESTIONS_10 = [
     scenario: "A developer uses the `BatchWriteItem` API to write 25 items to DynamoDB. The response returns an HTTP 200 status code, but the `UnprocessedItems` map contains 5 items.",
     question: "How should the developer handle the items returned in `UnprocessedItems`?",
     options: [
-      { id: 'A', text: "Retry all 25 items immediately in a tight loop" },
-      { id: 'B', text: "Delete and recreate the DynamoDB table" },
-      { id: 'C', text: "Retry only the unprocessed items using exponential backoff and jitter" },
+      { id: 'A', text: "Retry only the unprocessed items using exponential backoff and jitter" },
+      { id: 'B', text: "Retry all 25 items immediately in a tight loop" },
+      { id: 'C', text: "Delete and recreate the DynamoDB table" },
       { id: 'D', text: "Assume the items were committed because the HTTP status was 200" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "When DynamoDB throttles individual items in a batch operation due to temporary capacity limits, it returns them in `UnprocessedItems` while committing the rest. The application must retry only those unprocessed items using exponential backoff and randomized jitter.",
     referenceUrl: "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.BatchOperations",
@@ -177,12 +177,12 @@ export const AWS_DVA_QUESTIONS_10 = [
     scenario: "A startup launches a new product with unpredictable, spiky traffic patterns that jump from 0 to 10,000 requests per second in minutes. The team does not want to manage capacity planning.",
     question: "Which DynamoDB capacity mode is best suited for unpredictable spiky workloads?",
     options: [
-      { id: 'A', text: "Reserved Capacity Mode" },
+      { id: 'A', text: "On-Demand Capacity Mode" },
       { id: 'B', text: "Provisioned Capacity Mode with manual scaling" },
-      { id: 'C', text: "Fixed 5 RCU / 5 WCU" },
-      { id: 'D', text: "On-Demand Capacity Mode" }
+      { id: 'C', text: "Reserved Capacity Mode" },
+      { id: 'D', text: "Fixed 5 RCU / 5 WCU" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "DynamoDB On-Demand capacity mode automatically accommodates workloads as they ramp up or down to any previously reached traffic level without provisioning or capacity planning, charging purely on a per-request basis.",
     referenceUrl: "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand",
@@ -198,12 +198,12 @@ export const AWS_DVA_QUESTIONS_10 = [
     scenario: "An analytics microservice reads a 5 GB CSV file stored in Amazon S3 to extract 50 rows matching a specific customer ID, incurring high network transfer latency and memory overhead.",
     question: "Which S3 feature performs server-side SQL filtering to return only the requested rows over the network?",
     options: [
-      { id: 'A', text: "Amazon S3 Select" },
-      { id: 'B', text: "Amazon Athena with a full table scan" },
-      { id: 'C', text: "S3 Glacier Instant Retrieval" },
-      { id: 'D', text: "S3 Batch Operations" }
+      { id: 'A', text: "S3 Glacier Instant Retrieval" },
+      { id: 'B', text: "S3 Batch Operations" },
+      { id: 'C', text: "Amazon S3 Select" },
+      { id: 'D', text: "Amazon Athena with a full table scan" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Amazon S3 Select uses simple SQL statements (e.g. `SELECT * FROM s3object s WHERE s.customer_id = '123'`) to filter object contents directly on S3 storage servers, transmitting only the filtered records across the network and cutting transfer costs and latency.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/selecting-content-from-objects.html",
@@ -220,9 +220,9 @@ export const AWS_DVA_QUESTIONS_10 = [
     question: "Which Amazon S3 feature delivers an automated daily or weekly CSV/ORC report of all objects and metadata?",
     options: [
       { id: 'A', text: "Amazon S3 Inventory" },
-      { id: 'B', text: "CloudWatch Logs Insights" },
-      { id: 'C', text: "Amazon S3 Storage Lens" },
-      { id: 'D', text: "S3 Object Tagging" }
+      { id: 'B', text: "Amazon S3 Storage Lens" },
+      { id: 'C', text: "S3 Object Tagging" },
+      { id: 'D', text: "CloudWatch Logs Insights" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -240,12 +240,12 @@ export const AWS_DVA_QUESTIONS_10 = [
     scenario: "A developer configures an Amazon CloudFront distribution for dynamic API responses. Origin headers include `Cache-Control: max-age=60`, but the developer wants CloudFront to cache responses for at least 300 seconds.",
     question: "Which setting in a CloudFront Cache Policy overrides shorter origin max-age headers?",
     options: [
-      { id: 'A', text: "Minimum TTL set to 300 seconds" },
-      { id: 'B', text: "Maximum TTL set to 60 seconds" },
-      { id: 'C', text: "Default TTL set to 0" },
-      { id: 'D', text: "Origin Request Policy Cookies to All" }
+      { id: 'A', text: "Default TTL set to 0" },
+      { id: 'B', text: "Origin Request Policy Cookies to All" },
+      { id: 'C', text: "Minimum TTL set to 300 seconds" },
+      { id: 'D', text: "Maximum TTL set to 60 seconds" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "In CloudFront Cache Policies, the `Minimum TTL` setting enforces the lowest duration an object can remain in the cache. Even if the origin specifies a lower `max-age` (e.g. 60 seconds), CloudFront enforces the `Minimum TTL` (300 seconds) before revalidating with the origin.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-cache-policies.html#understanding-cache-policy-settings",
@@ -261,12 +261,12 @@ export const AWS_DVA_QUESTIONS_10 = [
     scenario: "A developer releases a new CSS stylesheet `styles.css`. To serve the updated file immediately, the developer is deciding between creating a CloudFront invalidation or using versioned filenames (`styles.v2.css`).",
     question: "Why does AWS recommend versioned file names over cache invalidations for continuous deployments?",
     options: [
-      { id: 'A', text: "Invalidations take 24 hours to propagate across edge locations" },
-      { id: 'B', text: "Versioned filenames guarantee instant updates at zero cost, preserve cached historical versions, and avoid invalidation API throttling and fees" },
-      { id: 'C', text: "Invalidations delete the files from the origin S3 bucket" },
-      { id: 'D', text: "CloudFront cannot invalidate CSS files" }
+      { id: 'A', text: "CloudFront cannot invalidate CSS files" },
+      { id: 'B', text: "Invalidations delete the files from the origin S3 bucket" },
+      { id: 'C', text: "Invalidations take 24 hours to propagate across edge locations" },
+      { id: 'D', text: "Versioned filenames guarantee instant updates at zero cost, preserve cached historical versions, and avoid invalidation API throttling and fees" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Using versioned filenames (or query string versions like `style.css?v=2`) is the AWS best practice for asset updates because it delivers instant cache updates globally at zero cost. CloudFront invalidations incur fees after 1,000 free paths per month and require time to process across all edge locations.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Invalidation.html#ReplacingObjects",
@@ -282,12 +282,12 @@ export const AWS_DVA_QUESTIONS_10 = [
     scenario: "A developer needs to determine whether allocating 512 MB, 1024 MB, or 1769 MB of memory to a compute-heavy image compression Lambda function will minimize cost and execution time.",
     question: "Which open-source AWS Step Functions-based utility executes parallel benchmarking across memory configurations?",
     options: [
-      { id: 'A', text: "CloudWatch Metrics Math" },
-      { id: 'B', text: "AWS Trusted Advisor" },
+      { id: 'A', text: "AWS Lambda Power Tuning" },
+      { id: 'B', text: "CloudWatch Metrics Math" },
       { id: 'C', text: "AWS Compute Optimizer alone" },
-      { id: 'D', text: "AWS Lambda Power Tuning" }
+      { id: 'D', text: "AWS Trusted Advisor" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "AWS Lambda Power Tuning is an open-source tool powered by AWS Step Functions that runs multiple concurrent versions of a Lambda function across various memory configurations, analyzes execution time and cost, and visualizes the Pareto-optimal price/performance tradeoff.",
     referenceUrl: "https://github.com/alexcasalboni/aws-lambda-power-tuning",
@@ -304,9 +304,9 @@ export const AWS_DVA_QUESTIONS_10 = [
     question: "In API Gateway CloudWatch execution logs, where did the timeout occur?",
     options: [
       { id: 'A', text: "The backend integration (e.g. Lambda or HTTP endpoint) failed to return a response before the API Gateway integration timeout (29 seconds)" },
-      { id: 'B', text: "The client sent an invalid JSON request body" },
+      { id: 'B', text: "The client exceeded the usage plan burst throttle limit" },
       { id: 'C', text: "The API Gateway custom domain SSL certificate expired" },
-      { id: 'D', text: "The client exceeded the usage plan burst throttle limit" }
+      { id: 'D', text: "The client sent an invalid JSON request body" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -324,12 +324,12 @@ export const AWS_DVA_QUESTIONS_10 = [
     scenario: "A multi-step order processing Step Functions state machine execution fails with status `FAILED`. The developer needs to inspect the exact input, output, and error traceback of the failed state.",
     question: "Where in the Step Functions console can the developer inspect the step-by-step state transition logs?",
     options: [
-      { id: 'A', text: "CloudWatch Synthetics console" },
-      { id: 'B', text: "The Execution Event History tab" },
-      { id: 'C', text: "Amazon EventBridge rules" },
-      { id: 'D', text: "AWS CloudTrail Event History alone" }
+      { id: 'A', text: "AWS CloudTrail Event History alone" },
+      { id: 'B', text: "Amazon EventBridge rules" },
+      { id: 'C', text: "CloudWatch Synthetics console" },
+      { id: 'D', text: "The Execution Event History tab" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The Step Functions `Execution Event History` provides a complete, sequential audit trail of every state transition, showing timestamps, state names, input payloads, output payloads, and detailed error causes for failed steps.",
     referenceUrl: "https://docs.aws.amazon.com/step-functions/latest/dg/monitoring-history.html",
@@ -346,9 +346,9 @@ export const AWS_DVA_QUESTIONS_10 = [
     question: "Which CloudWatch metric represents the count of messages available for retrieval in the SQS queue?",
     options: [
       { id: 'A', text: "ApproximateNumberOfMessagesVisible" },
-      { id: 'B', text: "NumberOfMessagesSent" },
-      { id: 'C', text: "ApproximateNumberOfMessagesNotVisible" },
-      { id: 'D', text: "ApproximateAgeOfOldestMessage" }
+      { id: 'B', text: "ApproximateNumberOfMessagesNotVisible" },
+      { id: 'C', text: "ApproximateAgeOfOldestMessage" },
+      { id: 'D', text: "NumberOfMessagesSent" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -366,12 +366,12 @@ export const AWS_DVA_QUESTIONS_10 = [
     scenario: "A high-throughput producer application writes records to an Amazon Kinesis Data Stream and receives `WriteProvisionedThroughputExceeded` errors during flash crowds.",
     question: "How should the developer handle this throttling error in the producer client code?",
     options: [
-      { id: 'A', text: "Switch the stream to FIFO mode" },
-      { id: 'B', text: "Delete the stream and recreate it with standard settings" },
-      { id: 'C', text: "Retry the putRecord requests using exponential backoff with full jitter, and increase shard count if throttling persists" },
-      { id: 'D', text: "Immediately drop all throttled records without retrying" }
+      { id: 'A', text: "Immediately drop all throttled records without retrying" },
+      { id: 'B', text: "Switch the stream to FIFO mode" },
+      { id: 'C', text: "Delete the stream and recreate it with standard settings" },
+      { id: 'D', text: "Retry the putRecord requests using exponential backoff with full jitter, and increase shard count if throttling persists" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "When Kinesis shard write capacity (1 MB/sec or 1,000 records/sec per shard) is exceeded, producers receive `WriteProvisionedThroughputExceeded`. Client applications must retry with exponential backoff and randomized jitter, while scaling up the number of shards if demand remains high.",
     referenceUrl: "https://docs.aws.amazon.com/streams/latest/dev/kinesis-record-processor-scaling.html",
@@ -387,12 +387,12 @@ export const AWS_DVA_QUESTIONS_10 = [
     scenario: "An enterprise operations team wants automated Slack alerts whenever an AWS service disruption (such as an EC2 or DynamoDB regional incident) affects their specific AWS account resources.",
     question: "Which AWS service provides customized health alerts and notifications regarding service health affecting your account?",
     options: [
-      { id: 'A', text: "AWS Status Page (status.aws.amazon.com) alone" },
-      { id: 'B', text: "AWS Health Dashboard (AWS Health API)" },
-      { id: 'C', text: "AWS CloudTrail" },
-      { id: 'D', text: "Amazon Inspector" }
+      { id: 'A', text: "Amazon Inspector" },
+      { id: 'B', text: "AWS CloudTrail" },
+      { id: 'C', text: "AWS Status Page (status.aws.amazon.com) alone" },
+      { id: 'D', text: "AWS Health Dashboard (AWS Health API)" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The AWS Health Dashboard (and AWS Health API / EventBridge events) provides personalized visibility into AWS service disruptions, planned lifecycle maintenances, and account notifications that directly impact your specific AWS resources.",
     referenceUrl: "https://docs.aws.amazon.com/health/latest/ug/what-is-aws-health.html",
@@ -409,9 +409,9 @@ export const AWS_DVA_QUESTIONS_10 = [
     question: "Which AWS service analyzes account resources against best practices in cost, performance, security, and fault tolerance?",
     options: [
       { id: 'A', text: "AWS Trusted Advisor" },
-      { id: 'B', text: "AWS Compute Optimizer" },
+      { id: 'B', text: "AWS Systems Manager" },
       { id: 'C', text: "Amazon GuardDuty" },
-      { id: 'D', text: "AWS Systems Manager" }
+      { id: 'D', text: "AWS Compute Optimizer" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -429,12 +429,12 @@ export const AWS_DVA_QUESTIONS_10 = [
     scenario: "A compliance policy requires moving transaction log objects from S3 Standard to cold archive storage after 90 days. The data must remain retrievable within milliseconds if an audit occurs.",
     question: "Which S3 Glacier storage class provides sub-second retrieval for infrequently accessed archive data?",
     options: [
-      { id: 'A', text: "S3 Glacier Instant Retrieval" },
+      { id: 'A', text: "S3 Glacier Deep Archive" },
       { id: 'B', text: "S3 Glacier Flexible Retrieval (formerly Glacier)" },
-      { id: 'C', text: "S3 Glacier Deep Archive" },
+      { id: 'C', text: "S3 Glacier Instant Retrieval" },
       { id: 'D', text: "S3 One Zone-IA" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "S3 Glacier Instant Retrieval is an archive storage class that provides the lowest cost storage for long-lived data that is rarely accessed, while still delivering milliseconds retrieval performance when accessed.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html#sc-glacier-instant",
@@ -450,12 +450,12 @@ export const AWS_DVA_QUESTIONS_10 = [
     scenario: "An e-commerce website experiences regular diurnal traffic patterns (high during daytime, low at night). Static CloudWatch alarm thresholds cause false alarms during peak hours or miss anomalies at night.",
     question: "Which CloudWatch feature uses machine learning to create dynamic baseline bands for metrics?",
     options: [
-      { id: 'A', text: "CloudWatch Anomaly Detection" },
-      { id: 'B', text: "CloudWatch Metric Filters" },
-      { id: 'C', text: "CloudWatch Logs Insights" },
-      { id: 'D', text: "CloudWatch Composite Alarms" }
+      { id: 'A', text: "CloudWatch Composite Alarms" },
+      { id: 'B', text: "CloudWatch Logs Insights" },
+      { id: 'C', text: "CloudWatch Metric Filters" },
+      { id: 'D', text: "CloudWatch Anomaly Detection" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "CloudWatch Anomaly Detection applies machine learning algorithms to continuous metric history to determine expected normal baselines and generate anomaly bands. Alarms fire when metric values deviate outside the expected dynamic band.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Anomaly_Detection.html",
@@ -472,9 +472,9 @@ export const AWS_DVA_QUESTIONS_10 = [
     question: "How many Read Capacity Units (RCUs) are consumed when requesting Eventually Consistent vs Strongly Consistent reads?",
     options: [
       { id: 'A', text: "1 RCU for Eventually Consistent read, 2 RCUs for Strongly Consistent read" },
-      { id: 'B', text: "0.5 RCU for Eventually Consistent read, 1 RCU for Strongly Consistent read" },
-      { id: 'C', text: "8 RCUs for both modes" },
-      { id: 'D', text: "2 RCUs for Eventually Consistent read, 4 RCUs for Strongly Consistent read" }
+      { id: 'B', text: "2 RCUs for Eventually Consistent read, 4 RCUs for Strongly Consistent read" },
+      { id: 'C', text: "0.5 RCU for Eventually Consistent read, 1 RCU for Strongly Consistent read" },
+      { id: 'D', text: "8 RCUs for both modes" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,12 +492,12 @@ export const AWS_DVA_QUESTIONS_10 = [
     scenario: "A Lambda function processes messages from an Amazon SQS queue. The function timeout is configured to 60 seconds. Messages are frequently being received twice by different function instances while still processing.",
     question: "What is the recommended relationship between SQS Visibility Timeout and Lambda Function Timeout?",
     options: [
-      { id: 'A', text: "The SQS Visibility Timeout must be at least 6 times the Lambda function timeout (e.g. 360 seconds)" },
-      { id: 'B', text: "The SQS Visibility Timeout must be exactly equal to the Lambda timeout" },
-      { id: 'C', text: "The SQS Visibility Timeout must be set to 0 seconds" },
-      { id: 'D', text: "The Lambda timeout must be greater than the SQS visibility timeout" }
+      { id: 'A', text: "The Lambda timeout must be greater than the SQS visibility timeout" },
+      { id: 'B', text: "The SQS Visibility Timeout must be set to 0 seconds" },
+      { id: 'C', text: "The SQS Visibility Timeout must be exactly equal to the Lambda timeout" },
+      { id: 'D', text: "The SQS Visibility Timeout must be at least 6 times the Lambda function timeout (e.g. 360 seconds)" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "AWS best practices mandate setting the SQS queue Visibility Timeout to at least 6 times the Lambda function timeout. This ensures that the Lambda function invocation and any internal retries have ample time to complete before SQS makes the message visible to another worker.",
     referenceUrl: "https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-queueconfig",
@@ -513,12 +513,12 @@ export const AWS_DVA_QUESTIONS_10 = [
     scenario: "A frontend client makes a request to API Gateway, which calls Lambda, which makes an HTTP request to an ECS container. In X-Ray, the trace breaks between Lambda and ECS, creating two separate disconnected traces.",
     question: "How should the developer maintain end-to-end trace context across distributed HTTP calls?",
     options: [
-      { id: 'A', text: "Enable CloudWatch Logs metric filters on both services" },
-      { id: 'B', text: "Use the same IAM execution role on Lambda and ECS" },
-      { id: 'C', text: "Extract and forward the X-Amzn-Trace-Id HTTP request header in all downstream HTTP client calls" },
-      { id: 'D', text: "Add the user session token to the request payload" }
+      { id: 'A', text: "Use the same IAM execution role on Lambda and ECS" },
+      { id: 'B', text: "Extract and forward the X-Amzn-Trace-Id HTTP request header in all downstream HTTP client calls" },
+      { id: 'C', text: "Add the user session token to the request payload" },
+      { id: 'D', text: "Enable CloudWatch Logs metric filters on both services" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "AWS X-Ray propagates trace context across HTTP boundaries using the `X-Amzn-Trace-Id` HTTP header. Downstream services inspect this header to join the existing trace rather than generating a new, disconnected root segment.",
     referenceUrl: "https://docs.aws.amazon.com/xray/latest/devguide/xray-concepts.html#xray-concepts-tracingheader",

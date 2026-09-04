@@ -9,12 +9,12 @@ export const GCP_PCA_QUESTIONS_6 = [
     scenario: "A web microservice deployed on Cloud Run requires access to a third-party API token. The token must be encrypted, version-controlled, auditable, and accessible only by authorized service accounts.",
     question: "Which Google Cloud managed service provides centralized secret storage with automated versioning and IAM access control?",
     options: [
-      { id: 'A', text: "Cloud KMS alone" },
-      { id: 'B', text: "Cloud Storage public bucket" },
-      { id: 'C', text: "Compute Engine instance metadata" },
-      { id: 'D', text: "Google Cloud Secret Manager" }
+      { id: 'A', text: "Cloud Storage public bucket" },
+      { id: 'B', text: "Google Cloud Secret Manager" },
+      { id: 'C', text: "Cloud KMS alone" },
+      { id: 'D', text: "Compute Engine instance metadata" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Google Cloud Secret Manager is a secure, convenient storage system for API keys, passwords, certificates, and sensitive credentials. It provides fine-grained IAM access control, automatic encryption via Cloud KMS, versioning, audit logging, and rotation notifications.",
     referenceUrl: "https://cloud.google.com/secret-manager/docs/overview",
@@ -30,12 +30,12 @@ export const GCP_PCA_QUESTIONS_6 = [
     scenario: "A DevOps engineer needs temporary `Compute Admin` access to resolve an incident. The permission must automatically expire at 18:00 UTC today and be restricted to instances located in `us-central1`.",
     question: "Which IAM feature applies conditional expressions based on time, resource tags, or request attributes?",
     options: [
-      { id: 'A', text: "Primitive IAM Roles" },
-      { id: 'B', text: "IAM Conditions (using Common Expression Language / CEL)" },
-      { id: 'C', text: "Cloud Armor Security Policies" },
-      { id: 'D', text: "VPC Firewall Rules" }
+      { id: 'A', text: "Cloud Armor Security Policies" },
+      { id: 'B', text: "VPC Firewall Rules" },
+      { id: 'C', text: "IAM Conditions (using Common Expression Language / CEL)" },
+      { id: 'D', text: "Primitive IAM Roles" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "`IAM Conditions` allow administrators to define attribute-based access control (ABAC) using Common Expression Language (CEL). Conditions evaluate request attributes (such as `request.time < timestamp(...)`) and resource attributes (such as location or resource tags), enforcing fine-grained temporary access.",
     referenceUrl: "https://cloud.google.com/iam/docs/conditions-overview",
@@ -51,12 +51,12 @@ export const GCP_PCA_QUESTIONS_6 = [
     scenario: "An enterprise security team mandates that no employee or project owner, regardless of role grants, should ever be allowed to delete Cloud Audit Logs or disable security logging.",
     question: "Which Google Cloud IAM feature enforces hard negative restrictions that override all IAM allow grants?",
     options: [
-      { id: 'A', text: "Service Account permissions" },
-      { id: 'B', text: "IAM Deny Policies" },
+      { id: 'A', text: "IAM Deny Policies" },
+      { id: 'B', text: "IAM Allow Policies" },
       { id: 'C', text: "Resource Manager Folders" },
-      { id: 'D', text: "IAM Allow Policies" }
+      { id: 'D', text: "Service Account permissions" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "`IAM Deny Policies` allow security administrators to define hard guardrails that prevent principals from performing specific permissions, regardless of any `allow` roles they hold. Deny policies are evaluated before allow policies and cannot be bypassed by project owners.",
     referenceUrl: "https://cloud.google.com/iam/docs/deny-overview",
@@ -73,9 +73,9 @@ export const GCP_PCA_QUESTIONS_6 = [
     question: "Why does the application use envelope encryption instead of sending 10 GB payloads directly to the Cloud KMS API?",
     options: [
       { id: 'A', text: "Cloud KMS has a 64 KB payload size limit; envelope encryption generates a local Data Encryption Key (DEK) to encrypt data, and KMS encrypts only the lightweight DEK using a Key Encryption Key (KEK)" },
-      { id: 'B', text: "Envelope encryption is required only for quantum computers" },
-      { id: 'C', text: "Cloud KMS can only encrypt plain text strings under 10 characters" },
-      { id: 'D', text: "Cloud KMS is located outside Google Cloud" }
+      { id: 'B', text: "Cloud KMS can only encrypt plain text strings under 10 characters" },
+      { id: 'C', text: "Cloud KMS is located outside Google Cloud" },
+      { id: 'D', text: "Envelope encryption is required only for quantum computers" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -115,9 +115,9 @@ export const GCP_PCA_QUESTIONS_6 = [
     question: "Which Google Cloud service scans container images in Artifact Registry for OS package vulnerabilities?",
     options: [
       { id: 'A', text: "Container Analysis (Automated Vulnerability Scanning)" },
-      { id: 'B', text: "Security Command Center Standard alone" },
-      { id: 'C', text: "Cloud Armor" },
-      { id: 'D', text: "Binary Authorization alone" }
+      { id: 'B', text: "Binary Authorization alone" },
+      { id: 'C', text: "Security Command Center Standard alone" },
+      { id: 'D', text: "Cloud Armor" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -135,12 +135,12 @@ export const GCP_PCA_QUESTIONS_6 = [
     scenario: "An enterprise deploys sensitive financial microservices on GKE. The security architect must ensure that worker nodes cannot be impersonated and that node identity certificates are cryptographically verified by the control plane.",
     question: "Which GKE node security feature enforces Secure Boot and measured boot on Kubernetes worker nodes?",
     options: [
-      { id: 'A', text: "Shielded GKE Nodes" },
+      { id: 'A', text: "GKE Private Clusters alone" },
       { id: 'B', text: "GKE Sandbox" },
-      { id: 'C', text: "GKE Private Clusters alone" },
+      { id: 'C', text: "Shielded GKE Nodes" },
       { id: 'D', text: "NetworkPolicy alone" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Shielded GKE Nodes provide strong, verifiable node identity and integrity for GKE clusters. Built on Compute Engine Shielded VMs, Shielded GKE Nodes use Secure Boot, vTPM, and integrity monitoring to protect worker nodes against rootkits and kernel tampering.",
     referenceUrl: "https://cloud.google.com/kubernetes-engine/docs/how-to/shielded-gke-nodes",
@@ -156,12 +156,12 @@ export const GCP_PCA_QUESTIONS_6 = [
     scenario: "A SaaS platform executes untrusted user-submitted Python and JavaScript code inside containers on GKE. The architecture must prevent untrusted code from exploiting Linux host kernel vulnerabilities.",
     question: "Which GKE container runtime provides user-space kernel isolation using gVisor?",
     options: [
-      { id: 'A', text: "Binary Authorization" },
-      { id: 'B', text: "GKE Sandbox" },
-      { id: 'C', text: "Shielded GKE Nodes" },
+      { id: 'A', text: "GKE Sandbox" },
+      { id: 'B', text: "Shielded GKE Nodes" },
+      { id: 'C', text: "Binary Authorization" },
       { id: 'D', text: "Privileged Container Mode" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "`GKE Sandbox` uses open-source `gVisor` to provide a secure boundary between running containers and the host kernel. gVisor intercepts and implements system calls in user space, preventing untrusted or malicious container code from directly interacting with the host Linux kernel.",
     referenceUrl: "https://cloud.google.com/kubernetes-engine/docs/concepts/sandbox-pods",
@@ -177,12 +177,12 @@ export const GCP_PCA_QUESTIONS_6 = [
     scenario: "A public website experiences a Layer 7 exploit where attackers pass a malicious cookie `admin_override = true` in HTTP requests.",
     question: "Which Cloud Armor feature allows writing custom security rules evaluating HTTP headers, cookies, and query strings using Common Expression Language (CEL)?",
     options: [
-      { id: 'A', text: "VPC Firewall Rules" },
-      { id: 'B', text: "Cloud Load Balancing URL maps" },
-      { id: 'C', text: "Cloud Armor Custom Rules (using CEL match expressions)" },
-      { id: 'D', text: "Cloud Armor Preconfigured WAF rules only" }
+      { id: 'A', text: "Cloud Armor Preconfigured WAF rules only" },
+      { id: 'B', text: "VPC Firewall Rules" },
+      { id: 'C', text: "Cloud Load Balancing URL maps" },
+      { id: 'D', text: "Cloud Armor Custom Rules (using CEL match expressions)" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Cloud Armor `Custom Rules` allow security engineers to write flexible Layer 7 inspection logic using Common Expression Language (CEL), evaluating request parameters such as `has(request.headers['cookie']) && request.headers['cookie'].contains('admin_override=true')` to block attacks.",
     referenceUrl: "https://cloud.google.com/armor/docs/rules-language-reference",
@@ -198,12 +198,12 @@ export const GCP_PCA_QUESTIONS_6 = [
     scenario: "A high-profile media event causes legitimate traffic to surge to 100,000 requests per second. Simultaneously, a sophisticated distributed Layer 7 attack mimics legitimate user requests.",
     question: "Which Cloud Armor capability uses machine learning models to detect Layer 7 attacks and generates tailored mitigation rules automatically?",
     options: [
-      { id: 'A', text: "Cloud Armor Adaptive Protection" },
-      { id: 'B', text: "Cloud Armor Rate Limiting alone" },
-      { id: 'C', text: "Security Command Center alone" },
-      { id: 'D', text: "Cloud Monitoring Alerts" }
+      { id: 'A', text: "Security Command Center alone" },
+      { id: 'B', text: "Cloud Monitoring Alerts" },
+      { id: 'C', text: "Cloud Armor Adaptive Protection" },
+      { id: 'D', text: "Cloud Armor Rate Limiting alone" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Cloud Armor `Adaptive Protection` uses machine learning models trained on baseline application traffic patterns. It detects anomalous Layer 7 DDoS and volumetric attacks, alerts security teams, and automatically generates tailored WAF mitigation rules to block the attack while allowing legitimate traffic.",
     referenceUrl: "https://cloud.google.com/armor/docs/adaptive-protection-overview",
@@ -219,12 +219,12 @@ export const GCP_PCA_QUESTIONS_6 = [
     scenario: "A security operations team audits outbound network traffic from private Compute Engine VMs routed through Cloud NAT. The team must track every outbound connection translation.",
     question: "Which Cloud NAT logging setting records translated source IP/port and destination IP/port tuples?",
     options: [
-      { id: 'A', text: "Enable VPC Flow Logs only" },
-      { id: 'B', text: "Cloud Audit Logs alone" },
-      { id: 'C', text: "Enable Cloud NAT Logging for all connections (or error connections)" },
+      { id: 'A', text: "Enable Cloud NAT Logging for all connections (or error connections)" },
+      { id: 'B', text: "Enable VPC Flow Logs only" },
+      { id: 'C', text: "Cloud Audit Logs alone" },
       { id: 'D', text: "Cloud Trace" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Cloud NAT provides built-in connection logging. Enabling Cloud NAT logging captures logs for `ERRORS_ONLY` (such as port exhaustion events) or `ALL` connections, recording translated IP and port mappings to Cloud Logging for compliance and security auditing.",
     referenceUrl: "https://cloud.google.com/nat/docs/nat-logging",
@@ -242,8 +242,8 @@ export const GCP_PCA_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "Dry Run Mode" },
       { id: 'B', text: "Enforced Mode" },
-      { id: 'C', text: "Perimeter Bridge Mode" },
-      { id: 'D', text: "Audit Logging alone" }
+      { id: 'C', text: "Audit Logging alone" },
+      { id: 'D', text: "Perimeter Bridge Mode" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -261,12 +261,12 @@ export const GCP_PCA_QUESTIONS_6 = [
     scenario: "A central cloud governance team needs to ensure that no developer in the entire organization can accidentally create a Compute Engine VM with a public external IP address.",
     question: "Which Google Cloud governance mechanism applies declarative constraint guardrails across the entire resource hierarchy?",
     options: [
-      { id: 'A', text: "IAM Deny Policies" },
-      { id: 'B', text: "Organization Policy Constraints (e.g. constraints/compute.vmExternalIpAccess)" },
-      { id: 'C', text: "Resource Manager Labels" },
-      { id: 'D', text: "VPC Firewall Rules" }
+      { id: 'A', text: "VPC Firewall Rules" },
+      { id: 'B', text: "Resource Manager Labels" },
+      { id: 'C', text: "IAM Deny Policies" },
+      { id: 'D', text: "Organization Policy Constraints (e.g. constraints/compute.vmExternalIpAccess)" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "`Organization Policies` provide centralized, programmatic control over cloud resources across an entire organization. Constraints like `compute.vmExternalIpAccess` (set to `Deny`) prevent instances from receiving public IP addresses regardless of project-level IAM permissions.",
     referenceUrl: "https://cloud.google.com/resource-manager/docs/organization-policy/overview",
@@ -282,12 +282,12 @@ export const GCP_PCA_QUESTIONS_6 = [
     scenario: "A corporate security policy mandates that IAM roles in the Google Cloud organization can only be granted to corporate email accounts (`@company.com`) and never to personal `@gmail.com` addresses.",
     question: "Which Organization Policy constraint restricts IAM role bindings to specific Google Workspace customer IDs?",
     options: [
-      { id: 'A', text: "constraints/compute.trustedImageProjects" },
-      { id: 'B', text: "constraints/iam.allowedPolicyMemberDomains" },
-      { id: 'C', text: "VPC Service Controls" },
-      { id: 'D', text: "constraints/iam.disableServiceAccountKeyCreation" }
+      { id: 'A', text: "constraints/iam.disableServiceAccountKeyCreation" },
+      { id: 'B', text: "VPC Service Controls" },
+      { id: 'C', text: "constraints/compute.trustedImageProjects" },
+      { id: 'D', text: "constraints/iam.allowedPolicyMemberDomains" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The `iam.allowedPolicyMemberDomains` constraint restricts IAM role bindings to user and group identities belonging to authorized Google Workspace or Cloud Identity customer IDs (directory IDs), preventing accidental or malicious addition of external personal accounts.",
     referenceUrl: "https://cloud.google.com/resource-manager/docs/organization-policy/restricting-domains",
@@ -303,12 +303,12 @@ export const GCP_PCA_QUESTIONS_6 = [
     scenario: "To eliminate the risk of leaked credential files on developer laptops, a CISO mandates that no user in any project should be allowed to generate or download service account JSON private keys.",
     question: "Which Organization Policy constraint completely disables the creation of service account keys?",
     options: [
-      { id: 'A', text: "Cloud KMS Policy" },
-      { id: 'B', text: "constraints/iam.disableServiceAccountKeyCreation" },
+      { id: 'A', text: "constraints/iam.disableServiceAccountKeyCreation" },
+      { id: 'B', text: "constraints/iam.disableServiceAccountCreation" },
       { id: 'C', text: "constraints/compute.disableNestedVirtualization" },
-      { id: 'D', text: "constraints/iam.disableServiceAccountCreation" }
+      { id: 'D', text: "Cloud KMS Policy" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Enforcing the `iam.disableServiceAccountKeyCreation` organization policy constraint blocks users from creating static service account keys (`gcloud iam service-accounts keys create`), forcing workloads to use Workload Identity, Service Account Impersonation, or attached identities.",
     referenceUrl: "https://cloud.google.com/iam/docs/organization-policy-service-accounts#disable-key-creation",
@@ -324,12 +324,12 @@ export const GCP_PCA_QUESTIONS_6 = [
     scenario: "A health analytics pipeline needs to replace patient medical record numbers with pseudonymous tokens such that the same medical ID always maps to the same token across multiple datasets without revealing the original ID.",
     question: "Which Sensitive Data Protection transformation preserves analytical referential integrity across tables?",
     options: [
-      { id: 'A', text: "Simple Redaction" },
+      { id: 'A', text: "Deterministic Encryption / CryptoReplaceFfxFpeConfig (Format-Preserving Encryption)" },
       { id: 'B', text: "Random Masking" },
-      { id: 'C', text: "Deterministic Encryption / CryptoReplaceFfxFpeConfig (Format-Preserving Encryption)" },
-      { id: 'D', text: "Date Shifting" }
+      { id: 'C', text: "Date Shifting" },
+      { id: 'D', text: "Simple Redaction" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Sensitive Data Protection supports `Deterministic Encryption` (such as Format-Preserving Encryption via `CryptoReplaceFfxFpeConfig`). It produces the same surrogate token for identical input values using a cryptographic key, preserving join relationships across disparate tables while hiding raw PII.",
     referenceUrl: "https://cloud.google.com/sensitive-data-protection/docs/pseudonymization",
@@ -366,12 +366,12 @@ export const GCP_PCA_QUESTIONS_6 = [
     scenario: "A compromised service account key is used to launch unauthorized cryptocurrency mining Compute Engine instances from an unapproved geographic region.",
     question: "Which Security Command Center feature analyzes Cloud Logging streams in near-real-time to detect anomalous threats?",
     options: [
-      { id: 'A', text: "Cloud Monitoring alone" },
-      { id: 'B', text: "Web Security Scanner" },
-      { id: 'C', text: "Security Health Analytics" },
-      { id: 'D', text: "Event Threat Detection (ETD)" }
+      { id: 'A', text: "Security Health Analytics" },
+      { id: 'B', text: "Cloud Monitoring alone" },
+      { id: 'C', text: "Event Threat Detection (ETD)" },
+      { id: 'D', text: "Web Security Scanner" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "`Event Threat Detection` (ETD) in SCC Premium continuously analyzes streaming audit logs and network metadata using Google proprietary threat intelligence to detect malware, coin-mining, data exfiltration, and brute-force attacks.",
     referenceUrl: "https://cloud.google.com/security-command-center/docs/concepts-event-threat-detection-overview",
@@ -387,12 +387,12 @@ export const GCP_PCA_QUESTIONS_6 = [
     scenario: "A container running on GKE is compromised by an attacker who executes a reverse shell and drops a malicious binary into the container filesystem.",
     question: "Which Security Command Center service inspects low-level container behavior (e.g. execution of unknown binaries) in real time?",
     options: [
-      { id: 'A', text: "Binary Authorization" },
-      { id: 'B', text: "Container Analysis alone" },
-      { id: 'C', text: "Container Threat Detection" },
+      { id: 'A', text: "Container Threat Detection" },
+      { id: 'B', text: "Binary Authorization" },
+      { id: 'C', text: "Container Analysis alone" },
       { id: 'D', text: "Event Threat Detection" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "`Container Threat Detection` continuously monitors the runtime state of containerized workloads running on GKE. It monitors container execution, detecting suspicious behaviors like unexpected binary execution, reverse shells, and malicious libraries.",
     referenceUrl: "https://cloud.google.com/security-command-center/docs/concepts-container-threat-detection-overview",
@@ -408,12 +408,12 @@ export const GCP_PCA_QUESTIONS_6 = [
     scenario: "A web application on Cloud Load Balancing needs to block traffic originating from known malicious IP addresses, Tor exit nodes, and botnet networks identified by Google threat intelligence.",
     question: "Which Cloud Armor feature provides Google-curated IP threat intelligence lists that update automatically?",
     options: [
-      { id: 'A', text: "Disabling HTTP load balancing" },
-      { id: 'B', text: "Cloud Armor Named IP Lists (e.g. evaluatePreconfiguredExpr('cve-canary') or src.ip_in_list('google-tor-exit-nodes'))" },
+      { id: 'A', text: "Cloud Armor Named IP Lists (e.g. evaluatePreconfiguredExpr('cve-canary') or src.ip_in_list('google-tor-exit-nodes'))" },
+      { id: 'B', text: "Manually maintaining thousands of CIDR rules in firewall lists" },
       { id: 'C', text: "Blocking all traffic from international regions" },
-      { id: 'D', text: "Manually maintaining thousands of CIDR rules in firewall lists" }
+      { id: 'D', text: "Disabling HTTP load balancing" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Cloud Armor `Named IP Lists` provide preconfigured, Google-managed lists of IP addresses associated with specific threat categories (e.g. Tor exit nodes, search engine crawlers, open proxies). Google updates these lists continuously without requiring manual administrative rules.",
     referenceUrl: "https://cloud.google.com/armor/docs/rule-tuning#named-ip-lists",
@@ -430,8 +430,8 @@ export const GCP_PCA_QUESTIONS_6 = [
     question: "Which Cloud Armor capability provides managed ModSecurity CRS rules for OWASP Top 10 mitigation?",
     options: [
       { id: 'A', text: "Cloud Armor Preconfigured WAF Rules (e.g. evaluatePreconfiguredExpr('sqli-v33-stable'))" },
-      { id: 'B', text: "VPC Firewall Rules" },
-      { id: 'C', text: "Cloud Endpoints proxy" },
+      { id: 'B', text: "Cloud Endpoints proxy" },
+      { id: 'C', text: "VPC Firewall Rules" },
       { id: 'D', text: "Compute Engine guest firewall" }
     ],
     correctAnswers: ['A'],
@@ -450,12 +450,12 @@ export const GCP_PCA_QUESTIONS_6 = [
     scenario: "A security architect is structuring Cloud KMS keys for an enterprise operating in Europe and North America. Regulatory compliance requires that encryption keys used in Europe can never leave the European geography.",
     question: "How should Key Rings be provisioned to enforce geographic cryptographic isolation?",
     options: [
-      { id: 'A', text: "Create Key Rings in specific regional locations (e.g. europe-west1 or europe-west3) matching data residency requirements" },
+      { id: 'A', text: "Keys in Cloud KMS can never be regionally constrained" },
       { id: 'B', text: "Create a single global Key Ring in US-Central" },
-      { id: 'C', text: "Keys in Cloud KMS can never be regionally constrained" },
+      { id: 'C', text: "Create Key Rings in specific regional locations (e.g. europe-west1 or europe-west3) matching data residency requirements" },
       { id: 'D', text: "Store key rings in a public GitHub repository" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "In Cloud KMS, `Key Rings` are regional or multi-regional resources that belong to a specific location (e.g. `europe-west1`). Keys created within a regional Key Ring never physically leave that designated region, ensuring strict cryptographic data residency compliance.",
     referenceUrl: "https://cloud.google.com/kms/docs/locations",
@@ -471,12 +471,12 @@ export const GCP_PCA_QUESTIONS_6 = [
     scenario: "A legal department places a litigation hold on an investigation folder in Cloud Storage. The files must be prevented from deletion indefinitely while the lawsuit is active, independent of the bucket's 30-day retention policy.",
     question: "Which Cloud Storage feature prevents deletion of specific individual objects until released by legal teams?",
     options: [
-      { id: 'A', text: "Bucket Lock" },
-      { id: 'B', text: "Lifecycle management rule" },
+      { id: 'A', text: "Object Holds (Event-based or Temporary Hold)" },
+      { id: 'B', text: "Bucket Lock" },
       { id: 'C', text: "Object Versioning alone" },
-      { id: 'D', text: "Object Holds (Event-based or Temporary Hold)" }
+      { id: 'D', text: "Lifecycle management rule" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Cloud Storage `Object Holds` prevent individual objects from being deleted or modified. Unlike bucket retention policies that apply uniformly based on age, an `Event-based hold` or `Temporary hold` freezes an object indefinitely until a legal administrator explicitly removes the hold.",
     referenceUrl: "https://cloud.google.com/storage/docs/object-holds",
@@ -492,12 +492,12 @@ export const GCP_PCA_QUESTIONS_6 = [
     scenario: "A cybersecurity operations team requires all permitted and denied network connections evaluated by VPC firewall rules to be exported to Splunk for compliance auditing.",
     question: "How can the security administrator capture logs for individual VPC firewall rules?",
     options: [
-      { id: 'A', text: "Export Cloud Billing data" },
-      { id: 'B', text: "Deploy a syslog agent on every VM" },
-      { id: 'C', text: "Enable Packet Mirroring on all subnets" },
-      { id: 'D', text: "Enable Firewall Rules Logging on the target firewall rule" }
+      { id: 'A', text: "Deploy a syslog agent on every VM" },
+      { id: 'B', text: "Enable Firewall Rules Logging on the target firewall rule" },
+      { id: 'C', text: "Export Cloud Billing data" },
+      { id: 'D', text: "Enable Packet Mirroring on all subnets" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Google Cloud allows administrators to enable `Firewall Rules Logging` on any individual firewall rule. When enabled, every connection allowed or denied by that specific rule generates a log record in Cloud Logging containing source, destination, protocol, and rule ID, which can be routed to external SIEMs.",
     referenceUrl: "https://cloud.google.com/vpc/docs/firewall-rules-logging",
@@ -513,12 +513,12 @@ export const GCP_PCA_QUESTIONS_6 = [
     scenario: "An enterprise configures Identity-Aware Proxy (IAP). High-privilege production web apps must be accessible only by authorized employees who connect from company-managed corporate laptops with disk encryption enabled.",
     question: "Which Google Cloud service defines context-aware device and IP attributes for IAP evaluation?",
     options: [
-      { id: 'A', text: "Compute Engine OS Login" },
+      { id: 'A', text: "Access Context Manager (Context-Aware Access levels)" },
       { id: 'B', text: "Cloud Armor Security Policy" },
-      { id: 'C', text: "Access Context Manager (Context-Aware Access levels)" },
-      { id: 'D', text: "Cloud Identity basic authentication" }
+      { id: 'C', text: "Cloud Identity basic authentication" },
+      { id: 'D', text: "Compute Engine OS Login" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "`Access Context Manager` allows organizations to define granular `Access Levels` based on user attributes, geographic IP location, and device signals (e.g. verified corporate device, OS version, disk encryption). IAP evaluates these access levels before granting session entry.",
     referenceUrl: "https://cloud.google.com/access-context-manager/docs/overview",

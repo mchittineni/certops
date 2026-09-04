@@ -9,9 +9,9 @@ export const FINOPS_FOCP_QUESTIONS_10 = [
     scenario: "A product manager disputes a $15,000 chargeback line item on their monthly department P&L, claiming the underlying cloud resources were actually used by a different team's data science project.",
     question: "What governance capability must the FinOps team have in place to resolve such disputes objectively?",
     options: [
-      { id: 'A', text: "Automatically splitting the disputed cost 50/50 without investigating" },
+      { id: 'A', text: "A coin flip protocol administered by the finance department" },
       { id: 'B', text: "Enforced tagging taxonomy audits, resource ownership metadata, and immutable audit logs that record who launched and modified the resources" },
-      { id: 'C', text: "A coin flip protocol administered by the finance department" },
+      { id: 'C', text: "Automatically splitting the disputed cost 50/50 without investigating" },
       { id: 'D', text: "Deleting the disputed resources to prevent future arguments" }
     ],
     correctAnswers: ['B'],
@@ -30,12 +30,12 @@ export const FINOPS_FOCP_QUESTIONS_10 = [
     scenario: "A DevOps team configures automated daily snapshots for 50 production Amazon RDS and Azure SQL databases with no automated expiration policy, accumulating over 20,000 snapshots over three years.",
     question: "What optimization policy should the FinOps team establish to manage snapshot storage costs?",
     options: [
-      { id: 'A', text: "Implement automated lifecycle retention rules that retain daily snapshots for 30 days, monthly snapshots for 1 year, and delete aged obsolete manual snapshots" },
+      { id: 'A', text: "Export every snapshot to floppy disks stored in physical filing cabinets" },
       { id: 'B', text: "Disable all database backups to eliminate snapshot storage entirely" },
       { id: 'C', text: "Convert all relational databases into flat text files stored in web servers" },
-      { id: 'D', text: "Export every snapshot to floppy disks stored in physical filing cabinets" }
+      { id: 'D', text: "Implement automated lifecycle retention rules that retain daily snapshots for 30 days, monthly snapshots for 1 year, and delete aged obsolete manual snapshots" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Database snapshots are billed based on total gigabytes stored beyond free backup allowances. Implementing automated backup retention policies (e.g. AWS Backup or native RDS retention) purges obsolete manual snapshots while maintaining required compliance and disaster recovery RPOs.",
     referenceUrl: "https://www.finops.org/framework/capabilities/workload-optimization/",
@@ -51,12 +51,12 @@ export const FINOPS_FOCP_QUESTIONS_10 = [
     scenario: "A junior developer accidentally writes an automated script that launches 500 high-memory instances overnight, incurring a $12,000 cloud bill before detection.",
     question: "In a mature FinOps culture, how should leadership and the FinOps team handle this incident?",
     options: [
-      { id: 'A', text: "Conduct a blameless post-mortem to identify systemic gaps in automated budget alerts and implement preventative guardrails (like IAM launch limits and SCPs)" },
+      { id: 'A', text: "Publicly reprimand the developer and deduct the $12,000 from their personal salary" },
       { id: 'B', text: "Hide the expense from finance and falsify accounting records" },
-      { id: 'C', text: "Immediately ban all junior developers from accessing cloud environments permanently" },
-      { id: 'D', text: "Publicly reprimand the developer and deduct the $12,000 from their personal salary" }
+      { id: 'C', text: "Conduct a blameless post-mortem to identify systemic gaps in automated budget alerts and implement preventative guardrails (like IAM launch limits and SCPs)" },
+      { id: 'D', text: "Immediately ban all junior developers from accessing cloud environments permanently" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "FinOps champions a blameless culture. Failures and mistakes are treated as learning opportunities to improve systems. The team conducts a blameless retrospective to identify why guardrails failed, installs automated anomaly alerts, and enforces spending limits to prevent recurrence.",
     referenceUrl: "https://www.finops.org/framework/culture/",
@@ -72,12 +72,12 @@ export const FINOPS_FOCP_QUESTIONS_10 = [
     scenario: "An enterprise notices that while cloud IaaS/PaaS spend is well-managed, third-party SaaS expenditures (Datadog, Snowflake, GitHub, OpenAI) are growing at 80% year-over-year with zero central oversight.",
     question: "How does the FinOps framework extend beyond cloud infrastructure providers into SaaS cost management?",
     options: [
-      { id: 'A', text: "By applying the same FinOps capabilities—visibility, allocation, license rightsizing, usage tracking, and rate negotiation—to third-party consumption-based SaaS platforms" },
+      { id: 'A', text: "FinOps strictly forbids managing any SaaS products or external vendors" },
       { id: 'B', text: "By cancelling all corporate SaaS subscriptions and forcing engineers to build all tools in-house" },
-      { id: 'C', text: "FinOps strictly forbids managing any SaaS products or external vendors" },
-      { id: 'D', text: "SaaS tools do not incur ongoing costs once purchased" }
+      { id: 'C', text: "SaaS tools do not incur ongoing costs once purchased" },
+      { id: 'D', text: "By applying the same FinOps capabilities—visibility, allocation, license rightsizing, usage tracking, and rate negotiation—to third-party consumption-based SaaS platforms" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Modern FinOps encompasses all cloud consumption, including consumption-based SaaS and specialized AI services. The FinOps principles apply equally: understanding contract commitments, allocating usage to business units, monitoring active seat utilization, and eliminating inactive licenses.",
     referenceUrl: "https://www.finops.org/framework/capabilities/saas-operations/",
@@ -94,11 +94,11 @@ export const FINOPS_FOCP_QUESTIONS_10 = [
     question: "Which compute purchasing model maximizes cost savings for this fault-tolerant workload?",
     options: [
       { id: 'A', text: "Standard On-Demand instances exclusively to avoid any potential node restarts" },
-      { id: 'B', text: "Running the batch jobs on local developer laptops" },
-      { id: 'C', text: "A mixed-instance cluster using Spot Instances for worker nodes combined with On-Demand or Savings Plans for the primary master node" },
-      { id: 'D', text: "Dedicated Hosts with 3-year upfront commitments" }
+      { id: 'B', text: "A mixed-instance cluster using Spot Instances for worker nodes combined with On-Demand or Savings Plans for the primary master node" },
+      { id: 'C', text: "Dedicated Hosts with 3-year upfront commitments" },
+      { id: 'D', text: "Running the batch jobs on local developer laptops" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "For fault-tolerant, checkpointed big data workloads, Spot Instances provide up to 90% savings compared to on-demand pricing. Best practices pair a reliable On-Demand or committed master node with diversified Spot instance fleets for data processing worker nodes.",
     referenceUrl: "https://www.finops.org/framework/capabilities/rate-optimization/",
@@ -114,9 +114,9 @@ export const FINOPS_FOCP_QUESTIONS_10 = [
     scenario: "An enterprise cloud team is evaluating operational processes, financial accountability, and FinOps framework best practices.",
     question: "What is the primary difference in operational ownership between Rate Optimization and Usage Optimization?",
     options: [
-      { id: 'A', text: "Rate Optimization is performed by developers; Usage Optimization is performed by corporate accountants" },
-      { id: 'B', text: "Rate Optimization changes the application code; Usage Optimization changes the billing invoice" },
-      { id: 'C', text: "There is no operational difference between rate and usage optimization" },
+      { id: 'A', text: "There is no operational difference between rate and usage optimization" },
+      { id: 'B', text: "Rate Optimization is performed by developers; Usage Optimization is performed by corporate accountants" },
+      { id: 'C', text: "Rate Optimization changes the application code; Usage Optimization changes the billing invoice" },
       { id: 'D', text: "Rate Optimization (pricing, commitments) is typically centralized; Usage Optimization (turning off, rightsizing) is decentralized to engineering teams" }
     ],
     correctAnswers: ['D'],
@@ -136,9 +136,9 @@ export const FINOPS_FOCP_QUESTIONS_10 = [
     question: "How does FinOps intersect with traditional IT Asset Management (ITAM) in a hybrid cloud enterprise?",
     options: [
       { id: 'A', text: "There is zero overlap between FinOps and ITAM disciplines" },
-      { id: 'B', text: "ITAM manages cloud bills while FinOps manages physical data center server racking" },
+      { id: 'B', text: "FinOps replaces all ITAM functions and renders asset tracking obsolete" },
       { id: 'C', text: "FinOps collaborates with ITAM to manage hybrid software licenses, tracking compliance for Bring-Your-Own-License (BYOL) across on-premises datacenters and cloud providers" },
-      { id: 'D', text: "FinOps replaces all ITAM functions and renders asset tracking obsolete" }
+      { id: 'D', text: "ITAM manages cloud bills while FinOps manages physical data center server racking" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -156,12 +156,12 @@ export const FINOPS_FOCP_QUESTIONS_10 = [
     scenario: "An enterprise cloud team is evaluating operational processes, financial accountability, and FinOps framework best practices.",
     question: "Which non-profit Linux Foundation organization defines official industry standards, certifications, and capabilities for cloud financial management?",
     options: [
-      { id: 'A', text: "The World Wide Web Consortium (W3C)" },
-      { id: 'B', text: "The Internet Engineering Task Force (IETF)" },
-      { id: 'C', text: "The FinOps Foundation" },
+      { id: 'A', text: "The Internet Engineering Task Force (IETF)" },
+      { id: 'B', text: "The FinOps Foundation" },
+      { id: 'C', text: "The World Wide Web Consortium (W3C)" },
       { id: 'D', text: "The Open Source Initiative (OSI)" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "The FinOps Foundation, a part of the Linux Foundation, is the premier open industry organization advancing the discipline of cloud financial management through standards, the FinOps Framework, research, and certifications like FOCP.",
     referenceUrl: "https://www.finops.org/",
@@ -177,12 +177,12 @@ export const FINOPS_FOCP_QUESTIONS_10 = [
     scenario: "An enterprise cloud team is evaluating operational processes, financial accountability, and FinOps framework best practices.",
     question: "What is the ultimate objective of establishing a mature FinOps practice within an enterprise?",
     options: [
-      { id: 'A', text: "To create a culture of continuous financial accountability where cross-functional teams collaborate to maximize business value from every cloud dollar spent" },
-      { id: 'B', text: "To ensure that all infrastructure is purchased through multi-year hardware leases" },
-      { id: 'C', text: "To cut cloud spending to zero and halt all technological innovation" },
-      { id: 'D', text: "To replace software engineers with procurement clerks" }
+      { id: 'A', text: "To ensure that all infrastructure is purchased through multi-year hardware leases" },
+      { id: 'B', text: "To create a culture of continuous financial accountability where cross-functional teams collaborate to maximize business value from every cloud dollar spent" },
+      { id: 'C', text: "To replace software engineers with procurement clerks" },
+      { id: 'D', text: "To cut cloud spending to zero and halt all technological innovation" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "The ultimate goal of FinOps is not cost cutting; it is value realization. A mature FinOps practice fosters a culturally shared financial accountability where engineering, finance, product, and leadership make informed real-time decisions to drive profitable, rapid business growth in the cloud.",
     referenceUrl: "https://www.finops.org/framework/",
@@ -198,12 +198,12 @@ export const FINOPS_FOCP_QUESTIONS_10 = [
     scenario: "An organization discovers thousands of EBS snapshots whose original volumes and instances were deleted two years ago.",
     question: "What policy should the FinOps practitioner establish to manage orphaned snapshot costs?",
     options: [
-      { id: 'A', text: "Convert all snapshots into active EBS gp3 volumes" },
-      { id: 'B', text: "Snapshots have zero storage cost when orphaned" },
-      { id: 'C', text: "Tag all snapshots at creation with expiration dates and automate deletion of unassociated snapshots exceeding data retention limits" },
-      { id: 'D', text: "Re-create all deleted instances so the snapshots are no longer orphaned" }
+      { id: 'A', text: "Snapshots have zero storage cost when orphaned" },
+      { id: 'B', text: "Convert all snapshots into active EBS gp3 volumes" },
+      { id: 'C', text: "Re-create all deleted instances so the snapshots are no longer orphaned" },
+      { id: 'D', text: "Tag all snapshots at creation with expiration dates and automate deletion of unassociated snapshots exceeding data retention limits" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Orphaned snapshots continue to accrue storage charges long after their source instances are terminated. Automating snapshot lifecycle management with expiration tags and backup compliance policies eliminates persistent storage drag.",
     referenceUrl: "https://www.finops.org/framework/capabilities/workload-optimization/",
@@ -219,12 +219,12 @@ export const FINOPS_FOCP_QUESTIONS_10 = [
     scenario: "An enterprise operating on AWS, Azure, and Google Cloud evaluates whether to use native cloud billing tools or a unified third-party FinOps platform.",
     question: "What is the primary architectural advantage of dedicated third-party multi-cloud FinOps platforms?",
     options: [
-      { id: 'A', text: "They provide a single normalized data model, centralized multi-cloud reporting, and consolidated commitment management across providers" },
-      { id: 'B', text: "They run without requiring read permissions to billing APIs" },
-      { id: 'C', text: "They replace all cloud IAM authentication with passwords" },
-      { id: 'D', text: "They eliminate all cloud provider bandwidth and compute bills" }
+      { id: 'A', text: "They run without requiring read permissions to billing APIs" },
+      { id: 'B', text: "They eliminate all cloud provider bandwidth and compute bills" },
+      { id: 'C', text: "They provide a single normalized data model, centralized multi-cloud reporting, and consolidated commitment management across providers" },
+      { id: 'D', text: "They replace all cloud IAM authentication with passwords" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "While native tools (AWS Cost Explorer, Azure Cost Management) excel in their own ecosystem, third-party platforms (Apptio Cloudability, CloudHealth, Kubecost) normalize multi-cloud cost schemas, aggregate commitment portfolios, and deliver unified executive dashboards.",
     referenceUrl: "https://www.finops.org/framework/capabilities/cloud-cost-management-tools/",
@@ -240,12 +240,12 @@ export const FINOPS_FOCP_QUESTIONS_10 = [
     scenario: "An AI startup spends $80,000 per month on GPU compute instances for fine-tuning large language models. Utilization drops to 0% during non-training intervals.",
     question: "Which architectural and FinOps strategy optimizes GPU infrastructure spending?",
     options: [
-      { id: 'A', text: "Purchase 3-year unconvertible Reserved Instances for cutting-edge GPU models before hardware matures" },
-      { id: 'B', text: "Train large language models on single-core general-purpose micro instances" },
-      { id: 'C', text: "Utilize serverless GPU inference endpoints, auto-terminate training clusters upon job completion, and leverage Spot GPU capacity for checkpointed training jobs" },
-      { id: 'D', text: "Run GPU instances 24/7 on on-demand pricing to ensure instant developer access" }
+      { id: 'A', text: "Utilize serverless GPU inference endpoints, auto-terminate training clusters upon job completion, and leverage Spot GPU capacity for checkpointed training jobs" },
+      { id: 'B', text: "Purchase 3-year unconvertible Reserved Instances for cutting-edge GPU models before hardware matures" },
+      { id: 'C', text: "Run GPU instances 24/7 on on-demand pricing to ensure instant developer access" },
+      { id: 'D', text: "Train large language models on single-core general-purpose micro instances" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "GPU hardware is exceptionally costly. For AI/ML workloads, FinOps teams mandate: auto-stopping training clusters immediately when epoch loss stabilizes or training completes, checkpointing models to S3 to safely leverage Spot GPU instances, and using serverless inference endpoints for production workloads.",
     referenceUrl: "https://www.finops.org/framework/capabilities/workload-optimization/",
@@ -262,11 +262,11 @@ export const FINOPS_FOCP_QUESTIONS_10 = [
     question: "What phased approach should the team take to enforce tag compliance?",
     options: [
       { id: 'A', text: "Abandon tag policies and rely solely on resource naming conventions" },
-      { id: 'B', text: "Immediately terminate all untagged resources in production with a cron job" },
-      { id: 'C', text: "Phase 1: Notify owners of non-compliant resources; Phase 2: Quarantine or stop non-compliant development resources; Phase 3: Enforce preventative SCPs blocking untagged resource creation" },
-      { id: 'D', text: "Manually inspect every resource every morning in the cloud console" }
+      { id: 'B', text: "Phase 1: Notify owners of non-compliant resources; Phase 2: Quarantine or stop non-compliant development resources; Phase 3: Enforce preventative SCPs blocking untagged resource creation" },
+      { id: 'C', text: "Manually inspect every resource every morning in the cloud console" },
+      { id: 'D', text: "Immediately terminate all untagged resources in production with a cron job" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Enforcing tag compliance requires a progressive maturity rollout: starting with visibility and non-compliance notifications, moving to scheduled remediation in development sandboxes, and finally establishing preventative infrastructure-as-code and cloud policy guardrails.",
     referenceUrl: "https://www.finops.org/framework/capabilities/policy-governance/",
@@ -282,8 +282,8 @@ export const FINOPS_FOCP_QUESTIONS_10 = [
     scenario: "A SaaS product manager wants to understand the gross margin of a newly launched enterprise analytics feature.",
     question: "How does the FinOps team enable product teams to track feature-level profitability?",
     options: [
-      { id: 'A', text: "Product managers should never be concerned with infrastructure costs" },
-      { id: 'B', text: "By charging all feature development to general administrative overhead" },
+      { id: 'A', text: "By charging all feature development to general administrative overhead" },
+      { id: 'B', text: "Product managers should never be concerned with infrastructure costs" },
       { id: 'C', text: "By tagging infrastructure resources with specific Feature IDs and mapping cloud costs directly to feature revenue in product P&Ls" },
       { id: 'D', text: "By estimating costs using consumer retail prices" }
     ],
@@ -324,12 +324,12 @@ export const FINOPS_FOCP_QUESTIONS_10 = [
     scenario: "An engineering organization tracks DORA metrics (Deployment Frequency, Lead Time for Changes, Change Failure Rate, Time to Restore).",
     question: "How does adding 'Cost per Deployment' or 'Infrastructure Cost per Release' enhance DORA maturity?",
     options: [
-      { id: 'A', text: "It proves that DevOps practices increase cloud waste" },
-      { id: 'B', text: "It provides a holistic view of delivery velocity, engineering quality, and economic sustainability in software delivery" },
-      { id: 'C', text: "It penalizes developers who deploy code frequently" },
-      { id: 'D', text: "DORA metrics are incompatible with financial analysis" }
+      { id: 'A', text: "It penalizes developers who deploy code frequently" },
+      { id: 'B', text: "It proves that DevOps practices increase cloud waste" },
+      { id: 'C', text: "DORA metrics are incompatible with financial analysis" },
+      { id: 'D', text: "It provides a holistic view of delivery velocity, engineering quality, and economic sustainability in software delivery" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Combining DORA velocity metrics with FinOps economic telemetry ensures that engineering agility is accompanied by economic discipline, proving that continuous delivery practices produce cost-effective, high-quality software.",
     referenceUrl: "https://www.finops.org/framework/capabilities/workload-optimization/",
@@ -346,11 +346,11 @@ export const FINOPS_FOCP_QUESTIONS_10 = [
     question: "Which operational strategies optimize logging expenditure without degrading security posture?",
     options: [
       { id: 'A', text: "Store log files exclusively on high-performance Provisioned IOPS SSD disks" },
-      { id: 'B', text: "Reduce debug logging in production, set log group retention limits (e.g. 30 days instead of never expire), and archive compliance logs to cold S3 storage" },
-      { id: 'C', text: "Print entire database tables into console logs on every user click" },
-      { id: 'D', text: "Disable all logging and monitoring across all production environments" }
+      { id: 'B', text: "Disable all logging and monitoring across all production environments" },
+      { id: 'C', text: "Reduce debug logging in production, set log group retention limits (e.g. 30 days instead of never expire), and archive compliance logs to cold S3 storage" },
+      { id: 'D', text: "Print entire database tables into console logs on every user click" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Log ingestion and retention costs escalate rapidly. FinOps best practices enforce: setting log level to INFO or WARN in production, configuring explicit log retention periods (e.g. 14–30 days) on CloudWatch log groups, and exporting raw logs to low-cost S3 Glacier for multi-year compliance retention.",
     referenceUrl: "https://www.finops.org/framework/capabilities/workload-optimization/",
@@ -366,12 +366,12 @@ export const FINOPS_FOCP_QUESTIONS_10 = [
     scenario: "An enterprise cloud team is evaluating operational processes, financial accountability, and FinOps framework best practices.",
     question: "When modeling long-term commitment purchases (Savings Plans or CUDs), why should organizations avoid targeting 100% commitment coverage?",
     options: [
-      { id: 'A', text: "Because targeting 100% coverage assumes zero future architectural changes, seasonal dips, or workload modernizations, leading to costly over-commitment waste" },
-      { id: 'B', text: "Because commitments only apply to development environments" },
-      { id: 'C', text: "Because on-demand pricing is cheaper than committed pricing at high volumes" },
-      { id: 'D', text: "Because cloud providers cancel customer accounts that reach 100% commitment coverage" }
+      { id: 'A', text: "Because cloud providers cancel customer accounts that reach 100% commitment coverage" },
+      { id: 'B', text: "Because on-demand pricing is cheaper than committed pricing at high volumes" },
+      { id: 'C', text: "Because commitments only apply to development environments" },
+      { id: 'D', text: "Because targeting 100% coverage assumes zero future architectural changes, seasonal dips, or workload modernizations, leading to costly over-commitment waste" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Aiming for 100% commitment coverage is dangerous: any architectural efficiency improvement, migration to serverless, or seasonal downturn drops utilization below 100%, causing financial waste. Industry best practice targets 70%–85% coverage of baseline compute, absorbing peaks with on-demand or Spot capacity.",
     referenceUrl: "https://www.finops.org/framework/capabilities/rate-optimization/",
@@ -388,8 +388,8 @@ export const FINOPS_FOCP_QUESTIONS_10 = [
     question: "What is the recommended automated remediation workflow?",
     options: [
       { id: 'A', text: "Attach all 150 unattached volumes to the primary production web server" },
-      { id: 'B', text: "Ignore the volumes because unattached disks do not incur charges" },
-      { id: 'C', text: "Immediately delete the volumes without backing them up" },
+      { id: 'B', text: "Immediately delete the volumes without backing them up" },
+      { id: 'C', text: "Ignore the volumes because unattached disks do not incur charges" },
       { id: 'D', text: "Take a final snapshot of the unattached volume, notify the previous owner via email/Slack, and delete the unattached volume after a 7-day grace period" }
     ],
     correctAnswers: ['D'],
@@ -408,12 +408,12 @@ export const FINOPS_FOCP_QUESTIONS_10 = [
     scenario: "An enterprise cloud team is evaluating operational processes, financial accountability, and FinOps framework best practices.",
     question: "In consolidated billing across multiple accounts, what is the difference between an unblended rate and a blended rate?",
     options: [
-      { id: 'A', text: "Unblended is for storage; blended is for compute" },
-      { id: 'B', text: "Unblended includes taxes; blended excludes taxes" },
-      { id: 'C', text: "Blended rates are fixed by international law" },
-      { id: 'D', text: "Unblended is the exact rate incurred by the specific resource account; blended is an average rate calculated across all linked accounts sharing volume tiers" }
+      { id: 'A', text: "Unblended includes taxes; blended excludes taxes" },
+      { id: 'B', text: "Unblended is the exact rate incurred by the specific resource account; blended is an average rate calculated across all linked accounts sharing volume tiers" },
+      { id: 'C', text: "Unblended is for storage; blended is for compute" },
+      { id: 'D', text: "Blended rates are fixed by international law" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Unblended rates show the actual price incurred by a specific account (e.g. paying on-demand in account A while account B receives a reservation). Blended rates average total costs across all linked accounts in an organization sharing volume discounts.",
     referenceUrl: "https://www.finops.org/framework/capabilities/cost-allocation/",
@@ -429,12 +429,12 @@ export const FINOPS_FOCP_QUESTIONS_10 = [
     scenario: "An enterprise cloud team is evaluating operational processes, financial accountability, and FinOps framework best practices.",
     question: "What is the most effective way to foster organic cost-conscious engineering culture?",
     options: [
-      { id: 'A', text: "Require every developer to pay for their own development environments" },
-      { id: 'B', text: "Provide self-service cost dashboards, include cloud pricing in architecture design templates, and celebrate teams that optimize unit economics" },
-      { id: 'C', text: "Block all cloud deployments until engineers pass annual written accounting tests" },
-      { id: 'D', text: "Keep all billing data secret from software developers to avoid distractions" }
+      { id: 'A', text: "Block all cloud deployments until engineers pass annual written accounting tests" },
+      { id: 'B', text: "Keep all billing data secret from software developers to avoid distractions" },
+      { id: 'C', text: "Require every developer to pay for their own development environments" },
+      { id: 'D', text: "Provide self-service cost dashboards, include cloud pricing in architecture design templates, and celebrate teams that optimize unit economics" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Culture changes through enablement, not mandate. By surfacing transparent cost telemetry in familiar engineering dashboards, celebrating optimization wins, and discussing architectural cost trade-offs during sprint planning, organizations build sustainable cost-aware engineering habits.",
     referenceUrl: "https://www.finops.org/framework/culture/",
@@ -450,12 +450,12 @@ export const FINOPS_FOCP_QUESTIONS_10 = [
     scenario: "An IoT company deploys compute logic across centralized cloud regions, AWS Local Zones, and edge gateway devices.",
     question: "How does the FinOps framework account for edge infrastructure economics?",
     options: [
-      { id: 'A', text: "By analyzing latency requirements against edge pricing premiums, balancing central cloud scale against edge data transfer and compute costs" },
-      { id: 'B', text: "All edge devices must be replaced with centralized regional servers" },
+      { id: 'A', text: "All edge devices must be replaced with centralized regional servers" },
+      { id: 'B', text: "By analyzing latency requirements against edge pricing premiums, balancing central cloud scale against edge data transfer and compute costs" },
       { id: 'C', text: "Edge computing costs cannot be tracked or audited" },
       { id: 'D', text: "Edge computing is free of charge in all cloud architectures" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Edge compute infrastructure (AWS Outposts, Local Zones, Wavelength) carries price premiums compared to centralized regional data centers. FinOps teams model the total cost of ownership by weighing edge infrastructure fees against bandwidth savings from local data filtering.",
     referenceUrl: "https://www.finops.org/framework/capabilities/workload-optimization/",
@@ -471,12 +471,12 @@ export const FINOPS_FOCP_QUESTIONS_10 = [
     scenario: "An enterprise cloud team is evaluating operational processes, financial accountability, and FinOps framework best practices.",
     question: "Why are enterprise sustainability leaders increasingly partnering directly with FinOps practitioners?",
     options: [
-      { id: 'A', text: "Because cloud providers offer carbon credits in exchange for paying bills late" },
-      { id: 'B', text: "Because green IT requires operating without computers" },
-      { id: 'C', text: "Because optimizing cloud compute efficiency and reducing idle infrastructure directly cuts electricity consumption and datacenter carbon footprint" },
-      { id: 'D', text: "Because FinOps teams manage physical power plant contracts" }
+      { id: 'A', text: "Because green IT requires operating without computers" },
+      { id: 'B', text: "Because cloud providers offer carbon credits in exchange for paying bills late" },
+      { id: 'C', text: "Because FinOps teams manage physical power plant contracts" },
+      { id: 'D', text: "Because optimizing cloud compute efficiency and reducing idle infrastructure directly cuts electricity consumption and datacenter carbon footprint" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Green IT and FinOps are deeply aligned: every eliminated idle server, rightsized CPU, and optimized database query directly reduces physical kilowatt-hour energy consumption in vendor datacenters, driving verified Scope 3 carbon emission reductions.",
     referenceUrl: "https://www.finops.org/framework/capabilities/sustainability/",
@@ -492,12 +492,12 @@ export const FINOPS_FOCP_QUESTIONS_10 = [
     scenario: "An enterprise cloud team is evaluating operational processes, financial accountability, and FinOps framework best practices.",
     question: "What core message summarizes the mission of the FinOps discipline for executive stakeholders?",
     options: [
-      { id: 'A', text: "FinOps is an accounting rule that forbids using credit cards" },
-      { id: 'B', text: "FinOps is the operating model for the cloud that brings financial accountability to the variable spend model, enabling teams to trade speed, cost, and quality to maximize business value" },
-      { id: 'C', text: "FinOps is a mandate to repatriate all cloud systems to private datacenters" },
-      { id: 'D', text: "FinOps is a software tool designed to block engineering releases" }
+      { id: 'A', text: "FinOps is a mandate to repatriate all cloud systems to private datacenters" },
+      { id: 'B', text: "FinOps is an accounting rule that forbids using credit cards" },
+      { id: 'C', text: "FinOps is a software tool designed to block engineering releases" },
+      { id: 'D', text: "FinOps is the operating model for the cloud that brings financial accountability to the variable spend model, enabling teams to trade speed, cost, and quality to maximize business value" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "FinOps is cultural, operational, and financial. It empowers organizations to master cloud variable consumption economics, fostering cross-functional alignment between engineering, finance, and product to maximize business value from every cloud dollar spent.",
     referenceUrl: "https://www.finops.org/framework/",
@@ -513,10 +513,10 @@ export const FINOPS_FOCP_QUESTIONS_10 = [
     scenario: "An organization establishes quarterly goals to continuously evaluate architectural efficiency and vendor contract terms.",
     question: "Which recurring operating cadence ensures continuous FinOps improvement across teams?",
     options: [
-      { id: 'A', text: "Changing cloud providers every quarter to reset promotional credits" },
+      { id: 'A', text: "Waiting for annual budget renewals to review cloud spending" },
       { id: 'B', text: "Holding monthly cross-functional FinOps reviews, updating KPI benchmarks, tracking action items in engineering sprints, and reassessing commitment portfolios" },
-      { id: 'C', text: "Waiting for annual budget renewals to review cloud spending" },
-      { id: 'D', text: "Freezing all cloud infrastructure updates permanently" }
+      { id: 'C', text: "Freezing all cloud infrastructure updates permanently" },
+      { id: 'D', text: "Changing cloud providers every quarter to reset promotional credits" }
     ],
     correctAnswers: ['B'],
     type: "single",

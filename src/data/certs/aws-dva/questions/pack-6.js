@@ -9,12 +9,12 @@ export const AWS_DVA_QUESTIONS_6 = [
     scenario: "An enterprise must enforce a strict SEC regulatory compliance policy on archive records in S3 Glacier where the policy itself can never be altered or deleted once initiated.",
     question: "Which feature locks the vault policy irreversibly following a 24-hour verification window?",
     options: [
-      { id: 'A', text: "S3 Glacier Vault Notifications" },
-      { id: 'B', text: "S3 Glacier Vault Lock (InitiateVaultLock and CompleteVaultLock)" },
-      { id: 'C', text: "KMS Key Policy" },
-      { id: 'D', text: "S3 Bucket Versioning" }
+      { id: 'A', text: "KMS Key Policy" },
+      { id: 'B', text: "S3 Bucket Versioning" },
+      { id: 'C', text: "S3 Glacier Vault Lock (InitiateVaultLock and CompleteVaultLock)" },
+      { id: 'D', text: "S3 Glacier Vault Notifications" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "S3 Glacier Vault Lock allows you to easily deploy and enforce compliance controls for individual S3 Glacier vaults with a Vault Lock policy. Once locked with `CompleteVaultLock` within the 24-hour testing window, the policy becomes completely immutable and cannot be deleted or modified.",
     referenceUrl: "https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock.html",
@@ -31,9 +31,9 @@ export const AWS_DVA_QUESTIONS_6 = [
     question: "Which KMS parameter acts as cryptographically authenticated additional data (AAD) during encryption and decryption?",
     options: [
       { id: 'A', text: "EncryptionContext" },
-      { id: 'B', text: "GrantTokens" },
-      { id: 'C', text: "KeySpec" },
-      { id: 'D', text: "KeyId" }
+      { id: 'B', text: "KeyId" },
+      { id: 'C', text: "GrantTokens" },
+      { id: 'D', text: "KeySpec" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -51,12 +51,12 @@ export const AWS_DVA_QUESTIONS_6 = [
     scenario: "A security auditor requires a comprehensive list of all IAM users in the AWS account, including the status of their passwords, access key creation dates, and when keys were last rotated.",
     question: "Which IAM feature generates this account-wide credential audit file?",
     options: [
-      { id: 'A', text: "AWS Config Snapshot" },
-      { id: 'B', text: "IAM Credential Report (GenerateCredentialReport and GetCredentialReport)" },
+      { id: 'A', text: "IAM Credential Report (GenerateCredentialReport and GetCredentialReport)" },
+      { id: 'B', text: "IAM Access Analyzer" },
       { id: 'C', text: "AWS Trusted Advisor Check" },
-      { id: 'D', text: "IAM Access Analyzer" }
+      { id: 'D', text: "AWS Config Snapshot" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "An IAM Credential Report is a downloadable CSV file that lists all IAM users in your account and the status of their credentials, including password enabled status, last password change date, access key active statuses, and last used timestamps.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_getting-report.html",
@@ -72,12 +72,12 @@ export const AWS_DVA_QUESTIONS_6 = [
     scenario: "A company wants automated monitoring that continuously alerts security teams whenever an S3 bucket, KMS key, or IAM role is accidentally shared with external AWS accounts or made public.",
     question: "Which AWS service analyzes resource policies using automated mathematical reasoning?",
     options: [
-      { id: 'A', text: "Amazon GuardDuty" },
-      { id: 'B', text: "AWS WAF" },
-      { id: 'C', text: "IAM Access Analyzer" },
-      { id: 'D', text: "Amazon Inspector" }
+      { id: 'A', text: "Amazon Inspector" },
+      { id: 'B', text: "Amazon GuardDuty" },
+      { id: 'C', text: "AWS WAF" },
+      { id: 'D', text: "IAM Access Analyzer" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "IAM Access Analyzer uses provable security (automated mathematical logic) to analyze resource-based policies attached to S3 buckets, IAM roles, KMS keys, SQS queues, and Secrets Manager secrets, generating findings whenever resources are accessible from outside the zone of trust.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html",
@@ -93,12 +93,12 @@ export const AWS_DVA_QUESTIONS_6 = [
     scenario: "A multi-region application deployed in `us-east-1` and `us-west-2` requires low-latency local access to database credentials in both regions.",
     question: "How should the developer replicate secrets across regions in Secrets Manager?",
     options: [
-      { id: 'A', text: "Deploy an SQS queue to pass passwords across regions" },
-      { id: 'B', text: "Configure Multi-Region Secret Replication on the secret in Secrets Manager" },
-      { id: 'C', text: "Export the secret to an unencrypted public S3 bucket" },
-      { id: 'D', text: "Write a cron job that calls PutSecretValue in both regions" }
+      { id: 'A', text: "Write a cron job that calls PutSecretValue in both regions" },
+      { id: 'B', text: "Export the secret to an unencrypted public S3 bucket" },
+      { id: 'C', text: "Deploy an SQS queue to pass passwords across regions" },
+      { id: 'D', text: "Configure Multi-Region Secret Replication on the secret in Secrets Manager" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "AWS Secrets Manager supports native multi-region secret replication. You create a primary secret in one region and replicate it to secondary regions. Secrets Manager automatically synchronizes secret values and rotation updates across all replica regions.",
     referenceUrl: "https://docs.aws.amazon.com/secretsmanager/latest/userguide/create-manage-multi-region-secrets.html",
@@ -114,12 +114,12 @@ export const AWS_DVA_QUESTIONS_6 = [
     scenario: "An enterprise security standard prohibits opening inbound port 22 (SSH) on EC2 instances and forbids managing static SSH private keys on developer laptops.",
     question: "Which AWS service provides secure, browser-based shell access to EC2 instances using IAM authentication?",
     options: [
-      { id: 'A', text: "AWS Systems Manager Session Manager" },
+      { id: 'A', text: "Amazon WorkSpaces" },
       { id: 'B', text: "AWS Cloud9" },
       { id: 'C', text: "Amazon EC2 Instance Connect with open port 22" },
-      { id: 'D', text: "Amazon WorkSpaces" }
+      { id: 'D', text: "AWS Systems Manager Session Manager" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "AWS Systems Manager Session Manager provides secure instance management without opening inbound ports, managing SSH keys, or deploying bastion hosts. Connections are authenticated through IAM, encrypted via TLS, and logged to Amazon S3 or CloudWatch Logs.",
     referenceUrl: "https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager.html",
@@ -135,12 +135,12 @@ export const AWS_DVA_QUESTIONS_6 = [
     scenario: "A company is migrating 500,000 users from an on-premises LDAP user store to Amazon Cognito User Pools. Forcing all users to reset their passwords on day one will cause customer churn.",
     question: "Which Cognito feature enables seamless, just-in-time user and password migration as users log in?",
     options: [
-      { id: 'A', text: "Pre Sign-up Trigger" },
-      { id: 'B', text: "Post Authentication Trigger" },
-      { id: 'C', text: "User Migration Lambda Trigger" },
+      { id: 'A', text: "User Migration Lambda Trigger" },
+      { id: 'B', text: "Pre Sign-up Trigger" },
+      { id: 'C', text: "Post Authentication Trigger" },
       { id: 'D', text: "Cognito Sync" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The `User Migration` Lambda trigger is invoked when a user attempts to sign in with a username that does not exist in the Cognito user pool. The Lambda function authenticates the user against the legacy user directory, imports the profile and password into Cognito, and allows the login to proceed seamlessly without a password reset.",
     referenceUrl: "https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-migrate-user.html",
@@ -156,12 +156,12 @@ export const AWS_DVA_QUESTIONS_6 = [
     scenario: "An API Gateway REST API forwards requests to an HTTP backend running on an EC2 instance. The backend must verify that incoming HTTP requests originated strictly from API Gateway and not from rogue network clients.",
     question: "Which API Gateway feature allows the backend server to authenticate API Gateway via SSL client certificates?",
     options: [
-      { id: 'A', text: "API Gateway Usage Plans" },
-      { id: 'B', text: "API Gateway Client Certificate" },
-      { id: 'C', text: "AWS WAF Bot Control" },
-      { id: 'D', text: "Amazon Route 53 DNSSEC" }
+      { id: 'A', text: "Amazon Route 53 DNSSEC" },
+      { id: 'B', text: "AWS WAF Bot Control" },
+      { id: 'C', text: "API Gateway Usage Plans" },
+      { id: 'D', text: "API Gateway Client Certificate" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "API Gateway can generate an SSL client certificate. When API Gateway makes HTTP requests to a backend HTTP endpoint, it presents the client certificate during the TLS handshake. The backend verifies the certificate to ensure traffic came exclusively from that API Gateway stage.",
     referenceUrl: "https://docs.aws.amazon.com/apigateway/latest/developerguide/getting-started-client-side-ssl-authentication.html",
@@ -177,12 +177,12 @@ export const AWS_DVA_QUESTIONS_6 = [
     scenario: "A scientific research agency hosts 100 TB of satellite imagery in an S3 bucket for open academic research. The agency wants users who download data to pay their own data transfer and request costs.",
     question: "Which S3 bucket configuration transfers network egress and request billing to the caller?",
     options: [
-      { id: 'A', text: "S3 Object Lock" },
-      { id: 'B', text: "Requester Pays" },
-      { id: 'C', text: "S3 Storage Lens" },
-      { id: 'D', text: "S3 Transfer Acceleration" }
+      { id: 'A', text: "S3 Transfer Acceleration" },
+      { id: 'B', text: "S3 Storage Lens" },
+      { id: 'C', text: "S3 Object Lock" },
+      { id: 'D', text: "Requester Pays" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Enabling `Requester Pays` on an S3 bucket transfers the cost of requests and data download transfers from the bucket owner to the requesting AWS account. Callers must include `x-amz-request-payer=requester` in their requests and authenticate with valid AWS credentials.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html",
@@ -198,12 +198,12 @@ export const AWS_DVA_QUESTIONS_6 = [
     scenario: "A developer notices that an S3 bucket storage size is growing unexpectedly even though no new completed files have been added. Incomplete multipart uploads were abandoned after network failures.",
     question: "Which S3 Lifecycle rule automatically removes incomplete multipart upload parts after 7 days?",
     options: [
-      { id: 'A', text: "Transition to S3 Glacier" },
-      { id: 'B', text: "AbortIncompleteMultipartUpload" },
-      { id: 'C', text: "NoncurrentVersionExpiration" },
-      { id: 'D', text: "Expire Current Versions" }
+      { id: 'A', text: "NoncurrentVersionExpiration" },
+      { id: 'B', text: "Expire Current Versions" },
+      { id: 'C', text: "AbortIncompleteMultipartUpload" },
+      { id: 'D', text: "Transition to S3 Glacier" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "The `AbortIncompleteMultipartUpload` lifecycle action instructs Amazon S3 to abort any multipart uploads that have not completed within a specified number of days after initiation, permanently deleting the accumulated partial upload parts and eliminating ongoing storage costs.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/mpu-abort-incomplete-mpu-lifecycle-config.html",
@@ -220,9 +220,9 @@ export const AWS_DVA_QUESTIONS_6 = [
     question: "Which KMS feature provides a friendly, mutable display name that can be pointed to different key IDs?",
     options: [
       { id: 'A', text: "KMS Key Alias (alias/my-key)" },
-      { id: 'B', text: "KMS Grant Token" },
-      { id: 'C', text: "KMS Key Tag" },
-      { id: 'D', text: "KMS Key ARN" }
+      { id: 'B', text: "KMS Key ARN" },
+      { id: 'C', text: "KMS Grant Token" },
+      { id: 'D', text: "KMS Key Tag" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -241,9 +241,9 @@ export const AWS_DVA_QUESTIONS_6 = [
     question: "How should the administrator extend the validity of credentials obtained when assuming the role?",
     options: [
       { id: 'A', text: "Increase the Maximum Session Duration setting on the IAM role up to 12 hours (43,200 seconds)" },
-      { id: 'B', text: "Switch to an IAM user instead of a role" },
-      { id: 'C', text: "Request an IAM root user password reset" },
-      { id: 'D', text: "Generate a new access key with no expiration date" }
+      { id: 'B', text: "Request an IAM root user password reset" },
+      { id: 'C', text: "Generate a new access key with no expiration date" },
+      { id: 'D', text: "Switch to an IAM user instead of a role" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -261,12 +261,12 @@ export const AWS_DVA_QUESTIONS_6 = [
     scenario: "A developer needs to ensure that engineering teams can only access secrets in Secrets Manager that have a tag `Project` matching their IAM principal tag `Project`.",
     question: "Which authorization strategy evaluates tags on both the caller and the secret dynamically?",
     options: [
-      { id: 'A', text: "Role-Based Access Control (RBAC) with hardcoded ARNs" },
-      { id: 'B', text: "Attribute-Based Access Control (ABAC) using the aws:ResourceTag and aws:PrincipalTag condition keys" },
-      { id: 'C', text: "S3 Bucket Policies" },
-      { id: 'D', text: "Cognito User Pool Groups" }
+      { id: 'A', text: "Cognito User Pool Groups" },
+      { id: 'B', text: "S3 Bucket Policies" },
+      { id: 'C', text: "Role-Based Access Control (RBAC) with hardcoded ARNs" },
+      { id: 'D', text: "Attribute-Based Access Control (ABAC) using the aws:ResourceTag and aws:PrincipalTag condition keys" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Attribute-Based Access Control (ABAC) uses IAM policies that compare tags attached to the IAM principal (`aws:PrincipalTag/Project`) with tags attached to the AWS resource (`aws:ResourceTag/Project`), allowing dynamic, scalable access control without updating policies when new resources are added.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction_attribute-based-access-control.html",
@@ -282,12 +282,12 @@ export const AWS_DVA_QUESTIONS_6 = [
     scenario: "A microservice cache needs to be refreshed whenever an administrator updates a database endpoint parameter in Systems Manager Parameter Store.",
     question: "Which service receives parameter change events from Parameter Store and triggers downstream notification targets?",
     options: [
-      { id: 'A', text: "Amazon Simple Email Service (SES)" },
-      { id: 'B', text: "AWS CloudFormation Change Sets" },
-      { id: 'C', text: "Amazon EventBridge" },
+      { id: 'A', text: "Amazon EventBridge" },
+      { id: 'B', text: "Amazon Simple Email Service (SES)" },
+      { id: 'C', text: "AWS CloudFormation Change Sets" },
       { id: 'D', text: "Amazon QuickSight" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Systems Manager Parameter Store publishes events to Amazon EventBridge whenever parameters are created, updated, or deleted. EventBridge rules match parameter change events and trigger downstream targets like Lambda functions or SNS topics.",
     referenceUrl: "https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-events.html",
@@ -303,12 +303,12 @@ export const AWS_DVA_QUESTIONS_6 = [
     scenario: "A banking mobile app uses Cognito User Pools with MFA. The bank wants to challenge users for SMS MFA only when they log in from a new, unrecognized device.",
     question: "Which Amazon Cognito feature suppresses MFA challenges on recognized user devices?",
     options: [
-      { id: 'A', text: "Device Tracking with Remembered Devices" },
+      { id: 'A', text: "Advanced Security Risk-Based Adaptive Authentication alone" },
       { id: 'B', text: "Identity Pools Guest Mode" },
       { id: 'C', text: "Cognito Sync" },
-      { id: 'D', text: "Advanced Security Risk-Based Adaptive Authentication alone" }
+      { id: 'D', text: "Device Tracking with Remembered Devices" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Cognito User Pools support `Device Tracking`. When devices are 'Remembered', Cognito generates a device key and verifies the device during login, allowing applications to bypass second-factor MFA challenges on trusted devices while enforcing MFA on unknown devices.",
     referenceUrl: "https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html",
@@ -324,12 +324,12 @@ export const AWS_DVA_QUESTIONS_6 = [
     scenario: "A developer uses Amazon Cognito Identity Pools to obtain temporary AWS credentials. In the legacy Basic flow, the mobile client made two separate network calls to STS.",
     question: "How does the Enhanced (Simplified) Authflow improve client performance?",
     options: [
-      { id: 'A', text: "The client receives temporary AWS credentials directly from Cognito in a single API call to GetCredentialsForIdentity" },
-      { id: 'B', text: "The client connects directly to DynamoDB without credentials" },
+      { id: 'A', text: "The client connects directly to DynamoDB without credentials" },
+      { id: 'B', text: "The client receives temporary AWS credentials directly from Cognito in a single API call to GetCredentialsForIdentity" },
       { id: 'C', text: "The client downloads a long-term IAM access key file" },
       { id: 'D', text: "Cognito disables token verification completely" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "In the Enhanced (Simplified) Authflow, Amazon Cognito acts on behalf of the client to request credentials from STS, allowing the client to obtain temporary credentials in a single `GetCredentialsForIdentity` call rather than separate `GetId`, `GetOpenIdToken`, and `AssumeRoleWithWebIdentity` calls.",
     referenceUrl: "https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flow.html",
@@ -345,12 +345,12 @@ export const AWS_DVA_QUESTIONS_6 = [
     scenario: "A company wants to allow access to an API Gateway REST API only from a specific partner office public IP address (`203.0.113.50/32`).",
     question: "Which condition operator in an API Gateway Resource Policy restricts access by IP?",
     options: [
-      { id: 'A', text: "IpAddress: { aws:SourceIp: 203.0.113.50/32 }" },
-      { id: 'B', text: "StringEquals: { aws:PrincipalType: IP }" },
-      { id: 'C', text: "ArnEquals: { aws:SourceArn: 203.0.113.50 }" },
-      { id: 'D', text: "Bool: { aws:SecureTransport: true }" }
+      { id: 'A', text: "ArnEquals: { aws:SourceArn: 203.0.113.50 }" },
+      { id: 'B', text: "Bool: { aws:SecureTransport: true }" },
+      { id: 'C', text: "IpAddress: { aws:SourceIp: 203.0.113.50/32 }" },
+      { id: 'D', text: "StringEquals: { aws:PrincipalType: IP }" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "API Gateway Resource Policies support IP condition operators (`IpAddress` and `NotIpAddress`). A policy granting access only when `\"IpAddress\": { \"aws:SourceIp\": \"203.0.113.50/32\" }` ensures requests from other IP addresses are rejected.",
     referenceUrl: "https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-resource-policies-examples.html#apigateway-resource-policies-source-ip-example",
@@ -366,12 +366,12 @@ export const AWS_DVA_QUESTIONS_6 = [
     scenario: "A critical backup S3 bucket stores compliance archives. To protect against rogue administrators or compromised root credentials, permanently deleting an object version must require a physical hardware token code.",
     question: "Which Amazon S3 feature requires multi-factor authentication to delete object versions?",
     options: [
-      { id: 'A', text: "S3 Versioning with MFA Delete enabled" },
+      { id: 'A', text: "KMS Multi-Factor Encryption" },
       { id: 'B', text: "S3 Object Lock alone" },
       { id: 'C', text: "S3 Bucket Policies with Deny" },
-      { id: 'D', text: "KMS Multi-Factor Encryption" }
+      { id: 'D', text: "S3 Versioning with MFA Delete enabled" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "S3 Versioning supports `MFA Delete`. When enabled via the AWS CLI using root account credentials, deleting an object version or altering the bucket versioning state requires the caller to provide an MFA code from a hardware or virtual TOTP device.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiFactorAuthenticationDelete.html",
@@ -387,12 +387,12 @@ export const AWS_DVA_QUESTIONS_6 = [
     scenario: "An application using a KMS grant finishes its batch encryption job and wants to cleanly retire its grant using its own grant credentials without requiring admin permissions.",
     question: "Which API operation allows the grantee principal to retire the grant independently?",
     options: [
-      { id: 'A', text: "DisableKey" },
-      { id: 'B', text: "DeleteKey" },
-      { id: 'C', text: "RevokeGrant" },
-      { id: 'D', text: "RetireGrant" }
+      { id: 'A', text: "DeleteKey" },
+      { id: 'B', text: "RetireGrant" },
+      { id: 'C', text: "DisableKey" },
+      { id: 'D', text: "RevokeGrant" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "The `RetireGrant` API allows the grantee principal (or the principal that created the grant) to voluntarily retire the grant when it is done using the KMS key. In contrast, `RevokeGrant` is typically called by administrators using key management permissions.",
     referenceUrl: "https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#retire-grant",
@@ -408,12 +408,12 @@ export const AWS_DVA_QUESTIONS_6 = [
     scenario: "A security audit requires that user accounts in Cognito User Pools must be protected against brute-force password guessing attacks.",
     question: "Which Cognito User Pool feature detects compromised credentials, monitors unusual IP activity, and locks accounts temporarily?",
     options: [
-      { id: 'A', text: "IAM Credential Reports" },
-      { id: 'B', text: "Cognito Identity Pools Basic Auth" },
-      { id: 'C', text: "Cognito Sync" },
-      { id: 'D', text: "Cognito Advanced Security Features (Adaptive Authentication)" }
+      { id: 'A', text: "Cognito Sync" },
+      { id: 'B', text: "IAM Credential Reports" },
+      { id: 'C', text: "Cognito Advanced Security Features (Adaptive Authentication)" },
+      { id: 'D', text: "Cognito Identity Pools Basic Auth" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Cognito User Pools `Advanced Security Features` provide adaptive authentication and compromised credential monitoring. When suspicious sign-in attempts or brute-force password attacks are detected, Cognito can challenge the user for additional verification or temporarily block the account.",
     referenceUrl: "https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html",
@@ -429,12 +429,12 @@ export const AWS_DVA_QUESTIONS_6 = [
     scenario: "A developer is writing a `buildspec.yml` file to compile a Java application, run unit tests, and prepare deployment artifacts on AWS CodeBuild.",
     question: "In which buildspec phase should the developer install runtime tools and package managers?",
     options: [
-      { id: 'A', text: "The install phase" },
-      { id: 'B', text: "The pre_build phase" },
-      { id: 'C', text: "The build phase" },
-      { id: 'D', text: "The post_build phase" }
+      { id: 'A', text: "The pre_build phase" },
+      { id: 'B', text: "The install phase" },
+      { id: 'C', text: "The post_build phase" },
+      { id: 'D', text: "The build phase" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "AWS CodeBuild executes build specifications across four distinct phases: `install` (installing build tools and runtimes like JDK or Python), `pre_build` (logging into ECR or installing dependencies), `build` (compiling code and running tests), and `post_build` (packaging artifacts and sending notifications).",
     referenceUrl: "https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html",
@@ -451,9 +451,9 @@ export const AWS_DVA_QUESTIONS_6 = [
     question: "How should the developer configure `buildspec.yml` to speed up build times?",
     options: [
       { id: 'A', text: "Configure the cache section in buildspec.yml to cache the node_modules directory in Amazon S3" },
-      { id: 'B', text: "Disable unit tests during the build phase" },
-      { id: 'C', text: "Store dependencies in an unversioned Git branch" },
-      { id: 'D', text: "Hardcode node_modules inside the base Docker container image" }
+      { id: 'B', text: "Store dependencies in an unversioned Git branch" },
+      { id: 'C', text: "Hardcode node_modules inside the base Docker container image" },
+      { id: 'D', text: "Disable unit tests during the build phase" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -471,12 +471,12 @@ export const AWS_DVA_QUESTIONS_6 = [
     scenario: "A web application is deployed to EC2 instances using AWS CodeDeploy. The application must run a health check script to verify the web server is responding before CodeDeploy declares the deployment successful.",
     question: "Which lifecycle hook in `appspec.yml` is executed specifically to verify application health?",
     options: [
-      { id: 'A', text: "AfterInstall" },
-      { id: 'B', text: "ValidateService" },
+      { id: 'A', text: "ValidateService" },
+      { id: 'B', text: "ApplicationStart" },
       { id: 'C', text: "BeforeInstall" },
-      { id: 'D', text: "ApplicationStart" }
+      { id: 'D', text: "AfterInstall" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "In CodeDeploy `appspec.yml` for EC2/on-premises deployments, the `ValidateService` hook is the final lifecycle event executed to verify that the application has started correctly and is responding to health checks. If the script fails, CodeDeploy triggers an automated rollback.",
     referenceUrl: "https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-hooks.html",
@@ -493,9 +493,9 @@ export const AWS_DVA_QUESTIONS_6 = [
     question: "Which CodeDeploy Lambda lifecycle hook executes test scripts prior to traffic shifting?",
     options: [
       { id: 'A', text: "BeforeAllowTraffic" },
-      { id: 'B', text: "ValidateService" },
-      { id: 'C', text: "BeforeInstall" },
-      { id: 'D', text: "AfterAllowTraffic" }
+      { id: 'B', text: "AfterAllowTraffic" },
+      { id: 'C', text: "ValidateService" },
+      { id: 'D', text: "BeforeInstall" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -513,12 +513,12 @@ export const AWS_DVA_QUESTIONS_6 = [
     scenario: "A developer wants to release a new Lambda function by shifting 10% of traffic immediately, waiting 10 minutes to observe error rates, and then shifting the remaining 90% of traffic all at once.",
     question: "Which predefined CodeDeploy deployment configuration matches this strategy?",
     options: [
-      { id: 'A', text: "Canary10Percent10Minutes" },
+      { id: 'A', text: "Rolling10PercentEvery10Minutes" },
       { id: 'B', text: "Linear10PercentEvery1Minute" },
       { id: 'C', text: "AllAtOnce" },
-      { id: 'D', text: "Rolling10PercentEvery10Minutes" }
+      { id: 'D', text: "Canary10Percent10Minutes" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The `Canary10Percent10Minutes` deployment configuration shifts 10% of traffic in the first increment, waits 10 minutes, and then shifts the remaining 90% in the second increment. In contrast, `Linear` configurations shift equal percentages at regular intervals (e.g. 10% every minute until 100%).",
     referenceUrl: "https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations.html",

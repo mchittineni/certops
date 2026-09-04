@@ -9,12 +9,12 @@ export const CNCF_CNPA_QUESTIONS_17 = [
     scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates GitOps Delivery to eliminate human access to production clusters while ensuring automated, auditable deployments and self-healing drift correction.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives? Reconciling declared Git state with live clusters using ArgoCD or Flux is under consideration.",
     options: [
-      { id: 'A', text: "Implement GitOps continuous delivery using ArgoCD or Flux, where clusters pull and reconcile configurations directly from Git." },
-      { id: 'B', text: "Grant direct SSH and kubectl access to production cluster nodes for all software developers." },
+      { id: 'A', text: "Grant direct SSH and kubectl access to production cluster nodes for all software developers." },
+      { id: 'B', text: "Implement GitOps continuous delivery using ArgoCD or Flux, where clusters pull and reconcile configurations directly from Git." },
       { id: 'C', text: "Deploy applications by manually copying binary files over unencrypted FTP." },
       { id: 'D', text: "Rely on manual CLI deployments executed from developer laptops." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Implement GitOps continuous delivery using ArgoCD or Flux, where clusters pull and reconcile configurations directly from Git. GitOps continuous delivery uses Git as the single source of truth for declared infrastructure and application state. Controllers running inside clusters (ArgoCD, Flux) pull changes, apply manifests automatically, and continuously correct configuration drift without human cluster access.",
     referenceUrl: "https://opengitops.net/",
@@ -30,12 +30,12 @@ export const CNCF_CNPA_QUESTIONS_17 = [
     scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates GitOps Delivery to eliminate human access to production clusters while ensuring automated, auditable deployments and self-healing drift correction.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks? Reconciling declared Git state with live clusters using ArgoCD or Flux is under consideration.",
     options: [
-      { id: 'A', text: "Implement GitOps continuous delivery using ArgoCD or Flux, where clusters pull and reconcile configurations directly from Git." },
-      { id: 'B', text: "Grant direct SSH and kubectl access to production cluster nodes for all software developers." },
+      { id: 'A', text: "Grant direct SSH and kubectl access to production cluster nodes for all software developers." },
+      { id: 'B', text: "Implement GitOps continuous delivery using ArgoCD or Flux, where clusters pull and reconcile configurations directly from Git." },
       { id: 'C', text: "Deploy applications by manually copying binary files over unencrypted FTP." },
       { id: 'D', text: "Rely on manual CLI deployments executed from developer laptops." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Implement GitOps continuous delivery using ArgoCD or Flux, where clusters pull and reconcile configurations directly from Git. GitOps continuous delivery uses Git as the single source of truth for declared infrastructure and application state. Controllers running inside clusters (ArgoCD, Flux) pull changes, apply manifests automatically, and continuously correct configuration drift without human cluster access.",
     referenceUrl: "https://opengitops.net/",
@@ -53,8 +53,8 @@ export const CNCF_CNPA_QUESTIONS_17 = [
     options: [
       { id: 'A', text: "Implement GitOps continuous delivery using ArgoCD or Flux, where clusters pull and reconcile configurations directly from Git." },
       { id: 'B', text: "Grant direct SSH and kubectl access to production cluster nodes for all software developers." },
-      { id: 'C', text: "Deploy applications by manually copying binary files over unencrypted FTP." },
-      { id: 'D', text: "Rely on manual CLI deployments executed from developer laptops." }
+      { id: 'C', text: "Rely on manual CLI deployments executed from developer laptops." },
+      { id: 'D', text: "Deploy applications by manually copying binary files over unencrypted FTP." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -72,12 +72,12 @@ export const CNCF_CNPA_QUESTIONS_17 = [
     scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates GitOps Delivery to eliminate human access to production clusters while ensuring automated, auditable deployments and self-healing drift correction.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely? Reconciling declared Git state with live clusters using ArgoCD or Flux is under consideration.",
     options: [
-      { id: 'A', text: "Implement GitOps continuous delivery using ArgoCD or Flux, where clusters pull and reconcile configurations directly from Git." },
-      { id: 'B', text: "Grant direct SSH and kubectl access to production cluster nodes for all software developers." },
-      { id: 'C', text: "Deploy applications by manually copying binary files over unencrypted FTP." },
+      { id: 'A', text: "Grant direct SSH and kubectl access to production cluster nodes for all software developers." },
+      { id: 'B', text: "Deploy applications by manually copying binary files over unencrypted FTP." },
+      { id: 'C', text: "Implement GitOps continuous delivery using ArgoCD or Flux, where clusters pull and reconcile configurations directly from Git." },
       { id: 'D', text: "Rely on manual CLI deployments executed from developer laptops." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Implement GitOps continuous delivery using ArgoCD or Flux, where clusters pull and reconcile configurations directly from Git. GitOps continuous delivery uses Git as the single source of truth for declared infrastructure and application state. Controllers running inside clusters (ArgoCD, Flux) pull changes, apply manifests automatically, and continuously correct configuration drift without human cluster access.",
     referenceUrl: "https://opengitops.net/",
@@ -93,12 +93,12 @@ export const CNCF_CNPA_QUESTIONS_17 = [
     scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates GitOps Delivery to eliminate human access to production clusters while ensuring automated, auditable deployments and self-healing drift correction.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation? Reconciling declared Git state with live clusters using ArgoCD or Flux is under consideration.",
     options: [
-      { id: 'A', text: "Implement GitOps continuous delivery using ArgoCD or Flux, where clusters pull and reconcile configurations directly from Git." },
-      { id: 'B', text: "Grant direct SSH and kubectl access to production cluster nodes for all software developers." },
-      { id: 'C', text: "Deploy applications by manually copying binary files over unencrypted FTP." },
-      { id: 'D', text: "Rely on manual CLI deployments executed from developer laptops." }
+      { id: 'A', text: "Deploy applications by manually copying binary files over unencrypted FTP." },
+      { id: 'B', text: "Implement GitOps continuous delivery using ArgoCD or Flux, where clusters pull and reconcile configurations directly from Git." },
+      { id: 'C', text: "Rely on manual CLI deployments executed from developer laptops." },
+      { id: 'D', text: "Grant direct SSH and kubectl access to production cluster nodes for all software developers." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Implement GitOps continuous delivery using ArgoCD or Flux, where clusters pull and reconcile configurations directly from Git. GitOps continuous delivery uses Git as the single source of truth for declared infrastructure and application state. Controllers running inside clusters (ArgoCD, Flux) pull changes, apply manifests automatically, and continuously correct configuration drift without human cluster access.",
     referenceUrl: "https://opengitops.net/",
@@ -115,8 +115,8 @@ export const CNCF_CNPA_QUESTIONS_17 = [
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives? Fine-grained traffic shifting and automated metric analysis using Argo Rollouts or Flagger is under consideration.",
     options: [
       { id: 'A', text: "Implement progressive delivery using Argo Rollouts or Flagger to execute automated canary analysis and dynamic traffic shifting." },
-      { id: 'B', text: "Deploy new releases immediately to 100% of production traffic during peak business hours without monitoring." },
-      { id: 'C', text: "Rely on manual customer complaint tickets to determine whether a newly deployed release is functional." },
+      { id: 'B', text: "Rely on manual customer complaint tickets to determine whether a newly deployed release is functional." },
+      { id: 'C', text: "Deploy new releases immediately to 100% of production traffic during peak business hours without monitoring." },
       { id: 'D', text: "Prohibit updating production software to avoid any potential downtime." }
     ],
     correctAnswers: ['A'],
@@ -136,9 +136,9 @@ export const CNCF_CNPA_QUESTIONS_17 = [
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks? Fine-grained traffic shifting and automated metric analysis using Argo Rollouts or Flagger is under consideration.",
     options: [
       { id: 'A', text: "Implement progressive delivery using Argo Rollouts or Flagger to execute automated canary analysis and dynamic traffic shifting." },
-      { id: 'B', text: "Deploy new releases immediately to 100% of production traffic during peak business hours without monitoring." },
+      { id: 'B', text: "Prohibit updating production software to avoid any potential downtime." },
       { id: 'C', text: "Rely on manual customer complaint tickets to determine whether a newly deployed release is functional." },
-      { id: 'D', text: "Prohibit updating production software to avoid any potential downtime." }
+      { id: 'D', text: "Deploy new releases immediately to 100% of production traffic during peak business hours without monitoring." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -156,12 +156,12 @@ export const CNCF_CNPA_QUESTIONS_17 = [
     scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates Progressive Delivery to roll out a new version of a critical payments service gradually to 5% of customer traffic while automatically aborting if error rates spike.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls? Fine-grained traffic shifting and automated metric analysis using Argo Rollouts or Flagger is under consideration.",
     options: [
-      { id: 'A', text: "Implement progressive delivery using Argo Rollouts or Flagger to execute automated canary analysis and dynamic traffic shifting." },
-      { id: 'B', text: "Deploy new releases immediately to 100% of production traffic during peak business hours without monitoring." },
-      { id: 'C', text: "Rely on manual customer complaint tickets to determine whether a newly deployed release is functional." },
-      { id: 'D', text: "Prohibit updating production software to avoid any potential downtime." }
+      { id: 'A', text: "Deploy new releases immediately to 100% of production traffic during peak business hours without monitoring." },
+      { id: 'B', text: "Rely on manual customer complaint tickets to determine whether a newly deployed release is functional." },
+      { id: 'C', text: "Prohibit updating production software to avoid any potential downtime." },
+      { id: 'D', text: "Implement progressive delivery using Argo Rollouts or Flagger to execute automated canary analysis and dynamic traffic shifting." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Implement progressive delivery using Argo Rollouts or Flagger to execute automated canary analysis and dynamic traffic shifting. Progressive delivery builds upon continuous delivery by introducing automated, metric-driven rollouts. Controllers like Argo Rollouts or Flagger shift a small percentage of traffic (e.g., 5% -&gt; 20% -&gt; 100%) to the canary, analyzing Prometheus metrics and automatically rolling back if latency or HTTP errors breach thresholds.",
     referenceUrl: "https://argoproj.github.io/argo-rollouts/",
@@ -177,12 +177,12 @@ export const CNCF_CNPA_QUESTIONS_17 = [
     scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates Progressive Delivery to roll out a new version of a critical payments service gradually to 5% of customer traffic while automatically aborting if error rates spike.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely? Fine-grained traffic shifting and automated metric analysis using Argo Rollouts or Flagger is under consideration.",
     options: [
-      { id: 'A', text: "Implement progressive delivery using Argo Rollouts or Flagger to execute automated canary analysis and dynamic traffic shifting." },
-      { id: 'B', text: "Deploy new releases immediately to 100% of production traffic during peak business hours without monitoring." },
-      { id: 'C', text: "Rely on manual customer complaint tickets to determine whether a newly deployed release is functional." },
-      { id: 'D', text: "Prohibit updating production software to avoid any potential downtime." }
+      { id: 'A', text: "Prohibit updating production software to avoid any potential downtime." },
+      { id: 'B', text: "Implement progressive delivery using Argo Rollouts or Flagger to execute automated canary analysis and dynamic traffic shifting." },
+      { id: 'C', text: "Deploy new releases immediately to 100% of production traffic during peak business hours without monitoring." },
+      { id: 'D', text: "Rely on manual customer complaint tickets to determine whether a newly deployed release is functional." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Implement progressive delivery using Argo Rollouts or Flagger to execute automated canary analysis and dynamic traffic shifting. Progressive delivery builds upon continuous delivery by introducing automated, metric-driven rollouts. Controllers like Argo Rollouts or Flagger shift a small percentage of traffic (e.g., 5% -&gt; 20% -&gt; 100%) to the canary, analyzing Prometheus metrics and automatically rolling back if latency or HTTP errors breach thresholds.",
     referenceUrl: "https://argoproj.github.io/argo-rollouts/",
@@ -198,12 +198,12 @@ export const CNCF_CNPA_QUESTIONS_17 = [
     scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates Progressive Delivery to roll out a new version of a critical payments service gradually to 5% of customer traffic while automatically aborting if error rates spike.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation? Fine-grained traffic shifting and automated metric analysis using Argo Rollouts or Flagger is under consideration.",
     options: [
-      { id: 'A', text: "Implement progressive delivery using Argo Rollouts or Flagger to execute automated canary analysis and dynamic traffic shifting." },
+      { id: 'A', text: "Prohibit updating production software to avoid any potential downtime." },
       { id: 'B', text: "Deploy new releases immediately to 100% of production traffic during peak business hours without monitoring." },
       { id: 'C', text: "Rely on manual customer complaint tickets to determine whether a newly deployed release is functional." },
-      { id: 'D', text: "Prohibit updating production software to avoid any potential downtime." }
+      { id: 'D', text: "Implement progressive delivery using Argo Rollouts or Flagger to execute automated canary analysis and dynamic traffic shifting." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Implement progressive delivery using Argo Rollouts or Flagger to execute automated canary analysis and dynamic traffic shifting. Progressive delivery builds upon continuous delivery by introducing automated, metric-driven rollouts. Controllers like Argo Rollouts or Flagger shift a small percentage of traffic (e.g., 5% -&gt; 20% -&gt; 100%) to the canary, analyzing Prometheus metrics and automatically rolling back if latency or HTTP errors breach thresholds.",
     referenceUrl: "https://argoproj.github.io/argo-rollouts/",
@@ -219,12 +219,12 @@ export const CNCF_CNPA_QUESTIONS_17 = [
     scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates Quality Gates to prevent breaking API schema changes from deploying to staging or production environments and breaking dependent services.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives? Enforcing consumer-driven contract testing (Pact) and automated smoke tests in delivery pipelines is under consideration.",
     options: [
-      { id: 'A', text: "Integrate automated contract testing (such as Pact) and integration quality gates into the continuous delivery pipeline." },
-      { id: 'B', text: "Deploy changes directly to production and wait for downstream dependent teams to discover broken endpoints." },
-      { id: 'C', text: "Disable all automated integration tests to improve build pipeline speed." },
-      { id: 'D', text: "Instruct teams to never alter any API endpoints under any circumstances." }
+      { id: 'A', text: "Instruct teams to never alter any API endpoints under any circumstances." },
+      { id: 'B', text: "Disable all automated integration tests to improve build pipeline speed." },
+      { id: 'C', text: "Deploy changes directly to production and wait for downstream dependent teams to discover broken endpoints." },
+      { id: 'D', text: "Integrate automated contract testing (such as Pact) and integration quality gates into the continuous delivery pipeline." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Integrate automated contract testing (such as Pact) and integration quality gates into the continuous delivery pipeline. Platform golden paths incorporate automated quality gates. By utilizing consumer-driven contract testing frameworks (like Pact) and automated smoke tests, pipelines detect breaking API schema modifications before code ever deploys to shared environments.",
     referenceUrl: "https://docs.pact.io/",
@@ -240,12 +240,12 @@ export const CNCF_CNPA_QUESTIONS_17 = [
     scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates Quality Gates to prevent breaking API schema changes from deploying to staging or production environments and breaking dependent services.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks? Enforcing consumer-driven contract testing (Pact) and automated smoke tests in delivery pipelines is under consideration.",
     options: [
-      { id: 'A', text: "Integrate automated contract testing (such as Pact) and integration quality gates into the continuous delivery pipeline." },
+      { id: 'A', text: "Disable all automated integration tests to improve build pipeline speed." },
       { id: 'B', text: "Deploy changes directly to production and wait for downstream dependent teams to discover broken endpoints." },
-      { id: 'C', text: "Disable all automated integration tests to improve build pipeline speed." },
+      { id: 'C', text: "Integrate automated contract testing (such as Pact) and integration quality gates into the continuous delivery pipeline." },
       { id: 'D', text: "Instruct teams to never alter any API endpoints under any circumstances." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Integrate automated contract testing (such as Pact) and integration quality gates into the continuous delivery pipeline. Platform golden paths incorporate automated quality gates. By utilizing consumer-driven contract testing frameworks (like Pact) and automated smoke tests, pipelines detect breaking API schema modifications before code ever deploys to shared environments.",
     referenceUrl: "https://docs.pact.io/",
@@ -262,9 +262,9 @@ export const CNCF_CNPA_QUESTIONS_17 = [
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls? Enforcing consumer-driven contract testing (Pact) and automated smoke tests in delivery pipelines is under consideration.",
     options: [
       { id: 'A', text: "Integrate automated contract testing (such as Pact) and integration quality gates into the continuous delivery pipeline." },
-      { id: 'B', text: "Deploy changes directly to production and wait for downstream dependent teams to discover broken endpoints." },
-      { id: 'C', text: "Disable all automated integration tests to improve build pipeline speed." },
-      { id: 'D', text: "Instruct teams to never alter any API endpoints under any circumstances." }
+      { id: 'B', text: "Instruct teams to never alter any API endpoints under any circumstances." },
+      { id: 'C', text: "Deploy changes directly to production and wait for downstream dependent teams to discover broken endpoints." },
+      { id: 'D', text: "Disable all automated integration tests to improve build pipeline speed." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -284,8 +284,8 @@ export const CNCF_CNPA_QUESTIONS_17 = [
     options: [
       { id: 'A', text: "Integrate automated contract testing (such as Pact) and integration quality gates into the continuous delivery pipeline." },
       { id: 'B', text: "Deploy changes directly to production and wait for downstream dependent teams to discover broken endpoints." },
-      { id: 'C', text: "Disable all automated integration tests to improve build pipeline speed." },
-      { id: 'D', text: "Instruct teams to never alter any API endpoints under any circumstances." }
+      { id: 'C', text: "Instruct teams to never alter any API endpoints under any circumstances." },
+      { id: 'D', text: "Disable all automated integration tests to improve build pipeline speed." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -303,12 +303,12 @@ export const CNCF_CNPA_QUESTIONS_17 = [
     scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates Quality Gates to prevent breaking API schema changes from deploying to staging or production environments and breaking dependent services.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation? Enforcing consumer-driven contract testing (Pact) and automated smoke tests in delivery pipelines is under consideration.",
     options: [
-      { id: 'A', text: "Integrate automated contract testing (such as Pact) and integration quality gates into the continuous delivery pipeline." },
-      { id: 'B', text: "Deploy changes directly to production and wait for downstream dependent teams to discover broken endpoints." },
-      { id: 'C', text: "Disable all automated integration tests to improve build pipeline speed." },
-      { id: 'D', text: "Instruct teams to never alter any API endpoints under any circumstances." }
+      { id: 'A', text: "Disable all automated integration tests to improve build pipeline speed." },
+      { id: 'B', text: "Instruct teams to never alter any API endpoints under any circumstances." },
+      { id: 'C', text: "Deploy changes directly to production and wait for downstream dependent teams to discover broken endpoints." },
+      { id: 'D', text: "Integrate automated contract testing (such as Pact) and integration quality gates into the continuous delivery pipeline." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Integrate automated contract testing (such as Pact) and integration quality gates into the continuous delivery pipeline. Platform golden paths incorporate automated quality gates. By utilizing consumer-driven contract testing frameworks (like Pact) and automated smoke tests, pipelines detect breaking API schema modifications before code ever deploys to shared environments.",
     referenceUrl: "https://docs.pact.io/",
@@ -324,12 +324,12 @@ export const CNCF_CNPA_QUESTIONS_17 = [
     scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates Security Gates to detect critical vulnerabilities in open-source dependencies and base container images before workloads reach production.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives? Embedding Trivy, Grype, and static analysis tools into delivery pipelines to block vulnerabilities is under consideration.",
     options: [
-      { id: 'A', text: "Integrate automated container image scanning (e.g., Trivy, Grype) and SAST into CI pipelines to block builds containing critical CVEs." },
-      { id: 'B', text: "Disable vulnerability scanners because they generate security warnings that delay deployment deadlines." },
-      { id: 'C', text: "Scan production containers once every three years using manual penetration testers." },
-      { id: 'D', text: "Rely on developers to visually inspect compiled container binary files for malicious exploits." }
+      { id: 'A', text: "Disable vulnerability scanners because they generate security warnings that delay deployment deadlines." },
+      { id: 'B', text: "Integrate automated container image scanning (e.g., Trivy, Grype) and SAST into CI pipelines to block builds containing critical CVEs." },
+      { id: 'C', text: "Rely on developers to visually inspect compiled container binary files for malicious exploits." },
+      { id: 'D', text: "Scan production containers once every three years using manual penetration testers." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Integrate automated container image scanning (e.g., Trivy, Grype) and SAST into CI pipelines to block builds containing critical CVEs. Golden paths embed security early in the developer lifecycle ('shift left'). CI/CD pipelines automatically execute Static Application Security Testing (SAST) and container vulnerability scanning (using Trivy or Grype), halting pipelines when unpatched high or critical CVEs are detected.",
     referenceUrl: "https://aquasecurity.github.io/trivy/",
@@ -345,12 +345,12 @@ export const CNCF_CNPA_QUESTIONS_17 = [
     scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates Security Gates to detect critical vulnerabilities in open-source dependencies and base container images before workloads reach production.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks? Embedding Trivy, Grype, and static analysis tools into delivery pipelines to block vulnerabilities is under consideration.",
     options: [
-      { id: 'A', text: "Integrate automated container image scanning (e.g., Trivy, Grype) and SAST into CI pipelines to block builds containing critical CVEs." },
-      { id: 'B', text: "Disable vulnerability scanners because they generate security warnings that delay deployment deadlines." },
-      { id: 'C', text: "Scan production containers once every three years using manual penetration testers." },
+      { id: 'A', text: "Scan production containers once every three years using manual penetration testers." },
+      { id: 'B', text: "Integrate automated container image scanning (e.g., Trivy, Grype) and SAST into CI pipelines to block builds containing critical CVEs." },
+      { id: 'C', text: "Disable vulnerability scanners because they generate security warnings that delay deployment deadlines." },
       { id: 'D', text: "Rely on developers to visually inspect compiled container binary files for malicious exploits." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Integrate automated container image scanning (e.g., Trivy, Grype) and SAST into CI pipelines to block builds containing critical CVEs. Golden paths embed security early in the developer lifecycle ('shift left'). CI/CD pipelines automatically execute Static Application Security Testing (SAST) and container vulnerability scanning (using Trivy or Grype), halting pipelines when unpatched high or critical CVEs are detected.",
     referenceUrl: "https://aquasecurity.github.io/trivy/",
@@ -366,12 +366,12 @@ export const CNCF_CNPA_QUESTIONS_17 = [
     scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates Security Gates to detect critical vulnerabilities in open-source dependencies and base container images before workloads reach production.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls? Embedding Trivy, Grype, and static analysis tools into delivery pipelines to block vulnerabilities is under consideration.",
     options: [
-      { id: 'A', text: "Integrate automated container image scanning (e.g., Trivy, Grype) and SAST into CI pipelines to block builds containing critical CVEs." },
+      { id: 'A', text: "Rely on developers to visually inspect compiled container binary files for malicious exploits." },
       { id: 'B', text: "Disable vulnerability scanners because they generate security warnings that delay deployment deadlines." },
       { id: 'C', text: "Scan production containers once every three years using manual penetration testers." },
-      { id: 'D', text: "Rely on developers to visually inspect compiled container binary files for malicious exploits." }
+      { id: 'D', text: "Integrate automated container image scanning (e.g., Trivy, Grype) and SAST into CI pipelines to block builds containing critical CVEs." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Integrate automated container image scanning (e.g., Trivy, Grype) and SAST into CI pipelines to block builds containing critical CVEs. Golden paths embed security early in the developer lifecycle ('shift left'). CI/CD pipelines automatically execute Static Application Security Testing (SAST) and container vulnerability scanning (using Trivy or Grype), halting pipelines when unpatched high or critical CVEs are detected.",
     referenceUrl: "https://aquasecurity.github.io/trivy/",
@@ -389,8 +389,8 @@ export const CNCF_CNPA_QUESTIONS_17 = [
     options: [
       { id: 'A', text: "Integrate automated container image scanning (e.g., Trivy, Grype) and SAST into CI pipelines to block builds containing critical CVEs." },
       { id: 'B', text: "Disable vulnerability scanners because they generate security warnings that delay deployment deadlines." },
-      { id: 'C', text: "Scan production containers once every three years using manual penetration testers." },
-      { id: 'D', text: "Rely on developers to visually inspect compiled container binary files for malicious exploits." }
+      { id: 'C', text: "Rely on developers to visually inspect compiled container binary files for malicious exploits." },
+      { id: 'D', text: "Scan production containers once every three years using manual penetration testers." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,12 +408,12 @@ export const CNCF_CNPA_QUESTIONS_17 = [
     scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates Security Gates to detect critical vulnerabilities in open-source dependencies and base container images before workloads reach production.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation? Embedding Trivy, Grype, and static analysis tools into delivery pipelines to block vulnerabilities is under consideration.",
     options: [
-      { id: 'A', text: "Integrate automated container image scanning (e.g., Trivy, Grype) and SAST into CI pipelines to block builds containing critical CVEs." },
-      { id: 'B', text: "Disable vulnerability scanners because they generate security warnings that delay deployment deadlines." },
+      { id: 'A', text: "Disable vulnerability scanners because they generate security warnings that delay deployment deadlines." },
+      { id: 'B', text: "Integrate automated container image scanning (e.g., Trivy, Grype) and SAST into CI pipelines to block builds containing critical CVEs." },
       { id: 'C', text: "Scan production containers once every three years using manual penetration testers." },
       { id: 'D', text: "Rely on developers to visually inspect compiled container binary files for malicious exploits." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Integrate automated container image scanning (e.g., Trivy, Grype) and SAST into CI pipelines to block builds containing critical CVEs. Golden paths embed security early in the developer lifecycle ('shift left'). CI/CD pipelines automatically execute Static Application Security Testing (SAST) and container vulnerability scanning (using Trivy or Grype), halting pipelines when unpatched high or critical CVEs are detected.",
     referenceUrl: "https://aquasecurity.github.io/trivy/",
@@ -429,12 +429,12 @@ export const CNCF_CNPA_QUESTIONS_17 = [
     scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates Supply Chain Security to guarantee that only verified, tamper-proof container images built by authorized CI pipelines can execute in production clusters.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives? Generating Software Bills of Materials (Syft) and cryptographically signing images with Cosign is under consideration.",
     options: [
-      { id: 'A', text: "Generate Software Bills of Materials (SBOMs) using Syft and cryptographically sign container images using Cosign (Sigstore)." },
-      { id: 'B', text: "Allow clusters to pull untracked, unsigned container images from arbitrary public repositories." },
+      { id: 'A', text: "Allow clusters to pull untracked, unsigned container images from arbitrary public repositories." },
+      { id: 'B', text: "Disable admission controllers that verify image provenance." },
       { id: 'C', text: "Store signing private keys in plaintext in public GitHub repositories." },
-      { id: 'D', text: "Disable admission controllers that verify image provenance." }
+      { id: 'D', text: "Generate Software Bills of Materials (SBOMs) using Syft and cryptographically sign container images using Cosign (Sigstore)." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Generate Software Bills of Materials (SBOMs) using Syft and cryptographically sign container images using Cosign (Sigstore). Securing the software supply chain requires cryptographic provenance. Golden paths generate Software Bills of Materials (SBOMs) to track dependencies and sign images with Cosign (Sigstore). Kubernetes admission controllers then verify signatures before allowing pods to run.",
     referenceUrl: "https://docs.sigstore.dev/cosign/overview/",
@@ -450,12 +450,12 @@ export const CNCF_CNPA_QUESTIONS_17 = [
     scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates Supply Chain Security to guarantee that only verified, tamper-proof container images built by authorized CI pipelines can execute in production clusters.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks? Generating Software Bills of Materials (Syft) and cryptographically signing images with Cosign is under consideration.",
     options: [
-      { id: 'A', text: "Generate Software Bills of Materials (SBOMs) using Syft and cryptographically sign container images using Cosign (Sigstore)." },
+      { id: 'A', text: "Disable admission controllers that verify image provenance." },
       { id: 'B', text: "Allow clusters to pull untracked, unsigned container images from arbitrary public repositories." },
       { id: 'C', text: "Store signing private keys in plaintext in public GitHub repositories." },
-      { id: 'D', text: "Disable admission controllers that verify image provenance." }
+      { id: 'D', text: "Generate Software Bills of Materials (SBOMs) using Syft and cryptographically sign container images using Cosign (Sigstore)." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Generate Software Bills of Materials (SBOMs) using Syft and cryptographically sign container images using Cosign (Sigstore). Securing the software supply chain requires cryptographic provenance. Golden paths generate Software Bills of Materials (SBOMs) to track dependencies and sign images with Cosign (Sigstore). Kubernetes admission controllers then verify signatures before allowing pods to run.",
     referenceUrl: "https://docs.sigstore.dev/cosign/overview/",
@@ -471,12 +471,12 @@ export const CNCF_CNPA_QUESTIONS_17 = [
     scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates Supply Chain Security to guarantee that only verified, tamper-proof container images built by authorized CI pipelines can execute in production clusters.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls? Generating Software Bills of Materials (Syft) and cryptographically signing images with Cosign is under consideration.",
     options: [
-      { id: 'A', text: "Generate Software Bills of Materials (SBOMs) using Syft and cryptographically sign container images using Cosign (Sigstore)." },
-      { id: 'B', text: "Allow clusters to pull untracked, unsigned container images from arbitrary public repositories." },
-      { id: 'C', text: "Store signing private keys in plaintext in public GitHub repositories." },
-      { id: 'D', text: "Disable admission controllers that verify image provenance." }
+      { id: 'A', text: "Disable admission controllers that verify image provenance." },
+      { id: 'B', text: "Generate Software Bills of Materials (SBOMs) using Syft and cryptographically sign container images using Cosign (Sigstore)." },
+      { id: 'C', text: "Allow clusters to pull untracked, unsigned container images from arbitrary public repositories." },
+      { id: 'D', text: "Store signing private keys in plaintext in public GitHub repositories." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Generate Software Bills of Materials (SBOMs) using Syft and cryptographically sign container images using Cosign (Sigstore). Securing the software supply chain requires cryptographic provenance. Golden paths generate Software Bills of Materials (SBOMs) to track dependencies and sign images with Cosign (Sigstore). Kubernetes admission controllers then verify signatures before allowing pods to run.",
     referenceUrl: "https://docs.sigstore.dev/cosign/overview/",
@@ -493,9 +493,9 @@ export const CNCF_CNPA_QUESTIONS_17 = [
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely? Generating Software Bills of Materials (Syft) and cryptographically signing images with Cosign is under consideration.",
     options: [
       { id: 'A', text: "Generate Software Bills of Materials (SBOMs) using Syft and cryptographically sign container images using Cosign (Sigstore)." },
-      { id: 'B', text: "Allow clusters to pull untracked, unsigned container images from arbitrary public repositories." },
-      { id: 'C', text: "Store signing private keys in plaintext in public GitHub repositories." },
-      { id: 'D', text: "Disable admission controllers that verify image provenance." }
+      { id: 'B', text: "Disable admission controllers that verify image provenance." },
+      { id: 'C', text: "Allow clusters to pull untracked, unsigned container images from arbitrary public repositories." },
+      { id: 'D', text: "Store signing private keys in plaintext in public GitHub repositories." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -513,12 +513,12 @@ export const CNCF_CNPA_QUESTIONS_17 = [
     scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates Supply Chain Security to guarantee that only verified, tamper-proof container images built by authorized CI pipelines can execute in production clusters.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation? Generating Software Bills of Materials (Syft) and cryptographically signing images with Cosign is under consideration.",
     options: [
-      { id: 'A', text: "Generate Software Bills of Materials (SBOMs) using Syft and cryptographically sign container images using Cosign (Sigstore)." },
-      { id: 'B', text: "Allow clusters to pull untracked, unsigned container images from arbitrary public repositories." },
-      { id: 'C', text: "Store signing private keys in plaintext in public GitHub repositories." },
-      { id: 'D', text: "Disable admission controllers that verify image provenance." }
+      { id: 'A', text: "Allow clusters to pull untracked, unsigned container images from arbitrary public repositories." },
+      { id: 'B', text: "Generate Software Bills of Materials (SBOMs) using Syft and cryptographically sign container images using Cosign (Sigstore)." },
+      { id: 'C', text: "Disable admission controllers that verify image provenance." },
+      { id: 'D', text: "Store signing private keys in plaintext in public GitHub repositories." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Generate Software Bills of Materials (SBOMs) using Syft and cryptographically sign container images using Cosign (Sigstore). Securing the software supply chain requires cryptographic provenance. Golden paths generate Software Bills of Materials (SBOMs) to track dependencies and sign images with Cosign (Sigstore). Kubernetes admission controllers then verify signatures before allowing pods to run.",
     referenceUrl: "https://docs.sigstore.dev/cosign/overview/",

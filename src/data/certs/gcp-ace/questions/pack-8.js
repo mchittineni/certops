@@ -9,12 +9,12 @@ export const GCP_ACE_QUESTIONS_8 = [
     scenario: "A tax preparation software platform experiences its peak annual customer volume from March 15 to April 15. The database engineering team must ensure that Google Cloud does not perform any routine maintenance updates or database restarts on their Cloud SQL instances during this month.",
     question: "Which Cloud SQL feature enforces this blackout period?",
     options: [
-      { id: 'A', text: "Disable the primary database network interface" },
-      { id: 'B', text: "Assign the database service account an expired OAuth token" },
-      { id: 'C', text: "Configure a Deny Maintenance Period of up to 90 days covering the peak dates" },
-      { id: 'D', text: "Switch the database storage engine from InnoDB to MyISAM" }
+      { id: 'A', text: "Assign the database service account an expired OAuth token" },
+      { id: 'B', text: "Configure a Deny Maintenance Period of up to 90 days covering the peak dates" },
+      { id: 'C', text: "Switch the database storage engine from InnoDB to MyISAM" },
+      { id: 'D', text: "Disable the primary database network interface" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Cloud SQL allows administrators to configure a 'Deny Maintenance Period' of up to 90 days. During this defined window, Google Cloud completely suspends all scheduled, non-emergency maintenance reboots on the instance, safeguarding critical business periods against unexpected restarts.",
     referenceUrl: "https://cloud.google.com/docs",
@@ -31,11 +31,11 @@ export const GCP_ACE_QUESTIONS_8 = [
     question: "Which feature provides real-time visibility into firewall allow and deny decisions?",
     options: [
       { id: 'A', text: "Run 'tcpdump' on the Cloud Router interface" },
-      { id: 'B', text: "Enable VPC Network Peering route export logging" },
-      { id: 'C', text: "Deploy an Envoy sidecar proxy on every Compute Engine VM" },
-      { id: 'D', text: "Enable Firewall Rules Logging on the relevant VPC firewall rules and inspect the logs in Cloud Logging" }
+      { id: 'B', text: "Enable Firewall Rules Logging on the relevant VPC firewall rules and inspect the logs in Cloud Logging" },
+      { id: 'C', text: "Enable VPC Network Peering route export logging" },
+      { id: 'D', text: "Deploy an Envoy sidecar proxy on every Compute Engine VM" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Enabling Firewall Rules Logging on individual VPC firewall rules causes Google Cloud to generate detailed audit log entries for every connection evaluated by that rule (both ALLOW and DENY actions). The logs record source IP, destination IP, port, protocol, and timestamp in Cloud Logging.",
     referenceUrl: "https://cloud.google.com/docs",
@@ -51,12 +51,12 @@ export const GCP_ACE_QUESTIONS_8 = [
     scenario: "An e-commerce checkout transaction traverses an API Gateway on Cloud Run, three microservices on GKE, and a Cloud SQL database. End users report that checkout requests occasionally take over 12 seconds to complete. The engineering team needs to pinpoint exactly which microservice or SQL query is causing the bottleneck.",
     question: "Which Google Cloud observability tool is designed for distributed microservice latency tracing?",
     options: [
-      { id: 'A', text: "Network Intelligence Center" },
-      { id: 'B', text: "Cloud Armor" },
-      { id: 'C', text: "Cloud Logging" },
-      { id: 'D', text: "Cloud Trace" }
+      { id: 'A', text: "Cloud Logging" },
+      { id: 'B', text: "Cloud Trace" },
+      { id: 'C', text: "Network Intelligence Center" },
+      { id: 'D', text: "Cloud Armor" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Cloud Trace is Google Cloud's distributed tracing system. By propagating trace context headers across microservices, Cloud Trace aggregates latency timings across all RPC calls, API endpoints, and database queries into a single end-to-end timeline waterfall visualization, identifying the exact component causing delays.",
     referenceUrl: "https://cloud.google.com/docs",
@@ -72,12 +72,12 @@ export const GCP_ACE_QUESTIONS_8 = [
     scenario: "A high-frequency trading API running on Compute Engine is experiencing high CPU consumption. Developers suspect an inefficient regex algorithm or memory leak in the Go codebase, but cannot reproduce the issue in local test environments.",
     question: "Which Google Cloud tool continuously samples CPU and heap memory in production with negligible overhead?",
     options: [
-      { id: 'A', text: "Cloud Security Command Center" },
-      { id: 'B', text: "Cloud Debugger legacy agent" },
-      { id: 'C', text: "Cloud Monitoring Metric Explorer" },
-      { id: 'D', text: "Cloud Profiler" }
+      { id: 'A', text: "Cloud Monitoring Metric Explorer" },
+      { id: 'B', text: "Cloud Profiler" },
+      { id: 'C', text: "Cloud Debugger legacy agent" },
+      { id: 'D', text: "Cloud Security Command Center" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Cloud Profiler continuously profiles production application code with minimal overhead (<1% CPU and memory). It generates interactive flame graphs visualizing which specific functions and lines of source code consume the most CPU cycles, heap memory, and lock contention.",
     referenceUrl: "https://cloud.google.com/docs",
@@ -93,12 +93,12 @@ export const GCP_ACE_QUESTIONS_8 = [
     scenario: "A cluster administrator needs to perform manual hardware maintenance on a dedicated physical host running a GKE worker node named 'gke-prod-pool-1234'. The administrator must ensure that all running pods are gracefully evicted and rescheduled onto other nodes without dropping active client connections.",
     question: "Which sequence of kubectl commands safely prepares the node for maintenance?",
     options: [
-      { id: 'A', text: "kubectl scale node gke-prod-pool-1234 --replicas=0" },
-      { id: 'B', text: "kubectl taint node gke-prod-pool-1234 app=stop:NoExecute" },
-      { id: 'C', text: "kubectl cordon gke-prod-pool-1234 && kubectl drain gke-prod-pool-1234 --ignore-daemonsets --delete-emptydir-data" },
-      { id: 'D', text: "kubectl delete node gke-prod-pool-1234 --force" }
+      { id: 'A', text: "kubectl cordon gke-prod-pool-1234 && kubectl drain gke-prod-pool-1234 --ignore-daemonsets --delete-emptydir-data" },
+      { id: 'B', text: "kubectl delete node gke-prod-pool-1234 --force" },
+      { id: 'C', text: "kubectl taint node gke-prod-pool-1234 app=stop:NoExecute" },
+      { id: 'D', text: "kubectl scale node gke-prod-pool-1234 --replicas=0" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "'kubectl cordon' marks the node as unschedulable, ensuring the Kubernetes scheduler routes no new pods to it. 'kubectl drain' then gracefully terminates and evicts existing pods to healthy surviving nodes while respecting PodDisruptionBudgets. Specifying '--ignore-daemonsets' and '--delete-emptydir-data' allows system daemonsets and local temp data to be bypassed safely.",
     referenceUrl: "https://cloud.google.com/docs",
@@ -114,12 +114,12 @@ export const GCP_ACE_QUESTIONS_8 = [
     scenario: "A Cloud Bigtable cluster supporting a mobile gaming leaderboard experiences predictable surges in evening traffic and low activity during the day. Operating engineers currently log in manually twice a day to add and remove nodes.",
     question: "How should the operations team automate Bigtable cluster capacity?",
     options: [
-      { id: 'A', text: "Enable cluster autoscaling on the Bigtable cluster, defining a minimum node count, maximum node count, and target CPU utilization (e.g. 60%)" },
-      { id: 'B', text: "Switch the storage type from SSD to HDD" },
-      { id: 'C', text: "Deploy a Kubernetes Horizontal Pod Autoscaler pointing to the Bigtable API" },
+      { id: 'A', text: "Switch the storage type from SSD to HDD" },
+      { id: 'B', text: "Deploy a Kubernetes Horizontal Pod Autoscaler pointing to the Bigtable API" },
+      { id: 'C', text: "Enable cluster autoscaling on the Bigtable cluster, defining a minimum node count, maximum node count, and target CPU utilization (e.g. 60%)" },
       { id: 'D', text: "Configure a Cloud Function with Cloud Scheduler to run 'gcloud compute instances create'" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Cloud Bigtable supports native cluster autoscaling. Administrators define a minimum and maximum node boundary along with a target CPU utilization (typically 60-70%). Bigtable automatically adds nodes when traffic ramps up and gracefully removes nodes during quiet periods, eliminating manual scaling toil.",
     referenceUrl: "https://cloud.google.com/docs",
@@ -135,12 +135,12 @@ export const GCP_ACE_QUESTIONS_8 = [
     scenario: "A batch analytics fleet of 50 private Compute Engine instances makes hundreds of concurrent outbound HTTP calls to third-party APIs through Cloud NAT. In peak hours, application threads fail with 'Connection reset by peer' and 'Cannot assign requested address'. Cloud Monitoring shows 'nat_allocation_failed' errors.",
     question: "What is the root cause of this failure, and how should it be resolved?",
     options: [
-      { id: 'A', text: "Cloud NAT has exhausted ephemeral source ports; allocate additional NAT external IP addresses and adjust the minimum ports per VM setting" },
-      { id: 'B', text: "The VPC firewall is blocking outbound port 443" },
-      { id: 'C', text: "Cloud Router BGP sessions have dropped" },
-      { id: 'D', text: "The instances lack the roles/compute.networkUser permission" }
+      { id: 'A', text: "The instances lack the roles/compute.networkUser permission" },
+      { id: 'B', text: "Cloud NAT has exhausted ephemeral source ports; allocate additional NAT external IP addresses and adjust the minimum ports per VM setting" },
+      { id: 'C', text: "The VPC firewall is blocking outbound port 443" },
+      { id: 'D', text: "Cloud Router BGP sessions have dropped" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Each external IP on a Cloud NAT gateway provides 64,512 ephemeral source ports (TCP/UDP). When private VMs initiate massive concurrent outbound connections, source ports can become fully exhausted, resulting in dropped connections. The fix is to assign additional static external IP addresses to the NAT gateway or increase '--min-ports-per-vm'.",
     referenceUrl: "https://cloud.google.com/docs",
@@ -156,12 +156,12 @@ export const GCP_ACE_QUESTIONS_8 = [
     scenario: "A company updates its standard Golden Ubuntu image to version 3. The platform team wants to prevent any developer from creating new VMs or instance templates using version 1, while ensuring existing running VMs and automated deployment pipelines pointing to version 2 or 3 continue working without disruption.",
     question: "Which gcloud command properly deprecates the older image?",
     options: [
-      { id: 'A', text: "gcloud compute images deprecate golden-ubuntu-v1 --state=DEPRECATED --replacement=golden-ubuntu-v3" },
-      { id: 'B', text: "gcloud storage rm gs://images/golden-ubuntu-v1.tar.gz" },
-      { id: 'C', text: "gcloud compute images delete golden-ubuntu-v1 --quiet" },
-      { id: 'D', text: "gcloud compute images update golden-ubuntu-v1 --no-access" }
+      { id: 'A', text: "gcloud compute images delete golden-ubuntu-v1 --quiet" },
+      { id: 'B', text: "gcloud compute images deprecate golden-ubuntu-v1 --state=DEPRECATED --replacement=golden-ubuntu-v3" },
+      { id: 'C', text: "gcloud compute images update golden-ubuntu-v1 --no-access" },
+      { id: 'D', text: "gcloud storage rm gs://images/golden-ubuntu-v1.tar.gz" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "The 'gcloud compute images deprecate' command marks an image with state DEPRECATED and links a replacement image. Deprecated images are hidden from standard UI lists and console creation workflows to prevent new adoption, but existing instance templates and running VMs that reference the image ID continue to function normally.",
     referenceUrl: "https://cloud.google.com/docs",
@@ -177,12 +177,12 @@ export const GCP_ACE_QUESTIONS_8 = [
     scenario: "A company grants data scientists direct access to query a multi-petabyte analytics warehouse in BigQuery. The finance director is worried that an unpartitioned query with multiple cross-joins could accidentally scan 500 TB and incur thousands of dollars on the credit card in a single execution.",
     question: "Which BigQuery safeguard prevents individual queries from scanning beyond a budgetary threshold?",
     options: [
-      { id: 'A', text: "Set a Cloud Storage object retention lock on the dataset" },
-      { id: 'B', text: "Configure the 'maximum_bytes_billed' query parameter or flag on queries and client sessions" },
-      { id: 'C', text: "Schedule BigQuery queries exclusively during weekend maintenance windows" },
-      { id: 'D', text: "Restrict data scientists to the 'roles/bigquery.jobUser' role only" }
+      { id: 'A', text: "Schedule BigQuery queries exclusively during weekend maintenance windows" },
+      { id: 'B', text: "Restrict data scientists to the 'roles/bigquery.jobUser' role only" },
+      { id: 'C', text: "Configure the 'maximum_bytes_billed' query parameter or flag on queries and client sessions" },
+      { id: 'D', text: "Set a Cloud Storage object retention lock on the dataset" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Setting 'maximum_bytes_billed' limits the maximum number of bytes that BigQuery will bill for a given query. If BigQuery's query planner estimates or determines that the query will process more bytes than this limit, the query fails immediately before execution and incurs zero cost.",
     referenceUrl: "https://cloud.google.com/docs",
@@ -198,12 +198,12 @@ export const GCP_ACE_QUESTIONS_8 = [
     scenario: "An SRE investigates reports of intermittent slowness on an external HTTPS load balancer. Average (mean) latency appears normal at 120ms, but 5% of VIP users experience severe 5-second delays.",
     question: "How should the SRE configure Cloud Monitoring Metric Explorer to reveal this hidden degradation?",
     options: [
-      { id: 'A', text: "Filter the metric by VM CPU utilization" },
-      { id: 'B', text: "Increase the dashboard refresh rate to 1 second" },
-      { id: 'C', text: "Select the load balancer response latency metric and change the aggregation alignment to the 95th or 99th percentile (p95 / p99)" },
-      { id: 'D', text: "Create a log-based metric counting total HTTP 200 responses" }
+      { id: 'A', text: "Create a log-based metric counting total HTTP 200 responses" },
+      { id: 'B', text: "Select the load balancer response latency metric and change the aggregation alignment to the 95th or 99th percentile (p95 / p99)" },
+      { id: 'C', text: "Filter the metric by VM CPU utilization" },
+      { id: 'D', text: "Increase the dashboard refresh rate to 1 second" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Average (mean) latency metrics are heavily skewed by large volumes of fast requests, completely masking long-tail latency spikes experienced by a minority of users. Inspecting the 95th or 99th percentile (p95/p99) isolates the worst 5% or 1% of transactions, accurately highlighting severe performance degradation.",
     referenceUrl: "https://cloud.google.com/docs",
@@ -220,11 +220,11 @@ export const GCP_ACE_QUESTIONS_8 = [
     question: "Which gcloud command executes this disaster recovery failover?",
     options: [
       { id: 'A', text: "gcloud sql instances update [REPLICA_NAME] --make-primary" },
-      { id: 'B', text: "gcloud sql instances promote-replica [REPLICA_NAME]" },
-      { id: 'C', text: "gcloud sql instances failover [PRIMARY_NAME]" },
-      { id: 'D', text: "gcloud sql instances clone [REPLICA_NAME] [NEW_PRIMARY]" }
+      { id: 'B', text: "gcloud sql instances failover [PRIMARY_NAME]" },
+      { id: 'C', text: "gcloud sql instances clone [REPLICA_NAME] [NEW_PRIMARY]" },
+      { id: 'D', text: "gcloud sql instances promote-replica [REPLICA_NAME]" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The 'gcloud sql instances promote-replica &lt;REPLICA_NAME&gt;' command breaks the replication link from the unavailable primary instance and converts the read replica into an independent, standalone read-write database instance that can immediately begin serving application write traffic.",
     referenceUrl: "https://cloud.google.com/docs",
@@ -240,12 +240,12 @@ export const GCP_ACE_QUESTIONS_8 = [
     scenario: "During an unexpected traffic surge, new pods in a GKE cluster remain stuck in 'Pending' state for over 10 minutes. The DevOps engineer believes the cluster autoscaler should have added new nodes to the node pool, but node count remains unchanged.",
     question: "Where can the engineer inspect the real-time decision logs of the GKE Cluster Autoscaler?",
     options: [
-      { id: 'A', text: "View the /var/log/messages file on the worker node" },
+      { id: 'A', text: "Examine the 'cluster-autoscaler-status' ConfigMap in the 'kube-system' namespace using kubectl" },
       { id: 'B', text: "Inspect the GKE cluster master authorized networks list" },
       { id: 'C', text: "Check Cloud DNS query audit logs" },
-      { id: 'D', text: "Examine the 'cluster-autoscaler-status' ConfigMap in the 'kube-system' namespace using kubectl" }
+      { id: 'D', text: "View the /var/log/messages file on the worker node" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The Kubernetes Cluster Autoscaler writes its internal decision logs and status report to a ConfigMap named 'cluster-autoscaler-status' in the 'kube-system' namespace. Inspecting this ConfigMap ('kubectl get cm cluster-autoscaler-status -n kube-system -o yaml') reveals whether scaling was blocked by node pool quotas, pod disruption budgets, or unfulfillable resource requests.",
     referenceUrl: "https://cloud.google.com/docs",
@@ -261,12 +261,12 @@ export const GCP_ACE_QUESTIONS_8 = [
     scenario: "A company maintains an on-premises web server hosting static PDF product catalogs. Every night, a synchronization job must mirror the local directory '/var/www/catalogs' to Cloud Storage bucket 'gs://company-catalogs/', ensuring deleted local files are removed from the bucket.",
     question: "Which command performs this synchronization and deletes obsolete destination files?",
     options: [
-      { id: 'A', text: "gcloud storage mv /var/www/catalogs gs://company-catalogs/" },
+      { id: 'A', text: "gcloud storage rsync -r -d /var/www/catalogs gs://company-catalogs/" },
       { id: 'B', text: "gsutil cp -u /var/www/catalogs gs://company-catalogs/" },
-      { id: 'C', text: "gcloud storage rsync -r -d /var/www/catalogs gs://company-catalogs/" },
+      { id: 'C', text: "gcloud storage mv /var/www/catalogs gs://company-catalogs/" },
       { id: 'D', text: "gcloud storage cp -r /var/www/catalogs/* gs://company-catalogs/" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The 'gcloud storage rsync' command synchronizes content between directories and buckets by comparing file checksums and timestamps. Adding the '-r' (recursive) and '-d' (delete) flags ensures the destination bucket matches the source directory exactly, removing any files in the bucket that no longer exist locally.",
     referenceUrl: "https://cloud.google.com/docs",
@@ -282,12 +282,12 @@ export const GCP_ACE_QUESTIONS_8 = [
     scenario: "A compliance audit requires moving a 5 TB database archive object ('gs://compliance-vault/2023-audit.tar.gz') from Standard storage to Coldline storage immediately without downloading the object locally or re-uploading it.",
     question: "Which gcloud command changes the storage class of the object in-place?",
     options: [
-      { id: 'A', text: "gsutil setmeta -h \"Content-Type: coldline\" gs://compliance-vault/2023-audit.tar.gz" },
-      { id: 'B', text: "gcloud storage objects update gs://compliance-vault/2023-audit.tar.gz --storage-class=COLDLINE" },
+      { id: 'A', text: "gcloud storage buckets update gs://compliance-vault --default-storage-class=COLDLINE" },
+      { id: 'B', text: "gsutil setmeta -h \"Content-Type: coldline\" gs://compliance-vault/2023-audit.tar.gz" },
       { id: 'C', text: "gcloud storage cp gs://compliance-vault/2023-audit.tar.gz gs://compliance-vault/2023-audit.tar.gz --storage-class=COLDLINE" },
-      { id: 'D', text: "gcloud storage buckets update gs://compliance-vault --default-storage-class=COLDLINE" }
+      { id: 'D', text: "gcloud storage objects update gs://compliance-vault/2023-audit.tar.gz --storage-class=COLDLINE" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "'gcloud storage objects update gs://&lt;BUCKET&gt;/&lt;OBJECT&gt; --storage-class=COLDLINE' updates the storage class of an existing object directly within Google Cloud Storage metadata, executing instantly without moving bits across the network or re-uploading file payloads.",
     referenceUrl: "https://cloud.google.com/docs",
@@ -304,11 +304,11 @@ export const GCP_ACE_QUESTIONS_8 = [
     question: "What common analytical query anti-pattern is causing this bottleneck?",
     options: [
       { id: 'A', text: "BigQuery ran out of storage slots" },
-      { id: 'B', text: "The table was clustered by too many columns" },
-      { id: 'C', text: "Data skew (partition hotspotting) where an uneven distribution of keys forces all rows to be shuffled into a single processing worker" },
+      { id: 'B', text: "Data skew (partition hotspotting) where an uneven distribution of keys forces all rows to be shuffled into a single processing worker" },
+      { id: 'C', text: "The table was clustered by too many columns" },
       { id: 'D', text: "Cloud Storage export bandwidth was throttled" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Data skew occurs when joining or grouping by a high-frequency key (such as NULL values, default user IDs, or common status flags). When BigQuery shuffles data, all records sharing that key are routed to a single compute worker, creating a severe bottleneck while all other workers sit idle.",
     referenceUrl: "https://cloud.google.com/docs",
@@ -324,12 +324,12 @@ export const GCP_ACE_QUESTIONS_8 = [
     scenario: "Users report intermittent HTTP 502 Bad Gateway errors when accessing a web portal. The administrator suspects one or more backend virtual machines in the instance group are failing health check probes.",
     question: "Which command displays the real-time health check status of backends attached to the load balancer?",
     options: [
-      { id: 'A', text: "gcloud compute health-checks describe [HEALTH_CHECK_NAME]" },
+      { id: 'A', text: "gcloud compute backend-services get-health [BACKEND_SERVICE_NAME] --global" },
       { id: 'B', text: "gcloud compute forwarding-rules describe [RULE_NAME]" },
       { id: 'C', text: "gcloud compute instances list --filter=\"status:UNHEALTHY\"" },
-      { id: 'D', text: "gcloud compute backend-services get-health [BACKEND_SERVICE_NAME] --global" }
+      { id: 'D', text: "gcloud compute health-checks describe [HEALTH_CHECK_NAME]" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The 'gcloud compute backend-services get-health &lt;NAME&gt; --global' command queries the load balancer's backend service and returns the exact health state ('HEALTHY' or 'UNHEALTHY') of every individual backend VM instance or network endpoint group (NEG).",
     referenceUrl: "https://cloud.google.com/docs",
@@ -346,9 +346,9 @@ export const GCP_ACE_QUESTIONS_8 = [
     question: "Which Cloud DNS command workflow guarantees atomic record updates?",
     options: [
       { id: 'A', text: "Export the zone file, edit it with nano, and import it using gsutil" },
-      { id: 'B', text: "Run two parallel 'gcloud dns record-sets create' commands in separate terminal sessions" },
+      { id: 'B', text: "Update the DNS NS records at the domain registrar first" },
       { id: 'C', text: "Initialize with 'gcloud dns record-sets transaction start', add changes with 'gcloud dns record-sets transaction add', and commit with 'gcloud dns record-sets transaction execute'" },
-      { id: 'D', text: "Update the DNS NS records at the domain registrar first" }
+      { id: 'D', text: "Run two parallel 'gcloud dns record-sets create' commands in separate terminal sessions" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -366,12 +366,12 @@ export const GCP_ACE_QUESTIONS_8 = [
     scenario: "A microservices application running on a Compute Engine Managed Instance Group needs to reload its operating system environment after a system library update. The instances must be rebooted sequentially without altering their persistent disks, machine configurations, or IP addresses, maintaining at least 75% serving capacity.",
     question: "Which gcloud command initiates this rolling restart?",
     options: [
-      { id: 'A', text: "gcloud compute instance-groups managed resize [MIG_NAME] --size=0" },
-      { id: 'B', text: "gcloud compute instance-groups managed rolling-action restart [MIG_NAME] --max-unavailable=25%" },
+      { id: 'A', text: "gcloud compute instance-groups managed rolling-action restart [MIG_NAME] --max-unavailable=25%" },
+      { id: 'B', text: "gcloud compute instance-groups managed rolling-action replace [MIG_NAME]" },
       { id: 'C', text: "gcloud compute instances reset $(gcloud compute instances list --format='value(name)')" },
-      { id: 'D', text: "gcloud compute instance-groups managed rolling-action replace [MIG_NAME]" }
+      { id: 'D', text: "gcloud compute instance-groups managed resize [MIG_NAME] --size=0" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The 'gcloud compute instance-groups managed rolling-action restart' command performs a rolling reboot of the operating system on instances in the group without recreating the VMs or replacing their disks. Setting '--max-unavailable=25%' ensures 75% of instances remain online throughout the rolling reboot.",
     referenceUrl: "https://cloud.google.com/docs",
@@ -387,12 +387,12 @@ export const GCP_ACE_QUESTIONS_8 = [
     scenario: "A database administrator needs to provision a new relational database named 'analytics_db' inside an existing Cloud SQL PostgreSQL instance and create a dedicated database user 'etl_user' with password authentication without logging into the PostgreSQL psql shell.",
     question: "Which pair of gcloud commands accomplishes this administration task?",
     options: [
-      { id: 'A', text: "gcloud sql databases create analytics_db --instance=[INSTANCE] && gcloud sql users create etl_user --instance=[INSTANCE] --password=[PASSWORD]" },
-      { id: 'B', text: "gcloud compute ssh [INSTANCE] --command='createdb analytics_db && createuser etl_user'" },
-      { id: 'C', text: "gcloud sql instances patch [INSTANCE] --database=analytics_db --user=etl_user" },
-      { id: 'D', text: "gcloud sql export sql [INSTANCE] --database=analytics_db" }
+      { id: 'A', text: "gcloud compute ssh [INSTANCE] --command='createdb analytics_db && createuser etl_user'" },
+      { id: 'B', text: "gcloud sql databases create analytics_db --instance=[INSTANCE] && gcloud sql users create etl_user --instance=[INSTANCE] --password=[PASSWORD]" },
+      { id: 'C', text: "gcloud sql export sql [INSTANCE] --database=analytics_db" },
+      { id: 'D', text: "gcloud sql instances patch [INSTANCE] --database=analytics_db --user=etl_user" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Google Cloud provides control plane management for databases and database user accounts. Running 'gcloud sql databases create &lt;DB&gt; --instance=&lt;INSTANCE&gt;' provisions the database, and 'gcloud sql users create &lt;USER&gt; --instance=&lt;INSTANCE&gt; --password=&lt;PASS&gt;' provisions the authentication credentials directly via the Google Cloud API.",
     referenceUrl: "https://cloud.google.com/docs",
@@ -408,12 +408,12 @@ export const GCP_ACE_QUESTIONS_8 = [
     scenario: "A GKE cluster includes a node pool with NVIDIA GPUs. General web pods with no GPU requirements are frequently scheduled on these expensive GPU nodes, exhausting capacity for machine learning training jobs.",
     question: "How should the cluster administrator protect the GPU nodes from general pod scheduling?",
     options: [
-      { id: 'A', text: "Apply a Kubernetes Taint to the GPU nodes (e.g. 'sku=gpu:NoSchedule') and add a matching Toleration only to the pod specs of the ML workloads" },
-      { id: 'B', text: "Convert the GPU node pool to an unmanaged instance group" },
-      { id: 'C', text: "Set the CPU limit on general web pods to 100m" },
-      { id: 'D', text: "Deploy a VPC firewall rule blocking port 80 to GPU nodes" }
+      { id: 'A', text: "Set the CPU limit on general web pods to 100m" },
+      { id: 'B', text: "Apply a Kubernetes Taint to the GPU nodes (e.g. 'sku=gpu:NoSchedule') and add a matching Toleration only to the pod specs of the ML workloads" },
+      { id: 'C', text: "Deploy a VPC firewall rule blocking port 80 to GPU nodes" },
+      { id: 'D', text: "Convert the GPU node pool to an unmanaged instance group" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Kubernetes Taints allow a node to repel a set of pods. Applying a taint like 'sku=gpu:NoSchedule' ensures that no pod can be scheduled on the GPU nodes unless the pod explicitly includes a matching 'toleration' in its manifest, keeping the nodes reserved exclusively for ML workloads.",
     referenceUrl: "https://cloud.google.com/docs",
@@ -430,11 +430,11 @@ export const GCP_ACE_QUESTIONS_8 = [
     question: "Which commands display real-time CPU and memory consumption metrics directly in the terminal?",
     options: [
       { id: 'A', text: "kubectl get pods -o jsonpath='{.items[*].status}'" },
-      { id: 'B', text: "gcloud compute instances list --show-metrics" },
-      { id: 'C', text: "kubectl top nodes and kubectl top pods" },
-      { id: 'D', text: "kubectl describe cluster" }
+      { id: 'B', text: "kubectl top nodes and kubectl top pods" },
+      { id: 'C', text: "kubectl describe cluster" },
+      { id: 'D', text: "gcloud compute instances list --show-metrics" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "The 'kubectl top nodes' command shows current CPU and RAM usage and percentages for each worker VM in the cluster, and 'kubectl top pods' displays CPU and memory consumption per pod. These commands communicate with the Kubernetes Metrics Server to fetch live utilization data.",
     referenceUrl: "https://cloud.google.com/docs",
@@ -450,10 +450,10 @@ export const GCP_ACE_QUESTIONS_8 = [
     scenario: "A microservice container in a pod named 'order-processor-xyz' fails to process incoming messages from Cloud Pub/Sub. The engineer needs to view the container's standard error console stream, and then inspect the container's local configuration files.",
     question: "Which two kubectl commands should the engineer execute?",
     options: [
-      { id: 'A', text: "gcloud logging read to view files, and kubectl port-forward to edit config" },
+      { id: 'A', text: "kubectl attach to reboot the pod, and kubectl edit deployment to view logs" },
       { id: 'B', text: "kubectl logs order-processor-xyz to view output, and kubectl exec -it order-processor-xyz -- /bin/sh to open a shell inside the container" },
-      { id: 'C', text: "kubectl describe node to view logs, and ssh order-processor-xyz to access files" },
-      { id: 'D', text: "kubectl attach to reboot the pod, and kubectl edit deployment to view logs" }
+      { id: 'C', text: "gcloud logging read to view files, and kubectl port-forward to edit config" },
+      { id: 'D', text: "kubectl describe node to view logs, and ssh order-processor-xyz to access files" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -471,12 +471,12 @@ export const GCP_ACE_QUESTIONS_8 = [
     scenario: "A research lab routinely uploads 100 GB genomic dataset files to Google Cloud Storage from a high-bandwidth workstation. Uploads currently take hours because single-stream HTTP transfers fail to saturate the 10 Gbps network connection.",
     question: "Which upload optimization splits large files into chunks and uploads them in parallel streams?",
     options: [
-      { id: 'A', text: "Upload files to BigQuery and export to Cloud Storage" },
-      { id: 'B', text: "Compress the files with zip before uploading" },
-      { id: 'C', text: "Increase the persistent disk IOPS on the local workstation" },
-      { id: 'D', text: "Enable parallel composite uploads in gcloud storage or gsutil configuration" }
+      { id: 'A', text: "Enable parallel composite uploads in gcloud storage or gsutil configuration" },
+      { id: 'B', text: "Increase the persistent disk IOPS on the local workstation" },
+      { id: 'C', text: "Compress the files with zip before uploading" },
+      { id: 'D', text: "Upload files to BigQuery and export to Cloud Storage" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Parallel composite uploads split large files (typically >150 MB) into multiple chunks, upload the chunks simultaneously in parallel streams across Google's high-speed network, and merge the chunks into a single composite object in the destination bucket, fully saturating available bandwidth.",
     referenceUrl: "https://cloud.google.com/docs",
@@ -492,12 +492,12 @@ export const GCP_ACE_QUESTIONS_8 = [
     scenario: "An enterprise web portal must be monitored for worldwide availability. The SRE team wants automated tests to hit 'https://portal.company.com/health' every 60 seconds from multiple geographic continents and trigger an alert if the endpoint returns any HTTP code other than 200.",
     question: "Which Cloud Monitoring feature implements this synthetic monitoring?",
     options: [
-      { id: 'A', text: "Cloud Monitoring Uptime Checks" },
-      { id: 'B', text: "Cloud Profiler latency traces" },
-      { id: 'C', text: "VPC Flow Logs sampling" },
-      { id: 'D', text: "Cloud Trace waterfall analysis" }
+      { id: 'A', text: "Cloud Profiler latency traces" },
+      { id: 'B', text: "Cloud Trace waterfall analysis" },
+      { id: 'C', text: "Cloud Monitoring Uptime Checks" },
+      { id: 'D', text: "VPC Flow Logs sampling" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Cloud Monitoring Uptime Checks perform automated external synthetic testing against web endpoints from servers distributed across North America, Europe, South America, and Asia-Pacific. They track availability, SSL certificate validity, and response latency, integrating directly with alerting policies.",
     referenceUrl: "https://cloud.google.com/docs",
@@ -513,12 +513,12 @@ export const GCP_ACE_QUESTIONS_8 = [
     scenario: "A multinational corporation runs international operations with lowest customer usage on Sundays between 02:00 and 06:00 UTC. The database administrator needs to schedule Cloud SQL planned maintenance restarts strictly within this four-hour window.",
     question: "How can the administrator configure this maintenance schedule?",
     options: [
-      { id: 'A', text: "Set the instance tier to db-custom-1-3840 during weekends" },
-      { id: 'B', text: "Schedule a Cloud Function to stop the instance at 02:00 on Sunday" },
-      { id: 'C', text: "Disable all Google Cloud maintenance on the project" },
-      { id: 'D', text: "Set the Cloud SQL instance Maintenance Window to Sunday between 02:00 and 06:00 UTC" }
+      { id: 'A', text: "Schedule a Cloud Function to stop the instance at 02:00 on Sunday" },
+      { id: 'B', text: "Set the instance tier to db-custom-1-3840 during weekends" },
+      { id: 'C', text: "Set the Cloud SQL instance Maintenance Window to Sunday between 02:00 and 06:00 UTC" },
+      { id: 'D', text: "Disable all Google Cloud maintenance on the project" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Cloud SQL allows configuring a custom 'Maintenance Window' specifying the day of the week and hour of the day when Google Cloud is permitted to apply software updates and perform instance restarts, keeping maintenance confined to low-traffic periods.",
     referenceUrl: "https://cloud.google.com/docs",

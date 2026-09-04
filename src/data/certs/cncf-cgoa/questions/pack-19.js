@@ -32,8 +32,8 @@ export const CNCF_CGOA_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Use encrypted secret repositories (e.g., Sealed Secrets, SOPS) or external secret operators that resolve credentials from KMS/Vault at runtime." },
       { id: 'B', text: "Commit base64-encoded Kubernetes Secret YAML directly to the public Git repository." },
-      { id: 'C', text: "Hardcode passwords inside Docker container images." },
-      { id: 'D', text: "Disable passwords across all production database instances." }
+      { id: 'C', text: "Disable passwords across all production database instances." },
+      { id: 'D', text: "Hardcode passwords inside Docker container images." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -51,12 +51,12 @@ export const CNCF_CGOA_QUESTIONS_19 = [
     scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer evaluates Secret Fundamentals to manage sensitive database passwords in a GitOps workflow without committing plaintext credentials to version control.",
     question: "Which solution implements these mandatory GitOps security and governance controls? Why plaintext secrets must never be committed to Git and secret storage patterns is under consideration.",
     options: [
-      { id: 'A', text: "Use encrypted secret repositories (e.g., Sealed Secrets, SOPS) or external secret operators that resolve credentials from KMS/Vault at runtime." },
-      { id: 'B', text: "Commit base64-encoded Kubernetes Secret YAML directly to the public Git repository." },
-      { id: 'C', text: "Hardcode passwords inside Docker container images." },
-      { id: 'D', text: "Disable passwords across all production database instances." }
+      { id: 'A', text: "Disable passwords across all production database instances." },
+      { id: 'B', text: "Hardcode passwords inside Docker container images." },
+      { id: 'C', text: "Use encrypted secret repositories (e.g., Sealed Secrets, SOPS) or external secret operators that resolve credentials from KMS/Vault at runtime." },
+      { id: 'D', text: "Commit base64-encoded Kubernetes Secret YAML directly to the public Git repository." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Use encrypted secret repositories (e.g., Sealed Secrets, SOPS) or external secret operators that resolve credentials from KMS/Vault at runtime. Kubernetes Secrets are merely base64-encoded, not encrypted. Committing raw Secret YAML to Git exposes credentials to anyone with repository read access. GitOps secret solutions either encrypt secrets before committing to Git (SOPS/Sealed Secrets) or fetch them dynamically from external vaults.",
     referenceUrl: "https://www.cncf.io/blog/2021/04/13/secrets-management-in-a-gitops-world/",
@@ -72,12 +72,12 @@ export const CNCF_CGOA_QUESTIONS_19 = [
     scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer evaluates Secret Fundamentals to manage sensitive database passwords in a GitOps workflow without committing plaintext credentials to version control.",
     question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction? Why plaintext secrets must never be committed to Git and secret storage patterns is under consideration.",
     options: [
-      { id: 'A', text: "Use encrypted secret repositories (e.g., Sealed Secrets, SOPS) or external secret operators that resolve credentials from KMS/Vault at runtime." },
-      { id: 'B', text: "Commit base64-encoded Kubernetes Secret YAML directly to the public Git repository." },
-      { id: 'C', text: "Hardcode passwords inside Docker container images." },
-      { id: 'D', text: "Disable passwords across all production database instances." }
+      { id: 'A', text: "Hardcode passwords inside Docker container images." },
+      { id: 'B', text: "Use encrypted secret repositories (e.g., Sealed Secrets, SOPS) or external secret operators that resolve credentials from KMS/Vault at runtime." },
+      { id: 'C', text: "Disable passwords across all production database instances." },
+      { id: 'D', text: "Commit base64-encoded Kubernetes Secret YAML directly to the public Git repository." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Use encrypted secret repositories (e.g., Sealed Secrets, SOPS) or external secret operators that resolve credentials from KMS/Vault at runtime. Kubernetes Secrets are merely base64-encoded, not encrypted. Committing raw Secret YAML to Git exposes credentials to anyone with repository read access. GitOps secret solutions either encrypt secrets before committing to Git (SOPS/Sealed Secrets) or fetch them dynamically from external vaults.",
     referenceUrl: "https://www.cncf.io/blog/2021/04/13/secrets-management-in-a-gitops-world/",
@@ -93,12 +93,12 @@ export const CNCF_CGOA_QUESTIONS_19 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer evaluates Secret Fundamentals to manage sensitive database passwords in a GitOps workflow without committing plaintext credentials to version control.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability? Why plaintext secrets must never be committed to Git and secret storage patterns is under consideration.",
     options: [
-      { id: 'A', text: "Use encrypted secret repositories (e.g., Sealed Secrets, SOPS) or external secret operators that resolve credentials from KMS/Vault at runtime." },
+      { id: 'A', text: "Hardcode passwords inside Docker container images." },
       { id: 'B', text: "Commit base64-encoded Kubernetes Secret YAML directly to the public Git repository." },
-      { id: 'C', text: "Hardcode passwords inside Docker container images." },
+      { id: 'C', text: "Use encrypted secret repositories (e.g., Sealed Secrets, SOPS) or external secret operators that resolve credentials from KMS/Vault at runtime." },
       { id: 'D', text: "Disable passwords across all production database instances." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Use encrypted secret repositories (e.g., Sealed Secrets, SOPS) or external secret operators that resolve credentials from KMS/Vault at runtime. Kubernetes Secrets are merely base64-encoded, not encrypted. Committing raw Secret YAML to Git exposes credentials to anyone with repository read access. GitOps secret solutions either encrypt secrets before committing to Git (SOPS/Sealed Secrets) or fetch them dynamically from external vaults.",
     referenceUrl: "https://www.cncf.io/blog/2021/04/13/secrets-management-in-a-gitops-world/",
@@ -116,8 +116,8 @@ export const CNCF_CGOA_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Encrypt secrets locally using `kubeseal` with the cluster's public key, generating a `SealedSecret` custom resource committed to Git." },
       { id: 'B', text: "Share the cluster's private decryption key with all developers." },
-      { id: 'C', text: "Encrypt secrets using a symmetric password committed to `.gitignore`." },
-      { id: 'D', text: "Commit unencrypted secrets and delete the Git commit history later." }
+      { id: 'C', text: "Commit unencrypted secrets and delete the Git commit history later." },
+      { id: 'D', text: "Encrypt secrets using a symmetric password committed to `.gitignore`." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -137,8 +137,8 @@ export const CNCF_CGOA_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Encrypt secrets locally using `kubeseal` with the cluster's public key, generating a `SealedSecret` custom resource committed to Git." },
       { id: 'B', text: "Share the cluster's private decryption key with all developers." },
-      { id: 'C', text: "Encrypt secrets using a symmetric password committed to `.gitignore`." },
-      { id: 'D', text: "Commit unencrypted secrets and delete the Git commit history later." }
+      { id: 'C', text: "Commit unencrypted secrets and delete the Git commit history later." },
+      { id: 'D', text: "Encrypt secrets using a symmetric password committed to `.gitignore`." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -156,12 +156,12 @@ export const CNCF_CGOA_QUESTIONS_19 = [
     scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer evaluates Sealed Secrets to allow developers to commit encrypted secrets to Git that can only be decrypted by the specific Kubernetes cluster controller.",
     question: "Which solution implements these mandatory GitOps security and governance controls? Asymmetric encryption allowing safe storage of encrypted secrets in public Git repositories is under consideration.",
     options: [
-      { id: 'A', text: "Encrypt secrets locally using `kubeseal` with the cluster's public key, generating a `SealedSecret` custom resource committed to Git." },
+      { id: 'A', text: "Commit unencrypted secrets and delete the Git commit history later." },
       { id: 'B', text: "Share the cluster's private decryption key with all developers." },
       { id: 'C', text: "Encrypt secrets using a symmetric password committed to `.gitignore`." },
-      { id: 'D', text: "Commit unencrypted secrets and delete the Git commit history later." }
+      { id: 'D', text: "Encrypt secrets locally using `kubeseal` with the cluster's public key, generating a `SealedSecret` custom resource committed to Git." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Encrypt secrets locally using `kubeseal` with the cluster's public key, generating a `SealedSecret` custom resource committed to Git. Bitnami Sealed Secrets uses asymmetric public-key cryptography. Developers encrypt secrets offline using the cluster's public key via `kubeseal`. The resulting `SealedSecret` custom resource is safely committed to Git; only the in-cluster controller holding the private key can decrypt it into a Secret.",
     referenceUrl: "https://github.com/bitnami-labs/sealed-secrets",
@@ -177,12 +177,12 @@ export const CNCF_CGOA_QUESTIONS_19 = [
     scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer evaluates Sealed Secrets to allow developers to commit encrypted secrets to Git that can only be decrypted by the specific Kubernetes cluster controller.",
     question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction? Asymmetric encryption allowing safe storage of encrypted secrets in public Git repositories is under consideration.",
     options: [
-      { id: 'A', text: "Encrypt secrets locally using `kubeseal` with the cluster's public key, generating a `SealedSecret` custom resource committed to Git." },
-      { id: 'B', text: "Share the cluster's private decryption key with all developers." },
+      { id: 'A', text: "Commit unencrypted secrets and delete the Git commit history later." },
+      { id: 'B', text: "Encrypt secrets locally using `kubeseal` with the cluster's public key, generating a `SealedSecret` custom resource committed to Git." },
       { id: 'C', text: "Encrypt secrets using a symmetric password committed to `.gitignore`." },
-      { id: 'D', text: "Commit unencrypted secrets and delete the Git commit history later." }
+      { id: 'D', text: "Share the cluster's private decryption key with all developers." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Encrypt secrets locally using `kubeseal` with the cluster's public key, generating a `SealedSecret` custom resource committed to Git. Bitnami Sealed Secrets uses asymmetric public-key cryptography. Developers encrypt secrets offline using the cluster's public key via `kubeseal`. The resulting `SealedSecret` custom resource is safely committed to Git; only the in-cluster controller holding the private key can decrypt it into a Secret.",
     referenceUrl: "https://github.com/bitnami-labs/sealed-secrets",
@@ -198,12 +198,12 @@ export const CNCF_CGOA_QUESTIONS_19 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer evaluates Sealed Secrets to allow developers to commit encrypted secrets to Git that can only be decrypted by the specific Kubernetes cluster controller.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability? Asymmetric encryption allowing safe storage of encrypted secrets in public Git repositories is under consideration.",
     options: [
-      { id: 'A', text: "Encrypt secrets locally using `kubeseal` with the cluster's public key, generating a `SealedSecret` custom resource committed to Git." },
-      { id: 'B', text: "Share the cluster's private decryption key with all developers." },
-      { id: 'C', text: "Encrypt secrets using a symmetric password committed to `.gitignore`." },
-      { id: 'D', text: "Commit unencrypted secrets and delete the Git commit history later." }
+      { id: 'A', text: "Share the cluster's private decryption key with all developers." },
+      { id: 'B', text: "Commit unencrypted secrets and delete the Git commit history later." },
+      { id: 'C', text: "Encrypt secrets locally using `kubeseal` with the cluster's public key, generating a `SealedSecret` custom resource committed to Git." },
+      { id: 'D', text: "Encrypt secrets using a symmetric password committed to `.gitignore`." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Encrypt secrets locally using `kubeseal` with the cluster's public key, generating a `SealedSecret` custom resource committed to Git. Bitnami Sealed Secrets uses asymmetric public-key cryptography. Developers encrypt secrets offline using the cluster's public key via `kubeseal`. The resulting `SealedSecret` custom resource is safely committed to Git; only the in-cluster controller holding the private key can decrypt it into a Secret.",
     referenceUrl: "https://github.com/bitnami-labs/sealed-secrets",
@@ -221,8 +221,8 @@ export const CNCF_CGOA_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Use Mozilla SOPS with cloud KMS (AWS KMS, GCP KMS, Azure Key Vault, or age) and integrate with Flux decryption or Argo CD plugins." },
       { id: 'B', text: "Encrypt the entire YAML file into an unreadable binary blob that cannot be diffed in pull requests." },
-      { id: 'C', text: "Store encryption keys in plaintext inside the repository root." },
-      { id: 'D', text: "Use standard GPG encryption on the entire repository." }
+      { id: 'C', text: "Use standard GPG encryption on the entire repository." },
+      { id: 'D', text: "Store encryption keys in plaintext inside the repository root." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -240,12 +240,12 @@ export const CNCF_CGOA_QUESTIONS_19 = [
     scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer evaluates Mozilla SOPS to encrypt only the sensitive value fields in a Kubernetes Secret manifest while leaving metadata, keys, and structure visible in Git for diffing.",
     question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays? Encrypting YAML values with KMS, PGP, or age while preserving manifest structure and keys is under consideration.",
     options: [
-      { id: 'A', text: "Use Mozilla SOPS with cloud KMS (AWS KMS, GCP KMS, Azure Key Vault, or age) and integrate with Flux decryption or Argo CD plugins." },
-      { id: 'B', text: "Encrypt the entire YAML file into an unreadable binary blob that cannot be diffed in pull requests." },
-      { id: 'C', text: "Store encryption keys in plaintext inside the repository root." },
-      { id: 'D', text: "Use standard GPG encryption on the entire repository." }
+      { id: 'A', text: "Use standard GPG encryption on the entire repository." },
+      { id: 'B', text: "Store encryption keys in plaintext inside the repository root." },
+      { id: 'C', text: "Use Mozilla SOPS with cloud KMS (AWS KMS, GCP KMS, Azure Key Vault, or age) and integrate with Flux decryption or Argo CD plugins." },
+      { id: 'D', text: "Encrypt the entire YAML file into an unreadable binary blob that cannot be diffed in pull requests." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Use Mozilla SOPS with cloud KMS (AWS KMS, GCP KMS, Azure Key Vault, or age) and integrate with Flux decryption or Argo CD plugins. Mozilla SOPS encrypts only the values of YAML/JSON keys while keeping the keys and metadata unencrypted. This allows engineers and CI tools to review structural pull request diffs in Git while protecting sensitive values using cloud KMS or age keys.",
     referenceUrl: "https://fluxcd.io/flux/guides/mozilla-sops/",
@@ -261,12 +261,12 @@ export const CNCF_CGOA_QUESTIONS_19 = [
     scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer evaluates Mozilla SOPS to encrypt only the sensitive value fields in a Kubernetes Secret manifest while leaving metadata, keys, and structure visible in Git for diffing.",
     question: "Which solution implements these mandatory GitOps security and governance controls? Encrypting YAML values with KMS, PGP, or age while preserving manifest structure and keys is under consideration.",
     options: [
-      { id: 'A', text: "Use Mozilla SOPS with cloud KMS (AWS KMS, GCP KMS, Azure Key Vault, or age) and integrate with Flux decryption or Argo CD plugins." },
-      { id: 'B', text: "Encrypt the entire YAML file into an unreadable binary blob that cannot be diffed in pull requests." },
+      { id: 'A', text: "Encrypt the entire YAML file into an unreadable binary blob that cannot be diffed in pull requests." },
+      { id: 'B', text: "Use standard GPG encryption on the entire repository." },
       { id: 'C', text: "Store encryption keys in plaintext inside the repository root." },
-      { id: 'D', text: "Use standard GPG encryption on the entire repository." }
+      { id: 'D', text: "Use Mozilla SOPS with cloud KMS (AWS KMS, GCP KMS, Azure Key Vault, or age) and integrate with Flux decryption or Argo CD plugins." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Use Mozilla SOPS with cloud KMS (AWS KMS, GCP KMS, Azure Key Vault, or age) and integrate with Flux decryption or Argo CD plugins. Mozilla SOPS encrypts only the values of YAML/JSON keys while keeping the keys and metadata unencrypted. This allows engineers and CI tools to review structural pull request diffs in Git while protecting sensitive values using cloud KMS or age keys.",
     referenceUrl: "https://fluxcd.io/flux/guides/mozilla-sops/",
@@ -282,12 +282,12 @@ export const CNCF_CGOA_QUESTIONS_19 = [
     scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer evaluates Mozilla SOPS to encrypt only the sensitive value fields in a Kubernetes Secret manifest while leaving metadata, keys, and structure visible in Git for diffing.",
     question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction? Encrypting YAML values with KMS, PGP, or age while preserving manifest structure and keys is under consideration.",
     options: [
-      { id: 'A', text: "Use Mozilla SOPS with cloud KMS (AWS KMS, GCP KMS, Azure Key Vault, or age) and integrate with Flux decryption or Argo CD plugins." },
-      { id: 'B', text: "Encrypt the entire YAML file into an unreadable binary blob that cannot be diffed in pull requests." },
-      { id: 'C', text: "Store encryption keys in plaintext inside the repository root." },
+      { id: 'A', text: "Encrypt the entire YAML file into an unreadable binary blob that cannot be diffed in pull requests." },
+      { id: 'B', text: "Store encryption keys in plaintext inside the repository root." },
+      { id: 'C', text: "Use Mozilla SOPS with cloud KMS (AWS KMS, GCP KMS, Azure Key Vault, or age) and integrate with Flux decryption or Argo CD plugins." },
       { id: 'D', text: "Use standard GPG encryption on the entire repository." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Use Mozilla SOPS with cloud KMS (AWS KMS, GCP KMS, Azure Key Vault, or age) and integrate with Flux decryption or Argo CD plugins. Mozilla SOPS encrypts only the values of YAML/JSON keys while keeping the keys and metadata unencrypted. This allows engineers and CI tools to review structural pull request diffs in Git while protecting sensitive values using cloud KMS or age keys.",
     referenceUrl: "https://fluxcd.io/flux/guides/mozilla-sops/",
@@ -303,12 +303,12 @@ export const CNCF_CGOA_QUESTIONS_19 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer evaluates Mozilla SOPS to encrypt only the sensitive value fields in a Kubernetes Secret manifest while leaving metadata, keys, and structure visible in Git for diffing.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability? Encrypting YAML values with KMS, PGP, or age while preserving manifest structure and keys is under consideration.",
     options: [
-      { id: 'A', text: "Use Mozilla SOPS with cloud KMS (AWS KMS, GCP KMS, Azure Key Vault, or age) and integrate with Flux decryption or Argo CD plugins." },
+      { id: 'A', text: "Use standard GPG encryption on the entire repository." },
       { id: 'B', text: "Encrypt the entire YAML file into an unreadable binary blob that cannot be diffed in pull requests." },
-      { id: 'C', text: "Store encryption keys in plaintext inside the repository root." },
-      { id: 'D', text: "Use standard GPG encryption on the entire repository." }
+      { id: 'C', text: "Use Mozilla SOPS with cloud KMS (AWS KMS, GCP KMS, Azure Key Vault, or age) and integrate with Flux decryption or Argo CD plugins." },
+      { id: 'D', text: "Store encryption keys in plaintext inside the repository root." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Use Mozilla SOPS with cloud KMS (AWS KMS, GCP KMS, Azure Key Vault, or age) and integrate with Flux decryption or Argo CD plugins. Mozilla SOPS encrypts only the values of YAML/JSON keys while keeping the keys and metadata unencrypted. This allows engineers and CI tools to review structural pull request diffs in Git while protecting sensitive values using cloud KMS or age keys.",
     referenceUrl: "https://fluxcd.io/flux/guides/mozilla-sops/",
@@ -324,12 +324,12 @@ export const CNCF_CGOA_QUESTIONS_19 = [
     scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer evaluates External Secrets to synchronize production database credentials managed in AWS Secrets Manager or HashiCorp Vault into native Kubernetes Secrets automatically.",
     question: "Which architectural approach or configuration satisfies these GitOps disaster recovery and operational continuity objectives? Synchronizing secrets from AWS Secrets Manager, HashiCorp Vault, and Azure Key Vault into Kubernetes is under consideration.",
     options: [
-      { id: 'A', text: "Deploy the External Secrets Operator (ESO) and configure `SecretStore` and `ExternalSecret` CRDs in Git." },
-      { id: 'B', text: "Write a custom bash script running on an EC2 instance that runs `kubectl create secret` every 5 minutes." },
+      { id: 'A', text: "Write a custom bash script running on an EC2 instance that runs `kubectl create secret` every 5 minutes." },
+      { id: 'B', text: "Deploy the External Secrets Operator (ESO) and configure `SecretStore` and `ExternalSecret` CRDs in Git." },
       { id: 'C', text: "Copy passwords manually from the AWS Console and paste them into terminal commands." },
       { id: 'D', text: "Require applications to query AWS Secrets Manager APIs directly on every HTTP request." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy the External Secrets Operator (ESO) and configure `SecretStore` and `ExternalSecret` CRDs in Git. The External Secrets Operator (ESO) integrates external secret management systems (AWS Secrets Manager, Azure Key Vault, HashiCorp Vault, GCP Secret Manager) with Kubernetes. An `ExternalSecret` resource declared in Git instructs the operator to fetch the secret and create a native Kubernetes Secret.",
     referenceUrl: "https://external-secrets.io/latest/",
@@ -346,9 +346,9 @@ export const CNCF_CGOA_QUESTIONS_19 = [
     question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays? Synchronizing secrets from AWS Secrets Manager, HashiCorp Vault, and Azure Key Vault into Kubernetes is under consideration.",
     options: [
       { id: 'A', text: "Deploy the External Secrets Operator (ESO) and configure `SecretStore` and `ExternalSecret` CRDs in Git." },
-      { id: 'B', text: "Write a custom bash script running on an EC2 instance that runs `kubectl create secret` every 5 minutes." },
+      { id: 'B', text: "Require applications to query AWS Secrets Manager APIs directly on every HTTP request." },
       { id: 'C', text: "Copy passwords manually from the AWS Console and paste them into terminal commands." },
-      { id: 'D', text: "Require applications to query AWS Secrets Manager APIs directly on every HTTP request." }
+      { id: 'D', text: "Write a custom bash script running on an EC2 instance that runs `kubectl create secret` every 5 minutes." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -367,9 +367,9 @@ export const CNCF_CGOA_QUESTIONS_19 = [
     question: "Which solution implements these mandatory GitOps security and governance controls? Synchronizing secrets from AWS Secrets Manager, HashiCorp Vault, and Azure Key Vault into Kubernetes is under consideration.",
     options: [
       { id: 'A', text: "Deploy the External Secrets Operator (ESO) and configure `SecretStore` and `ExternalSecret` CRDs in Git." },
-      { id: 'B', text: "Write a custom bash script running on an EC2 instance that runs `kubectl create secret` every 5 minutes." },
-      { id: 'C', text: "Copy passwords manually from the AWS Console and paste them into terminal commands." },
-      { id: 'D', text: "Require applications to query AWS Secrets Manager APIs directly on every HTTP request." }
+      { id: 'B', text: "Copy passwords manually from the AWS Console and paste them into terminal commands." },
+      { id: 'C', text: "Require applications to query AWS Secrets Manager APIs directly on every HTTP request." },
+      { id: 'D', text: "Write a custom bash script running on an EC2 instance that runs `kubectl create secret` every 5 minutes." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -387,12 +387,12 @@ export const CNCF_CGOA_QUESTIONS_19 = [
     scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer evaluates External Secrets to synchronize production database credentials managed in AWS Secrets Manager or HashiCorp Vault into native Kubernetes Secrets automatically.",
     question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction? Synchronizing secrets from AWS Secrets Manager, HashiCorp Vault, and Azure Key Vault into Kubernetes is under consideration.",
     options: [
-      { id: 'A', text: "Deploy the External Secrets Operator (ESO) and configure `SecretStore` and `ExternalSecret` CRDs in Git." },
+      { id: 'A', text: "Copy passwords manually from the AWS Console and paste them into terminal commands." },
       { id: 'B', text: "Write a custom bash script running on an EC2 instance that runs `kubectl create secret` every 5 minutes." },
-      { id: 'C', text: "Copy passwords manually from the AWS Console and paste them into terminal commands." },
+      { id: 'C', text: "Deploy the External Secrets Operator (ESO) and configure `SecretStore` and `ExternalSecret` CRDs in Git." },
       { id: 'D', text: "Require applications to query AWS Secrets Manager APIs directly on every HTTP request." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy the External Secrets Operator (ESO) and configure `SecretStore` and `ExternalSecret` CRDs in Git. The External Secrets Operator (ESO) integrates external secret management systems (AWS Secrets Manager, Azure Key Vault, HashiCorp Vault, GCP Secret Manager) with Kubernetes. An `ExternalSecret` resource declared in Git instructs the operator to fetch the secret and create a native Kubernetes Secret.",
     referenceUrl: "https://external-secrets.io/latest/",
@@ -408,12 +408,12 @@ export const CNCF_CGOA_QUESTIONS_19 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer evaluates External Secrets to synchronize production database credentials managed in AWS Secrets Manager or HashiCorp Vault into native Kubernetes Secrets automatically.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability? Synchronizing secrets from AWS Secrets Manager, HashiCorp Vault, and Azure Key Vault into Kubernetes is under consideration.",
     options: [
-      { id: 'A', text: "Deploy the External Secrets Operator (ESO) and configure `SecretStore` and `ExternalSecret` CRDs in Git." },
+      { id: 'A', text: "Copy passwords manually from the AWS Console and paste them into terminal commands." },
       { id: 'B', text: "Write a custom bash script running on an EC2 instance that runs `kubectl create secret` every 5 minutes." },
-      { id: 'C', text: "Copy passwords manually from the AWS Console and paste them into terminal commands." },
+      { id: 'C', text: "Deploy the External Secrets Operator (ESO) and configure `SecretStore` and `ExternalSecret` CRDs in Git." },
       { id: 'D', text: "Require applications to query AWS Secrets Manager APIs directly on every HTTP request." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy the External Secrets Operator (ESO) and configure `SecretStore` and `ExternalSecret` CRDs in Git. The External Secrets Operator (ESO) integrates external secret management systems (AWS Secrets Manager, Azure Key Vault, HashiCorp Vault, GCP Secret Manager) with Kubernetes. An `ExternalSecret` resource declared in Git instructs the operator to fetch the secret and create a native Kubernetes Secret.",
     referenceUrl: "https://external-secrets.io/latest/",
@@ -429,12 +429,12 @@ export const CNCF_CGOA_QUESTIONS_19 = [
     scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer evaluates Vault Integration to inject dynamically rotated database credentials from HashiCorp Vault into application pods without persisting Secrets in etcd or Git.",
     question: "Which architectural approach or configuration satisfies these GitOps disaster recovery and operational continuity objectives? Injecting secrets into pods via Vault Agent Sidecar or Vault CSI Provider is under consideration.",
     options: [
-      { id: 'A', text: "Use the HashiCorp Vault Secrets Operator or Vault Agent Injector sidecar to inject secrets directly into ephemeral pod in-memory volumes." },
-      { id: 'B', text: "Hardcode the Vault root token inside the Git repository." },
-      { id: 'C', text: "Export Vault secrets to plaintext CSV files stored in Git." },
-      { id: 'D', text: "Disable Vault encryption policies." }
+      { id: 'A', text: "Export Vault secrets to plaintext CSV files stored in Git." },
+      { id: 'B', text: "Disable Vault encryption policies." },
+      { id: 'C', text: "Hardcode the Vault root token inside the Git repository." },
+      { id: 'D', text: "Use the HashiCorp Vault Secrets Operator or Vault Agent Injector sidecar to inject secrets directly into ephemeral pod in-memory volumes." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Use the HashiCorp Vault Secrets Operator or Vault Agent Injector sidecar to inject secrets directly into ephemeral pod in-memory volumes. The Vault Agent Injector and Vault Secrets Operator provide secure, zero-persistence secret delivery. Applications consume secrets mounted in-memory or injected into environment variables without writing sensitive credentials to Git or persisting static secrets in the Kubernetes etcd database.",
     referenceUrl: "https://developer.hashicorp.com/vault/docs/platform/k8s",
@@ -450,12 +450,12 @@ export const CNCF_CGOA_QUESTIONS_19 = [
     scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer evaluates Vault Integration to inject dynamically rotated database credentials from HashiCorp Vault into application pods without persisting Secrets in etcd or Git.",
     question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays? Injecting secrets into pods via Vault Agent Sidecar or Vault CSI Provider is under consideration.",
     options: [
-      { id: 'A', text: "Use the HashiCorp Vault Secrets Operator or Vault Agent Injector sidecar to inject secrets directly into ephemeral pod in-memory volumes." },
-      { id: 'B', text: "Hardcode the Vault root token inside the Git repository." },
-      { id: 'C', text: "Export Vault secrets to plaintext CSV files stored in Git." },
-      { id: 'D', text: "Disable Vault encryption policies." }
+      { id: 'A', text: "Disable Vault encryption policies." },
+      { id: 'B', text: "Export Vault secrets to plaintext CSV files stored in Git." },
+      { id: 'C', text: "Hardcode the Vault root token inside the Git repository." },
+      { id: 'D', text: "Use the HashiCorp Vault Secrets Operator or Vault Agent Injector sidecar to inject secrets directly into ephemeral pod in-memory volumes." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Use the HashiCorp Vault Secrets Operator or Vault Agent Injector sidecar to inject secrets directly into ephemeral pod in-memory volumes. The Vault Agent Injector and Vault Secrets Operator provide secure, zero-persistence secret delivery. Applications consume secrets mounted in-memory or injected into environment variables without writing sensitive credentials to Git or persisting static secrets in the Kubernetes etcd database.",
     referenceUrl: "https://developer.hashicorp.com/vault/docs/platform/k8s",
@@ -473,8 +473,8 @@ export const CNCF_CGOA_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Use the HashiCorp Vault Secrets Operator or Vault Agent Injector sidecar to inject secrets directly into ephemeral pod in-memory volumes." },
       { id: 'B', text: "Hardcode the Vault root token inside the Git repository." },
-      { id: 'C', text: "Export Vault secrets to plaintext CSV files stored in Git." },
-      { id: 'D', text: "Disable Vault encryption policies." }
+      { id: 'C', text: "Disable Vault encryption policies." },
+      { id: 'D', text: "Export Vault secrets to plaintext CSV files stored in Git." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,12 +492,12 @@ export const CNCF_CGOA_QUESTIONS_19 = [
     scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer evaluates Vault Integration to inject dynamically rotated database credentials from HashiCorp Vault into application pods without persisting Secrets in etcd or Git.",
     question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction? Injecting secrets into pods via Vault Agent Sidecar or Vault CSI Provider is under consideration.",
     options: [
-      { id: 'A', text: "Use the HashiCorp Vault Secrets Operator or Vault Agent Injector sidecar to inject secrets directly into ephemeral pod in-memory volumes." },
+      { id: 'A', text: "Disable Vault encryption policies." },
       { id: 'B', text: "Hardcode the Vault root token inside the Git repository." },
-      { id: 'C', text: "Export Vault secrets to plaintext CSV files stored in Git." },
-      { id: 'D', text: "Disable Vault encryption policies." }
+      { id: 'C', text: "Use the HashiCorp Vault Secrets Operator or Vault Agent Injector sidecar to inject secrets directly into ephemeral pod in-memory volumes." },
+      { id: 'D', text: "Export Vault secrets to plaintext CSV files stored in Git." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Use the HashiCorp Vault Secrets Operator or Vault Agent Injector sidecar to inject secrets directly into ephemeral pod in-memory volumes. The Vault Agent Injector and Vault Secrets Operator provide secure, zero-persistence secret delivery. Applications consume secrets mounted in-memory or injected into environment variables without writing sensitive credentials to Git or persisting static secrets in the Kubernetes etcd database.",
     referenceUrl: "https://developer.hashicorp.com/vault/docs/platform/k8s",
@@ -513,12 +513,12 @@ export const CNCF_CGOA_QUESTIONS_19 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer evaluates Vault Integration to inject dynamically rotated database credentials from HashiCorp Vault into application pods without persisting Secrets in etcd or Git.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability? Injecting secrets into pods via Vault Agent Sidecar or Vault CSI Provider is under consideration.",
     options: [
-      { id: 'A', text: "Use the HashiCorp Vault Secrets Operator or Vault Agent Injector sidecar to inject secrets directly into ephemeral pod in-memory volumes." },
-      { id: 'B', text: "Hardcode the Vault root token inside the Git repository." },
-      { id: 'C', text: "Export Vault secrets to plaintext CSV files stored in Git." },
-      { id: 'D', text: "Disable Vault encryption policies." }
+      { id: 'A', text: "Hardcode the Vault root token inside the Git repository." },
+      { id: 'B', text: "Use the HashiCorp Vault Secrets Operator or Vault Agent Injector sidecar to inject secrets directly into ephemeral pod in-memory volumes." },
+      { id: 'C', text: "Disable Vault encryption policies." },
+      { id: 'D', text: "Export Vault secrets to plaintext CSV files stored in Git." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Use the HashiCorp Vault Secrets Operator or Vault Agent Injector sidecar to inject secrets directly into ephemeral pod in-memory volumes. The Vault Agent Injector and Vault Secrets Operator provide secure, zero-persistence secret delivery. Applications consume secrets mounted in-memory or injected into environment variables without writing sensitive credentials to Git or persisting static secrets in the Kubernetes etcd database.",
     referenceUrl: "https://developer.hashicorp.com/vault/docs/platform/k8s",

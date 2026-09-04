@@ -9,12 +9,12 @@ export const GITHUB_GHAS_QUESTIONS_19 = [
     scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer evaluates Scanning Webhooks to automatically create an urgent Jira issue whenever a new Critical severity CodeQL alert is introduced into the default branch.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives? Triggering incident tickets and compliance workflows via code_scanning_alert webhook payloads is under consideration.",
     options: [
-      { id: 'A', text: "Subscribe to the `code_scanning_alert` webhook with action `created` and filter on `alert.rule.severity == 'critical'`." },
-      { id: 'B', text: "Instruct security engineers to manually check the GitHub website every hour for new alerts." },
+      { id: 'A', text: "Instruct security engineers to manually check the GitHub website every hour for new alerts." },
+      { id: 'B', text: "Disable webhook integrations to reduce server network load." },
       { id: 'C', text: "Rely on developers to voluntarily create Jira tickets when their pull requests fail." },
-      { id: 'D', text: "Disable webhook integrations to reduce server network load." }
+      { id: 'D', text: "Subscribe to the `code_scanning_alert` webhook with action `created` and filter on `alert.rule.severity == 'critical'`." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Subscribe to the `code_scanning_alert` webhook with action `created` and filter on `alert.rule.severity == 'critical'`. The `code_scanning_alert` webhook event emits notifications when alerts are `created`, `reopened`, `closed_by_user`, or `fixed`. Security teams automate triage pipelines by intercepting these payloads to open Jira tickets, notify Slack channels, or update security dashboards in real time.",
     referenceUrl: "https://docs.github.com/en/webhooks/webhook-events-and-payloads#code_scanning_alert",
@@ -30,12 +30,12 @@ export const GITHUB_GHAS_QUESTIONS_19 = [
     scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer evaluates Scanning Webhooks to automatically create an urgent Jira issue whenever a new Critical severity CodeQL alert is introduced into the default branch.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively? Triggering incident tickets and compliance workflows via code_scanning_alert webhook payloads is under consideration.",
     options: [
-      { id: 'A', text: "Subscribe to the `code_scanning_alert` webhook with action `created` and filter on `alert.rule.severity == 'critical'`." },
-      { id: 'B', text: "Instruct security engineers to manually check the GitHub website every hour for new alerts." },
-      { id: 'C', text: "Rely on developers to voluntarily create Jira tickets when their pull requests fail." },
+      { id: 'A', text: "Instruct security engineers to manually check the GitHub website every hour for new alerts." },
+      { id: 'B', text: "Rely on developers to voluntarily create Jira tickets when their pull requests fail." },
+      { id: 'C', text: "Subscribe to the `code_scanning_alert` webhook with action `created` and filter on `alert.rule.severity == 'critical'`." },
       { id: 'D', text: "Disable webhook integrations to reduce server network load." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Subscribe to the `code_scanning_alert` webhook with action `created` and filter on `alert.rule.severity == 'critical'`. The `code_scanning_alert` webhook event emits notifications when alerts are `created`, `reopened`, `closed_by_user`, or `fixed`. Security teams automate triage pipelines by intercepting these payloads to open Jira tickets, notify Slack channels, or update security dashboards in real time.",
     referenceUrl: "https://docs.github.com/en/webhooks/webhook-events-and-payloads#code_scanning_alert",
@@ -51,12 +51,12 @@ export const GITHUB_GHAS_QUESTIONS_19 = [
     scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer evaluates Scanning Webhooks to automatically create an urgent Jira issue whenever a new Critical severity CodeQL alert is introduced into the default branch.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure? Triggering incident tickets and compliance workflows via code_scanning_alert webhook payloads is under consideration.",
     options: [
-      { id: 'A', text: "Subscribe to the `code_scanning_alert` webhook with action `created` and filter on `alert.rule.severity == 'critical'`." },
-      { id: 'B', text: "Instruct security engineers to manually check the GitHub website every hour for new alerts." },
-      { id: 'C', text: "Rely on developers to voluntarily create Jira tickets when their pull requests fail." },
-      { id: 'D', text: "Disable webhook integrations to reduce server network load." }
+      { id: 'A', text: "Rely on developers to voluntarily create Jira tickets when their pull requests fail." },
+      { id: 'B', text: "Subscribe to the `code_scanning_alert` webhook with action `created` and filter on `alert.rule.severity == 'critical'`." },
+      { id: 'C', text: "Disable webhook integrations to reduce server network load." },
+      { id: 'D', text: "Instruct security engineers to manually check the GitHub website every hour for new alerts." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Subscribe to the `code_scanning_alert` webhook with action `created` and filter on `alert.rule.severity == 'critical'`. The `code_scanning_alert` webhook event emits notifications when alerts are `created`, `reopened`, `closed_by_user`, or `fixed`. Security teams automate triage pipelines by intercepting these payloads to open Jira tickets, notify Slack channels, or update security dashboards in real time.",
     referenceUrl: "https://docs.github.com/en/webhooks/webhook-events-and-payloads#code_scanning_alert",
@@ -72,12 +72,12 @@ export const GITHUB_GHAS_QUESTIONS_19 = [
     scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer evaluates Scanning Webhooks to automatically create an urgent Jira issue whenever a new Critical severity CodeQL alert is introduced into the default branch.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge? Triggering incident tickets and compliance workflows via code_scanning_alert webhook payloads is under consideration.",
     options: [
-      { id: 'A', text: "Subscribe to the `code_scanning_alert` webhook with action `created` and filter on `alert.rule.severity == 'critical'`." },
+      { id: 'A', text: "Rely on developers to voluntarily create Jira tickets when their pull requests fail." },
       { id: 'B', text: "Instruct security engineers to manually check the GitHub website every hour for new alerts." },
-      { id: 'C', text: "Rely on developers to voluntarily create Jira tickets when their pull requests fail." },
+      { id: 'C', text: "Subscribe to the `code_scanning_alert` webhook with action `created` and filter on `alert.rule.severity == 'critical'`." },
       { id: 'D', text: "Disable webhook integrations to reduce server network load." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Subscribe to the `code_scanning_alert` webhook with action `created` and filter on `alert.rule.severity == 'critical'`. The `code_scanning_alert` webhook event emits notifications when alerts are `created`, `reopened`, `closed_by_user`, or `fixed`. Security teams automate triage pipelines by intercepting these payloads to open Jira tickets, notify Slack channels, or update security dashboards in real time.",
     referenceUrl: "https://docs.github.com/en/webhooks/webhook-events-and-payloads#code_scanning_alert",
@@ -94,9 +94,9 @@ export const GITHUB_GHAS_QUESTIONS_19 = [
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance? Triggering incident tickets and compliance workflows via code_scanning_alert webhook payloads is under consideration.",
     options: [
       { id: 'A', text: "Subscribe to the `code_scanning_alert` webhook with action `created` and filter on `alert.rule.severity == 'critical'`." },
-      { id: 'B', text: "Instruct security engineers to manually check the GitHub website every hour for new alerts." },
-      { id: 'C', text: "Rely on developers to voluntarily create Jira tickets when their pull requests fail." },
-      { id: 'D', text: "Disable webhook integrations to reduce server network load." }
+      { id: 'B', text: "Rely on developers to voluntarily create Jira tickets when their pull requests fail." },
+      { id: 'C', text: "Disable webhook integrations to reduce server network load." },
+      { id: 'D', text: "Instruct security engineers to manually check the GitHub website every hour for new alerts." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -114,12 +114,12 @@ export const GITHUB_GHAS_QUESTIONS_19 = [
     scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer evaluates Database Export to allow an enterprise internal red team security researcher to run experimental interactive queries locally against a production repository's AST.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives? Exporting CodeQL databases from GitHub Actions for offline security researcher investigation in VS Code is under consideration.",
     options: [
-      { id: 'A', text: "Configure `upload-database: true` in the CodeQL workflow or use the REST API to download the compiled CodeQL database zip file for VS Code." },
+      { id: 'A', text: "Decompile production container images to extract source code." },
       { id: 'B', text: "Give external researchers direct SSH access to production build runner servers." },
       { id: 'C', text: "Force researchers to guess AST node structures without access to the CodeQL database." },
-      { id: 'D', text: "Decompile production container images to extract source code." }
+      { id: 'D', text: "Configure `upload-database: true` in the CodeQL workflow or use the REST API to download the compiled CodeQL database zip file for VS Code." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure `upload-database: true` in the CodeQL workflow or use the REST API to download the compiled CodeQL database zip file for VS Code. GitHub allows exporting compiled CodeQL databases. By setting `upload-database: true` in the workflow or calling the API (`/repos/{owner}/{repo}/code-scanning/codeql/databases/{language}`), security teams download the database into VS Code with the CodeQL extension for offline query development.",
     referenceUrl: "https://docs.github.com/en/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#uploading-codeql-databases",
@@ -135,12 +135,12 @@ export const GITHUB_GHAS_QUESTIONS_19 = [
     scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer evaluates Database Export to allow an enterprise internal red team security researcher to run experimental interactive queries locally against a production repository's AST.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively? Exporting CodeQL databases from GitHub Actions for offline security researcher investigation in VS Code is under consideration.",
     options: [
-      { id: 'A', text: "Configure `upload-database: true` in the CodeQL workflow or use the REST API to download the compiled CodeQL database zip file for VS Code." },
-      { id: 'B', text: "Give external researchers direct SSH access to production build runner servers." },
-      { id: 'C', text: "Force researchers to guess AST node structures without access to the CodeQL database." },
-      { id: 'D', text: "Decompile production container images to extract source code." }
+      { id: 'A', text: "Decompile production container images to extract source code." },
+      { id: 'B', text: "Force researchers to guess AST node structures without access to the CodeQL database." },
+      { id: 'C', text: "Configure `upload-database: true` in the CodeQL workflow or use the REST API to download the compiled CodeQL database zip file for VS Code." },
+      { id: 'D', text: "Give external researchers direct SSH access to production build runner servers." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure `upload-database: true` in the CodeQL workflow or use the REST API to download the compiled CodeQL database zip file for VS Code. GitHub allows exporting compiled CodeQL databases. By setting `upload-database: true` in the workflow or calling the API (`/repos/{owner}/{repo}/code-scanning/codeql/databases/{language}`), security teams download the database into VS Code with the CodeQL extension for offline query development.",
     referenceUrl: "https://docs.github.com/en/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#uploading-codeql-databases",
@@ -157,9 +157,9 @@ export const GITHUB_GHAS_QUESTIONS_19 = [
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure? Exporting CodeQL databases from GitHub Actions for offline security researcher investigation in VS Code is under consideration.",
     options: [
       { id: 'A', text: "Configure `upload-database: true` in the CodeQL workflow or use the REST API to download the compiled CodeQL database zip file for VS Code." },
-      { id: 'B', text: "Give external researchers direct SSH access to production build runner servers." },
-      { id: 'C', text: "Force researchers to guess AST node structures without access to the CodeQL database." },
-      { id: 'D', text: "Decompile production container images to extract source code." }
+      { id: 'B', text: "Decompile production container images to extract source code." },
+      { id: 'C', text: "Give external researchers direct SSH access to production build runner servers." },
+      { id: 'D', text: "Force researchers to guess AST node structures without access to the CodeQL database." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -177,12 +177,12 @@ export const GITHUB_GHAS_QUESTIONS_19 = [
     scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer evaluates Database Export to allow an enterprise internal red team security researcher to run experimental interactive queries locally against a production repository's AST.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge? Exporting CodeQL databases from GitHub Actions for offline security researcher investigation in VS Code is under consideration.",
     options: [
-      { id: 'A', text: "Configure `upload-database: true` in the CodeQL workflow or use the REST API to download the compiled CodeQL database zip file for VS Code." },
+      { id: 'A', text: "Decompile production container images to extract source code." },
       { id: 'B', text: "Give external researchers direct SSH access to production build runner servers." },
       { id: 'C', text: "Force researchers to guess AST node structures without access to the CodeQL database." },
-      { id: 'D', text: "Decompile production container images to extract source code." }
+      { id: 'D', text: "Configure `upload-database: true` in the CodeQL workflow or use the REST API to download the compiled CodeQL database zip file for VS Code." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure `upload-database: true` in the CodeQL workflow or use the REST API to download the compiled CodeQL database zip file for VS Code. GitHub allows exporting compiled CodeQL databases. By setting `upload-database: true` in the workflow or calling the API (`/repos/{owner}/{repo}/code-scanning/codeql/databases/{language}`), security teams download the database into VS Code with the CodeQL extension for offline query development.",
     referenceUrl: "https://docs.github.com/en/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#uploading-codeql-databases",
@@ -198,12 +198,12 @@ export const GITHUB_GHAS_QUESTIONS_19 = [
     scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer evaluates Database Export to allow an enterprise internal red team security researcher to run experimental interactive queries locally against a production repository's AST.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance? Exporting CodeQL databases from GitHub Actions for offline security researcher investigation in VS Code is under consideration.",
     options: [
-      { id: 'A', text: "Configure `upload-database: true` in the CodeQL workflow or use the REST API to download the compiled CodeQL database zip file for VS Code." },
-      { id: 'B', text: "Give external researchers direct SSH access to production build runner servers." },
-      { id: 'C', text: "Force researchers to guess AST node structures without access to the CodeQL database." },
+      { id: 'A', text: "Force researchers to guess AST node structures without access to the CodeQL database." },
+      { id: 'B', text: "Configure `upload-database: true` in the CodeQL workflow or use the REST API to download the compiled CodeQL database zip file for VS Code." },
+      { id: 'C', text: "Give external researchers direct SSH access to production build runner servers." },
       { id: 'D', text: "Decompile production container images to extract source code." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure `upload-database: true` in the CodeQL workflow or use the REST API to download the compiled CodeQL database zip file for VS Code. GitHub allows exporting compiled CodeQL databases. By setting `upload-database: true` in the workflow or calling the API (`/repos/{owner}/{repo}/code-scanning/codeql/databases/{language}`), security teams download the database into VS Code with the CodeQL extension for offline query development.",
     referenceUrl: "https://docs.github.com/en/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#uploading-codeql-databases",
@@ -219,12 +219,12 @@ export const GITHUB_GHAS_QUESTIONS_19 = [
     scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer evaluates Security Configurations to enforce Secret Scanning Push Protection and Dependabot Security Updates automatically on all 1,000 repositories in an enterprise.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives? Deploying standardized GHAS settings (Secret Scanning, Dependabot, CodeQL) across all repositories is under consideration.",
     options: [
-      { id: 'A', text: "Create and apply a custom GitHub Enterprise Security Configuration, setting it as the default for all current and future repositories." },
-      { id: 'B', text: "Navigate to the settings tab of each of the 1,000 repositories manually to toggle individual checkboxes." },
-      { id: 'C', text: "Send an email to repository owners asking them to enable security features voluntarily." },
+      { id: 'A', text: "Send an email to repository owners asking them to enable security features voluntarily." },
+      { id: 'B', text: "Create and apply a custom GitHub Enterprise Security Configuration, setting it as the default for all current and future repositories." },
+      { id: 'C', text: "Navigate to the settings tab of each of the 1,000 repositories manually to toggle individual checkboxes." },
       { id: 'D', text: "Disable central governance and allow every team to choose their own security posture." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Create and apply a custom GitHub Enterprise Security Configuration, setting it as the default for all current and future repositories. GitHub Enterprise Security Configurations allow administrators to define bundles of GHAS features (Secret Scanning, Push Protection, Dependabot, CodeQL). Applying a configuration across organizations ensures uniform security posture and automatically enforces settings on newly created repositories.",
     referenceUrl: "https://docs.github.com/en/code-security/securing-your-organization/enforcing-policies-for-code-security-in-your-organization/about-security-configurations",
@@ -240,12 +240,12 @@ export const GITHUB_GHAS_QUESTIONS_19 = [
     scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer evaluates Security Configurations to enforce Secret Scanning Push Protection and Dependabot Security Updates automatically on all 1,000 repositories in an enterprise.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively? Deploying standardized GHAS settings (Secret Scanning, Dependabot, CodeQL) across all repositories is under consideration.",
     options: [
-      { id: 'A', text: "Create and apply a custom GitHub Enterprise Security Configuration, setting it as the default for all current and future repositories." },
+      { id: 'A', text: "Disable central governance and allow every team to choose their own security posture." },
       { id: 'B', text: "Navigate to the settings tab of each of the 1,000 repositories manually to toggle individual checkboxes." },
-      { id: 'C', text: "Send an email to repository owners asking them to enable security features voluntarily." },
-      { id: 'D', text: "Disable central governance and allow every team to choose their own security posture." }
+      { id: 'C', text: "Create and apply a custom GitHub Enterprise Security Configuration, setting it as the default for all current and future repositories." },
+      { id: 'D', text: "Send an email to repository owners asking them to enable security features voluntarily." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Create and apply a custom GitHub Enterprise Security Configuration, setting it as the default for all current and future repositories. GitHub Enterprise Security Configurations allow administrators to define bundles of GHAS features (Secret Scanning, Push Protection, Dependabot, CodeQL). Applying a configuration across organizations ensures uniform security posture and automatically enforces settings on newly created repositories.",
     referenceUrl: "https://docs.github.com/en/code-security/securing-your-organization/enforcing-policies-for-code-security-in-your-organization/about-security-configurations",
@@ -261,12 +261,12 @@ export const GITHUB_GHAS_QUESTIONS_19 = [
     scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer evaluates Security Configurations to enforce Secret Scanning Push Protection and Dependabot Security Updates automatically on all 1,000 repositories in an enterprise.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure? Deploying standardized GHAS settings (Secret Scanning, Dependabot, CodeQL) across all repositories is under consideration.",
     options: [
-      { id: 'A', text: "Create and apply a custom GitHub Enterprise Security Configuration, setting it as the default for all current and future repositories." },
-      { id: 'B', text: "Navigate to the settings tab of each of the 1,000 repositories manually to toggle individual checkboxes." },
-      { id: 'C', text: "Send an email to repository owners asking them to enable security features voluntarily." },
-      { id: 'D', text: "Disable central governance and allow every team to choose their own security posture." }
+      { id: 'A', text: "Navigate to the settings tab of each of the 1,000 repositories manually to toggle individual checkboxes." },
+      { id: 'B', text: "Create and apply a custom GitHub Enterprise Security Configuration, setting it as the default for all current and future repositories." },
+      { id: 'C', text: "Disable central governance and allow every team to choose their own security posture." },
+      { id: 'D', text: "Send an email to repository owners asking them to enable security features voluntarily." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Create and apply a custom GitHub Enterprise Security Configuration, setting it as the default for all current and future repositories. GitHub Enterprise Security Configurations allow administrators to define bundles of GHAS features (Secret Scanning, Push Protection, Dependabot, CodeQL). Applying a configuration across organizations ensures uniform security posture and automatically enforces settings on newly created repositories.",
     referenceUrl: "https://docs.github.com/en/code-security/securing-your-organization/enforcing-policies-for-code-security-in-your-organization/about-security-configurations",
@@ -282,12 +282,12 @@ export const GITHUB_GHAS_QUESTIONS_19 = [
     scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer evaluates Security Configurations to enforce Secret Scanning Push Protection and Dependabot Security Updates automatically on all 1,000 repositories in an enterprise.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge? Deploying standardized GHAS settings (Secret Scanning, Dependabot, CodeQL) across all repositories is under consideration.",
     options: [
-      { id: 'A', text: "Create and apply a custom GitHub Enterprise Security Configuration, setting it as the default for all current and future repositories." },
+      { id: 'A', text: "Send an email to repository owners asking them to enable security features voluntarily." },
       { id: 'B', text: "Navigate to the settings tab of each of the 1,000 repositories manually to toggle individual checkboxes." },
-      { id: 'C', text: "Send an email to repository owners asking them to enable security features voluntarily." },
-      { id: 'D', text: "Disable central governance and allow every team to choose their own security posture." }
+      { id: 'C', text: "Disable central governance and allow every team to choose their own security posture." },
+      { id: 'D', text: "Create and apply a custom GitHub Enterprise Security Configuration, setting it as the default for all current and future repositories." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Create and apply a custom GitHub Enterprise Security Configuration, setting it as the default for all current and future repositories. GitHub Enterprise Security Configurations allow administrators to define bundles of GHAS features (Secret Scanning, Push Protection, Dependabot, CodeQL). Applying a configuration across organizations ensures uniform security posture and automatically enforces settings on newly created repositories.",
     referenceUrl: "https://docs.github.com/en/code-security/securing-your-organization/enforcing-policies-for-code-security-in-your-organization/about-security-configurations",
@@ -324,12 +324,12 @@ export const GITHUB_GHAS_QUESTIONS_19 = [
     scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer evaluates Repository Rulesets to prevent anyone, including repository administrators, from bypassing security scans and pushing code directly to protected branches.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives? Enforcing branch rulesets requiring passing CodeQL and Dependency Review status checks is under consideration.",
     options: [
-      { id: 'A', text: "Configure a Repository Ruleset targeting default branches, requiring passing security status checks and disabling bypasses for admins." },
-      { id: 'B', text: "Rely on informal developer agreements not to push unreviewed code to the main branch." },
-      { id: 'C', text: "Grant full administrative bypass permissions to all engineers in the company." },
-      { id: 'D', text: "Disable branch protection to speed up release delivery deadlines." }
+      { id: 'A', text: "Disable branch protection to speed up release delivery deadlines." },
+      { id: 'B', text: "Grant full administrative bypass permissions to all engineers in the company." },
+      { id: 'C', text: "Configure a Repository Ruleset targeting default branches, requiring passing security status checks and disabling bypasses for admins." },
+      { id: 'D', text: "Rely on informal developer agreements not to push unreviewed code to the main branch." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure a Repository Ruleset targeting default branches, requiring passing security status checks and disabling bypasses for admins. Repository Rulesets replace legacy branch protection with granular, layered policy control. Rulesets can require specific status checks (like CodeQL and Dependency Review) to pass, block force pushes, enforce linear history, and strictly prevent repository admins from bypassing rules.",
     referenceUrl: "https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets",
@@ -345,12 +345,12 @@ export const GITHUB_GHAS_QUESTIONS_19 = [
     scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer evaluates Repository Rulesets to prevent anyone, including repository administrators, from bypassing security scans and pushing code directly to protected branches.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively? Enforcing branch rulesets requiring passing CodeQL and Dependency Review status checks is under consideration.",
     options: [
-      { id: 'A', text: "Configure a Repository Ruleset targeting default branches, requiring passing security status checks and disabling bypasses for admins." },
-      { id: 'B', text: "Rely on informal developer agreements not to push unreviewed code to the main branch." },
+      { id: 'A', text: "Disable branch protection to speed up release delivery deadlines." },
+      { id: 'B', text: "Configure a Repository Ruleset targeting default branches, requiring passing security status checks and disabling bypasses for admins." },
       { id: 'C', text: "Grant full administrative bypass permissions to all engineers in the company." },
-      { id: 'D', text: "Disable branch protection to speed up release delivery deadlines." }
+      { id: 'D', text: "Rely on informal developer agreements not to push unreviewed code to the main branch." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure a Repository Ruleset targeting default branches, requiring passing security status checks and disabling bypasses for admins. Repository Rulesets replace legacy branch protection with granular, layered policy control. Rulesets can require specific status checks (like CodeQL and Dependency Review) to pass, block force pushes, enforce linear history, and strictly prevent repository admins from bypassing rules.",
     referenceUrl: "https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets",
@@ -366,12 +366,12 @@ export const GITHUB_GHAS_QUESTIONS_19 = [
     scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer evaluates Repository Rulesets to prevent anyone, including repository administrators, from bypassing security scans and pushing code directly to protected branches.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure? Enforcing branch rulesets requiring passing CodeQL and Dependency Review status checks is under consideration.",
     options: [
-      { id: 'A', text: "Configure a Repository Ruleset targeting default branches, requiring passing security status checks and disabling bypasses for admins." },
-      { id: 'B', text: "Rely on informal developer agreements not to push unreviewed code to the main branch." },
-      { id: 'C', text: "Grant full administrative bypass permissions to all engineers in the company." },
-      { id: 'D', text: "Disable branch protection to speed up release delivery deadlines." }
+      { id: 'A', text: "Rely on informal developer agreements not to push unreviewed code to the main branch." },
+      { id: 'B', text: "Disable branch protection to speed up release delivery deadlines." },
+      { id: 'C', text: "Configure a Repository Ruleset targeting default branches, requiring passing security status checks and disabling bypasses for admins." },
+      { id: 'D', text: "Grant full administrative bypass permissions to all engineers in the company." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure a Repository Ruleset targeting default branches, requiring passing security status checks and disabling bypasses for admins. Repository Rulesets replace legacy branch protection with granular, layered policy control. Rulesets can require specific status checks (like CodeQL and Dependency Review) to pass, block force pushes, enforce linear history, and strictly prevent repository admins from bypassing rules.",
     referenceUrl: "https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets",
@@ -387,12 +387,12 @@ export const GITHUB_GHAS_QUESTIONS_19 = [
     scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer evaluates Repository Rulesets to prevent anyone, including repository administrators, from bypassing security scans and pushing code directly to protected branches.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge? Enforcing branch rulesets requiring passing CodeQL and Dependency Review status checks is under consideration.",
     options: [
-      { id: 'A', text: "Configure a Repository Ruleset targeting default branches, requiring passing security status checks and disabling bypasses for admins." },
-      { id: 'B', text: "Rely on informal developer agreements not to push unreviewed code to the main branch." },
-      { id: 'C', text: "Grant full administrative bypass permissions to all engineers in the company." },
-      { id: 'D', text: "Disable branch protection to speed up release delivery deadlines." }
+      { id: 'A', text: "Grant full administrative bypass permissions to all engineers in the company." },
+      { id: 'B', text: "Disable branch protection to speed up release delivery deadlines." },
+      { id: 'C', text: "Configure a Repository Ruleset targeting default branches, requiring passing security status checks and disabling bypasses for admins." },
+      { id: 'D', text: "Rely on informal developer agreements not to push unreviewed code to the main branch." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure a Repository Ruleset targeting default branches, requiring passing security status checks and disabling bypasses for admins. Repository Rulesets replace legacy branch protection with granular, layered policy control. Rulesets can require specific status checks (like CodeQL and Dependency Review) to pass, block force pushes, enforce linear history, and strictly prevent repository admins from bypassing rules.",
     referenceUrl: "https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets",
@@ -408,12 +408,12 @@ export const GITHUB_GHAS_QUESTIONS_19 = [
     scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer evaluates Repository Rulesets to prevent anyone, including repository administrators, from bypassing security scans and pushing code directly to protected branches.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance? Enforcing branch rulesets requiring passing CodeQL and Dependency Review status checks is under consideration.",
     options: [
-      { id: 'A', text: "Configure a Repository Ruleset targeting default branches, requiring passing security status checks and disabling bypasses for admins." },
-      { id: 'B', text: "Rely on informal developer agreements not to push unreviewed code to the main branch." },
-      { id: 'C', text: "Grant full administrative bypass permissions to all engineers in the company." },
-      { id: 'D', text: "Disable branch protection to speed up release delivery deadlines." }
+      { id: 'A', text: "Rely on informal developer agreements not to push unreviewed code to the main branch." },
+      { id: 'B', text: "Disable branch protection to speed up release delivery deadlines." },
+      { id: 'C', text: "Configure a Repository Ruleset targeting default branches, requiring passing security status checks and disabling bypasses for admins." },
+      { id: 'D', text: "Grant full administrative bypass permissions to all engineers in the company." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure a Repository Ruleset targeting default branches, requiring passing security status checks and disabling bypasses for admins. Repository Rulesets replace legacy branch protection with granular, layered policy control. Rulesets can require specific status checks (like CodeQL and Dependency Review) to pass, block force pushes, enforce linear history, and strictly prevent repository admins from bypassing rules.",
     referenceUrl: "https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets",
@@ -430,9 +430,9 @@ export const GITHUB_GHAS_QUESTIONS_19 = [
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives? Centralized posture visualization, risk metrics, and Mean Time to Remediate (MTTR) tracking is under consideration.",
     options: [
       { id: 'A', text: "Use the GitHub Security Overview dashboard, filtering by risk level, alert type, MTTR, and repository enablement status." },
-      { id: 'B', text: "Compile manual security spreadsheets by emailing 50 engineering managers every week." },
+      { id: 'B', text: "Log into each repository individually to count open alerts on a notepad." },
       { id: 'C', text: "Ignore security posture metrics and assume software is secure." },
-      { id: 'D', text: "Log into each repository individually to count open alerts on a notepad." }
+      { id: 'D', text: "Compile manual security spreadsheets by emailing 50 engineering managers every week." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -451,9 +451,9 @@ export const GITHUB_GHAS_QUESTIONS_19 = [
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively? Centralized posture visualization, risk metrics, and Mean Time to Remediate (MTTR) tracking is under consideration.",
     options: [
       { id: 'A', text: "Use the GitHub Security Overview dashboard, filtering by risk level, alert type, MTTR, and repository enablement status." },
-      { id: 'B', text: "Compile manual security spreadsheets by emailing 50 engineering managers every week." },
-      { id: 'C', text: "Ignore security posture metrics and assume software is secure." },
-      { id: 'D', text: "Log into each repository individually to count open alerts on a notepad." }
+      { id: 'B', text: "Log into each repository individually to count open alerts on a notepad." },
+      { id: 'C', text: "Compile manual security spreadsheets by emailing 50 engineering managers every week." },
+      { id: 'D', text: "Ignore security posture metrics and assume software is secure." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -472,8 +472,8 @@ export const GITHUB_GHAS_QUESTIONS_19 = [
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure? Centralized posture visualization, risk metrics, and Mean Time to Remediate (MTTR) tracking is under consideration.",
     options: [
       { id: 'A', text: "Use the GitHub Security Overview dashboard, filtering by risk level, alert type, MTTR, and repository enablement status." },
-      { id: 'B', text: "Compile manual security spreadsheets by emailing 50 engineering managers every week." },
-      { id: 'C', text: "Ignore security posture metrics and assume software is secure." },
+      { id: 'B', text: "Ignore security posture metrics and assume software is secure." },
+      { id: 'C', text: "Compile manual security spreadsheets by emailing 50 engineering managers every week." },
       { id: 'D', text: "Log into each repository individually to count open alerts on a notepad." }
     ],
     correctAnswers: ['A'],
@@ -493,8 +493,8 @@ export const GITHUB_GHAS_QUESTIONS_19 = [
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge? Centralized posture visualization, risk metrics, and Mean Time to Remediate (MTTR) tracking is under consideration.",
     options: [
       { id: 'A', text: "Use the GitHub Security Overview dashboard, filtering by risk level, alert type, MTTR, and repository enablement status." },
-      { id: 'B', text: "Compile manual security spreadsheets by emailing 50 engineering managers every week." },
-      { id: 'C', text: "Ignore security posture metrics and assume software is secure." },
+      { id: 'B', text: "Ignore security posture metrics and assume software is secure." },
+      { id: 'C', text: "Compile manual security spreadsheets by emailing 50 engineering managers every week." },
       { id: 'D', text: "Log into each repository individually to count open alerts on a notepad." }
     ],
     correctAnswers: ['A'],

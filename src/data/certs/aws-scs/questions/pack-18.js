@@ -10,9 +10,9 @@ export const AWS_SCS_QUESTIONS_18 = [
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives? Separating Key Administrators from Key Users and restricting service context via kms:ViaService is under consideration.",
     options: [
       { id: 'A', text: "Separate Key Administrator permissions (`kms:Create*`, `kms:Put*`) from Key User permissions (`kms:Decrypt`), and enforce `kms:ViaService`." },
-      { id: 'B', text: "Grant full administrative wildcard `kms:*` permissions to both key administrators and application service roles." },
-      { id: 'C', text: "Allow all IAM users in the account to perform `kms:Decrypt` unconditionally." },
-      { id: 'D', text: "Disable key policies and rely exclusively on IAM identity policies." }
+      { id: 'B', text: "Disable key policies and rely exclusively on IAM identity policies." },
+      { id: 'C', text: "Grant full administrative wildcard `kms:*` permissions to both key administrators and application service roles." },
+      { id: 'D', text: "Allow all IAM users in the account to perform `kms:Decrypt` unconditionally." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -31,9 +31,9 @@ export const AWS_SCS_QUESTIONS_18 = [
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence? Separating Key Administrators from Key Users and restricting service context via kms:ViaService is under consideration.",
     options: [
       { id: 'A', text: "Separate Key Administrator permissions (`kms:Create*`, `kms:Put*`) from Key User permissions (`kms:Decrypt`), and enforce `kms:ViaService`." },
-      { id: 'B', text: "Grant full administrative wildcard `kms:*` permissions to both key administrators and application service roles." },
-      { id: 'C', text: "Allow all IAM users in the account to perform `kms:Decrypt` unconditionally." },
-      { id: 'D', text: "Disable key policies and rely exclusively on IAM identity policies." }
+      { id: 'B', text: "Allow all IAM users in the account to perform `kms:Decrypt` unconditionally." },
+      { id: 'C', text: "Disable key policies and rely exclusively on IAM identity policies." },
+      { id: 'D', text: "Grant full administrative wildcard `kms:*` permissions to both key administrators and application service roles." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -51,12 +51,12 @@ export const AWS_SCS_QUESTIONS_18 = [
     scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer evaluates KMS Key Policies to prevent KMS key administrators from decrypting sensitive corporate payroll data while allowing payroll applications to use the key.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls? Separating Key Administrators from Key Users and restricting service context via kms:ViaService is under consideration.",
     options: [
-      { id: 'A', text: "Separate Key Administrator permissions (`kms:Create*`, `kms:Put*`) from Key User permissions (`kms:Decrypt`), and enforce `kms:ViaService`." },
-      { id: 'B', text: "Grant full administrative wildcard `kms:*` permissions to both key administrators and application service roles." },
-      { id: 'C', text: "Allow all IAM users in the account to perform `kms:Decrypt` unconditionally." },
+      { id: 'A', text: "Allow all IAM users in the account to perform `kms:Decrypt` unconditionally." },
+      { id: 'B', text: "Separate Key Administrator permissions (`kms:Create*`, `kms:Put*`) from Key User permissions (`kms:Decrypt`), and enforce `kms:ViaService`." },
+      { id: 'C', text: "Grant full administrative wildcard `kms:*` permissions to both key administrators and application service roles." },
       { id: 'D', text: "Disable key policies and rely exclusively on IAM identity policies." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Separate Key Administrator permissions (`kms:Create*`, `kms:Put*`) from Key User permissions (`kms:Decrypt`), and enforce `kms:ViaService`. KMS key policies enforce separation of duties. Key administrators manage key lifecycles (rotation, permissions, deletion) but lack `kms:Decrypt` and `kms:GenerateDataKey`. Furthermore, the `kms:ViaService` condition restricts key usage strictly through authorized services (e.g., S3 or Secrets Manager).",
     referenceUrl: "https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html",
@@ -74,8 +74,8 @@ export const AWS_SCS_QUESTIONS_18 = [
     options: [
       { id: 'A', text: "Separate Key Administrator permissions (`kms:Create*`, `kms:Put*`) from Key User permissions (`kms:Decrypt`), and enforce `kms:ViaService`." },
       { id: 'B', text: "Grant full administrative wildcard `kms:*` permissions to both key administrators and application service roles." },
-      { id: 'C', text: "Allow all IAM users in the account to perform `kms:Decrypt` unconditionally." },
-      { id: 'D', text: "Disable key policies and rely exclusively on IAM identity policies." }
+      { id: 'C', text: "Disable key policies and rely exclusively on IAM identity policies." },
+      { id: 'D', text: "Allow all IAM users in the account to perform `kms:Decrypt` unconditionally." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -93,12 +93,12 @@ export const AWS_SCS_QUESTIONS_18 = [
     scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer evaluates KMS Key Policies to prevent KMS key administrators from decrypting sensitive corporate payroll data while allowing payroll applications to use the key.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense? Separating Key Administrators from Key Users and restricting service context via kms:ViaService is under consideration.",
     options: [
-      { id: 'A', text: "Separate Key Administrator permissions (`kms:Create*`, `kms:Put*`) from Key User permissions (`kms:Decrypt`), and enforce `kms:ViaService`." },
-      { id: 'B', text: "Grant full administrative wildcard `kms:*` permissions to both key administrators and application service roles." },
-      { id: 'C', text: "Allow all IAM users in the account to perform `kms:Decrypt` unconditionally." },
-      { id: 'D', text: "Disable key policies and rely exclusively on IAM identity policies." }
+      { id: 'A', text: "Disable key policies and rely exclusively on IAM identity policies." },
+      { id: 'B', text: "Separate Key Administrator permissions (`kms:Create*`, `kms:Put*`) from Key User permissions (`kms:Decrypt`), and enforce `kms:ViaService`." },
+      { id: 'C', text: "Grant full administrative wildcard `kms:*` permissions to both key administrators and application service roles." },
+      { id: 'D', text: "Allow all IAM users in the account to perform `kms:Decrypt` unconditionally." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Separate Key Administrator permissions (`kms:Create*`, `kms:Put*`) from Key User permissions (`kms:Decrypt`), and enforce `kms:ViaService`. KMS key policies enforce separation of duties. Key administrators manage key lifecycles (rotation, permissions, deletion) but lack `kms:Decrypt` and `kms:GenerateDataKey`. Furthermore, the `kms:ViaService` condition restricts key usage strictly through authorized services (e.g., S3 or Secrets Manager).",
     referenceUrl: "https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html",
@@ -114,12 +114,12 @@ export const AWS_SCS_QUESTIONS_18 = [
     scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer evaluates Envelope Encryption to encrypt large 50-gigabyte video files efficiently without sending massive binary payloads across the network to AWS KMS.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives? Client-side encryption using plaintext and ciphertext data keys via AWS KMS GenerateDataKey is under consideration.",
     options: [
-      { id: 'A', text: "Use Envelope Encryption: call `kms:GenerateDataKey`, encrypt the file locally using the plaintext data key, erase it from RAM, and store the ciphertext data key alongside the file." },
-      { id: 'B', text: "Send the entire 50-gigabyte video file directly to the KMS `Encrypt` API, exceeding the 4KB payload limit." },
+      { id: 'A', text: "Send the entire 50-gigabyte video file directly to the KMS `Encrypt` API, exceeding the 4KB payload limit." },
+      { id: 'B', text: "Use Envelope Encryption: call `kms:GenerateDataKey`, encrypt the file locally using the plaintext data key, erase it from RAM, and store the ciphertext data key alongside the file." },
       { id: 'C', text: "Hardcode a static AES encryption key inside the application source code for all video files." },
       { id: 'D', text: "Store files in plaintext on unencrypted storage to avoid encryption overhead." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Use Envelope Encryption: call `kms:GenerateDataKey`, encrypt the file locally using the plaintext data key, erase it from RAM, and store the ciphertext data key alongside the file. AWS KMS `Encrypt` has a maximum payload limit of 4 KB. For larger datasets, envelope encryption is used: the application calls `kms:GenerateDataKey`, which returns a plaintext data key (to encrypt data locally with AES-256) and a ciphertext data key (stored with the encrypted object).",
     referenceUrl: "https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#enveloping",
@@ -135,12 +135,12 @@ export const AWS_SCS_QUESTIONS_18 = [
     scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer evaluates Envelope Encryption to encrypt large 50-gigabyte video files efficiently without sending massive binary payloads across the network to AWS KMS.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence? Client-side encryption using plaintext and ciphertext data keys via AWS KMS GenerateDataKey is under consideration.",
     options: [
-      { id: 'A', text: "Use Envelope Encryption: call `kms:GenerateDataKey`, encrypt the file locally using the plaintext data key, erase it from RAM, and store the ciphertext data key alongside the file." },
-      { id: 'B', text: "Send the entire 50-gigabyte video file directly to the KMS `Encrypt` API, exceeding the 4KB payload limit." },
+      { id: 'A', text: "Send the entire 50-gigabyte video file directly to the KMS `Encrypt` API, exceeding the 4KB payload limit." },
+      { id: 'B', text: "Store files in plaintext on unencrypted storage to avoid encryption overhead." },
       { id: 'C', text: "Hardcode a static AES encryption key inside the application source code for all video files." },
-      { id: 'D', text: "Store files in plaintext on unencrypted storage to avoid encryption overhead." }
+      { id: 'D', text: "Use Envelope Encryption: call `kms:GenerateDataKey`, encrypt the file locally using the plaintext data key, erase it from RAM, and store the ciphertext data key alongside the file." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Use Envelope Encryption: call `kms:GenerateDataKey`, encrypt the file locally using the plaintext data key, erase it from RAM, and store the ciphertext data key alongside the file. AWS KMS `Encrypt` has a maximum payload limit of 4 KB. For larger datasets, envelope encryption is used: the application calls `kms:GenerateDataKey`, which returns a plaintext data key (to encrypt data locally with AES-256) and a ciphertext data key (stored with the encrypted object).",
     referenceUrl: "https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#enveloping",
@@ -177,12 +177,12 @@ export const AWS_SCS_QUESTIONS_18 = [
     scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer evaluates Envelope Encryption to encrypt large 50-gigabyte video files efficiently without sending massive binary payloads across the network to AWS KMS.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity? Client-side encryption using plaintext and ciphertext data keys via AWS KMS GenerateDataKey is under consideration.",
     options: [
-      { id: 'A', text: "Use Envelope Encryption: call `kms:GenerateDataKey`, encrypt the file locally using the plaintext data key, erase it from RAM, and store the ciphertext data key alongside the file." },
-      { id: 'B', text: "Send the entire 50-gigabyte video file directly to the KMS `Encrypt` API, exceeding the 4KB payload limit." },
-      { id: 'C', text: "Hardcode a static AES encryption key inside the application source code for all video files." },
-      { id: 'D', text: "Store files in plaintext on unencrypted storage to avoid encryption overhead." }
+      { id: 'A', text: "Store files in plaintext on unencrypted storage to avoid encryption overhead." },
+      { id: 'B', text: "Hardcode a static AES encryption key inside the application source code for all video files." },
+      { id: 'C', text: "Send the entire 50-gigabyte video file directly to the KMS `Encrypt` API, exceeding the 4KB payload limit." },
+      { id: 'D', text: "Use Envelope Encryption: call `kms:GenerateDataKey`, encrypt the file locally using the plaintext data key, erase it from RAM, and store the ciphertext data key alongside the file." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Use Envelope Encryption: call `kms:GenerateDataKey`, encrypt the file locally using the plaintext data key, erase it from RAM, and store the ciphertext data key alongside the file. AWS KMS `Encrypt` has a maximum payload limit of 4 KB. For larger datasets, envelope encryption is used: the application calls `kms:GenerateDataKey`, which returns a plaintext data key (to encrypt data locally with AES-256) and a ciphertext data key (stored with the encrypted object).",
     referenceUrl: "https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#enveloping",
@@ -198,12 +198,12 @@ export const AWS_SCS_QUESTIONS_18 = [
     scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer evaluates Envelope Encryption to encrypt large 50-gigabyte video files efficiently without sending massive binary payloads across the network to AWS KMS.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense? Client-side encryption using plaintext and ciphertext data keys via AWS KMS GenerateDataKey is under consideration.",
     options: [
-      { id: 'A', text: "Use Envelope Encryption: call `kms:GenerateDataKey`, encrypt the file locally using the plaintext data key, erase it from RAM, and store the ciphertext data key alongside the file." },
-      { id: 'B', text: "Send the entire 50-gigabyte video file directly to the KMS `Encrypt` API, exceeding the 4KB payload limit." },
-      { id: 'C', text: "Hardcode a static AES encryption key inside the application source code for all video files." },
-      { id: 'D', text: "Store files in plaintext on unencrypted storage to avoid encryption overhead." }
+      { id: 'A', text: "Send the entire 50-gigabyte video file directly to the KMS `Encrypt` API, exceeding the 4KB payload limit." },
+      { id: 'B', text: "Store files in plaintext on unencrypted storage to avoid encryption overhead." },
+      { id: 'C', text: "Use Envelope Encryption: call `kms:GenerateDataKey`, encrypt the file locally using the plaintext data key, erase it from RAM, and store the ciphertext data key alongside the file." },
+      { id: 'D', text: "Hardcode a static AES encryption key inside the application source code for all video files." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Use Envelope Encryption: call `kms:GenerateDataKey`, encrypt the file locally using the plaintext data key, erase it from RAM, and store the ciphertext data key alongside the file. AWS KMS `Encrypt` has a maximum payload limit of 4 KB. For larger datasets, envelope encryption is used: the application calls `kms:GenerateDataKey`, which returns a plaintext data key (to encrypt data locally with AES-256) and a ciphertext data key (stored with the encrypted object).",
     referenceUrl: "https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#enveloping",
@@ -219,12 +219,12 @@ export const AWS_SCS_QUESTIONS_18 = [
     scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer evaluates Secrets Manager Rotation to rotate production Amazon RDS PostgreSQL master database credentials every 30 days automatically without disconnecting active applications.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives? Zero-downtime database credential rotation using alternating user accounts and Lambda is under consideration.",
     options: [
-      { id: 'A', text: "Configure AWS Secrets Manager automatic rotation using the multi-user rotation Lambda strategy with an administrative secret." },
+      { id: 'A', text: "Hardcode database credentials in application environment variables that require full redeployments to update." },
       { id: 'B', text: "Rotate credentials manually every 30 days by typing new passwords into database shells during scheduled application outages." },
       { id: 'C', text: "Never rotate database passwords to avoid the risk of application connection failures." },
-      { id: 'D', text: "Hardcode database credentials in application environment variables that require full redeployments to update." }
+      { id: 'D', text: "Configure AWS Secrets Manager automatic rotation using the multi-user rotation Lambda strategy with an administrative secret." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure AWS Secrets Manager automatic rotation using the multi-user rotation Lambda strategy with an administrative secret. Secrets Manager automates credential rotation via AWS Lambda. In the multi-user rotation strategy, an administrative user rotates credentials for a second user without breaking active connections: User 1 is active while User 2 is updated, and applications toggle seamlessly.",
     referenceUrl: "https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets_strategies.html#rotating-secrets-strategies_multi-user",
@@ -261,12 +261,12 @@ export const AWS_SCS_QUESTIONS_18 = [
     scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer evaluates Secrets Manager Rotation to rotate production Amazon RDS PostgreSQL master database credentials every 30 days automatically without disconnecting active applications.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls? Zero-downtime database credential rotation using alternating user accounts and Lambda is under consideration.",
     options: [
-      { id: 'A', text: "Configure AWS Secrets Manager automatic rotation using the multi-user rotation Lambda strategy with an administrative secret." },
-      { id: 'B', text: "Rotate credentials manually every 30 days by typing new passwords into database shells during scheduled application outages." },
-      { id: 'C', text: "Never rotate database passwords to avoid the risk of application connection failures." },
-      { id: 'D', text: "Hardcode database credentials in application environment variables that require full redeployments to update." }
+      { id: 'A', text: "Never rotate database passwords to avoid the risk of application connection failures." },
+      { id: 'B', text: "Hardcode database credentials in application environment variables that require full redeployments to update." },
+      { id: 'C', text: "Configure AWS Secrets Manager automatic rotation using the multi-user rotation Lambda strategy with an administrative secret." },
+      { id: 'D', text: "Rotate credentials manually every 30 days by typing new passwords into database shells during scheduled application outages." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure AWS Secrets Manager automatic rotation using the multi-user rotation Lambda strategy with an administrative secret. Secrets Manager automates credential rotation via AWS Lambda. In the multi-user rotation strategy, an administrative user rotates credentials for a second user without breaking active connections: User 1 is active while User 2 is updated, and applications toggle seamlessly.",
     referenceUrl: "https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets_strategies.html#rotating-secrets-strategies_multi-user",
@@ -282,12 +282,12 @@ export const AWS_SCS_QUESTIONS_18 = [
     scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer evaluates Secrets Manager Rotation to rotate production Amazon RDS PostgreSQL master database credentials every 30 days automatically without disconnecting active applications.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity? Zero-downtime database credential rotation using alternating user accounts and Lambda is under consideration.",
     options: [
-      { id: 'A', text: "Configure AWS Secrets Manager automatic rotation using the multi-user rotation Lambda strategy with an administrative secret." },
-      { id: 'B', text: "Rotate credentials manually every 30 days by typing new passwords into database shells during scheduled application outages." },
-      { id: 'C', text: "Never rotate database passwords to avoid the risk of application connection failures." },
-      { id: 'D', text: "Hardcode database credentials in application environment variables that require full redeployments to update." }
+      { id: 'A', text: "Hardcode database credentials in application environment variables that require full redeployments to update." },
+      { id: 'B', text: "Configure AWS Secrets Manager automatic rotation using the multi-user rotation Lambda strategy with an administrative secret." },
+      { id: 'C', text: "Rotate credentials manually every 30 days by typing new passwords into database shells during scheduled application outages." },
+      { id: 'D', text: "Never rotate database passwords to avoid the risk of application connection failures." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure AWS Secrets Manager automatic rotation using the multi-user rotation Lambda strategy with an administrative secret. Secrets Manager automates credential rotation via AWS Lambda. In the multi-user rotation strategy, an administrative user rotates credentials for a second user without breaking active connections: User 1 is active while User 2 is updated, and applications toggle seamlessly.",
     referenceUrl: "https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets_strategies.html#rotating-secrets-strategies_multi-user",
@@ -303,12 +303,12 @@ export const AWS_SCS_QUESTIONS_18 = [
     scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer evaluates Secrets Manager Rotation to rotate production Amazon RDS PostgreSQL master database credentials every 30 days automatically without disconnecting active applications.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense? Zero-downtime database credential rotation using alternating user accounts and Lambda is under consideration.",
     options: [
-      { id: 'A', text: "Configure AWS Secrets Manager automatic rotation using the multi-user rotation Lambda strategy with an administrative secret." },
-      { id: 'B', text: "Rotate credentials manually every 30 days by typing new passwords into database shells during scheduled application outages." },
-      { id: 'C', text: "Never rotate database passwords to avoid the risk of application connection failures." },
-      { id: 'D', text: "Hardcode database credentials in application environment variables that require full redeployments to update." }
+      { id: 'A', text: "Never rotate database passwords to avoid the risk of application connection failures." },
+      { id: 'B', text: "Configure AWS Secrets Manager automatic rotation using the multi-user rotation Lambda strategy with an administrative secret." },
+      { id: 'C', text: "Hardcode database credentials in application environment variables that require full redeployments to update." },
+      { id: 'D', text: "Rotate credentials manually every 30 days by typing new passwords into database shells during scheduled application outages." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure AWS Secrets Manager automatic rotation using the multi-user rotation Lambda strategy with an administrative secret. Secrets Manager automates credential rotation via AWS Lambda. In the multi-user rotation strategy, an administrative user rotates credentials for a second user without breaking active connections: User 1 is active while User 2 is updated, and applications toggle seamlessly.",
     referenceUrl: "https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets_strategies.html#rotating-secrets-strategies_multi-user",
@@ -325,8 +325,8 @@ export const AWS_SCS_QUESTIONS_18 = [
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives? Automating public TLS certificate renewal and deploying private enterprise PKI is under consideration.",
     options: [
       { id: 'A', text: "Use AWS Certificate Manager (ACM) with DNS validation for public endpoints, and AWS Private CA for internal microservice mTLS." },
-      { id: 'B', text: "Purchase manual public certificates that require yearly manual CSR generation, renewal, and server installation." },
-      { id: 'C', text: "Disable TLS and operate all internal microservices over unencrypted plaintext HTTP." },
+      { id: 'B', text: "Disable TLS and operate all internal microservices over unencrypted plaintext HTTP." },
+      { id: 'C', text: "Purchase manual public certificates that require yearly manual CSR generation, renewal, and server installation." },
       { id: 'D', text: "Use self-signed certificates that trigger browser security warnings for all customers." }
     ],
     correctAnswers: ['A'],
@@ -345,12 +345,12 @@ export const AWS_SCS_QUESTIONS_18 = [
     scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer evaluates AWS ACM & Private CA to provide public websites with automatically renewing SSL/TLS certificates and issue private certificates for internal microservices.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence? Automating public TLS certificate renewal and deploying private enterprise PKI is under consideration.",
     options: [
-      { id: 'A', text: "Use AWS Certificate Manager (ACM) with DNS validation for public endpoints, and AWS Private CA for internal microservice mTLS." },
-      { id: 'B', text: "Purchase manual public certificates that require yearly manual CSR generation, renewal, and server installation." },
-      { id: 'C', text: "Disable TLS and operate all internal microservices over unencrypted plaintext HTTP." },
-      { id: 'D', text: "Use self-signed certificates that trigger browser security warnings for all customers." }
+      { id: 'A', text: "Disable TLS and operate all internal microservices over unencrypted plaintext HTTP." },
+      { id: 'B', text: "Use AWS Certificate Manager (ACM) with DNS validation for public endpoints, and AWS Private CA for internal microservice mTLS." },
+      { id: 'C', text: "Use self-signed certificates that trigger browser security warnings for all customers." },
+      { id: 'D', text: "Purchase manual public certificates that require yearly manual CSR generation, renewal, and server installation." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Use AWS Certificate Manager (ACM) with DNS validation for public endpoints, and AWS Private CA for internal microservice mTLS. AWS Certificate Manager (ACM) manages public TLS certificates with automated renewal via DNS validation (CNAME records). For internal architectures, AWS Private CA establishes an enterprise private PKI, issuing and revoking private certificates for microservices and containers seamlessly.",
     referenceUrl: "https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html",
@@ -366,12 +366,12 @@ export const AWS_SCS_QUESTIONS_18 = [
     scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer evaluates AWS ACM & Private CA to provide public websites with automatically renewing SSL/TLS certificates and issue private certificates for internal microservices.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls? Automating public TLS certificate renewal and deploying private enterprise PKI is under consideration.",
     options: [
-      { id: 'A', text: "Use AWS Certificate Manager (ACM) with DNS validation for public endpoints, and AWS Private CA for internal microservice mTLS." },
+      { id: 'A', text: "Use self-signed certificates that trigger browser security warnings for all customers." },
       { id: 'B', text: "Purchase manual public certificates that require yearly manual CSR generation, renewal, and server installation." },
       { id: 'C', text: "Disable TLS and operate all internal microservices over unencrypted plaintext HTTP." },
-      { id: 'D', text: "Use self-signed certificates that trigger browser security warnings for all customers." }
+      { id: 'D', text: "Use AWS Certificate Manager (ACM) with DNS validation for public endpoints, and AWS Private CA for internal microservice mTLS." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Use AWS Certificate Manager (ACM) with DNS validation for public endpoints, and AWS Private CA for internal microservice mTLS. AWS Certificate Manager (ACM) manages public TLS certificates with automated renewal via DNS validation (CNAME records). For internal architectures, AWS Private CA establishes an enterprise private PKI, issuing and revoking private certificates for microservices and containers seamlessly.",
     referenceUrl: "https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html",
@@ -387,12 +387,12 @@ export const AWS_SCS_QUESTIONS_18 = [
     scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer evaluates AWS ACM & Private CA to provide public websites with automatically renewing SSL/TLS certificates and issue private certificates for internal microservices.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity? Automating public TLS certificate renewal and deploying private enterprise PKI is under consideration.",
     options: [
-      { id: 'A', text: "Use AWS Certificate Manager (ACM) with DNS validation for public endpoints, and AWS Private CA for internal microservice mTLS." },
-      { id: 'B', text: "Purchase manual public certificates that require yearly manual CSR generation, renewal, and server installation." },
-      { id: 'C', text: "Disable TLS and operate all internal microservices over unencrypted plaintext HTTP." },
-      { id: 'D', text: "Use self-signed certificates that trigger browser security warnings for all customers." }
+      { id: 'A', text: "Purchase manual public certificates that require yearly manual CSR generation, renewal, and server installation." },
+      { id: 'B', text: "Disable TLS and operate all internal microservices over unencrypted plaintext HTTP." },
+      { id: 'C', text: "Use self-signed certificates that trigger browser security warnings for all customers." },
+      { id: 'D', text: "Use AWS Certificate Manager (ACM) with DNS validation for public endpoints, and AWS Private CA for internal microservice mTLS." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Use AWS Certificate Manager (ACM) with DNS validation for public endpoints, and AWS Private CA for internal microservice mTLS. AWS Certificate Manager (ACM) manages public TLS certificates with automated renewal via DNS validation (CNAME records). For internal architectures, AWS Private CA establishes an enterprise private PKI, issuing and revoking private certificates for microservices and containers seamlessly.",
     referenceUrl: "https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html",
@@ -408,12 +408,12 @@ export const AWS_SCS_QUESTIONS_18 = [
     scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer evaluates AWS ACM & Private CA to provide public websites with automatically renewing SSL/TLS certificates and issue private certificates for internal microservices.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense? Automating public TLS certificate renewal and deploying private enterprise PKI is under consideration.",
     options: [
-      { id: 'A', text: "Use AWS Certificate Manager (ACM) with DNS validation for public endpoints, and AWS Private CA for internal microservice mTLS." },
-      { id: 'B', text: "Purchase manual public certificates that require yearly manual CSR generation, renewal, and server installation." },
-      { id: 'C', text: "Disable TLS and operate all internal microservices over unencrypted plaintext HTTP." },
-      { id: 'D', text: "Use self-signed certificates that trigger browser security warnings for all customers." }
+      { id: 'A', text: "Disable TLS and operate all internal microservices over unencrypted plaintext HTTP." },
+      { id: 'B', text: "Use self-signed certificates that trigger browser security warnings for all customers." },
+      { id: 'C', text: "Purchase manual public certificates that require yearly manual CSR generation, renewal, and server installation." },
+      { id: 'D', text: "Use AWS Certificate Manager (ACM) with DNS validation for public endpoints, and AWS Private CA for internal microservice mTLS." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Use AWS Certificate Manager (ACM) with DNS validation for public endpoints, and AWS Private CA for internal microservice mTLS. AWS Certificate Manager (ACM) manages public TLS certificates with automated renewal via DNS validation (CNAME records). For internal architectures, AWS Private CA establishes an enterprise private PKI, issuing and revoking private certificates for microservices and containers seamlessly.",
     referenceUrl: "https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html",
@@ -429,12 +429,12 @@ export const AWS_SCS_QUESTIONS_18 = [
     scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer evaluates S3 Hardening to ensure all data transmitted to and from an S3 bucket is encrypted in transit and all stored objects use customer-managed KMS encryption.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives? Enforcing TLS via aws:SecureTransport, default SSE-KMS, and account Block Public Access is under consideration.",
     options: [
-      { id: 'A', text: "Enforce an S3 bucket policy with an explicit Deny when `aws:SecureTransport` is false, and configure bucket default encryption with a KMS CMK." },
-      { id: 'B', text: "Allow plaintext HTTP connections to the S3 bucket to support legacy clients." },
-      { id: 'C', text: "Disable S3 bucket encryption to save CPU processing cycles." },
-      { id: 'D', text: "Turn off S3 Block Public Access to simplify third-party file uploads." }
+      { id: 'A', text: "Allow plaintext HTTP connections to the S3 bucket to support legacy clients." },
+      { id: 'B', text: "Disable S3 bucket encryption to save CPU processing cycles." },
+      { id: 'C', text: "Turn off S3 Block Public Access to simplify third-party file uploads." },
+      { id: 'D', text: "Enforce an S3 bucket policy with an explicit Deny when `aws:SecureTransport` is false, and configure bucket default encryption with a KMS CMK." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Enforce an S3 bucket policy with an explicit Deny when `aws:SecureTransport` is false, and configure bucket default encryption with a KMS CMK. Hardening Amazon S3 requires defense-in-depth: 1) S3 Block Public Access at the account level, 2) a bucket policy denying any request where `aws:SecureTransport: false` (forcing TLS 1.2+ in transit), and 3) default bucket encryption configured with a customer-managed KMS key.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/security-best-practices.html",
@@ -450,12 +450,12 @@ export const AWS_SCS_QUESTIONS_18 = [
     scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer evaluates S3 Hardening to ensure all data transmitted to and from an S3 bucket is encrypted in transit and all stored objects use customer-managed KMS encryption.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence? Enforcing TLS via aws:SecureTransport, default SSE-KMS, and account Block Public Access is under consideration.",
     options: [
-      { id: 'A', text: "Enforce an S3 bucket policy with an explicit Deny when `aws:SecureTransport` is false, and configure bucket default encryption with a KMS CMK." },
-      { id: 'B', text: "Allow plaintext HTTP connections to the S3 bucket to support legacy clients." },
-      { id: 'C', text: "Disable S3 bucket encryption to save CPU processing cycles." },
-      { id: 'D', text: "Turn off S3 Block Public Access to simplify third-party file uploads." }
+      { id: 'A', text: "Disable S3 bucket encryption to save CPU processing cycles." },
+      { id: 'B', text: "Turn off S3 Block Public Access to simplify third-party file uploads." },
+      { id: 'C', text: "Allow plaintext HTTP connections to the S3 bucket to support legacy clients." },
+      { id: 'D', text: "Enforce an S3 bucket policy with an explicit Deny when `aws:SecureTransport` is false, and configure bucket default encryption with a KMS CMK." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Enforce an S3 bucket policy with an explicit Deny when `aws:SecureTransport` is false, and configure bucket default encryption with a KMS CMK. Hardening Amazon S3 requires defense-in-depth: 1) S3 Block Public Access at the account level, 2) a bucket policy denying any request where `aws:SecureTransport: false` (forcing TLS 1.2+ in transit), and 3) default bucket encryption configured with a customer-managed KMS key.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/security-best-practices.html",
@@ -472,9 +472,9 @@ export const AWS_SCS_QUESTIONS_18 = [
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls? Enforcing TLS via aws:SecureTransport, default SSE-KMS, and account Block Public Access is under consideration.",
     options: [
       { id: 'A', text: "Enforce an S3 bucket policy with an explicit Deny when `aws:SecureTransport` is false, and configure bucket default encryption with a KMS CMK." },
-      { id: 'B', text: "Allow plaintext HTTP connections to the S3 bucket to support legacy clients." },
+      { id: 'B', text: "Turn off S3 Block Public Access to simplify third-party file uploads." },
       { id: 'C', text: "Disable S3 bucket encryption to save CPU processing cycles." },
-      { id: 'D', text: "Turn off S3 Block Public Access to simplify third-party file uploads." }
+      { id: 'D', text: "Allow plaintext HTTP connections to the S3 bucket to support legacy clients." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,12 +492,12 @@ export const AWS_SCS_QUESTIONS_18 = [
     scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer evaluates S3 Hardening to ensure all data transmitted to and from an S3 bucket is encrypted in transit and all stored objects use customer-managed KMS encryption.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity? Enforcing TLS via aws:SecureTransport, default SSE-KMS, and account Block Public Access is under consideration.",
     options: [
-      { id: 'A', text: "Enforce an S3 bucket policy with an explicit Deny when `aws:SecureTransport` is false, and configure bucket default encryption with a KMS CMK." },
-      { id: 'B', text: "Allow plaintext HTTP connections to the S3 bucket to support legacy clients." },
-      { id: 'C', text: "Disable S3 bucket encryption to save CPU processing cycles." },
-      { id: 'D', text: "Turn off S3 Block Public Access to simplify third-party file uploads." }
+      { id: 'A', text: "Turn off S3 Block Public Access to simplify third-party file uploads." },
+      { id: 'B', text: "Disable S3 bucket encryption to save CPU processing cycles." },
+      { id: 'C', text: "Allow plaintext HTTP connections to the S3 bucket to support legacy clients." },
+      { id: 'D', text: "Enforce an S3 bucket policy with an explicit Deny when `aws:SecureTransport` is false, and configure bucket default encryption with a KMS CMK." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Enforce an S3 bucket policy with an explicit Deny when `aws:SecureTransport` is false, and configure bucket default encryption with a KMS CMK. Hardening Amazon S3 requires defense-in-depth: 1) S3 Block Public Access at the account level, 2) a bucket policy denying any request where `aws:SecureTransport: false` (forcing TLS 1.2+ in transit), and 3) default bucket encryption configured with a customer-managed KMS key.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/security-best-practices.html",
@@ -514,8 +514,8 @@ export const AWS_SCS_QUESTIONS_18 = [
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense? Enforcing TLS via aws:SecureTransport, default SSE-KMS, and account Block Public Access is under consideration.",
     options: [
       { id: 'A', text: "Enforce an S3 bucket policy with an explicit Deny when `aws:SecureTransport` is false, and configure bucket default encryption with a KMS CMK." },
-      { id: 'B', text: "Allow plaintext HTTP connections to the S3 bucket to support legacy clients." },
-      { id: 'C', text: "Disable S3 bucket encryption to save CPU processing cycles." },
+      { id: 'B', text: "Disable S3 bucket encryption to save CPU processing cycles." },
+      { id: 'C', text: "Allow plaintext HTTP connections to the S3 bucket to support legacy clients." },
       { id: 'D', text: "Turn off S3 Block Public Access to simplify third-party file uploads." }
     ],
     correctAnswers: ['A'],

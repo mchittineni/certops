@@ -9,12 +9,12 @@ export const CNCF_CBA_QUESTIONS_16 = [
     scenario: "An enterprise developer experience team is architecting an internal developer portal to standardize service catalogs, software scaffolding, and documentation across hundreds of teams. The platform engineer evaluates Annotations to connect a catalog component to its GitHub repo, TechDocs documentation, and PagerDuty alert service seamlessly.",
     question: "Which architectural approach or Backstage configuration satisfies these enterprise portal objectives? Standard annotations like github.com/project-slug, backstage.io/techdocs-ref, and pagerduty.com/integration-key is under consideration.",
     options: [
-      { id: 'A', text: "Annotate the entity metadata with `github.com/project-slug`, `backstage.io/techdocs-ref`, and `pagerduty.com/integration-key`." },
-      { id: 'B', text: "Embed raw API authentication tokens inside public commit messages." },
-      { id: 'C', text: "Avoid using metadata annotations and maintain manual links on a whiteboard." },
+      { id: 'A', text: "Avoid using metadata annotations and maintain manual links on a whiteboard." },
+      { id: 'B', text: "Annotate the entity metadata with `github.com/project-slug`, `backstage.io/techdocs-ref`, and `pagerduty.com/integration-key`." },
+      { id: 'C', text: "Embed raw API authentication tokens inside public commit messages." },
       { id: 'D', text: "Create a duplicate component entry for every external SaaS tool." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Annotate the entity metadata with `github.com/project-slug`, `backstage.io/techdocs-ref`, and `pagerduty.com/integration-key`. Backstage relies on standardized `metadata.annotations` (e.g., `github.com/project-slug`, `backstage.io/techdocs-ref`, `circleci.com/project-slug`) to link catalog entities with external plugins and cloud services without altering core entity schemas.",
     referenceUrl: "https://backstage.io/docs/features/software-catalog/well-known-annotations",
@@ -30,12 +30,12 @@ export const CNCF_CBA_QUESTIONS_16 = [
     scenario: "A large engineering organization manages tens of thousands of microservices, APIs, and infrastructure components across hybrid cloud environments. The platform engineer evaluates Annotations to connect a catalog component to its GitHub repo, TechDocs documentation, and PagerDuty alert service seamlessly.",
     question: "Which Backstage catalog pattern or ingestion configuration handles this volume efficiently while preventing database contention? Standard annotations like github.com/project-slug, backstage.io/techdocs-ref, and pagerduty.com/integration-key is under consideration.",
     options: [
-      { id: 'A', text: "Annotate the entity metadata with `github.com/project-slug`, `backstage.io/techdocs-ref`, and `pagerduty.com/integration-key`." },
+      { id: 'A', text: "Avoid using metadata annotations and maintain manual links on a whiteboard." },
       { id: 'B', text: "Embed raw API authentication tokens inside public commit messages." },
-      { id: 'C', text: "Avoid using metadata annotations and maintain manual links on a whiteboard." },
+      { id: 'C', text: "Annotate the entity metadata with `github.com/project-slug`, `backstage.io/techdocs-ref`, and `pagerduty.com/integration-key`." },
       { id: 'D', text: "Create a duplicate component entry for every external SaaS tool." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Annotate the entity metadata with `github.com/project-slug`, `backstage.io/techdocs-ref`, and `pagerduty.com/integration-key`. Backstage relies on standardized `metadata.annotations` (e.g., `github.com/project-slug`, `backstage.io/techdocs-ref`, `circleci.com/project-slug`) to link catalog entities with external plugins and cloud services without altering core entity schemas.",
     referenceUrl: "https://backstage.io/docs/features/software-catalog/well-known-annotations",
@@ -51,12 +51,12 @@ export const CNCF_CBA_QUESTIONS_16 = [
     scenario: "A platform security auditor requires strict role-based access control, cryptographic service communication, and audit logging across the internal developer portal. The platform engineer evaluates Annotations to connect a catalog component to its GitHub repo, TechDocs documentation, and PagerDuty alert service seamlessly.",
     question: "Which Backstage security mechanism or configuration satisfies these compliance controls? Standard annotations like github.com/project-slug, backstage.io/techdocs-ref, and pagerduty.com/integration-key is under consideration.",
     options: [
-      { id: 'A', text: "Annotate the entity metadata with `github.com/project-slug`, `backstage.io/techdocs-ref`, and `pagerduty.com/integration-key`." },
+      { id: 'A', text: "Avoid using metadata annotations and maintain manual links on a whiteboard." },
       { id: 'B', text: "Embed raw API authentication tokens inside public commit messages." },
-      { id: 'C', text: "Avoid using metadata annotations and maintain manual links on a whiteboard." },
-      { id: 'D', text: "Create a duplicate component entry for every external SaaS tool." }
+      { id: 'C', text: "Create a duplicate component entry for every external SaaS tool." },
+      { id: 'D', text: "Annotate the entity metadata with `github.com/project-slug`, `backstage.io/techdocs-ref`, and `pagerduty.com/integration-key`." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Annotate the entity metadata with `github.com/project-slug`, `backstage.io/techdocs-ref`, and `pagerduty.com/integration-key`. Backstage relies on standardized `metadata.annotations` (e.g., `github.com/project-slug`, `backstage.io/techdocs-ref`, `circleci.com/project-slug`) to link catalog entities with external plugins and cloud services without altering core entity schemas.",
     referenceUrl: "https://backstage.io/docs/features/software-catalog/well-known-annotations",
@@ -72,12 +72,12 @@ export const CNCF_CBA_QUESTIONS_16 = [
     scenario: "A platform engineering team is establishing Golden Path templates and automated scaffolding workflows to accelerate developer onboarding and eliminate delivery friction. The platform engineer evaluates Annotations to connect a catalog component to its GitHub repo, TechDocs documentation, and PagerDuty alert service seamlessly.",
     question: "Which Backstage scaffolder practice or template feature enables developers to self-serve new projects safely? Standard annotations like github.com/project-slug, backstage.io/techdocs-ref, and pagerduty.com/integration-key is under consideration.",
     options: [
-      { id: 'A', text: "Annotate the entity metadata with `github.com/project-slug`, `backstage.io/techdocs-ref`, and `pagerduty.com/integration-key`." },
-      { id: 'B', text: "Embed raw API authentication tokens inside public commit messages." },
-      { id: 'C', text: "Avoid using metadata annotations and maintain manual links on a whiteboard." },
-      { id: 'D', text: "Create a duplicate component entry for every external SaaS tool." }
+      { id: 'A', text: "Embed raw API authentication tokens inside public commit messages." },
+      { id: 'B', text: "Annotate the entity metadata with `github.com/project-slug`, `backstage.io/techdocs-ref`, and `pagerduty.com/integration-key`." },
+      { id: 'C', text: "Create a duplicate component entry for every external SaaS tool." },
+      { id: 'D', text: "Avoid using metadata annotations and maintain manual links on a whiteboard." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Annotate the entity metadata with `github.com/project-slug`, `backstage.io/techdocs-ref`, and `pagerduty.com/integration-key`. Backstage relies on standardized `metadata.annotations` (e.g., `github.com/project-slug`, `backstage.io/techdocs-ref`, `circleci.com/project-slug`) to link catalog entities with external plugins and cloud services without altering core entity schemas.",
     referenceUrl: "https://backstage.io/docs/features/software-catalog/well-known-annotations",
@@ -93,12 +93,12 @@ export const CNCF_CBA_QUESTIONS_16 = [
     scenario: "A site reliability engineering team is operating Backstage on Kubernetes and optimizing system resilience, health monitoring, and documentation publishing pipelines. The platform engineer evaluates Annotations to connect a catalog component to its GitHub repo, TechDocs documentation, and PagerDuty alert service seamlessly.",
     question: "Which operational design or plugin architecture guarantees high availability and reliable portal performance? Standard annotations like github.com/project-slug, backstage.io/techdocs-ref, and pagerduty.com/integration-key is under consideration.",
     options: [
-      { id: 'A', text: "Annotate the entity metadata with `github.com/project-slug`, `backstage.io/techdocs-ref`, and `pagerduty.com/integration-key`." },
-      { id: 'B', text: "Embed raw API authentication tokens inside public commit messages." },
-      { id: 'C', text: "Avoid using metadata annotations and maintain manual links on a whiteboard." },
-      { id: 'D', text: "Create a duplicate component entry for every external SaaS tool." }
+      { id: 'A', text: "Embed raw API authentication tokens inside public commit messages." },
+      { id: 'B', text: "Annotate the entity metadata with `github.com/project-slug`, `backstage.io/techdocs-ref`, and `pagerduty.com/integration-key`." },
+      { id: 'C', text: "Create a duplicate component entry for every external SaaS tool." },
+      { id: 'D', text: "Avoid using metadata annotations and maintain manual links on a whiteboard." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Annotate the entity metadata with `github.com/project-slug`, `backstage.io/techdocs-ref`, and `pagerduty.com/integration-key`. Backstage relies on standardized `metadata.annotations` (e.g., `github.com/project-slug`, `backstage.io/techdocs-ref`, `circleci.com/project-slug`) to link catalog entities with external plugins and cloud services without altering core entity schemas.",
     referenceUrl: "https://backstage.io/docs/features/software-catalog/well-known-annotations",
@@ -115,8 +115,8 @@ export const CNCF_CBA_QUESTIONS_16 = [
     question: "Which architectural approach or Backstage configuration satisfies these enterprise portal objectives? Automated bidirectional linking between ownerOf/ownedBy, providesApi/apiProvidedBy, and partOf/hasPart is under consideration.",
     options: [
       { id: 'A', text: "Inspect the `relations` array on catalog entities, which the catalog automatically populates bidirectionally from declarative spec fields." },
-      { id: 'B', text: "Manually maintain separate forward and reverse pointer arrays in every catalog-info.yaml file." },
-      { id: 'C', text: "Avoid defining relationships to prevent building an architectural dependency graph." },
+      { id: 'B', text: "Avoid defining relationships to prevent building an architectural dependency graph." },
+      { id: 'C', text: "Manually maintain separate forward and reverse pointer arrays in every catalog-info.yaml file." },
       { id: 'D', text: "Delete relationships periodically to save disk space." }
     ],
     correctAnswers: ['A'],
@@ -135,12 +135,12 @@ export const CNCF_CBA_QUESTIONS_16 = [
     scenario: "A large engineering organization manages tens of thousands of microservices, APIs, and infrastructure components across hybrid cloud environments. The platform engineer evaluates Entity Relations to explore dependencies and visualize architectural relationships between microservices, APIs, and systems in the portal graph.",
     question: "Which Backstage catalog pattern or ingestion configuration handles this volume efficiently while preventing database contention? Automated bidirectional linking between ownerOf/ownedBy, providesApi/apiProvidedBy, and partOf/hasPart is under consideration.",
     options: [
-      { id: 'A', text: "Inspect the `relations` array on catalog entities, which the catalog automatically populates bidirectionally from declarative spec fields." },
+      { id: 'A', text: "Avoid defining relationships to prevent building an architectural dependency graph." },
       { id: 'B', text: "Manually maintain separate forward and reverse pointer arrays in every catalog-info.yaml file." },
-      { id: 'C', text: "Avoid defining relationships to prevent building an architectural dependency graph." },
+      { id: 'C', text: "Inspect the `relations` array on catalog entities, which the catalog automatically populates bidirectionally from declarative spec fields." },
       { id: 'D', text: "Delete relationships periodically to save disk space." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Inspect the `relations` array on catalog entities, which the catalog automatically populates bidirectionally from declarative spec fields. When the catalog ingests entities, it automatically resolves declarative spec references (like `spec.system`, `spec.owner`, `spec.providesApis`) into bidirectional `relations` (e.g., `partOf`/`hasPart`, `ownedBy`/`ownerOf`), powering the dependency graph view.",
     referenceUrl: "https://backstage.io/docs/features/software-catalog/system-model#relations",
@@ -157,9 +157,9 @@ export const CNCF_CBA_QUESTIONS_16 = [
     question: "Which Backstage security mechanism or configuration satisfies these compliance controls? Automated bidirectional linking between ownerOf/ownedBy, providesApi/apiProvidedBy, and partOf/hasPart is under consideration.",
     options: [
       { id: 'A', text: "Inspect the `relations` array on catalog entities, which the catalog automatically populates bidirectionally from declarative spec fields." },
-      { id: 'B', text: "Manually maintain separate forward and reverse pointer arrays in every catalog-info.yaml file." },
-      { id: 'C', text: "Avoid defining relationships to prevent building an architectural dependency graph." },
-      { id: 'D', text: "Delete relationships periodically to save disk space." }
+      { id: 'B', text: "Avoid defining relationships to prevent building an architectural dependency graph." },
+      { id: 'C', text: "Delete relationships periodically to save disk space." },
+      { id: 'D', text: "Manually maintain separate forward and reverse pointer arrays in every catalog-info.yaml file." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -177,12 +177,12 @@ export const CNCF_CBA_QUESTIONS_16 = [
     scenario: "A platform engineering team is establishing Golden Path templates and automated scaffolding workflows to accelerate developer onboarding and eliminate delivery friction. The platform engineer evaluates Entity Relations to explore dependencies and visualize architectural relationships between microservices, APIs, and systems in the portal graph.",
     question: "Which Backstage scaffolder practice or template feature enables developers to self-serve new projects safely? Automated bidirectional linking between ownerOf/ownedBy, providesApi/apiProvidedBy, and partOf/hasPart is under consideration.",
     options: [
-      { id: 'A', text: "Inspect the `relations` array on catalog entities, which the catalog automatically populates bidirectionally from declarative spec fields." },
-      { id: 'B', text: "Manually maintain separate forward and reverse pointer arrays in every catalog-info.yaml file." },
-      { id: 'C', text: "Avoid defining relationships to prevent building an architectural dependency graph." },
-      { id: 'D', text: "Delete relationships periodically to save disk space." }
+      { id: 'A', text: "Delete relationships periodically to save disk space." },
+      { id: 'B', text: "Avoid defining relationships to prevent building an architectural dependency graph." },
+      { id: 'C', text: "Inspect the `relations` array on catalog entities, which the catalog automatically populates bidirectionally from declarative spec fields." },
+      { id: 'D', text: "Manually maintain separate forward and reverse pointer arrays in every catalog-info.yaml file." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Inspect the `relations` array on catalog entities, which the catalog automatically populates bidirectionally from declarative spec fields. When the catalog ingests entities, it automatically resolves declarative spec references (like `spec.system`, `spec.owner`, `spec.providesApis`) into bidirectional `relations` (e.g., `partOf`/`hasPart`, `ownedBy`/`ownerOf`), powering the dependency graph view.",
     referenceUrl: "https://backstage.io/docs/features/software-catalog/system-model#relations",
@@ -198,12 +198,12 @@ export const CNCF_CBA_QUESTIONS_16 = [
     scenario: "A site reliability engineering team is operating Backstage on Kubernetes and optimizing system resilience, health monitoring, and documentation publishing pipelines. The platform engineer evaluates Entity Relations to explore dependencies and visualize architectural relationships between microservices, APIs, and systems in the portal graph.",
     question: "Which operational design or plugin architecture guarantees high availability and reliable portal performance? Automated bidirectional linking between ownerOf/ownedBy, providesApi/apiProvidedBy, and partOf/hasPart is under consideration.",
     options: [
-      { id: 'A', text: "Inspect the `relations` array on catalog entities, which the catalog automatically populates bidirectionally from declarative spec fields." },
-      { id: 'B', text: "Manually maintain separate forward and reverse pointer arrays in every catalog-info.yaml file." },
+      { id: 'A', text: "Manually maintain separate forward and reverse pointer arrays in every catalog-info.yaml file." },
+      { id: 'B', text: "Inspect the `relations` array on catalog entities, which the catalog automatically populates bidirectionally from declarative spec fields." },
       { id: 'C', text: "Avoid defining relationships to prevent building an architectural dependency graph." },
       { id: 'D', text: "Delete relationships periodically to save disk space." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Inspect the `relations` array on catalog entities, which the catalog automatically populates bidirectionally from declarative spec fields. When the catalog ingests entities, it automatically resolves declarative spec references (like `spec.system`, `spec.owner`, `spec.providesApis`) into bidirectional `relations` (e.g., `partOf`/`hasPart`, `ownedBy`/`ownerOf`), powering the dependency graph view.",
     referenceUrl: "https://backstage.io/docs/features/software-catalog/system-model#relations",
@@ -220,9 +220,9 @@ export const CNCF_CBA_QUESTIONS_16 = [
     question: "Which architectural approach or Backstage configuration satisfies these enterprise portal objectives? Asynchronous task execution pipeline driven by TaskBroker and worker runners is under consideration.",
     options: [
       { id: 'A', text: "Dispatch scaffolding jobs to the Backstage `TaskBroker`, which assigns tasks asynchronously to background worker runners." },
-      { id: 'B', text: "Run long-running repository clone operations synchronously in the main Express HTTP request thread." },
-      { id: 'C', text: "Execute shell scripts directly inside client web browsers using raw JavaScript eval." },
-      { id: 'D', text: "Delegate repository creation to manual developer terminal commands." }
+      { id: 'B', text: "Delegate repository creation to manual developer terminal commands." },
+      { id: 'C', text: "Run long-running repository clone operations synchronously in the main Express HTTP request thread." },
+      { id: 'D', text: "Execute shell scripts directly inside client web browsers using raw JavaScript eval." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -240,12 +240,12 @@ export const CNCF_CBA_QUESTIONS_16 = [
     scenario: "A large engineering organization manages tens of thousands of microservices, APIs, and infrastructure components across hybrid cloud environments. The platform engineer evaluates Scaffolder Architecture to execute automated repository creation and project scaffolding without blocking HTTP request threads in the portal backend.",
     question: "Which Backstage catalog pattern or ingestion configuration handles this volume efficiently while preventing database contention? Asynchronous task execution pipeline driven by TaskBroker and worker runners is under consideration.",
     options: [
-      { id: 'A', text: "Dispatch scaffolding jobs to the Backstage `TaskBroker`, which assigns tasks asynchronously to background worker runners." },
-      { id: 'B', text: "Run long-running repository clone operations synchronously in the main Express HTTP request thread." },
-      { id: 'C', text: "Execute shell scripts directly inside client web browsers using raw JavaScript eval." },
-      { id: 'D', text: "Delegate repository creation to manual developer terminal commands." }
+      { id: 'A', text: "Execute shell scripts directly inside client web browsers using raw JavaScript eval." },
+      { id: 'B', text: "Delegate repository creation to manual developer terminal commands." },
+      { id: 'C', text: "Run long-running repository clone operations synchronously in the main Express HTTP request thread." },
+      { id: 'D', text: "Dispatch scaffolding jobs to the Backstage `TaskBroker`, which assigns tasks asynchronously to background worker runners." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Dispatch scaffolding jobs to the Backstage `TaskBroker`, which assigns tasks asynchronously to background worker runners. The Backstage Scaffolder uses an asynchronous task architecture. When a user submits a template form, the backend creates a task record managed by the `TaskBroker`. Worker runners claim tasks, process steps within an isolated workspace, and stream status events back to the client.",
     referenceUrl: "https://backstage.io/docs/features/software-templates/authoring-templates",
@@ -261,12 +261,12 @@ export const CNCF_CBA_QUESTIONS_16 = [
     scenario: "A platform security auditor requires strict role-based access control, cryptographic service communication, and audit logging across the internal developer portal. The platform engineer evaluates Scaffolder Architecture to execute automated repository creation and project scaffolding without blocking HTTP request threads in the portal backend.",
     question: "Which Backstage security mechanism or configuration satisfies these compliance controls? Asynchronous task execution pipeline driven by TaskBroker and worker runners is under consideration.",
     options: [
-      { id: 'A', text: "Dispatch scaffolding jobs to the Backstage `TaskBroker`, which assigns tasks asynchronously to background worker runners." },
-      { id: 'B', text: "Run long-running repository clone operations synchronously in the main Express HTTP request thread." },
-      { id: 'C', text: "Execute shell scripts directly inside client web browsers using raw JavaScript eval." },
-      { id: 'D', text: "Delegate repository creation to manual developer terminal commands." }
+      { id: 'A', text: "Delegate repository creation to manual developer terminal commands." },
+      { id: 'B', text: "Dispatch scaffolding jobs to the Backstage `TaskBroker`, which assigns tasks asynchronously to background worker runners." },
+      { id: 'C', text: "Run long-running repository clone operations synchronously in the main Express HTTP request thread." },
+      { id: 'D', text: "Execute shell scripts directly inside client web browsers using raw JavaScript eval." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Dispatch scaffolding jobs to the Backstage `TaskBroker`, which assigns tasks asynchronously to background worker runners. The Backstage Scaffolder uses an asynchronous task architecture. When a user submits a template form, the backend creates a task record managed by the `TaskBroker`. Worker runners claim tasks, process steps within an isolated workspace, and stream status events back to the client.",
     referenceUrl: "https://backstage.io/docs/features/software-templates/authoring-templates",
@@ -283,9 +283,9 @@ export const CNCF_CBA_QUESTIONS_16 = [
     question: "Which Backstage scaffolder practice or template feature enables developers to self-serve new projects safely? Asynchronous task execution pipeline driven by TaskBroker and worker runners is under consideration.",
     options: [
       { id: 'A', text: "Dispatch scaffolding jobs to the Backstage `TaskBroker`, which assigns tasks asynchronously to background worker runners." },
-      { id: 'B', text: "Run long-running repository clone operations synchronously in the main Express HTTP request thread." },
+      { id: 'B', text: "Delegate repository creation to manual developer terminal commands." },
       { id: 'C', text: "Execute shell scripts directly inside client web browsers using raw JavaScript eval." },
-      { id: 'D', text: "Delegate repository creation to manual developer terminal commands." }
+      { id: 'D', text: "Run long-running repository clone operations synchronously in the main Express HTTP request thread." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -303,12 +303,12 @@ export const CNCF_CBA_QUESTIONS_16 = [
     scenario: "A site reliability engineering team is operating Backstage on Kubernetes and optimizing system resilience, health monitoring, and documentation publishing pipelines. The platform engineer evaluates Scaffolder Architecture to execute automated repository creation and project scaffolding without blocking HTTP request threads in the portal backend.",
     question: "Which operational design or plugin architecture guarantees high availability and reliable portal performance? Asynchronous task execution pipeline driven by TaskBroker and worker runners is under consideration.",
     options: [
-      { id: 'A', text: "Dispatch scaffolding jobs to the Backstage `TaskBroker`, which assigns tasks asynchronously to background worker runners." },
-      { id: 'B', text: "Run long-running repository clone operations synchronously in the main Express HTTP request thread." },
-      { id: 'C', text: "Execute shell scripts directly inside client web browsers using raw JavaScript eval." },
-      { id: 'D', text: "Delegate repository creation to manual developer terminal commands." }
+      { id: 'A', text: "Run long-running repository clone operations synchronously in the main Express HTTP request thread." },
+      { id: 'B', text: "Delegate repository creation to manual developer terminal commands." },
+      { id: 'C', text: "Dispatch scaffolding jobs to the Backstage `TaskBroker`, which assigns tasks asynchronously to background worker runners." },
+      { id: 'D', text: "Execute shell scripts directly inside client web browsers using raw JavaScript eval." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Dispatch scaffolding jobs to the Backstage `TaskBroker`, which assigns tasks asynchronously to background worker runners. The Backstage Scaffolder uses an asynchronous task architecture. When a user submits a template form, the backend creates a task record managed by the `TaskBroker`. Worker runners claim tasks, process steps within an isolated workspace, and stream status events back to the client.",
     referenceUrl: "https://backstage.io/docs/features/software-templates/authoring-templates",
@@ -324,12 +324,12 @@ export const CNCF_CBA_QUESTIONS_16 = [
     scenario: "An enterprise developer experience team is architecting an internal developer portal to standardize service catalogs, software scaffolding, and documentation across hundreds of teams. The platform engineer evaluates Template Schema to author an enterprise software template providing an interactive multi-step creation wizard for new microservices.",
     question: "Which architectural approach or Backstage configuration satisfies these enterprise portal objectives? Structuring kind: Template with spec.parameters JSONSchema, spec.steps, and spec.output is under consideration.",
     options: [
-      { id: 'A', text: "Define a `kind: Template` entity specifying `spec.parameters` (JSONSchema form definition) and an ordered array of `spec.steps`." },
-      { id: 'B', text: "Write an unformatted bash shell script committed to a personal repository branch." },
-      { id: 'C', text: "Create a Component entity with an empty description field." },
+      { id: 'A', text: "Create a Component entity with an empty description field." },
+      { id: 'B', text: "Define a `kind: Template` entity specifying `spec.parameters` (JSONSchema form definition) and an ordered array of `spec.steps`." },
+      { id: 'C', text: "Write an unformatted bash shell script committed to a personal repository branch." },
       { id: 'D', text: "Deploy an external Jenkins job with no metadata registration." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Define a `kind: Template` entity specifying `spec.parameters` (JSONSchema form definition) and an ordered array of `spec.steps`. Software Templates are catalog entities of `kind: Template`. The `spec.parameters` array defines form schemas using JSONSchema (often organized across multiple wizard steps), while `spec.steps` defines the sequential action execution pipeline.",
     referenceUrl: "https://backstage.io/docs/features/software-templates/input-examples",
@@ -345,12 +345,12 @@ export const CNCF_CBA_QUESTIONS_16 = [
     scenario: "A large engineering organization manages tens of thousands of microservices, APIs, and infrastructure components across hybrid cloud environments. The platform engineer evaluates Template Schema to author an enterprise software template providing an interactive multi-step creation wizard for new microservices.",
     question: "Which Backstage catalog pattern or ingestion configuration handles this volume efficiently while preventing database contention? Structuring kind: Template with spec.parameters JSONSchema, spec.steps, and spec.output is under consideration.",
     options: [
-      { id: 'A', text: "Define a `kind: Template` entity specifying `spec.parameters` (JSONSchema form definition) and an ordered array of `spec.steps`." },
-      { id: 'B', text: "Write an unformatted bash shell script committed to a personal repository branch." },
-      { id: 'C', text: "Create a Component entity with an empty description field." },
+      { id: 'A', text: "Create a Component entity with an empty description field." },
+      { id: 'B', text: "Define a `kind: Template` entity specifying `spec.parameters` (JSONSchema form definition) and an ordered array of `spec.steps`." },
+      { id: 'C', text: "Write an unformatted bash shell script committed to a personal repository branch." },
       { id: 'D', text: "Deploy an external Jenkins job with no metadata registration." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Define a `kind: Template` entity specifying `spec.parameters` (JSONSchema form definition) and an ordered array of `spec.steps`. Software Templates are catalog entities of `kind: Template`. The `spec.parameters` array defines form schemas using JSONSchema (often organized across multiple wizard steps), while `spec.steps` defines the sequential action execution pipeline.",
     referenceUrl: "https://backstage.io/docs/features/software-templates/input-examples",
@@ -366,12 +366,12 @@ export const CNCF_CBA_QUESTIONS_16 = [
     scenario: "A platform security auditor requires strict role-based access control, cryptographic service communication, and audit logging across the internal developer portal. The platform engineer evaluates Template Schema to author an enterprise software template providing an interactive multi-step creation wizard for new microservices.",
     question: "Which Backstage security mechanism or configuration satisfies these compliance controls? Structuring kind: Template with spec.parameters JSONSchema, spec.steps, and spec.output is under consideration.",
     options: [
-      { id: 'A', text: "Define a `kind: Template` entity specifying `spec.parameters` (JSONSchema form definition) and an ordered array of `spec.steps`." },
-      { id: 'B', text: "Write an unformatted bash shell script committed to a personal repository branch." },
-      { id: 'C', text: "Create a Component entity with an empty description field." },
+      { id: 'A', text: "Create a Component entity with an empty description field." },
+      { id: 'B', text: "Define a `kind: Template` entity specifying `spec.parameters` (JSONSchema form definition) and an ordered array of `spec.steps`." },
+      { id: 'C', text: "Write an unformatted bash shell script committed to a personal repository branch." },
       { id: 'D', text: "Deploy an external Jenkins job with no metadata registration." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Define a `kind: Template` entity specifying `spec.parameters` (JSONSchema form definition) and an ordered array of `spec.steps`. Software Templates are catalog entities of `kind: Template`. The `spec.parameters` array defines form schemas using JSONSchema (often organized across multiple wizard steps), while `spec.steps` defines the sequential action execution pipeline.",
     referenceUrl: "https://backstage.io/docs/features/software-templates/input-examples",
@@ -387,12 +387,12 @@ export const CNCF_CBA_QUESTIONS_16 = [
     scenario: "A platform engineering team is establishing Golden Path templates and automated scaffolding workflows to accelerate developer onboarding and eliminate delivery friction. The platform engineer evaluates Template Schema to author an enterprise software template providing an interactive multi-step creation wizard for new microservices.",
     question: "Which Backstage scaffolder practice or template feature enables developers to self-serve new projects safely? Structuring kind: Template with spec.parameters JSONSchema, spec.steps, and spec.output is under consideration.",
     options: [
-      { id: 'A', text: "Define a `kind: Template` entity specifying `spec.parameters` (JSONSchema form definition) and an ordered array of `spec.steps`." },
-      { id: 'B', text: "Write an unformatted bash shell script committed to a personal repository branch." },
-      { id: 'C', text: "Create a Component entity with an empty description field." },
-      { id: 'D', text: "Deploy an external Jenkins job with no metadata registration." }
+      { id: 'A', text: "Deploy an external Jenkins job with no metadata registration." },
+      { id: 'B', text: "Create a Component entity with an empty description field." },
+      { id: 'C', text: "Define a `kind: Template` entity specifying `spec.parameters` (JSONSchema form definition) and an ordered array of `spec.steps`." },
+      { id: 'D', text: "Write an unformatted bash shell script committed to a personal repository branch." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Define a `kind: Template` entity specifying `spec.parameters` (JSONSchema form definition) and an ordered array of `spec.steps`. Software Templates are catalog entities of `kind: Template`. The `spec.parameters` array defines form schemas using JSONSchema (often organized across multiple wizard steps), while `spec.steps` defines the sequential action execution pipeline.",
     referenceUrl: "https://backstage.io/docs/features/software-templates/input-examples",
@@ -409,8 +409,8 @@ export const CNCF_CBA_QUESTIONS_16 = [
     question: "Which operational design or plugin architecture guarantees high availability and reliable portal performance? Structuring kind: Template with spec.parameters JSONSchema, spec.steps, and spec.output is under consideration.",
     options: [
       { id: 'A', text: "Define a `kind: Template` entity specifying `spec.parameters` (JSONSchema form definition) and an ordered array of `spec.steps`." },
-      { id: 'B', text: "Write an unformatted bash shell script committed to a personal repository branch." },
-      { id: 'C', text: "Create a Component entity with an empty description field." },
+      { id: 'B', text: "Create a Component entity with an empty description field." },
+      { id: 'C', text: "Write an unformatted bash shell script committed to a personal repository branch." },
       { id: 'D', text: "Deploy an external Jenkins job with no metadata registration." }
     ],
     correctAnswers: ['A'],
@@ -429,12 +429,12 @@ export const CNCF_CBA_QUESTIONS_16 = [
     scenario: "An enterprise developer experience team is architecting an internal developer portal to standardize service catalogs, software scaffolding, and documentation across hundreds of teams. The platform engineer evaluates Form Customization to build an interactive form where developers select target GitHub owners, repositories, and cloud regions from validated dropdowns.",
     question: "Which architectural approach or Backstage configuration satisfies these enterprise portal objectives? react-jsonschema-form widgets, ui:field, and ui:options for dynamic inputs is under consideration.",
     options: [
-      { id: 'A', text: "Utilize `react-jsonschema-form` custom UI fields like `ui:field: RepoUrlPicker` and `ui:field: OwnerPicker` in template parameters." },
-      { id: 'B', text: "Ask users to type raw git commit hashes into an unvalidated single-line text input." },
+      { id: 'A', text: "Require developers to execute manual git commands on developer laptops." },
+      { id: 'B', text: "Utilize `react-jsonschema-form` custom UI fields like `ui:field: RepoUrlPicker` and `ui:field: OwnerPicker` in template parameters." },
       { id: 'C', text: "Hardcode repository destination URLs inside server-side environment variables." },
-      { id: 'D', text: "Require developers to execute manual git commands on developer laptops." }
+      { id: 'D', text: "Ask users to type raw git commit hashes into an unvalidated single-line text input." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Utilize `react-jsonschema-form` custom UI fields like `ui:field: RepoUrlPicker` and `ui:field: OwnerPicker` in template parameters. Backstage Scaffolder parameters leverage `react-jsonschema-form`. Backstage provides rich custom field widgets (such as `RepoUrlPicker`, `OwnerPicker`, `EntityPicker`) to ensure valid repository targets, catalog owners, and entity selections directly within the UI.",
     referenceUrl: "https://backstage.io/docs/features/software-templates/builtin-actions#scaffolderextensions",
@@ -450,12 +450,12 @@ export const CNCF_CBA_QUESTIONS_16 = [
     scenario: "A large engineering organization manages tens of thousands of microservices, APIs, and infrastructure components across hybrid cloud environments. The platform engineer evaluates Form Customization to build an interactive form where developers select target GitHub owners, repositories, and cloud regions from validated dropdowns.",
     question: "Which Backstage catalog pattern or ingestion configuration handles this volume efficiently while preventing database contention? react-jsonschema-form widgets, ui:field, and ui:options for dynamic inputs is under consideration.",
     options: [
-      { id: 'A', text: "Utilize `react-jsonschema-form` custom UI fields like `ui:field: RepoUrlPicker` and `ui:field: OwnerPicker` in template parameters." },
-      { id: 'B', text: "Ask users to type raw git commit hashes into an unvalidated single-line text input." },
-      { id: 'C', text: "Hardcode repository destination URLs inside server-side environment variables." },
-      { id: 'D', text: "Require developers to execute manual git commands on developer laptops." }
+      { id: 'A', text: "Hardcode repository destination URLs inside server-side environment variables." },
+      { id: 'B', text: "Require developers to execute manual git commands on developer laptops." },
+      { id: 'C', text: "Utilize `react-jsonschema-form` custom UI fields like `ui:field: RepoUrlPicker` and `ui:field: OwnerPicker` in template parameters." },
+      { id: 'D', text: "Ask users to type raw git commit hashes into an unvalidated single-line text input." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Utilize `react-jsonschema-form` custom UI fields like `ui:field: RepoUrlPicker` and `ui:field: OwnerPicker` in template parameters. Backstage Scaffolder parameters leverage `react-jsonschema-form`. Backstage provides rich custom field widgets (such as `RepoUrlPicker`, `OwnerPicker`, `EntityPicker`) to ensure valid repository targets, catalog owners, and entity selections directly within the UI.",
     referenceUrl: "https://backstage.io/docs/features/software-templates/builtin-actions#scaffolderextensions",
@@ -471,12 +471,12 @@ export const CNCF_CBA_QUESTIONS_16 = [
     scenario: "A platform security auditor requires strict role-based access control, cryptographic service communication, and audit logging across the internal developer portal. The platform engineer evaluates Form Customization to build an interactive form where developers select target GitHub owners, repositories, and cloud regions from validated dropdowns.",
     question: "Which Backstage security mechanism or configuration satisfies these compliance controls? react-jsonschema-form widgets, ui:field, and ui:options for dynamic inputs is under consideration.",
     options: [
-      { id: 'A', text: "Utilize `react-jsonschema-form` custom UI fields like `ui:field: RepoUrlPicker` and `ui:field: OwnerPicker` in template parameters." },
+      { id: 'A', text: "Hardcode repository destination URLs inside server-side environment variables." },
       { id: 'B', text: "Ask users to type raw git commit hashes into an unvalidated single-line text input." },
-      { id: 'C', text: "Hardcode repository destination URLs inside server-side environment variables." },
-      { id: 'D', text: "Require developers to execute manual git commands on developer laptops." }
+      { id: 'C', text: "Require developers to execute manual git commands on developer laptops." },
+      { id: 'D', text: "Utilize `react-jsonschema-form` custom UI fields like `ui:field: RepoUrlPicker` and `ui:field: OwnerPicker` in template parameters." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Utilize `react-jsonschema-form` custom UI fields like `ui:field: RepoUrlPicker` and `ui:field: OwnerPicker` in template parameters. Backstage Scaffolder parameters leverage `react-jsonschema-form`. Backstage provides rich custom field widgets (such as `RepoUrlPicker`, `OwnerPicker`, `EntityPicker`) to ensure valid repository targets, catalog owners, and entity selections directly within the UI.",
     referenceUrl: "https://backstage.io/docs/features/software-templates/builtin-actions#scaffolderextensions",
@@ -492,12 +492,12 @@ export const CNCF_CBA_QUESTIONS_16 = [
     scenario: "A platform engineering team is establishing Golden Path templates and automated scaffolding workflows to accelerate developer onboarding and eliminate delivery friction. The platform engineer evaluates Form Customization to build an interactive form where developers select target GitHub owners, repositories, and cloud regions from validated dropdowns.",
     question: "Which Backstage scaffolder practice or template feature enables developers to self-serve new projects safely? react-jsonschema-form widgets, ui:field, and ui:options for dynamic inputs is under consideration.",
     options: [
-      { id: 'A', text: "Utilize `react-jsonschema-form` custom UI fields like `ui:field: RepoUrlPicker` and `ui:field: OwnerPicker` in template parameters." },
-      { id: 'B', text: "Ask users to type raw git commit hashes into an unvalidated single-line text input." },
-      { id: 'C', text: "Hardcode repository destination URLs inside server-side environment variables." },
-      { id: 'D', text: "Require developers to execute manual git commands on developer laptops." }
+      { id: 'A', text: "Ask users to type raw git commit hashes into an unvalidated single-line text input." },
+      { id: 'B', text: "Hardcode repository destination URLs inside server-side environment variables." },
+      { id: 'C', text: "Require developers to execute manual git commands on developer laptops." },
+      { id: 'D', text: "Utilize `react-jsonschema-form` custom UI fields like `ui:field: RepoUrlPicker` and `ui:field: OwnerPicker` in template parameters." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Utilize `react-jsonschema-form` custom UI fields like `ui:field: RepoUrlPicker` and `ui:field: OwnerPicker` in template parameters. Backstage Scaffolder parameters leverage `react-jsonschema-form`. Backstage provides rich custom field widgets (such as `RepoUrlPicker`, `OwnerPicker`, `EntityPicker`) to ensure valid repository targets, catalog owners, and entity selections directly within the UI.",
     referenceUrl: "https://backstage.io/docs/features/software-templates/builtin-actions#scaffolderextensions",
@@ -513,12 +513,12 @@ export const CNCF_CBA_QUESTIONS_16 = [
     scenario: "A site reliability engineering team is operating Backstage on Kubernetes and optimizing system resilience, health monitoring, and documentation publishing pipelines. The platform engineer evaluates Form Customization to build an interactive form where developers select target GitHub owners, repositories, and cloud regions from validated dropdowns.",
     question: "Which operational design or plugin architecture guarantees high availability and reliable portal performance? react-jsonschema-form widgets, ui:field, and ui:options for dynamic inputs is under consideration.",
     options: [
-      { id: 'A', text: "Utilize `react-jsonschema-form` custom UI fields like `ui:field: RepoUrlPicker` and `ui:field: OwnerPicker` in template parameters." },
-      { id: 'B', text: "Ask users to type raw git commit hashes into an unvalidated single-line text input." },
+      { id: 'A', text: "Require developers to execute manual git commands on developer laptops." },
+      { id: 'B', text: "Utilize `react-jsonschema-form` custom UI fields like `ui:field: RepoUrlPicker` and `ui:field: OwnerPicker` in template parameters." },
       { id: 'C', text: "Hardcode repository destination URLs inside server-side environment variables." },
-      { id: 'D', text: "Require developers to execute manual git commands on developer laptops." }
+      { id: 'D', text: "Ask users to type raw git commit hashes into an unvalidated single-line text input." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Utilize `react-jsonschema-form` custom UI fields like `ui:field: RepoUrlPicker` and `ui:field: OwnerPicker` in template parameters. Backstage Scaffolder parameters leverage `react-jsonschema-form`. Backstage provides rich custom field widgets (such as `RepoUrlPicker`, `OwnerPicker`, `EntityPicker`) to ensure valid repository targets, catalog owners, and entity selections directly within the UI.",
     referenceUrl: "https://backstage.io/docs/features/software-templates/builtin-actions#scaffolderextensions",

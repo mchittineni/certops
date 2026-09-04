@@ -9,12 +9,12 @@ export const AZURE_AZ900_QUESTIONS_14 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The organization evaluates Azure Global Infrastructure to deploy cloud resources in a specific geographical area to maintain data residency within national boundaries while maintaining low network latency for local customers.",
     question: "Which concept or service configuration satisfies these operational resilience objectives? Azure Regions and geopolitical Geographies is under consideration.",
     options: [
-      { id: 'A', text: "Deploy resources to a specific Azure Region located within the approved sovereign Geography." },
-      { id: 'B', text: "Deploy resources across unverified global edge locations without regional residency boundaries." },
+      { id: 'A', text: "Deploy resources across unverified global edge locations without regional residency boundaries." },
+      { id: 'B', text: "Deploy resources to a specific Azure Region located within the approved sovereign Geography." },
       { id: 'C', text: "Rely on an on-premises server room located in another country without regional compliance guarantees." },
       { id: 'D', text: "Configure DNS round-robin routing across random worldwide datacenters without residency controls." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy resources to a specific Azure Region located within the approved sovereign Geography. An Azure Region is a set of datacenters deployed within a latency-defined perimeter and connected through a dedicated low-latency network. Azure Geographies are discrete markets that typically contain two or more regions, preserving data residency and compliance boundaries within national borders.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/reliability/regions-overview",
@@ -30,12 +30,12 @@ export const AZURE_AZ900_QUESTIONS_14 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The organization evaluates Azure Global Infrastructure to deploy cloud resources in a specific geographical area to maintain data residency within national boundaries while maintaining low network latency for local customers.",
     question: "Which architectural approach should the team select to manage this demand efficiently? Azure Regions and geopolitical Geographies is under consideration.",
     options: [
-      { id: 'A', text: "Deploy resources to a specific Azure Region located within the approved sovereign Geography." },
-      { id: 'B', text: "Deploy resources across unverified global edge locations without regional residency boundaries." },
-      { id: 'C', text: "Rely on an on-premises server room located in another country without regional compliance guarantees." },
-      { id: 'D', text: "Configure DNS round-robin routing across random worldwide datacenters without residency controls." }
+      { id: 'A', text: "Rely on an on-premises server room located in another country without regional compliance guarantees." },
+      { id: 'B', text: "Deploy resources to a specific Azure Region located within the approved sovereign Geography." },
+      { id: 'C', text: "Configure DNS round-robin routing across random worldwide datacenters without residency controls." },
+      { id: 'D', text: "Deploy resources across unverified global edge locations without regional residency boundaries." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy resources to a specific Azure Region located within the approved sovereign Geography. An Azure Region is a set of datacenters deployed within a latency-defined perimeter and connected through a dedicated low-latency network. Azure Geographies are discrete markets that typically contain two or more regions, preserving data residency and compliance boundaries within national borders.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/reliability/regions-overview",
@@ -51,12 +51,12 @@ export const AZURE_AZ900_QUESTIONS_14 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The organization evaluates Azure Global Infrastructure to deploy cloud resources in a specific geographical area to maintain data residency within national boundaries while maintaining low network latency for local customers.",
     question: "Which solution properly implements these mandatory security and governance controls? Azure Regions and geopolitical Geographies is under consideration.",
     options: [
-      { id: 'A', text: "Deploy resources to a specific Azure Region located within the approved sovereign Geography." },
-      { id: 'B', text: "Deploy resources across unverified global edge locations without regional residency boundaries." },
-      { id: 'C', text: "Rely on an on-premises server room located in another country without regional compliance guarantees." },
+      { id: 'A', text: "Deploy resources across unverified global edge locations without regional residency boundaries." },
+      { id: 'B', text: "Rely on an on-premises server room located in another country without regional compliance guarantees." },
+      { id: 'C', text: "Deploy resources to a specific Azure Region located within the approved sovereign Geography." },
       { id: 'D', text: "Configure DNS round-robin routing across random worldwide datacenters without residency controls." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy resources to a specific Azure Region located within the approved sovereign Geography. An Azure Region is a set of datacenters deployed within a latency-defined perimeter and connected through a dedicated low-latency network. Azure Geographies are discrete markets that typically contain two or more regions, preserving data residency and compliance boundaries within national borders.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/reliability/regions-overview",
@@ -72,12 +72,12 @@ export const AZURE_AZ900_QUESTIONS_14 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to the Microsoft Azure Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The organization evaluates Azure Global Infrastructure to deploy cloud resources in a specific geographical area to maintain data residency within national boundaries while maintaining low network latency for local customers.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? Azure Regions and geopolitical Geographies is under consideration.",
     options: [
-      { id: 'A', text: "Deploy resources to a specific Azure Region located within the approved sovereign Geography." },
-      { id: 'B', text: "Deploy resources across unverified global edge locations without regional residency boundaries." },
-      { id: 'C', text: "Rely on an on-premises server room located in another country without regional compliance guarantees." },
-      { id: 'D', text: "Configure DNS round-robin routing across random worldwide datacenters without residency controls." }
+      { id: 'A', text: "Configure DNS round-robin routing across random worldwide datacenters without residency controls." },
+      { id: 'B', text: "Rely on an on-premises server room located in another country without regional compliance guarantees." },
+      { id: 'C', text: "Deploy resources across unverified global edge locations without regional residency boundaries." },
+      { id: 'D', text: "Deploy resources to a specific Azure Region located within the approved sovereign Geography." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy resources to a specific Azure Region located within the approved sovereign Geography. An Azure Region is a set of datacenters deployed within a latency-defined perimeter and connected through a dedicated low-latency network. Azure Geographies are discrete markets that typically contain two or more regions, preserving data residency and compliance boundaries within national borders.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/reliability/regions-overview",
@@ -93,12 +93,12 @@ export const AZURE_AZ900_QUESTIONS_14 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The organization evaluates Azure Global Infrastructure to deploy cloud resources in a specific geographical area to maintain data residency within national boundaries while maintaining low network latency for local customers.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? Azure Regions and geopolitical Geographies is under consideration.",
     options: [
-      { id: 'A', text: "Deploy resources to a specific Azure Region located within the approved sovereign Geography." },
-      { id: 'B', text: "Deploy resources across unverified global edge locations without regional residency boundaries." },
-      { id: 'C', text: "Rely on an on-premises server room located in another country without regional compliance guarantees." },
+      { id: 'A', text: "Deploy resources across unverified global edge locations without regional residency boundaries." },
+      { id: 'B', text: "Rely on an on-premises server room located in another country without regional compliance guarantees." },
+      { id: 'C', text: "Deploy resources to a specific Azure Region located within the approved sovereign Geography." },
       { id: 'D', text: "Configure DNS round-robin routing across random worldwide datacenters without residency controls." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy resources to a specific Azure Region located within the approved sovereign Geography. An Azure Region is a set of datacenters deployed within a latency-defined perimeter and connected through a dedicated low-latency network. Azure Geographies are discrete markets that typically contain two or more regions, preserving data residency and compliance boundaries within national borders.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/reliability/regions-overview",
@@ -114,12 +114,12 @@ export const AZURE_AZ900_QUESTIONS_14 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The organization evaluates Azure Global Infrastructure to protect mission-critical virtual machine workloads against single datacenter facility outages caused by local power grid or cooling failures.",
     question: "Which concept or service configuration satisfies these operational resilience objectives? Physically separate Availability Zones with independent power and networking is under consideration.",
     options: [
-      { id: 'A', text: "Deploy virtual machines across multiple Azure Availability Zones with zone redundancy." },
-      { id: 'B', text: "Deploy all virtual machines within the same physical rack inside a single datacenter." },
+      { id: 'A', text: "Deploy all virtual machines within the same physical rack inside a single datacenter." },
+      { id: 'B', text: "Deploy virtual machines across multiple Azure Availability Zones with zone redundancy." },
       { id: 'C', text: "Rely on single-instance virtual machine SLAs without multi-zone deployments." },
       { id: 'D', text: "Configure automated nightly tape backups to a local file share without multi-zone replication." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy virtual machines across multiple Azure Availability Zones with zone redundancy. Azure Availability Zones are physically separate datacenter locations within an Azure region. Each zone is made up of one or more datacenters equipped with independent power, cooling, and networking. Deploying across availability zones protects applications against datacenter-level failures.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/reliability/availability-zones-overview",
@@ -135,12 +135,12 @@ export const AZURE_AZ900_QUESTIONS_14 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The organization evaluates Azure Global Infrastructure to protect mission-critical virtual machine workloads against single datacenter facility outages caused by local power grid or cooling failures.",
     question: "Which architectural approach should the team select to manage this demand efficiently? Physically separate Availability Zones with independent power and networking is under consideration.",
     options: [
-      { id: 'A', text: "Deploy virtual machines across multiple Azure Availability Zones with zone redundancy." },
-      { id: 'B', text: "Deploy all virtual machines within the same physical rack inside a single datacenter." },
-      { id: 'C', text: "Rely on single-instance virtual machine SLAs without multi-zone deployments." },
-      { id: 'D', text: "Configure automated nightly tape backups to a local file share without multi-zone replication." }
+      { id: 'A', text: "Configure automated nightly tape backups to a local file share without multi-zone replication." },
+      { id: 'B', text: "Rely on single-instance virtual machine SLAs without multi-zone deployments." },
+      { id: 'C', text: "Deploy virtual machines across multiple Azure Availability Zones with zone redundancy." },
+      { id: 'D', text: "Deploy all virtual machines within the same physical rack inside a single datacenter." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy virtual machines across multiple Azure Availability Zones with zone redundancy. Azure Availability Zones are physically separate datacenter locations within an Azure region. Each zone is made up of one or more datacenters equipped with independent power, cooling, and networking. Deploying across availability zones protects applications against datacenter-level failures.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/reliability/availability-zones-overview",
@@ -156,12 +156,12 @@ export const AZURE_AZ900_QUESTIONS_14 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The organization evaluates Azure Global Infrastructure to protect mission-critical virtual machine workloads against single datacenter facility outages caused by local power grid or cooling failures.",
     question: "Which solution properly implements these mandatory security and governance controls? Physically separate Availability Zones with independent power and networking is under consideration.",
     options: [
-      { id: 'A', text: "Deploy virtual machines across multiple Azure Availability Zones with zone redundancy." },
-      { id: 'B', text: "Deploy all virtual machines within the same physical rack inside a single datacenter." },
-      { id: 'C', text: "Rely on single-instance virtual machine SLAs without multi-zone deployments." },
-      { id: 'D', text: "Configure automated nightly tape backups to a local file share without multi-zone replication." }
+      { id: 'A', text: "Rely on single-instance virtual machine SLAs without multi-zone deployments." },
+      { id: 'B', text: "Configure automated nightly tape backups to a local file share without multi-zone replication." },
+      { id: 'C', text: "Deploy all virtual machines within the same physical rack inside a single datacenter." },
+      { id: 'D', text: "Deploy virtual machines across multiple Azure Availability Zones with zone redundancy." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy virtual machines across multiple Azure Availability Zones with zone redundancy. Azure Availability Zones are physically separate datacenter locations within an Azure region. Each zone is made up of one or more datacenters equipped with independent power, cooling, and networking. Deploying across availability zones protects applications against datacenter-level failures.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/reliability/availability-zones-overview",
@@ -178,8 +178,8 @@ export const AZURE_AZ900_QUESTIONS_14 = [
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? Physically separate Availability Zones with independent power and networking is under consideration.",
     options: [
       { id: 'A', text: "Deploy virtual machines across multiple Azure Availability Zones with zone redundancy." },
-      { id: 'B', text: "Deploy all virtual machines within the same physical rack inside a single datacenter." },
-      { id: 'C', text: "Rely on single-instance virtual machine SLAs without multi-zone deployments." },
+      { id: 'B', text: "Rely on single-instance virtual machine SLAs without multi-zone deployments." },
+      { id: 'C', text: "Deploy all virtual machines within the same physical rack inside a single datacenter." },
       { id: 'D', text: "Configure automated nightly tape backups to a local file share without multi-zone replication." }
     ],
     correctAnswers: ['A'],
@@ -199,8 +199,8 @@ export const AZURE_AZ900_QUESTIONS_14 = [
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? Physically separate Availability Zones with independent power and networking is under consideration.",
     options: [
       { id: 'A', text: "Deploy virtual machines across multiple Azure Availability Zones with zone redundancy." },
-      { id: 'B', text: "Deploy all virtual machines within the same physical rack inside a single datacenter." },
-      { id: 'C', text: "Rely on single-instance virtual machine SLAs without multi-zone deployments." },
+      { id: 'B', text: "Rely on single-instance virtual machine SLAs without multi-zone deployments." },
+      { id: 'C', text: "Deploy all virtual machines within the same physical rack inside a single datacenter." },
       { id: 'D', text: "Configure automated nightly tape backups to a local file share without multi-zone replication." }
     ],
     correctAnswers: ['A'],
@@ -219,12 +219,12 @@ export const AZURE_AZ900_QUESTIONS_14 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The organization evaluates Azure Global Infrastructure to ensure that cross-region disaster recovery replication traffic stays within the same geography while benefiting from coordinated platform maintenance updates.",
     question: "Which concept or service configuration satisfies these operational resilience objectives? Cross-region disaster recovery via Azure Region Pairs is under consideration.",
     options: [
-      { id: 'A', text: "Configure disaster recovery and data replication targeting the designated Azure Region Pair." },
+      { id: 'A', text: "Deploy primary and secondary replicas within two subnets in the exact same virtual network." },
       { id: 'B', text: "Replicate data to an arbitrarily selected region located on a different continent." },
-      { id: 'C', text: "Deploy primary and secondary replicas within two subnets in the exact same virtual network." },
+      { id: 'C', text: "Configure disaster recovery and data replication targeting the designated Azure Region Pair." },
       { id: 'D', text: "Disable cross-region replication to minimize outbound internet bandwidth usage." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure disaster recovery and data replication targeting the designated Azure Region Pair. An Azure Region Pair consists of two regions within the same geography situated at least 300 miles apart. Azure coordinates planned maintenance across regional pairs so only one region is updated at a time, and provides prioritized recovery order following catastrophic events.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/reliability/cross-region-replication-azure",
@@ -240,12 +240,12 @@ export const AZURE_AZ900_QUESTIONS_14 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The organization evaluates Azure Global Infrastructure to ensure that cross-region disaster recovery replication traffic stays within the same geography while benefiting from coordinated platform maintenance updates.",
     question: "Which architectural approach should the team select to manage this demand efficiently? Cross-region disaster recovery via Azure Region Pairs is under consideration.",
     options: [
-      { id: 'A', text: "Configure disaster recovery and data replication targeting the designated Azure Region Pair." },
-      { id: 'B', text: "Replicate data to an arbitrarily selected region located on a different continent." },
-      { id: 'C', text: "Deploy primary and secondary replicas within two subnets in the exact same virtual network." },
+      { id: 'A', text: "Replicate data to an arbitrarily selected region located on a different continent." },
+      { id: 'B', text: "Deploy primary and secondary replicas within two subnets in the exact same virtual network." },
+      { id: 'C', text: "Configure disaster recovery and data replication targeting the designated Azure Region Pair." },
       { id: 'D', text: "Disable cross-region replication to minimize outbound internet bandwidth usage." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure disaster recovery and data replication targeting the designated Azure Region Pair. An Azure Region Pair consists of two regions within the same geography situated at least 300 miles apart. Azure coordinates planned maintenance across regional pairs so only one region is updated at a time, and provides prioritized recovery order following catastrophic events.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/reliability/cross-region-replication-azure",
@@ -261,12 +261,12 @@ export const AZURE_AZ900_QUESTIONS_14 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The organization evaluates Azure Global Infrastructure to ensure that cross-region disaster recovery replication traffic stays within the same geography while benefiting from coordinated platform maintenance updates.",
     question: "Which solution properly implements these mandatory security and governance controls? Cross-region disaster recovery via Azure Region Pairs is under consideration.",
     options: [
-      { id: 'A', text: "Configure disaster recovery and data replication targeting the designated Azure Region Pair." },
-      { id: 'B', text: "Replicate data to an arbitrarily selected region located on a different continent." },
-      { id: 'C', text: "Deploy primary and secondary replicas within two subnets in the exact same virtual network." },
+      { id: 'A', text: "Replicate data to an arbitrarily selected region located on a different continent." },
+      { id: 'B', text: "Deploy primary and secondary replicas within two subnets in the exact same virtual network." },
+      { id: 'C', text: "Configure disaster recovery and data replication targeting the designated Azure Region Pair." },
       { id: 'D', text: "Disable cross-region replication to minimize outbound internet bandwidth usage." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure disaster recovery and data replication targeting the designated Azure Region Pair. An Azure Region Pair consists of two regions within the same geography situated at least 300 miles apart. Azure coordinates planned maintenance across regional pairs so only one region is updated at a time, and provides prioritized recovery order following catastrophic events.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/reliability/cross-region-replication-azure",
@@ -282,12 +282,12 @@ export const AZURE_AZ900_QUESTIONS_14 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to the Microsoft Azure Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The organization evaluates Azure Global Infrastructure to ensure that cross-region disaster recovery replication traffic stays within the same geography while benefiting from coordinated platform maintenance updates.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? Cross-region disaster recovery via Azure Region Pairs is under consideration.",
     options: [
-      { id: 'A', text: "Configure disaster recovery and data replication targeting the designated Azure Region Pair." },
-      { id: 'B', text: "Replicate data to an arbitrarily selected region located on a different continent." },
-      { id: 'C', text: "Deploy primary and secondary replicas within two subnets in the exact same virtual network." },
+      { id: 'A', text: "Deploy primary and secondary replicas within two subnets in the exact same virtual network." },
+      { id: 'B', text: "Configure disaster recovery and data replication targeting the designated Azure Region Pair." },
+      { id: 'C', text: "Replicate data to an arbitrarily selected region located on a different continent." },
       { id: 'D', text: "Disable cross-region replication to minimize outbound internet bandwidth usage." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure disaster recovery and data replication targeting the designated Azure Region Pair. An Azure Region Pair consists of two regions within the same geography situated at least 300 miles apart. Azure coordinates planned maintenance across regional pairs so only one region is updated at a time, and provides prioritized recovery order following catastrophic events.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/reliability/cross-region-replication-azure",
@@ -303,12 +303,12 @@ export const AZURE_AZ900_QUESTIONS_14 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The organization evaluates Azure Global Infrastructure to ensure that cross-region disaster recovery replication traffic stays within the same geography while benefiting from coordinated platform maintenance updates.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? Cross-region disaster recovery via Azure Region Pairs is under consideration.",
     options: [
-      { id: 'A', text: "Configure disaster recovery and data replication targeting the designated Azure Region Pair." },
-      { id: 'B', text: "Replicate data to an arbitrarily selected region located on a different continent." },
+      { id: 'A', text: "Replicate data to an arbitrarily selected region located on a different continent." },
+      { id: 'B', text: "Disable cross-region replication to minimize outbound internet bandwidth usage." },
       { id: 'C', text: "Deploy primary and secondary replicas within two subnets in the exact same virtual network." },
-      { id: 'D', text: "Disable cross-region replication to minimize outbound internet bandwidth usage." }
+      { id: 'D', text: "Configure disaster recovery and data replication targeting the designated Azure Region Pair." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure disaster recovery and data replication targeting the designated Azure Region Pair. An Azure Region Pair consists of two regions within the same geography situated at least 300 miles apart. Azure coordinates planned maintenance across regional pairs so only one region is updated at a time, and provides prioritized recovery order following catastrophic events.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/reliability/cross-region-replication-azure",
@@ -324,12 +324,12 @@ export const AZURE_AZ900_QUESTIONS_14 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The organization evaluates Azure Specialized Clouds to host sensitive governmental and defense workloads requiring physical isolation and dedicated vetting of operational personnel.",
     question: "Which concept or service configuration satisfies these operational resilience objectives? Physically isolated sovereign cloud regions is under consideration.",
     options: [
-      { id: 'A', text: "Deploy workloads into Azure Government, an isolated cloud instance dedicated to US federal, state, and local governments." },
-      { id: 'B', text: "Deploy workloads into standard public commercial Azure regions without specialized compliance accreditation." },
-      { id: 'C', text: "Host governmental databases on unencrypted public internet servers." },
+      { id: 'A', text: "Host governmental databases on unencrypted public internet servers." },
+      { id: 'B', text: "Deploy workloads into Azure Government, an isolated cloud instance dedicated to US federal, state, and local governments." },
+      { id: 'C', text: "Deploy workloads into standard public commercial Azure regions without specialized compliance accreditation." },
       { id: 'D', text: "Use standard public Azure multi-tenant regions with standard commercial support contracts." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy workloads into Azure Government, an isolated cloud instance dedicated to US federal, state, and local governments. Azure Government is a physically and logically isolated instance of Azure dedicated to US government agencies and their partners. It meets stringent federal compliance baselines such as FedRAMP High, DoD Impact Level 5, and ITAR, operated by screened US citizens.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-government/documentation-government-welcome",
@@ -345,12 +345,12 @@ export const AZURE_AZ900_QUESTIONS_14 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The organization evaluates Azure Specialized Clouds to host sensitive governmental and defense workloads requiring physical isolation and dedicated vetting of operational personnel.",
     question: "Which architectural approach should the team select to manage this demand efficiently? Physically isolated sovereign cloud regions is under consideration.",
     options: [
-      { id: 'A', text: "Deploy workloads into Azure Government, an isolated cloud instance dedicated to US federal, state, and local governments." },
-      { id: 'B', text: "Deploy workloads into standard public commercial Azure regions without specialized compliance accreditation." },
-      { id: 'C', text: "Host governmental databases on unencrypted public internet servers." },
-      { id: 'D', text: "Use standard public Azure multi-tenant regions with standard commercial support contracts." }
+      { id: 'A', text: "Host governmental databases on unencrypted public internet servers." },
+      { id: 'B', text: "Use standard public Azure multi-tenant regions with standard commercial support contracts." },
+      { id: 'C', text: "Deploy workloads into standard public commercial Azure regions without specialized compliance accreditation." },
+      { id: 'D', text: "Deploy workloads into Azure Government, an isolated cloud instance dedicated to US federal, state, and local governments." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy workloads into Azure Government, an isolated cloud instance dedicated to US federal, state, and local governments. Azure Government is a physically and logically isolated instance of Azure dedicated to US government agencies and their partners. It meets stringent federal compliance baselines such as FedRAMP High, DoD Impact Level 5, and ITAR, operated by screened US citizens.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-government/documentation-government-welcome",
@@ -366,12 +366,12 @@ export const AZURE_AZ900_QUESTIONS_14 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The organization evaluates Azure Specialized Clouds to host sensitive governmental and defense workloads requiring physical isolation and dedicated vetting of operational personnel.",
     question: "Which solution properly implements these mandatory security and governance controls? Physically isolated sovereign cloud regions is under consideration.",
     options: [
-      { id: 'A', text: "Deploy workloads into Azure Government, an isolated cloud instance dedicated to US federal, state, and local governments." },
-      { id: 'B', text: "Deploy workloads into standard public commercial Azure regions without specialized compliance accreditation." },
-      { id: 'C', text: "Host governmental databases on unencrypted public internet servers." },
-      { id: 'D', text: "Use standard public Azure multi-tenant regions with standard commercial support contracts." }
+      { id: 'A', text: "Use standard public Azure multi-tenant regions with standard commercial support contracts." },
+      { id: 'B', text: "Host governmental databases on unencrypted public internet servers." },
+      { id: 'C', text: "Deploy workloads into Azure Government, an isolated cloud instance dedicated to US federal, state, and local governments." },
+      { id: 'D', text: "Deploy workloads into standard public commercial Azure regions without specialized compliance accreditation." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy workloads into Azure Government, an isolated cloud instance dedicated to US federal, state, and local governments. Azure Government is a physically and logically isolated instance of Azure dedicated to US government agencies and their partners. It meets stringent federal compliance baselines such as FedRAMP High, DoD Impact Level 5, and ITAR, operated by screened US citizens.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-government/documentation-government-welcome",
@@ -388,8 +388,8 @@ export const AZURE_AZ900_QUESTIONS_14 = [
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? Physically isolated sovereign cloud regions is under consideration.",
     options: [
       { id: 'A', text: "Deploy workloads into Azure Government, an isolated cloud instance dedicated to US federal, state, and local governments." },
-      { id: 'B', text: "Deploy workloads into standard public commercial Azure regions without specialized compliance accreditation." },
-      { id: 'C', text: "Host governmental databases on unencrypted public internet servers." },
+      { id: 'B', text: "Host governmental databases on unencrypted public internet servers." },
+      { id: 'C', text: "Deploy workloads into standard public commercial Azure regions without specialized compliance accreditation." },
       { id: 'D', text: "Use standard public Azure multi-tenant regions with standard commercial support contracts." }
     ],
     correctAnswers: ['A'],
@@ -409,9 +409,9 @@ export const AZURE_AZ900_QUESTIONS_14 = [
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? Physically isolated sovereign cloud regions is under consideration.",
     options: [
       { id: 'A', text: "Deploy workloads into Azure Government, an isolated cloud instance dedicated to US federal, state, and local governments." },
-      { id: 'B', text: "Deploy workloads into standard public commercial Azure regions without specialized compliance accreditation." },
+      { id: 'B', text: "Use standard public Azure multi-tenant regions with standard commercial support contracts." },
       { id: 'C', text: "Host governmental databases on unencrypted public internet servers." },
-      { id: 'D', text: "Use standard public Azure multi-tenant regions with standard commercial support contracts." }
+      { id: 'D', text: "Deploy workloads into standard public commercial Azure regions without specialized compliance accreditation." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -429,12 +429,12 @@ export const AZURE_AZ900_QUESTIONS_14 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The organization evaluates Azure Resource Manager to group related Azure resources together so they can be monitored, secured with RBAC, and deleted simultaneously as a unified lifecycle unit.",
     question: "Which concept or service configuration satisfies these operational resilience objectives? Logical resource grouping and lifecycle management is under consideration.",
     options: [
-      { id: 'A', text: "Organize the related resources into a single Azure Resource Group." },
+      { id: 'A', text: "Assign tags to resources without placing them in any resource group." },
       { id: 'B', text: "Place each individual resource into its own separate Azure subscription." },
-      { id: 'C', text: "Assign tags to resources without placing them in any resource group." },
-      { id: 'D', text: "Deploy all organizational resources across all departments into the root subscription default container." }
+      { id: 'C', text: "Deploy all organizational resources across all departments into the root subscription default container." },
+      { id: 'D', text: "Organize the related resources into a single Azure Resource Group." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Organize the related resources into a single Azure Resource Group. An Azure Resource Group is a logical container into which Azure resources are deployed and managed. Resources in a resource group share a common lifecycle, allowing administrators to deploy, update, manage access control (RBAC), and delete all associated resources together.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal",
@@ -450,12 +450,12 @@ export const AZURE_AZ900_QUESTIONS_14 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The organization evaluates Azure Resource Manager to group related Azure resources together so they can be monitored, secured with RBAC, and deleted simultaneously as a unified lifecycle unit.",
     question: "Which architectural approach should the team select to manage this demand efficiently? Logical resource grouping and lifecycle management is under consideration.",
     options: [
-      { id: 'A', text: "Organize the related resources into a single Azure Resource Group." },
+      { id: 'A', text: "Assign tags to resources without placing them in any resource group." },
       { id: 'B', text: "Place each individual resource into its own separate Azure subscription." },
-      { id: 'C', text: "Assign tags to resources without placing them in any resource group." },
-      { id: 'D', text: "Deploy all organizational resources across all departments into the root subscription default container." }
+      { id: 'C', text: "Deploy all organizational resources across all departments into the root subscription default container." },
+      { id: 'D', text: "Organize the related resources into a single Azure Resource Group." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Organize the related resources into a single Azure Resource Group. An Azure Resource Group is a logical container into which Azure resources are deployed and managed. Resources in a resource group share a common lifecycle, allowing administrators to deploy, update, manage access control (RBAC), and delete all associated resources together.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal",
@@ -471,12 +471,12 @@ export const AZURE_AZ900_QUESTIONS_14 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The organization evaluates Azure Resource Manager to group related Azure resources together so they can be monitored, secured with RBAC, and deleted simultaneously as a unified lifecycle unit.",
     question: "Which solution properly implements these mandatory security and governance controls? Logical resource grouping and lifecycle management is under consideration.",
     options: [
-      { id: 'A', text: "Organize the related resources into a single Azure Resource Group." },
-      { id: 'B', text: "Place each individual resource into its own separate Azure subscription." },
-      { id: 'C', text: "Assign tags to resources without placing them in any resource group." },
-      { id: 'D', text: "Deploy all organizational resources across all departments into the root subscription default container." }
+      { id: 'A', text: "Place each individual resource into its own separate Azure subscription." },
+      { id: 'B', text: "Deploy all organizational resources across all departments into the root subscription default container." },
+      { id: 'C', text: "Organize the related resources into a single Azure Resource Group." },
+      { id: 'D', text: "Assign tags to resources without placing them in any resource group." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Organize the related resources into a single Azure Resource Group. An Azure Resource Group is a logical container into which Azure resources are deployed and managed. Resources in a resource group share a common lifecycle, allowing administrators to deploy, update, manage access control (RBAC), and delete all associated resources together.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal",
@@ -492,12 +492,12 @@ export const AZURE_AZ900_QUESTIONS_14 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to the Microsoft Azure Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The organization evaluates Azure Resource Manager to group related Azure resources together so they can be monitored, secured with RBAC, and deleted simultaneously as a unified lifecycle unit.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? Logical resource grouping and lifecycle management is under consideration.",
     options: [
-      { id: 'A', text: "Organize the related resources into a single Azure Resource Group." },
-      { id: 'B', text: "Place each individual resource into its own separate Azure subscription." },
-      { id: 'C', text: "Assign tags to resources without placing them in any resource group." },
-      { id: 'D', text: "Deploy all organizational resources across all departments into the root subscription default container." }
+      { id: 'A', text: "Deploy all organizational resources across all departments into the root subscription default container." },
+      { id: 'B', text: "Assign tags to resources without placing them in any resource group." },
+      { id: 'C', text: "Place each individual resource into its own separate Azure subscription." },
+      { id: 'D', text: "Organize the related resources into a single Azure Resource Group." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Organize the related resources into a single Azure Resource Group. An Azure Resource Group is a logical container into which Azure resources are deployed and managed. Resources in a resource group share a common lifecycle, allowing administrators to deploy, update, manage access control (RBAC), and delete all associated resources together.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal",
@@ -513,12 +513,12 @@ export const AZURE_AZ900_QUESTIONS_14 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The organization evaluates Azure Resource Manager to group related Azure resources together so they can be monitored, secured with RBAC, and deleted simultaneously as a unified lifecycle unit.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? Logical resource grouping and lifecycle management is under consideration.",
     options: [
-      { id: 'A', text: "Organize the related resources into a single Azure Resource Group." },
-      { id: 'B', text: "Place each individual resource into its own separate Azure subscription." },
-      { id: 'C', text: "Assign tags to resources without placing them in any resource group." },
-      { id: 'D', text: "Deploy all organizational resources across all departments into the root subscription default container." }
+      { id: 'A', text: "Place each individual resource into its own separate Azure subscription." },
+      { id: 'B', text: "Deploy all organizational resources across all departments into the root subscription default container." },
+      { id: 'C', text: "Organize the related resources into a single Azure Resource Group." },
+      { id: 'D', text: "Assign tags to resources without placing them in any resource group." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Organize the related resources into a single Azure Resource Group. An Azure Resource Group is a logical container into which Azure resources are deployed and managed. Resources in a resource group share a common lifecycle, allowing administrators to deploy, update, manage access control (RBAC), and delete all associated resources together.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal",

@@ -9,12 +9,12 @@ export const AZURE_AZ900_QUESTIONS_12 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The organization evaluates Azure Compute Scaling to dynamically increase system throughput during unexpected traffic surges by provisioning additional compute instances in parallel.",
     question: "Which concept or service configuration satisfies these operational resilience objectives? Horizontal scale-out vs vertical scale-up mechanisms is under consideration.",
     options: [
-      { id: 'A', text: "Implement horizontal scaling (scale-out) by adding more identical compute instances to distribute processing load." },
-      { id: 'B', text: "Apply vertical scaling (scale-up) by shutting down the VM to add more CPU cores and memory to a single server." },
-      { id: 'C', text: "Maintain static VM instance counts and throttle incoming web requests during high demand periods." },
-      { id: 'D', text: "Overprovision VM instance capacity by 400% permanently to handle peak traffic bursts." }
+      { id: 'A', text: "Maintain static VM instance counts and throttle incoming web requests during high demand periods." },
+      { id: 'B', text: "Overprovision VM instance capacity by 400% permanently to handle peak traffic bursts." },
+      { id: 'C', text: "Implement horizontal scaling (scale-out) by adding more identical compute instances to distribute processing load." },
+      { id: 'D', text: "Apply vertical scaling (scale-up) by shutting down the VM to add more CPU cores and memory to a single server." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Implement horizontal scaling (scale-out) by adding more identical compute instances to distribute processing load. Horizontal scaling (scaling out) involves adding more VM instances or containers to handle increased traffic, whereas vertical scaling (scaling up) involves increasing the capacity (CPU/RAM) of an existing machine. Horizontal scaling provides higher elasticity and fault tolerance because traffic is distributed across multiple instances.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/architecture/best-practices/auto-scaling",
@@ -31,8 +31,8 @@ export const AZURE_AZ900_QUESTIONS_12 = [
     question: "Which architectural approach should the team select to manage this demand efficiently? Horizontal scale-out vs vertical scale-up mechanisms is under consideration.",
     options: [
       { id: 'A', text: "Implement horizontal scaling (scale-out) by adding more identical compute instances to distribute processing load." },
-      { id: 'B', text: "Apply vertical scaling (scale-up) by shutting down the VM to add more CPU cores and memory to a single server." },
-      { id: 'C', text: "Maintain static VM instance counts and throttle incoming web requests during high demand periods." },
+      { id: 'B', text: "Maintain static VM instance counts and throttle incoming web requests during high demand periods." },
+      { id: 'C', text: "Apply vertical scaling (scale-up) by shutting down the VM to add more CPU cores and memory to a single server." },
       { id: 'D', text: "Overprovision VM instance capacity by 400% permanently to handle peak traffic bursts." }
     ],
     correctAnswers: ['A'],
@@ -51,12 +51,12 @@ export const AZURE_AZ900_QUESTIONS_12 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The organization evaluates Azure Compute Scaling to dynamically increase system throughput during unexpected traffic surges by provisioning additional compute instances in parallel.",
     question: "Which solution properly implements these mandatory security and governance controls? Horizontal scale-out vs vertical scale-up mechanisms is under consideration.",
     options: [
-      { id: 'A', text: "Implement horizontal scaling (scale-out) by adding more identical compute instances to distribute processing load." },
-      { id: 'B', text: "Apply vertical scaling (scale-up) by shutting down the VM to add more CPU cores and memory to a single server." },
-      { id: 'C', text: "Maintain static VM instance counts and throttle incoming web requests during high demand periods." },
-      { id: 'D', text: "Overprovision VM instance capacity by 400% permanently to handle peak traffic bursts." }
+      { id: 'A', text: "Overprovision VM instance capacity by 400% permanently to handle peak traffic bursts." },
+      { id: 'B', text: "Implement horizontal scaling (scale-out) by adding more identical compute instances to distribute processing load." },
+      { id: 'C', text: "Apply vertical scaling (scale-up) by shutting down the VM to add more CPU cores and memory to a single server." },
+      { id: 'D', text: "Maintain static VM instance counts and throttle incoming web requests during high demand periods." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Implement horizontal scaling (scale-out) by adding more identical compute instances to distribute processing load. Horizontal scaling (scaling out) involves adding more VM instances or containers to handle increased traffic, whereas vertical scaling (scaling up) involves increasing the capacity (CPU/RAM) of an existing machine. Horizontal scaling provides higher elasticity and fault tolerance because traffic is distributed across multiple instances.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/architecture/best-practices/auto-scaling",
@@ -74,8 +74,8 @@ export const AZURE_AZ900_QUESTIONS_12 = [
     options: [
       { id: 'A', text: "Implement horizontal scaling (scale-out) by adding more identical compute instances to distribute processing load." },
       { id: 'B', text: "Apply vertical scaling (scale-up) by shutting down the VM to add more CPU cores and memory to a single server." },
-      { id: 'C', text: "Maintain static VM instance counts and throttle incoming web requests during high demand periods." },
-      { id: 'D', text: "Overprovision VM instance capacity by 400% permanently to handle peak traffic bursts." }
+      { id: 'C', text: "Overprovision VM instance capacity by 400% permanently to handle peak traffic bursts." },
+      { id: 'D', text: "Maintain static VM instance counts and throttle incoming web requests during high demand periods." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -93,12 +93,12 @@ export const AZURE_AZ900_QUESTIONS_12 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The organization evaluates Azure Compute Scaling to dynamically increase system throughput during unexpected traffic surges by provisioning additional compute instances in parallel.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? Horizontal scale-out vs vertical scale-up mechanisms is under consideration.",
     options: [
-      { id: 'A', text: "Implement horizontal scaling (scale-out) by adding more identical compute instances to distribute processing load." },
-      { id: 'B', text: "Apply vertical scaling (scale-up) by shutting down the VM to add more CPU cores and memory to a single server." },
+      { id: 'A', text: "Overprovision VM instance capacity by 400% permanently to handle peak traffic bursts." },
+      { id: 'B', text: "Implement horizontal scaling (scale-out) by adding more identical compute instances to distribute processing load." },
       { id: 'C', text: "Maintain static VM instance counts and throttle incoming web requests during high demand periods." },
-      { id: 'D', text: "Overprovision VM instance capacity by 400% permanently to handle peak traffic bursts." }
+      { id: 'D', text: "Apply vertical scaling (scale-up) by shutting down the VM to add more CPU cores and memory to a single server." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Implement horizontal scaling (scale-out) by adding more identical compute instances to distribute processing load. Horizontal scaling (scaling out) involves adding more VM instances or containers to handle increased traffic, whereas vertical scaling (scaling up) involves increasing the capacity (CPU/RAM) of an existing machine. Horizontal scaling provides higher elasticity and fault tolerance because traffic is distributed across multiple instances.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/architecture/best-practices/auto-scaling",
@@ -114,12 +114,12 @@ export const AZURE_AZ900_QUESTIONS_12 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The organization evaluates Azure Elasticity to automatically provision additional compute instances during sudden daytime traffic spikes and deallocate them during idle nighttime hours.",
     question: "Which concept or service configuration satisfies these operational resilience objectives? Dynamic elastic resource allocation is under consideration.",
     options: [
-      { id: 'A', text: "Configure Azure Autoscale to dynamically scale resources out and in based on real-time CPU utilization and queue metrics." },
+      { id: 'A', text: "Submit IT change control requests to deploy additional physical servers when CPU exceeds 80%." },
       { id: 'B', text: "Manually allocate maximum compute capacity that remains running at all times regardless of traffic levels." },
-      { id: 'C', text: "Submit IT change control requests to deploy additional physical servers when CPU exceeds 80%." },
+      { id: 'C', text: "Configure Azure Autoscale to dynamically scale resources out and in based on real-time CPU utilization and queue metrics." },
       { id: 'D', text: "Configure static resource quotas that prevent any additional virtual machines from starting." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure Azure Autoscale to dynamically scale resources out and in based on real-time CPU utilization and queue metrics. Elasticity is the ability of cloud systems to dynamically allocate and deallocate compute resources in response to changing demand. Autoscale automatically adds resources to handle traffic surges and deallocates them when traffic subsides, optimizing performance and cost.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/autoscale/autoscale-overview",
@@ -135,12 +135,12 @@ export const AZURE_AZ900_QUESTIONS_12 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The organization evaluates Azure Elasticity to automatically provision additional compute instances during sudden daytime traffic spikes and deallocate them during idle nighttime hours.",
     question: "Which architectural approach should the team select to manage this demand efficiently? Dynamic elastic resource allocation is under consideration.",
     options: [
-      { id: 'A', text: "Configure Azure Autoscale to dynamically scale resources out and in based on real-time CPU utilization and queue metrics." },
+      { id: 'A', text: "Configure static resource quotas that prevent any additional virtual machines from starting." },
       { id: 'B', text: "Manually allocate maximum compute capacity that remains running at all times regardless of traffic levels." },
-      { id: 'C', text: "Submit IT change control requests to deploy additional physical servers when CPU exceeds 80%." },
-      { id: 'D', text: "Configure static resource quotas that prevent any additional virtual machines from starting." }
+      { id: 'C', text: "Configure Azure Autoscale to dynamically scale resources out and in based on real-time CPU utilization and queue metrics." },
+      { id: 'D', text: "Submit IT change control requests to deploy additional physical servers when CPU exceeds 80%." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure Azure Autoscale to dynamically scale resources out and in based on real-time CPU utilization and queue metrics. Elasticity is the ability of cloud systems to dynamically allocate and deallocate compute resources in response to changing demand. Autoscale automatically adds resources to handle traffic surges and deallocates them when traffic subsides, optimizing performance and cost.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/autoscale/autoscale-overview",
@@ -156,12 +156,12 @@ export const AZURE_AZ900_QUESTIONS_12 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The organization evaluates Azure Elasticity to automatically provision additional compute instances during sudden daytime traffic spikes and deallocate them during idle nighttime hours.",
     question: "Which solution properly implements these mandatory security and governance controls? Dynamic elastic resource allocation is under consideration.",
     options: [
-      { id: 'A', text: "Configure Azure Autoscale to dynamically scale resources out and in based on real-time CPU utilization and queue metrics." },
-      { id: 'B', text: "Manually allocate maximum compute capacity that remains running at all times regardless of traffic levels." },
-      { id: 'C', text: "Submit IT change control requests to deploy additional physical servers when CPU exceeds 80%." },
-      { id: 'D', text: "Configure static resource quotas that prevent any additional virtual machines from starting." }
+      { id: 'A', text: "Submit IT change control requests to deploy additional physical servers when CPU exceeds 80%." },
+      { id: 'B', text: "Configure static resource quotas that prevent any additional virtual machines from starting." },
+      { id: 'C', text: "Manually allocate maximum compute capacity that remains running at all times regardless of traffic levels." },
+      { id: 'D', text: "Configure Azure Autoscale to dynamically scale resources out and in based on real-time CPU utilization and queue metrics." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure Azure Autoscale to dynamically scale resources out and in based on real-time CPU utilization and queue metrics. Elasticity is the ability of cloud systems to dynamically allocate and deallocate compute resources in response to changing demand. Autoscale automatically adds resources to handle traffic surges and deallocates them when traffic subsides, optimizing performance and cost.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/autoscale/autoscale-overview",
@@ -177,12 +177,12 @@ export const AZURE_AZ900_QUESTIONS_12 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to the Microsoft Azure Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The organization evaluates Azure Elasticity to automatically provision additional compute instances during sudden daytime traffic spikes and deallocate them during idle nighttime hours.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? Dynamic elastic resource allocation is under consideration.",
     options: [
-      { id: 'A', text: "Configure Azure Autoscale to dynamically scale resources out and in based on real-time CPU utilization and queue metrics." },
-      { id: 'B', text: "Manually allocate maximum compute capacity that remains running at all times regardless of traffic levels." },
+      { id: 'A', text: "Manually allocate maximum compute capacity that remains running at all times regardless of traffic levels." },
+      { id: 'B', text: "Configure Azure Autoscale to dynamically scale resources out and in based on real-time CPU utilization and queue metrics." },
       { id: 'C', text: "Submit IT change control requests to deploy additional physical servers when CPU exceeds 80%." },
       { id: 'D', text: "Configure static resource quotas that prevent any additional virtual machines from starting." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure Azure Autoscale to dynamically scale resources out and in based on real-time CPU utilization and queue metrics. Elasticity is the ability of cloud systems to dynamically allocate and deallocate compute resources in response to changing demand. Autoscale automatically adds resources to handle traffic surges and deallocates them when traffic subsides, optimizing performance and cost.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/autoscale/autoscale-overview",
@@ -198,12 +198,12 @@ export const AZURE_AZ900_QUESTIONS_12 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The organization evaluates Azure Elasticity to automatically provision additional compute instances during sudden daytime traffic spikes and deallocate them during idle nighttime hours.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? Dynamic elastic resource allocation is under consideration.",
     options: [
-      { id: 'A', text: "Configure Azure Autoscale to dynamically scale resources out and in based on real-time CPU utilization and queue metrics." },
+      { id: 'A', text: "Submit IT change control requests to deploy additional physical servers when CPU exceeds 80%." },
       { id: 'B', text: "Manually allocate maximum compute capacity that remains running at all times regardless of traffic levels." },
-      { id: 'C', text: "Submit IT change control requests to deploy additional physical servers when CPU exceeds 80%." },
-      { id: 'D', text: "Configure static resource quotas that prevent any additional virtual machines from starting." }
+      { id: 'C', text: "Configure static resource quotas that prevent any additional virtual machines from starting." },
+      { id: 'D', text: "Configure Azure Autoscale to dynamically scale resources out and in based on real-time CPU utilization and queue metrics." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure Azure Autoscale to dynamically scale resources out and in based on real-time CPU utilization and queue metrics. Elasticity is the ability of cloud systems to dynamically allocate and deallocate compute resources in response to changing demand. Autoscale automatically adds resources to handle traffic surges and deallocates them when traffic subsides, optimizing performance and cost.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/autoscale/autoscale-overview",
@@ -219,12 +219,12 @@ export const AZURE_AZ900_QUESTIONS_12 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The organization evaluates Cloud Agility to allow development teams to spin up fully configured development and testing environments in minutes rather than waiting weeks for hardware procurement.",
     question: "Which concept or service configuration satisfies these operational resilience objectives? Rapid resource provisioning accelerating software delivery is under consideration.",
     options: [
-      { id: 'A', text: "Leverage Azure agility to rapidly provision compute, database, and networking resources via the Azure portal, ARM templates, or Azure CLI." },
-      { id: 'B', text: "Establish a quarterly physical server procurement process requiring executive hardware purchasing approval." },
+      { id: 'A', text: "Order dedicated network switches and wait for physical rack installation before starting project validation." },
+      { id: 'B', text: "Leverage Azure agility to rapidly provision compute, database, and networking resources via the Azure portal, ARM templates, or Azure CLI." },
       { id: 'C', text: "Require developers to share a single on-premises staging server for all concurrent release branches." },
-      { id: 'D', text: "Order dedicated network switches and wait for physical rack installation before starting project validation." }
+      { id: 'D', text: "Establish a quarterly physical server procurement process requiring executive hardware purchasing approval." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Leverage Azure agility to rapidly provision compute, database, and networking resources via the Azure portal, ARM templates, or Azure CLI. Cloud agility refers to the ability to rapidly develop, test, and launch software applications. By provisioning cloud infrastructure in minutes through self-service APIs and Infrastructure as Code, organizations accelerate innovation and reduce time to market.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/strategy/business-outcomes/agility-outcomes",
@@ -240,12 +240,12 @@ export const AZURE_AZ900_QUESTIONS_12 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The organization evaluates Cloud Agility to allow development teams to spin up fully configured development and testing environments in minutes rather than waiting weeks for hardware procurement.",
     question: "Which architectural approach should the team select to manage this demand efficiently? Rapid resource provisioning accelerating software delivery is under consideration.",
     options: [
-      { id: 'A', text: "Leverage Azure agility to rapidly provision compute, database, and networking resources via the Azure portal, ARM templates, or Azure CLI." },
-      { id: 'B', text: "Establish a quarterly physical server procurement process requiring executive hardware purchasing approval." },
-      { id: 'C', text: "Require developers to share a single on-premises staging server for all concurrent release branches." },
-      { id: 'D', text: "Order dedicated network switches and wait for physical rack installation before starting project validation." }
+      { id: 'A', text: "Require developers to share a single on-premises staging server for all concurrent release branches." },
+      { id: 'B', text: "Order dedicated network switches and wait for physical rack installation before starting project validation." },
+      { id: 'C', text: "Leverage Azure agility to rapidly provision compute, database, and networking resources via the Azure portal, ARM templates, or Azure CLI." },
+      { id: 'D', text: "Establish a quarterly physical server procurement process requiring executive hardware purchasing approval." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Leverage Azure agility to rapidly provision compute, database, and networking resources via the Azure portal, ARM templates, or Azure CLI. Cloud agility refers to the ability to rapidly develop, test, and launch software applications. By provisioning cloud infrastructure in minutes through self-service APIs and Infrastructure as Code, organizations accelerate innovation and reduce time to market.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/strategy/business-outcomes/agility-outcomes",
@@ -261,12 +261,12 @@ export const AZURE_AZ900_QUESTIONS_12 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The organization evaluates Cloud Agility to allow development teams to spin up fully configured development and testing environments in minutes rather than waiting weeks for hardware procurement.",
     question: "Which solution properly implements these mandatory security and governance controls? Rapid resource provisioning accelerating software delivery is under consideration.",
     options: [
-      { id: 'A', text: "Leverage Azure agility to rapidly provision compute, database, and networking resources via the Azure portal, ARM templates, or Azure CLI." },
-      { id: 'B', text: "Establish a quarterly physical server procurement process requiring executive hardware purchasing approval." },
-      { id: 'C', text: "Require developers to share a single on-premises staging server for all concurrent release branches." },
-      { id: 'D', text: "Order dedicated network switches and wait for physical rack installation before starting project validation." }
+      { id: 'A', text: "Order dedicated network switches and wait for physical rack installation before starting project validation." },
+      { id: 'B', text: "Require developers to share a single on-premises staging server for all concurrent release branches." },
+      { id: 'C', text: "Establish a quarterly physical server procurement process requiring executive hardware purchasing approval." },
+      { id: 'D', text: "Leverage Azure agility to rapidly provision compute, database, and networking resources via the Azure portal, ARM templates, or Azure CLI." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Leverage Azure agility to rapidly provision compute, database, and networking resources via the Azure portal, ARM templates, or Azure CLI. Cloud agility refers to the ability to rapidly develop, test, and launch software applications. By provisioning cloud infrastructure in minutes through self-service APIs and Infrastructure as Code, organizations accelerate innovation and reduce time to market.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/strategy/business-outcomes/agility-outcomes",
@@ -282,12 +282,12 @@ export const AZURE_AZ900_QUESTIONS_12 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to the Microsoft Azure Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The organization evaluates Cloud Agility to allow development teams to spin up fully configured development and testing environments in minutes rather than waiting weeks for hardware procurement.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? Rapid resource provisioning accelerating software delivery is under consideration.",
     options: [
-      { id: 'A', text: "Leverage Azure agility to rapidly provision compute, database, and networking resources via the Azure portal, ARM templates, or Azure CLI." },
-      { id: 'B', text: "Establish a quarterly physical server procurement process requiring executive hardware purchasing approval." },
-      { id: 'C', text: "Require developers to share a single on-premises staging server for all concurrent release branches." },
-      { id: 'D', text: "Order dedicated network switches and wait for physical rack installation before starting project validation." }
+      { id: 'A', text: "Order dedicated network switches and wait for physical rack installation before starting project validation." },
+      { id: 'B', text: "Require developers to share a single on-premises staging server for all concurrent release branches." },
+      { id: 'C', text: "Establish a quarterly physical server procurement process requiring executive hardware purchasing approval." },
+      { id: 'D', text: "Leverage Azure agility to rapidly provision compute, database, and networking resources via the Azure portal, ARM templates, or Azure CLI." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Leverage Azure agility to rapidly provision compute, database, and networking resources via the Azure portal, ARM templates, or Azure CLI. Cloud agility refers to the ability to rapidly develop, test, and launch software applications. By provisioning cloud infrastructure in minutes through self-service APIs and Infrastructure as Code, organizations accelerate innovation and reduce time to market.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/strategy/business-outcomes/agility-outcomes",
@@ -304,9 +304,9 @@ export const AZURE_AZ900_QUESTIONS_12 = [
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? Rapid resource provisioning accelerating software delivery is under consideration.",
     options: [
       { id: 'A', text: "Leverage Azure agility to rapidly provision compute, database, and networking resources via the Azure portal, ARM templates, or Azure CLI." },
-      { id: 'B', text: "Establish a quarterly physical server procurement process requiring executive hardware purchasing approval." },
-      { id: 'C', text: "Require developers to share a single on-premises staging server for all concurrent release branches." },
-      { id: 'D', text: "Order dedicated network switches and wait for physical rack installation before starting project validation." }
+      { id: 'B', text: "Require developers to share a single on-premises staging server for all concurrent release branches." },
+      { id: 'C', text: "Order dedicated network switches and wait for physical rack installation before starting project validation." },
+      { id: 'D', text: "Establish a quarterly physical server procurement process requiring executive hardware purchasing approval." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -324,12 +324,12 @@ export const AZURE_AZ900_QUESTIONS_12 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The organization evaluates Azure Disaster Recovery to restore enterprise applications and critical database services rapidly in an alternate geographical region following a catastrophic regional event.",
     question: "Which concept or service configuration satisfies these operational resilience objectives? Business continuity planning across paired regions is under consideration.",
     options: [
-      { id: 'A', text: "Deploy Azure Site Recovery and cross-region geo-replication across Azure regional pairs to meet strict RTO and RPO objectives." },
-      { id: 'B', text: "Rely solely on local daily backups stored on the same physical SAN within the primary datacenter." },
-      { id: 'C', text: "Maintain a secondary datacenter that requires 3 weeks of manual hardware configuration to come online." },
-      { id: 'D', text: "Configure single-region snapshots without replicating copies to a geographically separated location." }
+      { id: 'A', text: "Configure single-region snapshots without replicating copies to a geographically separated location." },
+      { id: 'B', text: "Deploy Azure Site Recovery and cross-region geo-replication across Azure regional pairs to meet strict RTO and RPO objectives." },
+      { id: 'C', text: "Rely solely on local daily backups stored on the same physical SAN within the primary datacenter." },
+      { id: 'D', text: "Maintain a secondary datacenter that requires 3 weeks of manual hardware configuration to come online." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy Azure Site Recovery and cross-region geo-replication across Azure regional pairs to meet strict RTO and RPO objectives. Disaster recovery (DR) is the process of restoring IT infrastructure and business-critical operations following a catastrophic failure or disaster. Azure provides regional pairs, Azure Site Recovery, and geo-redundant storage (GRS) to achieve low Recovery Time Objectives (RTO) and Recovery Point Objectives (RPO).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/site-recovery/site-recovery-overview",
@@ -345,12 +345,12 @@ export const AZURE_AZ900_QUESTIONS_12 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The organization evaluates Azure Disaster Recovery to restore enterprise applications and critical database services rapidly in an alternate geographical region following a catastrophic regional event.",
     question: "Which architectural approach should the team select to manage this demand efficiently? Business continuity planning across paired regions is under consideration.",
     options: [
-      { id: 'A', text: "Deploy Azure Site Recovery and cross-region geo-replication across Azure regional pairs to meet strict RTO and RPO objectives." },
-      { id: 'B', text: "Rely solely on local daily backups stored on the same physical SAN within the primary datacenter." },
-      { id: 'C', text: "Maintain a secondary datacenter that requires 3 weeks of manual hardware configuration to come online." },
-      { id: 'D', text: "Configure single-region snapshots without replicating copies to a geographically separated location." }
+      { id: 'A', text: "Rely solely on local daily backups stored on the same physical SAN within the primary datacenter." },
+      { id: 'B', text: "Deploy Azure Site Recovery and cross-region geo-replication across Azure regional pairs to meet strict RTO and RPO objectives." },
+      { id: 'C', text: "Configure single-region snapshots without replicating copies to a geographically separated location." },
+      { id: 'D', text: "Maintain a secondary datacenter that requires 3 weeks of manual hardware configuration to come online." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy Azure Site Recovery and cross-region geo-replication across Azure regional pairs to meet strict RTO and RPO objectives. Disaster recovery (DR) is the process of restoring IT infrastructure and business-critical operations following a catastrophic failure or disaster. Azure provides regional pairs, Azure Site Recovery, and geo-redundant storage (GRS) to achieve low Recovery Time Objectives (RTO) and Recovery Point Objectives (RPO).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/site-recovery/site-recovery-overview",
@@ -368,8 +368,8 @@ export const AZURE_AZ900_QUESTIONS_12 = [
     options: [
       { id: 'A', text: "Deploy Azure Site Recovery and cross-region geo-replication across Azure regional pairs to meet strict RTO and RPO objectives." },
       { id: 'B', text: "Rely solely on local daily backups stored on the same physical SAN within the primary datacenter." },
-      { id: 'C', text: "Maintain a secondary datacenter that requires 3 weeks of manual hardware configuration to come online." },
-      { id: 'D', text: "Configure single-region snapshots without replicating copies to a geographically separated location." }
+      { id: 'C', text: "Configure single-region snapshots without replicating copies to a geographically separated location." },
+      { id: 'D', text: "Maintain a secondary datacenter that requires 3 weeks of manual hardware configuration to come online." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -388,9 +388,9 @@ export const AZURE_AZ900_QUESTIONS_12 = [
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? Business continuity planning across paired regions is under consideration.",
     options: [
       { id: 'A', text: "Deploy Azure Site Recovery and cross-region geo-replication across Azure regional pairs to meet strict RTO and RPO objectives." },
-      { id: 'B', text: "Rely solely on local daily backups stored on the same physical SAN within the primary datacenter." },
-      { id: 'C', text: "Maintain a secondary datacenter that requires 3 weeks of manual hardware configuration to come online." },
-      { id: 'D', text: "Configure single-region snapshots without replicating copies to a geographically separated location." }
+      { id: 'B', text: "Maintain a secondary datacenter that requires 3 weeks of manual hardware configuration to come online." },
+      { id: 'C', text: "Configure single-region snapshots without replicating copies to a geographically separated location." },
+      { id: 'D', text: "Rely solely on local daily backups stored on the same physical SAN within the primary datacenter." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,12 +408,12 @@ export const AZURE_AZ900_QUESTIONS_12 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The organization evaluates Azure Disaster Recovery to restore enterprise applications and critical database services rapidly in an alternate geographical region following a catastrophic regional event.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? Business continuity planning across paired regions is under consideration.",
     options: [
-      { id: 'A', text: "Deploy Azure Site Recovery and cross-region geo-replication across Azure regional pairs to meet strict RTO and RPO objectives." },
-      { id: 'B', text: "Rely solely on local daily backups stored on the same physical SAN within the primary datacenter." },
+      { id: 'A', text: "Configure single-region snapshots without replicating copies to a geographically separated location." },
+      { id: 'B', text: "Deploy Azure Site Recovery and cross-region geo-replication across Azure regional pairs to meet strict RTO and RPO objectives." },
       { id: 'C', text: "Maintain a secondary datacenter that requires 3 weeks of manual hardware configuration to come online." },
-      { id: 'D', text: "Configure single-region snapshots without replicating copies to a geographically separated location." }
+      { id: 'D', text: "Rely solely on local daily backups stored on the same physical SAN within the primary datacenter." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy Azure Site Recovery and cross-region geo-replication across Azure regional pairs to meet strict RTO and RPO objectives. Disaster recovery (DR) is the process of restoring IT infrastructure and business-critical operations following a catastrophic failure or disaster. Azure provides regional pairs, Azure Site Recovery, and geo-redundant storage (GRS) to achieve low Recovery Time Objectives (RTO) and Recovery Point Objectives (RPO).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/site-recovery/site-recovery-overview",
@@ -430,9 +430,9 @@ export const AZURE_AZ900_QUESTIONS_12 = [
     question: "Which concept or service configuration satisfies these operational resilience objectives? Performance and cost predictability frameworks is under consideration.",
     options: [
       { id: 'A', text: "Implement Azure Cost Management budget alerts for cost predictability and configure Azure Autoscale with autoscaling thresholds for performance predictability." },
-      { id: 'B', text: "Allow development teams to deploy unlimited unmonitored resources without budget caps or tagging." },
+      { id: 'B', text: "Deploy applications on shared oversubscribed on-premises hardware without resource guarantees." },
       { id: 'C', text: "Rely on unmetered physical hardware where power, cooling, and maintenance fluctuations create unpredictable monthly expenses." },
-      { id: 'D', text: "Deploy applications on shared oversubscribed on-premises hardware without resource guarantees." }
+      { id: 'D', text: "Allow development teams to deploy unlimited unmonitored resources without budget caps or tagging." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -451,9 +451,9 @@ export const AZURE_AZ900_QUESTIONS_12 = [
     question: "Which architectural approach should the team select to manage this demand efficiently? Performance and cost predictability frameworks is under consideration.",
     options: [
       { id: 'A', text: "Implement Azure Cost Management budget alerts for cost predictability and configure Azure Autoscale with autoscaling thresholds for performance predictability." },
-      { id: 'B', text: "Allow development teams to deploy unlimited unmonitored resources without budget caps or tagging." },
+      { id: 'B', text: "Deploy applications on shared oversubscribed on-premises hardware without resource guarantees." },
       { id: 'C', text: "Rely on unmetered physical hardware where power, cooling, and maintenance fluctuations create unpredictable monthly expenses." },
-      { id: 'D', text: "Deploy applications on shared oversubscribed on-premises hardware without resource guarantees." }
+      { id: 'D', text: "Allow development teams to deploy unlimited unmonitored resources without budget caps or tagging." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -471,12 +471,12 @@ export const AZURE_AZ900_QUESTIONS_12 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The organization evaluates Cloud Predictability to provide predictable application latency and transparent monthly cloud operational costs for executive budgeting.",
     question: "Which solution properly implements these mandatory security and governance controls? Performance and cost predictability frameworks is under consideration.",
     options: [
-      { id: 'A', text: "Implement Azure Cost Management budget alerts for cost predictability and configure Azure Autoscale with autoscaling thresholds for performance predictability." },
+      { id: 'A', text: "Rely on unmetered physical hardware where power, cooling, and maintenance fluctuations create unpredictable monthly expenses." },
       { id: 'B', text: "Allow development teams to deploy unlimited unmonitored resources without budget caps or tagging." },
-      { id: 'C', text: "Rely on unmetered physical hardware where power, cooling, and maintenance fluctuations create unpredictable monthly expenses." },
+      { id: 'C', text: "Implement Azure Cost Management budget alerts for cost predictability and configure Azure Autoscale with autoscaling thresholds for performance predictability." },
       { id: 'D', text: "Deploy applications on shared oversubscribed on-premises hardware without resource guarantees." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Implement Azure Cost Management budget alerts for cost predictability and configure Azure Autoscale with autoscaling thresholds for performance predictability. Predictability in the cloud encompasses performance predictability (ensuring workloads deliver consistent latency and throughput through autoscaling and resource reservations) and cost predictability (forecasting and controlling expenditures using budgets, alerts, and Azure Advisor cost recommendations).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending",
@@ -493,9 +493,9 @@ export const AZURE_AZ900_QUESTIONS_12 = [
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? Performance and cost predictability frameworks is under consideration.",
     options: [
       { id: 'A', text: "Implement Azure Cost Management budget alerts for cost predictability and configure Azure Autoscale with autoscaling thresholds for performance predictability." },
-      { id: 'B', text: "Allow development teams to deploy unlimited unmonitored resources without budget caps or tagging." },
-      { id: 'C', text: "Rely on unmetered physical hardware where power, cooling, and maintenance fluctuations create unpredictable monthly expenses." },
-      { id: 'D', text: "Deploy applications on shared oversubscribed on-premises hardware without resource guarantees." }
+      { id: 'B', text: "Rely on unmetered physical hardware where power, cooling, and maintenance fluctuations create unpredictable monthly expenses." },
+      { id: 'C', text: "Deploy applications on shared oversubscribed on-premises hardware without resource guarantees." },
+      { id: 'D', text: "Allow development teams to deploy unlimited unmonitored resources without budget caps or tagging." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -513,12 +513,12 @@ export const AZURE_AZ900_QUESTIONS_12 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The organization evaluates Cloud Predictability to provide predictable application latency and transparent monthly cloud operational costs for executive budgeting.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? Performance and cost predictability frameworks is under consideration.",
     options: [
-      { id: 'A', text: "Implement Azure Cost Management budget alerts for cost predictability and configure Azure Autoscale with autoscaling thresholds for performance predictability." },
-      { id: 'B', text: "Allow development teams to deploy unlimited unmonitored resources without budget caps or tagging." },
-      { id: 'C', text: "Rely on unmetered physical hardware where power, cooling, and maintenance fluctuations create unpredictable monthly expenses." },
-      { id: 'D', text: "Deploy applications on shared oversubscribed on-premises hardware without resource guarantees." }
+      { id: 'A', text: "Allow development teams to deploy unlimited unmonitored resources without budget caps or tagging." },
+      { id: 'B', text: "Rely on unmetered physical hardware where power, cooling, and maintenance fluctuations create unpredictable monthly expenses." },
+      { id: 'C', text: "Deploy applications on shared oversubscribed on-premises hardware without resource guarantees." },
+      { id: 'D', text: "Implement Azure Cost Management budget alerts for cost predictability and configure Azure Autoscale with autoscaling thresholds for performance predictability." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Implement Azure Cost Management budget alerts for cost predictability and configure Azure Autoscale with autoscaling thresholds for performance predictability. Predictability in the cloud encompasses performance predictability (ensuring workloads deliver consistent latency and throughput through autoscaling and resource reservations) and cost predictability (forecasting and controlling expenditures using budgets, alerts, and Azure Advisor cost recommendations).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending",

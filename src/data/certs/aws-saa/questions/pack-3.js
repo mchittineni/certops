@@ -10,11 +10,11 @@ export const AWS_SAA_QUESTIONS_3 = [
     question: "Which EC2 placement group strategy should the Solutions Architect select?",
     options: [
       { id: 'A', text: "Spread placement group across multiple Availability Zones." },
-      { id: 'B', text: "Partition placement group across multiple Availability Zones." },
-      { id: 'C', text: "Auto-scaling placement group with Regional load balancing." },
-      { id: 'D', text: "Cluster placement group within a single Availability Zone." }
+      { id: 'B', text: "Auto-scaling placement group with Regional load balancing." },
+      { id: 'C', text: "Cluster placement group within a single Availability Zone." },
+      { id: 'D', text: "Partition placement group across multiple Availability Zones." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "A Cluster placement group packs instances closely together inside a single Availability Zone to enable low-latency 10 Gbps to 100 Gbps network performance, ideal for tightly coupled node-to-node HPC workloads. Spread placement groups strictly isolate instances on distinct hardware racks to prevent simultaneous failures. Partition placement groups isolate partitions for large distributed datasets like HDFS/Hadoop/Cassandra. \"Auto-scaling placement group\" is not an AWS concept.",
     referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html",
@@ -51,12 +51,12 @@ export const AWS_SAA_QUESTIONS_3 = [
     scenario: "A multinational mobile game requires a low-latency database backend for user profile data accessed from North America, Europe, and Asia-Pacific. The database must support local read and write operations in all three regions with automatic bidirectional replication and sub-second replication latency.",
     question: "Which database solution meets these multi-region requirements?",
     options: [
-      { id: 'A', text: "Amazon DynamoDB Global Tables with multi-Region replication enabled." },
-      { id: 'B', text: "Amazon RDS for PostgreSQL with cross-Region Read Replicas and write forwarding." },
-      { id: 'C', text: "Amazon DocumentDB with AWS DMS continuous bidirectional replication." },
-      { id: 'D', text: "Amazon Aurora Multi-Master in a single region with AWS Global Accelerator." }
+      { id: 'A', text: "Amazon Aurora Multi-Master in a single region with AWS Global Accelerator." },
+      { id: 'B', text: "Amazon DocumentDB with AWS DMS continuous bidirectional replication." },
+      { id: 'C', text: "Amazon RDS for PostgreSQL with cross-Region Read Replicas and write forwarding." },
+      { id: 'D', text: "Amazon DynamoDB Global Tables with multi-Region replication enabled." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Amazon DynamoDB Global Tables provide a fully managed, multi-Region, active-active database replication solution. Local applications read and write directly to their local regional DynamoDB replica table, and changes are asynchronously replicated to all other regions within seconds. RDS PostgreSQL Read Replicas are read-only and cannot accept local writes in secondary regions. Aurora Multi-Master is confined to a single AWS region and cannot span across continents. Custom DMS replication introduces operational overhead, latency, and complex collision handling.",
     referenceUrl: "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GlobalTables.html",
@@ -72,12 +72,12 @@ export const AWS_SAA_QUESTIONS_3 = [
     scenario: "A company requires daily automated backups of all Amazon EBS root and data volumes attached to mission-critical EC2 instances. Snapshots must be retained for 30 days and automatically deleted thereafter to control storage costs.",
     question: "What is the MOST operationally efficient way to automate this EBS backup and retention schedule?",
     options: [
-      { id: 'A', text: "Configure an EventBridge scheduled rule to invoke an AWS Lambda function that copies volumes to S3 Glacier." },
-      { id: 'B', text: "Create an Amazon Data Lifecycle Manager (Amazon DLM) lifecycle policy targeting tagged EBS volumes." },
-      { id: 'C', text: "Write a Python script on a cron job running on an EC2 instance that calls the CreateSnapshot API." },
+      { id: 'A', text: "Write a Python script on a cron job running on an EC2 instance that calls the CreateSnapshot API." },
+      { id: 'B', text: "Configure an EventBridge scheduled rule to invoke an AWS Lambda function that copies volumes to S3 Glacier." },
+      { id: 'C', text: "Create an Amazon Data Lifecycle Manager (Amazon DLM) lifecycle policy targeting tagged EBS volumes." },
       { id: 'D', text: "Enable S3 Versioning on the EBS volume mount points." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Amazon Data Lifecycle Manager (Amazon DLM) is a native, serverless policy engine that automates the creation, retention, and deletion of EBS volume snapshots and EBS-backed AMIs based on resource tags with zero custom code or infrastructure to maintain. Custom cron scripts and Lambda functions add unnecessary development and maintenance burden. EBS volumes cannot mount directly to S3 Versioning.",
     referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html",
@@ -93,12 +93,12 @@ export const AWS_SAA_QUESTIONS_3 = [
     scenario: "An order processing architecture produces order placement events in JSON format. Depending on the `countryCode` and `orderValue` attributes in the event payload, events must be routed to specific microservices: high-value orders to an SQS compliance queue, European orders to a Lambda GDPR handler, and all orders to an S3 analytics bucket.",
     question: "Which AWS service delivers this content-based filtering and routing with the least operational overhead?",
     options: [
-      { id: 'A', text: "Amazon SNS topic with separate subscriptions and an EC2 filtering proxy." },
-      { id: 'B', text: "AWS Step Functions state machine with parallel branch execution for every single event." },
-      { id: 'C', text: "Amazon SQS FIFO queue with message attributes routed by an intermediary consumer Lambda function." },
-      { id: 'D', text: "Amazon EventBridge event bus with rules matching event pattern filters targeting the respective destinations." }
+      { id: 'A', text: "Amazon SQS FIFO queue with message attributes routed by an intermediary consumer Lambda function." },
+      { id: 'B', text: "Amazon EventBridge event bus with rules matching event pattern filters targeting the respective destinations." },
+      { id: 'C', text: "Amazon SNS topic with separate subscriptions and an EC2 filtering proxy." },
+      { id: 'D', text: "AWS Step Functions state machine with parallel branch execution for every single event." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Amazon EventBridge is a serverless event bus that uses event pattern matching to evaluate JSON event payloads (content-based filtering on attributes like `countryCode` and `orderValue`) and routes events directly to multiple AWS targets (SQS, Lambda, Kinesis, SNS, etc.) without intermediate code. SNS supports subscription filter policies but lacks the rich JSON payload parsing and target variety of EventBridge. SQS with custom Lambda proxy requires maintaining polling and routing logic. Step Functions is meant for workflow orchestration rather than high-volume event routing.",
     referenceUrl: "https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html",
@@ -114,12 +114,12 @@ export const AWS_SAA_QUESTIONS_3 = [
     scenario: "A multinational corporation stores customer documents in Amazon S3 buckets in us-east-1 and eu-west-1. The company needs a single global S3 endpoint for client applications that automatically routes traffic to the closest healthy bucket and allows dynamic traffic shifting or failover in the event of a regional disruption.",
     question: "Which S3 architecture fulfills these global routing requirements?",
     options: [
-      { id: 'A', text: "Use Amazon CloudFront with an Origin Group containing both S3 buckets in primary/failover configuration with static caching disabled." },
-      { id: 'B', text: "Configure AWS Global Accelerator in front of regional Amazon S3 Gateway VPC Endpoints." },
-      { id: 'C', text: "Configure Amazon S3 Multi-Region Access Points (MRAP) with Amazon S3 Cross-Region Replication (CRR) and failover controls." },
+      { id: 'A', text: "Configure AWS Global Accelerator in front of regional Amazon S3 Gateway VPC Endpoints." },
+      { id: 'B', text: "Configure Amazon S3 Multi-Region Access Points (MRAP) with Amazon S3 Cross-Region Replication (CRR) and failover controls." },
+      { id: 'C', text: "Use Amazon CloudFront with an Origin Group containing both S3 buckets in primary/failover configuration with static caching disabled." },
       { id: 'D', text: "Deploy an Application Load Balancer with Route 53 Geolocation routing pointing to regional S3 bucket website endpoints." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Amazon S3 Multi-Region Access Points (MRAP) provide a single global DNS hostname to access data stored in multiple S3 buckets across regions. MRAP uses AWS Global Accelerator under the hood to route requests over the private AWS global network to the lowest-latency S3 bucket, and supports active-passive or active-active failover controls to route traffic away from an impacted region in minutes. ALBs cannot target private S3 API endpoints natively. Global Accelerator cannot target S3 Gateway VPC endpoints. CloudFront can failover GET requests but cannot provide full S3 API multi-region bidirectional write routing.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPoints.html",
@@ -135,12 +135,12 @@ export const AWS_SAA_QUESTIONS_3 = [
     scenario: "A company runs hundreds of EC2 instances with Amazon EBS General Purpose SSD (gp2) volumes. To get higher IOPS for database workloads, administrators have been artificially provisioning oversized 1 TB gp2 volumes, wasting significant storage capacity.",
     question: "How should the Solutions Architect optimize performance and storage costs?",
     options: [
-      { id: 'A', text: "Change the volume type to Throughput Optimized HDD (st1)." },
-      { id: 'B', text: "Migrate the volumes to General Purpose SSD (gp3) and provision the exact IOPS and throughput required independently of storage volume size." },
-      { id: 'C', text: "Create software RAID 0 arrays using existing gp2 volumes." },
+      { id: 'A', text: "Create software RAID 0 arrays using existing gp2 volumes." },
+      { id: 'B', text: "Change the volume type to Throughput Optimized HDD (st1)." },
+      { id: 'C', text: "Migrate the volumes to General Purpose SSD (gp3) and provision the exact IOPS and throughput required independently of storage volume size." },
       { id: 'D', text: "Convert all volumes to Provisioned IOPS SSD (io2) with 500 IOPS." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Amazon EBS General Purpose SSD (gp3) volumes allow customers to provision IOPS (starting at 3,000 baseline IOPS) and throughput (starting at 125 MB/s) independently of storage volume capacity at a 20% lower price per GB than gp2. In gp2, IOPS is strictly tied to storage size (3 IOPS per GB). io2 is substantially more expensive for general workloads. st1 is magnetic HDD with high latency for database random I/O. RAID 0 multiplies failure risk without solving the gp2 coupling bottleneck.",
     referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html#gp3-ebs-volume-type",
@@ -156,12 +156,12 @@ export const AWS_SAA_QUESTIONS_3 = [
     scenario: "A media platform uses Amazon RDS for MySQL. Heavy read queries on popular user profile pages frequently spike database CPU to 100%. The team wants to deploy a caching layer that provides sub-millisecond read latency, high availability with automatic failover, and support for complex data structures like sorted sets.",
     question: "Which caching configuration should the Solutions Architect recommend?",
     options: [
-      { id: 'A', text: "Amazon DynamoDB Accelerator (DAX) cluster fronting RDS MySQL." },
-      { id: 'B', text: "Amazon CloudFront with zero TTL cache behavior." },
-      { id: 'C', text: "Amazon ElastiCache for Redis in cluster mode with Multi-AZ and automatic failover enabled." },
-      { id: 'D', text: "Amazon ElastiCache for Memcached deployed across multiple Availability Zones." }
+      { id: 'A', text: "Amazon ElastiCache for Memcached deployed across multiple Availability Zones." },
+      { id: 'B', text: "Amazon DynamoDB Accelerator (DAX) cluster fronting RDS MySQL." },
+      { id: 'C', text: "Amazon CloudFront with zero TTL cache behavior." },
+      { id: 'D', text: "Amazon ElastiCache for Redis in cluster mode with Multi-AZ and automatic failover enabled." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Amazon ElastiCache for Redis supports complex data structures (sorted sets, hashes, lists, bitmaps), in-memory sub-millisecond latencies, and high availability via Multi-AZ with automated failover from primary to replica nodes. Memcached is a simple key-value store that does not support complex data structures, replication, or automatic failover. DAX is only compatible with DynamoDB, not RDS. CloudFront with zero TTL does not cache data.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/WhatIs.html",
@@ -178,12 +178,12 @@ export const AWS_SAA_QUESTIONS_3 = [
     question: "Which architectural combination achieves low-latency delivery while maintaining strict origin security? (Choose TWO)",
     options: [
       { id: 'A', text: "Attach an S3 bucket policy that grants `s3:GetObject` permission strictly to the CloudFront service principal with a condition matching the distribution ARN." },
-      { id: 'B', text: "Place an AWS Network Firewall between the CloudFront distribution and the S3 bucket." },
-      { id: 'C', text: "Deploy an Amazon CloudFront distribution configured with Origin Access Control (OAC)." },
+      { id: 'B', text: "Configure Origin Access Identity (OAI) with an S3 ACL setting objects to public-read." },
+      { id: 'C', text: "Place an AWS Network Firewall between the CloudFront distribution and the S3 bucket." },
       { id: 'D', text: "Enable S3 Transfer Acceleration on the origin bucket and configure Route 53 Latency routing." },
-      { id: 'E', text: "Configure Origin Access Identity (OAI) with an S3 ACL setting objects to public-read." }
+      { id: 'E', text: "Deploy an Amazon CloudFront distribution configured with Origin Access Control (OAC)." }
     ],
-    correctAnswers: ['A', 'C'],
+    correctAnswers: ['A', 'E'],
     type: "multiple",
     explanation: "Origin Access Control (OAC) is the current AWS best practice (superseding OAI) for securing S3 origins behind CloudFront. It supports all S3 buckets in all regions, SSE-KMS encryption, and dynamic HTTP methods. The S3 bucket policy must explicitly permit `s3:GetObject` to `cloudfront.amazonaws.com` with a Condition checking `AWS:SourceArn` against the specific CloudFront distribution ARN. Setting objects to public-read violates the private bucket mandate. S3 Transfer Acceleration accelerates uploads, not global media delivery caching. Network Firewall cannot be placed in front of public S3 endpoints directly.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html",
@@ -199,12 +199,12 @@ export const AWS_SAA_QUESTIONS_3 = [
     scenario: "A corporate enterprise operates on-premises Windows workloads that require shared file storage integrated with Microsoft Active Directory. The file share requires enterprise features including SMB protocol, Shadow Copies (VSS), NTFS permissions, and DFS Namespaces, with multi-gigabyte throughput accessible from both AWS EC2 instances and on-premises offices.",
     question: "Which AWS service is specifically designed for these Microsoft Windows enterprise file storage requirements?",
     options: [
-      { id: 'A', text: "Amazon S3 Glacier with AWS Storage Gateway." },
-      { id: 'B', text: "Amazon Elastic File System (Amazon EFS) with Active Directory integration." },
-      { id: 'C', text: "Amazon FSx for Windows File Server deployed in a Multi-AZ configuration." },
-      { id: 'D', text: "Amazon FSx for Lustre with Windows Server drivers." }
+      { id: 'A', text: "Amazon Elastic File System (Amazon EFS) with Active Directory integration." },
+      { id: 'B', text: "Amazon FSx for Windows File Server deployed in a Multi-AZ configuration." },
+      { id: 'C', text: "Amazon FSx for Lustre with Windows Server drivers." },
+      { id: 'D', text: "Amazon S3 Glacier with AWS Storage Gateway." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Amazon FSx for Windows File Server is a fully managed native Windows file system built on Windows Server, providing full support for SMB 2.0 to 3.1.1, Microsoft Active Directory domain joining, NTFS Access Control Lists (ACLs), Shadow Copies (VSS), and Distributed File System (DFS) Namespaces across Multi-AZ deployments. EFS is a Linux NFS file system without native Windows NTFS/SMB support. S3 Glacier is an archive tier. FSx for Lustre is designed for Linux HPC workloads.",
     referenceUrl: "https://docs.aws.amazon.com/fsx/latest/WindowsGuide/what-is.html",
@@ -220,12 +220,12 @@ export const AWS_SAA_QUESTIONS_3 = [
     scenario: "A mobile backend REST API running on Amazon API Gateway and AWS Lambda experiences 10,000 requests per second for weather data that changes only once every 15 minutes. The backend Lambda functions and DynamoDB database are experiencing unnecessary load and cost.",
     question: "What is the MOST effective way to reduce response latency and offload requests from the backend?",
     options: [
-      { id: 'A', text: "Enable API Gateway Stage Caching with a Time-to-Live (TTL) of 900 seconds." },
+      { id: 'A', text: "Increase Lambda Provisioned Concurrency to 10,000." },
       { id: 'B', text: "Convert API Gateway to an HTTP API with CORS enabled." },
-      { id: 'C', text: "Increase Lambda Provisioned Concurrency to 10,000." },
-      { id: 'D', text: "Configure DynamoDB On-Demand capacity mode." }
+      { id: 'C', text: "Configure DynamoDB On-Demand capacity mode." },
+      { id: 'D', text: "Enable API Gateway Stage Caching with a Time-to-Live (TTL) of 900 seconds." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Enabling API Gateway Stage Caching caches endpoint responses for a configurable TTL (e.g. 900 seconds = 15 minutes), responding directly from the API Gateway cache tier. This reduces latency to single-digit milliseconds and prevents repetitive requests from hitting the backend Lambda functions or DynamoDB. Provisioning 10,000 Lambda concurrency massively increases cost without caching. HTTP APIs do not support built-in stage response caching. DynamoDB on-demand does not reduce Lambda invocations.",
     referenceUrl: "https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html",
@@ -241,12 +241,12 @@ export const AWS_SAA_QUESTIONS_3 = [
     scenario: "An e-commerce order tracking application writes customer status updates to an Amazon DynamoDB table. The partition key is `orderDate` (formatted as YYYY-MM-DD), and the sort key is `orderId`. During peak shopping holidays, DynamoDB returns `ProvisionedThroughputExceededException` errors even though the total provisioned write capacity appears sufficient.",
     question: "What is the root cause of this issue, and how should the Solutions Architect resolve it?",
     options: [
-      { id: 'A', text: "All writes for the current date target a single partition (hot partition); resolve by changing the partition key to a high-cardinality attribute like `orderId` or prefixing `orderDate` with a synthetic random hash suffix." },
-      { id: 'B', text: "The table requires DynamoDB Accelerator (DAX) to buffer write operations." },
-      { id: 'C', text: "The sort key is causing read amplification; resolve by removing the sort key and using a Global Secondary Index." },
-      { id: 'D', text: "DynamoDB does not support dates in partition keys; resolve by converting `orderDate` to an epoch timestamp integer." }
+      { id: 'A', text: "The table requires DynamoDB Accelerator (DAX) to buffer write operations." },
+      { id: 'B', text: "DynamoDB does not support dates in partition keys; resolve by converting `orderDate` to an epoch timestamp integer." },
+      { id: 'C', text: "All writes for the current date target a single partition (hot partition); resolve by changing the partition key to a high-cardinality attribute like `orderId` or prefixing `orderDate` with a synthetic random hash suffix." },
+      { id: 'D', text: "The sort key is causing read amplification; resolve by removing the sort key and using a Global Secondary Index." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "In DynamoDB, total capacity is divided evenly across physical partitions based on partition key hashes. Using `orderDate` means all writes for today hash to the exact same physical partition, creating a \"hot partition\" bottleneck (capped at 1,000 WCU / 3,000 RCU per partition) regardless of total table provisioning. Using a high-cardinality partition key (like `orderId`) or adding a synthetic salt distributes writes uniformly across all partitions. Epoch timestamps still group writes by timestamp range. Removing the sort key does not fix partition distribution. DAX is a read cache and does not accelerate or distribute table write partitions.",
     referenceUrl: "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/bp-partition-key-design.html",
@@ -262,12 +262,12 @@ export const AWS_SAA_QUESTIONS_3 = [
     scenario: "A cloud security team wants to allow development team leads to create IAM roles and attach policies for their own Lambda microservices. However, developers must NEVER be able to grant themselves or their roles administrative privileges or access to the billing account.",
     question: "Which IAM mechanism enforces this maximum privilege boundary when delegating role creation?",
     options: [
-      { id: 'A', text: "IAM Permissions Boundaries attached to all developer-created IAM roles." },
-      { id: 'B', text: "IAM Resource-based policies attached to the IAM service." },
+      { id: 'A', text: "IAM Resource-based policies attached to the IAM service." },
+      { id: 'B', text: "AWS KMS Key Policies restricting role assumption." },
       { id: 'C', text: "AWS Organizations Service Control Policies (SCPs) applied to individual IAM users." },
-      { id: 'D', text: "AWS KMS Key Policies restricting role assumption." }
+      { id: 'D', text: "IAM Permissions Boundaries attached to all developer-created IAM roles." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "An IAM permissions boundary is an advanced feature using a managed policy to set the maximum permissions that an identity-based policy can grant to an IAM entity (user or role). When administrators delegate role creation to developers, they can enforce a condition that any new role created MUST have the Permissions Boundary attached, ensuring developers cannot escalate privileges beyond the boundary. SCPs apply to AWS accounts/OUs, not individual IAM users. IAM does not have resource-based policies on the service itself. KMS key policies govern cryptographic keys, not general IAM role permissions.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html",
@@ -283,8 +283,8 @@ export const AWS_SAA_QUESTIONS_3 = [
     scenario: "A financial enterprise requires continuous security monitoring across 20 AWS accounts to detect compromised EC2 instances, unauthorized cryptocurrency mining, anomalous API calls, and compromised IAM credentials with zero impact on instance performance.",
     question: "Which AWS service fulfills this threat detection requirement?",
     options: [
-      { id: 'A', text: "AWS Shield Standard." },
-      { id: 'B', text: "Amazon Inspector." },
+      { id: 'A', text: "Amazon Inspector." },
+      { id: 'B', text: "AWS Shield Standard." },
       { id: 'C', text: "AWS Systems Manager Patch Manager." },
       { id: 'D', text: "Amazon GuardDuty." }
     ],
@@ -304,12 +304,12 @@ export const AWS_SAA_QUESTIONS_3 = [
     scenario: "An enterprise with 50 VPCs connected via AWS Transit Gateway requires all outbound internet traffic from all VPCs to pass through a centralized inspection VPC for stateful deep packet inspection, domain name allowlisting, and intrusion prevention (IPS/IDS) before reaching the internet.",
     question: "Which architecture implements this centralized inspection pattern?",
     options: [
-      { id: 'A', text: "Deploy an Application Load Balancer with AWS WAF in each of the 50 spoke VPCs." },
+      { id: 'A', text: "Attach an Internet Gateway directly to the AWS Transit Gateway." },
       { id: 'B', text: "Configure Network ACLs on all spoke VPC subnets to filter outbound domains using DNS inspection rules." },
-      { id: 'C', text: "Attach an Internet Gateway directly to the AWS Transit Gateway." },
-      { id: 'D', text: "Deploy AWS Network Firewall endpoints in dedicated subnets within an Inspection VPC, configure Transit Gateway route tables to route `0.0.0.0/0` to the Inspection VPC attachment, and route inspected traffic to a NAT Gateway." }
+      { id: 'C', text: "Deploy AWS Network Firewall endpoints in dedicated subnets within an Inspection VPC, configure Transit Gateway route tables to route `0.0.0.0/0` to the Inspection VPC attachment, and route inspected traffic to a NAT Gateway." },
+      { id: 'D', text: "Deploy an Application Load Balancer with AWS WAF in each of the 50 spoke VPCs." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "The centralized inspection VPC architecture uses AWS Transit Gateway route tables to direct all outbound `0.0.0.0/0` traffic from spoke VPC attachments into a central Inspection VPC. Inside the Inspection VPC, traffic is routed through AWS Network Firewall endpoints for stateful Layer 3–7 inspection, domain allowlisting, and Suricata IPS rules, before flowing through a NAT Gateway and Internet Gateway. ALB/WAF inspects inbound HTTP, not arbitrary outbound VPC egress. Internet Gateways cannot be attached directly to Transit Gateways. NACLs are stateless IP/port filters and cannot inspect domains or perform stateful IPS.",
     referenceUrl: "https://docs.aws.amazon.com/network-firewall/latest/developerguide/arch-centralized.html",
@@ -347,11 +347,11 @@ export const AWS_SAA_QUESTIONS_3 = [
     question: "Which service meets these requirements?",
     options: [
       { id: 'A', text: "Generate a self-signed certificate with OpenSSL on each EC2 instance." },
-      { id: 'B', text: "Purchase a certificate from a third-party CA and upload it manually to an S3 bucket." },
-      { id: 'C', text: "Store SSL certificates in AWS Secrets Manager and write a monthly renewal Lambda function." },
-      { id: 'D', text: "Request a public certificate in AWS Certificate Manager (ACM) validated via DNS and associate it with the Application Load Balancer HTTPS listener." }
+      { id: 'B', text: "Store SSL certificates in AWS Secrets Manager and write a monthly renewal Lambda function." },
+      { id: 'C', text: "Request a public certificate in AWS Certificate Manager (ACM) validated via DNS and associate it with the Application Load Balancer HTTPS listener." },
+      { id: 'D', text: "Purchase a certificate from a third-party CA and upload it manually to an S3 bucket." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "AWS Certificate Manager (ACM) handles the complexity of provisioning, deploying, and automatically renewing free public SSL/TLS certificates for AWS services like ALB, CloudFront, and API Gateway. Using DNS validation with Route 53 allows ACM to automatically renew certificates before expiration without manual intervention. Self-signed certs produce browser security warnings. Secrets Manager and manual third-party CA uploads require custom renewal automation and management overhead.",
     referenceUrl: "https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html",
@@ -367,12 +367,12 @@ export const AWS_SAA_QUESTIONS_3 = [
     scenario: "A multi-region active-active application in us-east-1 and eu-west-1 encrypts and decrypts user financial data stored in Amazon DynamoDB Global Tables. The application needs to encrypt a data payload in us-east-1 and be able to decrypt the exact same ciphertext payload in eu-west-1 without making cross-region network calls to us-east-1.",
     question: "How should the Solutions Architect configure the encryption keys in AWS KMS?",
     options: [
-      { id: 'A', text: "Create separate standard KMS keys in both regions and configure cross-Region KMS Grant permissions." },
-      { id: 'B', text: "Export the KMS private key and embed it in the application configuration." },
-      { id: 'C', text: "Create an AWS KMS Multi-Region primary key in us-east-1 and replicate it as a replica key to eu-west-1 with the same key ID and key material." },
+      { id: 'A', text: "Export the KMS private key and embed it in the application configuration." },
+      { id: 'B', text: "Create an AWS KMS Multi-Region primary key in us-east-1 and replicate it as a replica key to eu-west-1 with the same key ID and key material." },
+      { id: 'C', text: "Create separate standard KMS keys in both regions and configure cross-Region KMS Grant permissions." },
       { id: 'D', text: "Use AWS Secrets Manager to replicate plaintext keys across regions." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "AWS KMS Multi-Region Keys are primary and replica customer managed keys in different AWS Regions that share the same key material, key ID, and ARN prefix. This allows data encrypted under a multi-region key in us-east-1 to be decrypted locally in eu-west-1 without requiring cross-region API calls. Standard KMS keys are strictly regional and cannot decrypt ciphertexts created by other keys. Secrets Manager does not perform envelope encryption integration. KMS private key material cannot be exported from HSMs.",
     referenceUrl: "https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html",
@@ -388,12 +388,12 @@ export const AWS_SAA_QUESTIONS_3 = [
     scenario: "A photo sharing platform generates image thumbnails whenever users upload photos to Amazon S3. The upload volume is sporadic: 5 uploads per hour at night, spiking to 5,000 uploads during peak events. Processing each thumbnail takes 300 milliseconds.",
     question: "Which compute service provides the MOST cost-effective and scalable architecture for this sporadic workload?",
     options: [
-      { id: 'A', text: "AWS Lambda triggered directly by Amazon S3 Event Notifications." },
-      { id: 'B', text: "An Amazon EMR cluster configured with Spot instances." },
-      { id: 'C', text: "An Amazon ECS service running on AWS Fargate with a minimum of 4 running tasks." },
-      { id: 'D', text: "An Amazon EC2 Auto Scaling group running `t4g.medium` instances 24/7 with a minimum capacity of 2." }
+      { id: 'A', text: "An Amazon ECS service running on AWS Fargate with a minimum of 4 running tasks." },
+      { id: 'B', text: "AWS Lambda triggered directly by Amazon S3 Event Notifications." },
+      { id: 'C', text: "An Amazon EC2 Auto Scaling group running `t4g.medium` instances 24/7 with a minimum capacity of 2." },
+      { id: 'D', text: "An Amazon EMR cluster configured with Spot instances." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "AWS Lambda is an event-driven serverless compute service billed down to the millisecond of execution time, with zero cost when no events are running. S3 Event Notifications invoke Lambda functions immediately upon object creation, scaling automatically from 0 to thousands of concurrent executions. EC2 instances running 24/7 and Fargate tasks with static minimums incur continuous idle compute charges. EMR is meant for distributed big data processing, not millisecond image thumbnail generation.",
     referenceUrl: "https://docs.aws.amazon.com/lambda/latest/dg/with-s3.html",
@@ -409,13 +409,13 @@ export const AWS_SAA_QUESTIONS_3 = [
     scenario: "A company analyzes its monthly AWS cost report and notices significant inter-instance data transfer charges. The architecture consists of multiple microservices hosted on EC2 instances communicating with each other over public IP addresses across Availability Zones in the same AWS Region.",
     question: "Which changes will reduce these data transfer charges? (Choose TWO)",
     options: [
-      { id: 'A', text: "Configure microservices to communicate using private IPv4 addresses within the VPC." },
-      { id: 'B', text: "Consolidate tightly communicating microservices into the same Availability Zone where high-availability constraints allow." },
-      { id: 'C', text: "Assign Elastic IP addresses to all communicating instances." },
+      { id: 'A', text: "Route all inter-instance traffic through an Internet Gateway." },
+      { id: 'B', text: "Assign Elastic IP addresses to all communicating instances." },
+      { id: 'C', text: "Consolidate tightly communicating microservices into the same Availability Zone where high-availability constraints allow." },
       { id: 'D', text: "Place an AWS Transit Gateway between instances in the same subnet." },
-      { id: 'E', text: "Route all inter-instance traffic through an Internet Gateway." }
+      { id: 'E', text: "Configure microservices to communicate using private IPv4 addresses within the VPC." }
     ],
-    correctAnswers: ['A', 'B'],
+    correctAnswers: ['C', 'E'],
     type: "multiple",
     explanation: "Communicating over public IP addresses routes traffic through the internet path, incurring public data transfer rates. Switching to private IP addresses routes traffic entirely over the private VPC network. Furthermore, data transfer between EC2 instances within the same Availability Zone over private IPs is free ($0.00/GB), whereas cross-AZ traffic incurs $0.01/GB each way. Elastic IPs and Internet Gateways maintain public routing charges. Transit Gateways add additional hourly and per-GB processing costs.",
     referenceUrl: "https://aws.amazon.com/ec2/pricing/on-demand/#Data_Transfer_Pricing",
@@ -431,12 +431,12 @@ export const AWS_SAA_QUESTIONS_3 = [
     scenario: "An enterprise has 200 AWS accounts with thousands of Amazon S3 buckets. The central FinOps team needs organization-wide visibility to identify buckets without lifecycle rules, detect incomplete multipart uploads, and discover non-current version storage bloat across all accounts in AWS Organizations.",
     question: "Which AWS service provides centralized organization-level storage metrics and cost-optimization recommendations?",
     options: [
-      { id: 'A', text: "AWS Trusted Advisor standalone checks in each account." },
-      { id: 'B', text: "AWS Cost Explorer daily usage reports." },
-      { id: 'C', text: "Amazon CloudWatch custom metrics generated from S3 inventory CSV files." },
-      { id: 'D', text: "Amazon S3 Storage Lens with organization-level configuration." }
+      { id: 'A', text: "AWS Cost Explorer daily usage reports." },
+      { id: 'B', text: "AWS Trusted Advisor standalone checks in each account." },
+      { id: 'C', text: "Amazon S3 Storage Lens with organization-level configuration." },
+      { id: 'D', text: "Amazon CloudWatch custom metrics generated from S3 inventory CSV files." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Amazon S3 Storage Lens is a cloud storage analytics feature that delivers organization-wide visibility into object storage usage, activity trends, and cost-optimization recommendations (such as finding incomplete multipart uploads, un-lifecycle-transitioned data, and non-current versions) across hundreds of accounts in AWS Organizations on a single interactive dashboard. Trusted Advisor provides basic high-level checks without deep S3 drill-downs. Cost Explorer provides spend data without bucket-level object metrics. S3 inventory with CloudWatch requires complex custom pipeline development.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html",
@@ -453,11 +453,11 @@ export const AWS_SAA_QUESTIONS_3 = [
     question: "How can the Solutions Architect drastically reduce analytics infrastructure costs while preserving SQL query capabilities?",
     options: [
       { id: 'A', text: "Load the clickstream data into an Amazon RDS for PostgreSQL database." },
-      { id: 'B', text: "Decommission the 24/7 EMR cluster and use serverless Amazon Athena to query the Parquet data in S3 on demand." },
+      { id: 'B', text: "Convert the EMR cluster from On-Demand instances to 3-year All Upfront Reserved Instances." },
       { id: 'C', text: "Migrate the Parquet data from S3 into an Amazon Redshift `dc2.large` provisioned cluster." },
-      { id: 'D', text: "Convert the EMR cluster from On-Demand instances to 3-year All Upfront Reserved Instances." }
+      { id: 'D', text: "Decommission the 24/7 EMR cluster and use serverless Amazon Athena to query the Parquet data in S3 on demand." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Amazon Athena is an interactive serverless query service that allows running ad-hoc standard ANSI SQL queries directly against data stored in Amazon S3 with zero infrastructure to manage. Pricing is strictly per terabyte of data scanned ($5.00/TB). For queries executed only once or twice a week, Athena eliminates 99% of the cost of running a 24/7 provisioned EMR cluster. Redshift provisioned cluster still incurs 24/7 node hourly costs. Reserving EMR nodes locks in long-term commitments for rarely used compute. RDS PostgreSQL is not architected for 100 TB columnar analytical clickstream queries.",
     referenceUrl: "https://docs.aws.amazon.com/athena/latest/ug/what-is.html",
@@ -473,12 +473,12 @@ export const AWS_SAA_QUESTIONS_3 = [
     scenario: "A database administrator accidentally runs a `DROP TABLE` command on a production Amazon RDS for PostgreSQL database at 14:32 UTC. Automated backups are enabled with a 7-day retention period.",
     question: "What is the fastest way to recover the database to its exact state at 14:31 UTC?",
     options: [
-      { id: 'A', text: "Fail over to the RDS Multi-AZ standby replica." },
-      { id: 'B', text: "Perform a Point-in-Time Recovery (PITR) to 14:31 UTC, which creates a new DB instance from automated snapshots and transaction logs." },
-      { id: 'C', text: "Restore the most recent daily snapshot directly on top of the existing DB instance." },
-      { id: 'D', text: "Use AWS Backup to roll back the EBS volume in place." }
+      { id: 'A', text: "Restore the most recent daily snapshot directly on top of the existing DB instance." },
+      { id: 'B', text: "Use AWS Backup to roll back the EBS volume in place." },
+      { id: 'C', text: "Perform a Point-in-Time Recovery (PITR) to 14:31 UTC, which creates a new DB instance from automated snapshots and transaction logs." },
+      { id: 'D', text: "Fail over to the RDS Multi-AZ standby replica." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "RDS automated backups continuously copy transaction logs (WAL files) to S3, enabling Point-in-Time Recovery (PITR) to any second within the retention window (down to the last 5 minutes). PITR creates a brand-new DB instance restored to the specified timestamp (14:31 UTC). Restoring a daily snapshot loses all transactions between the snapshot time and the drop. Multi-AZ standby immediately replicates the `DROP TABLE` statement synchronously. EBS rollback in place is not supported on live RDS DB instances.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIT.html",
@@ -494,8 +494,8 @@ export const AWS_SAA_QUESTIONS_3 = [
     scenario: "An online food delivery application needs to notify kitchen tablets, courier dispatch systems, and customer mobile apps simultaneously whenever a new order is placed. The kitchen service operates at a steady 50 orders/minute, while courier dispatch needs guaranteed message delivery with automatic retries.",
     question: "Which architectural pattern implements this fanout mechanism reliably?",
     options: [
-      { id: 'A', text: "Have the order service make parallel synchronous HTTP POST requests to each microservice endpoint." },
-      { id: 'B', text: "Write order events to a single Amazon SQS standard queue and have all microservices poll the same queue concurrently." },
+      { id: 'A', text: "Write order events to a single Amazon SQS standard queue and have all microservices poll the same queue concurrently." },
+      { id: 'B', text: "Have the order service make parallel synchronous HTTP POST requests to each microservice endpoint." },
       { id: 'C', text: "Publish order events to an Amazon SNS topic subscribed to multiple Amazon SQS queues, with each downstream microservice consuming from its dedicated queue." },
       { id: 'D', text: "Store orders in an Amazon ElastiCache Redis list and use Redis PUB/SUB without persistence." }
     ],
@@ -515,12 +515,12 @@ export const AWS_SAA_QUESTIONS_3 = [
     scenario: "An enterprise application runs on Amazon EC2 instances and connects to an Amazon Aurora MySQL database. Corporate security policies require eliminating hardcoded database passwords and using short-lived IAM authentication tokens instead.",
     question: "How should the Solutions Architect configure authentication to Aurora MySQL?",
     options: [
-      { id: 'A', text: "Attach an AWS KMS customer managed key to the MySQL user account." },
-      { id: 'B', text: "Store the MySQL database master password in AWS Secrets Manager and hardcode the secret ARN in the application." },
-      { id: 'C', text: "Configure an AWS Directory Service connector directly on the EC2 operating system." },
-      { id: 'D', text: "Enable IAM Database Authentication on Aurora MySQL, attach an IAM policy to the EC2 instance role allowing `rds-db:connect`, and generate authentication tokens using the AWS SDK." }
+      { id: 'A', text: "Enable IAM Database Authentication on Aurora MySQL, attach an IAM policy to the EC2 instance role allowing `rds-db:connect`, and generate authentication tokens using the AWS SDK." },
+      { id: 'B', text: "Attach an AWS KMS customer managed key to the MySQL user account." },
+      { id: 'C', text: "Store the MySQL database master password in AWS Secrets Manager and hardcode the secret ARN in the application." },
+      { id: 'D', text: "Configure an AWS Directory Service connector directly on the EC2 operating system." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "IAM Database Authentication allows EC2 instances and Lambda functions to authenticate to Amazon RDS/Aurora MySQL and PostgreSQL using IAM credentials and temporary authentication tokens (valid for 15 minutes) generated via the AWS SDK, removing all plaintext database passwords from application code. Secrets Manager manages passwords but does not use native IAM database tokens. Directory Service is for Windows domain integration. KMS keys encrypt data at rest, not database client connection handshakes.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html",

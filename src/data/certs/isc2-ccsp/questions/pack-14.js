@@ -9,12 +9,12 @@ export const ISC2_CCSP_QUESTIONS_14 = [
     scenario: "An enterprise chief information security officer (CISO) is establishing multi-cloud governance frameworks, shared responsibility models, and Zero Trust architectures across global business units. The cloud security professional evaluates Crypto-Shredding to permanently sanitize multi-tenant cloud storage records at contract termination when physical access to the provider's hard drives is prohibited.",
     question: "Which architectural approach or cloud security control satisfies these enterprise governance objectives? Sanitizing cloud data by destroying cryptographic keys when physical drive degaussing is impossible is under consideration.",
     options: [
-      { id: 'A', text: "Execute crypto-shredding: securely delete and zeroize all cryptographic keys used to encrypt the target datasets." },
-      { id: 'B', text: "Demand that the cloud provider physically melt and shred shared multi-tenant storage arrays hosting other customer data." },
-      { id: 'C', text: "Delete the filenames in the operating system file explorer and assume data is securely wiped." },
-      { id: 'D', text: "Over-write cloud storage blocks with zeros once using consumer operating system format utilities." }
+      { id: 'A', text: "Demand that the cloud provider physically melt and shred shared multi-tenant storage arrays hosting other customer data." },
+      { id: 'B', text: "Delete the filenames in the operating system file explorer and assume data is securely wiped." },
+      { id: 'C', text: "Over-write cloud storage blocks with zeros once using consumer operating system format utilities." },
+      { id: 'D', text: "Execute crypto-shredding: securely delete and zeroize all cryptographic keys used to encrypt the target datasets." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Execute crypto-shredding: securely delete and zeroize all cryptographic keys used to encrypt the target datasets. In multi-tenant cloud environments, physical sanitization (degaussing, crushing) is impossible without destroying shared media. Crypto-shredding sanitizes data by destroying the cryptographic keys that protect it, rendering the encrypted ciphertext irrecoverable mathematical noise.",
     referenceUrl: "https://csrc.nist.gov/publications/detail/sp/800-88/rev-1/final",
@@ -30,12 +30,12 @@ export const ISC2_CCSP_QUESTIONS_14 = [
     scenario: "A global data protection officer is implementing cryptographic data lifecycles, crypto-shredding sanitization, and data loss prevention across sensitive cloud repositories. The cloud security professional evaluates Crypto-Shredding to permanently sanitize multi-tenant cloud storage records at contract termination when physical access to the provider's hard drives is prohibited.",
     question: "Which data security mechanism or cryptographic architecture guarantees compliance with international privacy mandates? Sanitizing cloud data by destroying cryptographic keys when physical drive degaussing is impossible is under consideration.",
     options: [
-      { id: 'A', text: "Execute crypto-shredding: securely delete and zeroize all cryptographic keys used to encrypt the target datasets." },
+      { id: 'A', text: "Delete the filenames in the operating system file explorer and assume data is securely wiped." },
       { id: 'B', text: "Demand that the cloud provider physically melt and shred shared multi-tenant storage arrays hosting other customer data." },
-      { id: 'C', text: "Delete the filenames in the operating system file explorer and assume data is securely wiped." },
-      { id: 'D', text: "Over-write cloud storage blocks with zeros once using consumer operating system format utilities." }
+      { id: 'C', text: "Over-write cloud storage blocks with zeros once using consumer operating system format utilities." },
+      { id: 'D', text: "Execute crypto-shredding: securely delete and zeroize all cryptographic keys used to encrypt the target datasets." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Execute crypto-shredding: securely delete and zeroize all cryptographic keys used to encrypt the target datasets. In multi-tenant cloud environments, physical sanitization (degaussing, crushing) is impossible without destroying shared media. Crypto-shredding sanitizes data by destroying the cryptographic keys that protect it, rendering the encrypted ciphertext irrecoverable mathematical noise.",
     referenceUrl: "https://csrc.nist.gov/publications/detail/sp/800-88/rev-1/final",
@@ -51,12 +51,12 @@ export const ISC2_CCSP_QUESTIONS_14 = [
     scenario: "A cloud platform security team is hardening virtualization substrates, implementing micro-segmentation, and enforcing immutable infrastructure across multi-tenant environments. The cloud security professional evaluates Crypto-Shredding to permanently sanitize multi-tenant cloud storage records at contract termination when physical access to the provider's hard drives is prohibited.",
     question: "Which infrastructure security design or platform control prevents unauthorized lateral movement and hypervisor compromise? Sanitizing cloud data by destroying cryptographic keys when physical drive degaussing is impossible is under consideration.",
     options: [
-      { id: 'A', text: "Execute crypto-shredding: securely delete and zeroize all cryptographic keys used to encrypt the target datasets." },
-      { id: 'B', text: "Demand that the cloud provider physically melt and shred shared multi-tenant storage arrays hosting other customer data." },
-      { id: 'C', text: "Delete the filenames in the operating system file explorer and assume data is securely wiped." },
-      { id: 'D', text: "Over-write cloud storage blocks with zeros once using consumer operating system format utilities." }
+      { id: 'A', text: "Delete the filenames in the operating system file explorer and assume data is securely wiped." },
+      { id: 'B', text: "Execute crypto-shredding: securely delete and zeroize all cryptographic keys used to encrypt the target datasets." },
+      { id: 'C', text: "Over-write cloud storage blocks with zeros once using consumer operating system format utilities." },
+      { id: 'D', text: "Demand that the cloud provider physically melt and shred shared multi-tenant storage arrays hosting other customer data." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Execute crypto-shredding: securely delete and zeroize all cryptographic keys used to encrypt the target datasets. In multi-tenant cloud environments, physical sanitization (degaussing, crushing) is impossible without destroying shared media. Crypto-shredding sanitizes data by destroying the cryptographic keys that protect it, rendering the encrypted ciphertext irrecoverable mathematical noise.",
     referenceUrl: "https://csrc.nist.gov/publications/detail/sp/800-88/rev-1/final",
@@ -74,8 +74,8 @@ export const ISC2_CCSP_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Execute crypto-shredding: securely delete and zeroize all cryptographic keys used to encrypt the target datasets." },
       { id: 'B', text: "Demand that the cloud provider physically melt and shred shared multi-tenant storage arrays hosting other customer data." },
-      { id: 'C', text: "Delete the filenames in the operating system file explorer and assume data is securely wiped." },
-      { id: 'D', text: "Over-write cloud storage blocks with zeros once using consumer operating system format utilities." }
+      { id: 'C', text: "Over-write cloud storage blocks with zeros once using consumer operating system format utilities." },
+      { id: 'D', text: "Delete the filenames in the operating system file explorer and assume data is securely wiped." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -93,12 +93,12 @@ export const ISC2_CCSP_QUESTIONS_14 = [
     scenario: "A corporate compliance auditor is evaluating cloud service level agreements, independent SOC 2 Type II audit attestations, and legal hold eDiscovery preservation policies. The cloud security professional evaluates Crypto-Shredding to permanently sanitize multi-tenant cloud storage records at contract termination when physical access to the provider's hard drives is prohibited.",
     question: "Which legal, risk, or compliance procedure guarantees due diligence and satisfies regulatory requirements? Sanitizing cloud data by destroying cryptographic keys when physical drive degaussing is impossible is under consideration.",
     options: [
-      { id: 'A', text: "Execute crypto-shredding: securely delete and zeroize all cryptographic keys used to encrypt the target datasets." },
-      { id: 'B', text: "Demand that the cloud provider physically melt and shred shared multi-tenant storage arrays hosting other customer data." },
+      { id: 'A', text: "Over-write cloud storage blocks with zeros once using consumer operating system format utilities." },
+      { id: 'B', text: "Execute crypto-shredding: securely delete and zeroize all cryptographic keys used to encrypt the target datasets." },
       { id: 'C', text: "Delete the filenames in the operating system file explorer and assume data is securely wiped." },
-      { id: 'D', text: "Over-write cloud storage blocks with zeros once using consumer operating system format utilities." }
+      { id: 'D', text: "Demand that the cloud provider physically melt and shred shared multi-tenant storage arrays hosting other customer data." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Execute crypto-shredding: securely delete and zeroize all cryptographic keys used to encrypt the target datasets. In multi-tenant cloud environments, physical sanitization (degaussing, crushing) is impossible without destroying shared media. Crypto-shredding sanitizes data by destroying the cryptographic keys that protect it, rendering the encrypted ciphertext irrecoverable mathematical noise.",
     referenceUrl: "https://csrc.nist.gov/publications/detail/sp/800-88/rev-1/final",
@@ -114,12 +114,12 @@ export const ISC2_CCSP_QUESTIONS_14 = [
     scenario: "An enterprise chief information security officer (CISO) is establishing multi-cloud governance frameworks, shared responsibility models, and Zero Trust architectures across global business units. The cloud security professional evaluates Data Obfuscation to remove credit card Primary Account Numbers (PAN) from a web application's database to minimize PCI-DSS compliance scope.",
     question: "Which architectural approach or cloud security control satisfies these enterprise governance objectives? Replacing sensitive PAN data with non-sensitive surrogate tokens via a secure token vault is under consideration.",
     options: [
-      { id: 'A', text: "Implement Tokenization: replace credit card numbers with random surrogate tokens and store the mapping in an isolated, hardened token vault." },
-      { id: 'B', text: "Encrypt the database column with a static key stored in the same database table." },
-      { id: 'C', text: "Display full credit card numbers in plaintext to all call center employees." },
+      { id: 'A', text: "Display full credit card numbers in plaintext to all call center employees." },
+      { id: 'B', text: "Implement Tokenization: replace credit card numbers with random surrogate tokens and store the mapping in an isolated, hardened token vault." },
+      { id: 'C', text: "Encrypt the database column with a static key stored in the same database table." },
       { id: 'D', text: "Truncate the middle digits of the card number in memory without using a token vault." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Implement Tokenization: replace credit card numbers with random surrogate tokens and store the mapping in an isolated, hardened token vault. Tokenization replaces sensitive data (like credit card numbers) with a non-sensitive surrogate value (token) with no mathematical relationship to the original. Because the token cannot be reverse-engineered without the token vault, downstream systems storing tokens fall outside PCI-DSS audit scope.",
     referenceUrl: "https://www.pcisecuritystandards.org/documents/Tokenization_Guidelines_Info_Supp.pdf",
@@ -135,12 +135,12 @@ export const ISC2_CCSP_QUESTIONS_14 = [
     scenario: "A global data protection officer is implementing cryptographic data lifecycles, crypto-shredding sanitization, and data loss prevention across sensitive cloud repositories. The cloud security professional evaluates Data Obfuscation to remove credit card Primary Account Numbers (PAN) from a web application's database to minimize PCI-DSS compliance scope.",
     question: "Which data security mechanism or cryptographic architecture guarantees compliance with international privacy mandates? Replacing sensitive PAN data with non-sensitive surrogate tokens via a secure token vault is under consideration.",
     options: [
-      { id: 'A', text: "Implement Tokenization: replace credit card numbers with random surrogate tokens and store the mapping in an isolated, hardened token vault." },
-      { id: 'B', text: "Encrypt the database column with a static key stored in the same database table." },
-      { id: 'C', text: "Display full credit card numbers in plaintext to all call center employees." },
+      { id: 'A', text: "Display full credit card numbers in plaintext to all call center employees." },
+      { id: 'B', text: "Implement Tokenization: replace credit card numbers with random surrogate tokens and store the mapping in an isolated, hardened token vault." },
+      { id: 'C', text: "Encrypt the database column with a static key stored in the same database table." },
       { id: 'D', text: "Truncate the middle digits of the card number in memory without using a token vault." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Implement Tokenization: replace credit card numbers with random surrogate tokens and store the mapping in an isolated, hardened token vault. Tokenization replaces sensitive data (like credit card numbers) with a non-sensitive surrogate value (token) with no mathematical relationship to the original. Because the token cannot be reverse-engineered without the token vault, downstream systems storing tokens fall outside PCI-DSS audit scope.",
     referenceUrl: "https://www.pcisecuritystandards.org/documents/Tokenization_Guidelines_Info_Supp.pdf",
@@ -156,12 +156,12 @@ export const ISC2_CCSP_QUESTIONS_14 = [
     scenario: "A cloud platform security team is hardening virtualization substrates, implementing micro-segmentation, and enforcing immutable infrastructure across multi-tenant environments. The cloud security professional evaluates Data Obfuscation to remove credit card Primary Account Numbers (PAN) from a web application's database to minimize PCI-DSS compliance scope.",
     question: "Which infrastructure security design or platform control prevents unauthorized lateral movement and hypervisor compromise? Replacing sensitive PAN data with non-sensitive surrogate tokens via a secure token vault is under consideration.",
     options: [
-      { id: 'A', text: "Implement Tokenization: replace credit card numbers with random surrogate tokens and store the mapping in an isolated, hardened token vault." },
-      { id: 'B', text: "Encrypt the database column with a static key stored in the same database table." },
-      { id: 'C', text: "Display full credit card numbers in plaintext to all call center employees." },
-      { id: 'D', text: "Truncate the middle digits of the card number in memory without using a token vault." }
+      { id: 'A', text: "Display full credit card numbers in plaintext to all call center employees." },
+      { id: 'B', text: "Truncate the middle digits of the card number in memory without using a token vault." },
+      { id: 'C', text: "Encrypt the database column with a static key stored in the same database table." },
+      { id: 'D', text: "Implement Tokenization: replace credit card numbers with random surrogate tokens and store the mapping in an isolated, hardened token vault." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Implement Tokenization: replace credit card numbers with random surrogate tokens and store the mapping in an isolated, hardened token vault. Tokenization replaces sensitive data (like credit card numbers) with a non-sensitive surrogate value (token) with no mathematical relationship to the original. Because the token cannot be reverse-engineered without the token vault, downstream systems storing tokens fall outside PCI-DSS audit scope.",
     referenceUrl: "https://www.pcisecuritystandards.org/documents/Tokenization_Guidelines_Info_Supp.pdf",
@@ -177,12 +177,12 @@ export const ISC2_CCSP_QUESTIONS_14 = [
     scenario: "A devsecops engineering group is embedding threat modeling, automated SAST/DAST testing, and API gateway security into continuous cloud application delivery lifecycles. The cloud security professional evaluates Data Obfuscation to remove credit card Primary Account Numbers (PAN) from a web application's database to minimize PCI-DSS compliance scope.",
     question: "Which application security practice or runtime defense mitigates critical OWASP vulnerabilities before deployment? Replacing sensitive PAN data with non-sensitive surrogate tokens via a secure token vault is under consideration.",
     options: [
-      { id: 'A', text: "Implement Tokenization: replace credit card numbers with random surrogate tokens and store the mapping in an isolated, hardened token vault." },
+      { id: 'A', text: "Display full credit card numbers in plaintext to all call center employees." },
       { id: 'B', text: "Encrypt the database column with a static key stored in the same database table." },
-      { id: 'C', text: "Display full credit card numbers in plaintext to all call center employees." },
+      { id: 'C', text: "Implement Tokenization: replace credit card numbers with random surrogate tokens and store the mapping in an isolated, hardened token vault." },
       { id: 'D', text: "Truncate the middle digits of the card number in memory without using a token vault." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Implement Tokenization: replace credit card numbers with random surrogate tokens and store the mapping in an isolated, hardened token vault. Tokenization replaces sensitive data (like credit card numbers) with a non-sensitive surrogate value (token) with no mathematical relationship to the original. Because the token cannot be reverse-engineered without the token vault, downstream systems storing tokens fall outside PCI-DSS audit scope.",
     referenceUrl: "https://www.pcisecuritystandards.org/documents/Tokenization_Guidelines_Info_Supp.pdf",
@@ -198,12 +198,12 @@ export const ISC2_CCSP_QUESTIONS_14 = [
     scenario: "A corporate compliance auditor is evaluating cloud service level agreements, independent SOC 2 Type II audit attestations, and legal hold eDiscovery preservation policies. The cloud security professional evaluates Data Obfuscation to remove credit card Primary Account Numbers (PAN) from a web application's database to minimize PCI-DSS compliance scope.",
     question: "Which legal, risk, or compliance procedure guarantees due diligence and satisfies regulatory requirements? Replacing sensitive PAN data with non-sensitive surrogate tokens via a secure token vault is under consideration.",
     options: [
-      { id: 'A', text: "Implement Tokenization: replace credit card numbers with random surrogate tokens and store the mapping in an isolated, hardened token vault." },
-      { id: 'B', text: "Encrypt the database column with a static key stored in the same database table." },
-      { id: 'C', text: "Display full credit card numbers in plaintext to all call center employees." },
-      { id: 'D', text: "Truncate the middle digits of the card number in memory without using a token vault." }
+      { id: 'A', text: "Encrypt the database column with a static key stored in the same database table." },
+      { id: 'B', text: "Truncate the middle digits of the card number in memory without using a token vault." },
+      { id: 'C', text: "Implement Tokenization: replace credit card numbers with random surrogate tokens and store the mapping in an isolated, hardened token vault." },
+      { id: 'D', text: "Display full credit card numbers in plaintext to all call center employees." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Implement Tokenization: replace credit card numbers with random surrogate tokens and store the mapping in an isolated, hardened token vault. Tokenization replaces sensitive data (like credit card numbers) with a non-sensitive surrogate value (token) with no mathematical relationship to the original. Because the token cannot be reverse-engineered without the token vault, downstream systems storing tokens fall outside PCI-DSS audit scope.",
     referenceUrl: "https://www.pcisecuritystandards.org/documents/Tokenization_Guidelines_Info_Supp.pdf",
@@ -219,12 +219,12 @@ export const ISC2_CCSP_QUESTIONS_14 = [
     scenario: "An enterprise chief information security officer (CISO) is establishing multi-cloud governance frameworks, shared responsibility models, and Zero Trust architectures across global business units. The cloud security professional evaluates CASB Architecture to gain visibility into Shadow IT, enforce DLP on corporate OneDrive/Salesforce, and inspect unmanaged employee personal devices.",
     question: "Which architectural approach or cloud security control satisfies these enterprise governance objectives? Forward proxy, reverse proxy, and API-based out-of-band monitoring for SaaS security is under consideration.",
     options: [
-      { id: 'A', text: "Deploy a Cloud Access Security Broker (CASB) combining API-based out-of-band inspection with reverse proxy for unmanaged devices." },
+      { id: 'A', text: "Install root certificates manually on personal home devices of all employees." },
       { id: 'B', text: "Block all corporate internet access to eliminate SaaS applications completely." },
-      { id: 'C', text: "Install root certificates manually on personal home devices of all employees." },
+      { id: 'C', text: "Deploy a Cloud Access Security Broker (CASB) combining API-based out-of-band inspection with reverse proxy for unmanaged devices." },
       { id: 'D', text: "Rely on firewall port blocking which cannot inspect encrypted HTTPS SaaS traffic." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy a Cloud Access Security Broker (CASB) combining API-based out-of-band inspection with reverse proxy for unmanaged devices. A Cloud Access Security Broker (CASB) enforces security policies between cloud consumers and cloud providers. It uses three deployment models: API-based (out-of-band, deep scanning of data at rest), Reverse Proxy (inline inspection for unmanaged devices without agent installation), and Forward Proxy (inline for managed corporate endpoints).",
     referenceUrl: "https://cloudsecurityalliance.org/research/guidance/",
@@ -240,12 +240,12 @@ export const ISC2_CCSP_QUESTIONS_14 = [
     scenario: "A global data protection officer is implementing cryptographic data lifecycles, crypto-shredding sanitization, and data loss prevention across sensitive cloud repositories. The cloud security professional evaluates CASB Architecture to gain visibility into Shadow IT, enforce DLP on corporate OneDrive/Salesforce, and inspect unmanaged employee personal devices.",
     question: "Which data security mechanism or cryptographic architecture guarantees compliance with international privacy mandates? Forward proxy, reverse proxy, and API-based out-of-band monitoring for SaaS security is under consideration.",
     options: [
-      { id: 'A', text: "Deploy a Cloud Access Security Broker (CASB) combining API-based out-of-band inspection with reverse proxy for unmanaged devices." },
+      { id: 'A', text: "Rely on firewall port blocking which cannot inspect encrypted HTTPS SaaS traffic." },
       { id: 'B', text: "Block all corporate internet access to eliminate SaaS applications completely." },
       { id: 'C', text: "Install root certificates manually on personal home devices of all employees." },
-      { id: 'D', text: "Rely on firewall port blocking which cannot inspect encrypted HTTPS SaaS traffic." }
+      { id: 'D', text: "Deploy a Cloud Access Security Broker (CASB) combining API-based out-of-band inspection with reverse proxy for unmanaged devices." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy a Cloud Access Security Broker (CASB) combining API-based out-of-band inspection with reverse proxy for unmanaged devices. A Cloud Access Security Broker (CASB) enforces security policies between cloud consumers and cloud providers. It uses three deployment models: API-based (out-of-band, deep scanning of data at rest), Reverse Proxy (inline inspection for unmanaged devices without agent installation), and Forward Proxy (inline for managed corporate endpoints).",
     referenceUrl: "https://cloudsecurityalliance.org/research/guidance/",
@@ -261,12 +261,12 @@ export const ISC2_CCSP_QUESTIONS_14 = [
     scenario: "A cloud platform security team is hardening virtualization substrates, implementing micro-segmentation, and enforcing immutable infrastructure across multi-tenant environments. The cloud security professional evaluates CASB Architecture to gain visibility into Shadow IT, enforce DLP on corporate OneDrive/Salesforce, and inspect unmanaged employee personal devices.",
     question: "Which infrastructure security design or platform control prevents unauthorized lateral movement and hypervisor compromise? Forward proxy, reverse proxy, and API-based out-of-band monitoring for SaaS security is under consideration.",
     options: [
-      { id: 'A', text: "Deploy a Cloud Access Security Broker (CASB) combining API-based out-of-band inspection with reverse proxy for unmanaged devices." },
-      { id: 'B', text: "Block all corporate internet access to eliminate SaaS applications completely." },
-      { id: 'C', text: "Install root certificates manually on personal home devices of all employees." },
-      { id: 'D', text: "Rely on firewall port blocking which cannot inspect encrypted HTTPS SaaS traffic." }
+      { id: 'A', text: "Rely on firewall port blocking which cannot inspect encrypted HTTPS SaaS traffic." },
+      { id: 'B', text: "Install root certificates manually on personal home devices of all employees." },
+      { id: 'C', text: "Block all corporate internet access to eliminate SaaS applications completely." },
+      { id: 'D', text: "Deploy a Cloud Access Security Broker (CASB) combining API-based out-of-band inspection with reverse proxy for unmanaged devices." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy a Cloud Access Security Broker (CASB) combining API-based out-of-band inspection with reverse proxy for unmanaged devices. A Cloud Access Security Broker (CASB) enforces security policies between cloud consumers and cloud providers. It uses three deployment models: API-based (out-of-band, deep scanning of data at rest), Reverse Proxy (inline inspection for unmanaged devices without agent installation), and Forward Proxy (inline for managed corporate endpoints).",
     referenceUrl: "https://cloudsecurityalliance.org/research/guidance/",
@@ -282,12 +282,12 @@ export const ISC2_CCSP_QUESTIONS_14 = [
     scenario: "A devsecops engineering group is embedding threat modeling, automated SAST/DAST testing, and API gateway security into continuous cloud application delivery lifecycles. The cloud security professional evaluates CASB Architecture to gain visibility into Shadow IT, enforce DLP on corporate OneDrive/Salesforce, and inspect unmanaged employee personal devices.",
     question: "Which application security practice or runtime defense mitigates critical OWASP vulnerabilities before deployment? Forward proxy, reverse proxy, and API-based out-of-band monitoring for SaaS security is under consideration.",
     options: [
-      { id: 'A', text: "Deploy a Cloud Access Security Broker (CASB) combining API-based out-of-band inspection with reverse proxy for unmanaged devices." },
-      { id: 'B', text: "Block all corporate internet access to eliminate SaaS applications completely." },
-      { id: 'C', text: "Install root certificates manually on personal home devices of all employees." },
-      { id: 'D', text: "Rely on firewall port blocking which cannot inspect encrypted HTTPS SaaS traffic." }
+      { id: 'A', text: "Block all corporate internet access to eliminate SaaS applications completely." },
+      { id: 'B', text: "Deploy a Cloud Access Security Broker (CASB) combining API-based out-of-band inspection with reverse proxy for unmanaged devices." },
+      { id: 'C', text: "Rely on firewall port blocking which cannot inspect encrypted HTTPS SaaS traffic." },
+      { id: 'D', text: "Install root certificates manually on personal home devices of all employees." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy a Cloud Access Security Broker (CASB) combining API-based out-of-band inspection with reverse proxy for unmanaged devices. A Cloud Access Security Broker (CASB) enforces security policies between cloud consumers and cloud providers. It uses three deployment models: API-based (out-of-band, deep scanning of data at rest), Reverse Proxy (inline inspection for unmanaged devices without agent installation), and Forward Proxy (inline for managed corporate endpoints).",
     referenceUrl: "https://cloudsecurityalliance.org/research/guidance/",
@@ -303,12 +303,12 @@ export const ISC2_CCSP_QUESTIONS_14 = [
     scenario: "A corporate compliance auditor is evaluating cloud service level agreements, independent SOC 2 Type II audit attestations, and legal hold eDiscovery preservation policies. The cloud security professional evaluates CASB Architecture to gain visibility into Shadow IT, enforce DLP on corporate OneDrive/Salesforce, and inspect unmanaged employee personal devices.",
     question: "Which legal, risk, or compliance procedure guarantees due diligence and satisfies regulatory requirements? Forward proxy, reverse proxy, and API-based out-of-band monitoring for SaaS security is under consideration.",
     options: [
-      { id: 'A', text: "Deploy a Cloud Access Security Broker (CASB) combining API-based out-of-band inspection with reverse proxy for unmanaged devices." },
-      { id: 'B', text: "Block all corporate internet access to eliminate SaaS applications completely." },
-      { id: 'C', text: "Install root certificates manually on personal home devices of all employees." },
+      { id: 'A', text: "Install root certificates manually on personal home devices of all employees." },
+      { id: 'B', text: "Deploy a Cloud Access Security Broker (CASB) combining API-based out-of-band inspection with reverse proxy for unmanaged devices." },
+      { id: 'C', text: "Block all corporate internet access to eliminate SaaS applications completely." },
       { id: 'D', text: "Rely on firewall port blocking which cannot inspect encrypted HTTPS SaaS traffic." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy a Cloud Access Security Broker (CASB) combining API-based out-of-band inspection with reverse proxy for unmanaged devices. A Cloud Access Security Broker (CASB) enforces security policies between cloud consumers and cloud providers. It uses three deployment models: API-based (out-of-band, deep scanning of data at rest), Reverse Proxy (inline inspection for unmanaged devices without agent installation), and Forward Proxy (inline for managed corporate endpoints).",
     referenceUrl: "https://cloudsecurityalliance.org/research/guidance/",
@@ -324,12 +324,12 @@ export const ISC2_CCSP_QUESTIONS_14 = [
     scenario: "An enterprise chief information security officer (CISO) is establishing multi-cloud governance frameworks, shared responsibility models, and Zero Trust architectures across global business units. The cloud security professional evaluates Physical Security to verify that a prospective cloud provider protects physical server infrastructure against unauthorized physical entry and environmental hazards.",
     question: "Which architectural approach or cloud security control satisfies these enterprise governance objectives? Multi-layered physical zoning, biometric controls, video surveillance, and environmental redundancy is under consideration.",
     options: [
-      { id: 'A', text: "Verify the provider's physical security layers: perimeter fencing, biometric mantraps, 24/7 video surveillance, dual power feeds, and HVAC fire suppression." },
-      { id: 'B', text: "Assume physical security is irrelevant in cloud computing because workloads run virtually." },
-      { id: 'C', text: "Allow unescorted public visitor tours through production cloud server halls." },
+      { id: 'A', text: "Assume physical security is irrelevant in cloud computing because workloads run virtually." },
+      { id: 'B', text: "Allow unescorted public visitor tours through production cloud server halls." },
+      { id: 'C', text: "Verify the provider's physical security layers: perimeter fencing, biometric mantraps, 24/7 video surveillance, dual power feeds, and HVAC fire suppression." },
       { id: 'D', text: "Rely solely on digital software firewalls to prevent physical server theft." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Verify the provider's physical security layers: perimeter fencing, biometric mantraps, 24/7 video surveillance, dual power feeds, and HVAC fire suppression. Physical security in cloud computing relies on layered defense (defense-in-depth): outer perimeter barriers, biometric multi-factor mantraps, security escort policies, continuous video retention, and environmental safeguards (N+1 redundant generators, precision cooling, clean-agent fire suppression).",
     referenceUrl: "https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final",
@@ -345,12 +345,12 @@ export const ISC2_CCSP_QUESTIONS_14 = [
     scenario: "A global data protection officer is implementing cryptographic data lifecycles, crypto-shredding sanitization, and data loss prevention across sensitive cloud repositories. The cloud security professional evaluates Physical Security to verify that a prospective cloud provider protects physical server infrastructure against unauthorized physical entry and environmental hazards.",
     question: "Which data security mechanism or cryptographic architecture guarantees compliance with international privacy mandates? Multi-layered physical zoning, biometric controls, video surveillance, and environmental redundancy is under consideration.",
     options: [
-      { id: 'A', text: "Verify the provider's physical security layers: perimeter fencing, biometric mantraps, 24/7 video surveillance, dual power feeds, and HVAC fire suppression." },
-      { id: 'B', text: "Assume physical security is irrelevant in cloud computing because workloads run virtually." },
-      { id: 'C', text: "Allow unescorted public visitor tours through production cloud server halls." },
-      { id: 'D', text: "Rely solely on digital software firewalls to prevent physical server theft." }
+      { id: 'A', text: "Allow unescorted public visitor tours through production cloud server halls." },
+      { id: 'B', text: "Rely solely on digital software firewalls to prevent physical server theft." },
+      { id: 'C', text: "Verify the provider's physical security layers: perimeter fencing, biometric mantraps, 24/7 video surveillance, dual power feeds, and HVAC fire suppression." },
+      { id: 'D', text: "Assume physical security is irrelevant in cloud computing because workloads run virtually." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Verify the provider's physical security layers: perimeter fencing, biometric mantraps, 24/7 video surveillance, dual power feeds, and HVAC fire suppression. Physical security in cloud computing relies on layered defense (defense-in-depth): outer perimeter barriers, biometric multi-factor mantraps, security escort policies, continuous video retention, and environmental safeguards (N+1 redundant generators, precision cooling, clean-agent fire suppression).",
     referenceUrl: "https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final",
@@ -387,12 +387,12 @@ export const ISC2_CCSP_QUESTIONS_14 = [
     scenario: "A devsecops engineering group is embedding threat modeling, automated SAST/DAST testing, and API gateway security into continuous cloud application delivery lifecycles. The cloud security professional evaluates Physical Security to verify that a prospective cloud provider protects physical server infrastructure against unauthorized physical entry and environmental hazards.",
     question: "Which application security practice or runtime defense mitigates critical OWASP vulnerabilities before deployment? Multi-layered physical zoning, biometric controls, video surveillance, and environmental redundancy is under consideration.",
     options: [
-      { id: 'A', text: "Verify the provider's physical security layers: perimeter fencing, biometric mantraps, 24/7 video surveillance, dual power feeds, and HVAC fire suppression." },
-      { id: 'B', text: "Assume physical security is irrelevant in cloud computing because workloads run virtually." },
-      { id: 'C', text: "Allow unescorted public visitor tours through production cloud server halls." },
-      { id: 'D', text: "Rely solely on digital software firewalls to prevent physical server theft." }
+      { id: 'A', text: "Rely solely on digital software firewalls to prevent physical server theft." },
+      { id: 'B', text: "Allow unescorted public visitor tours through production cloud server halls." },
+      { id: 'C', text: "Verify the provider's physical security layers: perimeter fencing, biometric mantraps, 24/7 video surveillance, dual power feeds, and HVAC fire suppression." },
+      { id: 'D', text: "Assume physical security is irrelevant in cloud computing because workloads run virtually." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Verify the provider's physical security layers: perimeter fencing, biometric mantraps, 24/7 video surveillance, dual power feeds, and HVAC fire suppression. Physical security in cloud computing relies on layered defense (defense-in-depth): outer perimeter barriers, biometric multi-factor mantraps, security escort policies, continuous video retention, and environmental safeguards (N+1 redundant generators, precision cooling, clean-agent fire suppression).",
     referenceUrl: "https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final",
@@ -408,12 +408,12 @@ export const ISC2_CCSP_QUESTIONS_14 = [
     scenario: "A corporate compliance auditor is evaluating cloud service level agreements, independent SOC 2 Type II audit attestations, and legal hold eDiscovery preservation policies. The cloud security professional evaluates Physical Security to verify that a prospective cloud provider protects physical server infrastructure against unauthorized physical entry and environmental hazards.",
     question: "Which legal, risk, or compliance procedure guarantees due diligence and satisfies regulatory requirements? Multi-layered physical zoning, biometric controls, video surveillance, and environmental redundancy is under consideration.",
     options: [
-      { id: 'A', text: "Verify the provider's physical security layers: perimeter fencing, biometric mantraps, 24/7 video surveillance, dual power feeds, and HVAC fire suppression." },
+      { id: 'A', text: "Allow unescorted public visitor tours through production cloud server halls." },
       { id: 'B', text: "Assume physical security is irrelevant in cloud computing because workloads run virtually." },
-      { id: 'C', text: "Allow unescorted public visitor tours through production cloud server halls." },
-      { id: 'D', text: "Rely solely on digital software firewalls to prevent physical server theft." }
+      { id: 'C', text: "Rely solely on digital software firewalls to prevent physical server theft." },
+      { id: 'D', text: "Verify the provider's physical security layers: perimeter fencing, biometric mantraps, 24/7 video surveillance, dual power feeds, and HVAC fire suppression." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Verify the provider's physical security layers: perimeter fencing, biometric mantraps, 24/7 video surveillance, dual power feeds, and HVAC fire suppression. Physical security in cloud computing relies on layered defense (defense-in-depth): outer perimeter barriers, biometric multi-factor mantraps, security escort policies, continuous video retention, and environmental safeguards (N+1 redundant generators, precision cooling, clean-agent fire suppression).",
     referenceUrl: "https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final",
@@ -431,8 +431,8 @@ export const ISC2_CCSP_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Implement software-defined micro-segmentation, enforcing granular virtual firewall rules that allow only authorized ports between tiers." },
       { id: 'B', text: "Place all application servers, databases, and admin consoles in a single flat, unrouted VLAN." },
-      { id: 'C', text: "Rely on physical hardware firewalls that cannot inspect virtual machine-to-virtual machine east-west traffic on the same host." },
-      { id: 'D', text: "Disable internal network filtering to optimize network packet processing speeds." }
+      { id: 'C', text: "Disable internal network filtering to optimize network packet processing speeds." },
+      { id: 'D', text: "Rely on physical hardware firewalls that cannot inspect virtual machine-to-virtual machine east-west traffic on the same host." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -471,12 +471,12 @@ export const ISC2_CCSP_QUESTIONS_14 = [
     scenario: "A cloud platform security team is hardening virtualization substrates, implementing micro-segmentation, and enforcing immutable infrastructure across multi-tenant environments. The cloud security professional evaluates SDN Micro-Segmentation to prevent an attacker who compromises a front-end web server from pivoting laterally to the back-end database across internal networks.",
     question: "Which infrastructure security design or platform control prevents unauthorized lateral movement and hypervisor compromise? Isolating east-west network traffic between workloads using software-defined virtual firewalls is under consideration.",
     options: [
-      { id: 'A', text: "Implement software-defined micro-segmentation, enforcing granular virtual firewall rules that allow only authorized ports between tiers." },
-      { id: 'B', text: "Place all application servers, databases, and admin consoles in a single flat, unrouted VLAN." },
+      { id: 'A', text: "Place all application servers, databases, and admin consoles in a single flat, unrouted VLAN." },
+      { id: 'B', text: "Implement software-defined micro-segmentation, enforcing granular virtual firewall rules that allow only authorized ports between tiers." },
       { id: 'C', text: "Rely on physical hardware firewalls that cannot inspect virtual machine-to-virtual machine east-west traffic on the same host." },
       { id: 'D', text: "Disable internal network filtering to optimize network packet processing speeds." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Implement software-defined micro-segmentation, enforcing granular virtual firewall rules that allow only authorized ports between tiers. Software-Defined Networking (SDN) abstracts the physical network, enabling micro-segmentation. By attaching distributed virtual firewall rules directly to virtual machine NICs or container pods, security teams isolate east-west traffic, preventing lateral attacker movement even within the same subnet.",
     referenceUrl: "https://cloudsecurityalliance.org/research/guidance/",
@@ -492,12 +492,12 @@ export const ISC2_CCSP_QUESTIONS_14 = [
     scenario: "A devsecops engineering group is embedding threat modeling, automated SAST/DAST testing, and API gateway security into continuous cloud application delivery lifecycles. The cloud security professional evaluates SDN Micro-Segmentation to prevent an attacker who compromises a front-end web server from pivoting laterally to the back-end database across internal networks.",
     question: "Which application security practice or runtime defense mitigates critical OWASP vulnerabilities before deployment? Isolating east-west network traffic between workloads using software-defined virtual firewalls is under consideration.",
     options: [
-      { id: 'A', text: "Implement software-defined micro-segmentation, enforcing granular virtual firewall rules that allow only authorized ports between tiers." },
+      { id: 'A', text: "Rely on physical hardware firewalls that cannot inspect virtual machine-to-virtual machine east-west traffic on the same host." },
       { id: 'B', text: "Place all application servers, databases, and admin consoles in a single flat, unrouted VLAN." },
-      { id: 'C', text: "Rely on physical hardware firewalls that cannot inspect virtual machine-to-virtual machine east-west traffic on the same host." },
-      { id: 'D', text: "Disable internal network filtering to optimize network packet processing speeds." }
+      { id: 'C', text: "Disable internal network filtering to optimize network packet processing speeds." },
+      { id: 'D', text: "Implement software-defined micro-segmentation, enforcing granular virtual firewall rules that allow only authorized ports between tiers." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Implement software-defined micro-segmentation, enforcing granular virtual firewall rules that allow only authorized ports between tiers. Software-Defined Networking (SDN) abstracts the physical network, enabling micro-segmentation. By attaching distributed virtual firewall rules directly to virtual machine NICs or container pods, security teams isolate east-west traffic, preventing lateral attacker movement even within the same subnet.",
     referenceUrl: "https://cloudsecurityalliance.org/research/guidance/",
@@ -513,12 +513,12 @@ export const ISC2_CCSP_QUESTIONS_14 = [
     scenario: "A corporate compliance auditor is evaluating cloud service level agreements, independent SOC 2 Type II audit attestations, and legal hold eDiscovery preservation policies. The cloud security professional evaluates SDN Micro-Segmentation to prevent an attacker who compromises a front-end web server from pivoting laterally to the back-end database across internal networks.",
     question: "Which legal, risk, or compliance procedure guarantees due diligence and satisfies regulatory requirements? Isolating east-west network traffic between workloads using software-defined virtual firewalls is under consideration.",
     options: [
-      { id: 'A', text: "Implement software-defined micro-segmentation, enforcing granular virtual firewall rules that allow only authorized ports between tiers." },
-      { id: 'B', text: "Place all application servers, databases, and admin consoles in a single flat, unrouted VLAN." },
-      { id: 'C', text: "Rely on physical hardware firewalls that cannot inspect virtual machine-to-virtual machine east-west traffic on the same host." },
-      { id: 'D', text: "Disable internal network filtering to optimize network packet processing speeds." }
+      { id: 'A', text: "Place all application servers, databases, and admin consoles in a single flat, unrouted VLAN." },
+      { id: 'B', text: "Rely on physical hardware firewalls that cannot inspect virtual machine-to-virtual machine east-west traffic on the same host." },
+      { id: 'C', text: "Disable internal network filtering to optimize network packet processing speeds." },
+      { id: 'D', text: "Implement software-defined micro-segmentation, enforcing granular virtual firewall rules that allow only authorized ports between tiers." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Implement software-defined micro-segmentation, enforcing granular virtual firewall rules that allow only authorized ports between tiers. Software-Defined Networking (SDN) abstracts the physical network, enabling micro-segmentation. By attaching distributed virtual firewall rules directly to virtual machine NICs or container pods, security teams isolate east-west traffic, preventing lateral attacker movement even within the same subnet.",
     referenceUrl: "https://cloudsecurityalliance.org/research/guidance/",

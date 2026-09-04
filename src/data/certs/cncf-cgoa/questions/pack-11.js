@@ -9,12 +9,12 @@ export const CNCF_CGOA_QUESTIONS_11 = [
     scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer evaluates GitOps Principles to understand the fundamental OpenGitOps principle requiring system desired state to be expressed declaratively.",
     question: "Which architectural approach or configuration satisfies these GitOps disaster recovery and operational continuity objectives? Expressing system state declaratively rather than imperatively is under consideration.",
     options: [
-      { id: 'A', text: "Declare system state in declarative formats (e.g., Kubernetes YAML, Kustomize, Helm) that describe the desired end-state rather than procedural steps." },
-      { id: 'B', text: "Write imperative shell scripts that execute step-by-step CLI commands." },
-      { id: 'C', text: "Configure infrastructure manually through cloud web consoles." },
-      { id: 'D', text: "Rely on compiled binary executables to express desired system architecture." }
+      { id: 'A', text: "Configure infrastructure manually through cloud web consoles." },
+      { id: 'B', text: "Rely on compiled binary executables to express desired system architecture." },
+      { id: 'C', text: "Declare system state in declarative formats (e.g., Kubernetes YAML, Kustomize, Helm) that describe the desired end-state rather than procedural steps." },
+      { id: 'D', text: "Write imperative shell scripts that execute step-by-step CLI commands." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Declare system state in declarative formats (e.g., Kubernetes YAML, Kustomize, Helm) that describe the desired end-state rather than procedural steps. The first OpenGitOps principle states that the desired state of a GitOps-managed system must be declared declaratively. Declarative descriptions describe what the state should look like, allowing automated reconciliation engines to calculate deltas independently of execution ordering.",
     referenceUrl: "https://opengitops.dev/#declarative-principles",
@@ -30,12 +30,12 @@ export const CNCF_CGOA_QUESTIONS_11 = [
     scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer evaluates GitOps Principles to understand the fundamental OpenGitOps principle requiring system desired state to be expressed declaratively.",
     question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays? Expressing system state declaratively rather than imperatively is under consideration.",
     options: [
-      { id: 'A', text: "Declare system state in declarative formats (e.g., Kubernetes YAML, Kustomize, Helm) that describe the desired end-state rather than procedural steps." },
-      { id: 'B', text: "Write imperative shell scripts that execute step-by-step CLI commands." },
-      { id: 'C', text: "Configure infrastructure manually through cloud web consoles." },
-      { id: 'D', text: "Rely on compiled binary executables to express desired system architecture." }
+      { id: 'A', text: "Rely on compiled binary executables to express desired system architecture." },
+      { id: 'B', text: "Declare system state in declarative formats (e.g., Kubernetes YAML, Kustomize, Helm) that describe the desired end-state rather than procedural steps." },
+      { id: 'C', text: "Write imperative shell scripts that execute step-by-step CLI commands." },
+      { id: 'D', text: "Configure infrastructure manually through cloud web consoles." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Declare system state in declarative formats (e.g., Kubernetes YAML, Kustomize, Helm) that describe the desired end-state rather than procedural steps. The first OpenGitOps principle states that the desired state of a GitOps-managed system must be declared declaratively. Declarative descriptions describe what the state should look like, allowing automated reconciliation engines to calculate deltas independently of execution ordering.",
     referenceUrl: "https://opengitops.dev/#declarative-principles",
@@ -52,8 +52,8 @@ export const CNCF_CGOA_QUESTIONS_11 = [
     question: "Which solution implements these mandatory GitOps security and governance controls? Expressing system state declaratively rather than imperatively is under consideration.",
     options: [
       { id: 'A', text: "Declare system state in declarative formats (e.g., Kubernetes YAML, Kustomize, Helm) that describe the desired end-state rather than procedural steps." },
-      { id: 'B', text: "Write imperative shell scripts that execute step-by-step CLI commands." },
-      { id: 'C', text: "Configure infrastructure manually through cloud web consoles." },
+      { id: 'B', text: "Configure infrastructure manually through cloud web consoles." },
+      { id: 'C', text: "Write imperative shell scripts that execute step-by-step CLI commands." },
       { id: 'D', text: "Rely on compiled binary executables to express desired system architecture." }
     ],
     correctAnswers: ['A'],
@@ -72,12 +72,12 @@ export const CNCF_CGOA_QUESTIONS_11 = [
     scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer evaluates GitOps Principles to understand the fundamental OpenGitOps principle requiring system desired state to be expressed declaratively.",
     question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction? Expressing system state declaratively rather than imperatively is under consideration.",
     options: [
-      { id: 'A', text: "Declare system state in declarative formats (e.g., Kubernetes YAML, Kustomize, Helm) that describe the desired end-state rather than procedural steps." },
-      { id: 'B', text: "Write imperative shell scripts that execute step-by-step CLI commands." },
-      { id: 'C', text: "Configure infrastructure manually through cloud web consoles." },
-      { id: 'D', text: "Rely on compiled binary executables to express desired system architecture." }
+      { id: 'A', text: "Configure infrastructure manually through cloud web consoles." },
+      { id: 'B', text: "Declare system state in declarative formats (e.g., Kubernetes YAML, Kustomize, Helm) that describe the desired end-state rather than procedural steps." },
+      { id: 'C', text: "Rely on compiled binary executables to express desired system architecture." },
+      { id: 'D', text: "Write imperative shell scripts that execute step-by-step CLI commands." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Declare system state in declarative formats (e.g., Kubernetes YAML, Kustomize, Helm) that describe the desired end-state rather than procedural steps. The first OpenGitOps principle states that the desired state of a GitOps-managed system must be declared declaratively. Declarative descriptions describe what the state should look like, allowing automated reconciliation engines to calculate deltas independently of execution ordering.",
     referenceUrl: "https://opengitops.dev/#declarative-principles",
@@ -93,12 +93,12 @@ export const CNCF_CGOA_QUESTIONS_11 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer evaluates GitOps Principles to understand the fundamental OpenGitOps principle requiring system desired state to be expressed declaratively.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability? Expressing system state declaratively rather than imperatively is under consideration.",
     options: [
-      { id: 'A', text: "Declare system state in declarative formats (e.g., Kubernetes YAML, Kustomize, Helm) that describe the desired end-state rather than procedural steps." },
+      { id: 'A', text: "Rely on compiled binary executables to express desired system architecture." },
       { id: 'B', text: "Write imperative shell scripts that execute step-by-step CLI commands." },
       { id: 'C', text: "Configure infrastructure manually through cloud web consoles." },
-      { id: 'D', text: "Rely on compiled binary executables to express desired system architecture." }
+      { id: 'D', text: "Declare system state in declarative formats (e.g., Kubernetes YAML, Kustomize, Helm) that describe the desired end-state rather than procedural steps." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Declare system state in declarative formats (e.g., Kubernetes YAML, Kustomize, Helm) that describe the desired end-state rather than procedural steps. The first OpenGitOps principle states that the desired state of a GitOps-managed system must be declared declaratively. Declarative descriptions describe what the state should look like, allowing automated reconciliation engines to calculate deltas independently of execution ordering.",
     referenceUrl: "https://opengitops.dev/#declarative-principles",
@@ -114,12 +114,12 @@ export const CNCF_CGOA_QUESTIONS_11 = [
     scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer evaluates GitOps Principles to guarantee an immutable, audited history of every change made to production infrastructure and applications.",
     question: "Which architectural approach or configuration satisfies these GitOps disaster recovery and operational continuity objectives? Storing desired state in a versioned, immutable storage system with complete history is under consideration.",
     options: [
-      { id: 'A', text: "Store desired state in Git, where commits are immutable, versioned, cryptographically signed, and provide complete historical auditability." },
-      { id: 'B', text: "Store manifests on an unversioned local hard drive." },
-      { id: 'C', text: "Use a shared Google Doc to record infrastructure parameters." },
-      { id: 'D', text: "Rely on human memory of what configurations were previously deployed." }
+      { id: 'A', text: "Use a shared Google Doc to record infrastructure parameters." },
+      { id: 'B', text: "Store desired state in Git, where commits are immutable, versioned, cryptographically signed, and provide complete historical auditability." },
+      { id: 'C', text: "Rely on human memory of what configurations were previously deployed." },
+      { id: 'D', text: "Store manifests on an unversioned local hard drive." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Store desired state in Git, where commits are immutable, versioned, cryptographically signed, and provide complete historical auditability. The second OpenGitOps principle requires desired state to be versioned and immutable. Git provides content-addressable, immutable commit histories, ensuring every transition is recorded with author identity, timestamp, and review approvals, enabling instant point-in-time rollbacks.",
     referenceUrl: "https://opengitops.dev/#versioned-and-immutable",
@@ -135,12 +135,12 @@ export const CNCF_CGOA_QUESTIONS_11 = [
     scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer evaluates GitOps Principles to guarantee an immutable, audited history of every change made to production infrastructure and applications.",
     question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays? Storing desired state in a versioned, immutable storage system with complete history is under consideration.",
     options: [
-      { id: 'A', text: "Store desired state in Git, where commits are immutable, versioned, cryptographically signed, and provide complete historical auditability." },
-      { id: 'B', text: "Store manifests on an unversioned local hard drive." },
-      { id: 'C', text: "Use a shared Google Doc to record infrastructure parameters." },
-      { id: 'D', text: "Rely on human memory of what configurations were previously deployed." }
+      { id: 'A', text: "Use a shared Google Doc to record infrastructure parameters." },
+      { id: 'B', text: "Store desired state in Git, where commits are immutable, versioned, cryptographically signed, and provide complete historical auditability." },
+      { id: 'C', text: "Rely on human memory of what configurations were previously deployed." },
+      { id: 'D', text: "Store manifests on an unversioned local hard drive." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Store desired state in Git, where commits are immutable, versioned, cryptographically signed, and provide complete historical auditability. The second OpenGitOps principle requires desired state to be versioned and immutable. Git provides content-addressable, immutable commit histories, ensuring every transition is recorded with author identity, timestamp, and review approvals, enabling instant point-in-time rollbacks.",
     referenceUrl: "https://opengitops.dev/#versioned-and-immutable",
@@ -156,12 +156,12 @@ export const CNCF_CGOA_QUESTIONS_11 = [
     scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer evaluates GitOps Principles to guarantee an immutable, audited history of every change made to production infrastructure and applications.",
     question: "Which solution implements these mandatory GitOps security and governance controls? Storing desired state in a versioned, immutable storage system with complete history is under consideration.",
     options: [
-      { id: 'A', text: "Store desired state in Git, where commits are immutable, versioned, cryptographically signed, and provide complete historical auditability." },
-      { id: 'B', text: "Store manifests on an unversioned local hard drive." },
-      { id: 'C', text: "Use a shared Google Doc to record infrastructure parameters." },
-      { id: 'D', text: "Rely on human memory of what configurations were previously deployed." }
+      { id: 'A', text: "Use a shared Google Doc to record infrastructure parameters." },
+      { id: 'B', text: "Rely on human memory of what configurations were previously deployed." },
+      { id: 'C', text: "Store manifests on an unversioned local hard drive." },
+      { id: 'D', text: "Store desired state in Git, where commits are immutable, versioned, cryptographically signed, and provide complete historical auditability." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Store desired state in Git, where commits are immutable, versioned, cryptographically signed, and provide complete historical auditability. The second OpenGitOps principle requires desired state to be versioned and immutable. Git provides content-addressable, immutable commit histories, ensuring every transition is recorded with author identity, timestamp, and review approvals, enabling instant point-in-time rollbacks.",
     referenceUrl: "https://opengitops.dev/#versioned-and-immutable",
@@ -177,12 +177,12 @@ export const CNCF_CGOA_QUESTIONS_11 = [
     scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer evaluates GitOps Principles to guarantee an immutable, audited history of every change made to production infrastructure and applications.",
     question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction? Storing desired state in a versioned, immutable storage system with complete history is under consideration.",
     options: [
-      { id: 'A', text: "Store desired state in Git, where commits are immutable, versioned, cryptographically signed, and provide complete historical auditability." },
-      { id: 'B', text: "Store manifests on an unversioned local hard drive." },
-      { id: 'C', text: "Use a shared Google Doc to record infrastructure parameters." },
-      { id: 'D', text: "Rely on human memory of what configurations were previously deployed." }
+      { id: 'A', text: "Rely on human memory of what configurations were previously deployed." },
+      { id: 'B', text: "Use a shared Google Doc to record infrastructure parameters." },
+      { id: 'C', text: "Store desired state in Git, where commits are immutable, versioned, cryptographically signed, and provide complete historical auditability." },
+      { id: 'D', text: "Store manifests on an unversioned local hard drive." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Store desired state in Git, where commits are immutable, versioned, cryptographically signed, and provide complete historical auditability. The second OpenGitOps principle requires desired state to be versioned and immutable. Git provides content-addressable, immutable commit histories, ensuring every transition is recorded with author identity, timestamp, and review approvals, enabling instant point-in-time rollbacks.",
     referenceUrl: "https://opengitops.dev/#versioned-and-immutable",
@@ -198,12 +198,12 @@ export const CNCF_CGOA_QUESTIONS_11 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer evaluates GitOps Principles to guarantee an immutable, audited history of every change made to production infrastructure and applications.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability? Storing desired state in a versioned, immutable storage system with complete history is under consideration.",
     options: [
-      { id: 'A', text: "Store desired state in Git, where commits are immutable, versioned, cryptographically signed, and provide complete historical auditability." },
-      { id: 'B', text: "Store manifests on an unversioned local hard drive." },
-      { id: 'C', text: "Use a shared Google Doc to record infrastructure parameters." },
-      { id: 'D', text: "Rely on human memory of what configurations were previously deployed." }
+      { id: 'A', text: "Rely on human memory of what configurations were previously deployed." },
+      { id: 'B', text: "Use a shared Google Doc to record infrastructure parameters." },
+      { id: 'C', text: "Store desired state in Git, where commits are immutable, versioned, cryptographically signed, and provide complete historical auditability." },
+      { id: 'D', text: "Store manifests on an unversioned local hard drive." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Store desired state in Git, where commits are immutable, versioned, cryptographically signed, and provide complete historical auditability. The second OpenGitOps principle requires desired state to be versioned and immutable. Git provides content-addressable, immutable commit histories, ensuring every transition is recorded with author identity, timestamp, and review approvals, enabling instant point-in-time rollbacks.",
     referenceUrl: "https://opengitops.dev/#versioned-and-immutable",
@@ -219,12 +219,12 @@ export const CNCF_CGOA_QUESTIONS_11 = [
     scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer evaluates GitOps Principles to ensure software deployments are continuously pulled into target clusters by in-cluster controllers without granting external CI systems cluster-admin access.",
     question: "Which architectural approach or configuration satisfies these GitOps disaster recovery and operational continuity objectives? Automated software agents pulling state declarations rather than push-based CI is under consideration.",
     options: [
-      { id: 'A', text: "Deploy an in-cluster reconciliation agent (like Argo CD or Flux) that continuously pulls approved state declarations from the Git repository." },
+      { id: 'A', text: "Instruct engineers to manually run `git pull` inside node terminals." },
       { id: 'B', text: "Configure external Jenkins runners to execute `kubectl apply` over the public internet with administrative kubeconfigs." },
-      { id: 'C', text: "Instruct engineers to manually run `git pull` inside node terminals." },
-      { id: 'D', text: "Disable automated syncing and apply configurations once a quarter." }
+      { id: 'C', text: "Disable automated syncing and apply configurations once a quarter." },
+      { id: 'D', text: "Deploy an in-cluster reconciliation agent (like Argo CD or Flux) that continuously pulls approved state declarations from the Git repository." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy an in-cluster reconciliation agent (like Argo CD or Flux) that continuously pulls approved state declarations from the Git repository. The third OpenGitOps principle states that software agents automatically pull desired state declarations from the source. In-cluster agents pull state changes, eliminating the security vulnerability of exposing cluster management endpoints and credentials to external CI/CD runners.",
     referenceUrl: "https://opengitops.dev/#pulled-automatically",
@@ -240,12 +240,12 @@ export const CNCF_CGOA_QUESTIONS_11 = [
     scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer evaluates GitOps Principles to ensure software deployments are continuously pulled into target clusters by in-cluster controllers without granting external CI systems cluster-admin access.",
     question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays? Automated software agents pulling state declarations rather than push-based CI is under consideration.",
     options: [
-      { id: 'A', text: "Deploy an in-cluster reconciliation agent (like Argo CD or Flux) that continuously pulls approved state declarations from the Git repository." },
-      { id: 'B', text: "Configure external Jenkins runners to execute `kubectl apply` over the public internet with administrative kubeconfigs." },
-      { id: 'C', text: "Instruct engineers to manually run `git pull` inside node terminals." },
-      { id: 'D', text: "Disable automated syncing and apply configurations once a quarter." }
+      { id: 'A', text: "Instruct engineers to manually run `git pull` inside node terminals." },
+      { id: 'B', text: "Disable automated syncing and apply configurations once a quarter." },
+      { id: 'C', text: "Configure external Jenkins runners to execute `kubectl apply` over the public internet with administrative kubeconfigs." },
+      { id: 'D', text: "Deploy an in-cluster reconciliation agent (like Argo CD or Flux) that continuously pulls approved state declarations from the Git repository." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy an in-cluster reconciliation agent (like Argo CD or Flux) that continuously pulls approved state declarations from the Git repository. The third OpenGitOps principle states that software agents automatically pull desired state declarations from the source. In-cluster agents pull state changes, eliminating the security vulnerability of exposing cluster management endpoints and credentials to external CI/CD runners.",
     referenceUrl: "https://opengitops.dev/#pulled-automatically",
@@ -261,12 +261,12 @@ export const CNCF_CGOA_QUESTIONS_11 = [
     scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer evaluates GitOps Principles to ensure software deployments are continuously pulled into target clusters by in-cluster controllers without granting external CI systems cluster-admin access.",
     question: "Which solution implements these mandatory GitOps security and governance controls? Automated software agents pulling state declarations rather than push-based CI is under consideration.",
     options: [
-      { id: 'A', text: "Deploy an in-cluster reconciliation agent (like Argo CD or Flux) that continuously pulls approved state declarations from the Git repository." },
-      { id: 'B', text: "Configure external Jenkins runners to execute `kubectl apply` over the public internet with administrative kubeconfigs." },
-      { id: 'C', text: "Instruct engineers to manually run `git pull` inside node terminals." },
-      { id: 'D', text: "Disable automated syncing and apply configurations once a quarter." }
+      { id: 'A', text: "Configure external Jenkins runners to execute `kubectl apply` over the public internet with administrative kubeconfigs." },
+      { id: 'B', text: "Deploy an in-cluster reconciliation agent (like Argo CD or Flux) that continuously pulls approved state declarations from the Git repository." },
+      { id: 'C', text: "Disable automated syncing and apply configurations once a quarter." },
+      { id: 'D', text: "Instruct engineers to manually run `git pull` inside node terminals." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy an in-cluster reconciliation agent (like Argo CD or Flux) that continuously pulls approved state declarations from the Git repository. The third OpenGitOps principle states that software agents automatically pull desired state declarations from the source. In-cluster agents pull state changes, eliminating the security vulnerability of exposing cluster management endpoints and credentials to external CI/CD runners.",
     referenceUrl: "https://opengitops.dev/#pulled-automatically",
@@ -282,12 +282,12 @@ export const CNCF_CGOA_QUESTIONS_11 = [
     scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer evaluates GitOps Principles to ensure software deployments are continuously pulled into target clusters by in-cluster controllers without granting external CI systems cluster-admin access.",
     question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction? Automated software agents pulling state declarations rather than push-based CI is under consideration.",
     options: [
-      { id: 'A', text: "Deploy an in-cluster reconciliation agent (like Argo CD or Flux) that continuously pulls approved state declarations from the Git repository." },
-      { id: 'B', text: "Configure external Jenkins runners to execute `kubectl apply` over the public internet with administrative kubeconfigs." },
-      { id: 'C', text: "Instruct engineers to manually run `git pull` inside node terminals." },
-      { id: 'D', text: "Disable automated syncing and apply configurations once a quarter." }
+      { id: 'A', text: "Configure external Jenkins runners to execute `kubectl apply` over the public internet with administrative kubeconfigs." },
+      { id: 'B', text: "Instruct engineers to manually run `git pull` inside node terminals." },
+      { id: 'C', text: "Disable automated syncing and apply configurations once a quarter." },
+      { id: 'D', text: "Deploy an in-cluster reconciliation agent (like Argo CD or Flux) that continuously pulls approved state declarations from the Git repository." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy an in-cluster reconciliation agent (like Argo CD or Flux) that continuously pulls approved state declarations from the Git repository. The third OpenGitOps principle states that software agents automatically pull desired state declarations from the source. In-cluster agents pull state changes, eliminating the security vulnerability of exposing cluster management endpoints and credentials to external CI/CD runners.",
     referenceUrl: "https://opengitops.dev/#pulled-automatically",
@@ -303,12 +303,12 @@ export const CNCF_CGOA_QUESTIONS_11 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer evaluates GitOps Principles to ensure software deployments are continuously pulled into target clusters by in-cluster controllers without granting external CI systems cluster-admin access.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability? Automated software agents pulling state declarations rather than push-based CI is under consideration.",
     options: [
-      { id: 'A', text: "Deploy an in-cluster reconciliation agent (like Argo CD or Flux) that continuously pulls approved state declarations from the Git repository." },
-      { id: 'B', text: "Configure external Jenkins runners to execute `kubectl apply` over the public internet with administrative kubeconfigs." },
+      { id: 'A', text: "Disable automated syncing and apply configurations once a quarter." },
+      { id: 'B', text: "Deploy an in-cluster reconciliation agent (like Argo CD or Flux) that continuously pulls approved state declarations from the Git repository." },
       { id: 'C', text: "Instruct engineers to manually run `git pull` inside node terminals." },
-      { id: 'D', text: "Disable automated syncing and apply configurations once a quarter." }
+      { id: 'D', text: "Configure external Jenkins runners to execute `kubectl apply` over the public internet with administrative kubeconfigs." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy an in-cluster reconciliation agent (like Argo CD or Flux) that continuously pulls approved state declarations from the Git repository. The third OpenGitOps principle states that software agents automatically pull desired state declarations from the source. In-cluster agents pull state changes, eliminating the security vulnerability of exposing cluster management endpoints and credentials to external CI/CD runners.",
     referenceUrl: "https://opengitops.dev/#pulled-automatically",
@@ -324,12 +324,12 @@ export const CNCF_CGOA_QUESTIONS_11 = [
     scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer evaluates GitOps Principles to automatically correct unauthorized out-of-band changes (drift) made to production Kubernetes pods via `kubectl edit`.",
     question: "Which architectural approach or configuration satisfies these GitOps disaster recovery and operational continuity objectives? Continuous closed-loop reconciliation detecting drift and self-healing systems is under consideration.",
     options: [
-      { id: 'A', text: "Configure a continuous reconciliation loop that continuously compares actual live state against desired Git state and automatically remediates divergence." },
-      { id: 'B', text: "Rely on annual external compliance audits to identify drift." },
-      { id: 'C', text: "Send an email to the cluster administrator whenever an alert triggers." },
+      { id: 'A', text: "Send an email to the cluster administrator whenever an alert triggers." },
+      { id: 'B', text: "Configure a continuous reconciliation loop that continuously compares actual live state against desired Git state and automatically remediates divergence." },
+      { id: 'C', text: "Rely on annual external compliance audits to identify drift." },
       { id: 'D', text: "Disable all automated healing to preserve manual modifications." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure a continuous reconciliation loop that continuously compares actual live state against desired Git state and automatically remediates divergence. The fourth OpenGitOps principle mandates continuous reconciliation. Software agents continuously observe actual system state and compare it against the desired state in Git. If drift is detected (whether from failure or manual tampering), the agent automatically reconciles the system back to desired state.",
     referenceUrl: "https://opengitops.dev/#continuously-reconciled",
@@ -345,12 +345,12 @@ export const CNCF_CGOA_QUESTIONS_11 = [
     scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer evaluates GitOps Principles to automatically correct unauthorized out-of-band changes (drift) made to production Kubernetes pods via `kubectl edit`.",
     question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays? Continuous closed-loop reconciliation detecting drift and self-healing systems is under consideration.",
     options: [
-      { id: 'A', text: "Configure a continuous reconciliation loop that continuously compares actual live state against desired Git state and automatically remediates divergence." },
-      { id: 'B', text: "Rely on annual external compliance audits to identify drift." },
-      { id: 'C', text: "Send an email to the cluster administrator whenever an alert triggers." },
-      { id: 'D', text: "Disable all automated healing to preserve manual modifications." }
+      { id: 'A', text: "Send an email to the cluster administrator whenever an alert triggers." },
+      { id: 'B', text: "Disable all automated healing to preserve manual modifications." },
+      { id: 'C', text: "Rely on annual external compliance audits to identify drift." },
+      { id: 'D', text: "Configure a continuous reconciliation loop that continuously compares actual live state against desired Git state and automatically remediates divergence." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure a continuous reconciliation loop that continuously compares actual live state against desired Git state and automatically remediates divergence. The fourth OpenGitOps principle mandates continuous reconciliation. Software agents continuously observe actual system state and compare it against the desired state in Git. If drift is detected (whether from failure or manual tampering), the agent automatically reconciles the system back to desired state.",
     referenceUrl: "https://opengitops.dev/#continuously-reconciled",
@@ -366,12 +366,12 @@ export const CNCF_CGOA_QUESTIONS_11 = [
     scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer evaluates GitOps Principles to automatically correct unauthorized out-of-band changes (drift) made to production Kubernetes pods via `kubectl edit`.",
     question: "Which solution implements these mandatory GitOps security and governance controls? Continuous closed-loop reconciliation detecting drift and self-healing systems is under consideration.",
     options: [
-      { id: 'A', text: "Configure a continuous reconciliation loop that continuously compares actual live state against desired Git state and automatically remediates divergence." },
-      { id: 'B', text: "Rely on annual external compliance audits to identify drift." },
-      { id: 'C', text: "Send an email to the cluster administrator whenever an alert triggers." },
+      { id: 'A', text: "Send an email to the cluster administrator whenever an alert triggers." },
+      { id: 'B', text: "Configure a continuous reconciliation loop that continuously compares actual live state against desired Git state and automatically remediates divergence." },
+      { id: 'C', text: "Rely on annual external compliance audits to identify drift." },
       { id: 'D', text: "Disable all automated healing to preserve manual modifications." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure a continuous reconciliation loop that continuously compares actual live state against desired Git state and automatically remediates divergence. The fourth OpenGitOps principle mandates continuous reconciliation. Software agents continuously observe actual system state and compare it against the desired state in Git. If drift is detected (whether from failure or manual tampering), the agent automatically reconciles the system back to desired state.",
     referenceUrl: "https://opengitops.dev/#continuously-reconciled",
@@ -387,12 +387,12 @@ export const CNCF_CGOA_QUESTIONS_11 = [
     scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer evaluates GitOps Principles to automatically correct unauthorized out-of-band changes (drift) made to production Kubernetes pods via `kubectl edit`.",
     question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction? Continuous closed-loop reconciliation detecting drift and self-healing systems is under consideration.",
     options: [
-      { id: 'A', text: "Configure a continuous reconciliation loop that continuously compares actual live state against desired Git state and automatically remediates divergence." },
-      { id: 'B', text: "Rely on annual external compliance audits to identify drift." },
-      { id: 'C', text: "Send an email to the cluster administrator whenever an alert triggers." },
-      { id: 'D', text: "Disable all automated healing to preserve manual modifications." }
+      { id: 'A', text: "Disable all automated healing to preserve manual modifications." },
+      { id: 'B', text: "Send an email to the cluster administrator whenever an alert triggers." },
+      { id: 'C', text: "Rely on annual external compliance audits to identify drift." },
+      { id: 'D', text: "Configure a continuous reconciliation loop that continuously compares actual live state against desired Git state and automatically remediates divergence." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure a continuous reconciliation loop that continuously compares actual live state against desired Git state and automatically remediates divergence. The fourth OpenGitOps principle mandates continuous reconciliation. Software agents continuously observe actual system state and compare it against the desired state in Git. If drift is detected (whether from failure or manual tampering), the agent automatically reconciles the system back to desired state.",
     referenceUrl: "https://opengitops.dev/#continuously-reconciled",
@@ -408,12 +408,12 @@ export const CNCF_CGOA_QUESTIONS_11 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer evaluates GitOps Principles to automatically correct unauthorized out-of-band changes (drift) made to production Kubernetes pods via `kubectl edit`.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability? Continuous closed-loop reconciliation detecting drift and self-healing systems is under consideration.",
     options: [
-      { id: 'A', text: "Configure a continuous reconciliation loop that continuously compares actual live state against desired Git state and automatically remediates divergence." },
+      { id: 'A', text: "Disable all automated healing to preserve manual modifications." },
       { id: 'B', text: "Rely on annual external compliance audits to identify drift." },
-      { id: 'C', text: "Send an email to the cluster administrator whenever an alert triggers." },
-      { id: 'D', text: "Disable all automated healing to preserve manual modifications." }
+      { id: 'C', text: "Configure a continuous reconciliation loop that continuously compares actual live state against desired Git state and automatically remediates divergence." },
+      { id: 'D', text: "Send an email to the cluster administrator whenever an alert triggers." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure a continuous reconciliation loop that continuously compares actual live state against desired Git state and automatically remediates divergence. The fourth OpenGitOps principle mandates continuous reconciliation. Software agents continuously observe actual system state and compare it against the desired state in Git. If drift is detected (whether from failure or manual tampering), the agent automatically reconciles the system back to desired state.",
     referenceUrl: "https://opengitops.dev/#continuously-reconciled",
@@ -429,12 +429,12 @@ export const CNCF_CGOA_QUESTIONS_11 = [
     scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer evaluates Deployment Paradigms to evaluate the security advantages of migrating from a push-based CI/CD pipeline (e.g., Jenkins `kubectl apply`) to a pull-based GitOps engine.",
     question: "Which architectural approach or configuration satisfies these GitOps disaster recovery and operational continuity objectives? Comparing CI push models vs GitOps pull models for cluster access security is under consideration.",
     options: [
-      { id: 'A', text: "Pull-based GitOps keeps cluster credentials inside the firewall, eliminating the need to expose cluster API endpoints and admin kubeconfigs to external CI servers." },
-      { id: 'B', text: "Push-based CI is inherently more secure because it runs outside the cluster." },
-      { id: 'C', text: "Pull-based deployment requires opening inbound firewall ports on the Kubernetes control plane." },
-      { id: 'D', text: "Both models provide identical network and credential security postures." }
+      { id: 'A', text: "Pull-based deployment requires opening inbound firewall ports on the Kubernetes control plane." },
+      { id: 'B', text: "Both models provide identical network and credential security postures." },
+      { id: 'C', text: "Pull-based GitOps keeps cluster credentials inside the firewall, eliminating the need to expose cluster API endpoints and admin kubeconfigs to external CI servers." },
+      { id: 'D', text: "Push-based CI is inherently more secure because it runs outside the cluster." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Pull-based GitOps keeps cluster credentials inside the firewall, eliminating the need to expose cluster API endpoints and admin kubeconfigs to external CI servers. Push-based CD requires granting external CI servers cluster-admin credentials and opening API firewalls to the internet. Pull-based CD inverts control: an in-cluster agent polls the Git repository over outbound HTTPS, keeping cluster credentials strictly within the internal security perimeter.",
     referenceUrl: "https://www.cncf.io/blog/2021/08/17/gitops-push-vs-pull/",
@@ -450,12 +450,12 @@ export const CNCF_CGOA_QUESTIONS_11 = [
     scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer evaluates Deployment Paradigms to evaluate the security advantages of migrating from a push-based CI/CD pipeline (e.g., Jenkins `kubectl apply`) to a pull-based GitOps engine.",
     question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays? Comparing CI push models vs GitOps pull models for cluster access security is under consideration.",
     options: [
-      { id: 'A', text: "Pull-based GitOps keeps cluster credentials inside the firewall, eliminating the need to expose cluster API endpoints and admin kubeconfigs to external CI servers." },
-      { id: 'B', text: "Push-based CI is inherently more secure because it runs outside the cluster." },
-      { id: 'C', text: "Pull-based deployment requires opening inbound firewall ports on the Kubernetes control plane." },
-      { id: 'D', text: "Both models provide identical network and credential security postures." }
+      { id: 'A', text: "Pull-based deployment requires opening inbound firewall ports on the Kubernetes control plane." },
+      { id: 'B', text: "Pull-based GitOps keeps cluster credentials inside the firewall, eliminating the need to expose cluster API endpoints and admin kubeconfigs to external CI servers." },
+      { id: 'C', text: "Both models provide identical network and credential security postures." },
+      { id: 'D', text: "Push-based CI is inherently more secure because it runs outside the cluster." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Pull-based GitOps keeps cluster credentials inside the firewall, eliminating the need to expose cluster API endpoints and admin kubeconfigs to external CI servers. Push-based CD requires granting external CI servers cluster-admin credentials and opening API firewalls to the internet. Pull-based CD inverts control: an in-cluster agent polls the Git repository over outbound HTTPS, keeping cluster credentials strictly within the internal security perimeter.",
     referenceUrl: "https://www.cncf.io/blog/2021/08/17/gitops-push-vs-pull/",
@@ -471,12 +471,12 @@ export const CNCF_CGOA_QUESTIONS_11 = [
     scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer evaluates Deployment Paradigms to evaluate the security advantages of migrating from a push-based CI/CD pipeline (e.g., Jenkins `kubectl apply`) to a pull-based GitOps engine.",
     question: "Which solution implements these mandatory GitOps security and governance controls? Comparing CI push models vs GitOps pull models for cluster access security is under consideration.",
     options: [
-      { id: 'A', text: "Pull-based GitOps keeps cluster credentials inside the firewall, eliminating the need to expose cluster API endpoints and admin kubeconfigs to external CI servers." },
-      { id: 'B', text: "Push-based CI is inherently more secure because it runs outside the cluster." },
-      { id: 'C', text: "Pull-based deployment requires opening inbound firewall ports on the Kubernetes control plane." },
-      { id: 'D', text: "Both models provide identical network and credential security postures." }
+      { id: 'A', text: "Both models provide identical network and credential security postures." },
+      { id: 'B', text: "Pull-based deployment requires opening inbound firewall ports on the Kubernetes control plane." },
+      { id: 'C', text: "Pull-based GitOps keeps cluster credentials inside the firewall, eliminating the need to expose cluster API endpoints and admin kubeconfigs to external CI servers." },
+      { id: 'D', text: "Push-based CI is inherently more secure because it runs outside the cluster." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Pull-based GitOps keeps cluster credentials inside the firewall, eliminating the need to expose cluster API endpoints and admin kubeconfigs to external CI servers. Push-based CD requires granting external CI servers cluster-admin credentials and opening API firewalls to the internet. Pull-based CD inverts control: an in-cluster agent polls the Git repository over outbound HTTPS, keeping cluster credentials strictly within the internal security perimeter.",
     referenceUrl: "https://www.cncf.io/blog/2021/08/17/gitops-push-vs-pull/",
@@ -492,12 +492,12 @@ export const CNCF_CGOA_QUESTIONS_11 = [
     scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer evaluates Deployment Paradigms to evaluate the security advantages of migrating from a push-based CI/CD pipeline (e.g., Jenkins `kubectl apply`) to a pull-based GitOps engine.",
     question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction? Comparing CI push models vs GitOps pull models for cluster access security is under consideration.",
     options: [
-      { id: 'A', text: "Pull-based GitOps keeps cluster credentials inside the firewall, eliminating the need to expose cluster API endpoints and admin kubeconfigs to external CI servers." },
-      { id: 'B', text: "Push-based CI is inherently more secure because it runs outside the cluster." },
-      { id: 'C', text: "Pull-based deployment requires opening inbound firewall ports on the Kubernetes control plane." },
-      { id: 'D', text: "Both models provide identical network and credential security postures." }
+      { id: 'A', text: "Pull-based deployment requires opening inbound firewall ports on the Kubernetes control plane." },
+      { id: 'B', text: "Both models provide identical network and credential security postures." },
+      { id: 'C', text: "Push-based CI is inherently more secure because it runs outside the cluster." },
+      { id: 'D', text: "Pull-based GitOps keeps cluster credentials inside the firewall, eliminating the need to expose cluster API endpoints and admin kubeconfigs to external CI servers." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Pull-based GitOps keeps cluster credentials inside the firewall, eliminating the need to expose cluster API endpoints and admin kubeconfigs to external CI servers. Push-based CD requires granting external CI servers cluster-admin credentials and opening API firewalls to the internet. Pull-based CD inverts control: an in-cluster agent polls the Git repository over outbound HTTPS, keeping cluster credentials strictly within the internal security perimeter.",
     referenceUrl: "https://www.cncf.io/blog/2021/08/17/gitops-push-vs-pull/",
@@ -514,9 +514,9 @@ export const CNCF_CGOA_QUESTIONS_11 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability? Comparing CI push models vs GitOps pull models for cluster access security is under consideration.",
     options: [
       { id: 'A', text: "Pull-based GitOps keeps cluster credentials inside the firewall, eliminating the need to expose cluster API endpoints and admin kubeconfigs to external CI servers." },
-      { id: 'B', text: "Push-based CI is inherently more secure because it runs outside the cluster." },
-      { id: 'C', text: "Pull-based deployment requires opening inbound firewall ports on the Kubernetes control plane." },
-      { id: 'D', text: "Both models provide identical network and credential security postures." }
+      { id: 'B', text: "Both models provide identical network and credential security postures." },
+      { id: 'C', text: "Push-based CI is inherently more secure because it runs outside the cluster." },
+      { id: 'D', text: "Pull-based deployment requires opening inbound firewall ports on the Kubernetes control plane." }
     ],
     correctAnswers: ['A'],
     type: "single",
