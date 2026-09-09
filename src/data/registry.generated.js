@@ -155,8 +155,50 @@ export const CONTENT_REGISTRY = {
     ]
   },
   'aws-mla': {
-    questions: [],
-    flashcards: []
+    questions: [
+      pack('./certs/aws-mla/questions/pack-1.js', () => import('./certs/aws-mla/questions/pack-1.js')),
+      pack('./certs/aws-mla/questions/pack-2.js', () => import('./certs/aws-mla/questions/pack-2.js')),
+      pack('./certs/aws-mla/questions/pack-3.js', () => import('./certs/aws-mla/questions/pack-3.js')),
+      pack('./certs/aws-mla/questions/pack-4.js', () => import('./certs/aws-mla/questions/pack-4.js')),
+      pack('./certs/aws-mla/questions/pack-5.js', () => import('./certs/aws-mla/questions/pack-5.js')),
+      pack('./certs/aws-mla/questions/pack-6.js', () => import('./certs/aws-mla/questions/pack-6.js')),
+      pack('./certs/aws-mla/questions/pack-7.js', () => import('./certs/aws-mla/questions/pack-7.js')),
+      pack('./certs/aws-mla/questions/pack-8.js', () => import('./certs/aws-mla/questions/pack-8.js')),
+      pack('./certs/aws-mla/questions/pack-9.js', () => import('./certs/aws-mla/questions/pack-9.js')),
+      pack('./certs/aws-mla/questions/pack-10.js', () => import('./certs/aws-mla/questions/pack-10.js')),
+      pack('./certs/aws-mla/questions/pack-11.js', () => import('./certs/aws-mla/questions/pack-11.js')),
+      pack('./certs/aws-mla/questions/pack-12.js', () => import('./certs/aws-mla/questions/pack-12.js')),
+      pack('./certs/aws-mla/questions/pack-13.js', () => import('./certs/aws-mla/questions/pack-13.js')),
+      pack('./certs/aws-mla/questions/pack-14.js', () => import('./certs/aws-mla/questions/pack-14.js')),
+      pack('./certs/aws-mla/questions/pack-15.js', () => import('./certs/aws-mla/questions/pack-15.js')),
+      pack('./certs/aws-mla/questions/pack-16.js', () => import('./certs/aws-mla/questions/pack-16.js')),
+      pack('./certs/aws-mla/questions/pack-17.js', () => import('./certs/aws-mla/questions/pack-17.js')),
+      pack('./certs/aws-mla/questions/pack-18.js', () => import('./certs/aws-mla/questions/pack-18.js')),
+      pack('./certs/aws-mla/questions/pack-19.js', () => import('./certs/aws-mla/questions/pack-19.js')),
+      pack('./certs/aws-mla/questions/pack-20.js', () => import('./certs/aws-mla/questions/pack-20.js'))
+    ],
+    flashcards: [
+      pack('./certs/aws-mla/flashcards/pack-1.js', () => import('./certs/aws-mla/flashcards/pack-1.js')),
+      pack('./certs/aws-mla/flashcards/pack-2.js', () => import('./certs/aws-mla/flashcards/pack-2.js')),
+      pack('./certs/aws-mla/flashcards/pack-3.js', () => import('./certs/aws-mla/flashcards/pack-3.js')),
+      pack('./certs/aws-mla/flashcards/pack-4.js', () => import('./certs/aws-mla/flashcards/pack-4.js')),
+      pack('./certs/aws-mla/flashcards/pack-5.js', () => import('./certs/aws-mla/flashcards/pack-5.js')),
+      pack('./certs/aws-mla/flashcards/pack-6.js', () => import('./certs/aws-mla/flashcards/pack-6.js')),
+      pack('./certs/aws-mla/flashcards/pack-7.js', () => import('./certs/aws-mla/flashcards/pack-7.js')),
+      pack('./certs/aws-mla/flashcards/pack-8.js', () => import('./certs/aws-mla/flashcards/pack-8.js')),
+      pack('./certs/aws-mla/flashcards/pack-9.js', () => import('./certs/aws-mla/flashcards/pack-9.js')),
+      pack('./certs/aws-mla/flashcards/pack-10.js', () => import('./certs/aws-mla/flashcards/pack-10.js')),
+      pack('./certs/aws-mla/flashcards/pack-11.js', () => import('./certs/aws-mla/flashcards/pack-11.js')),
+      pack('./certs/aws-mla/flashcards/pack-12.js', () => import('./certs/aws-mla/flashcards/pack-12.js')),
+      pack('./certs/aws-mla/flashcards/pack-13.js', () => import('./certs/aws-mla/flashcards/pack-13.js')),
+      pack('./certs/aws-mla/flashcards/pack-14.js', () => import('./certs/aws-mla/flashcards/pack-14.js')),
+      pack('./certs/aws-mla/flashcards/pack-15.js', () => import('./certs/aws-mla/flashcards/pack-15.js')),
+      pack('./certs/aws-mla/flashcards/pack-16.js', () => import('./certs/aws-mla/flashcards/pack-16.js')),
+      pack('./certs/aws-mla/flashcards/pack-17.js', () => import('./certs/aws-mla/flashcards/pack-17.js')),
+      pack('./certs/aws-mla/flashcards/pack-18.js', () => import('./certs/aws-mla/flashcards/pack-18.js')),
+      pack('./certs/aws-mla/flashcards/pack-19.js', () => import('./certs/aws-mla/flashcards/pack-19.js')),
+      pack('./certs/aws-mla/flashcards/pack-20.js', () => import('./certs/aws-mla/flashcards/pack-20.js'))
+    ]
   },
   'aws-mls': {
     questions: [],
@@ -267,8 +309,50 @@ export const CONTENT_REGISTRY = {
     flashcards: []
   },
   'azure-ai102': {
-    questions: [],
-    flashcards: []
+    questions: [
+      pack('./certs/azure-ai102/questions/pack-1.js', () => import('./certs/azure-ai102/questions/pack-1.js')),
+      pack('./certs/azure-ai102/questions/pack-2.js', () => import('./certs/azure-ai102/questions/pack-2.js')),
+      pack('./certs/azure-ai102/questions/pack-3.js', () => import('./certs/azure-ai102/questions/pack-3.js')),
+      pack('./certs/azure-ai102/questions/pack-4.js', () => import('./certs/azure-ai102/questions/pack-4.js')),
+      pack('./certs/azure-ai102/questions/pack-5.js', () => import('./certs/azure-ai102/questions/pack-5.js')),
+      pack('./certs/azure-ai102/questions/pack-6.js', () => import('./certs/azure-ai102/questions/pack-6.js')),
+      pack('./certs/azure-ai102/questions/pack-7.js', () => import('./certs/azure-ai102/questions/pack-7.js')),
+      pack('./certs/azure-ai102/questions/pack-8.js', () => import('./certs/azure-ai102/questions/pack-8.js')),
+      pack('./certs/azure-ai102/questions/pack-9.js', () => import('./certs/azure-ai102/questions/pack-9.js')),
+      pack('./certs/azure-ai102/questions/pack-10.js', () => import('./certs/azure-ai102/questions/pack-10.js')),
+      pack('./certs/azure-ai102/questions/pack-11.js', () => import('./certs/azure-ai102/questions/pack-11.js')),
+      pack('./certs/azure-ai102/questions/pack-12.js', () => import('./certs/azure-ai102/questions/pack-12.js')),
+      pack('./certs/azure-ai102/questions/pack-13.js', () => import('./certs/azure-ai102/questions/pack-13.js')),
+      pack('./certs/azure-ai102/questions/pack-14.js', () => import('./certs/azure-ai102/questions/pack-14.js')),
+      pack('./certs/azure-ai102/questions/pack-15.js', () => import('./certs/azure-ai102/questions/pack-15.js')),
+      pack('./certs/azure-ai102/questions/pack-16.js', () => import('./certs/azure-ai102/questions/pack-16.js')),
+      pack('./certs/azure-ai102/questions/pack-17.js', () => import('./certs/azure-ai102/questions/pack-17.js')),
+      pack('./certs/azure-ai102/questions/pack-18.js', () => import('./certs/azure-ai102/questions/pack-18.js')),
+      pack('./certs/azure-ai102/questions/pack-19.js', () => import('./certs/azure-ai102/questions/pack-19.js')),
+      pack('./certs/azure-ai102/questions/pack-20.js', () => import('./certs/azure-ai102/questions/pack-20.js'))
+    ],
+    flashcards: [
+      pack('./certs/azure-ai102/flashcards/pack-1.js', () => import('./certs/azure-ai102/flashcards/pack-1.js')),
+      pack('./certs/azure-ai102/flashcards/pack-2.js', () => import('./certs/azure-ai102/flashcards/pack-2.js')),
+      pack('./certs/azure-ai102/flashcards/pack-3.js', () => import('./certs/azure-ai102/flashcards/pack-3.js')),
+      pack('./certs/azure-ai102/flashcards/pack-4.js', () => import('./certs/azure-ai102/flashcards/pack-4.js')),
+      pack('./certs/azure-ai102/flashcards/pack-5.js', () => import('./certs/azure-ai102/flashcards/pack-5.js')),
+      pack('./certs/azure-ai102/flashcards/pack-6.js', () => import('./certs/azure-ai102/flashcards/pack-6.js')),
+      pack('./certs/azure-ai102/flashcards/pack-7.js', () => import('./certs/azure-ai102/flashcards/pack-7.js')),
+      pack('./certs/azure-ai102/flashcards/pack-8.js', () => import('./certs/azure-ai102/flashcards/pack-8.js')),
+      pack('./certs/azure-ai102/flashcards/pack-9.js', () => import('./certs/azure-ai102/flashcards/pack-9.js')),
+      pack('./certs/azure-ai102/flashcards/pack-10.js', () => import('./certs/azure-ai102/flashcards/pack-10.js')),
+      pack('./certs/azure-ai102/flashcards/pack-11.js', () => import('./certs/azure-ai102/flashcards/pack-11.js')),
+      pack('./certs/azure-ai102/flashcards/pack-12.js', () => import('./certs/azure-ai102/flashcards/pack-12.js')),
+      pack('./certs/azure-ai102/flashcards/pack-13.js', () => import('./certs/azure-ai102/flashcards/pack-13.js')),
+      pack('./certs/azure-ai102/flashcards/pack-14.js', () => import('./certs/azure-ai102/flashcards/pack-14.js')),
+      pack('./certs/azure-ai102/flashcards/pack-15.js', () => import('./certs/azure-ai102/flashcards/pack-15.js')),
+      pack('./certs/azure-ai102/flashcards/pack-16.js', () => import('./certs/azure-ai102/flashcards/pack-16.js')),
+      pack('./certs/azure-ai102/flashcards/pack-17.js', () => import('./certs/azure-ai102/flashcards/pack-17.js')),
+      pack('./certs/azure-ai102/flashcards/pack-18.js', () => import('./certs/azure-ai102/flashcards/pack-18.js')),
+      pack('./certs/azure-ai102/flashcards/pack-19.js', () => import('./certs/azure-ai102/flashcards/pack-19.js')),
+      pack('./certs/azure-ai102/flashcards/pack-20.js', () => import('./certs/azure-ai102/flashcards/pack-20.js'))
+    ]
   },
   'azure-az104': {
     questions: [
@@ -679,8 +763,50 @@ export const CONTENT_REGISTRY = {
     flashcards: []
   },
   'cncf-opa': {
-    questions: [],
-    flashcards: []
+    questions: [
+      pack('./certs/cncf-opa/questions/pack-1.js', () => import('./certs/cncf-opa/questions/pack-1.js')),
+      pack('./certs/cncf-opa/questions/pack-2.js', () => import('./certs/cncf-opa/questions/pack-2.js')),
+      pack('./certs/cncf-opa/questions/pack-3.js', () => import('./certs/cncf-opa/questions/pack-3.js')),
+      pack('./certs/cncf-opa/questions/pack-4.js', () => import('./certs/cncf-opa/questions/pack-4.js')),
+      pack('./certs/cncf-opa/questions/pack-5.js', () => import('./certs/cncf-opa/questions/pack-5.js')),
+      pack('./certs/cncf-opa/questions/pack-6.js', () => import('./certs/cncf-opa/questions/pack-6.js')),
+      pack('./certs/cncf-opa/questions/pack-7.js', () => import('./certs/cncf-opa/questions/pack-7.js')),
+      pack('./certs/cncf-opa/questions/pack-8.js', () => import('./certs/cncf-opa/questions/pack-8.js')),
+      pack('./certs/cncf-opa/questions/pack-9.js', () => import('./certs/cncf-opa/questions/pack-9.js')),
+      pack('./certs/cncf-opa/questions/pack-10.js', () => import('./certs/cncf-opa/questions/pack-10.js')),
+      pack('./certs/cncf-opa/questions/pack-11.js', () => import('./certs/cncf-opa/questions/pack-11.js')),
+      pack('./certs/cncf-opa/questions/pack-12.js', () => import('./certs/cncf-opa/questions/pack-12.js')),
+      pack('./certs/cncf-opa/questions/pack-13.js', () => import('./certs/cncf-opa/questions/pack-13.js')),
+      pack('./certs/cncf-opa/questions/pack-14.js', () => import('./certs/cncf-opa/questions/pack-14.js')),
+      pack('./certs/cncf-opa/questions/pack-15.js', () => import('./certs/cncf-opa/questions/pack-15.js')),
+      pack('./certs/cncf-opa/questions/pack-16.js', () => import('./certs/cncf-opa/questions/pack-16.js')),
+      pack('./certs/cncf-opa/questions/pack-17.js', () => import('./certs/cncf-opa/questions/pack-17.js')),
+      pack('./certs/cncf-opa/questions/pack-18.js', () => import('./certs/cncf-opa/questions/pack-18.js')),
+      pack('./certs/cncf-opa/questions/pack-19.js', () => import('./certs/cncf-opa/questions/pack-19.js')),
+      pack('./certs/cncf-opa/questions/pack-20.js', () => import('./certs/cncf-opa/questions/pack-20.js'))
+    ],
+    flashcards: [
+      pack('./certs/cncf-opa/flashcards/pack-1.js', () => import('./certs/cncf-opa/flashcards/pack-1.js')),
+      pack('./certs/cncf-opa/flashcards/pack-2.js', () => import('./certs/cncf-opa/flashcards/pack-2.js')),
+      pack('./certs/cncf-opa/flashcards/pack-3.js', () => import('./certs/cncf-opa/flashcards/pack-3.js')),
+      pack('./certs/cncf-opa/flashcards/pack-4.js', () => import('./certs/cncf-opa/flashcards/pack-4.js')),
+      pack('./certs/cncf-opa/flashcards/pack-5.js', () => import('./certs/cncf-opa/flashcards/pack-5.js')),
+      pack('./certs/cncf-opa/flashcards/pack-6.js', () => import('./certs/cncf-opa/flashcards/pack-6.js')),
+      pack('./certs/cncf-opa/flashcards/pack-7.js', () => import('./certs/cncf-opa/flashcards/pack-7.js')),
+      pack('./certs/cncf-opa/flashcards/pack-8.js', () => import('./certs/cncf-opa/flashcards/pack-8.js')),
+      pack('./certs/cncf-opa/flashcards/pack-9.js', () => import('./certs/cncf-opa/flashcards/pack-9.js')),
+      pack('./certs/cncf-opa/flashcards/pack-10.js', () => import('./certs/cncf-opa/flashcards/pack-10.js')),
+      pack('./certs/cncf-opa/flashcards/pack-11.js', () => import('./certs/cncf-opa/flashcards/pack-11.js')),
+      pack('./certs/cncf-opa/flashcards/pack-12.js', () => import('./certs/cncf-opa/flashcards/pack-12.js')),
+      pack('./certs/cncf-opa/flashcards/pack-13.js', () => import('./certs/cncf-opa/flashcards/pack-13.js')),
+      pack('./certs/cncf-opa/flashcards/pack-14.js', () => import('./certs/cncf-opa/flashcards/pack-14.js')),
+      pack('./certs/cncf-opa/flashcards/pack-15.js', () => import('./certs/cncf-opa/flashcards/pack-15.js')),
+      pack('./certs/cncf-opa/flashcards/pack-16.js', () => import('./certs/cncf-opa/flashcards/pack-16.js')),
+      pack('./certs/cncf-opa/flashcards/pack-17.js', () => import('./certs/cncf-opa/flashcards/pack-17.js')),
+      pack('./certs/cncf-opa/flashcards/pack-18.js', () => import('./certs/cncf-opa/flashcards/pack-18.js')),
+      pack('./certs/cncf-opa/flashcards/pack-19.js', () => import('./certs/cncf-opa/flashcards/pack-19.js')),
+      pack('./certs/cncf-opa/flashcards/pack-20.js', () => import('./certs/cncf-opa/flashcards/pack-20.js'))
+    ]
   },
   'cncf-otca': {
     questions: [
@@ -823,8 +949,50 @@ export const CONTENT_REGISTRY = {
     ]
   },
   'finops-focus': {
-    questions: [],
-    flashcards: []
+    questions: [
+      pack('./certs/finops-focus/questions/pack-1.js', () => import('./certs/finops-focus/questions/pack-1.js')),
+      pack('./certs/finops-focus/questions/pack-2.js', () => import('./certs/finops-focus/questions/pack-2.js')),
+      pack('./certs/finops-focus/questions/pack-3.js', () => import('./certs/finops-focus/questions/pack-3.js')),
+      pack('./certs/finops-focus/questions/pack-4.js', () => import('./certs/finops-focus/questions/pack-4.js')),
+      pack('./certs/finops-focus/questions/pack-5.js', () => import('./certs/finops-focus/questions/pack-5.js')),
+      pack('./certs/finops-focus/questions/pack-6.js', () => import('./certs/finops-focus/questions/pack-6.js')),
+      pack('./certs/finops-focus/questions/pack-7.js', () => import('./certs/finops-focus/questions/pack-7.js')),
+      pack('./certs/finops-focus/questions/pack-8.js', () => import('./certs/finops-focus/questions/pack-8.js')),
+      pack('./certs/finops-focus/questions/pack-9.js', () => import('./certs/finops-focus/questions/pack-9.js')),
+      pack('./certs/finops-focus/questions/pack-10.js', () => import('./certs/finops-focus/questions/pack-10.js')),
+      pack('./certs/finops-focus/questions/pack-11.js', () => import('./certs/finops-focus/questions/pack-11.js')),
+      pack('./certs/finops-focus/questions/pack-12.js', () => import('./certs/finops-focus/questions/pack-12.js')),
+      pack('./certs/finops-focus/questions/pack-13.js', () => import('./certs/finops-focus/questions/pack-13.js')),
+      pack('./certs/finops-focus/questions/pack-14.js', () => import('./certs/finops-focus/questions/pack-14.js')),
+      pack('./certs/finops-focus/questions/pack-15.js', () => import('./certs/finops-focus/questions/pack-15.js')),
+      pack('./certs/finops-focus/questions/pack-16.js', () => import('./certs/finops-focus/questions/pack-16.js')),
+      pack('./certs/finops-focus/questions/pack-17.js', () => import('./certs/finops-focus/questions/pack-17.js')),
+      pack('./certs/finops-focus/questions/pack-18.js', () => import('./certs/finops-focus/questions/pack-18.js')),
+      pack('./certs/finops-focus/questions/pack-19.js', () => import('./certs/finops-focus/questions/pack-19.js')),
+      pack('./certs/finops-focus/questions/pack-20.js', () => import('./certs/finops-focus/questions/pack-20.js'))
+    ],
+    flashcards: [
+      pack('./certs/finops-focus/flashcards/pack-1.js', () => import('./certs/finops-focus/flashcards/pack-1.js')),
+      pack('./certs/finops-focus/flashcards/pack-2.js', () => import('./certs/finops-focus/flashcards/pack-2.js')),
+      pack('./certs/finops-focus/flashcards/pack-3.js', () => import('./certs/finops-focus/flashcards/pack-3.js')),
+      pack('./certs/finops-focus/flashcards/pack-4.js', () => import('./certs/finops-focus/flashcards/pack-4.js')),
+      pack('./certs/finops-focus/flashcards/pack-5.js', () => import('./certs/finops-focus/flashcards/pack-5.js')),
+      pack('./certs/finops-focus/flashcards/pack-6.js', () => import('./certs/finops-focus/flashcards/pack-6.js')),
+      pack('./certs/finops-focus/flashcards/pack-7.js', () => import('./certs/finops-focus/flashcards/pack-7.js')),
+      pack('./certs/finops-focus/flashcards/pack-8.js', () => import('./certs/finops-focus/flashcards/pack-8.js')),
+      pack('./certs/finops-focus/flashcards/pack-9.js', () => import('./certs/finops-focus/flashcards/pack-9.js')),
+      pack('./certs/finops-focus/flashcards/pack-10.js', () => import('./certs/finops-focus/flashcards/pack-10.js')),
+      pack('./certs/finops-focus/flashcards/pack-11.js', () => import('./certs/finops-focus/flashcards/pack-11.js')),
+      pack('./certs/finops-focus/flashcards/pack-12.js', () => import('./certs/finops-focus/flashcards/pack-12.js')),
+      pack('./certs/finops-focus/flashcards/pack-13.js', () => import('./certs/finops-focus/flashcards/pack-13.js')),
+      pack('./certs/finops-focus/flashcards/pack-14.js', () => import('./certs/finops-focus/flashcards/pack-14.js')),
+      pack('./certs/finops-focus/flashcards/pack-15.js', () => import('./certs/finops-focus/flashcards/pack-15.js')),
+      pack('./certs/finops-focus/flashcards/pack-16.js', () => import('./certs/finops-focus/flashcards/pack-16.js')),
+      pack('./certs/finops-focus/flashcards/pack-17.js', () => import('./certs/finops-focus/flashcards/pack-17.js')),
+      pack('./certs/finops-focus/flashcards/pack-18.js', () => import('./certs/finops-focus/flashcards/pack-18.js')),
+      pack('./certs/finops-focus/flashcards/pack-19.js', () => import('./certs/finops-focus/flashcards/pack-19.js')),
+      pack('./certs/finops-focus/flashcards/pack-20.js', () => import('./certs/finops-focus/flashcards/pack-20.js'))
+    ]
   },
   'finops-professional': {
     questions: [],
@@ -1219,8 +1387,50 @@ export const CONTENT_REGISTRY = {
     ]
   },
   'hashicorp-vault': {
-    questions: [],
-    flashcards: []
+    questions: [
+      pack('./certs/hashicorp-vault/questions/pack-1.js', () => import('./certs/hashicorp-vault/questions/pack-1.js')),
+      pack('./certs/hashicorp-vault/questions/pack-2.js', () => import('./certs/hashicorp-vault/questions/pack-2.js')),
+      pack('./certs/hashicorp-vault/questions/pack-3.js', () => import('./certs/hashicorp-vault/questions/pack-3.js')),
+      pack('./certs/hashicorp-vault/questions/pack-4.js', () => import('./certs/hashicorp-vault/questions/pack-4.js')),
+      pack('./certs/hashicorp-vault/questions/pack-5.js', () => import('./certs/hashicorp-vault/questions/pack-5.js')),
+      pack('./certs/hashicorp-vault/questions/pack-6.js', () => import('./certs/hashicorp-vault/questions/pack-6.js')),
+      pack('./certs/hashicorp-vault/questions/pack-7.js', () => import('./certs/hashicorp-vault/questions/pack-7.js')),
+      pack('./certs/hashicorp-vault/questions/pack-8.js', () => import('./certs/hashicorp-vault/questions/pack-8.js')),
+      pack('./certs/hashicorp-vault/questions/pack-9.js', () => import('./certs/hashicorp-vault/questions/pack-9.js')),
+      pack('./certs/hashicorp-vault/questions/pack-10.js', () => import('./certs/hashicorp-vault/questions/pack-10.js')),
+      pack('./certs/hashicorp-vault/questions/pack-11.js', () => import('./certs/hashicorp-vault/questions/pack-11.js')),
+      pack('./certs/hashicorp-vault/questions/pack-12.js', () => import('./certs/hashicorp-vault/questions/pack-12.js')),
+      pack('./certs/hashicorp-vault/questions/pack-13.js', () => import('./certs/hashicorp-vault/questions/pack-13.js')),
+      pack('./certs/hashicorp-vault/questions/pack-14.js', () => import('./certs/hashicorp-vault/questions/pack-14.js')),
+      pack('./certs/hashicorp-vault/questions/pack-15.js', () => import('./certs/hashicorp-vault/questions/pack-15.js')),
+      pack('./certs/hashicorp-vault/questions/pack-16.js', () => import('./certs/hashicorp-vault/questions/pack-16.js')),
+      pack('./certs/hashicorp-vault/questions/pack-17.js', () => import('./certs/hashicorp-vault/questions/pack-17.js')),
+      pack('./certs/hashicorp-vault/questions/pack-18.js', () => import('./certs/hashicorp-vault/questions/pack-18.js')),
+      pack('./certs/hashicorp-vault/questions/pack-19.js', () => import('./certs/hashicorp-vault/questions/pack-19.js')),
+      pack('./certs/hashicorp-vault/questions/pack-20.js', () => import('./certs/hashicorp-vault/questions/pack-20.js'))
+    ],
+    flashcards: [
+      pack('./certs/hashicorp-vault/flashcards/pack-1.js', () => import('./certs/hashicorp-vault/flashcards/pack-1.js')),
+      pack('./certs/hashicorp-vault/flashcards/pack-2.js', () => import('./certs/hashicorp-vault/flashcards/pack-2.js')),
+      pack('./certs/hashicorp-vault/flashcards/pack-3.js', () => import('./certs/hashicorp-vault/flashcards/pack-3.js')),
+      pack('./certs/hashicorp-vault/flashcards/pack-4.js', () => import('./certs/hashicorp-vault/flashcards/pack-4.js')),
+      pack('./certs/hashicorp-vault/flashcards/pack-5.js', () => import('./certs/hashicorp-vault/flashcards/pack-5.js')),
+      pack('./certs/hashicorp-vault/flashcards/pack-6.js', () => import('./certs/hashicorp-vault/flashcards/pack-6.js')),
+      pack('./certs/hashicorp-vault/flashcards/pack-7.js', () => import('./certs/hashicorp-vault/flashcards/pack-7.js')),
+      pack('./certs/hashicorp-vault/flashcards/pack-8.js', () => import('./certs/hashicorp-vault/flashcards/pack-8.js')),
+      pack('./certs/hashicorp-vault/flashcards/pack-9.js', () => import('./certs/hashicorp-vault/flashcards/pack-9.js')),
+      pack('./certs/hashicorp-vault/flashcards/pack-10.js', () => import('./certs/hashicorp-vault/flashcards/pack-10.js')),
+      pack('./certs/hashicorp-vault/flashcards/pack-11.js', () => import('./certs/hashicorp-vault/flashcards/pack-11.js')),
+      pack('./certs/hashicorp-vault/flashcards/pack-12.js', () => import('./certs/hashicorp-vault/flashcards/pack-12.js')),
+      pack('./certs/hashicorp-vault/flashcards/pack-13.js', () => import('./certs/hashicorp-vault/flashcards/pack-13.js')),
+      pack('./certs/hashicorp-vault/flashcards/pack-14.js', () => import('./certs/hashicorp-vault/flashcards/pack-14.js')),
+      pack('./certs/hashicorp-vault/flashcards/pack-15.js', () => import('./certs/hashicorp-vault/flashcards/pack-15.js')),
+      pack('./certs/hashicorp-vault/flashcards/pack-16.js', () => import('./certs/hashicorp-vault/flashcards/pack-16.js')),
+      pack('./certs/hashicorp-vault/flashcards/pack-17.js', () => import('./certs/hashicorp-vault/flashcards/pack-17.js')),
+      pack('./certs/hashicorp-vault/flashcards/pack-18.js', () => import('./certs/hashicorp-vault/flashcards/pack-18.js')),
+      pack('./certs/hashicorp-vault/flashcards/pack-19.js', () => import('./certs/hashicorp-vault/flashcards/pack-19.js')),
+      pack('./certs/hashicorp-vault/flashcards/pack-20.js', () => import('./certs/hashicorp-vault/flashcards/pack-20.js'))
+    ]
   },
   'isc2-ccsp': {
     questions: [
