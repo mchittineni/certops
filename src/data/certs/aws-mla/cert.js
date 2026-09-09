@@ -8,8 +8,8 @@ export default {
   "title": "AWS Certified Machine Learning Engineer – Associate",
   "category": "Cloud Engineering",
   "tier": "associate",
-  "status": "planned",
-  "priority": null,
+  "status": "live",
+  "priority": 19,
   "badgeClass": "badge-aws",
   "icon": "aws",
   "color": "#ff9900",
@@ -18,7 +18,7 @@ export default {
   "maxScore": 1000,
   "defaultTimeMinutes": 130,
   "blueprintSource": "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
-  "blueprintVerified": false,
+  "blueprintVerified": true,
   "domains": [
     {
       "id": "d1",
