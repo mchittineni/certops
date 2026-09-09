@@ -8,8 +8,8 @@ export default {
   "title": "Microsoft Certified: Azure AI Engineer Associate",
   "category": "Cloud Engineering",
   "tier": "associate",
-  "status": "planned",
-  "priority": null,
+  "status": "live",
+  "priority": 18,
   "badgeClass": "badge-azure",
   "icon": "azure",
   "color": "#0078D4",
@@ -18,7 +18,7 @@ export default {
   "maxScore": 1000,
   "defaultTimeMinutes": 120,
   "blueprintSource": "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-  "blueprintVerified": false,
+  "blueprintVerified": true,
   "domains": [
     {
       "id": "d1",
