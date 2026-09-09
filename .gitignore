@@ -14,6 +14,8 @@ dist-ssr/
 node_modules/.vite/
 .cache/
 .temp/
+__pycache__/
+*.pyc
 
 # Test and coverage output — regenerate with `npm run coverage`.
 coverage/
