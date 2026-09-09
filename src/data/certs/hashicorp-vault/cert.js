@@ -8,8 +8,8 @@ export default {
   "title": "HashiCorp Certified: Vault Associate",
   "category": "DevSecOps & Security",
   "tier": "associate",
-  "status": "planned",
-  "priority": null,
+  "status": "live",
+  "priority": 16,
   "badgeClass": "badge-hashicorp",
   "icon": "hashicorp",
   "color": "#000000",
@@ -18,7 +18,7 @@ export default {
   "maxScore": 100,
   "defaultTimeMinutes": 60,
   "blueprintSource": "https://developer.hashicorp.com/vault/tutorials/certification-vault-associate-003",
-  "blueprintVerified": false,
+  "blueprintVerified": true,
   "domains": [
     {
       "id": "d1",
