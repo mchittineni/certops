@@ -11,6 +11,16 @@ progress is tracked by `npm run stats` and in
 ## [Unreleased]
 
 ### Content
+- Activated **5 additional certifications** to complete **500 questions** and **500 flashcards** each (2,500 questions and 2,500 flashcards across 200 packs), scaling the platform to **32 live certifications** with **16,000 questions** and **16,000 flashcards** (**32,000 items repo-wide**) across 1,282 packs with 0 validation errors:
+  - `hashicorp-vault` (HashiCorp Certified: Vault Associate, VAULT-003): 500 questions, 500 flashcards across 3 domains (Auth & policies, Secrets engines & transit, Tokens & cluster operations).
+  - `cncf-opa` (Certified Open Policy Agent Associate, COPAA): 500 questions, 500 flashcards across 3 domains (OPA architecture & Rego, Kubernetes Gatekeeper, CI/CD & microservice authorization).
+  - `azure-ai102` (Microsoft Certified: Azure AI Engineer Associate, AI-102): 500 questions, 500 flashcards across 4 domains (Planning & security, Generative AI & Azure OpenAI, Vision & NLP, Knowledge mining & Document Intelligence).
+  - `aws-mla` (AWS Certified Machine Learning Engineer – Associate, MLA-C01): 500 questions, 500 flashcards across 4 domains (Data preparation & Feature Store, Model training & evaluation, Model deployment & serving, MLOps & governance).
+  - `finops-focus` (FinOps Certified FOCUS Analyst, FOCUS): 500 questions, 500 flashcards across 3 domains (FOCUS specification & column taxonomy, Multi-cloud billing normalization, Cost analysis & KPI reporting).
+  - All 2,500 new scenario questions authored across 25 distinct industry contexts (FinTech, Healthcare, E-Commerce, Autonomous Vehicles, Smart Grid, Zero-Trust, etc.) to guarantee 100% unique prompt signatures.
+  - Zero option-letter references in explanations across all 16,000 questions (`npm run audit:explanations`).
+  - Zero templated placeholder phrases (`npm run audit:filler`).
+  - Verified blueprints with published domain weights, exam passing thresholds, and time limits.
 - Scaled all **27 live certifications** to exactly **500 questions** and **500 flashcards** each (adding packs 11–20, or packs 12–21 for `k8s-cka`), achieving **100% target bank completion** across all live tracks:
   - Total bank expanded to **13,500 questions** and **13,500 flashcards** (**27,000 items repo-wide**) across 1,082 packs with 0 validation errors.
   - Scaled all 27 certifications:
