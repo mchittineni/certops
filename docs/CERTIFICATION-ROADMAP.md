@@ -15,21 +15,21 @@ npm run stats           # progress toward 500 questions per certification
 
 | | Certifications | Live | Questions |
 | --- | --- | --- | --- |
-| ☁️ Cloud Engineering | 22 | 9 | 4,500 |
+| ☁️ Cloud Engineering | 22 | 11 | 5,500 |
 | 🚀 DevOps & SRE | 11 | 6 | 3,000 |
 | ☸️ Kubernetes & Cloud Native | 8 | 4 | 2,000 |
 | 🏗️ Platform Engineering | 6 | 3 | 1,500 |
-| 💰 FinOps | 8 | 1 | 500 |
-| 🔐 DevSecOps & Security | 13 | 4 | 2,000 |
-| **Total** | **68** | **27** | **13,500** |
+| 💰 FinOps | 8 | 2 | 1,000 |
+| 🔐 DevSecOps & Security | 13 | 6 | 3,000 |
+| **Total** | **68** | **32** | **16,000** |
 
 Regenerate these numbers any time with `npm run stats`.
 
-**Authored vs. generated.** All 27 live certifications feature complete 500-question banks
-and 500-card flashcard decks (13,500 questions and 13,500 flashcards, totaling 27,000 items repo-wide) adhering to official domain
+**Authored vs. generated.** All 32 live certifications feature complete 500-question banks
+and 500-card flashcard decks (16,000 questions and 16,000 flashcards, totaling 32,000 items repo-wide) adhering to official domain
 weights, comprehensive explanations, and zero option-letter references. `npm run audit:filler` reports the current inventory.
 
-**A live certification needs a verified blueprint.** The 41 remaining `planned` entries carry
+**A live certification needs a verified blueprint.** The 36 remaining `planned` entries carry
 *placeholder* domains and weights with `blueprintVerified: false`. Fixing that against the
 official exam guide is step 1 of
 [taking one live](#taking-one-certification-from-planned-to-live), and it is a genuinely
@@ -37,7 +37,7 @@ useful contribution on its own — no question authoring required.
 
 ## Priority order
 
-The Top-15 priority certifications from the 2026 roadmap are all **live and available** with complete 500-question banks and 500-card flashcard decks:
+The Top-20 priority certifications from the 2026 roadmap are all **live and available** with complete 500-question banks and 500-card flashcard decks:
 
 | # | Certification | id | Category | Status |
 | --- | --- | --- | --- | --- |
@@ -56,15 +56,20 @@ The Top-15 priority certifications from the 2026 roadmap are all **live and avai
 | 13 | OpenTelemetry Certified Associate (OTCA) | `cncf-otca` | Kubernetes & Cloud Native | ✅ live |
 | 14 | Certified Backstage Associate (CBA) | `cncf-cba` | Platform Engineering | ✅ live |
 | 15 | Google Professional Machine Learning Engineer | `gcp-pmle` | Cloud Engineering | ✅ live |
+| 16 | HashiCorp Certified: Vault Associate (VAULT-003) | `hashicorp-vault` | DevSecOps & Security | ✅ live |
+| 17 | Certified Open Policy Agent Associate (COPAA) | `cncf-opa` | DevSecOps & Security | ✅ live |
+| 18 | Microsoft Certified: Azure AI Engineer Associate (AI-102) | `azure-ai102` | Cloud Engineering | ✅ live |
+| 19 | AWS Certified Machine Learning Engineer – Associate (MLA-C01) | `aws-mla` | Cloud Engineering | ✅ live |
+| 20 | FinOps Certified FOCUS Analyst (FOCUS) | `finops-focus` | FinOps | ✅ live |
 
 ## Full catalogue
 
 ### ☁️ Cloud Engineering
 `aws-saa` SAA-C03 ✅ · `aws-dva` DVA-C02 ✅ · `aws-clf` CLF-C02 ✅ · `azure-az104` AZ-104 ✅ ·
-`azure-az204` AZ-204 ✅ · `azure-az900` AZ-900 ✅ · `gcp-ace` GCP-ACE ✅ · `gcp-pca` GCP-PCA ✅ ·
-`gcp-pmle` GCP-PMLE ✅ · `aws-sap` SAP-C02 · `aws-soa` SOA-C02 · `aws-ans` ANS-C01 · `azure-az305` AZ-305 ·
-`aws-mla` MLA-C01 · `aws-mls` MLS-C01 · `aws-dbs` DBS-C01 · `gcp-pde` GCP-PDE · `gcp-pcne` GCP-PCNE ·
-`gcp-pcdbe` GCP-PCDBE · `azure-ai102` AI-102 · `azure-ai-apps-agents` AI-Apps · `databricks-genai` Databricks-GenAI
+`azure-az204` AZ-204 ✅ · `azure-az900` AZ-900 ✅ · `azure-ai102` AI-102 ✅ · `aws-mla` MLA-C01 ✅ ·
+`gcp-ace` GCP-ACE ✅ · `gcp-pca` GCP-PCA ✅ · `gcp-pmle` GCP-PMLE ✅ · `aws-sap` SAP-C02 ·
+`aws-soa` SOA-C02 · `aws-ans` ANS-C01 · `azure-az305` AZ-305 · `aws-mls` MLS-C01 · `aws-dbs` DBS-C01 ·
+`gcp-pde` GCP-PDE · `gcp-pcne` GCP-PCNE · `gcp-pcdbe` GCP-PCDBE · `azure-ai-apps-agents` AI-Apps · `databricks-genai` Databricks-GenAI
 
 ### 🚀 DevOps & SRE
 `aws-dop` DOP-C02 ✅ · `azure-az400` AZ-400 ✅ · `gcp-pcdoe` GCP-PCDE ✅ · `hashicorp-tfa` TA-003 ✅ ·
@@ -81,15 +86,14 @@ The Top-15 priority certifications from the 2026 roadmap are all **live and avai
 `cncf-ica` ICA · `cncf-kca` KCA
 
 ### 💰 FinOps
-`finops-focp` FOCP ✅ · `finops-professional` FOC-PRO · `finops-engineer` FOCE ·
-`finops-csp` FOC-CSP · `cloud-economics` CLOUD-ECON · `finops-focus` FOCUS ·
-`finops-ai-value` AIAV · `finops-tech-value` TV
+`finops-focp` FOCP ✅ · `finops-focus` FOCUS ✅ · `finops-professional` FOC-PRO · `finops-engineer` FOCE ·
+`finops-csp` FOC-CSP · `cloud-economics` CLOUD-ECON · `finops-ai-value` AIAV · `finops-tech-value` TV
 
 ### 🔐 DevSecOps & Security
 `aws-scs` SCS-C02 ✅ · `github-ghas` GH-500 ✅ · `k8s-cks` CKS ✅ · `isc2-ccsp` CCSP ✅ ·
-`gcp-pcse` GCP-PCSE · `cncf-kcsa` KCSA · `doi-devsecops-foundation` DSOF ·
-`doi-devsecops-practitioner` DSOP · `isc2-cissp` CISSP · `offsec-oscp` OSCP ·
-`hashicorp-vault` VAULT · `cncf-opa` OPA · `azure-sc500` SC-500
+`hashicorp-vault` VAULT-003 ✅ · `cncf-opa` COPAA ✅ · `gcp-pcse` GCP-PCSE · `cncf-kcsa` KCSA ·
+`doi-devsecops-foundation` DSOF · `doi-devsecops-practitioner` DSOP · `isc2-cissp` CISSP ·
+`offsec-oscp` OSCP · `azure-sc500` SC-500
 
 ## Taking one certification from planned to live
 

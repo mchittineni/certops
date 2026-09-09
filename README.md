@@ -20,18 +20,18 @@ every answer moves your difficulty band toward your actual level.
 
 ## Project status
 
-**Live track fully scaled. All 27 live certifications feature complete 500-question banks.**
+**Live track fully scaled. All 32 live certifications feature complete 500-question banks.**
 
 | | |
 | --- | --- |
 | Certifications scaffolded | **68** across six disciplines |
-| Live (launchable, with content) | **27** — including all Top 15 roadmap priorities plus AWS, Azure, GCP, GitHub, Kubernetes, and HashiCorp tracks |
-| Questions authored / live | **13,500** of a 34,000 target (500 × 68) |
-| Flashcards authored / live | **13,500** |
+| Live (launchable, with content) | **32** — including all Top 20 roadmap priorities plus AWS, Azure, GCP, GitHub, Kubernetes, CNCF, FinOps, and HashiCorp tracks |
+| Questions authored / live | **16,000** of a 34,000 target (500 × 68) |
+| Flashcards authored / live | **16,000** |
 
 Run `npm run stats` for detailed domain and difficulty distributions across the bank.
 
-The 41 remaining certifications exist as folders with **placeholder blueprints** — they
+The 36 remaining certifications exist as folders with **placeholder blueprints** — they
 appear on the roadmap panel but cannot be launched. That is the honest state of things,
 and it is exactly where contributions land: see [CONTRIBUTING.md](CONTRIBUTING.md).
 
@@ -247,7 +247,7 @@ once on boot and then removed ([src/lib/storage.js](src/lib/storage.js)).
 
 ## Contributing
 
-The 27 live certifications are fully scaled with complete 500-question banks (13,500 questions and 13,500 flashcards repo-wide). Contributions are welcomed to expand the 41 planned roadmap certifications or refine existing questions — and a **wrong answer is the highest-priority bug**, because it teaches someone the wrong thing before an exam they paid for. Start with [CONTRIBUTING.md](CONTRIBUTING.md).
+The 32 live certifications are fully scaled with complete 500-question banks (16,000 questions and 16,000 flashcards repo-wide). Contributions are welcomed to expand the 36 planned roadmap certifications or refine existing questions — and a **wrong answer is the highest-priority bug**, because it teaches someone the wrong thing before an exam they paid for. Start with [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ```bash
 npm run new:pack -- --cert <id> --kind questions --count 25
