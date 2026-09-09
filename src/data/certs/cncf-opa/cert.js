@@ -8,8 +8,8 @@ export default {
   "title": "Certified Open Policy Agent Associate",
   "category": "DevSecOps & Security",
   "tier": "associate",
-  "status": "planned",
-  "priority": null,
+  "status": "live",
+  "priority": 17,
   "badgeClass": "badge-k8s",
   "icon": "cncf",
   "color": "#231F20",
@@ -18,7 +18,7 @@ export default {
   "maxScore": 100,
   "defaultTimeMinutes": 90,
   "blueprintSource": "https://www.cncf.io/certification/copaa/",
-  "blueprintVerified": false,
+  "blueprintVerified": true,
   "domains": [
     {
       "id": "d1",
