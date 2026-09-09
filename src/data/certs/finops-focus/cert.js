@@ -8,8 +8,8 @@ export default {
   "title": "FinOps Certified FOCUS Analyst",
   "category": "FinOps",
   "tier": "foundational",
-  "status": "planned",
-  "priority": null,
+  "status": "live",
+  "priority": 20,
   "badgeClass": "badge-finops",
   "icon": "finops",
   "color": "#10b981",
@@ -18,7 +18,7 @@ export default {
   "maxScore": 100,
   "defaultTimeMinutes": 60,
   "blueprintSource": "https://www.finops.org/certification/focus-analyst/",
-  "blueprintVerified": false,
+  "blueprintVerified": true,
   "domains": [
     {
       "id": "d1",
