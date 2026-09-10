@@ -1,0 +1,127 @@
+name: Publish dataset to Hugging Face
+
+# Manual only. Publishing pushes content to a public third-party host, so it
+# never runs off a push or a schedule — someone has to ask for it, name the
+# dataset, and turn the dry run off.
+on:
+  workflow_dispatch:
+    inputs:
+      dataset_id:
+        description: 'Target dataset, as <user-or-org>/<dataset-name>'
+        required: true
+        type: string
+      scope:
+        description: 'Which certifications to publish'
+        required: true
+        default: clean-only
+        type: choice
+        options:
+          - clean-only
+          - all
+      dry_run:
+        description: 'Build and report only. Untick to actually publish.'
+        required: true
+        default: true
+        type: boolean
+      visibility:
+        description: 'Visibility used only when the dataset is first created'
+        required: true
+        default: private
+        type: choice
+        options:
+          - private
+          - public
+
+permissions:
+  contents: read
+
+concurrency:
+  group: publish-hf
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    name: Export and publish
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 26
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build content
+        run: npm run build:content
+
+      # A bad export is far harder to withdraw than a bad deploy, so the content
+      # gates that guard the site guard the dataset too.
+      - name: Validate content
+        run: npm run validate
+
+      - name: Distractor quality report
+        run: |
+          {
+            echo '## Distractor quality at publish time'
+            echo
+            echo '```'
+            npm run audit:distractors --silent
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Export dataset
+        run: |
+          if [ "${{ inputs.scope }}" = "clean-only" ]; then
+            npm run dataset:export --silent -- --only-clean
+          else
+            npm run dataset:export --silent
+          fi
+
+      - name: Report export
+        run: |
+          {
+            echo '## Export'
+            echo
+            echo '| File | Rows | Size |'
+            echo '| --- | --- | --- |'
+            for f in certifications questions flashcards; do
+              printf '| %s.jsonl | %s | %s |\n' \
+                "$f" \
+                "$(wc -l < dist-dataset/$f.jsonl | tr -d ' ')" \
+                "$(du -h dist-dataset/$f.jsonl | cut -f1)"
+            done
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload dataset artifact
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: hf-dataset
+          path: dist-dataset
+          retention-days: 7
+
+      - name: Dry run
+        if: inputs.dry_run
+        run: |
+          npm run dataset:publish --silent -- --repo "${{ inputs.dataset_id }}"
+          echo 'Dry run only — nothing was published.' >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Publish to Hugging Face
+        if: ${{ !inputs.dry_run }}
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          if [ -z "${HF_TOKEN}" ]; then
+            echo "::error::HF_TOKEN secret is not set. Add a write token in Settings -> Secrets and variables -> Actions."
+            exit 1
+          fi
+          npm run dataset:publish --silent -- \
+            --repo "${{ inputs.dataset_id }}" \
+            --confirm \
+            ${{ inputs.visibility == 'private' && '--private' || '' }}
+          echo "Published to https://huggingface.co/datasets/${{ inputs.dataset_id }}" >> "$GITHUB_STEP_SUMMARY"

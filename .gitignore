@@ -74,3 +74,6 @@ tmp/
 *.bak
 *.orig
 *.rej
+
+# Hugging Face dataset export (built by npm run dataset:export)
+dist-dataset/
