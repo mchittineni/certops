@@ -17,6 +17,16 @@ Adheres strictly to CertOps content standards:
 """
 import os, json
 
+# Rotated per pack so that (topic, context) pairings stay distinct in domains
+# that have more packs than topics, without inventing extra requirements.
+STAGES = [
+    "the development environment",
+    "the staging environment",
+    "the pre-production environment",
+    "the production environment",
+    "a newly built secondary environment"
+]
+
 CONTEXTS = [
     ("High-Frequency FinTech Trading", "A quantitative trading desk requires microsecond secrets delivery, zero packet loss, and deterministic authentication guarantees."),
     ("Healthcare Patient Records & HIPAA", "A national hospital network requires strict cryptographic privacy, auditable access controls, and HIPAA compliance."),

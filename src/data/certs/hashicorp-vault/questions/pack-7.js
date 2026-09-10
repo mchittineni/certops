@@ -6,7 +6,7 @@ export const HASHICORP_VAULT_QUESTIONS_7 = [
     domainId: "d1",
     domainName: "Compare authentication methods and manage Vault policies",
     title: "Tamper-Evident Hand-Off of a Bootstrap Credential: High-Frequency FinTech Trading",
-    scenario: "A quantitative trading desk requires microsecond secrets delivery, zero packet loss, and deterministic authentication guarantees. The platform team is delivering an initial credential to a new client so that any interception is detected.",
+    scenario: "A quantitative trading desk requires microsecond secrets delivery, zero packet loss, and deterministic authentication guarantees. The platform team is delivering an initial credential to a new client so that any interception is detected. The work is scoped to the staging environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Generate wrapped tokens or SecretIDs using the '-wrap-ttl' parameter so the recipient retrieves the secret with 'vault unwrap'." },
@@ -27,7 +27,7 @@ export const HASHICORP_VAULT_QUESTIONS_7 = [
     domainId: "d1",
     domainName: "Compare authentication methods and manage Vault policies",
     title: "Indefinite Authentication for a Long-Running Daemon: Healthcare Patient Records & HIPAA",
-    scenario: "A national hospital network requires strict cryptographic privacy, auditable access controls, and HIPAA compliance. The platform team is keeping a background daemon authenticated indefinitely without handing it privileged credentials.",
+    scenario: "A national hospital network requires strict cryptographic privacy, auditable access controls, and HIPAA compliance. The platform team is keeping a background daemon authenticated indefinitely without handing it privileged credentials. The work is scoped to the staging environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Issue a service token with a long explicit max TTL and have the daemon re-authenticate through its AppRole role once the token eventually reaches that limit." },
@@ -48,7 +48,7 @@ export const HASHICORP_VAULT_QUESTIONS_7 = [
     domainId: "d1",
     domainName: "Compare authentication methods and manage Vault policies",
     title: "A Token That Outlives the Session That Created It: Global E-Commerce Black Friday Scale",
-    scenario: "An international retail marketplace prepares for 100x traffic surges with zero downtime and instant failover. The platform team is provisioning a service token whose lifetime must not depend on the operator who created it.",
+    scenario: "An international retail marketplace prepares for 100x traffic surges with zero downtime and instant failover. The platform team is provisioning a service token whose lifetime must not depend on the operator who created it. The work is scoped to the staging environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Create the token with 'vault token create -ttl' set longer than the parent token's remaining lifetime." },
@@ -69,7 +69,7 @@ export const HASHICORP_VAULT_QUESTIONS_7 = [
     domainId: "d1",
     domainName: "Compare authentication methods and manage Vault policies",
     title: "Machine Identity for Containerized Workloads: Autonomous Vehicle Telemetry",
-    scenario: "A self-driving automotive fleet streams terabytes of sensor telemetry requiring real-time distributed ingestion and anomaly detection. The platform team is configuring machine authentication for workloads that cannot be pre-seeded with credentials.",
+    scenario: "A self-driving automotive fleet streams terabytes of sensor telemetry requiring real-time distributed ingestion and anomaly detection. The platform team is configuring machine authentication for workloads that cannot be pre-seeded with credentials. The work is scoped to the staging environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Enable the Kubernetes auth method and bind roles to each workload's service account, validating pod identity through the cluster TokenReview API." },
@@ -90,7 +90,7 @@ export const HASHICORP_VAULT_QUESTIONS_7 = [
     domainId: "d1",
     domainName: "Compare authentication methods and manage Vault policies",
     title: "Pod Identity Without Distributing Credentials: Multi-Tenant B2B SaaS Platform",
-    scenario: "An enterprise cloud SaaS architecture mandates strict logical tenant isolation, data masking, and per-tenant resource quotas. The platform team is authenticating ephemeral cluster pods whose identity must be revocable the moment they are deleted.",
+    scenario: "An enterprise cloud SaaS architecture mandates strict logical tenant isolation, data masking, and per-tenant resource quotas. The platform team is authenticating ephemeral cluster pods whose identity must be revocable the moment they are deleted. The work is scoped to the staging environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Enable the Kubernetes auth method, configure Vault with the cluster token reviewer JWT, and bind Vault roles to Kubernetes service accounts and namespaces." },
@@ -111,7 +111,7 @@ export const HASHICORP_VAULT_QUESTIONS_7 = [
     domainId: "d1",
     domainName: "Compare authentication methods and manage Vault policies",
     title: "Read-Only Access to a KV v2 Path: Media Streaming & Global CDN",
-    scenario: "A global video streaming service distributes high-bitrate live media with distributed edge caching and tokenized DRM protection. The platform team is granting an application read access to its own secrets without allowing it to overwrite them.",
+    scenario: "A global video streaming service distributes high-bitrate live media with distributed edge caching and tokenized DRM protection. The platform team is granting an application read access to its own secrets without allowing it to overwrite them. The work is scoped to the staging environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Specify path 'secret/app/*' with capabilities ['read'] so a single rule covers the application's secrets under the KV mount." },
@@ -132,7 +132,7 @@ export const HASHICORP_VAULT_QUESTIONS_7 = [
     domainId: "d1",
     domainName: "Compare authentication methods and manage Vault policies",
     title: "One Policy Rule Covering Many Teams: Aerospace Satellite Ground Systems",
-    scenario: "An aerospace telemetry platform processes orbital downlinks with fault-tolerant queuing and asynchronous edge processing. The platform team is scaling per-team access control without authoring a separate rule for every team.",
+    scenario: "An aerospace telemetry platform processes orbital downlinks with fault-tolerant queuing and asynchronous edge processing. The platform team is scaling per-team access control without authoring a separate rule for every team. The work is scoped to the staging environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Create one policy per team and attach the matching policy to each auth method role and identity entity as new teams are onboarded." },
@@ -153,7 +153,7 @@ export const HASHICORP_VAULT_QUESTIONS_7 = [
     domainId: "d1",
     domainName: "Compare authentication methods and manage Vault policies",
     title: "Tamper-Evident Hand-Off of a Bootstrap Credential: Telecommunications 5G Core Network",
-    scenario: "A national telecom operator manages high-density network slices with automated scaling and sub-millisecond service mesh routing. The platform team is delivering an initial credential to a new client so that any interception is detected.",
+    scenario: "A national telecom operator manages high-density network slices with automated scaling and sub-millisecond service mesh routing. The platform team is delivering an initial credential to a new client so that any interception is detected. The work is scoped to the staging environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Issue the credential with a very short TTL so that an intercepted value expires before an attacker is able to use it." },
@@ -174,7 +174,7 @@ export const HASHICORP_VAULT_QUESTIONS_7 = [
     domainId: "d1",
     domainName: "Compare authentication methods and manage Vault policies",
     title: "Indefinite Authentication for a Long-Running Daemon: Renewable Energy Smart Grid IoT",
-    scenario: "A smart electrical grid platform monitors millions of smart meters with low-latency time-series analysis and automated load shedding. The platform team is keeping a background daemon authenticated indefinitely without handing it privileged credentials.",
+    scenario: "A smart electrical grid platform monitors millions of smart meters with low-latency time-series analysis and automated load shedding. The platform team is keeping a background daemon authenticated indefinitely without handing it privileged credentials. The work is scoped to the staging environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Issue a periodic token with a defined period, requiring the daemon to renew it within the period interval indefinitely without hitting a max TTL." },
@@ -195,7 +195,7 @@ export const HASHICORP_VAULT_QUESTIONS_7 = [
     domainId: "d1",
     domainName: "Compare authentication methods and manage Vault policies",
     title: "A Token That Outlives the Session That Created It: Supply Chain Cold-Chain Logistics",
-    scenario: "A pharmaceutical distribution network tracks temperature-sensitive cargo with cryptographic provenance and automated breach alerts. The platform team is provisioning a service token whose lifetime must not depend on the operator who created it.",
+    scenario: "A pharmaceutical distribution network tracks temperature-sensitive cargo with cryptographic provenance and automated breach alerts. The platform team is provisioning a service token whose lifetime must not depend on the operator who created it. The work is scoped to the staging environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Create the token with 'vault token create -ttl' set longer than the parent token's remaining lifetime." },
@@ -216,7 +216,7 @@ export const HASHICORP_VAULT_QUESTIONS_7 = [
     domainId: "d1",
     domainName: "Compare authentication methods and manage Vault policies",
     title: "Machine Identity for Containerized Workloads: Banking Core Ledger & Payments",
-    scenario: "A central banking consortium enforces ACID consistency, immutable transaction audit trails, and automated reconciliation. The platform team is configuring machine authentication for workloads that cannot be pre-seeded with credentials.",
+    scenario: "A central banking consortium enforces ACID consistency, immutable transaction audit trails, and automated reconciliation. The platform team is configuring machine authentication for workloads that cannot be pre-seeded with credentials. The work is scoped to the staging environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Enable the Kubernetes auth method and bind roles to each workload's service account, validating pod identity through the cluster TokenReview API." },
@@ -237,7 +237,7 @@ export const HASHICORP_VAULT_QUESTIONS_7 = [
     domainId: "d1",
     domainName: "Compare authentication methods and manage Vault policies",
     title: "Pod Identity Without Distributing Credentials: Genomic Sequencing & Biotech Pipeline",
-    scenario: "A genomics laboratory processes petabyte-scale FASTQ files with distributed batch computing and high-throughput POSIX storage. The platform team is authenticating ephemeral cluster pods whose identity must be revocable the moment they are deleted.",
+    scenario: "A genomics laboratory processes petabyte-scale FASTQ files with distributed batch computing and high-throughput POSIX storage. The platform team is authenticating ephemeral cluster pods whose identity must be revocable the moment they are deleted. The work is scoped to the staging environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Enable the JWT auth method, point it at the cluster's public JWKS issuer URL, and bind roles to the subject claim carried in each pod's projected service account token." },
@@ -258,7 +258,7 @@ export const HASHICORP_VAULT_QUESTIONS_7 = [
     domainId: "d1",
     domainName: "Compare authentication methods and manage Vault policies",
     title: "Read-Only Access to a KV v2 Path: Defense-Grade Zero-Trust Network",
-    scenario: "A defense intelligence system enforces continuous mutual TLS authentication, strict least privilege, and non-repudiation. The platform team is granting an application read access to its own secrets without allowing it to overwrite them.",
+    scenario: "A defense intelligence system enforces continuous mutual TLS authentication, strict least privilege, and non-repudiation. The platform team is granting an application read access to its own secrets without allowing it to overwrite them. The work is scoped to the staging environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Specify path 'secret/data/app/*' with capabilities ['read'] to allow reading credentials while denying creation or modification." },
@@ -279,7 +279,7 @@ export const HASHICORP_VAULT_QUESTIONS_7 = [
     domainId: "d1",
     domainName: "Compare authentication methods and manage Vault policies",
     title: "One Policy Rule Covering Many Teams: Online Multiplayer Gaming Engine",
-    scenario: "A real-time competitive gaming cluster orchestrates match sessions with regional matchmaking and anti-cheat validation. The platform team is scaling per-team access control without authoring a separate rule for every team.",
+    scenario: "A real-time competitive gaming cluster orchestrates match sessions with regional matchmaking and anti-cheat validation. The platform team is scaling per-team access control without authoring a separate rule for every team. The work is scoped to the staging environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Create one policy per team and attach the matching policy to each auth method role and identity entity as new teams are onboarded." },
@@ -300,7 +300,7 @@ export const HASHICORP_VAULT_QUESTIONS_7 = [
     domainId: "d1",
     domainName: "Compare authentication methods and manage Vault policies",
     title: "Tamper-Evident Hand-Off of a Bootstrap Credential: Insurance Risk & Actuarial Modeling",
-    scenario: "An actuarial underwriting platform executes Monte Carlo simulations across millions of policy holder records with parallel workers. The platform team is delivering an initial credential to a new client so that any interception is detected.",
+    scenario: "An actuarial underwriting platform executes Monte Carlo simulations across millions of policy holder records with parallel workers. The platform team is delivering an initial credential to a new client so that any interception is detected. The work is scoped to the staging environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Issue the credential with a very short TTL so that an intercepted value expires before an attacker is able to use it." },
@@ -321,7 +321,7 @@ export const HASHICORP_VAULT_QUESTIONS_7 = [
     domainId: "d1",
     domainName: "Compare authentication methods and manage Vault policies",
     title: "Indefinite Authentication for a Long-Running Daemon: Pharmaceutical Clinical Trial Platform",
-    scenario: "A global pharmaceutical research group manages double-blind clinical trial records with strict regulatory reporting and audit trails. The platform team is keeping a background daemon authenticated indefinitely without handing it privileged credentials.",
+    scenario: "A global pharmaceutical research group manages double-blind clinical trial records with strict regulatory reporting and audit trails. The platform team is keeping a background daemon authenticated indefinitely without handing it privileged credentials. The work is scoped to the staging environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Issue a service token with a long explicit max TTL and have the daemon re-authenticate through its AppRole role once the token eventually reaches that limit." },
@@ -342,7 +342,7 @@ export const HASHICORP_VAULT_QUESTIONS_7 = [
     domainId: "d1",
     domainName: "Compare authentication methods and manage Vault policies",
     title: "A Token That Outlives the Session That Created It: Smart City Traffic & Mobility Sensor Hub",
-    scenario: "A metropolitan transit authority optimizes urban traffic signals with real-time video analytics and edge inference. The platform team is provisioning a service token whose lifetime must not depend on the operator who created it.",
+    scenario: "A metropolitan transit authority optimizes urban traffic signals with real-time video analytics and edge inference. The platform team is provisioning a service token whose lifetime must not depend on the operator who created it. The work is scoped to the staging environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Create an orphan token using 'vault token create -orphan' so its lifetime is independent of the creator's token revocation." },
@@ -363,7 +363,7 @@ export const HASHICORP_VAULT_QUESTIONS_7 = [
     domainId: "d1",
     domainName: "Compare authentication methods and manage Vault policies",
     title: "Machine Identity for Containerized Workloads: Digital Identity & Biometric Verification",
-    scenario: "A cross-border passport control gateway validates identity credentials with zero-knowledge cryptographic proofs. The platform team is configuring machine authentication for workloads that cannot be pre-seeded with credentials.",
+    scenario: "A cross-border passport control gateway validates identity credentials with zero-knowledge cryptographic proofs. The platform team is configuring machine authentication for workloads that cannot be pre-seeded with credentials. The work is scoped to the staging environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Enable the Kubernetes auth method and bind roles to each workload's service account, validating pod identity through the cluster TokenReview API." },
@@ -384,7 +384,7 @@ export const HASHICORP_VAULT_QUESTIONS_7 = [
     domainId: "d1",
     domainName: "Compare authentication methods and manage Vault policies",
     title: "Pod Identity Without Distributing Credentials: Legal Discovery & Semantic Document Search",
-    scenario: "A global law firm conducts regulatory discovery across millions of scanned legal filings with vector-enhanced semantic retrieval. The platform team is authenticating ephemeral cluster pods whose identity must be revocable the moment they are deleted.",
+    scenario: "A global law firm conducts regulatory discovery across millions of scanned legal filings with vector-enhanced semantic retrieval. The platform team is authenticating ephemeral cluster pods whose identity must be revocable the moment they are deleted. The work is scoped to the staging environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Enable the JWT auth method, point it at the cluster's public JWKS issuer URL, and bind roles to the subject claim carried in each pod's projected service account token." },
@@ -405,7 +405,7 @@ export const HASHICORP_VAULT_QUESTIONS_7 = [
     domainId: "d1",
     domainName: "Compare authentication methods and manage Vault policies",
     title: "Read-Only Access to a KV v2 Path: AdTech Real-Time Bidding Exchange",
-    scenario: "An advertising exchange processes 500,000 bids per second with a strict 20-millisecond SLA and distributed caching. The platform team is granting an application read access to its own secrets without allowing it to overwrite them.",
+    scenario: "An advertising exchange processes 500,000 bids per second with a strict 20-millisecond SLA and distributed caching. The platform team is granting an application read access to its own secrets without allowing it to overwrite them. The work is scoped to the staging environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Specify path 'secret/app/*' with capabilities ['read'] so a single rule covers the application's secrets under the KV mount." },
@@ -426,7 +426,7 @@ export const HASHICORP_VAULT_QUESTIONS_7 = [
     domainId: "d1",
     domainName: "Compare authentication methods and manage Vault policies",
     title: "One Policy Rule Covering Many Teams: Precision Agriculture & Drone Scouting",
-    scenario: "An agricultural drone fleet captures multispectral crop imagery with automated computer vision defect classification. The platform team is scaling per-team access control without authoring a separate rule for every team.",
+    scenario: "An agricultural drone fleet captures multispectral crop imagery with automated computer vision defect classification. The platform team is scaling per-team access control without authoring a separate rule for every team. The work is scoped to the staging environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Define policy paths using template syntax like 'secret/data/teams/{{identity.entity.metadata.team}}/*' to restrict access by metadata." },
@@ -447,7 +447,7 @@ export const HASHICORP_VAULT_QUESTIONS_7 = [
     domainId: "d1",
     domainName: "Compare authentication methods and manage Vault policies",
     title: "Tamper-Evident Hand-Off of a Bootstrap Credential: Industrial Robotics Predictive Maintenance",
-    scenario: "A semiconductor fabrication facility detects vibration harmonics on manufacturing robots to prevent unplanned downtime. The platform team is delivering an initial credential to a new client so that any interception is detected.",
+    scenario: "A semiconductor fabrication facility detects vibration harmonics on manufacturing robots to prevent unplanned downtime. The platform team is delivering an initial credential to a new client so that any interception is detected. The work is scoped to the staging environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Issue the credential with a very short TTL so that an intercepted value expires before an attacker is able to use it." },
@@ -468,7 +468,7 @@ export const HASHICORP_VAULT_QUESTIONS_7 = [
     domainId: "d1",
     domainName: "Compare authentication methods and manage Vault policies",
     title: "Indefinite Authentication for a Long-Running Daemon: Educational Remote Proctoring Platform",
-    scenario: "An online university platform enforces anti-plagiarism and biometric proctoring for high-stakes certification exams. The platform team is keeping a background daemon authenticated indefinitely without handing it privileged credentials.",
+    scenario: "An online university platform enforces anti-plagiarism and biometric proctoring for high-stakes certification exams. The platform team is keeping a background daemon authenticated indefinitely without handing it privileged credentials. The work is scoped to the staging environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Issue a service token with a long explicit max TTL and have the daemon re-authenticate through its AppRole role once the token eventually reaches that limit." },
@@ -489,7 +489,7 @@ export const HASHICORP_VAULT_QUESTIONS_7 = [
     domainId: "d1",
     domainName: "Compare authentication methods and manage Vault policies",
     title: "A Token That Outlives the Session That Created It: Real Estate Valuation & Geo-Spatial Analytics",
-    scenario: "A property appraisal engine fuses GIS parcel maps with real-time market transactions for automated valuation. The platform team is provisioning a service token whose lifetime must not depend on the operator who created it.",
+    scenario: "A property appraisal engine fuses GIS parcel maps with real-time market transactions for automated valuation. The platform team is provisioning a service token whose lifetime must not depend on the operator who created it. The work is scoped to the staging environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Create the token with 'vault token create -ttl' set longer than the parent token's remaining lifetime." },
@@ -510,7 +510,7 @@ export const HASHICORP_VAULT_QUESTIONS_7 = [
     domainId: "d1",
     domainName: "Compare authentication methods and manage Vault policies",
     title: "Machine Identity for Containerized Workloads: Disaster Emergency Dispatch & Operations",
-    scenario: "A municipal 911 emergency response platform guarantees 99.999% uptime with multi-region hot-standby active failover. The platform team is configuring machine authentication for workloads that cannot be pre-seeded with credentials.",
+    scenario: "A municipal 911 emergency response platform guarantees 99.999% uptime with multi-region hot-standby active failover. The platform team is configuring machine authentication for workloads that cannot be pre-seeded with credentials. The work is scoped to the staging environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Configure the AppRole auth engine with a static role_id and dynamically generated secret_id bound to CIDR subnets and short TTLs." },

@@ -33,7 +33,7 @@ const STRAWMAN = [
   /\bmanually (inspect|copy|review|edit|track|check|transcribe)\b/i,
   /\bhardcode/i, /\bspreadsheet\b/i, /\bdo nothing\b/i, /\bunversioned\b/i,
   /\bemail (the|a) (secret|credential|password|key|token)/i,
-  /\bwithout (any|centralized|analyzing|encryption|monitoring|logging)\b/i,
+  /\bwithout (any |centralized |proper )?(encryption|monitoring|logging|authentication|validation|review|oversight|backups?)\b/i,
   /\bdelete all\b/i, /\bnotepad\b/i, /\bsticky note/i, /\bUSB drive\b/i,
   /\bstore (all )?(secrets|credentials|passwords|keys) in (plain|a text|source|the code)/i,
   /\b(public|world-readable) S3 bucket\b/i, /\bmonolithic shared\b/i, /\bon every click\b/i,
