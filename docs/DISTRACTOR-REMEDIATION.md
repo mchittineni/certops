@@ -17,8 +17,8 @@ exit non-zero, which is how this becomes a build gate once the content lands.
 | `leak%` | the stem names a term the key uses and no distractor does | **82.9%** | ≤35% |
 | `len gap` | mean key length minus mean distractor length | **+52 chars** | ≤+15 |
 
-All 32 live certifications breach at least one target. 16,000 live questions,
-~48,000 distractors.
+27 of 32 live certifications still breach at least one target. The five in phase 1 below
+now pass all four; the remaining 27 cover ~13,500 questions and ~40,500 distractors.
 
 ### Why length alone is not the fix
 
@@ -71,29 +71,37 @@ the one built for CIDR-bound machine identity. That is the bar for every rewritt
 
 ## Sequencing
 
-Ordered by leverage: fix the source, not the output, wherever a source exists.
+Ordered by leverage. Phase 1 is complete; phases 2 and 3 remain.
 
-### Phase 1 — generator-backed certs (~2,500 questions, deterministic)
+### Phase 1 — the five worst certifications (done)
 
-Five certifications are emitted by templates in `scripts/data_gen/`, so the fix is a
-bounded edit to ~100 topic tuples per generator plus a regenerate. These are also the
-worst-scoring certs in the bank — all five sit at 100% `longest%`.
+These five were emitted by generator templates and were the worst-scoring banks in
+the corpus, all at 100% `longest%`. All 276 distractors across their 92 topics were
+rewritten as real alternatives, each losing only on a requirement the scenario states.
 
-| Cert | Generator | `longest%` | `strawman%` | `leak%` |
+| Cert | `longest%` | `strawman%` | `leak%` | len gap |
 | --- | --- | --- | --- | --- |
-| `azure-ai102` | `azure_ai.py` | 100.0 | 30.0 | 93.8 |
-| `aws-mla` | `aws_mla.py` | 100.0 | 26.2 | 89.0 |
-| `cncf-opa` | `opa.py` | 100.0 | 26.4 | 73.4 |
-| `hashicorp-vault` | `vault.py` | 100.0 | 29.2 | 63.6 |
-| `finops-focus` | `finops_focus.py` | 100.0 | 0.0 | 70.2 |
+| `hashicorp-vault` | 100.0 → **19.4** | 29.2 → **0.0** | 63.6 → **0.0** | +48 → **+6** |
+| `aws-mla` | 100.0 → **27.8** | 26.2 → **0.0** | 89.0 → **0.2** | +58 → **+8** |
+| `finops-focus` | 100.0 → **30.0** | 25.2 → **0.0** | 70.2 → **0.0** | +65 → **+12** |
+| `azure-ai102` | 100.0 → **31.6** | 30.0 → **0.0** | 93.8 → **0.2** | +59 → **+12** |
+| `cncf-opa` | 100.0 → **30.6** | 26.4 → **0.0** | 73.4 → **32.2** | +57 → **+14** |
 
-Each topic is a tuple of `(title, context, key, distractor1..3, explanation, tags)`.
-The three distractor slots are where the strawmen live. Rewrite those slots and the
-templated stem, then `python scripts/data_gen/run_all.py` and re-audit.
+Two structural fixes came with it. Each topic gained a solution-neutral challenge
+label used for the question title, and the stem stopped interpolating the topic name —
+between them these removed the `leak%` tell at the source. Scenarios also gained a
+per-pack environment clause, because dropping the old `cycle N.N` suffix had been the
+only thing keeping them unique in domains with more packs than topics.
 
-The generators also fix `leak%` at the source: the stem template interpolates the topic
-name, which is why *"…for sagemaker data wrangler"* names the answer. Change the stem
-template once and 500 items stop leaking.
+**The generators have since been deleted** at the maintainer's request, so the JS packs
+under `src/data/certs/<cert>/questions/` are now the only source of truth for these five
+banks. Edit the packs directly; there is nothing left to regenerate from, and a rerun
+would overwrite the rewritten content.
+
+One limitation this leaves in place: these five banks draw 500 questions from ~20 topics
+each, so a topic recurs roughly 25 times wrapped in different scenario contexts, and the
+context is generic framing that rarely bears on the answer. That repetition is inherent
+to how the banks were built and is not something the distractor rewrite addresses.
 
 ### Phase 2 — hand-authored certs at 98%+ (~3,500 questions)
 
