@@ -6,7 +6,7 @@ export const AZURE_AI102_FLASHCARDS_9 = [
     domainId: "d2",
     front: "Azure AI: Azure OpenAI RAG with Azure AI Search in High-Frequency FinTech Trading",
     hint: "Focus on openai and rag capabilities.",
-    back: "<strong>Azure OpenAI RAG with Azure AI Search</strong>: Use Azure OpenAI 'On Your Data' integrated with Azure AI Search to retrieve relevant document chunks using hybrid vector search and ground the model prompt. Core architectural rationale: Retrieval-Augmented Generation (RAG) grounds language models on internal enterprise documents without expensive model retraining. Azure OpenAI 'On Your Data' qu...",
+    back: "<strong>Azure OpenAI RAG with Azure AI Search</strong>: Use Azure OpenAI 'On Your Data' integrated with Azure AI Search to retrieve relevant document chunks using hybrid vector search and ground the model prompt. Core architectural rationale: Retrieval grounds each answer in the specific passages that were retrieved for that question, and because the index is refreshed independently a weekly corpus c...",
     tags: ["openai", "rag", "ai-search", "High-Frequency FinTech Trading"]
   },
   {
@@ -16,7 +16,7 @@ export const AZURE_AI102_FLASHCARDS_9 = [
     domainId: "d2",
     front: "Azure AI: Provisioned Throughput Units (PTU) in Healthcare Patient Records & HIPAA",
     hint: "Focus on openai and ptu capabilities.",
-    back: "<strong>Provisioned Throughput Units (PTU)</strong>: Deploy models with Provisioned Throughput Units (PTU) to guarantee reserved compute capacity, consistent latency, and predictable monthly costs for critical apps. Core architectural rationale: Provisioned Throughput Units (PTU) reserve dedicated model processing capacity for Azure OpenAI workloads. Unlike standard pay-as-you-go deployments that share ...",
+    back: "<strong>Provisioned Throughput Units (PTU)</strong>: Deploy models with Provisioned Throughput Units (PTU) to guarantee reserved compute capacity, consistent latency, and predictable monthly costs for critical apps. Core architectural rationale: PTU reserves dedicated capacity for the deployment, so throughput and latency stop depending on what other tenants in the region are doing. A quota increase rai...",
     tags: ["openai", "ptu", "capacity", "Healthcare Patient Records & HIPAA"]
   },
   {
@@ -26,7 +26,7 @@ export const AZURE_AI102_FLASHCARDS_9 = [
     domainId: "d2",
     front: "Azure AI: Function Calling and Structured Tool Use in Global E-Commerce Black Friday Scale",
     hint: "Focus on openai and function-calling capabilities.",
-    back: "<strong>Function Calling and Structured Tool Use</strong>: Define JSON schemas for tools in the model request and execute the returned function arguments in your application to fetch live data. Core architectural rationale: Azure OpenAI function calling allows models to return structured JSON containing function names and arguments matching client-provided tool schemas. The applica...",
+    back: "<strong>Function Calling and Structured Tool Use</strong>: Define JSON schemas for tools in the model request and execute the returned function arguments in your application to fetch live data. Core architectural rationale: Tool schemas make the model emit a validated call naming a function and its arguments, so the application runs the query and the answer reflects the system stat...",
     tags: ["openai", "function-calling", "tools", "Global E-Commerce Black Friday Scale"]
   },
   {
@@ -36,7 +36,7 @@ export const AZURE_AI102_FLASHCARDS_9 = [
     domainId: "d2",
     front: "Azure AI: System Message Steering and Prompt Engineering in Autonomous Vehicle Telemetry",
     hint: "Focus on prompt-engineering and system-message capabilities.",
-    back: "<strong>System Message Steering and Prompt Engineering</strong>: Construct a comprehensive system prompt specifying the persona, task constraints, refusal boundaries, and few-shot input-output examples. Core architectural rationale: The system message sets the behavioral foundation, domain scope, and output constraints for language models. Providing few-shot demonstration examples and expli...",
+    back: "<strong>System Message Steering and Prompt Engineering</strong>: Construct a comprehensive system prompt specifying the persona, task constraints, refusal boundaries, and few-shot input-output examples. Core architectural rationale: The system message is where persona, scope, refusals, and worked examples belong, and changing any of them is a configuration edit rather than a deployment. Fin...",
     tags: ["prompt-engineering", "system-message", "openai", "Autonomous Vehicle Telemetry"]
   },
   {
@@ -46,7 +46,7 @@ export const AZURE_AI102_FLASHCARDS_9 = [
     domainId: "d2",
     front: "Azure AI: Azure OpenAI RAG with Azure AI Search in Multi-Tenant B2B SaaS Platform",
     hint: "Focus on openai and rag capabilities.",
-    back: "<strong>Azure OpenAI RAG with Azure AI Search</strong>: Use Azure OpenAI 'On Your Data' integrated with Azure AI Search to retrieve relevant document chunks using hybrid vector search and ground the model prompt. Core architectural rationale: Retrieval-Augmented Generation (RAG) grounds language models on internal enterprise documents without expensive model retraining. Azure OpenAI 'On Your Data' qu...",
+    back: "<strong>Azure OpenAI RAG with Azure AI Search</strong>: Use Azure OpenAI 'On Your Data' integrated with Azure AI Search to retrieve relevant document chunks using hybrid vector search and ground the model prompt. Core architectural rationale: Retrieval grounds each answer in the specific passages that were retrieved for that question, and because the index is refreshed independently a weekly corpus c...",
     tags: ["openai", "rag", "ai-search", "Multi-Tenant B2B SaaS Platform"]
   },
   {
@@ -56,7 +56,7 @@ export const AZURE_AI102_FLASHCARDS_9 = [
     domainId: "d2",
     front: "Azure AI: Provisioned Throughput Units (PTU) in Media Streaming & Global CDN",
     hint: "Focus on openai and ptu capabilities.",
-    back: "<strong>Provisioned Throughput Units (PTU)</strong>: Deploy models with Provisioned Throughput Units (PTU) to guarantee reserved compute capacity, consistent latency, and predictable monthly costs for critical apps. Core architectural rationale: Provisioned Throughput Units (PTU) reserve dedicated model processing capacity for Azure OpenAI workloads. Unlike standard pay-as-you-go deployments that share ...",
+    back: "<strong>Provisioned Throughput Units (PTU)</strong>: Deploy models with Provisioned Throughput Units (PTU) to guarantee reserved compute capacity, consistent latency, and predictable monthly costs for critical apps. Core architectural rationale: PTU reserves dedicated capacity for the deployment, so throughput and latency stop depending on what other tenants in the region are doing. A quota increase rai...",
     tags: ["openai", "ptu", "capacity", "Media Streaming & Global CDN"]
   },
   {
@@ -66,7 +66,7 @@ export const AZURE_AI102_FLASHCARDS_9 = [
     domainId: "d2",
     front: "Azure AI: Function Calling and Structured Tool Use in Aerospace Satellite Ground Systems",
     hint: "Focus on openai and function-calling capabilities.",
-    back: "<strong>Function Calling and Structured Tool Use</strong>: Define JSON schemas for tools in the model request and execute the returned function arguments in your application to fetch live data. Core architectural rationale: Azure OpenAI function calling allows models to return structured JSON containing function names and arguments matching client-provided tool schemas. The applica...",
+    back: "<strong>Function Calling and Structured Tool Use</strong>: Define JSON schemas for tools in the model request and execute the returned function arguments in your application to fetch live data. Core architectural rationale: Tool schemas make the model emit a validated call naming a function and its arguments, so the application runs the query and the answer reflects the system stat...",
     tags: ["openai", "function-calling", "tools", "Aerospace Satellite Ground Systems"]
   },
   {
@@ -76,7 +76,7 @@ export const AZURE_AI102_FLASHCARDS_9 = [
     domainId: "d2",
     front: "Azure AI: System Message Steering and Prompt Engineering in Telecommunications 5G Core Network",
     hint: "Focus on prompt-engineering and system-message capabilities.",
-    back: "<strong>System Message Steering and Prompt Engineering</strong>: Construct a comprehensive system prompt specifying the persona, task constraints, refusal boundaries, and few-shot input-output examples. Core architectural rationale: The system message sets the behavioral foundation, domain scope, and output constraints for language models. Providing few-shot demonstration examples and expli...",
+    back: "<strong>System Message Steering and Prompt Engineering</strong>: Construct a comprehensive system prompt specifying the persona, task constraints, refusal boundaries, and few-shot input-output examples. Core architectural rationale: The system message is where persona, scope, refusals, and worked examples belong, and changing any of them is a configuration edit rather than a deployment. Fin...",
     tags: ["prompt-engineering", "system-message", "openai", "Telecommunications 5G Core Network"]
   },
   {
@@ -86,7 +86,7 @@ export const AZURE_AI102_FLASHCARDS_9 = [
     domainId: "d2",
     front: "Azure AI: Azure OpenAI RAG with Azure AI Search in Renewable Energy Smart Grid IoT",
     hint: "Focus on openai and rag capabilities.",
-    back: "<strong>Azure OpenAI RAG with Azure AI Search</strong>: Use Azure OpenAI 'On Your Data' integrated with Azure AI Search to retrieve relevant document chunks using hybrid vector search and ground the model prompt. Core architectural rationale: Retrieval-Augmented Generation (RAG) grounds language models on internal enterprise documents without expensive model retraining. Azure OpenAI 'On Your Data' qu...",
+    back: "<strong>Azure OpenAI RAG with Azure AI Search</strong>: Use Azure OpenAI 'On Your Data' integrated with Azure AI Search to retrieve relevant document chunks using hybrid vector search and ground the model prompt. Core architectural rationale: Retrieval grounds each answer in the specific passages that were retrieved for that question, and because the index is refreshed independently a weekly corpus c...",
     tags: ["openai", "rag", "ai-search", "Renewable Energy Smart Grid IoT"]
   },
   {
@@ -96,7 +96,7 @@ export const AZURE_AI102_FLASHCARDS_9 = [
     domainId: "d2",
     front: "Azure AI: Provisioned Throughput Units (PTU) in Supply Chain Cold-Chain Logistics",
     hint: "Focus on openai and ptu capabilities.",
-    back: "<strong>Provisioned Throughput Units (PTU)</strong>: Deploy models with Provisioned Throughput Units (PTU) to guarantee reserved compute capacity, consistent latency, and predictable monthly costs for critical apps. Core architectural rationale: Provisioned Throughput Units (PTU) reserve dedicated model processing capacity for Azure OpenAI workloads. Unlike standard pay-as-you-go deployments that share ...",
+    back: "<strong>Provisioned Throughput Units (PTU)</strong>: Deploy models with Provisioned Throughput Units (PTU) to guarantee reserved compute capacity, consistent latency, and predictable monthly costs for critical apps. Core architectural rationale: PTU reserves dedicated capacity for the deployment, so throughput and latency stop depending on what other tenants in the region are doing. A quota increase rai...",
     tags: ["openai", "ptu", "capacity", "Supply Chain Cold-Chain Logistics"]
   },
   {
@@ -106,7 +106,7 @@ export const AZURE_AI102_FLASHCARDS_9 = [
     domainId: "d2",
     front: "Azure AI: Function Calling and Structured Tool Use in Banking Core Ledger & Payments",
     hint: "Focus on openai and function-calling capabilities.",
-    back: "<strong>Function Calling and Structured Tool Use</strong>: Define JSON schemas for tools in the model request and execute the returned function arguments in your application to fetch live data. Core architectural rationale: Azure OpenAI function calling allows models to return structured JSON containing function names and arguments matching client-provided tool schemas. The applica...",
+    back: "<strong>Function Calling and Structured Tool Use</strong>: Define JSON schemas for tools in the model request and execute the returned function arguments in your application to fetch live data. Core architectural rationale: Tool schemas make the model emit a validated call naming a function and its arguments, so the application runs the query and the answer reflects the system stat...",
     tags: ["openai", "function-calling", "tools", "Banking Core Ledger & Payments"]
   },
   {
@@ -116,7 +116,7 @@ export const AZURE_AI102_FLASHCARDS_9 = [
     domainId: "d2",
     front: "Azure AI: System Message Steering and Prompt Engineering in Genomic Sequencing & Biotech Pipeline",
     hint: "Focus on prompt-engineering and system-message capabilities.",
-    back: "<strong>System Message Steering and Prompt Engineering</strong>: Construct a comprehensive system prompt specifying the persona, task constraints, refusal boundaries, and few-shot input-output examples. Core architectural rationale: The system message sets the behavioral foundation, domain scope, and output constraints for language models. Providing few-shot demonstration examples and expli...",
+    back: "<strong>System Message Steering and Prompt Engineering</strong>: Construct a comprehensive system prompt specifying the persona, task constraints, refusal boundaries, and few-shot input-output examples. Core architectural rationale: The system message is where persona, scope, refusals, and worked examples belong, and changing any of them is a configuration edit rather than a deployment. Fin...",
     tags: ["prompt-engineering", "system-message", "openai", "Genomic Sequencing & Biotech Pipeline"]
   },
   {
@@ -126,7 +126,7 @@ export const AZURE_AI102_FLASHCARDS_9 = [
     domainId: "d2",
     front: "Azure AI: Azure OpenAI RAG with Azure AI Search in Defense-Grade Zero-Trust Network",
     hint: "Focus on openai and rag capabilities.",
-    back: "<strong>Azure OpenAI RAG with Azure AI Search</strong>: Use Azure OpenAI 'On Your Data' integrated with Azure AI Search to retrieve relevant document chunks using hybrid vector search and ground the model prompt. Core architectural rationale: Retrieval-Augmented Generation (RAG) grounds language models on internal enterprise documents without expensive model retraining. Azure OpenAI 'On Your Data' qu...",
+    back: "<strong>Azure OpenAI RAG with Azure AI Search</strong>: Use Azure OpenAI 'On Your Data' integrated with Azure AI Search to retrieve relevant document chunks using hybrid vector search and ground the model prompt. Core architectural rationale: Retrieval grounds each answer in the specific passages that were retrieved for that question, and because the index is refreshed independently a weekly corpus c...",
     tags: ["openai", "rag", "ai-search", "Defense-Grade Zero-Trust Network"]
   },
   {
@@ -136,7 +136,7 @@ export const AZURE_AI102_FLASHCARDS_9 = [
     domainId: "d2",
     front: "Azure AI: Provisioned Throughput Units (PTU) in Online Multiplayer Gaming Engine",
     hint: "Focus on openai and ptu capabilities.",
-    back: "<strong>Provisioned Throughput Units (PTU)</strong>: Deploy models with Provisioned Throughput Units (PTU) to guarantee reserved compute capacity, consistent latency, and predictable monthly costs for critical apps. Core architectural rationale: Provisioned Throughput Units (PTU) reserve dedicated model processing capacity for Azure OpenAI workloads. Unlike standard pay-as-you-go deployments that share ...",
+    back: "<strong>Provisioned Throughput Units (PTU)</strong>: Deploy models with Provisioned Throughput Units (PTU) to guarantee reserved compute capacity, consistent latency, and predictable monthly costs for critical apps. Core architectural rationale: PTU reserves dedicated capacity for the deployment, so throughput and latency stop depending on what other tenants in the region are doing. A quota increase rai...",
     tags: ["openai", "ptu", "capacity", "Online Multiplayer Gaming Engine"]
   },
   {
@@ -146,7 +146,7 @@ export const AZURE_AI102_FLASHCARDS_9 = [
     domainId: "d2",
     front: "Azure AI: Function Calling and Structured Tool Use in Insurance Risk & Actuarial Modeling",
     hint: "Focus on openai and function-calling capabilities.",
-    back: "<strong>Function Calling and Structured Tool Use</strong>: Define JSON schemas for tools in the model request and execute the returned function arguments in your application to fetch live data. Core architectural rationale: Azure OpenAI function calling allows models to return structured JSON containing function names and arguments matching client-provided tool schemas. The applica...",
+    back: "<strong>Function Calling and Structured Tool Use</strong>: Define JSON schemas for tools in the model request and execute the returned function arguments in your application to fetch live data. Core architectural rationale: Tool schemas make the model emit a validated call naming a function and its arguments, so the application runs the query and the answer reflects the system stat...",
     tags: ["openai", "function-calling", "tools", "Insurance Risk & Actuarial Modeling"]
   },
   {
@@ -156,7 +156,7 @@ export const AZURE_AI102_FLASHCARDS_9 = [
     domainId: "d2",
     front: "Azure AI: System Message Steering and Prompt Engineering in Pharmaceutical Clinical Trial Platform",
     hint: "Focus on prompt-engineering and system-message capabilities.",
-    back: "<strong>System Message Steering and Prompt Engineering</strong>: Construct a comprehensive system prompt specifying the persona, task constraints, refusal boundaries, and few-shot input-output examples. Core architectural rationale: The system message sets the behavioral foundation, domain scope, and output constraints for language models. Providing few-shot demonstration examples and expli...",
+    back: "<strong>System Message Steering and Prompt Engineering</strong>: Construct a comprehensive system prompt specifying the persona, task constraints, refusal boundaries, and few-shot input-output examples. Core architectural rationale: The system message is where persona, scope, refusals, and worked examples belong, and changing any of them is a configuration edit rather than a deployment. Fin...",
     tags: ["prompt-engineering", "system-message", "openai", "Pharmaceutical Clinical Trial Platform"]
   },
   {
@@ -166,7 +166,7 @@ export const AZURE_AI102_FLASHCARDS_9 = [
     domainId: "d2",
     front: "Azure AI: Azure OpenAI RAG with Azure AI Search in Smart City Traffic & Mobility Sensor Hub",
     hint: "Focus on openai and rag capabilities.",
-    back: "<strong>Azure OpenAI RAG with Azure AI Search</strong>: Use Azure OpenAI 'On Your Data' integrated with Azure AI Search to retrieve relevant document chunks using hybrid vector search and ground the model prompt. Core architectural rationale: Retrieval-Augmented Generation (RAG) grounds language models on internal enterprise documents without expensive model retraining. Azure OpenAI 'On Your Data' qu...",
+    back: "<strong>Azure OpenAI RAG with Azure AI Search</strong>: Use Azure OpenAI 'On Your Data' integrated with Azure AI Search to retrieve relevant document chunks using hybrid vector search and ground the model prompt. Core architectural rationale: Retrieval grounds each answer in the specific passages that were retrieved for that question, and because the index is refreshed independently a weekly corpus c...",
     tags: ["openai", "rag", "ai-search", "Smart City Traffic & Mobility Sensor Hub"]
   },
   {
@@ -176,7 +176,7 @@ export const AZURE_AI102_FLASHCARDS_9 = [
     domainId: "d2",
     front: "Azure AI: Provisioned Throughput Units (PTU) in Digital Identity & Biometric Verification",
     hint: "Focus on openai and ptu capabilities.",
-    back: "<strong>Provisioned Throughput Units (PTU)</strong>: Deploy models with Provisioned Throughput Units (PTU) to guarantee reserved compute capacity, consistent latency, and predictable monthly costs for critical apps. Core architectural rationale: Provisioned Throughput Units (PTU) reserve dedicated model processing capacity for Azure OpenAI workloads. Unlike standard pay-as-you-go deployments that share ...",
+    back: "<strong>Provisioned Throughput Units (PTU)</strong>: Deploy models with Provisioned Throughput Units (PTU) to guarantee reserved compute capacity, consistent latency, and predictable monthly costs for critical apps. Core architectural rationale: PTU reserves dedicated capacity for the deployment, so throughput and latency stop depending on what other tenants in the region are doing. A quota increase rai...",
     tags: ["openai", "ptu", "capacity", "Digital Identity & Biometric Verification"]
   },
   {
@@ -186,7 +186,7 @@ export const AZURE_AI102_FLASHCARDS_9 = [
     domainId: "d2",
     front: "Azure AI: Function Calling and Structured Tool Use in Legal Discovery & Semantic Document Search",
     hint: "Focus on openai and function-calling capabilities.",
-    back: "<strong>Function Calling and Structured Tool Use</strong>: Define JSON schemas for tools in the model request and execute the returned function arguments in your application to fetch live data. Core architectural rationale: Azure OpenAI function calling allows models to return structured JSON containing function names and arguments matching client-provided tool schemas. The applica...",
+    back: "<strong>Function Calling and Structured Tool Use</strong>: Define JSON schemas for tools in the model request and execute the returned function arguments in your application to fetch live data. Core architectural rationale: Tool schemas make the model emit a validated call naming a function and its arguments, so the application runs the query and the answer reflects the system stat...",
     tags: ["openai", "function-calling", "tools", "Legal Discovery & Semantic Document Search"]
   },
   {
@@ -196,7 +196,7 @@ export const AZURE_AI102_FLASHCARDS_9 = [
     domainId: "d2",
     front: "Azure AI: System Message Steering and Prompt Engineering in AdTech Real-Time Bidding Exchange",
     hint: "Focus on prompt-engineering and system-message capabilities.",
-    back: "<strong>System Message Steering and Prompt Engineering</strong>: Construct a comprehensive system prompt specifying the persona, task constraints, refusal boundaries, and few-shot input-output examples. Core architectural rationale: The system message sets the behavioral foundation, domain scope, and output constraints for language models. Providing few-shot demonstration examples and expli...",
+    back: "<strong>System Message Steering and Prompt Engineering</strong>: Construct a comprehensive system prompt specifying the persona, task constraints, refusal boundaries, and few-shot input-output examples. Core architectural rationale: The system message is where persona, scope, refusals, and worked examples belong, and changing any of them is a configuration edit rather than a deployment. Fin...",
     tags: ["prompt-engineering", "system-message", "openai", "AdTech Real-Time Bidding Exchange"]
   },
   {
@@ -206,7 +206,7 @@ export const AZURE_AI102_FLASHCARDS_9 = [
     domainId: "d2",
     front: "Azure AI: Azure OpenAI RAG with Azure AI Search in Precision Agriculture & Drone Scouting",
     hint: "Focus on openai and rag capabilities.",
-    back: "<strong>Azure OpenAI RAG with Azure AI Search</strong>: Use Azure OpenAI 'On Your Data' integrated with Azure AI Search to retrieve relevant document chunks using hybrid vector search and ground the model prompt. Core architectural rationale: Retrieval-Augmented Generation (RAG) grounds language models on internal enterprise documents without expensive model retraining. Azure OpenAI 'On Your Data' qu...",
+    back: "<strong>Azure OpenAI RAG with Azure AI Search</strong>: Use Azure OpenAI 'On Your Data' integrated with Azure AI Search to retrieve relevant document chunks using hybrid vector search and ground the model prompt. Core architectural rationale: Retrieval grounds each answer in the specific passages that were retrieved for that question, and because the index is refreshed independently a weekly corpus c...",
     tags: ["openai", "rag", "ai-search", "Precision Agriculture & Drone Scouting"]
   },
   {
@@ -216,7 +216,7 @@ export const AZURE_AI102_FLASHCARDS_9 = [
     domainId: "d2",
     front: "Azure AI: Provisioned Throughput Units (PTU) in Industrial Robotics Predictive Maintenance",
     hint: "Focus on openai and ptu capabilities.",
-    back: "<strong>Provisioned Throughput Units (PTU)</strong>: Deploy models with Provisioned Throughput Units (PTU) to guarantee reserved compute capacity, consistent latency, and predictable monthly costs for critical apps. Core architectural rationale: Provisioned Throughput Units (PTU) reserve dedicated model processing capacity for Azure OpenAI workloads. Unlike standard pay-as-you-go deployments that share ...",
+    back: "<strong>Provisioned Throughput Units (PTU)</strong>: Deploy models with Provisioned Throughput Units (PTU) to guarantee reserved compute capacity, consistent latency, and predictable monthly costs for critical apps. Core architectural rationale: PTU reserves dedicated capacity for the deployment, so throughput and latency stop depending on what other tenants in the region are doing. A quota increase rai...",
     tags: ["openai", "ptu", "capacity", "Industrial Robotics Predictive Maintenance"]
   },
   {
@@ -226,7 +226,7 @@ export const AZURE_AI102_FLASHCARDS_9 = [
     domainId: "d2",
     front: "Azure AI: Function Calling and Structured Tool Use in Educational Remote Proctoring Platform",
     hint: "Focus on openai and function-calling capabilities.",
-    back: "<strong>Function Calling and Structured Tool Use</strong>: Define JSON schemas for tools in the model request and execute the returned function arguments in your application to fetch live data. Core architectural rationale: Azure OpenAI function calling allows models to return structured JSON containing function names and arguments matching client-provided tool schemas. The applica...",
+    back: "<strong>Function Calling and Structured Tool Use</strong>: Define JSON schemas for tools in the model request and execute the returned function arguments in your application to fetch live data. Core architectural rationale: Tool schemas make the model emit a validated call naming a function and its arguments, so the application runs the query and the answer reflects the system stat...",
     tags: ["openai", "function-calling", "tools", "Educational Remote Proctoring Platform"]
   },
   {
@@ -236,7 +236,7 @@ export const AZURE_AI102_FLASHCARDS_9 = [
     domainId: "d2",
     front: "Azure AI: System Message Steering and Prompt Engineering in Real Estate Valuation & Geo-Spatial Analytics",
     hint: "Focus on prompt-engineering and system-message capabilities.",
-    back: "<strong>System Message Steering and Prompt Engineering</strong>: Construct a comprehensive system prompt specifying the persona, task constraints, refusal boundaries, and few-shot input-output examples. Core architectural rationale: The system message sets the behavioral foundation, domain scope, and output constraints for language models. Providing few-shot demonstration examples and expli...",
+    back: "<strong>System Message Steering and Prompt Engineering</strong>: Construct a comprehensive system prompt specifying the persona, task constraints, refusal boundaries, and few-shot input-output examples. Core architectural rationale: The system message is where persona, scope, refusals, and worked examples belong, and changing any of them is a configuration edit rather than a deployment. Fin...",
     tags: ["prompt-engineering", "system-message", "openai", "Real Estate Valuation & Geo-Spatial Analytics"]
   },
   {
@@ -246,7 +246,7 @@ export const AZURE_AI102_FLASHCARDS_9 = [
     domainId: "d2",
     front: "Azure AI: Azure OpenAI RAG with Azure AI Search in Disaster Emergency Dispatch & Operations",
     hint: "Focus on openai and rag capabilities.",
-    back: "<strong>Azure OpenAI RAG with Azure AI Search</strong>: Use Azure OpenAI 'On Your Data' integrated with Azure AI Search to retrieve relevant document chunks using hybrid vector search and ground the model prompt. Core architectural rationale: Retrieval-Augmented Generation (RAG) grounds language models on internal enterprise documents without expensive model retraining. Azure OpenAI 'On Your Data' qu...",
+    back: "<strong>Azure OpenAI RAG with Azure AI Search</strong>: Use Azure OpenAI 'On Your Data' integrated with Azure AI Search to retrieve relevant document chunks using hybrid vector search and ground the model prompt. Core architectural rationale: Retrieval grounds each answer in the specific passages that were retrieved for that question, and because the index is refreshed independently a weekly corpus c...",
     tags: ["openai", "rag", "ai-search", "Disaster Emergency Dispatch & Operations"]
   }
 ];
