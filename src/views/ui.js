@@ -26,10 +26,36 @@ export function escapeHtml(text) {
     .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 }
 
+/**
+ * Inline formatting the content packs are allowed to use. Nothing here takes
+ * attributes, which is what makes the allowlist below safe to re-admit.
+ */
+const INLINE_TAGS = ['strong', 'em', 'code', 'kbd', 'ul', 'ol', 'li', 'p', 'br'];
+const ALLOWED_TAG_PATTERN = new RegExp(
+  `&lt;(\\/?)(${INLINE_TAGS.join('|')})\\s*\\/?&gt;`,
+  'gi'
+);
+
+/**
+ * Renders the limited inline formatting used in flashcard backs and explanations.
+ *
+ * Escape everything first, then re-admit the handful of attribute-free tags on
+ * the allowlist. Going in this direction matters: a `<` can only reach the
+ * output through the replacement below, so there is no input that yields a tag
+ * outside INLINE_TAGS and no attribute can survive at all.
+ *
+ * The previous implementation stripped anything that did not look like an
+ * allowed tag, which failed three ways. `<p onclick="...">` matched the
+ * allowlist and kept its event handler; a single strip pass could reassemble a
+ * tag out of what surrounded it (`<scr<script>ipt>`); and prose was destroyed,
+ * since `Map<string, string>` looked enough like a tag to be deleted outright.
+ */
 export function sanitizeHtml(text) {
   if (!text) return '';
-  return String(text)
-    .replace(/<(?!\/?(strong|em|code|kbd|br|ul|ol|li|p)\b)[^>]*>/gi, '');
+  return escapeHtml(text).replace(
+    ALLOWED_TAG_PATTERN,
+    (_, closing, tag) => `<${closing}${tag.toLowerCase()}>`
+  );
 }
 
 export function difficultyPill(difficulty) {
