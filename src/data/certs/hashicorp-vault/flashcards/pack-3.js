@@ -6,7 +6,7 @@ export const HASHICORP_VAULT_FLASHCARDS_3 = [
     domainId: "d1",
     front: "Vault: Orphan Tokens in High-Frequency FinTech Trading",
     hint: "Focus on tokens and orphan operational principles.",
-    back: "<strong>Orphan Tokens</strong>: Create an orphan token using 'vault token create -orphan' so its lifetime is independent of the creator's token revocation. Core architectural rationale: By default, tokens are created as children of the caller's token; revoking a parent token cascades and revokes all children. Orphan tokens have no parent, so th...",
+    back: "<strong>Orphan Tokens</strong>: Create an orphan token using 'vault token create -orphan' so its lifetime is independent of the creator's token revocation. Core architectural rationale: Tokens are created as children of the calling token by default, and revoking a parent revokes the entire subtree immediately. That cascade ignores the child's T...",
     tags: ["tokens", "orphan", "hierarchy", "High-Frequency FinTech Trading"]
   },
   {
@@ -16,7 +16,7 @@ export const HASHICORP_VAULT_FLASHCARDS_3 = [
     domainId: "d1",
     front: "Vault: AppRole Authentication in Healthcare Patient Records & HIPAA",
     hint: "Focus on approle and auth operational principles.",
-    back: "<strong>AppRole Authentication</strong>: Configure the AppRole auth engine with a static role_id and dynamically generated secret_id bound to CIDR subnets and short TTLs. Core architectural rationale: AppRole is specifically designed for automated workflows where machines require credentials. It separates machine identity (RoleID) from authorization proof (Se...",
+    back: "<strong>AppRole Authentication</strong>: Configure the AppRole auth engine with a static role_id and dynamically generated secret_id bound to CIDR subnets and short TTLs. Core architectural rationale: AppRole is the general-purpose machine auth method for platforms that have no external identity to borrow. It splits machine identity (role_id) from proof of au...",
     tags: ["approle", "auth", "security", "Healthcare Patient Records & HIPAA"]
   },
   {
@@ -26,7 +26,7 @@ export const HASHICORP_VAULT_FLASHCARDS_3 = [
     domainId: "d1",
     front: "Vault: Kubernetes Service Account Auth in Global E-Commerce Black Friday Scale",
     hint: "Focus on k8s and auth operational principles.",
-    back: "<strong>Kubernetes Service Account Auth</strong>: Enable the Kubernetes auth method, configure Vault with the cluster token reviewer JWT, and bind Vault roles to Kubernetes service accounts and namespaces. Core architectural rationale: The Vault Kubernetes auth method validates ephemeral pod identity by verifying the pod's service account JWT against the Kubernetes TokenReview API. This remove...",
+    back: "<strong>Kubernetes Service Account Auth</strong>: Enable the Kubernetes auth method, configure Vault with the cluster token reviewer JWT, and bind Vault roles to Kubernetes service accounts and namespaces. Core architectural rationale: The Kubernetes auth method calls the cluster TokenReview API on every login, so a service account token stops working the instant the account or pod is removed....",
     tags: ["k8s", "auth", "jwt", "Global E-Commerce Black Friday Scale"]
   },
   {
@@ -36,7 +36,7 @@ export const HASHICORP_VAULT_FLASHCARDS_3 = [
     domainId: "d1",
     front: "Vault: Vault Policy Capabilities in Autonomous Vehicle Telemetry",
     hint: "Focus on policy and hcl operational principles.",
-    back: "<strong>Vault Policy Capabilities</strong>: Specify path 'secret/data/app/*' with capabilities ['read'] to allow reading credentials while denying creation or modification. Core architectural rationale: Vault policies follow an explicit deny-by-default model. Granular capabilities ('create', 'read', 'update', 'delete', 'list', 'sudo', 'deny') must be assigned s...",
+    back: "<strong>Vault Policy Capabilities</strong>: Specify path 'secret/data/app/*' with capabilities ['read'] to allow reading credentials while denying creation or modification. Core architectural rationale: Vault denies by default, so a policy granting only 'read' on the path already prevents writes. On a KV version 2 mount the API path is prefixed with 'data/', so...",
     tags: ["policy", "hcl", "capabilities", "Autonomous Vehicle Telemetry"]
   },
   {
@@ -46,7 +46,7 @@ export const HASHICORP_VAULT_FLASHCARDS_3 = [
     domainId: "d1",
     front: "Vault: Templated Vault Policies in Multi-Tenant B2B SaaS Platform",
     hint: "Focus on policy and identity operational principles.",
-    back: "<strong>Templated Vault Policies</strong>: Define policy paths using template syntax like 'secret/data/teams/{{identity.entity.metadata.team}}/*' to restrict access by metadata. Core architectural rationale: Vault policy templating allows administrators to write concise, scalable policies using identity metadata, entity IDs, or mount accessors (e.g., 'identity.entit...",
+    back: "<strong>Templated Vault Policies</strong>: Define policy paths using template syntax like 'secret/data/teams/{{identity.entity.metadata.team}}/*' to restrict access by metadata. Core architectural rationale: Policy templating resolves identity metadata at request time, so one rule serves every team and new teams need no policy change at all. Writing a policy or a mo...",
     tags: ["policy", "identity", "templating", "Multi-Tenant B2B SaaS Platform"]
   },
   {
@@ -56,7 +56,7 @@ export const HASHICORP_VAULT_FLASHCARDS_3 = [
     domainId: "d1",
     front: "Vault: Response Wrapping in Media Streaming & Global CDN",
     hint: "Focus on response-wrapping and cubbyhole operational principles.",
-    back: "<strong>Response Wrapping</strong>: Generate wrapped tokens or SecretIDs using the '-wrap-ttl' parameter so the recipient retrieves the secret with 'vault unwrap'. Core architectural rationale: Vault response wrapping provides single-use, time-bound covering tokens ('cubbyhole') for sensitive payloads. If an attacker intercepts and unwraps the token fi...",
+    back: "<strong>Response Wrapping</strong>: Generate wrapped tokens or SecretIDs using the '-wrap-ttl' parameter so the recipient retrieves the secret with 'vault unwrap'. Core architectural rationale: A wrapping token can be unwrapped exactly once. If anyone intercepts and unwraps it first, the intended recipient's unwrap fails immediately, which turns a sile...",
     tags: ["response-wrapping", "cubbyhole", "transport", "Media Streaming & Global CDN"]
   },
   {
@@ -66,7 +66,7 @@ export const HASHICORP_VAULT_FLASHCARDS_3 = [
     domainId: "d1",
     front: "Vault: Periodic Tokens in Aerospace Satellite Ground Systems",
     hint: "Focus on tokens and periodic operational principles.",
-    back: "<strong>Periodic Tokens</strong>: Issue a periodic token with a defined period, requiring the daemon to renew it within the period interval indefinitely without hitting a max TTL. Core architectural rationale: Periodic tokens have no maximum TTL as long as they are renewed within their specified period interval. This makes them ideal for persistent background services...",
+    back: "<strong>Periodic Tokens</strong>: Issue a periodic token with a defined period, requiring the daemon to renew it within the period interval indefinitely without hitting a max TTL. Core architectural rationale: A periodic token has no maximum TTL: as long as it is renewed within its period it lives forever, which is precisely what an always-on daemon needs. Every other...",
     tags: ["tokens", "periodic", "ttl", "Aerospace Satellite Ground Systems"]
   },
   {
@@ -76,7 +76,7 @@ export const HASHICORP_VAULT_FLASHCARDS_3 = [
     domainId: "d1",
     front: "Vault: Orphan Tokens in Telecommunications 5G Core Network",
     hint: "Focus on tokens and orphan operational principles.",
-    back: "<strong>Orphan Tokens</strong>: Create an orphan token using 'vault token create -orphan' so its lifetime is independent of the creator's token revocation. Core architectural rationale: By default, tokens are created as children of the caller's token; revoking a parent token cascades and revokes all children. Orphan tokens have no parent, so th...",
+    back: "<strong>Orphan Tokens</strong>: Create an orphan token using 'vault token create -orphan' so its lifetime is independent of the creator's token revocation. Core architectural rationale: Tokens are created as children of the calling token by default, and revoking a parent revokes the entire subtree immediately. That cascade ignores the child's T...",
     tags: ["tokens", "orphan", "hierarchy", "Telecommunications 5G Core Network"]
   },
   {
@@ -86,7 +86,7 @@ export const HASHICORP_VAULT_FLASHCARDS_3 = [
     domainId: "d1",
     front: "Vault: AppRole Authentication in Renewable Energy Smart Grid IoT",
     hint: "Focus on approle and auth operational principles.",
-    back: "<strong>AppRole Authentication</strong>: Configure the AppRole auth engine with a static role_id and dynamically generated secret_id bound to CIDR subnets and short TTLs. Core architectural rationale: AppRole is specifically designed for automated workflows where machines require credentials. It separates machine identity (RoleID) from authorization proof (Se...",
+    back: "<strong>AppRole Authentication</strong>: Configure the AppRole auth engine with a static role_id and dynamically generated secret_id bound to CIDR subnets and short TTLs. Core architectural rationale: AppRole is the general-purpose machine auth method for platforms that have no external identity to borrow. It splits machine identity (role_id) from proof of au...",
     tags: ["approle", "auth", "security", "Renewable Energy Smart Grid IoT"]
   },
   {
@@ -96,7 +96,7 @@ export const HASHICORP_VAULT_FLASHCARDS_3 = [
     domainId: "d1",
     front: "Vault: Kubernetes Service Account Auth in Supply Chain Cold-Chain Logistics",
     hint: "Focus on k8s and auth operational principles.",
-    back: "<strong>Kubernetes Service Account Auth</strong>: Enable the Kubernetes auth method, configure Vault with the cluster token reviewer JWT, and bind Vault roles to Kubernetes service accounts and namespaces. Core architectural rationale: The Vault Kubernetes auth method validates ephemeral pod identity by verifying the pod's service account JWT against the Kubernetes TokenReview API. This remove...",
+    back: "<strong>Kubernetes Service Account Auth</strong>: Enable the Kubernetes auth method, configure Vault with the cluster token reviewer JWT, and bind Vault roles to Kubernetes service accounts and namespaces. Core architectural rationale: The Kubernetes auth method calls the cluster TokenReview API on every login, so a service account token stops working the instant the account or pod is removed....",
     tags: ["k8s", "auth", "jwt", "Supply Chain Cold-Chain Logistics"]
   },
   {
@@ -106,7 +106,7 @@ export const HASHICORP_VAULT_FLASHCARDS_3 = [
     domainId: "d1",
     front: "Vault: Vault Policy Capabilities in Banking Core Ledger & Payments",
     hint: "Focus on policy and hcl operational principles.",
-    back: "<strong>Vault Policy Capabilities</strong>: Specify path 'secret/data/app/*' with capabilities ['read'] to allow reading credentials while denying creation or modification. Core architectural rationale: Vault policies follow an explicit deny-by-default model. Granular capabilities ('create', 'read', 'update', 'delete', 'list', 'sudo', 'deny') must be assigned s...",
+    back: "<strong>Vault Policy Capabilities</strong>: Specify path 'secret/data/app/*' with capabilities ['read'] to allow reading credentials while denying creation or modification. Core architectural rationale: Vault denies by default, so a policy granting only 'read' on the path already prevents writes. On a KV version 2 mount the API path is prefixed with 'data/', so...",
     tags: ["policy", "hcl", "capabilities", "Banking Core Ledger & Payments"]
   },
   {
@@ -116,7 +116,7 @@ export const HASHICORP_VAULT_FLASHCARDS_3 = [
     domainId: "d1",
     front: "Vault: Templated Vault Policies in Genomic Sequencing & Biotech Pipeline",
     hint: "Focus on policy and identity operational principles.",
-    back: "<strong>Templated Vault Policies</strong>: Define policy paths using template syntax like 'secret/data/teams/{{identity.entity.metadata.team}}/*' to restrict access by metadata. Core architectural rationale: Vault policy templating allows administrators to write concise, scalable policies using identity metadata, entity IDs, or mount accessors (e.g., 'identity.entit...",
+    back: "<strong>Templated Vault Policies</strong>: Define policy paths using template syntax like 'secret/data/teams/{{identity.entity.metadata.team}}/*' to restrict access by metadata. Core architectural rationale: Policy templating resolves identity metadata at request time, so one rule serves every team and new teams need no policy change at all. Writing a policy or a mo...",
     tags: ["policy", "identity", "templating", "Genomic Sequencing & Biotech Pipeline"]
   },
   {
@@ -126,7 +126,7 @@ export const HASHICORP_VAULT_FLASHCARDS_3 = [
     domainId: "d1",
     front: "Vault: Response Wrapping in Defense-Grade Zero-Trust Network",
     hint: "Focus on response-wrapping and cubbyhole operational principles.",
-    back: "<strong>Response Wrapping</strong>: Generate wrapped tokens or SecretIDs using the '-wrap-ttl' parameter so the recipient retrieves the secret with 'vault unwrap'. Core architectural rationale: Vault response wrapping provides single-use, time-bound covering tokens ('cubbyhole') for sensitive payloads. If an attacker intercepts and unwraps the token fi...",
+    back: "<strong>Response Wrapping</strong>: Generate wrapped tokens or SecretIDs using the '-wrap-ttl' parameter so the recipient retrieves the secret with 'vault unwrap'. Core architectural rationale: A wrapping token can be unwrapped exactly once. If anyone intercepts and unwraps it first, the intended recipient's unwrap fails immediately, which turns a sile...",
     tags: ["response-wrapping", "cubbyhole", "transport", "Defense-Grade Zero-Trust Network"]
   },
   {
@@ -136,7 +136,7 @@ export const HASHICORP_VAULT_FLASHCARDS_3 = [
     domainId: "d1",
     front: "Vault: Periodic Tokens in Online Multiplayer Gaming Engine",
     hint: "Focus on tokens and periodic operational principles.",
-    back: "<strong>Periodic Tokens</strong>: Issue a periodic token with a defined period, requiring the daemon to renew it within the period interval indefinitely without hitting a max TTL. Core architectural rationale: Periodic tokens have no maximum TTL as long as they are renewed within their specified period interval. This makes them ideal for persistent background services...",
+    back: "<strong>Periodic Tokens</strong>: Issue a periodic token with a defined period, requiring the daemon to renew it within the period interval indefinitely without hitting a max TTL. Core architectural rationale: A periodic token has no maximum TTL: as long as it is renewed within its period it lives forever, which is precisely what an always-on daemon needs. Every other...",
     tags: ["tokens", "periodic", "ttl", "Online Multiplayer Gaming Engine"]
   },
   {
@@ -146,7 +146,7 @@ export const HASHICORP_VAULT_FLASHCARDS_3 = [
     domainId: "d1",
     front: "Vault: Orphan Tokens in Insurance Risk & Actuarial Modeling",
     hint: "Focus on tokens and orphan operational principles.",
-    back: "<strong>Orphan Tokens</strong>: Create an orphan token using 'vault token create -orphan' so its lifetime is independent of the creator's token revocation. Core architectural rationale: By default, tokens are created as children of the caller's token; revoking a parent token cascades and revokes all children. Orphan tokens have no parent, so th...",
+    back: "<strong>Orphan Tokens</strong>: Create an orphan token using 'vault token create -orphan' so its lifetime is independent of the creator's token revocation. Core architectural rationale: Tokens are created as children of the calling token by default, and revoking a parent revokes the entire subtree immediately. That cascade ignores the child's T...",
     tags: ["tokens", "orphan", "hierarchy", "Insurance Risk & Actuarial Modeling"]
   },
   {
@@ -156,7 +156,7 @@ export const HASHICORP_VAULT_FLASHCARDS_3 = [
     domainId: "d1",
     front: "Vault: AppRole Authentication in Pharmaceutical Clinical Trial Platform",
     hint: "Focus on approle and auth operational principles.",
-    back: "<strong>AppRole Authentication</strong>: Configure the AppRole auth engine with a static role_id and dynamically generated secret_id bound to CIDR subnets and short TTLs. Core architectural rationale: AppRole is specifically designed for automated workflows where machines require credentials. It separates machine identity (RoleID) from authorization proof (Se...",
+    back: "<strong>AppRole Authentication</strong>: Configure the AppRole auth engine with a static role_id and dynamically generated secret_id bound to CIDR subnets and short TTLs. Core architectural rationale: AppRole is the general-purpose machine auth method for platforms that have no external identity to borrow. It splits machine identity (role_id) from proof of au...",
     tags: ["approle", "auth", "security", "Pharmaceutical Clinical Trial Platform"]
   },
   {
@@ -166,7 +166,7 @@ export const HASHICORP_VAULT_FLASHCARDS_3 = [
     domainId: "d1",
     front: "Vault: Kubernetes Service Account Auth in Smart City Traffic & Mobility Sensor Hub",
     hint: "Focus on k8s and auth operational principles.",
-    back: "<strong>Kubernetes Service Account Auth</strong>: Enable the Kubernetes auth method, configure Vault with the cluster token reviewer JWT, and bind Vault roles to Kubernetes service accounts and namespaces. Core architectural rationale: The Vault Kubernetes auth method validates ephemeral pod identity by verifying the pod's service account JWT against the Kubernetes TokenReview API. This remove...",
+    back: "<strong>Kubernetes Service Account Auth</strong>: Enable the Kubernetes auth method, configure Vault with the cluster token reviewer JWT, and bind Vault roles to Kubernetes service accounts and namespaces. Core architectural rationale: The Kubernetes auth method calls the cluster TokenReview API on every login, so a service account token stops working the instant the account or pod is removed....",
     tags: ["k8s", "auth", "jwt", "Smart City Traffic & Mobility Sensor Hub"]
   },
   {
@@ -176,7 +176,7 @@ export const HASHICORP_VAULT_FLASHCARDS_3 = [
     domainId: "d1",
     front: "Vault: Vault Policy Capabilities in Digital Identity & Biometric Verification",
     hint: "Focus on policy and hcl operational principles.",
-    back: "<strong>Vault Policy Capabilities</strong>: Specify path 'secret/data/app/*' with capabilities ['read'] to allow reading credentials while denying creation or modification. Core architectural rationale: Vault policies follow an explicit deny-by-default model. Granular capabilities ('create', 'read', 'update', 'delete', 'list', 'sudo', 'deny') must be assigned s...",
+    back: "<strong>Vault Policy Capabilities</strong>: Specify path 'secret/data/app/*' with capabilities ['read'] to allow reading credentials while denying creation or modification. Core architectural rationale: Vault denies by default, so a policy granting only 'read' on the path already prevents writes. On a KV version 2 mount the API path is prefixed with 'data/', so...",
     tags: ["policy", "hcl", "capabilities", "Digital Identity & Biometric Verification"]
   },
   {
@@ -186,7 +186,7 @@ export const HASHICORP_VAULT_FLASHCARDS_3 = [
     domainId: "d1",
     front: "Vault: Templated Vault Policies in Legal Discovery & Semantic Document Search",
     hint: "Focus on policy and identity operational principles.",
-    back: "<strong>Templated Vault Policies</strong>: Define policy paths using template syntax like 'secret/data/teams/{{identity.entity.metadata.team}}/*' to restrict access by metadata. Core architectural rationale: Vault policy templating allows administrators to write concise, scalable policies using identity metadata, entity IDs, or mount accessors (e.g., 'identity.entit...",
+    back: "<strong>Templated Vault Policies</strong>: Define policy paths using template syntax like 'secret/data/teams/{{identity.entity.metadata.team}}/*' to restrict access by metadata. Core architectural rationale: Policy templating resolves identity metadata at request time, so one rule serves every team and new teams need no policy change at all. Writing a policy or a mo...",
     tags: ["policy", "identity", "templating", "Legal Discovery & Semantic Document Search"]
   },
   {
@@ -196,7 +196,7 @@ export const HASHICORP_VAULT_FLASHCARDS_3 = [
     domainId: "d1",
     front: "Vault: Response Wrapping in AdTech Real-Time Bidding Exchange",
     hint: "Focus on response-wrapping and cubbyhole operational principles.",
-    back: "<strong>Response Wrapping</strong>: Generate wrapped tokens or SecretIDs using the '-wrap-ttl' parameter so the recipient retrieves the secret with 'vault unwrap'. Core architectural rationale: Vault response wrapping provides single-use, time-bound covering tokens ('cubbyhole') for sensitive payloads. If an attacker intercepts and unwraps the token fi...",
+    back: "<strong>Response Wrapping</strong>: Generate wrapped tokens or SecretIDs using the '-wrap-ttl' parameter so the recipient retrieves the secret with 'vault unwrap'. Core architectural rationale: A wrapping token can be unwrapped exactly once. If anyone intercepts and unwraps it first, the intended recipient's unwrap fails immediately, which turns a sile...",
     tags: ["response-wrapping", "cubbyhole", "transport", "AdTech Real-Time Bidding Exchange"]
   },
   {
@@ -206,7 +206,7 @@ export const HASHICORP_VAULT_FLASHCARDS_3 = [
     domainId: "d1",
     front: "Vault: Periodic Tokens in Precision Agriculture & Drone Scouting",
     hint: "Focus on tokens and periodic operational principles.",
-    back: "<strong>Periodic Tokens</strong>: Issue a periodic token with a defined period, requiring the daemon to renew it within the period interval indefinitely without hitting a max TTL. Core architectural rationale: Periodic tokens have no maximum TTL as long as they are renewed within their specified period interval. This makes them ideal for persistent background services...",
+    back: "<strong>Periodic Tokens</strong>: Issue a periodic token with a defined period, requiring the daemon to renew it within the period interval indefinitely without hitting a max TTL. Core architectural rationale: A periodic token has no maximum TTL: as long as it is renewed within its period it lives forever, which is precisely what an always-on daemon needs. Every other...",
     tags: ["tokens", "periodic", "ttl", "Precision Agriculture & Drone Scouting"]
   },
   {
@@ -216,7 +216,7 @@ export const HASHICORP_VAULT_FLASHCARDS_3 = [
     domainId: "d1",
     front: "Vault: Orphan Tokens in Industrial Robotics Predictive Maintenance",
     hint: "Focus on tokens and orphan operational principles.",
-    back: "<strong>Orphan Tokens</strong>: Create an orphan token using 'vault token create -orphan' so its lifetime is independent of the creator's token revocation. Core architectural rationale: By default, tokens are created as children of the caller's token; revoking a parent token cascades and revokes all children. Orphan tokens have no parent, so th...",
+    back: "<strong>Orphan Tokens</strong>: Create an orphan token using 'vault token create -orphan' so its lifetime is independent of the creator's token revocation. Core architectural rationale: Tokens are created as children of the calling token by default, and revoking a parent revokes the entire subtree immediately. That cascade ignores the child's T...",
     tags: ["tokens", "orphan", "hierarchy", "Industrial Robotics Predictive Maintenance"]
   },
   {
@@ -226,7 +226,7 @@ export const HASHICORP_VAULT_FLASHCARDS_3 = [
     domainId: "d1",
     front: "Vault: AppRole Authentication in Educational Remote Proctoring Platform",
     hint: "Focus on approle and auth operational principles.",
-    back: "<strong>AppRole Authentication</strong>: Configure the AppRole auth engine with a static role_id and dynamically generated secret_id bound to CIDR subnets and short TTLs. Core architectural rationale: AppRole is specifically designed for automated workflows where machines require credentials. It separates machine identity (RoleID) from authorization proof (Se...",
+    back: "<strong>AppRole Authentication</strong>: Configure the AppRole auth engine with a static role_id and dynamically generated secret_id bound to CIDR subnets and short TTLs. Core architectural rationale: AppRole is the general-purpose machine auth method for platforms that have no external identity to borrow. It splits machine identity (role_id) from proof of au...",
     tags: ["approle", "auth", "security", "Educational Remote Proctoring Platform"]
   },
   {
@@ -236,7 +236,7 @@ export const HASHICORP_VAULT_FLASHCARDS_3 = [
     domainId: "d1",
     front: "Vault: Kubernetes Service Account Auth in Real Estate Valuation & Geo-Spatial Analytics",
     hint: "Focus on k8s and auth operational principles.",
-    back: "<strong>Kubernetes Service Account Auth</strong>: Enable the Kubernetes auth method, configure Vault with the cluster token reviewer JWT, and bind Vault roles to Kubernetes service accounts and namespaces. Core architectural rationale: The Vault Kubernetes auth method validates ephemeral pod identity by verifying the pod's service account JWT against the Kubernetes TokenReview API. This remove...",
+    back: "<strong>Kubernetes Service Account Auth</strong>: Enable the Kubernetes auth method, configure Vault with the cluster token reviewer JWT, and bind Vault roles to Kubernetes service accounts and namespaces. Core architectural rationale: The Kubernetes auth method calls the cluster TokenReview API on every login, so a service account token stops working the instant the account or pod is removed....",
     tags: ["k8s", "auth", "jwt", "Real Estate Valuation & Geo-Spatial Analytics"]
   },
   {
@@ -246,7 +246,7 @@ export const HASHICORP_VAULT_FLASHCARDS_3 = [
     domainId: "d1",
     front: "Vault: Vault Policy Capabilities in Disaster Emergency Dispatch & Operations",
     hint: "Focus on policy and hcl operational principles.",
-    back: "<strong>Vault Policy Capabilities</strong>: Specify path 'secret/data/app/*' with capabilities ['read'] to allow reading credentials while denying creation or modification. Core architectural rationale: Vault policies follow an explicit deny-by-default model. Granular capabilities ('create', 'read', 'update', 'delete', 'list', 'sudo', 'deny') must be assigned s...",
+    back: "<strong>Vault Policy Capabilities</strong>: Specify path 'secret/data/app/*' with capabilities ['read'] to allow reading credentials while denying creation or modification. Core architectural rationale: Vault denies by default, so a policy granting only 'read' on the path already prevents writes. On a KV version 2 mount the API path is prefixed with 'data/', so...",
     tags: ["policy", "hcl", "capabilities", "Disaster Emergency Dispatch & Operations"]
   }
 ];
