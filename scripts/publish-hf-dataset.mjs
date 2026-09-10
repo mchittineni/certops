@@ -10,7 +10,7 @@
  * Run: HF_TOKEN=hf_... node scripts/publish-hf-dataset.mjs \
  *        --repo <user>/<dataset> --confirm [--private] [--dir dist-dataset]
  */
-import { readFileSync, existsSync, statSync } from 'fs';
+import { readFileSync } from 'fs';
 import path from 'path';
 import { whoAmI, repoExists, createRepo, uploadFiles } from '@huggingface/hub';
 
@@ -34,22 +34,27 @@ if (!/^[^/\s]+\/[^/\s]+$/.test(repoName)) {
   console.error(`--repo must look like "<user>/<dataset>", got "${repoName}".`);
   process.exit(1);
 }
-if (!existsSync(dir)) {
-  console.error(`No export found at ${dir}/. Run "npm run dataset:export" first.`);
-  process.exit(1);
-}
-
-const missing = FILES.filter(f => !existsSync(path.join(dir, f)));
-if (missing.length) {
-  console.error(`Export at ${dir}/ is incomplete, missing: ${missing.join(', ')}`);
-  process.exit(1);
-}
 
 const repo = { type: 'dataset', name: repoName };
-const files = FILES.map(name => {
-  const full = path.join(dir, name);
-  return { path: name, size: statSync(full).size, content: new Blob([readFileSync(full)]) };
-});
+
+// Read each file outright rather than checking that it exists first. Testing
+// and then reading leaves a window in which the file can change, and it means
+// the bytes that get uploaded are not necessarily the ones that were checked.
+// A single read settles both questions, and its own size is the size reported.
+let files;
+try {
+  files = FILES.map(name => {
+    const content = readFileSync(path.join(dir, name));
+    return { path: name, size: content.length, content: new Blob([content]) };
+  });
+} catch (err) {
+  if (err.code === 'ENOENT' || err.code === 'ENOTDIR') {
+    console.error(`Cannot read ${err.path ?? dir}.`);
+    console.error(`Run "npm run dataset:export" to build the export before publishing.`);
+    process.exit(1);
+  }
+  throw err;
+}
 
 const mb = n => `${(n / 1024 / 1024).toFixed(1)} MB`;
 console.log(`Dataset : ${repoName}${isPrivate ? '  (private)' : ''}`);
