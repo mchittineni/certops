@@ -5,7 +5,7 @@ Generator for AWS Certified Machine Learning Engineer – Associate (MLA-C01) co
 - 500 flashcards (20 packs x 25)
 """
 import os, json
-from generate_content import write_question_pack, write_flashcard_pack, CONTEXTS
+from generate_content import write_question_pack, write_flashcard_pack, CONTEXTS, STAGES
 
 DOMAINS = [
     {"id": "d1", "name": "Data Preparation and Feature Engineering for ML", "weight": 28},
@@ -32,138 +32,154 @@ def build_aws_mla_bank():
     )
 
     d1_topics = [
-        ("Amazon SageMaker Feature Store", "Low-latency online feature serving and historical offline training",
+        ("Amazon SageMaker Feature Store", "One Feature Definition for Training and Serving",
+         "serving identical feature values to batch training and to sub-second online inference",
          "Configure SageMaker Feature Store with an Online Store for real-time low-latency inference (<10ms) and an Offline Store in Amazon S3 for batch training.",
-         "Store all feature vectors in a monolithic shared MySQL database with daily table dumps.",
-         "Compute all mathematical feature transformations dynamically inside client mobile apps on every click.",
-         "Hardcode feature vectors in application memory without centralized cataloging.",
-         "Amazon SageMaker Feature Store provides a purpose-built repository to store, update, retrieve, and share machine learning features. The Online Store (backed by low-latency storage) serves millisecond lookups for real-time inference, while the Offline Store (backed by S3 and Athena) archives historical feature values for training.",
+         "Write the computed features to Amazon DynamoDB for the online inference lookups and to Amazon S3 for training, keeping both write paths in step for every feature.",
+         "Cache the computed features in Amazon ElastiCache for Redis and rebuild each training dataset separately from the application's own transaction logs.",
+         "Write the features to Amazon S3 and query them with Amazon Athena, both when assembling training sets and on each real-time inference request.",
+         "Feature Store takes one feature definition and writes it to both stores, so the values a model trains on are the values it later reads, and the offline store supports point-in-time correct joins. Maintaining parallel DynamoDB and S3 paths is precisely what the service replaces, leaving training-serving skew to be prevented by hand on every change. Rebuilding training data from logs while serving from a cache guarantees the two diverge. Athena queries in seconds, which is far outside the online latency budget.",
          ["feature-store", "sagemaker", "data-prep"]),
 
-        ("SageMaker Data Wrangler", "Visual data preparation and transformation pipelines",
+        ("SageMaker Data Wrangler", "Preparing Tabular Data Before Training",
+         "exploring and transforming a tabular training dataset and carrying those steps into training",
          "Use SageMaker Data Wrangler to visually explore, clean, and transform multi-modal tabular data, exporting the pipeline directly to a SageMaker Processing job.",
-         "Manually inspect 50 million CSV rows using desktop spreadsheet software.",
-         "Write unversioned, undocumented bash scripts on an ephemeral EC2 instance to clean data.",
-         "Delete all rows containing null values without analyzing feature distributions or missingness patterns.",
-         "SageMaker Data Wrangler simplifies data preparation and feature engineering with 300+ built-in data transformations, automated data quality insights, and anomaly detection. It seamlessly exports transformation workflows into SageMaker Processing jobs or Feature Store pipelines.",
+         "Use AWS Glue DataBrew to profile the data and clean it with recipe steps, writing the prepared dataset back into Amazon S3 ready for the training job to read.",
+         "Use a SageMaker Processing job running a scikit-learn script that applies each of the required tabular transformations directly in code as a pipeline step.",
+         "Use Amazon Athena views over the raw data in S3 so that the transformations are applied whenever the training set is queried.",
+         "Data Wrangler pairs interactive exploration and quality insights with a direct export to a Processing job or Feature Store, so the steps explored by hand become the steps that run in training. DataBrew is genuinely comparable and often the better tool for analyst-owned data-lake cleaning, but it produces a dataset in S3 rather than a pipeline step wired into the training job. A hand-written Processing script runs the same transformations while giving up the profiling. Athena views apply logic at query time and cannot carry statistics fitted on the training split.",
          ["data-wrangler", "feature-engineering", "sagemaker"]),
 
-        ("Handling Missing Data and Categorical Encoding", "Statistical imputation and one-hot encoding best practices",
+        ("Handling Missing Data and Categorical Encoding", "Imputation and Encoding Choices",
+         "deciding how to fill missing numeric values and encode low-cardinality categories",
          "Impute numerical missing values using median/mean or iterative imputers, and apply One-Hot Encoding for low-cardinality categorical features.",
-         "Replace all missing values with zero indiscriminately across all features.",
-         "Drop 90% of dataset records because of a single missing optional address field.",
-         "Assign arbitrary sequential integer IDs to non-ordinal categories, introducing false numeric relationships.",
-         "Proper data preparation requires thoughtful imputation: numerical features are typically imputed using median (for skewed data) or mean, while low-cardinality categories benefit from One-Hot Encoding. Arbitrary integer encoding can mislead algorithms like linear models or neural nets into inferring spurious orderings.",
+         "Impute the missing numerical values with the column mean and apply ordinal encoding to the categorical features so the model receives compact integers.",
+         "Impute the missing numerical values with the column median and apply target encoding to every categorical feature whatever its cardinality happens to be.",
+         "Add a binary indicator column for each feature containing missing values and leave the categorical features as raw strings for the algorithm.",
+         "Median or mean imputation fills the numeric gaps without distorting the distribution badly, and one-hot encoding represents a small category set without implying any order between the levels. Ordinal encoding assigns integers that a linear model or neural network reads as a real ranking. Target encoding is a legitimate technique for high-cardinality features but leaks the label unless it is fitted inside each cross-validation fold. A missingness indicator is a useful addition rather than a replacement, since the value itself is still absent and the strings are still unencoded.",
          ["imputation", "one-hot-encoding", "data-cleaning"]),
 
-        ("Glue DataBrew for Scalable Data Cleaning", "Visual data preparation integrated with AWS data lakes",
+        ("Glue DataBrew for Scalable Data Cleaning", "No-Code Cleaning Across a Data Lake",
+         "letting analysts profile and clean data-lake datasets without writing Spark code",
          "Deploy AWS Glue DataBrew to execute automated data profiling and recipe-based visual transformations across S3 data lakes at petabyte scale.",
-         "Require data scientists to manually clean raw petabyte-scale data using Python pandas in local memory.",
-         "Execute unindexed SQL updates directly against live production transactional OLTP databases.",
-         "Bypass data validation and feed raw corrupted sensor telemetry straight into model training.",
-         "AWS Glue DataBrew is a visual data preparation tool that allows data analysts and ML engineers to clean, normalize, and enrich data using over 250 prebuilt transformations without writing code, outputting clean datasets directly to Amazon S3 for ML consumption.",
+         "Deploy AWS Glue ETL jobs written in PySpark so that all of the cleaning logic runs on a managed Spark cluster across the whole of the data lake.",
+         "Deploy SageMaker Data Wrangler flows and export each one to a Processing job that writes the cleaned data back into the lake.",
+         "Deploy Amazon EMR with a Spark cluster and run the cleaning notebooks the data engineering team already maintains, sized to the scale involved.",
+         "DataBrew is aimed squarely at analysts: profiling runs automatically, transformations are recipe steps rather than code, and there is no cluster to size or operate. Glue ETL and EMR are both more capable and are the right answer once the logic outgrows recipes, but each demands PySpark skill the analysts do not have. Data Wrangler covers similar ground with a similar visual model, though it is oriented towards an ML practitioner assembling one training dataset rather than cleaning shared lake tables.",
          ["glue", "databrew", "data-lake"])
     ]
 
     d2_topics = [
-        ("SageMaker Managed Spot Training", "Cost optimization with S3 checkpointing for model training",
+        ("SageMaker Managed Spot Training", "Cutting the Cost of Long Training Runs",
+         "reducing the cost of long training runs that can tolerate being interrupted",
          "Enable Managed Spot Training on SageMaker with checkpointing configured to Amazon S3 to save up to 90% on EC2 compute costs.",
-         "Provision expensive On-Demand GPU clusters 24/7 with no automated shutdown policies.",
-         "Train models on local developer laptops connected to unencrypted office Wi-Fi networks.",
-         "Disable checkpointing and restart 48-hour deep learning training jobs from scratch upon every interruption.",
-         "SageMaker Managed Spot Training uses Amazon EC2 Spot Instances to train models at up to a 90% discount compared to On-Demand instances. Configuring S3 checkpointing ensures that if a Spot instance is reclaimed, the job resumes seamlessly from the latest saved checkpoint.",
+         "Purchase a SageMaker Savings Plan covering the expected training hours so that the on-demand rate is discounted for the term committed to.",
+         "Use SageMaker Training Compiler to speed the job up so that fewer instance hours are billed for exactly the same training work.",
+         "Move the training job onto a larger instance type so that it finishes in fewer hours and therefore costs less in total.",
+         "Spot capacity is where the large discount lives, and S3 checkpointing makes an interruption cost only the work since the last checkpoint, which a tolerant job can absorb. A Savings Plan discounts the on-demand rate by considerably less and ties the account to a commitment, though it composes with everything else. The Training Compiler genuinely cuts hours for supported deep-learning models while leaving the hourly rate untouched. A larger instance changes hours multiplied by a higher rate and frequently lands at the same total or worse.",
          ["spot-training", "cost-optimization", "checkpointing"]),
 
-        ("Distributed Training with Data Parallelism (SMDDP)", "Scaling deep learning training across multi-GPU clusters",
+        ("Distributed Training with Data Parallelism (SMDDP)", "Spreading One Training Job Across Many GPUs",
+         "scaling a training job that fits in GPU memory across many GPUs to shorten wall-clock time",
          "Use the SageMaker Distributed Data Parallel (SMDDP) library to shard training batches across distributed GPU instances with optimized AllReduce communication.",
-         "Train massive billion-parameter transformer models on a single CPU core instance.",
-         "Manually copy model weights between instances using uncoordinated scp commands.",
-         "Run independent training jobs with identical data without synchronizing gradient updates.",
-         "SageMaker Distributed Data Parallel (SMDDP) optimizes inter-node communication across multi-GPU clusters using AWS Graviton and custom AllReduce algorithms on the AWS network infrastructure, delivering near-linear scaling efficiency for large deep learning workloads.",
+         "Use the SageMaker model parallel library to split the network's layers across the GPUs so that each individual device holds only a portion of the whole model.",
+         "Use PyTorch DistributedDataParallel with NCCL across the cluster's network so that the gradients are averaged between the workers each step.",
+         "Use SageMaker automatic model tuning so that several training jobs execute in parallel across all of the available GPU instances.",
+         "Data parallelism is the right axis when the model fits on one GPU and only the data is large, and SMDDP implements it with an AllReduce tuned for the AWS network. Model parallelism exists for the opposite problem, a network too large for a single device, and adds communication that buys nothing here. PyTorch DDP with NCCL is a correct data-parallel implementation and a fair choice, simply without the AWS-specific communication optimisation. Automatic model tuning runs many separate jobs concurrently and never makes one job faster.",
          ["distributed-training", "smddp", "gpu"]),
 
-        ("SageMaker Hyperparameter Optimization (HPO)", "Automated hyperparameter tuning with Bayesian search",
+        ("SageMaker Hyperparameter Optimization (HPO)", "Finding Good Hyperparameters on a Fixed Budget",
+         "searching a hyperparameter space efficiently when only a limited number of trials can be afforded",
          "Configure SageMaker HPO with Bayesian search strategy to systematically converge on optimal model parameters within a defined trial budget.",
-         "Manually guess hyperparameter combinations one by one over several months.",
-         "Run an infinite brute-force grid search across 100 continuous hyperparameter dimensions.",
-         "Disable hyperparameter tuning and accept default initial parameter estimates for production.",
-         "SageMaker Hyperparameter Optimization (HPO) uses Bayesian search to model the hyperparameter response surface. By learning from prior completed trials, it intelligently selects subsequent parameter combinations to maximize validation metrics (e.g., F1 or AUC) with minimal training runs.",
+         "Configure SageMaker automatic model tuning with random search so that the parameter space is sampled uniformly right across the trial budget.",
+         "Configure SageMaker automatic model tuning with grid search so that every combination within the defined ranges is evaluated exactly once.",
+         "Configure SageMaker Autopilot so that the algorithm and its parameters are both selected automatically from the training dataset.",
+         "Bayesian search builds a model of the objective from completed trials and spends the remaining budget where an improvement is most likely, which is exactly what a hard trial limit calls for. Random search is a respectable baseline and parallelises perfectly, but each trial ignores everything the previous ones revealed. Grid search enumerates the space and becomes unusable over continuous ranges, exhausting the budget on a coarse lattice. Autopilot selects an entire pipeline rather than tuning the model that has already been chosen.",
          ["hpo", "bayesian-search", "tuning"]),
 
-        ("Model Evaluation Metrics for Imbalanced Datasets", "Choosing appropriate metrics beyond accuracy",
+        ("Model Evaluation Metrics for Imbalanced Datasets", "Measuring a Model on a Rare Positive Class",
+         "choosing evaluation metrics where positives make up a small fraction of one percent",
          "Evaluate fraud detection or rare disease models using Precision, Recall, F1-Score, and PR-AUC instead of standard classification accuracy.",
-         "Rely solely on accuracy when 99.9% of training samples belong to the negative majority class.",
-         "Optimize models solely to maximize training set accuracy, ignoring validation overfitting.",
-         "Report only the raw count of correct classifications without calculating false positive rates.",
-         "In highly imbalanced datasets (e.g., fraud or defect detection), a naive model predicting only the majority class achieves 99%+ accuracy while delivering zero business value. ML engineers must evaluate Precision (minimizing false alarms), Recall (catching true defects), and PR-AUC.",
+         "Evaluate the model with ROC-AUC, which is insensitive to the class ratio and is therefore appropriate whenever the positive class is rare.",
+         "Evaluate with accuracy but move the decision threshold to the observed positive rate so that the score reflects the imbalance without computing precision.",
+         "Rebalance the training data with SMOTE and then evaluate the model using accuracy measured on the rebalanced holdout set.",
+         "Precision, recall, F1, and PR-AUC all focus on the positive class, so they fall visibly as false positives begin to outnumber true ones. ROC-AUC is the subtle trap here: its false-positive-rate axis is divided by an enormous negative class, so the curve stays flattering while precision collapses. Shifting the threshold moves the operating point without making accuracy any more informative, since predicting the majority class still scores above 99 percent. Evaluating on a SMOTE-rebalanced holdout measures performance on a class ratio that will never occur in production.",
          ["evaluation-metrics", "f1-score", "imbalanced-data"])
     ]
 
     d3_topics = [
-        ("SageMaker Real-Time vs Asynchronous Inference", "Matching endpoint architecture to latency and payload requirements",
+        ("SageMaker Real-Time vs Asynchronous Inference", "Endpoint Type for Large Payloads and Long Runtimes",
+         "serving requests that arrive individually, carry large payloads, and take minutes to process",
          "Use Asynchronous Inference for large payloads up to 1GB and processing times up to 1 hour, or Real-Time Endpoints for sub-second interactive latency.",
-         "Use synchronous Real-Time Endpoints with 5-minute client HTTP timeouts for 500MB computer vision video files.",
-         "Deploy multi-node GPU clusters for batch inference jobs that only run once every Sunday night.",
-         "Use Serverless Inference for steady-state workloads generating 100,000 requests every second.",
-         "SageMaker offers diverse hosting options: Real-Time endpoints are optimized for persistent low-latency (<100ms) apps; Asynchronous Inference queues requests in S3 for large payloads (up to 1GB) and long timeouts (up to 1hr); Serverless handles intermittent traffic with zero idle cost; Batch Transform handles offline bulk scoring.",
+         "Use Batch Transform to score the payloads, since it reads the large objects straight from S3 without any endpoint that has to be kept running between jobs.",
+         "Use Serverless Inference so that the endpoint scales down to zero between requests and the large payloads are handled as they arrive.",
+         "Use a Real-Time Endpoint behind an SQS queue with a Lambda consumer that invokes the endpoint once for each queued payload.",
+         "Asynchronous Inference is built for this shape: the request is queued, the payload can reach a gigabyte, the job may run for an hour, and the caller is notified rather than waiting on a connection. Batch Transform handles the size comfortably but is designed for a set of records processed together, not requests arriving one at a time. Serverless Inference has much smaller payload and timeout limits and cold-starts on infrequent traffic. Queue plus Lambda rebuilds the asynchronous pattern by hand and still runs into the endpoint's own request timeout.",
          ["inference", "asynchronous-inference", "real-time"]),
 
-        ("SageMaker Multi-Model Endpoints (MME)", "Cost-effective hosting for hundreds of specialized models",
+        ("SageMaker Multi-Model Endpoints (MME)", "Hosting Many Rarely Invoked Models",
+         "hosting thousands of per-customer models that are each invoked only occasionally",
          "Deploy a SageMaker Multi-Model Endpoint (MME) to host thousands of distinct customer models on a shared compute instance pool, loading models dynamically from S3.",
-         "Provision dedicated high-end GPU endpoints for 5,000 rarely used customer models.",
-         "Combine 500 unrelated models into a single giant monolithic script container.",
-         "Host all customer models on a single unprotected public EC2 instance without load balancing.",
-         "SageMaker Multi-Model Endpoints (MME) provide a cost-effective solution to deploy thousands of models behind a single endpoint. SageMaker manages memory by dynamically loading models from Amazon S3 into memory upon invocation and caching active models on shared container instances.",
+         "Deploy a SageMaker multi-container endpoint so that several containers sit behind the one endpoint and each request names the container it wants invoked.",
+         "Deploy a single endpoint with several production variants and route each customer's traffic to whichever variant is holding their own model.",
+         "Deploy a separate Serverless Inference endpoint for every customer so that idle models cost nothing at all between their invocations.",
+         "A multi-model endpoint keeps the models in S3 and pages them into a shared instance pool on demand, so cost tracks the working set rather than the catalogue, which is what thousands of cold models require. Multi-container endpoints host a small fixed number of containers, capped well below this scale. Production variants exist to split traffic across versions of one model for A/B tests and canaries, not to address models by customer. Per-customer serverless endpoints do idle at zero cost but run into the account's endpoint limits long before thousands.",
          ["mme", "multi-model", "cost-efficiency"]),
 
-        ("Blue/Green Deployment Guardrails", "Zero-downtime model updates with automated rollback",
+        ("Blue/Green Deployment Guardrails", "Updating a Live Endpoint Safely",
+         "replacing the model behind a live endpoint with automatic withdrawal if it misbehaves",
          "Configure deployment guardrails using Canary or Linear traffic shifting with automated rollback triggered by CloudWatch 5xx error or latency alarms.",
-         "Instantly switch 100% of production traffic to an untested new model container with no monitoring.",
-         "Terminate the existing endpoint and wait 20 minutes for a fresh endpoint to spin up during peak business hours.",
-         "Deploy model updates directly into production without staging or health checks.",
-         "SageMaker Deployment Guardrails enable safe model deployments using Blue/Green strategies (Canary or Linear traffic shifting). CloudWatch alarms continuously monitor model latency, error rates, and 5xx responses; if an anomaly occurs, traffic automatically reverts to the original model without downtime.",
+         "Deploy the new model as a second production variant on the endpoint and shift the variant weights across gradually while watching the metrics.",
+         "Deploy the new model as a shadow variant so that it receives a copy of production traffic without any response being returned to callers.",
+         "Deploy the new model onto a second endpoint and move the traffic across at the DNS or application layer once it appears healthy.",
+         "Deployment guardrails perform the shift and, crucially, the rollback automatically against CloudWatch alarms, so a bad model is withdrawn even at three in the morning with nobody watching. Shifting production variant weights achieves the same gradual exposure but the rollback is a manual weight change once somebody notices. Shadow variants are excellent for validating a candidate against real traffic and never serve a single user, so they cannot complete the update. A second endpoint with DNS cutover works but places the traffic control and the rollback outside SageMaker entirely.",
          ["deployment-guardrails", "blue-green", "canary"]),
 
-        ("SageMaker Pipelines Orchestration", "Automated end-to-end MLOps CI/CD pipelines",
+        ("SageMaker Pipelines Orchestration", "Automating the Path From Data to an Approved Model",
+         "automating retraining from data preparation through evaluation to a registered model",
          "Define a SageMaker Pipeline combining ProcessingStep, TrainingStep, ModelStep, and ConditionStep to automate model retraining and registry promotion.",
-         "Write manual cron jobs that run disparate Python scripts without dependency tracking or status reporting.",
-         "Manually click web console buttons to initiate model training and deployment steps.",
-         "Trigger production deployments directly from uncommitted local Jupyter notebooks.",
-         "SageMaker Pipelines is a purpose-built CI/CD and workflow orchestration service for machine learning. It provides Python SDK primitives to define Directed Acyclic Graphs (DAGs), manage step dependencies, execute automated evaluations, and register approved models into the Model Registry.",
+         "Define an AWS Step Functions state machine that calls each of the SageMaker APIs in turn using the optimised service integrations that it already provides.",
+         "Define an Amazon MWAA DAG running Apache Airflow that submits each SageMaker job in the workflow as an individual task.",
+         "Define an EventBridge rule on a schedule that starts the training job and a Lambda function that registers whichever model results.",
+         "SageMaker Pipelines is native to the platform, so every step records lineage, repeated steps are cached, and a ConditionStep gates registry promotion on the evaluation metric without any extra service. Step Functions and MWAA both orchestrate the same jobs correctly and are the right answer when the workflow spans well beyond ML, at the cost of tracking lineage and caching separately. A scheduled rule with a Lambda handles one linear path and offers neither the conditional promotion nor the lineage this requires.",
          ["pipelines", "mlops", "orchestration"])
     ]
 
     d4_topics = [
-        ("SageMaker Model Monitor", "Continuous detection of data drift and concept drift in production",
+        ("SageMaker Model Monitor", "Noticing That a Production Model Has Degraded",
+         "detecting that a deployed model's inputs or accuracy have shifted away from training",
          "Configure SageMaker Model Monitor with a baseline dataset to continuously inspect endpoint requests and detect data drift or model quality degradation.",
-         "Deploy models into production and assume data distributions will remain static forever.",
-         "Wait for customer complaints and revenue drops before investigating model accuracy drops.",
-         "Disable endpoint logging to save Amazon S3 storage costs.",
-         "SageMaker Model Monitor continuously monitors production endpoints for data drift (input features deviating from training baselines), concept drift (relationships between features and targets changing), model quality drops, and bias drift, emitting CloudWatch alarms for automated retraining.",
+         "Configure CloudWatch alarms across the endpoint's invocation count, latency, and error metrics so that any operational problem raises an alert.",
+         "Enable data capture on the endpoint and review the captured requests with Amazon Athena during the scheduled monthly model review.",
+         "Schedule a monthly retraining pipeline so that the model is refreshed regularly whether or not its inputs have actually shifted.",
+         "Model Monitor compares live traffic against a baseline computed from the training data and raises an alarm when the distributions or the quality metrics move, which is a statistical question no operational metric answers. CloudWatch alarms report that the endpoint is healthy and fast while it confidently returns wrong answers. Data capture plus Athena has the right data but a month of latency and a person in the loop. Blind monthly retraining may mask drift for a while and gives no signal that anything changed.",
          ["model-monitor", "drift-detection", "governance"]),
 
-        ("SageMaker Clarify for Explainability and Bias", "Feature attribution with SHAP values and fairness auditing",
+        ("SageMaker Clarify for Explainability and Bias", "Explaining One Individual Prediction",
+         "explaining to a declined applicant which inputs drove their particular decision",
          "Use SageMaker Clarify to compute pre-training bias metrics and post-training SHAP (Shapley Additive exPlanations) values to explain feature contributions.",
-         "Treat models as unexplainable black boxes and refuse to explain credit or loan refusal decisions.",
-         "Rely on random guessing to determine which feature influenced a high-risk prediction.",
-         "Delete all audit logs and training data to prevent external compliance reviews.",
-         "SageMaker Clarify provides machine learning explainability and bias detection across the ML lifecycle. It computes pre-training data bias (e.g., class imbalance, disparate impact) and post-training SHAP values, explaining how each input feature contributed to individual model predictions for transparency and compliance.",
+         "Use the model's built-in feature importance scores to report which of the inputs the algorithm relies upon most heavily across the whole of the training dataset.",
+         "Use the bias drift monitor in SageMaker Model Monitor to report how the model's fairness metrics are changing over time in production.",
+         "Use SageMaker Debugger rules to capture tensors during training and report which of the features carried the largest gradients.",
+         "Clarify computes SHAP values per prediction, so the contribution of each input to one applicant's own decision can be stated, and it reports pre-training bias across the dataset as well. Built-in feature importance is a global ranking: it describes the model overall and cannot say anything about an individual case. The bias drift monitor tracks fairness metrics through time and again explains no single decision. Debugger inspects tensors during training rather than the production inference that the applicant is asking about.",
          ["clarify", "explainability", "shap"]),
 
-        ("SageMaker Model Registry and Governance", "Centralized model versioning and production approval gates",
+        ("SageMaker Model Registry and Governance", "An Approval Gate Before Production Deployment",
+         "requiring a reviewer's approval before any model version can reach production",
          "Register models in the SageMaker Model Registry, cataloging metadata, evaluation metrics, approval status ('Approved', 'Rejected'), and lineage.",
-         "Distribute model artifact .tar.gz files via email attachments across engineering teams.",
-         "Deploy unvetted experimental models straight from personal notebooks to production clusters.",
-         "Overwrite production model artifacts in S3 without incrementing version numbers.",
-         "The SageMaker Model Registry serves as a centralized catalog for managing model packages, versions, and deployment approval workflows. It enforces governance by ensuring only models with an 'Approved' status by designated reviewers can be deployed into staging or production environments.",
+         "Tag each SageMaker model resource with its evaluation metrics and an approval tag which the deployment pipeline reads before it will run.",
+         "Store each model artifact in a versioned S3 bucket and record its metrics in a DynamoDB table that the deployment job consults first.",
+         "Keep each approved model in its own Amazon ECR image repository and deploy whichever image is currently carrying the production tag.",
+         "The Model Registry models this directly: versions are grouped into a package group, metrics and lineage travel with each version, and the approval status is a first-class field that IAM can restrict to reviewers and EventBridge can react to. Approval tags are mutable by anyone holding tagging permissions, which is a weak gate for a production control. Versioned S3 with a DynamoDB table reimplements the registry without its lineage or events. An ECR tag records that an image exists but carries neither the evaluation metrics nor the reviewer's decision.",
          ["model-registry", "governance", "versioning"]),
 
-        ("SageMaker Security and IAM Least Privilege", "Securing ML infrastructure with KMS, VPC endpoints, and IAM",
+        ("SageMaker Security and IAM Least Privilege", "Keeping Training Data and Traffic Private",
+         "keeping training data encrypted and job traffic off the public internet under audit",
          "Configure VPC interface endpoints (PrivateLink), enable KMS encryption for S3 and EBS storage, and enforce IAM least-privilege execution roles.",
-         "Grant AdministratorAccess permissions to the SageMaker execution role and expose endpoints to public 0.0.0.0/0 traffic.",
-         "Store sensitive training datasets in public unencrypted S3 buckets with anonymous read permissions.",
-         "Disable encryption in transit and at rest to improve training speed.",
-         "Enterprise ML security requires end-to-end defense in depth: SageMaker execution roles restricted with IAM least privilege, VPC interface endpoints preventing data exfiltration over the public Internet, inter-container traffic encryption, and KMS customer-managed keys (CMKs) protecting S3 and EBS volumes.",
+         "Run the training jobs inside a VPC with a NAT gateway for their egress and rely on S3 default encryption using Amazon-managed keys.",
+         "Enable network isolation on the training job so that the container has no network access, and encrypt the storage volumes with the default key.",
+         "Attach an S3 gateway endpoint to the VPC route table and use bucket policies to limit access to the job's execution role.",
+         "Interface endpoints keep the SageMaker API and runtime traffic on private addresses, customer-managed KMS keys give the auditable key control and revocation an audit expects, and a least-privilege execution role bounds what a compromised job can reach. A NAT gateway routes egress over the public internet, and Amazon-managed keys leave no customer-controlled key policy to audit. Network isolation is a strong control but blocks the S3 access the job needs unless endpoints are configured too. An S3 gateway endpoint privately covers S3 alone, leaving the SageMaker API calls on the public path.",
          ["security", "iam", "kms"])
     ]
 
@@ -187,7 +203,7 @@ def build_aws_mla_bank():
 
         for i in range(25):
             topic_idx = (i + (pack_idx - 1) * 3) % len(topics_pool)
-            title_prefix, scenario_core, correct_text, dist1, dist2, dist3, explanation, tags = topics_pool[topic_idx]
+            title_prefix, challenge, scenario_core, correct_text, dist1, dist2, dist3, explanation, tags = topics_pool[topic_idx]
             context_title, context_desc = CONTEXTS[i]
             
             if i < 5:
@@ -215,8 +231,8 @@ def build_aws_mla_bank():
 
             correct_letter = chr(65 + target_slot)
             
-            scenario = f"In an enterprise {context_title.lower()} ML environment, {context_desc.lower()} The AWS MLOps engineering team is currently {scenario_core.lower()} under production pipeline release {pack_idx}.{i+1}."
-            question_text = f"Which Amazon SageMaker service architecture or configuration satisfies these {context_title.lower()} requirements for {title_prefix.lower()}?"
+            scenario = f"{context_desc} The ML engineering team is {scenario_core}. The work is scoped to {STAGES[(pack_idx - 1) % len(STAGES)]}."
+            question_text = "Which approach best meets these requirements?"
             
             pack_questions.append({
                 "id": q_id,
@@ -224,7 +240,7 @@ def build_aws_mla_bank():
                 "certId": CERT_ID,
                 "domainId": domain["id"],
                 "domainName": domain["name"],
-                "title": f"{title_prefix}: {context_title}",
+                "title": f"{challenge}: {context_title}",
                 "scenario": scenario,
                 "question": question_text,
                 "options": options,

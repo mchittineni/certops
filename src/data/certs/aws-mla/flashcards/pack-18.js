@@ -6,7 +6,7 @@ export const AWS_MLA_FLASHCARDS_18 = [
     domainId: "d4",
     front: "AWS ML Engineer: SageMaker Security and IAM Least Privilege in High-Frequency FinTech Trading",
     hint: "Focus on security and iam best practices.",
-    back: "<strong>SageMaker Security and IAM Least Privilege</strong>: Configure VPC interface endpoints (PrivateLink), enable KMS encryption for S3 and EBS storage, and enforce IAM least-privilege execution roles. Core MLOps rationale: Enterprise ML security requires end-to-end defense in depth: SageMaker execution roles restricted with IAM least privilege, VPC interface endpoints preventing d...",
+    back: "<strong>SageMaker Security and IAM Least Privilege</strong>: Configure VPC interface endpoints (PrivateLink), enable KMS encryption for S3 and EBS storage, and enforce IAM least-privilege execution roles. Core MLOps rationale: Interface endpoints keep the SageMaker API and runtime traffic on private addresses, customer-managed KMS keys give the auditable key control and revocation an ...",
     tags: ["security", "iam", "kms", "High-Frequency FinTech Trading"]
   },
   {
@@ -16,7 +16,7 @@ export const AWS_MLA_FLASHCARDS_18 = [
     domainId: "d4",
     front: "AWS ML Engineer: SageMaker Model Monitor in Healthcare Patient Records & HIPAA",
     hint: "Focus on model-monitor and drift-detection best practices.",
-    back: "<strong>SageMaker Model Monitor</strong>: Configure SageMaker Model Monitor with a baseline dataset to continuously inspect endpoint requests and detect data drift or model quality degradation. Core MLOps rationale: SageMaker Model Monitor continuously monitors production endpoints for data drift (input features deviating from training baselines), concept drift (relationshi...",
+    back: "<strong>SageMaker Model Monitor</strong>: Configure SageMaker Model Monitor with a baseline dataset to continuously inspect endpoint requests and detect data drift or model quality degradation. Core MLOps rationale: Model Monitor compares live traffic against a baseline computed from the training data and raises an alarm when the distributions or the quality metrics move, w...",
     tags: ["model-monitor", "drift-detection", "governance", "Healthcare Patient Records & HIPAA"]
   },
   {
@@ -26,7 +26,7 @@ export const AWS_MLA_FLASHCARDS_18 = [
     domainId: "d4",
     front: "AWS ML Engineer: SageMaker Clarify for Explainability and Bias in Global E-Commerce Black Friday Scale",
     hint: "Focus on clarify and explainability best practices.",
-    back: "<strong>SageMaker Clarify for Explainability and Bias</strong>: Use SageMaker Clarify to compute pre-training bias metrics and post-training SHAP (Shapley Additive exPlanations) values to explain feature contributions. Core MLOps rationale: SageMaker Clarify provides machine learning explainability and bias detection across the ML lifecycle. It computes pre-training data bias (e.g., class imbalance...",
+    back: "<strong>SageMaker Clarify for Explainability and Bias</strong>: Use SageMaker Clarify to compute pre-training bias metrics and post-training SHAP (Shapley Additive exPlanations) values to explain feature contributions. Core MLOps rationale: Clarify computes SHAP values per prediction, so the contribution of each input to one applicant's own decision can be stated, and it reports pre-training bias a...",
     tags: ["clarify", "explainability", "shap", "Global E-Commerce Black Friday Scale"]
   },
   {
@@ -36,7 +36,7 @@ export const AWS_MLA_FLASHCARDS_18 = [
     domainId: "d4",
     front: "AWS ML Engineer: SageMaker Model Registry and Governance in Autonomous Vehicle Telemetry",
     hint: "Focus on model-registry and governance best practices.",
-    back: "<strong>SageMaker Model Registry and Governance</strong>: Register models in the SageMaker Model Registry, cataloging metadata, evaluation metrics, approval status ('Approved', 'Rejected'), and lineage. Core MLOps rationale: The SageMaker Model Registry serves as a centralized catalog for managing model packages, versions, and deployment approval workflows. It enforces governance by...",
+    back: "<strong>SageMaker Model Registry and Governance</strong>: Register models in the SageMaker Model Registry, cataloging metadata, evaluation metrics, approval status ('Approved', 'Rejected'), and lineage. Core MLOps rationale: The Model Registry models this directly: versions are grouped into a package group, metrics and lineage travel with each version, and the approval status is a f...",
     tags: ["model-registry", "governance", "versioning", "Autonomous Vehicle Telemetry"]
   },
   {
@@ -46,7 +46,7 @@ export const AWS_MLA_FLASHCARDS_18 = [
     domainId: "d4",
     front: "AWS ML Engineer: SageMaker Security and IAM Least Privilege in Multi-Tenant B2B SaaS Platform",
     hint: "Focus on security and iam best practices.",
-    back: "<strong>SageMaker Security and IAM Least Privilege</strong>: Configure VPC interface endpoints (PrivateLink), enable KMS encryption for S3 and EBS storage, and enforce IAM least-privilege execution roles. Core MLOps rationale: Enterprise ML security requires end-to-end defense in depth: SageMaker execution roles restricted with IAM least privilege, VPC interface endpoints preventing d...",
+    back: "<strong>SageMaker Security and IAM Least Privilege</strong>: Configure VPC interface endpoints (PrivateLink), enable KMS encryption for S3 and EBS storage, and enforce IAM least-privilege execution roles. Core MLOps rationale: Interface endpoints keep the SageMaker API and runtime traffic on private addresses, customer-managed KMS keys give the auditable key control and revocation an ...",
     tags: ["security", "iam", "kms", "Multi-Tenant B2B SaaS Platform"]
   },
   {
@@ -56,7 +56,7 @@ export const AWS_MLA_FLASHCARDS_18 = [
     domainId: "d4",
     front: "AWS ML Engineer: SageMaker Model Monitor in Media Streaming & Global CDN",
     hint: "Focus on model-monitor and drift-detection best practices.",
-    back: "<strong>SageMaker Model Monitor</strong>: Configure SageMaker Model Monitor with a baseline dataset to continuously inspect endpoint requests and detect data drift or model quality degradation. Core MLOps rationale: SageMaker Model Monitor continuously monitors production endpoints for data drift (input features deviating from training baselines), concept drift (relationshi...",
+    back: "<strong>SageMaker Model Monitor</strong>: Configure SageMaker Model Monitor with a baseline dataset to continuously inspect endpoint requests and detect data drift or model quality degradation. Core MLOps rationale: Model Monitor compares live traffic against a baseline computed from the training data and raises an alarm when the distributions or the quality metrics move, w...",
     tags: ["model-monitor", "drift-detection", "governance", "Media Streaming & Global CDN"]
   },
   {
@@ -66,7 +66,7 @@ export const AWS_MLA_FLASHCARDS_18 = [
     domainId: "d4",
     front: "AWS ML Engineer: SageMaker Clarify for Explainability and Bias in Aerospace Satellite Ground Systems",
     hint: "Focus on clarify and explainability best practices.",
-    back: "<strong>SageMaker Clarify for Explainability and Bias</strong>: Use SageMaker Clarify to compute pre-training bias metrics and post-training SHAP (Shapley Additive exPlanations) values to explain feature contributions. Core MLOps rationale: SageMaker Clarify provides machine learning explainability and bias detection across the ML lifecycle. It computes pre-training data bias (e.g., class imbalance...",
+    back: "<strong>SageMaker Clarify for Explainability and Bias</strong>: Use SageMaker Clarify to compute pre-training bias metrics and post-training SHAP (Shapley Additive exPlanations) values to explain feature contributions. Core MLOps rationale: Clarify computes SHAP values per prediction, so the contribution of each input to one applicant's own decision can be stated, and it reports pre-training bias a...",
     tags: ["clarify", "explainability", "shap", "Aerospace Satellite Ground Systems"]
   },
   {
@@ -76,7 +76,7 @@ export const AWS_MLA_FLASHCARDS_18 = [
     domainId: "d4",
     front: "AWS ML Engineer: SageMaker Model Registry and Governance in Telecommunications 5G Core Network",
     hint: "Focus on model-registry and governance best practices.",
-    back: "<strong>SageMaker Model Registry and Governance</strong>: Register models in the SageMaker Model Registry, cataloging metadata, evaluation metrics, approval status ('Approved', 'Rejected'), and lineage. Core MLOps rationale: The SageMaker Model Registry serves as a centralized catalog for managing model packages, versions, and deployment approval workflows. It enforces governance by...",
+    back: "<strong>SageMaker Model Registry and Governance</strong>: Register models in the SageMaker Model Registry, cataloging metadata, evaluation metrics, approval status ('Approved', 'Rejected'), and lineage. Core MLOps rationale: The Model Registry models this directly: versions are grouped into a package group, metrics and lineage travel with each version, and the approval status is a f...",
     tags: ["model-registry", "governance", "versioning", "Telecommunications 5G Core Network"]
   },
   {
@@ -86,7 +86,7 @@ export const AWS_MLA_FLASHCARDS_18 = [
     domainId: "d4",
     front: "AWS ML Engineer: SageMaker Security and IAM Least Privilege in Renewable Energy Smart Grid IoT",
     hint: "Focus on security and iam best practices.",
-    back: "<strong>SageMaker Security and IAM Least Privilege</strong>: Configure VPC interface endpoints (PrivateLink), enable KMS encryption for S3 and EBS storage, and enforce IAM least-privilege execution roles. Core MLOps rationale: Enterprise ML security requires end-to-end defense in depth: SageMaker execution roles restricted with IAM least privilege, VPC interface endpoints preventing d...",
+    back: "<strong>SageMaker Security and IAM Least Privilege</strong>: Configure VPC interface endpoints (PrivateLink), enable KMS encryption for S3 and EBS storage, and enforce IAM least-privilege execution roles. Core MLOps rationale: Interface endpoints keep the SageMaker API and runtime traffic on private addresses, customer-managed KMS keys give the auditable key control and revocation an ...",
     tags: ["security", "iam", "kms", "Renewable Energy Smart Grid IoT"]
   },
   {
@@ -96,7 +96,7 @@ export const AWS_MLA_FLASHCARDS_18 = [
     domainId: "d4",
     front: "AWS ML Engineer: SageMaker Model Monitor in Supply Chain Cold-Chain Logistics",
     hint: "Focus on model-monitor and drift-detection best practices.",
-    back: "<strong>SageMaker Model Monitor</strong>: Configure SageMaker Model Monitor with a baseline dataset to continuously inspect endpoint requests and detect data drift or model quality degradation. Core MLOps rationale: SageMaker Model Monitor continuously monitors production endpoints for data drift (input features deviating from training baselines), concept drift (relationshi...",
+    back: "<strong>SageMaker Model Monitor</strong>: Configure SageMaker Model Monitor with a baseline dataset to continuously inspect endpoint requests and detect data drift or model quality degradation. Core MLOps rationale: Model Monitor compares live traffic against a baseline computed from the training data and raises an alarm when the distributions or the quality metrics move, w...",
     tags: ["model-monitor", "drift-detection", "governance", "Supply Chain Cold-Chain Logistics"]
   },
   {
@@ -106,7 +106,7 @@ export const AWS_MLA_FLASHCARDS_18 = [
     domainId: "d4",
     front: "AWS ML Engineer: SageMaker Clarify for Explainability and Bias in Banking Core Ledger & Payments",
     hint: "Focus on clarify and explainability best practices.",
-    back: "<strong>SageMaker Clarify for Explainability and Bias</strong>: Use SageMaker Clarify to compute pre-training bias metrics and post-training SHAP (Shapley Additive exPlanations) values to explain feature contributions. Core MLOps rationale: SageMaker Clarify provides machine learning explainability and bias detection across the ML lifecycle. It computes pre-training data bias (e.g., class imbalance...",
+    back: "<strong>SageMaker Clarify for Explainability and Bias</strong>: Use SageMaker Clarify to compute pre-training bias metrics and post-training SHAP (Shapley Additive exPlanations) values to explain feature contributions. Core MLOps rationale: Clarify computes SHAP values per prediction, so the contribution of each input to one applicant's own decision can be stated, and it reports pre-training bias a...",
     tags: ["clarify", "explainability", "shap", "Banking Core Ledger & Payments"]
   },
   {
@@ -116,7 +116,7 @@ export const AWS_MLA_FLASHCARDS_18 = [
     domainId: "d4",
     front: "AWS ML Engineer: SageMaker Model Registry and Governance in Genomic Sequencing & Biotech Pipeline",
     hint: "Focus on model-registry and governance best practices.",
-    back: "<strong>SageMaker Model Registry and Governance</strong>: Register models in the SageMaker Model Registry, cataloging metadata, evaluation metrics, approval status ('Approved', 'Rejected'), and lineage. Core MLOps rationale: The SageMaker Model Registry serves as a centralized catalog for managing model packages, versions, and deployment approval workflows. It enforces governance by...",
+    back: "<strong>SageMaker Model Registry and Governance</strong>: Register models in the SageMaker Model Registry, cataloging metadata, evaluation metrics, approval status ('Approved', 'Rejected'), and lineage. Core MLOps rationale: The Model Registry models this directly: versions are grouped into a package group, metrics and lineage travel with each version, and the approval status is a f...",
     tags: ["model-registry", "governance", "versioning", "Genomic Sequencing & Biotech Pipeline"]
   },
   {
@@ -126,7 +126,7 @@ export const AWS_MLA_FLASHCARDS_18 = [
     domainId: "d4",
     front: "AWS ML Engineer: SageMaker Security and IAM Least Privilege in Defense-Grade Zero-Trust Network",
     hint: "Focus on security and iam best practices.",
-    back: "<strong>SageMaker Security and IAM Least Privilege</strong>: Configure VPC interface endpoints (PrivateLink), enable KMS encryption for S3 and EBS storage, and enforce IAM least-privilege execution roles. Core MLOps rationale: Enterprise ML security requires end-to-end defense in depth: SageMaker execution roles restricted with IAM least privilege, VPC interface endpoints preventing d...",
+    back: "<strong>SageMaker Security and IAM Least Privilege</strong>: Configure VPC interface endpoints (PrivateLink), enable KMS encryption for S3 and EBS storage, and enforce IAM least-privilege execution roles. Core MLOps rationale: Interface endpoints keep the SageMaker API and runtime traffic on private addresses, customer-managed KMS keys give the auditable key control and revocation an ...",
     tags: ["security", "iam", "kms", "Defense-Grade Zero-Trust Network"]
   },
   {
@@ -136,7 +136,7 @@ export const AWS_MLA_FLASHCARDS_18 = [
     domainId: "d4",
     front: "AWS ML Engineer: SageMaker Model Monitor in Online Multiplayer Gaming Engine",
     hint: "Focus on model-monitor and drift-detection best practices.",
-    back: "<strong>SageMaker Model Monitor</strong>: Configure SageMaker Model Monitor with a baseline dataset to continuously inspect endpoint requests and detect data drift or model quality degradation. Core MLOps rationale: SageMaker Model Monitor continuously monitors production endpoints for data drift (input features deviating from training baselines), concept drift (relationshi...",
+    back: "<strong>SageMaker Model Monitor</strong>: Configure SageMaker Model Monitor with a baseline dataset to continuously inspect endpoint requests and detect data drift or model quality degradation. Core MLOps rationale: Model Monitor compares live traffic against a baseline computed from the training data and raises an alarm when the distributions or the quality metrics move, w...",
     tags: ["model-monitor", "drift-detection", "governance", "Online Multiplayer Gaming Engine"]
   },
   {
@@ -146,7 +146,7 @@ export const AWS_MLA_FLASHCARDS_18 = [
     domainId: "d4",
     front: "AWS ML Engineer: SageMaker Clarify for Explainability and Bias in Insurance Risk & Actuarial Modeling",
     hint: "Focus on clarify and explainability best practices.",
-    back: "<strong>SageMaker Clarify for Explainability and Bias</strong>: Use SageMaker Clarify to compute pre-training bias metrics and post-training SHAP (Shapley Additive exPlanations) values to explain feature contributions. Core MLOps rationale: SageMaker Clarify provides machine learning explainability and bias detection across the ML lifecycle. It computes pre-training data bias (e.g., class imbalance...",
+    back: "<strong>SageMaker Clarify for Explainability and Bias</strong>: Use SageMaker Clarify to compute pre-training bias metrics and post-training SHAP (Shapley Additive exPlanations) values to explain feature contributions. Core MLOps rationale: Clarify computes SHAP values per prediction, so the contribution of each input to one applicant's own decision can be stated, and it reports pre-training bias a...",
     tags: ["clarify", "explainability", "shap", "Insurance Risk & Actuarial Modeling"]
   },
   {
@@ -156,7 +156,7 @@ export const AWS_MLA_FLASHCARDS_18 = [
     domainId: "d4",
     front: "AWS ML Engineer: SageMaker Model Registry and Governance in Pharmaceutical Clinical Trial Platform",
     hint: "Focus on model-registry and governance best practices.",
-    back: "<strong>SageMaker Model Registry and Governance</strong>: Register models in the SageMaker Model Registry, cataloging metadata, evaluation metrics, approval status ('Approved', 'Rejected'), and lineage. Core MLOps rationale: The SageMaker Model Registry serves as a centralized catalog for managing model packages, versions, and deployment approval workflows. It enforces governance by...",
+    back: "<strong>SageMaker Model Registry and Governance</strong>: Register models in the SageMaker Model Registry, cataloging metadata, evaluation metrics, approval status ('Approved', 'Rejected'), and lineage. Core MLOps rationale: The Model Registry models this directly: versions are grouped into a package group, metrics and lineage travel with each version, and the approval status is a f...",
     tags: ["model-registry", "governance", "versioning", "Pharmaceutical Clinical Trial Platform"]
   },
   {
@@ -166,7 +166,7 @@ export const AWS_MLA_FLASHCARDS_18 = [
     domainId: "d4",
     front: "AWS ML Engineer: SageMaker Security and IAM Least Privilege in Smart City Traffic & Mobility Sensor Hub",
     hint: "Focus on security and iam best practices.",
-    back: "<strong>SageMaker Security and IAM Least Privilege</strong>: Configure VPC interface endpoints (PrivateLink), enable KMS encryption for S3 and EBS storage, and enforce IAM least-privilege execution roles. Core MLOps rationale: Enterprise ML security requires end-to-end defense in depth: SageMaker execution roles restricted with IAM least privilege, VPC interface endpoints preventing d...",
+    back: "<strong>SageMaker Security and IAM Least Privilege</strong>: Configure VPC interface endpoints (PrivateLink), enable KMS encryption for S3 and EBS storage, and enforce IAM least-privilege execution roles. Core MLOps rationale: Interface endpoints keep the SageMaker API and runtime traffic on private addresses, customer-managed KMS keys give the auditable key control and revocation an ...",
     tags: ["security", "iam", "kms", "Smart City Traffic & Mobility Sensor Hub"]
   },
   {
@@ -176,7 +176,7 @@ export const AWS_MLA_FLASHCARDS_18 = [
     domainId: "d4",
     front: "AWS ML Engineer: SageMaker Model Monitor in Digital Identity & Biometric Verification",
     hint: "Focus on model-monitor and drift-detection best practices.",
-    back: "<strong>SageMaker Model Monitor</strong>: Configure SageMaker Model Monitor with a baseline dataset to continuously inspect endpoint requests and detect data drift or model quality degradation. Core MLOps rationale: SageMaker Model Monitor continuously monitors production endpoints for data drift (input features deviating from training baselines), concept drift (relationshi...",
+    back: "<strong>SageMaker Model Monitor</strong>: Configure SageMaker Model Monitor with a baseline dataset to continuously inspect endpoint requests and detect data drift or model quality degradation. Core MLOps rationale: Model Monitor compares live traffic against a baseline computed from the training data and raises an alarm when the distributions or the quality metrics move, w...",
     tags: ["model-monitor", "drift-detection", "governance", "Digital Identity & Biometric Verification"]
   },
   {
@@ -186,7 +186,7 @@ export const AWS_MLA_FLASHCARDS_18 = [
     domainId: "d4",
     front: "AWS ML Engineer: SageMaker Clarify for Explainability and Bias in Legal Discovery & Semantic Document Search",
     hint: "Focus on clarify and explainability best practices.",
-    back: "<strong>SageMaker Clarify for Explainability and Bias</strong>: Use SageMaker Clarify to compute pre-training bias metrics and post-training SHAP (Shapley Additive exPlanations) values to explain feature contributions. Core MLOps rationale: SageMaker Clarify provides machine learning explainability and bias detection across the ML lifecycle. It computes pre-training data bias (e.g., class imbalance...",
+    back: "<strong>SageMaker Clarify for Explainability and Bias</strong>: Use SageMaker Clarify to compute pre-training bias metrics and post-training SHAP (Shapley Additive exPlanations) values to explain feature contributions. Core MLOps rationale: Clarify computes SHAP values per prediction, so the contribution of each input to one applicant's own decision can be stated, and it reports pre-training bias a...",
     tags: ["clarify", "explainability", "shap", "Legal Discovery & Semantic Document Search"]
   },
   {
@@ -196,7 +196,7 @@ export const AWS_MLA_FLASHCARDS_18 = [
     domainId: "d4",
     front: "AWS ML Engineer: SageMaker Model Registry and Governance in AdTech Real-Time Bidding Exchange",
     hint: "Focus on model-registry and governance best practices.",
-    back: "<strong>SageMaker Model Registry and Governance</strong>: Register models in the SageMaker Model Registry, cataloging metadata, evaluation metrics, approval status ('Approved', 'Rejected'), and lineage. Core MLOps rationale: The SageMaker Model Registry serves as a centralized catalog for managing model packages, versions, and deployment approval workflows. It enforces governance by...",
+    back: "<strong>SageMaker Model Registry and Governance</strong>: Register models in the SageMaker Model Registry, cataloging metadata, evaluation metrics, approval status ('Approved', 'Rejected'), and lineage. Core MLOps rationale: The Model Registry models this directly: versions are grouped into a package group, metrics and lineage travel with each version, and the approval status is a f...",
     tags: ["model-registry", "governance", "versioning", "AdTech Real-Time Bidding Exchange"]
   },
   {
@@ -206,7 +206,7 @@ export const AWS_MLA_FLASHCARDS_18 = [
     domainId: "d4",
     front: "AWS ML Engineer: SageMaker Security and IAM Least Privilege in Precision Agriculture & Drone Scouting",
     hint: "Focus on security and iam best practices.",
-    back: "<strong>SageMaker Security and IAM Least Privilege</strong>: Configure VPC interface endpoints (PrivateLink), enable KMS encryption for S3 and EBS storage, and enforce IAM least-privilege execution roles. Core MLOps rationale: Enterprise ML security requires end-to-end defense in depth: SageMaker execution roles restricted with IAM least privilege, VPC interface endpoints preventing d...",
+    back: "<strong>SageMaker Security and IAM Least Privilege</strong>: Configure VPC interface endpoints (PrivateLink), enable KMS encryption for S3 and EBS storage, and enforce IAM least-privilege execution roles. Core MLOps rationale: Interface endpoints keep the SageMaker API and runtime traffic on private addresses, customer-managed KMS keys give the auditable key control and revocation an ...",
     tags: ["security", "iam", "kms", "Precision Agriculture & Drone Scouting"]
   },
   {
@@ -216,7 +216,7 @@ export const AWS_MLA_FLASHCARDS_18 = [
     domainId: "d4",
     front: "AWS ML Engineer: SageMaker Model Monitor in Industrial Robotics Predictive Maintenance",
     hint: "Focus on model-monitor and drift-detection best practices.",
-    back: "<strong>SageMaker Model Monitor</strong>: Configure SageMaker Model Monitor with a baseline dataset to continuously inspect endpoint requests and detect data drift or model quality degradation. Core MLOps rationale: SageMaker Model Monitor continuously monitors production endpoints for data drift (input features deviating from training baselines), concept drift (relationshi...",
+    back: "<strong>SageMaker Model Monitor</strong>: Configure SageMaker Model Monitor with a baseline dataset to continuously inspect endpoint requests and detect data drift or model quality degradation. Core MLOps rationale: Model Monitor compares live traffic against a baseline computed from the training data and raises an alarm when the distributions or the quality metrics move, w...",
     tags: ["model-monitor", "drift-detection", "governance", "Industrial Robotics Predictive Maintenance"]
   },
   {
@@ -226,7 +226,7 @@ export const AWS_MLA_FLASHCARDS_18 = [
     domainId: "d4",
     front: "AWS ML Engineer: SageMaker Clarify for Explainability and Bias in Educational Remote Proctoring Platform",
     hint: "Focus on clarify and explainability best practices.",
-    back: "<strong>SageMaker Clarify for Explainability and Bias</strong>: Use SageMaker Clarify to compute pre-training bias metrics and post-training SHAP (Shapley Additive exPlanations) values to explain feature contributions. Core MLOps rationale: SageMaker Clarify provides machine learning explainability and bias detection across the ML lifecycle. It computes pre-training data bias (e.g., class imbalance...",
+    back: "<strong>SageMaker Clarify for Explainability and Bias</strong>: Use SageMaker Clarify to compute pre-training bias metrics and post-training SHAP (Shapley Additive exPlanations) values to explain feature contributions. Core MLOps rationale: Clarify computes SHAP values per prediction, so the contribution of each input to one applicant's own decision can be stated, and it reports pre-training bias a...",
     tags: ["clarify", "explainability", "shap", "Educational Remote Proctoring Platform"]
   },
   {
@@ -236,7 +236,7 @@ export const AWS_MLA_FLASHCARDS_18 = [
     domainId: "d4",
     front: "AWS ML Engineer: SageMaker Model Registry and Governance in Real Estate Valuation & Geo-Spatial Analytics",
     hint: "Focus on model-registry and governance best practices.",
-    back: "<strong>SageMaker Model Registry and Governance</strong>: Register models in the SageMaker Model Registry, cataloging metadata, evaluation metrics, approval status ('Approved', 'Rejected'), and lineage. Core MLOps rationale: The SageMaker Model Registry serves as a centralized catalog for managing model packages, versions, and deployment approval workflows. It enforces governance by...",
+    back: "<strong>SageMaker Model Registry and Governance</strong>: Register models in the SageMaker Model Registry, cataloging metadata, evaluation metrics, approval status ('Approved', 'Rejected'), and lineage. Core MLOps rationale: The Model Registry models this directly: versions are grouped into a package group, metrics and lineage travel with each version, and the approval status is a f...",
     tags: ["model-registry", "governance", "versioning", "Real Estate Valuation & Geo-Spatial Analytics"]
   },
   {
@@ -246,7 +246,7 @@ export const AWS_MLA_FLASHCARDS_18 = [
     domainId: "d4",
     front: "AWS ML Engineer: SageMaker Security and IAM Least Privilege in Disaster Emergency Dispatch & Operations",
     hint: "Focus on security and iam best practices.",
-    back: "<strong>SageMaker Security and IAM Least Privilege</strong>: Configure VPC interface endpoints (PrivateLink), enable KMS encryption for S3 and EBS storage, and enforce IAM least-privilege execution roles. Core MLOps rationale: Enterprise ML security requires end-to-end defense in depth: SageMaker execution roles restricted with IAM least privilege, VPC interface endpoints preventing d...",
+    back: "<strong>SageMaker Security and IAM Least Privilege</strong>: Configure VPC interface endpoints (PrivateLink), enable KMS encryption for S3 and EBS storage, and enforce IAM least-privilege execution roles. Core MLOps rationale: Interface endpoints keep the SageMaker API and runtime traffic on private addresses, customer-managed KMS keys give the auditable key control and revocation an ...",
     tags: ["security", "iam", "kms", "Disaster Emergency Dispatch & Operations"]
   }
 ];
