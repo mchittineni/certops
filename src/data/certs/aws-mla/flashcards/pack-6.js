@@ -6,7 +6,7 @@ export const AWS_MLA_FLASHCARDS_6 = [
     domainId: "d1",
     front: "AWS ML Engineer: Glue DataBrew for Scalable Data Cleaning in High-Frequency FinTech Trading",
     hint: "Focus on glue and databrew best practices.",
-    back: "<strong>Glue DataBrew for Scalable Data Cleaning</strong>: Deploy AWS Glue DataBrew to execute automated data profiling and recipe-based visual transformations across S3 data lakes at petabyte scale. Core MLOps rationale: AWS Glue DataBrew is a visual data preparation tool that allows data analysts and ML engineers to clean, normalize, and enrich data using over 250 prebuilt tran...",
+    back: "<strong>Glue DataBrew for Scalable Data Cleaning</strong>: Deploy AWS Glue DataBrew to execute automated data profiling and recipe-based visual transformations across S3 data lakes at petabyte scale. Core MLOps rationale: DataBrew is aimed squarely at analysts: profiling runs automatically, transformations are recipe steps rather than code, and there is no cluster to size or oper...",
     tags: ["glue", "databrew", "data-lake", "High-Frequency FinTech Trading"]
   },
   {
@@ -16,7 +16,7 @@ export const AWS_MLA_FLASHCARDS_6 = [
     domainId: "d1",
     front: "AWS ML Engineer: Amazon SageMaker Feature Store in Healthcare Patient Records & HIPAA",
     hint: "Focus on feature-store and sagemaker best practices.",
-    back: "<strong>Amazon SageMaker Feature Store</strong>: Configure SageMaker Feature Store with an Online Store for real-time low-latency inference (<10ms) and an Offline Store in Amazon S3 for batch training. Core MLOps rationale: Amazon SageMaker Feature Store provides a purpose-built repository to store, update, retrieve, and share machine learning features. The Online Store (backed by ...",
+    back: "<strong>Amazon SageMaker Feature Store</strong>: Configure SageMaker Feature Store with an Online Store for real-time low-latency inference (<10ms) and an Offline Store in Amazon S3 for batch training. Core MLOps rationale: Feature Store takes one feature definition and writes it to both stores, so the values a model trains on are the values it later reads, and the offline store su...",
     tags: ["feature-store", "sagemaker", "data-prep", "Healthcare Patient Records & HIPAA"]
   },
   {
@@ -26,7 +26,7 @@ export const AWS_MLA_FLASHCARDS_6 = [
     domainId: "d1",
     front: "AWS ML Engineer: SageMaker Data Wrangler in Global E-Commerce Black Friday Scale",
     hint: "Focus on data-wrangler and feature-engineering best practices.",
-    back: "<strong>SageMaker Data Wrangler</strong>: Use SageMaker Data Wrangler to visually explore, clean, and transform multi-modal tabular data, exporting the pipeline directly to a SageMaker Processing job. Core MLOps rationale: SageMaker Data Wrangler simplifies data preparation and feature engineering with 300+ built-in data transformations, automated data quality insights, and anomal...",
+    back: "<strong>SageMaker Data Wrangler</strong>: Use SageMaker Data Wrangler to visually explore, clean, and transform multi-modal tabular data, exporting the pipeline directly to a SageMaker Processing job. Core MLOps rationale: Data Wrangler pairs interactive exploration and quality insights with a direct export to a Processing job or Feature Store, so the steps explored by hand become...",
     tags: ["data-wrangler", "feature-engineering", "sagemaker", "Global E-Commerce Black Friday Scale"]
   },
   {
@@ -36,7 +36,7 @@ export const AWS_MLA_FLASHCARDS_6 = [
     domainId: "d1",
     front: "AWS ML Engineer: Handling Missing Data and Categorical Encoding in Autonomous Vehicle Telemetry",
     hint: "Focus on imputation and one-hot-encoding best practices.",
-    back: "<strong>Handling Missing Data and Categorical Encoding</strong>: Impute numerical missing values using median/mean or iterative imputers, and apply One-Hot Encoding for low-cardinality categorical features. Core MLOps rationale: Proper data preparation requires thoughtful imputation: numerical features are typically imputed using median (for skewed data) or mean, while low-cardinality c...",
+    back: "<strong>Handling Missing Data and Categorical Encoding</strong>: Impute numerical missing values using median/mean or iterative imputers, and apply One-Hot Encoding for low-cardinality categorical features. Core MLOps rationale: Median or mean imputation fills the numeric gaps without distorting the distribution badly, and one-hot encoding represents a small category set without implyin...",
     tags: ["imputation", "one-hot-encoding", "data-cleaning", "Autonomous Vehicle Telemetry"]
   },
   {
@@ -46,7 +46,7 @@ export const AWS_MLA_FLASHCARDS_6 = [
     domainId: "d1",
     front: "AWS ML Engineer: Glue DataBrew for Scalable Data Cleaning in Multi-Tenant B2B SaaS Platform",
     hint: "Focus on glue and databrew best practices.",
-    back: "<strong>Glue DataBrew for Scalable Data Cleaning</strong>: Deploy AWS Glue DataBrew to execute automated data profiling and recipe-based visual transformations across S3 data lakes at petabyte scale. Core MLOps rationale: AWS Glue DataBrew is a visual data preparation tool that allows data analysts and ML engineers to clean, normalize, and enrich data using over 250 prebuilt tran...",
+    back: "<strong>Glue DataBrew for Scalable Data Cleaning</strong>: Deploy AWS Glue DataBrew to execute automated data profiling and recipe-based visual transformations across S3 data lakes at petabyte scale. Core MLOps rationale: DataBrew is aimed squarely at analysts: profiling runs automatically, transformations are recipe steps rather than code, and there is no cluster to size or oper...",
     tags: ["glue", "databrew", "data-lake", "Multi-Tenant B2B SaaS Platform"]
   },
   {
@@ -56,7 +56,7 @@ export const AWS_MLA_FLASHCARDS_6 = [
     domainId: "d1",
     front: "AWS ML Engineer: Amazon SageMaker Feature Store in Media Streaming & Global CDN",
     hint: "Focus on feature-store and sagemaker best practices.",
-    back: "<strong>Amazon SageMaker Feature Store</strong>: Configure SageMaker Feature Store with an Online Store for real-time low-latency inference (<10ms) and an Offline Store in Amazon S3 for batch training. Core MLOps rationale: Amazon SageMaker Feature Store provides a purpose-built repository to store, update, retrieve, and share machine learning features. The Online Store (backed by ...",
+    back: "<strong>Amazon SageMaker Feature Store</strong>: Configure SageMaker Feature Store with an Online Store for real-time low-latency inference (<10ms) and an Offline Store in Amazon S3 for batch training. Core MLOps rationale: Feature Store takes one feature definition and writes it to both stores, so the values a model trains on are the values it later reads, and the offline store su...",
     tags: ["feature-store", "sagemaker", "data-prep", "Media Streaming & Global CDN"]
   },
   {
@@ -66,7 +66,7 @@ export const AWS_MLA_FLASHCARDS_6 = [
     domainId: "d1",
     front: "AWS ML Engineer: SageMaker Data Wrangler in Aerospace Satellite Ground Systems",
     hint: "Focus on data-wrangler and feature-engineering best practices.",
-    back: "<strong>SageMaker Data Wrangler</strong>: Use SageMaker Data Wrangler to visually explore, clean, and transform multi-modal tabular data, exporting the pipeline directly to a SageMaker Processing job. Core MLOps rationale: SageMaker Data Wrangler simplifies data preparation and feature engineering with 300+ built-in data transformations, automated data quality insights, and anomal...",
+    back: "<strong>SageMaker Data Wrangler</strong>: Use SageMaker Data Wrangler to visually explore, clean, and transform multi-modal tabular data, exporting the pipeline directly to a SageMaker Processing job. Core MLOps rationale: Data Wrangler pairs interactive exploration and quality insights with a direct export to a Processing job or Feature Store, so the steps explored by hand become...",
     tags: ["data-wrangler", "feature-engineering", "sagemaker", "Aerospace Satellite Ground Systems"]
   },
   {
@@ -76,7 +76,7 @@ export const AWS_MLA_FLASHCARDS_6 = [
     domainId: "d1",
     front: "AWS ML Engineer: Handling Missing Data and Categorical Encoding in Telecommunications 5G Core Network",
     hint: "Focus on imputation and one-hot-encoding best practices.",
-    back: "<strong>Handling Missing Data and Categorical Encoding</strong>: Impute numerical missing values using median/mean or iterative imputers, and apply One-Hot Encoding for low-cardinality categorical features. Core MLOps rationale: Proper data preparation requires thoughtful imputation: numerical features are typically imputed using median (for skewed data) or mean, while low-cardinality c...",
+    back: "<strong>Handling Missing Data and Categorical Encoding</strong>: Impute numerical missing values using median/mean or iterative imputers, and apply One-Hot Encoding for low-cardinality categorical features. Core MLOps rationale: Median or mean imputation fills the numeric gaps without distorting the distribution badly, and one-hot encoding represents a small category set without implyin...",
     tags: ["imputation", "one-hot-encoding", "data-cleaning", "Telecommunications 5G Core Network"]
   },
   {
@@ -86,7 +86,7 @@ export const AWS_MLA_FLASHCARDS_6 = [
     domainId: "d1",
     front: "AWS ML Engineer: Glue DataBrew for Scalable Data Cleaning in Renewable Energy Smart Grid IoT",
     hint: "Focus on glue and databrew best practices.",
-    back: "<strong>Glue DataBrew for Scalable Data Cleaning</strong>: Deploy AWS Glue DataBrew to execute automated data profiling and recipe-based visual transformations across S3 data lakes at petabyte scale. Core MLOps rationale: AWS Glue DataBrew is a visual data preparation tool that allows data analysts and ML engineers to clean, normalize, and enrich data using over 250 prebuilt tran...",
+    back: "<strong>Glue DataBrew for Scalable Data Cleaning</strong>: Deploy AWS Glue DataBrew to execute automated data profiling and recipe-based visual transformations across S3 data lakes at petabyte scale. Core MLOps rationale: DataBrew is aimed squarely at analysts: profiling runs automatically, transformations are recipe steps rather than code, and there is no cluster to size or oper...",
     tags: ["glue", "databrew", "data-lake", "Renewable Energy Smart Grid IoT"]
   },
   {
@@ -96,7 +96,7 @@ export const AWS_MLA_FLASHCARDS_6 = [
     domainId: "d1",
     front: "AWS ML Engineer: Amazon SageMaker Feature Store in Supply Chain Cold-Chain Logistics",
     hint: "Focus on feature-store and sagemaker best practices.",
-    back: "<strong>Amazon SageMaker Feature Store</strong>: Configure SageMaker Feature Store with an Online Store for real-time low-latency inference (<10ms) and an Offline Store in Amazon S3 for batch training. Core MLOps rationale: Amazon SageMaker Feature Store provides a purpose-built repository to store, update, retrieve, and share machine learning features. The Online Store (backed by ...",
+    back: "<strong>Amazon SageMaker Feature Store</strong>: Configure SageMaker Feature Store with an Online Store for real-time low-latency inference (<10ms) and an Offline Store in Amazon S3 for batch training. Core MLOps rationale: Feature Store takes one feature definition and writes it to both stores, so the values a model trains on are the values it later reads, and the offline store su...",
     tags: ["feature-store", "sagemaker", "data-prep", "Supply Chain Cold-Chain Logistics"]
   },
   {
@@ -106,7 +106,7 @@ export const AWS_MLA_FLASHCARDS_6 = [
     domainId: "d1",
     front: "AWS ML Engineer: SageMaker Data Wrangler in Banking Core Ledger & Payments",
     hint: "Focus on data-wrangler and feature-engineering best practices.",
-    back: "<strong>SageMaker Data Wrangler</strong>: Use SageMaker Data Wrangler to visually explore, clean, and transform multi-modal tabular data, exporting the pipeline directly to a SageMaker Processing job. Core MLOps rationale: SageMaker Data Wrangler simplifies data preparation and feature engineering with 300+ built-in data transformations, automated data quality insights, and anomal...",
+    back: "<strong>SageMaker Data Wrangler</strong>: Use SageMaker Data Wrangler to visually explore, clean, and transform multi-modal tabular data, exporting the pipeline directly to a SageMaker Processing job. Core MLOps rationale: Data Wrangler pairs interactive exploration and quality insights with a direct export to a Processing job or Feature Store, so the steps explored by hand become...",
     tags: ["data-wrangler", "feature-engineering", "sagemaker", "Banking Core Ledger & Payments"]
   },
   {
@@ -116,7 +116,7 @@ export const AWS_MLA_FLASHCARDS_6 = [
     domainId: "d1",
     front: "AWS ML Engineer: Handling Missing Data and Categorical Encoding in Genomic Sequencing & Biotech Pipeline",
     hint: "Focus on imputation and one-hot-encoding best practices.",
-    back: "<strong>Handling Missing Data and Categorical Encoding</strong>: Impute numerical missing values using median/mean or iterative imputers, and apply One-Hot Encoding for low-cardinality categorical features. Core MLOps rationale: Proper data preparation requires thoughtful imputation: numerical features are typically imputed using median (for skewed data) or mean, while low-cardinality c...",
+    back: "<strong>Handling Missing Data and Categorical Encoding</strong>: Impute numerical missing values using median/mean or iterative imputers, and apply One-Hot Encoding for low-cardinality categorical features. Core MLOps rationale: Median or mean imputation fills the numeric gaps without distorting the distribution badly, and one-hot encoding represents a small category set without implyin...",
     tags: ["imputation", "one-hot-encoding", "data-cleaning", "Genomic Sequencing & Biotech Pipeline"]
   },
   {
@@ -126,7 +126,7 @@ export const AWS_MLA_FLASHCARDS_6 = [
     domainId: "d1",
     front: "AWS ML Engineer: Glue DataBrew for Scalable Data Cleaning in Defense-Grade Zero-Trust Network",
     hint: "Focus on glue and databrew best practices.",
-    back: "<strong>Glue DataBrew for Scalable Data Cleaning</strong>: Deploy AWS Glue DataBrew to execute automated data profiling and recipe-based visual transformations across S3 data lakes at petabyte scale. Core MLOps rationale: AWS Glue DataBrew is a visual data preparation tool that allows data analysts and ML engineers to clean, normalize, and enrich data using over 250 prebuilt tran...",
+    back: "<strong>Glue DataBrew for Scalable Data Cleaning</strong>: Deploy AWS Glue DataBrew to execute automated data profiling and recipe-based visual transformations across S3 data lakes at petabyte scale. Core MLOps rationale: DataBrew is aimed squarely at analysts: profiling runs automatically, transformations are recipe steps rather than code, and there is no cluster to size or oper...",
     tags: ["glue", "databrew", "data-lake", "Defense-Grade Zero-Trust Network"]
   },
   {
@@ -136,7 +136,7 @@ export const AWS_MLA_FLASHCARDS_6 = [
     domainId: "d1",
     front: "AWS ML Engineer: Amazon SageMaker Feature Store in Online Multiplayer Gaming Engine",
     hint: "Focus on feature-store and sagemaker best practices.",
-    back: "<strong>Amazon SageMaker Feature Store</strong>: Configure SageMaker Feature Store with an Online Store for real-time low-latency inference (<10ms) and an Offline Store in Amazon S3 for batch training. Core MLOps rationale: Amazon SageMaker Feature Store provides a purpose-built repository to store, update, retrieve, and share machine learning features. The Online Store (backed by ...",
+    back: "<strong>Amazon SageMaker Feature Store</strong>: Configure SageMaker Feature Store with an Online Store for real-time low-latency inference (<10ms) and an Offline Store in Amazon S3 for batch training. Core MLOps rationale: Feature Store takes one feature definition and writes it to both stores, so the values a model trains on are the values it later reads, and the offline store su...",
     tags: ["feature-store", "sagemaker", "data-prep", "Online Multiplayer Gaming Engine"]
   },
   {
@@ -146,7 +146,7 @@ export const AWS_MLA_FLASHCARDS_6 = [
     domainId: "d1",
     front: "AWS ML Engineer: SageMaker Data Wrangler in Insurance Risk & Actuarial Modeling",
     hint: "Focus on data-wrangler and feature-engineering best practices.",
-    back: "<strong>SageMaker Data Wrangler</strong>: Use SageMaker Data Wrangler to visually explore, clean, and transform multi-modal tabular data, exporting the pipeline directly to a SageMaker Processing job. Core MLOps rationale: SageMaker Data Wrangler simplifies data preparation and feature engineering with 300+ built-in data transformations, automated data quality insights, and anomal...",
+    back: "<strong>SageMaker Data Wrangler</strong>: Use SageMaker Data Wrangler to visually explore, clean, and transform multi-modal tabular data, exporting the pipeline directly to a SageMaker Processing job. Core MLOps rationale: Data Wrangler pairs interactive exploration and quality insights with a direct export to a Processing job or Feature Store, so the steps explored by hand become...",
     tags: ["data-wrangler", "feature-engineering", "sagemaker", "Insurance Risk & Actuarial Modeling"]
   },
   {
@@ -156,7 +156,7 @@ export const AWS_MLA_FLASHCARDS_6 = [
     domainId: "d1",
     front: "AWS ML Engineer: Handling Missing Data and Categorical Encoding in Pharmaceutical Clinical Trial Platform",
     hint: "Focus on imputation and one-hot-encoding best practices.",
-    back: "<strong>Handling Missing Data and Categorical Encoding</strong>: Impute numerical missing values using median/mean or iterative imputers, and apply One-Hot Encoding for low-cardinality categorical features. Core MLOps rationale: Proper data preparation requires thoughtful imputation: numerical features are typically imputed using median (for skewed data) or mean, while low-cardinality c...",
+    back: "<strong>Handling Missing Data and Categorical Encoding</strong>: Impute numerical missing values using median/mean or iterative imputers, and apply One-Hot Encoding for low-cardinality categorical features. Core MLOps rationale: Median or mean imputation fills the numeric gaps without distorting the distribution badly, and one-hot encoding represents a small category set without implyin...",
     tags: ["imputation", "one-hot-encoding", "data-cleaning", "Pharmaceutical Clinical Trial Platform"]
   },
   {
@@ -166,7 +166,7 @@ export const AWS_MLA_FLASHCARDS_6 = [
     domainId: "d1",
     front: "AWS ML Engineer: Glue DataBrew for Scalable Data Cleaning in Smart City Traffic & Mobility Sensor Hub",
     hint: "Focus on glue and databrew best practices.",
-    back: "<strong>Glue DataBrew for Scalable Data Cleaning</strong>: Deploy AWS Glue DataBrew to execute automated data profiling and recipe-based visual transformations across S3 data lakes at petabyte scale. Core MLOps rationale: AWS Glue DataBrew is a visual data preparation tool that allows data analysts and ML engineers to clean, normalize, and enrich data using over 250 prebuilt tran...",
+    back: "<strong>Glue DataBrew for Scalable Data Cleaning</strong>: Deploy AWS Glue DataBrew to execute automated data profiling and recipe-based visual transformations across S3 data lakes at petabyte scale. Core MLOps rationale: DataBrew is aimed squarely at analysts: profiling runs automatically, transformations are recipe steps rather than code, and there is no cluster to size or oper...",
     tags: ["glue", "databrew", "data-lake", "Smart City Traffic & Mobility Sensor Hub"]
   },
   {
@@ -176,7 +176,7 @@ export const AWS_MLA_FLASHCARDS_6 = [
     domainId: "d1",
     front: "AWS ML Engineer: Amazon SageMaker Feature Store in Digital Identity & Biometric Verification",
     hint: "Focus on feature-store and sagemaker best practices.",
-    back: "<strong>Amazon SageMaker Feature Store</strong>: Configure SageMaker Feature Store with an Online Store for real-time low-latency inference (<10ms) and an Offline Store in Amazon S3 for batch training. Core MLOps rationale: Amazon SageMaker Feature Store provides a purpose-built repository to store, update, retrieve, and share machine learning features. The Online Store (backed by ...",
+    back: "<strong>Amazon SageMaker Feature Store</strong>: Configure SageMaker Feature Store with an Online Store for real-time low-latency inference (<10ms) and an Offline Store in Amazon S3 for batch training. Core MLOps rationale: Feature Store takes one feature definition and writes it to both stores, so the values a model trains on are the values it later reads, and the offline store su...",
     tags: ["feature-store", "sagemaker", "data-prep", "Digital Identity & Biometric Verification"]
   },
   {
@@ -186,7 +186,7 @@ export const AWS_MLA_FLASHCARDS_6 = [
     domainId: "d1",
     front: "AWS ML Engineer: SageMaker Data Wrangler in Legal Discovery & Semantic Document Search",
     hint: "Focus on data-wrangler and feature-engineering best practices.",
-    back: "<strong>SageMaker Data Wrangler</strong>: Use SageMaker Data Wrangler to visually explore, clean, and transform multi-modal tabular data, exporting the pipeline directly to a SageMaker Processing job. Core MLOps rationale: SageMaker Data Wrangler simplifies data preparation and feature engineering with 300+ built-in data transformations, automated data quality insights, and anomal...",
+    back: "<strong>SageMaker Data Wrangler</strong>: Use SageMaker Data Wrangler to visually explore, clean, and transform multi-modal tabular data, exporting the pipeline directly to a SageMaker Processing job. Core MLOps rationale: Data Wrangler pairs interactive exploration and quality insights with a direct export to a Processing job or Feature Store, so the steps explored by hand become...",
     tags: ["data-wrangler", "feature-engineering", "sagemaker", "Legal Discovery & Semantic Document Search"]
   },
   {
@@ -196,7 +196,7 @@ export const AWS_MLA_FLASHCARDS_6 = [
     domainId: "d1",
     front: "AWS ML Engineer: Handling Missing Data and Categorical Encoding in AdTech Real-Time Bidding Exchange",
     hint: "Focus on imputation and one-hot-encoding best practices.",
-    back: "<strong>Handling Missing Data and Categorical Encoding</strong>: Impute numerical missing values using median/mean or iterative imputers, and apply One-Hot Encoding for low-cardinality categorical features. Core MLOps rationale: Proper data preparation requires thoughtful imputation: numerical features are typically imputed using median (for skewed data) or mean, while low-cardinality c...",
+    back: "<strong>Handling Missing Data and Categorical Encoding</strong>: Impute numerical missing values using median/mean or iterative imputers, and apply One-Hot Encoding for low-cardinality categorical features. Core MLOps rationale: Median or mean imputation fills the numeric gaps without distorting the distribution badly, and one-hot encoding represents a small category set without implyin...",
     tags: ["imputation", "one-hot-encoding", "data-cleaning", "AdTech Real-Time Bidding Exchange"]
   },
   {
@@ -206,7 +206,7 @@ export const AWS_MLA_FLASHCARDS_6 = [
     domainId: "d1",
     front: "AWS ML Engineer: Glue DataBrew for Scalable Data Cleaning in Precision Agriculture & Drone Scouting",
     hint: "Focus on glue and databrew best practices.",
-    back: "<strong>Glue DataBrew for Scalable Data Cleaning</strong>: Deploy AWS Glue DataBrew to execute automated data profiling and recipe-based visual transformations across S3 data lakes at petabyte scale. Core MLOps rationale: AWS Glue DataBrew is a visual data preparation tool that allows data analysts and ML engineers to clean, normalize, and enrich data using over 250 prebuilt tran...",
+    back: "<strong>Glue DataBrew for Scalable Data Cleaning</strong>: Deploy AWS Glue DataBrew to execute automated data profiling and recipe-based visual transformations across S3 data lakes at petabyte scale. Core MLOps rationale: DataBrew is aimed squarely at analysts: profiling runs automatically, transformations are recipe steps rather than code, and there is no cluster to size or oper...",
     tags: ["glue", "databrew", "data-lake", "Precision Agriculture & Drone Scouting"]
   },
   {
@@ -216,7 +216,7 @@ export const AWS_MLA_FLASHCARDS_6 = [
     domainId: "d1",
     front: "AWS ML Engineer: Amazon SageMaker Feature Store in Industrial Robotics Predictive Maintenance",
     hint: "Focus on feature-store and sagemaker best practices.",
-    back: "<strong>Amazon SageMaker Feature Store</strong>: Configure SageMaker Feature Store with an Online Store for real-time low-latency inference (<10ms) and an Offline Store in Amazon S3 for batch training. Core MLOps rationale: Amazon SageMaker Feature Store provides a purpose-built repository to store, update, retrieve, and share machine learning features. The Online Store (backed by ...",
+    back: "<strong>Amazon SageMaker Feature Store</strong>: Configure SageMaker Feature Store with an Online Store for real-time low-latency inference (<10ms) and an Offline Store in Amazon S3 for batch training. Core MLOps rationale: Feature Store takes one feature definition and writes it to both stores, so the values a model trains on are the values it later reads, and the offline store su...",
     tags: ["feature-store", "sagemaker", "data-prep", "Industrial Robotics Predictive Maintenance"]
   },
   {
@@ -226,7 +226,7 @@ export const AWS_MLA_FLASHCARDS_6 = [
     domainId: "d1",
     front: "AWS ML Engineer: SageMaker Data Wrangler in Educational Remote Proctoring Platform",
     hint: "Focus on data-wrangler and feature-engineering best practices.",
-    back: "<strong>SageMaker Data Wrangler</strong>: Use SageMaker Data Wrangler to visually explore, clean, and transform multi-modal tabular data, exporting the pipeline directly to a SageMaker Processing job. Core MLOps rationale: SageMaker Data Wrangler simplifies data preparation and feature engineering with 300+ built-in data transformations, automated data quality insights, and anomal...",
+    back: "<strong>SageMaker Data Wrangler</strong>: Use SageMaker Data Wrangler to visually explore, clean, and transform multi-modal tabular data, exporting the pipeline directly to a SageMaker Processing job. Core MLOps rationale: Data Wrangler pairs interactive exploration and quality insights with a direct export to a Processing job or Feature Store, so the steps explored by hand become...",
     tags: ["data-wrangler", "feature-engineering", "sagemaker", "Educational Remote Proctoring Platform"]
   },
   {
@@ -236,7 +236,7 @@ export const AWS_MLA_FLASHCARDS_6 = [
     domainId: "d1",
     front: "AWS ML Engineer: Handling Missing Data and Categorical Encoding in Real Estate Valuation & Geo-Spatial Analytics",
     hint: "Focus on imputation and one-hot-encoding best practices.",
-    back: "<strong>Handling Missing Data and Categorical Encoding</strong>: Impute numerical missing values using median/mean or iterative imputers, and apply One-Hot Encoding for low-cardinality categorical features. Core MLOps rationale: Proper data preparation requires thoughtful imputation: numerical features are typically imputed using median (for skewed data) or mean, while low-cardinality c...",
+    back: "<strong>Handling Missing Data and Categorical Encoding</strong>: Impute numerical missing values using median/mean or iterative imputers, and apply One-Hot Encoding for low-cardinality categorical features. Core MLOps rationale: Median or mean imputation fills the numeric gaps without distorting the distribution badly, and one-hot encoding represents a small category set without implyin...",
     tags: ["imputation", "one-hot-encoding", "data-cleaning", "Real Estate Valuation & Geo-Spatial Analytics"]
   },
   {
@@ -246,7 +246,7 @@ export const AWS_MLA_FLASHCARDS_6 = [
     domainId: "d1",
     front: "AWS ML Engineer: Glue DataBrew for Scalable Data Cleaning in Disaster Emergency Dispatch & Operations",
     hint: "Focus on glue and databrew best practices.",
-    back: "<strong>Glue DataBrew for Scalable Data Cleaning</strong>: Deploy AWS Glue DataBrew to execute automated data profiling and recipe-based visual transformations across S3 data lakes at petabyte scale. Core MLOps rationale: AWS Glue DataBrew is a visual data preparation tool that allows data analysts and ML engineers to clean, normalize, and enrich data using over 250 prebuilt tran...",
+    back: "<strong>Glue DataBrew for Scalable Data Cleaning</strong>: Deploy AWS Glue DataBrew to execute automated data profiling and recipe-based visual transformations across S3 data lakes at petabyte scale. Core MLOps rationale: DataBrew is aimed squarely at analysts: profiling runs automatically, transformations are recipe steps rather than code, and there is no cluster to size or oper...",
     tags: ["glue", "databrew", "data-lake", "Disaster Emergency Dispatch & Operations"]
   }
 ];
