@@ -5,7 +5,7 @@ Generator for HashiCorp Vault Associate (VAULT-003) content:
 - 500 flashcards (20 packs x 25)
 """
 import os, json
-from generate_content import write_question_pack, write_flashcard_pack
+from generate_content import write_question_pack, write_flashcard_pack, STAGES
 
 DOMAINS = [
     {"id": "d1", "name": "Compare authentication methods and manage Vault policies", "weight": 35},
@@ -293,7 +293,7 @@ def build_vault_bank():
 
             correct_letter = chr(65 + target_slot)
             
-            scenario = f"{context_desc} The platform team is {scenario_core}."
+            scenario = f"{context_desc} The platform team is {scenario_core}. The work is scoped to {STAGES[(pack_idx - 1) % len(STAGES)]}."
             question_text = "Which HashiCorp Vault approach best meets these requirements?"
             
             pack_questions.append({

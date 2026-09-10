@@ -6,7 +6,7 @@ export const CNCF_OPA_FLASHCARDS_19 = [
     domainId: "d3",
     front: "CNCF OPA: Rego Performance and Indexing in High-Frequency FinTech Trading",
     hint: "Focus on performance and indexing best practices.",
-    back: "<strong>Rego Performance and Indexing</strong>: Structure policies to take advantage of OPA's trie-based rule indexing by using constant equality checks (e.g., 'input.method == \"GET\"') as the first expression. Operational requirement: OPA's compiler optimizes evaluation performance by building trie indices for rules with constant equality expressions (e.g., matching on request path or method)...",
+    back: "<strong>Rego Performance and Indexing</strong>: Structure policies to take advantage of OPA's trie-based rule indexing by using constant equality checks (e.g., 'input.method == \"GET\"') as the first expression. Operational requirement: Rule indexing is what lets OPA skip whole rules without evaluating them: a constant equality check in the first expression lets the compiler build a trie on tha...",
     tags: ["performance", "indexing", "optimization", "High-Frequency FinTech Trading"]
   },
   {
@@ -16,7 +16,7 @@ export const CNCF_OPA_FLASHCARDS_19 = [
     domainId: "d3",
     front: "CNCF OPA: Conftest for Infrastructure as Code in Healthcare Patient Records & HIPAA",
     hint: "Focus on conftest and iac best practices.",
-    back: "<strong>Conftest for Infrastructure as Code</strong>: Use Conftest in CI pipelines to execute Rego policies against parsed Terraform plan JSON and Dockerfile ASTs before merging PRs. Operational requirement: Conftest is a dedicated utility built on OPA that enables writing Rego policies against structured configuration files, including Terraform plans, Kubernetes ma...",
+    back: "<strong>Conftest for Infrastructure as Code</strong>: Use Conftest in CI pipelines to execute Rego policies against parsed Terraform plan JSON and Dockerfile ASTs before merging PRs. Operational requirement: Conftest parses many configuration formats into the JSON that Rego expects, so one policy set covers Terraform plans, Dockerfiles, and Helm output, and it bring...",
     tags: ["conftest", "iac", "ci-cd", "Healthcare Patient Records & HIPAA"]
   },
   {
@@ -26,7 +26,7 @@ export const CNCF_OPA_FLASHCARDS_19 = [
     domainId: "d3",
     front: "CNCF OPA: Microservice Authorization with Envoy and ExtAuthz in Global E-Commerce Black Friday Scale",
     hint: "Focus on envoy and ext-authz best practices.",
-    back: "<strong>Microservice Authorization with Envoy and ExtAuthz</strong>: Configure Envoy's 'envoy.filters.http.ext_authz' filter to query OPA via gRPC or HTTP, passing headers, paths, and methods for real-time access decisions. Operational requirement: Envoy proxy integrates with OPA via the External Authorization (ext_authz) filter. For every incoming HTTP request, Envoy extracts request attributes (method, p...",
+    back: "<strong>Microservice Authorization with Envoy and ExtAuthz</strong>: Configure Envoy's 'envoy.filters.http.ext_authz' filter to query OPA via gRPC or HTTP, passing headers, paths, and methods for real-time access decisions. Operational requirement: The ext_authz filter is the supported extension point for delegating an allow-or-deny decision, and pointing it at OPA over gRPC keeps rich Rego policy outside ...",
     tags: ["envoy", "ext-authz", "service-mesh", "Global E-Commerce Black Friday Scale"]
   },
   {
@@ -36,7 +36,7 @@ export const CNCF_OPA_FLASHCARDS_19 = [
     domainId: "d3",
     front: "CNCF OPA: Kafka Topic Authorization with OPA in Autonomous Vehicle Telemetry",
     hint: "Focus on kafka and messaging best practices.",
-    back: "<strong>Kafka Topic Authorization with OPA</strong>: Deploy the OPA Kafka authorizer plugin to intercept produce and consume requests, verifying topic names, client identities, and operation types. Operational requirement: The OPA Kafka authorizer plugin intercepts Kafka client requests (e.g., Produce, Consume, CreateTopics). It evaluates the client's authenticated principal, clie...",
+    back: "<strong>Kafka Topic Authorization with OPA</strong>: Deploy the OPA Kafka authorizer plugin to intercept produce and consume requests, verifying topic names, client identities, and operation types. Operational requirement: The OPA authorizer plugs into the broker's authorizer interface, so every produce and consume request is checked at the broker itself against Rego that can cons...",
     tags: ["kafka", "messaging", "authorization", "Autonomous Vehicle Telemetry"]
   },
   {
@@ -46,7 +46,7 @@ export const CNCF_OPA_FLASHCARDS_19 = [
     domainId: "d3",
     front: "CNCF OPA: Styra Declarative Authorization Service (DAS) in Multi-Tenant B2B SaaS Platform",
     hint: "Focus on styra-das and control-plane best practices.",
-    back: "<strong>Styra Declarative Authorization Service (DAS)</strong>: Deploy Styra DAS to provide centralized policy authoring, Git integration, policy distribution, decision impact analysis, and compliance reporting. Operational requirement: Styra DAS (Declarative Authorization Service) serves as an enterprise control plane for OPA and Gatekeeper. It streamlines policy authoring, integrates with Git...",
+    back: "<strong>Styra Declarative Authorization Service (DAS)</strong>: Deploy Styra DAS to provide centralized policy authoring, Git integration, policy distribution, decision impact analysis, and compliance reporting. Operational requirement: DAS is a control plane rather than a distribution mechanism: alongside bundle delivery it provides authoring with validation, replay of recorded decisions again...",
     tags: ["styra-das", "control-plane", "enterprise", "Multi-Tenant B2B SaaS Platform"]
   },
   {
@@ -56,7 +56,7 @@ export const CNCF_OPA_FLASHCARDS_19 = [
     domainId: "d3",
     front: "CNCF OPA: Rego Performance and Indexing in Media Streaming & Global CDN",
     hint: "Focus on performance and indexing best practices.",
-    back: "<strong>Rego Performance and Indexing</strong>: Structure policies to take advantage of OPA's trie-based rule indexing by using constant equality checks (e.g., 'input.method == \"GET\"') as the first expression. Operational requirement: OPA's compiler optimizes evaluation performance by building trie indices for rules with constant equality expressions (e.g., matching on request path or method)...",
+    back: "<strong>Rego Performance and Indexing</strong>: Structure policies to take advantage of OPA's trie-based rule indexing by using constant equality checks (e.g., 'input.method == \"GET\"') as the first expression. Operational requirement: Rule indexing is what lets OPA skip whole rules without evaluating them: a constant equality check in the first expression lets the compiler build a trie on tha...",
     tags: ["performance", "indexing", "optimization", "Media Streaming & Global CDN"]
   },
   {
@@ -66,7 +66,7 @@ export const CNCF_OPA_FLASHCARDS_19 = [
     domainId: "d3",
     front: "CNCF OPA: Conftest for Infrastructure as Code in Aerospace Satellite Ground Systems",
     hint: "Focus on conftest and iac best practices.",
-    back: "<strong>Conftest for Infrastructure as Code</strong>: Use Conftest in CI pipelines to execute Rego policies against parsed Terraform plan JSON and Dockerfile ASTs before merging PRs. Operational requirement: Conftest is a dedicated utility built on OPA that enables writing Rego policies against structured configuration files, including Terraform plans, Kubernetes ma...",
+    back: "<strong>Conftest for Infrastructure as Code</strong>: Use Conftest in CI pipelines to execute Rego policies against parsed Terraform plan JSON and Dockerfile ASTs before merging PRs. Operational requirement: Conftest parses many configuration formats into the JSON that Rego expects, so one policy set covers Terraform plans, Dockerfiles, and Helm output, and it bring...",
     tags: ["conftest", "iac", "ci-cd", "Aerospace Satellite Ground Systems"]
   },
   {
@@ -76,7 +76,7 @@ export const CNCF_OPA_FLASHCARDS_19 = [
     domainId: "d3",
     front: "CNCF OPA: Microservice Authorization with Envoy and ExtAuthz in Telecommunications 5G Core Network",
     hint: "Focus on envoy and ext-authz best practices.",
-    back: "<strong>Microservice Authorization with Envoy and ExtAuthz</strong>: Configure Envoy's 'envoy.filters.http.ext_authz' filter to query OPA via gRPC or HTTP, passing headers, paths, and methods for real-time access decisions. Operational requirement: Envoy proxy integrates with OPA via the External Authorization (ext_authz) filter. For every incoming HTTP request, Envoy extracts request attributes (method, p...",
+    back: "<strong>Microservice Authorization with Envoy and ExtAuthz</strong>: Configure Envoy's 'envoy.filters.http.ext_authz' filter to query OPA via gRPC or HTTP, passing headers, paths, and methods for real-time access decisions. Operational requirement: The ext_authz filter is the supported extension point for delegating an allow-or-deny decision, and pointing it at OPA over gRPC keeps rich Rego policy outside ...",
     tags: ["envoy", "ext-authz", "service-mesh", "Telecommunications 5G Core Network"]
   },
   {
@@ -86,7 +86,7 @@ export const CNCF_OPA_FLASHCARDS_19 = [
     domainId: "d3",
     front: "CNCF OPA: Kafka Topic Authorization with OPA in Renewable Energy Smart Grid IoT",
     hint: "Focus on kafka and messaging best practices.",
-    back: "<strong>Kafka Topic Authorization with OPA</strong>: Deploy the OPA Kafka authorizer plugin to intercept produce and consume requests, verifying topic names, client identities, and operation types. Operational requirement: The OPA Kafka authorizer plugin intercepts Kafka client requests (e.g., Produce, Consume, CreateTopics). It evaluates the client's authenticated principal, clie...",
+    back: "<strong>Kafka Topic Authorization with OPA</strong>: Deploy the OPA Kafka authorizer plugin to intercept produce and consume requests, verifying topic names, client identities, and operation types. Operational requirement: The OPA authorizer plugs into the broker's authorizer interface, so every produce and consume request is checked at the broker itself against Rego that can cons...",
     tags: ["kafka", "messaging", "authorization", "Renewable Energy Smart Grid IoT"]
   },
   {
@@ -96,7 +96,7 @@ export const CNCF_OPA_FLASHCARDS_19 = [
     domainId: "d3",
     front: "CNCF OPA: Styra Declarative Authorization Service (DAS) in Supply Chain Cold-Chain Logistics",
     hint: "Focus on styra-das and control-plane best practices.",
-    back: "<strong>Styra Declarative Authorization Service (DAS)</strong>: Deploy Styra DAS to provide centralized policy authoring, Git integration, policy distribution, decision impact analysis, and compliance reporting. Operational requirement: Styra DAS (Declarative Authorization Service) serves as an enterprise control plane for OPA and Gatekeeper. It streamlines policy authoring, integrates with Git...",
+    back: "<strong>Styra Declarative Authorization Service (DAS)</strong>: Deploy Styra DAS to provide centralized policy authoring, Git integration, policy distribution, decision impact analysis, and compliance reporting. Operational requirement: DAS is a control plane rather than a distribution mechanism: alongside bundle delivery it provides authoring with validation, replay of recorded decisions again...",
     tags: ["styra-das", "control-plane", "enterprise", "Supply Chain Cold-Chain Logistics"]
   },
   {
@@ -106,7 +106,7 @@ export const CNCF_OPA_FLASHCARDS_19 = [
     domainId: "d3",
     front: "CNCF OPA: Rego Performance and Indexing in Banking Core Ledger & Payments",
     hint: "Focus on performance and indexing best practices.",
-    back: "<strong>Rego Performance and Indexing</strong>: Structure policies to take advantage of OPA's trie-based rule indexing by using constant equality checks (e.g., 'input.method == \"GET\"') as the first expression. Operational requirement: OPA's compiler optimizes evaluation performance by building trie indices for rules with constant equality expressions (e.g., matching on request path or method)...",
+    back: "<strong>Rego Performance and Indexing</strong>: Structure policies to take advantage of OPA's trie-based rule indexing by using constant equality checks (e.g., 'input.method == \"GET\"') as the first expression. Operational requirement: Rule indexing is what lets OPA skip whole rules without evaluating them: a constant equality check in the first expression lets the compiler build a trie on tha...",
     tags: ["performance", "indexing", "optimization", "Banking Core Ledger & Payments"]
   },
   {
@@ -116,7 +116,7 @@ export const CNCF_OPA_FLASHCARDS_19 = [
     domainId: "d3",
     front: "CNCF OPA: Conftest for Infrastructure as Code in Genomic Sequencing & Biotech Pipeline",
     hint: "Focus on conftest and iac best practices.",
-    back: "<strong>Conftest for Infrastructure as Code</strong>: Use Conftest in CI pipelines to execute Rego policies against parsed Terraform plan JSON and Dockerfile ASTs before merging PRs. Operational requirement: Conftest is a dedicated utility built on OPA that enables writing Rego policies against structured configuration files, including Terraform plans, Kubernetes ma...",
+    back: "<strong>Conftest for Infrastructure as Code</strong>: Use Conftest in CI pipelines to execute Rego policies against parsed Terraform plan JSON and Dockerfile ASTs before merging PRs. Operational requirement: Conftest parses many configuration formats into the JSON that Rego expects, so one policy set covers Terraform plans, Dockerfiles, and Helm output, and it bring...",
     tags: ["conftest", "iac", "ci-cd", "Genomic Sequencing & Biotech Pipeline"]
   },
   {
@@ -126,7 +126,7 @@ export const CNCF_OPA_FLASHCARDS_19 = [
     domainId: "d3",
     front: "CNCF OPA: Microservice Authorization with Envoy and ExtAuthz in Defense-Grade Zero-Trust Network",
     hint: "Focus on envoy and ext-authz best practices.",
-    back: "<strong>Microservice Authorization with Envoy and ExtAuthz</strong>: Configure Envoy's 'envoy.filters.http.ext_authz' filter to query OPA via gRPC or HTTP, passing headers, paths, and methods for real-time access decisions. Operational requirement: Envoy proxy integrates with OPA via the External Authorization (ext_authz) filter. For every incoming HTTP request, Envoy extracts request attributes (method, p...",
+    back: "<strong>Microservice Authorization with Envoy and ExtAuthz</strong>: Configure Envoy's 'envoy.filters.http.ext_authz' filter to query OPA via gRPC or HTTP, passing headers, paths, and methods for real-time access decisions. Operational requirement: The ext_authz filter is the supported extension point for delegating an allow-or-deny decision, and pointing it at OPA over gRPC keeps rich Rego policy outside ...",
     tags: ["envoy", "ext-authz", "service-mesh", "Defense-Grade Zero-Trust Network"]
   },
   {
@@ -136,7 +136,7 @@ export const CNCF_OPA_FLASHCARDS_19 = [
     domainId: "d3",
     front: "CNCF OPA: Kafka Topic Authorization with OPA in Online Multiplayer Gaming Engine",
     hint: "Focus on kafka and messaging best practices.",
-    back: "<strong>Kafka Topic Authorization with OPA</strong>: Deploy the OPA Kafka authorizer plugin to intercept produce and consume requests, verifying topic names, client identities, and operation types. Operational requirement: The OPA Kafka authorizer plugin intercepts Kafka client requests (e.g., Produce, Consume, CreateTopics). It evaluates the client's authenticated principal, clie...",
+    back: "<strong>Kafka Topic Authorization with OPA</strong>: Deploy the OPA Kafka authorizer plugin to intercept produce and consume requests, verifying topic names, client identities, and operation types. Operational requirement: The OPA authorizer plugs into the broker's authorizer interface, so every produce and consume request is checked at the broker itself against Rego that can cons...",
     tags: ["kafka", "messaging", "authorization", "Online Multiplayer Gaming Engine"]
   },
   {
@@ -146,7 +146,7 @@ export const CNCF_OPA_FLASHCARDS_19 = [
     domainId: "d3",
     front: "CNCF OPA: Styra Declarative Authorization Service (DAS) in Insurance Risk & Actuarial Modeling",
     hint: "Focus on styra-das and control-plane best practices.",
-    back: "<strong>Styra Declarative Authorization Service (DAS)</strong>: Deploy Styra DAS to provide centralized policy authoring, Git integration, policy distribution, decision impact analysis, and compliance reporting. Operational requirement: Styra DAS (Declarative Authorization Service) serves as an enterprise control plane for OPA and Gatekeeper. It streamlines policy authoring, integrates with Git...",
+    back: "<strong>Styra Declarative Authorization Service (DAS)</strong>: Deploy Styra DAS to provide centralized policy authoring, Git integration, policy distribution, decision impact analysis, and compliance reporting. Operational requirement: DAS is a control plane rather than a distribution mechanism: alongside bundle delivery it provides authoring with validation, replay of recorded decisions again...",
     tags: ["styra-das", "control-plane", "enterprise", "Insurance Risk & Actuarial Modeling"]
   },
   {
@@ -156,7 +156,7 @@ export const CNCF_OPA_FLASHCARDS_19 = [
     domainId: "d3",
     front: "CNCF OPA: Rego Performance and Indexing in Pharmaceutical Clinical Trial Platform",
     hint: "Focus on performance and indexing best practices.",
-    back: "<strong>Rego Performance and Indexing</strong>: Structure policies to take advantage of OPA's trie-based rule indexing by using constant equality checks (e.g., 'input.method == \"GET\"') as the first expression. Operational requirement: OPA's compiler optimizes evaluation performance by building trie indices for rules with constant equality expressions (e.g., matching on request path or method)...",
+    back: "<strong>Rego Performance and Indexing</strong>: Structure policies to take advantage of OPA's trie-based rule indexing by using constant equality checks (e.g., 'input.method == \"GET\"') as the first expression. Operational requirement: Rule indexing is what lets OPA skip whole rules without evaluating them: a constant equality check in the first expression lets the compiler build a trie on tha...",
     tags: ["performance", "indexing", "optimization", "Pharmaceutical Clinical Trial Platform"]
   },
   {
@@ -166,7 +166,7 @@ export const CNCF_OPA_FLASHCARDS_19 = [
     domainId: "d3",
     front: "CNCF OPA: Conftest for Infrastructure as Code in Smart City Traffic & Mobility Sensor Hub",
     hint: "Focus on conftest and iac best practices.",
-    back: "<strong>Conftest for Infrastructure as Code</strong>: Use Conftest in CI pipelines to execute Rego policies against parsed Terraform plan JSON and Dockerfile ASTs before merging PRs. Operational requirement: Conftest is a dedicated utility built on OPA that enables writing Rego policies against structured configuration files, including Terraform plans, Kubernetes ma...",
+    back: "<strong>Conftest for Infrastructure as Code</strong>: Use Conftest in CI pipelines to execute Rego policies against parsed Terraform plan JSON and Dockerfile ASTs before merging PRs. Operational requirement: Conftest parses many configuration formats into the JSON that Rego expects, so one policy set covers Terraform plans, Dockerfiles, and Helm output, and it bring...",
     tags: ["conftest", "iac", "ci-cd", "Smart City Traffic & Mobility Sensor Hub"]
   },
   {
@@ -176,7 +176,7 @@ export const CNCF_OPA_FLASHCARDS_19 = [
     domainId: "d3",
     front: "CNCF OPA: Microservice Authorization with Envoy and ExtAuthz in Digital Identity & Biometric Verification",
     hint: "Focus on envoy and ext-authz best practices.",
-    back: "<strong>Microservice Authorization with Envoy and ExtAuthz</strong>: Configure Envoy's 'envoy.filters.http.ext_authz' filter to query OPA via gRPC or HTTP, passing headers, paths, and methods for real-time access decisions. Operational requirement: Envoy proxy integrates with OPA via the External Authorization (ext_authz) filter. For every incoming HTTP request, Envoy extracts request attributes (method, p...",
+    back: "<strong>Microservice Authorization with Envoy and ExtAuthz</strong>: Configure Envoy's 'envoy.filters.http.ext_authz' filter to query OPA via gRPC or HTTP, passing headers, paths, and methods for real-time access decisions. Operational requirement: The ext_authz filter is the supported extension point for delegating an allow-or-deny decision, and pointing it at OPA over gRPC keeps rich Rego policy outside ...",
     tags: ["envoy", "ext-authz", "service-mesh", "Digital Identity & Biometric Verification"]
   },
   {
@@ -186,7 +186,7 @@ export const CNCF_OPA_FLASHCARDS_19 = [
     domainId: "d3",
     front: "CNCF OPA: Kafka Topic Authorization with OPA in Legal Discovery & Semantic Document Search",
     hint: "Focus on kafka and messaging best practices.",
-    back: "<strong>Kafka Topic Authorization with OPA</strong>: Deploy the OPA Kafka authorizer plugin to intercept produce and consume requests, verifying topic names, client identities, and operation types. Operational requirement: The OPA Kafka authorizer plugin intercepts Kafka client requests (e.g., Produce, Consume, CreateTopics). It evaluates the client's authenticated principal, clie...",
+    back: "<strong>Kafka Topic Authorization with OPA</strong>: Deploy the OPA Kafka authorizer plugin to intercept produce and consume requests, verifying topic names, client identities, and operation types. Operational requirement: The OPA authorizer plugs into the broker's authorizer interface, so every produce and consume request is checked at the broker itself against Rego that can cons...",
     tags: ["kafka", "messaging", "authorization", "Legal Discovery & Semantic Document Search"]
   },
   {
@@ -196,7 +196,7 @@ export const CNCF_OPA_FLASHCARDS_19 = [
     domainId: "d3",
     front: "CNCF OPA: Styra Declarative Authorization Service (DAS) in AdTech Real-Time Bidding Exchange",
     hint: "Focus on styra-das and control-plane best practices.",
-    back: "<strong>Styra Declarative Authorization Service (DAS)</strong>: Deploy Styra DAS to provide centralized policy authoring, Git integration, policy distribution, decision impact analysis, and compliance reporting. Operational requirement: Styra DAS (Declarative Authorization Service) serves as an enterprise control plane for OPA and Gatekeeper. It streamlines policy authoring, integrates with Git...",
+    back: "<strong>Styra Declarative Authorization Service (DAS)</strong>: Deploy Styra DAS to provide centralized policy authoring, Git integration, policy distribution, decision impact analysis, and compliance reporting. Operational requirement: DAS is a control plane rather than a distribution mechanism: alongside bundle delivery it provides authoring with validation, replay of recorded decisions again...",
     tags: ["styra-das", "control-plane", "enterprise", "AdTech Real-Time Bidding Exchange"]
   },
   {
@@ -206,7 +206,7 @@ export const CNCF_OPA_FLASHCARDS_19 = [
     domainId: "d3",
     front: "CNCF OPA: Rego Performance and Indexing in Precision Agriculture & Drone Scouting",
     hint: "Focus on performance and indexing best practices.",
-    back: "<strong>Rego Performance and Indexing</strong>: Structure policies to take advantage of OPA's trie-based rule indexing by using constant equality checks (e.g., 'input.method == \"GET\"') as the first expression. Operational requirement: OPA's compiler optimizes evaluation performance by building trie indices for rules with constant equality expressions (e.g., matching on request path or method)...",
+    back: "<strong>Rego Performance and Indexing</strong>: Structure policies to take advantage of OPA's trie-based rule indexing by using constant equality checks (e.g., 'input.method == \"GET\"') as the first expression. Operational requirement: Rule indexing is what lets OPA skip whole rules without evaluating them: a constant equality check in the first expression lets the compiler build a trie on tha...",
     tags: ["performance", "indexing", "optimization", "Precision Agriculture & Drone Scouting"]
   },
   {
@@ -216,7 +216,7 @@ export const CNCF_OPA_FLASHCARDS_19 = [
     domainId: "d3",
     front: "CNCF OPA: Conftest for Infrastructure as Code in Industrial Robotics Predictive Maintenance",
     hint: "Focus on conftest and iac best practices.",
-    back: "<strong>Conftest for Infrastructure as Code</strong>: Use Conftest in CI pipelines to execute Rego policies against parsed Terraform plan JSON and Dockerfile ASTs before merging PRs. Operational requirement: Conftest is a dedicated utility built on OPA that enables writing Rego policies against structured configuration files, including Terraform plans, Kubernetes ma...",
+    back: "<strong>Conftest for Infrastructure as Code</strong>: Use Conftest in CI pipelines to execute Rego policies against parsed Terraform plan JSON and Dockerfile ASTs before merging PRs. Operational requirement: Conftest parses many configuration formats into the JSON that Rego expects, so one policy set covers Terraform plans, Dockerfiles, and Helm output, and it bring...",
     tags: ["conftest", "iac", "ci-cd", "Industrial Robotics Predictive Maintenance"]
   },
   {
@@ -226,7 +226,7 @@ export const CNCF_OPA_FLASHCARDS_19 = [
     domainId: "d3",
     front: "CNCF OPA: Microservice Authorization with Envoy and ExtAuthz in Educational Remote Proctoring Platform",
     hint: "Focus on envoy and ext-authz best practices.",
-    back: "<strong>Microservice Authorization with Envoy and ExtAuthz</strong>: Configure Envoy's 'envoy.filters.http.ext_authz' filter to query OPA via gRPC or HTTP, passing headers, paths, and methods for real-time access decisions. Operational requirement: Envoy proxy integrates with OPA via the External Authorization (ext_authz) filter. For every incoming HTTP request, Envoy extracts request attributes (method, p...",
+    back: "<strong>Microservice Authorization with Envoy and ExtAuthz</strong>: Configure Envoy's 'envoy.filters.http.ext_authz' filter to query OPA via gRPC or HTTP, passing headers, paths, and methods for real-time access decisions. Operational requirement: The ext_authz filter is the supported extension point for delegating an allow-or-deny decision, and pointing it at OPA over gRPC keeps rich Rego policy outside ...",
     tags: ["envoy", "ext-authz", "service-mesh", "Educational Remote Proctoring Platform"]
   },
   {
@@ -236,7 +236,7 @@ export const CNCF_OPA_FLASHCARDS_19 = [
     domainId: "d3",
     front: "CNCF OPA: Kafka Topic Authorization with OPA in Real Estate Valuation & Geo-Spatial Analytics",
     hint: "Focus on kafka and messaging best practices.",
-    back: "<strong>Kafka Topic Authorization with OPA</strong>: Deploy the OPA Kafka authorizer plugin to intercept produce and consume requests, verifying topic names, client identities, and operation types. Operational requirement: The OPA Kafka authorizer plugin intercepts Kafka client requests (e.g., Produce, Consume, CreateTopics). It evaluates the client's authenticated principal, clie...",
+    back: "<strong>Kafka Topic Authorization with OPA</strong>: Deploy the OPA Kafka authorizer plugin to intercept produce and consume requests, verifying topic names, client identities, and operation types. Operational requirement: The OPA authorizer plugs into the broker's authorizer interface, so every produce and consume request is checked at the broker itself against Rego that can cons...",
     tags: ["kafka", "messaging", "authorization", "Real Estate Valuation & Geo-Spatial Analytics"]
   },
   {
@@ -246,7 +246,7 @@ export const CNCF_OPA_FLASHCARDS_19 = [
     domainId: "d3",
     front: "CNCF OPA: Styra Declarative Authorization Service (DAS) in Disaster Emergency Dispatch & Operations",
     hint: "Focus on styra-das and control-plane best practices.",
-    back: "<strong>Styra Declarative Authorization Service (DAS)</strong>: Deploy Styra DAS to provide centralized policy authoring, Git integration, policy distribution, decision impact analysis, and compliance reporting. Operational requirement: Styra DAS (Declarative Authorization Service) serves as an enterprise control plane for OPA and Gatekeeper. It streamlines policy authoring, integrates with Git...",
+    back: "<strong>Styra Declarative Authorization Service (DAS)</strong>: Deploy Styra DAS to provide centralized policy authoring, Git integration, policy distribution, decision impact analysis, and compliance reporting. Operational requirement: DAS is a control plane rather than a distribution mechanism: alongside bundle delivery it provides authoring with validation, replay of recorded decisions again...",
     tags: ["styra-das", "control-plane", "enterprise", "Disaster Emergency Dispatch & Operations"]
   }
 ];

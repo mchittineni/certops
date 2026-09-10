@@ -6,7 +6,7 @@ export const HASHICORP_VAULT_QUESTIONS_20 = [
     domainId: "d3",
     domainName: "Manage Vault tokens, leases, and operational architecture",
     title: "Restarting a Node Without an Operator Key Ceremony: High-Frequency FinTech Trading",
-    scenario: "A quantitative trading desk requires microsecond secrets delivery, zero packet loss, and deterministic authentication guarantees. The platform team is bringing nodes back into service after a restart without assembling key holders.",
+    scenario: "A quantitative trading desk requires microsecond secrets delivery, zero packet loss, and deterministic authentication guarantees. The platform team is bringing nodes back into service after a restart without assembling key holders. The work is scoped to a newly built secondary environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Configure the 'seal' stanza with AWS KMS, Azure Key Vault, or GCP KMS to automatically unseal Vault upon service initialization and reboot." },
@@ -27,7 +27,7 @@ export const HASHICORP_VAULT_QUESTIONS_20 = [
     domainId: "d3",
     domainName: "Manage Vault tokens, leases, and operational architecture",
     title: "Choosing a Cross-Region Replication Mode: Healthcare Patient Records & HIPAA",
-    scenario: "A national hospital network requires strict cryptographic privacy, auditable access controls, and HIPAA compliance. The platform team is planning cross-region failover alongside low-latency reads in each region.",
+    scenario: "A national hospital network requires strict cryptographic privacy, auditable access controls, and HIPAA compliance. The platform team is planning cross-region failover alongside low-latency reads in each region. The work is scoped to a newly built secondary environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Use Performance Replication alone in every region and promote whichever performance secondary is healthiest if the primary region becomes unavailable for an extended period." },
@@ -48,7 +48,7 @@ export const HASHICORP_VAULT_QUESTIONS_20 = [
     domainId: "d3",
     domainName: "Manage Vault tokens, leases, and operational architecture",
     title: "Withdrawing Credentials Already in Circulation: Global E-Commerce Black Friday Scale",
-    scenario: "An international retail marketplace prepares for 100x traffic surges with zero downtime and instant failover. The platform team is cutting off credentials that have already been issued after a suspected compromise.",
+    scenario: "An international retail marketplace prepares for 100x traffic surges with zero downtime and instant failover. The platform team is cutting off credentials that have already been issued after a suspected compromise. The work is scoped to a newly built secondary environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Delete the auth method role so that no further credentials can be issued, and allow the ones already outstanding to lapse when their own TTL expires naturally." },
@@ -69,7 +69,7 @@ export const HASHICORP_VAULT_QUESTIONS_20 = [
     domainId: "d3",
     domainName: "Manage Vault tokens, leases, and operational architecture",
     title: "Audit Logging That Cannot Fail Quietly: Autonomous Vehicle Telemetry",
-    scenario: "A self-driving automotive fleet streams terabytes of sensor telemetry requiring real-time distributed ingestion and anomaly detection. The platform team is guaranteeing every request is recorded without the logging path halting the cluster.",
+    scenario: "A self-driving automotive fleet streams terabytes of sensor telemetry requiring real-time distributed ingestion and anomaly detection. The platform team is guaranteeing every request is recorded without the logging path halting the cluster. The work is scoped to a newly built secondary environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Enable a single socket audit device pointed at the central logging collector so that audit records leave the Vault host immediately at the moment they are written." },
@@ -90,7 +90,7 @@ export const HASHICORP_VAULT_QUESTIONS_20 = [
     domainId: "d3",
     domainName: "Manage Vault tokens, leases, and operational architecture",
     title: "Token Type for Very High Request Volume: Multi-Tenant B2B SaaS Platform",
-    scenario: "An enterprise cloud SaaS architecture mandates strict logical tenant isolation, data masking, and per-tenant resource quotas. The platform team is choosing a token type for short-lived functions invoked many thousands of times per second.",
+    scenario: "An enterprise cloud SaaS architecture mandates strict logical tenant isolation, data masking, and per-tenant resource quotas. The platform team is choosing a token type for short-lived functions invoked many thousands of times per second. The work is scoped to a newly built secondary environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Use Batch tokens for high-volume, short-lived workloads to eliminate write operations to the storage backend." },
@@ -111,7 +111,7 @@ export const HASHICORP_VAULT_QUESTIONS_20 = [
     domainId: "d3",
     domainName: "Manage Vault tokens, leases, and operational architecture",
     title: "Delivering Secrets to Mixed Kubernetes and VM Workloads: Media Streaming & Global CDN",
-    scenario: "A global video streaming service distributes high-bitrate live media with distributed edge caching and tokenized DRM protection. The platform team is delivering secrets into applications that run on both Kubernetes and plain virtual machines.",
+    scenario: "A global video streaming service distributes high-bitrate live media with distributed edge caching and tokenized DRM protection. The platform team is delivering secrets into applications that run on both Kubernetes and plain virtual machines. The work is scoped to a newly built secondary environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Deploy the Vault Secrets Operator so that secrets are synchronised into native Kubernetes Secret objects for pods to consume." },
@@ -132,7 +132,7 @@ export const HASHICORP_VAULT_QUESTIONS_20 = [
     domainId: "d3",
     domainName: "Manage Vault tokens, leases, and operational architecture",
     title: "Surviving the Loss of a Cluster Node: Aerospace Satellite Ground Systems",
-    scenario: "An aerospace telemetry platform processes orbital downlinks with fault-tolerant queuing and asynchronous edge processing. The platform team is designing a production cluster topology that tolerates the loss of a node.",
+    scenario: "An aerospace telemetry platform processes orbital downlinks with fault-tolerant queuing and asynchronous edge processing. The platform team is designing a production cluster topology that tolerates the loss of a node. The work is scoped to a newly built secondary environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Deploy a multi-node Vault cluster backed by an external Consul storage backend running its own separate server quorum." },
@@ -153,7 +153,7 @@ export const HASHICORP_VAULT_QUESTIONS_20 = [
     domainId: "d3",
     domainName: "Manage Vault tokens, leases, and operational architecture",
     title: "Restarting a Node Without an Operator Key Ceremony: Telecommunications 5G Core Network",
-    scenario: "A national telecom operator manages high-density network slices with automated scaling and sub-millisecond service mesh routing. The platform team is bringing nodes back into service after a restart without assembling key holders.",
+    scenario: "A national telecom operator manages high-density network slices with automated scaling and sub-millisecond service mesh routing. The platform team is bringing nodes back into service after a restart without assembling key holders. The work is scoped to a newly built secondary environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Configure the 'seal' stanza to use the transit engine of the same Vault cluster so that each node can decrypt its own root key automatically on restart." },
@@ -174,7 +174,7 @@ export const HASHICORP_VAULT_QUESTIONS_20 = [
     domainId: "d3",
     domainName: "Manage Vault tokens, leases, and operational architecture",
     title: "Choosing a Cross-Region Replication Mode: Renewable Energy Smart Grid IoT",
-    scenario: "A smart electrical grid platform monitors millions of smart meters with low-latency time-series analysis and automated load shedding. The platform team is planning cross-region failover alongside low-latency reads in each region.",
+    scenario: "A smart electrical grid platform monitors millions of smart meters with low-latency time-series analysis and automated load shedding. The platform team is planning cross-region failover alongside low-latency reads in each region. The work is scoped to a newly built secondary environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Use Disaster Recovery (DR) replication to maintain a synchronous hot-standby secondary cluster, or Performance Replication for localized secret reads." },
@@ -195,7 +195,7 @@ export const HASHICORP_VAULT_QUESTIONS_20 = [
     domainId: "d3",
     domainName: "Manage Vault tokens, leases, and operational architecture",
     title: "Withdrawing Credentials Already in Circulation: Supply Chain Cold-Chain Logistics",
-    scenario: "A pharmaceutical distribution network tracks temperature-sensitive cargo with cryptographic provenance and automated breach alerts. The platform team is cutting off credentials that have already been issued after a suspected compromise.",
+    scenario: "A pharmaceutical distribution network tracks temperature-sensitive cargo with cryptographic provenance and automated breach alerts. The platform team is cutting off credentials that have already been issued after a suspected compromise. The work is scoped to a newly built secondary environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Delete the auth method role so that no further credentials can be issued, and allow the ones already outstanding to lapse when their own TTL expires naturally." },
@@ -216,7 +216,7 @@ export const HASHICORP_VAULT_QUESTIONS_20 = [
     domainId: "d3",
     domainName: "Manage Vault tokens, leases, and operational architecture",
     title: "Audit Logging That Cannot Fail Quietly: Banking Core Ledger & Payments",
-    scenario: "A central banking consortium enforces ACID consistency, immutable transaction audit trails, and automated reconciliation. The platform team is guaranteeing every request is recorded without the logging path halting the cluster.",
+    scenario: "A central banking consortium enforces ACID consistency, immutable transaction audit trails, and automated reconciliation. The platform team is guaranteeing every request is recorded without the logging path halting the cluster. The work is scoped to a newly built secondary environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Enable a single socket audit device pointed at the central logging collector so that audit records leave the Vault host immediately at the moment they are written." },
@@ -237,7 +237,7 @@ export const HASHICORP_VAULT_QUESTIONS_20 = [
     domainId: "d3",
     domainName: "Manage Vault tokens, leases, and operational architecture",
     title: "Token Type for Very High Request Volume: Genomic Sequencing & Biotech Pipeline",
-    scenario: "A genomics laboratory processes petabyte-scale FASTQ files with distributed batch computing and high-throughput POSIX storage. The platform team is choosing a token type for short-lived functions invoked many thousands of times per second.",
+    scenario: "A genomics laboratory processes petabyte-scale FASTQ files with distributed batch computing and high-throughput POSIX storage. The platform team is choosing a token type for short-lived functions invoked many thousands of times per second. The work is scoped to a newly built secondary environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Use service tokens with very short TTLs so that expired entries are pruned from the token store by routine cleanup operations." },
@@ -258,7 +258,7 @@ export const HASHICORP_VAULT_QUESTIONS_20 = [
     domainId: "d3",
     domainName: "Manage Vault tokens, leases, and operational architecture",
     title: "Delivering Secrets to Mixed Kubernetes and VM Workloads: Defense-Grade Zero-Trust Network",
-    scenario: "A defense intelligence system enforces continuous mutual TLS authentication, strict least privilege, and non-repudiation. The platform team is delivering secrets into applications that run on both Kubernetes and plain virtual machines.",
+    scenario: "A defense intelligence system enforces continuous mutual TLS authentication, strict least privilege, and non-repudiation. The platform team is delivering secrets into applications that run on both Kubernetes and plain virtual machines. The work is scoped to a newly built secondary environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Deploy Vault Agent as a sidecar or daemon to handle authentication, token renewal, and automated secret templating to local disk." },
@@ -279,7 +279,7 @@ export const HASHICORP_VAULT_QUESTIONS_20 = [
     domainId: "d3",
     domainName: "Manage Vault tokens, leases, and operational architecture",
     title: "Surviving the Loss of a Cluster Node: Online Multiplayer Gaming Engine",
-    scenario: "A real-time competitive gaming cluster orchestrates match sessions with regional matchmaking and anti-cheat validation. The platform team is designing a production cluster topology that tolerates the loss of a node.",
+    scenario: "A real-time competitive gaming cluster orchestrates match sessions with regional matchmaking and anti-cheat validation. The platform team is designing a production cluster topology that tolerates the loss of a node. The work is scoped to a newly built secondary environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Deploy a multi-node Vault cluster backed by an external Consul storage backend running its own separate server quorum." },
@@ -300,7 +300,7 @@ export const HASHICORP_VAULT_QUESTIONS_20 = [
     domainId: "d3",
     domainName: "Manage Vault tokens, leases, and operational architecture",
     title: "Restarting a Node Without an Operator Key Ceremony: Insurance Risk & Actuarial Modeling",
-    scenario: "An actuarial underwriting platform executes Monte Carlo simulations across millions of policy holder records with parallel workers. The platform team is bringing nodes back into service after a restart without assembling key holders.",
+    scenario: "An actuarial underwriting platform executes Monte Carlo simulations across millions of policy holder records with parallel workers. The platform team is bringing nodes back into service after a restart without assembling key holders. The work is scoped to a newly built secondary environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Configure the 'seal' stanza to use the transit engine of the same Vault cluster so that each node can decrypt its own root key automatically on restart." },
@@ -321,7 +321,7 @@ export const HASHICORP_VAULT_QUESTIONS_20 = [
     domainId: "d3",
     domainName: "Manage Vault tokens, leases, and operational architecture",
     title: "Choosing a Cross-Region Replication Mode: Pharmaceutical Clinical Trial Platform",
-    scenario: "A global pharmaceutical research group manages double-blind clinical trial records with strict regulatory reporting and audit trails. The platform team is planning cross-region failover alongside low-latency reads in each region.",
+    scenario: "A global pharmaceutical research group manages double-blind clinical trial records with strict regulatory reporting and audit trails. The platform team is planning cross-region failover alongside low-latency reads in each region. The work is scoped to a newly built secondary environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Use Performance Replication alone in every region and promote whichever performance secondary is healthiest if the primary region becomes unavailable for an extended period." },
@@ -342,7 +342,7 @@ export const HASHICORP_VAULT_QUESTIONS_20 = [
     domainId: "d3",
     domainName: "Manage Vault tokens, leases, and operational architecture",
     title: "Withdrawing Credentials Already in Circulation: Smart City Traffic & Mobility Sensor Hub",
-    scenario: "A metropolitan transit authority optimizes urban traffic signals with real-time video analytics and edge inference. The platform team is cutting off credentials that have already been issued after a suspected compromise.",
+    scenario: "A metropolitan transit authority optimizes urban traffic signals with real-time video analytics and edge inference. The platform team is cutting off credentials that have already been issued after a suspected compromise. The work is scoped to a newly built secondary environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Monitor lease TTLs, allow clients to renew active leases, and invoke 'sys/leases/revoke-prefix' to revoke compromised credential trees immediately." },
@@ -363,7 +363,7 @@ export const HASHICORP_VAULT_QUESTIONS_20 = [
     domainId: "d3",
     domainName: "Manage Vault tokens, leases, and operational architecture",
     title: "Audit Logging That Cannot Fail Quietly: Digital Identity & Biometric Verification",
-    scenario: "A cross-border passport control gateway validates identity credentials with zero-knowledge cryptographic proofs. The platform team is guaranteeing every request is recorded without the logging path halting the cluster.",
+    scenario: "A cross-border passport control gateway validates identity credentials with zero-knowledge cryptographic proofs. The platform team is guaranteeing every request is recorded without the logging path halting the cluster. The work is scoped to a newly built secondary environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Enable a single socket audit device pointed at the central logging collector so that audit records leave the Vault host immediately at the moment they are written." },
@@ -384,7 +384,7 @@ export const HASHICORP_VAULT_QUESTIONS_20 = [
     domainId: "d3",
     domainName: "Manage Vault tokens, leases, and operational architecture",
     title: "Token Type for Very High Request Volume: Legal Discovery & Semantic Document Search",
-    scenario: "A global law firm conducts regulatory discovery across millions of scanned legal filings with vector-enhanced semantic retrieval. The platform team is choosing a token type for short-lived functions invoked many thousands of times per second.",
+    scenario: "A global law firm conducts regulatory discovery across millions of scanned legal filings with vector-enhanced semantic retrieval. The platform team is choosing a token type for short-lived functions invoked many thousands of times per second. The work is scoped to a newly built secondary environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Use service tokens with very short TTLs so that expired entries are pruned from the token store by routine cleanup operations." },
@@ -405,7 +405,7 @@ export const HASHICORP_VAULT_QUESTIONS_20 = [
     domainId: "d3",
     domainName: "Manage Vault tokens, leases, and operational architecture",
     title: "Delivering Secrets to Mixed Kubernetes and VM Workloads: AdTech Real-Time Bidding Exchange",
-    scenario: "An advertising exchange processes 500,000 bids per second with a strict 20-millisecond SLA and distributed caching. The platform team is delivering secrets into applications that run on both Kubernetes and plain virtual machines.",
+    scenario: "An advertising exchange processes 500,000 bids per second with a strict 20-millisecond SLA and distributed caching. The platform team is delivering secrets into applications that run on both Kubernetes and plain virtual machines. The work is scoped to a newly built secondary environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Deploy the Vault Secrets Operator so that secrets are synchronised into native Kubernetes Secret objects for pods to consume." },
@@ -426,7 +426,7 @@ export const HASHICORP_VAULT_QUESTIONS_20 = [
     domainId: "d3",
     domainName: "Manage Vault tokens, leases, and operational architecture",
     title: "Surviving the Loss of a Cluster Node: Precision Agriculture & Drone Scouting",
-    scenario: "An agricultural drone fleet captures multispectral crop imagery with automated computer vision defect classification. The platform team is designing a production cluster topology that tolerates the loss of a node.",
+    scenario: "An agricultural drone fleet captures multispectral crop imagery with automated computer vision defect classification. The platform team is designing a production cluster topology that tolerates the loss of a node. The work is scoped to a newly built secondary environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Deploy a multi-node Vault cluster using integrated Raft storage, where one node is elected active and standby nodes forward requests." },
@@ -447,7 +447,7 @@ export const HASHICORP_VAULT_QUESTIONS_20 = [
     domainId: "d3",
     domainName: "Manage Vault tokens, leases, and operational architecture",
     title: "Restarting a Node Without an Operator Key Ceremony: Industrial Robotics Predictive Maintenance",
-    scenario: "A semiconductor fabrication facility detects vibration harmonics on manufacturing robots to prevent unplanned downtime. The platform team is bringing nodes back into service after a restart without assembling key holders.",
+    scenario: "A semiconductor fabrication facility detects vibration harmonics on manufacturing robots to prevent unplanned downtime. The platform team is bringing nodes back into service after a restart without assembling key holders. The work is scoped to a newly built secondary environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Configure the 'seal' stanza to use the transit engine of the same Vault cluster so that each node can decrypt its own root key automatically on restart." },
@@ -468,7 +468,7 @@ export const HASHICORP_VAULT_QUESTIONS_20 = [
     domainId: "d3",
     domainName: "Manage Vault tokens, leases, and operational architecture",
     title: "Choosing a Cross-Region Replication Mode: Educational Remote Proctoring Platform",
-    scenario: "An online university platform enforces anti-plagiarism and biometric proctoring for high-stakes certification exams. The platform team is planning cross-region failover alongside low-latency reads in each region.",
+    scenario: "An online university platform enforces anti-plagiarism and biometric proctoring for high-stakes certification exams. The platform team is planning cross-region failover alongside low-latency reads in each region. The work is scoped to a newly built secondary environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Use Performance Replication alone in every region and promote whichever performance secondary is healthiest if the primary region becomes unavailable for an extended period." },
@@ -489,7 +489,7 @@ export const HASHICORP_VAULT_QUESTIONS_20 = [
     domainId: "d3",
     domainName: "Manage Vault tokens, leases, and operational architecture",
     title: "Withdrawing Credentials Already in Circulation: Real Estate Valuation & Geo-Spatial Analytics",
-    scenario: "A property appraisal engine fuses GIS parcel maps with real-time market transactions for automated valuation. The platform team is cutting off credentials that have already been issued after a suspected compromise.",
+    scenario: "A property appraisal engine fuses GIS parcel maps with real-time market transactions for automated valuation. The platform team is cutting off credentials that have already been issued after a suspected compromise. The work is scoped to a newly built secondary environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Delete the auth method role so that no further credentials can be issued, and allow the ones already outstanding to lapse when their own TTL expires naturally." },
@@ -510,7 +510,7 @@ export const HASHICORP_VAULT_QUESTIONS_20 = [
     domainId: "d3",
     domainName: "Manage Vault tokens, leases, and operational architecture",
     title: "Audit Logging That Cannot Fail Quietly: Disaster Emergency Dispatch & Operations",
-    scenario: "A municipal 911 emergency response platform guarantees 99.999% uptime with multi-region hot-standby active failover. The platform team is guaranteeing every request is recorded without the logging path halting the cluster.",
+    scenario: "A municipal 911 emergency response platform guarantees 99.999% uptime with multi-region hot-standby active failover. The platform team is guaranteeing every request is recorded without the logging path halting the cluster. The work is scoped to a newly built secondary environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Enable multiple audit devices (e.g., file and syslog) and configure monitoring to ensure Vault never halts due to blocked logging destinations." },

@@ -6,7 +6,7 @@ export const HASHICORP_VAULT_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Configure Vault secrets engines and transit encryption",
     title: "Moving Stored Ciphertext to a New Key Version: High-Frequency FinTech Trading",
-    scenario: "A quantitative trading desk requires microsecond secrets delivery, zero packet loss, and deterministic authentication guarantees. The platform team is rotating an encryption key and bringing existing ciphertext onto the new version.",
+    scenario: "A quantitative trading desk requires microsecond secrets delivery, zero packet loss, and deterministic authentication guarantees. The platform team is rotating an encryption key and bringing existing ciphertext onto the new version. The work is scoped to the production environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Rotate the transit key with 'vault write -f transit/keys/my-key/rotate' and rewrap existing ciphertexts with 'transit/rewrap/my-key'." },
@@ -27,7 +27,7 @@ export const HASHICORP_VAULT_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Configure Vault secrets engines and transit encryption",
     title: "Short-Lived Cloud Credentials Brokered Centrally: Healthcare Patient Records & HIPAA",
-    scenario: "A national hospital network requires strict cryptographic privacy, auditable access controls, and HIPAA compliance. The platform team is issuing time-bound cloud credentials to workloads under one central policy.",
+    scenario: "A national hospital network requires strict cryptographic privacy, auditable access controls, and HIPAA compliance. The platform team is issuing time-bound cloud credentials to workloads under one central policy. The work is scoped to the production environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Configure the AWS auth method so that workloads log in to Vault by proving their IAM identity, then read the cloud credentials they need from a KV v2 secrets engine mount." },
@@ -48,7 +48,7 @@ export const HASHICORP_VAULT_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Configure Vault secrets engines and transit encryption",
     title: "Server Access Without Standing Authorized Keys: Global E-Commerce Black Friday Scale",
-    scenario: "An international retail marketplace prepares for 100x traffic surges with zero downtime and instant failover. The platform team is granting engineers shell access to a large fleet without maintaining authorized_keys files.",
+    scenario: "An international retail marketplace prepares for 100x traffic surges with zero downtime and instant failover. The platform team is granting engineers shell access to a large fleet without maintaining authorized_keys files. The work is scoped to the production environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Configure the SSH secrets engine in one-time password mode and install the Vault SSH helper on every target host so that it can verify each login." },
@@ -69,7 +69,7 @@ export const HASHICORP_VAULT_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Configure Vault secrets engines and transit encryption",
     title: "Recovering a Previous Secret Value: Autonomous Vehicle Telemetry",
-    scenario: "A self-driving automotive fleet streams terabytes of sensor telemetry requiring real-time distributed ingestion and anomaly detection. The platform team is storing configuration secrets so that an accidental overwrite can be rolled back.",
+    scenario: "A self-driving automotive fleet streams terabytes of sensor telemetry requiring real-time distributed ingestion and anomaly detection. The platform team is storing configuration secrets so that an accidental overwrite can be rolled back. The work is scoped to the production environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Enable KV version 1 and take scheduled Raft snapshots of the cluster so that earlier secret values can be recovered by restoring a snapshot into a staging cluster." },
@@ -90,7 +90,7 @@ export const HASHICORP_VAULT_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Configure Vault secrets engines and transit encryption",
     title: "Encrypting Records Without Distributing Key Material: Multi-Tenant B2B SaaS Platform",
-    scenario: "An enterprise cloud SaaS architecture mandates strict logical tenant isolation, data masking, and per-tenant resource quotas. The platform team is encrypting application records where the key must never be readable by the application host.",
+    scenario: "An enterprise cloud SaaS architecture mandates strict logical tenant isolation, data masking, and per-tenant resource quotas. The platform team is encrypting application records where the key must never be readable by the application host. The work is scoped to the production environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Send plaintext to Vault's transit engine endpoint 'transit/encrypt/keyname' to receive ciphertext, keeping keys securely inside Vault." },
@@ -111,7 +111,7 @@ export const HASHICORP_VAULT_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Configure Vault secrets engines and transit encryption",
     title: "Database Access That Expires On Its Own: Media Streaming & Global CDN",
-    scenario: "A global video streaming service distributes high-bitrate live media with distributed edge caching and tokenized DRM protection. The platform team is giving services database access that disappears automatically when it is no longer needed.",
+    scenario: "A global video streaming service distributes high-bitrate live media with distributed edge caching and tokenized DRM protection. The platform team is giving services database access that disappears automatically when it is no longer needed. The work is scoped to the production environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Configure the Database secrets engine's static roles feature to rotate the password of a fixed application account on a schedule that Vault manages." },
@@ -132,7 +132,7 @@ export const HASHICORP_VAULT_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Configure Vault secrets engines and transit encryption",
     title: "Internal TLS Without Manual Certificate Renewal: Aerospace Satellite Ground Systems",
-    scenario: "An aerospace telemetry platform processes orbital downlinks with fault-tolerant queuing and asynchronous edge processing. The platform team is issuing TLS certificates to internal services without an operator renewing them by hand.",
+    scenario: "An aerospace telemetry platform processes orbital downlinks with fault-tolerant queuing and asynchronous edge processing. The platform team is issuing TLS certificates to internal services without an operator renewing them by hand. The work is scoped to the production environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Mount the PKI engine as a self-signed root certificate authority inside Vault and issue leaf certificates directly from that root with multi-year lifetimes." },
@@ -153,7 +153,7 @@ export const HASHICORP_VAULT_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Configure Vault secrets engines and transit encryption",
     title: "Moving Stored Ciphertext to a New Key Version: Telecommunications 5G Core Network",
-    scenario: "A national telecom operator manages high-density network slices with automated scaling and sub-millisecond service mesh routing. The platform team is rotating an encryption key and bringing existing ciphertext onto the new version.",
+    scenario: "A national telecom operator manages high-density network slices with automated scaling and sub-millisecond service mesh routing. The platform team is rotating an encryption key and bringing existing ciphertext onto the new version. The work is scoped to the production environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Rotate the transit key and raise min_decryption_version with 'vault write transit/keys/my-key/config' so that stored ciphertext moves onto the new version." },
@@ -174,7 +174,7 @@ export const HASHICORP_VAULT_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Configure Vault secrets engines and transit encryption",
     title: "Short-Lived Cloud Credentials Brokered Centrally: Renewable Energy Smart Grid IoT",
-    scenario: "A smart electrical grid platform monitors millions of smart meters with low-latency time-series analysis and automated load shedding. The platform team is issuing time-bound cloud credentials to workloads under one central policy.",
+    scenario: "A smart electrical grid platform monitors millions of smart meters with low-latency time-series analysis and automated load shedding. The platform team is issuing time-bound cloud credentials to workloads under one central policy. The work is scoped to the production environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Configure the AWS secrets engine with an administrative IAM role to generate ephemeral STS assumed-role credentials or temporary IAM users." },
@@ -195,7 +195,7 @@ export const HASHICORP_VAULT_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Configure Vault secrets engines and transit encryption",
     title: "Server Access Without Standing Authorized Keys: Supply Chain Cold-Chain Logistics",
-    scenario: "A pharmaceutical distribution network tracks temperature-sensitive cargo with cryptographic provenance and automated breach alerts. The platform team is granting engineers shell access to a large fleet without maintaining authorized_keys files.",
+    scenario: "A pharmaceutical distribution network tracks temperature-sensitive cargo with cryptographic provenance and automated breach alerts. The platform team is granting engineers shell access to a large fleet without maintaining authorized_keys files. The work is scoped to the production environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Configure the SSH secrets engine in one-time password mode and install the Vault SSH helper on every target host so that it can verify each login." },
@@ -216,7 +216,7 @@ export const HASHICORP_VAULT_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Configure Vault secrets engines and transit encryption",
     title: "Recovering a Previous Secret Value: Banking Core Ledger & Payments",
-    scenario: "A central banking consortium enforces ACID consistency, immutable transaction audit trails, and automated reconciliation. The platform team is storing configuration secrets so that an accidental overwrite can be rolled back.",
+    scenario: "A central banking consortium enforces ACID consistency, immutable transaction audit trails, and automated reconciliation. The platform team is storing configuration secrets so that an accidental overwrite can be rolled back. The work is scoped to the production environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Enable KV version 1 and take scheduled Raft snapshots of the cluster so that earlier secret values can be recovered by restoring a snapshot into a staging cluster." },
@@ -237,7 +237,7 @@ export const HASHICORP_VAULT_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Configure Vault secrets engines and transit encryption",
     title: "Encrypting Records Without Distributing Key Material: Genomic Sequencing & Biotech Pipeline",
-    scenario: "A genomics laboratory processes petabyte-scale FASTQ files with distributed batch computing and high-throughput POSIX storage. The platform team is encrypting application records where the key must never be readable by the application host.",
+    scenario: "A genomics laboratory processes petabyte-scale FASTQ files with distributed batch computing and high-throughput POSIX storage. The platform team is encrypting application records where the key must never be readable by the application host. The work is scoped to the production environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Call the transit engine's datakey endpoint for a plaintext data key per record and hold it in application memory while encrypting." },
@@ -258,7 +258,7 @@ export const HASHICORP_VAULT_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Configure Vault secrets engines and transit encryption",
     title: "Database Access That Expires On Its Own: Defense-Grade Zero-Trust Network",
-    scenario: "A defense intelligence system enforces continuous mutual TLS authentication, strict least privilege, and non-repudiation. The platform team is giving services database access that disappears automatically when it is no longer needed.",
+    scenario: "A defense intelligence system enforces continuous mutual TLS authentication, strict least privilege, and non-repudiation. The platform team is giving services database access that disappears automatically when it is no longer needed. The work is scoped to the production environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Configure the Database secrets engine with a connection plugin and role definition that executes 'CREATE USER' with a short lease TTL." },
@@ -279,7 +279,7 @@ export const HASHICORP_VAULT_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Configure Vault secrets engines and transit encryption",
     title: "Internal TLS Without Manual Certificate Renewal: Online Multiplayer Gaming Engine",
-    scenario: "A real-time competitive gaming cluster orchestrates match sessions with regional matchmaking and anti-cheat validation. The platform team is issuing TLS certificates to internal services without an operator renewing them by hand.",
+    scenario: "A real-time competitive gaming cluster orchestrates match sessions with regional matchmaking and anti-cheat validation. The platform team is issuing TLS certificates to internal services without an operator renewing them by hand. The work is scoped to the production environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Mount the PKI engine as a self-signed root certificate authority inside Vault and issue leaf certificates directly from that root with multi-year lifetimes." },
@@ -300,7 +300,7 @@ export const HASHICORP_VAULT_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Configure Vault secrets engines and transit encryption",
     title: "Moving Stored Ciphertext to a New Key Version: Insurance Risk & Actuarial Modeling",
-    scenario: "An actuarial underwriting platform executes Monte Carlo simulations across millions of policy holder records with parallel workers. The platform team is rotating an encryption key and bringing existing ciphertext onto the new version.",
+    scenario: "An actuarial underwriting platform executes Monte Carlo simulations across millions of policy holder records with parallel workers. The platform team is rotating an encryption key and bringing existing ciphertext onto the new version. The work is scoped to the production environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Rotate the transit key and raise min_decryption_version with 'vault write transit/keys/my-key/config' so that stored ciphertext moves onto the new version." },
@@ -321,7 +321,7 @@ export const HASHICORP_VAULT_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Configure Vault secrets engines and transit encryption",
     title: "Short-Lived Cloud Credentials Brokered Centrally: Pharmaceutical Clinical Trial Platform",
-    scenario: "A global pharmaceutical research group manages double-blind clinical trial records with strict regulatory reporting and audit trails. The platform team is issuing time-bound cloud credentials to workloads under one central policy.",
+    scenario: "A global pharmaceutical research group manages double-blind clinical trial records with strict regulatory reporting and audit trails. The platform team is issuing time-bound cloud credentials to workloads under one central policy. The work is scoped to the production environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Configure the AWS auth method so that workloads log in to Vault by proving their IAM identity, then read the cloud credentials they need from a KV v2 secrets engine mount." },
@@ -342,7 +342,7 @@ export const HASHICORP_VAULT_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Configure Vault secrets engines and transit encryption",
     title: "Server Access Without Standing Authorized Keys: Smart City Traffic & Mobility Sensor Hub",
-    scenario: "A metropolitan transit authority optimizes urban traffic signals with real-time video analytics and edge inference. The platform team is granting engineers shell access to a large fleet without maintaining authorized_keys files.",
+    scenario: "A metropolitan transit authority optimizes urban traffic signals with real-time video analytics and edge inference. The platform team is granting engineers shell access to a large fleet without maintaining authorized_keys files. The work is scoped to the production environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Configure the SSH secrets engine as a Certificate Authority to issue signed client certificates validated by host sshd daemons." },
@@ -363,7 +363,7 @@ export const HASHICORP_VAULT_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Configure Vault secrets engines and transit encryption",
     title: "Recovering a Previous Secret Value: Digital Identity & Biometric Verification",
-    scenario: "A cross-border passport control gateway validates identity credentials with zero-knowledge cryptographic proofs. The platform team is storing configuration secrets so that an accidental overwrite can be rolled back.",
+    scenario: "A cross-border passport control gateway validates identity credentials with zero-knowledge cryptographic proofs. The platform team is storing configuration secrets so that an accidental overwrite can be rolled back. The work is scoped to the production environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Enable KV version 1 and take scheduled Raft snapshots of the cluster so that earlier secret values can be recovered by restoring a snapshot into a staging cluster." },
@@ -384,7 +384,7 @@ export const HASHICORP_VAULT_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Configure Vault secrets engines and transit encryption",
     title: "Encrypting Records Without Distributing Key Material: Legal Discovery & Semantic Document Search",
-    scenario: "A global law firm conducts regulatory discovery across millions of scanned legal filings with vector-enhanced semantic retrieval. The platform team is encrypting application records where the key must never be readable by the application host.",
+    scenario: "A global law firm conducts regulatory discovery across millions of scanned legal filings with vector-enhanced semantic retrieval. The platform team is encrypting application records where the key must never be readable by the application host. The work is scoped to the production environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Call the transit engine's datakey endpoint for a plaintext data key per record and hold it in application memory while encrypting." },
@@ -405,7 +405,7 @@ export const HASHICORP_VAULT_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Configure Vault secrets engines and transit encryption",
     title: "Database Access That Expires On Its Own: AdTech Real-Time Bidding Exchange",
-    scenario: "An advertising exchange processes 500,000 bids per second with a strict 20-millisecond SLA and distributed caching. The platform team is giving services database access that disappears automatically when it is no longer needed.",
+    scenario: "An advertising exchange processes 500,000 bids per second with a strict 20-millisecond SLA and distributed caching. The platform team is giving services database access that disappears automatically when it is no longer needed. The work is scoped to the production environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Configure the Database secrets engine's static roles feature to rotate the password of a fixed application account on a schedule that Vault manages." },
@@ -426,7 +426,7 @@ export const HASHICORP_VAULT_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Configure Vault secrets engines and transit encryption",
     title: "Internal TLS Without Manual Certificate Renewal: Precision Agriculture & Drone Scouting",
-    scenario: "An agricultural drone fleet captures multispectral crop imagery with automated computer vision defect classification. The platform team is issuing TLS certificates to internal services without an operator renewing them by hand.",
+    scenario: "An agricultural drone fleet captures multispectral crop imagery with automated computer vision defect classification. The platform team is issuing TLS certificates to internal services without an operator renewing them by hand. The work is scoped to the production environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Mount the PKI engine, configure an intermediate CA signed by an enterprise root, and generate short-lived TLS certificates dynamically via API." },
@@ -447,7 +447,7 @@ export const HASHICORP_VAULT_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Configure Vault secrets engines and transit encryption",
     title: "Moving Stored Ciphertext to a New Key Version: Industrial Robotics Predictive Maintenance",
-    scenario: "A semiconductor fabrication facility detects vibration harmonics on manufacturing robots to prevent unplanned downtime. The platform team is rotating an encryption key and bringing existing ciphertext onto the new version.",
+    scenario: "A semiconductor fabrication facility detects vibration harmonics on manufacturing robots to prevent unplanned downtime. The platform team is rotating an encryption key and bringing existing ciphertext onto the new version. The work is scoped to the production environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Rotate the transit key and raise min_decryption_version with 'vault write transit/keys/my-key/config' so that stored ciphertext moves onto the new version." },
@@ -468,7 +468,7 @@ export const HASHICORP_VAULT_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Configure Vault secrets engines and transit encryption",
     title: "Short-Lived Cloud Credentials Brokered Centrally: Educational Remote Proctoring Platform",
-    scenario: "An online university platform enforces anti-plagiarism and biometric proctoring for high-stakes certification exams. The platform team is issuing time-bound cloud credentials to workloads under one central policy.",
+    scenario: "An online university platform enforces anti-plagiarism and biometric proctoring for high-stakes certification exams. The platform team is issuing time-bound cloud credentials to workloads under one central policy. The work is scoped to the production environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Configure the AWS auth method so that workloads log in to Vault by proving their IAM identity, then read the cloud credentials they need from a KV v2 secrets engine mount." },
@@ -489,7 +489,7 @@ export const HASHICORP_VAULT_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Configure Vault secrets engines and transit encryption",
     title: "Server Access Without Standing Authorized Keys: Real Estate Valuation & Geo-Spatial Analytics",
-    scenario: "A property appraisal engine fuses GIS parcel maps with real-time market transactions for automated valuation. The platform team is granting engineers shell access to a large fleet without maintaining authorized_keys files.",
+    scenario: "A property appraisal engine fuses GIS parcel maps with real-time market transactions for automated valuation. The platform team is granting engineers shell access to a large fleet without maintaining authorized_keys files. The work is scoped to the production environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Configure the SSH secrets engine in one-time password mode and install the Vault SSH helper on every target host so that it can verify each login." },
@@ -510,7 +510,7 @@ export const HASHICORP_VAULT_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Configure Vault secrets engines and transit encryption",
     title: "Recovering a Previous Secret Value: Disaster Emergency Dispatch & Operations",
-    scenario: "A municipal 911 emergency response platform guarantees 99.999% uptime with multi-region hot-standby active failover. The platform team is storing configuration secrets so that an accidental overwrite can be rolled back.",
+    scenario: "A municipal 911 emergency response platform guarantees 99.999% uptime with multi-region hot-standby active failover. The platform team is storing configuration secrets so that an accidental overwrite can be rolled back. The work is scoped to the production environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Enable KV version 2 to benefit from automated secret versioning, soft deletion, undelete capabilities, and check-and-set (CAS) operations." },
