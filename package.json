@@ -1,7 +1,7 @@
 {
   "name": "certops",
   "version": "0.1.0",
-  "description": "Cloud, DevOps, Kubernetes, platform, FinOps, and security certification practice \u2014 exam simulation, adaptive quizzes, and spaced-repetition flashcards.",
+  "description": "Cloud, DevOps, Kubernetes, platform, FinOps, and security certification practice — exam simulation, adaptive quizzes, and spaced-repetition flashcards.",
   "keywords": [
     "certification",
     "exam-prep",
@@ -34,6 +34,7 @@
     "audit:explanations": "node scripts/audit-explanations.mjs",
     "audit:answers": "node scripts/audit-answer-keys.mjs --margin 3",
     "audit:filler": "node scripts/audit-filler.mjs",
+    "audit:distractors": "node scripts/audit-distractors.mjs",
     "fix:explanations": "node scripts/fix-explanation-letters.mjs",
     "shuffle": "node scripts/shuffle-options.mjs",
     "stats": "node scripts/content-stats.mjs",
