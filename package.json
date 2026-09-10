@@ -35,6 +35,8 @@
     "audit:answers": "node scripts/audit-answer-keys.mjs --margin 3",
     "audit:filler": "node scripts/audit-filler.mjs",
     "audit:distractors": "node scripts/audit-distractors.mjs",
+    "dataset:export": "node scripts/export-hf-dataset.mjs",
+    "dataset:publish": "node scripts/publish-hf-dataset.mjs",
     "fix:explanations": "node scripts/fix-explanation-letters.mjs",
     "shuffle": "node scripts/shuffle-options.mjs",
     "stats": "node scripts/content-stats.mjs",
@@ -50,6 +52,7 @@
     "coverage:summary": "node scripts/coverage-summary.mjs"
   },
   "devDependencies": {
+    "@huggingface/hub": "2.17.1",
     "c8": "^12.0.0",
     "simple-icons": "^16.29.0",
     "vite": "^8.2.2"
