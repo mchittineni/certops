@@ -154,14 +154,6 @@ export const DISCIPLINE_ICONS = {
   'DevSecOps & Security': '🔐'
 };
 
-const DISCIPLINE_CONFIG = {
-  'Cloud Engineering': { color: '#0284c7' },
-  'DevOps & SRE': { color: '#8b5cf6' },
-  'Platform Engineering': { color: '#6366f1' },
-  'FinOps': { color: '#10b981' },
-  'DevSecOps & Security': { color: '#ef4444' }
-};
-
 /**
  * Role interactive icons and theme styling colors.
  */

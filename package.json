@@ -38,7 +38,7 @@
     "fix:explanations": "node scripts/fix-explanation-letters.mjs",
     "shuffle": "node scripts/shuffle-options.mjs",
     "stats": "node scripts/content-stats.mjs",
-    "test": "node scripts/test-select.mjs && node scripts/test-lib.mjs && node scripts/test-loader.mjs && node scripts/test-storage-migration.mjs && node scripts/test-app.mjs && node scripts/test-scaffold.mjs && node scripts/test-server.mjs",
+    "test": "node scripts/test-select.mjs && node scripts/test-lib.mjs && node scripts/test-sanitize.mjs && node scripts/test-loader.mjs && node scripts/test-storage-migration.mjs && node scripts/test-app.mjs && node scripts/test-scaffold.mjs && node scripts/test-server.mjs",
     "check": "npm run backup && npm run build:content && npm run validate && npm run coverage",
     "new:cert": "node scripts/new-cert.mjs",
     "new:pack": "node scripts/new-pack.mjs",
