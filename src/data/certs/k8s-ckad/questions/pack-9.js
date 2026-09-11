@@ -18,7 +18,7 @@ export const K8S_CKAD_QUESTIONS_9 = [
     type: "single",
     explanation: "`ClusterIP` is the default Kubernetes Service type. It allocates an internal, stable virtual IP reachable only from within the cluster, automatically load-balancing incoming requests across the pods matching its selector.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/service/#type-clusterip",
-    tags: ["Kubernetes", "Services", "ClusterIP"]
+    tags: ["Kubernetes","Services","ClusterIP"]
   },
   {
     id: "k8s-ckad-202",
@@ -39,7 +39,7 @@ export const K8S_CKAD_QUESTIONS_9 = [
     type: "single",
     explanation: "By default, the Kubernetes API server reserves the port range `30000-32767` for `NodePort` services. When created, every worker node in the cluster listens on that allocated port and proxies incoming traffic to the service endpoints.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport",
-    tags: ["Kubernetes", "Services", "NodePort"]
+    tags: ["Kubernetes","Services","NodePort"]
   },
   {
     id: "k8s-ckad-203",
@@ -51,7 +51,7 @@ export const K8S_CKAD_QUESTIONS_9 = [
     scenario: "In a Kubernetes Service manifest, a developer configures `port: 80`, `targetPort: 8080`, and `nodePort: 31234`.",
     question: "What do these three port definitions represent respectively?",
     options: [
-      { id: 'A', text: "port is the port exposed internally on the Service ClusterIP; targetPort is the port on which the container process listens; nodePort is the port exposed on each node's physical IP" },
+      { id: 'A', text: "port is on the ClusterIP, targetPort on the container, nodePort on each node" },
       { id: 'B', text: "port is the container port; targetPort is the service port; nodePort is the host port" },
       { id: 'C', text: "targetPort is the external load balancer port; port is the container port" },
       { id: 'D', text: "All three ports must be identical in Kubernetes" }
@@ -60,7 +60,7 @@ export const K8S_CKAD_QUESTIONS_9 = [
     type: "single",
     explanation: "In a Service: `port` is the port exposed by the Service's internal ClusterIP. `targetPort` is the port that backend container pods listen on (where traffic is forwarded). `nodePort` is the port opened on each physical worker node IP (for NodePort/LoadBalancer types).",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/service/#defining-a-service",
-    tags: ["Kubernetes", "Services", "Port Mapping"]
+    tags: ["Kubernetes","Services","Port Mapping"]
   },
   {
     id: "k8s-ckad-204",
@@ -81,7 +81,7 @@ export const K8S_CKAD_QUESTIONS_9 = [
     type: "single",
     explanation: "Setting `type: LoadBalancer` instructs the cloud provider's integration controller to provision an external cloud load balancer (e.g. AWS NLB/ALB or GCP Cloud Load Balancer) that forwards public internet traffic to the cluster nodes on an allocated NodePort.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer",
-    tags: ["Kubernetes", "Services", "LoadBalancer"]
+    tags: ["Kubernetes","Services","LoadBalancer"]
   },
   {
     id: "k8s-ckad-205",
@@ -96,13 +96,13 @@ export const K8S_CKAD_QUESTIONS_9 = [
       { id: 'A', text: "Headless Service alone" },
       { id: 'B', text: "ClusterIP with externalIPs" },
       { id: 'C', text: "NodePort" },
-      { id: 'D', text: "ExternalName (with externalName: prod-db.example.com)" }
+      { id: 'D', text: "ExternalName" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "A Service of `type: ExternalName` maps a service to an external DNS name. Instead of allocating a virtual IP or using selectors, CoreDNS returns a CNAME record (e.g. `prod-db.example.com`) directly to the client pod, eliminating cluster proxy overhead.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/service/#externalname",
-    tags: ["Kubernetes", "Services", "ExternalName"]
+    tags: ["Kubernetes","Services","ExternalName"]
   },
   {
     id: "k8s-ckad-206",
@@ -115,7 +115,7 @@ export const K8S_CKAD_QUESTIONS_9 = [
     question: "How does CoreDNS respond when a client pod queries the headless service domain name?",
     options: [
       { id: 'A', text: "CoreDNS returns the master API server IP" },
-      { id: 'B', text: "CoreDNS returns the individual IP addresses (A/AAAA records) of all ready backend pods directly instead of a single virtual IP" },
+      { id: 'B', text: "CoreDNS returns each ready pod IP directly" },
       { id: 'C', text: "CoreDNS returns HTTP 404" },
       { id: 'D', text: "CoreDNS returns the IP address of the node" }
     ],
@@ -123,7 +123,7 @@ export const K8S_CKAD_QUESTIONS_9 = [
     type: "single",
     explanation: "For a `Headless Service` (Service with `spec.clusterIP: None`), no virtual ClusterIP is assigned, and kube-proxy does not route traffic. Instead, CoreDNS returns an `A` record for every ready backing pod IP, allowing clients to establish direct connections or implement custom load-balancing.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/service/#headless-services",
-    tags: ["Kubernetes", "Headless Service", "CoreDNS"]
+    tags: ["Kubernetes","Headless Service","CoreDNS"]
   },
   {
     id: "k8s-ckad-207",
@@ -144,7 +144,7 @@ export const K8S_CKAD_QUESTIONS_9 = [
     type: "single",
     explanation: "`EndpointSlices` provide a scalable alternative to monolithic Kubernetes Endpoints. Each EndpointSlice holds a subset (up to 100) of network endpoints for a Service, drastically reducing network and etcd load when individual pods scale or restart.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/endpoint-slices/",
-    tags: ["Kubernetes", "EndpointSlice", "Scalability"]
+    tags: ["Kubernetes","EndpointSlice","Scalability"]
   },
   {
     id: "k8s-ckad-208",
@@ -165,7 +165,7 @@ export const K8S_CKAD_QUESTIONS_9 = [
     type: "single",
     explanation: "Kubernetes Services support `sessionAffinity: ClientIP`. When configured, kube-proxy routes subsequent requests from the same client IP to the same backend pod. The duration can be tuned using `sessionAffinityConfig.clientIP.timeoutSeconds` (default 10,800s / 3 hours).",
     referenceUrl: "https://kubernetes.io/docs/reference/networking/virtual-ips/#session-affinity",
-    tags: ["Kubernetes", "Services", "sessionAffinity"]
+    tags: ["Kubernetes","Services","sessionAffinity"]
   },
   {
     id: "k8s-ckad-209",
@@ -186,7 +186,7 @@ export const K8S_CKAD_QUESTIONS_9 = [
     type: "single",
     explanation: "By default (`externalTrafficPolicy: Cluster`), kube-proxy SNATs incoming packets and forwards them to any node, obscuring client source IPs. Setting `externalTrafficPolicy: Local` preserves the original client source IP by routing traffic only to local pods on the receiving node, dropping packets if no local pod exists.",
     referenceUrl: "https://kubernetes.io/docs/tasks/access-application-cluster/create-external-load-balancer/#preserving-the-client-source-ip",
-    tags: ["Kubernetes", "Services", "externalTrafficPolicy"]
+    tags: ["Kubernetes","Services","externalTrafficPolicy"]
   },
   {
     id: "k8s-ckad-210",
@@ -199,15 +199,15 @@ export const K8S_CKAD_QUESTIONS_9 = [
     question: "Which NetworkPolicy manifest enforces a default deny-all ingress posture for the entire namespace?",
     options: [
       { id: 'A', text: "podSelector: {}, policyTypes: [Ingress], with an empty ingress: [] list" },
-      { id: 'B', text: "podSelector: {}, ingress: [{ from: [] }]" },
-      { id: 'C', text: "policyTypes: [Egress], egress: []" },
-      { id: 'D', text: "denyAll: true" }
+      { id: 'B', text: "podSelector: {}, policyTypes: [Ingress], ingress: [{ from: [] }]" },
+      { id: 'C', text: "podSelector: { matchLabels: {} }, policyTypes: [Ingress], ingress: []" },
+      { id: 'D', text: "A NetworkPolicy with policyTypes: [Ingress] and no ingress field" }
     ],
     correctAnswers: ['A'],
     type: "single",
     explanation: "In Kubernetes NetworkPolicy, selecting all pods (`podSelector: {}`) with `policyTypes: ['Ingress']` and omitting the `ingress` rules block creates a default-deny ingress policy. All pods in that namespace immediately reject all incoming connections.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/network-policies/#default-deny-all-ingress-traffic",
-    tags: ["Kubernetes", "NetworkPolicy", "Default Deny"]
+    tags: ["Kubernetes","NetworkPolicy","Default Deny"]
   },
   {
     id: "k8s-ckad-211",
@@ -220,15 +220,15 @@ export const K8S_CKAD_QUESTIONS_9 = [
     question: "Which NetworkPolicy enforces a default deny-all egress posture?",
     options: [
       { id: 'A', text: "podSelector: {}, policyTypes: [Egress], with an empty egress: [] list" },
-      { id: 'B', text: "podSelector: {}, egress: [{ to: [] }]" },
-      { id: 'C', text: "policyTypes: [Ingress]" },
-      { id: 'D', text: "egressBlock: true" }
+      { id: 'B', text: "podSelector: {}, policyTypes: [Egress], egress: [{ to: [] }]" },
+      { id: 'C', text: "podSelector: {}, with egress: [] and no policyTypes field" },
+      { id: 'D', text: "A NetworkPolicy with policyTypes: [Egress] and no egress field" }
     ],
     correctAnswers: ['A'],
     type: "single",
     explanation: "Configuring a NetworkPolicy targeting all pods (`podSelector: {}`) with `policyTypes: ['Egress']` and leaving the `egress` rules array empty creates a default-deny egress policy, isolating pods from making any outbound connections.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/network-policies/#default-deny-all-egress-traffic",
-    tags: ["Kubernetes", "NetworkPolicy", "Default Deny Egress"]
+    tags: ["Kubernetes","NetworkPolicy","Default Deny Egress"]
   },
   {
     id: "k8s-ckad-212",
@@ -249,7 +249,7 @@ export const K8S_CKAD_QUESTIONS_9 = [
     type: "single",
     explanation: "A NetworkPolicy's `spec.podSelector` identifies the target pods being protected (the database). The `ingress.from.podSelector` matches the allowed source pods in the same namespace, and `ports` restricts traffic to TCP port 5432.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/network-policies/#behavior-of-to-and-from-selectors",
-    tags: ["Kubernetes", "NetworkPolicy", "podSelector"]
+    tags: ["Kubernetes","NetworkPolicy","podSelector"]
   },
   {
     id: "k8s-ckad-213",
@@ -261,16 +261,16 @@ export const K8S_CKAD_QUESTIONS_9 = [
     scenario: "A payment service in namespace `payments` must accept incoming HTTP traffic on port 8080 from pods located in the `orders` namespace (labeled `kubernetes.io/metadata.name: orders`).",
     question: "Which NetworkPolicy `from` rule allows traffic across namespaces?",
     options: [
-      { id: 'A', text: "from: [{ namespace: orders }]" },
+      { id: 'A', text: "from: [{ namespaceSelector: { matchLabels: { name: 'orders' } } }]" },
       { id: 'B', text: "from: [{ namespaceSelector: { matchLabels: { 'kubernetes.io/metadata.name': 'orders' } } }]" },
-      { id: 'C', text: "from: [{ externalNamespace: orders }]" },
-      { id: 'D', text: "from: [{ podSelector: { namespace: orders } }]" }
+      { id: 'C', text: "from: [{ namespaceSelector: { matchExpressions: [{ key: name }] } }]" },
+      { id: 'D', text: "from: [{ podSelector: { matchLabels: { namespace: 'orders' } } }]" }
     ],
     correctAnswers: ['B'],
     type: "single",
     explanation: "To allow traffic from another namespace, the NetworkPolicy `ingress.from` rule must use `namespaceSelector` to match the target namespace's labels (Kubernetes automatically labels namespaces with `kubernetes.io/metadata.name: &lt;namespace&gt;`).",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/network-policies/#behavior-of-to-and-from-selectors",
-    tags: ["Kubernetes", "NetworkPolicy", "namespaceSelector"]
+    tags: ["Kubernetes","NetworkPolicy","namespaceSelector"]
   },
   {
     id: "k8s-ckad-214",
@@ -285,13 +285,13 @@ export const K8S_CKAD_QUESTIONS_9 = [
       { id: 'A', text: "Kubernetes does not support combining namespace and pod selectors" },
       { id: 'B', text: "Inside a single YAML list item: from: [{ namespaceSelector: { matchLabels: { env: prod } }, podSelector: { matchLabels: { role: api } } }]" },
       { id: 'C', text: "As two separate list items: from: [{ namespaceSelector: ... }, { podSelector: ... }]" },
-      { id: 'D', text: "Using an explicit operator: AND" }
+      { id: 'D', text: "Using an explicit AND operator between the two selector blocks" }
     ],
     correctAnswers: ['B'],
     type: "single",
     explanation: "In Kubernetes NetworkPolicies: declaring `namespaceSelector` and `podSelector` in the SAME list item (`- { namespaceSelector: ..., podSelector: ... }`) acts as a logical `AND`. Declaring them as separate list items acts as a logical `OR`.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/network-policies/#behavior-of-to-and-from-selectors",
-    tags: ["Kubernetes", "NetworkPolicy", "AND vs OR"]
+    tags: ["Kubernetes","NetworkPolicy","AND vs OR"]
   },
   {
     id: "k8s-ckad-215",
@@ -312,7 +312,7 @@ export const K8S_CKAD_QUESTIONS_9 = [
     type: "single",
     explanation: "An `ipBlock` allows specifying IP CIDR ranges for ingress or egress. The `except` field carves out specific subnets from the CIDR, allowing all internet traffic (`0.0.0.0/0`) while explicitly denying internal corporate ranges (`10.0.0.0/8`).",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/network-policies/#ipblock",
-    tags: ["Kubernetes", "NetworkPolicy", "ipBlock"]
+    tags: ["Kubernetes","NetworkPolicy","ipBlock"]
   },
   {
     id: "k8s-ckad-216",
@@ -324,7 +324,7 @@ export const K8S_CKAD_QUESTIONS_9 = [
     scenario: "A cluster administrator applies multiple Kubernetes NetworkPolicy manifests to a cluster. However, pods continue communicating freely across all namespaces without any restrictions.",
     question: "What is the most likely root cause of this failure?",
     options: [
-      { id: 'A', text: "The cluster's Container Network Interface (CNI) plugin does not support or enforce NetworkPolicies (e.g. Flannel without Calico)" },
+      { id: 'A', text: "The CNI plugin does not enforce NetworkPolicies" },
       { id: 'B', text: "NetworkPolicies only work with root containers" },
       { id: 'C', text: "The API server is missing an enterprise license" },
       { id: 'D', text: "Kubernetes requires restarting worker nodes after applying policies" }
@@ -333,7 +333,7 @@ export const K8S_CKAD_QUESTIONS_9 = [
     type: "single",
     explanation: "NetworkPolicies are declarative specifications. The Kubernetes control plane stores them, but the cluster's `Container Network Interface (CNI) plugin` (e.g. Calico, Cilium, Weave, AWS VPC CNI with network policy engine) is responsible for enforcing them. Basic CNIs like Flannel do not enforce NetworkPolicies.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/network-policies/#prerequisites",
-    tags: ["Kubernetes", "NetworkPolicy", "CNI Plugins"]
+    tags: ["Kubernetes","NetworkPolicy","CNI Plugins"]
   },
   {
     id: "k8s-ckad-217",
@@ -354,7 +354,7 @@ export const K8S_CKAD_QUESTIONS_9 = [
     type: "single",
     explanation: "`pathType: Prefix` matches URL paths based on URL path elements separated by `/`. Path `/api` matches `/api`, `/api/`, and `/api/v1/orders`, but does NOT match `/apigateway` because `gateway` is not separated by a slash.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/ingress/#path-types",
-    tags: ["Kubernetes", "Ingress", "pathType"]
+    tags: ["Kubernetes","Ingress","pathType"]
   },
   {
     id: "k8s-ckad-218",
@@ -366,7 +366,7 @@ export const K8S_CKAD_QUESTIONS_9 = [
     scenario: "An Ingress rule specifies path: /orders with pathType: Exact.",
     question: "Which of the following request URLs matches this rule?",
     options: [
-      { id: 'A', text: "Only /orders (does not match /orders/ or /orders/123)" },
+      { id: 'A', text: "Only /orders" },
       { id: 'B', text: "Both /orders and /orders/123" },
       { id: 'C', text: "Any path starting with /order" },
       { id: 'D', text: "All HTTP requests" }
@@ -375,7 +375,7 @@ export const K8S_CKAD_QUESTIONS_9 = [
     type: "single",
     explanation: "`pathType: Exact` matches the URL path strictly with case sensitivity and exact character matching. Requests to `/orders/` (with trailing slash) or `/orders/item` do NOT match.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/ingress/#path-types",
-    tags: ["Kubernetes", "Ingress", "pathType Exact"]
+    tags: ["Kubernetes","Ingress","pathType Exact"]
   },
   {
     id: "k8s-ckad-219",
@@ -396,7 +396,7 @@ export const K8S_CKAD_QUESTIONS_9 = [
     type: "single",
     explanation: "In an Ingress resource, the `spec.tls` array defines TLS termination. It maps hostnames (`hosts`) to a Kubernetes `kubernetes.io/tls` Secret (`secretName`), allowing the ingress controller to decrypt HTTPS traffic and forward plain HTTP to backend pods.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/ingress/#tls",
-    tags: ["Kubernetes", "Ingress", "TLS Termination"]
+    tags: ["Kubernetes","Ingress","TLS Termination"]
   },
   {
     id: "k8s-ckad-220",
@@ -417,7 +417,7 @@ export const K8S_CKAD_QUESTIONS_9 = [
     type: "single",
     explanation: "`spec.ingressClassName` references an `IngressClass` resource in the cluster. Each Ingress controller watches only Ingresses whose `ingressClassName` matches its registered class, enabling clean coexistence of multiple ingress controllers in the same cluster.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/ingress/#ingress-class",
-    tags: ["Kubernetes", "Ingress", "IngressClass"]
+    tags: ["Kubernetes","Ingress","IngressClass"]
   },
   {
     id: "k8s-ckad-221",
@@ -432,13 +432,13 @@ export const K8S_CKAD_QUESTIONS_9 = [
       { id: 'A', text: "Create two separate IngressClass resources" },
       { id: 'B', text: "Deploy two separate LoadBalancer services" },
       { id: 'C', text: "Host-based routing is not supported in Ingress" },
-      { id: 'D', text: "Define two separate rule entries under spec.rules, each specifying a distinct host header (host: store.example.com and host: blog.example.com)" }
+      { id: 'D', text: "Two spec.rules entries, one per host" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Ingress supports host-based virtual hosting. Under `spec.rules`, each entry specifies a `host` string. The ingress controller inspects the incoming HTTP `Host` header (or TLS SNI) and routes requests to the designated backend service accordingly.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/ingress/#name-based-virtual-hosting",
-    tags: ["Kubernetes", "Ingress", "Host-Based Routing"]
+    tags: ["Kubernetes","Ingress","Host-Based Routing"]
   },
   {
     id: "k8s-ckad-222",
@@ -453,13 +453,13 @@ export const K8S_CKAD_QUESTIONS_9 = [
       { id: 'A', text: "Create two separate Ingress resources with the same hostname" },
       { id: 'B', text: "Configure two LoadBalancer services" },
       { id: 'C', text: "Path routing requires modifying the Linux kernel on worker nodes" },
-      { id: 'D', text: "Under a single host rule, define multiple paths in the http.paths array pointing to different backend services" }
+      { id: 'D', text: "Several paths under one host rule, each to its own service" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Path-based fanout routing uses a single host rule with multiple path entries under `http.paths`. The ingress controller matches incoming URL prefixes and forwards requests to the corresponding backend Services.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/ingress/#simple-fanout",
-    tags: ["Kubernetes", "Ingress", "Path Fanout"]
+    tags: ["Kubernetes","Ingress","Path Fanout"]
   },
   {
     id: "k8s-ckad-223",
@@ -473,14 +473,14 @@ export const K8S_CKAD_QUESTIONS_9 = [
     options: [
       { id: 'A', text: "It routes the request to CoreDNS" },
       { id: 'B', text: "It restarts all backend pods" },
-      { id: 'C', text: "It routes the request to the Ingress defaultBackend (if configured), or returns HTTP 404" },
+      { id: 'C', text: "The defaultBackend, or a 404" },
       { id: 'D', text: "It drops the packet silently" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "An Ingress can specify a `defaultBackend` at the root of `spec`. If an incoming HTTP request does not match any of the rules or paths in `spec.rules`, the ingress controller forwards the request to the `defaultBackend` service, or returns HTTP 404.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/ingress/#default-backend",
-    tags: ["Kubernetes", "Ingress", "defaultBackend"]
+    tags: ["Kubernetes","Ingress","defaultBackend"]
   },
   {
     id: "k8s-ckad-224",
@@ -492,7 +492,7 @@ export const K8S_CKAD_QUESTIONS_9 = [
     scenario: "A developer inspects /etc/resolv.conf inside a container pod running in the production namespace.",
     question: "What values are populated by the kubelet by default?",
     options: [
-      { id: 'A', text: "nameserver set to the CoreDNS ClusterIP, search domains including production.svc.cluster.local and svc.cluster.local, and ndots:5" },
+      { id: 'A', text: "CoreDNS ClusterIP with cluster search domains" },
       { id: 'B', text: "nameserver set to 8.8.8.8 with no search domains" },
       { id: 'C', text: "nameserver set to the physical node IP" },
       { id: 'D', text: "/etc/resolv.conf is empty in containers" }
@@ -501,7 +501,7 @@ export const K8S_CKAD_QUESTIONS_9 = [
     type: "single",
     explanation: "The kubelet configures `/etc/resolv.conf` with: `nameserver &lt;CoreDNS-ClusterIP&gt;`, `search &lt;namespace&gt;.svc.cluster.local svc.cluster.local cluster.local`, and `options ndots:5`. This allows pods to resolve local service names like `order-service` automatically.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-config",
-    tags: ["Kubernetes", "CoreDNS", "resolv.conf"]
+    tags: ["Kubernetes","CoreDNS","resolv.conf"]
   },
   {
     id: "k8s-ckad-225",
@@ -522,7 +522,7 @@ export const K8S_CKAD_QUESTIONS_9 = [
     type: "single",
     explanation: "In Kubernetes CoreDNS, services resolve via the standard FQDN format: `&lt;service-name&gt;.&lt;namespace&gt;.svc.&lt;cluster-domain&gt;` (e.g. `database.backend.svc.cluster.local`). Within the same namespace, pods can simply use `&lt;service-name&gt;`.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#services",
-    tags: ["Kubernetes", "CoreDNS", "Service FQDN"]
+    tags: ["Kubernetes","CoreDNS","Service FQDN"]
   }
 ];
 

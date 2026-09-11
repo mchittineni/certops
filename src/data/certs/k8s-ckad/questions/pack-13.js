@@ -12,7 +12,7 @@ export const K8S_CKAD_QUESTIONS_13 = [
       { id: 'A', text: "Restart the worker node operating systems to reset pod memory." },
       { id: 'B', text: "Execute `kubectl rollout undo deployment/&lt;deployment-name&gt;` to revert to the previous revision, and inspect revisions via `kubectl rollout history`." },
       { id: 'C', text: "Delete the Deployment and re-author the manifest from memory." },
-      { id: 'D', text: "Manually edit pod container image tags one by one using kubectl edit pod." }
+      { id: 'D', text: "Edit the image tag on each pod with kubectl edit pod." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -30,7 +30,7 @@ export const K8S_CKAD_QUESTIONS_13 = [
     scenario: "A high-throughput web application experiences unpredictable spikes in user transactions and requires automated, reliable scaling across Kubernetes clusters. The Kubernetes application developer evaluates Deployment Rollbacks to revert a failed production Deployment update that introduced application runtime exceptions immediately back to the prior stable revision.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting backend stability?",
     options: [
-      { id: 'A', text: "Manually edit pod container image tags one by one using kubectl edit pod." },
+      { id: 'A', text: "Edit the image tag on each pod with kubectl edit pod." },
       { id: 'B', text: "Execute `kubectl rollout undo deployment/&lt;deployment-name&gt;` to revert to the previous revision, and inspect revisions via `kubectl rollout history`." },
       { id: 'C', text: "Delete the Deployment and re-author the manifest from memory." },
       { id: 'D', text: "Restart the worker node operating systems to reset pod memory." }
@@ -52,7 +52,7 @@ export const K8S_CKAD_QUESTIONS_13 = [
     question: "Which solution properly implements these mandatory container and cluster security controls?",
     options: [
       { id: 'A', text: "Restart the worker node operating systems to reset pod memory." },
-      { id: 'B', text: "Manually edit pod container image tags one by one using kubectl edit pod." },
+      { id: 'B', text: "Edit the image tag on each pod with kubectl edit pod." },
       { id: 'C', text: "Execute `kubectl rollout undo deployment/&lt;deployment-name&gt;` to revert to the previous revision, and inspect revisions via `kubectl rollout history`." },
       { id: 'D', text: "Delete the Deployment and re-author the manifest from memory." }
     ],
@@ -73,7 +73,7 @@ export const K8S_CKAD_QUESTIONS_13 = [
     question: "Which architectural pattern or feature enables the team to modernize services with minimal disruption and low operational friction?",
     options: [
       { id: 'A', text: "Execute `kubectl rollout undo deployment/&lt;deployment-name&gt;` to revert to the previous revision, and inspect revisions via `kubectl rollout history`." },
-      { id: 'B', text: "Manually edit pod container image tags one by one using kubectl edit pod." },
+      { id: 'B', text: "Edit the image tag on each pod with kubectl edit pod." },
       { id: 'C', text: "Restart the worker node operating systems to reset pod memory." },
       { id: 'D', text: "Delete the Deployment and re-author the manifest from memory." }
     ],
@@ -94,7 +94,7 @@ export const K8S_CKAD_QUESTIONS_13 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees service reliability?",
     options: [
       { id: 'A', text: "Execute `kubectl rollout undo deployment/&lt;deployment-name&gt;` to revert to the previous revision, and inspect revisions via `kubectl rollout history`." },
-      { id: 'B', text: "Manually edit pod container image tags one by one using kubectl edit pod." },
+      { id: 'B', text: "Edit the image tag on each pod with kubectl edit pod." },
       { id: 'C', text: "Restart the worker node operating systems to reset pod memory." },
       { id: 'D', text: "Delete the Deployment and re-author the manifest from memory." }
     ],

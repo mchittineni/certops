@@ -18,7 +18,7 @@ export const K8S_CKAD_QUESTIONS_3 = [
     type: "single",
     explanation: "In a Deployment's `RollingUpdate` strategy, `maxUnavailable: 0` guarantees that the number of available pods never falls below the desired replica count (10 pods always serving). `maxSurge: 3` allows up to 3 extra pods above desired capacity (up to 13 total pods) during the rollout.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#rolling-update-deployment",
-    tags: ["Kubernetes", "Deployments", "RollingUpdate"]
+    tags: ["Kubernetes","Deployments","RollingUpdate"]
   },
   {
     id: "k8s-ckad-52",
@@ -39,7 +39,7 @@ export const K8S_CKAD_QUESTIONS_3 = [
     type: "single",
     explanation: "The `Recreate` deployment strategy kills all existing running pods before any new pods are created. While this causes a brief service outage, it is required when two versions of an application cannot run simultaneously or share exclusive persistent volumes.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#recreate-deployment",
-    tags: ["Kubernetes", "Deployments", "Recreate Strategy"]
+    tags: ["Kubernetes","Deployments","Recreate Strategy"]
   },
   {
     id: "k8s-ckad-53",
@@ -60,7 +60,7 @@ export const K8S_CKAD_QUESTIONS_3 = [
     type: "single",
     explanation: "`kubectl rollout undo deployment/&lt;name&gt;` rolls back the deployment to the previous revision. To target a specific older revision, pass `--to-revision=&lt;number&gt;` after inspecting revisions with `kubectl rollout history`.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#rolling-back-a-deployment",
-    tags: ["Kubernetes", "kubectl rollout", "Rollback"]
+    tags: ["Kubernetes","kubectl rollout","Rollback"]
   },
   {
     id: "k8s-ckad-54",
@@ -75,13 +75,13 @@ export const K8S_CKAD_QUESTIONS_3 = [
       { id: 'A', text: "Kubernetes automatically merges updates within 5 minutes" },
       { id: 'B', text: "Scale replicas to 0, apply changes, and scale back up" },
       { id: 'C', text: "Edit the etcd database directly" },
-      { id: 'D', text: "Run kubectl rollout pause deployment/&lt;name&gt;, apply the changes, then run kubectl rollout resume deployment/&lt;name&gt;" }
+      { id: 'D', text: "kubectl rollout pause, apply, then rollout resume" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Pausing a deployment (`kubectl rollout pause deployment/&lt;name&gt;`) allows multiple edits to the pod template without triggering intermediate rollouts. Running `kubectl rollout resume deployment/&lt;name&gt;` triggers a single, unified rollout containing all modifications.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#pausing-and-resuming-a-deployment",
-    tags: ["Kubernetes", "Deployments", "Rollout Pause"]
+    tags: ["Kubernetes","Deployments","Rollout Pause"]
   },
   {
     id: "k8s-ckad-55",
@@ -102,7 +102,7 @@ export const K8S_CKAD_QUESTIONS_3 = [
     type: "single",
     explanation: "`revisionHistoryLimit` in a Deployment specification defines the number of old, inactive ReplicaSets to retain for rollbacks (default is 10). Setting it to a smaller number like 3 or 5 cleans up older ReplicaSet objects automatically.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#revision-history-limit",
-    tags: ["Kubernetes", "Deployments", "revisionHistoryLimit"]
+    tags: ["Kubernetes","Deployments","revisionHistoryLimit"]
   },
   {
     id: "k8s-ckad-56",
@@ -115,7 +115,7 @@ export const K8S_CKAD_QUESTIONS_3 = [
     question: "Which Kubernetes Service configuration is mandatory for a StatefulSet to provide stable network IDs?",
     options: [
       { id: 'A', text: "A standard ClusterIP service with a virtual IP" },
-      { id: 'B', text: "A Headless Service with clusterIP: None matching serviceName in the StatefulSet spec" },
+      { id: 'B', text: "A headless Service with clusterIP: None" },
       { id: 'C', text: "An ExternalName service" },
       { id: 'D', text: "A NodePort service with sticky sessions" }
     ],
@@ -123,7 +123,7 @@ export const K8S_CKAD_QUESTIONS_3 = [
     type: "single",
     explanation: "StatefulSets require a `Headless Service` (a Service with `clusterIP: None`) declared in `spec.serviceName`. The headless service does not allocate a virtual IP; instead, CoreDNS creates stable A/AAAA records for each individual pod (e.g. `&lt;pod-name&gt;.&lt;service-name&gt;.&lt;namespace&gt;.svc.cluster.local`).",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/#limitations",
-    tags: ["Kubernetes", "StatefulSets", "Headless Service"]
+    tags: ["Kubernetes","StatefulSets","Headless Service"]
   },
   {
     id: "k8s-ckad-57",
@@ -144,7 +144,7 @@ export const K8S_CKAD_QUESTIONS_3 = [
     type: "single",
     explanation: "`volumeClaimTemplates` in a StatefulSet automatically generates a unique PersistentVolumeClaim (PVC) for each pod replica (e.g. `data-kafka-0`, `data-kafka-1`). When a pod is rescheduled or restarted, it reattaches to its exact ordinal PVC and disk.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/#volume-claim-templates",
-    tags: ["Kubernetes", "StatefulSets", "volumeClaimTemplates"]
+    tags: ["Kubernetes","StatefulSets","volumeClaimTemplates"]
   },
   {
     id: "k8s-ckad-58",
@@ -165,7 +165,7 @@ export const K8S_CKAD_QUESTIONS_3 = [
     type: "single",
     explanation: "By default, StatefulSets use `podManagementPolicy: OrderedReady`, launching pods sequentially (0, then 1, then 2). Setting `podManagementPolicy: Parallel` instructs the StatefulSet controller to launch or terminate all pods in parallel without waiting for prior pods to become Ready.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/#pod-management-policies",
-    tags: ["Kubernetes", "StatefulSets", "podManagementPolicy"]
+    tags: ["Kubernetes","StatefulSets","podManagementPolicy"]
   },
   {
     id: "k8s-ckad-59",
@@ -186,7 +186,7 @@ export const K8S_CKAD_QUESTIONS_3 = [
     type: "single",
     explanation: "A `DaemonSet` ensures that all (or some) nodes run a copy of a pod. As nodes are added to the cluster, pods are added to them. As nodes are removed, those pods are garbage collected. DaemonSets are standard for log forwarders, node exporters, and storage daemons.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/",
-    tags: ["Kubernetes", "DaemonSet", "Node Agents"]
+    tags: ["Kubernetes","DaemonSet","Node Agents"]
   },
   {
     id: "k8s-ckad-60",
@@ -207,7 +207,7 @@ export const K8S_CKAD_QUESTIONS_3 = [
     type: "single",
     explanation: "The default `updateStrategy` for DaemonSets is `RollingUpdate`. The controller updates pods on one node at a time (controlled by `maxUnavailable`). Under `OnDelete`, new pods are only created when the user manually deletes the old pod on that node.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/#rolling-update-strategy",
-    tags: ["Kubernetes", "DaemonSet", "updateStrategy"]
+    tags: ["Kubernetes","DaemonSet","updateStrategy"]
   },
   {
     id: "k8s-ckad-61",
@@ -219,7 +219,7 @@ export const K8S_CKAD_QUESTIONS_3 = [
     scenario: "A company deploys version 2 of an application using Deployment `app-v2` alongside active Deployment `app-v1`. When testing passes, traffic must switch instantaneously to v2 with zero downtime.",
     question: "How is instantaneous traffic cutover achieved natively in Kubernetes?",
     options: [
-      { id: 'A', text: "Update the selector label in the Kubernetes Service from version: v1 to version: v2" },
+      { id: 'A', text: "Switch the Service selector to v2" },
       { id: 'B', text: "Delete the v1 Deployment" },
       { id: 'C', text: "Restart the CoreDNS pods" },
       { id: 'D', text: "Reboot the worker nodes" }
@@ -228,7 +228,7 @@ export const K8S_CKAD_QUESTIONS_3 = [
     type: "single",
     explanation: "In a native Kubernetes `Blue-Green deployment`, both versions run concurrently in separate Deployments. The Kubernetes Service routes traffic based on its `spec.selector` labels (e.g. `app: web, version: v1`). Updating the selector to `version: v2` instantly repoints the Service to the new pods.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#alternative-deployment-strategies",
-    tags: ["Kubernetes", "Blue-Green", "Service Routing"]
+    tags: ["Kubernetes","Blue-Green","Service Routing"]
   },
   {
     id: "k8s-ckad-62",
@@ -240,7 +240,7 @@ export const K8S_CKAD_QUESTIONS_3 = [
     scenario: "An engineering team wants to route approximately 10% of production traffic to a new experimental release `v2` and 90% to stable `v1` without deploying a complex service mesh.",
     question: "How can this be achieved using native Kubernetes Deployments and a single Service?",
     options: [
-      { id: 'A', text: "Create Deployment v1 with 9 replicas and Deployment v2 with 1 replica, both sharing the same Service selector labels (app: frontend)" },
+      { id: 'A', text: "Two deployments at 9 and 1 replicas behind one selector" },
       { id: 'B', text: "Configure weight: 10% in the Service manifest" },
       { id: 'C', text: "Deploy two Services with different IP addresses" },
       { id: 'D', text: "Run a shell script on the node that drops 90% of packets" }
@@ -249,7 +249,7 @@ export const K8S_CKAD_QUESTIONS_3 = [
     type: "single",
     explanation: "Standard Kubernetes Services distribute traffic evenly across all matching endpoint pods. By running Deployment v1 with 9 replicas and Deployment v2 with 1 replica sharing the same selector (e.g. `app: frontend`), the Service naturally routes 10% of traffic to the single v2 pod.",
     referenceUrl: "https://kubernetes.io/docs/concepts/cluster-administration/manage-deployment/#canary-deployments",
-    tags: ["Kubernetes", "Canary", "Replica Ratios"]
+    tags: ["Kubernetes","Canary","Replica Ratios"]
   },
   {
     id: "k8s-ckad-63",
@@ -264,13 +264,13 @@ export const K8S_CKAD_QUESTIONS_3 = [
       { id: 'A', text: "ClusterAutoscaler" },
       { id: 'B', text: "NodeAutoProvisioner" },
       { id: 'C', text: "VerticalPodAutoscaler" },
-      { id: 'D', text: "HorizontalPodAutoscaler (autoscaling/v2)" }
+      { id: 'D', text: "A HorizontalPodAutoscaler" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "The `HorizontalPodAutoscaler` (HPA) automatically scales the number of Pods in a Deployment or StatefulSet based on observed CPU/memory utilization or custom metrics (like HTTP requests/sec or queue length) via the metrics API.",
     referenceUrl: "https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/",
-    tags: ["Kubernetes", "HPA", "Autoscaling"]
+    tags: ["Kubernetes","HPA","Autoscaling"]
   },
   {
     id: "k8s-ckad-64",
@@ -291,7 +291,7 @@ export const K8S_CKAD_QUESTIONS_3 = [
     type: "single",
     explanation: "HPA calculates target utilization percentages against the pod's `resources.requests.cpu` (e.g. `current_usage / requested_cpu * 100%`). If resource requests are not configured on the containers, the HPA cannot compute percentage utilization and fails to scale.",
     referenceUrl: "https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/#how-does-an-hpa-work",
-    tags: ["Kubernetes", "HPA", "Resource Requests"]
+    tags: ["Kubernetes","HPA","Resource Requests"]
   },
   {
     id: "k8s-ckad-65",
@@ -312,7 +312,7 @@ export const K8S_CKAD_QUESTIONS_3 = [
     type: "single",
     explanation: "In HPA `autoscaling/v2`, `behavior.scaleDown.stabilizationWindowSeconds` (default 300s / 5 minutes) restricts scale-down by observing the highest desired replica count during the window, smoothing flappy traffic dips and preventing thrashing.",
     referenceUrl: "https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/#support-for-configurable-scaling-behavior",
-    tags: ["Kubernetes", "HPA", "Stabilization Window"]
+    tags: ["Kubernetes","HPA","Stabilization Window"]
   },
   {
     id: "k8s-ckad-66",
@@ -333,7 +333,7 @@ export const K8S_CKAD_QUESTIONS_3 = [
     type: "single",
     explanation: "The Vertical Pod Autoscaler (VPA) `updateMode: Off` calculates recommended CPU and memory requests based on historical usage and writes recommendations to the VPA status object without evicting or modifying running pods.",
     referenceUrl: "https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler",
-    tags: ["Kubernetes", "VPA", "Resource Sizing"]
+    tags: ["Kubernetes","VPA","Resource Sizing"]
   },
   {
     id: "k8s-ckad-67",
@@ -345,7 +345,7 @@ export const K8S_CKAD_QUESTIONS_3 = [
     scenario: "A development organization deploys the same application to `dev`, `staging`, and `prod` environments. Each environment has slight variations in replica counts, ingress domains, and resource limits.",
     question: "Which Kustomize structure organizes common declarative manifests and environment-specific customizations?",
     options: [
-      { id: 'A', text: "A base/ directory containing standard manifests and overlays/ (dev, staging, prod) containing kustomization.yaml patches" },
+      { id: 'A', text: "A base/ directory with per-environment overlays/" },
       { id: 'B', text: "Hardcoding all configurations into a single YAML file" },
       { id: 'C', text: "Using bash scripts with sed replacement" },
       { id: 'D', text: "Copying and pasting the entire folder 3 times" }
@@ -354,7 +354,7 @@ export const K8S_CKAD_QUESTIONS_3 = [
     type: "single",
     explanation: "`Kustomize` uses a template-free `base` and `overlay` architecture. The `base/` directory contains standard, common manifests. Each environment in `overlays/&lt;env&gt;/` declares patches, replica overrides, and namespace customizations without duplicating boilerplate manifests.",
     referenceUrl: "https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/#customizing",
-    tags: ["Kubernetes", "Kustomize", "Overlays"]
+    tags: ["Kubernetes","Kustomize","Overlays"]
   },
   {
     id: "k8s-ckad-68",
@@ -366,7 +366,7 @@ export const K8S_CKAD_QUESTIONS_3 = [
     scenario: "A developer uses Kustomize to inject configuration files into Kubernetes. When a developer edits `config.properties`, the deployed pods must automatically trigger a rolling restart to pick up the changes.",
     question: "How does Kustomize's configMapGenerator guarantee that pods reload upon configuration updates?",
     options: [
-      { id: 'A', text: "It appends a unique content-hash suffix to the ConfigMap name (e.g. my-config-7b8f9h), changing the pod template and triggering a rolling update" },
+      { id: 'A', text: "It hashes the ConfigMap name, so the pod template changes" },
       { id: 'B', text: "It executes kubectl exec in all pods to restart the process" },
       { id: 'C', text: "It modifies etcd directly to force a restart" },
       { id: 'D', text: "It deletes the namespace" }
@@ -375,7 +375,7 @@ export const K8S_CKAD_QUESTIONS_3 = [
     type: "single",
     explanation: "Kustomize `configMapGenerator` appends a cryptographic hash of the file contents to the generated ConfigMap name. Because the ConfigMap name changes in the Deployment's pod template, Kubernetes recognizes the template mutation and automatically triggers a zero-downtime rolling update.",
     referenceUrl: "https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/configmapgenerator/",
-    tags: ["Kubernetes", "Kustomize", "configMapGenerator"]
+    tags: ["Kubernetes","Kustomize","configMapGenerator"]
   },
   {
     id: "k8s-ckad-69",
@@ -387,7 +387,7 @@ export const K8S_CKAD_QUESTIONS_3 = [
     scenario: "A developer needs to modify an exact single element inside a nested list in a Kubernetes Deployment manifest (e.g. updating the second container's image) using Kustomize.",
     question: "Which patch format provides precise array index manipulation (op: replace, path: /spec/template/spec/containers/1/image)?",
     options: [
-      { id: 'A', text: "JSON 6902 Patch (patchesJson6902 / patches target with ops)" },
+      { id: 'A', text: "A JSON 6902 patch" },
       { id: 'B', text: "Strategic Merge Patch" },
       { id: 'C', text: "ConfigMapGenerator" },
       { id: 'D', text: "Replica count override" }
@@ -396,7 +396,7 @@ export const K8S_CKAD_QUESTIONS_3 = [
     type: "single",
     explanation: "Kustomize supports two patching mechanisms: `Strategic Merge Patches` (declarative YAML snippets merged by key) and `JSON 6902 Patches` (RFC 6902 operations: `add`, `remove`, `replace` using exact JSON pointer paths), ideal for modifying specific array indexes.",
     referenceUrl: "https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patchesjson6902/",
-    tags: ["Kubernetes", "Kustomize", "JSON 6902"]
+    tags: ["Kubernetes","Kustomize","JSON 6902"]
   },
   {
     id: "k8s-ckad-70",
@@ -417,7 +417,7 @@ export const K8S_CKAD_QUESTIONS_3 = [
     type: "single",
     explanation: "`helm upgrade [RELEASE] [CHART]` applies configuration or template updates to an existing Helm release, creating a new release revision and tracking historical changes for potential rollbacks (`helm rollback`).",
     referenceUrl: "https://helm.sh/docs/helm/helm_upgrade/",
-    tags: ["Helm", "Package Management", "helm upgrade"]
+    tags: ["Helm","Package Management","helm upgrade"]
   },
   {
     id: "k8s-ckad-71",
@@ -438,7 +438,7 @@ export const K8S_CKAD_QUESTIONS_3 = [
     type: "single",
     explanation: "The `--set` flag allows passing individual key-value overrides directly on the CLI (`helm upgrade --set image.tag=v1.2.3`), taking precedence over default values in `values.yaml`.",
     referenceUrl: "https://helm.sh/docs/helm/helm_install/#options",
-    tags: ["Helm", "--set", "CI/CD Deployment"]
+    tags: ["Helm","--set","CI/CD Deployment"]
   },
   {
     id: "k8s-ckad-72",
@@ -459,7 +459,7 @@ export const K8S_CKAD_QUESTIONS_3 = [
     type: "single",
     explanation: "`helm history [RELEASE]` displays a table of all past revisions for that release, including the revision number, timestamp, status (deployed/superseded), chart name, and release description.",
     referenceUrl: "https://helm.sh/docs/helm/helm_history/",
-    tags: ["Helm", "helm history", "Audit"]
+    tags: ["Helm","helm history","Audit"]
   },
   {
     id: "k8s-ckad-73",
@@ -480,7 +480,7 @@ export const K8S_CKAD_QUESTIONS_3 = [
     type: "single",
     explanation: "`helm rollback [RELEASE] [REVISION]` rolls back the release to the specified past revision number. Helm generates a new revision (e.g. revision 5) whose state is identical to revision 2.",
     referenceUrl: "https://helm.sh/docs/helm/helm_rollback/",
-    tags: ["Helm", "helm rollback", "Disaster Recovery"]
+    tags: ["Helm","helm rollback","Disaster Recovery"]
   },
   {
     id: "k8s-ckad-74",
@@ -501,7 +501,7 @@ export const K8S_CKAD_QUESTIONS_3 = [
     type: "single",
     explanation: "A `PodDisruptionBudget` limits voluntary evictions (like draining nodes for maintenance). Setting `minAvailable: 4` (or equivalently `maxUnavailable: 1` out of 5) prevents cluster draining operations from evicting more than 1 pod concurrently.",
     referenceUrl: "https://kubernetes.io/docs/tasks/run-application/configure-pdb/",
-    tags: ["Kubernetes", "PDB", "High Availability"]
+    tags: ["Kubernetes","PDB","High Availability"]
   },
   {
     id: "k8s-ckad-75",
@@ -522,7 +522,7 @@ export const K8S_CKAD_QUESTIONS_3 = [
     type: "single",
     explanation: "`kubectl rollout status deployment/&lt;name&gt;` watches the rollout progress, returning exit code `0` once all replicas are updated and Ready. Adding `--timeout=&lt;duration&gt;` ensures the CI/CD job fails cleanly if pods fail health checks within the time limit.",
     referenceUrl: "https://kubernetes.io/docs/reference/kubectl/generated/kubectl_rollout/kubectl_rollout_status/",
-    tags: ["Kubernetes", "kubectl rollout status", "CI/CD Gates"]
+    tags: ["Kubernetes","kubectl rollout status","CI/CD Gates"]
   }
 ];
 

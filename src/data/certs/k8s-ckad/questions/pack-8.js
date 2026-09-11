@@ -18,7 +18,7 @@ export const K8S_CKAD_QUESTIONS_8 = [
     type: "single",
     explanation: "`kubectl create secret generic &lt;name&gt; --from-file=[key=]source-file` packages a local file into a secret key-value entry. Specifying `key.pem=api-key.pem` customizes the dictionary key name inside the secret.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configmap-secret/managing-secret-using-kubectl/#create-a-secret",
-    tags: ["Kubernetes", "kubectl create secret", "Secret Management"]
+    tags: ["Kubernetes","kubectl create secret","Secret Management"]
   },
   {
     id: "k8s-ckad-177",
@@ -39,7 +39,7 @@ export const K8S_CKAD_QUESTIONS_8 = [
     type: "single",
     explanation: "In the PV lifecycle: `Available` (ready to bind to a claim), `Bound` (attached to a PVC), `Released` (the claim was deleted, but the storage resource is not yet reclaimed), and `Failed` (automated reclamation failed).",
     referenceUrl: "https://kubernetes.io/docs/concepts/storage/persistent-volumes/#phase",
-    tags: ["Kubernetes", "Storage", "PV Phases"]
+    tags: ["Kubernetes","Storage","PV Phases"]
   },
   {
     id: "k8s-ckad-178",
@@ -60,7 +60,7 @@ export const K8S_CKAD_QUESTIONS_8 = [
     type: "single",
     explanation: "PVCs support `spec.selector` (with `matchLabels` and `matchExpressions`). The persistent volume controller evaluates selectors against labels on available PVs, binding only to a PV with matching labels.",
     referenceUrl: "https://kubernetes.io/docs/concepts/storage/persistent-volumes/#class-1",
-    tags: ["Kubernetes", "Storage", "PV Selectors"]
+    tags: ["Kubernetes","Storage","PV Selectors"]
   },
   {
     id: "k8s-ckad-179",
@@ -81,7 +81,7 @@ export const K8S_CKAD_QUESTIONS_8 = [
     type: "single",
     explanation: "Kubernetes supports two `volumeMode` types: `Filesystem` (default, formatted with an OS filesystem) and `Block` (mounted as a raw block storage device inside the container using `volumeDevices` instead of `volumeMounts`).",
     referenceUrl: "https://kubernetes.io/docs/concepts/storage/persistent-volumes/#raw-block-volume-support",
-    tags: ["Kubernetes", "Raw Block Volumes", "Storage"]
+    tags: ["Kubernetes","Raw Block Volumes","Storage"]
   },
   {
     id: "k8s-ckad-180",
@@ -96,13 +96,13 @@ export const K8S_CKAD_QUESTIONS_8 = [
       { id: 'A', text: "It uses the first StorageClass listed alphabetically" },
       { id: 'B', text: "It rejects the PVC with an error" },
       { id: 'C', text: "It uses local hostPath storage" },
-      { id: 'D', text: "It uses the StorageClass annotated with storageclass.kubernetes.io/is-default-class: 'true'" }
+      { id: 'D', text: "It uses the default-annotated StorageClass" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "When a PVC omits `storageClassName`, Kubernetes checks for a StorageClass with the annotation `storageclass.kubernetes.io/is-default-class: \"true\"`. If found, that class is automatically used to dynamically provision the volume.",
     referenceUrl: "https://kubernetes.io/docs/concepts/storage/storage-classes/#default-storageclass",
-    tags: ["Kubernetes", "StorageClass", "Default StorageClass"]
+    tags: ["Kubernetes","StorageClass","Default StorageClass"]
   },
   {
     id: "k8s-ckad-181",
@@ -123,7 +123,7 @@ export const K8S_CKAD_QUESTIONS_8 = [
     type: "single",
     explanation: "`supplementalGroups` defines a list of secondary group IDs added to the first process run in each container in the Pod, allowing access to files owned by those group IDs.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-pod",
-    tags: ["Kubernetes", "SecurityContext", "supplementalGroups"]
+    tags: ["Kubernetes","SecurityContext","supplementalGroups"]
   },
   {
     id: "k8s-ckad-182",
@@ -144,7 +144,7 @@ export const K8S_CKAD_QUESTIONS_8 = [
     type: "single",
     explanation: "`CAP_NET_BIND_SERVICE` allows processes to bind to standard privileged network ports (< 1024) without requiring full root privileges (UID 0), maintaining least privilege for web servers.",
     referenceUrl: "https://man7.org/linux/man-pages/man7/capabilities.7.html",
-    tags: ["Kubernetes", "Capabilities", "NET_BIND_SERVICE"]
+    tags: ["Kubernetes","Capabilities","NET_BIND_SERVICE"]
   },
   {
     id: "k8s-ckad-183",
@@ -156,7 +156,7 @@ export const K8S_CKAD_QUESTIONS_8 = [
     scenario: "A storage administrator configures an NFS StorageClass that requires specific mount flags (nfsvers=4.1, noatime).",
     question: "Where are filesystem mount flags declared in Kubernetes?",
     options: [
-      { id: 'A', text: "mountOptions field in the StorageClass (or PersistentVolume spec)" },
+      { id: 'A', text: "The mountOptions field" },
       { id: 'B', text: "spec.volumeMounts.options in the Pod" },
       { id: 'C', text: "ConfigMap volume options" },
       { id: 'D', text: "Linux sysctl settings" }
@@ -165,7 +165,7 @@ export const K8S_CKAD_QUESTIONS_8 = [
     type: "single",
     explanation: "Filesystem mount options (such as `noatime`, `nfsvers=4.1`, `discard`) are configured in the `mountOptions` list in a `StorageClass` or `PersistentVolume` definition and passed directly to the OS `mount` command by the kubelet.",
     referenceUrl: "https://kubernetes.io/docs/concepts/storage/persistent-volumes/#mount-options",
-    tags: ["Kubernetes", "mountOptions", "Storage Tuning"]
+    tags: ["Kubernetes","mountOptions","Storage Tuning"]
   },
   {
     id: "k8s-ckad-184",
@@ -178,7 +178,7 @@ export const K8S_CKAD_QUESTIONS_8 = [
     question: "Which pods does the kubelet evict first to reclaim disk space?",
     options: [
       { id: 'A', text: "Guaranteed QoS pods" },
-      { id: 'B', text: "Pods running in the BestEffort QoS class that consume the most disk space above requests" },
+      { id: 'B', text: "BestEffort pods first" },
       { id: 'C', text: "Pods with highest CPU limits" },
       { id: 'D', text: "System kube-proxy pods" }
     ],
@@ -186,7 +186,7 @@ export const K8S_CKAD_QUESTIONS_8 = [
     type: "single",
     explanation: "When a node encounters resource pressure (MemoryPressure, DiskPressure), the kubelet evicts pods based on Quality of Service (QoS) and consumption. BestEffort pods without resource requests that consume the most resources are evicted first.",
     referenceUrl: "https://kubernetes.io/docs/concepts/scheduling-eviction/node-pressure-eviction/",
-    tags: ["Kubernetes", "Node Eviction", "QoS Eviction"]
+    tags: ["Kubernetes","Node Eviction","QoS Eviction"]
   },
   {
     id: "k8s-ckad-185",
@@ -199,7 +199,7 @@ export const K8S_CKAD_QUESTIONS_8 = [
     question: "How does the Downward API format labels inside the mounted file?",
     options: [
       { id: 'A', text: "As base64 encoded strings" },
-      { id: 'B', text: "As standard key-value text pairs (labelKey=\"labelValue\" per line)" },
+      { id: 'B', text: "As key-value text pairs" },
       { id: 'C', text: "As a JSON object" },
       { id: 'D', text: "As a YAML document" }
     ],
@@ -207,7 +207,7 @@ export const K8S_CKAD_QUESTIONS_8 = [
     type: "single",
     explanation: "When pod labels or annotations are projected via the Downward API, the kubelet writes them to the specified path as key-value lines formatted as `key=\"value\"`.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/pods/downward-api/#capabilities-of-the-downward-api",
-    tags: ["Kubernetes", "Downward API", "Projected Volumes"]
+    tags: ["Kubernetes","Downward API","Projected Volumes"]
   },
   {
     id: "k8s-ckad-186",
@@ -228,7 +228,7 @@ export const K8S_CKAD_QUESTIONS_8 = [
     type: "single",
     explanation: "Starting in Kubernetes 1.30 (GA), AppArmor profiles are configured directly in the `securityContext` field (`appArmorProfile: { type: RuntimeDefault | Localhost }`) replacing legacy beta container annotations.",
     referenceUrl: "https://kubernetes.io/docs/tutorials/security/apparmor/",
-    tags: ["Kubernetes", "AppArmor", "SecurityContext"]
+    tags: ["Kubernetes","AppArmor","SecurityContext"]
   },
   {
     id: "k8s-ckad-187",
@@ -249,7 +249,7 @@ export const K8S_CKAD_QUESTIONS_8 = [
     type: "single",
     explanation: "`subPathExpr` constructs a subPath directory using environment variables passed from the Downward API (e.g. `subPathExpr: $(POD_NAME)`), allowing multiple pods in a StatefulSet to isolate directory partitions on a shared volume.",
     referenceUrl: "https://kubernetes.io/docs/concepts/storage/volumes/#using-subpath-expanded-environment",
-    tags: ["Kubernetes", "subPathExpr", "Dynamic Storage"]
+    tags: ["Kubernetes","subPathExpr","Dynamic Storage"]
   },
   {
     id: "k8s-ckad-188",
@@ -262,7 +262,7 @@ export const K8S_CKAD_QUESTIONS_8 = [
     question: "Which characters are valid in Kubernetes Secret and ConfigMap data keys?",
     options: [
       { id: 'A', text: "Letters only without punctuation" },
-      { id: 'B', text: "Alphanumeric characters, dashes (-), underscores (_), and dots (.) up to 253 characters" },
+      { id: 'B', text: "Alphanumerics, dashes, underscores and dots" },
       { id: 'C', text: "Any UTF-8 character including spaces and slashes" },
       { id: 'D', text: "Uppercase letters only" }
     ],
@@ -270,7 +270,7 @@ export const K8S_CKAD_QUESTIONS_8 = [
     type: "single",
     explanation: "Keys in `data` or `stringData` maps of ConfigMaps and Secrets must consist of alphanumeric characters, `-`, `_`, or `.`, and must not exceed 253 characters.",
     referenceUrl: "https://kubernetes.io/docs/concepts/configuration/secret/#overview-of-secrets",
-    tags: ["Kubernetes", "Secrets", "Key Naming"]
+    tags: ["Kubernetes","Secrets","Key Naming"]
   },
   {
     id: "k8s-ckad-189",
@@ -291,7 +291,7 @@ export const K8S_CKAD_QUESTIONS_8 = [
     type: "single",
     explanation: "The `stringData` field allows creating Secrets with plaintext strings directly in YAML. When submitted to the API server, Kubernetes automatically converts `stringData` entries into base64-encoded `data` fields.",
     referenceUrl: "https://kubernetes.io/docs/concepts/configuration/secret/#overview-of-secrets",
-    tags: ["Kubernetes", "Secrets", "stringData"]
+    tags: ["Kubernetes","Secrets","stringData"]
   },
   {
     id: "k8s-ckad-190",
@@ -312,7 +312,7 @@ export const K8S_CKAD_QUESTIONS_8 = [
     type: "single",
     explanation: "ResourceQuotas support `scopes`: `Terminating` (pods where `spec.activeDeadlineSeconds >= 0`), `NotTerminating` (pods with no deadline), `BestEffort` (best effort QoS), and `NotBestEffort`.",
     referenceUrl: "https://kubernetes.io/docs/concepts/policy/resource-quotas/#quota-scopes",
-    tags: ["Kubernetes", "ResourceQuota", "Quota Scopes"]
+    tags: ["Kubernetes","ResourceQuota","Quota Scopes"]
   },
   {
     id: "k8s-ckad-191",
@@ -324,7 +324,7 @@ export const K8S_CKAD_QUESTIONS_8 = [
     scenario: "A platform team installs a custom database operator providing custom `Database` CRDs. The operator wants cluster administrators to automatically gain permissions to manage `Database` resources without manually editing the built-in `admin` ClusterRole.",
     question: "Which RBAC feature combines multiple ClusterRoles into a unified role based on label selectors?",
     options: [
-      { id: 'A', text: "Aggregated ClusterRoles (using aggregationRule.clusterRoleSelectors)" },
+      { id: 'A', text: "Aggregated ClusterRoles" },
       { id: 'B', text: "ClusterRoleBindings" },
       { id: 'C', text: "RoleBindings" },
       { id: 'D', text: "Inherited Roles" }
@@ -333,7 +333,7 @@ export const K8S_CKAD_QUESTIONS_8 = [
     type: "single",
     explanation: "`Aggregated ClusterRoles` use `aggregationRule` to dynamically merge permissions from other ClusterRoles carrying specific labels (e.g. `rbac.authorization.k8s.io/aggregate-to-admin: 'true'`) into built-in roles like `admin` or `edit`.",
     referenceUrl: "https://kubernetes.io/docs/reference/access-authn-authz/rbac/#aggregated-clusterroles",
-    tags: ["Kubernetes", "RBAC", "Aggregated ClusterRoles"]
+    tags: ["Kubernetes","RBAC","Aggregated ClusterRoles"]
   },
   {
     id: "k8s-ckad-192",
@@ -346,15 +346,15 @@ export const K8S_CKAD_QUESTIONS_8 = [
     question: "Which securityContext field defines SELinux labels for a container?",
     options: [
       { id: 'A', text: "securityContext.seLinuxOptions: { type: spc_t, level: 's0:c123,c456' }" },
-      { id: 'B', text: "securityContext.selinux: 'enforcing'" },
-      { id: 'C', text: "securityContext.appArmorProfile" },
-      { id: 'D', text: "securityContext.capabilities" }
+      { id: 'B', text: "securityContext.seLinuxOptions: { user: system_u, role: system_r }" },
+      { id: 'C', text: "securityContext.appArmorProfile: { type: RuntimeDefault }" },
+      { id: 'D', text: "securityContext.capabilities: { add: ['SYS_ADMIN'] }" }
     ],
     correctAnswers: ['A'],
     type: "single",
     explanation: "`seLinuxOptions` in container or pod `securityContext` assigns SELinux labels (`user`, `role`, `type`, `level`) applied to container processes, integrating with host-level Mandatory Access Control (MAC).",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-pod",
-    tags: ["Kubernetes", "SELinux", "SecurityContext"]
+    tags: ["Kubernetes","SELinux","SecurityContext"]
   },
   {
     id: "k8s-ckad-193",
@@ -375,7 +375,7 @@ export const K8S_CKAD_QUESTIONS_8 = [
     type: "single",
     explanation: "A `StorageClass` specifies the default `reclaimPolicy` for dynamically created PVs: `Delete` (deletes the underlying cloud disk upon PVC deletion) or `Retain` (preserves the cloud disk for manual recovery).",
     referenceUrl: "https://kubernetes.io/docs/concepts/storage/storage-classes/#reclaim-policy",
-    tags: ["Kubernetes", "StorageClass", "reclaimPolicy"]
+    tags: ["Kubernetes","StorageClass","reclaimPolicy"]
   },
   {
     id: "k8s-ckad-194",
@@ -396,7 +396,7 @@ export const K8S_CKAD_QUESTIONS_8 = [
     type: "single",
     explanation: "`maxLimitRequestRatio` in a `LimitRange` enforces a maximum ceiling on the ratio between a container's limit and request (e.g. limit cannot exceed 3x request), curbing aggressive bursting and ensuring fair scheduling.",
     referenceUrl: "https://kubernetes.io/docs/concepts/policy/limit-range/#constraints-on-resource-quotas",
-    tags: ["Kubernetes", "LimitRange", "maxLimitRequestRatio"]
+    tags: ["Kubernetes","LimitRange","maxLimitRequestRatio"]
   },
   {
     id: "k8s-ckad-195",
@@ -408,7 +408,7 @@ export const K8S_CKAD_QUESTIONS_8 = [
     scenario: "A Go microservice uses the official client-go library inside a Kubernetes pod.",
     question: "How does the client handle the rotation of projected ServiceAccount tokens expiring every 1 hour?",
     options: [
-      { id: 'A', text: "client-go automatically re-reads the token file from disk periodically before expiration, transparently handling token refreshes" },
+      { id: 'A', text: "client-go re-reads the token file before it expires" },
       { id: 'B', text: "The application must restart every 60 minutes" },
       { id: 'C', text: "The client crashes with HTTP 401 and must be restarted by the kubelet" },
       { id: 'D', text: "The developer must write custom token rotation threads" }
@@ -417,7 +417,7 @@ export const K8S_CKAD_QUESTIONS_8 = [
     type: "single",
     explanation: "The kubelet continuously refreshes projected token files on disk before expiration. Kubernetes SDKs (like `client-go`) automatically re-read the file periodically from disk, ensuring API requests continue without application restarts.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#service-account-token-volume-projection",
-    tags: ["Kubernetes", "ServiceAccount", "Token Rotation"]
+    tags: ["Kubernetes","ServiceAccount","Token Rotation"]
   },
   {
     id: "k8s-ckad-196",
@@ -429,7 +429,7 @@ export const K8S_CKAD_QUESTIONS_8 = [
     scenario: "A developer edits a PVC to increase capacity from 50 GiB to 100 GiB.",
     question: "Can a PersistentVolumeClaim storage size be decreased in Kubernetes?",
     options: [
-      { id: 'A', text: "No, Kubernetes and underlying storage provisioners do NOT support shrinking PVC sizes" },
+      { id: 'A', text: "No; PVCs cannot be shrunk" },
       { id: 'B', text: "Yes, PVCs can be shrunk anytime" },
       { id: 'C', text: "Yes, if the pod is stopped" },
       { id: 'D', text: "Only for NFS volumes" }
@@ -438,7 +438,7 @@ export const K8S_CKAD_QUESTIONS_8 = [
     type: "single",
     explanation: "Storage volume expansion is strictly one-way: storage volumes and filesystems can be expanded, but cannot be shrunk without data corruption. Attempting to reduce a PVC's storage request is rejected by the API server.",
     referenceUrl: "https://kubernetes.io/docs/concepts/storage/persistent-volumes/#expanding-persistent-volumes-claims",
-    tags: ["Kubernetes", "Storage", "Volume Expansion"]
+    tags: ["Kubernetes","Storage","Volume Expansion"]
   },
   {
     id: "k8s-ckad-197",
@@ -451,15 +451,15 @@ export const K8S_CKAD_QUESTIONS_8 = [
     question: "Where are kernel parameters configured in a pod manifest?",
     options: [
       { id: 'A', text: "spec.securityContext.sysctls: [{ name: 'net.ipv4.ip_local_port_range', value: '1024 65535' }]" },
-      { id: 'B', text: "spec.containers[].sysctl" },
-      { id: 'C', text: "In the container Dockerfile" },
-      { id: 'D', text: "In ConfigMaps" }
+      { id: 'B', text: "spec.containers[].securityContext.sysctls with the same setting" },
+      { id: 'C', text: "A sysctl written into the container image entrypoint at start" },
+      { id: 'D', text: "A ConfigMap mounted at /etc/sysctl.d inside the container" }
     ],
     correctAnswers: ['A'],
     type: "single",
     explanation: "`sysctls` are configured in `spec.securityContext.sysctls`. Kubernetes classifies sysctls into `safe` (namespaced and isolated, enabled by default) and `unsafe` (must be explicitly whitelisted on the kubelet daemon).",
     referenceUrl: "https://kubernetes.io/docs/tasks/administer-cluster/sysctl-cluster/",
-    tags: ["Kubernetes", "sysctls", "SecurityContext"]
+    tags: ["Kubernetes","sysctls","SecurityContext"]
   },
   {
     id: "k8s-ckad-198",
@@ -480,7 +480,7 @@ export const K8S_CKAD_QUESTIONS_8 = [
     type: "single",
     explanation: "While `data` contains standard UTF-8 string content, the `binaryData` field in a ConfigMap allows storing raw binary files encoded as base64 strings, decoded back into binary files when mounted as volumes.",
     referenceUrl: "https://kubernetes.io/docs/concepts/configuration/configmap/#configmap-object",
-    tags: ["Kubernetes", "ConfigMap", "binaryData"]
+    tags: ["Kubernetes","ConfigMap","binaryData"]
   },
   {
     id: "k8s-ckad-199",
@@ -495,13 +495,13 @@ export const K8S_CKAD_QUESTIONS_8 = [
       { id: 'A', text: "disk-quota" },
       { id: 'B', text: "scratch-space" },
       { id: 'C', text: "local-disk" },
-      { id: 'D', text: "ephemeral-storage (e.g. limits: { ephemeral-storage: 10Gi })" }
+      { id: 'D', text: "ephemeral-storage" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Kubernetes supports `ephemeral-storage` in resource requests and limits. If a pod's local scratch disk usage (root filesystem, logs, and emptyDir volumes) exceeds its `limits.ephemeral-storage`, the kubelet evicts the pod to protect the node.",
     referenceUrl: "https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#local-ephemeral-storage",
-    tags: ["Kubernetes", "ephemeral-storage", "Resource Limits"]
+    tags: ["Kubernetes","ephemeral-storage","Resource Limits"]
   },
   {
     id: "k8s-ckad-200",
@@ -513,7 +513,7 @@ export const K8S_CKAD_QUESTIONS_8 = [
     scenario: "A compliance auditor inspects the physical etcd datastore and discovers that Secret values are stored as plain base64 text strings on the host disk.",
     question: "Which control plane configuration file enables cryptographic encryption-at-rest for Secrets in etcd?",
     options: [
-      { id: 'A', text: "EncryptionConfiguration (passed to kube-apiserver via --encryption-provider-config)" },
+      { id: 'A', text: "EncryptionConfiguration" },
       { id: 'B', text: "RBAC ClusterRole" },
       { id: 'C', text: "SecurityContext" },
       { id: 'D', text: "NetworkPolicy" }
@@ -522,7 +522,7 @@ export const K8S_CKAD_QUESTIONS_8 = [
     type: "single",
     explanation: "`EncryptionConfiguration` instructs the `kube-apiserver` to encrypt resource data (such as Secrets) before writing them to `etcd` using providers like `aescbc`, `secretbox`, or external Cloud KMS plugins, ensuring at-rest data confidentiality.",
     referenceUrl: "https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/",
-    tags: ["Kubernetes", "etcd Encryption", "Data at Rest"]
+    tags: ["Kubernetes","etcd Encryption","Data at Rest"]
   }
 ];
 
