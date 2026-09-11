@@ -18,7 +18,7 @@ export const AZURE_AZ204_QUESTIONS_8 = [
     type: "single",
     explanation: "In the `Cache-Aside` pattern, application code explicitly manages the cache: querying the cache first, falling back to the database upon a cache miss, writing the fetched record into Redis with an expiration, and returning the result.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/architecture/patterns/cache-aside",
-    tags: ["Redis", "Cache-Aside", "Caching Pattern"]
+    tags: ["Redis","Cache-Aside","Caching Pattern"]
   },
   {
     id: "azure-az204-177",
@@ -39,7 +39,7 @@ export const AZURE_AZ204_QUESTIONS_8 = [
     type: "single",
     explanation: "In `StackExchange.Redis`, the `ConnectionMultiplexer` is designed to be shared and reused across callers. It is fully thread-safe and multiplexes commands over a single underlying TCP connection. Creating a new instance per request exhausts socket connections and degrades performance.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-cache-for-redis/cache-dotnet-how-to-use-azure-redis-cache#connect-to-the-cache",
-    tags: ["Redis", "StackExchange.Redis", "ConnectionMultiplexer"]
+    tags: ["Redis","StackExchange.Redis","ConnectionMultiplexer"]
   },
   {
     id: "azure-az204-178",
@@ -60,7 +60,7 @@ export const AZURE_AZ204_QUESTIONS_8 = [
     type: "single",
     explanation: "Azure Cache for Redis `Premium` tier provides high availability with replication, Redis clustering, data persistence (RDB snapshots and AOF logs), virtual network deployment, and higher network bandwidth. The Standard tier lacks clustering, persistence, and VNet integration.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-cache-for-redis/cache-overview#service-tiers",
-    tags: ["Redis", "Premium Tier", "Clustering"]
+    tags: ["Redis","Premium Tier","Clustering"]
   },
   {
     id: "azure-az204-179",
@@ -81,7 +81,7 @@ export const AZURE_AZ204_QUESTIONS_8 = [
     type: "single",
     explanation: "Redis supports two persistence modes: `RDB` (creates point-in-time snapshots of the dataset at specified intervals and writes them to an Azure Storage Blob container) and `AOF` (logs every write operation to an append-only log). RDB is ideal for disaster recovery backups.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-cache-for-redis/cache-how-to-premium-persistence",
-    tags: ["Redis", "Persistence", "RDB"]
+    tags: ["Redis","Persistence","RDB"]
   },
   {
     id: "azure-az204-180",
@@ -102,7 +102,7 @@ export const AZURE_AZ204_QUESTIONS_8 = [
     type: "single",
     explanation: "`volatile-lru` evicts the least recently used keys among those that have an expiration set. `allkeys-lru` evicts any least recently used key regardless of TTL. `noeviction` returns errors when memory is exhausted.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-cache-for-redis/cache-configure#maxmemory-policy",
-    tags: ["Redis", "Eviction Policy", "volatile-lru"]
+    tags: ["Redis","Eviction Policy","volatile-lru"]
   },
   {
     id: "azure-az204-181",
@@ -123,7 +123,7 @@ export const AZURE_AZ204_QUESTIONS_8 = [
     type: "single",
     explanation: "Azure Front Door is a global Layer 7 load balancer, application accelerator, and content delivery network. It uses Microsoft's global Anycast network to split TCP handshakes at the edge, provides instant multi-region failover, SSL offload, and integrated WAF protection.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/frontdoor/front-door-overview",
-    tags: ["Azure Front Door", "Global Load Balancing", "Architecture"]
+    tags: ["Azure Front Door","Global Load Balancing","Architecture"]
   },
   {
     id: "azure-az204-182",
@@ -144,7 +144,7 @@ export const AZURE_AZ204_QUESTIONS_8 = [
     type: "single",
     explanation: "In Azure Front Door / CDN, setting Query String Caching to `Cache every unique URL` instructs edge servers to treat each unique query string variation as a distinct cached asset, ensuring `size=small` and `size=large` are cached separately.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/frontdoor/front-door-caching#query-string-caching",
-    tags: ["Azure Front Door", "Caching", "Query Strings"]
+    tags: ["Azure Front Door","Caching","Query Strings"]
   },
   {
     id: "azure-az204-183",
@@ -165,7 +165,7 @@ export const AZURE_AZ204_QUESTIONS_8 = [
     type: "single",
     explanation: "The Azure Front Door `Rules Engine` allows developers to customize how HTTP requests are handled at the edge. Rules evaluate request headers, paths, or query strings, and apply actions such as URL redirects (HTTP 301/302), URL rewrites, or custom response headers.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/frontdoor/front-door-rules-engine",
-    tags: ["Azure Front Door", "Rules Engine", "URL Redirect"]
+    tags: ["Azure Front Door","Rules Engine","URL Redirect"]
   },
   {
     id: "azure-az204-184",
@@ -177,7 +177,7 @@ export const AZURE_AZ204_QUESTIONS_8 = [
     scenario: "A dynamic API cannot cache JSON responses because data changes every second. However, international mobile users in Asia and Europe experience high latency connecting to the US backend.",
     question: "How does Azure Front Door Dynamic Site Acceleration (DSA) improve latency for uncacheable dynamic requests?",
     options: [
-      { id: 'A', text: "By terminating TCP/TLS handshakes at the nearest global Edge location and utilizing warm, persistent connection pools over Microsoft's private global fiber network to the origin" },
+      { id: 'A', text: "By terminating TLS at the nearest edge location" },
       { id: 'B', text: "By caching dynamic data in memory for 24 hours" },
       { id: 'C', text: "By deploying dedicated physical servers in every city" },
       { id: 'D', text: "By compressing JSON files using lossy audio codecs" }
@@ -186,7 +186,7 @@ export const AZURE_AZ204_QUESTIONS_8 = [
     type: "single",
     explanation: "Dynamic Site Acceleration (DSA) optimizes dynamic, non-cacheable traffic by terminating TCP handshakes at the edge PoP nearest to the user, using TCP route optimization, and routing traffic to the origin over pre-warmed, persistent TCP connections on Microsoft's private global backbone.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/frontdoor/front-door-routing-architecture",
-    tags: ["Azure Front Door", "DSA", "Latency Optimization"]
+    tags: ["Azure Front Door","DSA","Latency Optimization"]
   },
   {
     id: "azure-az204-185",
@@ -198,7 +198,7 @@ export const AZURE_AZ204_QUESTIONS_8 = [
     scenario: "A developer accidentally deployed an erroneous JavaScript bundle to production that is cached across global Azure Front Door edge nodes with a 7-day TTL.",
     question: "Which action immediately removes the cached asset from all edge locations worldwide?",
     options: [
-      { id: 'A', text: "Execute a Cache Purge operation specifying the asset path (e.g. /* or /scripts/app.js)" },
+      { id: 'A', text: "Purge the cache for that asset path" },
       { id: 'B', text: "Wait for the 7-day TTL to expire" },
       { id: 'C', text: "Restart the backend origin server" },
       { id: 'D', text: "Delete the Azure subscription and recreate it" }
@@ -207,7 +207,7 @@ export const AZURE_AZ204_QUESTIONS_8 = [
     type: "single",
     explanation: "The `Purge Cache` operation in Azure Front Door purges cached assets from all edge points of presence globally. Developers specify exact paths (e.g. `/scripts/app.js`) or wildcards (`/*`), forcing subsequent requests to fetch the fresh version from the origin.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/frontdoor/front-door-caching#cache-purge",
-    tags: ["Azure Front Door", "Cache Purge", "Invalidation"]
+    tags: ["Azure Front Door","Cache Purge","Invalidation"]
   },
   {
     id: "azure-az204-186",
@@ -219,7 +219,7 @@ export const AZURE_AZ204_QUESTIONS_8 = [
     scenario: "A developer tracks a user checkout event in Application Insights: `telemetryClient.TrackEvent('CheckoutCompleted', properties, metrics);`.",
     question: "What is the difference between the `properties` dictionary and the `metrics` dictionary in TrackEvent?",
     options: [
-      { id: 'A', text: "properties contains string key-value pairs for categorical filtering; metrics contains numerical key-value pairs for aggregation and charting" },
+      { id: 'A', text: "properties holds strings for filtering, metrics holds numbers" },
       { id: 'B', text: "properties is only for timestamps; metrics is for error messages" },
       { id: 'C', text: "properties can only contain integers; metrics contains strings" },
       { id: 'D', text: "Both dictionaries are identical in functionality" }
@@ -228,7 +228,7 @@ export const AZURE_AZ204_QUESTIONS_8 = [
     type: "single",
     explanation: "In `TrackEvent`, the `properties` dictionary (`IDictionary<string, string>`) holds dimensional metadata for slicing and grouping in Analytics. The `metrics` dictionary (`IDictionary<string, double>`) holds numeric values that can be averaged, summed, or graphed.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/app/api-custom-events-metrics#trackevent",
-    tags: ["Application Insights", "TrackEvent", "Custom Telemetry"]
+    tags: ["Application Insights","TrackEvent","Custom Telemetry"]
   },
   {
     id: "azure-az204-187",
@@ -249,7 +249,7 @@ export const AZURE_AZ204_QUESTIONS_8 = [
     type: "single",
     explanation: "Application Insights `Smart Detection` uses machine learning algorithms to automatically analyze application telemetry. It identifies anomalies in failure rates, performance degradation, memory leaks, and trace degradation without requiring manual threshold configuration.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/app/proactive-diagnostics",
-    tags: ["Application Insights", "Smart Detection", "Machine Learning"]
+    tags: ["Application Insights","Smart Detection","Machine Learning"]
   },
   {
     id: "azure-az204-188",
@@ -270,7 +270,7 @@ export const AZURE_AZ204_QUESTIONS_8 = [
     type: "single",
     explanation: "In Azure Monitor Diagnostic Settings, logs can be routed to three destinations: `Log Analytics workspace` (for interactive querying and alerting), `Event Hubs` (for real-time streaming to third-party SIEMs), and `Storage Account` (for low-cost, long-term compliance archiving).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/diagnostic-settings",
-    tags: ["Azure Monitor", "Diagnostic Settings", "Archiving"]
+    tags: ["Azure Monitor","Diagnostic Settings","Archiving"]
   },
   {
     id: "azure-az204-189",
@@ -282,7 +282,7 @@ export const AZURE_AZ204_QUESTIONS_8 = [
     scenario: "A company wants to store security logs in Log Analytics for 2 years. Interactive querying is only required for the most recent 90 days.",
     question: "How should the workspace retention be configured to optimize storage costs?",
     options: [
-      { id: 'A', text: "Set interactive retention to 90 days and enable Total Retention (Archive tier) for 730 days" },
+      { id: 'A', text: "90 days interactive and 730 days total" },
       { id: 'B', text: "Set interactive retention to 730 days" },
       { id: 'C', text: "Delete logs older than 90 days" },
       { id: 'D', text: "Export logs to a local on-premises server" }
@@ -291,7 +291,7 @@ export const AZURE_AZ204_QUESTIONS_8 = [
     type: "single",
     explanation: "Azure Log Analytics workspaces support two retention tiers: `Interactive retention` (typically 30-90 days, full analytical query performance) and `Archive retention` (up to 7 years, low-cost cold storage where data can be searched via search jobs or restored when needed).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/logs/data-retention-archive",
-    tags: ["Log Analytics", "Data Retention", "Archive Tier"]
+    tags: ["Log Analytics","Data Retention","Archive Tier"]
   },
   {
     id: "azure-az204-190",
@@ -312,7 +312,7 @@ export const AZURE_AZ204_QUESTIONS_8 = [
     type: "single",
     explanation: "Redis 6+ supports server-assisted `Client-Side Caching`. The client stores requested keys in local in-memory dictionaries. When another client modifies a key in Redis, the Redis server sends an asynchronous invalidation message to the client, evicting the stale local cache entry.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-cache-for-redis/cache-best-practices-development",
-    tags: ["Redis", "Client-Side Caching", "Optimization"]
+    tags: ["Redis","Client-Side Caching","Optimization"]
   },
   {
     id: "azure-az204-191",
@@ -333,7 +333,7 @@ export const AZURE_AZ204_QUESTIONS_8 = [
     type: "single",
     explanation: "Azure Web Application Firewall (WAF) can be deployed directly on Azure Front Door edge points of presence. It evaluates incoming requests against the Default Rule Set (DRS) based on OWASP Top 10 vulnerabilities (SQLi, XSS, RCE), blocking attacks at the edge before they reach backend origins.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/web-application-firewall/afds/afds-overview",
-    tags: ["Azure Front Door", "WAF", "Layer 7 Security"]
+    tags: ["Azure Front Door","WAF","Layer 7 Security"]
   },
   {
     id: "azure-az204-192",
@@ -354,7 +354,7 @@ export const AZURE_AZ204_QUESTIONS_8 = [
     type: "single",
     explanation: "The `make-series` KQL operator generates a series of specified aggregated values along a specified axis (typically time). Unlike `summarize`, `make-series` automatically fills gaps with default values (such as 0), producing clean arrays for machine learning and charting.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/make-series-operator",
-    tags: ["KQL", "make-series", "Time Series"]
+    tags: ["KQL","make-series","Time Series"]
   },
   {
     id: "azure-az204-193",
@@ -366,7 +366,7 @@ export const AZURE_AZ204_QUESTIONS_8 = [
     scenario: "In the Application Insights Application Map, an engineer notices a dependency node for an external payment gateway is glowing red.",
     question: "What metric does the red color and error percentage on a dependency node indicate?",
     options: [
-      { id: 'A', text: "A high failure rate (percentage of dependency calls that returned HTTP 4XX/5XX or failed exceptions)" },
+      { id: 'A', text: "A high dependency call failure rate" },
       { id: 'B', text: "That the external API is using an expired SSL certificate" },
       { id: 'C', text: "That the external API has exceeded its daily billing quota" },
       { id: 'D', text: "That the developer's laptop is disconnected from the internet" }
@@ -375,7 +375,7 @@ export const AZURE_AZ204_QUESTIONS_8 = [
     type: "single",
     explanation: "Application Map color-codes dependency nodes and call links based on health KPIs. A red circle or red connecting line indicates that a statistically significant percentage of calls to that component resulted in failures or exceptions.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-map",
-    tags: ["Application Insights", "Application Map", "Troubleshooting"]
+    tags: ["Application Insights","Application Map","Troubleshooting"]
   },
   {
     id: "azure-az204-194",
@@ -387,7 +387,7 @@ export const AZURE_AZ204_QUESTIONS_8 = [
     scenario: "An enterprise Redis cache dataset requires 200 GB of memory and 50,000 operations per second. A single Redis node cannot handle this workload.",
     question: "How does Redis clustering shard keys across multiple nodes?",
     options: [
-      { id: 'A', text: "By dividing the keyspace into 16,384 logical hash slots distributed across primary cluster nodes" },
+      { id: 'A', text: "By spreading 16,384 hash slots across primary nodes" },
       { id: 'B', text: "By running a round-robin DNS server" },
       { id: 'C', text: "By creating duplicate copies of every key on every node" },
       { id: 'D', text: "By hashing keys into 100 fixed partitions" }
@@ -396,7 +396,7 @@ export const AZURE_AZ204_QUESTIONS_8 = [
     type: "single",
     explanation: "Redis clustering partitions data horizontally across up to 10 shards (up to 500 shards in Enterprise). Every key is assigned to one of 16,384 logical hash slots (`CRC16(key) mod 16384`), and each node is responsible for a subset of the hash slots.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-cache-for-redis/cache-how-to-premium-clustering",
-    tags: ["Redis", "Clustering", "Hash Slots"]
+    tags: ["Redis","Clustering","Hash Slots"]
   },
   {
     id: "azure-az204-195",
@@ -417,7 +417,7 @@ export const AZURE_AZ204_QUESTIONS_8 = [
     type: "single",
     explanation: "Azure Front Door WAF supports `Geo-filtering` custom rules. The rule matches the client IP address against a country code database (ISO 3166-1 alpha-2) and applies an `Allow` or `Block` action at edge locations.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/web-application-firewall/afds/waf-front-door-geo-filtering",
-    tags: ["Azure Front Door", "Geo-Filtering", "WAF"]
+    tags: ["Azure Front Door","Geo-Filtering","WAF"]
   },
   {
     id: "azure-az204-196",
@@ -438,7 +438,7 @@ export const AZURE_AZ204_QUESTIONS_8 = [
     type: "single",
     explanation: "Azure API Management consists of three core components: the `API Gateway` (data plane proxy that intercepts incoming calls, executes policies, and routes traffic), the `Management Plane` (administrative REST API and portal), and the `Developer Portal` (self-service API documentation and key management for consumers).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/api-management/api-management-key-concepts",
-    tags: ["APIM", "API Gateway", "Architecture"]
+    tags: ["APIM","API Gateway","Architecture"]
   },
   {
     id: "azure-az204-197",
@@ -459,7 +459,7 @@ export const AZURE_AZ204_QUESTIONS_8 = [
     type: "single",
     explanation: "APIM policies are divided into four sequential execution blocks: `&lt;inbound&gt;` (executes before request is forwarded to backend), `&lt;backend&gt;` (controls forwarding to backend), `&lt;outbound&gt;` (executes after receiving response from backend before returning to client), and `&lt;on-error&gt;` (executes if an exception occurs in any section).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-policies",
-    tags: ["APIM", "Policies", "Inbound"]
+    tags: ["APIM","Policies","Inbound"]
   },
   {
     id: "azure-az204-198",
@@ -480,7 +480,7 @@ export const AZURE_AZ204_QUESTIONS_8 = [
     type: "single",
     explanation: "The `&lt;rate-limit-by-key&gt;` policy tracks and enforces call rate limits per custom key (such as subscription key, IP address, or JWT claim) over a short renewal period (e.g. 60 seconds), returning an HTTP 429 Too Many Requests when the limit is breached.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/api-management/rate-limit-by-key-policy",
-    tags: ["APIM", "Policies", "Rate Limiting"]
+    tags: ["APIM","Policies","Rate Limiting"]
   },
   {
     id: "azure-az204-199",
@@ -501,7 +501,7 @@ export const AZURE_AZ204_QUESTIONS_8 = [
     type: "single",
     explanation: "The `&lt;validate-jwt&gt;` policy validates the cryptographic signature, expiration dates, and required claims of incoming JWT tokens against openid-configuration metadata before routing requests to backend services.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/api-management/validate-jwt-policy",
-    tags: ["APIM", "validate-jwt", "OAuth"]
+    tags: ["APIM","validate-jwt","OAuth"]
   },
   {
     id: "azure-az204-200",
@@ -522,7 +522,7 @@ export const AZURE_AZ204_QUESTIONS_8 = [
     type: "single",
     explanation: "The `&lt;rewrite-uri&gt;` policy transforms the request URL path and query string before sending it to the backend service, decoupling the public API design from internal backend URL structures.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/api-management/rewrite-uri-policy",
-    tags: ["APIM", "rewrite-uri", "Routing"]
+    tags: ["APIM","rewrite-uri","Routing"]
   }
 ];
 

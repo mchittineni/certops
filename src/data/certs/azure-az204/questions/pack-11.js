@@ -9,7 +9,7 @@ export const AZURE_AZ204_QUESTIONS_11 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The developer evaluates Azure App Service to deploy an updated microservice container to staging and warm up worker processes before executing a zero-downtime production swap.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Configure an App Service staging deployment slot and define an applicationInitialization element in web.config for pre-swap warm-up." },
+      { id: 'A', text: "Use a staging slot with applicationInitialization for pre-swap warm-up." },
       { id: 'B', text: "Deploy new code directly to the production slot and restart the App Service Plan during business hours." },
       { id: 'C', text: "Point DNS records to an unverified third-party virtual machine." },
       { id: 'D', text: "Delete the production slot and recreate it from a Git repository." }
@@ -31,7 +31,7 @@ export const AZURE_AZ204_QUESTIONS_11 = [
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Point DNS records to an unverified third-party virtual machine." },
-      { id: 'B', text: "Configure an App Service staging deployment slot and define an applicationInitialization element in web.config for pre-swap warm-up." },
+      { id: 'B', text: "Use a staging slot with applicationInitialization for pre-swap warm-up." },
       { id: 'C', text: "Deploy new code directly to the production slot and restart the App Service Plan during business hours." },
       { id: 'D', text: "Delete the production slot and recreate it from a Git repository." }
     ],
@@ -52,7 +52,7 @@ export const AZURE_AZ204_QUESTIONS_11 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Point DNS records to an unverified third-party virtual machine." },
-      { id: 'B', text: "Configure an App Service staging deployment slot and define an applicationInitialization element in web.config for pre-swap warm-up." },
+      { id: 'B', text: "Use a staging slot with applicationInitialization for pre-swap warm-up." },
       { id: 'C', text: "Deploy new code directly to the production slot and restart the App Service Plan during business hours." },
       { id: 'D', text: "Delete the production slot and recreate it from a Git repository." }
     ],
@@ -74,7 +74,7 @@ export const AZURE_AZ204_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Delete the production slot and recreate it from a Git repository." },
       { id: 'B', text: "Deploy new code directly to the production slot and restart the App Service Plan during business hours." },
-      { id: 'C', text: "Configure an App Service staging deployment slot and define an applicationInitialization element in web.config for pre-swap warm-up." },
+      { id: 'C', text: "Use a staging slot with applicationInitialization for pre-swap warm-up." },
       { id: 'D', text: "Point DNS records to an unverified third-party virtual machine." }
     ],
     correctAnswers: ['C'],
@@ -95,7 +95,7 @@ export const AZURE_AZ204_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Point DNS records to an unverified third-party virtual machine." },
       { id: 'B', text: "Delete the production slot and recreate it from a Git repository." },
-      { id: 'C', text: "Configure an App Service staging deployment slot and define an applicationInitialization element in web.config for pre-swap warm-up." },
+      { id: 'C', text: "Use a staging slot with applicationInitialization for pre-swap warm-up." },
       { id: 'D', text: "Deploy new code directly to the production slot and restart the App Service Plan during business hours." }
     ],
     correctAnswers: ['C'],
@@ -114,10 +114,10 @@ export const AZURE_AZ204_QUESTIONS_11 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The developer evaluates Azure App Service to ensure that database connection strings remain bound to their specific deployment slot (staging DB on staging, production DB on production) across slot swaps.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Designate the database connection string app setting as a Deployment Slot Setting (sticky setting)." },
+      { id: 'A', text: "Mark the connection string as a deployment slot setting." },
       { id: 'B', text: "Store the connection string in an unencrypted client-side cookie." },
       { id: 'C', text: "Disable deployment slot swaps on the App Service Plan." },
-      { id: 'D', text: "Hardcode the database credentials in application source code files." }
+      { id: 'D', text: "Store the connection string in Key Vault and reference it from both slots." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -135,10 +135,10 @@ export const AZURE_AZ204_QUESTIONS_11 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The developer evaluates Azure App Service to ensure that database connection strings remain bound to their specific deployment slot (staging DB on staging, production DB on production) across slot swaps.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Hardcode the database credentials in application source code files." },
+      { id: 'A', text: "Store the connection string in Key Vault and reference it from both slots." },
       { id: 'B', text: "Store the connection string in an unencrypted client-side cookie." },
       { id: 'C', text: "Disable deployment slot swaps on the App Service Plan." },
-      { id: 'D', text: "Designate the database connection string app setting as a Deployment Slot Setting (sticky setting)." }
+      { id: 'D', text: "Mark the connection string as a deployment slot setting." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -156,8 +156,8 @@ export const AZURE_AZ204_QUESTIONS_11 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The developer evaluates Azure App Service to ensure that database connection strings remain bound to their specific deployment slot (staging DB on staging, production DB on production) across slot swaps.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Hardcode the database credentials in application source code files." },
-      { id: 'B', text: "Designate the database connection string app setting as a Deployment Slot Setting (sticky setting)." },
+      { id: 'A', text: "Store the connection string in Key Vault and reference it from both slots." },
+      { id: 'B', text: "Mark the connection string as a deployment slot setting." },
       { id: 'C', text: "Store the connection string in an unencrypted client-side cookie." },
       { id: 'D', text: "Disable deployment slot swaps on the App Service Plan." }
     ],
@@ -177,8 +177,8 @@ export const AZURE_AZ204_QUESTIONS_11 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Microsoft Azure. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The developer evaluates Azure App Service to ensure that database connection strings remain bound to their specific deployment slot (staging DB on staging, production DB on production) across slot swaps.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Hardcode the database credentials in application source code files." },
-      { id: 'B', text: "Designate the database connection string app setting as a Deployment Slot Setting (sticky setting)." },
+      { id: 'A', text: "Store the connection string in Key Vault and reference it from both slots." },
+      { id: 'B', text: "Mark the connection string as a deployment slot setting." },
       { id: 'C', text: "Disable deployment slot swaps on the App Service Plan." },
       { id: 'D', text: "Store the connection string in an unencrypted client-side cookie." }
     ],
@@ -199,8 +199,8 @@ export const AZURE_AZ204_QUESTIONS_11 = [
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Store the connection string in an unencrypted client-side cookie." },
-      { id: 'B', text: "Hardcode the database credentials in application source code files." },
-      { id: 'C', text: "Designate the database connection string app setting as a Deployment Slot Setting (sticky setting)." },
+      { id: 'B', text: "Store the connection string in Key Vault and reference it from both slots." },
+      { id: 'C', text: "Mark the connection string as a deployment slot setting." },
       { id: 'D', text: "Disable deployment slot swaps on the App Service Plan." }
     ],
     correctAnswers: ['C'],
@@ -431,7 +431,7 @@ export const AZURE_AZ204_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Deploy a monolithic console application on a dedicated IaaS VM." },
       { id: 'B', text: "Store state in static in-memory variables inside a standard Consumption Function." },
-      { id: 'C', text: "Implement the Function Chaining pattern using a Durable Functions Orchestrator function calling Activity functions." },
+      { id: 'C', text: "Use the function chaining pattern in a Durable orchestrator." },
       { id: 'D', text: "Chain standard functions together using unmonitored HTTP webhooks without retry logic." }
     ],
     correctAnswers: ['C'],
@@ -451,7 +451,7 @@ export const AZURE_AZ204_QUESTIONS_11 = [
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Chain standard functions together using unmonitored HTTP webhooks without retry logic." },
-      { id: 'B', text: "Implement the Function Chaining pattern using a Durable Functions Orchestrator function calling Activity functions." },
+      { id: 'B', text: "Use the function chaining pattern in a Durable orchestrator." },
       { id: 'C', text: "Store state in static in-memory variables inside a standard Consumption Function." },
       { id: 'D', text: "Deploy a monolithic console application on a dedicated IaaS VM." }
     ],
@@ -473,7 +473,7 @@ export const AZURE_AZ204_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Store state in static in-memory variables inside a standard Consumption Function." },
       { id: 'B', text: "Deploy a monolithic console application on a dedicated IaaS VM." },
-      { id: 'C', text: "Implement the Function Chaining pattern using a Durable Functions Orchestrator function calling Activity functions." },
+      { id: 'C', text: "Use the function chaining pattern in a Durable orchestrator." },
       { id: 'D', text: "Chain standard functions together using unmonitored HTTP webhooks without retry logic." }
     ],
     correctAnswers: ['C'],
@@ -494,7 +494,7 @@ export const AZURE_AZ204_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Deploy a monolithic console application on a dedicated IaaS VM." },
       { id: 'B', text: "Store state in static in-memory variables inside a standard Consumption Function." },
-      { id: 'C', text: "Implement the Function Chaining pattern using a Durable Functions Orchestrator function calling Activity functions." },
+      { id: 'C', text: "Use the function chaining pattern in a Durable orchestrator." },
       { id: 'D', text: "Chain standard functions together using unmonitored HTTP webhooks without retry logic." }
     ],
     correctAnswers: ['C'],
@@ -516,7 +516,7 @@ export const AZURE_AZ204_QUESTIONS_11 = [
       { id: 'A', text: "Store state in static in-memory variables inside a standard Consumption Function." },
       { id: 'B', text: "Deploy a monolithic console application on a dedicated IaaS VM." },
       { id: 'C', text: "Chain standard functions together using unmonitored HTTP webhooks without retry logic." },
-      { id: 'D', text: "Implement the Function Chaining pattern using a Durable Functions Orchestrator function calling Activity functions." }
+      { id: 'D', text: "Use the function chaining pattern in a Durable orchestrator." }
     ],
     correctAnswers: ['D'],
     type: "single",

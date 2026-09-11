@@ -219,9 +219,9 @@ export const AZURE_AZ204_QUESTIONS_13 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The developer evaluates Azure Container Instances to pass sensitive API keys and database passwords to an Azure Container Instance without exposing secrets in plaintext ARM template properties or container inspection.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Hardcode the database password in the Dockerfile ENV directive." },
+      { id: 'A', text: "Pass the password as a standard environment variable on the container group." },
       { id: 'B', text: "Store the API secret in a public text file within the container image." },
-      { id: 'C', text: "Define environment variables using the secureValue attribute in the ACI resource specification." },
+      { id: 'C', text: "Use the secureValue attribute in the ACI specification." },
       { id: 'D', text: "Pass the password as an unencrypted plaintext command-line argument." }
     ],
     correctAnswers: ['C'],
@@ -240,8 +240,8 @@ export const AZURE_AZ204_QUESTIONS_13 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The developer evaluates Azure Container Instances to pass sensitive API keys and database passwords to an Azure Container Instance without exposing secrets in plaintext ARM template properties or container inspection.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Hardcode the database password in the Dockerfile ENV directive." },
-      { id: 'B', text: "Define environment variables using the secureValue attribute in the ACI resource specification." },
+      { id: 'A', text: "Pass the password as a standard environment variable on the container group." },
+      { id: 'B', text: "Use the secureValue attribute in the ACI specification." },
       { id: 'C', text: "Store the API secret in a public text file within the container image." },
       { id: 'D', text: "Pass the password as an unencrypted plaintext command-line argument." }
     ],
@@ -261,10 +261,10 @@ export const AZURE_AZ204_QUESTIONS_13 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The developer evaluates Azure Container Instances to pass sensitive API keys and database passwords to an Azure Container Instance without exposing secrets in plaintext ARM template properties or container inspection.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Hardcode the database password in the Dockerfile ENV directive." },
+      { id: 'A', text: "Pass the password as a standard environment variable on the container group." },
       { id: 'B', text: "Store the API secret in a public text file within the container image." },
       { id: 'C', text: "Pass the password as an unencrypted plaintext command-line argument." },
-      { id: 'D', text: "Define environment variables using the secureValue attribute in the ACI resource specification." }
+      { id: 'D', text: "Use the secureValue attribute in the ACI specification." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -282,10 +282,10 @@ export const AZURE_AZ204_QUESTIONS_13 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Microsoft Azure. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The developer evaluates Azure Container Instances to pass sensitive API keys and database passwords to an Azure Container Instance without exposing secrets in plaintext ARM template properties or container inspection.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Define environment variables using the secureValue attribute in the ACI resource specification." },
+      { id: 'A', text: "Use the secureValue attribute in the ACI specification." },
       { id: 'B', text: "Store the API secret in a public text file within the container image." },
       { id: 'C', text: "Pass the password as an unencrypted plaintext command-line argument." },
-      { id: 'D', text: "Hardcode the database password in the Dockerfile ENV directive." }
+      { id: 'D', text: "Pass the password as a standard environment variable on the container group." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -304,9 +304,9 @@ export const AZURE_AZ204_QUESTIONS_13 = [
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Pass the password as an unencrypted plaintext command-line argument." },
-      { id: 'B', text: "Define environment variables using the secureValue attribute in the ACI resource specification." },
+      { id: 'B', text: "Use the secureValue attribute in the ACI specification." },
       { id: 'C', text: "Store the API secret in a public text file within the container image." },
-      { id: 'D', text: "Hardcode the database password in the Dockerfile ENV directive." }
+      { id: 'D', text: "Pass the password as a standard environment variable on the container group." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -326,7 +326,7 @@ export const AZURE_AZ204_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "Disable authentication and rely on obscurity by hiding the URL from search engines." },
       { id: 'B', text: "Store user passwords in a flat CSV file on an unencrypted virtual machine disk." },
-      { id: 'C', text: "Enable built-in App Service Authentication (Easy Auth) and select Microsoft Entra ID as the identity provider." },
+      { id: 'C', text: "Enable built-in App Service Authentication with Microsoft Entra ID as the provider." },
       { id: 'D', text: "Implement custom username and password hashing routines in the application controller." }
     ],
     correctAnswers: ['C'],
@@ -348,7 +348,7 @@ export const AZURE_AZ204_QUESTIONS_13 = [
       { id: 'A', text: "Disable authentication and rely on obscurity by hiding the URL from search engines." },
       { id: 'B', text: "Store user passwords in a flat CSV file on an unencrypted virtual machine disk." },
       { id: 'C', text: "Implement custom username and password hashing routines in the application controller." },
-      { id: 'D', text: "Enable built-in App Service Authentication (Easy Auth) and select Microsoft Entra ID as the identity provider." }
+      { id: 'D', text: "Enable built-in App Service Authentication with Microsoft Entra ID as the provider." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -368,7 +368,7 @@ export const AZURE_AZ204_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "Store user passwords in a flat CSV file on an unencrypted virtual machine disk." },
       { id: 'B', text: "Disable authentication and rely on obscurity by hiding the URL from search engines." },
-      { id: 'C', text: "Enable built-in App Service Authentication (Easy Auth) and select Microsoft Entra ID as the identity provider." },
+      { id: 'C', text: "Enable built-in App Service Authentication with Microsoft Entra ID as the provider." },
       { id: 'D', text: "Implement custom username and password hashing routines in the application controller." }
     ],
     correctAnswers: ['C'],
@@ -390,7 +390,7 @@ export const AZURE_AZ204_QUESTIONS_13 = [
       { id: 'A', text: "Disable authentication and rely on obscurity by hiding the URL from search engines." },
       { id: 'B', text: "Store user passwords in a flat CSV file on an unencrypted virtual machine disk." },
       { id: 'C', text: "Implement custom username and password hashing routines in the application controller." },
-      { id: 'D', text: "Enable built-in App Service Authentication (Easy Auth) and select Microsoft Entra ID as the identity provider." }
+      { id: 'D', text: "Enable built-in App Service Authentication with Microsoft Entra ID as the provider." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -411,7 +411,7 @@ export const AZURE_AZ204_QUESTIONS_13 = [
       { id: 'A', text: "Disable authentication and rely on obscurity by hiding the URL from search engines." },
       { id: 'B', text: "Implement custom username and password hashing routines in the application controller." },
       { id: 'C', text: "Store user passwords in a flat CSV file on an unencrypted virtual machine disk." },
-      { id: 'D', text: "Enable built-in App Service Authentication (Easy Auth) and select Microsoft Entra ID as the identity provider." }
+      { id: 'D', text: "Enable built-in App Service Authentication with Microsoft Entra ID as the provider." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -430,9 +430,9 @@ export const AZURE_AZ204_QUESTIONS_13 = [
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Select the boolean isDeleted property that has only two distinct values." },
-      { id: 'B', text: "Use the same static hardcoded string for all records across the entire container." },
+      { id: 'B', text: "Select the createdDate property so that records group by day." },
       { id: 'C', text: "Select the country property where 98% of users reside in a single country." },
-      { id: 'D', text: "Select tenantId or a composite synthetic key (tenantId_yearMonth) that provides high cardinality and even distribution." }
+      { id: 'D', text: "Select tenantId or a composite synthetic key with high cardinality." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -452,8 +452,8 @@ export const AZURE_AZ204_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "Select the country property where 98% of users reside in a single country." },
       { id: 'B', text: "Select the boolean isDeleted property that has only two distinct values." },
-      { id: 'C', text: "Use the same static hardcoded string for all records across the entire container." },
-      { id: 'D', text: "Select tenantId or a composite synthetic key (tenantId_yearMonth) that provides high cardinality and even distribution." }
+      { id: 'C', text: "Select the createdDate property so that records group by day." },
+      { id: 'D', text: "Select tenantId or a composite synthetic key with high cardinality." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -473,8 +473,8 @@ export const AZURE_AZ204_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "Select the boolean isDeleted property that has only two distinct values." },
       { id: 'B', text: "Select the country property where 98% of users reside in a single country." },
-      { id: 'C', text: "Select tenantId or a composite synthetic key (tenantId_yearMonth) that provides high cardinality and even distribution." },
-      { id: 'D', text: "Use the same static hardcoded string for all records across the entire container." }
+      { id: 'C', text: "Select tenantId or a composite synthetic key with high cardinality." },
+      { id: 'D', text: "Select the createdDate property so that records group by day." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -494,8 +494,8 @@ export const AZURE_AZ204_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "Select the boolean isDeleted property that has only two distinct values." },
       { id: 'B', text: "Select the country property where 98% of users reside in a single country." },
-      { id: 'C', text: "Use the same static hardcoded string for all records across the entire container." },
-      { id: 'D', text: "Select tenantId or a composite synthetic key (tenantId_yearMonth) that provides high cardinality and even distribution." }
+      { id: 'C', text: "Select the createdDate property so that records group by day." },
+      { id: 'D', text: "Select tenantId or a composite synthetic key with high cardinality." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -513,9 +513,9 @@ export const AZURE_AZ204_QUESTIONS_13 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The developer evaluates Azure Cosmos DB to select an optimal partition key for a high-throughput multi-tenant SaaS application in Azure Cosmos DB to prevent hot partitions and uneven RU consumption.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Use the same static hardcoded string for all records across the entire container." },
+      { id: 'A', text: "Select the createdDate property so that records group by day." },
       { id: 'B', text: "Select the boolean isDeleted property that has only two distinct values." },
-      { id: 'C', text: "Select tenantId or a composite synthetic key (tenantId_yearMonth) that provides high cardinality and even distribution." },
+      { id: 'C', text: "Select tenantId or a composite synthetic key with high cardinality." },
       { id: 'D', text: "Select the country property where 98% of users reside in a single country." }
     ],
     correctAnswers: ['C'],

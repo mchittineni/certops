@@ -115,7 +115,7 @@ export const AZURE_AZ204_QUESTIONS_18 = [
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Store the entire relational database table in browser local storage." },
-      { id: 'B', text: "Implement the Cache-Aside pattern: check Redis first, query SQL on cache miss, and write result to Redis with a TTL." },
+      { id: 'B', text: "Cache-aside: read Redis first, fall back to SQL, then write back with a TTL." },
       { id: 'C', text: "Write all database queries directly to the relational database and never read from Redis." },
       { id: 'D', text: "Update the database every 10 milliseconds using a synchronous polling loop." }
     ],
@@ -138,7 +138,7 @@ export const AZURE_AZ204_QUESTIONS_18 = [
       { id: 'A', text: "Write all database queries directly to the relational database and never read from Redis." },
       { id: 'B', text: "Update the database every 10 milliseconds using a synchronous polling loop." },
       { id: 'C', text: "Store the entire relational database table in browser local storage." },
-      { id: 'D', text: "Implement the Cache-Aside pattern: check Redis first, query SQL on cache miss, and write result to Redis with a TTL." }
+      { id: 'D', text: "Cache-aside: read Redis first, fall back to SQL, then write back with a TTL." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -156,7 +156,7 @@ export const AZURE_AZ204_QUESTIONS_18 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The developer evaluates Azure Cache for Redis to improve application read performance and reduce relational database load by caching frequently requested product catalog records in Azure Cache for Redis.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Implement the Cache-Aside pattern: check Redis first, query SQL on cache miss, and write result to Redis with a TTL." },
+      { id: 'A', text: "Cache-aside: read Redis first, fall back to SQL, then write back with a TTL." },
       { id: 'B', text: "Store the entire relational database table in browser local storage." },
       { id: 'C', text: "Write all database queries directly to the relational database and never read from Redis." },
       { id: 'D', text: "Update the database every 10 milliseconds using a synchronous polling loop." }
@@ -180,7 +180,7 @@ export const AZURE_AZ204_QUESTIONS_18 = [
       { id: 'A', text: "Update the database every 10 milliseconds using a synchronous polling loop." },
       { id: 'B', text: "Store the entire relational database table in browser local storage." },
       { id: 'C', text: "Write all database queries directly to the relational database and never read from Redis." },
-      { id: 'D', text: "Implement the Cache-Aside pattern: check Redis first, query SQL on cache miss, and write result to Redis with a TTL." }
+      { id: 'D', text: "Cache-aside: read Redis first, fall back to SQL, then write back with a TTL." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -199,7 +199,7 @@ export const AZURE_AZ204_QUESTIONS_18 = [
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Store the entire relational database table in browser local storage." },
-      { id: 'B', text: "Implement the Cache-Aside pattern: check Redis first, query SQL on cache miss, and write result to Redis with a TTL." },
+      { id: 'B', text: "Cache-aside: read Redis first, fall back to SQL, then write back with a TTL." },
       { id: 'C', text: "Write all database queries directly to the relational database and never read from Redis." },
       { id: 'D', text: "Update the database every 10 milliseconds using a synchronous polling loop." }
     ],
@@ -220,7 +220,7 @@ export const AZURE_AZ204_QUESTIONS_18 = [
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Instruct global users to clear their web browser cookies manually." },
-      { id: 'B', text: "Configure CDN custom caching rules with defined TTLs and execute a CDN endpoint purge upon releasing new images." },
+      { id: 'B', text: "CDN caching rules with TTLs, plus an endpoint purge on release." },
       { id: 'C', text: "Host all images on an on-premises physical file server." },
       { id: 'D', text: "Change the DNS A record of the origin web server every time an image changes." }
     ],
@@ -240,7 +240,7 @@ export const AZURE_AZ204_QUESTIONS_18 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The developer evaluates Azure CDN to accelerate static asset delivery to global users by caching images at edge servers for 30 days while ensuring updated product catalog images bypass the cache immediately upon release.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Configure CDN custom caching rules with defined TTLs and execute a CDN endpoint purge upon releasing new images." },
+      { id: 'A', text: "CDN caching rules with TTLs, plus an endpoint purge on release." },
       { id: 'B', text: "Host all images on an on-premises physical file server." },
       { id: 'C', text: "Change the DNS A record of the origin web server every time an image changes." },
       { id: 'D', text: "Instruct global users to clear their web browser cookies manually." }
@@ -261,7 +261,7 @@ export const AZURE_AZ204_QUESTIONS_18 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The developer evaluates Azure CDN to accelerate static asset delivery to global users by caching images at edge servers for 30 days while ensuring updated product catalog images bypass the cache immediately upon release.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Configure CDN custom caching rules with defined TTLs and execute a CDN endpoint purge upon releasing new images." },
+      { id: 'A', text: "CDN caching rules with TTLs, plus an endpoint purge on release." },
       { id: 'B', text: "Host all images on an on-premises physical file server." },
       { id: 'C', text: "Instruct global users to clear their web browser cookies manually." },
       { id: 'D', text: "Change the DNS A record of the origin web server every time an image changes." }
@@ -282,7 +282,7 @@ export const AZURE_AZ204_QUESTIONS_18 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Microsoft Azure. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The developer evaluates Azure CDN to accelerate static asset delivery to global users by caching images at edge servers for 30 days while ensuring updated product catalog images bypass the cache immediately upon release.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Configure CDN custom caching rules with defined TTLs and execute a CDN endpoint purge upon releasing new images." },
+      { id: 'A', text: "CDN caching rules with TTLs, plus an endpoint purge on release." },
       { id: 'B', text: "Host all images on an on-premises physical file server." },
       { id: 'C', text: "Change the DNS A record of the origin web server every time an image changes." },
       { id: 'D', text: "Instruct global users to clear their web browser cookies manually." }
@@ -305,7 +305,7 @@ export const AZURE_AZ204_QUESTIONS_18 = [
     options: [
       { id: 'A', text: "Host all images on an on-premises physical file server." },
       { id: 'B', text: "Instruct global users to clear their web browser cookies manually." },
-      { id: 'C', text: "Configure CDN custom caching rules with defined TTLs and execute a CDN endpoint purge upon releasing new images." },
+      { id: 'C', text: "CDN caching rules with TTLs, plus an endpoint purge on release." },
       { id: 'D', text: "Change the DNS A record of the origin web server every time an image changes." }
     ],
     correctAnswers: ['C'],
