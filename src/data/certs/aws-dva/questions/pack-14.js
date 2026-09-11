@@ -7,7 +7,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     domainName: "Development with AWS Services",
     title: "Step Functions Task Tokens Callback Pattern: Dr Failover",
     scenario: "A high-availability enterprise cloud service requires strict operational resilience and automated disaster recovery capabilities. The engineering team must eliminate single points of failure across operational workflows. The application utilizes AWS Step Functions to pause a serverless workflow to wait for external human manager approval or third-party legacy batch completion before proceeding to the next step.",
-    question: "Which implementation or architectural approach satisfies these resilience criteria? Step Functions callback pattern with task tokens is being implemented.",
+    question: "Which implementation or architectural approach satisfies these resilience criteria?",
     options: [
       { id: 'A', text: "Deploy an Amazon SQS queue polled by Step Functions every 10 seconds." },
       { id: 'B', text: "Configure a Step Functions Task state with `.waitForTaskToken`, pass the task token to the external process, and call `SendTaskSuccess` when approved." },
@@ -18,7 +18,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     type: "single",
     explanation: "Configure a Step Functions Task state with `.waitForTaskToken`, pass the task token to the external process, and call `SendTaskSuccess` when approved. The Step Functions callback pattern (`.waitForTaskToken`) pauses the state machine execution indefinitely (up to 1 year) without consuming compute resources while waiting for an external system or human reviewer to return the task token using the `SendTaskSuccess` or `SendTaskFailure` API.",
     referenceUrl: "https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token",
-    tags: ["AWS Step Functions", "Step Functions", "Dr Failover"]
+    tags: ["AWS Step Functions","Step Functions","Dr Failover"]
   },
   {
     id: "aws-dva-327",
@@ -28,7 +28,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     domainName: "Development with AWS Services",
     title: "Step Functions Task Tokens Callback Pattern: High Load Scale",
     scenario: "A high-throughput digital platform experiences sudden spikes in concurrent user traffic during flash promotions. Developers must ensure sub-second response times and predictable scaling under peak throughput. The application utilizes AWS Step Functions to pause a serverless workflow to wait for external human manager approval or third-party legacy batch completion before proceeding to the next step.",
-    question: "Which architectural approach should the developer recommend to handle this workload efficiently? Step Functions callback pattern with task tokens is being implemented.",
+    question: "Which architectural approach should the developer recommend to handle this workload efficiently?",
     options: [
       { id: 'A', text: "Configure a Step Functions Task state with `.waitForTaskToken`, pass the task token to the external process, and call `SendTaskSuccess` when approved." },
       { id: 'B', text: "Write an AWS Lambda function with an infinite loop executing `sleep(30)` until an external database flag changes." },
@@ -39,7 +39,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     type: "single",
     explanation: "Configure a Step Functions Task state with `.waitForTaskToken`, pass the task token to the external process, and call `SendTaskSuccess` when approved. The Step Functions callback pattern (`.waitForTaskToken`) pauses the state machine execution indefinitely (up to 1 year) without consuming compute resources while waiting for an external system or human reviewer to return the task token using the `SendTaskSuccess` or `SendTaskFailure` API.",
     referenceUrl: "https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token",
-    tags: ["AWS Step Functions", "Step Functions", "High Load Scale"]
+    tags: ["AWS Step Functions","Step Functions","High Load Scale"]
   },
   {
     id: "aws-dva-328",
@@ -49,7 +49,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     domainName: "Development with AWS Services",
     title: "Step Functions Task Tokens Callback Pattern: Security Compliance",
     scenario: "A financial and healthcare service must adhere to strict regulatory compliance, encryption standards, and least privilege access principles. Security auditors require verified enforcement across all application tiers. The application utilizes AWS Step Functions to pause a serverless workflow to wait for external human manager approval or third-party legacy batch completion before proceeding to the next step.",
-    question: "Which solution properly implements these mandatory security and governance controls? Step Functions callback pattern with task tokens is being implemented.",
+    question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Deploy an Amazon SQS queue polled by Step Functions every 10 seconds." },
       { id: 'B', text: "Write an AWS Lambda function with an infinite loop executing `sleep(30)` until an external database flag changes." },
@@ -60,7 +60,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     type: "single",
     explanation: "Configure a Step Functions Task state with `.waitForTaskToken`, pass the task token to the external process, and call `SendTaskSuccess` when approved. The Step Functions callback pattern (`.waitForTaskToken`) pauses the state machine execution indefinitely (up to 1 year) without consuming compute resources while waiting for an external system or human reviewer to return the task token using the `SendTaskSuccess` or `SendTaskFailure` API.",
     referenceUrl: "https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token",
-    tags: ["AWS Step Functions", "Step Functions", "Security Compliance"]
+    tags: ["AWS Step Functions","Step Functions","Security Compliance"]
   },
   {
     id: "aws-dva-329",
@@ -70,7 +70,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     domainName: "Development with AWS Services",
     title: "Step Functions Task Tokens Callback Pattern: Hybrid Migration",
     scenario: "An enterprise development team is refactoring a legacy monolithic application into cloud-native microservices on AWS. The architecture must minimize operational complexity while leveraging managed services. The application utilizes AWS Step Functions to pause a serverless workflow to wait for external human manager approval or third-party legacy batch completion before proceeding to the next step.",
-    question: "Which solution provides a robust implementation while minimizing ongoing operational maintenance? Step Functions callback pattern with task tokens is being implemented.",
+    question: "Which solution provides a robust implementation while minimizing ongoing operational maintenance?",
     options: [
       { id: 'A', text: "Deploy an Amazon SQS queue polled by Step Functions every 10 seconds." },
       { id: 'B', text: "Create an AWS CodePipeline pipeline with a manual approval action." },
@@ -81,7 +81,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     type: "single",
     explanation: "Configure a Step Functions Task state with `.waitForTaskToken`, pass the task token to the external process, and call `SendTaskSuccess` when approved. The Step Functions callback pattern (`.waitForTaskToken`) pauses the state machine execution indefinitely (up to 1 year) without consuming compute resources while waiting for an external system or human reviewer to return the task token using the `SendTaskSuccess` or `SendTaskFailure` API.",
     referenceUrl: "https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token",
-    tags: ["AWS Step Functions", "Step Functions", "Hybrid Migration"]
+    tags: ["AWS Step Functions","Step Functions","Hybrid Migration"]
   },
   {
     id: "aws-dva-330",
@@ -91,7 +91,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     domainName: "Development with AWS Services",
     title: "Step Functions Task Tokens Callback Pattern: Resilience Failure",
     scenario: "A distributed cloud application experiences intermittent downstream service timeouts and connection exhaustion during peak operational hours. The development team must establish automated recovery and fault isolation. The application utilizes AWS Step Functions to pause a serverless workflow to wait for external human manager approval or third-party legacy batch completion before proceeding to the next step.",
-    question: "Which design pattern or service configuration eliminates bottlenecks and provides automated fault recovery? Step Functions callback pattern with task tokens is being implemented.",
+    question: "Which design pattern or service configuration eliminates bottlenecks and provides automated fault recovery?",
     options: [
       { id: 'A', text: "Configure a Step Functions Task state with `.waitForTaskToken`, pass the task token to the external process, and call `SendTaskSuccess` when approved." },
       { id: 'B', text: "Write an AWS Lambda function with an infinite loop executing `sleep(30)` until an external database flag changes." },
@@ -102,7 +102,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     type: "single",
     explanation: "Configure a Step Functions Task state with `.waitForTaskToken`, pass the task token to the external process, and call `SendTaskSuccess` when approved. The Step Functions callback pattern (`.waitForTaskToken`) pauses the state machine execution indefinitely (up to 1 year) without consuming compute resources while waiting for an external system or human reviewer to return the task token using the `SendTaskSuccess` or `SendTaskFailure` API.",
     referenceUrl: "https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token",
-    tags: ["AWS Step Functions", "Step Functions", "Resilience Failure"]
+    tags: ["AWS Step Functions","Step Functions","Resilience Failure"]
   },
   {
     id: "aws-dva-331",
@@ -112,7 +112,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     domainName: "Security",
     title: "KMS GenerateDataKey Envelope Encryption: Dr Failover",
     scenario: "A high-availability enterprise cloud service requires strict operational resilience and automated disaster recovery capabilities. The engineering team must eliminate single points of failure across operational workflows. The application utilizes AWS KMS to encrypt large 5 GB video files locally within an application before uploading them to storage without transmitting the entire payload over the network to AWS KMS.",
-    question: "Which implementation or architectural approach satisfies these resilience criteria? KMS GenerateDataKey API for envelope encryption is being implemented.",
+    question: "Which implementation or architectural approach satisfies these resilience criteria?",
     options: [
       { id: 'A', text: "Encrypt the file using AWS CloudTrail digests before uploading." },
       { id: 'B', text: "Send the entire 5 GB file to the KMS `Encrypt` API endpoint directly." },
@@ -123,7 +123,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     type: "single",
     explanation: "Call the KMS `GenerateDataKey` API to obtain a plaintext data key and an encrypted data key, encrypt the file locally with the plaintext key, erase the plaintext key from memory, and store the encrypted data key alongside the ciphertext. AWS KMS `Encrypt` API can only encrypt up to 4 KB of data directly. For larger payloads, applications implement envelope encryption using `GenerateDataKey`: the KMS customer managed key protects a 256-bit symmetric data key, and the data key encrypts the large payload locally using AES-GCM.",
     referenceUrl: "https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#enveloping",
-    tags: ["AWS KMS", "KMS", "Dr Failover"]
+    tags: ["AWS KMS","KMS","Dr Failover"]
   },
   {
     id: "aws-dva-332",
@@ -133,7 +133,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     domainName: "Security",
     title: "KMS GenerateDataKey Envelope Encryption: High Load Scale",
     scenario: "A high-throughput digital platform experiences sudden spikes in concurrent user traffic during flash promotions. Developers must ensure sub-second response times and predictable scaling under peak throughput. The application utilizes AWS KMS to encrypt large 5 GB video files locally within an application before uploading them to storage without transmitting the entire payload over the network to AWS KMS.",
-    question: "Which architectural approach should the developer recommend to handle this workload efficiently? KMS GenerateDataKey API for envelope encryption is being implemented.",
+    question: "Which architectural approach should the developer recommend to handle this workload efficiently?",
     options: [
       { id: 'A', text: "Call the KMS `GenerateDataKey` API to obtain a plaintext data key and an encrypted data key, encrypt the file locally with the plaintext key, erase the plaintext key from memory, and store the encrypted data key alongside the ciphertext." },
       { id: 'B', text: "Encrypt the file using AWS CloudTrail digests before uploading." },
@@ -144,7 +144,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     type: "single",
     explanation: "Call the KMS `GenerateDataKey` API to obtain a plaintext data key and an encrypted data key, encrypt the file locally with the plaintext key, erase the plaintext key from memory, and store the encrypted data key alongside the ciphertext. AWS KMS `Encrypt` API can only encrypt up to 4 KB of data directly. For larger payloads, applications implement envelope encryption using `GenerateDataKey`: the KMS customer managed key protects a 256-bit symmetric data key, and the data key encrypts the large payload locally using AES-GCM.",
     referenceUrl: "https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#enveloping",
-    tags: ["AWS KMS", "KMS", "High Load Scale"]
+    tags: ["AWS KMS","KMS","High Load Scale"]
   },
   {
     id: "aws-dva-333",
@@ -154,7 +154,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     domainName: "Security",
     title: "KMS GenerateDataKey Envelope Encryption: Security Compliance",
     scenario: "A financial and healthcare service must adhere to strict regulatory compliance, encryption standards, and least privilege access principles. Security auditors require verified enforcement across all application tiers. The application utilizes AWS KMS to encrypt large 5 GB video files locally within an application before uploading them to storage without transmitting the entire payload over the network to AWS KMS.",
-    question: "Which solution properly implements these mandatory security and governance controls? KMS GenerateDataKey API for envelope encryption is being implemented.",
+    question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Encrypt the file using AWS CloudTrail digests before uploading." },
       { id: 'B', text: "Store the master KMS key plaintext material in an encrypted configuration file." },
@@ -165,7 +165,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     type: "single",
     explanation: "Call the KMS `GenerateDataKey` API to obtain a plaintext data key and an encrypted data key, encrypt the file locally with the plaintext key, erase the plaintext key from memory, and store the encrypted data key alongside the ciphertext. AWS KMS `Encrypt` API can only encrypt up to 4 KB of data directly. For larger payloads, applications implement envelope encryption using `GenerateDataKey`: the KMS customer managed key protects a 256-bit symmetric data key, and the data key encrypts the large payload locally using AES-GCM.",
     referenceUrl: "https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#enveloping",
-    tags: ["AWS KMS", "KMS", "Security Compliance"]
+    tags: ["AWS KMS","KMS","Security Compliance"]
   },
   {
     id: "aws-dva-334",
@@ -175,7 +175,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     domainName: "Security",
     title: "KMS GenerateDataKey Envelope Encryption: Hybrid Migration",
     scenario: "An enterprise development team is refactoring a legacy monolithic application into cloud-native microservices on AWS. The architecture must minimize operational complexity while leveraging managed services. The application utilizes AWS KMS to encrypt large 5 GB video files locally within an application before uploading them to storage without transmitting the entire payload over the network to AWS KMS.",
-    question: "Which solution provides a robust implementation while minimizing ongoing operational maintenance? KMS GenerateDataKey API for envelope encryption is being implemented.",
+    question: "Which solution provides a robust implementation while minimizing ongoing operational maintenance?",
     options: [
       { id: 'A', text: "Store the master KMS key plaintext material in an encrypted configuration file." },
       { id: 'B', text: "Send the entire 5 GB file to the KMS `Encrypt` API endpoint directly." },
@@ -186,7 +186,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     type: "single",
     explanation: "Call the KMS `GenerateDataKey` API to obtain a plaintext data key and an encrypted data key, encrypt the file locally with the plaintext key, erase the plaintext key from memory, and store the encrypted data key alongside the ciphertext. AWS KMS `Encrypt` API can only encrypt up to 4 KB of data directly. For larger payloads, applications implement envelope encryption using `GenerateDataKey`: the KMS customer managed key protects a 256-bit symmetric data key, and the data key encrypts the large payload locally using AES-GCM.",
     referenceUrl: "https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#enveloping",
-    tags: ["AWS KMS", "KMS", "Hybrid Migration"]
+    tags: ["AWS KMS","KMS","Hybrid Migration"]
   },
   {
     id: "aws-dva-335",
@@ -196,7 +196,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     domainName: "Security",
     title: "KMS GenerateDataKey Envelope Encryption: Resilience Failure",
     scenario: "A distributed cloud application experiences intermittent downstream service timeouts and connection exhaustion during peak operational hours. The development team must establish automated recovery and fault isolation. The application utilizes AWS KMS to encrypt large 5 GB video files locally within an application before uploading them to storage without transmitting the entire payload over the network to AWS KMS.",
-    question: "Which design pattern or service configuration eliminates bottlenecks and provides automated fault recovery? KMS GenerateDataKey API for envelope encryption is being implemented.",
+    question: "Which design pattern or service configuration eliminates bottlenecks and provides automated fault recovery?",
     options: [
       { id: 'A', text: "Store the master KMS key plaintext material in an encrypted configuration file." },
       { id: 'B', text: "Send the entire 5 GB file to the KMS `Encrypt` API endpoint directly." },
@@ -207,7 +207,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     type: "single",
     explanation: "Call the KMS `GenerateDataKey` API to obtain a plaintext data key and an encrypted data key, encrypt the file locally with the plaintext key, erase the plaintext key from memory, and store the encrypted data key alongside the ciphertext. AWS KMS `Encrypt` API can only encrypt up to 4 KB of data directly. For larger payloads, applications implement envelope encryption using `GenerateDataKey`: the KMS customer managed key protects a 256-bit symmetric data key, and the data key encrypts the large payload locally using AES-GCM.",
     referenceUrl: "https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#enveloping",
-    tags: ["AWS KMS", "KMS", "Resilience Failure"]
+    tags: ["AWS KMS","KMS","Resilience Failure"]
   },
   {
     id: "aws-dva-336",
@@ -217,7 +217,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     domainName: "Security",
     title: "KMS Key Policies for Cross-Account Access: Dr Failover",
     scenario: "A high-availability enterprise cloud service requires strict operational resilience and automated disaster recovery capabilities. The engineering team must eliminate single points of failure across operational workflows. The application utilizes AWS KMS to allow an AWS Lambda function running in Account B to decrypt S3 objects in Account A that are encrypted with Account A's customer managed KMS key.",
-    question: "Which implementation or architectural approach satisfies these resilience criteria? KMS Key Policy granting external account access is being implemented.",
+    question: "Which implementation or architectural approach satisfies these resilience criteria?",
     options: [
       { id: 'A', text: "Attach an IAM policy in Account B only, without modifying Account A's KMS Key Policy." },
       { id: 'B', text: "Export the KMS key material from Account A and import it into Account B." },
@@ -228,7 +228,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     type: "single",
     explanation: "Update the KMS Key Policy in Account A to grant `kms:Decrypt` permissions to Account B's root or role ARN, and attach an IAM policy in Account B allowing `kms:Decrypt` on the KMS key ARN. Cross-account access to KMS customer-managed keys requires explicit authorization in both accounts: the KMS Key Policy in the owning account (Account A) must delegate permission to the external account, and the IAM policy in the consuming account (Account B) must grant the principal permission to call the key.",
     referenceUrl: "https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html",
-    tags: ["AWS KMS", "KMS", "Dr Failover"]
+    tags: ["AWS KMS","KMS","Dr Failover"]
   },
   {
     id: "aws-dva-337",
@@ -238,7 +238,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     domainName: "Security",
     title: "KMS Key Policies for Cross-Account Access: High Load Scale",
     scenario: "A high-throughput digital platform experiences sudden spikes in concurrent user traffic during flash promotions. Developers must ensure sub-second response times and predictable scaling under peak throughput. The application utilizes AWS KMS to allow an AWS Lambda function running in Account B to decrypt S3 objects in Account A that are encrypted with Account A's customer managed KMS key.",
-    question: "Which architectural approach should the developer recommend to handle this workload efficiently? KMS Key Policy granting external account access is being implemented.",
+    question: "Which architectural approach should the developer recommend to handle this workload efficiently?",
     options: [
       { id: 'A', text: "Export the KMS key material from Account A and import it into Account B." },
       { id: 'B', text: "Configure an S3 Object ACL granting Account B public read access." },
@@ -249,7 +249,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     type: "single",
     explanation: "Update the KMS Key Policy in Account A to grant `kms:Decrypt` permissions to Account B's root or role ARN, and attach an IAM policy in Account B allowing `kms:Decrypt` on the KMS key ARN. Cross-account access to KMS customer-managed keys requires explicit authorization in both accounts: the KMS Key Policy in the owning account (Account A) must delegate permission to the external account, and the IAM policy in the consuming account (Account B) must grant the principal permission to call the key.",
     referenceUrl: "https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html",
-    tags: ["AWS KMS", "KMS", "High Load Scale"]
+    tags: ["AWS KMS","KMS","High Load Scale"]
   },
   {
     id: "aws-dva-338",
@@ -259,7 +259,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     domainName: "Security",
     title: "KMS Key Policies for Cross-Account Access: Security Compliance",
     scenario: "A financial and healthcare service must adhere to strict regulatory compliance, encryption standards, and least privilege access principles. Security auditors require verified enforcement across all application tiers. The application utilizes AWS KMS to allow an AWS Lambda function running in Account B to decrypt S3 objects in Account A that are encrypted with Account A's customer managed KMS key.",
-    question: "Which solution properly implements these mandatory security and governance controls? KMS Key Policy granting external account access is being implemented.",
+    question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Attach an IAM policy in Account B only, without modifying Account A's KMS Key Policy." },
       { id: 'B', text: "Configure an S3 Object ACL granting Account B public read access." },
@@ -270,7 +270,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     type: "single",
     explanation: "Update the KMS Key Policy in Account A to grant `kms:Decrypt` permissions to Account B's root or role ARN, and attach an IAM policy in Account B allowing `kms:Decrypt` on the KMS key ARN. Cross-account access to KMS customer-managed keys requires explicit authorization in both accounts: the KMS Key Policy in the owning account (Account A) must delegate permission to the external account, and the IAM policy in the consuming account (Account B) must grant the principal permission to call the key.",
     referenceUrl: "https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html",
-    tags: ["AWS KMS", "KMS", "Security Compliance"]
+    tags: ["AWS KMS","KMS","Security Compliance"]
   },
   {
     id: "aws-dva-339",
@@ -280,7 +280,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     domainName: "Security",
     title: "KMS Key Policies for Cross-Account Access: Hybrid Migration",
     scenario: "An enterprise development team is refactoring a legacy monolithic application into cloud-native microservices on AWS. The architecture must minimize operational complexity while leveraging managed services. The application utilizes AWS KMS to allow an AWS Lambda function running in Account B to decrypt S3 objects in Account A that are encrypted with Account A's customer managed KMS key.",
-    question: "Which solution provides a robust implementation while minimizing ongoing operational maintenance? KMS Key Policy granting external account access is being implemented.",
+    question: "Which solution provides a robust implementation while minimizing ongoing operational maintenance?",
     options: [
       { id: 'A', text: "Configure an S3 Object ACL granting Account B public read access." },
       { id: 'B', text: "Update the KMS Key Policy in Account A to grant `kms:Decrypt` permissions to Account B's root or role ARN, and attach an IAM policy in Account B allowing `kms:Decrypt` on the KMS key ARN." },
@@ -291,7 +291,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     type: "single",
     explanation: "Update the KMS Key Policy in Account A to grant `kms:Decrypt` permissions to Account B's root or role ARN, and attach an IAM policy in Account B allowing `kms:Decrypt` on the KMS key ARN. Cross-account access to KMS customer-managed keys requires explicit authorization in both accounts: the KMS Key Policy in the owning account (Account A) must delegate permission to the external account, and the IAM policy in the consuming account (Account B) must grant the principal permission to call the key.",
     referenceUrl: "https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html",
-    tags: ["AWS KMS", "KMS", "Hybrid Migration"]
+    tags: ["AWS KMS","KMS","Hybrid Migration"]
   },
   {
     id: "aws-dva-340",
@@ -301,7 +301,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     domainName: "Security",
     title: "KMS Key Policies for Cross-Account Access: Resilience Failure",
     scenario: "A distributed cloud application experiences intermittent downstream service timeouts and connection exhaustion during peak operational hours. The development team must establish automated recovery and fault isolation. The application utilizes AWS KMS to allow an AWS Lambda function running in Account B to decrypt S3 objects in Account A that are encrypted with Account A's customer managed KMS key.",
-    question: "Which design pattern or service configuration eliminates bottlenecks and provides automated fault recovery? KMS Key Policy granting external account access is being implemented.",
+    question: "Which design pattern or service configuration eliminates bottlenecks and provides automated fault recovery?",
     options: [
       { id: 'A', text: "Configure an S3 Object ACL granting Account B public read access." },
       { id: 'B', text: "Export the KMS key material from Account A and import it into Account B." },
@@ -312,7 +312,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     type: "single",
     explanation: "Update the KMS Key Policy in Account A to grant `kms:Decrypt` permissions to Account B's root or role ARN, and attach an IAM policy in Account B allowing `kms:Decrypt` on the KMS key ARN. Cross-account access to KMS customer-managed keys requires explicit authorization in both accounts: the KMS Key Policy in the owning account (Account A) must delegate permission to the external account, and the IAM policy in the consuming account (Account B) must grant the principal permission to call the key.",
     referenceUrl: "https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html",
-    tags: ["AWS KMS", "KMS", "Resilience Failure"]
+    tags: ["AWS KMS","KMS","Resilience Failure"]
   },
   {
     id: "aws-dva-341",
@@ -322,7 +322,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     domainName: "Security",
     title: "KMS Grants for Transient Delegated Access: Dr Failover",
     scenario: "A high-availability enterprise cloud service requires strict operational resilience and automated disaster recovery capabilities. The engineering team must eliminate single points of failure across operational workflows. The application utilizes AWS KMS to grant temporary, programmatic access to an external analytics worker to decrypt specific encrypted files without modifying the persistent KMS Key Policy.",
-    question: "Which implementation or architectural approach satisfies these resilience criteria? AWS KMS Grants for temporary delegated access is being implemented.",
+    question: "Which implementation or architectural approach satisfies these resilience criteria?",
     options: [
       { id: 'A', text: "Use the KMS `CreateGrant` API to create a programmatic grant specifying the grantee principal, operations, and encryption context constraints, and revoke the grant upon completion." },
       { id: 'B', text: "Update the primary KMS Key Policy to add the temporary worker ARN and delete it later." },
@@ -333,7 +333,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     type: "single",
     explanation: "Use the KMS `CreateGrant` API to create a programmatic grant specifying the grantee principal, operations, and encryption context constraints, and revoke the grant upon completion. AWS KMS grants provide an advanced mechanism to grant long-term or temporary permissions programmatically to principals without modifying key policies or IAM policies. Grants can be created, retired, or revoked dynamically and are commonly used by AWS services like Amazon EBS and Amazon Redshift.",
     referenceUrl: "https://docs.aws.amazon.com/kms/latest/developerguide/grants.html",
-    tags: ["AWS KMS", "KMS", "Dr Failover"]
+    tags: ["AWS KMS","KMS","Dr Failover"]
   },
   {
     id: "aws-dva-342",
@@ -343,7 +343,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     domainName: "Security",
     title: "KMS Grants for Transient Delegated Access: High Load Scale",
     scenario: "A high-throughput digital platform experiences sudden spikes in concurrent user traffic during flash promotions. Developers must ensure sub-second response times and predictable scaling under peak throughput. The application utilizes AWS KMS to grant temporary, programmatic access to an external analytics worker to decrypt specific encrypted files without modifying the persistent KMS Key Policy.",
-    question: "Which architectural approach should the developer recommend to handle this workload efficiently? AWS KMS Grants for temporary delegated access is being implemented.",
+    question: "Which architectural approach should the developer recommend to handle this workload efficiently?",
     options: [
       { id: 'A', text: "Generate a temporary AWS account root credential and share it with the worker." },
       { id: 'B', text: "Update the primary KMS Key Policy to add the temporary worker ARN and delete it later." },
@@ -354,7 +354,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     type: "single",
     explanation: "Use the KMS `CreateGrant` API to create a programmatic grant specifying the grantee principal, operations, and encryption context constraints, and revoke the grant upon completion. AWS KMS grants provide an advanced mechanism to grant long-term or temporary permissions programmatically to principals without modifying key policies or IAM policies. Grants can be created, retired, or revoked dynamically and are commonly used by AWS services like Amazon EBS and Amazon Redshift.",
     referenceUrl: "https://docs.aws.amazon.com/kms/latest/developerguide/grants.html",
-    tags: ["AWS KMS", "KMS", "High Load Scale"]
+    tags: ["AWS KMS","KMS","High Load Scale"]
   },
   {
     id: "aws-dva-343",
@@ -364,7 +364,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     domainName: "Security",
     title: "KMS Grants for Transient Delegated Access: Security Compliance",
     scenario: "A financial and healthcare service must adhere to strict regulatory compliance, encryption standards, and least privilege access principles. Security auditors require verified enforcement across all application tiers. The application utilizes AWS KMS to grant temporary, programmatic access to an external analytics worker to decrypt specific encrypted files without modifying the persistent KMS Key Policy.",
-    question: "Which solution properly implements these mandatory security and governance controls? AWS KMS Grants for temporary delegated access is being implemented.",
+    question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Update the primary KMS Key Policy to add the temporary worker ARN and delete it later." },
       { id: 'B', text: "Generate a temporary AWS account root credential and share it with the worker." },
@@ -375,7 +375,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     type: "single",
     explanation: "Use the KMS `CreateGrant` API to create a programmatic grant specifying the grantee principal, operations, and encryption context constraints, and revoke the grant upon completion. AWS KMS grants provide an advanced mechanism to grant long-term or temporary permissions programmatically to principals without modifying key policies or IAM policies. Grants can be created, retired, or revoked dynamically and are commonly used by AWS services like Amazon EBS and Amazon Redshift.",
     referenceUrl: "https://docs.aws.amazon.com/kms/latest/developerguide/grants.html",
-    tags: ["AWS KMS", "KMS", "Security Compliance"]
+    tags: ["AWS KMS","KMS","Security Compliance"]
   },
   {
     id: "aws-dva-344",
@@ -385,7 +385,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     domainName: "Security",
     title: "KMS Grants for Transient Delegated Access: Hybrid Migration",
     scenario: "An enterprise development team is refactoring a legacy monolithic application into cloud-native microservices on AWS. The architecture must minimize operational complexity while leveraging managed services. The application utilizes AWS KMS to grant temporary, programmatic access to an external analytics worker to decrypt specific encrypted files without modifying the persistent KMS Key Policy.",
-    question: "Which solution provides a robust implementation while minimizing ongoing operational maintenance? AWS KMS Grants for temporary delegated access is being implemented.",
+    question: "Which solution provides a robust implementation while minimizing ongoing operational maintenance?",
     options: [
       { id: 'A', text: "Disable key rotation on the KMS customer managed key during the analytics job." },
       { id: 'B', text: "Update the primary KMS Key Policy to add the temporary worker ARN and delete it later." },
@@ -396,7 +396,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     type: "single",
     explanation: "Use the KMS `CreateGrant` API to create a programmatic grant specifying the grantee principal, operations, and encryption context constraints, and revoke the grant upon completion. AWS KMS grants provide an advanced mechanism to grant long-term or temporary permissions programmatically to principals without modifying key policies or IAM policies. Grants can be created, retired, or revoked dynamically and are commonly used by AWS services like Amazon EBS and Amazon Redshift.",
     referenceUrl: "https://docs.aws.amazon.com/kms/latest/developerguide/grants.html",
-    tags: ["AWS KMS", "KMS", "Hybrid Migration"]
+    tags: ["AWS KMS","KMS","Hybrid Migration"]
   },
   {
     id: "aws-dva-345",
@@ -406,7 +406,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     domainName: "Security",
     title: "KMS Grants for Transient Delegated Access: Resilience Failure",
     scenario: "A distributed cloud application experiences intermittent downstream service timeouts and connection exhaustion during peak operational hours. The development team must establish automated recovery and fault isolation. The application utilizes AWS KMS to grant temporary, programmatic access to an external analytics worker to decrypt specific encrypted files without modifying the persistent KMS Key Policy.",
-    question: "Which design pattern or service configuration eliminates bottlenecks and provides automated fault recovery? AWS KMS Grants for temporary delegated access is being implemented.",
+    question: "Which design pattern or service configuration eliminates bottlenecks and provides automated fault recovery?",
     options: [
       { id: 'A', text: "Generate a temporary AWS account root credential and share it with the worker." },
       { id: 'B', text: "Disable key rotation on the KMS customer managed key during the analytics job." },
@@ -417,7 +417,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     type: "single",
     explanation: "Use the KMS `CreateGrant` API to create a programmatic grant specifying the grantee principal, operations, and encryption context constraints, and revoke the grant upon completion. AWS KMS grants provide an advanced mechanism to grant long-term or temporary permissions programmatically to principals without modifying key policies or IAM policies. Grants can be created, retired, or revoked dynamically and are commonly used by AWS services like Amazon EBS and Amazon Redshift.",
     referenceUrl: "https://docs.aws.amazon.com/kms/latest/developerguide/grants.html",
-    tags: ["AWS KMS", "KMS", "Resilience Failure"]
+    tags: ["AWS KMS","KMS","Resilience Failure"]
   },
   {
     id: "aws-dva-346",
@@ -427,7 +427,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     domainName: "Security",
     title: "Secrets Manager vs Parameter Store SecureString: Dr Failover",
     scenario: "A high-availability enterprise cloud service requires strict operational resilience and automated disaster recovery capabilities. The engineering team must eliminate single points of failure across operational workflows. The application utilizes AWS Secrets Manager to store RDS database credentials with automated 30-day password rotation and built-in cross-account secret sharing.",
-    question: "Which implementation or architectural approach satisfies these resilience criteria? AWS Secrets Manager with automated rotation is being implemented.",
+    question: "Which implementation or architectural approach satisfies these resilience criteria?",
     options: [
       { id: 'A', text: "Store the database credentials in AWS Systems Manager Parameter Store as a Standard String parameter." },
       { id: 'B', text: "Store the database credentials in AWS Secrets Manager and configure automated rotation with an AWS-managed Lambda function." },
@@ -438,7 +438,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     type: "single",
     explanation: "Store the database credentials in AWS Secrets Manager and configure automated rotation with an AWS-managed Lambda function. AWS Secrets Manager is specifically designed for database and API credentials, featuring native integration with Amazon RDS for automated password rotation without downtime, cross-region replication, and fine-grained resource-based policies. Parameter Store does not provide built-in automated credential rotation.",
     referenceUrl: "https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html",
-    tags: ["AWS Secrets Manager", "Secrets Manager", "Dr Failover"]
+    tags: ["AWS Secrets Manager","Secrets Manager","Dr Failover"]
   },
   {
     id: "aws-dva-347",
@@ -448,7 +448,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     domainName: "Security",
     title: "Secrets Manager vs Parameter Store SecureString: High Load Scale",
     scenario: "A high-throughput digital platform experiences sudden spikes in concurrent user traffic during flash promotions. Developers must ensure sub-second response times and predictable scaling under peak throughput. The application utilizes AWS Secrets Manager to store RDS database credentials with automated 30-day password rotation and built-in cross-account secret sharing.",
-    question: "Which architectural approach should the developer recommend to handle this workload efficiently? AWS Secrets Manager with automated rotation is being implemented.",
+    question: "Which architectural approach should the developer recommend to handle this workload efficiently?",
     options: [
       { id: 'A', text: "Store the database credentials in an unencrypted AWS CodeBuild environment variable." },
       { id: 'B', text: "Store the database credentials in AWS Systems Manager Parameter Store as a Standard String parameter." },
@@ -459,7 +459,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     type: "single",
     explanation: "Store the database credentials in AWS Secrets Manager and configure automated rotation with an AWS-managed Lambda function. AWS Secrets Manager is specifically designed for database and API credentials, featuring native integration with Amazon RDS for automated password rotation without downtime, cross-region replication, and fine-grained resource-based policies. Parameter Store does not provide built-in automated credential rotation.",
     referenceUrl: "https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html",
-    tags: ["AWS Secrets Manager", "Secrets Manager", "High Load Scale"]
+    tags: ["AWS Secrets Manager","Secrets Manager","High Load Scale"]
   },
   {
     id: "aws-dva-348",
@@ -469,7 +469,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     domainName: "Security",
     title: "Secrets Manager vs Parameter Store SecureString: Security Compliance",
     scenario: "A financial and healthcare service must adhere to strict regulatory compliance, encryption standards, and least privilege access principles. Security auditors require verified enforcement across all application tiers. The application utilizes AWS Secrets Manager to store RDS database credentials with automated 30-day password rotation and built-in cross-account secret sharing.",
-    question: "Which solution properly implements these mandatory security and governance controls? AWS Secrets Manager with automated rotation is being implemented.",
+    question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Store the database credentials in AWS Systems Manager Parameter Store as a Standard String parameter." },
       { id: 'B', text: "Store credentials in an Amazon DynamoDB table with client-side hashing." },
@@ -480,7 +480,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     type: "single",
     explanation: "Store the database credentials in AWS Secrets Manager and configure automated rotation with an AWS-managed Lambda function. AWS Secrets Manager is specifically designed for database and API credentials, featuring native integration with Amazon RDS for automated password rotation without downtime, cross-region replication, and fine-grained resource-based policies. Parameter Store does not provide built-in automated credential rotation.",
     referenceUrl: "https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html",
-    tags: ["AWS Secrets Manager", "Secrets Manager", "Security Compliance"]
+    tags: ["AWS Secrets Manager","Secrets Manager","Security Compliance"]
   },
   {
     id: "aws-dva-349",
@@ -490,7 +490,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     domainName: "Security",
     title: "Secrets Manager vs Parameter Store SecureString: Hybrid Migration",
     scenario: "An enterprise development team is refactoring a legacy monolithic application into cloud-native microservices on AWS. The architecture must minimize operational complexity while leveraging managed services. The application utilizes AWS Secrets Manager to store RDS database credentials with automated 30-day password rotation and built-in cross-account secret sharing.",
-    question: "Which solution provides a robust implementation while minimizing ongoing operational maintenance? AWS Secrets Manager with automated rotation is being implemented.",
+    question: "Which solution provides a robust implementation while minimizing ongoing operational maintenance?",
     options: [
       { id: 'A', text: "Store the database credentials in AWS Secrets Manager and configure automated rotation with an AWS-managed Lambda function." },
       { id: 'B', text: "Store the database credentials in an unencrypted AWS CodeBuild environment variable." },
@@ -501,7 +501,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     type: "single",
     explanation: "Store the database credentials in AWS Secrets Manager and configure automated rotation with an AWS-managed Lambda function. AWS Secrets Manager is specifically designed for database and API credentials, featuring native integration with Amazon RDS for automated password rotation without downtime, cross-region replication, and fine-grained resource-based policies. Parameter Store does not provide built-in automated credential rotation.",
     referenceUrl: "https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html",
-    tags: ["AWS Secrets Manager", "Secrets Manager", "Hybrid Migration"]
+    tags: ["AWS Secrets Manager","Secrets Manager","Hybrid Migration"]
   },
   {
     id: "aws-dva-350",
@@ -511,7 +511,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     domainName: "Security",
     title: "Secrets Manager vs Parameter Store SecureString: Resilience Failure",
     scenario: "A distributed cloud application experiences intermittent downstream service timeouts and connection exhaustion during peak operational hours. The development team must establish automated recovery and fault isolation. The application utilizes AWS Secrets Manager to store RDS database credentials with automated 30-day password rotation and built-in cross-account secret sharing.",
-    question: "Which design pattern or service configuration eliminates bottlenecks and provides automated fault recovery? AWS Secrets Manager with automated rotation is being implemented.",
+    question: "Which design pattern or service configuration eliminates bottlenecks and provides automated fault recovery?",
     options: [
       { id: 'A', text: "Store the database credentials in AWS Secrets Manager and configure automated rotation with an AWS-managed Lambda function." },
       { id: 'B', text: "Store the database credentials in an unencrypted AWS CodeBuild environment variable." },
@@ -522,7 +522,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     type: "single",
     explanation: "Store the database credentials in AWS Secrets Manager and configure automated rotation with an AWS-managed Lambda function. AWS Secrets Manager is specifically designed for database and API credentials, featuring native integration with Amazon RDS for automated password rotation without downtime, cross-region replication, and fine-grained resource-based policies. Parameter Store does not provide built-in automated credential rotation.",
     referenceUrl: "https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html",
-    tags: ["AWS Secrets Manager", "Secrets Manager", "Resilience Failure"]
+    tags: ["AWS Secrets Manager","Secrets Manager","Resilience Failure"]
   }
 ];
 
