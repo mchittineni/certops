@@ -64,7 +64,9 @@ export function scoreCertification(questions) {
     const straw = distractors.some(o => STRAWMAN.some(re => re.test(o.text)));
     if (straw) strawQ++;
 
-    const stem = terms(`${q.title} ${q.question}`);
+    // The scenario counts: a candidate reads it alongside the stem, so a topic
+    // named there gives the answer away just as effectively as one in the title.
+    const stem = terms(`${q.title} ${q.question} ${q.scenario}`);
     const keyTerms = new Set(keys.flatMap(o => [...terms(o.text)]));
     const distTerms = new Set(distractors.flatMap(o => [...terms(o.text)]));
     const leaked = [...keyTerms].filter(t => stem.has(t) && !distTerms.has(t));
