@@ -18,7 +18,7 @@ export const AZURE_AZ104_QUESTIONS_6 = [
     type: "single",
     explanation: "Microsoft Entra Custom Security Attributes are business-specific, schema-defined custom key-value pairs assigned to users, enterprise applications, or managed identities. Unlike standard user profile attributes, custom security attributes are governed with dedicated permissions (Attribute Assignment Administrator) and integrate directly with Azure RBAC Attribute-Based Access Control (ABAC) role assignment conditions.",
     referenceUrl: "https://learn.microsoft.com/en-us/entra/fundamentals/custom-security-attributes-overview",
-    tags: ["Entra ID", "Custom Security Attributes", "ABAC", "Identity"]
+    tags: ["Entra ID","Custom Security Attributes","ABAC","Identity"]
   },
   {
     id: "az-104-127",
@@ -33,13 +33,13 @@ export const AZURE_AZ104_QUESTIONS_6 = [
       { id: 'A', text: "Deploy an Azure Resource Lock on the blob container." },
       { id: 'B', text: "Assign the Reader role at the Resource Group scope." },
       { id: 'C', text: "Create separate storage accounts for each project." },
-      { id: 'D', text: "Add an Azure ABAC role assignment condition filter specifying container name and blob index tag attributes when assigning the role." }
+      { id: 'D', text: "An ABAC condition on container and tag attributes" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Azure Attribute-Based Access Control (Azure ABAC) extends Azure RBAC by adding condition expressions to role assignments based on resource attributes (such as container names, blob path prefixes, or blob index tags). This allows fine-grained data-plane access control without multiplying role assignments across individual containers.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview",
-    tags: ["Azure RBAC", "Azure ABAC", "Role Conditions", "Blob Storage", "Governance"]
+    tags: ["Azure RBAC","Azure ABAC","Role Conditions","Blob Storage","Governance"]
   },
   {
     id: "az-104-128",
@@ -60,7 +60,7 @@ export const AZURE_AZ104_QUESTIONS_6 = [
     type: "single",
     explanation: "Azure Resource Graph (ARG) is an Azure service designed to extend Azure Resource Management by providing efficient and performant resource exploration with the ability to query at scale across all subscriptions and management groups using KQL. It indexes resource properties and relationships in real time, executing cross-subscription queries in milliseconds without making individual slow ARM REST API calls.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/resource-graph/overview",
-    tags: ["Resource Graph", "ARG", "KQL", "Cross-Subscription", "Governance"]
+    tags: ["Resource Graph","ARG","KQL","Cross-Subscription","Governance"]
   },
   {
     id: "az-104-129",
@@ -74,14 +74,14 @@ export const AZURE_AZ104_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "Azure Key Vault password generator." },
       { id: 'B', text: "Self-Service Password Reset without agents." },
-      { id: 'C', text: "Microsoft Entra Password Protection with a Custom Banned Password List." },
+      { id: 'C', text: "Password Protection with a banned list" },
       { id: 'D', text: "Azure Policy with Audit effect." }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Microsoft Entra Password Protection detects and blocks known weak passwords using a dynamically updated Global Banned Password list (managed by Microsoft) and an optional Custom Banned Password list (configured with company-specific terms). Deploying the Entra Password Protection agent to on-premises domain controllers extends these protections to on-premises AD DS.",
     referenceUrl: "https://learn.microsoft.com/en-us/entra/identity/authentication/concept-password-ban-bad",
-    tags: ["Entra ID", "Password Protection", "Security", "Identity"]
+    tags: ["Entra ID","Password Protection","Security","Identity"]
   },
   {
     id: "az-104-130",
@@ -102,7 +102,7 @@ export const AZURE_AZ104_QUESTIONS_6 = [
     type: "single",
     explanation: "Microsoft Entra Verified ID is a managed verifiable credentials service based on open decentralized identity (DID) standards. Organizations issue cryptographically signed digital credentials (such as employment proof, education, or certifications) that users hold in digital wallets and share with verifiers securely without disclosing excess personal data.",
     referenceUrl: "https://learn.microsoft.com/en-us/entra/verified-id/decentralized-identifier-overview",
-    tags: ["Entra ID", "Verified ID", "Decentralized Identity", "Security"]
+    tags: ["Entra ID","Verified ID","Decentralized Identity","Security"]
   },
   {
     id: "az-104-131",
@@ -123,7 +123,7 @@ export const AZURE_AZ104_QUESTIONS_6 = [
     type: "single",
     explanation: "Enabling Hierarchical Namespace (HNS) converts standard Azure Blob Storage into Azure Data Lake Storage Gen2 (ADLS Gen2). HNS organizes objects into a true hierarchical directory structure, enabling atomic directory renaming, folder-level operations, and fine-grained POSIX access control lists (ACLs) essential for big data analytics engines.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction",
-    tags: ["ADLS Gen2", "Hierarchical Namespace", "HNS", "Data Lake", "Storage"]
+    tags: ["ADLS Gen2","Hierarchical Namespace","HNS","Data Lake","Storage"]
   },
   {
     id: "az-104-132",
@@ -138,13 +138,13 @@ export const AZURE_AZ104_QUESTIONS_6 = [
       { id: 'A', text: "Open a Microsoft Support ticket and wait 48 hours." },
       { id: 'B', text: "Restore from an on-premises tape backup." },
       { id: 'C', text: "Recreate the storage account using the original name." },
-      { id: 'D', text: "Navigate to \"Deleted shares\" in the Azure portal, select the deleted share, and click \"Undelete\"." }
+      { id: 'D', text: "Undelete it from the Deleted shares view" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Azure Files Share Soft Delete protects file shares from accidental or malicious deletion. When enabled (default 7 days, configurable up to 365 days), deleted file shares are moved to a soft-deleted state. Administrators can view deleted shares in the Azure portal and click **Undelete** to instantly restore the entire file share and its snapshot history.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/files/files-prevent-accidental-deletion",
-    tags: ["Azure Files", "Soft Delete", "Undelete", "Data Protection"]
+    tags: ["Azure Files","Soft Delete","Undelete","Data Protection"]
   },
   {
     id: "az-104-133",
@@ -165,7 +165,7 @@ export const AZURE_AZ104_QUESTIONS_6 = [
     type: "single",
     explanation: "Azure Blob Storage Inventory is a managed capability that generates scheduled daily or weekly inventory reports of your blobs and containers. It outputs CSV or Parquet files containing comprehensive metadata (size, tier, creation time, content MD5, encryption, version ID, tags) directly to a specified destination container for compliance auditing and analytics.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/blobs/blob-inventory",
-    tags: ["Blob Storage", "Blob Inventory", "Audit", "Storage"]
+    tags: ["Blob Storage","Blob Inventory","Audit","Storage"]
   },
   {
     id: "az-104-134",
@@ -177,7 +177,7 @@ export const AZURE_AZ104_QUESTIONS_6 = [
     scenario: "A B2B integration requires external partners to upload transaction data files to an Azure Blob Storage container over SFTP (SSH File Transfer Protocol) using SSH key authentication, without managing third-party SFTP server VMs.",
     question: "Which native Azure Blob Storage feature provides managed multi-protocol SFTP endpoints?",
     options: [
-      { id: 'A', text: "Enable SFTP support on the Azure Storage Account with local user credentials and SSH keys." },
+      { id: 'A', text: "Enable SFTP on the storage account with local users and SSH keys" },
       { id: 'B', text: "Deploy an Azure Linux VM running OpenSSH in front of Blob storage." },
       { id: 'C', text: "Configure Azure File Sync with an SFTP plugin." },
       { id: 'D', text: "Create an Azure Queue Storage endpoint." }
@@ -186,7 +186,7 @@ export const AZURE_AZ104_QUESTIONS_6 = [
     type: "single",
     explanation: "Azure Blob Storage natively supports SFTP (SSH File Transfer Protocol). Enabling SFTP on a hierarchical namespace-enabled storage account allows creating Local Users with password or SSH public key authentication, assigning container permissions and home directories, and transferring files directly into Blob containers over port 22 with zero VM management.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/blobs/secure-file-transfer-protocol-support",
-    tags: ["Blob Storage", "SFTP", "Security", "Storage"]
+    tags: ["Blob Storage","SFTP","Security","Storage"]
   },
   {
     id: "az-104-135",
@@ -200,14 +200,14 @@ export const AZURE_AZ104_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "Create a Stored Access Policy." },
       { id: 'B', text: "Enable Classic Storage Analytics logging only." },
-      { id: 'C', text: "Configure Diagnostic Settings on the Storage Account (Blob service) targeting the Log Analytics workspace." },
+      { id: 'C', text: "Diagnostic settings on the blob service" },
       { id: 'D', text: "Configure Blob Lifecycle Management." }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Configuring Diagnostic Settings on Azure Storage (under the Blob, File, Table, or Queue sub-services) enables streaming resource logs (such as `StorageRead`, `StorageWrite`, `StorageDelete`) directly to an Azure Log Analytics workspace, Azure Event Hubs, or an archive storage account for real-time alerting and KQL analysis.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/blobs/monitor-blob-storage",
-    tags: ["Azure Storage", "Diagnostic Settings", "Log Analytics", "Monitoring"]
+    tags: ["Azure Storage","Diagnostic Settings","Log Analytics","Monitoring"]
   },
   {
     id: "az-104-136",
@@ -228,7 +228,7 @@ export const AZURE_AZ104_QUESTIONS_6 = [
     type: "single",
     explanation: "Ephemeral OS Disks are created directly on the local VM host storage (temp disk or OS cache) rather than remote Azure storage. They provide faster boot times, lower read/write latency, and instant VM reimaging with zero storage transaction or capacity costs, making them ideal for stateless batch workloads and VMSS nodes.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machines/ephemeral-os-disks",
-    tags: ["Virtual Machines", "Ephemeral OS Disk", "VMSS", "Performance", "Compute"]
+    tags: ["Virtual Machines","Ephemeral OS Disk","VMSS","Performance","Compute"]
   },
   {
     id: "az-104-137",
@@ -249,7 +249,7 @@ export const AZURE_AZ104_QUESTIONS_6 = [
     type: "single",
     explanation: "Azure Serial Console provides direct, bidirectional text console access to the physical COM1/ttyS0 serial port of Azure virtual machines and VM scale sets directly in the Azure portal, functioning independently of the guest OS network stack, IP configuration, or VM guest agent.",
     referenceUrl: "https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/serial-console-overview",
-    tags: ["Serial Console", "Virtual Machines", "Troubleshooting", "Compute"]
+    tags: ["Serial Console","Virtual Machines","Troubleshooting","Compute"]
   },
   {
     id: "az-104-138",
@@ -264,13 +264,13 @@ export const AZURE_AZ104_QUESTIONS_6 = [
       { id: 'A', text: "Regional VNet Integration with public IP routing." },
       { id: 'B', text: "Azure Bastion tunneling." },
       { id: 'C', text: "App Service Private Endpoints." },
-      { id: 'D', text: "Azure App Service Hybrid Connections (powered by Azure Relay)." }
+      { id: 'D', text: "App Service Hybrid Connections" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "App Service Hybrid Connections (built on Azure Relay) allow Azure web applications to access on-premises TCP endpoints (such as SQL Server on port 1433) through a lightweight Hybrid Connection Manager (HCM) agent deployed inside the corporate network. HCM initiates an outbound connection over port 443 to Azure, requiring zero inbound firewall ports.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/app-service/app-service-hybrid-connections",
-    tags: ["App Service", "Hybrid Connections", "Azure Relay", "Hybrid", "Compute"]
+    tags: ["App Service","Hybrid Connections","Azure Relay","Hybrid","Compute"]
   },
   {
     id: "az-104-139",
@@ -284,14 +284,14 @@ export const AZURE_AZ104_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "Azure Custom Script extension." },
       { id: 'B', text: "Manual batch re-imaging." },
-      { id: 'C', text: "Automatic OS Image Upgrades with health probes enabled." },
+      { id: 'C', text: "Automatic OS image upgrades" },
       { id: 'D', text: "Azure Resource Locks." }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Automatic OS Image Upgrades in VMSS automatically monitors the image publisher for new OS platform image versions and safely rolls out updates to scale set instances in batches. It integrates with application health probes to ensure instances are healthy before moving to the next batch, ensuring zero application downtime.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade",
-    tags: ["VMSS", "Automatic OS Upgrades", "Patching", "Compute"]
+    tags: ["VMSS","Automatic OS Upgrades","Patching","Compute"]
   },
   {
     id: "az-104-140",
@@ -312,7 +312,7 @@ export const AZURE_AZ104_QUESTIONS_6 = [
     type: "single",
     explanation: "In Azure Container Apps, configuring Internal Ingress (\"Limited to Container Apps Environment\") exposes the container app to a private internal FQDN accessible only to other container apps residing within the same Container Apps environment, blocking public internet access while enabling internal microservice-to-microservice communication.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/container-apps/ingress-overview",
-    tags: ["Container Apps", "ACA", "Ingress", "Containers", "Compute"]
+    tags: ["Container Apps","ACA","Ingress","Containers","Compute"]
   },
   {
     id: "az-104-141",
@@ -326,14 +326,14 @@ export const AZURE_AZ104_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "Azure Route Tables." },
       { id: 'B', text: "Azure DNS Zones." },
-      { id: 'C', text: "Effective Security Rules on the Network Interface." },
+      { id: 'C', text: "Effective security rules" },
       { id: 'D', text: "Azure Advisor Security scorecard." }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "The **Effective Security Rules** view (accessible on any VM Network Interface or via Network Watcher) calculates the combined effect of NSGs applied at both the subnet level and the NIC level, displaying the exact evaluated priority, source, destination, port, and resulting action (Allow or Deny) for each rule.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-network/diagnose-network-traffic-filter-problem",
-    tags: ["NSG", "Effective Rules", "Troubleshooting", "Networking"]
+    tags: ["NSG","Effective Rules","Troubleshooting","Networking"]
   },
   {
     id: "az-104-142",
@@ -346,7 +346,7 @@ export const AZURE_AZ104_QUESTIONS_6 = [
     question: "Which Application Gateway listener type supports routing multiple domain names on a shared frontend IP?",
     options: [
       { id: 'A', text: "TCP listener." },
-      { id: 'B', text: "Multi-site (Multiple sites) listener specifying host names." },
+      { id: 'B', text: "A multi-site listener" },
       { id: 'C', text: "Basic listener." },
       { id: 'D', text: "Path-based routing rule only." }
     ],
@@ -354,7 +354,7 @@ export const AZURE_AZ104_QUESTIONS_6 = [
     type: "single",
     explanation: "Multi-site listeners on Azure Application Gateway allow hosting multiple domain names (e.g. `contoso.com` and `fabrikam.com`) on the same Application Gateway frontend IP and port by matching the HTTP Host header or TLS Server Name Indication (SNI) extension to route traffic to independent backend pools.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/application-gateway/multiple-site-overview",
-    tags: ["Application Gateway", "Multi-Site", "Host Headers", "SNI", "Networking"]
+    tags: ["Application Gateway","Multi-Site","Host Headers","SNI","Networking"]
   },
   {
     id: "az-104-143",
@@ -369,13 +369,13 @@ export const AZURE_AZ104_QUESTIONS_6 = [
       { id: 'A', text: "Azure Basic Load Balancer mesh." },
       { id: 'B', text: "Azure Private Link Service in each VNet." },
       { id: 'C', text: "Full mesh of 4,950 VNet Peering connections." },
-      { id: 'D', text: "Azure Virtual WAN (Standard tier) with secure virtual hubs." }
+      { id: 'D', text: "Azure Virtual WAN with secure virtual hubs" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Azure Virtual WAN (Standard tier) provides a unified, Microsoft-managed global transit network architecture. It brings together networking, security (Azure Firewall integration in Secured Virtual Hubs), VPN, ExpressRoute, and OpenVPN point-to-site connectivity into a single operational interface with automated transit routing.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-wan/virtual-wan-about",
-    tags: ["Virtual WAN", "vWAN", "Hub and Spoke", "Global Transit", "Networking"]
+    tags: ["Virtual WAN","vWAN","Hub and Spoke","Global Transit","Networking"]
   },
   {
     id: "az-104-144",
@@ -396,7 +396,7 @@ export const AZURE_AZ104_QUESTIONS_6 = [
     type: "single",
     explanation: "The **Next Hop** tool in Azure Network Watcher takes a source VM network interface and a destination IP address, and immediately returns the Next Hop Type (e.g. `VirtualAppliance`, `VirtualNetworkGateway`, `Internet`, or `None`) and the specific Route Table ID responsible for routing the packet.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/network-watcher/diagnose-vm-network-routing-problem",
-    tags: ["Network Watcher", "Next Hop", "Routing", "Troubleshooting"]
+    tags: ["Network Watcher","Next Hop","Routing","Troubleshooting"]
   },
   {
     id: "az-104-145",
@@ -417,7 +417,7 @@ export const AZURE_AZ104_QUESTIONS_6 = [
     type: "single",
     explanation: "Azure VPN Gateway Point-to-Site (P2S) supports the **OpenVPN** protocol configured with **Microsoft Entra ID authentication**. Users authenticate through the Azure VPN Client desktop app with Entra single sign-on, allowing administrators to enforce Conditional Access policies and Multi-Factor Authentication (MFA).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/vpn-gateway/openvpn-azure-ad-tenant",
-    tags: ["VPN Gateway", "Point-to-Site", "OpenVPN", "Entra ID", "MFA"]
+    tags: ["VPN Gateway","Point-to-Site","OpenVPN","Entra ID","MFA"]
   },
   {
     id: "az-104-146",
@@ -432,13 +432,13 @@ export const AZURE_AZ104_QUESTIONS_6 = [
       { id: 'A', text: "Disabling all Metric Alert rules manually." },
       { id: 'B', text: "Deleting the Action Group during the maintenance window." },
       { id: 'C', text: "Azure Resource Locks." },
-      { id: 'D', text: "Alert Processing Rules configured with \"Suppress notifications\" during the scheduled time window." }
+      { id: 'D', text: "An alert processing rule suppressing notifications" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Alert Processing Rules in Azure Monitor evaluate fired alerts and can modify their behavior or suppress notifications (preventing emails, SMS, or webhook actions from dispatching) during specific recurring maintenance schedules (e.g. Sundays 01:00–05:00) without disabling the underlying alert rules or clearing alert history.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-processing-rules",
-    tags: ["Azure Monitor", "Alert Processing Rules", "Maintenance", "Alerting"]
+    tags: ["Azure Monitor","Alert Processing Rules","Maintenance","Alerting"]
   },
   {
     id: "az-104-147",
@@ -453,13 +453,13 @@ export const AZURE_AZ104_QUESTIONS_6 = [
       { id: 'A', text: "Azure Resource Lock set to ReadOnly." },
       { id: 'B', text: "Azure Storage Account SAS token." },
       { id: 'C', text: "Soft Delete with 14-day retention." },
-      { id: 'D', text: "Azure Backup Immutable Vault with Immutable Lock enabled." }
+      { id: 'D', text: "An immutable vault with lock" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Azure Backup Immutable Vault prevents any operations that could lead to the loss of recovery points. Once an Immutable Vault is locked, the lock is **irreversible**: no user (including subscription Owners or Microsoft support) can disable immutability or delete backup data before the retention period expires.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/backup/backup-azure-immutable-vault-concept",
-    tags: ["Azure Backup", "Immutable Vault", "WORM", "Ransomware", "Security"]
+    tags: ["Azure Backup","Immutable Vault","WORM","Ransomware","Security"]
   },
   {
     id: "az-104-148",
@@ -471,7 +471,7 @@ export const AZURE_AZ104_QUESTIONS_6 = [
     scenario: "An enterpriseLog Analytics workspace ingests 100 GB of security logs daily. The company needs logs queryable in interactive Log Analytics search for 90 days, but must retain historical raw log data for 7 years (2,555 days) to satisfy financial compliance at minimal cost.",
     question: "How should the administrator configure Log Analytics data retention?",
     options: [
-      { id: 'A', text: "Set Interactive retention to 90 days and set Total retention (Archive) to 2,555 days (7 years)." },
+      { id: 'A', text: "90 days interactive, 2,555 days total" },
       { id: 'B', text: "Export logs to local text files daily." },
       { id: 'C', text: "Deploy an Azure Bastion host." },
       { id: 'D', text: "Set Interactive retention to 2,555 days." }
@@ -480,7 +480,7 @@ export const AZURE_AZ104_QUESTIONS_6 = [
     type: "single",
     explanation: "Azure Log Analytics workspaces support two retention periods: **Interactive retention** (where data is immediately searchable via fast KQL queries, e.g. 90 days) and **Total retention / Archive** (where data beyond interactive retention is moved to low-cost long-term archive storage for up to 12 years).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/logs/data-retention-archive",
-    tags: ["Log Analytics", "Data Retention", "Archive", "Cost Optimization"]
+    tags: ["Log Analytics","Data Retention","Archive","Cost Optimization"]
   },
   {
     id: "az-104-149",
@@ -501,7 +501,7 @@ export const AZURE_AZ104_QUESTIONS_6 = [
     type: "single",
     explanation: "Connection Troubleshoot in Azure Network Watcher tests a direct network connection from a source VM to a destination VM/IP/FQDN on a specific port. It returns hop-by-hop network routing details, latency, and points out the exact failure point (such as an NSG block, routing table blackhole, or VM guest firewall drop).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/network-watcher/network-watcher-connectivity-portal",
-    tags: ["Network Watcher", "Connection Troubleshoot", "Troubleshooting", "Networking"]
+    tags: ["Network Watcher","Connection Troubleshoot","Troubleshooting","Networking"]
   },
   {
     id: "az-104-150",
@@ -522,7 +522,7 @@ export const AZURE_AZ104_QUESTIONS_6 = [
     type: "single",
     explanation: "Application Insights Smart Detection uses proactive machine learning algorithms to automatically monitor telemetry emitted by your web applications, detecting anomalies such as failure rate spikes, memory leaks, slow page loads, and abnormal response duration trends out-of-the-box without requiring manual threshold configuration.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/app/proactive-diagnostics",
-    tags: ["Application Insights", "Smart Detection", "Anomaly Detection", "Monitoring"]
+    tags: ["Application Insights","Smart Detection","Anomaly Detection","Monitoring"]
   }
 ];
 

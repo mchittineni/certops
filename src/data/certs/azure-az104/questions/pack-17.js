@@ -9,8 +9,8 @@ export const AZURE_AZ104_QUESTIONS_17 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The administrator configures Azure Network Security to apply uniform network filtering rules to all database virtual machines across multiple subnets without maintaining complex, error-prone lists of static IP addresses.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Group the database VM network interfaces into an Application Security Group (ASG) and reference the ASG in NSG rules." },
-      { id: 'B', text: "Hardcode the individual private IP addresses of all 50 database VMs in NSG rule definitions." },
+      { id: 'A', text: "Put the database NICs in an ASG and reference it from the NSG rules." },
+      { id: 'B', text: "List the 50 database VM private IP addresses in the NSG rule definition." },
       { id: 'C', text: "Disable Network Security Groups and rely solely on Windows Defender firewall." },
       { id: 'D', text: "Place all database VMs on a public internet-facing subnet." }
     ],
@@ -30,9 +30,9 @@ export const AZURE_AZ104_QUESTIONS_17 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The administrator configures Azure Network Security to apply uniform network filtering rules to all database virtual machines across multiple subnets without maintaining complex, error-prone lists of static IP addresses.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Group the database VM network interfaces into an Application Security Group (ASG) and reference the ASG in NSG rules." },
+      { id: 'A', text: "Put the database NICs in an ASG and reference it from the NSG rules." },
       { id: 'B', text: "Place all database VMs on a public internet-facing subnet." },
-      { id: 'C', text: "Hardcode the individual private IP addresses of all 50 database VMs in NSG rule definitions." },
+      { id: 'C', text: "List the 50 database VM private IP addresses in the NSG rule definition." },
       { id: 'D', text: "Disable Network Security Groups and rely solely on Windows Defender firewall." }
     ],
     correctAnswers: ['A'],
@@ -51,8 +51,8 @@ export const AZURE_AZ104_QUESTIONS_17 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The administrator configures Azure Network Security to apply uniform network filtering rules to all database virtual machines across multiple subnets without maintaining complex, error-prone lists of static IP addresses.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Group the database VM network interfaces into an Application Security Group (ASG) and reference the ASG in NSG rules." },
-      { id: 'B', text: "Hardcode the individual private IP addresses of all 50 database VMs in NSG rule definitions." },
+      { id: 'A', text: "Put the database NICs in an ASG and reference it from the NSG rules." },
+      { id: 'B', text: "List the 50 database VM private IP addresses in the NSG rule definition." },
       { id: 'C', text: "Disable Network Security Groups and rely solely on Windows Defender firewall." },
       { id: 'D', text: "Place all database VMs on a public internet-facing subnet." }
     ],
@@ -74,8 +74,8 @@ export const AZURE_AZ104_QUESTIONS_17 = [
     options: [
       { id: 'A', text: "Disable Network Security Groups and rely solely on Windows Defender firewall." },
       { id: 'B', text: "Place all database VMs on a public internet-facing subnet." },
-      { id: 'C', text: "Hardcode the individual private IP addresses of all 50 database VMs in NSG rule definitions." },
-      { id: 'D', text: "Group the database VM network interfaces into an Application Security Group (ASG) and reference the ASG in NSG rules." }
+      { id: 'C', text: "List the 50 database VM private IP addresses in the NSG rule definition." },
+      { id: 'D', text: "Put the database NICs in an ASG and reference it from the NSG rules." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -93,9 +93,9 @@ export const AZURE_AZ104_QUESTIONS_17 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The administrator configures Azure Network Security to apply uniform network filtering rules to all database virtual machines across multiple subnets without maintaining complex, error-prone lists of static IP addresses.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Group the database VM network interfaces into an Application Security Group (ASG) and reference the ASG in NSG rules." },
+      { id: 'A', text: "Put the database NICs in an ASG and reference it from the NSG rules." },
       { id: 'B', text: "Place all database VMs on a public internet-facing subnet." },
-      { id: 'C', text: "Hardcode the individual private IP addresses of all 50 database VMs in NSG rule definitions." },
+      { id: 'C', text: "List the 50 database VM private IP addresses in the NSG rule definition." },
       { id: 'D', text: "Disable Network Security Groups and rely solely on Windows Defender firewall." }
     ],
     correctAnswers: ['A'],

@@ -9,7 +9,7 @@ export const AZURE_AZ104_QUESTIONS_11 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The administrator configures Microsoft Entra ID to automatically manage security group membership based on department and job title attributes without manual administrative intervention.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Configure dynamic user membership rules using syntax like user.department -eq 'Finance' and user.jobTitle -match 'Analyst'." },
+      { id: 'A', text: "Dynamic user membership rules on the department and job title attributes" },
       { id: 'B', text: "Manually add each user account individually to assigned static security groups." },
       { id: 'C', text: "Use Azure Policy definitions to insert users into Microsoft 365 groups." },
       { id: 'D', text: "Deploy on-premises LDAP synchronization without Entra ID P1 licensing." }
@@ -30,7 +30,7 @@ export const AZURE_AZ104_QUESTIONS_11 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The administrator configures Microsoft Entra ID to automatically manage security group membership based on department and job title attributes without manual administrative intervention.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Configure dynamic user membership rules using syntax like user.department -eq 'Finance' and user.jobTitle -match 'Analyst'." },
+      { id: 'A', text: "Dynamic user membership rules on the department and job title attributes" },
       { id: 'B', text: "Manually add each user account individually to assigned static security groups." },
       { id: 'C', text: "Deploy on-premises LDAP synchronization without Entra ID P1 licensing." },
       { id: 'D', text: "Use Azure Policy definitions to insert users into Microsoft 365 groups." }
@@ -51,7 +51,7 @@ export const AZURE_AZ104_QUESTIONS_11 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The administrator configures Microsoft Entra ID to automatically manage security group membership based on department and job title attributes without manual administrative intervention.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Configure dynamic user membership rules using syntax like user.department -eq 'Finance' and user.jobTitle -match 'Analyst'." },
+      { id: 'A', text: "Dynamic user membership rules on the department and job title attributes" },
       { id: 'B', text: "Deploy on-premises LDAP synchronization without Entra ID P1 licensing." },
       { id: 'C', text: "Manually add each user account individually to assigned static security groups." },
       { id: 'D', text: "Use Azure Policy definitions to insert users into Microsoft 365 groups." }
@@ -74,7 +74,7 @@ export const AZURE_AZ104_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Manually add each user account individually to assigned static security groups." },
       { id: 'B', text: "Use Azure Policy definitions to insert users into Microsoft 365 groups." },
-      { id: 'C', text: "Configure dynamic user membership rules using syntax like user.department -eq 'Finance' and user.jobTitle -match 'Analyst'." },
+      { id: 'C', text: "Dynamic user membership rules on the department and job title attributes" },
       { id: 'D', text: "Deploy on-premises LDAP synchronization without Entra ID P1 licensing." }
     ],
     correctAnswers: ['C'],
@@ -93,7 +93,7 @@ export const AZURE_AZ104_QUESTIONS_11 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The administrator configures Microsoft Entra ID to automatically manage security group membership based on department and job title attributes without manual administrative intervention.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Configure dynamic user membership rules using syntax like user.department -eq 'Finance' and user.jobTitle -match 'Analyst'." },
+      { id: 'A', text: "Dynamic user membership rules on the department and job title attributes" },
       { id: 'B', text: "Deploy on-premises LDAP synchronization without Entra ID P1 licensing." },
       { id: 'C', text: "Use Azure Policy definitions to insert users into Microsoft 365 groups." },
       { id: 'D', text: "Manually add each user account individually to assigned static security groups." }
@@ -219,7 +219,7 @@ export const AZURE_AZ104_QUESTIONS_11 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The administrator configures Microsoft Entra External ID to collaborate securely with external auditing partners by granting them access to internal Azure resources using their own corporate email credentials.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Invite external auditors as Microsoft Entra B2B guest users and assign required RBAC permissions to their guest accounts." },
+      { id: 'A', text: "Invite the auditors as B2B guests and assign RBAC to those accounts." },
       { id: 'B', text: "Share tenant global administrator credentials with external third-party partner organizations." },
       { id: 'C', text: "Create new internal cloud user accounts with corporate domain email addresses for all external personnel." },
       { id: 'D', text: "Disable multi-factor authentication requirements for external partner email domains." }
@@ -242,7 +242,7 @@ export const AZURE_AZ104_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Disable multi-factor authentication requirements for external partner email domains." },
       { id: 'B', text: "Share tenant global administrator credentials with external third-party partner organizations." },
-      { id: 'C', text: "Invite external auditors as Microsoft Entra B2B guest users and assign required RBAC permissions to their guest accounts." },
+      { id: 'C', text: "Invite the auditors as B2B guests and assign RBAC to those accounts." },
       { id: 'D', text: "Create new internal cloud user accounts with corporate domain email addresses for all external personnel." }
     ],
     correctAnswers: ['C'],
@@ -262,7 +262,7 @@ export const AZURE_AZ104_QUESTIONS_11 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Create new internal cloud user accounts with corporate domain email addresses for all external personnel." },
-      { id: 'B', text: "Invite external auditors as Microsoft Entra B2B guest users and assign required RBAC permissions to their guest accounts." },
+      { id: 'B', text: "Invite the auditors as B2B guests and assign RBAC to those accounts." },
       { id: 'C', text: "Disable multi-factor authentication requirements for external partner email domains." },
       { id: 'D', text: "Share tenant global administrator credentials with external third-party partner organizations." }
     ],
@@ -283,7 +283,7 @@ export const AZURE_AZ104_QUESTIONS_11 = [
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Share tenant global administrator credentials with external third-party partner organizations." },
-      { id: 'B', text: "Invite external auditors as Microsoft Entra B2B guest users and assign required RBAC permissions to their guest accounts." },
+      { id: 'B', text: "Invite the auditors as B2B guests and assign RBAC to those accounts." },
       { id: 'C', text: "Create new internal cloud user accounts with corporate domain email addresses for all external personnel." },
       { id: 'D', text: "Disable multi-factor authentication requirements for external partner email domains." }
     ],
@@ -303,7 +303,7 @@ export const AZURE_AZ104_QUESTIONS_11 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The administrator configures Microsoft Entra External ID to collaborate securely with external auditing partners by granting them access to internal Azure resources using their own corporate email credentials.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Invite external auditors as Microsoft Entra B2B guest users and assign required RBAC permissions to their guest accounts." },
+      { id: 'A', text: "Invite the auditors as B2B guests and assign RBAC to those accounts." },
       { id: 'B', text: "Share tenant global administrator credentials with external third-party partner organizations." },
       { id: 'C', text: "Create new internal cloud user accounts with corporate domain email addresses for all external personnel." },
       { id: 'D', text: "Disable multi-factor authentication requirements for external partner email domains." }
@@ -324,7 +324,7 @@ export const AZURE_AZ104_QUESTIONS_11 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The administrator configures Microsoft Entra ID to delegate user and group management for regional branch offices to local IT administrators without granting full tenant-wide administrative privileges.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Create Microsoft Entra Administrative Units (AUs) scoped to regional users and assign scoped User Administrator roles to local staff." },
+      { id: 'A', text: "Administrative units scoped to regional users, with scoped admin roles." },
       { id: 'B', text: "Create separate independent Entra ID tenants for each physical regional branch office." },
       { id: 'C', text: "Assign the global User Administrator directory role to regional branch office managers." },
       { id: 'D', text: "Manage regional user accounts through shared spreadsheets without directory roles." }
@@ -345,7 +345,7 @@ export const AZURE_AZ104_QUESTIONS_11 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The administrator configures Microsoft Entra ID to delegate user and group management for regional branch offices to local IT administrators without granting full tenant-wide administrative privileges.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Create Microsoft Entra Administrative Units (AUs) scoped to regional users and assign scoped User Administrator roles to local staff." },
+      { id: 'A', text: "Administrative units scoped to regional users, with scoped admin roles." },
       { id: 'B', text: "Create separate independent Entra ID tenants for each physical regional branch office." },
       { id: 'C', text: "Assign the global User Administrator directory role to regional branch office managers." },
       { id: 'D', text: "Manage regional user accounts through shared spreadsheets without directory roles." }
@@ -369,7 +369,7 @@ export const AZURE_AZ104_QUESTIONS_11 = [
       { id: 'A', text: "Assign the global User Administrator directory role to regional branch office managers." },
       { id: 'B', text: "Manage regional user accounts through shared spreadsheets without directory roles." },
       { id: 'C', text: "Create separate independent Entra ID tenants for each physical regional branch office." },
-      { id: 'D', text: "Create Microsoft Entra Administrative Units (AUs) scoped to regional users and assign scoped User Administrator roles to local staff." }
+      { id: 'D', text: "Administrative units scoped to regional users, with scoped admin roles." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -388,7 +388,7 @@ export const AZURE_AZ104_QUESTIONS_11 = [
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Create separate independent Entra ID tenants for each physical regional branch office." },
-      { id: 'B', text: "Create Microsoft Entra Administrative Units (AUs) scoped to regional users and assign scoped User Administrator roles to local staff." },
+      { id: 'B', text: "Administrative units scoped to regional users, with scoped admin roles." },
       { id: 'C', text: "Manage regional user accounts through shared spreadsheets without directory roles." },
       { id: 'D', text: "Assign the global User Administrator directory role to regional branch office managers." }
     ],
@@ -411,7 +411,7 @@ export const AZURE_AZ104_QUESTIONS_11 = [
       { id: 'A', text: "Create separate independent Entra ID tenants for each physical regional branch office." },
       { id: 'B', text: "Assign the global User Administrator directory role to regional branch office managers." },
       { id: 'C', text: "Manage regional user accounts through shared spreadsheets without directory roles." },
-      { id: 'D', text: "Create Microsoft Entra Administrative Units (AUs) scoped to regional users and assign scoped User Administrator roles to local staff." }
+      { id: 'D', text: "Administrative units scoped to regional users, with scoped admin roles." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -431,7 +431,7 @@ export const AZURE_AZ104_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Use Windows local Group Policy Objects (GPOs) to control Azure Resource Manager API calls." },
       { id: 'B', text: "Assign the built-in Contributor role at the subscription root scope." },
-      { id: 'C', text: "Create a custom Azure RBAC role definition with specific actions and assign it to the engineering security group." },
+      { id: 'C', text: "A custom Azure RBAC role definition assigned to the engineering group." },
       { id: 'D', text: "Grant all engineers the Owner role at the virtual machine resource level." }
     ],
     correctAnswers: ['C'],
@@ -450,7 +450,7 @@ export const AZURE_AZ104_QUESTIONS_11 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The administrator configures Azure RBAC to create a specialized administrative role that allows restarting virtual machines and reading storage keys, but strictly prevents modifying virtual networks.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Create a custom Azure RBAC role definition with specific actions and assign it to the engineering security group." },
+      { id: 'A', text: "A custom Azure RBAC role definition assigned to the engineering group." },
       { id: 'B', text: "Use Windows local Group Policy Objects (GPOs) to control Azure Resource Manager API calls." },
       { id: 'C', text: "Grant all engineers the Owner role at the virtual machine resource level." },
       { id: 'D', text: "Assign the built-in Contributor role at the subscription root scope." }
@@ -473,7 +473,7 @@ export const AZURE_AZ104_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Assign the built-in Contributor role at the subscription root scope." },
       { id: 'B', text: "Grant all engineers the Owner role at the virtual machine resource level." },
-      { id: 'C', text: "Create a custom Azure RBAC role definition with specific actions and assign it to the engineering security group." },
+      { id: 'C', text: "A custom Azure RBAC role definition assigned to the engineering group." },
       { id: 'D', text: "Use Windows local Group Policy Objects (GPOs) to control Azure Resource Manager API calls." }
     ],
     correctAnswers: ['C'],
@@ -494,7 +494,7 @@ export const AZURE_AZ104_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Assign the built-in Contributor role at the subscription root scope." },
       { id: 'B', text: "Use Windows local Group Policy Objects (GPOs) to control Azure Resource Manager API calls." },
-      { id: 'C', text: "Create a custom Azure RBAC role definition with specific actions and assign it to the engineering security group." },
+      { id: 'C', text: "A custom Azure RBAC role definition assigned to the engineering group." },
       { id: 'D', text: "Grant all engineers the Owner role at the virtual machine resource level." }
     ],
     correctAnswers: ['C'],
@@ -516,7 +516,7 @@ export const AZURE_AZ104_QUESTIONS_11 = [
       { id: 'A', text: "Grant all engineers the Owner role at the virtual machine resource level." },
       { id: 'B', text: "Use Windows local Group Policy Objects (GPOs) to control Azure Resource Manager API calls." },
       { id: 'C', text: "Assign the built-in Contributor role at the subscription root scope." },
-      { id: 'D', text: "Create a custom Azure RBAC role definition with specific actions and assign it to the engineering security group." }
+      { id: 'D', text: "A custom Azure RBAC role definition assigned to the engineering group." }
     ],
     correctAnswers: ['D'],
     type: "single",

@@ -11,7 +11,7 @@ export const AZURE_AZ104_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Store disk encryption keys in an unencrypted Azure Storage blob container." },
       { id: 'B', text: "Enable BitLocker inside the guest OS without Key Vault integration." },
-      { id: 'C', text: "Enable Server-Side Encryption (SSE) with Customer-Managed Keys (CMK) using an Azure Key Vault key." },
+      { id: 'C', text: "Server-side encryption with a customer-managed Key Vault key." },
       { id: 'D', text: "Rely on unencrypted managed disks and encrypt files individually using ZIP passwords." }
     ],
     correctAnswers: ['C'],
@@ -32,7 +32,7 @@ export const AZURE_AZ104_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Enable BitLocker inside the guest OS without Key Vault integration." },
       { id: 'B', text: "Store disk encryption keys in an unencrypted Azure Storage blob container." },
-      { id: 'C', text: "Enable Server-Side Encryption (SSE) with Customer-Managed Keys (CMK) using an Azure Key Vault key." },
+      { id: 'C', text: "Server-side encryption with a customer-managed Key Vault key." },
       { id: 'D', text: "Rely on unencrypted managed disks and encrypt files individually using ZIP passwords." }
     ],
     correctAnswers: ['C'],
@@ -52,7 +52,7 @@ export const AZURE_AZ104_QUESTIONS_15 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Rely on unencrypted managed disks and encrypt files individually using ZIP passwords." },
-      { id: 'B', text: "Enable Server-Side Encryption (SSE) with Customer-Managed Keys (CMK) using an Azure Key Vault key." },
+      { id: 'B', text: "Server-side encryption with a customer-managed Key Vault key." },
       { id: 'C', text: "Store disk encryption keys in an unencrypted Azure Storage blob container." },
       { id: 'D', text: "Enable BitLocker inside the guest OS without Key Vault integration." }
     ],
@@ -73,7 +73,7 @@ export const AZURE_AZ104_QUESTIONS_15 = [
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Enable BitLocker inside the guest OS without Key Vault integration." },
-      { id: 'B', text: "Enable Server-Side Encryption (SSE) with Customer-Managed Keys (CMK) using an Azure Key Vault key." },
+      { id: 'B', text: "Server-side encryption with a customer-managed Key Vault key." },
       { id: 'C', text: "Store disk encryption keys in an unencrypted Azure Storage blob container." },
       { id: 'D', text: "Rely on unencrypted managed disks and encrypt files individually using ZIP passwords." }
     ],
@@ -93,7 +93,7 @@ export const AZURE_AZ104_QUESTIONS_15 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The administrator configures Azure VM Security to encrypt Azure VM managed OS and data disks at rest using cryptographic keys stored and managed in Azure Key Vault without requiring OS-level BitLocker configuration.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Enable Server-Side Encryption (SSE) with Customer-Managed Keys (CMK) using an Azure Key Vault key." },
+      { id: 'A', text: "Server-side encryption with a customer-managed Key Vault key." },
       { id: 'B', text: "Enable BitLocker inside the guest OS without Key Vault integration." },
       { id: 'C', text: "Store disk encryption keys in an unencrypted Azure Storage blob container." },
       { id: 'D', text: "Rely on unencrypted managed disks and encrypt files individually using ZIP passwords." }
@@ -116,8 +116,8 @@ export const AZURE_AZ104_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Reinstall the operating system from a blank ISO image." },
       { id: 'B', text: "Submit an on-premises physical data center ticket to reboot the server room switch." },
-      { id: 'C', text: "Execute the remediation script using the Azure VM Run Command feature through the Azure portal or CLI." },
-      { id: 'D', text: "Open port 3389 publicly on the network security group without authentication." }
+      { id: 'C', text: "Execute the script through the Azure VM Run Command feature." },
+      { id: 'D', text: "Publish RDP through a public load balancer NAT rule." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -135,9 +135,9 @@ export const AZURE_AZ104_QUESTIONS_15 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The administrator configures Azure VM Management to execute an administrative PowerShell script inside a Windows virtual machine to remediate a network configuration failure when RDP connectivity is completely blocked.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Open port 3389 publicly on the network security group without authentication." },
+      { id: 'A', text: "Publish RDP through a public load balancer NAT rule." },
       { id: 'B', text: "Submit an on-premises physical data center ticket to reboot the server room switch." },
-      { id: 'C', text: "Execute the remediation script using the Azure VM Run Command feature through the Azure portal or CLI." },
+      { id: 'C', text: "Execute the script through the Azure VM Run Command feature." },
       { id: 'D', text: "Reinstall the operating system from a blank ISO image." }
     ],
     correctAnswers: ['C'],
@@ -156,8 +156,8 @@ export const AZURE_AZ104_QUESTIONS_15 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The administrator configures Azure VM Management to execute an administrative PowerShell script inside a Windows virtual machine to remediate a network configuration failure when RDP connectivity is completely blocked.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Execute the remediation script using the Azure VM Run Command feature through the Azure portal or CLI." },
-      { id: 'B', text: "Open port 3389 publicly on the network security group without authentication." },
+      { id: 'A', text: "Execute the script through the Azure VM Run Command feature." },
+      { id: 'B', text: "Publish RDP through a public load balancer NAT rule." },
       { id: 'C', text: "Submit an on-premises physical data center ticket to reboot the server room switch." },
       { id: 'D', text: "Reinstall the operating system from a blank ISO image." }
     ],
@@ -177,8 +177,8 @@ export const AZURE_AZ104_QUESTIONS_15 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Microsoft Azure. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The administrator configures Azure VM Management to execute an administrative PowerShell script inside a Windows virtual machine to remediate a network configuration failure when RDP connectivity is completely blocked.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Execute the remediation script using the Azure VM Run Command feature through the Azure portal or CLI." },
-      { id: 'B', text: "Open port 3389 publicly on the network security group without authentication." },
+      { id: 'A', text: "Execute the script through the Azure VM Run Command feature." },
+      { id: 'B', text: "Publish RDP through a public load balancer NAT rule." },
       { id: 'C', text: "Reinstall the operating system from a blank ISO image." },
       { id: 'D', text: "Submit an on-premises physical data center ticket to reboot the server room switch." }
     ],
@@ -199,8 +199,8 @@ export const AZURE_AZ104_QUESTIONS_15 = [
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Reinstall the operating system from a blank ISO image." },
-      { id: 'B', text: "Execute the remediation script using the Azure VM Run Command feature through the Azure portal or CLI." },
-      { id: 'C', text: "Open port 3389 publicly on the network security group without authentication." },
+      { id: 'B', text: "Execute the script through the Azure VM Run Command feature." },
+      { id: 'C', text: "Publish RDP through a public load balancer NAT rule." },
       { id: 'D', text: "Submit an on-premises physical data center ticket to reboot the server room switch." }
     ],
     correctAnswers: ['B'],
@@ -326,7 +326,7 @@ export const AZURE_AZ104_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Manually change the scale set capacity slider in the Azure portal twice daily." },
       { id: 'B', text: "Write a cron job inside a single VM instance to reboot the other scale set members." },
-      { id: 'C', text: "Configure metric-based autoscale scale-out and scale-in rules with cool-down periods in the VMSS." },
+      { id: 'C', text: "Metric autoscale rules with cool-down periods on the scale set." },
       { id: 'D', text: "Deploy an Azure Application Gateway with static backend pool memberships." }
     ],
     correctAnswers: ['C'],
@@ -346,7 +346,7 @@ export const AZURE_AZ104_QUESTIONS_15 = [
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Manually change the scale set capacity slider in the Azure portal twice daily." },
-      { id: 'B', text: "Configure metric-based autoscale scale-out and scale-in rules with cool-down periods in the VMSS." },
+      { id: 'B', text: "Metric autoscale rules with cool-down periods on the scale set." },
       { id: 'C', text: "Write a cron job inside a single VM instance to reboot the other scale set members." },
       { id: 'D', text: "Deploy an Azure Application Gateway with static backend pool memberships." }
     ],
@@ -366,7 +366,7 @@ export const AZURE_AZ104_QUESTIONS_15 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The administrator configures Azure Compute Scaling to automatically increase the number of VM instances in a scale set by 2 when average CPU utilization exceeds 75% for 10 minutes, and decrease by 1 when CPU falls below 25%.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Configure metric-based autoscale scale-out and scale-in rules with cool-down periods in the VMSS." },
+      { id: 'A', text: "Metric autoscale rules with cool-down periods on the scale set." },
       { id: 'B', text: "Manually change the scale set capacity slider in the Azure portal twice daily." },
       { id: 'C', text: "Write a cron job inside a single VM instance to reboot the other scale set members." },
       { id: 'D', text: "Deploy an Azure Application Gateway with static backend pool memberships." }
@@ -389,7 +389,7 @@ export const AZURE_AZ104_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Write a cron job inside a single VM instance to reboot the other scale set members." },
       { id: 'B', text: "Deploy an Azure Application Gateway with static backend pool memberships." },
-      { id: 'C', text: "Configure metric-based autoscale scale-out and scale-in rules with cool-down periods in the VMSS." },
+      { id: 'C', text: "Metric autoscale rules with cool-down periods on the scale set." },
       { id: 'D', text: "Manually change the scale set capacity slider in the Azure portal twice daily." }
     ],
     correctAnswers: ['C'],
@@ -408,7 +408,7 @@ export const AZURE_AZ104_QUESTIONS_15 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The administrator configures Azure Compute Scaling to automatically increase the number of VM instances in a scale set by 2 when average CPU utilization exceeds 75% for 10 minutes, and decrease by 1 when CPU falls below 25%.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Configure metric-based autoscale scale-out and scale-in rules with cool-down periods in the VMSS." },
+      { id: 'A', text: "Metric autoscale rules with cool-down periods on the scale set." },
       { id: 'B', text: "Manually change the scale set capacity slider in the Azure portal twice daily." },
       { id: 'C', text: "Deploy an Azure Application Gateway with static backend pool memberships." },
       { id: 'D', text: "Write a cron job inside a single VM instance to reboot the other scale set members." }
@@ -430,7 +430,7 @@ export const AZURE_AZ104_QUESTIONS_15 = [
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Deploy the new code directly to the live production App Service without staging validation." },
-      { id: 'B', text: "Deploy the new code to an App Service deployment slot and configure testing-in-production traffic routing." },
+      { id: 'B', text: "Deploy to an App Service slot and route some production traffic to it." },
       { id: 'C', text: "Create a separate independent App Service Plan and redirect DNS records manually." },
       { id: 'D', text: "Deploy the application as a standalone Windows Service on an Azure VM." }
     ],
@@ -453,7 +453,7 @@ export const AZURE_AZ104_QUESTIONS_15 = [
       { id: 'A', text: "Create a separate independent App Service Plan and redirect DNS records manually." },
       { id: 'B', text: "Deploy the new code directly to the live production App Service without staging validation." },
       { id: 'C', text: "Deploy the application as a standalone Windows Service on an Azure VM." },
-      { id: 'D', text: "Deploy the new code to an App Service deployment slot and configure testing-in-production traffic routing." }
+      { id: 'D', text: "Deploy to an App Service slot and route some production traffic to it." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -474,7 +474,7 @@ export const AZURE_AZ104_QUESTIONS_15 = [
       { id: 'A', text: "Deploy the new code directly to the live production App Service without staging validation." },
       { id: 'B', text: "Deploy the application as a standalone Windows Service on an Azure VM." },
       { id: 'C', text: "Create a separate independent App Service Plan and redirect DNS records manually." },
-      { id: 'D', text: "Deploy the new code to an App Service deployment slot and configure testing-in-production traffic routing." }
+      { id: 'D', text: "Deploy to an App Service slot and route some production traffic to it." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -495,7 +495,7 @@ export const AZURE_AZ104_QUESTIONS_15 = [
       { id: 'A', text: "Deploy the application as a standalone Windows Service on an Azure VM." },
       { id: 'B', text: "Create a separate independent App Service Plan and redirect DNS records manually." },
       { id: 'C', text: "Deploy the new code directly to the live production App Service without staging validation." },
-      { id: 'D', text: "Deploy the new code to an App Service deployment slot and configure testing-in-production traffic routing." }
+      { id: 'D', text: "Deploy to an App Service slot and route some production traffic to it." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -514,7 +514,7 @@ export const AZURE_AZ104_QUESTIONS_15 = [
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Deploy the new code directly to the live production App Service without staging validation." },
-      { id: 'B', text: "Deploy the new code to an App Service deployment slot and configure testing-in-production traffic routing." },
+      { id: 'B', text: "Deploy to an App Service slot and route some production traffic to it." },
       { id: 'C', text: "Deploy the application as a standalone Windows Service on an Azure VM." },
       { id: 'D', text: "Create a separate independent App Service Plan and redirect DNS records manually." }
     ],
