@@ -49,6 +49,7 @@ if (!rows.length) {
 const weighted = k => rows.reduce((s, r) => s + r[k] * r.n, 0) / rows.reduce((s, r) => s + r.n, 0);
 const flag = (v, t) => (v > t ? '!' : ' ');
 const floorFlag = (v, t) => (v !== null && v < t ? '!' : ' ');
+const signed = v => (v >= 0 ? '+' : '') + v.toFixed(0);
 
 rows.sort((a, b) => b.longest + b.strawman + b.leak - (a.longest + a.strawman + a.leak));
 
@@ -62,7 +63,7 @@ for (const r of rows) {
     `${(r.shortest === null ? '-' : r.shortest.toFixed(1)).padStart(7)}${floorFlag(r.shortest, THRESHOLDS.shortest)}  ` +
     `${r.strawman.toFixed(1).padStart(6)}${flag(r.strawman, THRESHOLDS.strawman)}  ` +
     `${r.leak.toFixed(1).padStart(6)}${flag(r.leak, THRESHOLDS.leak)}  ` +
-    `${('+' + r.delta.toFixed(0)).padStart(6)}${flag(r.delta, THRESHOLDS.delta)}`
+    `${signed(r.delta).padStart(6)}${flag(r.delta, THRESHOLDS.delta)}`
   );
 }
 
@@ -75,7 +76,7 @@ console.log(
   `  ${'CORPUS'.padEnd(20)} ${String(rows.reduce((s, r) => s + r.n, 0)).padStart(4)}   ` +
   `${totals.longest.toFixed(1).padStart(6)}   ${totals.shortest.toFixed(1).padStart(7)}   ` +
   `${totals.strawman.toFixed(1).padStart(6)}   ` +
-  `${totals.leak.toFixed(1).padStart(6)}   ${('+' + totals.delta.toFixed(0)).padStart(6)}`
+  `${totals.leak.toFixed(1).padStart(6)}   ${signed(totals.delta).padStart(6)}`
 );
 
 console.log(

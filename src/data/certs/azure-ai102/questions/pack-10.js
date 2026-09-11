@@ -9,7 +9,7 @@ export const AZURE_AI102_QUESTIONS_10 = [
     scenario: "A quantitative trading desk requires microsecond secrets delivery, zero packet loss, and deterministic authentication guarantees. The AI team is stripping identifiers out of stored customer transcripts before analysts see them. The work is scoped to a newly built secondary environment.",
     question: "Which Azure AI approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Use Azure AI Language PII detection to identify, mask, and redact sensitive personal entities (SSN, credit cards, email) in customer transcripts." },
+      { id: 'A', text: "Use Azure AI Language PII detection to mask sensitive entities in transcripts." },
       { id: 'B', text: "Use the named entity recognition feature in Azure AI Language to find person, organisation, and location entities and remove those spans." },
       { id: 'C', text: "Use Microsoft Purview sensitive information types to classify the stored transcripts and then apply the matching sensitivity label to every one of them." },
       { id: 'D', text: "Use the key phrase extraction feature in Azure AI Language for detection of the significant terms, stripping them out before storage." }
@@ -31,7 +31,7 @@ export const AZURE_AI102_QUESTIONS_10 = [
     question: "Which Azure AI approach best meets these requirements?",
     options: [
       { id: 'A', text: "Use Azure AI Document Intelligence's prebuilt-read model so that the extracted text arrives together with page, paragraph, and reading order structure." },
-      { id: 'B', text: "Use the Azure AI Vision Image Analysis 4.0 Read API to extract printed and handwritten text with bounding polygons and line-level confidence scores." },
+      { id: 'B', text: "Use the Azure AI Vision Read API for printed and handwritten text." },
       { id: 'C', text: "Use the Azure AI Vision Image Analysis caption and dense captions features to describe the printed and handwritten content of each page." },
       { id: 'D', text: "Use Azure AI Translator's document translation endpoint to process the image files and return the text content it recovers." }
     ],
@@ -93,7 +93,7 @@ export const AZURE_AI102_QUESTIONS_10 = [
     scenario: "An enterprise cloud SaaS architecture mandates strict logical tenant isolation, data masking, and per-tenant resource quotas. The AI team is stripping identifiers out of stored customer transcripts before analysts see them. The work is scoped to a newly built secondary environment.",
     question: "Which Azure AI approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Use Azure AI Language PII detection to identify, mask, and redact sensitive personal entities (SSN, credit cards, email) in customer transcripts." },
+      { id: 'A', text: "Use Azure AI Language PII detection to mask sensitive entities in transcripts." },
       { id: 'B', text: "Use the named entity recognition feature in Azure AI Language to find person, organisation, and location entities and remove those spans." },
       { id: 'C', text: "Use Microsoft Purview sensitive information types to classify the stored transcripts and then apply the matching sensitivity label to every one of them." },
       { id: 'D', text: "Use the key phrase extraction feature in Azure AI Language for detection of the significant terms, stripping them out before storage." }
@@ -115,7 +115,7 @@ export const AZURE_AI102_QUESTIONS_10 = [
     question: "Which Azure AI approach best meets these requirements?",
     options: [
       { id: 'A', text: "Use Azure AI Document Intelligence's prebuilt-read model so that the extracted text arrives together with page, paragraph, and reading order structure." },
-      { id: 'B', text: "Use the Azure AI Vision Image Analysis 4.0 Read API to extract printed and handwritten text with bounding polygons and line-level confidence scores." },
+      { id: 'B', text: "Use the Azure AI Vision Read API for printed and handwritten text." },
       { id: 'C', text: "Use the Azure AI Vision Image Analysis caption and dense captions features to describe the printed and handwritten content of each page." },
       { id: 'D', text: "Use Azure AI Translator's document translation endpoint to process the image files and return the text content it recovers." }
     ],
@@ -177,7 +177,7 @@ export const AZURE_AI102_QUESTIONS_10 = [
     scenario: "A smart electrical grid platform monitors millions of smart meters with low-latency time-series analysis and automated load shedding. The AI team is stripping identifiers out of stored customer transcripts before analysts see them. The work is scoped to a newly built secondary environment.",
     question: "Which Azure AI approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Use Azure AI Language PII detection to identify, mask, and redact sensitive personal entities (SSN, credit cards, email) in customer transcripts." },
+      { id: 'A', text: "Use Azure AI Language PII detection to mask sensitive entities in transcripts." },
       { id: 'B', text: "Use the named entity recognition feature in Azure AI Language to find person, organisation, and location entities and remove those spans." },
       { id: 'C', text: "Use Microsoft Purview sensitive information types to classify the stored transcripts and then apply the matching sensitivity label to every one of them." },
       { id: 'D', text: "Use the key phrase extraction feature in Azure AI Language for detection of the significant terms, stripping them out before storage." }
@@ -199,7 +199,7 @@ export const AZURE_AI102_QUESTIONS_10 = [
     question: "Which Azure AI approach best meets these requirements?",
     options: [
       { id: 'A', text: "Use Azure AI Document Intelligence's prebuilt-read model so that the extracted text arrives together with page, paragraph, and reading order structure." },
-      { id: 'B', text: "Use the Azure AI Vision Image Analysis 4.0 Read API to extract printed and handwritten text with bounding polygons and line-level confidence scores." },
+      { id: 'B', text: "Use the Azure AI Vision Read API for printed and handwritten text." },
       { id: 'C', text: "Use the Azure AI Vision Image Analysis caption and dense captions features to describe the printed and handwritten content of each page." },
       { id: 'D', text: "Use Azure AI Translator's document translation endpoint to process the image files and return the text content it recovers." }
     ],
@@ -261,7 +261,7 @@ export const AZURE_AI102_QUESTIONS_10 = [
     scenario: "A defense intelligence system enforces continuous mutual TLS authentication, strict least privilege, and non-repudiation. The AI team is stripping identifiers out of stored customer transcripts before analysts see them. The work is scoped to a newly built secondary environment.",
     question: "Which Azure AI approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Use Azure AI Language PII detection to identify, mask, and redact sensitive personal entities (SSN, credit cards, email) in customer transcripts." },
+      { id: 'A', text: "Use Azure AI Language PII detection to mask sensitive entities in transcripts." },
       { id: 'B', text: "Use the named entity recognition feature in Azure AI Language to find person, organisation, and location entities and remove those spans." },
       { id: 'C', text: "Use Microsoft Purview sensitive information types to classify the stored transcripts and then apply the matching sensitivity label to every one of them." },
       { id: 'D', text: "Use the key phrase extraction feature in Azure AI Language for detection of the significant terms, stripping them out before storage." }
@@ -283,7 +283,7 @@ export const AZURE_AI102_QUESTIONS_10 = [
     question: "Which Azure AI approach best meets these requirements?",
     options: [
       { id: 'A', text: "Use Azure AI Document Intelligence's prebuilt-read model so that the extracted text arrives together with page, paragraph, and reading order structure." },
-      { id: 'B', text: "Use the Azure AI Vision Image Analysis 4.0 Read API to extract printed and handwritten text with bounding polygons and line-level confidence scores." },
+      { id: 'B', text: "Use the Azure AI Vision Read API for printed and handwritten text." },
       { id: 'C', text: "Use the Azure AI Vision Image Analysis caption and dense captions features to describe the printed and handwritten content of each page." },
       { id: 'D', text: "Use Azure AI Translator's document translation endpoint to process the image files and return the text content it recovers." }
     ],
@@ -345,7 +345,7 @@ export const AZURE_AI102_QUESTIONS_10 = [
     scenario: "A metropolitan transit authority optimizes urban traffic signals with real-time video analytics and edge inference. The AI team is stripping identifiers out of stored customer transcripts before analysts see them. The work is scoped to a newly built secondary environment.",
     question: "Which Azure AI approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Use Azure AI Language PII detection to identify, mask, and redact sensitive personal entities (SSN, credit cards, email) in customer transcripts." },
+      { id: 'A', text: "Use Azure AI Language PII detection to mask sensitive entities in transcripts." },
       { id: 'B', text: "Use the named entity recognition feature in Azure AI Language to find person, organisation, and location entities and remove those spans." },
       { id: 'C', text: "Use Microsoft Purview sensitive information types to classify the stored transcripts and then apply the matching sensitivity label to every one of them." },
       { id: 'D', text: "Use the key phrase extraction feature in Azure AI Language for detection of the significant terms, stripping them out before storage." }
@@ -367,7 +367,7 @@ export const AZURE_AI102_QUESTIONS_10 = [
     question: "Which Azure AI approach best meets these requirements?",
     options: [
       { id: 'A', text: "Use Azure AI Document Intelligence's prebuilt-read model so that the extracted text arrives together with page, paragraph, and reading order structure." },
-      { id: 'B', text: "Use the Azure AI Vision Image Analysis 4.0 Read API to extract printed and handwritten text with bounding polygons and line-level confidence scores." },
+      { id: 'B', text: "Use the Azure AI Vision Read API for printed and handwritten text." },
       { id: 'C', text: "Use the Azure AI Vision Image Analysis caption and dense captions features to describe the printed and handwritten content of each page." },
       { id: 'D', text: "Use Azure AI Translator's document translation endpoint to process the image files and return the text content it recovers." }
     ],
@@ -429,7 +429,7 @@ export const AZURE_AI102_QUESTIONS_10 = [
     scenario: "An agricultural drone fleet captures multispectral crop imagery with automated computer vision defect classification. The AI team is stripping identifiers out of stored customer transcripts before analysts see them. The work is scoped to a newly built secondary environment.",
     question: "Which Azure AI approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Use Azure AI Language PII detection to identify, mask, and redact sensitive personal entities (SSN, credit cards, email) in customer transcripts." },
+      { id: 'A', text: "Use Azure AI Language PII detection to mask sensitive entities in transcripts." },
       { id: 'B', text: "Use the named entity recognition feature in Azure AI Language to find person, organisation, and location entities and remove those spans." },
       { id: 'C', text: "Use Microsoft Purview sensitive information types to classify the stored transcripts and then apply the matching sensitivity label to every one of them." },
       { id: 'D', text: "Use the key phrase extraction feature in Azure AI Language for detection of the significant terms, stripping them out before storage." }
@@ -451,7 +451,7 @@ export const AZURE_AI102_QUESTIONS_10 = [
     question: "Which Azure AI approach best meets these requirements?",
     options: [
       { id: 'A', text: "Use Azure AI Document Intelligence's prebuilt-read model so that the extracted text arrives together with page, paragraph, and reading order structure." },
-      { id: 'B', text: "Use the Azure AI Vision Image Analysis 4.0 Read API to extract printed and handwritten text with bounding polygons and line-level confidence scores." },
+      { id: 'B', text: "Use the Azure AI Vision Read API for printed and handwritten text." },
       { id: 'C', text: "Use the Azure AI Vision Image Analysis caption and dense captions features to describe the printed and handwritten content of each page." },
       { id: 'D', text: "Use Azure AI Translator's document translation endpoint to process the image files and return the text content it recovers." }
     ],
@@ -513,7 +513,7 @@ export const AZURE_AI102_QUESTIONS_10 = [
     scenario: "A municipal 911 emergency response platform guarantees 99.999% uptime with multi-region hot-standby active failover. The AI team is stripping identifiers out of stored customer transcripts before analysts see them. The work is scoped to a newly built secondary environment.",
     question: "Which Azure AI approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Use Azure AI Language PII detection to identify, mask, and redact sensitive personal entities (SSN, credit cards, email) in customer transcripts." },
+      { id: 'A', text: "Use Azure AI Language PII detection to mask sensitive entities in transcripts." },
       { id: 'B', text: "Use the named entity recognition feature in Azure AI Language to find person, organisation, and location entities and remove those spans." },
       { id: 'C', text: "Use Microsoft Purview sensitive information types to classify the stored transcripts and then apply the matching sensitivity label to every one of them." },
       { id: 'D', text: "Use the key phrase extraction feature in Azure AI Language for detection of the significant terms, stripping them out before storage." }

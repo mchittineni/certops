@@ -9,7 +9,7 @@ export const AZURE_AI102_QUESTIONS_7 = [
     scenario: "A quantitative trading desk requires microsecond secrets delivery, zero packet loss, and deterministic authentication guarantees. The AI team is letting a chat application answer questions from live data held in operational systems. The work is scoped to the staging environment.",
     question: "Which Azure AI approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Define JSON schemas for tools in the model request and execute the returned function arguments in your application to fetch live data." },
+      { id: 'A', text: "Define JSON tool schemas and run the returned function arguments." },
       { id: 'B', text: "Place the current values in the system message on every request so that the model always has fresh data available to answer from." },
       { id: 'C', text: "Ask the model to return a JSON object describing the query it wants and parse that free-text response inside the application." },
       { id: 'D', text: "Use Azure OpenAI 'On Your Data' against an Azure AI Search index that a scheduled indexer refreshes from the live source systems." }
@@ -93,7 +93,7 @@ export const AZURE_AI102_QUESTIONS_7 = [
     scenario: "An enterprise cloud SaaS architecture mandates strict logical tenant isolation, data masking, and per-tenant resource quotas. The AI team is letting a chat application answer questions from live data held in operational systems. The work is scoped to the staging environment.",
     question: "Which Azure AI approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Define JSON schemas for tools in the model request and execute the returned function arguments in your application to fetch live data." },
+      { id: 'A', text: "Define JSON tool schemas and run the returned function arguments." },
       { id: 'B', text: "Place the current values in the system message on every request so that the model always has fresh data available to answer from." },
       { id: 'C', text: "Ask the model to return a JSON object describing the query it wants and parse that free-text response inside the application." },
       { id: 'D', text: "Use Azure OpenAI 'On Your Data' against an Azure AI Search index that a scheduled indexer refreshes from the live source systems." }
@@ -177,7 +177,7 @@ export const AZURE_AI102_QUESTIONS_7 = [
     scenario: "A smart electrical grid platform monitors millions of smart meters with low-latency time-series analysis and automated load shedding. The AI team is letting a chat application answer questions from live data held in operational systems. The work is scoped to the staging environment.",
     question: "Which Azure AI approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Define JSON schemas for tools in the model request and execute the returned function arguments in your application to fetch live data." },
+      { id: 'A', text: "Define JSON tool schemas and run the returned function arguments." },
       { id: 'B', text: "Place the current values in the system message on every request so that the model always has fresh data available to answer from." },
       { id: 'C', text: "Ask the model to return a JSON object describing the query it wants and parse that free-text response inside the application." },
       { id: 'D', text: "Use Azure OpenAI 'On Your Data' against an Azure AI Search index that a scheduled indexer refreshes from the live source systems." }
@@ -261,7 +261,7 @@ export const AZURE_AI102_QUESTIONS_7 = [
     scenario: "A defense intelligence system enforces continuous mutual TLS authentication, strict least privilege, and non-repudiation. The AI team is letting a chat application answer questions from live data held in operational systems. The work is scoped to the staging environment.",
     question: "Which Azure AI approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Define JSON schemas for tools in the model request and execute the returned function arguments in your application to fetch live data." },
+      { id: 'A', text: "Define JSON tool schemas and run the returned function arguments." },
       { id: 'B', text: "Place the current values in the system message on every request so that the model always has fresh data available to answer from." },
       { id: 'C', text: "Ask the model to return a JSON object describing the query it wants and parse that free-text response inside the application." },
       { id: 'D', text: "Use Azure OpenAI 'On Your Data' against an Azure AI Search index that a scheduled indexer refreshes from the live source systems." }
@@ -345,7 +345,7 @@ export const AZURE_AI102_QUESTIONS_7 = [
     scenario: "A metropolitan transit authority optimizes urban traffic signals with real-time video analytics and edge inference. The AI team is letting a chat application answer questions from live data held in operational systems. The work is scoped to the staging environment.",
     question: "Which Azure AI approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Define JSON schemas for tools in the model request and execute the returned function arguments in your application to fetch live data." },
+      { id: 'A', text: "Define JSON tool schemas and run the returned function arguments." },
       { id: 'B', text: "Place the current values in the system message on every request so that the model always has fresh data available to answer from." },
       { id: 'C', text: "Ask the model to return a JSON object describing the query it wants and parse that free-text response inside the application." },
       { id: 'D', text: "Use Azure OpenAI 'On Your Data' against an Azure AI Search index that a scheduled indexer refreshes from the live source systems." }
@@ -429,7 +429,7 @@ export const AZURE_AI102_QUESTIONS_7 = [
     scenario: "An agricultural drone fleet captures multispectral crop imagery with automated computer vision defect classification. The AI team is letting a chat application answer questions from live data held in operational systems. The work is scoped to the staging environment.",
     question: "Which Azure AI approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Define JSON schemas for tools in the model request and execute the returned function arguments in your application to fetch live data." },
+      { id: 'A', text: "Define JSON tool schemas and run the returned function arguments." },
       { id: 'B', text: "Place the current values in the system message on every request so that the model always has fresh data available to answer from." },
       { id: 'C', text: "Ask the model to return a JSON object describing the query it wants and parse that free-text response inside the application." },
       { id: 'D', text: "Use Azure OpenAI 'On Your Data' against an Azure AI Search index that a scheduled indexer refreshes from the live source systems." }
@@ -513,7 +513,7 @@ export const AZURE_AI102_QUESTIONS_7 = [
     scenario: "A municipal 911 emergency response platform guarantees 99.999% uptime with multi-region hot-standby active failover. The AI team is letting a chat application answer questions from live data held in operational systems. The work is scoped to the staging environment.",
     question: "Which Azure AI approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Define JSON schemas for tools in the model request and execute the returned function arguments in your application to fetch live data." },
+      { id: 'A', text: "Define JSON tool schemas and run the returned function arguments." },
       { id: 'B', text: "Place the current values in the system message on every request so that the model always has fresh data available to answer from." },
       { id: 'C', text: "Ask the model to return a JSON object describing the query it wants and parse that free-text response inside the application." },
       { id: 'D', text: "Use Azure OpenAI 'On Your Data' against an Azure AI Search index that a scheduled indexer refreshes from the live source systems." }

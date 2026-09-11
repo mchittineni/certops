@@ -115,7 +115,7 @@ export const FINOPS_FOCUS_QUESTIONS_4 = [
     question: "Which approach best meets these requirements?",
     options: [
       { id: 'A', text: "Build an internal canonical billing schema and write one mapping per provider, maintaining each of those mappings by hand as that provider changes its export format over time." },
-      { id: 'B', text: "Adopt the FinOps Open Cost & Usage Specification (FOCUS) to standardize multi-cloud billing columns into a vendor-neutral schema across AWS, Azure, GCP, and SaaS." },
+      { id: 'B', text: "Adopt FOCUS as the vendor-neutral billing schema." },
       { id: 'C', text: "Adopt a commercial cloud cost management platform and use that product's own normalised data model as the reporting layer for every cloud and SaaS provider." },
       { id: 'D', text: "Load each provider's native export into its own table and have the FinOps team join them in the warehouse with views lining up comparable columns." }
     ],
@@ -137,7 +137,7 @@ export const FINOPS_FOCUS_QUESTIONS_4 = [
     options: [
       { id: 'A', text: "Use 'EffectiveCost' for the invoice reconciliation as well as the team chargeback so that one column is applied consistently everywhere." },
       { id: 'B', text: "Use 'ContractedCost' for reconciling to the vendor invoice as well as for chargeback, since it reflects the negotiated rate." },
-      { id: 'C', text: "Use 'BilledCost' for reconciling actual vendor invoices, and 'EffectiveCost' for economic team chargeback reflecting amortized commitment discounts." },
+      { id: 'C', text: "'BilledCost' for invoices, 'EffectiveCost' for chargeback." },
       { id: 'D', text: "Use 'ListCost' for the chargeback so that teams see the undiscounted rate and the savings remain with the central FinOps function." }
     ],
     correctAnswers: ['C'],
@@ -261,7 +261,7 @@ export const FINOPS_FOCUS_QUESTIONS_4 = [
     scenario: "A defense intelligence system enforces continuous mutual TLS authentication, strict least privilege, and non-repudiation. The FinOps team is making cost data from several providers directly comparable in one warehouse. The work is scoped to the production environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Adopt the FinOps Open Cost & Usage Specification (FOCUS) to standardize multi-cloud billing columns into a vendor-neutral schema across AWS, Azure, GCP, and SaaS." },
+      { id: 'A', text: "Adopt FOCUS as the vendor-neutral billing schema." },
       { id: 'B', text: "Build an internal canonical billing schema and write one mapping per provider, maintaining each of those mappings by hand as that provider changes its export format over time." },
       { id: 'C', text: "Adopt a commercial cloud cost management platform and use that product's own normalised data model as the reporting layer for every cloud and SaaS provider." },
       { id: 'D', text: "Load each provider's native export into its own table and have the FinOps team join them in the warehouse with views lining up comparable columns." }
@@ -283,7 +283,7 @@ export const FINOPS_FOCUS_QUESTIONS_4 = [
     question: "Which approach best meets these requirements?",
     options: [
       { id: 'A', text: "Use 'EffectiveCost' for the invoice reconciliation as well as the team chargeback so that one column is applied consistently everywhere." },
-      { id: 'B', text: "Use 'BilledCost' for reconciling actual vendor invoices, and 'EffectiveCost' for economic team chargeback reflecting amortized commitment discounts." },
+      { id: 'B', text: "'BilledCost' for invoices, 'EffectiveCost' for chargeback." },
       { id: 'C', text: "Use 'ContractedCost' for reconciling to the vendor invoice as well as for chargeback, since it reflects the negotiated rate." },
       { id: 'D', text: "Use 'ListCost' for the chargeback so that teams see the undiscounted rate and the savings remain with the central FinOps function." }
     ],
@@ -411,7 +411,7 @@ export const FINOPS_FOCUS_QUESTIONS_4 = [
       { id: 'A', text: "Build an internal canonical billing schema and write one mapping per provider, maintaining each of those mappings by hand as that provider changes its export format over time." },
       { id: 'B', text: "Adopt a commercial cloud cost management platform and use that product's own normalised data model as the reporting layer for every cloud and SaaS provider." },
       { id: 'C', text: "Load each provider's native export into its own table and have the FinOps team join them in the warehouse with views lining up comparable columns." },
-      { id: 'D', text: "Adopt the FinOps Open Cost & Usage Specification (FOCUS) to standardize multi-cloud billing columns into a vendor-neutral schema across AWS, Azure, GCP, and SaaS." }
+      { id: 'D', text: "Adopt FOCUS as the vendor-neutral billing schema." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -429,7 +429,7 @@ export const FINOPS_FOCUS_QUESTIONS_4 = [
     scenario: "An agricultural drone fleet captures multispectral crop imagery with automated computer vision defect classification. The FinOps team is reconciling to the vendor invoice while charging teams a stable monthly figure. The work is scoped to the production environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Use 'BilledCost' for reconciling actual vendor invoices, and 'EffectiveCost' for economic team chargeback reflecting amortized commitment discounts." },
+      { id: 'A', text: "'BilledCost' for invoices, 'EffectiveCost' for chargeback." },
       { id: 'B', text: "Use 'EffectiveCost' for the invoice reconciliation as well as the team chargeback so that one column is applied consistently everywhere." },
       { id: 'C', text: "Use 'ContractedCost' for reconciling to the vendor invoice as well as for chargeback, since it reflects the negotiated rate." },
       { id: 'D', text: "Use 'ListCost' for the chargeback so that teams see the undiscounted rate and the savings remain with the central FinOps function." }

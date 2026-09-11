@@ -18,7 +18,7 @@ export const HASHICORP_VAULT_QUESTIONS_7 = [
     type: "single",
     explanation: "A wrapping token can be unwrapped exactly once. If anyone intercepts and unwraps it first, the intended recipient's unwrap fails immediately, which turns a silent interception into a loud alert. A short TTL narrows the window but an interception inside that window is still undetectable, TLS protects the channel without proving the payload was never read, and storing the credential in KV requires the client to already hold a token that can read it.",
     referenceUrl: "https://developer.hashicorp.com/vault/tutorials/certification-vault-associate-003",
-    tags: ["response-wrapping", "cubbyhole", "transport", "High-Frequency FinTech Trading"]
+    tags: ["response-wrapping","cubbyhole","transport","High-Frequency FinTech Trading"]
   },
   {
     id: "hashicorp-vault-152",
@@ -39,7 +39,7 @@ export const HASHICORP_VAULT_QUESTIONS_7 = [
     type: "single",
     explanation: "A periodic token has no maximum TTL: as long as it is renewed within its period it lives forever, which is precisely what an always-on daemon needs. Every other option still runs into a ceiling. A long max TTL and a raised max_lease_ttl only move the expiry further out, so the daemon must eventually re-authenticate and needs stored credentials to do it, and batch tokens cannot be renewed at all.",
     referenceUrl: "https://developer.hashicorp.com/vault/tutorials/certification-vault-associate-003",
-    tags: ["tokens", "periodic", "ttl", "Healthcare Patient Records & HIPAA"]
+    tags: ["tokens","periodic","ttl","Healthcare Patient Records & HIPAA"]
   },
   {
     id: "hashicorp-vault-153",
@@ -60,7 +60,7 @@ export const HASHICORP_VAULT_QUESTIONS_7 = [
     type: "single",
     explanation: "Tokens are created as children of the calling token by default, and revoking a parent revokes the entire subtree immediately. That cascade ignores the child's TTL, its renewable flag, and which identity entity it maps to, so none of those options survive the operator's token being revoked. Only an orphan token has no parent link to follow.",
     referenceUrl: "https://developer.hashicorp.com/vault/tutorials/certification-vault-associate-003",
-    tags: ["tokens", "orphan", "hierarchy", "Global E-Commerce Black Friday Scale"]
+    tags: ["tokens","orphan","hierarchy","Global E-Commerce Black Friday Scale"]
   },
   {
     id: "hashicorp-vault-154",
@@ -81,7 +81,7 @@ export const HASHICORP_VAULT_QUESTIONS_7 = [
     type: "single",
     explanation: "AppRole is the general-purpose machine auth method for platforms that have no external identity to borrow. It splits machine identity (role_id) from proof of authorization (secret_id), and the secret_id can be CIDR-bound, response-wrapped, and given a short TTL. The Kubernetes method is stronger but only works for workloads running as pods in a cluster Vault can reach; certificate auth requires distributing and rotating client certificates before login is possible; JWT auth needs an external provider already issuing workload tokens.",
     referenceUrl: "https://developer.hashicorp.com/vault/tutorials/certification-vault-associate-003",
-    tags: ["approle", "auth", "security", "Autonomous Vehicle Telemetry"]
+    tags: ["approle","auth","security","Autonomous Vehicle Telemetry"]
   },
   {
     id: "hashicorp-vault-155",
@@ -93,7 +93,7 @@ export const HASHICORP_VAULT_QUESTIONS_7 = [
     scenario: "An enterprise cloud SaaS architecture mandates strict logical tenant isolation, data masking, and per-tenant resource quotas. The platform team is authenticating ephemeral cluster pods whose identity must be revocable the moment they are deleted. The work is scoped to the staging environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Enable the Kubernetes auth method, configure Vault with the cluster token reviewer JWT, and bind Vault roles to Kubernetes service accounts and namespaces." },
+      { id: 'A', text: "Enable the Kubernetes auth method bound to service accounts." },
       { id: 'B', text: "Enable the JWT auth method, point it at the cluster's public JWKS issuer URL, and bind roles to the subject claim carried in each pod's projected service account token." },
       { id: 'C', text: "Enable the AppRole auth method and deliver a Vault response-wrapped secret_id to every pod through an init container at startup." },
       { id: 'D', text: "Enable the TLS certificate auth method and mount a per-namespace client certificate into each pod as a Kubernetes Secret." }
@@ -102,7 +102,7 @@ export const HASHICORP_VAULT_QUESTIONS_7 = [
     type: "single",
     explanation: "The Kubernetes auth method calls the cluster TokenReview API on every login, so a service account token stops working the instant the account or pod is removed. JWT auth against the JWKS endpoint verifies the token signature offline and therefore keeps accepting a token after the pod is gone. AppRole works but reintroduces the credential-delivery problem this method exists to remove, and certificate auth puts long-lived key material back into a Secret.",
     referenceUrl: "https://developer.hashicorp.com/vault/tutorials/certification-vault-associate-003",
-    tags: ["k8s", "auth", "jwt", "Multi-Tenant B2B SaaS Platform"]
+    tags: ["k8s","auth","jwt","Multi-Tenant B2B SaaS Platform"]
   },
   {
     id: "hashicorp-vault-156",
@@ -115,7 +115,7 @@ export const HASHICORP_VAULT_QUESTIONS_7 = [
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Specify path 'secret/app/*' with capabilities ['read'] so a single rule covers the application's secrets under the KV mount." },
-      { id: 'B', text: "Specify path 'secret/data/app/*' with capabilities ['read'] to allow reading credentials while denying creation or modification." },
+      { id: 'B', text: "Path 'secret/data/app/*' with capabilities ['read']." },
       { id: 'C', text: "Specify path 'secret/data/app/*' with capabilities ['read', 'list'] and add a denied_parameters block for every write parameter." },
       { id: 'D', text: "Specify path 'secret/data/app/*' with capabilities ['create', 'update'] and rely on the default policy to supply read access." }
     ],
@@ -123,7 +123,7 @@ export const HASHICORP_VAULT_QUESTIONS_7 = [
     type: "single",
     explanation: "Vault denies by default, so a policy granting only 'read' on the path already prevents writes. On a KV version 2 mount the API path is prefixed with 'data/', so a rule written against 'secret/app/*' matches nothing and the application is denied outright. A denied_parameters block filters parameters on requests the policy already allows and is redundant once write capabilities are absent, and the default policy grants token self-management rather than access to application secrets.",
     referenceUrl: "https://developer.hashicorp.com/vault/tutorials/certification-vault-associate-003",
-    tags: ["policy", "hcl", "capabilities", "Media Streaming & Global CDN"]
+    tags: ["policy","hcl","capabilities","Media Streaming & Global CDN"]
   },
   {
     id: "hashicorp-vault-157",
@@ -137,14 +137,14 @@ export const HASHICORP_VAULT_QUESTIONS_7 = [
     options: [
       { id: 'A', text: "Create one policy per team and attach the matching policy to each auth method role and identity entity as new teams are onboarded." },
       { id: 'B', text: "Create a separate KV v2 mount for each team and grant every auth role a policy scoped to its own mount path." },
-      { id: 'C', text: "Define policy paths using template syntax like 'secret/data/teams/{{identity.entity.metadata.team}}/*' to restrict access by metadata." },
+      { id: 'C', text: "Template the policy path on 'identity.entity.metadata.team'." },
       { id: 'D', text: "Grant a single shared rule at 'secret/data/teams/*' and have the application check the caller's team claim before returning any secret that it reads." }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Policy templating resolves identity metadata at request time, so one rule serves every team and new teams need no policy change at all. Writing a policy or a mount per team is functionally correct but the operational cost grows with headcount, which is exactly what the templating feature removes. Pushing the separation into the application layer abandons the trust boundary, because the token itself still grants access to every team's path.",
     referenceUrl: "https://developer.hashicorp.com/vault/tutorials/certification-vault-associate-003",
-    tags: ["policy", "identity", "templating", "Aerospace Satellite Ground Systems"]
+    tags: ["policy","identity","templating","Aerospace Satellite Ground Systems"]
   },
   {
     id: "hashicorp-vault-158",
@@ -165,7 +165,7 @@ export const HASHICORP_VAULT_QUESTIONS_7 = [
     type: "single",
     explanation: "A wrapping token can be unwrapped exactly once. If anyone intercepts and unwraps it first, the intended recipient's unwrap fails immediately, which turns a silent interception into a loud alert. A short TTL narrows the window but an interception inside that window is still undetectable, TLS protects the channel without proving the payload was never read, and storing the credential in KV requires the client to already hold a token that can read it.",
     referenceUrl: "https://developer.hashicorp.com/vault/tutorials/certification-vault-associate-003",
-    tags: ["response-wrapping", "cubbyhole", "transport", "Telecommunications 5G Core Network"]
+    tags: ["response-wrapping","cubbyhole","transport","Telecommunications 5G Core Network"]
   },
   {
     id: "hashicorp-vault-159",
@@ -186,7 +186,7 @@ export const HASHICORP_VAULT_QUESTIONS_7 = [
     type: "single",
     explanation: "A periodic token has no maximum TTL: as long as it is renewed within its period it lives forever, which is precisely what an always-on daemon needs. Every other option still runs into a ceiling. A long max TTL and a raised max_lease_ttl only move the expiry further out, so the daemon must eventually re-authenticate and needs stored credentials to do it, and batch tokens cannot be renewed at all.",
     referenceUrl: "https://developer.hashicorp.com/vault/tutorials/certification-vault-associate-003",
-    tags: ["tokens", "periodic", "ttl", "Renewable Energy Smart Grid IoT"]
+    tags: ["tokens","periodic","ttl","Renewable Energy Smart Grid IoT"]
   },
   {
     id: "hashicorp-vault-160",
@@ -207,7 +207,7 @@ export const HASHICORP_VAULT_QUESTIONS_7 = [
     type: "single",
     explanation: "Tokens are created as children of the calling token by default, and revoking a parent revokes the entire subtree immediately. That cascade ignores the child's TTL, its renewable flag, and which identity entity it maps to, so none of those options survive the operator's token being revoked. Only an orphan token has no parent link to follow.",
     referenceUrl: "https://developer.hashicorp.com/vault/tutorials/certification-vault-associate-003",
-    tags: ["tokens", "orphan", "hierarchy", "Supply Chain Cold-Chain Logistics"]
+    tags: ["tokens","orphan","hierarchy","Supply Chain Cold-Chain Logistics"]
   },
   {
     id: "hashicorp-vault-161",
@@ -228,7 +228,7 @@ export const HASHICORP_VAULT_QUESTIONS_7 = [
     type: "single",
     explanation: "AppRole is the general-purpose machine auth method for platforms that have no external identity to borrow. It splits machine identity (role_id) from proof of authorization (secret_id), and the secret_id can be CIDR-bound, response-wrapped, and given a short TTL. The Kubernetes method is stronger but only works for workloads running as pods in a cluster Vault can reach; certificate auth requires distributing and rotating client certificates before login is possible; JWT auth needs an external provider already issuing workload tokens.",
     referenceUrl: "https://developer.hashicorp.com/vault/tutorials/certification-vault-associate-003",
-    tags: ["approle", "auth", "security", "Banking Core Ledger & Payments"]
+    tags: ["approle","auth","security","Banking Core Ledger & Payments"]
   },
   {
     id: "hashicorp-vault-162",
@@ -243,13 +243,13 @@ export const HASHICORP_VAULT_QUESTIONS_7 = [
       { id: 'A', text: "Enable the JWT auth method, point it at the cluster's public JWKS issuer URL, and bind roles to the subject claim carried in each pod's projected service account token." },
       { id: 'B', text: "Enable the AppRole auth method and deliver a Vault response-wrapped secret_id to every pod through an init container at startup." },
       { id: 'C', text: "Enable the TLS certificate auth method and mount a per-namespace client certificate into each pod as a Kubernetes Secret." },
-      { id: 'D', text: "Enable the Kubernetes auth method, configure Vault with the cluster token reviewer JWT, and bind Vault roles to Kubernetes service accounts and namespaces." }
+      { id: 'D', text: "Enable the Kubernetes auth method bound to service accounts." }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "The Kubernetes auth method calls the cluster TokenReview API on every login, so a service account token stops working the instant the account or pod is removed. JWT auth against the JWKS endpoint verifies the token signature offline and therefore keeps accepting a token after the pod is gone. AppRole works but reintroduces the credential-delivery problem this method exists to remove, and certificate auth puts long-lived key material back into a Secret.",
     referenceUrl: "https://developer.hashicorp.com/vault/tutorials/certification-vault-associate-003",
-    tags: ["k8s", "auth", "jwt", "Genomic Sequencing & Biotech Pipeline"]
+    tags: ["k8s","auth","jwt","Genomic Sequencing & Biotech Pipeline"]
   },
   {
     id: "hashicorp-vault-163",
@@ -261,7 +261,7 @@ export const HASHICORP_VAULT_QUESTIONS_7 = [
     scenario: "A defense intelligence system enforces continuous mutual TLS authentication, strict least privilege, and non-repudiation. The platform team is granting an application read access to its own secrets without allowing it to overwrite them. The work is scoped to the staging environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Specify path 'secret/data/app/*' with capabilities ['read'] to allow reading credentials while denying creation or modification." },
+      { id: 'A', text: "Path 'secret/data/app/*' with capabilities ['read']." },
       { id: 'B', text: "Specify path 'secret/app/*' with capabilities ['read'] so a single rule covers the application's secrets under the KV mount." },
       { id: 'C', text: "Specify path 'secret/data/app/*' with capabilities ['read', 'list'] and add a denied_parameters block for every write parameter." },
       { id: 'D', text: "Specify path 'secret/data/app/*' with capabilities ['create', 'update'] and rely on the default policy to supply read access." }
@@ -270,7 +270,7 @@ export const HASHICORP_VAULT_QUESTIONS_7 = [
     type: "single",
     explanation: "Vault denies by default, so a policy granting only 'read' on the path already prevents writes. On a KV version 2 mount the API path is prefixed with 'data/', so a rule written against 'secret/app/*' matches nothing and the application is denied outright. A denied_parameters block filters parameters on requests the policy already allows and is redundant once write capabilities are absent, and the default policy grants token self-management rather than access to application secrets.",
     referenceUrl: "https://developer.hashicorp.com/vault/tutorials/certification-vault-associate-003",
-    tags: ["policy", "hcl", "capabilities", "Defense-Grade Zero-Trust Network"]
+    tags: ["policy","hcl","capabilities","Defense-Grade Zero-Trust Network"]
   },
   {
     id: "hashicorp-vault-164",
@@ -283,7 +283,7 @@ export const HASHICORP_VAULT_QUESTIONS_7 = [
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
       { id: 'A', text: "Create one policy per team and attach the matching policy to each auth method role and identity entity as new teams are onboarded." },
-      { id: 'B', text: "Define policy paths using template syntax like 'secret/data/teams/{{identity.entity.metadata.team}}/*' to restrict access by metadata." },
+      { id: 'B', text: "Template the policy path on 'identity.entity.metadata.team'." },
       { id: 'C', text: "Create a separate KV v2 mount for each team and grant every auth role a policy scoped to its own mount path." },
       { id: 'D', text: "Grant a single shared rule at 'secret/data/teams/*' and have the application check the caller's team claim before returning any secret that it reads." }
     ],
@@ -291,7 +291,7 @@ export const HASHICORP_VAULT_QUESTIONS_7 = [
     type: "single",
     explanation: "Policy templating resolves identity metadata at request time, so one rule serves every team and new teams need no policy change at all. Writing a policy or a mount per team is functionally correct but the operational cost grows with headcount, which is exactly what the templating feature removes. Pushing the separation into the application layer abandons the trust boundary, because the token itself still grants access to every team's path.",
     referenceUrl: "https://developer.hashicorp.com/vault/tutorials/certification-vault-associate-003",
-    tags: ["policy", "identity", "templating", "Online Multiplayer Gaming Engine"]
+    tags: ["policy","identity","templating","Online Multiplayer Gaming Engine"]
   },
   {
     id: "hashicorp-vault-165",
@@ -312,7 +312,7 @@ export const HASHICORP_VAULT_QUESTIONS_7 = [
     type: "single",
     explanation: "A wrapping token can be unwrapped exactly once. If anyone intercepts and unwraps it first, the intended recipient's unwrap fails immediately, which turns a silent interception into a loud alert. A short TTL narrows the window but an interception inside that window is still undetectable, TLS protects the channel without proving the payload was never read, and storing the credential in KV requires the client to already hold a token that can read it.",
     referenceUrl: "https://developer.hashicorp.com/vault/tutorials/certification-vault-associate-003",
-    tags: ["response-wrapping", "cubbyhole", "transport", "Insurance Risk & Actuarial Modeling"]
+    tags: ["response-wrapping","cubbyhole","transport","Insurance Risk & Actuarial Modeling"]
   },
   {
     id: "hashicorp-vault-166",
@@ -333,7 +333,7 @@ export const HASHICORP_VAULT_QUESTIONS_7 = [
     type: "single",
     explanation: "A periodic token has no maximum TTL: as long as it is renewed within its period it lives forever, which is precisely what an always-on daemon needs. Every other option still runs into a ceiling. A long max TTL and a raised max_lease_ttl only move the expiry further out, so the daemon must eventually re-authenticate and needs stored credentials to do it, and batch tokens cannot be renewed at all.",
     referenceUrl: "https://developer.hashicorp.com/vault/tutorials/certification-vault-associate-003",
-    tags: ["tokens", "periodic", "ttl", "Pharmaceutical Clinical Trial Platform"]
+    tags: ["tokens","periodic","ttl","Pharmaceutical Clinical Trial Platform"]
   },
   {
     id: "hashicorp-vault-167",
@@ -354,7 +354,7 @@ export const HASHICORP_VAULT_QUESTIONS_7 = [
     type: "single",
     explanation: "Tokens are created as children of the calling token by default, and revoking a parent revokes the entire subtree immediately. That cascade ignores the child's TTL, its renewable flag, and which identity entity it maps to, so none of those options survive the operator's token being revoked. Only an orphan token has no parent link to follow.",
     referenceUrl: "https://developer.hashicorp.com/vault/tutorials/certification-vault-associate-003",
-    tags: ["tokens", "orphan", "hierarchy", "Smart City Traffic & Mobility Sensor Hub"]
+    tags: ["tokens","orphan","hierarchy","Smart City Traffic & Mobility Sensor Hub"]
   },
   {
     id: "hashicorp-vault-168",
@@ -375,7 +375,7 @@ export const HASHICORP_VAULT_QUESTIONS_7 = [
     type: "single",
     explanation: "AppRole is the general-purpose machine auth method for platforms that have no external identity to borrow. It splits machine identity (role_id) from proof of authorization (secret_id), and the secret_id can be CIDR-bound, response-wrapped, and given a short TTL. The Kubernetes method is stronger but only works for workloads running as pods in a cluster Vault can reach; certificate auth requires distributing and rotating client certificates before login is possible; JWT auth needs an external provider already issuing workload tokens.",
     referenceUrl: "https://developer.hashicorp.com/vault/tutorials/certification-vault-associate-003",
-    tags: ["approle", "auth", "security", "Digital Identity & Biometric Verification"]
+    tags: ["approle","auth","security","Digital Identity & Biometric Verification"]
   },
   {
     id: "hashicorp-vault-169",
@@ -389,14 +389,14 @@ export const HASHICORP_VAULT_QUESTIONS_7 = [
     options: [
       { id: 'A', text: "Enable the JWT auth method, point it at the cluster's public JWKS issuer URL, and bind roles to the subject claim carried in each pod's projected service account token." },
       { id: 'B', text: "Enable the AppRole auth method and deliver a Vault response-wrapped secret_id to every pod through an init container at startup." },
-      { id: 'C', text: "Enable the Kubernetes auth method, configure Vault with the cluster token reviewer JWT, and bind Vault roles to Kubernetes service accounts and namespaces." },
+      { id: 'C', text: "Enable the Kubernetes auth method bound to service accounts." },
       { id: 'D', text: "Enable the TLS certificate auth method and mount a per-namespace client certificate into each pod as a Kubernetes Secret." }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "The Kubernetes auth method calls the cluster TokenReview API on every login, so a service account token stops working the instant the account or pod is removed. JWT auth against the JWKS endpoint verifies the token signature offline and therefore keeps accepting a token after the pod is gone. AppRole works but reintroduces the credential-delivery problem this method exists to remove, and certificate auth puts long-lived key material back into a Secret.",
     referenceUrl: "https://developer.hashicorp.com/vault/tutorials/certification-vault-associate-003",
-    tags: ["k8s", "auth", "jwt", "Legal Discovery & Semantic Document Search"]
+    tags: ["k8s","auth","jwt","Legal Discovery & Semantic Document Search"]
   },
   {
     id: "hashicorp-vault-170",
@@ -411,13 +411,13 @@ export const HASHICORP_VAULT_QUESTIONS_7 = [
       { id: 'A', text: "Specify path 'secret/app/*' with capabilities ['read'] so a single rule covers the application's secrets under the KV mount." },
       { id: 'B', text: "Specify path 'secret/data/app/*' with capabilities ['read', 'list'] and add a denied_parameters block for every write parameter." },
       { id: 'C', text: "Specify path 'secret/data/app/*' with capabilities ['create', 'update'] and rely on the default policy to supply read access." },
-      { id: 'D', text: "Specify path 'secret/data/app/*' with capabilities ['read'] to allow reading credentials while denying creation or modification." }
+      { id: 'D', text: "Path 'secret/data/app/*' with capabilities ['read']." }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Vault denies by default, so a policy granting only 'read' on the path already prevents writes. On a KV version 2 mount the API path is prefixed with 'data/', so a rule written against 'secret/app/*' matches nothing and the application is denied outright. A denied_parameters block filters parameters on requests the policy already allows and is redundant once write capabilities are absent, and the default policy grants token self-management rather than access to application secrets.",
     referenceUrl: "https://developer.hashicorp.com/vault/tutorials/certification-vault-associate-003",
-    tags: ["policy", "hcl", "capabilities", "AdTech Real-Time Bidding Exchange"]
+    tags: ["policy","hcl","capabilities","AdTech Real-Time Bidding Exchange"]
   },
   {
     id: "hashicorp-vault-171",
@@ -429,7 +429,7 @@ export const HASHICORP_VAULT_QUESTIONS_7 = [
     scenario: "An agricultural drone fleet captures multispectral crop imagery with automated computer vision defect classification. The platform team is scaling per-team access control without authoring a separate rule for every team. The work is scoped to the staging environment.",
     question: "Which HashiCorp Vault approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Define policy paths using template syntax like 'secret/data/teams/{{identity.entity.metadata.team}}/*' to restrict access by metadata." },
+      { id: 'A', text: "Template the policy path on 'identity.entity.metadata.team'." },
       { id: 'B', text: "Create one policy per team and attach the matching policy to each auth method role and identity entity as new teams are onboarded." },
       { id: 'C', text: "Create a separate KV v2 mount for each team and grant every auth role a policy scoped to its own mount path." },
       { id: 'D', text: "Grant a single shared rule at 'secret/data/teams/*' and have the application check the caller's team claim before returning any secret that it reads." }
@@ -438,7 +438,7 @@ export const HASHICORP_VAULT_QUESTIONS_7 = [
     type: "single",
     explanation: "Policy templating resolves identity metadata at request time, so one rule serves every team and new teams need no policy change at all. Writing a policy or a mount per team is functionally correct but the operational cost grows with headcount, which is exactly what the templating feature removes. Pushing the separation into the application layer abandons the trust boundary, because the token itself still grants access to every team's path.",
     referenceUrl: "https://developer.hashicorp.com/vault/tutorials/certification-vault-associate-003",
-    tags: ["policy", "identity", "templating", "Precision Agriculture & Drone Scouting"]
+    tags: ["policy","identity","templating","Precision Agriculture & Drone Scouting"]
   },
   {
     id: "hashicorp-vault-172",
@@ -459,7 +459,7 @@ export const HASHICORP_VAULT_QUESTIONS_7 = [
     type: "single",
     explanation: "A wrapping token can be unwrapped exactly once. If anyone intercepts and unwraps it first, the intended recipient's unwrap fails immediately, which turns a silent interception into a loud alert. A short TTL narrows the window but an interception inside that window is still undetectable, TLS protects the channel without proving the payload was never read, and storing the credential in KV requires the client to already hold a token that can read it.",
     referenceUrl: "https://developer.hashicorp.com/vault/tutorials/certification-vault-associate-003",
-    tags: ["response-wrapping", "cubbyhole", "transport", "Industrial Robotics Predictive Maintenance"]
+    tags: ["response-wrapping","cubbyhole","transport","Industrial Robotics Predictive Maintenance"]
   },
   {
     id: "hashicorp-vault-173",
@@ -480,7 +480,7 @@ export const HASHICORP_VAULT_QUESTIONS_7 = [
     type: "single",
     explanation: "A periodic token has no maximum TTL: as long as it is renewed within its period it lives forever, which is precisely what an always-on daemon needs. Every other option still runs into a ceiling. A long max TTL and a raised max_lease_ttl only move the expiry further out, so the daemon must eventually re-authenticate and needs stored credentials to do it, and batch tokens cannot be renewed at all.",
     referenceUrl: "https://developer.hashicorp.com/vault/tutorials/certification-vault-associate-003",
-    tags: ["tokens", "periodic", "ttl", "Educational Remote Proctoring Platform"]
+    tags: ["tokens","periodic","ttl","Educational Remote Proctoring Platform"]
   },
   {
     id: "hashicorp-vault-174",
@@ -501,7 +501,7 @@ export const HASHICORP_VAULT_QUESTIONS_7 = [
     type: "single",
     explanation: "Tokens are created as children of the calling token by default, and revoking a parent revokes the entire subtree immediately. That cascade ignores the child's TTL, its renewable flag, and which identity entity it maps to, so none of those options survive the operator's token being revoked. Only an orphan token has no parent link to follow.",
     referenceUrl: "https://developer.hashicorp.com/vault/tutorials/certification-vault-associate-003",
-    tags: ["tokens", "orphan", "hierarchy", "Real Estate Valuation & Geo-Spatial Analytics"]
+    tags: ["tokens","orphan","hierarchy","Real Estate Valuation & Geo-Spatial Analytics"]
   },
   {
     id: "hashicorp-vault-175",
@@ -522,7 +522,7 @@ export const HASHICORP_VAULT_QUESTIONS_7 = [
     type: "single",
     explanation: "AppRole is the general-purpose machine auth method for platforms that have no external identity to borrow. It splits machine identity (role_id) from proof of authorization (secret_id), and the secret_id can be CIDR-bound, response-wrapped, and given a short TTL. The Kubernetes method is stronger but only works for workloads running as pods in a cluster Vault can reach; certificate auth requires distributing and rotating client certificates before login is possible; JWT auth needs an external provider already issuing workload tokens.",
     referenceUrl: "https://developer.hashicorp.com/vault/tutorials/certification-vault-associate-003",
-    tags: ["approle", "auth", "security", "Disaster Emergency Dispatch & Operations"]
+    tags: ["approle","auth","security","Disaster Emergency Dispatch & Operations"]
   }
 ];
 

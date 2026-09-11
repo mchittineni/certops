@@ -9,7 +9,7 @@ export const FINOPS_FOCUS_QUESTIONS_18 = [
     scenario: "A quantitative trading desk requires microsecond secrets delivery, zero packet loss, and deterministic authentication guarantees. The FinOps team is catching an unexpected spend increase within a day rather than at month end. The work is scoped to the pre-production environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Build automated anomaly detection models on daily FOCUS billing streams to alert on sudden deviations in EffectiveCost by service or resource." },
+      { id: 'A', text: "Run anomaly detection over the daily FOCUS billing stream." },
       { id: 'B', text: "Set a monthly budget for each account with alerts raised at fixed percentage thresholds of the total amount that was budgeted." },
       { id: 'C', text: "Forecast each month's spend from the preceding months and raise an alert whenever that forecast exceeds the budget that was set for the period." },
       { id: 'D', text: "Review the daily spend dashboard each morning so that anomaly detection is done by eye over the same billing streams." }
@@ -75,7 +75,7 @@ export const FINOPS_FOCUS_QUESTIONS_18 = [
       { id: 'A', text: "Track the month-on-month growth rate of total cloud spend and compare that rate against the business's overall revenue growth over the same reporting period each quarter." },
       { id: 'B', text: "Track spend per service and divide it by the number of active resources deployed so the average cost of each one becomes known." },
       { id: 'C', text: "Track total spend per team each month and compare the trend against that team's own headcount and its recent delivery velocity." },
-      { id: 'D', text: "Join FOCUS EffectiveCost datasets with business metrics (e.g., active users, transactions processed) to calculate granular Unit Economics (Cost per Transaction)." }
+      { id: 'D', text: "Join FOCUS EffectiveCost with business metrics for unit economics." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -137,7 +137,7 @@ export const FINOPS_FOCUS_QUESTIONS_18 = [
     options: [
       { id: 'A', text: "Set a monthly budget for each account with alerts raised at fixed percentage thresholds of the total amount that was budgeted." },
       { id: 'B', text: "Forecast each month's spend from the preceding months and raise an alert whenever that forecast exceeds the budget that was set for the period." },
-      { id: 'C', text: "Build automated anomaly detection models on daily FOCUS billing streams to alert on sudden deviations in EffectiveCost by service or resource." },
+      { id: 'C', text: "Run anomaly detection over the daily FOCUS billing stream." },
       { id: 'D', text: "Review the daily spend dashboard each morning so that anomaly detection is done by eye over the same billing streams." }
     ],
     correctAnswers: ['C'],
@@ -199,7 +199,7 @@ export const FINOPS_FOCUS_QUESTIONS_18 = [
     question: "Which approach best meets these requirements?",
     options: [
       { id: 'A', text: "Track the month-on-month growth rate of total cloud spend and compare that rate against the business's overall revenue growth over the same reporting period each quarter." },
-      { id: 'B', text: "Join FOCUS EffectiveCost datasets with business metrics (e.g., active users, transactions processed) to calculate granular Unit Economics (Cost per Transaction)." },
+      { id: 'B', text: "Join FOCUS EffectiveCost with business metrics for unit economics." },
       { id: 'C', text: "Track spend per service and divide it by the number of active resources deployed so the average cost of each one becomes known." },
       { id: 'D', text: "Track total spend per team each month and compare the trend against that team's own headcount and its recent delivery velocity." }
     ],
@@ -261,7 +261,7 @@ export const FINOPS_FOCUS_QUESTIONS_18 = [
     scenario: "A defense intelligence system enforces continuous mutual TLS authentication, strict least privilege, and non-repudiation. The FinOps team is catching an unexpected spend increase within a day rather than at month end. The work is scoped to the pre-production environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Build automated anomaly detection models on daily FOCUS billing streams to alert on sudden deviations in EffectiveCost by service or resource." },
+      { id: 'A', text: "Run anomaly detection over the daily FOCUS billing stream." },
       { id: 'B', text: "Set a monthly budget for each account with alerts raised at fixed percentage thresholds of the total amount that was budgeted." },
       { id: 'C', text: "Forecast each month's spend from the preceding months and raise an alert whenever that forecast exceeds the budget that was set for the period." },
       { id: 'D', text: "Review the daily spend dashboard each morning so that anomaly detection is done by eye over the same billing streams." }
@@ -327,7 +327,7 @@ export const FINOPS_FOCUS_QUESTIONS_18 = [
       { id: 'A', text: "Track the month-on-month growth rate of total cloud spend and compare that rate against the business's overall revenue growth over the same reporting period each quarter." },
       { id: 'B', text: "Track spend per service and divide it by the number of active resources deployed so the average cost of each one becomes known." },
       { id: 'C', text: "Track total spend per team each month and compare the trend against that team's own headcount and its recent delivery velocity." },
-      { id: 'D', text: "Join FOCUS EffectiveCost datasets with business metrics (e.g., active users, transactions processed) to calculate granular Unit Economics (Cost per Transaction)." }
+      { id: 'D', text: "Join FOCUS EffectiveCost with business metrics for unit economics." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -389,7 +389,7 @@ export const FINOPS_FOCUS_QUESTIONS_18 = [
     options: [
       { id: 'A', text: "Set a monthly budget for each account with alerts raised at fixed percentage thresholds of the total amount that was budgeted." },
       { id: 'B', text: "Forecast each month's spend from the preceding months and raise an alert whenever that forecast exceeds the budget that was set for the period." },
-      { id: 'C', text: "Build automated anomaly detection models on daily FOCUS billing streams to alert on sudden deviations in EffectiveCost by service or resource." },
+      { id: 'C', text: "Run anomaly detection over the daily FOCUS billing stream." },
       { id: 'D', text: "Review the daily spend dashboard each morning so that anomaly detection is done by eye over the same billing streams." }
     ],
     correctAnswers: ['C'],
@@ -451,7 +451,7 @@ export const FINOPS_FOCUS_QUESTIONS_18 = [
     question: "Which approach best meets these requirements?",
     options: [
       { id: 'A', text: "Track the month-on-month growth rate of total cloud spend and compare that rate against the business's overall revenue growth over the same reporting period each quarter." },
-      { id: 'B', text: "Join FOCUS EffectiveCost datasets with business metrics (e.g., active users, transactions processed) to calculate granular Unit Economics (Cost per Transaction)." },
+      { id: 'B', text: "Join FOCUS EffectiveCost with business metrics for unit economics." },
       { id: 'C', text: "Track spend per service and divide it by the number of active resources deployed so the average cost of each one becomes known." },
       { id: 'D', text: "Track total spend per team each month and compare the trend against that team's own headcount and its recent delivery velocity." }
     ],
@@ -513,7 +513,7 @@ export const FINOPS_FOCUS_QUESTIONS_18 = [
     scenario: "A municipal 911 emergency response platform guarantees 99.999% uptime with multi-region hot-standby active failover. The FinOps team is catching an unexpected spend increase within a day rather than at month end. The work is scoped to the pre-production environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Build automated anomaly detection models on daily FOCUS billing streams to alert on sudden deviations in EffectiveCost by service or resource." },
+      { id: 'A', text: "Run anomaly detection over the daily FOCUS billing stream." },
       { id: 'B', text: "Set a monthly budget for each account with alerts raised at fixed percentage thresholds of the total amount that was budgeted." },
       { id: 'C', text: "Forecast each month's spend from the preceding months and raise an alert whenever that forecast exceeds the budget that was set for the period." },
       { id: 'D', text: "Review the daily spend dashboard each morning so that anomaly detection is done by eye over the same billing streams." }

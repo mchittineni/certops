@@ -115,7 +115,7 @@ export const AWS_CLF_QUESTIONS_11 = [
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Negotiate individual hardware purchase contracts with server manufacturers." },
-      { id: 'B', text: "Leverage AWS economies of scale, which continually lower pay-as-you-go prices." },
+      { id: 'B', text: "AWS economies of scale continually lower pay-as-you-go prices." },
       { id: 'C', text: "Sign fixed multi-year software maintenance contracts with third-party vendors." },
       { id: 'D', text: "Deploy dedicated physical private servers in an on-premises wiring closet." }
     ],
@@ -138,7 +138,7 @@ export const AWS_CLF_QUESTIONS_11 = [
       { id: 'A', text: "Negotiate individual hardware purchase contracts with server manufacturers." },
       { id: 'B', text: "Sign fixed multi-year software maintenance contracts with third-party vendors." },
       { id: 'C', text: "Deploy dedicated physical private servers in an on-premises wiring closet." },
-      { id: 'D', text: "Leverage AWS economies of scale, which continually lower pay-as-you-go prices." }
+      { id: 'D', text: "AWS economies of scale continually lower pay-as-you-go prices." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -158,7 +158,7 @@ export const AWS_CLF_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Sign fixed multi-year software maintenance contracts with third-party vendors." },
       { id: 'B', text: "Deploy dedicated physical private servers in an on-premises wiring closet." },
-      { id: 'C', text: "Leverage AWS economies of scale, which continually lower pay-as-you-go prices." },
+      { id: 'C', text: "AWS economies of scale continually lower pay-as-you-go prices." },
       { id: 'D', text: "Negotiate individual hardware purchase contracts with server manufacturers." }
     ],
     correctAnswers: ['C'],
@@ -178,7 +178,7 @@ export const AWS_CLF_QUESTIONS_11 = [
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Sign fixed multi-year software maintenance contracts with third-party vendors." },
-      { id: 'B', text: "Leverage AWS economies of scale, which continually lower pay-as-you-go prices." },
+      { id: 'B', text: "AWS economies of scale continually lower pay-as-you-go prices." },
       { id: 'C', text: "Negotiate individual hardware purchase contracts with server manufacturers." },
       { id: 'D', text: "Deploy dedicated physical private servers in an on-premises wiring closet." }
     ],
@@ -200,7 +200,7 @@ export const AWS_CLF_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Sign fixed multi-year software maintenance contracts with third-party vendors." },
       { id: 'B', text: "Negotiate individual hardware purchase contracts with server manufacturers." },
-      { id: 'C', text: "Leverage AWS economies of scale, which continually lower pay-as-you-go prices." },
+      { id: 'C', text: "AWS economies of scale continually lower pay-as-you-go prices." },
       { id: 'D', text: "Deploy dedicated physical private servers in an on-premises wiring closet." }
     ],
     correctAnswers: ['C'],
@@ -222,7 +222,7 @@ export const AWS_CLF_QUESTIONS_11 = [
       { id: 'A', text: "Overprovision server hardware by 300% to ensure peak capacity is never exceeded." },
       { id: 'B', text: "Throttle incoming customer requests to match physical hardware constraints." },
       { id: 'C', text: "Purchase static dedicated server capacity based on annual maximum forecasts." },
-      { id: 'D', text: "Stop guessing capacity by scaling compute automatically with real-time demand." }
+      { id: 'D', text: "Stop guessing capacity; scale compute with demand." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -243,7 +243,7 @@ export const AWS_CLF_QUESTIONS_11 = [
       { id: 'A', text: "Throttle incoming customer requests to match physical hardware constraints." },
       { id: 'B', text: "Overprovision server hardware by 300% to ensure peak capacity is never exceeded." },
       { id: 'C', text: "Purchase static dedicated server capacity based on annual maximum forecasts." },
-      { id: 'D', text: "Stop guessing capacity by scaling compute automatically with real-time demand." }
+      { id: 'D', text: "Stop guessing capacity; scale compute with demand." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -261,7 +261,7 @@ export const AWS_CLF_QUESTIONS_11 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The organization evaluates AWS Cloud Economics to eliminate the risk of under-provisioning servers during unexpected demand spikes or paying for idle hardware during low-traffic periods.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Stop guessing capacity by scaling compute automatically with real-time demand." },
+      { id: 'A', text: "Stop guessing capacity; scale compute with demand." },
       { id: 'B', text: "Purchase static dedicated server capacity based on annual maximum forecasts." },
       { id: 'C', text: "Throttle incoming customer requests to match physical hardware constraints." },
       { id: 'D', text: "Overprovision server hardware by 300% to ensure peak capacity is never exceeded." }
@@ -282,7 +282,7 @@ export const AWS_CLF_QUESTIONS_11 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to the AWS Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The organization evaluates AWS Cloud Economics to eliminate the risk of under-provisioning servers during unexpected demand spikes or paying for idle hardware during low-traffic periods.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Stop guessing capacity by scaling compute automatically with real-time demand." },
+      { id: 'A', text: "Stop guessing capacity; scale compute with demand." },
       { id: 'B', text: "Purchase static dedicated server capacity based on annual maximum forecasts." },
       { id: 'C', text: "Overprovision server hardware by 300% to ensure peak capacity is never exceeded." },
       { id: 'D', text: "Throttle incoming customer requests to match physical hardware constraints." }
@@ -304,7 +304,7 @@ export const AWS_CLF_QUESTIONS_11 = [
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Throttle incoming customer requests to match physical hardware constraints." },
-      { id: 'B', text: "Stop guessing capacity by scaling compute automatically with real-time demand." },
+      { id: 'B', text: "Stop guessing capacity; scale compute with demand." },
       { id: 'C', text: "Overprovision server hardware by 300% to ensure peak capacity is never exceeded." },
       { id: 'D', text: "Purchase static dedicated server capacity based on annual maximum forecasts." }
     ],

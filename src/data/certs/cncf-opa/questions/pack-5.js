@@ -53,7 +53,7 @@ export const CNCF_OPA_QUESTIONS_5 = [
     options: [
       { id: 'A', text: "Run OPA as a central remote decision service that every application calls over the network, scaling the service horizontally behind a load balancer." },
       { id: 'B', text: "Compile the Rego policies to WebAssembly and make the authorization decisions inside each application process using the OPA Wasm SDK." },
-      { id: 'C', text: "Deploy OPA as a sidecar or host daemon that queries local memory policy bundles using JSON input and returns structured authorization decisions." },
+      { id: 'C', text: "Run OPA as a sidecar evaluating local policy bundles." },
       { id: 'D', text: "Embed the OPA Go library directly in each service and evaluate policy in-process against the bundles it loads at startup." }
     ],
     correctAnswers: ['C'],
@@ -75,7 +75,7 @@ export const CNCF_OPA_QUESTIONS_5 = [
       { id: 'A', text: "Define one 'allow' rule whose body lists every condition on its own line, since the expressions inside a single rule body are combined by OPA as a logical OR when it is evaluated." },
       { id: 'B', text: "Define a partial set rule such as 'allow[msg]' for each of them, granting access whenever the resulting set turns out to be non-empty." },
       { id: 'C', text: "Define a single 'allow' rule and join the individual conditions with the 'or' keyword placed between each expression in the rule body." },
-      { id: 'D', text: "Define multiple rules with the same name (e.g., 'allow') so that OPA evaluates them as a logical OR, granting access if any single rule body evaluates to true." }
+      { id: 'D', text: "Define several rules with the same name; OPA combines them as OR." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -93,7 +93,7 @@ export const CNCF_OPA_QUESTIONS_5 = [
     scenario: "An enterprise cloud SaaS architecture mandates strict logical tenant isolation, data masking, and per-tenant resource quotas. The policy team is making sure a request that matches no rule is denied rather than left undefined. The work is scoped to a newly built secondary environment.",
     question: "Which policy approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Set 'default allow := false' at the top of the Rego package and write explicit allow conditions to ensure unauthorized requests fail closed." },
+      { id: 'A', text: "Set 'default allow := false' and write explicit allow rules." },
       { id: 'B', text: "Write the allow rules with no default at all and have every enforcement point treat an undefined decision result as though it were an explicit denial." },
       { id: 'C', text: "Add a catch-all rule 'allow := false' after the other allow rules so that it applies when none of them match." },
       { id: 'D', text: "Set 'default allow := false' inside each allow rule body so that every rule carries its own fallback value independently." }
@@ -115,7 +115,7 @@ export const CNCF_OPA_QUESTIONS_5 = [
     question: "Which policy approach best meets these requirements?",
     options: [
       { id: 'A', text: "Use a partial set rule that assigns one element per matching input document and reference that rule from wherever the filtered collection is needed." },
-      { id: 'B', text: "Use a comprehension such as '[user | some user in input.users; user.active]' to build the filtered collection declaratively in one expression." },
+      { id: 'B', text: "Use a comprehension to build the filtered collection." },
       { id: 'C', text: "Use the built-in 'filter' function with a predicate over input.users so that only the active matching elements are returned." },
       { id: 'D', text: "Iterate with a 'for user in input.users' loop and append each matching element to a local variable as it is found." }
     ],
@@ -199,7 +199,7 @@ export const CNCF_OPA_QUESTIONS_5 = [
     question: "Which policy approach best meets these requirements?",
     options: [
       { id: 'A', text: "Run OPA as a central remote decision service that every application calls over the network, scaling the service horizontally behind a load balancer." },
-      { id: 'B', text: "Deploy OPA as a sidecar or host daemon that queries local memory policy bundles using JSON input and returns structured authorization decisions." },
+      { id: 'B', text: "Run OPA as a sidecar evaluating local policy bundles." },
       { id: 'C', text: "Compile the Rego policies to WebAssembly and make the authorization decisions inside each application process using the OPA Wasm SDK." },
       { id: 'D', text: "Embed the OPA Go library directly in each service and evaluate policy in-process against the bundles it loads at startup." }
     ],
@@ -221,7 +221,7 @@ export const CNCF_OPA_QUESTIONS_5 = [
     options: [
       { id: 'A', text: "Define one 'allow' rule whose body lists every condition on its own line, since the expressions inside a single rule body are combined by OPA as a logical OR when it is evaluated." },
       { id: 'B', text: "Define a partial set rule such as 'allow[msg]' for each of them, granting access whenever the resulting set turns out to be non-empty." },
-      { id: 'C', text: "Define multiple rules with the same name (e.g., 'allow') so that OPA evaluates them as a logical OR, granting access if any single rule body evaluates to true." },
+      { id: 'C', text: "Define several rules with the same name; OPA combines them as OR." },
       { id: 'D', text: "Define a single 'allow' rule and join the individual conditions with the 'or' keyword placed between each expression in the rule body." }
     ],
     correctAnswers: ['C'],
@@ -243,7 +243,7 @@ export const CNCF_OPA_QUESTIONS_5 = [
       { id: 'A', text: "Write the allow rules with no default at all and have every enforcement point treat an undefined decision result as though it were an explicit denial." },
       { id: 'B', text: "Add a catch-all rule 'allow := false' after the other allow rules so that it applies when none of them match." },
       { id: 'C', text: "Set 'default allow := false' inside each allow rule body so that every rule carries its own fallback value independently." },
-      { id: 'D', text: "Set 'default allow := false' at the top of the Rego package and write explicit allow conditions to ensure unauthorized requests fail closed." }
+      { id: 'D', text: "Set 'default allow := false' and write explicit allow rules." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -261,7 +261,7 @@ export const CNCF_OPA_QUESTIONS_5 = [
     scenario: "A defense intelligence system enforces continuous mutual TLS authentication, strict least privilege, and non-repudiation. The policy team is deriving a filtered collection from nested input inside a single rule. The work is scoped to a newly built secondary environment.",
     question: "Which policy approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Use a comprehension such as '[user | some user in input.users; user.active]' to build the filtered collection declaratively in one expression." },
+      { id: 'A', text: "Use a comprehension to build the filtered collection." },
       { id: 'B', text: "Use a partial set rule that assigns one element per matching input document and reference that rule from wherever the filtered collection is needed." },
       { id: 'C', text: "Use the built-in 'filter' function with a predicate over input.users so that only the active matching elements are returned." },
       { id: 'D', text: "Iterate with a 'for user in input.users' loop and append each matching element to a local variable as it is found." }
@@ -345,7 +345,7 @@ export const CNCF_OPA_QUESTIONS_5 = [
     scenario: "A metropolitan transit authority optimizes urban traffic signals with real-time video analytics and edge inference. The policy team is deciding where authorization decisions should be evaluated across a large service estate. The work is scoped to a newly built secondary environment.",
     question: "Which policy approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Deploy OPA as a sidecar or host daemon that queries local memory policy bundles using JSON input and returns structured authorization decisions." },
+      { id: 'A', text: "Run OPA as a sidecar evaluating local policy bundles." },
       { id: 'B', text: "Run OPA as a central remote decision service that every application calls over the network, scaling the service horizontally behind a load balancer." },
       { id: 'C', text: "Compile the Rego policies to WebAssembly and make the authorization decisions inside each application process using the OPA Wasm SDK." },
       { id: 'D', text: "Embed the OPA Go library directly in each service and evaluate policy in-process against the bundles it loads at startup." }
@@ -367,7 +367,7 @@ export const CNCF_OPA_QUESTIONS_5 = [
     question: "Which policy approach best meets these requirements?",
     options: [
       { id: 'A', text: "Define one 'allow' rule whose body lists every condition on its own line, since the expressions inside a single rule body are combined by OPA as a logical OR when it is evaluated." },
-      { id: 'B', text: "Define multiple rules with the same name (e.g., 'allow') so that OPA evaluates them as a logical OR, granting access if any single rule body evaluates to true." },
+      { id: 'B', text: "Define several rules with the same name; OPA combines them as OR." },
       { id: 'C', text: "Define a partial set rule such as 'allow[msg]' for each of them, granting access whenever the resulting set turns out to be non-empty." },
       { id: 'D', text: "Define a single 'allow' rule and join the individual conditions with the 'or' keyword placed between each expression in the rule body." }
     ],
@@ -389,7 +389,7 @@ export const CNCF_OPA_QUESTIONS_5 = [
     options: [
       { id: 'A', text: "Write the allow rules with no default at all and have every enforcement point treat an undefined decision result as though it were an explicit denial." },
       { id: 'B', text: "Add a catch-all rule 'allow := false' after the other allow rules so that it applies when none of them match." },
-      { id: 'C', text: "Set 'default allow := false' at the top of the Rego package and write explicit allow conditions to ensure unauthorized requests fail closed." },
+      { id: 'C', text: "Set 'default allow := false' and write explicit allow rules." },
       { id: 'D', text: "Set 'default allow := false' inside each allow rule body so that every rule carries its own fallback value independently." }
     ],
     correctAnswers: ['C'],
@@ -411,7 +411,7 @@ export const CNCF_OPA_QUESTIONS_5 = [
       { id: 'A', text: "Use a partial set rule that assigns one element per matching input document and reference that rule from wherever the filtered collection is needed." },
       { id: 'B', text: "Use the built-in 'filter' function with a predicate over input.users so that only the active matching elements are returned." },
       { id: 'C', text: "Iterate with a 'for user in input.users' loop and append each matching element to a local variable as it is found." },
-      { id: 'D', text: "Use a comprehension such as '[user | some user in input.users; user.active]' to build the filtered collection declaratively in one expression." }
+      { id: 'D', text: "Use a comprehension to build the filtered collection." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -495,7 +495,7 @@ export const CNCF_OPA_QUESTIONS_5 = [
       { id: 'A', text: "Run OPA as a central remote decision service that every application calls over the network, scaling the service horizontally behind a load balancer." },
       { id: 'B', text: "Compile the Rego policies to WebAssembly and make the authorization decisions inside each application process using the OPA Wasm SDK." },
       { id: 'C', text: "Embed the OPA Go library directly in each service and evaluate policy in-process against the bundles it loads at startup." },
-      { id: 'D', text: "Deploy OPA as a sidecar or host daemon that queries local memory policy bundles using JSON input and returns structured authorization decisions." }
+      { id: 'D', text: "Run OPA as a sidecar evaluating local policy bundles." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -513,7 +513,7 @@ export const CNCF_OPA_QUESTIONS_5 = [
     scenario: "A municipal 911 emergency response platform guarantees 99.999% uptime with multi-region hot-standby active failover. The policy team is expressing several independent conditions where satisfying any one of them should grant access. The work is scoped to a newly built secondary environment.",
     question: "Which policy approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Define multiple rules with the same name (e.g., 'allow') so that OPA evaluates them as a logical OR, granting access if any single rule body evaluates to true." },
+      { id: 'A', text: "Define several rules with the same name; OPA combines them as OR." },
       { id: 'B', text: "Define one 'allow' rule whose body lists every condition on its own line, since the expressions inside a single rule body are combined by OPA as a logical OR when it is evaluated." },
       { id: 'C', text: "Define a partial set rule such as 'allow[msg]' for each of them, granting access whenever the resulting set turns out to be non-empty." },
       { id: 'D', text: "Define a single 'allow' rule and join the individual conditions with the 'or' keyword placed between each expression in the rule body." }

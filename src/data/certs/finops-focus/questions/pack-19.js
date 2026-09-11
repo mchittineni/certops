@@ -9,7 +9,7 @@ export const FINOPS_FOCUS_QUESTIONS_19 = [
     scenario: "A quantitative trading desk requires microsecond secrets delivery, zero packet loss, and deterministic authentication guarantees. The FinOps team is showing whether cloud spend is growing faster than the business it supports. The work is scoped to the production environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Join FOCUS EffectiveCost datasets with business metrics (e.g., active users, transactions processed) to calculate granular Unit Economics (Cost per Transaction)." },
+      { id: 'A', text: "Join FOCUS EffectiveCost with business metrics for unit economics." },
       { id: 'B', text: "Track the month-on-month growth rate of total cloud spend and compare that rate against the business's overall revenue growth over the same reporting period each quarter." },
       { id: 'C', text: "Track spend per service and divide it by the number of active resources deployed so the average cost of each one becomes known." },
       { id: 'D', text: "Track total spend per team each month and compare the trend against that team's own headcount and its recent delivery velocity." }
@@ -75,7 +75,7 @@ export const FINOPS_FOCUS_QUESTIONS_19 = [
       { id: 'A', text: "Set a monthly budget for each account with alerts raised at fixed percentage thresholds of the total amount that was budgeted." },
       { id: 'B', text: "Forecast each month's spend from the preceding months and raise an alert whenever that forecast exceeds the budget that was set for the period." },
       { id: 'C', text: "Review the daily spend dashboard each morning so that anomaly detection is done by eye over the same billing streams." },
-      { id: 'D', text: "Build automated anomaly detection models on daily FOCUS billing streams to alert on sudden deviations in EffectiveCost by service or resource." }
+      { id: 'D', text: "Run anomaly detection over the daily FOCUS billing stream." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -137,7 +137,7 @@ export const FINOPS_FOCUS_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Track the month-on-month growth rate of total cloud spend and compare that rate against the business's overall revenue growth over the same reporting period each quarter." },
       { id: 'B', text: "Track spend per service and divide it by the number of active resources deployed so the average cost of each one becomes known." },
-      { id: 'C', text: "Join FOCUS EffectiveCost datasets with business metrics (e.g., active users, transactions processed) to calculate granular Unit Economics (Cost per Transaction)." },
+      { id: 'C', text: "Join FOCUS EffectiveCost with business metrics for unit economics." },
       { id: 'D', text: "Track total spend per team each month and compare the trend against that team's own headcount and its recent delivery velocity." }
     ],
     correctAnswers: ['C'],
@@ -199,7 +199,7 @@ export const FINOPS_FOCUS_QUESTIONS_19 = [
     question: "Which approach best meets these requirements?",
     options: [
       { id: 'A', text: "Set a monthly budget for each account with alerts raised at fixed percentage thresholds of the total amount that was budgeted." },
-      { id: 'B', text: "Build automated anomaly detection models on daily FOCUS billing streams to alert on sudden deviations in EffectiveCost by service or resource." },
+      { id: 'B', text: "Run anomaly detection over the daily FOCUS billing stream." },
       { id: 'C', text: "Forecast each month's spend from the preceding months and raise an alert whenever that forecast exceeds the budget that was set for the period." },
       { id: 'D', text: "Review the daily spend dashboard each morning so that anomaly detection is done by eye over the same billing streams." }
     ],
@@ -261,7 +261,7 @@ export const FINOPS_FOCUS_QUESTIONS_19 = [
     scenario: "A defense intelligence system enforces continuous mutual TLS authentication, strict least privilege, and non-repudiation. The FinOps team is showing whether cloud spend is growing faster than the business it supports. The work is scoped to the production environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Join FOCUS EffectiveCost datasets with business metrics (e.g., active users, transactions processed) to calculate granular Unit Economics (Cost per Transaction)." },
+      { id: 'A', text: "Join FOCUS EffectiveCost with business metrics for unit economics." },
       { id: 'B', text: "Track the month-on-month growth rate of total cloud spend and compare that rate against the business's overall revenue growth over the same reporting period each quarter." },
       { id: 'C', text: "Track spend per service and divide it by the number of active resources deployed so the average cost of each one becomes known." },
       { id: 'D', text: "Track total spend per team each month and compare the trend against that team's own headcount and its recent delivery velocity." }
@@ -327,7 +327,7 @@ export const FINOPS_FOCUS_QUESTIONS_19 = [
       { id: 'A', text: "Set a monthly budget for each account with alerts raised at fixed percentage thresholds of the total amount that was budgeted." },
       { id: 'B', text: "Forecast each month's spend from the preceding months and raise an alert whenever that forecast exceeds the budget that was set for the period." },
       { id: 'C', text: "Review the daily spend dashboard each morning so that anomaly detection is done by eye over the same billing streams." },
-      { id: 'D', text: "Build automated anomaly detection models on daily FOCUS billing streams to alert on sudden deviations in EffectiveCost by service or resource." }
+      { id: 'D', text: "Run anomaly detection over the daily FOCUS billing stream." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -389,7 +389,7 @@ export const FINOPS_FOCUS_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Track the month-on-month growth rate of total cloud spend and compare that rate against the business's overall revenue growth over the same reporting period each quarter." },
       { id: 'B', text: "Track spend per service and divide it by the number of active resources deployed so the average cost of each one becomes known." },
-      { id: 'C', text: "Join FOCUS EffectiveCost datasets with business metrics (e.g., active users, transactions processed) to calculate granular Unit Economics (Cost per Transaction)." },
+      { id: 'C', text: "Join FOCUS EffectiveCost with business metrics for unit economics." },
       { id: 'D', text: "Track total spend per team each month and compare the trend against that team's own headcount and its recent delivery velocity." }
     ],
     correctAnswers: ['C'],
@@ -451,7 +451,7 @@ export const FINOPS_FOCUS_QUESTIONS_19 = [
     question: "Which approach best meets these requirements?",
     options: [
       { id: 'A', text: "Set a monthly budget for each account with alerts raised at fixed percentage thresholds of the total amount that was budgeted." },
-      { id: 'B', text: "Build automated anomaly detection models on daily FOCUS billing streams to alert on sudden deviations in EffectiveCost by service or resource." },
+      { id: 'B', text: "Run anomaly detection over the daily FOCUS billing stream." },
       { id: 'C', text: "Forecast each month's spend from the preceding months and raise an alert whenever that forecast exceeds the budget that was set for the period." },
       { id: 'D', text: "Review the daily spend dashboard each morning so that anomaly detection is done by eye over the same billing streams." }
     ],
@@ -513,7 +513,7 @@ export const FINOPS_FOCUS_QUESTIONS_19 = [
     scenario: "A municipal 911 emergency response platform guarantees 99.999% uptime with multi-region hot-standby active failover. The FinOps team is showing whether cloud spend is growing faster than the business it supports. The work is scoped to the production environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Join FOCUS EffectiveCost datasets with business metrics (e.g., active users, transactions processed) to calculate granular Unit Economics (Cost per Transaction)." },
+      { id: 'A', text: "Join FOCUS EffectiveCost with business metrics for unit economics." },
       { id: 'B', text: "Track the month-on-month growth rate of total cloud spend and compare that rate against the business's overall revenue growth over the same reporting period each quarter." },
       { id: 'C', text: "Track spend per service and divide it by the number of active resources deployed so the average cost of each one becomes known." },
       { id: 'D', text: "Track total spend per team each month and compare the trend against that team's own headcount and its recent delivery velocity." }
