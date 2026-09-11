@@ -9,7 +9,7 @@ export const AWS_SAA_QUESTIONS_14 = [
     scenario: "A multinational enterprise operating mission-critical services requires a comprehensive disaster recovery and business continuity architecture. Regulatory standards dictate strict availability and failover guarantees during regional outages. The system relies on Amazon ElastiCache to scale in-memory cache read throughput dynamically to handle sudden weekend spikes while maintaining sub-millisecond query response times.",
     question: "Which architecture or service configuration satisfies these disaster recovery and regional resilience requirements?",
     options: [
-      { id: 'A', text: "Configure an ElastiCache for Redis replication group with Auto Scaling enabled on read replicas using a target tracking scaling policy." },
+      { id: 'A', text: "A Redis replication group with autoscaling read replicas." },
       { id: 'B', text: "Deploy an Amazon CloudFront distribution fronting the ElastiCache cluster." },
       { id: 'C', text: "Configure Amazon RDS Read Replicas with provisioned IOPS SSD (io2) storage." },
       { id: 'D', text: "Increase the cache node instance type vertically during each traffic spike." }
@@ -30,7 +30,7 @@ export const AWS_SAA_QUESTIONS_14 = [
     scenario: "A high-volume digital platform experiences sudden, unpredictable surges in user traffic during nationwide marketing campaigns. The engineering team must ensure the architecture scales seamlessly under high throughput while maintaining low latency. The system relies on Amazon ElastiCache to scale in-memory cache read throughput dynamically to handle sudden weekend spikes while maintaining sub-millisecond query response times.",
     question: "Which architectural approach should the solutions architect recommend to accommodate this scale?",
     options: [
-      { id: 'A', text: "Configure an ElastiCache for Redis replication group with Auto Scaling enabled on read replicas using a target tracking scaling policy." },
+      { id: 'A', text: "A Redis replication group with autoscaling read replicas." },
       { id: 'B', text: "Configure Amazon RDS Read Replicas with provisioned IOPS SSD (io2) storage." },
       { id: 'C', text: "Deploy an Amazon CloudFront distribution fronting the ElastiCache cluster." },
       { id: 'D', text: "Increase the cache node instance type vertically during each traffic spike." }
@@ -53,7 +53,7 @@ export const AWS_SAA_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Deploy an Amazon CloudFront distribution fronting the ElastiCache cluster." },
       { id: 'B', text: "Increase the cache node instance type vertically during each traffic spike." },
-      { id: 'C', text: "Configure an ElastiCache for Redis replication group with Auto Scaling enabled on read replicas using a target tracking scaling policy." },
+      { id: 'C', text: "A Redis replication group with autoscaling read replicas." },
       { id: 'D', text: "Configure Amazon RDS Read Replicas with provisioned IOPS SSD (io2) storage." }
     ],
     correctAnswers: ['C'],
@@ -73,7 +73,7 @@ export const AWS_SAA_QUESTIONS_14 = [
     question: "Which solution enables a robust, highly available architecture while minimizing ongoing operational overhead?",
     options: [
       { id: 'A', text: "Configure Amazon RDS Read Replicas with provisioned IOPS SSD (io2) storage." },
-      { id: 'B', text: "Configure an ElastiCache for Redis replication group with Auto Scaling enabled on read replicas using a target tracking scaling policy." },
+      { id: 'B', text: "A Redis replication group with autoscaling read replicas." },
       { id: 'C', text: "Deploy an Amazon CloudFront distribution fronting the ElastiCache cluster." },
       { id: 'D', text: "Increase the cache node instance type vertically during each traffic spike." }
     ],
@@ -94,7 +94,7 @@ export const AWS_SAA_QUESTIONS_14 = [
     question: "Which design pattern or service configuration eliminates single points of failure and provides automated recovery?",
     options: [
       { id: 'A', text: "Deploy an Amazon CloudFront distribution fronting the ElastiCache cluster." },
-      { id: 'B', text: "Configure an ElastiCache for Redis replication group with Auto Scaling enabled on read replicas using a target tracking scaling policy." },
+      { id: 'B', text: "A Redis replication group with autoscaling read replicas." },
       { id: 'C', text: "Configure Amazon RDS Read Replicas with provisioned IOPS SSD (io2) storage." },
       { id: 'D', text: "Increase the cache node instance type vertically during each traffic spike." }
     ],
@@ -114,7 +114,7 @@ export const AWS_SAA_QUESTIONS_14 = [
     scenario: "A multinational enterprise operating mission-critical services requires a comprehensive disaster recovery and business continuity architecture. Regulatory standards dictate strict availability and failover guarantees during regional outages. The system relies on Amazon DynamoDB to prevent partition hot-spotting when millions of transactions per second write to a table partitioned by a high-frequency date field.",
     question: "Which architecture or service configuration satisfies these disaster recovery and regional resilience requirements?",
     options: [
-      { id: 'A', text: "Append a calculated random suffix (e.g. date_0 to date_N) to the partition key value at write time, and perform parallel queries across suffixes at read time." },
+      { id: 'A', text: "Add a random suffix at write time and query the suffixes in parallel." },
       { id: 'B', text: "Store all transactions in a single item by appending objects to a DynamoDB List attribute." },
       { id: 'C', text: "Convert the DynamoDB table from On-Demand capacity to Provisioned capacity with 40,000 WCU." },
       { id: 'D', text: "Create a Global Secondary Index on the date field with projection set to ALL." }
@@ -137,7 +137,7 @@ export const AWS_SAA_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Convert the DynamoDB table from On-Demand capacity to Provisioned capacity with 40,000 WCU." },
       { id: 'B', text: "Store all transactions in a single item by appending objects to a DynamoDB List attribute." },
-      { id: 'C', text: "Append a calculated random suffix (e.g. date_0 to date_N) to the partition key value at write time, and perform parallel queries across suffixes at read time." },
+      { id: 'C', text: "Add a random suffix at write time and query the suffixes in parallel." },
       { id: 'D', text: "Create a Global Secondary Index on the date field with projection set to ALL." }
     ],
     correctAnswers: ['C'],
@@ -158,7 +158,7 @@ export const AWS_SAA_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Create a Global Secondary Index on the date field with projection set to ALL." },
       { id: 'B', text: "Convert the DynamoDB table from On-Demand capacity to Provisioned capacity with 40,000 WCU." },
-      { id: 'C', text: "Append a calculated random suffix (e.g. date_0 to date_N) to the partition key value at write time, and perform parallel queries across suffixes at read time." },
+      { id: 'C', text: "Add a random suffix at write time and query the suffixes in parallel." },
       { id: 'D', text: "Store all transactions in a single item by appending objects to a DynamoDB List attribute." }
     ],
     correctAnswers: ['C'],
@@ -179,7 +179,7 @@ export const AWS_SAA_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Create a Global Secondary Index on the date field with projection set to ALL." },
       { id: 'B', text: "Store all transactions in a single item by appending objects to a DynamoDB List attribute." },
-      { id: 'C', text: "Append a calculated random suffix (e.g. date_0 to date_N) to the partition key value at write time, and perform parallel queries across suffixes at read time." },
+      { id: 'C', text: "Add a random suffix at write time and query the suffixes in parallel." },
       { id: 'D', text: "Convert the DynamoDB table from On-Demand capacity to Provisioned capacity with 40,000 WCU." }
     ],
     correctAnswers: ['C'],
@@ -200,7 +200,7 @@ export const AWS_SAA_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Convert the DynamoDB table from On-Demand capacity to Provisioned capacity with 40,000 WCU." },
       { id: 'B', text: "Store all transactions in a single item by appending objects to a DynamoDB List attribute." },
-      { id: 'C', text: "Append a calculated random suffix (e.g. date_0 to date_N) to the partition key value at write time, and perform parallel queries across suffixes at read time." },
+      { id: 'C', text: "Add a random suffix at write time and query the suffixes in parallel." },
       { id: 'D', text: "Create a Global Secondary Index on the date field with projection set to ALL." }
     ],
     correctAnswers: ['C'],
@@ -324,7 +324,7 @@ export const AWS_SAA_QUESTIONS_14 = [
     scenario: "A multinational enterprise operating mission-critical services requires a comprehensive disaster recovery and business continuity architecture. Regulatory standards dictate strict availability and failover guarantees during regional outages. The system relies on AWS Global Accelerator to improve global application performance and reduce packet loss for users worldwide accessing Application Load Balancers across multiple AWS Regions.",
     question: "Which architecture or service configuration satisfies these disaster recovery and regional resilience requirements?",
     options: [
-      { id: 'A', text: "Deploy AWS Global Accelerator, allocate two static Anycast IP addresses, and configure endpoint groups for the regional Application Load Balancers." },
+      { id: 'A', text: "Global Accelerator with static anycast IPs and regional endpoint groups." },
       { id: 'B', text: "Deploy an AWS Direct Connect connection with public virtual interfaces in each region." },
       { id: 'C', text: "Deploy an Amazon CloudFront distribution with dynamic caching disabled." },
       { id: 'D', text: "Configure Route 53 Latency-based routing pointing to regional public IP addresses." }
@@ -348,7 +348,7 @@ export const AWS_SAA_QUESTIONS_14 = [
       { id: 'A', text: "Deploy an Amazon CloudFront distribution with dynamic caching disabled." },
       { id: 'B', text: "Configure Route 53 Latency-based routing pointing to regional public IP addresses." },
       { id: 'C', text: "Deploy an AWS Direct Connect connection with public virtual interfaces in each region." },
-      { id: 'D', text: "Deploy AWS Global Accelerator, allocate two static Anycast IP addresses, and configure endpoint groups for the regional Application Load Balancers." }
+      { id: 'D', text: "Global Accelerator with static anycast IPs and regional endpoint groups." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -368,7 +368,7 @@ export const AWS_SAA_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Deploy an AWS Direct Connect connection with public virtual interfaces in each region." },
       { id: 'B', text: "Configure Route 53 Latency-based routing pointing to regional public IP addresses." },
-      { id: 'C', text: "Deploy AWS Global Accelerator, allocate two static Anycast IP addresses, and configure endpoint groups for the regional Application Load Balancers." },
+      { id: 'C', text: "Global Accelerator with static anycast IPs and regional endpoint groups." },
       { id: 'D', text: "Deploy an Amazon CloudFront distribution with dynamic caching disabled." }
     ],
     correctAnswers: ['C'],
@@ -387,7 +387,7 @@ export const AWS_SAA_QUESTIONS_14 = [
     scenario: "An enterprise is migrating enterprise workloads from on-premises data centers to AWS. The architecture must integrate existing operational processes while leveraging cloud-native managed services to minimize operational complexity. The system relies on AWS Global Accelerator to improve global application performance and reduce packet loss for users worldwide accessing Application Load Balancers across multiple AWS Regions.",
     question: "Which solution enables a robust, highly available architecture while minimizing ongoing operational overhead?",
     options: [
-      { id: 'A', text: "Deploy AWS Global Accelerator, allocate two static Anycast IP addresses, and configure endpoint groups for the regional Application Load Balancers." },
+      { id: 'A', text: "Global Accelerator with static anycast IPs and regional endpoint groups." },
       { id: 'B', text: "Configure Route 53 Latency-based routing pointing to regional public IP addresses." },
       { id: 'C', text: "Deploy an AWS Direct Connect connection with public virtual interfaces in each region." },
       { id: 'D', text: "Deploy an Amazon CloudFront distribution with dynamic caching disabled." }
@@ -408,7 +408,7 @@ export const AWS_SAA_QUESTIONS_14 = [
     scenario: "A distributed microservices application experiences intermittent failures and resource saturation during peak operational windows. The solutions architect must eliminate single points of failure and establish automated recovery mechanisms. The system relies on AWS Global Accelerator to improve global application performance and reduce packet loss for users worldwide accessing Application Load Balancers across multiple AWS Regions.",
     question: "Which design pattern or service configuration eliminates single points of failure and provides automated recovery?",
     options: [
-      { id: 'A', text: "Deploy AWS Global Accelerator, allocate two static Anycast IP addresses, and configure endpoint groups for the regional Application Load Balancers." },
+      { id: 'A', text: "Global Accelerator with static anycast IPs and regional endpoint groups." },
       { id: 'B', text: "Deploy an Amazon CloudFront distribution with dynamic caching disabled." },
       { id: 'C', text: "Deploy an AWS Direct Connect connection with public virtual interfaces in each region." },
       { id: 'D', text: "Configure Route 53 Latency-based routing pointing to regional public IP addresses." }
@@ -432,7 +432,7 @@ export const AWS_SAA_QUESTIONS_14 = [
       { id: 'A', text: "Deploy a Lambda@Edge viewer-request function to encrypt request parameters using a symmetric KMS key." },
       { id: 'B', text: "Configure HTTPS with TLS 1.3 between CloudFront and the Application Load Balancer." },
       { id: 'C', text: "Deploy an AWS WAF rule group to inspect and hash credit card numbers in the request body." },
-      { id: 'D', text: "Configure CloudFront Field-Level Encryption with an asymmetric encryption public key profile mapped to the target form fields." }
+      { id: 'D', text: "CloudFront field-level encryption with a public key profile on those fields." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -453,7 +453,7 @@ export const AWS_SAA_QUESTIONS_14 = [
       { id: 'A', text: "Deploy a Lambda@Edge viewer-request function to encrypt request parameters using a symmetric KMS key." },
       { id: 'B', text: "Configure HTTPS with TLS 1.3 between CloudFront and the Application Load Balancer." },
       { id: 'C', text: "Deploy an AWS WAF rule group to inspect and hash credit card numbers in the request body." },
-      { id: 'D', text: "Configure CloudFront Field-Level Encryption with an asymmetric encryption public key profile mapped to the target form fields." }
+      { id: 'D', text: "CloudFront field-level encryption with a public key profile on those fields." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -474,7 +474,7 @@ export const AWS_SAA_QUESTIONS_14 = [
       { id: 'A', text: "Deploy a Lambda@Edge viewer-request function to encrypt request parameters using a symmetric KMS key." },
       { id: 'B', text: "Deploy an AWS WAF rule group to inspect and hash credit card numbers in the request body." },
       { id: 'C', text: "Configure HTTPS with TLS 1.3 between CloudFront and the Application Load Balancer." },
-      { id: 'D', text: "Configure CloudFront Field-Level Encryption with an asymmetric encryption public key profile mapped to the target form fields." }
+      { id: 'D', text: "CloudFront field-level encryption with a public key profile on those fields." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -494,7 +494,7 @@ export const AWS_SAA_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Configure HTTPS with TLS 1.3 between CloudFront and the Application Load Balancer." },
       { id: 'B', text: "Deploy an AWS WAF rule group to inspect and hash credit card numbers in the request body." },
-      { id: 'C', text: "Configure CloudFront Field-Level Encryption with an asymmetric encryption public key profile mapped to the target form fields." },
+      { id: 'C', text: "CloudFront field-level encryption with a public key profile on those fields." },
       { id: 'D', text: "Deploy a Lambda@Edge viewer-request function to encrypt request parameters using a symmetric KMS key." }
     ],
     correctAnswers: ['C'],
@@ -515,7 +515,7 @@ export const AWS_SAA_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Deploy a Lambda@Edge viewer-request function to encrypt request parameters using a symmetric KMS key." },
       { id: 'B', text: "Deploy an AWS WAF rule group to inspect and hash credit card numbers in the request body." },
-      { id: 'C', text: "Configure CloudFront Field-Level Encryption with an asymmetric encryption public key profile mapped to the target form fields." },
+      { id: 'C', text: "CloudFront field-level encryption with a public key profile on those fields." },
       { id: 'D', text: "Configure HTTPS with TLS 1.3 between CloudFront and the Application Load Balancer." }
     ],
     correctAnswers: ['C'],

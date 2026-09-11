@@ -9,7 +9,7 @@ export const AWS_SAA_QUESTIONS_11 = [
     scenario: "A multinational enterprise operating mission-critical services requires a comprehensive disaster recovery and business continuity architecture. Regulatory standards dictate strict availability and failover guarantees during regional outages. The system relies on Amazon S3 to replicate objects asynchronously to a secondary AWS Region within an SLA of 15 minutes with KMS CMK encryption.",
     question: "Which architecture or service configuration satisfies these disaster recovery and regional resilience requirements?",
     options: [
-      { id: 'A', text: "Enable S3 Cross-Region Replication with S3 Replication Time Control (RTC), specify the destination region KMS key ARN, and grant the replication IAM role decrypt and encrypt permissions." },
+      { id: 'A', text: "Cross-region replication with RTC, the destination KMS key and role permissions." },
       { id: 'B', text: "Deploy an AWS Lambda function triggered by S3 ObjectCreated events to download and re-upload objects using default SSE-S3 encryption." },
       { id: 'C', text: "Configure S3 Batch Replication scheduled to run hourly without RTC." },
       { id: 'D', text: "Export the source region customer managed KMS key to the destination region and enable standard replication." }
@@ -31,7 +31,7 @@ export const AWS_SAA_QUESTIONS_11 = [
     question: "Which architectural approach should the solutions architect recommend to accommodate this scale?",
     options: [
       { id: 'A', text: "Export the source region customer managed KMS key to the destination region and enable standard replication." },
-      { id: 'B', text: "Enable S3 Cross-Region Replication with S3 Replication Time Control (RTC), specify the destination region KMS key ARN, and grant the replication IAM role decrypt and encrypt permissions." },
+      { id: 'B', text: "Cross-region replication with RTC, the destination KMS key and role permissions." },
       { id: 'C', text: "Deploy an AWS Lambda function triggered by S3 ObjectCreated events to download and re-upload objects using default SSE-S3 encryption." },
       { id: 'D', text: "Configure S3 Batch Replication scheduled to run hourly without RTC." }
     ],
@@ -51,7 +51,7 @@ export const AWS_SAA_QUESTIONS_11 = [
     scenario: "A financial and healthcare organization must adhere to stringent regulatory compliance and auditing standards. Security auditors require strict enforcement of data protection, least privilege access, and automated governance. The system relies on Amazon S3 to replicate objects asynchronously to a secondary AWS Region within an SLA of 15 minutes with KMS CMK encryption.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Enable S3 Cross-Region Replication with S3 Replication Time Control (RTC), specify the destination region KMS key ARN, and grant the replication IAM role decrypt and encrypt permissions." },
+      { id: 'A', text: "Cross-region replication with RTC, the destination KMS key and role permissions." },
       { id: 'B', text: "Export the source region customer managed KMS key to the destination region and enable standard replication." },
       { id: 'C', text: "Deploy an AWS Lambda function triggered by S3 ObjectCreated events to download and re-upload objects using default SSE-S3 encryption." },
       { id: 'D', text: "Configure S3 Batch Replication scheduled to run hourly without RTC." }
@@ -75,7 +75,7 @@ export const AWS_SAA_QUESTIONS_11 = [
       { id: 'A', text: "Configure S3 Batch Replication scheduled to run hourly without RTC." },
       { id: 'B', text: "Deploy an AWS Lambda function triggered by S3 ObjectCreated events to download and re-upload objects using default SSE-S3 encryption." },
       { id: 'C', text: "Export the source region customer managed KMS key to the destination region and enable standard replication." },
-      { id: 'D', text: "Enable S3 Cross-Region Replication with S3 Replication Time Control (RTC), specify the destination region KMS key ARN, and grant the replication IAM role decrypt and encrypt permissions." }
+      { id: 'D', text: "Cross-region replication with RTC, the destination KMS key and role permissions." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -93,7 +93,7 @@ export const AWS_SAA_QUESTIONS_11 = [
     scenario: "A distributed microservices application experiences intermittent failures and resource saturation during peak operational windows. The solutions architect must eliminate single points of failure and establish automated recovery mechanisms. The system relies on Amazon S3 to replicate objects asynchronously to a secondary AWS Region within an SLA of 15 minutes with KMS CMK encryption.",
     question: "Which design pattern or service configuration eliminates single points of failure and provides automated recovery?",
     options: [
-      { id: 'A', text: "Enable S3 Cross-Region Replication with S3 Replication Time Control (RTC), specify the destination region KMS key ARN, and grant the replication IAM role decrypt and encrypt permissions." },
+      { id: 'A', text: "Cross-region replication with RTC, the destination KMS key and role permissions." },
       { id: 'B', text: "Configure S3 Batch Replication scheduled to run hourly without RTC." },
       { id: 'C', text: "Export the source region customer managed KMS key to the destination region and enable standard replication." },
       { id: 'D', text: "Deploy an AWS Lambda function triggered by S3 ObjectCreated events to download and re-upload objects using default SSE-S3 encryption." }
@@ -220,7 +220,7 @@ export const AWS_SAA_QUESTIONS_11 = [
     question: "Which architecture or service configuration satisfies these disaster recovery and regional resilience requirements?",
     options: [
       { id: 'A', text: "Execute an automated AWS CloudFormation stack deletion in the degraded region." },
-      { id: 'B', text: "Configure Route 53 Application Recovery Controller (ARC) routing control states integrated with regional health checks." },
+      { id: 'B', text: "Route 53 ARC routing control states tied to regional health checks." },
       { id: 'C', text: "Decrease the DNS record TTL to 1 second in Route 53 public hosted zones." },
       { id: 'D', text: "Delete the Route 53 alias record pointing to the failed region Application Load Balancer." }
     ],
@@ -242,7 +242,7 @@ export const AWS_SAA_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Execute an automated AWS CloudFormation stack deletion in the degraded region." },
       { id: 'B', text: "Decrease the DNS record TTL to 1 second in Route 53 public hosted zones." },
-      { id: 'C', text: "Configure Route 53 Application Recovery Controller (ARC) routing control states integrated with regional health checks." },
+      { id: 'C', text: "Route 53 ARC routing control states tied to regional health checks." },
       { id: 'D', text: "Delete the Route 53 alias record pointing to the failed region Application Load Balancer." }
     ],
     correctAnswers: ['C'],
@@ -261,7 +261,7 @@ export const AWS_SAA_QUESTIONS_11 = [
     scenario: "A financial and healthcare organization must adhere to stringent regulatory compliance and auditing standards. Security auditors require strict enforcement of data protection, least privilege access, and automated governance. The system relies on Amazon Route 53 to divert 100% of regional user traffic instantly during an availability zone or regional outage without waiting for DNS TTL expirations.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Configure Route 53 Application Recovery Controller (ARC) routing control states integrated with regional health checks." },
+      { id: 'A', text: "Route 53 ARC routing control states tied to regional health checks." },
       { id: 'B', text: "Delete the Route 53 alias record pointing to the failed region Application Load Balancer." },
       { id: 'C', text: "Execute an automated AWS CloudFormation stack deletion in the degraded region." },
       { id: 'D', text: "Decrease the DNS record TTL to 1 second in Route 53 public hosted zones." }
@@ -282,7 +282,7 @@ export const AWS_SAA_QUESTIONS_11 = [
     scenario: "An enterprise is migrating enterprise workloads from on-premises data centers to AWS. The architecture must integrate existing operational processes while leveraging cloud-native managed services to minimize operational complexity. The system relies on Amazon Route 53 to divert 100% of regional user traffic instantly during an availability zone or regional outage without waiting for DNS TTL expirations.",
     question: "Which solution enables a robust, highly available architecture while minimizing ongoing operational overhead?",
     options: [
-      { id: 'A', text: "Configure Route 53 Application Recovery Controller (ARC) routing control states integrated with regional health checks." },
+      { id: 'A', text: "Route 53 ARC routing control states tied to regional health checks." },
       { id: 'B', text: "Execute an automated AWS CloudFormation stack deletion in the degraded region." },
       { id: 'C', text: "Delete the Route 53 alias record pointing to the failed region Application Load Balancer." },
       { id: 'D', text: "Decrease the DNS record TTL to 1 second in Route 53 public hosted zones." }
@@ -304,7 +304,7 @@ export const AWS_SAA_QUESTIONS_11 = [
     question: "Which design pattern or service configuration eliminates single points of failure and provides automated recovery?",
     options: [
       { id: 'A', text: "Decrease the DNS record TTL to 1 second in Route 53 public hosted zones." },
-      { id: 'B', text: "Configure Route 53 Application Recovery Controller (ARC) routing control states integrated with regional health checks." },
+      { id: 'B', text: "Route 53 ARC routing control states tied to regional health checks." },
       { id: 'C', text: "Execute an automated AWS CloudFormation stack deletion in the degraded region." },
       { id: 'D', text: "Delete the Route 53 alias record pointing to the failed region Application Load Balancer." }
     ],
@@ -431,7 +431,7 @@ export const AWS_SAA_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Increase the Auto Scaling group Default Cooldown period to 900 seconds." },
       { id: 'B', text: "Modify the Auto Scaling group termination policy to prioritize OldestInstance." },
-      { id: 'C', text: "Attach an Auto Scaling terminating lifecycle hook, send a notification to Amazon EventBridge or Amazon SQS, invoke a drain script, and complete the lifecycle action upon completion." },
+      { id: 'C', text: "A terminating lifecycle hook that drains, then completes the action." },
       { id: 'D', text: "Configure an Application Load Balancer deregistration delay of 900 seconds." }
     ],
     correctAnswers: ['C'],
@@ -451,7 +451,7 @@ export const AWS_SAA_QUESTIONS_11 = [
     question: "Which architectural approach should the solutions architect recommend to accommodate this scale?",
     options: [
       { id: 'A', text: "Configure an Application Load Balancer deregistration delay of 900 seconds." },
-      { id: 'B', text: "Attach an Auto Scaling terminating lifecycle hook, send a notification to Amazon EventBridge or Amazon SQS, invoke a drain script, and complete the lifecycle action upon completion." },
+      { id: 'B', text: "A terminating lifecycle hook that drains, then completes the action." },
       { id: 'C', text: "Increase the Auto Scaling group Default Cooldown period to 900 seconds." },
       { id: 'D', text: "Modify the Auto Scaling group termination policy to prioritize OldestInstance." }
     ],
@@ -471,7 +471,7 @@ export const AWS_SAA_QUESTIONS_11 = [
     scenario: "A financial and healthcare organization must adhere to stringent regulatory compliance and auditing standards. Security auditors require strict enforcement of data protection, least privilege access, and automated governance. The system relies on Amazon EC2 Auto Scaling to pause instance termination during scale-in events to allow up to 15 minutes for memory buffers to drain to persistent storage.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Attach an Auto Scaling terminating lifecycle hook, send a notification to Amazon EventBridge or Amazon SQS, invoke a drain script, and complete the lifecycle action upon completion." },
+      { id: 'A', text: "A terminating lifecycle hook that drains, then completes the action." },
       { id: 'B', text: "Configure an Application Load Balancer deregistration delay of 900 seconds." },
       { id: 'C', text: "Increase the Auto Scaling group Default Cooldown period to 900 seconds." },
       { id: 'D', text: "Modify the Auto Scaling group termination policy to prioritize OldestInstance." }
@@ -494,7 +494,7 @@ export const AWS_SAA_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Modify the Auto Scaling group termination policy to prioritize OldestInstance." },
       { id: 'B', text: "Increase the Auto Scaling group Default Cooldown period to 900 seconds." },
-      { id: 'C', text: "Attach an Auto Scaling terminating lifecycle hook, send a notification to Amazon EventBridge or Amazon SQS, invoke a drain script, and complete the lifecycle action upon completion." },
+      { id: 'C', text: "A terminating lifecycle hook that drains, then completes the action." },
       { id: 'D', text: "Configure an Application Load Balancer deregistration delay of 900 seconds." }
     ],
     correctAnswers: ['C'],
@@ -514,7 +514,7 @@ export const AWS_SAA_QUESTIONS_11 = [
     question: "Which design pattern or service configuration eliminates single points of failure and provides automated recovery?",
     options: [
       { id: 'A', text: "Increase the Auto Scaling group Default Cooldown period to 900 seconds." },
-      { id: 'B', text: "Attach an Auto Scaling terminating lifecycle hook, send a notification to Amazon EventBridge or Amazon SQS, invoke a drain script, and complete the lifecycle action upon completion." },
+      { id: 'B', text: "A terminating lifecycle hook that drains, then completes the action." },
       { id: 'C', text: "Configure an Application Load Balancer deregistration delay of 900 seconds." },
       { id: 'D', text: "Modify the Auto Scaling group termination policy to prioritize OldestInstance." }
     ],

@@ -11,7 +11,7 @@ export const AWS_SAA_QUESTIONS_20 = [
     options: [
       { id: 'A', text: "Configure an S3 Lifecycle rule with an Expiration action on current versions." },
       { id: 'B', text: "Disable S3 Versioning on the bucket and purge all objects manually." },
-      { id: 'C', text: "Configure an S3 Lifecycle rule with NoncurrentVersionExpiration to permanently delete older noncurrent versions after 30 days." },
+      { id: 'C', text: "A NoncurrentVersionExpiration rule deleting old versions at 30 days." },
       { id: 'D', text: "Enable MFA Delete on the S3 bucket to prevent object versioning." }
     ],
     correctAnswers: ['C'],
@@ -31,7 +31,7 @@ export const AWS_SAA_QUESTIONS_20 = [
     question: "Which architectural approach should the solutions architect recommend to accommodate this scale?",
     options: [
       { id: 'A', text: "Enable MFA Delete on the S3 bucket to prevent object versioning." },
-      { id: 'B', text: "Configure an S3 Lifecycle rule with NoncurrentVersionExpiration to permanently delete older noncurrent versions after 30 days." },
+      { id: 'B', text: "A NoncurrentVersionExpiration rule deleting old versions at 30 days." },
       { id: 'C', text: "Configure an S3 Lifecycle rule with an Expiration action on current versions." },
       { id: 'D', text: "Disable S3 Versioning on the bucket and purge all objects manually." }
     ],
@@ -54,7 +54,7 @@ export const AWS_SAA_QUESTIONS_20 = [
       { id: 'A', text: "Enable MFA Delete on the S3 bucket to prevent object versioning." },
       { id: 'B', text: "Configure an S3 Lifecycle rule with an Expiration action on current versions." },
       { id: 'C', text: "Disable S3 Versioning on the bucket and purge all objects manually." },
-      { id: 'D', text: "Configure an S3 Lifecycle rule with NoncurrentVersionExpiration to permanently delete older noncurrent versions after 30 days." }
+      { id: 'D', text: "A NoncurrentVersionExpiration rule deleting old versions at 30 days." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -73,7 +73,7 @@ export const AWS_SAA_QUESTIONS_20 = [
     question: "Which solution enables a robust, highly available architecture while minimizing ongoing operational overhead?",
     options: [
       { id: 'A', text: "Disable S3 Versioning on the bucket and purge all objects manually." },
-      { id: 'B', text: "Configure an S3 Lifecycle rule with NoncurrentVersionExpiration to permanently delete older noncurrent versions after 30 days." },
+      { id: 'B', text: "A NoncurrentVersionExpiration rule deleting old versions at 30 days." },
       { id: 'C', text: "Enable MFA Delete on the S3 bucket to prevent object versioning." },
       { id: 'D', text: "Configure an S3 Lifecycle rule with an Expiration action on current versions." }
     ],
@@ -94,7 +94,7 @@ export const AWS_SAA_QUESTIONS_20 = [
     question: "Which design pattern or service configuration eliminates single points of failure and provides automated recovery?",
     options: [
       { id: 'A', text: "Configure an S3 Lifecycle rule with an Expiration action on current versions." },
-      { id: 'B', text: "Configure an S3 Lifecycle rule with NoncurrentVersionExpiration to permanently delete older noncurrent versions after 30 days." },
+      { id: 'B', text: "A NoncurrentVersionExpiration rule deleting old versions at 30 days." },
       { id: 'C', text: "Enable MFA Delete on the S3 bucket to prevent object versioning." },
       { id: 'D', text: "Disable S3 Versioning on the bucket and purge all objects manually." }
     ],
@@ -117,7 +117,7 @@ export const AWS_SAA_QUESTIONS_20 = [
       { id: 'A', text: "Configure AWS Budgets with a fixed monthly forecast threshold only." },
       { id: 'B', text: "Review the AWS Monthly Billing invoice PDF manually at the end of each billing cycle." },
       { id: 'C', text: "Deploy an AWS CloudWatch metric alarm on the EstimatedCharges billing metric." },
-      { id: 'D', text: "Configure AWS Cost Anomaly Detection with a cost monitor across all AWS services and create an alert subscription linked to an Amazon SNS topic." }
+      { id: 'D', text: "Cost Anomaly Detection across all services with an SNS subscription." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -135,7 +135,7 @@ export const AWS_SAA_QUESTIONS_20 = [
     scenario: "A high-volume digital platform experiences sudden, unpredictable surges in user traffic during nationwide marketing campaigns. The engineering team must ensure the architecture scales seamlessly under high throughput while maintaining low latency. The system relies on AWS Cost Management to automatically detect unexpected cloud spending spikes in real time and receive immediate notifications with root-cause analysis.",
     question: "Which architectural approach should the solutions architect recommend to accommodate this scale?",
     options: [
-      { id: 'A', text: "Configure AWS Cost Anomaly Detection with a cost monitor across all AWS services and create an alert subscription linked to an Amazon SNS topic." },
+      { id: 'A', text: "Cost Anomaly Detection across all services with an SNS subscription." },
       { id: 'B', text: "Review the AWS Monthly Billing invoice PDF manually at the end of each billing cycle." },
       { id: 'C', text: "Deploy an AWS CloudWatch metric alarm on the EstimatedCharges billing metric." },
       { id: 'D', text: "Configure AWS Budgets with a fixed monthly forecast threshold only." }
@@ -157,7 +157,7 @@ export const AWS_SAA_QUESTIONS_20 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Configure AWS Budgets with a fixed monthly forecast threshold only." },
-      { id: 'B', text: "Configure AWS Cost Anomaly Detection with a cost monitor across all AWS services and create an alert subscription linked to an Amazon SNS topic." },
+      { id: 'B', text: "Cost Anomaly Detection across all services with an SNS subscription." },
       { id: 'C', text: "Review the AWS Monthly Billing invoice PDF manually at the end of each billing cycle." },
       { id: 'D', text: "Deploy an AWS CloudWatch metric alarm on the EstimatedCharges billing metric." }
     ],
@@ -180,7 +180,7 @@ export const AWS_SAA_QUESTIONS_20 = [
       { id: 'A', text: "Configure AWS Budgets with a fixed monthly forecast threshold only." },
       { id: 'B', text: "Deploy an AWS CloudWatch metric alarm on the EstimatedCharges billing metric." },
       { id: 'C', text: "Review the AWS Monthly Billing invoice PDF manually at the end of each billing cycle." },
-      { id: 'D', text: "Configure AWS Cost Anomaly Detection with a cost monitor across all AWS services and create an alert subscription linked to an Amazon SNS topic." }
+      { id: 'D', text: "Cost Anomaly Detection across all services with an SNS subscription." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -201,7 +201,7 @@ export const AWS_SAA_QUESTIONS_20 = [
       { id: 'A', text: "Review the AWS Monthly Billing invoice PDF manually at the end of each billing cycle." },
       { id: 'B', text: "Deploy an AWS CloudWatch metric alarm on the EstimatedCharges billing metric." },
       { id: 'C', text: "Configure AWS Budgets with a fixed monthly forecast threshold only." },
-      { id: 'D', text: "Configure AWS Cost Anomaly Detection with a cost monitor across all AWS services and create an alert subscription linked to an Amazon SNS topic." }
+      { id: 'D', text: "Cost Anomaly Detection across all services with an SNS subscription." }
     ],
     correctAnswers: ['D'],
     type: "single",

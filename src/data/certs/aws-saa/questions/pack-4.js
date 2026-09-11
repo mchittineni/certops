@@ -18,7 +18,7 @@ export const AWS_SAA_QUESTIONS_4 = [
     type: "single",
     explanation: "AWS Application Migration Service (AWS MGN) is the primary AWS service for lift-and-shift migrations, performing continuous non-disruptive block-level replication of physical, virtual, and cloud servers to AWS staging areas with sub-minute cutovers. AWS DMS is for database migrations. DataSync is for file and object storage transfers. Snowball Edge is physical offline data transfer hardware.",
     referenceUrl: "https://docs.aws.amazon.com/mgn/latest/ug/what-is-application-migration-service.html",
-    tags: ["AWS MGN", "Migration", "Resilience", "EC2"]
+    tags: ["AWS MGN","Migration","Resilience","EC2"]
   },
   {
     id: "aws-saa-77",
@@ -39,7 +39,7 @@ export const AWS_SAA_QUESTIONS_4 = [
     type: "single",
     explanation: "Managed Planned Failover for Aurora Global Databases synchronizes secondary clusters with the primary cluster before switching roles, ensuring zero data loss (RPO = 0) and completing the failover within minutes while preserving the global database topology. Unplanned Detach/Promote is for emergency regional outages where potential replication lag data loss is accepted. Snapshot copy takes hours. DMS is not required for native Aurora Global replication.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-disaster-recovery.html#aurora-global-database-disaster-recovery.planned",
-    tags: ["Aurora Global Database", "Planned Failover", "Disaster Recovery", "Resilience"]
+    tags: ["Aurora Global Database","Planned Failover","Disaster Recovery","Resilience"]
   },
   {
     id: "aws-saa-78",
@@ -60,7 +60,7 @@ export const AWS_SAA_QUESTIONS_4 = [
     type: "single",
     explanation: "S3 Replication Time Control (S3 RTC) provides a formal 99.9% SLA backing the replication of 99.99% of objects within 15 minutes of upload, along with detailed CloudWatch metrics for replication latency, pending bytes, and operations. Standard CRR operates asynchronously without a timed SLA guarantee. DataSync and Step Functions lack built-in S3 replication SLA enforcement and require complex custom orchestration.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication-time-control.html",
-    tags: ["S3", "S3 RTC", "Replication", "Disaster Recovery"]
+    tags: ["S3","S3 RTC","Replication","Disaster Recovery"]
   },
   {
     id: "aws-saa-79",
@@ -81,7 +81,7 @@ export const AWS_SAA_QUESTIONS_4 = [
     type: "single",
     explanation: "Amazon EFS Replication automatically and continuously replicates data from a source file system to a destination file system in the same or different AWS Region, typically achieving an RPO of under 15 minutes with zero infrastructure or scripts. DataSync cron jobs run in batches, failing the 15-minute RPO. EFS cannot be mounted directly across cross-region VPC peering without severe latency and NFS mount limitations. Daily manual backups result in a 24-hour RPO.",
     referenceUrl: "https://docs.aws.amazon.com/efs/latest/ug/efs-replication.html",
-    tags: ["EFS", "Replication", "Disaster Recovery", "Resilience"]
+    tags: ["EFS","Replication","Disaster Recovery","Resilience"]
   },
   {
     id: "aws-saa-80",
@@ -102,7 +102,7 @@ export const AWS_SAA_QUESTIONS_4 = [
     type: "single",
     explanation: "In Amazon SQS FIFO queues, setting the `MessageGroupId` ensures strict sequential ordering within each individual group (stock ticker), while allowing separate message groups (different tickers) to be consumed and processed simultaneously in parallel by multiple worker instances. SQS standard queues do not guarantee ordering. Creating thousands of separate queues introduces severe management overhead. Random UUID deduplication IDs do not guarantee grouping or chronological sequencing.",
     referenceUrl: "https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagegroupid-property.html",
-    tags: ["SQS", "FIFO", "MessageGroupId", "Decoupling"]
+    tags: ["SQS","FIFO","MessageGroupId","Decoupling"]
   },
   {
     id: "aws-saa-81",
@@ -123,7 +123,7 @@ export const AWS_SAA_QUESTIONS_4 = [
     type: "single",
     explanation: "A Warm Standby disaster recovery strategy maintains a scaled-down, fully functional copy of the production environment running 24/7 in the secondary region. It can handle minimal traffic immediately, and scales up horizontally to full capacity during a disaster (meeting sub-10 minute RTO). Pilot Light maintains only core data replication with compute stopped or scaled to zero. Backup and Restore has an RTO of hours/days. Multi-Region Active-Active runs full capacity in both regions 24/7 rather than a scaled-down standby.",
     referenceUrl: "https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html",
-    tags: ["Disaster Recovery", "Warm Standby", "Pilot Light", "Architecture"]
+    tags: ["Disaster Recovery","Warm Standby","Pilot Light","Architecture"]
   },
   {
     id: "aws-saa-82",
@@ -135,7 +135,7 @@ export const AWS_SAA_QUESTIONS_4 = [
     scenario: "A financial trading platform running on Amazon EC2 instances experiences network throughput bottlenecks and inconsistent inter-instance latency during market open surges.",
     question: "Which EC2 configuration enables Enhanced Networking to achieve up to 100 Gbps network bandwidth and high packets-per-second (PPS) performance?",
     options: [
-      { id: 'A', text: "Enable Enhanced Networking using the Elastic Network Adapter (ENA) driver on supported instance types." },
+      { id: 'A', text: "Enable enhanced networking with the ENA driver on those instances" },
       { id: 'B', text: "Attach multiple Elastic IP addresses to a single Elastic Network Interface (ENI)." },
       { id: 'C', text: "Configure an Elastic Fabric Adapter (EFA) on a t4g.nano instance." },
       { id: 'D', text: "Enable T2/T3 Unlimited mode on the instances." }
@@ -144,7 +144,7 @@ export const AWS_SAA_QUESTIONS_4 = [
     type: "single",
     explanation: "Enhanced Networking uses single root I/O virtualization (SR-IOV) via the Elastic Network Adapter (ENA) driver to deliver high-performance networking, higher packets per second (PPS), and low inter-instance jitter up to 100 Gbps. Multiple Elastic IPs do not increase network bandwidth. EFA is for tightly coupled MPI HPC workloads on specific large instances, not t4g.nano. Unlimited mode handles CPU credit bursts, not network bandwidth.",
     referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking.html",
-    tags: ["EC2", "Enhanced Networking", "ENA", "Performance"]
+    tags: ["EC2","Enhanced Networking","ENA","Performance"]
   },
   {
     id: "aws-saa-83",
@@ -165,7 +165,7 @@ export const AWS_SAA_QUESTIONS_4 = [
     type: "single",
     explanation: "Amazon Kinesis Data Firehose is a fully managed, serverless delivery stream that captures, transforms (via AWS Lambda), converts record formats to columnar Apache Parquet/ORC, and delivers streaming data directly to destinations like Amazon S3, Amazon Redshift, OpenSearch, and Splunk without managing servers. SQS + Kafka requires significant server provisioning and management. Daily Glue batch jobs do not provide real-time streaming ingestion. CloudWatch Logs cannot stream directly to Redshift without Firehose or Lambda.",
     referenceUrl: "https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html",
-    tags: ["Kinesis Data Firehose", "S3", "Redshift", "Parquet", "Streaming"]
+    tags: ["Kinesis Data Firehose","S3","Redshift","Parquet","Streaming"]
   },
   {
     id: "aws-saa-84",
@@ -186,7 +186,7 @@ export const AWS_SAA_QUESTIONS_4 = [
     type: "single",
     explanation: "AWS Global Accelerator uses static Anycast IP addresses and AWS edge locations to onboard non-HTTP (TCP and UDP) traffic onto the congestion-free AWS private global network as close to the user as possible, routing directly to application endpoints (ALB, NLB, EC2) with significant jitter and latency reduction. Amazon CloudFront is a content delivery network built for HTTP/HTTPS/WebSocket traffic and does not support arbitrary UDP game traffic. Route 53 only resolves DNS and still routes UDP packets over the public internet. Direct Connect connects on-premises data centers, not end-user mobile devices.",
     referenceUrl: "https://docs.aws.amazon.com/global-accelerator/latest/dg/what-is-global-accelerator.html",
-    tags: ["Global Accelerator", "UDP", "Gaming", "Performance", "Networking"]
+    tags: ["Global Accelerator","UDP","Gaming","Performance","Networking"]
   },
   {
     id: "aws-saa-85",
@@ -207,7 +207,7 @@ export const AWS_SAA_QUESTIONS_4 = [
     type: "single",
     explanation: "Amazon RDS Proxy is a fully managed, highly available database proxy for Amazon RDS and Aurora that pools and shares established database connections. This shields the database from connection exhaustion caused by thousands of concurrent serverless Lambda executions, while reducing connection latency and improving failover times by up to 66%. ElastiCache cannot pool relational database TCP sockets. Artificially increasing max connections in RDS leads to database memory exhaustion and crashing. Provisioned Concurrency keeps execution environments warm but does not pool connections across multiple function instances.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy.html",
-    tags: ["RDS Proxy", "Lambda", "Serverless", "Performance", "Databases"]
+    tags: ["RDS Proxy","Lambda","Serverless","Performance","Databases"]
   },
   {
     id: "aws-saa-86",
@@ -228,7 +228,7 @@ export const AWS_SAA_QUESTIONS_4 = [
     type: "single",
     explanation: "An Elastic Fabric Adapter (EFA) is an Elastic Network Interface (ENI) with specialized hardware OS-bypass capabilities, allowing HPC applications using MPI and NCCL to communicate directly with network hardware bypassing the OS kernel for ultra-low latency and high scalability. Standard ENIs pass all traffic through the operating system network stack. Direct Connect and VGW are for hybrid on-premises connectivity.",
     referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html",
-    tags: ["EFA", "HPC", "MPI", "Performance"]
+    tags: ["EFA","HPC","MPI","Performance"]
   },
   {
     id: "aws-saa-87",
@@ -249,7 +249,7 @@ export const AWS_SAA_QUESTIONS_4 = [
     type: "single",
     explanation: "Amazon Redshift Spectrum enables running SQL queries directly against exabytes of structured and semi-structured data stored in Amazon S3 data lakes without loading or transforming data into Redshift tables. It scales query processing across thousands of serverless nodes, allowing fast joins between local Redshift tables and massive external S3 tables defined in the AWS Glue Data Catalog. Redshift Auto-Copy physically loads data into local storage. DataBrew is a visual data preparation tool. EMR Presto requires managing an external cluster.",
     referenceUrl: "https://docs.aws.amazon.com/redshift/latest/dg/c-getting-started-using-spectrum.html",
-    tags: ["Redshift Spectrum", "S3", "Data Lake", "Performance", "Analytics"]
+    tags: ["Redshift Spectrum","S3","Data Lake","Performance","Analytics"]
   },
   {
     id: "aws-saa-88",
@@ -263,14 +263,14 @@ export const AWS_SAA_QUESTIONS_4 = [
     options: [
       { id: 'A', text: "Amazon Inspector S3 scanner." },
       { id: 'B', text: "Network ACLs configured on VPC Internet Gateways." },
-      { id: 'C', text: "Amazon S3 Block Public Access at the AWS account or AWS Organization level." },
+      { id: 'C', text: "S3 Block Public Access at account level" },
       { id: 'D', text: "AWS WAF rate-limiting rules applied to S3." }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Amazon S3 Block Public Access provides centralized settings for access points, buckets, and accounts (and across entire AWS Organizations) to block existing and future public access granted through ACLs or bucket policies, overriding any permissive bucket settings. Inspector scans for CVEs, not S3 bucket public permissions. NACLs filter VPC subnet traffic, not public S3 endpoints. WAF does not natively attach directly to standalone S3 bucket policies.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html",
-    tags: ["S3", "Block Public Access", "Security", "Compliance"]
+    tags: ["S3","Block Public Access","Security","Compliance"]
   },
   {
     id: "aws-saa-89",
@@ -291,7 +291,7 @@ export const AWS_SAA_QUESTIONS_4 = [
     type: "single",
     explanation: "AWS Security Hub is a cloud security posture management (CSPM) service that aggregates, formats, and prioritizes security findings from multiple AWS services (GuardDuty, Inspector, Macie, IAM Access Analyzer, Firewall Manager) and third-party tools into a standardized JSON format (ASFF), while continuously checking compliance against security standards such as CIS AWS Foundations Benchmark and PCI DSS. CloudTrail Lake is for SQL-based audit log queries. CloudWatch Insights is an ad-hoc log querying engine. Systems Manager Explorer is an operations dashboard.",
     referenceUrl: "https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html",
-    tags: ["Security Hub", "Compliance", "Security", "Multi-Account"]
+    tags: ["Security Hub","Compliance","Security","Multi-Account"]
   },
   {
     id: "aws-saa-90",
@@ -312,7 +312,7 @@ export const AWS_SAA_QUESTIONS_4 = [
     type: "single",
     explanation: "Attribute-Based Access Control (ABAC) is an authorization strategy that defines permissions based on tags attached to IAM principals and AWS resources. By writing IAM policy conditions comparing `aws:PrincipalTag/Project` to `aws:ResourceTag/Project`, access is granted dynamically as new resources and users are tagged, eliminating the need to modify policies when new projects or employees are added. Traditional RBAC requires creating and maintaining distinct policies and groups per project, creating operational overhead. Hardcoded SCPs and boundaries do not scale dynamically with project tags.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction_attribute-based-access-control.html",
-    tags: ["IAM", "ABAC", "Security", "Governance"]
+    tags: ["IAM","ABAC","Security","Governance"]
   },
   {
     id: "aws-saa-91",
@@ -333,7 +333,7 @@ export const AWS_SAA_QUESTIONS_4 = [
     type: "single",
     explanation: "AWS Config continuously monitors and records AWS resource configurations, evaluating them against desired managed or custom rules (e.g. `encrypted-volumes`, `s3-bucket-logging-enabled`, `restricted-ssh`). When a resource is non-compliant, AWS Config logs the drift and can trigger automatic remediation actions using AWS Systems Manager Automation documents. CloudTrail records API calls made by users, not resource configuration states. Inspector scans for software CVEs. GuardDuty detects unauthorized threat behavior.",
     referenceUrl: "https://docs.aws.amazon.com/config/latest/developerguide/WhatIsConfig.html",
-    tags: ["AWS Config", "Compliance", "Security", "Governance"]
+    tags: ["AWS Config","Compliance","Security","Governance"]
   },
   {
     id: "aws-saa-92",
@@ -348,13 +348,13 @@ export const AWS_SAA_QUESTIONS_4 = [
       { id: 'A', text: "Amazon Route 53 Geolocation blocking." },
       { id: 'B', text: "Security Group connection limit rules." },
       { id: 'C', text: "AWS Shield Standard IP ban list." },
-      { id: 'D', text: "AWS WAF Rate-Based Rule with a defined request threshold over a 5-minute evaluation window." }
+      { id: 'D', text: "A WAF rate-based rule with a threshold" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "AWS WAF Rate-Based Rules track the rate of requests from each originating IP address over a sliding 5-minute window. When an IP address exceeds the configured threshold (e.g. 100 requests in 5 minutes), AWS WAF automatically blocks further requests from that IP until the rate drops below the threshold. Shield Standard mitigates Layer 3/4 DDoS without custom per-IP rate limits. Route 53 routes by geographic region, not request frequency. Security groups do not support request rate tracking.",
     referenceUrl: "https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-type-rate-based.html",
-    tags: ["AWS WAF", "Rate Limiting", "Security", "ALB"]
+    tags: ["AWS WAF","Rate Limiting","Security","ALB"]
   },
   {
     id: "aws-saa-93",
@@ -369,13 +369,13 @@ export const AWS_SAA_QUESTIONS_4 = [
       { id: 'A', text: "Configure a Security Group rule denying outbound traffic to IP address `0.0.0.0/0`." },
       { id: 'B', text: "Enable S3 Block Public Access on the corporate bucket." },
       { id: 'C', text: "Attach an S3 Bucket Policy to `finance-company-bucket` granting access to the VPC." },
-      { id: 'D', text: "Attach an Endpoint Policy to the Gateway VPC Endpoint specifying `Action: \"s3:*\"` and `Resource: \"arn:aws:s3:::finance-company-bucket/*\"`." }
+      { id: 'D', text: "An endpoint policy on the gateway endpoint scoped to that bucket ARN." }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "A VPC Endpoint Policy is an IAM resource policy attached directly to the VPC Endpoint (Gateway or Interface) that controls what actions principals inside the VPC can perform on what target AWS resources. Restricting the endpoint policy `Resource` to only `arn:aws:s3:::finance-company-bucket/*` ensures that any attempt to write or read from any other S3 bucket (such as personal external buckets) from within that VPC is denied at the network boundary. Bucket policies protect the corporate bucket but do not stop instances from communicating with external buckets. Security groups cannot filter specific S3 bucket ARNs. S3 Block Public Access controls public access into the bucket, not outbound exfiltration.",
     referenceUrl: "https://docs.aws.amazon.com/vpc/latest/privatelink/vpc-endpoints-access.html",
-    tags: ["VPC Endpoint Policy", "S3", "Data Exfiltration", "Security"]
+    tags: ["VPC Endpoint Policy","S3","Data Exfiltration","Security"]
   },
   {
     id: "aws-saa-94",
@@ -387,7 +387,7 @@ export const AWS_SAA_QUESTIONS_4 = [
     scenario: "A video production company regularly uploads 50 GB raw video files to Amazon S3 using multipart uploads. Network interruptions frequently cause failed uploads, leaving abandoned incomplete parts stored in the bucket. The AWS monthly invoice shows steadily increasing S3 storage costs for unlisted objects.",
     question: "Which S3 Lifecycle rule automatically cleans up incomplete multipart uploads to prevent unnecessary storage charges?",
     options: [
-      { id: 'A', text: "Configure an S3 Lifecycle rule with the action `AbortIncompleteMultipartUpload` set to delete incomplete parts after 7 days." },
+      { id: 'A', text: "A lifecycle rule aborting incomplete multipart uploads after 7 days." },
       { id: 'B', text: "Enable S3 Versioning with a 7-day noncurrent version expiration." },
       { id: 'C', text: "Use AWS Lambda to list and delete partial objects via an hourly cron job." },
       { id: 'D', text: "Transition all objects to S3 Glacier Flexible Retrieval immediately upon upload." }
@@ -396,7 +396,7 @@ export const AWS_SAA_QUESTIONS_4 = [
     type: "single",
     explanation: "When multipart uploads are started but never completed or aborted, the uploaded parts remain stored in Amazon S3 and incur standard storage fees even though they do not appear in standard bucket listings. Configuring an S3 Lifecycle rule with `AbortIncompleteMultipartUpload` automatically detects and deletes these abandoned parts after a specified number of days (e.g. 7 days) with zero maintenance. S3 Versioning does not manage incomplete multipart uploads. Custom Lambda scripts add unnecessary overhead. Transitioning to Glacier does not solve incomplete multipart storage accumulation.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/mpu-abort-incomplete-mpu-lifecycle-config.html",
-    tags: ["S3", "Lifecycle", "Multipart Upload", "Cost Optimization"]
+    tags: ["S3","Lifecycle","Multipart Upload","Cost Optimization"]
   },
   {
     id: "aws-saa-95",
@@ -410,14 +410,14 @@ export const AWS_SAA_QUESTIONS_4 = [
     options: [
       { id: 'A', text: "Deploy Dedicated Hosts with Bring Your Own License (BYOL)." },
       { id: 'B', text: "Launch On-Demand Instances in a Cluster placement group." },
-      { id: 'C', text: "Deploy an EC2 Spot Fleet across multiple instance types and Availability Zones using the `capacity-optimized` allocation strategy." },
+      { id: 'C', text: "A Spot Fleet over several types and AZs using `capacity-optimized`." },
       { id: 'D', text: "Purchase 3-year All Upfront Reserved Instances for the maximum anticipated capacity." }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Amazon EC2 Spot Instances offer up to 90% discounts compared to On-Demand pricing. For fault-tolerant, checkpointed big data workloads, launching a Spot Fleet across multiple instance types (e.g. r5, m5, c5) and Availability Zones using the `capacity-optimized` allocation strategy minimizes interruption probability while delivering massive cost savings. Reserved Instances waste money during non-running periods and require long-term commitments. On-Demand instances run at full price. Dedicated Hosts are the most expensive EC2 tier, designed for per-socket compliance licensing.",
     referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-allocation-strategy.html",
-    tags: ["EC2", "Spot Fleet", "Cost Optimization", "Analytics"]
+    tags: ["EC2","Spot Fleet","Cost Optimization","Analytics"]
   },
   {
     id: "aws-saa-96",
@@ -439,7 +439,7 @@ export const AWS_SAA_QUESTIONS_4 = [
     type: "multiple",
     explanation: "CloudWatch charges for log storage per GB; setting retention policies (e.g. 30/90 days) and archiving compliance logs to S3 Glacier dramatically cuts storage spend. CloudWatch also charges per custom metric; each unique dimension combination is billed as a separate custom metric, so reducing high-cardinality dimensions prevents metric explosion and cost inflation. Basic 5-minute EC2 metrics are free of charge. High-resolution alarms are more expensive. Storing logs in DynamoDB is significantly more expensive than CloudWatch or S3.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_billing.html",
-    tags: ["CloudWatch", "Logs", "Metrics", "Cost Optimization", "FinOps"]
+    tags: ["CloudWatch","Logs","Metrics","Cost Optimization","FinOps"]
   },
   {
     id: "aws-saa-97",
@@ -460,7 +460,7 @@ export const AWS_SAA_QUESTIONS_4 = [
     type: "single",
     explanation: "For an API receiving only 200 requests/day taking 50ms each, total monthly compute duration is only 10 seconds. AWS Lambda offers 1 million free requests and 3.2 million seconds of compute time per month in the AWS Free Tier. Fronting Lambda with an API Gateway HTTP API costs pennies ($1.00 per million requests), bringing total monthly spend to near $0. Every option that keeps EC2 instances and a load balancer running 24/7 - ECS on Graviton, Reserved Instances, or swapping the ALB for an NLB - costs $30–$50+/month regardless of traffic volume.",
     referenceUrl: "https://aws.amazon.com/lambda/pricing/",
-    tags: ["Lambda", "API Gateway", "Serverless", "Cost Optimization"]
+    tags: ["Lambda","API Gateway","Serverless","Cost Optimization"]
   },
   {
     id: "aws-saa-98",
@@ -474,14 +474,14 @@ export const AWS_SAA_QUESTIONS_4 = [
     options: [
       { id: 'A', text: "Deploy AWS Budgets with hardcoded EC2 instance IDs." },
       { id: 'B', text: "Attach separate Elastic IP addresses tagged with the department name." },
-      { id: 'C', text: "Activate User-Defined Cost Allocation Tags in the AWS Billing and Cost Management console." },
+      { id: 'C', text: "Activate user-defined cost allocation tags in Billing" },
       { id: 'D', text: "Create separate IAM groups for each department." }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Cost Allocation Tags allow organizations to tag resources with key-value pairs (e.g. `Department: Marketing`). Once activated in the AWS Billing and Cost Management console, AWS uses these tags to categorize costs in AWS Cost Explorer and Cost and Usage Reports (CUR). IAM groups control permissions, not billing allocation. Elastic IPs are network resources unrelated to billing tags. Hardcoded budgets cannot categorize shared resource usage dynamically.",
     referenceUrl: "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html",
-    tags: ["Cost Allocation Tags", "Cost Explorer", "FinOps", "Cost Optimization"]
+    tags: ["Cost Allocation Tags","Cost Explorer","FinOps","Cost Optimization"]
   },
   {
     id: "aws-saa-99",
@@ -495,14 +495,14 @@ export const AWS_SAA_QUESTIONS_4 = [
     options: [
       { id: 'A', text: "Amazon RDS for MySQL with logical binlog cross-region replication." },
       { id: 'B', text: "AWS Database Migration Service (DMS) continuous CDC replication over a VPN connection." },
-      { id: 'C', text: "Amazon Aurora Global Database with dedicated secondary region clusters using storage-level physical replication." },
+      { id: 'C', text: "Aurora Global Database with secondary clusters replicated at storage level" },
       { id: 'D', text: "Hourly Aurora DB cluster snapshots copied cross-region and restored on demand." }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Amazon Aurora Global Database uses dedicated storage-level physical replication across AWS Regions, providing typical replication latency of under 1 second (RPO < 1s) with zero performance impact on the primary cluster database engine. It can be promoted to a full read/write cluster in less than 1 minute in the event of a regional outage. RDS logical replication suffers from high replication lag during high write loads. DMS over VPN adds severe network and processing bottlenecks. Snapshot copies have an RPO of hours.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html",
-    tags: ["Aurora Global Database", "Disaster Recovery", "RPO/RTO", "Resilience"]
+    tags: ["Aurora Global Database","Disaster Recovery","RPO/RTO","Resilience"]
   },
   {
     id: "aws-saa-100",
@@ -523,7 +523,7 @@ export const AWS_SAA_QUESTIONS_4 = [
     type: "single",
     explanation: "Amazon Inspector is an automated vulnerability management service that continually scans Amazon EC2 instances (using AWS Systems Manager SSM Agent) and container images stored in Amazon ECR for software vulnerabilities (CVEs) and unintended network accessibility. GuardDuty detects active threats and anomalies, not static CVE scanning. CloudTrail is an audit log. Shield Advanced is for DDoS protection.",
     referenceUrl: "https://docs.aws.amazon.com/inspector/latest/user/what-is-inspector.html",
-    tags: ["Amazon Inspector", "Vulnerabilities", "ECR", "EC2", "Security"]
+    tags: ["Amazon Inspector","Vulnerabilities","ECR","EC2","Security"]
   }
 ];
 

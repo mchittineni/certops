@@ -9,7 +9,7 @@ export const AWS_SAA_QUESTIONS_16 = [
     scenario: "A multinational enterprise operating mission-critical services requires a comprehensive disaster recovery and business continuity architecture. Regulatory standards dictate strict availability and failover guarantees during regional outages. The system relies on AWS KMS to encrypt data in one region and decrypt it in another region with identical key material and key ID without re-encrypting data across regional endpoints.",
     question: "Which architecture or service configuration satisfies these disaster recovery and regional resilience requirements?",
     options: [
-      { id: 'A', text: "Create a multi-Region primary key in the source region and replicate it as a multi-Region replica key to the destination region." },
+      { id: 'A', text: "A multi-region primary key replicated to the destination region." },
       { id: 'B', text: "Configure an S3 Bucket Policy allowing cross-region principal access to the single-region KMS key." },
       { id: 'C', text: "Export the KMS key material and import it into an external HSM in the secondary region." },
       { id: 'D', text: "Use AWS Certificate Manager to generate a shared regional public key certificate." }
@@ -32,7 +32,7 @@ export const AWS_SAA_QUESTIONS_16 = [
     options: [
       { id: 'A', text: "Configure an S3 Bucket Policy allowing cross-region principal access to the single-region KMS key." },
       { id: 'B', text: "Use AWS Certificate Manager to generate a shared regional public key certificate." },
-      { id: 'C', text: "Create a multi-Region primary key in the source region and replicate it as a multi-Region replica key to the destination region." },
+      { id: 'C', text: "A multi-region primary key replicated to the destination region." },
       { id: 'D', text: "Export the KMS key material and import it into an external HSM in the secondary region." }
     ],
     correctAnswers: ['C'],
@@ -53,7 +53,7 @@ export const AWS_SAA_QUESTIONS_16 = [
     options: [
       { id: 'A', text: "Configure an S3 Bucket Policy allowing cross-region principal access to the single-region KMS key." },
       { id: 'B', text: "Export the KMS key material and import it into an external HSM in the secondary region." },
-      { id: 'C', text: "Create a multi-Region primary key in the source region and replicate it as a multi-Region replica key to the destination region." },
+      { id: 'C', text: "A multi-region primary key replicated to the destination region." },
       { id: 'D', text: "Use AWS Certificate Manager to generate a shared regional public key certificate." }
     ],
     correctAnswers: ['C'],
@@ -73,7 +73,7 @@ export const AWS_SAA_QUESTIONS_16 = [
     question: "Which solution enables a robust, highly available architecture while minimizing ongoing operational overhead?",
     options: [
       { id: 'A', text: "Use AWS Certificate Manager to generate a shared regional public key certificate." },
-      { id: 'B', text: "Create a multi-Region primary key in the source region and replicate it as a multi-Region replica key to the destination region." },
+      { id: 'B', text: "A multi-region primary key replicated to the destination region." },
       { id: 'C', text: "Export the KMS key material and import it into an external HSM in the secondary region." },
       { id: 'D', text: "Configure an S3 Bucket Policy allowing cross-region principal access to the single-region KMS key." }
     ],
@@ -94,7 +94,7 @@ export const AWS_SAA_QUESTIONS_16 = [
     question: "Which design pattern or service configuration eliminates single points of failure and provides automated recovery?",
     options: [
       { id: 'A', text: "Use AWS Certificate Manager to generate a shared regional public key certificate." },
-      { id: 'B', text: "Create a multi-Region primary key in the source region and replicate it as a multi-Region replica key to the destination region." },
+      { id: 'B', text: "A multi-region primary key replicated to the destination region." },
       { id: 'C', text: "Configure an S3 Bucket Policy allowing cross-region principal access to the single-region KMS key." },
       { id: 'D', text: "Export the KMS key material and import it into an external HSM in the secondary region." }
     ],
@@ -117,7 +117,7 @@ export const AWS_SAA_QUESTIONS_16 = [
       { id: 'A', text: "Deploy an AWS Config rule to terminate instances that have credentials older than 30 days." },
       { id: 'B', text: "Configure an AWS Systems Manager Parameter Store String parameter and update it manually every month." },
       { id: 'C', text: "Store the database password in an unencrypted environment variable in the EC2 instance user data." },
-      { id: 'D', text: "Configure AWS Secrets Manager automatic rotation using an AWS-provided rotation Lambda function and update applications to fetch secrets via SDK." }
+      { id: 'D', text: "Secrets Manager automatic rotation with the provided Lambda, read via SDK." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -135,7 +135,7 @@ export const AWS_SAA_QUESTIONS_16 = [
     scenario: "A high-volume digital platform experiences sudden, unpredictable surges in user traffic during nationwide marketing campaigns. The engineering team must ensure the architecture scales seamlessly under high throughput while maintaining low latency. The system relies on AWS Secrets Manager to automatically rotate database administrative passwords every 30 days without application downtime or manual credential updates.",
     question: "Which architectural approach should the solutions architect recommend to accommodate this scale?",
     options: [
-      { id: 'A', text: "Configure AWS Secrets Manager automatic rotation using an AWS-provided rotation Lambda function and update applications to fetch secrets via SDK." },
+      { id: 'A', text: "Secrets Manager automatic rotation with the provided Lambda, read via SDK." },
       { id: 'B', text: "Store the database password in an unencrypted environment variable in the EC2 instance user data." },
       { id: 'C', text: "Deploy an AWS Config rule to terminate instances that have credentials older than 30 days." },
       { id: 'D', text: "Configure an AWS Systems Manager Parameter Store String parameter and update it manually every month." }
@@ -158,7 +158,7 @@ export const AWS_SAA_QUESTIONS_16 = [
     options: [
       { id: 'A', text: "Deploy an AWS Config rule to terminate instances that have credentials older than 30 days." },
       { id: 'B', text: "Configure an AWS Systems Manager Parameter Store String parameter and update it manually every month." },
-      { id: 'C', text: "Configure AWS Secrets Manager automatic rotation using an AWS-provided rotation Lambda function and update applications to fetch secrets via SDK." },
+      { id: 'C', text: "Secrets Manager automatic rotation with the provided Lambda, read via SDK." },
       { id: 'D', text: "Store the database password in an unencrypted environment variable in the EC2 instance user data." }
     ],
     correctAnswers: ['C'],
@@ -179,7 +179,7 @@ export const AWS_SAA_QUESTIONS_16 = [
     options: [
       { id: 'A', text: "Deploy an AWS Config rule to terminate instances that have credentials older than 30 days." },
       { id: 'B', text: "Store the database password in an unencrypted environment variable in the EC2 instance user data." },
-      { id: 'C', text: "Configure AWS Secrets Manager automatic rotation using an AWS-provided rotation Lambda function and update applications to fetch secrets via SDK." },
+      { id: 'C', text: "Secrets Manager automatic rotation with the provided Lambda, read via SDK." },
       { id: 'D', text: "Configure an AWS Systems Manager Parameter Store String parameter and update it manually every month." }
     ],
     correctAnswers: ['C'],
@@ -198,7 +198,7 @@ export const AWS_SAA_QUESTIONS_16 = [
     scenario: "A distributed microservices application experiences intermittent failures and resource saturation during peak operational windows. The solutions architect must eliminate single points of failure and establish automated recovery mechanisms. The system relies on AWS Secrets Manager to automatically rotate database administrative passwords every 30 days without application downtime or manual credential updates.",
     question: "Which design pattern or service configuration eliminates single points of failure and provides automated recovery?",
     options: [
-      { id: 'A', text: "Configure AWS Secrets Manager automatic rotation using an AWS-provided rotation Lambda function and update applications to fetch secrets via SDK." },
+      { id: 'A', text: "Secrets Manager automatic rotation with the provided Lambda, read via SDK." },
       { id: 'B', text: "Store the database password in an unencrypted environment variable in the EC2 instance user data." },
       { id: 'C', text: "Deploy an AWS Config rule to terminate instances that have credentials older than 30 days." },
       { id: 'D', text: "Configure an AWS Systems Manager Parameter Store String parameter and update it manually every month." }
@@ -221,7 +221,7 @@ export const AWS_SAA_QUESTIONS_16 = [
     options: [
       { id: 'A', text: "Configure IAM user policies in each member account with regional Deny statements individually." },
       { id: 'B', text: "Remove the default VPC in all unapproved regions across all member accounts." },
-      { id: 'C', text: "Attach a Service Control Policy (SCP) to the organization root with a Deny action matching `StringNotEquals: {'aws:RequestedRegion': ['us-east-1', 'us-west-2']}` with exceptions for global services." },
+      { id: 'C', text: "An SCP at the root denying any `aws:RequestedRegion` outside the two." },
       { id: 'D', text: "Deploy AWS Config rules in each account to terminate non-compliant EC2 instances after launch." }
     ],
     correctAnswers: ['C'],
@@ -242,7 +242,7 @@ export const AWS_SAA_QUESTIONS_16 = [
     options: [
       { id: 'A', text: "Configure IAM user policies in each member account with regional Deny statements individually." },
       { id: 'B', text: "Deploy AWS Config rules in each account to terminate non-compliant EC2 instances after launch." },
-      { id: 'C', text: "Attach a Service Control Policy (SCP) to the organization root with a Deny action matching `StringNotEquals: {'aws:RequestedRegion': ['us-east-1', 'us-west-2']}` with exceptions for global services." },
+      { id: 'C', text: "An SCP at the root denying any `aws:RequestedRegion` outside the two." },
       { id: 'D', text: "Remove the default VPC in all unapproved regions across all member accounts." }
     ],
     correctAnswers: ['C'],
@@ -264,7 +264,7 @@ export const AWS_SAA_QUESTIONS_16 = [
       { id: 'A', text: "Configure IAM user policies in each member account with regional Deny statements individually." },
       { id: 'B', text: "Deploy AWS Config rules in each account to terminate non-compliant EC2 instances after launch." },
       { id: 'C', text: "Remove the default VPC in all unapproved regions across all member accounts." },
-      { id: 'D', text: "Attach a Service Control Policy (SCP) to the organization root with a Deny action matching `StringNotEquals: {'aws:RequestedRegion': ['us-east-1', 'us-west-2']}` with exceptions for global services." }
+      { id: 'D', text: "An SCP at the root denying any `aws:RequestedRegion` outside the two." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -282,7 +282,7 @@ export const AWS_SAA_QUESTIONS_16 = [
     scenario: "An enterprise is migrating enterprise workloads from on-premises data centers to AWS. The architecture must integrate existing operational processes while leveraging cloud-native managed services to minimize operational complexity. The system relies on AWS Organizations to prevent all member AWS accounts within an enterprise organization from launching any resources outside approved geographic regions (e.g. us-east-1 and us-west-2).",
     question: "Which solution enables a robust, highly available architecture while minimizing ongoing operational overhead?",
     options: [
-      { id: 'A', text: "Attach a Service Control Policy (SCP) to the organization root with a Deny action matching `StringNotEquals: {'aws:RequestedRegion': ['us-east-1', 'us-west-2']}` with exceptions for global services." },
+      { id: 'A', text: "An SCP at the root denying any `aws:RequestedRegion` outside the two." },
       { id: 'B', text: "Remove the default VPC in all unapproved regions across all member accounts." },
       { id: 'C', text: "Configure IAM user policies in each member account with regional Deny statements individually." },
       { id: 'D', text: "Deploy AWS Config rules in each account to terminate non-compliant EC2 instances after launch." }
@@ -305,7 +305,7 @@ export const AWS_SAA_QUESTIONS_16 = [
     options: [
       { id: 'A', text: "Deploy AWS Config rules in each account to terminate non-compliant EC2 instances after launch." },
       { id: 'B', text: "Remove the default VPC in all unapproved regions across all member accounts." },
-      { id: 'C', text: "Attach a Service Control Policy (SCP) to the organization root with a Deny action matching `StringNotEquals: {'aws:RequestedRegion': ['us-east-1', 'us-west-2']}` with exceptions for global services." },
+      { id: 'C', text: "An SCP at the root denying any `aws:RequestedRegion` outside the two." },
       { id: 'D', text: "Configure IAM user policies in each member account with regional Deny statements individually." }
     ],
     correctAnswers: ['C'],
@@ -327,7 +327,7 @@ export const AWS_SAA_QUESTIONS_16 = [
       { id: 'A', text: "Restrict developers to using only pre-existing AWS managed policies without custom policies." },
       { id: 'B', text: "Configure an AWS Organizations Service Control Policy that lists individual developer names." },
       { id: 'C', text: "Attach an IAM Deny policy to the AWS account root user." },
-      { id: 'D', text: "Attach an IAM Permissions Boundary policy to developer roles and require that any role created by developers must include the Permissions Boundary." }
+      { id: 'D', text: "A permissions boundary on developer roles, required on roles they create." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -345,7 +345,7 @@ export const AWS_SAA_QUESTIONS_16 = [
     scenario: "A high-volume digital platform experiences sudden, unpredictable surges in user traffic during nationwide marketing campaigns. The engineering team must ensure the architecture scales seamlessly under high throughput while maintaining low latency. The system relies on AWS IAM to allow project leads to create IAM roles and users for their teams while guaranteeing that they cannot grant permissions greater than an administrator-approved maximum policy.",
     question: "Which architectural approach should the solutions architect recommend to accommodate this scale?",
     options: [
-      { id: 'A', text: "Attach an IAM Permissions Boundary policy to developer roles and require that any role created by developers must include the Permissions Boundary." },
+      { id: 'A', text: "A permissions boundary on developer roles, required on roles they create." },
       { id: 'B', text: "Configure an AWS Organizations Service Control Policy that lists individual developer names." },
       { id: 'C', text: "Restrict developers to using only pre-existing AWS managed policies without custom policies." },
       { id: 'D', text: "Attach an IAM Deny policy to the AWS account root user." }
@@ -366,7 +366,7 @@ export const AWS_SAA_QUESTIONS_16 = [
     scenario: "A financial and healthcare organization must adhere to stringent regulatory compliance and auditing standards. Security auditors require strict enforcement of data protection, least privilege access, and automated governance. The system relies on AWS IAM to allow project leads to create IAM roles and users for their teams while guaranteeing that they cannot grant permissions greater than an administrator-approved maximum policy.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Attach an IAM Permissions Boundary policy to developer roles and require that any role created by developers must include the Permissions Boundary." },
+      { id: 'A', text: "A permissions boundary on developer roles, required on roles they create." },
       { id: 'B', text: "Restrict developers to using only pre-existing AWS managed policies without custom policies." },
       { id: 'C', text: "Configure an AWS Organizations Service Control Policy that lists individual developer names." },
       { id: 'D', text: "Attach an IAM Deny policy to the AWS account root user." }
@@ -389,7 +389,7 @@ export const AWS_SAA_QUESTIONS_16 = [
     options: [
       { id: 'A', text: "Restrict developers to using only pre-existing AWS managed policies without custom policies." },
       { id: 'B', text: "Attach an IAM Deny policy to the AWS account root user." },
-      { id: 'C', text: "Attach an IAM Permissions Boundary policy to developer roles and require that any role created by developers must include the Permissions Boundary." },
+      { id: 'C', text: "A permissions boundary on developer roles, required on roles they create." },
       { id: 'D', text: "Configure an AWS Organizations Service Control Policy that lists individual developer names." }
     ],
     correctAnswers: ['C'],
@@ -408,7 +408,7 @@ export const AWS_SAA_QUESTIONS_16 = [
     scenario: "A distributed microservices application experiences intermittent failures and resource saturation during peak operational windows. The solutions architect must eliminate single points of failure and establish automated recovery mechanisms. The system relies on AWS IAM to allow project leads to create IAM roles and users for their teams while guaranteeing that they cannot grant permissions greater than an administrator-approved maximum policy.",
     question: "Which design pattern or service configuration eliminates single points of failure and provides automated recovery?",
     options: [
-      { id: 'A', text: "Attach an IAM Permissions Boundary policy to developer roles and require that any role created by developers must include the Permissions Boundary." },
+      { id: 'A', text: "A permissions boundary on developer roles, required on roles they create." },
       { id: 'B', text: "Restrict developers to using only pre-existing AWS managed policies without custom policies." },
       { id: 'C', text: "Configure an AWS Organizations Service Control Policy that lists individual developer names." },
       { id: 'D', text: "Attach an IAM Deny policy to the AWS account root user." }

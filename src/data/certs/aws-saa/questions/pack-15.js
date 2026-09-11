@@ -11,7 +11,7 @@ export const AWS_SAA_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Deploy an Amazon CloudFront distribution with a default TTL of 0 seconds." },
       { id: 'B', text: "Deploy an Amazon ElastiCache for Memcached cluster in front of API Gateway." },
-      { id: 'C', text: "Enable API Gateway stage response caching with a configured TTL and define query string parameters as cache keys." },
+      { id: 'C', text: "Stage response caching with a TTL and query strings as cache keys." },
       { id: 'D', text: "Increase Lambda function memory to 10,240 MB to execute GET requests faster." }
     ],
     correctAnswers: ['C'],
@@ -32,7 +32,7 @@ export const AWS_SAA_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Increase Lambda function memory to 10,240 MB to execute GET requests faster." },
       { id: 'B', text: "Deploy an Amazon ElastiCache for Memcached cluster in front of API Gateway." },
-      { id: 'C', text: "Enable API Gateway stage response caching with a configured TTL and define query string parameters as cache keys." },
+      { id: 'C', text: "Stage response caching with a TTL and query strings as cache keys." },
       { id: 'D', text: "Deploy an Amazon CloudFront distribution with a default TTL of 0 seconds." }
     ],
     correctAnswers: ['C'],
@@ -52,7 +52,7 @@ export const AWS_SAA_QUESTIONS_15 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Deploy an Amazon ElastiCache for Memcached cluster in front of API Gateway." },
-      { id: 'B', text: "Enable API Gateway stage response caching with a configured TTL and define query string parameters as cache keys." },
+      { id: 'B', text: "Stage response caching with a TTL and query strings as cache keys." },
       { id: 'C', text: "Deploy an Amazon CloudFront distribution with a default TTL of 0 seconds." },
       { id: 'D', text: "Increase Lambda function memory to 10,240 MB to execute GET requests faster." }
     ],
@@ -73,7 +73,7 @@ export const AWS_SAA_QUESTIONS_15 = [
     question: "Which solution enables a robust, highly available architecture while minimizing ongoing operational overhead?",
     options: [
       { id: 'A', text: "Deploy an Amazon ElastiCache for Memcached cluster in front of API Gateway." },
-      { id: 'B', text: "Enable API Gateway stage response caching with a configured TTL and define query string parameters as cache keys." },
+      { id: 'B', text: "Stage response caching with a TTL and query strings as cache keys." },
       { id: 'C', text: "Increase Lambda function memory to 10,240 MB to execute GET requests faster." },
       { id: 'D', text: "Deploy an Amazon CloudFront distribution with a default TTL of 0 seconds." }
     ],
@@ -95,7 +95,7 @@ export const AWS_SAA_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Deploy an Amazon ElastiCache for Memcached cluster in front of API Gateway." },
       { id: 'B', text: "Deploy an Amazon CloudFront distribution with a default TTL of 0 seconds." },
-      { id: 'C', text: "Enable API Gateway stage response caching with a configured TTL and define query string parameters as cache keys." },
+      { id: 'C', text: "Stage response caching with a TTL and query strings as cache keys." },
       { id: 'D', text: "Increase Lambda function memory to 10,240 MB to execute GET requests faster." }
     ],
     correctAnswers: ['C'],
@@ -327,7 +327,7 @@ export const AWS_SAA_QUESTIONS_15 = [
       { id: 'A', text: "Switch the Lambda runtime from Python to Java without SnapStart enabled." },
       { id: 'B', text: "Increase the Lambda execution timeout from 3 seconds to 15 minutes." },
       { id: 'C', text: "Increase the Lambda ephemeral storage (/tmp) to 10 GB." },
-      { id: 'D', text: "Configure Provisioned Concurrency on the Lambda function alias associated with the Application Load Balancer target group." }
+      { id: 'D', text: "Provisioned concurrency on the Lambda alias behind the ALB" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -348,7 +348,7 @@ export const AWS_SAA_QUESTIONS_15 = [
       { id: 'A', text: "Increase the Lambda execution timeout from 3 seconds to 15 minutes." },
       { id: 'B', text: "Switch the Lambda runtime from Python to Java without SnapStart enabled." },
       { id: 'C', text: "Increase the Lambda ephemeral storage (/tmp) to 10 GB." },
-      { id: 'D', text: "Configure Provisioned Concurrency on the Lambda function alias associated with the Application Load Balancer target group." }
+      { id: 'D', text: "Provisioned concurrency on the Lambda alias behind the ALB" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -369,7 +369,7 @@ export const AWS_SAA_QUESTIONS_15 = [
       { id: 'A', text: "Increase the Lambda ephemeral storage (/tmp) to 10 GB." },
       { id: 'B', text: "Increase the Lambda execution timeout from 3 seconds to 15 minutes." },
       { id: 'C', text: "Switch the Lambda runtime from Python to Java without SnapStart enabled." },
-      { id: 'D', text: "Configure Provisioned Concurrency on the Lambda function alias associated with the Application Load Balancer target group." }
+      { id: 'D', text: "Provisioned concurrency on the Lambda alias behind the ALB" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -389,7 +389,7 @@ export const AWS_SAA_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Increase the Lambda ephemeral storage (/tmp) to 10 GB." },
       { id: 'B', text: "Switch the Lambda runtime from Python to Java without SnapStart enabled." },
-      { id: 'C', text: "Configure Provisioned Concurrency on the Lambda function alias associated with the Application Load Balancer target group." },
+      { id: 'C', text: "Provisioned concurrency on the Lambda alias behind the ALB" },
       { id: 'D', text: "Increase the Lambda execution timeout from 3 seconds to 15 minutes." }
     ],
     correctAnswers: ['C'],
@@ -408,7 +408,7 @@ export const AWS_SAA_QUESTIONS_15 = [
     scenario: "A distributed microservices application experiences intermittent failures and resource saturation during peak operational windows. The solutions architect must eliminate single points of failure and establish automated recovery mechanisms. The system relies on AWS Lambda to eliminate cold start latency spikes for customer-facing checkout microservices invoked via an Application Load Balancer during flash sales.",
     question: "Which design pattern or service configuration eliminates single points of failure and provides automated recovery?",
     options: [
-      { id: 'A', text: "Configure Provisioned Concurrency on the Lambda function alias associated with the Application Load Balancer target group." },
+      { id: 'A', text: "Provisioned concurrency on the Lambda alias behind the ALB" },
       { id: 'B', text: "Switch the Lambda runtime from Python to Java without SnapStart enabled." },
       { id: 'C', text: "Increase the Lambda execution timeout from 3 seconds to 15 minutes." },
       { id: 'D', text: "Increase the Lambda ephemeral storage (/tmp) to 10 GB." }

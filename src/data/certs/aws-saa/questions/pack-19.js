@@ -114,7 +114,7 @@ export const AWS_SAA_QUESTIONS_19 = [
     scenario: "A multinational enterprise operating mission-critical services requires a comprehensive disaster recovery and business continuity architecture. Regulatory standards dictate strict availability and failover guarantees during regional outages. The system relies on Amazon EC2 to run stateless fault-tolerant batch workloads at the lowest possible cost while minimizing Spot instance interruptions.",
     question: "Which architecture or service configuration satisfies these disaster recovery and regional resilience requirements?",
     options: [
-      { id: 'A', text: "Configure an EC2 Auto Scaling group or Spot Fleet using the `price-capacity-optimized` allocation strategy across multiple instance families." },
+      { id: 'A', text: "An ASG or Spot Fleet using `price-capacity-optimized` across families." },
       { id: 'B', text: "Deploy EC2 On-Demand instances using the lowest-cost t4g instance types." },
       { id: 'C', text: "Purchase 3-year All Upfront Convertible Reserved Instances." },
       { id: 'D', text: "Configure Spot Fleet with the `lowest-price` allocation strategy restricted to a single instance type in one AZ." }
@@ -137,7 +137,7 @@ export const AWS_SAA_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Deploy EC2 On-Demand instances using the lowest-cost t4g instance types." },
       { id: 'B', text: "Purchase 3-year All Upfront Convertible Reserved Instances." },
-      { id: 'C', text: "Configure an EC2 Auto Scaling group or Spot Fleet using the `price-capacity-optimized` allocation strategy across multiple instance families." },
+      { id: 'C', text: "An ASG or Spot Fleet using `price-capacity-optimized` across families." },
       { id: 'D', text: "Configure Spot Fleet with the `lowest-price` allocation strategy restricted to a single instance type in one AZ." }
     ],
     correctAnswers: ['C'],
@@ -158,7 +158,7 @@ export const AWS_SAA_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Configure Spot Fleet with the `lowest-price` allocation strategy restricted to a single instance type in one AZ." },
       { id: 'B', text: "Deploy EC2 On-Demand instances using the lowest-cost t4g instance types." },
-      { id: 'C', text: "Configure an EC2 Auto Scaling group or Spot Fleet using the `price-capacity-optimized` allocation strategy across multiple instance families." },
+      { id: 'C', text: "An ASG or Spot Fleet using `price-capacity-optimized` across families." },
       { id: 'D', text: "Purchase 3-year All Upfront Convertible Reserved Instances." }
     ],
     correctAnswers: ['C'],
@@ -180,7 +180,7 @@ export const AWS_SAA_QUESTIONS_19 = [
       { id: 'A', text: "Deploy EC2 On-Demand instances using the lowest-cost t4g instance types." },
       { id: 'B', text: "Configure Spot Fleet with the `lowest-price` allocation strategy restricted to a single instance type in one AZ." },
       { id: 'C', text: "Purchase 3-year All Upfront Convertible Reserved Instances." },
-      { id: 'D', text: "Configure an EC2 Auto Scaling group or Spot Fleet using the `price-capacity-optimized` allocation strategy across multiple instance families." }
+      { id: 'D', text: "An ASG or Spot Fleet using `price-capacity-optimized` across families." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -201,7 +201,7 @@ export const AWS_SAA_QUESTIONS_19 = [
       { id: 'A', text: "Deploy EC2 On-Demand instances using the lowest-cost t4g instance types." },
       { id: 'B', text: "Purchase 3-year All Upfront Convertible Reserved Instances." },
       { id: 'C', text: "Configure Spot Fleet with the `lowest-price` allocation strategy restricted to a single instance type in one AZ." },
-      { id: 'D', text: "Configure an EC2 Auto Scaling group or Spot Fleet using the `price-capacity-optimized` allocation strategy across multiple instance families." }
+      { id: 'D', text: "An ASG or Spot Fleet using `price-capacity-optimized` across families." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -222,7 +222,7 @@ export const AWS_SAA_QUESTIONS_19 = [
       { id: 'A', text: "Deploy two separate Auto Scaling groups and balance traffic manually using Route 53 Weighted routing." },
       { id: 'B', text: "Deploy 100% Spot instances without On-Demand base capacity." },
       { id: 'C', text: "Deploy 100% On-Demand instances with Target Tracking scaling policies." },
-      { id: 'D', text: "Configure an Auto Scaling group with a Mixed Instances Policy specifying an On-Demand base capacity and Spot instances for the remaining capacity across multiple instance types." }
+      { id: 'D', text: "A mixed instances policy with an On-Demand base and Spot above it." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -242,7 +242,7 @@ export const AWS_SAA_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Deploy 100% On-Demand instances with Target Tracking scaling policies." },
       { id: 'B', text: "Deploy 100% Spot instances without On-Demand base capacity." },
-      { id: 'C', text: "Configure an Auto Scaling group with a Mixed Instances Policy specifying an On-Demand base capacity and Spot instances for the remaining capacity across multiple instance types." },
+      { id: 'C', text: "A mixed instances policy with an On-Demand base and Spot above it." },
       { id: 'D', text: "Deploy two separate Auto Scaling groups and balance traffic manually using Route 53 Weighted routing." }
     ],
     correctAnswers: ['C'],
@@ -264,7 +264,7 @@ export const AWS_SAA_QUESTIONS_19 = [
       { id: 'A', text: "Deploy two separate Auto Scaling groups and balance traffic manually using Route 53 Weighted routing." },
       { id: 'B', text: "Deploy 100% On-Demand instances with Target Tracking scaling policies." },
       { id: 'C', text: "Deploy 100% Spot instances without On-Demand base capacity." },
-      { id: 'D', text: "Configure an Auto Scaling group with a Mixed Instances Policy specifying an On-Demand base capacity and Spot instances for the remaining capacity across multiple instance types." }
+      { id: 'D', text: "A mixed instances policy with an On-Demand base and Spot above it." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -282,7 +282,7 @@ export const AWS_SAA_QUESTIONS_19 = [
     scenario: "An enterprise is migrating enterprise workloads from on-premises data centers to AWS. The architecture must integrate existing operational processes while leveraging cloud-native managed services to minimize operational complexity. The system relies on Amazon EC2 Auto Scaling to ensure baseline availability with On-Demand instances while handling elastic traffic surges with low-cost Spot instances across multiple instance types.",
     question: "Which solution enables a robust, highly available architecture while minimizing ongoing operational overhead?",
     options: [
-      { id: 'A', text: "Configure an Auto Scaling group with a Mixed Instances Policy specifying an On-Demand base capacity and Spot instances for the remaining capacity across multiple instance types." },
+      { id: 'A', text: "A mixed instances policy with an On-Demand base and Spot above it." },
       { id: 'B', text: "Deploy 100% On-Demand instances with Target Tracking scaling policies." },
       { id: 'C', text: "Deploy 100% Spot instances without On-Demand base capacity." },
       { id: 'D', text: "Deploy two separate Auto Scaling groups and balance traffic manually using Route 53 Weighted routing." }
@@ -304,7 +304,7 @@ export const AWS_SAA_QUESTIONS_19 = [
     question: "Which design pattern or service configuration eliminates single points of failure and provides automated recovery?",
     options: [
       { id: 'A', text: "Deploy 100% Spot instances without On-Demand base capacity." },
-      { id: 'B', text: "Configure an Auto Scaling group with a Mixed Instances Policy specifying an On-Demand base capacity and Spot instances for the remaining capacity across multiple instance types." },
+      { id: 'B', text: "A mixed instances policy with an On-Demand base and Spot above it." },
       { id: 'C', text: "Deploy two separate Auto Scaling groups and balance traffic manually using Route 53 Weighted routing." },
       { id: 'D', text: "Deploy 100% On-Demand instances with Target Tracking scaling policies." }
     ],
@@ -327,7 +327,7 @@ export const AWS_SAA_QUESTIONS_19 = [
       { id: 'A', text: "Overclock existing x86 instances using EC2 detailed monitoring." },
       { id: 'B', text: "Switch instance storage from EBS gp3 to EBS io2 Block Express." },
       { id: 'C', text: "Migrate workloads from containerized ECS tasks to standalone bare-metal EC2 instances." },
-      { id: 'D', text: "Migrate workloads from x86 instance families (e.g. c6i/m6i) to AWS Graviton3 arm64 instance families (e.g. c7g/m7g)." }
+      { id: 'D', text: "Migrate the x86 instance families to Graviton3 arm64 equivalents." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -346,7 +346,7 @@ export const AWS_SAA_QUESTIONS_19 = [
     question: "Which architectural approach should the solutions architect recommend to accommodate this scale?",
     options: [
       { id: 'A', text: "Migrate workloads from containerized ECS tasks to standalone bare-metal EC2 instances." },
-      { id: 'B', text: "Migrate workloads from x86 instance families (e.g. c6i/m6i) to AWS Graviton3 arm64 instance families (e.g. c7g/m7g)." },
+      { id: 'B', text: "Migrate the x86 instance families to Graviton3 arm64 equivalents." },
       { id: 'C', text: "Switch instance storage from EBS gp3 to EBS io2 Block Express." },
       { id: 'D', text: "Overclock existing x86 instances using EC2 detailed monitoring." }
     ],
@@ -368,7 +368,7 @@ export const AWS_SAA_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Overclock existing x86 instances using EC2 detailed monitoring." },
       { id: 'B', text: "Migrate workloads from containerized ECS tasks to standalone bare-metal EC2 instances." },
-      { id: 'C', text: "Migrate workloads from x86 instance families (e.g. c6i/m6i) to AWS Graviton3 arm64 instance families (e.g. c7g/m7g)." },
+      { id: 'C', text: "Migrate the x86 instance families to Graviton3 arm64 equivalents." },
       { id: 'D', text: "Switch instance storage from EBS gp3 to EBS io2 Block Express." }
     ],
     correctAnswers: ['C'],
@@ -387,7 +387,7 @@ export const AWS_SAA_QUESTIONS_19 = [
     scenario: "An enterprise is migrating enterprise workloads from on-premises data centers to AWS. The architecture must integrate existing operational processes while leveraging cloud-native managed services to minimize operational complexity. The system relies on Amazon EC2 to reduce compute costs by 20% while improving compute performance for containerized Python and Go microservices.",
     question: "Which solution enables a robust, highly available architecture while minimizing ongoing operational overhead?",
     options: [
-      { id: 'A', text: "Migrate workloads from x86 instance families (e.g. c6i/m6i) to AWS Graviton3 arm64 instance families (e.g. c7g/m7g)." },
+      { id: 'A', text: "Migrate the x86 instance families to Graviton3 arm64 equivalents." },
       { id: 'B', text: "Switch instance storage from EBS gp3 to EBS io2 Block Express." },
       { id: 'C', text: "Overclock existing x86 instances using EC2 detailed monitoring." },
       { id: 'D', text: "Migrate workloads from containerized ECS tasks to standalone bare-metal EC2 instances." }
@@ -410,7 +410,7 @@ export const AWS_SAA_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Migrate workloads from containerized ECS tasks to standalone bare-metal EC2 instances." },
       { id: 'B', text: "Switch instance storage from EBS gp3 to EBS io2 Block Express." },
-      { id: 'C', text: "Migrate workloads from x86 instance families (e.g. c6i/m6i) to AWS Graviton3 arm64 instance families (e.g. c7g/m7g)." },
+      { id: 'C', text: "Migrate the x86 instance families to Graviton3 arm64 equivalents." },
       { id: 'D', text: "Overclock existing x86 instances using EC2 detailed monitoring." }
     ],
     correctAnswers: ['C'],
