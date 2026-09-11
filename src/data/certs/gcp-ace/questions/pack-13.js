@@ -12,7 +12,7 @@ export const GCP_ACE_QUESTIONS_13 = [
       { id: 'A', text: "Deploy the complete architecture for 30 days and inspect the final billing invoice." },
       { id: 'B', text: "Consult informal public forum estimates from unverified sources." },
       { id: 'C', text: "Estimate costs based on physical on-premises hardware rack pricing." },
-      { id: 'D', text: "Use the official Google Cloud Pricing Calculator to model resource specifications and generate cost estimates." }
+      { id: 'D', text: "Use the Google Cloud Pricing Calculator to model the resources and costs." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -31,7 +31,7 @@ export const GCP_ACE_QUESTIONS_13 = [
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Consult informal public forum estimates from unverified sources." },
-      { id: 'B', text: "Use the official Google Cloud Pricing Calculator to model resource specifications and generate cost estimates." },
+      { id: 'B', text: "Use the Google Cloud Pricing Calculator to model the resources and costs." },
       { id: 'C', text: "Deploy the complete architecture for 30 days and inspect the final billing invoice." },
       { id: 'D', text: "Estimate costs based on physical on-premises hardware rack pricing." }
     ],
@@ -51,7 +51,7 @@ export const GCP_ACE_QUESTIONS_13 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer needs to model and estimate the monthly operational cost of a new multi-tier architecture consisting of GKE, Cloud SQL, and Cloud Storage before provisioning resources.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Use the official Google Cloud Pricing Calculator to model resource specifications and generate cost estimates." },
+      { id: 'A', text: "Use the Google Cloud Pricing Calculator to model the resources and costs." },
       { id: 'B', text: "Consult informal public forum estimates from unverified sources." },
       { id: 'C', text: "Estimate costs based on physical on-premises hardware rack pricing." },
       { id: 'D', text: "Deploy the complete architecture for 30 days and inspect the final billing invoice." }
@@ -75,7 +75,7 @@ export const GCP_ACE_QUESTIONS_13 = [
       { id: 'A', text: "Estimate costs based on physical on-premises hardware rack pricing." },
       { id: 'B', text: "Consult informal public forum estimates from unverified sources." },
       { id: 'C', text: "Deploy the complete architecture for 30 days and inspect the final billing invoice." },
-      { id: 'D', text: "Use the official Google Cloud Pricing Calculator to model resource specifications and generate cost estimates." }
+      { id: 'D', text: "Use the Google Cloud Pricing Calculator to model the resources and costs." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -93,7 +93,7 @@ export const GCP_ACE_QUESTIONS_13 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer needs to model and estimate the monthly operational cost of a new multi-tier architecture consisting of GKE, Cloud SQL, and Cloud Storage before provisioning resources.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Use the official Google Cloud Pricing Calculator to model resource specifications and generate cost estimates." },
+      { id: 'A', text: "Use the Google Cloud Pricing Calculator to model the resources and costs." },
       { id: 'B', text: "Consult informal public forum estimates from unverified sources." },
       { id: 'C', text: "Estimate costs based on physical on-premises hardware rack pricing." },
       { id: 'D', text: "Deploy the complete architecture for 30 days and inspect the final billing invoice." }
@@ -222,7 +222,7 @@ export const GCP_ACE_QUESTIONS_13 = [
       { id: 'A', text: "Attach a Standard HDD Persistent Disk (pd-standard)." },
       { id: 'B', text: "Use local ephemeral scratch RAM disks without persistence." },
       { id: 'C', text: "Store database tables in a Cloud Storage Coldline bucket." },
-      { id: 'D', text: "Attach an Extreme Persistent Disk (pd-extreme) or SSD Persistent Disk (pd-ssd) to the VM." }
+      { id: 'D', text: "Attach a pd-extreme or pd-ssd persistent disk" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -242,7 +242,7 @@ export const GCP_ACE_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "Store database tables in a Cloud Storage Coldline bucket." },
       { id: 'B', text: "Attach a Standard HDD Persistent Disk (pd-standard)." },
-      { id: 'C', text: "Attach an Extreme Persistent Disk (pd-extreme) or SSD Persistent Disk (pd-ssd) to the VM." },
+      { id: 'C', text: "Attach a pd-extreme or pd-ssd persistent disk" },
       { id: 'D', text: "Use local ephemeral scratch RAM disks without persistence." }
     ],
     correctAnswers: ['C'],
@@ -261,7 +261,7 @@ export const GCP_ACE_QUESTIONS_13 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer needs to configure block storage for a high-performance transactional database that requires sub-millisecond I/O latency and up to 100,000 IOPS.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Attach an Extreme Persistent Disk (pd-extreme) or SSD Persistent Disk (pd-ssd) to the VM." },
+      { id: 'A', text: "Attach a pd-extreme or pd-ssd persistent disk" },
       { id: 'B', text: "Store database tables in a Cloud Storage Coldline bucket." },
       { id: 'C', text: "Use local ephemeral scratch RAM disks without persistence." },
       { id: 'D', text: "Attach a Standard HDD Persistent Disk (pd-standard)." }
@@ -282,7 +282,7 @@ export const GCP_ACE_QUESTIONS_13 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to configure block storage for a high-performance transactional database that requires sub-millisecond I/O latency and up to 100,000 IOPS.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Attach an Extreme Persistent Disk (pd-extreme) or SSD Persistent Disk (pd-ssd) to the VM." },
+      { id: 'A', text: "Attach a pd-extreme or pd-ssd persistent disk" },
       { id: 'B', text: "Store database tables in a Cloud Storage Coldline bucket." },
       { id: 'C', text: "Use local ephemeral scratch RAM disks without persistence." },
       { id: 'D', text: "Attach a Standard HDD Persistent Disk (pd-standard)." }
@@ -305,7 +305,7 @@ export const GCP_ACE_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "Store database tables in a Cloud Storage Coldline bucket." },
       { id: 'B', text: "Attach a Standard HDD Persistent Disk (pd-standard)." },
-      { id: 'C', text: "Attach an Extreme Persistent Disk (pd-extreme) or SSD Persistent Disk (pd-ssd) to the VM." },
+      { id: 'C', text: "Attach a pd-extreme or pd-ssd persistent disk" },
       { id: 'D', text: "Use local ephemeral scratch RAM disks without persistence." }
     ],
     correctAnswers: ['C'],

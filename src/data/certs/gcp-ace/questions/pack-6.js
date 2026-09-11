@@ -12,13 +12,13 @@ export const GCP_ACE_QUESTIONS_6 = [
       { id: 'A', text: "A self-managed SSL certificate uploaded via Cloud KMS" },
       { id: 'B', text: "A Let's Encrypt certificate configured on each backend Compute Engine VM" },
       { id: 'C', text: "An SSL certificate generated with OpenSSL and stored in Secret Manager" },
-      { id: 'D', text: "A Google-managed SSL certificate (gcloud compute ssl-certificates create --domains=shop.example.com)" }
+      { id: 'D', text: "A Google-managed SSL certificate created for that domain" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Google-managed SSL certificates are fully managed TLS certificates provisioned, verified, and automatically renewed by Google Cloud before expiration. Attaching a Google-managed certificate to an HTTPS Target Proxy eliminates manual certificate rotation and certificate expiry outages.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["LoadBalancing", "SSLCertificates", "Security"]
+    tags: ["LoadBalancing","SSLCertificates","Security"]
   },
   {
     id: "gcp-ace-127",
@@ -30,7 +30,7 @@ export const GCP_ACE_QUESTIONS_6 = [
     scenario: "A cloud platform team uses HashiCorp Terraform to manage Google Cloud infrastructure. Multiple engineers collaborate on the codebase, requiring shared state storage with state locking and disaster recovery capabilities.",
     question: "What is the recommended configuration for the Terraform remote backend?",
     options: [
-      { id: 'A', text: "Configure a 'gcs' backend in Terraform pointing to a dedicated Cloud Storage bucket with Object Versioning enabled" },
+      { id: 'A', text: "A gcs backend on a bucket with object versioning" },
       { id: 'B', text: "Store terraform.tfstate in a private Git repository" },
       { id: 'C', text: "Save the state file on a shared Persistent Disk mounted via NFS" },
       { id: 'D', text: "Store state in Cloud Bigtable using a wide-column schema" }
@@ -39,7 +39,7 @@ export const GCP_ACE_QUESTIONS_6 = [
     type: "single",
     explanation: "Terraform provides native support for Google Cloud Storage ('gcs' backend). GCS natively supports distributed state locking via object generation preconditions to prevent concurrent modifications. Enabling Object Versioning on the bucket ensures past state versions can be restored if the state file becomes corrupted.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["Terraform", "CloudStorage", "DevOps"]
+    tags: ["Terraform","CloudStorage","DevOps"]
   },
   {
     id: "gcp-ace-128",
@@ -51,7 +51,7 @@ export const GCP_ACE_QUESTIONS_6 = [
     scenario: "A private GKE cluster's nodes need to download container images from public third-party registries. The nodes have no external IPs, and outbound internet access is currently failing.",
     question: "Which pair of gcloud commands deploys Cloud NAT on the VPC network?",
     options: [
-      { id: 'A', text: "Create a Cloud Router with 'gcloud compute routers create', and then create the NAT gateway with 'gcloud compute routers nats create --auto-allocate-nat-external-ips --nat-all-subnet-ip-ranges'" },
+      { id: 'A', text: "Create a Cloud Router, then a NAT gateway on all subnet ranges." },
       { id: 'B', text: "Run 'gcloud compute routes create default-internet --destination-range=0.0.0.0/0'" },
       { id: 'C', text: "Run 'gcloud compute networks update --enable-internet-gateway'" },
       { id: 'D', text: "Deploy an Internal Application Load Balancer with internet routing" }
@@ -60,7 +60,7 @@ export const GCP_ACE_QUESTIONS_6 = [
     type: "single",
     explanation: "Cloud NAT is configured as a feature of Cloud Router. First, a Cloud Router is instantiated in the VPC and region ('gcloud compute routers create'). Second, Cloud NAT is created on that router ('gcloud compute routers nats create') with automatic IP allocation and configured to handle outbound traffic for all subnet ranges.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["CloudNAT", "CloudRouter", "Networking"]
+    tags: ["CloudNAT","CloudRouter","Networking"]
   },
   {
     id: "gcp-ace-129",
@@ -81,7 +81,7 @@ export const GCP_ACE_QUESTIONS_6 = [
     type: "single",
     explanation: "The 'kubectl autoscale deployment &lt;NAME&gt; --cpu-percent=70 --min=2 --max=15' command deploys a HorizontalPodAutoscaler resource in Kubernetes. HPA monitors pod CPU usage via Metrics Server and dynamically adjusts replica count between 2 and 15 to keep average CPU utilization near 70%.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["GKE", "HPA", "Kubernetes"]
+    tags: ["GKE","HPA","Kubernetes"]
   },
   {
     id: "gcp-ace-130",
@@ -102,7 +102,7 @@ export const GCP_ACE_QUESTIONS_6 = [
     type: "single",
     explanation: "A PodDisruptionBudget (PDB) defines the minimum number of pod replicas (or percentage) that must remain available during voluntary disruptions such as node draining or cluster upgrades. Setting 'minAvailable: 3' blocks GKE from draining nodes if doing so would cause active replicas to fall below 3.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["GKE", "PDB", "Reliability"]
+    tags: ["GKE","PDB","Reliability"]
   },
   {
     id: "gcp-ace-131",
@@ -123,7 +123,7 @@ export const GCP_ACE_QUESTIONS_6 = [
     type: "single",
     explanation: "Artifact Registry is Google Cloud's modern universal package and container registry. The command 'gcloud artifacts repositories create &lt;NAME&gt; --repository-format=docker --location=us-central1' creates a regional repository supporting Docker images, Helm charts, and language packages with IAM role integration.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["ArtifactRegistry", "Containers", "DevOps"]
+    tags: ["ArtifactRegistry","Containers","DevOps"]
   },
   {
     id: "gcp-ace-132",
@@ -144,7 +144,7 @@ export const GCP_ACE_QUESTIONS_6 = [
     type: "single",
     explanation: "'gcloud builds submit' packages local source files, uploads them to Cloud Build, executes the Docker build on Google-managed serverless build runners, and automatically pushes the resulting container image to the designated Artifact Registry repository, requiring no local Docker daemon.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["CloudBuild", "ArtifactRegistry", "CI/CD"]
+    tags: ["CloudBuild","ArtifactRegistry","CI/CD"]
   },
   {
     id: "gcp-ace-133",
@@ -157,7 +157,7 @@ export const GCP_ACE_QUESTIONS_6 = [
     question: "Which Google Cloud security service and rule type fulfills this requirement?",
     options: [
       { id: 'A', text: "Cloud NAT IP filter rule" },
-      { id: 'B', text: "Cloud Armor security policy with a deny rule matching src-ip-ranges 198.51.100.0/24 attached to the load balancer backend service" },
+      { id: 'B', text: "A Cloud Armor deny rule for that IP range" },
       { id: 'C', text: "Cloud DNS blacklist zone" },
       { id: 'D', text: "VPC firewall rule with target tag web-server" }
     ],
@@ -165,7 +165,7 @@ export const GCP_ACE_QUESTIONS_6 = [
     type: "single",
     explanation: "Google Cloud Armor operates at the network edge in conjunction with External Application Load Balancers. By defining a Cloud Armor security policy with a rule that denies traffic from specific IP ranges or matches OWASP Top 10 WAF signatures, malicious requests are filtered out at Google's global edge points of presence.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["CloudArmor", "LoadBalancing", "Security"]
+    tags: ["CloudArmor","LoadBalancing","Security"]
   },
   {
     id: "gcp-ace-134",
@@ -186,7 +186,7 @@ export const GCP_ACE_QUESTIONS_6 = [
     type: "single",
     explanation: "Google Cloud Storage Transfer Service is a managed service designed for large-scale data transfers from cloud storage providers (Amazon S3, Azure Blob, HTTP sources) to Cloud Storage. It handles high-concurrency parallelism, automated retries, and data integrity checksums without running customer VMs.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["StorageTransferService", "CloudStorage", "Migration"]
+    tags: ["StorageTransferService","CloudStorage","Migration"]
   },
   {
     id: "gcp-ace-135",
@@ -200,14 +200,14 @@ export const GCP_ACE_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "Use Cloud KMS to encrypt the /etc/ssh/authorized_keys file" },
       { id: 'B', text: "Configure a cron job that empties ~/.ssh/authorized_keys every hour" },
-      { id: 'C', text: "Enable OS Login by setting metadata 'enable-oslogin=TRUE' and grant IAM roles 'roles/compute.osLogin' or 'roles/compute.osAdminLogin'" },
+      { id: 'C', text: "Set enable-oslogin=TRUE and grant roles/compute.osLogin" },
       { id: 'D', text: "Disable SSH port 22 and connect exclusively via serial console" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Enabling OS Login links Linux user accounts and SSH access directly to Google Cloud Identity and Cloud IAM. When OS Login is enabled, SSH keys are tied to the user's Google account, and access is governed by IAM roles ('roles/compute.osLogin' or 'roles/compute.osAdminLogin'). Offboarding an employee instantly revokes their SSH access across all VMs.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["ComputeEngine", "OSLogin", "Security"]
+    tags: ["ComputeEngine","OSLogin","Security"]
   },
   {
     id: "gcp-ace-136",
@@ -228,7 +228,7 @@ export const GCP_ACE_QUESTIONS_6 = [
     type: "single",
     explanation: "Shielded VMs provide verifiable boot integrity using three native features: 1) Secure Boot (ensures the VM boots only software signed by trusted certificate authorities); 2) vTPM (provides virtual hardware roots of trust and cryptographic key storage); and 3) Integrity Monitoring (records boot measurements and alerts if discrepancies are detected).",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["ComputeEngine", "ShieldedVM", "Security"]
+    tags: ["ComputeEngine","ShieldedVM","Security"]
   },
   {
     id: "gcp-ace-137",
@@ -241,7 +241,7 @@ export const GCP_ACE_QUESTIONS_6 = [
     question: "Which tools and commands accomplish this sequence?",
     options: [
       { id: 'A', text: "Create the table inside Cloud Shell using the gsutil CLI" },
-      { id: 'B', text: "Create instance with 'gcloud bigtable instances create', and create table with 'cbt createtable sensor_data' and 'cbt createfamily sensor_data cf1'" },
+      { id: 'B', text: "Create the instance with gcloud, then the table with cbt" },
       { id: 'C', text: "Use 'gcloud sql instances create' and run standard DDL SQL queries" },
       { id: 'D', text: "Use 'bq mk' to create the Bigtable table" }
     ],
@@ -249,7 +249,7 @@ export const GCP_ACE_QUESTIONS_6 = [
     type: "single",
     explanation: "The 'gcloud' CLI manages Cloud Bigtable instance and cluster infrastructure ('gcloud bigtable instances create'). The 'cbt' CLI is the official command-line tool for Bigtable table and data operations ('cbt createtable', 'cbt createfamily', 'cbt read').",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["CloudBigtable", "cbt", "Database"]
+    tags: ["CloudBigtable","cbt","Database"]
   },
   {
     id: "gcp-ace-138",
@@ -262,7 +262,7 @@ export const GCP_ACE_QUESTIONS_6 = [
     question: "What configuration is required to allow Cloud SQL to read the backup dump?",
     options: [
       { id: 'A', text: "Assign the primitive Owner role to the developer executing the import command" },
-      { id: 'B', text: "Retrieve the Cloud SQL instance's dedicated service account email and grant it 'roles/storage.objectViewer' on the Cloud Storage bucket" },
+      { id: 'B', text: "Grant the instance service account objectViewer on the bucket." },
       { id: 'C', text: "Download the backup to an ephemeral Compute Engine VM first" },
       { id: 'D', text: "Make the Cloud Storage bucket publicly readable" }
     ],
@@ -270,7 +270,7 @@ export const GCP_ACE_QUESTIONS_6 = [
     type: "single",
     explanation: "Every Cloud SQL instance has a unique, Google-managed service account (visible via 'gcloud sql instances describe'). To import data from or export data to a Cloud Storage bucket, this specific Cloud SQL service account email must be granted IAM permissions ('roles/storage.objectViewer' for imports, 'roles/storage.objectAdmin' for exports) on the target bucket.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["CloudSQL", "CloudStorage", "DatabaseAdministration"]
+    tags: ["CloudSQL","CloudStorage","DatabaseAdministration"]
   },
   {
     id: "gcp-ace-139",
@@ -291,7 +291,7 @@ export const GCP_ACE_QUESTIONS_6 = [
     type: "single",
     explanation: "In Cloud SQL, users do not have root filesystem access or SSH access to underlying database host VMs. Database engine configuration variables are modified as 'database flags' using 'gcloud sql instances patch &lt;INSTANCE&gt; --database-flags=...'. Note that modifying certain flags may trigger an automatic database restart.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["CloudSQL", "DatabaseFlags", "Configuration"]
+    tags: ["CloudSQL","DatabaseFlags","Configuration"]
   },
   {
     id: "gcp-ace-140",
@@ -304,7 +304,7 @@ export const GCP_ACE_QUESTIONS_6 = [
     question: "Which Kubernetes resource enforces this network microsegmentation?",
     options: [
       { id: 'A', text: "Create a VPC firewall rule targeting payment-processor pods" },
-      { id: 'B', text: "Enable Network Policy enforcement on the GKE cluster and apply a standard Kubernetes 'NetworkPolicy' YAML manifest specifying ingress from 'app: frontend-api'" },
+      { id: 'B', text: "Enable network policy and apply a NetworkPolicy allowing that label." },
       { id: 'C', text: "Configure an External Application Load Balancer with URL routing rules" },
       { id: 'D', text: "Deploy Cloud NAT inside the Kubernetes cluster" }
     ],
@@ -312,7 +312,7 @@ export const GCP_ACE_QUESTIONS_6 = [
     type: "single",
     explanation: "GKE Network Policies (powered by Calico or Datapath V2) enforce Layer 3 and Layer 4 pod-level network security controls inside the cluster. A standard Kubernetes NetworkPolicy resource specifies ingress rules based on podSelector labels, isolating the payment processor pods from unauthorized internal east-west traffic.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["GKE", "NetworkPolicy", "Security"]
+    tags: ["GKE","NetworkPolicy","Security"]
   },
   {
     id: "gcp-ace-141",
@@ -324,7 +324,7 @@ export const GCP_ACE_QUESTIONS_6 = [
     scenario: "A company wants their Cloud Run microservice, currently accessible at 'https://service-xyz-uc.a.run.app', to be reachable at their corporate domain 'https://api.company.com'.",
     question: "What is the recommended procedure to map the custom domain to the Cloud Run service?",
     options: [
-      { id: 'A', text: "Create a domain mapping using 'gcloud beta run domain-mappings create', and add the provided CNAME record to the domain's DNS host" },
+      { id: 'A', text: "Create a Cloud Run domain mapping and add the CNAME record." },
       { id: 'B', text: "Change the Cloud Run service name to 'api.company.com'" },
       { id: 'C', text: "Deploy an unmanaged Compute Engine instance running Apache to reverse-proxy traffic to Cloud Run" },
       { id: 'D', text: "Modify the /etc/hosts file on all customer client workstations" }
@@ -333,7 +333,7 @@ export const GCP_ACE_QUESTIONS_6 = [
     type: "single",
     explanation: "Cloud Run supports custom domain mappings directly. Executing 'gcloud beta run domain-mappings create --service=&lt;SERVICE&gt; --domain=api.company.com' generates DNS mapping records (such as CNAME or A/AAAA records). Once added to the DNS registrar, Google automatically manages and renews an SSL/TLS certificate for the domain.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["CloudRun", "CustomDomains", "Networking"]
+    tags: ["CloudRun","CustomDomains","Networking"]
   },
   {
     id: "gcp-ace-142",
@@ -346,7 +346,7 @@ export const GCP_ACE_QUESTIONS_6 = [
     question: "How should the export destination URI be formatted to allow parallel sharded export?",
     options: [
       { id: 'A', text: "Increase the BigQuery table extraction size quota in IAM" },
-      { id: 'B', text: "Format the destination URI with a wildcard character: 'gs://my-bucket/export-*.parquet'" },
+      { id: 'B', text: "Put a wildcard in the destination URI: export-*.parquet" },
       { id: 'C', text: "Write a Python script that exports 10,000 rows at a time using OFFSET" },
       { id: 'D', text: "Export the table as uncompressed CSV instead" }
     ],
@@ -354,7 +354,7 @@ export const GCP_ACE_QUESTIONS_6 = [
     type: "single",
     explanation: "BigQuery enforces a maximum file size (typically 1 GB) per single exported file. By supplying a wildcard pattern (e.g., 'gs://my-bucket/export-*.parquet') in the 'bq extract' command, BigQuery automatically shards the output across multiple files in parallel, drastically reducing export time for terabyte-scale datasets.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["BigQuery", "bqExtract", "DataPipelines"]
+    tags: ["BigQuery","bqExtract","DataPipelines"]
   },
   {
     id: "gcp-ace-143",
@@ -367,7 +367,7 @@ export const GCP_ACE_QUESTIONS_6 = [
     question: "How should the application query the Google Cloud metadata server from within the VM?",
     options: [
       { id: 'A', text: "Query Google Public DNS 8.8.8.8 on UDP port 53" },
-      { id: 'B', text: "Make an HTTP GET request to 'http://metadata.google.internal/computeMetadata/v1/' with header 'Metadata-Flavor: Google'" },
+      { id: 'B', text: "A GET with the Metadata-Flavor: Google header" },
       { id: 'C', text: "Read local environment variable $GOOGLE_COMPUTE_METADATA" },
       { id: 'D', text: "Run 'gcloud config list' via a bash subshell" }
     ],
@@ -375,7 +375,7 @@ export const GCP_ACE_QUESTIONS_6 = [
     type: "single",
     explanation: "Compute Engine provides an internal metadata server accessible at 'http://metadata.google.internal/computeMetadata/v1/'. Applications query endpoints like 'instance/zone' and 'instance/service-accounts/default/token'. Every request must include the custom HTTP header 'Metadata-Flavor: Google' to prevent Server-Side Request Forgery (SSRF) vulnerabilities.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["ComputeEngine", "MetadataServer", "Security"]
+    tags: ["ComputeEngine","MetadataServer","Security"]
   },
   {
     id: "gcp-ace-144",
@@ -387,7 +387,7 @@ export const GCP_ACE_QUESTIONS_6 = [
     scenario: "A platform automation team uses Terraform to deploy Google Cloud infrastructure from GitHub Actions. The team wants to ensure Terraform runs with permissions of 'terraform-admin@project.iam.gserviceaccount.com' without saving or storing a service account key in GitHub repository secrets.",
     question: "How should Terraform be configured to authenticate via impersonation?",
     options: [
-      { id: 'A', text: "Configure GitHub Actions to authenticate via Workload Identity Federation, and configure the Google provider block with 'impersonate_service_account'" },
+      { id: 'A', text: "Workload Identity Federation with impersonate_service_account" },
       { id: 'B', text: "Embed the service account credentials in the main.tf code file" },
       { id: 'C', text: "Assign the Owner role to the GitHub runner IP address" },
       { id: 'D', text: "Store the base64-encoded service account JSON key in GitHub Secrets" }
@@ -396,7 +396,7 @@ export const GCP_ACE_QUESTIONS_6 = [
     type: "single",
     explanation: "The modern enterprise standard combines Workload Identity Federation (allowing GitHub Actions to authenticate via OpenID Connect) with Terraform service account impersonation. Specifying 'impersonate_service_account = \"terraform-admin@...\"' in the Google provider block instructs Terraform to generate short-lived OAuth tokens, completely eliminating static JSON keys.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["Terraform", "ServiceAccounts", "DevOps"]
+    tags: ["Terraform","ServiceAccounts","DevOps"]
   },
   {
     id: "gcp-ace-145",
@@ -417,7 +417,7 @@ export const GCP_ACE_QUESTIONS_6 = [
     type: "single",
     explanation: "Multi-Cluster Ingress (MCI) is a Google-managed controller that configures a single global External Application Load Balancer across multiple GKE clusters deployed in different regions. It dynamically balances traffic across clusters based on proximity and health, providing seamless global high availability and disaster recovery.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["GKE", "MultiClusterIngress", "Architecture"]
+    tags: ["GKE","MultiClusterIngress","Architecture"]
   },
   {
     id: "gcp-ace-146",
@@ -438,7 +438,7 @@ export const GCP_ACE_QUESTIONS_6 = [
     type: "single",
     explanation: "Passing '--min-cpu-platform=\"Intel Ice Lake\"' to 'gcloud compute instances create' guarantees that the VM instance will only be scheduled and booted on host hardware running Intel Ice Lake processors (or newer platforms that support the required instruction sets).",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["ComputeEngine", "Hardware", "Performance"]
+    tags: ["ComputeEngine","Hardware","Performance"]
   },
   {
     id: "gcp-ace-147",
@@ -459,7 +459,7 @@ export const GCP_ACE_QUESTIONS_6 = [
     type: "single",
     explanation: "Enabling 'Storage Auto-Increase' on a Cloud SQL instance allows Google Cloud to automatically expand persistent disk capacity whenever available free space falls below 10%. This prevents sudden disk-full crashes and ensures uninterrupted database write operations without requiring manual intervention.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["CloudSQL", "StorageAutoIncrease", "Reliability"]
+    tags: ["CloudSQL","StorageAutoIncrease","Reliability"]
   },
   {
     id: "gcp-ace-148",
@@ -471,7 +471,7 @@ export const GCP_ACE_QUESTIONS_6 = [
     scenario: "An administrator executes 'gcloud compute networks peerings create peer-ab --network=vpc-a --peer-network=vpc-b' in project A. The administrator notices that instances in 'vpc-a' still cannot communicate with instances in 'vpc-b' and the peering state shows 'INACTIVE'.",
     question: "What required step was missed in configuring the peering connection?",
     options: [
-      { id: 'A', text: "A symmetric peering connection from vpc-b to vpc-a must also be created in project B before the peering state becomes ACTIVE" },
+      { id: 'A', text: "A matching peering from vpc-b must be created before it goes ACTIVE" },
       { id: 'B', text: "Both VPCs must be converted from Custom Mode to Auto Mode" },
       { id: 'C', text: "The instances must be rebooted to recognize the new route tables" },
       { id: 'D', text: "A Cloud VPN tunnel must be configured between the VPCs to exchange BGP routes" }
@@ -480,7 +480,7 @@ export const GCP_ACE_QUESTIONS_6 = [
     type: "single",
     explanation: "VPC Network Peering in Google Cloud requires symmetric, bidirectional configuration. Creating a peering connection from VPC A to VPC B places the peering in an INACTIVE state until a corresponding peering connection from VPC B to VPC A is created by an administrator with appropriate permissions. Once both sides are configured, the status transitions to ACTIVE.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["VPC", "Peering", "Networking"]
+    tags: ["VPC","Peering","Networking"]
   },
   {
     id: "gcp-ace-149",
@@ -495,13 +495,13 @@ export const GCP_ACE_QUESTIONS_6 = [
       { id: 'A', text: "Disable all maintenance policies using '--no-maintenance-policy'" },
       { id: 'B', text: "Set '--restart-on-failure=false'" },
       { id: 'C', text: "Set '--maintenance-policy=MIGRATE' to enable seamless failover" },
-      { id: 'D', text: "Set '--maintenance-policy=TERMINATE' because GPU instances do not support live migration during host maintenance events" }
+      { id: 'D', text: "Set --maintenance-policy=TERMINATE; GPUs cannot live migrate" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Compute Engine normally uses Live Migration to keep VM instances running while host system software and hardware updates are applied. However, instances with attached GPU accelerators do not support live migration; they must have their maintenance policy set to 'TERMINATE', causing the VM to shut down and restart when host maintenance occurs.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["ComputeEngine", "GPUs", "MaintenancePolicy"]
+    tags: ["ComputeEngine","GPUs","MaintenancePolicy"]
   },
   {
     id: "gcp-ace-150",
@@ -522,7 +522,7 @@ export const GCP_ACE_QUESTIONS_6 = [
     type: "single",
     explanation: "To create a predefined or custom Dual-Region Cloud Storage bucket, the '--location' flag accepts two comma-separated region identifiers (e.g. '--location=us-central1,us-east1'). This provisions a bucket whose data is stored across both regions with regional failover capabilities.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["CloudStorage", "DualRegion", "DisasterRecovery"]
+    tags: ["CloudStorage","DualRegion","DisasterRecovery"]
   }
 ];
 

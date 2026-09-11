@@ -9,10 +9,10 @@ export const GCP_ACE_QUESTIONS_20 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to store third-party payment gateway API keys securely and allow an application on Cloud Run to access them with versioning and access audit logs.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Store the API keys in Secret Manager and grant the Cloud Run service account the 'Secret Manager Secret Accessor' role." },
+      { id: 'A', text: "Keep the keys in Secret Manager and grant Secret Accessor." },
       { id: 'B', text: "Embed the API keys as plaintext strings in the Dockerfile source code." },
       { id: 'C', text: "Store the keys in an unencrypted public GitHub repository." },
-      { id: 'D', text: "Write the API keys to an environment variable in an unversioned shell script." }
+      { id: 'D', text: "Set the API keys as plain environment variables on the service." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -30,8 +30,8 @@ export const GCP_ACE_QUESTIONS_20 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to store third-party payment gateway API keys securely and allow an application on Cloud Run to access them with versioning and access audit logs.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Store the API keys in Secret Manager and grant the Cloud Run service account the 'Secret Manager Secret Accessor' role." },
-      { id: 'B', text: "Write the API keys to an environment variable in an unversioned shell script." },
+      { id: 'A', text: "Keep the keys in Secret Manager and grant Secret Accessor." },
+      { id: 'B', text: "Set the API keys as plain environment variables on the service." },
       { id: 'C', text: "Store the keys in an unencrypted public GitHub repository." },
       { id: 'D', text: "Embed the API keys as plaintext strings in the Dockerfile source code." }
     ],
@@ -53,8 +53,8 @@ export const GCP_ACE_QUESTIONS_20 = [
     options: [
       { id: 'A', text: "Store the keys in an unencrypted public GitHub repository." },
       { id: 'B', text: "Embed the API keys as plaintext strings in the Dockerfile source code." },
-      { id: 'C', text: "Write the API keys to an environment variable in an unversioned shell script." },
-      { id: 'D', text: "Store the API keys in Secret Manager and grant the Cloud Run service account the 'Secret Manager Secret Accessor' role." }
+      { id: 'C', text: "Set the API keys as plain environment variables on the service." },
+      { id: 'D', text: "Keep the keys in Secret Manager and grant Secret Accessor." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -72,9 +72,9 @@ export const GCP_ACE_QUESTIONS_20 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to store third-party payment gateway API keys securely and allow an application on Cloud Run to access them with versioning and access audit logs.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Store the API keys in Secret Manager and grant the Cloud Run service account the 'Secret Manager Secret Accessor' role." },
+      { id: 'A', text: "Keep the keys in Secret Manager and grant Secret Accessor." },
       { id: 'B', text: "Embed the API keys as plaintext strings in the Dockerfile source code." },
-      { id: 'C', text: "Write the API keys to an environment variable in an unversioned shell script." },
+      { id: 'C', text: "Set the API keys as plain environment variables on the service." },
       { id: 'D', text: "Store the keys in an unencrypted public GitHub repository." }
     ],
     correctAnswers: ['A'],
@@ -93,9 +93,9 @@ export const GCP_ACE_QUESTIONS_20 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer needs to store third-party payment gateway API keys securely and allow an application on Cloud Run to access them with versioning and access audit logs.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Write the API keys to an environment variable in an unversioned shell script." },
+      { id: 'A', text: "Set the API keys as plain environment variables on the service." },
       { id: 'B', text: "Embed the API keys as plaintext strings in the Dockerfile source code." },
-      { id: 'C', text: "Store the API keys in Secret Manager and grant the Cloud Run service account the 'Secret Manager Secret Accessor' role." },
+      { id: 'C', text: "Keep the keys in Secret Manager and grant Secret Accessor." },
       { id: 'D', text: "Store the keys in an unencrypted public GitHub repository." }
     ],
     correctAnswers: ['C'],
@@ -219,10 +219,10 @@ export const GCP_ACE_QUESTIONS_20 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to prevent malicious employees or compromised service accounts from exfiltrating sensitive BigQuery and Cloud Storage data to external public cloud accounts.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Delete all external DNS server addresses from virtual machines." },
+      { id: 'A', text: "Point the VMs at the on-premises DNS servers directly." },
       { id: 'B', text: "Rely on signed employment contracts and company conduct policies." },
       { id: 'C', text: "Apply a standard VPC firewall rule blocking port 80 egress." },
-      { id: 'D', text: "Configure a VPC Service Controls Service Perimeter around the sensitive projects and API services." }
+      { id: 'D', text: "A VPC Service Controls perimeter around those projects" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -240,10 +240,10 @@ export const GCP_ACE_QUESTIONS_20 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to prevent malicious employees or compromised service accounts from exfiltrating sensitive BigQuery and Cloud Storage data to external public cloud accounts.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Configure a VPC Service Controls Service Perimeter around the sensitive projects and API services." },
+      { id: 'A', text: "A VPC Service Controls perimeter around those projects" },
       { id: 'B', text: "Apply a standard VPC firewall rule blocking port 80 egress." },
       { id: 'C', text: "Rely on signed employment contracts and company conduct policies." },
-      { id: 'D', text: "Delete all external DNS server addresses from virtual machines." }
+      { id: 'D', text: "Point the VMs at the on-premises DNS servers directly." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -262,9 +262,9 @@ export const GCP_ACE_QUESTIONS_20 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Apply a standard VPC firewall rule blocking port 80 egress." },
-      { id: 'B', text: "Configure a VPC Service Controls Service Perimeter around the sensitive projects and API services." },
+      { id: 'B', text: "A VPC Service Controls perimeter around those projects" },
       { id: 'C', text: "Rely on signed employment contracts and company conduct policies." },
-      { id: 'D', text: "Delete all external DNS server addresses from virtual machines." }
+      { id: 'D', text: "Point the VMs at the on-premises DNS servers directly." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -282,9 +282,9 @@ export const GCP_ACE_QUESTIONS_20 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to prevent malicious employees or compromised service accounts from exfiltrating sensitive BigQuery and Cloud Storage data to external public cloud accounts.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Delete all external DNS server addresses from virtual machines." },
+      { id: 'A', text: "Point the VMs at the on-premises DNS servers directly." },
       { id: 'B', text: "Apply a standard VPC firewall rule blocking port 80 egress." },
-      { id: 'C', text: "Configure a VPC Service Controls Service Perimeter around the sensitive projects and API services." },
+      { id: 'C', text: "A VPC Service Controls perimeter around those projects" },
       { id: 'D', text: "Rely on signed employment contracts and company conduct policies." }
     ],
     correctAnswers: ['C'],
@@ -304,9 +304,9 @@ export const GCP_ACE_QUESTIONS_20 = [
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Rely on signed employment contracts and company conduct policies." },
-      { id: 'B', text: "Delete all external DNS server addresses from virtual machines." },
+      { id: 'B', text: "Point the VMs at the on-premises DNS servers directly." },
       { id: 'C', text: "Apply a standard VPC firewall rule blocking port 80 egress." },
-      { id: 'D', text: "Configure a VPC Service Controls Service Perimeter around the sensitive projects and API services." }
+      { id: 'D', text: "A VPC Service Controls perimeter around those projects" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -325,7 +325,7 @@ export const GCP_ACE_QUESTIONS_20 = [
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Change the web application port number from 443 to 8443." },
-      { id: 'B', text: "Deploy a Cloud Armor Security Policy with pre-configured WAF rules and attach it to the load balancer backend service." },
+      { id: 'B', text: "A Cloud Armor policy with preconfigured WAF rules on the backend service." },
       { id: 'C', text: "Install antivirus software inside the virtual machine guest operating systems." },
       { id: 'D', text: "Rely on standard layer 4 network firewall rules to inspect HTTP payload strings." }
     ],
@@ -347,7 +347,7 @@ export const GCP_ACE_QUESTIONS_20 = [
     options: [
       { id: 'A', text: "Rely on standard layer 4 network firewall rules to inspect HTTP payload strings." },
       { id: 'B', text: "Change the web application port number from 443 to 8443." },
-      { id: 'C', text: "Deploy a Cloud Armor Security Policy with pre-configured WAF rules and attach it to the load balancer backend service." },
+      { id: 'C', text: "A Cloud Armor policy with preconfigured WAF rules on the backend service." },
       { id: 'D', text: "Install antivirus software inside the virtual machine guest operating systems." }
     ],
     correctAnswers: ['C'],
@@ -366,7 +366,7 @@ export const GCP_ACE_QUESTIONS_20 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer needs to protect a public web application fronted by an External Application Load Balancer against SQL injection, Cross-Site Scripting (XSS), and Layer 7 HTTP flood DDoS attacks.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Deploy a Cloud Armor Security Policy with pre-configured WAF rules and attach it to the load balancer backend service." },
+      { id: 'A', text: "A Cloud Armor policy with preconfigured WAF rules on the backend service." },
       { id: 'B', text: "Change the web application port number from 443 to 8443." },
       { id: 'C', text: "Rely on standard layer 4 network firewall rules to inspect HTTP payload strings." },
       { id: 'D', text: "Install antivirus software inside the virtual machine guest operating systems." }
@@ -390,7 +390,7 @@ export const GCP_ACE_QUESTIONS_20 = [
       { id: 'A', text: "Rely on standard layer 4 network firewall rules to inspect HTTP payload strings." },
       { id: 'B', text: "Install antivirus software inside the virtual machine guest operating systems." },
       { id: 'C', text: "Change the web application port number from 443 to 8443." },
-      { id: 'D', text: "Deploy a Cloud Armor Security Policy with pre-configured WAF rules and attach it to the load balancer backend service." }
+      { id: 'D', text: "A Cloud Armor policy with preconfigured WAF rules on the backend service." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -410,7 +410,7 @@ export const GCP_ACE_QUESTIONS_20 = [
     options: [
       { id: 'A', text: "Rely on standard layer 4 network firewall rules to inspect HTTP payload strings." },
       { id: 'B', text: "Install antivirus software inside the virtual machine guest operating systems." },
-      { id: 'C', text: "Deploy a Cloud Armor Security Policy with pre-configured WAF rules and attach it to the load balancer backend service." },
+      { id: 'C', text: "A Cloud Armor policy with preconfigured WAF rules on the backend service." },
       { id: 'D', text: "Change the web application port number from 443 to 8443." }
     ],
     correctAnswers: ['C'],
@@ -430,7 +430,7 @@ export const GCP_ACE_QUESTIONS_20 = [
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Review historical billing invoices for unusual computing charges." },
-      { id: 'B', text: "Manually inspect configuration settings across 200 projects once a year." },
+      { id: 'B', text: "Run a scheduled Cloud Asset Inventory export and review the results." },
       { id: 'C', text: "Enable Security Command Center (SCC) Standard or Premium at the Organization level." },
       { id: 'D', text: "Install open-source antivirus tools on individual developer laptops." }
     ],
@@ -453,7 +453,7 @@ export const GCP_ACE_QUESTIONS_20 = [
       { id: 'A', text: "Install open-source antivirus tools on individual developer laptops." },
       { id: 'B', text: "Enable Security Command Center (SCC) Standard or Premium at the Organization level." },
       { id: 'C', text: "Review historical billing invoices for unusual computing charges." },
-      { id: 'D', text: "Manually inspect configuration settings across 200 projects once a year." }
+      { id: 'D', text: "Run a scheduled Cloud Asset Inventory export and review the results." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -473,7 +473,7 @@ export const GCP_ACE_QUESTIONS_20 = [
     options: [
       { id: 'A', text: "Review historical billing invoices for unusual computing charges." },
       { id: 'B', text: "Install open-source antivirus tools on individual developer laptops." },
-      { id: 'C', text: "Manually inspect configuration settings across 200 projects once a year." },
+      { id: 'C', text: "Run a scheduled Cloud Asset Inventory export and review the results." },
       { id: 'D', text: "Enable Security Command Center (SCC) Standard or Premium at the Organization level." }
     ],
     correctAnswers: ['D'],
@@ -495,7 +495,7 @@ export const GCP_ACE_QUESTIONS_20 = [
       { id: 'A', text: "Install open-source antivirus tools on individual developer laptops." },
       { id: 'B', text: "Review historical billing invoices for unusual computing charges." },
       { id: 'C', text: "Enable Security Command Center (SCC) Standard or Premium at the Organization level." },
-      { id: 'D', text: "Manually inspect configuration settings across 200 projects once a year." }
+      { id: 'D', text: "Run a scheduled Cloud Asset Inventory export and review the results." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -515,7 +515,7 @@ export const GCP_ACE_QUESTIONS_20 = [
     options: [
       { id: 'A', text: "Review historical billing invoices for unusual computing charges." },
       { id: 'B', text: "Install open-source antivirus tools on individual developer laptops." },
-      { id: 'C', text: "Manually inspect configuration settings across 200 projects once a year." },
+      { id: 'C', text: "Run a scheduled Cloud Asset Inventory export and review the results." },
       { id: 'D', text: "Enable Security Command Center (SCC) Standard or Premium at the Organization level." }
     ],
     correctAnswers: ['D'],

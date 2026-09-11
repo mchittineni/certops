@@ -12,13 +12,13 @@ export const GCP_ACE_QUESTIONS_5 = [
       { id: 'A', text: "Embed the entire script base64-encoded into the '--metadata startup-script' flag" },
       { id: 'B', text: "Commit the script to a public GitHub repository and curl it from the command line inside the VM" },
       { id: 'C', text: "Log into each VM via SSH immediately after launch and execute the script manually" },
-      { id: 'D', text: "Store the script in a private Cloud Storage bucket, grant the VM service account 'roles/storage.objectViewer' on the bucket, and create instances with '--metadata-from-file startup-script-url=gs://[BUCKET]/startup.sh'" }
+      { id: 'D', text: "Keep the script in a private bucket and point startup-script-url at it." }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Passing large startup scripts via Cloud Storage is the standard Google Cloud architectural practice. Storing the script in a private GCS bucket and referencing it via '--metadata-from-file startup-script-url=gs://...' allows the VM's Compute Engine agent to automatically fetch and execute the script upon boot, while securing access via the VM's attached service account IAM permissions.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["ComputeEngine", "StartupScripts", "Automation"]
+    tags: ["ComputeEngine","StartupScripts","Automation"]
   },
   {
     id: "gcp-ace-102",
@@ -32,14 +32,14 @@ export const GCP_ACE_QUESTIONS_5 = [
     options: [
       { id: 'A', text: "Increase the MIG target size to double the current instance count" },
       { id: 'B', text: "Change the machine type to an instance family with faster single-core performance" },
-      { id: 'C', text: "Increase the 'initial delay' (cooldown period) on the autohealing health check to at least 300 seconds" },
+      { id: 'C', text: "Raise the autohealing initial delay to at least 300 seconds" },
       { id: 'D', text: "Disable the health check and rely solely on VM host status" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "The 'initial delay' (also known as the cooldown period) on an autohealing policy defines the grace period during which the MIG ignores health check failures after a VM boots. For slow-starting applications (such as Java JVMs or large database services), setting the initial delay longer than the expected application startup time ensures autohealing does not prematurely terminate instances before they finish initializing.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["ComputeEngine", "MIG", "Autohealing"]
+    tags: ["ComputeEngine","MIG","Autohealing"]
   },
   {
     id: "gcp-ace-103",
@@ -60,7 +60,7 @@ export const GCP_ACE_QUESTIONS_5 = [
     type: "single",
     explanation: "Setting 'maxUnavailable=0' guarantees that no existing instances will be terminated until new instances from the updated template are healthy and serving traffic. Setting 'maxSurge' to 1 or more allows the MIG to provision temporary extra instances above the target size to handle load during the rollout, guaranteeing zero capacity degradation.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["ComputeEngine", "MIG", "RollingUpdates"]
+    tags: ["ComputeEngine","MIG","RollingUpdates"]
   },
   {
     id: "gcp-ace-104",
@@ -81,7 +81,7 @@ export const GCP_ACE_QUESTIONS_5 = [
     type: "single",
     explanation: "Stateful MIGs are designed specifically for stateful applications (such as databases, Kafka, and Zookeeper) that require preserving individual instance state. Stateful MIGs maintain instance names, persistent disk mappings, and static IP addresses across VM recreation, restarts, and rolling updates.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["ComputeEngine", "StatefulMIG", "Kafka"]
+    tags: ["ComputeEngine","StatefulMIG","Kafka"]
   },
   {
     id: "gcp-ace-105",
@@ -93,16 +93,16 @@ export const GCP_ACE_QUESTIONS_5 = [
     scenario: "A systems engineer installs custom packages, security agents, and compliance hardening on a reference Compute Engine VM. The engineer now needs to capture a custom image to serve as the baseline for corporate instance templates.",
     question: "What step must the engineer perform before creating the image to guarantee filesystem consistency?",
     options: [
-      { id: 'A', text: "Stop the source VM instance before running 'gcloud compute images create'" },
+      { id: 'A', text: "Stop the source VM before running images create" },
       { id: 'B', text: "Convert the persistent disk to a local SSD" },
-      { id: 'C', text: "Delete all log files in /var/log while the VM is running" },
+      { id: 'C', text: "Resize the boot disk and grow the filesystem in place" },
       { id: 'D', text: "Resize the persistent disk to its minimum allowable size" }
     ],
     correctAnswers: ['A'],
     type: "single",
     explanation: "Creating a custom image from a running VM can capture inconsistent in-flight memory buffers and open file handles, leading to filesystem corruption when new VMs boot. Stopping the source VM flushes all cached data to disk and guarantees clean filesystem state before capturing the image.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["ComputeEngine", "CustomImages", "Operations"]
+    tags: ["ComputeEngine","CustomImages","Operations"]
   },
   {
     id: "gcp-ace-106",
@@ -114,7 +114,7 @@ export const GCP_ACE_QUESTIONS_5 = [
     scenario: "An enterprise releases monthly security-patched base OS images. The platform engineering team wants Managed Instance Groups and Terraform deployment scripts to automatically deploy the latest patched image version without requiring manual updates to template files or script code.",
     question: "How should the custom images be published and referenced?",
     options: [
-      { id: 'A', text: "Assign each new monthly image to an 'Image Family', and configure instance templates to reference the image family name rather than a specific image name" },
+      { id: 'A', text: "Put each image in an image family and reference the family." },
       { id: 'B', text: "Overwrite the existing image in-place using 'gcloud compute images update'" },
       { id: 'C', text: "Create a symbolic link in Cloud Storage pointing to the latest raw disk file" },
       { id: 'D', text: "Delete old images and recreate new images using the identical image name" }
@@ -123,7 +123,7 @@ export const GCP_ACE_QUESTIONS_5 = [
     type: "single",
     explanation: "An Image Family groups related images under a shared alias (e.g. 'golden-ubuntu-2204'). When an instance template or 'gcloud' command references an image family, Google Cloud automatically resolves the reference to the newest, non-deprecated image in that family, enabling seamless automated OS patching.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["ComputeEngine", "ImageFamilies", "Automation"]
+    tags: ["ComputeEngine","ImageFamilies","Automation"]
   },
   {
     id: "gcp-ace-107",
@@ -135,7 +135,7 @@ export const GCP_ACE_QUESTIONS_5 = [
     scenario: "A Linux administrator attaches a new 500 GB Persistent Disk to a running Compute Engine instance, formats it with ext4, and mounts it at '/data'. The administrator adds an entry to '/etc/fstab' using the device name '/dev/sdb'. Following a scheduled VM reboot, the VM fails to boot and drops into emergency maintenance mode.",
     question: "What configuration error caused the boot failure, and how should it be corrected?",
     options: [
-      { id: 'A', text: "Device names (/dev/sdb) are not deterministic across reboots; the mount entry in /etc/fstab should use the disk's filesystem UUID and include the 'nofail' mount option" },
+      { id: 'A', text: "Device names are not stable; mount by UUID with nofail." },
       { id: 'B', text: "The disk was not marked as a boot disk in the VM metadata" },
       { id: 'C', text: "Secondary disks must be attached to the SATA bus rather than SCSI" },
       { id: 'D', text: "Persistent disks must always be formatted with XFS rather than ext4" }
@@ -144,7 +144,7 @@ export const GCP_ACE_QUESTIONS_5 = [
     type: "single",
     explanation: "On Linux VMs in Google Cloud, disk device identifiers (like /dev/sdb) can shift across reboots. Best practice is to identify the disk by its persistent filesystem UUID (found via 'blkid'). Additionally, adding the 'nofail' option in '/etc/fstab' ensures that if the disk fails to attach or mount during boot, the OS continues booting normally rather than stalling in emergency rescue mode.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["ComputeEngine", "PersistentDisks", "Linux"]
+    tags: ["ComputeEngine","PersistentDisks","Linux"]
   },
   {
     id: "gcp-ace-108",
@@ -157,7 +157,7 @@ export const GCP_ACE_QUESTIONS_5 = [
     question: "How can the engineer expand the disk capacity online without downtime?",
     options: [
       { id: 'A', text: "Create a snapshot, create a new 500 GB disk from the snapshot, and swap disks" },
-      { id: 'B', text: "Resize the disk using 'gcloud compute disks resize' and then run 'resize2fs' (or 'xfs_growfs') on the VM operating system" },
+      { id: 'B', text: "Run gcloud compute disks resize, then grow the filesystem." },
       { id: 'C', text: "Attach a second disk and run 'mkfs' across both disks" },
       { id: 'D', text: "Stop the instance, resize the disk in the console, and restart the VM" }
     ],
@@ -165,7 +165,7 @@ export const GCP_ACE_QUESTIONS_5 = [
     type: "single",
     explanation: "Google Cloud Persistent Disks support online expansion. The administrator increases disk size using 'gcloud compute disks resize &lt;DISK&gt; --size=&lt;NEW_SIZE&gt;' without stopping the VM. Then, via SSH, running the filesystem resize tool ('resize2fs' for ext4 or 'xfs_growfs' for XFS) immediately expands the filesystem to consume the new capacity with zero downtime.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["ComputeEngine", "PersistentDisks", "Storage"]
+    tags: ["ComputeEngine","PersistentDisks","Storage"]
   },
   {
     id: "gcp-ace-109",
@@ -186,7 +186,7 @@ export const GCP_ACE_QUESTIONS_5 = [
     type: "single",
     explanation: "The 'gcloud compute instances create-with-container' command provisions a VM using Google's Container-Optimized OS (COS). COS comes with Docker pre-installed and hardened, and Google Cloud automatically configures a systemd service that pulls and runs the specified container image upon VM boot.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["ComputeEngine", "COS", "Containers"]
+    tags: ["ComputeEngine","COS","Containers"]
   },
   {
     id: "gcp-ace-110",
@@ -207,7 +207,7 @@ export const GCP_ACE_QUESTIONS_5 = [
     type: "single",
     explanation: "Creating a GKE cluster with '--enable-private-nodes' ensures worker VMs receive only private internal IP addresses. Specifying '--master-ipv4-cidr' allocates a dedicated /28 range for the Google-managed control plane VPC peering, and '--enable-master-authorized-networks' restricts control plane access to authorized CIDR blocks (such as corporate bastions or VPN subnets).",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["GKE", "PrivateCluster", "Security"]
+    tags: ["GKE","PrivateCluster","Security"]
   },
   {
     id: "gcp-ace-111",
@@ -221,14 +221,14 @@ export const GCP_ACE_QUESTIONS_5 = [
     options: [
       { id: 'A', text: "Run web pods on GKE and ML training jobs on Cloud Functions" },
       { id: 'B', text: "Assign higher Linux 'nice' values to web container processes" },
-      { id: 'C', text: "Create a dedicated Node Pool configured with GPU accelerators and Kubernetes taints, and add corresponding tolerations and nodeSelectors to the ML deployment manifests" },
+      { id: 'C', text: "A tainted GPU node pool with tolerations on the ML pods." },
       { id: 'D', text: "Deploy two separate VPC networks and connect them with Cloud Router" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "In GKE, distinct workload requirements (such as GPUs, high memory, or Spot VMs) are isolated using dedicated Node Pools. By configuring Kubernetes taints (e.g. 'sku=gpu:NoSchedule') on the GPU node pool and configuring matching tolerations and nodeSelectors/nodeAffinity in ML pod specs, GKE ensures only authorized workloads run on the expensive GPU hardware.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["GKE", "NodePools", "Kubernetes"]
+    tags: ["GKE","NodePools","Kubernetes"]
   },
   {
     id: "gcp-ace-112",
@@ -249,7 +249,7 @@ export const GCP_ACE_QUESTIONS_5 = [
     type: "single",
     explanation: "When pods cannot be scheduled due to insufficient cluster compute capacity (remaining in 'Pending' state), the GKE Cluster Autoscaler detects these unschedulable pods and automatically provisions new worker node VMs in the node pool up to the configured maximum limit. Once demand decreases, it gracefully drains and deletes idle nodes.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["GKE", "ClusterAutoscaler", "Scalability"]
+    tags: ["GKE","ClusterAutoscaler","Scalability"]
   },
   {
     id: "gcp-ace-113",
@@ -270,7 +270,7 @@ export const GCP_ACE_QUESTIONS_5 = [
     type: "single",
     explanation: "The 'gcloud container clusters get-credentials' command connects to Google Cloud, retrieves cluster endpoint details and authentication tokens, and writes the proper context and credentials into the local '~/.kube/config' file, allowing 'kubectl' to interact with the remote GKE control plane.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["GKE", "kubectl", "CloudSDK"]
+    tags: ["GKE","kubectl","CloudSDK"]
   },
   {
     id: "gcp-ace-114",
@@ -291,7 +291,7 @@ export const GCP_ACE_QUESTIONS_5 = [
     type: "single",
     explanation: "In GKE, defining a Service with 'type: LoadBalancer' instructs the Google Cloud cloud-controller-manager to automatically provision an External Passthrough Network Load Balancer (Layer 4) with a public IP address and configure forwarding rules that route incoming traffic directly to the service's pods.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["GKE", "KubernetesServices", "LoadBalancing"]
+    tags: ["GKE","KubernetesServices","LoadBalancing"]
   },
   {
     id: "gcp-ace-115",
@@ -304,7 +304,7 @@ export const GCP_ACE_QUESTIONS_5 = [
     question: "How should these Google Cloud load balancer settings be applied to the GKE Ingress?",
     options: [
       { id: 'A', text: "Configure Cloud Armor rules manually in the Cloud Console on the generated target proxy" },
-      { id: 'B', text: "Define a 'BackendConfig' Custom Resource specifying the Cloud Armor policy and health check path, and reference the BackendConfig in an annotation on the Kubernetes Service" },
+      { id: 'B', text: "A BackendConfig naming the Cloud Armor policy, annotated on the Service." },
       { id: 'C', text: "Modify the /etc/nginx/nginx.conf file inside the container image" },
       { id: 'D', text: "Create a FrontendConfig resource pointing to the Cloud Armor security policy" }
     ],
@@ -312,7 +312,7 @@ export const GCP_ACE_QUESTIONS_5 = [
     type: "single",
     explanation: "GKE uses the 'BackendConfig' Custom Resource Definition (CRD) to configure Google Cloud Layer 7 load balancer parameters (Cloud Armor policies, Cloud CDN, custom health checks, session affinity). The BackendConfig is linked to the deployment by adding the annotation 'cloud.google.com/backend-config: {\"default\": \"my-backend-config\"}' to the Kubernetes Service.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["GKE", "BackendConfig", "CloudArmor"]
+    tags: ["GKE","BackendConfig","CloudArmor"]
   },
   {
     id: "gcp-ace-116",
@@ -333,7 +333,7 @@ export const GCP_ACE_QUESTIONS_5 = [
     type: "single",
     explanation: "Cloud Run includes native traffic management. Running 'gcloud run services update-traffic &lt;SERVICE&gt; --to-revisions=&lt;REV1&gt;=10,&lt;REV2&gt;=90' instructs Google Cloud's frontend proxy to instantaneously split incoming HTTP requests according to the specified percentages without requiring external load balancers or DNS changes.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["CloudRun", "TrafficSplitting", "Canary"]
+    tags: ["CloudRun","TrafficSplitting","Canary"]
   },
   {
     id: "gcp-ace-117",
@@ -345,8 +345,8 @@ export const GCP_ACE_QUESTIONS_5 = [
     scenario: "A microservice deployed on Cloud Run requires a database password to connect to Cloud SQL. The security team forbids putting the password in container Dockerfiles, environment variables in git repositories, or deployment script flags.",
     question: "How should the password be managed and supplied to Cloud Run?",
     options: [
-      { id: 'A', text: "Store the password in Google Secret Manager, grant the Cloud Run service account 'roles/secretmanager.secretAccessor', and deploy with '--set-secrets=DB_PASSWORD=projects/[PROJECT]/secrets/db-pass:latest'" },
-      { id: 'B', text: "Hardcode the password in Cloud KMS and decrypt it during application build" },
+      { id: 'A', text: "Keep it in Secret Manager, grant secretAccessor, deploy with --set-secrets." },
+      { id: 'B', text: "Encrypt the password with Cloud KMS and decrypt it at build time" },
       { id: 'C', text: "Store the password in a text file in a public Cloud Storage bucket" },
       { id: 'D', text: "Embed the password in the container entrypoint shell script" }
     ],
@@ -354,7 +354,7 @@ export const GCP_ACE_QUESTIONS_5 = [
     type: "single",
     explanation: "Google Secret Manager is the native service for storing API keys, certificates, and passwords. Cloud Run integrates directly with Secret Manager: using '--set-secrets', Cloud Run securely mounts the secret either as an environment variable or as a file volume at container runtime, fetching it using the service account's IAM permissions.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["CloudRun", "SecretManager", "Security"]
+    tags: ["CloudRun","SecretManager","Security"]
   },
   {
     id: "gcp-ace-118",
@@ -375,7 +375,7 @@ export const GCP_ACE_QUESTIONS_5 = [
     type: "single",
     explanation: "The 'gcloud functions deploy' command with the '--trigger-bucket=&lt;BUCKET_NAME&gt;' flag automatically provisions an event subscription that triggers the function whenever an object is created, updated, or overwritten in the designated Cloud Storage bucket.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["CloudFunctions", "CloudStorage", "EventDriven"]
+    tags: ["CloudFunctions","CloudStorage","EventDriven"]
   },
   {
     id: "gcp-ace-119",
@@ -390,13 +390,13 @@ export const GCP_ACE_QUESTIONS_5 = [
       { id: 'A', text: "Create an SSL certificate in Cloud KMS and upload it to the VPC route table" },
       { id: 'B', text: "Configure an HA VPN tunnel to Google's internal network" },
       { id: 'C', text: "Deploy Cloud NAT with a static external IP address in each zone" },
-      { id: 'D', text: "Allocate a dedicated RFC 1918 IP address range in the VPC and establish a Private Services Access connection peering the VPC with servicenetworking.googleapis.com" }
+      { id: 'D', text: "Reserve an RFC 1918 range and set up Private Services Access." }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Cloud SQL private IP instances run in a tenant VPC managed by Google. To connect a customer VPC to this Google tenant network over private IP, the customer must allocate an internal IP range and establish a Private Services Access peering connection with 'servicenetworking.googleapis.com'. Once established, Cloud SQL instances provision private IPs inside that peered range.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["CloudSQL", "PrivateIP", "Networking"]
+    tags: ["CloudSQL","PrivateIP","Networking"]
   },
   {
     id: "gcp-ace-120",
@@ -417,7 +417,7 @@ export const GCP_ACE_QUESTIONS_5 = [
     type: "single",
     explanation: "The Cloud SQL Auth Proxy is a Google-provided client binary that establishes secure mutual TLS tunnels to Cloud SQL instances. It uses the developer's Google Cloud IAM credentials for authentication, eliminating the need to allowlist client IP addresses or manually manage SSL certificates.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["CloudSQL", "CloudSQLAuthProxy", "Security"]
+    tags: ["CloudSQL","CloudSQLAuthProxy","Security"]
   },
   {
     id: "gcp-ace-121",
@@ -432,13 +432,13 @@ export const GCP_ACE_QUESTIONS_5 = [
       { id: 'A', text: "Switch the bucket storage class from Standard to Archive" },
       { id: 'B', text: "Enable Uniform Bucket-Level Access on the bucket" },
       { id: 'C', text: "Enable Object Versioning and lock the retention policy" },
-      { id: 'D', text: "Delete all object metadata using a lifecycle policy" }
+      { id: 'D', text: "Rewrite the objects with a new storage class" }
     ],
     correctAnswers: ['B'],
     type: "single",
     explanation: "Enabling Uniform Bucket-Level Access (UBLA) permanently disables legacy per-object ACLs. All access permissions are evaluated strictly using Google Cloud IAM policies at the bucket level, ensuring consistent and centralized access control across all objects.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["CloudStorage", "UBLA", "Security"]
+    tags: ["CloudStorage","UBLA","Security"]
   },
   {
     id: "gcp-ace-122",
@@ -451,7 +451,7 @@ export const GCP_ACE_QUESTIONS_5 = [
     question: "How should the storage administrator configure this automation?",
     options: [
       { id: 'A', text: "Enable Turbo Replication between Coldline and Archive buckets" },
-      { id: 'B', text: "Define an Object Lifecycle Management JSON configuration with a rule setting storageClass to 'COLDLINE' at age 30 and an action 'Delete' at age 365, and apply it via 'gcloud storage buckets update'" },
+      { id: 'B', text: "A lifecycle rule moving to Coldline at 30 days and deleting at 365." },
       { id: 'C', text: "Write a Cloud Function scheduled via Cloud Scheduler to scan the bucket daily and delete old files" },
       { id: 'D', text: "Configure Bucket Lock with a 365-day retention policy" }
     ],
@@ -459,7 +459,7 @@ export const GCP_ACE_QUESTIONS_5 = [
     type: "single",
     explanation: "Cloud Storage Object Lifecycle Management allows declarative JSON rules. Specifying a 'SetStorageClass' action to Coldline with condition 'age: 30', and a 'Delete' action with condition 'age: 365', automates tiering and purging natively within Cloud Storage at zero compute cost.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["CloudStorage", "LifecycleManagement", "CostOptimization"]
+    tags: ["CloudStorage","LifecycleManagement","CostOptimization"]
   },
   {
     id: "gcp-ace-123",
@@ -480,7 +480,7 @@ export const GCP_ACE_QUESTIONS_5 = [
     type: "single",
     explanation: "The 'bq load' command ingests external data directly into BigQuery tables. The '--source_format=CSV' and '--autodetect' flags instruct BigQuery to infer column data types from the file headers and populate the table efficiently in parallel.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["BigQuery", "bq", "DataEngineering"]
+    tags: ["BigQuery","bq","DataEngineering"]
   },
   {
     id: "gcp-ace-124",
@@ -501,7 +501,7 @@ export const GCP_ACE_QUESTIONS_5 = [
     type: "single",
     explanation: "Private Google Access allows Compute Engine instances that lack external public IPs to reach Google APIs and services (such as Cloud Storage, BigQuery, and Pub/Sub) using Google's internal network routes. It is enabled at the subnet level without requiring Cloud NAT or internet gateways.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["VPC", "PrivateGoogleAccess", "Networking"]
+    tags: ["VPC","PrivateGoogleAccess","Networking"]
   },
   {
     id: "gcp-ace-125",
@@ -522,7 +522,7 @@ export const GCP_ACE_QUESTIONS_5 = [
     type: "single",
     explanation: "In 'gcloud compute firewall-rules create', '--allow=tcp:80,tcp:443' specifies the permitted protocols and ports, '--source-ranges=0.0.0.0/0' defines the allowed external source IPs, and '--target-tags=frontend-web' ensures the rule applies strictly to VM instances that have the 'frontend-web' network tag.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["VPC", "FirewallRules", "Security"]
+    tags: ["VPC","FirewallRules","Security"]
   }
 ];
 

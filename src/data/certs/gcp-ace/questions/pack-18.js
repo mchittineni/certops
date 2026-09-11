@@ -115,7 +115,7 @@ export const GCP_ACE_QUESTIONS_18 = [
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Deploy 100 oversized virtual machine nodes permanently to ensure capacity is never exceeded." },
-      { id: 'B', text: "Configure the Horizontal Pod Autoscaler (HPA) for application deployments and enable the GKE Cluster Autoscaler on the node pool." },
+      { id: 'B', text: "A Horizontal Pod Autoscaler plus the GKE cluster autoscaler on the pool." },
       { id: 'C', text: "Manually run 'kubectl scale deployment' whenever response times slow down." },
       { id: 'D', text: "Restart the Kubernetes cluster every 6 hours to clear memory." }
     ],
@@ -138,7 +138,7 @@ export const GCP_ACE_QUESTIONS_18 = [
       { id: 'A', text: "Deploy 100 oversized virtual machine nodes permanently to ensure capacity is never exceeded." },
       { id: 'B', text: "Manually run 'kubectl scale deployment' whenever response times slow down." },
       { id: 'C', text: "Restart the Kubernetes cluster every 6 hours to clear memory." },
-      { id: 'D', text: "Configure the Horizontal Pod Autoscaler (HPA) for application deployments and enable the GKE Cluster Autoscaler on the node pool." }
+      { id: 'D', text: "A Horizontal Pod Autoscaler plus the GKE cluster autoscaler on the pool." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -159,7 +159,7 @@ export const GCP_ACE_QUESTIONS_18 = [
       { id: 'A', text: "Deploy 100 oversized virtual machine nodes permanently to ensure capacity is never exceeded." },
       { id: 'B', text: "Manually run 'kubectl scale deployment' whenever response times slow down." },
       { id: 'C', text: "Restart the Kubernetes cluster every 6 hours to clear memory." },
-      { id: 'D', text: "Configure the Horizontal Pod Autoscaler (HPA) for application deployments and enable the GKE Cluster Autoscaler on the node pool." }
+      { id: 'D', text: "A Horizontal Pod Autoscaler plus the GKE cluster autoscaler on the pool." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -178,7 +178,7 @@ export const GCP_ACE_QUESTIONS_18 = [
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Deploy 100 oversized virtual machine nodes permanently to ensure capacity is never exceeded." },
-      { id: 'B', text: "Configure the Horizontal Pod Autoscaler (HPA) for application deployments and enable the GKE Cluster Autoscaler on the node pool." },
+      { id: 'B', text: "A Horizontal Pod Autoscaler plus the GKE cluster autoscaler on the pool." },
       { id: 'C', text: "Manually run 'kubectl scale deployment' whenever response times slow down." },
       { id: 'D', text: "Restart the Kubernetes cluster every 6 hours to clear memory." }
     ],
@@ -198,7 +198,7 @@ export const GCP_ACE_QUESTIONS_18 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer needs to automatically increase the number of application pods during traffic spikes, and automatically provision additional GKE worker nodes when existing nodes run out of capacity.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Configure the Horizontal Pod Autoscaler (HPA) for application deployments and enable the GKE Cluster Autoscaler on the node pool." },
+      { id: 'A', text: "A Horizontal Pod Autoscaler plus the GKE cluster autoscaler on the pool." },
       { id: 'B', text: "Restart the Kubernetes cluster every 6 hours to clear memory." },
       { id: 'C', text: "Manually run 'kubectl scale deployment' whenever response times slow down." },
       { id: 'D', text: "Deploy 100 oversized virtual machine nodes permanently to ensure capacity is never exceeded." }
@@ -221,7 +221,7 @@ export const GCP_ACE_QUESTIONS_18 = [
     options: [
       { id: 'A', text: "Download all objects to an on-premises disk after 90 days." },
       { id: 'B', text: "Configure an Object Lifecycle Management rule on the Cloud Storage bucket with Age conditions." },
-      { id: 'C', text: "Manually inspect bucket contents in the console at the end of each month." },
+      { id: 'C', text: "Run a scheduled Cloud Function that lists the bucket and deletes old objects." },
       { id: 'D', text: "Write a custom python script scheduled on a VM to check object timestamps daily." }
     ],
     correctAnswers: ['B'],
@@ -240,7 +240,7 @@ export const GCP_ACE_QUESTIONS_18 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to automatically transition Cloud Storage objects from Standard to Coldline after 90 days of creation and permanently delete objects older than 365 days.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Manually inspect bucket contents in the console at the end of each month." },
+      { id: 'A', text: "Run a scheduled Cloud Function that lists the bucket and deletes old objects." },
       { id: 'B', text: "Download all objects to an on-premises disk after 90 days." },
       { id: 'C', text: "Configure an Object Lifecycle Management rule on the Cloud Storage bucket with Age conditions." },
       { id: 'D', text: "Write a custom python script scheduled on a VM to check object timestamps daily." }
@@ -262,7 +262,7 @@ export const GCP_ACE_QUESTIONS_18 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Write a custom python script scheduled on a VM to check object timestamps daily." },
-      { id: 'B', text: "Manually inspect bucket contents in the console at the end of each month." },
+      { id: 'B', text: "Run a scheduled Cloud Function that lists the bucket and deletes old objects." },
       { id: 'C', text: "Configure an Object Lifecycle Management rule on the Cloud Storage bucket with Age conditions." },
       { id: 'D', text: "Download all objects to an on-premises disk after 90 days." }
     ],
@@ -284,7 +284,7 @@ export const GCP_ACE_QUESTIONS_18 = [
     options: [
       { id: 'A', text: "Write a custom python script scheduled on a VM to check object timestamps daily." },
       { id: 'B', text: "Configure an Object Lifecycle Management rule on the Cloud Storage bucket with Age conditions." },
-      { id: 'C', text: "Manually inspect bucket contents in the console at the end of each month." },
+      { id: 'C', text: "Run a scheduled Cloud Function that lists the bucket and deletes old objects." },
       { id: 'D', text: "Download all objects to an on-premises disk after 90 days." }
     ],
     correctAnswers: ['B'],
@@ -306,7 +306,7 @@ export const GCP_ACE_QUESTIONS_18 = [
       { id: 'A', text: "Write a custom python script scheduled on a VM to check object timestamps daily." },
       { id: 'B', text: "Download all objects to an on-premises disk after 90 days." },
       { id: 'C', text: "Configure an Object Lifecycle Management rule on the Cloud Storage bucket with Age conditions." },
-      { id: 'D', text: "Manually inspect bucket contents in the console at the end of each month." }
+      { id: 'D', text: "Run a scheduled Cloud Function that lists the bucket and deletes old objects." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -429,7 +429,7 @@ export const GCP_ACE_QUESTIONS_18 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to recover a Cloud SQL database to its exact state 15 minutes before an accidental DROP TABLE command was executed by an administrator.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Execute a Point-in-Time Recovery (PITR) using automated backups and transaction write-ahead logs." },
+      { id: 'A', text: "Point-in-time recovery from backups and write-ahead logs." },
       { id: 'B', text: "Submit a ticket to Google support requesting disk-level file undeletion." },
       { id: 'C', text: "Restore from last Sunday's full database export file." },
       { id: 'D', text: "Recreate the dropped table manually from memory." }
@@ -450,7 +450,7 @@ export const GCP_ACE_QUESTIONS_18 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to recover a Cloud SQL database to its exact state 15 minutes before an accidental DROP TABLE command was executed by an administrator.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Execute a Point-in-Time Recovery (PITR) using automated backups and transaction write-ahead logs." },
+      { id: 'A', text: "Point-in-time recovery from backups and write-ahead logs." },
       { id: 'B', text: "Submit a ticket to Google support requesting disk-level file undeletion." },
       { id: 'C', text: "Restore from last Sunday's full database export file." },
       { id: 'D', text: "Recreate the dropped table manually from memory." }
@@ -474,7 +474,7 @@ export const GCP_ACE_QUESTIONS_18 = [
       { id: 'A', text: "Recreate the dropped table manually from memory." },
       { id: 'B', text: "Restore from last Sunday's full database export file." },
       { id: 'C', text: "Submit a ticket to Google support requesting disk-level file undeletion." },
-      { id: 'D', text: "Execute a Point-in-Time Recovery (PITR) using automated backups and transaction write-ahead logs." }
+      { id: 'D', text: "Point-in-time recovery from backups and write-ahead logs." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -495,7 +495,7 @@ export const GCP_ACE_QUESTIONS_18 = [
       { id: 'A', text: "Submit a ticket to Google support requesting disk-level file undeletion." },
       { id: 'B', text: "Recreate the dropped table manually from memory." },
       { id: 'C', text: "Restore from last Sunday's full database export file." },
-      { id: 'D', text: "Execute a Point-in-Time Recovery (PITR) using automated backups and transaction write-ahead logs." }
+      { id: 'D', text: "Point-in-time recovery from backups and write-ahead logs." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -516,7 +516,7 @@ export const GCP_ACE_QUESTIONS_18 = [
       { id: 'A', text: "Submit a ticket to Google support requesting disk-level file undeletion." },
       { id: 'B', text: "Recreate the dropped table manually from memory." },
       { id: 'C', text: "Restore from last Sunday's full database export file." },
-      { id: 'D', text: "Execute a Point-in-Time Recovery (PITR) using automated backups and transaction write-ahead logs." }
+      { id: 'D', text: "Point-in-time recovery from backups and write-ahead logs." }
     ],
     correctAnswers: ['D'],
     type: "single",

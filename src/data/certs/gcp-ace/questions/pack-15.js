@@ -10,7 +10,7 @@ export const GCP_ACE_QUESTIONS_15 = [
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Use an unmanaged instance group without health checks or autoscaling." },
-      { id: 'B', text: "Create an Instance Template and deploy a regional Managed Instance Group (MIG) with autoscaling enabled." },
+      { id: 'B', text: "An instance template and a regional managed instance group with autoscaling." },
       { id: 'C', text: "Configure an on-premises hypervisor cluster to clone virtual machines manually." },
       { id: 'D', text: "Deploy five independent standalone VMs in a single zone without an instance template." }
     ],
@@ -31,7 +31,7 @@ export const GCP_ACE_QUESTIONS_15 = [
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Deploy five independent standalone VMs in a single zone without an instance template." },
-      { id: 'B', text: "Create an Instance Template and deploy a regional Managed Instance Group (MIG) with autoscaling enabled." },
+      { id: 'B', text: "An instance template and a regional managed instance group with autoscaling." },
       { id: 'C', text: "Use an unmanaged instance group without health checks or autoscaling." },
       { id: 'D', text: "Configure an on-premises hypervisor cluster to clone virtual machines manually." }
     ],
@@ -52,7 +52,7 @@ export const GCP_ACE_QUESTIONS_15 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Use an unmanaged instance group without health checks or autoscaling." },
-      { id: 'B', text: "Create an Instance Template and deploy a regional Managed Instance Group (MIG) with autoscaling enabled." },
+      { id: 'B', text: "An instance template and a regional managed instance group with autoscaling." },
       { id: 'C', text: "Deploy five independent standalone VMs in a single zone without an instance template." },
       { id: 'D', text: "Configure an on-premises hypervisor cluster to clone virtual machines manually." }
     ],
@@ -72,7 +72,7 @@ export const GCP_ACE_QUESTIONS_15 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to deploy a fleet of identical, auto-healing Compute Engine virtual machines that automatically scale across multiple zones within a region based on CPU utilization.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Create an Instance Template and deploy a regional Managed Instance Group (MIG) with autoscaling enabled." },
+      { id: 'A', text: "An instance template and a regional managed instance group with autoscaling." },
       { id: 'B', text: "Deploy five independent standalone VMs in a single zone without an instance template." },
       { id: 'C', text: "Configure an on-premises hypervisor cluster to clone virtual machines manually." },
       { id: 'D', text: "Use an unmanaged instance group without health checks or autoscaling." }
@@ -96,7 +96,7 @@ export const GCP_ACE_QUESTIONS_15 = [
       { id: 'A', text: "Configure an on-premises hypervisor cluster to clone virtual machines manually." },
       { id: 'B', text: "Use an unmanaged instance group without health checks or autoscaling." },
       { id: 'C', text: "Deploy five independent standalone VMs in a single zone without an instance template." },
-      { id: 'D', text: "Create an Instance Template and deploy a regional Managed Instance Group (MIG) with autoscaling enabled." }
+      { id: 'D', text: "An instance template and a regional managed instance group with autoscaling." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -219,7 +219,7 @@ export const GCP_ACE_QUESTIONS_15 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to deploy a multi-replica web application to a GKE cluster and expose it to the internet with an external IP address and automated health probes.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Apply a Kubernetes Deployment manifest with readiness probes and expose it via a Service of type: LoadBalancer." },
+      { id: 'A', text: "A Deployment manifest with readiness probes, exposed by a LoadBalancer Service." },
       { id: 'B', text: "Manually install nginx inside each running node container filesystem." },
       { id: 'C', text: "Expose the pod directly using hostPort on a worker node without a Kubernetes service." },
       { id: 'D', text: "Deploy a single standalone Pod with no controller or service definition." }
@@ -240,7 +240,7 @@ export const GCP_ACE_QUESTIONS_15 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to deploy a multi-replica web application to a GKE cluster and expose it to the internet with an external IP address and automated health probes.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Apply a Kubernetes Deployment manifest with readiness probes and expose it via a Service of type: LoadBalancer." },
+      { id: 'A', text: "A Deployment manifest with readiness probes, exposed by a LoadBalancer Service." },
       { id: 'B', text: "Manually install nginx inside each running node container filesystem." },
       { id: 'C', text: "Deploy a single standalone Pod with no controller or service definition." },
       { id: 'D', text: "Expose the pod directly using hostPort on a worker node without a Kubernetes service." }
@@ -261,7 +261,7 @@ export const GCP_ACE_QUESTIONS_15 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer needs to deploy a multi-replica web application to a GKE cluster and expose it to the internet with an external IP address and automated health probes.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Apply a Kubernetes Deployment manifest with readiness probes and expose it via a Service of type: LoadBalancer." },
+      { id: 'A', text: "A Deployment manifest with readiness probes, exposed by a LoadBalancer Service." },
       { id: 'B', text: "Manually install nginx inside each running node container filesystem." },
       { id: 'C', text: "Deploy a single standalone Pod with no controller or service definition." },
       { id: 'D', text: "Expose the pod directly using hostPort on a worker node without a Kubernetes service." }
@@ -285,7 +285,7 @@ export const GCP_ACE_QUESTIONS_15 = [
       { id: 'A', text: "Manually install nginx inside each running node container filesystem." },
       { id: 'B', text: "Deploy a single standalone Pod with no controller or service definition." },
       { id: 'C', text: "Expose the pod directly using hostPort on a worker node without a Kubernetes service." },
-      { id: 'D', text: "Apply a Kubernetes Deployment manifest with readiness probes and expose it via a Service of type: LoadBalancer." }
+      { id: 'D', text: "A Deployment manifest with readiness probes, exposed by a LoadBalancer Service." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -303,7 +303,7 @@ export const GCP_ACE_QUESTIONS_15 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer needs to deploy a multi-replica web application to a GKE cluster and expose it to the internet with an external IP address and automated health probes.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Apply a Kubernetes Deployment manifest with readiness probes and expose it via a Service of type: LoadBalancer." },
+      { id: 'A', text: "A Deployment manifest with readiness probes, exposed by a LoadBalancer Service." },
       { id: 'B', text: "Deploy a single standalone Pod with no controller or service definition." },
       { id: 'C', text: "Manually install nginx inside each running node container filesystem." },
       { id: 'D', text: "Expose the pod directly using hostPort on a worker node without a Kubernetes service." }
@@ -432,7 +432,7 @@ export const GCP_ACE_QUESTIONS_15 = [
       { id: 'A', text: "Configure a cron job inside a local database server." },
       { id: 'B', text: "Deploy an on-premises Windows server to check the bucket every 10 minutes." },
       { id: 'C', text: "Run an infinite while loop on a Compute Engine VM polling the Cloud Storage API." },
-      { id: 'D', text: "Deploy a Cloud Function (2nd gen) with a Cloud Storage Eventarc trigger using 'gcloud functions deploy'." }
+      { id: 'D', text: "A 2nd gen Cloud Function with a Cloud Storage Eventarc trigger." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -452,7 +452,7 @@ export const GCP_ACE_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Run an infinite while loop on a Compute Engine VM polling the Cloud Storage API." },
       { id: 'B', text: "Deploy an on-premises Windows server to check the bucket every 10 minutes." },
-      { id: 'C', text: "Deploy a Cloud Function (2nd gen) with a Cloud Storage Eventarc trigger using 'gcloud functions deploy'." },
+      { id: 'C', text: "A 2nd gen Cloud Function with a Cloud Storage Eventarc trigger." },
       { id: 'D', text: "Configure a cron job inside a local database server." }
     ],
     correctAnswers: ['C'],
@@ -471,7 +471,7 @@ export const GCP_ACE_QUESTIONS_15 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer needs to execute lightweight Python code in response to a new file being uploaded to a specific Cloud Storage bucket without managing server infrastructure.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Deploy a Cloud Function (2nd gen) with a Cloud Storage Eventarc trigger using 'gcloud functions deploy'." },
+      { id: 'A', text: "A 2nd gen Cloud Function with a Cloud Storage Eventarc trigger." },
       { id: 'B', text: "Configure a cron job inside a local database server." },
       { id: 'C', text: "Run an infinite while loop on a Compute Engine VM polling the Cloud Storage API." },
       { id: 'D', text: "Deploy an on-premises Windows server to check the bucket every 10 minutes." }
@@ -494,7 +494,7 @@ export const GCP_ACE_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Configure a cron job inside a local database server." },
       { id: 'B', text: "Run an infinite while loop on a Compute Engine VM polling the Cloud Storage API." },
-      { id: 'C', text: "Deploy a Cloud Function (2nd gen) with a Cloud Storage Eventarc trigger using 'gcloud functions deploy'." },
+      { id: 'C', text: "A 2nd gen Cloud Function with a Cloud Storage Eventarc trigger." },
       { id: 'D', text: "Deploy an on-premises Windows server to check the bucket every 10 minutes." }
     ],
     correctAnswers: ['C'],
@@ -513,7 +513,7 @@ export const GCP_ACE_QUESTIONS_15 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer needs to execute lightweight Python code in response to a new file being uploaded to a specific Cloud Storage bucket without managing server infrastructure.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Deploy a Cloud Function (2nd gen) with a Cloud Storage Eventarc trigger using 'gcloud functions deploy'." },
+      { id: 'A', text: "A 2nd gen Cloud Function with a Cloud Storage Eventarc trigger." },
       { id: 'B', text: "Run an infinite while loop on a Compute Engine VM polling the Cloud Storage API." },
       { id: 'C', text: "Configure a cron job inside a local database server." },
       { id: 'D', text: "Deploy an on-premises Windows server to check the bucket every 10 minutes." }
