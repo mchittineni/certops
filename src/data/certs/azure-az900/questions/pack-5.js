@@ -18,7 +18,7 @@ export const AZURE_AZ900_QUESTIONS_5 = [
     type: "single",
     explanation: "Azure Managed Disks are block-level storage volumes managed by Azure and mounted to Azure Virtual Machines as OS or data disks. Selecting the appropriate Azure service ensures technical alignment with Microsoft best practices and operational scalability.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/",
-    tags: ["Azure Services", "Architecture", "Azure"]
+    tags: ["Azure Services","Architecture","Azure"]
   },
   {
     id: "az-900-102",
@@ -39,7 +39,7 @@ export const AZURE_AZ900_QUESTIONS_5 = [
     type: "single",
     explanation: "Locally Redundant Storage (LRS) replicates data synchronously three times within a single physical datacenter in the primary region, guarding against local drive failure. Selecting the appropriate Azure service ensures technical alignment with Microsoft best practices and operational scalability.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/",
-    tags: ["Azure Services", "Architecture", "Storage"]
+    tags: ["Azure Services","Architecture","Storage"]
   },
   {
     id: "az-900-103",
@@ -60,7 +60,7 @@ export const AZURE_AZ900_QUESTIONS_5 = [
     type: "single",
     explanation: "Zone-Redundant Storage (ZRS) replicates data synchronously across three Azure Availability Zones in the primary region, protecting against datacenter outages. Selecting the appropriate Azure service ensures technical alignment with Microsoft best practices and operational scalability.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/",
-    tags: ["Azure Services", "Architecture", "Storage"]
+    tags: ["Azure Services","Architecture","Storage"]
   },
   {
     id: "az-900-104",
@@ -81,7 +81,7 @@ export const AZURE_AZ900_QUESTIONS_5 = [
     type: "single",
     explanation: "Geo-Redundant Storage (GRS) copies data three times locally within a single datacenter in the primary region using LRS, then replicates asynchronously to a secondary paired region. Selecting the appropriate Azure service ensures technical alignment with Microsoft best practices and operational scalability.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/",
-    tags: ["Azure Services", "Architecture", "Storage"]
+    tags: ["Azure Services","Architecture","Storage"]
   },
   {
     id: "az-900-105",
@@ -102,7 +102,7 @@ export const AZURE_AZ900_QUESTIONS_5 = [
     type: "single",
     explanation: "AzCopy is a high-performance command-line utility designed for copying blobs and files to and from Azure Storage accounts using parallel streaming. Selecting the appropriate Azure service ensures technical alignment with Microsoft best practices and operational scalability.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/",
-    tags: ["Azure Services", "Architecture", "Storage"]
+    tags: ["Azure Services","Architecture","Storage"]
   },
   {
     id: "az-900-106",
@@ -123,7 +123,7 @@ export const AZURE_AZ900_QUESTIONS_5 = [
     type: "single",
     explanation: "Azure Storage Explorer is a standalone desktop GUI application for Windows, macOS, and Linux that makes it easy to work with Azure Storage data. Selecting the appropriate Azure service ensures technical alignment with Microsoft best practices and operational scalability.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/",
-    tags: ["Azure Services", "Architecture", "Storage"]
+    tags: ["Azure Services","Architecture","Storage"]
   },
   {
     id: "az-900-107",
@@ -144,7 +144,7 @@ export const AZURE_AZ900_QUESTIONS_5 = [
     type: "single",
     explanation: "Azure Data Box is a ruggedized physical storage appliance shipped to a customer to transfer petabytes of on-premises data into Azure offline. Selecting the appropriate Azure service ensures technical alignment with Microsoft best practices and operational scalability.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/",
-    tags: ["Azure Services", "Architecture", "Data"]
+    tags: ["Azure Services","Architecture","Data"]
   },
   {
     id: "az-900-108",
@@ -165,7 +165,7 @@ export const AZURE_AZ900_QUESTIONS_5 = [
     type: "single",
     explanation: "Microsoft Entra ID (formerly Azure Active Directory) is a cloud-based identity and access management service that manages user sign-ins and access permissions. Selecting the appropriate Azure service ensures technical alignment with Microsoft best practices and operational scalability.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/",
-    tags: ["Azure Services", "Architecture", "Identity"]
+    tags: ["Azure Services","Architecture","Identity"]
   },
   {
     id: "az-900-109",
@@ -180,13 +180,13 @@ export const AZURE_AZ900_QUESTIONS_5 = [
       { id: 'A', text: "Active Directory cannot manage user passwords" },
       { id: 'B', text: "There is no architectural difference" },
       { id: 'C', text: "Microsoft Entra ID requires physical domain controller servers" },
-      { id: 'D', text: "Microsoft Entra ID uses REST APIs and web authentication protocols (OAuth, SAML), whereas Active Directory uses Kerberos and LDAP" }
+      { id: 'D', text: "Entra ID uses OAuth and SAML; AD DS uses Kerberos and LDAP" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Microsoft Entra ID uses modern web protocols like OAuth 2.0, OpenID Connect, and SAML, whereas on-premises Windows Server Active Directory relies on Kerberos and NTLM. Selecting the appropriate Azure service ensures technical alignment with Microsoft best practices and operational scalability.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/",
-    tags: ["Azure Services", "Architecture", "Entra"]
+    tags: ["Azure Services","Architecture","Entra"]
   },
   {
     id: "az-900-110",
@@ -207,7 +207,7 @@ export const AZURE_AZ900_QUESTIONS_5 = [
     type: "single",
     explanation: "Single Sign-On (SSO) enables users to sign in once with one set of credentials to access multiple cloud services and on-premises applications. Selecting the appropriate Azure service ensures technical alignment with Microsoft best practices and operational scalability.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/",
-    tags: ["Azure Services", "Architecture", "Single"]
+    tags: ["Azure Services","Architecture","Single"]
   },
   {
     id: "az-900-111",
@@ -228,7 +228,7 @@ export const AZURE_AZ900_QUESTIONS_5 = [
     type: "single",
     explanation: "Multi-Factor Authentication (MFA) protects identities by requiring two or more authentication factors: something you know, something you have, and something you are. Selecting the appropriate Azure service ensures technical alignment with Microsoft best practices and operational scalability.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/",
-    tags: ["Azure Services", "Architecture", "Multi-Factor"]
+    tags: ["Azure Services","Architecture","Multi-Factor"]
   },
   {
     id: "az-900-112",
@@ -249,7 +249,7 @@ export const AZURE_AZ900_QUESTIONS_5 = [
     type: "single",
     explanation: "Conditional Access evaluates signals (user risk, location, device compliance, client app) and enforces access controls (block access or require MFA). Selecting the appropriate Azure service ensures technical alignment with Microsoft best practices and operational scalability.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/",
-    tags: ["Azure Services", "Architecture", "Microsoft"]
+    tags: ["Azure Services","Architecture","Microsoft"]
   },
   {
     id: "az-900-113",
@@ -270,7 +270,7 @@ export const AZURE_AZ900_QUESTIONS_5 = [
     type: "single",
     explanation: "Azure RBAC enables fine-grained access management by granting specific permissions (such as Owner, Contributor, or Reader) to users and groups at defined scopes. Selecting the appropriate Azure service ensures technical alignment with Microsoft best practices and operational scalability.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/",
-    tags: ["Azure Services", "Architecture", "Azure"]
+    tags: ["Azure Services","Architecture","Azure"]
   },
   {
     id: "az-900-114",
@@ -291,7 +291,7 @@ export const AZURE_AZ900_QUESTIONS_5 = [
     type: "single",
     explanation: "The built-in Contributor role allows users to create and manage all types of Azure resources but does not allow them to grant access or assign roles to other users. Selecting the appropriate Azure service ensures technical alignment with Microsoft best practices and operational scalability.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/",
-    tags: ["Azure Services", "Architecture", "RBAC"]
+    tags: ["Azure Services","Architecture","RBAC"]
   },
   {
     id: "az-900-115",
@@ -312,7 +312,7 @@ export const AZURE_AZ900_QUESTIONS_5 = [
     type: "single",
     explanation: "The built-in Reader role allows users to view all resources in a subscription or resource group but does not allow them to create, modify, or delete any resources. Selecting the appropriate Azure service ensures technical alignment with Microsoft best practices and operational scalability.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/",
-    tags: ["Azure Services", "Architecture", "RBAC"]
+    tags: ["Azure Services","Architecture","RBAC"]
   },
   {
     id: "az-900-116",
@@ -333,7 +333,7 @@ export const AZURE_AZ900_QUESTIONS_5 = [
     type: "single",
     explanation: "The Zero Trust model operates on three foundational principles: Verify explicitly, Use least privilege access, and Assume breach. Selecting the appropriate Azure service ensures technical alignment with Microsoft best practices and operational scalability.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/",
-    tags: ["Azure Services", "Architecture", "Zero"]
+    tags: ["Azure Services","Architecture","Zero"]
   },
   {
     id: "az-900-117",
@@ -354,7 +354,7 @@ export const AZURE_AZ900_QUESTIONS_5 = [
     type: "single",
     explanation: "Defense in depth employs a series of layered defensive mechanisms (physical, identity, perimeter, network, compute, application, data) to protect assets. Selecting the appropriate Azure service ensures technical alignment with Microsoft best practices and operational scalability.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/",
-    tags: ["Azure Services", "Architecture", "Defense"]
+    tags: ["Azure Services","Architecture","Defense"]
   },
   {
     id: "az-900-118",
@@ -375,7 +375,7 @@ export const AZURE_AZ900_QUESTIONS_5 = [
     type: "single",
     explanation: "Microsoft Defender for Cloud is a Cloud Security Posture Management (CSPM) and Cloud Workload Protection Platform (CWPP) that provides security recommendations and alerts. Selecting the appropriate Azure service ensures technical alignment with Microsoft best practices and operational scalability.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/",
-    tags: ["Azure Services", "Architecture", "Microsoft"]
+    tags: ["Azure Services","Architecture","Microsoft"]
   },
   {
     id: "az-900-119",
@@ -396,7 +396,7 @@ export const AZURE_AZ900_QUESTIONS_5 = [
     type: "single",
     explanation: "Microsoft Sentinel is a scalable, cloud-native Security Information and Event Management (SIEM) and Security Orchestration, Automation, and Response (SOAR) solution. Selecting the appropriate Azure service ensures technical alignment with Microsoft best practices and operational scalability.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/",
-    tags: ["Azure Services", "Architecture", "Microsoft"]
+    tags: ["Azure Services","Architecture","Microsoft"]
   },
   {
     id: "az-900-120",
@@ -417,7 +417,7 @@ export const AZURE_AZ900_QUESTIONS_5 = [
     type: "single",
     explanation: "Azure Key Vault provides secure centralized management for storing and controlling access to sensitive tokens, passwords, certificates, API keys, and cryptographic keys. Selecting the appropriate Azure service ensures technical alignment with Microsoft best practices and operational scalability.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/",
-    tags: ["Azure Services", "Architecture", "Azure"]
+    tags: ["Azure Services","Architecture","Azure"]
   },
   {
     id: "az-900-121",
@@ -438,7 +438,7 @@ export const AZURE_AZ900_QUESTIONS_5 = [
     type: "single",
     explanation: "Azure SQL Database is a fully managed PaaS database engine that automatically handles upgrading, patching, backups, and monitoring without user involvement. Selecting the appropriate Azure service ensures technical alignment with Microsoft best practices and operational scalability.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/",
-    tags: ["Azure Services", "Architecture", "Azure"]
+    tags: ["Azure Services","Architecture","Azure"]
   },
   {
     id: "az-900-122",
@@ -459,7 +459,7 @@ export const AZURE_AZ900_QUESTIONS_5 = [
     type: "single",
     explanation: "Azure Cosmos DB is a globally distributed, multi-model NoSQL database service offering turnkey multi-region replication and single-digit millisecond latency SLAs. Selecting the appropriate Azure service ensures technical alignment with Microsoft best practices and operational scalability.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/",
-    tags: ["Azure Services", "Architecture", "Azure"]
+    tags: ["Azure Services","Architecture","Azure"]
   },
   {
     id: "az-900-123",
@@ -480,7 +480,7 @@ export const AZURE_AZ900_QUESTIONS_5 = [
     type: "single",
     explanation: "Azure SQL Database is a fully managed Platform as a Service (PaaS) relational database engine. Azure automates upgrading, patching, backups, and high availability without customer operating system management.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-sql/database/sql-database-paas-overview",
-    tags: ["Azure SQL", "Relational", "PaaS", "Databases"]
+    tags: ["Azure SQL","Relational","PaaS","Databases"]
   },
   {
     id: "az-900-124",
@@ -501,7 +501,7 @@ export const AZURE_AZ900_QUESTIONS_5 = [
     type: "single",
     explanation: "Azure SQL Managed Instance combines broad SQL Server engine compatibility (including SQL Server Agent, Linked Servers, and Service Broker) with the operational benefits of a fully managed PaaS platform.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview",
-    tags: ["Managed Instance", "Azure SQL", "Migration", "Databases"]
+    tags: ["Managed Instance","Azure SQL","Migration","Databases"]
   },
   {
     id: "az-900-125",
@@ -522,7 +522,7 @@ export const AZURE_AZ900_QUESTIONS_5 = [
     type: "single",
     explanation: "Azure App Service deployment slots are live web apps with their own hostnames. Developers deploy and validate code in a staging slot and execute an atomic swap into the production slot with zero downtime.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/app-service/deploy-staging-slots",
-    tags: ["App Service", "Deployment Slots", "CI/CD", "Compute"]
+    tags: ["App Service","Deployment Slots","CI/CD","Compute"]
   }
 ];
 
