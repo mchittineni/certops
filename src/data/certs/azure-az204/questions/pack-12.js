@@ -10,7 +10,7 @@ export const AZURE_AZ204_QUESTIONS_12 = [
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Deploy 100 separate Azure Function Apps, each configured to process one invoice." },
-      { id: 'B', text: "Implement the Fan-Out/Fan-In pattern using Task.WhenAll across activity function invocations in the orchestrator." },
+      { id: 'B', text: "Use the fan-out/fan-in pattern with Task.WhenAll in the orchestrator." },
       { id: 'C', text: "Write the invoices to an unmanaged text file on an Azure VM local disk." },
       { id: 'D', text: "Execute the 100 document conversions sequentially in a single synchronous HTTP function." }
     ],
@@ -31,7 +31,7 @@ export const AZURE_AZ204_QUESTIONS_12 = [
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Write the invoices to an unmanaged text file on an Azure VM local disk." },
-      { id: 'B', text: "Implement the Fan-Out/Fan-In pattern using Task.WhenAll across activity function invocations in the orchestrator." },
+      { id: 'B', text: "Use the fan-out/fan-in pattern with Task.WhenAll in the orchestrator." },
       { id: 'C', text: "Execute the 100 document conversions sequentially in a single synchronous HTTP function." },
       { id: 'D', text: "Deploy 100 separate Azure Function Apps, each configured to process one invoice." }
     ],
@@ -54,7 +54,7 @@ export const AZURE_AZ204_QUESTIONS_12 = [
       { id: 'A', text: "Deploy 100 separate Azure Function Apps, each configured to process one invoice." },
       { id: 'B', text: "Write the invoices to an unmanaged text file on an Azure VM local disk." },
       { id: 'C', text: "Execute the 100 document conversions sequentially in a single synchronous HTTP function." },
-      { id: 'D', text: "Implement the Fan-Out/Fan-In pattern using Task.WhenAll across activity function invocations in the orchestrator." }
+      { id: 'D', text: "Use the fan-out/fan-in pattern with Task.WhenAll in the orchestrator." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -75,7 +75,7 @@ export const AZURE_AZ204_QUESTIONS_12 = [
       { id: 'A', text: "Execute the 100 document conversions sequentially in a single synchronous HTTP function." },
       { id: 'B', text: "Write the invoices to an unmanaged text file on an Azure VM local disk." },
       { id: 'C', text: "Deploy 100 separate Azure Function Apps, each configured to process one invoice." },
-      { id: 'D', text: "Implement the Fan-Out/Fan-In pattern using Task.WhenAll across activity function invocations in the orchestrator." }
+      { id: 'D', text: "Use the fan-out/fan-in pattern with Task.WhenAll in the orchestrator." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -93,7 +93,7 @@ export const AZURE_AZ204_QUESTIONS_12 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The developer evaluates Azure Durable Functions to process 100 customer invoice documents concurrently in parallel and aggregate their total balances into a final summary report once all tasks complete.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Implement the Fan-Out/Fan-In pattern using Task.WhenAll across activity function invocations in the orchestrator." },
+      { id: 'A', text: "Use the fan-out/fan-in pattern with Task.WhenAll in the orchestrator." },
       { id: 'B', text: "Execute the 100 document conversions sequentially in a single synchronous HTTP function." },
       { id: 'C', text: "Write the invoices to an unmanaged text file on an Azure VM local disk." },
       { id: 'D', text: "Deploy 100 separate Azure Function Apps, each configured to process one invoice." }

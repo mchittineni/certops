@@ -9,7 +9,7 @@ export const AZURE_AZ204_QUESTIONS_17 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The developer evaluates Azure App Configuration to dynamically toggle a new payment checkout feature on or off in production without redeploying code or restarting the application servers.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Configure a Feature Flag in Azure App Configuration and evaluate it using the Microsoft.FeatureManagement library." },
+      { id: 'A', text: "A feature flag in App Configuration read by Microsoft.FeatureManagement." },
       { id: 'B', text: "Reboot the production database server to toggle application behaviors." },
       { id: 'C', text: "Deploy new application code via CI/CD every time the feature needs to be toggled." },
       { id: 'D', text: "Comment out feature code in source control and rebuild the Docker container image." }
@@ -33,7 +33,7 @@ export const AZURE_AZ204_QUESTIONS_17 = [
       { id: 'A', text: "Deploy new application code via CI/CD every time the feature needs to be toggled." },
       { id: 'B', text: "Reboot the production database server to toggle application behaviors." },
       { id: 'C', text: "Comment out feature code in source control and rebuild the Docker container image." },
-      { id: 'D', text: "Configure a Feature Flag in Azure App Configuration and evaluate it using the Microsoft.FeatureManagement library." }
+      { id: 'D', text: "A feature flag in App Configuration read by Microsoft.FeatureManagement." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -53,7 +53,7 @@ export const AZURE_AZ204_QUESTIONS_17 = [
     options: [
       { id: 'A', text: "Comment out feature code in source control and rebuild the Docker container image." },
       { id: 'B', text: "Deploy new application code via CI/CD every time the feature needs to be toggled." },
-      { id: 'C', text: "Configure a Feature Flag in Azure App Configuration and evaluate it using the Microsoft.FeatureManagement library." },
+      { id: 'C', text: "A feature flag in App Configuration read by Microsoft.FeatureManagement." },
       { id: 'D', text: "Reboot the production database server to toggle application behaviors." }
     ],
     correctAnswers: ['C'],
@@ -72,7 +72,7 @@ export const AZURE_AZ204_QUESTIONS_17 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Microsoft Azure. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The developer evaluates Azure App Configuration to dynamically toggle a new payment checkout feature on or off in production without redeploying code or restarting the application servers.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Configure a Feature Flag in Azure App Configuration and evaluate it using the Microsoft.FeatureManagement library." },
+      { id: 'A', text: "A feature flag in App Configuration read by Microsoft.FeatureManagement." },
       { id: 'B', text: "Reboot the production database server to toggle application behaviors." },
       { id: 'C', text: "Comment out feature code in source control and rebuild the Docker container image." },
       { id: 'D', text: "Deploy new application code via CI/CD every time the feature needs to be toggled." }
@@ -95,7 +95,7 @@ export const AZURE_AZ204_QUESTIONS_17 = [
     options: [
       { id: 'A', text: "Deploy new application code via CI/CD every time the feature needs to be toggled." },
       { id: 'B', text: "Reboot the production database server to toggle application behaviors." },
-      { id: 'C', text: "Configure a Feature Flag in Azure App Configuration and evaluate it using the Microsoft.FeatureManagement library." },
+      { id: 'C', text: "A feature flag in App Configuration read by Microsoft.FeatureManagement." },
       { id: 'D', text: "Comment out feature code in source control and rebuild the Docker container image." }
     ],
     correctAnswers: ['C'],

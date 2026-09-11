@@ -18,7 +18,7 @@ export const AZURE_AZ204_QUESTIONS_2 = [
     type: "single",
     explanation: "Azure App Service Hybrid Connections use Azure Relay to provide secure, outbound-only connectivity over port 443 to on-premises resources (TCP port/host combinations) without requiring inbound firewall openings or a site-to-site VPN.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/app-service/app-service-hybrid-connections",
-    tags: ["App Service", "Hybrid Connections", "On-Premises"]
+    tags: ["App Service","Hybrid Connections","On-Premises"]
   },
   {
     id: "azure-az204-27",
@@ -31,7 +31,7 @@ export const AZURE_AZ204_QUESTIONS_2 = [
     question: "What storage destination is required by Azure App Service to store backup zip archives?",
     options: [
       { id: 'A', text: "An Amazon S3 bucket" },
-      { id: 'B', text: "A container in an Azure Storage account with a SAS token or managed identity" },
+      { id: 'B', text: "A blob container with a SAS token" },
       { id: 'C', text: "An on-premises FTP server" },
       { id: 'D', text: "A Git repository in Azure DevOps" }
     ],
@@ -39,7 +39,7 @@ export const AZURE_AZ204_QUESTIONS_2 = [
     type: "single",
     explanation: "App Service backups require an Azure Storage account container and write permissions (via SAS URL or Managed Identity). Backups capture app configurations, file content, and linked databases into a compressed archive.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/app-service/manage-backup",
-    tags: ["App Service", "Backup", "Disaster Recovery"]
+    tags: ["App Service","Backup","Disaster Recovery"]
   },
   {
     id: "azure-az204-28",
@@ -60,7 +60,7 @@ export const AZURE_AZ204_QUESTIONS_2 = [
     type: "single",
     explanation: "Configuring a `Health check` path (e.g. `/health`) in App Service instructs the platform to ping each instance every minute. If an instance fails health probes, the load balancer stops routing traffic to it and automatically replaces it if failure persists.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/app-service/monitor-instances-health-check",
-    tags: ["App Service", "Health Check", "Resilience"]
+    tags: ["App Service","Health Check","Resilience"]
   },
   {
     id: "azure-az204-29",
@@ -73,7 +73,7 @@ export const AZURE_AZ204_QUESTIONS_2 = [
     question: "Where is the minimum TLS version configured in Azure App Service?",
     options: [
       { id: 'A', text: "In the web.config file using custom rewrite rules" },
-      { id: 'B', text: "In General Settings under Configuration, set Minimum TLS Version to 1.2" },
+      { id: 'B', text: "Set Minimum TLS Version to 1.2" },
       { id: 'C', text: "In Azure Key Vault certificate policies" },
       { id: 'D', text: "In Route 53 DNS records" }
     ],
@@ -81,7 +81,7 @@ export const AZURE_AZ204_QUESTIONS_2 = [
     type: "single",
     explanation: "Azure App Service provides a native configuration setting under `General settings` where administrators select the `Minimum TLS Version` (1.2 or 1.3). Any client attempting to connect using TLS 1.0 or 1.1 is dropped at the front-end load balancer.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/app-service/configure-ssl-bindings#enforce-tls-versions",
-    tags: ["App Service", "TLS", "Compliance"]
+    tags: ["App Service","TLS","Compliance"]
   },
   {
     id: "azure-az204-30",
@@ -93,7 +93,7 @@ export const AZURE_AZ204_QUESTIONS_2 = [
     scenario: "A developer needs to deploy a multi-container solution consisting of a WordPress web frontend and a Redis cache container onto a single App Service Plan.",
     question: "Which configuration format does Azure App Service for Linux support for multi-container deployments?",
     options: [
-      { id: 'A', text: "Docker Compose configuration file (docker-compose.yml)" },
+      { id: 'A', text: "A docker-compose.yml file" },
       { id: 'B', text: "Kubernetes Pod manifest YAML" },
       { id: 'C', text: "Helm chart bundle" },
       { id: 'D', text: "Vagrantfile" }
@@ -102,7 +102,7 @@ export const AZURE_AZ204_QUESTIONS_2 = [
     type: "single",
     explanation: "Azure App Service for Linux supports multi-container deployments using `Docker Compose`. Developers provide a `docker-compose.yml` file defining container images, port mappings, and inter-container networking.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/app-service/configure-custom-container#use-docker-compose",
-    tags: ["App Service", "Docker Compose", "Containers"]
+    tags: ["App Service","Docker Compose","Containers"]
   },
   {
     id: "azure-az204-31",
@@ -123,7 +123,7 @@ export const AZURE_AZ204_QUESTIONS_2 = [
     type: "single",
     explanation: "Azure Functions uses a 6-field NCRONTAB format: `{second} {minute} {hour} {day} {month} {day-of-week}`. Here, `0` seconds, `30` minutes, `9` hours, `*` day, `*` month, and `1-5` (Monday-Friday) correctly represents 9:30:00 AM Mon-Fri.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-timer#ncrontab-expressions",
-    tags: ["Azure Functions", "Timer Trigger", "NCRONTAB"]
+    tags: ["Azure Functions","Timer Trigger","NCRONTAB"]
   },
   {
     id: "azure-az204-32",
@@ -144,7 +144,7 @@ export const AZURE_AZ204_QUESTIONS_2 = [
     type: "single",
     explanation: "Azure Functions HTTP triggers support three authorization levels: `Anonymous` (no key required), `Function` (requires a function-specific or host API key), and `Admin` (requires the master key).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-http-webhook-trigger#authorization-keys",
-    tags: ["Azure Functions", "HTTP Trigger", "Authorization Levels"]
+    tags: ["Azure Functions","HTTP Trigger","Authorization Levels"]
   },
   {
     id: "azure-az204-33",
@@ -159,13 +159,13 @@ export const AZURE_AZ204_QUESTIONS_2 = [
       { id: 'A', text: "Write messages to a local text file and upload via FTP" },
       { id: 'B', text: "Instantiate a new QueueClient directly inside the method body without bindings" },
       { id: 'C', text: "Decorate the method with [BlobOutput('orders-out')]" },
-      { id: 'D', text: "Decorate the return value or out parameter with [QueueOutput('orders-out', Connection = 'StorageConnection')]" }
+      { id: 'D', text: "Decorate the return value with a [QueueOutput] attribute" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "In Azure Functions isolated worker model, output bindings are declared declaratively using binding attributes such as `[QueueOutput('orders-out', Connection = 'StorageConnection')]`, allowing functions to dispatch queue items simply by returning the payload.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-storage-queue-output",
-    tags: ["Azure Functions", "Queue Storage", "Output Binding"]
+    tags: ["Azure Functions","Queue Storage","Output Binding"]
   },
   {
     id: "azure-az204-34",
@@ -186,7 +186,7 @@ export const AZURE_AZ204_QUESTIONS_2 = [
     type: "single",
     explanation: "Azure Functions .NET isolated worker model runs as a standard .NET console app. Services and dependencies are registered in `Program.cs` using the `HostBuilder.ConfigureServices` method, standardizing DI with ASP.NET Core.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-functions/dotnet-isolated-process-guide#dependency-injection",
-    tags: ["Azure Functions", "Isolated Worker", "Dependency Injection"]
+    tags: ["Azure Functions","Isolated Worker","Dependency Injection"]
   },
   {
     id: "azure-az204-35",
@@ -207,7 +207,7 @@ export const AZURE_AZ204_QUESTIONS_2 = [
     type: "single",
     explanation: "Setting `WEBSITE_RUN_FROM_PACKAGE = 1` mounts the deployed zip package as a read-only virtual filesystem (`/home/site/wwwroot`). It guarantees atomic deployments, eliminates file lock conflicts, and accelerates cold start package loading.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-functions/run-functions-from-deployment-package",
-    tags: ["Azure Functions", "Run From Package", "Deployment"]
+    tags: ["Azure Functions","Run From Package","Deployment"]
   },
   {
     id: "azure-az204-36",
@@ -219,7 +219,7 @@ export const AZURE_AZ204_QUESTIONS_2 = [
     scenario: "A developer builds a workflow that must execute Function A, pass its result to Function B, and then pass B's result to Function C in strict sequence.",
     question: "Which Durable Functions pattern and language construct coordinates this sequential execution?",
     options: [
-      { id: 'A', text: "Function Chaining pattern using sequential await calls to CallActivityAsync" },
+      { id: 'A', text: "The function chaining pattern" },
       { id: 'B', text: "Fan-out / Fan-in pattern with Task.WhenAny" },
       { id: 'C', text: "Async HTTP APIs pattern" },
       { id: 'D', text: "Event Hub consumer pattern" }
@@ -228,7 +228,7 @@ export const AZURE_AZ204_QUESTIONS_2 = [
     type: "single",
     explanation: "In the Function Chaining pattern, an orchestrator executes activity functions in an explicit sequence by awaiting each call (`var x = await context.CallActivityAsync('F1'); var y = await context.CallActivityAsync('F2', x);`).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-overview?tabs=csharp#chaining",
-    tags: ["Durable Functions", "Function Chaining", "Sequential"]
+    tags: ["Durable Functions","Function Chaining","Sequential"]
   },
   {
     id: "azure-az204-37",
@@ -241,7 +241,7 @@ export const AZURE_AZ204_QUESTIONS_2 = [
     question: "Which Durable Functions pattern returns an immediate HTTP 202 response with a status query URL?",
     options: [
       { id: 'A', text: "Durable Entities pattern" },
-      { id: 'B', text: "Async HTTP APIs pattern using CreateCheckStatusResponse" },
+      { id: 'B', text: "Async HTTP APIs pattern" },
       { id: 'C', text: "Function Chaining pattern" },
       { id: 'D', text: "Human Interaction pattern" }
     ],
@@ -249,7 +249,7 @@ export const AZURE_AZ204_QUESTIONS_2 = [
     type: "single",
     explanation: "The Async HTTP APIs pattern uses Durable Functions client binding method `client.CreateCheckStatusResponse(req, instanceId)`. It returns an HTTP `202 Accepted` response with a `Location` header containing the status query URL for clients to poll.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-overview?tabs=csharp#async-http",
-    tags: ["Durable Functions", "Async HTTP", "202 Accepted"]
+    tags: ["Durable Functions","Async HTTP","202 Accepted"]
   },
   {
     id: "azure-az204-38",
@@ -262,7 +262,7 @@ export const AZURE_AZ204_QUESTIONS_2 = [
     question: "Which Durable Functions pattern implements this recurring polling loop without burning compute charges while sleeping?",
     options: [
       { id: 'A', text: "A continuous SQL query polling script" },
-      { id: 'B', text: "The Monitor pattern using a while loop with context.CreateTimer" },
+      { id: 'B', text: "The monitor pattern with CreateTimer" },
       { id: 'C', text: "Thread.Sleep in a standard Azure Function" },
       { id: 'D', text: "An infinite while loop with no delays" }
     ],
@@ -270,7 +270,7 @@ export const AZURE_AZ204_QUESTIONS_2 = [
     type: "single",
     explanation: "The Durable Functions `Monitor` pattern uses `context.CreateTimer` inside a loop. The orchestrator sleeps and yields compute resources between polling checks, waking up only when the timer fires to check status without incurring execution costs while idle.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-overview?tabs=csharp#monitoring",
-    tags: ["Durable Functions", "Monitor Pattern", "Durable Timers"]
+    tags: ["Durable Functions","Monitor Pattern","Durable Timers"]
   },
   {
     id: "azure-az204-39",
@@ -291,7 +291,7 @@ export const AZURE_AZ204_QUESTIONS_2 = [
     type: "single",
     explanation: "Durable Entities provide an actor-based programming model for serverless state. Entities are addressed by Entity ID, execute operations sequentially (preventing race conditions), and maintain state in durable storage across invocations.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-entities",
-    tags: ["Durable Functions", "Durable Entities", "Actor Model"]
+    tags: ["Durable Functions","Durable Entities","Actor Model"]
   },
   {
     id: "azure-az204-40",
@@ -303,7 +303,7 @@ export const AZURE_AZ204_QUESTIONS_2 = [
     scenario: "An enterprise ERP workflow coordinates provisioning across 10 distinct cloud environments. Each environment requires a complex multi-step provisioning routine.",
     question: "Which Durable Functions feature decomposes large orchestrator functions into reusable child orchestrators?",
     options: [
-      { id: 'A', text: "Sub-orchestrator functions called via context.CallSubOrchestratorAsync" },
+      { id: 'A', text: "Sub-orchestrators" },
       { id: 'B', text: "Activity functions alone" },
       { id: 'C', text: "WebJobs SDK triggers" },
       { id: 'D', text: "Durable Entities alone" }
@@ -312,7 +312,7 @@ export const AZURE_AZ204_QUESTIONS_2 = [
     type: "single",
     explanation: "`CallSubOrchestratorAsync` enables an orchestrator to invoke another orchestrator function as a child task. Sub-orchestrators break down complex workflows, provide separate execution histories, and allow modular error handling.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-sub-orchestrations",
-    tags: ["Durable Functions", "Sub-Orchestrations", "Modularity"]
+    tags: ["Durable Functions","Sub-Orchestrations","Modularity"]
   },
   {
     id: "azure-az204-41",
@@ -333,7 +333,7 @@ export const AZURE_AZ204_QUESTIONS_2 = [
     type: "single",
     explanation: "An Azure Container Instance `Container Group` is a collection of containers that are scheduled on the same host machine, sharing the same lifecycle, local network (listening on different ports on `localhost`), storage volumes, and public/private IP address.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/container-instances/container-instances-container-groups",
-    tags: ["ACI", "Container Groups", "Sidecar"]
+    tags: ["ACI","Container Groups","Sidecar"]
   },
   {
     id: "azure-az204-42",
@@ -347,14 +347,14 @@ export const AZURE_AZ204_QUESTIONS_2 = [
     options: [
       { id: 'A', text: "In the Azure subscription quota settings" },
       { id: 'B', text: "In the container Dockerfile EXPOSE statement" },
-      { id: 'C', text: "In the container group resource requests section of the deployment template" },
+      { id: 'C', text: "In the container group resource requests" },
       { id: 'D', text: "In Azure Active Directory claims" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "In ACI deployment templates (ARM, Bicep, or YAML), developers specify `resources: { requests: { cpu: 4, memoryInGB: 16 } }` per container. The total group resources equal the sum of requests across containers in the group.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/container-instances/container-instances-container-groups#resource-allocation",
-    tags: ["ACI", "Resource Allocation", "Compute"]
+    tags: ["ACI","Resource Allocation","Compute"]
   },
   {
     id: "azure-az204-43",
@@ -369,13 +369,13 @@ export const AZURE_AZ204_QUESTIONS_2 = [
       { id: 'A', text: "Open inbound port 80 to 0.0.0.0/0" },
       { id: 'B', text: "Disable Network Security Groups" },
       { id: 'C', text: "Enable public IP assignment on the subnet" },
-      { id: 'D', text: "Delegate the subnet to Microsoft.ContainerInstance/containerGroups" }
+      { id: 'D', text: "Delegate the subnet to container groups" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "To deploy ACI into an Azure Virtual Network, the target subnet must be delegated specifically to `Microsoft.ContainerInstance/containerGroups`. ACI assigns private network interfaces to the container group within that subnet.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/container-instances/container-instances-vnet",
-    tags: ["ACI", "VNet Integration", "Subnet Delegation"]
+    tags: ["ACI","VNet Integration","Subnet Delegation"]
   },
   {
     id: "azure-az204-44",
@@ -396,7 +396,7 @@ export const AZURE_AZ204_QUESTIONS_2 = [
     type: "single",
     explanation: "Azure Container Apps supports two revision modes: `Single revision mode` (only one active revision, new deploys immediately replace old ones) and `Multiple revision mode` (multiple active revisions coexist, enabling traffic splitting, blue/green, and canary deployments).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/container-apps/revisions#revision-mode",
-    tags: ["Container Apps", "Revision Mode", "Blue/Green"]
+    tags: ["Container Apps","Revision Mode","Blue/Green"]
   },
   {
     id: "azure-az204-45",
@@ -417,7 +417,7 @@ export const AZURE_AZ204_QUESTIONS_2 = [
     type: "single",
     explanation: "In Azure Container Apps, setting `ingress: { external: false }` creates an internal ingress endpoint accessible only to other container apps residing inside the same Container Apps Environment or Virtual Network.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/container-apps/ingress-overview",
-    tags: ["Container Apps", "Ingress", "Security"]
+    tags: ["Container Apps","Ingress","Security"]
   },
   {
     id: "azure-az204-46",
@@ -432,13 +432,13 @@ export const AZURE_AZ204_QUESTIONS_2 = [
       { id: 'A', text: "An App Service connection string" },
       { id: 'B', text: "A Dockerfile environment variable" },
       { id: 'C', text: "A Kubernetes Ingress controller rule" },
-      { id: 'D', text: "A Dapr Component YAML manifest with type state.azure.cosmosdb" }
+      { id: 'D', text: "A Dapr state component manifest" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Dapr uses declarative Component manifests. Developers deploy a Dapr component of type `state.azure.cosmosdb` specifying metadata (database name, collection name, master key/managed identity). The container app interacts with Dapr's local HTTP API (`/v1.0/state/statestore`).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview#dapr-components",
-    tags: ["Container Apps", "Dapr", "State Management"]
+    tags: ["Container Apps","Dapr","State Management"]
   },
   {
     id: "azure-az204-47",
@@ -459,7 +459,7 @@ export const AZURE_AZ204_QUESTIONS_2 = [
     type: "single",
     explanation: "Dapr provides a standardized pub/sub building block. Configuring a Dapr component with type `pubsub.azure.servicebus` allows microservices to publish and subscribe to topics using simple HTTP POST requests, while Dapr handles queueing, retries, and dead-lettering.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview",
-    tags: ["Container Apps", "Dapr", "Pub/Sub"]
+    tags: ["Container Apps","Dapr","Pub/Sub"]
   },
   {
     id: "azure-az204-48",
@@ -471,16 +471,16 @@ export const AZURE_AZ204_QUESTIONS_2 = [
     scenario: "An Azure Container App requires an API key. Security teams mandate that secrets must be referenced securely in the container definition without storing plain text in ARM templates.",
     question: "How should secrets be configured and consumed in Azure Container Apps?",
     options: [
-      { id: 'A', text: "Define secrets in the app secrets section and reference them in environment variables using secretRef" },
+      { id: 'A', text: "Define app secrets and reference them with secretRef" },
       { id: 'B', text: "Pass plain text secrets in the container args array" },
-      { id: 'C', text: "Hardcode secrets directly in the container image layers" },
+      { id: 'C', text: "Mount the key from an Azure Files share into the container" },
       { id: 'D', text: "Store secrets in an unencrypted public GitHub repository" }
     ],
     correctAnswers: ['A'],
     type: "single",
     explanation: "Azure Container Apps supports an application-level `secrets` array. Container definitions reference these secrets securely via `valueFrom: { secretRef: 'secret-name' }`, keeping credentials encrypted and masked in deployment templates.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/container-apps/manage-secrets",
-    tags: ["Container Apps", "Secrets", "Configuration"]
+    tags: ["Container Apps","Secrets","Configuration"]
   },
   {
     id: "azure-az204-49",
@@ -493,7 +493,7 @@ export const AZURE_AZ204_QUESTIONS_2 = [
     question: "Which actions represent scaling up and scaling out respectively?",
     options: [
       { id: 'A', text: "Scaling up and scaling out are identical operations in Azure" },
-      { id: 'B', text: "Scaling up changes the App Service Plan pricing tier to a higher compute size; scaling out increases the number of VM instances" },
+      { id: 'B', text: "Scaling up raises the pricing tier; scaling out adds instances" },
       { id: 'C', text: "Scaling up increases instance count; scaling out increases RAM" },
       { id: 'D', text: "Scaling up moves to another Azure region; scaling out enables ARR affinity" }
     ],
@@ -501,7 +501,7 @@ export const AZURE_AZ204_QUESTIONS_2 = [
     type: "single",
     explanation: "`Scale up` (vertical scaling) upgrades the App Service Plan pricing tier (e.g. from Standard S1 to Premium P2v3) to get more CPU cores, RAM, and disk space. `Scale out` (horizontal scaling) increases the number of VM instances running the application.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/app-service/manage-scale-up",
-    tags: ["App Service", "Scaling", "Architecture"]
+    tags: ["App Service","Scaling","Architecture"]
   },
   {
     id: "azure-az204-50",
@@ -522,7 +522,7 @@ export const AZURE_AZ204_QUESTIONS_2 = [
     type: "single",
     explanation: "The Dedicated (App Service) Plan runs Azure Functions on dedicated virtual machines associated with an App Service Plan. It is cost-effective when you already have underutilized App Service instances and need predictable monthly billing with continuous long-running jobs.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-functions/dedicated-plan",
-    tags: ["Azure Functions", "Dedicated Plan", "Cost Management"]
+    tags: ["Azure Functions","Dedicated Plan","Cost Management"]
   }
 ];
 

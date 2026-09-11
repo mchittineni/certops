@@ -18,7 +18,7 @@ export const AZURE_AZ204_QUESTIONS_9 = [
     type: "single",
     explanation: "Response caching in APIM requires `&lt;cache-lookup&gt;` in the `&lt;inbound&gt;` block (to check if a cached response exists and return it immediately) and `&lt;cache-store duration='3600'&gt;` in the `&lt;outbound&gt;` block (to save the backend response into cache for subsequent requests).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-cache",
-    tags: ["APIM", "Caching", "Policies"]
+    tags: ["APIM","Caching","Policies"]
   },
   {
     id: "azure-az204-202",
@@ -39,7 +39,7 @@ export const AZURE_AZ204_QUESTIONS_9 = [
     type: "single",
     explanation: "In APIM, a `Product` contains one or more APIs, terms of use, and call quotas. Products can be `Open` (no approval needed) or `Protected` (requires subscription and optional administrator approval) to issue subscription keys.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-add-products",
-    tags: ["APIM", "Products", "Subscriptions"]
+    tags: ["APIM","Products","Subscriptions"]
   },
   {
     id: "azure-az204-203",
@@ -60,7 +60,7 @@ export const AZURE_AZ204_QUESTIONS_9 = [
     type: "single",
     explanation: "`API Versions` represent distinct, breaking changes exposed to consumers (e.g. `v1` vs `v2` via path, header, or query string). `API Revisions` allow developers to make and test non-breaking changes safely in a private staging URL before making the revision current.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/api-management/api-management-versions-revisions",
-    tags: ["APIM", "Versions", "Revisions"]
+    tags: ["APIM","Versions","Revisions"]
   },
   {
     id: "azure-az204-204",
@@ -81,7 +81,7 @@ export const AZURE_AZ204_QUESTIONS_9 = [
     type: "single",
     explanation: "APIM `Named Values` store constants and configuration values accessible in policies (via `{{NamedValueKey}}`). Backing a Named Value with an Azure Key Vault secret reference ensures credentials remain encrypted and automatically synchronize updates via Managed Identity.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-properties",
-    tags: ["APIM", "Named Values", "Key Vault"]
+    tags: ["APIM","Named Values","Key Vault"]
   },
   {
     id: "azure-az204-205",
@@ -102,7 +102,7 @@ export const AZURE_AZ204_QUESTIONS_9 = [
     type: "single",
     explanation: "The APIM `Self-Hosted Gateway` is a containerized version of the default managed gateway packaged as a Docker container. It deploys on-premises or in other clouds, processing local traffic locally while connecting outbound to Azure only for telemetry and policy configuration updates.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/api-management/self-hosted-gateway-overview",
-    tags: ["APIM", "Self-Hosted Gateway", "Hybrid Cloud"]
+    tags: ["APIM","Self-Hosted Gateway","Hybrid Cloud"]
   },
   {
     id: "azure-az204-206",
@@ -123,7 +123,7 @@ export const AZURE_AZ204_QUESTIONS_9 = [
     type: "single",
     explanation: "In Azure Event Grid architecture: `Event Sources` emit events; `Topics` receive incoming event streams; `Event Subscriptions` define routing rules and filters; and `Event Handlers` (Webhooks, Azure Functions, Logic Apps) consume and process the events.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/event-grid/concepts",
-    tags: ["Event Grid", "Topics", "Architecture"]
+    tags: ["Event Grid","Topics","Architecture"]
   },
   {
     id: "azure-az204-207",
@@ -144,7 +144,7 @@ export const AZURE_AZ204_QUESTIONS_9 = [
     type: "single",
     explanation: "Azure Event Grid natively supports both the proprietary `Event Grid schema` and the open CNCF standard `CloudEvents v1.0 schema` (`specversion`, `type`, `source`, `id`, `time`, `data`). CloudEvents ensures cross-cloud interoperability without custom payload wrappers.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/event-grid/cloudevents-schema",
-    tags: ["Event Grid", "CloudEvents", "CNCF"]
+    tags: ["Event Grid","CloudEvents","CNCF"]
   },
   {
     id: "azure-az204-208",
@@ -156,7 +156,7 @@ export const AZURE_AZ204_QUESTIONS_9 = [
     scenario: "When a developer registers a new HTTP Webhook endpoint in an Event Grid subscription, Event Grid sends an initial HTTP POST request to the webhook before any events are delivered.",
     question: "How must the webhook respond to complete the validation handshake?",
     options: [
-      { id: 'A', text: "Return an HTTP 200 OK with a JSON response containing the validationCode received in the request" },
+      { id: 'A', text: "Return 200 with the validationCode in JSON" },
       { id: 'B', text: "Event Grid does not validate webhook endpoints" },
       { id: 'C', text: "Send an email to Azure Support confirming the endpoint" },
       { id: 'D', text: "Return an HTTP 204 No Content with no body" }
@@ -165,7 +165,7 @@ export const AZURE_AZ204_QUESTIONS_9 = [
     type: "single",
     explanation: "To prevent webhook spam and prove endpoint ownership, Event Grid sends a validation event containing a `validationCode`. The webhook must extract `validationCode` and return a JSON payload: `{\"validationResponse\": \"&lt;validationCode&gt;\"}` with HTTP 200 OK to complete the subscription creation.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/event-grid/webhook-event-delivery#validation-details",
-    tags: ["Event Grid", "Webhook", "Validation Handshake"]
+    tags: ["Event Grid","Webhook","Validation Handshake"]
   },
   {
     id: "azure-az204-209",
@@ -177,7 +177,7 @@ export const AZURE_AZ204_QUESTIONS_9 = [
     scenario: "An application subscribes to an Event Grid topic but only wants to receive events where `data.orderTotal` is greater than 1,000 and `data.currency` equals `USD`.",
     question: "Which Event Grid subscription feature evaluates nested JSON data fields before delivering events?",
     options: [
-      { id: 'A', text: "Advanced Filtering using NumberGreaterThan and StringEquals operators on the data payload" },
+      { id: 'A', text: "Advanced filtering on the payload" },
       { id: 'B', text: "Subject Begins With filtering alone" },
       { id: 'C', text: "Event Type filtering alone" },
       { id: 'D', text: "Azure Stream Analytics query" }
@@ -186,7 +186,7 @@ export const AZURE_AZ204_QUESTIONS_9 = [
     type: "single",
     explanation: "Event Grid `Advanced Filtering` supports evaluating values in the `data` payload using operators like `NumberGreaterThan`, `NumberIn`, `StringBeginsWith`, `StringContains`, and `BoolEquals`, preventing unnecessary delivery of irrelevant events.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/event-grid/event-filtering#advanced-filtering",
-    tags: ["Event Grid", "Advanced Filtering", "Routing"]
+    tags: ["Event Grid","Advanced Filtering","Routing"]
   },
   {
     id: "azure-az204-210",
@@ -207,7 +207,7 @@ export const AZURE_AZ204_QUESTIONS_9 = [
     type: "single",
     explanation: "Event Grid supports dead-lettering for undeliverable events (due to webhook errors, timeouts, or TTL expiration). Dead-lettered events are serialized as JSON blobs and written into a designated container in an `Azure Storage account` for investigation and replay.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/event-grid/manage-event-delivery#set-dead-letter-location",
-    tags: ["Event Grid", "Dead-Lettering", "Blob Storage"]
+    tags: ["Event Grid","Dead-Lettering","Blob Storage"]
   },
   {
     id: "azure-az204-211",
@@ -222,13 +222,13 @@ export const AZURE_AZ204_QUESTIONS_9 = [
       { id: 'A', text: "Partitions act as separate physical backup copies across different cloud providers" },
       { id: 'B', text: "Partitions automatically compress JSON data into MP4 video files" },
       { id: 'C', text: "Partitions eliminate the need for consumer applications" },
-      { id: 'D', text: "Partitions allow concurrent consumption across multiple consumer workers and provide ordered log sequences within each individual partition" }
+      { id: 'D', text: "Partitions allow concurrent consumers and order within each one" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Event Hubs uses a partitioned consumer model. Each partition is an ordered sequence of events. Increasing partition count enables horizontal scale-out by allowing multiple consumer worker instances to read from distinct partitions concurrently without blocking each other.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-scalability#partitions",
-    tags: ["Event Hubs", "Partitions", "Scalability"]
+    tags: ["Event Hubs","Partitions","Scalability"]
   },
   {
     id: "azure-az204-212",
@@ -241,7 +241,7 @@ export const AZURE_AZ204_QUESTIONS_9 = [
     question: "Which Event Hubs concept allows both applications to read the stream at their own independent speeds and offsets?",
     options: [
       { id: 'A', text: "Multiple Partitions" },
-      { id: 'B', text: "Consumer Groups (each application reads from its own dedicated Consumer Group)" },
+      { id: 'B', text: "Consumer groups" },
       { id: 'C', text: "Event Grid Subscriptions" },
       { id: 'D', text: "Storage Account Containers" }
     ],
@@ -249,7 +249,7 @@ export const AZURE_AZ204_QUESTIONS_9 = [
     type: "single",
     explanation: "A `Consumer Group` provides a separate view (state and offsets) of an entire Event Hub. Each consumer application connects via its own consumer group, enabling multiple downstream systems to read the same stream independently at their own pace without interference.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-features#consumer-groups",
-    tags: ["Event Hubs", "Consumer Groups", "Pub/Sub"]
+    tags: ["Event Hubs","Consumer Groups","Pub/Sub"]
   },
   {
     id: "azure-az204-213",
@@ -270,7 +270,7 @@ export const AZURE_AZ204_QUESTIONS_9 = [
     type: "single",
     explanation: "The `EventProcessorClient` in the Azure Event Hubs SDK integrates with an Azure Storage Blob container. It writes partition ownership leases and periodically records stream checkpoint offsets in blob metadata, ensuring resilient failover across consumer instances.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send#receive-events",
-    tags: ["Event Hubs", "EventProcessorClient", "Checkpointing"]
+    tags: ["Event Hubs","EventProcessorClient","Checkpointing"]
   },
   {
     id: "azure-az204-214",
@@ -291,7 +291,7 @@ export const AZURE_AZ204_QUESTIONS_9 = [
     type: "single",
     explanation: "Event Hubs `Capture` automatically batches and dumps streaming data into Azure Blob Storage or Azure Data Lake Storage Gen2 in Apache Avro or Parquet format based on time (e.g. every 5 minutes) or size (e.g. every 300 MB) thresholds at zero compute maintenance cost.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-capture-overview",
-    tags: ["Event Hubs", "Capture", "Data Lake"]
+    tags: ["Event Hubs","Capture","Data Lake"]
   },
   {
     id: "azure-az204-215",
@@ -305,14 +305,14 @@ export const AZURE_AZ204_QUESTIONS_9 = [
     options: [
       { id: 'A', text: "Kafka code must be completely rewritten using Event Hubs SDKs" },
       { id: 'B', text: "Event Hubs does not support Kafka protocols" },
-      { id: 'C', text: "Event Hubs provides an Apache Kafka 1.0+ compatible endpoint (port 9093) that accepts existing Kafka client traffic by changing only configuration connection strings" },
+      { id: 'C', text: "Event Hubs exposes a Kafka-compatible endpoint" },
       { id: 'D', text: "By deploying an Apache Kafka cluster inside a dedicated VM" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Azure Event Hubs exposes an Apache Kafka-compatible endpoint. Existing Kafka applications simply update their `bootstrap.servers` configuration to point to the Event Hubs namespace (`&lt;namespace&gt;.servicebus.windows.net:9093`) and authenticate via SASL/PLAIN or OAuth.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview",
-    tags: ["Event Hubs", "Kafka", "Interoperability"]
+    tags: ["Event Hubs","Kafka","Interoperability"]
   },
   {
     id: "azure-az204-216",
@@ -333,7 +333,7 @@ export const AZURE_AZ204_QUESTIONS_9 = [
     type: "single",
     explanation: "`Service Bus Queues` provide point-to-point communication where each message is processed by exactly one competing consumer. `Service Bus Topics and Subscriptions` provide a 1-to-many publish-subscribe model where each subscription receives an independent copy of published messages.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-queues-topics-subscriptions",
-    tags: ["Service Bus", "Topics", "Pub/Sub"]
+    tags: ["Service Bus","Topics","Pub/Sub"]
   },
   {
     id: "azure-az204-217",
@@ -354,7 +354,7 @@ export const AZURE_AZ204_QUESTIONS_9 = [
     type: "single",
     explanation: "Service Bus `Message Sessions` guarantee first-in, first-out (FIFO) ordered processing for messages sharing the same `SessionId`. A receiver locks a specific session, processes all messages in that session sequentially, and releases the session when done, enabling ordered processing without bottlenecking other sessions.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/service-bus-messaging/message-sessions",
-    tags: ["Service Bus", "Message Sessions", "FIFO"]
+    tags: ["Service Bus","Message Sessions","FIFO"]
   },
   {
     id: "azure-az204-218",
@@ -375,7 +375,7 @@ export const AZURE_AZ204_QUESTIONS_9 = [
     type: "single",
     explanation: "Enabling `Duplicate Detection` on a Service Bus queue or topic instructs the broker to track all `MessageId` values received within a configurable time window (`DuplicateDetectionHistoryTimeWindow`, default 10 minutes up to 7 days). Any message arriving with a previously seen `MessageId` is automatically discarded.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/service-bus-messaging/duplicate-detection",
-    tags: ["Service Bus", "Duplicate Detection", "MessageId"]
+    tags: ["Service Bus","Duplicate Detection","MessageId"]
   },
   {
     id: "azure-az204-219",
@@ -396,7 +396,7 @@ export const AZURE_AZ204_QUESTIONS_9 = [
     type: "single",
     explanation: "In `PeekLock` mode (default), the broker hides the message from other consumers and holds a lock. The worker must explicitly call `CompleteMessageAsync` to delete it; if the worker crashes or abandons the message, the lock expires and the message becomes available for reprocessing. `ReceiveAndDelete` deletes the message immediately from the queue upon receipt.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/service-bus-messaging/message-transfers-locks-settlement#settling-receive-operations",
-    tags: ["Service Bus", "PeekLock", "Reliability"]
+    tags: ["Service Bus","PeekLock","Reliability"]
   },
   {
     id: "azure-az204-220",
@@ -410,14 +410,14 @@ export const AZURE_AZ204_QUESTIONS_9 = [
     options: [
       { id: 'A', text: "Service Bus shuts down the consumer application" },
       { id: 'B', text: "Service Bus sends an SMS alert to the account root user" },
-      { id: 'C', text: "When the delivery attempt count exceeds maxDeliveryCount, Service Bus automatically moves the message to the Dead-Letter Queue ($DeadLetterQueue)" },
+      { id: 'C', text: "Past maxDeliveryCount it moves to the dead-letter queue" },
       { id: 'D', text: "Service Bus permanently deletes the message after the first failure" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Each Service Bus queue and subscription tracks delivery attempts. When a message is abandoned or its lock expires, `DeliveryCount` increments. When `DeliveryCount` exceeds `maxDeliveryCount` (default 10), Service Bus automatically moves the poison message to the sub-queue `$DeadLetterQueue` for offline inspection.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-dead-letter-queues",
-    tags: ["Service Bus", "DLQ", "Dead-Letter Queue"]
+    tags: ["Service Bus","DLQ","Dead-Letter Queue"]
   },
   {
     id: "azure-az204-221",
@@ -438,7 +438,7 @@ export const AZURE_AZ204_QUESTIONS_9 = [
     type: "single",
     explanation: "Service Bus subscriptions support `Correlation Filters` (which evaluate key-value equality conditions against message properties very efficiently) and `SQL Filters` (which support SQL-92 expressions like `Region = 'EMEA' AND Priority = 'High'`), ensuring subscribers receive only relevant messages.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/service-bus-messaging/topic-filters",
-    tags: ["Service Bus", "Topic Filters", "Correlation Filter"]
+    tags: ["Service Bus","Topic Filters","Correlation Filter"]
   },
   {
     id: "azure-az204-222",
@@ -459,7 +459,7 @@ export const AZURE_AZ204_QUESTIONS_9 = [
     type: "single",
     explanation: "Azure Queue Storage can scale to the maximum capacity of an Azure Storage account (up to 5 PB), making it ideal for simple workloads requiring queues larger than 80 GB. Azure Service Bus Queues cap individual queue sizes at 80 GB (or 1 TB in partitioned mode) but provide advanced features like sessions and transactions.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted",
-    tags: ["Queue Storage", "Service Bus", "Architecture"]
+    tags: ["Queue Storage","Service Bus","Architecture"]
   },
   {
     id: "azure-az204-223",
@@ -471,7 +471,7 @@ export const AZURE_AZ204_QUESTIONS_9 = [
     scenario: "A background worker dequeues a message from Azure Queue Storage. The message becomes invisible to other workers for a default duration while processing.",
     question: "What is the default visibility timeout for Azure Queue Storage messages, and which API extends it if processing takes longer?",
     options: [
-      { id: 'A', text: "30 seconds default; extended using the UpdateMessage (UpdateMessageAsync) API" },
+      { id: 'A', text: "30 seconds, extended with UpdateMessage" },
       { id: 'B', text: "1 hour default; cannot be extended" },
       { id: 'C', text: "10 seconds default; extended via PeekMessage" },
       { id: 'D', text: "5 minutes default; extended via RenewLock" }
@@ -480,7 +480,7 @@ export const AZURE_AZ204_QUESTIONS_9 = [
     type: "single",
     explanation: "When a message is retrieved from Queue Storage (`GetMessages`), it becomes invisible to other workers for the `visibilityTimeout` (default 30 seconds). If processing takes longer, the worker must call `UpdateMessage` with a new visibility timeout to prevent another worker from picking it up prematurely.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/queues/storage-dotnet-how-to-use-queues#change-the-contents-of-a-queued-message",
-    tags: ["Queue Storage", "Visibility Timeout", "Concurrency"]
+    tags: ["Queue Storage","Visibility Timeout","Concurrency"]
   },
   {
     id: "azure-az204-224",
@@ -501,7 +501,7 @@ export const AZURE_AZ204_QUESTIONS_9 = [
     type: "single",
     explanation: "Azure Queue Storage has a maximum message size of 64 KB (and 48 KB if Base64 encoded). For messages larger than 64 KB, developers use the Claim Check pattern: storing the large payload in Azure Blob Storage and putting the blob URI into the queue message.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/queues/storage-queues-introduction#queue-service-concepts",
-    tags: ["Queue Storage", "Message Limits", "TTL"]
+    tags: ["Queue Storage","Message Limits","TTL"]
   },
   {
     id: "azure-az204-225",
@@ -514,7 +514,7 @@ export const AZURE_AZ204_QUESTIONS_9 = [
     question: "How can the application detect that a message has repeatedly failed processing?",
     options: [
       { id: 'A', text: "Inspect the NextVisibleTime" },
-      { id: 'B', text: "Inspect the DequeueCount property on the retrieved QueueMessage" },
+      { id: 'B', text: "Inspect the DequeueCount property" },
       { id: 'C', text: "Inspect the MessageId property" },
       { id: 'D', text: "Check the InsertionTime timestamp" }
     ],
@@ -522,7 +522,7 @@ export const AZURE_AZ204_QUESTIONS_9 = [
     type: "single",
     explanation: "In Azure Queue Storage, each message contains a `DequeueCount` property that increments every time the message is retrieved. If `DequeueCount` exceeds a threshold (e.g. 5 attempts), application code should delete the message from the queue and forward it to a custom poison queue.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/queues/storage-dotnet-how-to-use-queues#dequeue-the-next-message",
-    tags: ["Queue Storage", "DequeueCount", "Poison Messages"]
+    tags: ["Queue Storage","DequeueCount","Poison Messages"]
   }
 ];
 

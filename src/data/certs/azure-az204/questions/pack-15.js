@@ -10,7 +10,7 @@ export const AZURE_AZ204_QUESTIONS_15 = [
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Set the blob container permissions to private read-only access." },
-      { id: 'B', text: "Acquire an exclusive Blob Lease with a 60-second duration and renew the lease ID during processing." },
+      { id: 'B', text: "Take a 60-second blob lease and renew it during processing." },
       { id: 'C', text: "Delete the file from storage and re-upload it after modification completes." },
       { id: 'D', text: "Change the storage account access keys whenever a worker starts processing." }
     ],
@@ -33,7 +33,7 @@ export const AZURE_AZ204_QUESTIONS_15 = [
       { id: 'A', text: "Change the storage account access keys whenever a worker starts processing." },
       { id: 'B', text: "Delete the file from storage and re-upload it after modification completes." },
       { id: 'C', text: "Set the blob container permissions to private read-only access." },
-      { id: 'D', text: "Acquire an exclusive Blob Lease with a 60-second duration and renew the lease ID during processing." }
+      { id: 'D', text: "Take a 60-second blob lease and renew it during processing." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -52,7 +52,7 @@ export const AZURE_AZ204_QUESTIONS_15 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Delete the file from storage and re-upload it after modification completes." },
-      { id: 'B', text: "Acquire an exclusive Blob Lease with a 60-second duration and renew the lease ID during processing." },
+      { id: 'B', text: "Take a 60-second blob lease and renew it during processing." },
       { id: 'C', text: "Change the storage account access keys whenever a worker starts processing." },
       { id: 'D', text: "Set the blob container permissions to private read-only access." }
     ],
@@ -74,7 +74,7 @@ export const AZURE_AZ204_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Change the storage account access keys whenever a worker starts processing." },
       { id: 'B', text: "Delete the file from storage and re-upload it after modification completes." },
-      { id: 'C', text: "Acquire an exclusive Blob Lease with a 60-second duration and renew the lease ID during processing." },
+      { id: 'C', text: "Take a 60-second blob lease and renew it during processing." },
       { id: 'D', text: "Set the blob container permissions to private read-only access." }
     ],
     correctAnswers: ['C'],
@@ -93,7 +93,7 @@ export const AZURE_AZ204_QUESTIONS_15 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The developer evaluates Azure Storage to acquire an exclusive write lock on a shared state file in Azure Blob Storage so only one worker node can process and update it at any given time.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Acquire an exclusive Blob Lease with a 60-second duration and renew the lease ID during processing." },
+      { id: 'A', text: "Take a 60-second blob lease and renew it during processing." },
       { id: 'B', text: "Delete the file from storage and re-upload it after modification completes." },
       { id: 'C', text: "Change the storage account access keys whenever a worker starts processing." },
       { id: 'D', text: "Set the blob container permissions to private read-only access." }
@@ -326,7 +326,7 @@ export const AZURE_AZ204_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Instantiate PublicClientApplication because browser-based SPAs cannot securely store private client secrets." },
       { id: 'B', text: "Instantiate ConfidentialClientApplication and embed the client secret in the bundled JavaScript file." },
-      { id: 'C', text: "Hardcode Azure Subscription Owner credentials in the HTML DOM." },
+      { id: 'C', text: "Instantiate ConfidentialClientApplication with a certificate held in the browser." },
       { id: 'D', text: "Disable authentication and rely on IP whitelisting." }
     ],
     correctAnswers: ['A'],
@@ -345,7 +345,7 @@ export const AZURE_AZ204_QUESTIONS_15 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The developer evaluates Microsoft Entra ID / MSAL to select the appropriate MSAL client application class for a React Single Page Application (SPA) running entirely in a client's web browser.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Hardcode Azure Subscription Owner credentials in the HTML DOM." },
+      { id: 'A', text: "Instantiate ConfidentialClientApplication with a certificate held in the browser." },
       { id: 'B', text: "Instantiate PublicClientApplication because browser-based SPAs cannot securely store private client secrets." },
       { id: 'C', text: "Disable authentication and rely on IP whitelisting." },
       { id: 'D', text: "Instantiate ConfidentialClientApplication and embed the client secret in the bundled JavaScript file." }
@@ -369,7 +369,7 @@ export const AZURE_AZ204_QUESTIONS_15 = [
       { id: 'A', text: "Instantiate PublicClientApplication because browser-based SPAs cannot securely store private client secrets." },
       { id: 'B', text: "Instantiate ConfidentialClientApplication and embed the client secret in the bundled JavaScript file." },
       { id: 'C', text: "Disable authentication and rely on IP whitelisting." },
-      { id: 'D', text: "Hardcode Azure Subscription Owner credentials in the HTML DOM." }
+      { id: 'D', text: "Instantiate ConfidentialClientApplication with a certificate held in the browser." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -390,7 +390,7 @@ export const AZURE_AZ204_QUESTIONS_15 = [
       { id: 'A', text: "Disable authentication and rely on IP whitelisting." },
       { id: 'B', text: "Instantiate ConfidentialClientApplication and embed the client secret in the bundled JavaScript file." },
       { id: 'C', text: "Instantiate PublicClientApplication because browser-based SPAs cannot securely store private client secrets." },
-      { id: 'D', text: "Hardcode Azure Subscription Owner credentials in the HTML DOM." }
+      { id: 'D', text: "Instantiate ConfidentialClientApplication with a certificate held in the browser." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -410,7 +410,7 @@ export const AZURE_AZ204_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Instantiate PublicClientApplication because browser-based SPAs cannot securely store private client secrets." },
       { id: 'B', text: "Disable authentication and rely on IP whitelisting." },
-      { id: 'C', text: "Hardcode Azure Subscription Owner credentials in the HTML DOM." },
+      { id: 'C', text: "Instantiate ConfidentialClientApplication with a certificate held in the browser." },
       { id: 'D', text: "Instantiate ConfidentialClientApplication and embed the client secret in the bundled JavaScript file." }
     ],
     correctAnswers: ['A'],

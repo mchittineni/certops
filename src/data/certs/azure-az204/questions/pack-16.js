@@ -219,7 +219,7 @@ export const AZURE_AZ204_QUESTIONS_16 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The developer evaluates Azure Key Vault to securely store database connection strings, perform cryptographic signing using hardware-protected RSA keys, and manage X.509 SSL certificates.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Utilize Azure Key Vault Secrets for connection strings, Keys for cryptographic operations, and Certificates for SSL/TLS." },
+      { id: 'A', text: "Key Vault secrets for connection strings, keys for crypto, certificates for TLS." },
       { id: 'B', text: "Store all cryptographic private keys and database passwords in unencrypted Git repositories." },
       { id: 'C', text: "Store connection strings in an unencrypted Azure Storage blob container." },
       { id: 'D', text: "Embed RSA private keys in public JavaScript frontend bundles." }
@@ -240,7 +240,7 @@ export const AZURE_AZ204_QUESTIONS_16 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The developer evaluates Azure Key Vault to securely store database connection strings, perform cryptographic signing using hardware-protected RSA keys, and manage X.509 SSL certificates.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Utilize Azure Key Vault Secrets for connection strings, Keys for cryptographic operations, and Certificates for SSL/TLS." },
+      { id: 'A', text: "Key Vault secrets for connection strings, keys for crypto, certificates for TLS." },
       { id: 'B', text: "Embed RSA private keys in public JavaScript frontend bundles." },
       { id: 'C', text: "Store all cryptographic private keys and database passwords in unencrypted Git repositories." },
       { id: 'D', text: "Store connection strings in an unencrypted Azure Storage blob container." }
@@ -263,7 +263,7 @@ export const AZURE_AZ204_QUESTIONS_16 = [
     options: [
       { id: 'A', text: "Store all cryptographic private keys and database passwords in unencrypted Git repositories." },
       { id: 'B', text: "Embed RSA private keys in public JavaScript frontend bundles." },
-      { id: 'C', text: "Utilize Azure Key Vault Secrets for connection strings, Keys for cryptographic operations, and Certificates for SSL/TLS." },
+      { id: 'C', text: "Key Vault secrets for connection strings, keys for crypto, certificates for TLS." },
       { id: 'D', text: "Store connection strings in an unencrypted Azure Storage blob container." }
     ],
     correctAnswers: ['C'],
@@ -282,7 +282,7 @@ export const AZURE_AZ204_QUESTIONS_16 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Microsoft Azure. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The developer evaluates Azure Key Vault to securely store database connection strings, perform cryptographic signing using hardware-protected RSA keys, and manage X.509 SSL certificates.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Utilize Azure Key Vault Secrets for connection strings, Keys for cryptographic operations, and Certificates for SSL/TLS." },
+      { id: 'A', text: "Key Vault secrets for connection strings, keys for crypto, certificates for TLS." },
       { id: 'B', text: "Store all cryptographic private keys and database passwords in unencrypted Git repositories." },
       { id: 'C', text: "Store connection strings in an unencrypted Azure Storage blob container." },
       { id: 'D', text: "Embed RSA private keys in public JavaScript frontend bundles." }
@@ -306,7 +306,7 @@ export const AZURE_AZ204_QUESTIONS_16 = [
       { id: 'A', text: "Embed RSA private keys in public JavaScript frontend bundles." },
       { id: 'B', text: "Store connection strings in an unencrypted Azure Storage blob container." },
       { id: 'C', text: "Store all cryptographic private keys and database passwords in unencrypted Git repositories." },
-      { id: 'D', text: "Utilize Azure Key Vault Secrets for connection strings, Keys for cryptographic operations, and Certificates for SSL/TLS." }
+      { id: 'D', text: "Key Vault secrets for connection strings, keys for crypto, certificates for TLS." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -327,7 +327,7 @@ export const AZURE_AZ204_QUESTIONS_16 = [
       { id: 'A', text: "Share the Key Vault administrator password with the application development team." },
       { id: 'B', text: "Configure a legacy Key Vault access policy granting full purge and backup permissions." },
       { id: 'C', text: "Disable access controls on Key Vault to allow unauthenticated API queries." },
-      { id: 'D', text: "Enable the Azure role-based access control (Azure RBAC) permission model on Key Vault and assign 'Key Vault Secrets User'." }
+      { id: 'D', text: "Use the Azure RBAC permission model and assign Key Vault Secrets User." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -346,7 +346,7 @@ export const AZURE_AZ204_QUESTIONS_16 = [
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Configure a legacy Key Vault access policy granting full purge and backup permissions." },
-      { id: 'B', text: "Enable the Azure role-based access control (Azure RBAC) permission model on Key Vault and assign 'Key Vault Secrets User'." },
+      { id: 'B', text: "Use the Azure RBAC permission model and assign Key Vault Secrets User." },
       { id: 'C', text: "Share the Key Vault administrator password with the application development team." },
       { id: 'D', text: "Disable access controls on Key Vault to allow unauthenticated API queries." }
     ],
@@ -369,7 +369,7 @@ export const AZURE_AZ204_QUESTIONS_16 = [
       { id: 'A', text: "Disable access controls on Key Vault to allow unauthenticated API queries." },
       { id: 'B', text: "Configure a legacy Key Vault access policy granting full purge and backup permissions." },
       { id: 'C', text: "Share the Key Vault administrator password with the application development team." },
-      { id: 'D', text: "Enable the Azure role-based access control (Azure RBAC) permission model on Key Vault and assign 'Key Vault Secrets User'." }
+      { id: 'D', text: "Use the Azure RBAC permission model and assign Key Vault Secrets User." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -390,7 +390,7 @@ export const AZURE_AZ204_QUESTIONS_16 = [
       { id: 'A', text: "Disable access controls on Key Vault to allow unauthenticated API queries." },
       { id: 'B', text: "Configure a legacy Key Vault access policy granting full purge and backup permissions." },
       { id: 'C', text: "Share the Key Vault administrator password with the application development team." },
-      { id: 'D', text: "Enable the Azure role-based access control (Azure RBAC) permission model on Key Vault and assign 'Key Vault Secrets User'." }
+      { id: 'D', text: "Use the Azure RBAC permission model and assign Key Vault Secrets User." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -408,7 +408,7 @@ export const AZURE_AZ204_QUESTIONS_16 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The developer evaluates Azure Key Vault to grant an application permission to read secrets from Key Vault using fine-grained Azure RBAC role assignments rather than legacy vault access policies.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Enable the Azure role-based access control (Azure RBAC) permission model on Key Vault and assign 'Key Vault Secrets User'." },
+      { id: 'A', text: "Use the Azure RBAC permission model and assign Key Vault Secrets User." },
       { id: 'B', text: "Configure a legacy Key Vault access policy granting full purge and backup permissions." },
       { id: 'C', text: "Share the Key Vault administrator password with the application development team." },
       { id: 'D', text: "Disable access controls on Key Vault to allow unauthenticated API queries." }
@@ -429,7 +429,7 @@ export const AZURE_AZ204_QUESTIONS_16 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The developer evaluates Azure App Configuration to centralize application feature flags and settings in Azure App Configuration while seamlessly referencing database passwords securely stored in Azure Key Vault.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Hardcode configuration settings inside compiled application binary assemblies." },
+      { id: 'A', text: "Store the secrets as plain App Configuration values and restrict access with RBAC." },
       { id: 'B', text: "Copy and paste Key Vault passwords directly into App Configuration plaintext key values." },
       { id: 'C', text: "Store feature flags in an unmanaged SQL Server table requiring manual database updates." },
       { id: 'D', text: "Use Azure App Configuration with Key Vault References using the @Microsoft.KeyVault syntax." }
@@ -452,7 +452,7 @@ export const AZURE_AZ204_QUESTIONS_16 = [
     options: [
       { id: 'A', text: "Copy and paste Key Vault passwords directly into App Configuration plaintext key values." },
       { id: 'B', text: "Store feature flags in an unmanaged SQL Server table requiring manual database updates." },
-      { id: 'C', text: "Hardcode configuration settings inside compiled application binary assemblies." },
+      { id: 'C', text: "Store the secrets as plain App Configuration values and restrict access with RBAC." },
       { id: 'D', text: "Use Azure App Configuration with Key Vault References using the @Microsoft.KeyVault syntax." }
     ],
     correctAnswers: ['D'],
@@ -473,7 +473,7 @@ export const AZURE_AZ204_QUESTIONS_16 = [
     options: [
       { id: 'A', text: "Use Azure App Configuration with Key Vault References using the @Microsoft.KeyVault syntax." },
       { id: 'B', text: "Store feature flags in an unmanaged SQL Server table requiring manual database updates." },
-      { id: 'C', text: "Hardcode configuration settings inside compiled application binary assemblies." },
+      { id: 'C', text: "Store the secrets as plain App Configuration values and restrict access with RBAC." },
       { id: 'D', text: "Copy and paste Key Vault passwords directly into App Configuration plaintext key values." }
     ],
     correctAnswers: ['A'],
@@ -492,7 +492,7 @@ export const AZURE_AZ204_QUESTIONS_16 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Microsoft Azure. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The developer evaluates Azure App Configuration to centralize application feature flags and settings in Azure App Configuration while seamlessly referencing database passwords securely stored in Azure Key Vault.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Hardcode configuration settings inside compiled application binary assemblies." },
+      { id: 'A', text: "Store the secrets as plain App Configuration values and restrict access with RBAC." },
       { id: 'B', text: "Use Azure App Configuration with Key Vault References using the @Microsoft.KeyVault syntax." },
       { id: 'C', text: "Store feature flags in an unmanaged SQL Server table requiring manual database updates." },
       { id: 'D', text: "Copy and paste Key Vault passwords directly into App Configuration plaintext key values." }
@@ -513,7 +513,7 @@ export const AZURE_AZ204_QUESTIONS_16 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The developer evaluates Azure App Configuration to centralize application feature flags and settings in Azure App Configuration while seamlessly referencing database passwords securely stored in Azure Key Vault.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Hardcode configuration settings inside compiled application binary assemblies." },
+      { id: 'A', text: "Store the secrets as plain App Configuration values and restrict access with RBAC." },
       { id: 'B', text: "Copy and paste Key Vault passwords directly into App Configuration plaintext key values." },
       { id: 'C', text: "Use Azure App Configuration with Key Vault References using the @Microsoft.KeyVault syntax." },
       { id: 'D', text: "Store feature flags in an unmanaged SQL Server table requiring manual database updates." }

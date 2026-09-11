@@ -18,7 +18,7 @@ export const AZURE_AZ204_QUESTIONS_4 = [
     type: "single",
     explanation: "`Bounded Staleness` guarantees that reads lag behind writes by at most `K` versions (updates) or `T` time interval (seconds). Reads outside the staleness window are guaranteed to see the latest committed data in total order.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cosmos-db/consistency-levels#bounded-staleness-consistency",
-    tags: ["Cosmos DB", "Bounded Staleness", "Replication Lag"]
+    tags: ["Cosmos DB","Bounded Staleness","Replication Lag"]
   },
   {
     id: "azure-az204-77",
@@ -30,7 +30,7 @@ export const AZURE_AZ204_QUESTIONS_4 = [
     scenario: "A global application on Azure Cosmos DB writes to multiple regions simultaneously. When two clients in different regions update the same document at the exact same millisecond, a conflict occurs.",
     question: "Which default conflict resolution policy in Cosmos DB resolves conflicts using the highest `_ts` timestamp?",
     options: [
-      { id: 'A', text: "Last-Writer-Wins (LWW) policy using the internal _ts timestamp or a custom numeric property" },
+      { id: 'A', text: "A last-writer-wins policy" },
       { id: 'B', text: "First-Writer-Wins policy" },
       { id: 'C', text: "Custom Merge Stored Procedure only" },
       { id: 'D', text: "Manual Conflict Feed review only" }
@@ -39,7 +39,7 @@ export const AZURE_AZ204_QUESTIONS_4 = [
     type: "single",
     explanation: "Cosmos DB multi-region writes resolve conflicts using `Last-Writer-Wins` (LWW) by default. The platform compares the conflict resolution path (defaulting to the system timestamp `_ts`) and keeps the version with the highest numeric value, moving loser records to the conflicts feed if configured.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cosmos-db/conflict-resolution-policies",
-    tags: ["Cosmos DB", "Conflict Resolution", "Multi-Region"]
+    tags: ["Cosmos DB","Conflict Resolution","Multi-Region"]
   },
   {
     id: "azure-az204-78",
@@ -54,13 +54,13 @@ export const AZURE_AZ204_QUESTIONS_4 = [
       { id: 'A', text: "Add an ExcludedPath on /firstName/*" },
       { id: 'B', text: "A Spatial index on lastName" },
       { id: 'C', text: "Set indexingMode to None" },
-      { id: 'D', text: "A Composite Index definition containing lastName (ascending) and firstName (ascending)" }
+      { id: 'D', text: "A composite index on both fields" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "In Azure Cosmos DB, queries with an `ORDER BY` clause containing two or more properties require a `Composite Index`. The composite index must match the exact sequence and ascending/descending directions of the order-by fields.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cosmos-db/index-policy#composite-indexes",
-    tags: ["Cosmos DB", "Composite Index", "Query Optimization"]
+    tags: ["Cosmos DB","Composite Index","Query Optimization"]
   },
   {
     id: "azure-az204-79",
@@ -81,7 +81,7 @@ export const AZURE_AZ204_QUESTIONS_4 = [
     type: "single",
     explanation: "The Azure Cosmos DB Change Feed listens to an Azure Cosmos DB container for any changes. It outputs the sorted list of documents that were changed in the order in which they were modified (inserts and updates). Deletions are not captured unless soft-delete flags are used.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cosmos-db/change-feed",
-    tags: ["Cosmos DB", "Change Feed", "Event-Driven"]
+    tags: ["Cosmos DB","Change Feed","Event-Driven"]
   },
   {
     id: "azure-az204-80",
@@ -93,7 +93,7 @@ export const AZURE_AZ204_QUESTIONS_4 = [
     scenario: "A banking transaction must debit Account A and credit Account B in Azure Cosmos DB. Both documents reside in the same partition key. If either operation fails, the entire transaction must roll back.",
     question: "How should the developer implement atomic transactional execution across both documents?",
     options: [
-      { id: 'A', text: "Write a JavaScript Stored Procedure and execute it within the shared partition key" },
+      { id: 'A', text: "A stored procedure run within the partition key" },
       { id: 'B', text: "Execute two independent UpsertItemAsync calls in C# without locks" },
       { id: 'C', text: "Use the Change Feed processor to apply compensations" },
       { id: 'D', text: "Enable Multi-Region writes on the container" }
@@ -102,7 +102,7 @@ export const AZURE_AZ204_QUESTIONS_4 = [
     type: "single",
     explanation: "Cosmos DB supports ACID transactions within a single logical partition key using JavaScript `Stored Procedures`. Stored procedures execute with snapshot isolation directly on the database engine. If an exception is thrown, all modifications are automatically rolled back.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cosmos-db/sql/how-to-write-stored-procedures-triggers-udfs",
-    tags: ["Cosmos DB", "Stored Procedures", "ACID Transactions"]
+    tags: ["Cosmos DB","Stored Procedures","ACID Transactions"]
   },
   {
     id: "azure-az204-81",
@@ -114,7 +114,7 @@ export const AZURE_AZ204_QUESTIONS_4 = [
     scenario: "A logging service in Azure Cosmos DB stores temporary diagnostics. All documents in the container must be automatically deleted after 30 days (2,592,000 seconds) without burning Request Units on delete queries.",
     question: "How should the developer configure automatic expiration?",
     options: [
-      { id: 'A', text: "Enable Time to Live (TTL) on the container and set defaultTimeToLive to 2592000" },
+      { id: 'A', text: "Set defaultTimeToLive on the container" },
       { id: 'B', text: "Write a nightly Azure Function that runs DELETE * queries" },
       { id: 'C', text: "Configure an Azure Storage lifecycle rule targeting Cosmos DB" },
       { id: 'D', text: "Cosmos DB does not support automatic document expiration" }
@@ -123,7 +123,7 @@ export const AZURE_AZ204_QUESTIONS_4 = [
     type: "single",
     explanation: "Azure Cosmos DB provides native `Time to Live` (TTL). When enabled on a container, Cosmos DB automatically purges expired items in the background using spare system throughput, without consuming user-provisioned RU/s.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cosmos-db/time-to-live",
-    tags: ["Cosmos DB", "TTL", "Data Lifecycle"]
+    tags: ["Cosmos DB","TTL","Data Lifecycle"]
   },
   {
     id: "azure-az204-82",
@@ -144,7 +144,7 @@ export const AZURE_AZ204_QUESTIONS_4 = [
     type: "single",
     explanation: "Cosmos DB .NET SDK supports two connection modes: `Direct` (uses TCP directly to physical replica nodes, bypassing intermediate gateways for sub-10ms latency) and `Gateway` (routes through HTTPS port 443 gateways). Direct mode is recommended for production performance.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cosmos-db/sql/performance-tips-dotnet-sdk-v3#networking",
-    tags: ["Cosmos DB", "Direct Mode", "SDK Optimization"]
+    tags: ["Cosmos DB","Direct Mode","SDK Optimization"]
   },
   {
     id: "azure-az204-83",
@@ -157,7 +157,7 @@ export const AZURE_AZ204_QUESTIONS_4 = [
     question: "Which mechanism in the Cosmos DB FeedIterator manages paginated state?",
     options: [
       { id: 'A', text: "Downloading the entire container into memory on the mobile device" },
-      { id: 'B', text: "Passing the ContinuationToken from the previous FeedResponse into QueryRequestOptions" },
+      { id: 'B', text: "Passing the previous ContinuationToken back in" },
       { id: 'C', text: "Executing separate Scan queries per page" },
       { id: 'D', text: "Using SQL OFFSET and LIMIT with high numbers" }
     ],
@@ -165,7 +165,7 @@ export const AZURE_AZ204_QUESTIONS_4 = [
     type: "single",
     explanation: "Cosmos DB uses `Continuation Tokens` for stateful query pagination. Each `FeedResponse` returns a `ContinuationToken` string bookmarking the query progress. Passing this token into `QueryRequestOptions.ResponseContinuationToken` resumes scanning exactly where the last page left off.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cosmos-db/sql/sql-query-pagination",
-    tags: ["Cosmos DB", "Pagination", "Continuation Token"]
+    tags: ["Cosmos DB","Pagination","Continuation Token"]
   },
   {
     id: "azure-az204-84",
@@ -180,13 +180,13 @@ export const AZURE_AZ204_QUESTIONS_4 = [
       { id: 'A', text: "Archive tier for the first 30 days then Hot" },
       { id: 'B', text: "Keep files permanently in Hot tier" },
       { id: 'C', text: "Store files in Cool tier only" },
-      { id: 'D', text: "Hot tier for the first 30 days, then transition to Archive tier for long-term retention" }
+      { id: 'D', text: "Hot for 30 days, then Archive" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Azure Blob Storage offers `Hot` (frequently accessed data, highest storage cost, lowest access cost), `Cool` (accessed infrequently, lower storage cost), `Cold` (rarely accessed data), and `Archive` (lowest storage cost, highest access cost, hours to rehydrate).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/blobs/access-tiers-overview",
-    tags: ["Blob Storage", "Access Tiers", "Cost Optimization"]
+    tags: ["Blob Storage","Access Tiers","Cost Optimization"]
   },
   {
     id: "azure-az204-85",
@@ -200,14 +200,14 @@ export const AZURE_AZ204_QUESTIONS_4 = [
     options: [
       { id: 'A', text: "Instant rehydration priority" },
       { id: 'B', text: "Standard rehydration priority (takes up to 15 hours)" },
-      { id: 'C', text: "High rehydration priority (rehydrates in under 1 hour for blobs under 10 GB)" },
+      { id: 'C', text: "High rehydration priority, under an hour" },
       { id: 'D', text: "Immediate batch priority" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Rehydrating an archived blob to Hot or Cool supports two priorities: `Standard priority` (takes up to 15 hours) and `High priority` (prioritizes the request, typically completing in under 1 hour for objects under 10 GB at a higher retrieval cost).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/blobs/archive-rehydrate-overview",
-    tags: ["Blob Storage", "Rehydration", "Archive Tier"]
+    tags: ["Blob Storage","Rehydration","Archive Tier"]
   },
   {
     id: "azure-az204-86",
@@ -228,7 +228,7 @@ export const AZURE_AZ204_QUESTIONS_4 = [
     type: "single",
     explanation: "Azure Blob Storage supports three distinct blob types: `Block Blobs` (general documents, files, images), `Append Blobs` (optimized for append-only log scenarios where data is committed at the end via `AppendBlock`), and `Page Blobs` (512-byte aligned random read/write storage for VM disks).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction#blobs",
-    tags: ["Blob Storage", "Blob Types", "Append Blobs"]
+    tags: ["Blob Storage","Blob Types","Append Blobs"]
   },
   {
     id: "azure-az204-87",
@@ -249,7 +249,7 @@ export const AZURE_AZ204_QUESTIONS_4 = [
     type: "single",
     explanation: "Azure Blob Storage Lifecycle Management policies define declarative JSON rules matching blob prefixes and tags. Rules automate transitioning blobs to Cool, Cold, or Archive tiers, and deleting blobs when their age exceeds defined day thresholds.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/blobs/lifecycle-management-overview",
-    tags: ["Blob Storage", "Lifecycle Management", "Governance"]
+    tags: ["Blob Storage","Lifecycle Management","Governance"]
   },
   {
     id: "azure-az204-88",
@@ -264,13 +264,13 @@ export const AZURE_AZ204_QUESTIONS_4 = [
       { id: 'A', text: "Deleted containers cannot be restored" },
       { id: 'B', text: "Restore from an on-premises backup" },
       { id: 'C', text: "Contact Microsoft Support for physical tape retrieval" },
-      { id: 'D', text: "Use the Restore-AzStorageContainer command or Undelete Container in the Azure Portal" }
+      { id: 'D', text: "Undelete the container with Restore-AzStorageContainer" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "When `Container Soft Delete` is enabled, deleted containers remain in a soft-deleted state for the configured retention period (1 to 365 days). Administrators can list deleted containers and call the undelete/restore API to restore the container and all contents instantly.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/blobs/soft-delete-container-overview",
-    tags: ["Blob Storage", "Soft Delete", "Data Protection"]
+    tags: ["Blob Storage","Soft Delete","Data Protection"]
   },
   {
     id: "azure-az204-89",
@@ -291,7 +291,7 @@ export const AZURE_AZ204_QUESTIONS_4 = [
     type: "single",
     explanation: "Blob Versioning automatically creates an immutable, timestamped previous version of a blob whenever it is overwritten or deleted. Unlike manual Blob Snapshots, Versioning operates transparently on every write operation.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/blobs/versioning-overview",
-    tags: ["Blob Storage", "Versioning", "Audit"]
+    tags: ["Blob Storage","Versioning","Audit"]
   },
   {
     id: "azure-az204-90",
@@ -304,7 +304,7 @@ export const AZURE_AZ204_QUESTIONS_4 = [
     question: "Which Azure Blob Storage feature enforces Write-Once-Read-Many (WORM) storage?",
     options: [
       { id: 'A', text: "Blob Soft Delete" },
-      { id: 'B', text: "Immutable Storage with a Time-Based Retention Policy in Locked state" },
+      { id: 'B', text: "A locked retention policy" },
       { id: 'C', text: "Storage Account Access Keys" },
       { id: 'D', text: "Customer Managed Keys alone" }
     ],
@@ -312,7 +312,7 @@ export const AZURE_AZ204_QUESTIONS_4 = [
     type: "single",
     explanation: "Azure Blob Storage Immutable Storage provides WORM (Write Once, Read Many) policies. When a time-based retention policy is locked, objects cannot be modified or deleted by any user, including account owners and subscription administrators, until the retention period expires.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/blobs/immutable-storage-overview",
-    tags: ["Blob Storage", "Immutable Storage", "Compliance"]
+    tags: ["Blob Storage","Immutable Storage","Compliance"]
   },
   {
     id: "azure-az204-91",
@@ -333,7 +333,7 @@ export const AZURE_AZ204_QUESTIONS_4 = [
     type: "single",
     explanation: "Azure Blob Index Tags store key-value tag attributes alongside blobs. Azure Storage automatically indexes these tags, enabling developers to query blobs across containers using SQL-like expressions (e.g. `@container = 'docs' AND Department = 'Finance'`).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blob-index-how-to",
-    tags: ["Blob Storage", "Index Tags", "Search"]
+    tags: ["Blob Storage","Index Tags","Search"]
   },
   {
     id: "azure-az204-92",
@@ -345,7 +345,7 @@ export const AZURE_AZ204_QUESTIONS_4 = [
     scenario: "A video editing platform uploads 100 GB video files to Azure Blob Storage over unreliable cellular network connections. Individual upload chunks fail periodically.",
     question: "Which API operations allow parallel, resumable chunked uploads for Block Blobs?",
     options: [
-      { id: 'A', text: "StageBlock (PutBlock) for uploading chunks followed by CommitBlockList (PutBlockList) to assemble the final blob" },
+      { id: 'A', text: "StageBlock then CommitBlockList" },
       { id: 'B', text: "PutBlob with a single 100 GB stream" },
       { id: 'C', text: "AppendBlock in a single thread" },
       { id: 'D', text: "UploadBlockRange" }
@@ -354,7 +354,7 @@ export const AZURE_AZ204_QUESTIONS_4 = [
     type: "single",
     explanation: "Block Blobs are composed of blocks up to 4,000 MiB each (up to 50,000 blocks). Uploading applications call `StageBlock` (`PutBlock`) to upload individual blocks in parallel with block IDs. Once all blocks succeed, `CommitBlockList` (`PutBlockList`) commits them into a single final blob.",
     referenceUrl: "https://learn.microsoft.com/en-us/rest/api/storageservices/put-block-list",
-    tags: ["Blob Storage", "StageBlock", "Chunked Upload"]
+    tags: ["Blob Storage","StageBlock","Chunked Upload"]
   },
   {
     id: "azure-az204-93",
@@ -368,14 +368,14 @@ export const AZURE_AZ204_QUESTIONS_4 = [
     options: [
       { id: 'A', text: "The x-ms-blob-condition header" },
       { id: 'B', text: "The Content-Encoding header" },
-      { id: 'C', text: "The x-ms-range or standard Range HTTP request header (e.g. Range: bytes=0-1048575)" },
+      { id: 'C', text: "The Range request header" },
       { id: 'D', text: "The Content-Range header in the request" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Azure Blob Storage supports standard HTTP byte-range requests via the `Range` or `x-ms-range` request header. Clients request specific byte offsets to stream media chunks or resume interrupted file downloads efficiently.",
     referenceUrl: "https://learn.microsoft.com/en-us/rest/api/storageservices/get-blob#request-headers",
-    tags: ["Blob Storage", "Range Requests", "Streaming"]
+    tags: ["Blob Storage","Range Requests","Streaming"]
   },
   {
     id: "azure-az204-94",
@@ -388,7 +388,7 @@ export const AZURE_AZ204_QUESTIONS_4 = [
     question: "Which Azure Storage feature serves web content directly and specifies `index.html` and `404.html` documents?",
     options: [
       { id: 'A', text: "Blob Public Access Container level" },
-      { id: 'B', text: "Static Website hosting using the special $web container" },
+      { id: 'B', text: "Static website hosting from $web" },
       { id: 'C', text: "Azure File Share website hosting" },
       { id: 'D', text: "Azure App Service Static Plan" }
     ],
@@ -396,7 +396,7 @@ export const AZURE_AZ204_QUESTIONS_4 = [
     type: "single",
     explanation: "Azure Storage accounts support `Static website` hosting. Enabling it creates a dedicated `$web` container and provisions a web endpoint (`https://&lt;account&gt;.z[0-9].web.core.windows.net`). Developers configure index and error document paths to serve modern SPAs.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blob-static-website",
-    tags: ["Blob Storage", "Static Website", "Web Hosting"]
+    tags: ["Blob Storage","Static Website","Web Hosting"]
   },
   {
     id: "azure-az204-95",
@@ -411,13 +411,13 @@ export const AZURE_AZ204_QUESTIONS_4 = [
       { id: 'A', text: "Cosmos DB Cassandra API" },
       { id: 'B', text: "Azure Files SMB Share" },
       { id: 'C', text: "Flat Namespace in standard Blob storage" },
-      { id: 'D', text: "Hierarchical Namespace (HNS) in Azure Data Lake Storage Gen2" }
+      { id: 'D', text: "Hierarchical namespace on the account" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Azure Data Lake Storage Gen2 enables a `Hierarchical Namespace` (HNS) on Blob storage. HNS organizes files into a true filesystem directory hierarchy, turning directory renames and deletes into instant atomic metadata operations and enabling POSIX access control lists.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction#key-features-of-data-lake-storage-gen2",
-    tags: ["Blob Storage", "ADLS Gen2", "Hierarchical Namespace"]
+    tags: ["Blob Storage","ADLS Gen2","Hierarchical Namespace"]
   },
   {
     id: "azure-az204-96",
@@ -429,8 +429,8 @@ export const AZURE_AZ204_QUESTIONS_4 = [
     scenario: "A financial compliance policy mandates that all data in Azure Storage accounts must be encrypted using encryption keys stored in an Azure Key Vault managed by the customer.",
     question: "Which configuration links the Storage Account encryption to the Key Vault key?",
     options: [
-      { id: 'A', text: "Enable Customer-Managed Keys (CMK) in Storage Account Encryption and assign a Key Vault key URI" },
-      { id: 'B', text: "Hardcode the Key Vault secret in connection strings" },
+      { id: 'A', text: "Enable customer-managed keys with a Key Vault URI" },
+      { id: 'B', text: "Encrypt the data client-side with a key fetched from Key Vault" },
       { id: 'C', text: "Disable Storage Service Encryption" },
       { id: 'D', text: "Use Microsoft-managed keys only" }
     ],
@@ -438,7 +438,7 @@ export const AZURE_AZ204_QUESTIONS_4 = [
     type: "single",
     explanation: "Azure Storage accounts support Customer-Managed Keys (CMK) via Azure Key Vault. When configured with a system-assigned or user-assigned Managed Identity, Azure Storage uses the designated Key Vault key as the root Key Encryption Key (KEK) to wrap data encryption keys.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview",
-    tags: ["Storage", "CMK", "Key Vault"]
+    tags: ["Storage","CMK","Key Vault"]
   },
   {
     id: "azure-az204-97",
@@ -450,7 +450,7 @@ export const AZURE_AZ204_QUESTIONS_4 = [
     scenario: "A security team configures a storage account firewall so that traffic is accepted only from a specific backend subnet `10.1.0.0/24` in a virtual network.",
     question: "What must be enabled on the virtual network subnet to permit this private routing?",
     options: [
-      { id: 'A', text: "A Service Endpoint for Microsoft.Storage on the subnet" },
+      { id: 'A', text: "A storage service endpoint" },
       { id: 'B', text: "A Public Elastic IP address" },
       { id: 'C', text: "Azure Bastion Host" },
       { id: 'D', text: "An ExpressRoute circuit" }
@@ -459,7 +459,7 @@ export const AZURE_AZ204_QUESTIONS_4 = [
     type: "single",
     explanation: "Enabling a `Service Endpoint` for `Microsoft.Storage` on the VNet subnet extends the virtual network private address space to Azure Storage. Storage account firewall rules can then restrict access exclusively to traffic originating from that specific subnet.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security#grant-access-from-a-virtual-network",
-    tags: ["Storage", "Service Endpoints", "Firewalls"]
+    tags: ["Storage","Service Endpoints","Firewalls"]
   },
   {
     id: "azure-az204-98",
@@ -480,7 +480,7 @@ export const AZURE_AZ204_QUESTIONS_4 = [
     type: "single",
     explanation: "An Azure Private Endpoint is a network interface that assigns a private IP address from your VNet to the Azure Storage service. All traffic to `https://&lt;account&gt;.blob.core.windows.net` resolves to this private IP via Private DNS zones, avoiding public internet exposure completely.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/common/storage-private-endpoints",
-    tags: ["Storage", "Private Endpoints", "Private Link"]
+    tags: ["Storage","Private Endpoints","Private Link"]
   },
   {
     id: "azure-az204-99",
@@ -501,7 +501,7 @@ export const AZURE_AZ204_QUESTIONS_4 = [
     type: "single",
     explanation: "For storage accounts configured with GRS or GZRS, administrators can initiate an `Account Failover` via the Azure Portal, CLI, or PowerShell. This repoints DNS to the secondary region, making it the new primary write location.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/common/storage-initiate-account-failover",
-    tags: ["Storage", "Failover", "Disaster Recovery"]
+    tags: ["Storage","Failover","Disaster Recovery"]
   },
   {
     id: "azure-az204-100",
@@ -522,7 +522,7 @@ export const AZURE_AZ204_QUESTIONS_4 = [
     type: "single",
     explanation: "Configuring `Diagnostic settings` on Azure Storage to stream storage logs (Read, Write, Delete operations) to an `Azure Log Analytics workspace` allows security teams to use Kusto Query Language (KQL) to audit access, inspect caller IP addresses, and track deletions.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/blobs/monitor-blob-storage",
-    tags: ["Storage", "Diagnostics", "Log Analytics"]
+    tags: ["Storage","Diagnostics","Log Analytics"]
   }
 ];
 
