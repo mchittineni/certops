@@ -18,7 +18,7 @@ export const GCP_ACE_QUESTIONS_9 = [
     type: "single",
     explanation: "The GKE Stable release channel provides Kubernetes versions that have been thoroughly validated in production across Google Cloud over several months. Upgrades are less frequent, offering the highest operational stability and predictability for mission-critical core enterprise workloads.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["GKE", "ReleaseChannels", "Governance"]
+    tags: ["GKE","ReleaseChannels","Governance"]
   },
   {
     id: "gcp-ace-202",
@@ -33,13 +33,13 @@ export const GCP_ACE_QUESTIONS_9 = [
       { id: 'A', text: "Reduce the CPU target percentage to 10%" },
       { id: 'B', text: "Disable Metrics Server on the cluster" },
       { id: 'C', text: "Set PodDisruptionBudget to minAvailable: 50" },
-      { id: 'D', text: "Configure 'behavior.scaleDown.stabilizationWindowSeconds' to 300 seconds" }
+      { id: 'D', text: "A 300-second scale-down stabilization window" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "The Horizontal Pod Autoscaler 'stabilizationWindowSeconds' parameter (under behavior.scaleDown) defines a cooldown period. HPA evaluates metrics continuously during this window and will not scale down pods until traffic metrics remain below threshold for the entire duration (e.g. 300 seconds), eliminating flapping and thrashing.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["GKE", "HPA", "Performance"]
+    tags: ["GKE","HPA","Performance"]
   },
   {
     id: "gcp-ace-203",
@@ -51,7 +51,7 @@ export const GCP_ACE_QUESTIONS_9 = [
     scenario: "A high-performance stateful database running on Compute Engine needs advance warning before Google Cloud performs host maintenance (such as live migration) so the database process can pause non-essential background tasks and flush in-memory write buffers.",
     question: "How can an application running inside the VM detect an upcoming maintenance event?",
     options: [
-      { id: 'A', text: "Long-poll the metadata server endpoint 'http://metadata.google.internal/computeMetadata/v1/instance/maintenance-event' with header 'Metadata-Flavor: Google'" },
+      { id: 'A', text: "Long-poll the maintenance-event metadata key" },
       { id: 'B', text: "Subscribe to the Cloud Billing Pub/Sub topic" },
       { id: 'C', text: "Listen on UDP port 53 for DNS broadcast alerts" },
       { id: 'D', text: "Monitor /var/log/syslog for the string 'MAINTENANCE'" }
@@ -60,7 +60,7 @@ export const GCP_ACE_QUESTIONS_9 = [
     type: "single",
     explanation: "Compute Engine notifies instances of upcoming host maintenance events through the internal metadata server. Applications can query 'http://metadata.google.internal/computeMetadata/v1/instance/maintenance-event'. Before a live migration begins, the value changes from 'NONE' to 'MIGRATE_ON_HOST_MAINTENANCE', providing an automated notification window.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["ComputeEngine", "Metadata", "LiveMigration"]
+    tags: ["ComputeEngine","Metadata","LiveMigration"]
   },
   {
     id: "gcp-ace-204",
@@ -73,7 +73,7 @@ export const GCP_ACE_QUESTIONS_9 = [
     question: "What is the recommended action according to Google Cloud best practices?",
     options: [
       { id: 'A', text: "Restart the Bigtable cluster instances during a maintenance window" },
-      { id: 'B', text: "Add nodes to the Bigtable cluster to reduce average CPU utilization below the recommended 70% threshold" },
+      { id: 'B', text: "Add Bigtable nodes to bring average CPU below 70%" },
       { id: 'C', text: "Switch the storage disks from SSD to HDD" },
       { id: 'D', text: "Change the table column families to single-version retention" }
     ],
@@ -81,7 +81,7 @@ export const GCP_ACE_QUESTIONS_9 = [
     type: "single",
     explanation: "For single-cluster Cloud Bigtable deployments, Google Cloud strongly recommends maintaining average CPU utilization below 70% (or below 35% for multi-cluster routing with failover). Exceeding 70% leads to queue queuing delays and latency spikes. Adding nodes distributes tablets and immediately restores low latency.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["CloudBigtable", "CapacityPlanning", "Performance"]
+    tags: ["CloudBigtable","CapacityPlanning","Performance"]
   },
   {
     id: "gcp-ace-205",
@@ -102,7 +102,7 @@ export const GCP_ACE_QUESTIONS_9 = [
     type: "single",
     explanation: "VPC Flow Logs records network telemetry for all IP traffic flows entering and exiting network interfaces within a subnet. Each record captures the 5-tuple (source IP/port, destination IP/port, protocol), packets sent, bytes transferred, and round-trip TCP latency, streaming data directly to Cloud Logging.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["VPC", "VPCFlowLogs", "Security"]
+    tags: ["VPC","VPCFlowLogs","Security"]
   },
   {
     id: "gcp-ace-206",
@@ -123,7 +123,7 @@ export const GCP_ACE_QUESTIONS_9 = [
     type: "single",
     explanation: "Google Cloud Error Reporting continuously analyzes application logs in Cloud Logging. It extracts stack traces and error messages, deduplicates and groups identical errors into unified issue cards, tracks error counts and rates over time, and alerts on newly detected exceptions.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["ErrorReporting", "Observability", "Reliability"]
+    tags: ["ErrorReporting","Observability","Reliability"]
   },
   {
     id: "gcp-ace-207",
@@ -137,14 +137,14 @@ export const GCP_ACE_QUESTIONS_9 = [
     options: [
       { id: 'A', text: "Only if the instance was part of a Regional Managed Instance Group" },
       { id: 'B', text: "Only if the snapshot was manually copied using Cloud Storage Transfer Service" },
-      { id: 'C', text: "Yes, Compute Engine snapshots are stored redundantly across all zones in the region (or multi-region) and can restore a disk into any zone within that region" },
+      { id: 'C', text: "Yes; snapshots are regional and restore into any zone in the region." },
       { id: 'D', text: "No, snapshots can only be restored into the exact zone where the source disk was located" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Persistent Disk snapshots in Compute Engine are regional or multi-regional resources by default, not zonal. Even if the source disk was in zone 'us-east1-b', the snapshot is stored across multiple zones in the region, allowing engineers to create a new persistent disk in zone 'us-east1-c' (or any other zone in the region) immediately.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["ComputeEngine", "Snapshots", "DisasterRecovery"]
+    tags: ["ComputeEngine","Snapshots","DisasterRecovery"]
   },
   {
     id: "gcp-ace-208",
@@ -157,7 +157,7 @@ export const GCP_ACE_QUESTIONS_9 = [
     question: "What is the cause of these errors, and what architectural change resolves the issue?",
     options: [
       { id: 'A', text: "The storage class must be converted from Standard to Nearline to handle high IOPS" },
-      { id: 'B', text: "Monotonically increasing or sequential object names hotspot a single Cloud Storage backend index shard; prepend a random hash prefix or reverse the timestamp in object keys to distribute write operations evenly across index shards" },
+      { id: 'B', text: "Sequential object names hotspot one index shard; add a random prefix." },
       { id: 'C', text: "The project has reached its maximum persistent disk throughput quota in the region" },
       { id: 'D', text: "Cloud Storage has exceeded its maximum object count per bucket; create separate regional buckets for each sensor" }
     ],
@@ -165,7 +165,7 @@ export const GCP_ACE_QUESTIONS_9 = [
     type: "single",
     explanation: "Cloud Storage automatically shards bucket index keys lexicographically. If an application writes thousands of objects per second with sequential prefixes (like timestamps or sequential integers), all writes hit the exact same backend shard, exceeding its initial capacity and resulting in HTTP 503 slowdowns. Adding high-entropy random hashes to the prefix distributes requests across multiple storage shards simultaneously.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["CloudStorage", "Performance", "Architecture"]
+    tags: ["CloudStorage","Performance","Architecture"]
   },
   {
     id: "gcp-ace-209",
@@ -186,7 +186,7 @@ export const GCP_ACE_QUESTIONS_9 = [
     type: "single",
     explanation: "Workload Identity is the Google-recommended best practice for authenticating workloads running on GKE to Google Cloud APIs. It maps a Kubernetes Service Account (KSA) directly to a Google Service Account (GSA), allowing Pods to receive temporary, automatically rotated OAuth tokens without storing static service account keys.",
     referenceUrl: "https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity",
-    tags: ["GKE", "Workload Identity", "IAM", "Security"]
+    tags: ["GKE","Workload Identity","IAM","Security"]
   },
   {
     id: "gcp-ace-210",
@@ -199,7 +199,7 @@ export const GCP_ACE_QUESTIONS_9 = [
     question: "Why is assigning primitive roles considered a security anti-pattern in enterprise environments?",
     options: [
       { id: 'A', text: "Primitive roles incur additional hourly administrative licensing charges" },
-      { id: 'B', text: "Primitive roles (Owner, Editor, Viewer) grant broad, sweeping permissions across almost all Google Cloud services in the project, violating the principle of least privilege" },
+      { id: 'B', text: "Primitive roles grant sweeping permissions across nearly every service." },
       { id: 'C', text: "Primitive roles cannot be applied to human users and only work on service accounts" },
       { id: 'D', text: "Primitive roles automatically expire after 24 hours and must be refreshed manually" }
     ],
@@ -207,7 +207,7 @@ export const GCP_ACE_QUESTIONS_9 = [
     type: "single",
     explanation: "Primitive roles (Owner, Editor, Viewer) are coarse-grained legacy roles that apply wide-ranging read/write permissions across virtually every service in a project. Enterprise security best practices mandate using Predefined Roles (such as roles/storage.objectAdmin) or Custom Roles to enforce least privilege.",
     referenceUrl: "https://cloud.google.com/iam/docs/understanding-roles#primitive_roles",
-    tags: ["IAM", "Roles", "Least Privilege", "Security"]
+    tags: ["IAM","Roles","Least Privilege","Security"]
   },
   {
     id: "gcp-ace-211",
@@ -228,7 +228,7 @@ export const GCP_ACE_QUESTIONS_9 = [
     type: "single",
     explanation: "To attach a service account to a resource (such as a Compute Engine VM, Cloud Run service, or Cloud Function), the identity creating or updating the resource must have the `iam.serviceAccounts.actAs` permission on that service account, provided by the `roles/iam.serviceAccountUser` role.",
     referenceUrl: "https://cloud.google.com/iam/docs/service-account-permissions#user-role",
-    tags: ["IAM", "Service Accounts", "Compute Engine", "Security"]
+    tags: ["IAM","Service Accounts","Compute Engine","Security"]
   },
   {
     id: "gcp-ace-212",
@@ -240,7 +240,7 @@ export const GCP_ACE_QUESTIONS_9 = [
     scenario: "A security engineer notices that a junior developer was granted the 'roles/viewer' role on a Folder named 'Engineering'. The engineer attempts to revoke this viewer permission on a specific production project nested inside the folder by removing the role from the project's IAM policy.",
     question: "What happens when the engineer modifies the project-level IAM policy?",
     options: [
-      { id: 'A', text: "The developer retains Viewer access to the project because IAM permissions are inherited from parent folders and cannot be revoked at the child resource level" },
+      { id: 'A', text: "Viewer is inherited from the parent folder and cannot be revoked below." },
       { id: 'B', text: "Google Cloud creates an automatic Deny rule on the project" },
       { id: 'C', text: "The developer loses access to the project while retaining access to all other projects in the folder" },
       { id: 'D', text: "The project enters an orphaned IAM state and becomes inaccessible to all users" }
@@ -249,7 +249,7 @@ export const GCP_ACE_QUESTIONS_9 = [
     type: "single",
     explanation: "Google Cloud IAM follows a strict inheritance model where permissions granted at parent levels (Organization, Folder) flow downward to all child resources (Projects, VMs, Buckets). IAM policies are additive (the union of parent and child permissions). A permission inherited from a parent folder cannot be revoked or subtracted by modifying the child project's IAM policy.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["CloudIAM", "ResourceHierarchy", "Governance"]
+    tags: ["CloudIAM","ResourceHierarchy","Governance"]
   },
   {
     id: "gcp-ace-213",
@@ -263,14 +263,14 @@ export const GCP_ACE_QUESTIONS_9 = [
     options: [
       { id: 'A', text: "Apply a VPC Service Controls perimeter around the storage API" },
       { id: 'B', text: "Remove the 'roles/storage.admin' role from all developers" },
-      { id: 'C', text: "Create an IAM Deny Policy at the Folder level specifying a deny rule for permission 'storage.buckets.delete'" },
+      { id: 'C', text: "A folder-level deny policy for storage.buckets.delete" },
       { id: 'D', text: "Enable Object Versioning on all Cloud Storage buckets" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "IAM Deny Policies enforce hard guardrails that override any existing or future Allow policies. When an IAM Deny rule matches a permission (e.g. 'storage.buckets.delete') for designated principals, access is unconditionally denied, even if the principal possesses the primitive 'Owner' or 'Storage Admin' role.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["CloudIAM", "DenyPolicies", "Security"]
+    tags: ["CloudIAM","DenyPolicies","Security"]
   },
   {
     id: "gcp-ace-214",
@@ -285,13 +285,13 @@ export const GCP_ACE_QUESTIONS_9 = [
       { id: 'A', text: "The default service account has its credentials published in the public Google directory" },
       { id: 'B', text: "Default service accounts cannot communicate over private VPC networks" },
       { id: 'C', text: "The default service account incurs a 10% premium on VM compute pricing" },
-      { id: 'D', text: "Google Cloud automatically grants the primitive 'roles/editor' role to the default service account, giving any compromised VM broad modify permissions across nearly all project services" }
+      { id: 'D', text: "The default service account gets roles/editor across the whole project." }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "By default, Google Cloud automatically assigns the primitive 'Editor' role ('roles/editor') to the Compute Engine default service account. If an application running on a VM has a remote code execution vulnerability, an attacker can use the VM's metadata credentials to create, modify, or delete almost any resource in the project. Best practice is to attach custom user-managed service accounts with least-privilege roles.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["ComputeEngine", "ServiceAccounts", "LeastPrivilege"]
+    tags: ["ComputeEngine","ServiceAccounts","LeastPrivilege"]
   },
   {
     id: "gcp-ace-215",
@@ -304,7 +304,7 @@ export const GCP_ACE_QUESTIONS_9 = [
     question: "How are effective VM permissions determined, and how should this be fixed?",
     options: [
       { id: 'A', text: "Grant the 'roles/owner' role to the VM's service account" },
-      { id: 'B', text: "Effective permissions are the intersection of OAuth access scopes and IAM roles; stop the VM, update the access scope to 'https://www.googleapis.com/auth/cloud-platform', and start the VM" },
+      { id: 'B', text: "Scopes intersect with IAM; stop the VM and widen the scope" },
       { id: 'C', text: "Download a service account JSON key to the VM filesystem" },
       { id: 'D', text: "Convert the persistent disk to a regional persistent disk" }
     ],
@@ -312,7 +312,7 @@ export const GCP_ACE_QUESTIONS_9 = [
     type: "single",
     explanation: "On Compute Engine VMs, effective permissions are calculated as the intersection of the VM's legacy OAuth access scopes and the attached service account's IAM roles. If access scopes are restricted to default read-only scopes, IAM admin roles are blocked. Modern best practice is to configure the scope to 'https://www.googleapis.com/auth/cloud-platform' (full access) and govern all permissions strictly through Cloud IAM.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["ComputeEngine", "AccessScopes", "CloudIAM"]
+    tags: ["ComputeEngine","AccessScopes","CloudIAM"]
   },
   {
     id: "gcp-ace-216",
@@ -333,7 +333,7 @@ export const GCP_ACE_QUESTIONS_9 = [
     type: "single",
     explanation: "The 'roles/iam.serviceAccountUser' role grants permission to attach the service account to compute resources (such as Compute Engine VMs, Cloud Run services, or Cloud Functions), allowing jobs to execute as that identity. In contrast, 'roles/iam.serviceAccountTokenCreator' permits generating short-lived access tokens or impersonating the account directly on a workstation.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["CloudIAM", "ServiceAccounts", "Security"]
+    tags: ["CloudIAM","ServiceAccounts","Security"]
   },
   {
     id: "gcp-ace-217",
@@ -348,13 +348,13 @@ export const GCP_ACE_QUESTIONS_9 = [
       { id: 'A', text: "Assign the 'roles/bigtable.reader' role to all worker node VMs" },
       { id: 'B', text: "Encrypt the Kubernetes secret using Cloud KMS customer-managed keys" },
       { id: 'C', text: "Store the JSON key in Secret Manager and fetch it via startup script" },
-      { id: 'D', text: "Enable GKE Workload Identity, bind the Kubernetes ServiceAccount to the Google ServiceAccount with 'roles/iam.workloadIdentityUser', and annotate the KSA" }
+      { id: 'D', text: "Enable Workload Identity, bind the KSA and annotate it" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "GKE Workload Identity is the recommended security best practice for pod-to-GCP authentication. It links a Kubernetes ServiceAccount (KSA) directly to a Google ServiceAccount (GSA). The GKE metadata server transparently issues short-lived OAuth tokens to pods running as that KSA, completely eliminating the need to store, distribute, or rotate static JSON keys.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["GKE", "WorkloadIdentity", "Security"]
+    tags: ["GKE","WorkloadIdentity","Security"]
   },
   {
     id: "gcp-ace-218",
@@ -366,7 +366,7 @@ export const GCP_ACE_QUESTIONS_9 = [
     scenario: "A company uses GitHub Actions for continuous deployment to Google Cloud. The security team forbids downloading or storing Google Cloud service account JSON keys in GitHub repository secrets due to credential leakage risks.",
     question: "Which technology allows GitHub Actions to authenticate directly to Google Cloud without service account keys?",
     options: [
-      { id: 'A', text: "Workload Identity Federation configured with GitHub as an OpenID Connect (OIDC) identity provider" },
+      { id: 'A', text: "Workload Identity Federation with GitHub as OIDC provider" },
       { id: 'B', text: "A site-to-site HA VPN between GitHub and Google Cloud" },
       { id: 'C', text: "Identity-Aware Proxy with TCP forwarding" },
       { id: 'D', text: "Basic authentication with Cloud Identity username and password" }
@@ -375,7 +375,7 @@ export const GCP_ACE_QUESTIONS_9 = [
     type: "single",
     explanation: "Workload Identity Federation allows external workloads (such as GitHub Actions, AWS, Azure, or GitLab) to authenticate to Google Cloud APIs using industry-standard OpenID Connect (OIDC). GitHub Actions provides a short-lived OIDC token that Google Cloud validates and exchanges for a temporary Google Cloud access token, eliminating static keys.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["WorkloadIdentityFederation", "CI/CD", "Security"]
+    tags: ["WorkloadIdentityFederation","CI/CD","Security"]
   },
   {
     id: "gcp-ace-219",
@@ -388,7 +388,7 @@ export const GCP_ACE_QUESTIONS_9 = [
     question: "How should the IAM administrator configure this time-bounded access?",
     options: [
       { id: 'A', text: "Assign the role to an ephemeral service account and delete the service account key" },
-      { id: 'B', text: "Add the IAM role bindings with an IAM Condition using Common Expression Language (CEL) specifying 'request.time < timestamp(\"2026-10-05T18:00:00Z\")'" },
+      { id: 'B', text: "Add the bindings with a CEL condition limiting request.time" },
       { id: 'C', text: "Write a Cloud Function scheduled via Cloud Scheduler to revoke the role" },
       { id: 'D', text: "Create a Google Calendar reminder to delete the auditor's account manually" }
     ],
@@ -396,7 +396,7 @@ export const GCP_ACE_QUESTIONS_9 = [
     type: "single",
     explanation: "IAM Conditions enable conditional role grants based on attributes like request timestamp, resource name prefixes, or access level. Configuring a condition with 'request.time < timestamp(...)' automatically invalidates the role binding at the specified date and time, ensuring automatic expiration without operational toil.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["CloudIAM", "IAMConditions", "Security"]
+    tags: ["CloudIAM","IAMConditions","Security"]
   },
   {
     id: "gcp-ace-220",
@@ -411,13 +411,13 @@ export const GCP_ACE_QUESTIONS_9 = [
       { id: 'A', text: "Data Access logs require provisioning dedicated Bigtable clusters" },
       { id: 'B', text: "Data Access logs can only be stored in multi-region Coldline buckets" },
       { id: 'C', text: "Google Cloud charges a licensing fee for each enabled API" },
-      { id: 'D', text: "Admin Activity logs are always enabled, free of charge, and retained for 400 days; Data Access logs record high-volume user data transactions, are billable beyond the free log tier, and are retained for 30 days by default" }
+      { id: 'D', text: "Admin Activity is free for 400 days; Data Access is billable" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Admin Activity logs record administrative configuration changes; they are mandatory, cannot be disabled, are retained for 400 days, and are completely free. In contrast, Data Access logs capture high-frequency read and write operations on user data (such as Cloud Storage object downloads or Cloud SQL queries), generating terabytes of log volume that are subject to Cloud Logging ingestion pricing.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["CloudLogging", "AuditLogs", "Compliance"]
+    tags: ["CloudLogging","AuditLogs","Compliance"]
   },
   {
     id: "gcp-ace-221",
@@ -429,7 +429,7 @@ export const GCP_ACE_QUESTIONS_9 = [
     scenario: "A healthcare enterprise requires that patient medical images stored in Cloud Storage must be encrypted using keys owned and managed by the hospital in Cloud KMS. The hospital's security team generates a key named 'patient-data-key' in key ring 'health-ring'.",
     question: "What permission must be granted before the Cloud Storage bucket can encrypt objects using this key?",
     options: [
-      { id: 'A', text: "Grant the 'roles/cloudkms.cryptoKeyEncrypterDecrypter' role on 'patient-data-key' to the Cloud Storage Service Agent for the project" },
+      { id: 'A', text: "Grant cryptoKeyEncrypterDecrypter on the key to the Storage service agent." },
       { id: 'B', text: "Grant the 'roles/owner' role on the project to Cloud KMS" },
       { id: 'C', text: "Assign the hospital security team's Google group the 'roles/storage.admin' role" },
       { id: 'D', text: "Download the KMS private key and attach it to the bucket metadata" }
@@ -438,7 +438,7 @@ export const GCP_ACE_QUESTIONS_9 = [
     type: "single",
     explanation: "When using Customer-Managed Encryption Keys (CMEK), Google Cloud services access Cloud KMS through their dedicated Google-managed Service Agent (e.g. 'service-[PROJECT_NUM]@gs-project-accounts.iam.gserviceaccount.com'). For Cloud Storage to encrypt and decrypt objects using the CMEK key, its Service Agent must be granted the 'roles/cloudkms.cryptoKeyEncrypterDecrypter' role on that specific KMS key.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["CloudKMS", "CMEK", "Security"]
+    tags: ["CloudKMS","CMEK","Security"]
   },
   {
     id: "gcp-ace-222",
@@ -453,13 +453,13 @@ export const GCP_ACE_QUESTIONS_9 = [
       { id: 'A', text: "The key ring is archived to Cloud Storage Coldline" },
       { id: 'B', text: "The key is immediately purged and all encrypted data is automatically re-encrypted with Google-managed keys" },
       { id: 'C', text: "The command succeeds only if the administrator possesses the Organization Administrator role" },
-      { id: 'D', text: "The command fails because Cloud KMS Keys and Key Rings can never be deleted; key versions can only be disabled or scheduled for destruction to preserve cryptographic audit integrity" }
+      { id: 'D', text: "It fails: keys and key rings cannot be deleted, only versions destroyed." }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Cloud KMS resources (Key Rings and CryptoKeys) cannot be deleted. This design guarantees the integrity of cryptographic audit logs and prevents accidental or malicious destruction of keys that could permanently render encrypted historical data undecryptable. While individual key versions can be disabled or scheduled for destruction, their metadata remains permanently.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["CloudKMS", "Security", "Compliance"]
+    tags: ["CloudKMS","Security","Compliance"]
   },
   {
     id: "gcp-ace-223",
@@ -471,7 +471,7 @@ export const GCP_ACE_QUESTIONS_9 = [
     scenario: "A microservice running on Cloud Run needs to retrieve a third-party API key stored in Secret Manager. A junior engineer proposes granting the Cloud Run service account the 'roles/secretmanager.admin' role on the project.",
     question: "What least-privilege role should be granted to the service account, and at what scope?",
     options: [
-      { id: 'A', text: "Grant 'roles/secretmanager.secretAccessor' on the specific secret resource only" },
+      { id: 'A', text: "Grant roles/secretmanager.secretAccessor on that secret" },
       { id: 'B', text: "Grant 'roles/viewer' on the project" },
       { id: 'C', text: "Grant 'roles/secretmanager.secretVersionManager' on the folder" },
       { id: 'D', text: "Grant 'roles/secretmanager.viewer' at the project level" }
@@ -480,7 +480,7 @@ export const GCP_ACE_QUESTIONS_9 = [
     type: "single",
     explanation: "The 'roles/secretmanager.secretAccessor' role grants permission to read secret payloads ('secretmanager.versions.access'). Following the principle of least privilege, this role should be granted strictly on the individual secret resource needed by the microservice, rather than project-wide, and without administrative mutation permissions.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["SecretManager", "CloudIAM", "LeastPrivilege"]
+    tags: ["SecretManager","CloudIAM","LeastPrivilege"]
   },
   {
     id: "gcp-ace-224",
@@ -495,13 +495,13 @@ export const GCP_ACE_QUESTIONS_9 = [
       { id: 'A', text: "Configure a firewall rule allowing port 22 from 0.0.0.0/0" },
       { id: 'B', text: "Deploy Cloud NAT with static IP addresses for inbound SSH" },
       { id: 'C', text: "Use Cloud Shell with public IP port forwarding" },
-      { id: 'D', text: "Use 'gcloud compute ssh --tunnel-through-iap' and configure a VPC ingress firewall rule allowing TCP ports 22 and 3389 from source IP range 35.235.240.0/20" }
+      { id: 'D', text: "SSH through IAP and allow 35.235.240.0/20 inbound" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Identity-Aware Proxy (IAP) TCP forwarding allows authorized users to establish encrypted SSH and RDP tunnels to private VMs over Google's global network backbone. Traffic originates from Google's dedicated IAP proxy range (35.235.240.0/20); creating an ingress firewall rule permitting this CIDR on ports 22 and 3389 enables bastionless access governed by Cloud IAM.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["IAP", "SSH", "Security"]
+    tags: ["IAP","SSH","Security"]
   },
   {
     id: "gcp-ace-225",
@@ -515,14 +515,14 @@ export const GCP_ACE_QUESTIONS_9 = [
     options: [
       { id: 'A', text: "Cloud Armor security policies attached to external load balancers" },
       { id: 'B', text: "VPC Firewall rules blocking egress to 0.0.0.0/0" },
-      { id: 'C', text: "VPC Service Controls configured with a Service Perimeter encompassing the enterprise projects and BigQuery/Storage APIs" },
+      { id: 'C', text: "A VPC Service Controls perimeter around those projects and APIs" },
       { id: 'D', text: "Cloud NAT egress filtering" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "VPC Service Controls establishes a cryptographically enforced Service Perimeter around sensitive projects and Google-managed services (BigQuery, Cloud Storage). Even if a user has valid IAM credentials, API calls that attempt to move data across the perimeter boundary to an unauthorized project or bucket are blocked, preventing data exfiltration.",
     referenceUrl: "https://cloud.google.com/docs",
-    tags: ["VPCServiceControls", "DataExfiltration", "Security"]
+    tags: ["VPCServiceControls","DataExfiltration","Security"]
   }
 ];
 

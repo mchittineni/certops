@@ -10,9 +10,9 @@ export const GCP_ACE_QUESTIONS_17 = [
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Upload Docker image tarballs to an unencrypted public Cloud Storage bucket." },
-      { id: 'B', text: "Store container source code directly in an unversioned Compute Engine persistent disk." },
+      { id: 'B', text: "Push the images to a Docker Hub repository and pull them from there." },
       { id: 'C', text: "Push container images to an unauthenticated public registry on the internet." },
-      { id: 'D', text: "Create a Docker repository in Artifact Registry and configure Docker authentication using 'gcloud auth configure-docker'." }
+      { id: 'D', text: "An Artifact Registry Docker repo plus gcloud auth configure-docker." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -30,10 +30,10 @@ export const GCP_ACE_QUESTIONS_17 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to store, version, and manage private Docker container images with integrated vulnerability scanning and fine-grained IAM access control.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Create a Docker repository in Artifact Registry and configure Docker authentication using 'gcloud auth configure-docker'." },
+      { id: 'A', text: "An Artifact Registry Docker repo plus gcloud auth configure-docker." },
       { id: 'B', text: "Upload Docker image tarballs to an unencrypted public Cloud Storage bucket." },
       { id: 'C', text: "Push container images to an unauthenticated public registry on the internet." },
-      { id: 'D', text: "Store container source code directly in an unversioned Compute Engine persistent disk." }
+      { id: 'D', text: "Push the images to a Docker Hub repository and pull them from there." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -52,9 +52,9 @@ export const GCP_ACE_QUESTIONS_17 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Upload Docker image tarballs to an unencrypted public Cloud Storage bucket." },
-      { id: 'B', text: "Create a Docker repository in Artifact Registry and configure Docker authentication using 'gcloud auth configure-docker'." },
+      { id: 'B', text: "An Artifact Registry Docker repo plus gcloud auth configure-docker." },
       { id: 'C', text: "Push container images to an unauthenticated public registry on the internet." },
-      { id: 'D', text: "Store container source code directly in an unversioned Compute Engine persistent disk." }
+      { id: 'D', text: "Push the images to a Docker Hub repository and pull them from there." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -73,8 +73,8 @@ export const GCP_ACE_QUESTIONS_17 = [
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Upload Docker image tarballs to an unencrypted public Cloud Storage bucket." },
-      { id: 'B', text: "Store container source code directly in an unversioned Compute Engine persistent disk." },
-      { id: 'C', text: "Create a Docker repository in Artifact Registry and configure Docker authentication using 'gcloud auth configure-docker'." },
+      { id: 'B', text: "Push the images to a Docker Hub repository and pull them from there." },
+      { id: 'C', text: "An Artifact Registry Docker repo plus gcloud auth configure-docker." },
       { id: 'D', text: "Push container images to an unauthenticated public registry on the internet." }
     ],
     correctAnswers: ['C'],
@@ -95,8 +95,8 @@ export const GCP_ACE_QUESTIONS_17 = [
     options: [
       { id: 'A', text: "Push container images to an unauthenticated public registry on the internet." },
       { id: 'B', text: "Upload Docker image tarballs to an unencrypted public Cloud Storage bucket." },
-      { id: 'C', text: "Create a Docker repository in Artifact Registry and configure Docker authentication using 'gcloud auth configure-docker'." },
-      { id: 'D', text: "Store container source code directly in an unversioned Compute Engine persistent disk." }
+      { id: 'C', text: "An Artifact Registry Docker repo plus gcloud auth configure-docker." },
+      { id: 'D', text: "Push the images to a Docker Hub repository and pull them from there." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -114,7 +114,7 @@ export const GCP_ACE_QUESTIONS_17 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to create a centralized operations dashboard displaying real-time CPU utilization, network egress, and disk IOPS across 50 Compute Engine instances.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Export data to a local spreadsheet and generate graphs manually." },
+      { id: 'A', text: "Build a Looker Studio report over the billing console export." },
       { id: 'B', text: "Log into each of the 50 virtual machines via SSH and run the 'top' command." },
       { id: 'C', text: "Create a custom Cloud Monitoring Dashboard and add charts configured via Metrics Explorer." },
       { id: 'D', text: "Review historical billing CSV exports once per month." }
@@ -135,7 +135,7 @@ export const GCP_ACE_QUESTIONS_17 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to create a centralized operations dashboard displaying real-time CPU utilization, network egress, and disk IOPS across 50 Compute Engine instances.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Export data to a local spreadsheet and generate graphs manually." },
+      { id: 'A', text: "Build a Looker Studio report over the billing console export." },
       { id: 'B', text: "Log into each of the 50 virtual machines via SSH and run the 'top' command." },
       { id: 'C', text: "Create a custom Cloud Monitoring Dashboard and add charts configured via Metrics Explorer." },
       { id: 'D', text: "Review historical billing CSV exports once per month." }
@@ -158,7 +158,7 @@ export const GCP_ACE_QUESTIONS_17 = [
     options: [
       { id: 'A', text: "Create a custom Cloud Monitoring Dashboard and add charts configured via Metrics Explorer." },
       { id: 'B', text: "Review historical billing CSV exports once per month." },
-      { id: 'C', text: "Export data to a local spreadsheet and generate graphs manually." },
+      { id: 'C', text: "Build a Looker Studio report over the billing console export." },
       { id: 'D', text: "Log into each of the 50 virtual machines via SSH and run the 'top' command." }
     ],
     correctAnswers: ['A'],
@@ -177,7 +177,7 @@ export const GCP_ACE_QUESTIONS_17 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to create a centralized operations dashboard displaying real-time CPU utilization, network egress, and disk IOPS across 50 Compute Engine instances.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Export data to a local spreadsheet and generate graphs manually." },
+      { id: 'A', text: "Build a Looker Studio report over the billing console export." },
       { id: 'B', text: "Review historical billing CSV exports once per month." },
       { id: 'C', text: "Create a custom Cloud Monitoring Dashboard and add charts configured via Metrics Explorer." },
       { id: 'D', text: "Log into each of the 50 virtual machines via SSH and run the 'top' command." }
@@ -199,7 +199,7 @@ export const GCP_ACE_QUESTIONS_17 = [
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Create a custom Cloud Monitoring Dashboard and add charts configured via Metrics Explorer." },
-      { id: 'B', text: "Export data to a local spreadsheet and generate graphs manually." },
+      { id: 'B', text: "Build a Looker Studio report over the billing console export." },
       { id: 'C', text: "Review historical billing CSV exports once per month." },
       { id: 'D', text: "Log into each of the 50 virtual machines via SSH and run the 'top' command." }
     ],
@@ -221,7 +221,7 @@ export const GCP_ACE_QUESTIONS_17 = [
     options: [
       { id: 'A', text: "Instruct customer support to telephone engineers whenever users complain about outages." },
       { id: 'B', text: "Inspect web server access logs manually at the end of each day." },
-      { id: 'C', text: "Configure a Cloud Monitoring Alerting Policy with an error rate condition linked to Notification Channels." },
+      { id: 'C', text: "An alerting policy on the error rate, wired to notification channels." },
       { id: 'D', text: "Schedule an hourly cron job to check if the website returns HTTP 200." }
     ],
     correctAnswers: ['C'],
@@ -243,7 +243,7 @@ export const GCP_ACE_QUESTIONS_17 = [
       { id: 'A', text: "Schedule an hourly cron job to check if the website returns HTTP 200." },
       { id: 'B', text: "Inspect web server access logs manually at the end of each day." },
       { id: 'C', text: "Instruct customer support to telephone engineers whenever users complain about outages." },
-      { id: 'D', text: "Configure a Cloud Monitoring Alerting Policy with an error rate condition linked to Notification Channels." }
+      { id: 'D', text: "An alerting policy on the error rate, wired to notification channels." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -261,7 +261,7 @@ export const GCP_ACE_QUESTIONS_17 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer needs to automatically alert on-call DevOps engineers via PagerDuty, Slack, and email whenever an application's HTTP 5xx error rate exceeds 5% for 5 consecutive minutes.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Configure a Cloud Monitoring Alerting Policy with an error rate condition linked to Notification Channels." },
+      { id: 'A', text: "An alerting policy on the error rate, wired to notification channels." },
       { id: 'B', text: "Schedule an hourly cron job to check if the website returns HTTP 200." },
       { id: 'C', text: "Inspect web server access logs manually at the end of each day." },
       { id: 'D', text: "Instruct customer support to telephone engineers whenever users complain about outages." }
@@ -282,7 +282,7 @@ export const GCP_ACE_QUESTIONS_17 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to automatically alert on-call DevOps engineers via PagerDuty, Slack, and email whenever an application's HTTP 5xx error rate exceeds 5% for 5 consecutive minutes.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Configure a Cloud Monitoring Alerting Policy with an error rate condition linked to Notification Channels." },
+      { id: 'A', text: "An alerting policy on the error rate, wired to notification channels." },
       { id: 'B', text: "Inspect web server access logs manually at the end of each day." },
       { id: 'C', text: "Schedule an hourly cron job to check if the website returns HTTP 200." },
       { id: 'D', text: "Instruct customer support to telephone engineers whenever users complain about outages." }
@@ -303,7 +303,7 @@ export const GCP_ACE_QUESTIONS_17 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer needs to automatically alert on-call DevOps engineers via PagerDuty, Slack, and email whenever an application's HTTP 5xx error rate exceeds 5% for 5 consecutive minutes.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Configure a Cloud Monitoring Alerting Policy with an error rate condition linked to Notification Channels." },
+      { id: 'A', text: "An alerting policy on the error rate, wired to notification channels." },
       { id: 'B', text: "Schedule an hourly cron job to check if the website returns HTTP 200." },
       { id: 'C', text: "Instruct customer support to telephone engineers whenever users complain about outages." },
       { id: 'D', text: "Inspect web server access logs manually at the end of each day." }
@@ -325,7 +325,7 @@ export const GCP_ACE_QUESTIONS_17 = [
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Connect to each server individually using SSH and grep text files in /var/log." },
-      { id: 'B', text: "Use the Cloud Logging Logs Explorer with a query filtering by resource type, timestamp, and textPayload." },
+      { id: 'B', text: "A Logs Explorer query on resource type, timestamp and payload." },
       { id: 'C', text: "Deploy a separate third-party database to store log backups." },
       { id: 'D', text: "Ask users to replicate the crash while an engineer watches their screen." }
     ],
@@ -346,7 +346,7 @@ export const GCP_ACE_QUESTIONS_17 = [
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Connect to each server individually using SSH and grep text files in /var/log." },
-      { id: 'B', text: "Use the Cloud Logging Logs Explorer with a query filtering by resource type, timestamp, and textPayload." },
+      { id: 'B', text: "A Logs Explorer query on resource type, timestamp and payload." },
       { id: 'C', text: "Ask users to replicate the crash while an engineer watches their screen." },
       { id: 'D', text: "Deploy a separate third-party database to store log backups." }
     ],
@@ -369,7 +369,7 @@ export const GCP_ACE_QUESTIONS_17 = [
       { id: 'A', text: "Ask users to replicate the crash while an engineer watches their screen." },
       { id: 'B', text: "Deploy a separate third-party database to store log backups." },
       { id: 'C', text: "Connect to each server individually using SSH and grep text files in /var/log." },
-      { id: 'D', text: "Use the Cloud Logging Logs Explorer with a query filtering by resource type, timestamp, and textPayload." }
+      { id: 'D', text: "A Logs Explorer query on resource type, timestamp and payload." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -388,7 +388,7 @@ export const GCP_ACE_QUESTIONS_17 = [
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Connect to each server individually using SSH and grep text files in /var/log." },
-      { id: 'B', text: "Use the Cloud Logging Logs Explorer with a query filtering by resource type, timestamp, and textPayload." },
+      { id: 'B', text: "A Logs Explorer query on resource type, timestamp and payload." },
       { id: 'C', text: "Deploy a separate third-party database to store log backups." },
       { id: 'D', text: "Ask users to replicate the crash while an engineer watches their screen." }
     ],
@@ -411,7 +411,7 @@ export const GCP_ACE_QUESTIONS_17 = [
       { id: 'A', text: "Deploy a separate third-party database to store log backups." },
       { id: 'B', text: "Ask users to replicate the crash while an engineer watches their screen." },
       { id: 'C', text: "Connect to each server individually using SSH and grep text files in /var/log." },
-      { id: 'D', text: "Use the Cloud Logging Logs Explorer with a query filtering by resource type, timestamp, and textPayload." }
+      { id: 'D', text: "A Logs Explorer query on resource type, timestamp and payload." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -429,7 +429,7 @@ export const GCP_ACE_QUESTIONS_17 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to route all organization security audit logs to an immutable Cloud Storage bucket for 7-year regulatory retention and stream error logs to BigQuery for SQL analysis.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Configure Log Router Sinks targeting Cloud Storage for long-term retention and BigQuery for analytical querying." },
+      { id: 'A', text: "Log Router sinks to Cloud Storage for retention and BigQuery for queries." },
       { id: 'B', text: "Print out paper copies of critical audit log entries." },
       { id: 'C', text: "Store all logs inside the default 30-day logging bucket without export sinks." },
       { id: 'D', text: "Write a custom daemon that downloads logs via the API and uploads them to a local disk." }
@@ -451,7 +451,7 @@ export const GCP_ACE_QUESTIONS_17 = [
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Write a custom daemon that downloads logs via the API and uploads them to a local disk." },
-      { id: 'B', text: "Configure Log Router Sinks targeting Cloud Storage for long-term retention and BigQuery for analytical querying." },
+      { id: 'B', text: "Log Router sinks to Cloud Storage for retention and BigQuery for queries." },
       { id: 'C', text: "Print out paper copies of critical audit log entries." },
       { id: 'D', text: "Store all logs inside the default 30-day logging bucket without export sinks." }
     ],
@@ -471,7 +471,7 @@ export const GCP_ACE_QUESTIONS_17 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer needs to route all organization security audit logs to an immutable Cloud Storage bucket for 7-year regulatory retention and stream error logs to BigQuery for SQL analysis.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Configure Log Router Sinks targeting Cloud Storage for long-term retention and BigQuery for analytical querying." },
+      { id: 'A', text: "Log Router sinks to Cloud Storage for retention and BigQuery for queries." },
       { id: 'B', text: "Print out paper copies of critical audit log entries." },
       { id: 'C', text: "Store all logs inside the default 30-day logging bucket without export sinks." },
       { id: 'D', text: "Write a custom daemon that downloads logs via the API and uploads them to a local disk." }
@@ -494,7 +494,7 @@ export const GCP_ACE_QUESTIONS_17 = [
     options: [
       { id: 'A', text: "Write a custom daemon that downloads logs via the API and uploads them to a local disk." },
       { id: 'B', text: "Store all logs inside the default 30-day logging bucket without export sinks." },
-      { id: 'C', text: "Configure Log Router Sinks targeting Cloud Storage for long-term retention and BigQuery for analytical querying." },
+      { id: 'C', text: "Log Router sinks to Cloud Storage for retention and BigQuery for queries." },
       { id: 'D', text: "Print out paper copies of critical audit log entries." }
     ],
     correctAnswers: ['C'],
@@ -513,7 +513,7 @@ export const GCP_ACE_QUESTIONS_17 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer needs to route all organization security audit logs to an immutable Cloud Storage bucket for 7-year regulatory retention and stream error logs to BigQuery for SQL analysis.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Configure Log Router Sinks targeting Cloud Storage for long-term retention and BigQuery for analytical querying." },
+      { id: 'A', text: "Log Router sinks to Cloud Storage for retention and BigQuery for queries." },
       { id: 'B', text: "Print out paper copies of critical audit log entries." },
       { id: 'C', text: "Write a custom daemon that downloads logs via the API and uploads them to a local disk." },
       { id: 'D', text: "Store all logs inside the default 30-day logging bucket without export sinks." }

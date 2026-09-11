@@ -117,7 +117,7 @@ export const GCP_ACE_QUESTIONS_11 = [
       { id: 'A', text: "Enter individual physical credit cards separately into every project." },
       { id: 'B', text: "Disable billing on production projects to prevent accidental overages." },
       { id: 'C', text: "Rely on quarterly paper invoices sent by mail without automated data export." },
-      { id: 'D', text: "Link the projects to the central Cloud Billing Account and configure daily Cloud Billing data export to BigQuery." }
+      { id: 'D', text: "Link the projects to the billing account and export daily to BigQuery." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -137,7 +137,7 @@ export const GCP_ACE_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Rely on quarterly paper invoices sent by mail without automated data export." },
       { id: 'B', text: "Enter individual physical credit cards separately into every project." },
-      { id: 'C', text: "Link the projects to the central Cloud Billing Account and configure daily Cloud Billing data export to BigQuery." },
+      { id: 'C', text: "Link the projects to the billing account and export daily to BigQuery." },
       { id: 'D', text: "Disable billing on production projects to prevent accidental overages." }
     ],
     correctAnswers: ['C'],
@@ -156,7 +156,7 @@ export const GCP_ACE_QUESTIONS_11 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer needs to link multiple independent development and production projects to a central enterprise billing account and export daily billing metrics to BigQuery for analysis.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Link the projects to the central Cloud Billing Account and configure daily Cloud Billing data export to BigQuery." },
+      { id: 'A', text: "Link the projects to the billing account and export daily to BigQuery." },
       { id: 'B', text: "Rely on quarterly paper invoices sent by mail without automated data export." },
       { id: 'C', text: "Enter individual physical credit cards separately into every project." },
       { id: 'D', text: "Disable billing on production projects to prevent accidental overages." }
@@ -177,7 +177,7 @@ export const GCP_ACE_QUESTIONS_11 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to link multiple independent development and production projects to a central enterprise billing account and export daily billing metrics to BigQuery for analysis.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Link the projects to the central Cloud Billing Account and configure daily Cloud Billing data export to BigQuery." },
+      { id: 'A', text: "Link the projects to the billing account and export daily to BigQuery." },
       { id: 'B', text: "Rely on quarterly paper invoices sent by mail without automated data export." },
       { id: 'C', text: "Enter individual physical credit cards separately into every project." },
       { id: 'D', text: "Disable billing on production projects to prevent accidental overages." }
@@ -199,7 +199,7 @@ export const GCP_ACE_QUESTIONS_11 = [
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Rely on quarterly paper invoices sent by mail without automated data export." },
-      { id: 'B', text: "Link the projects to the central Cloud Billing Account and configure daily Cloud Billing data export to BigQuery." },
+      { id: 'B', text: "Link the projects to the billing account and export daily to BigQuery." },
       { id: 'C', text: "Enter individual physical credit cards separately into every project." },
       { id: 'D', text: "Disable billing on production projects to prevent accidental overages." }
     ],
@@ -220,8 +220,8 @@ export const GCP_ACE_QUESTIONS_11 = [
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Set compute engine quota limits to zero when estimated costs exceed expectations." },
-      { id: 'B', text: "Create a Cloud Billing Budget with threshold rules at 50%, 90%, and 100% connected to email recipients and a Pub/Sub topic." },
-      { id: 'C', text: "Manually check the billing console on the last day of each billing cycle." },
+      { id: 'B', text: "A budget with 50%, 90% and 100% thresholds to email and Pub/Sub." },
+      { id: 'C', text: "Set a Cloud Billing budget alert at the threshold and read the emails." },
       { id: 'D', text: "Instruct engineers to stop all virtual machines when budget limits are approached." }
     ],
     correctAnswers: ['B'],
@@ -240,8 +240,8 @@ export const GCP_ACE_QUESTIONS_11 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to notify finance managers via email and publish a message to a Pub/Sub topic when a department's monthly cloud expenditure reaches 50%, 90%, and 100% of its budget.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Manually check the billing console on the last day of each billing cycle." },
-      { id: 'B', text: "Create a Cloud Billing Budget with threshold rules at 50%, 90%, and 100% connected to email recipients and a Pub/Sub topic." },
+      { id: 'A', text: "Set a Cloud Billing budget alert at the threshold and read the emails." },
+      { id: 'B', text: "A budget with 50%, 90% and 100% thresholds to email and Pub/Sub." },
       { id: 'C', text: "Instruct engineers to stop all virtual machines when budget limits are approached." },
       { id: 'D', text: "Set compute engine quota limits to zero when estimated costs exceed expectations." }
     ],
@@ -262,8 +262,8 @@ export const GCP_ACE_QUESTIONS_11 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Set compute engine quota limits to zero when estimated costs exceed expectations." },
-      { id: 'B', text: "Create a Cloud Billing Budget with threshold rules at 50%, 90%, and 100% connected to email recipients and a Pub/Sub topic." },
-      { id: 'C', text: "Manually check the billing console on the last day of each billing cycle." },
+      { id: 'B', text: "A budget with 50%, 90% and 100% thresholds to email and Pub/Sub." },
+      { id: 'C', text: "Set a Cloud Billing budget alert at the threshold and read the emails." },
       { id: 'D', text: "Instruct engineers to stop all virtual machines when budget limits are approached." }
     ],
     correctAnswers: ['B'],
@@ -282,8 +282,8 @@ export const GCP_ACE_QUESTIONS_11 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to notify finance managers via email and publish a message to a Pub/Sub topic when a department's monthly cloud expenditure reaches 50%, 90%, and 100% of its budget.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Create a Cloud Billing Budget with threshold rules at 50%, 90%, and 100% connected to email recipients and a Pub/Sub topic." },
-      { id: 'B', text: "Manually check the billing console on the last day of each billing cycle." },
+      { id: 'A', text: "A budget with 50%, 90% and 100% thresholds to email and Pub/Sub." },
+      { id: 'B', text: "Set a Cloud Billing budget alert at the threshold and read the emails." },
       { id: 'C', text: "Set compute engine quota limits to zero when estimated costs exceed expectations." },
       { id: 'D', text: "Instruct engineers to stop all virtual machines when budget limits are approached." }
     ],
@@ -303,8 +303,8 @@ export const GCP_ACE_QUESTIONS_11 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer needs to notify finance managers via email and publish a message to a Pub/Sub topic when a department's monthly cloud expenditure reaches 50%, 90%, and 100% of its budget.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Create a Cloud Billing Budget with threshold rules at 50%, 90%, and 100% connected to email recipients and a Pub/Sub topic." },
-      { id: 'B', text: "Manually check the billing console on the last day of each billing cycle." },
+      { id: 'A', text: "A budget with 50%, 90% and 100% thresholds to email and Pub/Sub." },
+      { id: 'B', text: "Set a Cloud Billing budget alert at the threshold and read the emails." },
       { id: 'C', text: "Set compute engine quota limits to zero when estimated costs exceed expectations." },
       { id: 'D', text: "Instruct engineers to stop all virtual machines when budget limits are approached." }
     ],
@@ -326,8 +326,8 @@ export const GCP_ACE_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Reinstall the entire Google Cloud SDK every time a project context change is needed." },
       { id: 'B', text: "Use only the Cloud Console web interface to avoid configuring local CLI profiles." },
-      { id: 'C', text: "Create named gcloud configurations using 'gcloud config configurations create' and activate them with 'gcloud config configurations activate'." },
-      { id: 'D', text: "Hardcode OAuth access tokens in local shell startup scripts." }
+      { id: 'C', text: "Create named gcloud configurations and activate the one you need." },
+      { id: 'D', text: "Download a service account key and point GOOGLE_APPLICATION_CREDENTIALS at it." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -345,8 +345,8 @@ export const GCP_ACE_QUESTIONS_11 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to switch administrative CLI contexts seamlessly between production and staging projects across different service accounts on a local workstation.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Create named gcloud configurations using 'gcloud config configurations create' and activate them with 'gcloud config configurations activate'." },
-      { id: 'B', text: "Hardcode OAuth access tokens in local shell startup scripts." },
+      { id: 'A', text: "Create named gcloud configurations and activate the one you need." },
+      { id: 'B', text: "Download a service account key and point GOOGLE_APPLICATION_CREDENTIALS at it." },
       { id: 'C', text: "Reinstall the entire Google Cloud SDK every time a project context change is needed." },
       { id: 'D', text: "Use only the Cloud Console web interface to avoid configuring local CLI profiles." }
     ],
@@ -367,9 +367,9 @@ export const GCP_ACE_QUESTIONS_11 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Use only the Cloud Console web interface to avoid configuring local CLI profiles." },
-      { id: 'B', text: "Create named gcloud configurations using 'gcloud config configurations create' and activate them with 'gcloud config configurations activate'." },
+      { id: 'B', text: "Create named gcloud configurations and activate the one you need." },
       { id: 'C', text: "Reinstall the entire Google Cloud SDK every time a project context change is needed." },
-      { id: 'D', text: "Hardcode OAuth access tokens in local shell startup scripts." }
+      { id: 'D', text: "Download a service account key and point GOOGLE_APPLICATION_CREDENTIALS at it." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -388,8 +388,8 @@ export const GCP_ACE_QUESTIONS_11 = [
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Reinstall the entire Google Cloud SDK every time a project context change is needed." },
-      { id: 'B', text: "Hardcode OAuth access tokens in local shell startup scripts." },
-      { id: 'C', text: "Create named gcloud configurations using 'gcloud config configurations create' and activate them with 'gcloud config configurations activate'." },
+      { id: 'B', text: "Download a service account key and point GOOGLE_APPLICATION_CREDENTIALS at it." },
+      { id: 'C', text: "Create named gcloud configurations and activate the one you need." },
       { id: 'D', text: "Use only the Cloud Console web interface to avoid configuring local CLI profiles." }
     ],
     correctAnswers: ['C'],
@@ -408,10 +408,10 @@ export const GCP_ACE_QUESTIONS_11 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer needs to switch administrative CLI contexts seamlessly between production and staging projects across different service accounts on a local workstation.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Create named gcloud configurations using 'gcloud config configurations create' and activate them with 'gcloud config configurations activate'." },
+      { id: 'A', text: "Create named gcloud configurations and activate the one you need." },
       { id: 'B', text: "Use only the Cloud Console web interface to avoid configuring local CLI profiles." },
       { id: 'C', text: "Reinstall the entire Google Cloud SDK every time a project context change is needed." },
-      { id: 'D', text: "Hardcode OAuth access tokens in local shell startup scripts." }
+      { id: 'D', text: "Download a service account key and point GOOGLE_APPLICATION_CREDENTIALS at it." }
     ],
     correctAnswers: ['A'],
     type: "single",

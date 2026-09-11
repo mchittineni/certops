@@ -327,7 +327,7 @@ export const GCP_ACE_QUESTIONS_14 = [
       { id: 'A', text: "Deploy an Apache Hadoop cluster on Compute Engine virtual machines." },
       { id: 'B', text: "Ingest data into BigQuery and execute analytical SQL queries." },
       { id: 'C', text: "Create a relational database in Cloud SQL with a 10 GB storage disk." },
-      { id: 'D', text: "Export data to CSV files and analyze them using desktop spreadsheet software." }
+      { id: 'D', text: "Read the cost breakdown from the Cloud Billing reports page each month." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -345,7 +345,7 @@ export const GCP_ACE_QUESTIONS_14 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to analyze petabytes of enterprise sales data using standard SQL without provisioning, configuring, or managing database clusters or indexing.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Export data to CSV files and analyze them using desktop spreadsheet software." },
+      { id: 'A', text: "Read the cost breakdown from the Cloud Billing reports page each month." },
       { id: 'B', text: "Ingest data into BigQuery and execute analytical SQL queries." },
       { id: 'C', text: "Deploy an Apache Hadoop cluster on Compute Engine virtual machines." },
       { id: 'D', text: "Create a relational database in Cloud SQL with a 10 GB storage disk." }
@@ -367,7 +367,7 @@ export const GCP_ACE_QUESTIONS_14 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Create a relational database in Cloud SQL with a 10 GB storage disk." },
-      { id: 'B', text: "Export data to CSV files and analyze them using desktop spreadsheet software." },
+      { id: 'B', text: "Read the cost breakdown from the Cloud Billing reports page each month." },
       { id: 'C', text: "Ingest data into BigQuery and execute analytical SQL queries." },
       { id: 'D', text: "Deploy an Apache Hadoop cluster on Compute Engine virtual machines." }
     ],
@@ -389,7 +389,7 @@ export const GCP_ACE_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Deploy an Apache Hadoop cluster on Compute Engine virtual machines." },
       { id: 'B', text: "Ingest data into BigQuery and execute analytical SQL queries." },
-      { id: 'C', text: "Export data to CSV files and analyze them using desktop spreadsheet software." },
+      { id: 'C', text: "Read the cost breakdown from the Cloud Billing reports page each month." },
       { id: 'D', text: "Create a relational database in Cloud SQL with a 10 GB storage disk." }
     ],
     correctAnswers: ['B'],
@@ -411,7 +411,7 @@ export const GCP_ACE_QUESTIONS_14 = [
       { id: 'A', text: "Deploy an Apache Hadoop cluster on Compute Engine virtual machines." },
       { id: 'B', text: "Ingest data into BigQuery and execute analytical SQL queries." },
       { id: 'C', text: "Create a relational database in Cloud SQL with a 10 GB storage disk." },
-      { id: 'D', text: "Export data to CSV files and analyze them using desktop spreadsheet software." }
+      { id: 'D', text: "Read the cost breakdown from the Cloud Billing reports page each month." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -429,7 +429,7 @@ export const GCP_ACE_QUESTIONS_14 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to deploy an Ubuntu 22.04 Compute Engine virtual machine in us-central1-a with a specific service account and network tag via the command line.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Execute 'gcloud compute instances create' specifying the zone, image-family, service-account, and tags flags." },
+      { id: 'A', text: "gcloud compute instances create with zone, image family, service account and tags." },
       { id: 'B', text: "Click through the Cloud Console UI wizard manually." },
       { id: 'C', text: "Write a custom bash script that issues raw TCP socket packets to Google Cloud data centers." },
       { id: 'D', text: "Deploy an unmanaged container image directly to Cloud Storage." }
@@ -451,7 +451,7 @@ export const GCP_ACE_QUESTIONS_14 = [
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Click through the Cloud Console UI wizard manually." },
-      { id: 'B', text: "Execute 'gcloud compute instances create' specifying the zone, image-family, service-account, and tags flags." },
+      { id: 'B', text: "gcloud compute instances create with zone, image family, service account and tags." },
       { id: 'C', text: "Deploy an unmanaged container image directly to Cloud Storage." },
       { id: 'D', text: "Write a custom bash script that issues raw TCP socket packets to Google Cloud data centers." }
     ],
@@ -474,7 +474,7 @@ export const GCP_ACE_QUESTIONS_14 = [
       { id: 'A', text: "Click through the Cloud Console UI wizard manually." },
       { id: 'B', text: "Write a custom bash script that issues raw TCP socket packets to Google Cloud data centers." },
       { id: 'C', text: "Deploy an unmanaged container image directly to Cloud Storage." },
-      { id: 'D', text: "Execute 'gcloud compute instances create' specifying the zone, image-family, service-account, and tags flags." }
+      { id: 'D', text: "gcloud compute instances create with zone, image family, service account and tags." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -494,7 +494,7 @@ export const GCP_ACE_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Deploy an unmanaged container image directly to Cloud Storage." },
       { id: 'B', text: "Write a custom bash script that issues raw TCP socket packets to Google Cloud data centers." },
-      { id: 'C', text: "Execute 'gcloud compute instances create' specifying the zone, image-family, service-account, and tags flags." },
+      { id: 'C', text: "gcloud compute instances create with zone, image family, service account and tags." },
       { id: 'D', text: "Click through the Cloud Console UI wizard manually." }
     ],
     correctAnswers: ['C'],
@@ -516,7 +516,7 @@ export const GCP_ACE_QUESTIONS_14 = [
       { id: 'A', text: "Write a custom bash script that issues raw TCP socket packets to Google Cloud data centers." },
       { id: 'B', text: "Deploy an unmanaged container image directly to Cloud Storage." },
       { id: 'C', text: "Click through the Cloud Console UI wizard manually." },
-      { id: 'D', text: "Execute 'gcloud compute instances create' specifying the zone, image-family, service-account, and tags flags." }
+      { id: 'D', text: "gcloud compute instances create with zone, image family, service account and tags." }
     ],
     correctAnswers: ['D'],
     type: "single",

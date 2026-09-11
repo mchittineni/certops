@@ -115,7 +115,7 @@ export const GCP_ACE_QUESTIONS_19 = [
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Add each analyst individually to every single project in the organization." },
-      { id: 'B', text: "Bind the 'Viewer' or 'Security Reviewer' role to the group at the Organization level in IAM." },
+      { id: 'B', text: "Bind Viewer or Security Reviewer to the group at the org level." },
       { id: 'C', text: "Create a shared Google account and give the password to all analysts." },
       { id: 'D', text: "Assign the Organization Administrator role to the analyst group." }
     ],
@@ -136,7 +136,7 @@ export const GCP_ACE_QUESTIONS_19 = [
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Create a shared Google account and give the password to all analysts." },
-      { id: 'B', text: "Bind the 'Viewer' or 'Security Reviewer' role to the group at the Organization level in IAM." },
+      { id: 'B', text: "Bind Viewer or Security Reviewer to the group at the org level." },
       { id: 'C', text: "Assign the Organization Administrator role to the analyst group." },
       { id: 'D', text: "Add each analyst individually to every single project in the organization." }
     ],
@@ -157,7 +157,7 @@ export const GCP_ACE_QUESTIONS_19 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Assign the Organization Administrator role to the analyst group." },
-      { id: 'B', text: "Bind the 'Viewer' or 'Security Reviewer' role to the group at the Organization level in IAM." },
+      { id: 'B', text: "Bind Viewer or Security Reviewer to the group at the org level." },
       { id: 'C', text: "Add each analyst individually to every single project in the organization." },
       { id: 'D', text: "Create a shared Google account and give the password to all analysts." }
     ],
@@ -179,7 +179,7 @@ export const GCP_ACE_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Create a shared Google account and give the password to all analysts." },
       { id: 'B', text: "Add each analyst individually to every single project in the organization." },
-      { id: 'C', text: "Bind the 'Viewer' or 'Security Reviewer' role to the group at the Organization level in IAM." },
+      { id: 'C', text: "Bind Viewer or Security Reviewer to the group at the org level." },
       { id: 'D', text: "Assign the Organization Administrator role to the analyst group." }
     ],
     correctAnswers: ['C'],
@@ -201,7 +201,7 @@ export const GCP_ACE_QUESTIONS_19 = [
       { id: 'A', text: "Create a shared Google account and give the password to all analysts." },
       { id: 'B', text: "Add each analyst individually to every single project in the organization." },
       { id: 'C', text: "Assign the Organization Administrator role to the analyst group." },
-      { id: 'D', text: "Bind the 'Viewer' or 'Security Reviewer' role to the group at the Organization level in IAM." }
+      { id: 'D', text: "Bind Viewer or Security Reviewer to the group at the org level." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -221,7 +221,7 @@ export const GCP_ACE_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Grant full Cloud Storage admin rights to the underlying GKE worker node service account." },
       { id: 'B', text: "Generate a JSON service account key and mount it into the pod filesystem." },
-      { id: 'C', text: "Hardcode the Google service account private key in the application source code." },
+      { id: 'C', text: "Mount a service account key file into the container at deploy time." },
       { id: 'D', text: "Configure GKE Workload Identity to bind the Kubernetes ServiceAccount to an IAM Google ServiceAccount." }
     ],
     correctAnswers: ['D'],
@@ -241,7 +241,7 @@ export const GCP_ACE_QUESTIONS_19 = [
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Generate a JSON service account key and mount it into the pod filesystem." },
-      { id: 'B', text: "Hardcode the Google service account private key in the application source code." },
+      { id: 'B', text: "Mount a service account key file into the container at deploy time." },
       { id: 'C', text: "Grant full Cloud Storage admin rights to the underlying GKE worker node service account." },
       { id: 'D', text: "Configure GKE Workload Identity to bind the Kubernetes ServiceAccount to an IAM Google ServiceAccount." }
     ],
@@ -264,7 +264,7 @@ export const GCP_ACE_QUESTIONS_19 = [
       { id: 'A', text: "Configure GKE Workload Identity to bind the Kubernetes ServiceAccount to an IAM Google ServiceAccount." },
       { id: 'B', text: "Grant full Cloud Storage admin rights to the underlying GKE worker node service account." },
       { id: 'C', text: "Generate a JSON service account key and mount it into the pod filesystem." },
-      { id: 'D', text: "Hardcode the Google service account private key in the application source code." }
+      { id: 'D', text: "Mount a service account key file into the container at deploy time." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -284,7 +284,7 @@ export const GCP_ACE_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Configure GKE Workload Identity to bind the Kubernetes ServiceAccount to an IAM Google ServiceAccount." },
       { id: 'B', text: "Grant full Cloud Storage admin rights to the underlying GKE worker node service account." },
-      { id: 'C', text: "Hardcode the Google service account private key in the application source code." },
+      { id: 'C', text: "Mount a service account key file into the container at deploy time." },
       { id: 'D', text: "Generate a JSON service account key and mount it into the pod filesystem." }
     ],
     correctAnswers: ['A'],
@@ -305,7 +305,7 @@ export const GCP_ACE_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Configure GKE Workload Identity to bind the Kubernetes ServiceAccount to an IAM Google ServiceAccount." },
       { id: 'B', text: "Generate a JSON service account key and mount it into the pod filesystem." },
-      { id: 'C', text: "Hardcode the Google service account private key in the application source code." },
+      { id: 'C', text: "Mount a service account key file into the container at deploy time." },
       { id: 'D', text: "Grant full Cloud Storage admin rights to the underlying GKE worker node service account." }
     ],
     correctAnswers: ['A'],
@@ -431,7 +431,7 @@ export const GCP_ACE_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Encrypt files manually using a desktop encryption utility before uploading." },
       { id: 'B', text: "Rely on default Google-managed encryption keys without configuration." },
-      { id: 'C', text: "Configure Customer-Managed Encryption Keys (CMEK) using Cloud KMS for storage and database resources." },
+      { id: 'C', text: "Customer-managed encryption keys in Cloud KMS for those resources." },
       { id: 'D', text: "Store encryption keys in an unencrypted Cloud Storage bucket." }
     ],
     correctAnswers: ['C'],
@@ -450,7 +450,7 @@ export const GCP_ACE_QUESTIONS_19 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to comply with regulatory banking guidelines requiring the enterprise to manage and rotate its own cryptographic encryption keys for data stored in Cloud Storage and BigQuery.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Configure Customer-Managed Encryption Keys (CMEK) using Cloud KMS for storage and database resources." },
+      { id: 'A', text: "Customer-managed encryption keys in Cloud KMS for those resources." },
       { id: 'B', text: "Encrypt files manually using a desktop encryption utility before uploading." },
       { id: 'C', text: "Rely on default Google-managed encryption keys without configuration." },
       { id: 'D', text: "Store encryption keys in an unencrypted Cloud Storage bucket." }
@@ -472,7 +472,7 @@ export const GCP_ACE_QUESTIONS_19 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Encrypt files manually using a desktop encryption utility before uploading." },
-      { id: 'B', text: "Configure Customer-Managed Encryption Keys (CMEK) using Cloud KMS for storage and database resources." },
+      { id: 'B', text: "Customer-managed encryption keys in Cloud KMS for those resources." },
       { id: 'C', text: "Rely on default Google-managed encryption keys without configuration." },
       { id: 'D', text: "Store encryption keys in an unencrypted Cloud Storage bucket." }
     ],
@@ -492,7 +492,7 @@ export const GCP_ACE_QUESTIONS_19 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to comply with regulatory banking guidelines requiring the enterprise to manage and rotate its own cryptographic encryption keys for data stored in Cloud Storage and BigQuery.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Configure Customer-Managed Encryption Keys (CMEK) using Cloud KMS for storage and database resources." },
+      { id: 'A', text: "Customer-managed encryption keys in Cloud KMS for those resources." },
       { id: 'B', text: "Rely on default Google-managed encryption keys without configuration." },
       { id: 'C', text: "Encrypt files manually using a desktop encryption utility before uploading." },
       { id: 'D', text: "Store encryption keys in an unencrypted Cloud Storage bucket." }
@@ -514,7 +514,7 @@ export const GCP_ACE_QUESTIONS_19 = [
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Store encryption keys in an unencrypted Cloud Storage bucket." },
-      { id: 'B', text: "Configure Customer-Managed Encryption Keys (CMEK) using Cloud KMS for storage and database resources." },
+      { id: 'B', text: "Customer-managed encryption keys in Cloud KMS for those resources." },
       { id: 'C', text: "Rely on default Google-managed encryption keys without configuration." },
       { id: 'D', text: "Encrypt files manually using a desktop encryption utility before uploading." }
     ],

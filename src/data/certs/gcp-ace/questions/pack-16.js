@@ -10,7 +10,7 @@ export const GCP_ACE_QUESTIONS_16 = [
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Create the bucket using an unencrypted local FTP client." },
-      { id: 'B', text: "Execute 'gcloud storage buckets create gs://BUCKET_NAME --location=us-central1 --uniform-bucket-level-access' and enable versioning." },
+      { id: 'B', text: "Create the bucket with uniform access, then enable versioning." },
       { id: 'C', text: "Store files in an unformatted Compute Engine persistent disk." },
       { id: 'D', text: "Create a public Google Drive folder and share the link with the internet." }
     ],
@@ -30,7 +30,7 @@ export const GCP_ACE_QUESTIONS_16 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to create a regionally redundant Cloud Storage bucket in us-central1 with uniform access controls and object versioning enabled via CLI.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Execute 'gcloud storage buckets create gs://BUCKET_NAME --location=us-central1 --uniform-bucket-level-access' and enable versioning." },
+      { id: 'A', text: "Create the bucket with uniform access, then enable versioning." },
       { id: 'B', text: "Create the bucket using an unencrypted local FTP client." },
       { id: 'C', text: "Create a public Google Drive folder and share the link with the internet." },
       { id: 'D', text: "Store files in an unformatted Compute Engine persistent disk." }
@@ -52,7 +52,7 @@ export const GCP_ACE_QUESTIONS_16 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Create a public Google Drive folder and share the link with the internet." },
-      { id: 'B', text: "Execute 'gcloud storage buckets create gs://BUCKET_NAME --location=us-central1 --uniform-bucket-level-access' and enable versioning." },
+      { id: 'B', text: "Create the bucket with uniform access, then enable versioning." },
       { id: 'C', text: "Create the bucket using an unencrypted local FTP client." },
       { id: 'D', text: "Store files in an unformatted Compute Engine persistent disk." }
     ],
@@ -75,7 +75,7 @@ export const GCP_ACE_QUESTIONS_16 = [
       { id: 'A', text: "Create a public Google Drive folder and share the link with the internet." },
       { id: 'B', text: "Store files in an unformatted Compute Engine persistent disk." },
       { id: 'C', text: "Create the bucket using an unencrypted local FTP client." },
-      { id: 'D', text: "Execute 'gcloud storage buckets create gs://BUCKET_NAME --location=us-central1 --uniform-bucket-level-access' and enable versioning." }
+      { id: 'D', text: "Create the bucket with uniform access, then enable versioning." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -93,7 +93,7 @@ export const GCP_ACE_QUESTIONS_16 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer needs to create a regionally redundant Cloud Storage bucket in us-central1 with uniform access controls and object versioning enabled via CLI.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Execute 'gcloud storage buckets create gs://BUCKET_NAME --location=us-central1 --uniform-bucket-level-access' and enable versioning." },
+      { id: 'A', text: "Create the bucket with uniform access, then enable versioning." },
       { id: 'B', text: "Store files in an unformatted Compute Engine persistent disk." },
       { id: 'C', text: "Create a public Google Drive folder and share the link with the internet." },
       { id: 'D', text: "Create the bucket using an unencrypted local FTP client." }
@@ -117,7 +117,7 @@ export const GCP_ACE_QUESTIONS_16 = [
       { id: 'A', text: "Use Cloud Bigtable for relational SQL queries." },
       { id: 'B', text: "Deploy a local SQLite database file on an NFS share." },
       { id: 'C', text: "Install PostgreSQL on a Compute Engine VM and assign a public IP address." },
-      { id: 'D', text: "Execute 'gcloud sql instances create' specifying private network flags and enabling automated backups." }
+      { id: 'D', text: "Create the instance with private network flags and automated backups." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -135,7 +135,7 @@ export const GCP_ACE_QUESTIONS_16 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to deploy a fully managed PostgreSQL database on Cloud SQL configured with private IP connectivity to a designated VPC without public internet exposure.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Execute 'gcloud sql instances create' specifying private network flags and enabling automated backups." },
+      { id: 'A', text: "Create the instance with private network flags and automated backups." },
       { id: 'B', text: "Use Cloud Bigtable for relational SQL queries." },
       { id: 'C', text: "Deploy a local SQLite database file on an NFS share." },
       { id: 'D', text: "Install PostgreSQL on a Compute Engine VM and assign a public IP address." }
@@ -159,7 +159,7 @@ export const GCP_ACE_QUESTIONS_16 = [
       { id: 'A', text: "Deploy a local SQLite database file on an NFS share." },
       { id: 'B', text: "Install PostgreSQL on a Compute Engine VM and assign a public IP address." },
       { id: 'C', text: "Use Cloud Bigtable for relational SQL queries." },
-      { id: 'D', text: "Execute 'gcloud sql instances create' specifying private network flags and enabling automated backups." }
+      { id: 'D', text: "Create the instance with private network flags and automated backups." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -178,7 +178,7 @@ export const GCP_ACE_QUESTIONS_16 = [
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Deploy a local SQLite database file on an NFS share." },
-      { id: 'B', text: "Execute 'gcloud sql instances create' specifying private network flags and enabling automated backups." },
+      { id: 'B', text: "Create the instance with private network flags and automated backups." },
       { id: 'C', text: "Install PostgreSQL on a Compute Engine VM and assign a public IP address." },
       { id: 'D', text: "Use Cloud Bigtable for relational SQL queries." }
     ],
@@ -201,7 +201,7 @@ export const GCP_ACE_QUESTIONS_16 = [
       { id: 'A', text: "Use Cloud Bigtable for relational SQL queries." },
       { id: 'B', text: "Install PostgreSQL on a Compute Engine VM and assign a public IP address." },
       { id: 'C', text: "Deploy a local SQLite database file on an NFS share." },
-      { id: 'D', text: "Execute 'gcloud sql instances create' specifying private network flags and enabling automated backups." }
+      { id: 'D', text: "Create the instance with private network flags and automated backups." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -220,7 +220,7 @@ export const GCP_ACE_QUESTIONS_16 = [
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Deploy all servers into the legacy default VPC network." },
-      { id: 'B', text: "Create a Custom Mode VPC network using 'gcloud compute networks create --subnet-mode=custom' and add defined subnets." },
+      { id: 'B', text: "Create a custom-mode VPC with --subnet-mode=custom and add subnets." },
       { id: 'C', text: "Create an Auto Mode VPC network that automatically creates subnets in every global region." },
       { id: 'D', text: "Connect virtual machines using public internet IP addresses without a VPC." }
     ],
@@ -241,7 +241,7 @@ export const GCP_ACE_QUESTIONS_16 = [
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Connect virtual machines using public internet IP addresses without a VPC." },
-      { id: 'B', text: "Create a Custom Mode VPC network using 'gcloud compute networks create --subnet-mode=custom' and add defined subnets." },
+      { id: 'B', text: "Create a custom-mode VPC with --subnet-mode=custom and add subnets." },
       { id: 'C', text: "Create an Auto Mode VPC network that automatically creates subnets in every global region." },
       { id: 'D', text: "Deploy all servers into the legacy default VPC network." }
     ],
@@ -262,7 +262,7 @@ export const GCP_ACE_QUESTIONS_16 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Deploy all servers into the legacy default VPC network." },
-      { id: 'B', text: "Create a Custom Mode VPC network using 'gcloud compute networks create --subnet-mode=custom' and add defined subnets." },
+      { id: 'B', text: "Create a custom-mode VPC with --subnet-mode=custom and add subnets." },
       { id: 'C', text: "Create an Auto Mode VPC network that automatically creates subnets in every global region." },
       { id: 'D', text: "Connect virtual machines using public internet IP addresses without a VPC." }
     ],
@@ -285,7 +285,7 @@ export const GCP_ACE_QUESTIONS_16 = [
       { id: 'A', text: "Deploy all servers into the legacy default VPC network." },
       { id: 'B', text: "Connect virtual machines using public internet IP addresses without a VPC." },
       { id: 'C', text: "Create an Auto Mode VPC network that automatically creates subnets in every global region." },
-      { id: 'D', text: "Create a Custom Mode VPC network using 'gcloud compute networks create --subnet-mode=custom' and add defined subnets." }
+      { id: 'D', text: "Create a custom-mode VPC with --subnet-mode=custom and add subnets." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -306,7 +306,7 @@ export const GCP_ACE_QUESTIONS_16 = [
       { id: 'A', text: "Create an Auto Mode VPC network that automatically creates subnets in every global region." },
       { id: 'B', text: "Connect virtual machines using public internet IP addresses without a VPC." },
       { id: 'C', text: "Deploy all servers into the legacy default VPC network." },
-      { id: 'D', text: "Create a Custom Mode VPC network using 'gcloud compute networks create --subnet-mode=custom' and add defined subnets." }
+      { id: 'D', text: "Create a custom-mode VPC with --subnet-mode=custom and add subnets." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -325,7 +325,7 @@ export const GCP_ACE_QUESTIONS_16 = [
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Rely on client operating system software firewalls alone." },
-      { id: 'B', text: "Create a VPC ingress firewall rule with target-tags='web-frontend', source-ranges='0.0.0.0/0', and allow=tcp:443." },
+      { id: 'B', text: "An ingress rule for tcp:443 from anywhere to the web-frontend tag." },
       { id: 'C', text: "Delete the default-deny-all-ingress firewall rule." },
       { id: 'D', text: "Allow all inbound TCP traffic on all ports across the entire virtual network." }
     ],
@@ -348,7 +348,7 @@ export const GCP_ACE_QUESTIONS_16 = [
       { id: 'A', text: "Allow all inbound TCP traffic on all ports across the entire virtual network." },
       { id: 'B', text: "Delete the default-deny-all-ingress firewall rule." },
       { id: 'C', text: "Rely on client operating system software firewalls alone." },
-      { id: 'D', text: "Create a VPC ingress firewall rule with target-tags='web-frontend', source-ranges='0.0.0.0/0', and allow=tcp:443." }
+      { id: 'D', text: "An ingress rule for tcp:443 from anywhere to the web-frontend tag." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -367,7 +367,7 @@ export const GCP_ACE_QUESTIONS_16 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Rely on client operating system software firewalls alone." },
-      { id: 'B', text: "Create a VPC ingress firewall rule with target-tags='web-frontend', source-ranges='0.0.0.0/0', and allow=tcp:443." },
+      { id: 'B', text: "An ingress rule for tcp:443 from anywhere to the web-frontend tag." },
       { id: 'C', text: "Delete the default-deny-all-ingress firewall rule." },
       { id: 'D', text: "Allow all inbound TCP traffic on all ports across the entire virtual network." }
     ],
@@ -390,7 +390,7 @@ export const GCP_ACE_QUESTIONS_16 = [
       { id: 'A', text: "Delete the default-deny-all-ingress firewall rule." },
       { id: 'B', text: "Allow all inbound TCP traffic on all ports across the entire virtual network." },
       { id: 'C', text: "Rely on client operating system software firewalls alone." },
-      { id: 'D', text: "Create a VPC ingress firewall rule with target-tags='web-frontend', source-ranges='0.0.0.0/0', and allow=tcp:443." }
+      { id: 'D', text: "An ingress rule for tcp:443 from anywhere to the web-frontend tag." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -411,7 +411,7 @@ export const GCP_ACE_QUESTIONS_16 = [
       { id: 'A', text: "Rely on client operating system software firewalls alone." },
       { id: 'B', text: "Delete the default-deny-all-ingress firewall rule." },
       { id: 'C', text: "Allow all inbound TCP traffic on all ports across the entire virtual network." },
-      { id: 'D', text: "Create a VPC ingress firewall rule with target-tags='web-frontend', source-ranges='0.0.0.0/0', and allow=tcp:443." }
+      { id: 'D', text: "An ingress rule for tcp:443 from anywhere to the web-frontend tag." }
     ],
     correctAnswers: ['D'],
     type: "single",

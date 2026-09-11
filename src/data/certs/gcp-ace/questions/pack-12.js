@@ -10,7 +10,7 @@ export const GCP_ACE_QUESTIONS_12 = [
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Grant the junior operator the basic 'Owner' role on the project." },
-      { id: 'B', text: "Assign the predefined 'Compute Instance Admin (v1)' role or create a tailored custom role with compute.instances.start and compute.instances.stop." },
+      { id: 'B', text: "Compute Instance Admin (v1), or a custom role with start and stop." },
       { id: 'C', text: "Grant the junior operator the basic 'Editor' role on the project." },
       { id: 'D', text: "Share the root Organization Administrator password with the junior operator." }
     ],
@@ -30,7 +30,7 @@ export const GCP_ACE_QUESTIONS_12 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to grant a junior operator permission to start and stop Compute Engine virtual machines without granting permission to delete disks or modify network firewalls.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Assign the predefined 'Compute Instance Admin (v1)' role or create a tailored custom role with compute.instances.start and compute.instances.stop." },
+      { id: 'A', text: "Compute Instance Admin (v1), or a custom role with start and stop." },
       { id: 'B', text: "Grant the junior operator the basic 'Editor' role on the project." },
       { id: 'C', text: "Share the root Organization Administrator password with the junior operator." },
       { id: 'D', text: "Grant the junior operator the basic 'Owner' role on the project." }
@@ -53,7 +53,7 @@ export const GCP_ACE_QUESTIONS_12 = [
     options: [
       { id: 'A', text: "Grant the junior operator the basic 'Owner' role on the project." },
       { id: 'B', text: "Share the root Organization Administrator password with the junior operator." },
-      { id: 'C', text: "Assign the predefined 'Compute Instance Admin (v1)' role or create a tailored custom role with compute.instances.start and compute.instances.stop." },
+      { id: 'C', text: "Compute Instance Admin (v1), or a custom role with start and stop." },
       { id: 'D', text: "Grant the junior operator the basic 'Editor' role on the project." }
     ],
     correctAnswers: ['C'],
@@ -74,7 +74,7 @@ export const GCP_ACE_QUESTIONS_12 = [
     options: [
       { id: 'A', text: "Grant the junior operator the basic 'Owner' role on the project." },
       { id: 'B', text: "Grant the junior operator the basic 'Editor' role on the project." },
-      { id: 'C', text: "Assign the predefined 'Compute Instance Admin (v1)' role or create a tailored custom role with compute.instances.start and compute.instances.stop." },
+      { id: 'C', text: "Compute Instance Admin (v1), or a custom role with start and stop." },
       { id: 'D', text: "Share the root Organization Administrator password with the junior operator." }
     ],
     correctAnswers: ['C'],
@@ -95,7 +95,7 @@ export const GCP_ACE_QUESTIONS_12 = [
     options: [
       { id: 'A', text: "Grant the junior operator the basic 'Editor' role on the project." },
       { id: 'B', text: "Share the root Organization Administrator password with the junior operator." },
-      { id: 'C', text: "Assign the predefined 'Compute Instance Admin (v1)' role or create a tailored custom role with compute.instances.start and compute.instances.stop." },
+      { id: 'C', text: "Compute Instance Admin (v1), or a custom role with start and stop." },
       { id: 'D', text: "Grant the junior operator the basic 'Owner' role on the project." }
     ],
     correctAnswers: ['C'],
@@ -115,7 +115,7 @@ export const GCP_ACE_QUESTIONS_12 = [
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Generate a long-lived JSON service account key and commit it to a public GitHub repository." },
-      { id: 'B', text: "Configure Workload Identity Federation to allow the on-premises server to exchange local identity tokens for short-lived Google Cloud access tokens." },
+      { id: 'B', text: "Workload Identity Federation, exchanging local tokens for short-lived ones." },
       { id: 'C', text: "Store service account credentials in a plaintext text file on an unencrypted network share." },
       { id: 'D', text: "Make the Cloud Storage bucket publicly readable and writable by allUsers." }
     ],
@@ -137,7 +137,7 @@ export const GCP_ACE_QUESTIONS_12 = [
     options: [
       { id: 'A', text: "Make the Cloud Storage bucket publicly readable and writable by allUsers." },
       { id: 'B', text: "Generate a long-lived JSON service account key and commit it to a public GitHub repository." },
-      { id: 'C', text: "Configure Workload Identity Federation to allow the on-premises server to exchange local identity tokens for short-lived Google Cloud access tokens." },
+      { id: 'C', text: "Workload Identity Federation, exchanging local tokens for short-lived ones." },
       { id: 'D', text: "Store service account credentials in a plaintext text file on an unencrypted network share." }
     ],
     correctAnswers: ['C'],
@@ -159,7 +159,7 @@ export const GCP_ACE_QUESTIONS_12 = [
       { id: 'A', text: "Make the Cloud Storage bucket publicly readable and writable by allUsers." },
       { id: 'B', text: "Generate a long-lived JSON service account key and commit it to a public GitHub repository." },
       { id: 'C', text: "Store service account credentials in a plaintext text file on an unencrypted network share." },
-      { id: 'D', text: "Configure Workload Identity Federation to allow the on-premises server to exchange local identity tokens for short-lived Google Cloud access tokens." }
+      { id: 'D', text: "Workload Identity Federation, exchanging local tokens for short-lived ones." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -180,7 +180,7 @@ export const GCP_ACE_QUESTIONS_12 = [
       { id: 'A', text: "Generate a long-lived JSON service account key and commit it to a public GitHub repository." },
       { id: 'B', text: "Make the Cloud Storage bucket publicly readable and writable by allUsers." },
       { id: 'C', text: "Store service account credentials in a plaintext text file on an unencrypted network share." },
-      { id: 'D', text: "Configure Workload Identity Federation to allow the on-premises server to exchange local identity tokens for short-lived Google Cloud access tokens." }
+      { id: 'D', text: "Workload Identity Federation, exchanging local tokens for short-lived ones." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -200,7 +200,7 @@ export const GCP_ACE_QUESTIONS_12 = [
     options: [
       { id: 'A', text: "Store service account credentials in a plaintext text file on an unencrypted network share." },
       { id: 'B', text: "Make the Cloud Storage bucket publicly readable and writable by allUsers." },
-      { id: 'C', text: "Configure Workload Identity Federation to allow the on-premises server to exchange local identity tokens for short-lived Google Cloud access tokens." },
+      { id: 'C', text: "Workload Identity Federation, exchanging local tokens for short-lived ones." },
       { id: 'D', text: "Generate a long-lived JSON service account key and commit it to a public GitHub repository." }
     ],
     correctAnswers: ['C'],
@@ -221,7 +221,7 @@ export const GCP_ACE_QUESTIONS_12 = [
     options: [
       { id: 'A', text: "Rely on developers to document their administrative CLI commands in shared documents." },
       { id: 'B', text: "Export local browser history logs from developer workstations." },
-      { id: 'C', text: "Rely on Cloud Audit Logs Admin Activity logs (enabled by default and retained for 400 days at no charge)." },
+      { id: 'C', text: "Rely on Admin Activity audit logs, on by default and free for 400 days." },
       { id: 'D', text: "Disable all logging across the project to reduce data ingestion fees." }
     ],
     correctAnswers: ['C'],
@@ -240,7 +240,7 @@ export const GCP_ACE_QUESTIONS_12 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to maintain an immutable compliance audit record of every administrative configuration change made to cloud infrastructure, retaining records for legal audits.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Rely on Cloud Audit Logs Admin Activity logs (enabled by default and retained for 400 days at no charge)." },
+      { id: 'A', text: "Rely on Admin Activity audit logs, on by default and free for 400 days." },
       { id: 'B', text: "Export local browser history logs from developer workstations." },
       { id: 'C', text: "Rely on developers to document their administrative CLI commands in shared documents." },
       { id: 'D', text: "Disable all logging across the project to reduce data ingestion fees." }
@@ -264,7 +264,7 @@ export const GCP_ACE_QUESTIONS_12 = [
       { id: 'A', text: "Disable all logging across the project to reduce data ingestion fees." },
       { id: 'B', text: "Export local browser history logs from developer workstations." },
       { id: 'C', text: "Rely on developers to document their administrative CLI commands in shared documents." },
-      { id: 'D', text: "Rely on Cloud Audit Logs Admin Activity logs (enabled by default and retained for 400 days at no charge)." }
+      { id: 'D', text: "Rely on Admin Activity audit logs, on by default and free for 400 days." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -285,7 +285,7 @@ export const GCP_ACE_QUESTIONS_12 = [
       { id: 'A', text: "Disable all logging across the project to reduce data ingestion fees." },
       { id: 'B', text: "Rely on developers to document their administrative CLI commands in shared documents." },
       { id: 'C', text: "Export local browser history logs from developer workstations." },
-      { id: 'D', text: "Rely on Cloud Audit Logs Admin Activity logs (enabled by default and retained for 400 days at no charge)." }
+      { id: 'D', text: "Rely on Admin Activity audit logs, on by default and free for 400 days." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -306,7 +306,7 @@ export const GCP_ACE_QUESTIONS_12 = [
       { id: 'A', text: "Export local browser history logs from developer workstations." },
       { id: 'B', text: "Disable all logging across the project to reduce data ingestion fees." },
       { id: 'C', text: "Rely on developers to document their administrative CLI commands in shared documents." },
-      { id: 'D', text: "Rely on Cloud Audit Logs Admin Activity logs (enabled by default and retained for 400 days at no charge)." }
+      { id: 'D', text: "Rely on Admin Activity audit logs, on by default and free for 400 days." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -429,7 +429,7 @@ export const GCP_ACE_QUESTIONS_12 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to enforce a mandatory corporate security constraint that prevents any virtual machine in the entire organization from being assigned an external public IP address.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Apply the 'compute.vmExternalIpAccess' Organization Policy constraint at the Organization root level." },
+      { id: 'A', text: "Apply the compute.vmExternalIpAccess constraint at the org root level." },
       { id: 'B', text: "Ask developers to agree verbally to avoid configuring public IP addresses." },
       { id: 'C', text: "Rely on manual code reviews of Terraform files to spot public IP declarations." },
       { id: 'D', text: "Write a custom bash script that runs every hour to delete public IPs from VMs." }
@@ -453,7 +453,7 @@ export const GCP_ACE_QUESTIONS_12 = [
       { id: 'A', text: "Rely on manual code reviews of Terraform files to spot public IP declarations." },
       { id: 'B', text: "Ask developers to agree verbally to avoid configuring public IP addresses." },
       { id: 'C', text: "Write a custom bash script that runs every hour to delete public IPs from VMs." },
-      { id: 'D', text: "Apply the 'compute.vmExternalIpAccess' Organization Policy constraint at the Organization root level." }
+      { id: 'D', text: "Apply the compute.vmExternalIpAccess constraint at the org root level." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -472,7 +472,7 @@ export const GCP_ACE_QUESTIONS_12 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Ask developers to agree verbally to avoid configuring public IP addresses." },
-      { id: 'B', text: "Apply the 'compute.vmExternalIpAccess' Organization Policy constraint at the Organization root level." },
+      { id: 'B', text: "Apply the compute.vmExternalIpAccess constraint at the org root level." },
       { id: 'C', text: "Write a custom bash script that runs every hour to delete public IPs from VMs." },
       { id: 'D', text: "Rely on manual code reviews of Terraform files to spot public IP declarations." }
     ],
@@ -495,7 +495,7 @@ export const GCP_ACE_QUESTIONS_12 = [
       { id: 'A', text: "Ask developers to agree verbally to avoid configuring public IP addresses." },
       { id: 'B', text: "Rely on manual code reviews of Terraform files to spot public IP declarations." },
       { id: 'C', text: "Write a custom bash script that runs every hour to delete public IPs from VMs." },
-      { id: 'D', text: "Apply the 'compute.vmExternalIpAccess' Organization Policy constraint at the Organization root level." }
+      { id: 'D', text: "Apply the compute.vmExternalIpAccess constraint at the org root level." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -515,7 +515,7 @@ export const GCP_ACE_QUESTIONS_12 = [
     options: [
       { id: 'A', text: "Rely on manual code reviews of Terraform files to spot public IP declarations." },
       { id: 'B', text: "Ask developers to agree verbally to avoid configuring public IP addresses." },
-      { id: 'C', text: "Apply the 'compute.vmExternalIpAccess' Organization Policy constraint at the Organization root level." },
+      { id: 'C', text: "Apply the compute.vmExternalIpAccess constraint at the org root level." },
       { id: 'D', text: "Write a custom bash script that runs every hour to delete public IPs from VMs." }
     ],
     correctAnswers: ['C'],
