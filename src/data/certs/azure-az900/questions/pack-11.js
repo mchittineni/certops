@@ -11,7 +11,7 @@ export const AZURE_AZ900_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Lease dedicated physical blade servers in an enterprise private facility for 10 years." },
       { id: 'B', text: "Allocate Capital Expenditure (CapEx) for 5-year on-premises server equipment depreciation." },
-      { id: 'C', text: "Adopt Operational Expenditure (OpEx) billing where computing services are consumed on demand without upfront physical data center commitments." },
+      { id: 'C', text: "Adopt OpEx billing where services are consumed on demand without upfront commitments." },
       { id: 'D', text: "Prepay upfront software licensing fees covering permanent physical hardware installations." }
     ],
     correctAnswers: ['C'],
@@ -33,7 +33,7 @@ export const AZURE_AZ900_QUESTIONS_11 = [
       { id: 'A', text: "Allocate Capital Expenditure (CapEx) for 5-year on-premises server equipment depreciation." },
       { id: 'B', text: "Lease dedicated physical blade servers in an enterprise private facility for 10 years." },
       { id: 'C', text: "Prepay upfront software licensing fees covering permanent physical hardware installations." },
-      { id: 'D', text: "Adopt Operational Expenditure (OpEx) billing where computing services are consumed on demand without upfront physical data center commitments." }
+      { id: 'D', text: "Adopt OpEx billing where services are consumed on demand without upfront commitments." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -54,7 +54,7 @@ export const AZURE_AZ900_QUESTIONS_11 = [
       { id: 'A', text: "Allocate Capital Expenditure (CapEx) for 5-year on-premises server equipment depreciation." },
       { id: 'B', text: "Lease dedicated physical blade servers in an enterprise private facility for 10 years." },
       { id: 'C', text: "Prepay upfront software licensing fees covering permanent physical hardware installations." },
-      { id: 'D', text: "Adopt Operational Expenditure (OpEx) billing where computing services are consumed on demand without upfront physical data center commitments." }
+      { id: 'D', text: "Adopt OpEx billing where services are consumed on demand without upfront commitments." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -75,7 +75,7 @@ export const AZURE_AZ900_QUESTIONS_11 = [
       { id: 'A', text: "Prepay upfront software licensing fees covering permanent physical hardware installations." },
       { id: 'B', text: "Allocate Capital Expenditure (CapEx) for 5-year on-premises server equipment depreciation." },
       { id: 'C', text: "Lease dedicated physical blade servers in an enterprise private facility for 10 years." },
-      { id: 'D', text: "Adopt Operational Expenditure (OpEx) billing where computing services are consumed on demand without upfront physical data center commitments." }
+      { id: 'D', text: "Adopt OpEx billing where services are consumed on demand without upfront commitments." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -93,7 +93,7 @@ export const AZURE_AZ900_QUESTIONS_11 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The organization evaluates Azure Cloud Economics to transition enterprise IT infrastructure costs from large upfront capital investments in physical hardware to predictable pay-as-you-go operational expenditures.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Adopt Operational Expenditure (OpEx) billing where computing services are consumed on demand without upfront physical data center commitments." },
+      { id: 'A', text: "Adopt OpEx billing where services are consumed on demand without upfront commitments." },
       { id: 'B', text: "Allocate Capital Expenditure (CapEx) for 5-year on-premises server equipment depreciation." },
       { id: 'C', text: "Lease dedicated physical blade servers in an enterprise private facility for 10 years." },
       { id: 'D', text: "Prepay upfront software licensing fees covering permanent physical hardware installations." }
@@ -115,7 +115,7 @@ export const AZURE_AZ900_QUESTIONS_11 = [
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Delegate identity governance, client endpoint configuration, and customer data rights entirely to Microsoft." },
-      { id: 'B', text: "Reference the Azure Shared Responsibility Model where physical security is always Microsoft's responsibility, data classification is always the customer's responsibility, and OS management shifts depending on IaaS, PaaS, or SaaS." },
+      { id: 'B', text: "Reference the Azure Shared Responsibility Model, where OS management shifts between the parties across IaaS, PaaS and SaaS." },
       { id: 'C', text: "Assume Microsoft manages all data classification, user credentials, and application code across all cloud models." },
       { id: 'D', text: "Assume the customer retains full responsibility for physical data center facility security and hardware maintenance in Azure." }
     ],
@@ -136,7 +136,7 @@ export const AZURE_AZ900_QUESTIONS_11 = [
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Assume the customer retains full responsibility for physical data center facility security and hardware maintenance in Azure." },
-      { id: 'B', text: "Reference the Azure Shared Responsibility Model where physical security is always Microsoft's responsibility, data classification is always the customer's responsibility, and OS management shifts depending on IaaS, PaaS, or SaaS." },
+      { id: 'B', text: "Reference the Azure Shared Responsibility Model, where OS management shifts between the parties across IaaS, PaaS and SaaS." },
       { id: 'C', text: "Assume Microsoft manages all data classification, user credentials, and application code across all cloud models." },
       { id: 'D', text: "Delegate identity governance, client endpoint configuration, and customer data rights entirely to Microsoft." }
     ],
@@ -157,7 +157,7 @@ export const AZURE_AZ900_QUESTIONS_11 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Assume the customer retains full responsibility for physical data center facility security and hardware maintenance in Azure." },
-      { id: 'B', text: "Reference the Azure Shared Responsibility Model where physical security is always Microsoft's responsibility, data classification is always the customer's responsibility, and OS management shifts depending on IaaS, PaaS, or SaaS." },
+      { id: 'B', text: "Reference the Azure Shared Responsibility Model, where OS management shifts between the parties across IaaS, PaaS and SaaS." },
       { id: 'C', text: "Assume Microsoft manages all data classification, user credentials, and application code across all cloud models." },
       { id: 'D', text: "Delegate identity governance, client endpoint configuration, and customer data rights entirely to Microsoft." }
     ],
@@ -179,7 +179,7 @@ export const AZURE_AZ900_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Assume Microsoft manages all data classification, user credentials, and application code across all cloud models." },
       { id: 'B', text: "Delegate identity governance, client endpoint configuration, and customer data rights entirely to Microsoft." },
-      { id: 'C', text: "Reference the Azure Shared Responsibility Model where physical security is always Microsoft's responsibility, data classification is always the customer's responsibility, and OS management shifts depending on IaaS, PaaS, or SaaS." },
+      { id: 'C', text: "Reference the Azure Shared Responsibility Model, where OS management shifts between the parties across IaaS, PaaS and SaaS." },
       { id: 'D', text: "Assume the customer retains full responsibility for physical data center facility security and hardware maintenance in Azure." }
     ],
     correctAnswers: ['C'],
@@ -198,7 +198,7 @@ export const AZURE_AZ900_QUESTIONS_11 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The organization evaluates Shared Responsibility Model to clearly delineate cybersecurity and infrastructure maintenance boundaries between Microsoft and the enterprise across different service models.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Reference the Azure Shared Responsibility Model where physical security is always Microsoft's responsibility, data classification is always the customer's responsibility, and OS management shifts depending on IaaS, PaaS, or SaaS." },
+      { id: 'A', text: "Reference the Azure Shared Responsibility Model, where OS management shifts between the parties across IaaS, PaaS and SaaS." },
       { id: 'B', text: "Assume Microsoft manages all data classification, user credentials, and application code across all cloud models." },
       { id: 'C', text: "Assume the customer retains full responsibility for physical data center facility security and hardware maintenance in Azure." },
       { id: 'D', text: "Delegate identity governance, client endpoint configuration, and customer data rights entirely to Microsoft." }

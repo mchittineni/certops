@@ -18,7 +18,7 @@ export const AZURE_AZ900_QUESTIONS_3 = [
     type: "single",
     explanation: "A Hybrid cloud deployment model combines on-premises private datacenter infrastructure with public cloud services (like Microsoft Azure), allowing data and applications to be shared across environments via secure networking.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/strategy/cloud-migration-guide",
-    tags: ["Hybrid Cloud", "Cloud Models", "Architecture"]
+    tags: ["Hybrid Cloud","Cloud Models","Architecture"]
   },
   {
     id: "az-900-52",
@@ -39,7 +39,7 @@ export const AZURE_AZ900_QUESTIONS_3 = [
     type: "single",
     explanation: "Cloud agility refers to the ability to rapidly develop, test, and launch software applications by instantly provisioning, iterating, and scaling computing infrastructure on demand without procurement delays.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/strategy/business-outcomes/agility-outcomes",
-    tags: ["Agility", "Cloud Benefits", "Time to Market"]
+    tags: ["Agility","Cloud Benefits","Time to Market"]
   },
   {
     id: "az-900-53",
@@ -60,7 +60,7 @@ export const AZURE_AZ900_QUESTIONS_3 = [
     type: "single",
     explanation: "Platform as a Service (PaaS)—such as Azure App Service—provides an abstracted runtime environment. Azure manages VM provisioning, operating system maintenance, and runtime security patches, freeing developers to focus purely on application code.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/app-service/overview",
-    tags: ["PaaS", "App Service", "Compute", "Cloud Models"]
+    tags: ["PaaS","App Service","Compute","Cloud Models"]
   },
   {
     id: "az-900-54",
@@ -81,7 +81,7 @@ export const AZURE_AZ900_QUESTIONS_3 = [
     type: "single",
     explanation: "Serverless computing (like Azure Functions) is event-driven and abstracts all server management. Resources scale automatically based on event triggers, and customers pay strictly for compute time consumed during active execution, with zero cost when idle.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview",
-    tags: ["Serverless", "Azure Functions", "Compute", "Event-Driven"]
+    tags: ["Serverless","Azure Functions","Compute","Event-Driven"]
   },
   {
     id: "az-900-55",
@@ -102,7 +102,7 @@ export const AZURE_AZ900_QUESTIONS_3 = [
     type: "single",
     explanation: "Vertical scaling (scaling up or down) increases or decreases the compute capacity (CPU, RAM, disk) of an existing single resource. Horizontal scaling (scaling out or in) adds or removes additional instances of resources (e.g. in a scale set).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/architecture/framework/cost/design-scale",
-    tags: ["Scaling", "Vertical Scaling", "Compute", "VM"]
+    tags: ["Scaling","Vertical Scaling","Compute","VM"]
   },
   {
     id: "az-900-56",
@@ -117,13 +117,13 @@ export const AZURE_AZ900_QUESTIONS_3 = [
       { id: 'A', text: "A private virtual network configured inside a customer subscription" },
       { id: 'B', text: "A global backup storage vault" },
       { id: 'C', text: "A single physical server rack located in Microsoft headquarters" },
-      { id: 'D', text: "A geographical area containing at least one, but typically multiple, datacenters connected by a low-latency dedicated regional network" }
+      { id: 'D', text: "A geographic area of one or more datacenters on a low-latency link" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "An Azure Region is a designated geographic perimeter containing one or more discrete datacenters interconnected through a dedicated regional low-latency fiber network, providing cloud services to nearby users.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/reliability/availability-zones-overview#regions",
-    tags: ["Regions", "Global Infrastructure", "Architecture"]
+    tags: ["Regions","Global Infrastructure","Architecture"]
   },
   {
     id: "az-900-57",
@@ -135,7 +135,7 @@ export const AZURE_AZ900_QUESTIONS_3 = [
     scenario: "An enterprise IT organization is designing cloud architectures, governance standards, and operational policies on Microsoft Azure.",
     question: "How do Azure Availability Zones protect mission-critical workloads against datacenter-level failures?",
     options: [
-      { id: 'A', text: "By distributing workloads across physically separate datacenters within an Azure Region, each equipped with independent power, cooling, and networking" },
+      { id: 'A', text: "By using separate datacenters within one Azure region" },
       { id: 'B', text: "By copying virtual machines to a different cloud provider" },
       { id: 'C', text: "By converting virtual machines into container images" },
       { id: 'D', text: "By forcing all database writes to tape backup drives" }
@@ -144,7 +144,7 @@ export const AZURE_AZ900_QUESTIONS_3 = [
     type: "single",
     explanation: "Availability Zones (AZs) are physically separate datacenters within the same Azure Region. Each zone features isolated power, cooling, and networking infrastructure, providing fault isolation against local datacenter disasters.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/reliability/availability-zones-overview",
-    tags: ["Availability Zones", "High Availability", "Fault Tolerance"]
+    tags: ["Availability Zones","High Availability","Fault Tolerance"]
   },
   {
     id: "az-900-58",
@@ -165,7 +165,7 @@ export const AZURE_AZ900_QUESTIONS_3 = [
     type: "single",
     explanation: "Each Azure region is permanently paired with another region within the same geographic boundary (e.g. East US is paired with West US). Region pairs share cross-region replication for storage and staged platform updates to prevent simultaneous outages.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/reliability/cross-region-replication-azure",
-    tags: ["Region Pairs", "Cross-Region", "Disaster Recovery", "Replication"]
+    tags: ["Region Pairs","Cross-Region","Disaster Recovery","Replication"]
   },
   {
     id: "az-900-59",
@@ -186,7 +186,7 @@ export const AZURE_AZ900_QUESTIONS_3 = [
     type: "single",
     explanation: "Azure Government is a physically and logically isolated cloud environment dedicated exclusively to US federal, state, local, and tribal government entities and their authorized contractors meeting strict security and compliance standards.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-government/documentation-government-welcome",
-    tags: ["Azure Government", "Sovereign Regions", "Compliance"]
+    tags: ["Azure Government","Sovereign Regions","Compliance"]
   },
   {
     id: "az-900-60",
@@ -198,7 +198,7 @@ export const AZURE_AZ900_QUESTIONS_3 = [
     scenario: "An administrator wants to delete all virtual machines, virtual networks, and storage accounts created for a temporary three-week training project.",
     question: "What is the most efficient management approach?",
     options: [
-      { id: 'A', text: "Delete the single Resource Group containing all project resources, which automatically deletes all contained resources simultaneously" },
+      { id: 'A', text: "Delete the resource group holding all project resources" },
       { id: 'B', text: "Restart the training virtual machines" },
       { id: 'C', text: "Delete each resource individually in alphabetical order" },
       { id: 'D', text: "Cancel the entire corporate Azure subscription" }
@@ -207,7 +207,7 @@ export const AZURE_AZ900_QUESTIONS_3 = [
     type: "single",
     explanation: "A Resource Group is a logical container that groups resources sharing a common deployment lifecycle. Deleting a Resource Group cascades and deletes all member resources in a single operation, preventing orphaned cloud waste.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal",
-    tags: ["Resource Groups", "ARM", "Lifecycle Management", "Governance"]
+    tags: ["Resource Groups","ARM","Lifecycle Management","Governance"]
   },
   {
     id: "az-900-61",
@@ -228,7 +228,7 @@ export const AZURE_AZ900_QUESTIONS_3 = [
     type: "single",
     explanation: "Management Groups provide a governance container level above subscriptions. Organizing subscriptions into a Management Group hierarchy allows administrators to apply Azure Policies, RBAC role assignments, and compliance rules that inherit downwards.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/management-groups/overview",
-    tags: ["Management Groups", "Subscriptions", "Hierarchy", "Governance"]
+    tags: ["Management Groups","Subscriptions","Hierarchy","Governance"]
   },
   {
     id: "az-900-62",
@@ -249,7 +249,7 @@ export const AZURE_AZ900_QUESTIONS_3 = [
     type: "single",
     explanation: "Azure Virtual Machines provide on-demand Infrastructure as a Service (IaaS) compute. They give administrators total control over the guest operating system, network configuration, and installed software components.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machines/windows/overview",
-    tags: ["Virtual Machines", "IaaS", "Compute"]
+    tags: ["Virtual Machines","IaaS","Compute"]
   },
   {
     id: "az-900-63",
@@ -270,7 +270,7 @@ export const AZURE_AZ900_QUESTIONS_3 = [
     type: "single",
     explanation: "Azure Virtual Machine Scale Sets (VMSS) allow deployment and management of a group of identical, load-balanced VMs that automatically increase or decrease instance count based on demand metrics or scheduled rules.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview",
-    tags: ["VMSS", "Scale Sets", "Auto Scaling", "Compute"]
+    tags: ["VMSS","Scale Sets","Auto Scaling","Compute"]
   },
   {
     id: "az-900-64",
@@ -291,7 +291,7 @@ export const AZURE_AZ900_QUESTIONS_3 = [
     type: "single",
     explanation: "Azure Virtual Desktop (AVD) is a comprehensive cloud desktop and application virtualization service that delivers multi-session Windows 11 and Windows 10 experiences securely to remote users across any device.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-desktop/overview",
-    tags: ["AVD", "Virtual Desktop", "DaaS", "End User Computing"]
+    tags: ["AVD","Virtual Desktop","DaaS","End User Computing"]
   },
   {
     id: "az-900-65",
@@ -312,7 +312,7 @@ export const AZURE_AZ900_QUESTIONS_3 = [
     type: "single",
     explanation: "Azure Container Instances (ACI) offers the fastest, simplest way to run individual containers on demand in Azure without provisioning virtual machines or configuring complex Kubernetes cluster orchestrators.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/container-instances/container-instances-overview",
-    tags: ["ACI", "Containers", "Serverless", "Compute"]
+    tags: ["ACI","Containers","Serverless","Compute"]
   },
   {
     id: "az-900-66",
@@ -333,7 +333,7 @@ export const AZURE_AZ900_QUESTIONS_3 = [
     type: "single",
     explanation: "Azure Kubernetes Service (AKS) is a fully managed open-source Kubernetes service that simplifies deploying, managing, and scaling complex microservice container clusters with integrated enterprise security and monitoring.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/aks/intro-kubernetes",
-    tags: ["AKS", "Kubernetes", "Containers", "Microservices"]
+    tags: ["AKS","Kubernetes","Containers","Microservices"]
   },
   {
     id: "az-900-67",
@@ -346,7 +346,7 @@ export const AZURE_AZ900_QUESTIONS_3 = [
     question: "Which statement correctly describes an Azure VNet?",
     options: [
       { id: 'A', text: "A public web domain registration service" },
-      { id: 'B', text: "A logically isolated private network inside an Azure subscription that enables secure communication between Azure resources, the internet, and on-premises networks" },
+      { id: 'B', text: "A logically isolated private network within an Azure subscription" },
       { id: 'C', text: "A physical network cable connecting Azure to the customer's office" },
       { id: 'D', text: "A storage bucket for database backups" }
     ],
@@ -354,7 +354,7 @@ export const AZURE_AZ900_QUESTIONS_3 = [
     type: "single",
     explanation: "An Azure Virtual Network (VNet) is the fundamental building block for private networking in Azure. It enables Azure resources (like VMs and databases) to securely communicate with each other, the internet, and on-premises networks with private IP addressing.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview",
-    tags: ["VNet", "Networking", "Private Network"]
+    tags: ["VNet","Networking","Private Network"]
   },
   {
     id: "az-900-68",
@@ -375,7 +375,7 @@ export const AZURE_AZ900_QUESTIONS_3 = [
     type: "single",
     explanation: "Virtual Network (VNet) Peering connects two Azure VNets directly through the private Microsoft backbone network. Traffic between peered VNets flows completely on private IP addresses with high bandwidth and low latency.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview",
-    tags: ["VNet Peering", "Networking", "Backbone"]
+    tags: ["VNet Peering","Networking","Backbone"]
   },
   {
     id: "az-900-69",
@@ -396,7 +396,7 @@ export const AZURE_AZ900_QUESTIONS_3 = [
     type: "single",
     explanation: "Azure ExpressRoute creates a private, dedicated physical fiber connection between an organization's on-premises datacenter and Azure through a connectivity provider, bypassing the public internet to deliver higher security, reliability, and predictable speeds.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/expressroute/expressroute-introduction",
-    tags: ["ExpressRoute", "Hybrid", "Networking", "Dedicated Fiber"]
+    tags: ["ExpressRoute","Hybrid","Networking","Dedicated Fiber"]
   },
   {
     id: "az-900-70",
@@ -417,7 +417,7 @@ export const AZURE_AZ900_QUESTIONS_3 = [
     type: "single",
     explanation: "Azure VPN Gateway sends encrypted network traffic between an Azure Virtual Network and an on-premises location across the public internet using standard IPsec/IKE VPN tunnels.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways",
-    tags: ["VPN Gateway", "IPsec", "Networking", "Hybrid"]
+    tags: ["VPN Gateway","IPsec","Networking","Hybrid"]
   },
   {
     id: "az-900-71",
@@ -438,7 +438,7 @@ export const AZURE_AZ900_QUESTIONS_3 = [
     type: "single",
     explanation: "The Archive tier provides the lowest storage cost per gigabyte in Azure Blob Storage. It is designed for rarely accessed data with flexible retrieval latency requirements (several hours to rehydrate).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/blobs/access-tiers-overview",
-    tags: ["Blob Storage", "Archive", "Storage Tiers", "Cost Optimization"]
+    tags: ["Blob Storage","Archive","Storage Tiers","Cost Optimization"]
   },
   {
     id: "az-900-72",
@@ -459,7 +459,7 @@ export const AZURE_AZ900_QUESTIONS_3 = [
     type: "single",
     explanation: "Azure Files offers fully managed cloud file shares accessible via the industry-standard Server Message Block (SMB) and Network File System (NFS) protocols, mountable concurrently by cloud and on-premises Windows, Linux, and macOS systems.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/files/storage-files-introduction",
-    tags: ["Azure Files", "SMB", "NFS", "Storage"]
+    tags: ["Azure Files","SMB","NFS","Storage"]
   },
   {
     id: "az-900-73",
@@ -473,14 +473,14 @@ export const AZURE_AZ900_QUESTIONS_3 = [
     options: [
       { id: 'A', text: "Uploading over public internet using AzCopy" },
       { id: 'B', text: "Azure ExpressRoute" },
-      { id: 'C', text: "Azure Data Box physical appliance shipped directly by Microsoft" },
+      { id: 'C', text: "Azure Data Box, a shipped physical appliance" },
       { id: 'D', text: "Azure Storage Explorer over satellite link" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Azure Data Box appliances are ruggedized physical storage devices shipped directly to customer sites by Microsoft. Customers copy terabytes to petabytes of data locally over high-speed LAN, then ship the appliance back to an Azure datacenter for rapid upload.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/databox/data-box-overview",
-    tags: ["Data Box", "Migration", "Storage", "Physical Device"]
+    tags: ["Data Box","Migration","Storage","Physical Device"]
   },
   {
     id: "az-900-74",
@@ -494,14 +494,14 @@ export const AZURE_AZ900_QUESTIONS_3 = [
     options: [
       { id: 'A', text: "Deploying virtual machines from ARM templates" },
       { id: 'B', text: "Compiling C# applications into Docker container images" },
-      { id: 'C', text: "High-performance command-line copying of blobs and files to and from Azure Storage accounts" },
+      { id: 'C', text: "Command-line copying of blobs and files to storage" },
       { id: 'D', text: "Auditing Azure subscription role assignments" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "AzCopy is an optimized command-line utility designed for copying blobs and files into, out of, and between Azure Storage accounts with high concurrency and automatic transfer resumption.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10",
-    tags: ["AzCopy", "Storage", "CLI", "Data Transfer"]
+    tags: ["AzCopy","Storage","CLI","Data Transfer"]
   },
   {
     id: "az-900-75",
@@ -522,7 +522,7 @@ export const AZURE_AZ900_QUESTIONS_3 = [
     type: "single",
     explanation: "Azure Cosmos DB is Microsoft's globally distributed, multi-model NoSQL database service. It guarantees single-digit millisecond read/write latency at the 99th percentile with turnkey multi-region replication and comprehensive SLAs.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cosmos-db/introduction",
-    tags: ["Cosmos DB", "NoSQL", "Global Distribution", "Databases"]
+    tags: ["Cosmos DB","NoSQL","Global Distribution","Databases"]
   }
 ];
 

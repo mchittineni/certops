@@ -18,7 +18,7 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     type: "single",
     explanation: "The public cloud model allows organizations to rent computing resources owned and managed by third-party providers such as Microsoft Azure. Resources are accessed over the internet, eliminating upfront capital expenses and hardware maintenance. In contrast, private clouds and on-premises datacenters require dedicated physical hardware and capital investment.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/get-started/cloud-concepts",
-    tags: ["Cloud Concepts", "Public Cloud", "Cloud Models"]
+    tags: ["Cloud Concepts","Public Cloud","Cloud Models"]
   },
   {
     id: "az-900-2",
@@ -39,7 +39,7 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     type: "single",
     explanation: "A hybrid cloud combines on-premises infrastructure (or private cloud) with public cloud services, allowing data and apps to be shared between them. This approach allows sensitive data to stay on-premises for regulatory compliance while taking advantage of public cloud scalability for web tiers.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/get-started/cloud-concepts",
-    tags: ["Cloud Concepts", "Hybrid Cloud", "Compliance"]
+    tags: ["Cloud Concepts","Hybrid Cloud","Compliance"]
   },
   {
     id: "az-900-3",
@@ -60,7 +60,7 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     type: "single",
     explanation: "A private cloud consists of cloud computing resources used exclusively by one business or organization. It can be physically located in the organization's on-site datacenter or hosted by a third-party service provider on dedicated, single-tenant hardware, preventing any multi-tenant sharing.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/get-started/cloud-concepts",
-    tags: ["Cloud Concepts", "Private Cloud", "Isolation"]
+    tags: ["Cloud Concepts","Private Cloud","Isolation"]
   },
   {
     id: "az-900-4",
@@ -81,7 +81,7 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     type: "single",
     explanation: "Capital Expenditure (CapEx) is spending money upfront on physical infrastructure, which is deducted over time as depreciation. Operational Expenditure (OpEx) is spending money on ongoing services with no upfront infrastructure cost. The cloud operates primarily on an OpEx model with consumption-based billing.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/get-started/cloud-concepts",
-    tags: ["Cloud Concepts", "CapEx", "OpEx"]
+    tags: ["Cloud Concepts","CapEx","OpEx"]
   },
   {
     id: "az-900-5",
@@ -95,14 +95,14 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     options: [
       { id: 'A', text: "Virtual machines run at zero cost as long as they are deployed in secondary regions" },
       { id: 'B', text: "The firm pays a flat annual fee regardless of workload utilization" },
-      { id: 'C', text: "The firm pays only for the compute resources consumed during the 48-hour campaign, avoiding idle hardware costs" },
+      { id: 'C', text: "The firm pays only for the compute consumed during the 48-hour campaign" },
       { id: 'D', text: "Hardware maintenance contracts are billed annually at a guaranteed flat rate" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "The consumption-based pricing model ensures customers pay only for the compute, memory, and bandwidth their applications actually consume. When campaign traffic subsides, resources can be deallocated or scaled down, avoiding costs on idle capacity.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/get-started/cloud-concepts",
-    tags: ["Cloud Concepts", "Consumption Model", "Cost"]
+    tags: ["Cloud Concepts","Consumption Model","Cost"]
   },
   {
     id: "az-900-6",
@@ -123,7 +123,7 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     type: "single",
     explanation: "High availability (HA) focuses on ensuring that an application or service remains continuously available and operational with minimal downtime, typically achieved through redundancy, fault tolerance, and automated failover across resilient infrastructure components.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/get-started/cloud-concepts",
-    tags: ["Cloud Concepts", "High Availability", "Resilience"]
+    tags: ["Cloud Concepts","High Availability","Resilience"]
   },
   {
     id: "az-900-7",
@@ -144,7 +144,7 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     type: "single",
     explanation: "Vertical scaling (scaling up) involves increasing the capacity of an existing resource by allocating more compute power, RAM, or faster disk to that specific instance. Horizontal scaling (scaling out) involves adding additional identical instances to distribute traffic.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/get-started/cloud-concepts",
-    tags: ["Cloud Concepts", "Scalability", "Scale Up"]
+    tags: ["Cloud Concepts","Scalability","Scale Up"]
   },
   {
     id: "az-900-8",
@@ -165,7 +165,7 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     type: "single",
     explanation: "Horizontal scaling (scaling out) adds more instances of a resource (such as additional VMs in a Virtual Machine Scale Set) to distribute incoming traffic across multiple nodes, enhancing overall throughput and system resilience.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/get-started/cloud-concepts",
-    tags: ["Cloud Concepts", "Scalability", "Scale Out"]
+    tags: ["Cloud Concepts","Scalability","Scale Out"]
   },
   {
     id: "az-900-9",
@@ -186,7 +186,7 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     type: "single",
     explanation: "Elasticity is the automated ability of cloud systems to provision extra resources dynamically during traffic spikes and deprovision those resources when demand subsides, ensuring performance during peaks and eliminating waste during troughs.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/get-started/cloud-concepts",
-    tags: ["Cloud Concepts", "Elasticity", "Autoscaling"]
+    tags: ["Cloud Concepts","Elasticity","Autoscaling"]
   },
   {
     id: "az-900-10",
@@ -207,7 +207,7 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     type: "single",
     explanation: "Agility in cloud computing refers to the speed and flexibility with which organizations can deploy, configure, update, and iterate on IT resources. Because infrastructure is software-defined, teams can experiment and deliver value rapidly.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/get-started/cloud-concepts",
-    tags: ["Cloud Concepts", "Agility", "DevOps"]
+    tags: ["Cloud Concepts","Agility","DevOps"]
   },
   {
     id: "az-900-11",
@@ -219,7 +219,7 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     scenario: "A media company wants users in Sydney, London, and New York to experience low latency and high download speeds when viewing media content.",
     question: "Which architectural strategy in Azure directly satisfies this goal?",
     options: [
-      { id: 'A', text: "Geo-distribution by deploying backend instances across Azure regions in Australia, Europe, and North America" },
+      { id: 'A', text: "Geo-distribution by deploying instances in Australia, Europe, and North America" },
       { id: 'B', text: "Relying on tape backups stored in multiple locations" },
       { id: 'C', text: "Hosting all resources in a single North American datacenter to centralize maintenance" },
       { id: 'D', text: "Restricting player access strictly to on-premises private circuits" }
@@ -228,7 +228,7 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     type: "single",
     explanation: "Geo-distribution involves deploying applications across multiple geographically diverse Azure regions located near target user populations. Placing compute and data close to users reduces round-trip network transit distance and latency.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/get-started/cloud-concepts",
-    tags: ["Cloud Concepts", "Geo-distribution", "Latency"]
+    tags: ["Cloud Concepts","Geo-distribution","Latency"]
   },
   {
     id: "az-900-12",
@@ -249,7 +249,7 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     type: "single",
     explanation: "Disaster recovery (DR) consists of the policies, tools, and procedures designed to enable the recovery or continuation of vital technology infrastructure following natural or human-induced catastrophic outages, using cross-region replication and failover.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/get-started/cloud-concepts",
-    tags: ["Cloud Concepts", "Disaster Recovery", "Business Continuity"]
+    tags: ["Cloud Concepts","Disaster Recovery","Business Continuity"]
   },
   {
     id: "az-900-13",
@@ -270,7 +270,7 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     type: "single",
     explanation: "In Infrastructure as a Service (IaaS), Microsoft manages physical hardware, power, cooling, and the hypervisor. The customer is responsible for managing, configuring, securing, and patching the guest operating system, application software, and data.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility",
-    tags: ["Shared Responsibility", "IaaS", "Security"]
+    tags: ["Shared Responsibility","IaaS","Security"]
   },
   {
     id: "az-900-14",
@@ -291,7 +291,7 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     type: "single",
     explanation: "In Platform as a Service (PaaS), Microsoft manages the underlying physical infrastructure, operating system installation and patching, network infrastructure, and runtime environment. The customer focuses entirely on application code and data.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility",
-    tags: ["Shared Responsibility", "PaaS", "App Service"]
+    tags: ["Shared Responsibility","PaaS","App Service"]
   },
   {
     id: "az-900-15",
@@ -312,7 +312,7 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     type: "single",
     explanation: "Software as a Service (SaaS) delivers complete, centrally hosted applications over the internet on a subscription basis. Microsoft manages all underlying infrastructure, operating systems, codebases, and application updates.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/get-started/cloud-concepts",
-    tags: ["Cloud Concepts", "SaaS", "Microsoft 365"]
+    tags: ["Cloud Concepts","SaaS","Microsoft 365"]
   },
   {
     id: "az-900-16",
@@ -333,7 +333,7 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     type: "single",
     explanation: "Serverless computing (exemplified by Azure Functions) enables developers to execute event-driven code without managing servers. Cloud providers dynamically allocate machine resources upon trigger events, execute the code, and immediately release resources with sub-second billing.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview",
-    tags: ["Cloud Concepts", "Serverless", "Azure Functions"]
+    tags: ["Cloud Concepts","Serverless","Azure Functions"]
   },
   {
     id: "az-900-17",
@@ -348,13 +348,13 @@ export const AZURE_AZ900_QUESTIONS_1 = [
       { id: 'A', text: "Responsibility for customer data transfers to Microsoft in PaaS and SaaS" },
       { id: 'B', text: "Microsoft assumes full responsibility for data classification in all cloud models" },
       { id: 'C', text: "The cloud provider manages identity access permissions automatically" },
-      { id: 'D', text: "The customer is always responsible for protecting data and managing user identities across all cloud models" }
+      { id: 'D', text: "The customer is always responsible for data and identities in every model" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Regardless of whether an organization uses IaaS, PaaS, or SaaS, customer data governance, data classification, and identity and access management are always the responsibility of the customer.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility",
-    tags: ["Shared Responsibility", "Data Security", "Identity"]
+    tags: ["Shared Responsibility","Data Security","Identity"]
   },
   {
     id: "az-900-18",
@@ -375,7 +375,7 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     type: "single",
     explanation: "The Azure Pricing Calculator is a web-based cost estimation tool that allows architects and finance teams to configure anticipated services (VM sizes, storage tiers, bandwidth) and calculate monthly cost estimates prior to deployment.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/cost-mgt-overview",
-    tags: ["Cloud Concepts", "Pricing Calculator", "Cost Predictability"]
+    tags: ["Cloud Concepts","Pricing Calculator","Cost Predictability"]
   },
   {
     id: "az-900-19",
@@ -388,7 +388,7 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     question: "What is a primary architectural driver for adopting a multi-cloud strategy?",
     options: [
       { id: 'A', text: "Ensuring identical physical operating systems across all datacenters" },
-      { id: 'B', text: "Preventing single-vendor lock-in and taking advantage of best-of-breed specialized services from different providers" },
+      { id: 'B', text: "Preventing vendor lock-in and using best-of-breed services per provider" },
       { id: 'C', text: "Eliminating all data transfer fees between providers" },
       { id: 'D', text: "Complying with mandatory international laws requiring three distinct clouds" }
     ],
@@ -396,7 +396,7 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     type: "single",
     explanation: "A multi-cloud strategy enables organizations to select optimal services from different cloud providers, avoid reliance on a single vendor, and increase business resilience by diversifying technological dependencies.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/get-started/cloud-concepts",
-    tags: ["Cloud Concepts", "Multi-Cloud", "Architecture"]
+    tags: ["Cloud Concepts","Multi-Cloud","Architecture"]
   },
   {
     id: "az-900-20",
@@ -417,7 +417,7 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     type: "single",
     explanation: "Fault tolerance refers to the property of a system to continue operating without any interruption or degradation in service when one or more internal components experience a failure, achieved through built-in redundant hardware and automated failover.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/get-started/cloud-concepts",
-    tags: ["Cloud Concepts", "Fault Tolerance", "Reliability"]
+    tags: ["Cloud Concepts","Fault Tolerance","Reliability"]
   },
   {
     id: "az-900-21",
@@ -438,7 +438,7 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     type: "single",
     explanation: "Scalability allows applications to handle increased workloads by adding compute resources either vertically or horizontally without redesigning the core architecture. Understanding these distinctions is fundamental to designing resilient, cost-effective, and scalable cloud architectures on Microsoft Azure.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/get-started/cloud-concepts",
-    tags: ["Cloud Concepts", "Architecture", "Cloud"]
+    tags: ["Cloud Concepts","Architecture","Cloud"]
   },
   {
     id: "az-900-22",
@@ -459,7 +459,7 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     type: "single",
     explanation: "Cloud providers purchase massive quantities of hardware, storage, and power at wholesale volume discounts, passing savings to customers in the form of lower per-unit pricing. Understanding these distinctions is fundamental to designing resilient, cost-effective, and scalable cloud architectures on Microsoft Azure.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/get-started/cloud-concepts",
-    tags: ["Cloud Concepts", "Architecture", "Economies"]
+    tags: ["Cloud Concepts","Architecture","Economies"]
   },
   {
     id: "az-900-23",
@@ -480,7 +480,7 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     type: "single",
     explanation: "Physical security of the datacenter facilities, perimeter fencing, security personnel, and biometric access controls are always managed exclusively by Microsoft across IaaS, PaaS, and SaaS. Understanding these distinctions is fundamental to designing resilient, cost-effective, and scalable cloud architectures on Microsoft Azure.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/get-started/cloud-concepts",
-    tags: ["Cloud Concepts", "Architecture", "Shared"]
+    tags: ["Cloud Concepts","Architecture","Shared"]
   },
   {
     id: "az-900-24",
@@ -501,7 +501,7 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     type: "single",
     explanation: "When migrating existing on-premises virtual machines to the cloud with minimal architectural changes, Infrastructure as a Service (IaaS) provides the fastest and most compatible transition. Understanding these distinctions is fundamental to designing resilient, cost-effective, and scalable cloud architectures on Microsoft Azure.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/get-started/cloud-concepts",
-    tags: ["Cloud Concepts", "Architecture", "IaaS"]
+    tags: ["Cloud Concepts","Architecture","IaaS"]
   },
   {
     id: "az-900-25",
@@ -522,7 +522,7 @@ export const AZURE_AZ900_QUESTIONS_1 = [
     type: "single",
     explanation: "PaaS allows developers to deploy applications without managing the underlying virtual machines, operating system licensing, or server patching. Understanding these distinctions is fundamental to designing resilient, cost-effective, and scalable cloud architectures on Microsoft Azure.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/get-started/cloud-concepts",
-    tags: ["Cloud Concepts", "Architecture", "PaaS"]
+    tags: ["Cloud Concepts","Architecture","PaaS"]
   }
 ];
 
