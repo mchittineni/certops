@@ -11,7 +11,7 @@ export const AWS_DVA_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Use DynamoDB Streams to replicate updates across tables asynchronously." },
       { id: 'B', text: "Execute multiple independent BatchWriteItem requests sequentially." },
-      { id: 'C', text: "Use the DynamoDB TransactWriteItems API to execute all write operations as a single atomic transaction." },
+      { id: 'C', text: "Use TransactWriteItems so the writes are one atomic transaction." },
       { id: 'D', text: "Write a custom distributed two-phase commit coordinator using AWS Lambda." }
     ],
     correctAnswers: ['C'],
@@ -33,7 +33,7 @@ export const AWS_DVA_QUESTIONS_11 = [
       { id: 'A', text: "Execute multiple independent BatchWriteItem requests sequentially." },
       { id: 'B', text: "Write a custom distributed two-phase commit coordinator using AWS Lambda." },
       { id: 'C', text: "Use DynamoDB Streams to replicate updates across tables asynchronously." },
-      { id: 'D', text: "Use the DynamoDB TransactWriteItems API to execute all write operations as a single atomic transaction." }
+      { id: 'D', text: "Use TransactWriteItems so the writes are one atomic transaction." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -54,7 +54,7 @@ export const AWS_DVA_QUESTIONS_11 = [
       { id: 'A', text: "Execute multiple independent BatchWriteItem requests sequentially." },
       { id: 'B', text: "Write a custom distributed two-phase commit coordinator using AWS Lambda." },
       { id: 'C', text: "Use DynamoDB Streams to replicate updates across tables asynchronously." },
-      { id: 'D', text: "Use the DynamoDB TransactWriteItems API to execute all write operations as a single atomic transaction." }
+      { id: 'D', text: "Use TransactWriteItems so the writes are one atomic transaction." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -72,7 +72,7 @@ export const AWS_DVA_QUESTIONS_11 = [
     scenario: "An enterprise development team is refactoring a legacy monolithic application into cloud-native microservices on AWS. The architecture must minimize operational complexity while leveraging managed services. The application utilizes Amazon DynamoDB to execute atomic multi-item ACID transactions across multiple DynamoDB tables with all-or-nothing guarantees.",
     question: "Which solution provides a robust implementation while minimizing ongoing operational maintenance?",
     options: [
-      { id: 'A', text: "Use the DynamoDB TransactWriteItems API to execute all write operations as a single atomic transaction." },
+      { id: 'A', text: "Use TransactWriteItems so the writes are one atomic transaction." },
       { id: 'B', text: "Use DynamoDB Streams to replicate updates across tables asynchronously." },
       { id: 'C', text: "Execute multiple independent BatchWriteItem requests sequentially." },
       { id: 'D', text: "Write a custom distributed two-phase commit coordinator using AWS Lambda." }
@@ -95,7 +95,7 @@ export const AWS_DVA_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Use DynamoDB Streams to replicate updates across tables asynchronously." },
       { id: 'B', text: "Execute multiple independent BatchWriteItem requests sequentially." },
-      { id: 'C', text: "Use the DynamoDB TransactWriteItems API to execute all write operations as a single atomic transaction." },
+      { id: 'C', text: "Use TransactWriteItems so the writes are one atomic transaction." },
       { id: 'D', text: "Write a custom distributed two-phase commit coordinator using AWS Lambda." }
     ],
     correctAnswers: ['C'],
@@ -114,7 +114,7 @@ export const AWS_DVA_QUESTIONS_11 = [
     scenario: "A high-availability enterprise cloud service requires strict operational resilience and automated disaster recovery capabilities. The engineering team must eliminate single points of failure across operational workflows. The application utilizes Amazon DynamoDB to retrieve items matching a specific partition key and range condition with single-digit millisecond latency without consuming excessive read capacity.",
     question: "Which implementation or architectural approach satisfies these resilience criteria?",
     options: [
-      { id: 'A', text: "Use the DynamoDB Query API with a KeyConditionExpression specifying the partition key value and sort key range condition." },
+      { id: 'A', text: "Query with a KeyConditionExpression on the partition and sort key." },
       { id: 'B', text: "Execute a Parallel Scan with 10 segments across the entire table." },
       { id: 'C', text: "Use the DynamoDB Scan API with a FilterExpression on the non-key attributes." },
       { id: 'D', text: "Export the DynamoDB table to Amazon S3 using AWS Glue and query with Amazon Athena." }
@@ -138,7 +138,7 @@ export const AWS_DVA_QUESTIONS_11 = [
       { id: 'A', text: "Execute a Parallel Scan with 10 segments across the entire table." },
       { id: 'B', text: "Use the DynamoDB Scan API with a FilterExpression on the non-key attributes." },
       { id: 'C', text: "Export the DynamoDB table to Amazon S3 using AWS Glue and query with Amazon Athena." },
-      { id: 'D', text: "Use the DynamoDB Query API with a KeyConditionExpression specifying the partition key value and sort key range condition." }
+      { id: 'D', text: "Query with a KeyConditionExpression on the partition and sort key." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -159,7 +159,7 @@ export const AWS_DVA_QUESTIONS_11 = [
       { id: 'A', text: "Execute a Parallel Scan with 10 segments across the entire table." },
       { id: 'B', text: "Export the DynamoDB table to Amazon S3 using AWS Glue and query with Amazon Athena." },
       { id: 'C', text: "Use the DynamoDB Scan API with a FilterExpression on the non-key attributes." },
-      { id: 'D', text: "Use the DynamoDB Query API with a KeyConditionExpression specifying the partition key value and sort key range condition." }
+      { id: 'D', text: "Query with a KeyConditionExpression on the partition and sort key." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -177,7 +177,7 @@ export const AWS_DVA_QUESTIONS_11 = [
     scenario: "An enterprise development team is refactoring a legacy monolithic application into cloud-native microservices on AWS. The architecture must minimize operational complexity while leveraging managed services. The application utilizes Amazon DynamoDB to retrieve items matching a specific partition key and range condition with single-digit millisecond latency without consuming excessive read capacity.",
     question: "Which solution provides a robust implementation while minimizing ongoing operational maintenance?",
     options: [
-      { id: 'A', text: "Use the DynamoDB Query API with a KeyConditionExpression specifying the partition key value and sort key range condition." },
+      { id: 'A', text: "Query with a KeyConditionExpression on the partition and sort key." },
       { id: 'B', text: "Execute a Parallel Scan with 10 segments across the entire table." },
       { id: 'C', text: "Export the DynamoDB table to Amazon S3 using AWS Glue and query with Amazon Athena." },
       { id: 'D', text: "Use the DynamoDB Scan API with a FilterExpression on the non-key attributes." }
@@ -198,7 +198,7 @@ export const AWS_DVA_QUESTIONS_11 = [
     scenario: "A distributed cloud application experiences intermittent downstream service timeouts and connection exhaustion during peak operational hours. The development team must establish automated recovery and fault isolation. The application utilizes Amazon DynamoDB to retrieve items matching a specific partition key and range condition with single-digit millisecond latency without consuming excessive read capacity.",
     question: "Which design pattern or service configuration eliminates bottlenecks and provides automated fault recovery?",
     options: [
-      { id: 'A', text: "Use the DynamoDB Query API with a KeyConditionExpression specifying the partition key value and sort key range condition." },
+      { id: 'A', text: "Query with a KeyConditionExpression on the partition and sort key." },
       { id: 'B', text: "Export the DynamoDB table to Amazon S3 using AWS Glue and query with Amazon Athena." },
       { id: 'C', text: "Execute a Parallel Scan with 10 segments across the entire table." },
       { id: 'D', text: "Use the DynamoDB Scan API with a FilterExpression on the non-key attributes." }
@@ -219,7 +219,7 @@ export const AWS_DVA_QUESTIONS_11 = [
     scenario: "A high-availability enterprise cloud service requires strict operational resilience and automated disaster recovery capabilities. The engineering team must eliminate single points of failure across operational workflows. The application utilizes Amazon DynamoDB to capture real-time item-level modifications and trigger an asynchronous downstream notification pipeline in the exact order of modifications.",
     question: "Which implementation or architectural approach satisfies these resilience criteria?",
     options: [
-      { id: 'A', text: "Enable DynamoDB Streams with ViewType set to NEW_IMAGE or NEW_AND_OLD_IMAGES, and configure an AWS Lambda event source mapping." },
+      { id: 'A', text: "Enable DynamoDB Streams with NEW_IMAGE and a Lambda event source mapping." },
       { id: 'B', text: "Schedule an AWS Lambda function every 5 minutes to poll the table using the Scan API." },
       { id: 'C', text: "Deploy an Amazon SQS FIFO queue that application clients write to before updating DynamoDB." },
       { id: 'D', text: "Configure Amazon CloudWatch Events to monitor DynamoDB PutItem API calls." }
@@ -240,7 +240,7 @@ export const AWS_DVA_QUESTIONS_11 = [
     scenario: "A high-throughput digital platform experiences sudden spikes in concurrent user traffic during flash promotions. Developers must ensure sub-second response times and predictable scaling under peak throughput. The application utilizes Amazon DynamoDB to capture real-time item-level modifications and trigger an asynchronous downstream notification pipeline in the exact order of modifications.",
     question: "Which architectural approach should the developer recommend to handle this workload efficiently?",
     options: [
-      { id: 'A', text: "Enable DynamoDB Streams with ViewType set to NEW_IMAGE or NEW_AND_OLD_IMAGES, and configure an AWS Lambda event source mapping." },
+      { id: 'A', text: "Enable DynamoDB Streams with NEW_IMAGE and a Lambda event source mapping." },
       { id: 'B', text: "Configure Amazon CloudWatch Events to monitor DynamoDB PutItem API calls." },
       { id: 'C', text: "Schedule an AWS Lambda function every 5 minutes to poll the table using the Scan API." },
       { id: 'D', text: "Deploy an Amazon SQS FIFO queue that application clients write to before updating DynamoDB." }
@@ -263,7 +263,7 @@ export const AWS_DVA_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Schedule an AWS Lambda function every 5 minutes to poll the table using the Scan API." },
       { id: 'B', text: "Configure Amazon CloudWatch Events to monitor DynamoDB PutItem API calls." },
-      { id: 'C', text: "Enable DynamoDB Streams with ViewType set to NEW_IMAGE or NEW_AND_OLD_IMAGES, and configure an AWS Lambda event source mapping." },
+      { id: 'C', text: "Enable DynamoDB Streams with NEW_IMAGE and a Lambda event source mapping." },
       { id: 'D', text: "Deploy an Amazon SQS FIFO queue that application clients write to before updating DynamoDB." }
     ],
     correctAnswers: ['C'],
@@ -284,7 +284,7 @@ export const AWS_DVA_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Configure Amazon CloudWatch Events to monitor DynamoDB PutItem API calls." },
       { id: 'B', text: "Schedule an AWS Lambda function every 5 minutes to poll the table using the Scan API." },
-      { id: 'C', text: "Enable DynamoDB Streams with ViewType set to NEW_IMAGE or NEW_AND_OLD_IMAGES, and configure an AWS Lambda event source mapping." },
+      { id: 'C', text: "Enable DynamoDB Streams with NEW_IMAGE and a Lambda event source mapping." },
       { id: 'D', text: "Deploy an Amazon SQS FIFO queue that application clients write to before updating DynamoDB." }
     ],
     correctAnswers: ['C'],
@@ -305,7 +305,7 @@ export const AWS_DVA_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Schedule an AWS Lambda function every 5 minutes to poll the table using the Scan API." },
       { id: 'B', text: "Deploy an Amazon SQS FIFO queue that application clients write to before updating DynamoDB." },
-      { id: 'C', text: "Enable DynamoDB Streams with ViewType set to NEW_IMAGE or NEW_AND_OLD_IMAGES, and configure an AWS Lambda event source mapping." },
+      { id: 'C', text: "Enable DynamoDB Streams with NEW_IMAGE and a Lambda event source mapping." },
       { id: 'D', text: "Configure Amazon CloudWatch Events to monitor DynamoDB PutItem API calls." }
     ],
     correctAnswers: ['C'],
@@ -326,7 +326,7 @@ export const AWS_DVA_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Perform a Scan operation with a FilterExpression on customerEmail." },
       { id: 'B', text: "Create a separate DynamoDB table for customer emails and maintain synchronization using batch scripts." },
-      { id: 'C', text: "Create a Global Secondary Index (GSI) with customerEmail as the partition key and orderStatus as the sort key, projecting only required attributes." },
+      { id: 'C', text: "A GSI keyed on customerEmail and orderStatus, projecting only what is needed." },
       { id: 'D', text: "Create a Local Secondary Index (LSI) with customerEmail as the alternate partition key." }
     ],
     correctAnswers: ['C'],
@@ -348,7 +348,7 @@ export const AWS_DVA_QUESTIONS_11 = [
       { id: 'A', text: "Create a Local Secondary Index (LSI) with customerEmail as the alternate partition key." },
       { id: 'B', text: "Create a separate DynamoDB table for customer emails and maintain synchronization using batch scripts." },
       { id: 'C', text: "Perform a Scan operation with a FilterExpression on customerEmail." },
-      { id: 'D', text: "Create a Global Secondary Index (GSI) with customerEmail as the partition key and orderStatus as the sort key, projecting only required attributes." }
+      { id: 'D', text: "A GSI keyed on customerEmail and orderStatus, projecting only what is needed." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -367,7 +367,7 @@ export const AWS_DVA_QUESTIONS_11 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Create a Local Secondary Index (LSI) with customerEmail as the alternate partition key." },
-      { id: 'B', text: "Create a Global Secondary Index (GSI) with customerEmail as the partition key and orderStatus as the sort key, projecting only required attributes." },
+      { id: 'B', text: "A GSI keyed on customerEmail and orderStatus, projecting only what is needed." },
       { id: 'C', text: "Perform a Scan operation with a FilterExpression on customerEmail." },
       { id: 'D', text: "Create a separate DynamoDB table for customer emails and maintain synchronization using batch scripts." }
     ],
@@ -388,7 +388,7 @@ export const AWS_DVA_QUESTIONS_11 = [
     question: "Which solution provides a robust implementation while minimizing ongoing operational maintenance?",
     options: [
       { id: 'A', text: "Create a Local Secondary Index (LSI) with customerEmail as the alternate partition key." },
-      { id: 'B', text: "Create a Global Secondary Index (GSI) with customerEmail as the partition key and orderStatus as the sort key, projecting only required attributes." },
+      { id: 'B', text: "A GSI keyed on customerEmail and orderStatus, projecting only what is needed." },
       { id: 'C', text: "Create a separate DynamoDB table for customer emails and maintain synchronization using batch scripts." },
       { id: 'D', text: "Perform a Scan operation with a FilterExpression on customerEmail." }
     ],
@@ -408,7 +408,7 @@ export const AWS_DVA_QUESTIONS_11 = [
     scenario: "A distributed cloud application experiences intermittent downstream service timeouts and connection exhaustion during peak operational hours. The development team must establish automated recovery and fault isolation. The application utilizes Amazon DynamoDB to query orders by customer email and order status when the base table partition key is orderId.",
     question: "Which design pattern or service configuration eliminates bottlenecks and provides automated fault recovery?",
     options: [
-      { id: 'A', text: "Create a Global Secondary Index (GSI) with customerEmail as the partition key and orderStatus as the sort key, projecting only required attributes." },
+      { id: 'A', text: "A GSI keyed on customerEmail and orderStatus, projecting only what is needed." },
       { id: 'B', text: "Create a separate DynamoDB table for customer emails and maintain synchronization using batch scripts." },
       { id: 'C', text: "Create a Local Secondary Index (LSI) with customerEmail as the alternate partition key." },
       { id: 'D', text: "Perform a Scan operation with a FilterExpression on customerEmail." }
@@ -432,7 +432,7 @@ export const AWS_DVA_QUESTIONS_11 = [
       { id: 'A', text: "Implement pessimistic database row locking using DynamoDB Transactions." },
       { id: 'B', text: "Deploy an intermediate Amazon SQS queue to serialize all application read and write operations." },
       { id: 'C', text: "Enable DynamoDB point-in-time recovery (PITR) to rollback conflicting updates." },
-      { id: 'D', text: "Implement optimistic locking using a versionNumber attribute and a ConditionalCheckExpression in the UpdateItem API call." }
+      { id: 'D', text: "Optimistic locking with a versionNumber and a condition expression." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -451,7 +451,7 @@ export const AWS_DVA_QUESTIONS_11 = [
     question: "Which architectural approach should the developer recommend to handle this workload efficiently?",
     options: [
       { id: 'A', text: "Deploy an intermediate Amazon SQS queue to serialize all application read and write operations." },
-      { id: 'B', text: "Implement optimistic locking using a versionNumber attribute and a ConditionalCheckExpression in the UpdateItem API call." },
+      { id: 'B', text: "Optimistic locking with a versionNumber and a condition expression." },
       { id: 'C', text: "Enable DynamoDB point-in-time recovery (PITR) to rollback conflicting updates." },
       { id: 'D', text: "Implement pessimistic database row locking using DynamoDB Transactions." }
     ],
@@ -471,7 +471,7 @@ export const AWS_DVA_QUESTIONS_11 = [
     scenario: "A financial and healthcare service must adhere to strict regulatory compliance, encryption standards, and least privilege access principles. Security auditors require verified enforcement across all application tiers. The application utilizes Amazon DynamoDB to prevent concurrent write conflicts and lost updates when multiple application workers update the same inventory item simultaneously.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Implement optimistic locking using a versionNumber attribute and a ConditionalCheckExpression in the UpdateItem API call." },
+      { id: 'A', text: "Optimistic locking with a versionNumber and a condition expression." },
       { id: 'B', text: "Enable DynamoDB point-in-time recovery (PITR) to rollback conflicting updates." },
       { id: 'C', text: "Implement pessimistic database row locking using DynamoDB Transactions." },
       { id: 'D', text: "Deploy an intermediate Amazon SQS queue to serialize all application read and write operations." }
@@ -492,7 +492,7 @@ export const AWS_DVA_QUESTIONS_11 = [
     scenario: "An enterprise development team is refactoring a legacy monolithic application into cloud-native microservices on AWS. The architecture must minimize operational complexity while leveraging managed services. The application utilizes Amazon DynamoDB to prevent concurrent write conflicts and lost updates when multiple application workers update the same inventory item simultaneously.",
     question: "Which solution provides a robust implementation while minimizing ongoing operational maintenance?",
     options: [
-      { id: 'A', text: "Implement optimistic locking using a versionNumber attribute and a ConditionalCheckExpression in the UpdateItem API call." },
+      { id: 'A', text: "Optimistic locking with a versionNumber and a condition expression." },
       { id: 'B', text: "Deploy an intermediate Amazon SQS queue to serialize all application read and write operations." },
       { id: 'C', text: "Implement pessimistic database row locking using DynamoDB Transactions." },
       { id: 'D', text: "Enable DynamoDB point-in-time recovery (PITR) to rollback conflicting updates." }
@@ -515,7 +515,7 @@ export const AWS_DVA_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Deploy an intermediate Amazon SQS queue to serialize all application read and write operations." },
       { id: 'B', text: "Implement pessimistic database row locking using DynamoDB Transactions." },
-      { id: 'C', text: "Implement optimistic locking using a versionNumber attribute and a ConditionalCheckExpression in the UpdateItem API call." },
+      { id: 'C', text: "Optimistic locking with a versionNumber and a condition expression." },
       { id: 'D', text: "Enable DynamoDB point-in-time recovery (PITR) to rollback conflicting updates." }
     ],
     correctAnswers: ['C'],

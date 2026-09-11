@@ -12,7 +12,7 @@ export const AWS_DVA_QUESTIONS_20 = [
       { id: 'A', text: "Configure an S3 lifecycle rule to inspect log files as they are uploaded." },
       { id: 'B', text: "Write a custom Python script that polls the log group every second using `GetLogEvents`." },
       { id: 'C', text: "Deploy an AWS WAF Web ACL to scan log files in CloudWatch." },
-      { id: 'D', text: "Create a CloudWatch Metric Filter on the application log group matching `NullPointerException`, publish to a custom metric, and configure an alarm on that metric." }
+      { id: 'D', text: "A metric filter on `NullPointerException` feeding a custom metric alarm." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -31,7 +31,7 @@ export const AWS_DVA_QUESTIONS_20 = [
     question: "Which architectural approach should the developer recommend to handle this workload efficiently?",
     options: [
       { id: 'A', text: "Deploy an AWS WAF Web ACL to scan log files in CloudWatch." },
-      { id: 'B', text: "Create a CloudWatch Metric Filter on the application log group matching `NullPointerException`, publish to a custom metric, and configure an alarm on that metric." },
+      { id: 'B', text: "A metric filter on `NullPointerException` feeding a custom metric alarm." },
       { id: 'C', text: "Write a custom Python script that polls the log group every second using `GetLogEvents`." },
       { id: 'D', text: "Configure an S3 lifecycle rule to inspect log files as they are uploaded." }
     ],
@@ -51,7 +51,7 @@ export const AWS_DVA_QUESTIONS_20 = [
     scenario: "A financial and healthcare service must adhere to strict regulatory compliance, encryption standards, and least privilege access principles. Security auditors require verified enforcement across all application tiers. The application utilizes Amazon CloudWatch to monitor application error logs and trigger an automated incident notification when more than 10 `NullPointerException` errors occur within a 5-minute window.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Create a CloudWatch Metric Filter on the application log group matching `NullPointerException`, publish to a custom metric, and configure an alarm on that metric." },
+      { id: 'A', text: "A metric filter on `NullPointerException` feeding a custom metric alarm." },
       { id: 'B', text: "Configure an S3 lifecycle rule to inspect log files as they are uploaded." },
       { id: 'C', text: "Write a custom Python script that polls the log group every second using `GetLogEvents`." },
       { id: 'D', text: "Deploy an AWS WAF Web ACL to scan log files in CloudWatch." }
@@ -72,7 +72,7 @@ export const AWS_DVA_QUESTIONS_20 = [
     scenario: "An enterprise development team is refactoring a legacy monolithic application into cloud-native microservices on AWS. The architecture must minimize operational complexity while leveraging managed services. The application utilizes Amazon CloudWatch to monitor application error logs and trigger an automated incident notification when more than 10 `NullPointerException` errors occur within a 5-minute window.",
     question: "Which solution provides a robust implementation while minimizing ongoing operational maintenance?",
     options: [
-      { id: 'A', text: "Create a CloudWatch Metric Filter on the application log group matching `NullPointerException`, publish to a custom metric, and configure an alarm on that metric." },
+      { id: 'A', text: "A metric filter on `NullPointerException` feeding a custom metric alarm." },
       { id: 'B', text: "Write a custom Python script that polls the log group every second using `GetLogEvents`." },
       { id: 'C', text: "Deploy an AWS WAF Web ACL to scan log files in CloudWatch." },
       { id: 'D', text: "Configure an S3 lifecycle rule to inspect log files as they are uploaded." }
@@ -94,7 +94,7 @@ export const AWS_DVA_QUESTIONS_20 = [
     question: "Which design pattern or service configuration eliminates bottlenecks and provides automated fault recovery?",
     options: [
       { id: 'A', text: "Deploy an AWS WAF Web ACL to scan log files in CloudWatch." },
-      { id: 'B', text: "Create a CloudWatch Metric Filter on the application log group matching `NullPointerException`, publish to a custom metric, and configure an alarm on that metric." },
+      { id: 'B', text: "A metric filter on `NullPointerException` feeding a custom metric alarm." },
       { id: 'C', text: "Configure an S3 lifecycle rule to inspect log files as they are uploaded." },
       { id: 'D', text: "Write a custom Python script that polls the log group every second using `GetLogEvents`." }
     ],
@@ -116,7 +116,7 @@ export const AWS_DVA_QUESTIONS_20 = [
     options: [
       { id: 'A', text: "Monitor EC2 CPU utilization metrics in CloudWatch." },
       { id: 'B', text: "Assign the maximum 10,240 MB memory to all Lambda functions unconditionally." },
-      { id: 'C', text: "Deploy the open-source AWS Lambda Power Tuning state machine to benchmark the function across different memory configurations (128 MB to 10,240 MB)." },
+      { id: 'C', text: "Run the Lambda Power Tuning state machine across memory settings." },
       { id: 'D', text: "Assign the minimum 128 MB memory to all Lambda functions to save money." }
     ],
     correctAnswers: ['C'],
@@ -136,7 +136,7 @@ export const AWS_DVA_QUESTIONS_20 = [
     question: "Which architectural approach should the developer recommend to handle this workload efficiently?",
     options: [
       { id: 'A', text: "Assign the minimum 128 MB memory to all Lambda functions to save money." },
-      { id: 'B', text: "Deploy the open-source AWS Lambda Power Tuning state machine to benchmark the function across different memory configurations (128 MB to 10,240 MB)." },
+      { id: 'B', text: "Run the Lambda Power Tuning state machine across memory settings." },
       { id: 'C', text: "Assign the maximum 10,240 MB memory to all Lambda functions unconditionally." },
       { id: 'D', text: "Monitor EC2 CPU utilization metrics in CloudWatch." }
     ],
@@ -159,7 +159,7 @@ export const AWS_DVA_QUESTIONS_20 = [
       { id: 'A', text: "Assign the maximum 10,240 MB memory to all Lambda functions unconditionally." },
       { id: 'B', text: "Monitor EC2 CPU utilization metrics in CloudWatch." },
       { id: 'C', text: "Assign the minimum 128 MB memory to all Lambda functions to save money." },
-      { id: 'D', text: "Deploy the open-source AWS Lambda Power Tuning state machine to benchmark the function across different memory configurations (128 MB to 10,240 MB)." }
+      { id: 'D', text: "Run the Lambda Power Tuning state machine across memory settings." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -177,7 +177,7 @@ export const AWS_DVA_QUESTIONS_20 = [
     scenario: "An enterprise development team is refactoring a legacy monolithic application into cloud-native microservices on AWS. The architecture must minimize operational complexity while leveraging managed services. The application utilizes AWS Lambda to determine the optimal memory allocation for an AWS Lambda function that balances minimal execution duration with lowest cost per million invocations.",
     question: "Which solution provides a robust implementation while minimizing ongoing operational maintenance?",
     options: [
-      { id: 'A', text: "Deploy the open-source AWS Lambda Power Tuning state machine to benchmark the function across different memory configurations (128 MB to 10,240 MB)." },
+      { id: 'A', text: "Run the Lambda Power Tuning state machine across memory settings." },
       { id: 'B', text: "Monitor EC2 CPU utilization metrics in CloudWatch." },
       { id: 'C', text: "Assign the maximum 10,240 MB memory to all Lambda functions unconditionally." },
       { id: 'D', text: "Assign the minimum 128 MB memory to all Lambda functions to save money." }
@@ -199,7 +199,7 @@ export const AWS_DVA_QUESTIONS_20 = [
     question: "Which design pattern or service configuration eliminates bottlenecks and provides automated fault recovery?",
     options: [
       { id: 'A', text: "Assign the maximum 10,240 MB memory to all Lambda functions unconditionally." },
-      { id: 'B', text: "Deploy the open-source AWS Lambda Power Tuning state machine to benchmark the function across different memory configurations (128 MB to 10,240 MB)." },
+      { id: 'B', text: "Run the Lambda Power Tuning state machine across memory settings." },
       { id: 'C', text: "Assign the minimum 128 MB memory to all Lambda functions to save money." },
       { id: 'D', text: "Monitor EC2 CPU utilization metrics in CloudWatch." }
     ],
@@ -222,7 +222,7 @@ export const AWS_DVA_QUESTIONS_20 = [
       { id: 'A', text: "Deploy an Amazon ElastiCache for Redis cluster and write custom cache invalidation logic." },
       { id: 'B', text: "Configure a Global Secondary Index with all attributes projected." },
       { id: 'C', text: "Increase the table read capacity units (RCU) by a factor of 100." },
-      { id: 'D', text: "Deploy a DynamoDB Accelerator (DAX) cluster and point the application to the DAX cluster endpoint using the DAX SDK client." }
+      { id: 'D', text: "Point the application at a DAX cluster endpoint using the DAX client." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -240,7 +240,7 @@ export const AWS_DVA_QUESTIONS_20 = [
     scenario: "A high-throughput digital platform experiences sudden spikes in concurrent user traffic during flash promotions. Developers must ensure sub-second response times and predictable scaling under peak throughput. The application utilizes Amazon DynamoDB to reduce DynamoDB read latency from single-digit milliseconds to microseconds for read-heavy e-commerce product catalogs without changing application query logic.",
     question: "Which architectural approach should the developer recommend to handle this workload efficiently?",
     options: [
-      { id: 'A', text: "Deploy a DynamoDB Accelerator (DAX) cluster and point the application to the DAX cluster endpoint using the DAX SDK client." },
+      { id: 'A', text: "Point the application at a DAX cluster endpoint using the DAX client." },
       { id: 'B', text: "Deploy an Amazon ElastiCache for Redis cluster and write custom cache invalidation logic." },
       { id: 'C', text: "Configure a Global Secondary Index with all attributes projected." },
       { id: 'D', text: "Increase the table read capacity units (RCU) by a factor of 100." }
@@ -263,7 +263,7 @@ export const AWS_DVA_QUESTIONS_20 = [
     options: [
       { id: 'A', text: "Increase the table read capacity units (RCU) by a factor of 100." },
       { id: 'B', text: "Configure a Global Secondary Index with all attributes projected." },
-      { id: 'C', text: "Deploy a DynamoDB Accelerator (DAX) cluster and point the application to the DAX cluster endpoint using the DAX SDK client." },
+      { id: 'C', text: "Point the application at a DAX cluster endpoint using the DAX client." },
       { id: 'D', text: "Deploy an Amazon ElastiCache for Redis cluster and write custom cache invalidation logic." }
     ],
     correctAnswers: ['C'],
@@ -283,7 +283,7 @@ export const AWS_DVA_QUESTIONS_20 = [
     question: "Which solution provides a robust implementation while minimizing ongoing operational maintenance?",
     options: [
       { id: 'A', text: "Configure a Global Secondary Index with all attributes projected." },
-      { id: 'B', text: "Deploy a DynamoDB Accelerator (DAX) cluster and point the application to the DAX cluster endpoint using the DAX SDK client." },
+      { id: 'B', text: "Point the application at a DAX cluster endpoint using the DAX client." },
       { id: 'C', text: "Deploy an Amazon ElastiCache for Redis cluster and write custom cache invalidation logic." },
       { id: 'D', text: "Increase the table read capacity units (RCU) by a factor of 100." }
     ],
@@ -304,7 +304,7 @@ export const AWS_DVA_QUESTIONS_20 = [
     question: "Which design pattern or service configuration eliminates bottlenecks and provides automated fault recovery?",
     options: [
       { id: 'A', text: "Configure a Global Secondary Index with all attributes projected." },
-      { id: 'B', text: "Deploy a DynamoDB Accelerator (DAX) cluster and point the application to the DAX cluster endpoint using the DAX SDK client." },
+      { id: 'B', text: "Point the application at a DAX cluster endpoint using the DAX client." },
       { id: 'C', text: "Increase the table read capacity units (RCU) by a factor of 100." },
       { id: 'D', text: "Deploy an Amazon ElastiCache for Redis cluster and write custom cache invalidation logic." }
     ],
@@ -324,7 +324,7 @@ export const AWS_DVA_QUESTIONS_20 = [
     scenario: "A high-availability enterprise cloud service requires strict operational resilience and automated disaster recovery capabilities. The engineering team must eliminate single points of failure across operational workflows. The application utilizes Amazon S3 to speed up file uploads from global client applications across Europe, Asia, and South America to a centralized S3 bucket located in us-east-1.",
     question: "Which implementation or architectural approach satisfies these resilience criteria?",
     options: [
-      { id: 'A', text: "Enable Amazon S3 Transfer Acceleration on the target bucket and update client upload endpoints to use the `s3-accelerate` domain." },
+      { id: 'A', text: "Enable S3 Transfer Acceleration and use the `s3-accelerate` domain." },
       { id: 'B', text: "Configure Route 53 Geolocation routing to the S3 website endpoint." },
       { id: 'C', text: "Enable S3 Versioning on the bucket." },
       { id: 'D', text: "Deploy an Amazon CloudFront distribution with caching enabled for POST requests." }
@@ -345,7 +345,7 @@ export const AWS_DVA_QUESTIONS_20 = [
     scenario: "A high-throughput digital platform experiences sudden spikes in concurrent user traffic during flash promotions. Developers must ensure sub-second response times and predictable scaling under peak throughput. The application utilizes Amazon S3 to speed up file uploads from global client applications across Europe, Asia, and South America to a centralized S3 bucket located in us-east-1.",
     question: "Which architectural approach should the developer recommend to handle this workload efficiently?",
     options: [
-      { id: 'A', text: "Enable Amazon S3 Transfer Acceleration on the target bucket and update client upload endpoints to use the `s3-accelerate` domain." },
+      { id: 'A', text: "Enable S3 Transfer Acceleration and use the `s3-accelerate` domain." },
       { id: 'B', text: "Configure Route 53 Geolocation routing to the S3 website endpoint." },
       { id: 'C', text: "Deploy an Amazon CloudFront distribution with caching enabled for POST requests." },
       { id: 'D', text: "Enable S3 Versioning on the bucket." }
@@ -369,7 +369,7 @@ export const AWS_DVA_QUESTIONS_20 = [
       { id: 'A', text: "Enable S3 Versioning on the bucket." },
       { id: 'B', text: "Configure Route 53 Geolocation routing to the S3 website endpoint." },
       { id: 'C', text: "Deploy an Amazon CloudFront distribution with caching enabled for POST requests." },
-      { id: 'D', text: "Enable Amazon S3 Transfer Acceleration on the target bucket and update client upload endpoints to use the `s3-accelerate` domain." }
+      { id: 'D', text: "Enable S3 Transfer Acceleration and use the `s3-accelerate` domain." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -390,7 +390,7 @@ export const AWS_DVA_QUESTIONS_20 = [
       { id: 'A', text: "Configure Route 53 Geolocation routing to the S3 website endpoint." },
       { id: 'B', text: "Deploy an Amazon CloudFront distribution with caching enabled for POST requests." },
       { id: 'C', text: "Enable S3 Versioning on the bucket." },
-      { id: 'D', text: "Enable Amazon S3 Transfer Acceleration on the target bucket and update client upload endpoints to use the `s3-accelerate` domain." }
+      { id: 'D', text: "Enable S3 Transfer Acceleration and use the `s3-accelerate` domain." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -408,7 +408,7 @@ export const AWS_DVA_QUESTIONS_20 = [
     scenario: "A distributed cloud application experiences intermittent downstream service timeouts and connection exhaustion during peak operational hours. The development team must establish automated recovery and fault isolation. The application utilizes Amazon S3 to speed up file uploads from global client applications across Europe, Asia, and South America to a centralized S3 bucket located in us-east-1.",
     question: "Which design pattern or service configuration eliminates bottlenecks and provides automated fault recovery?",
     options: [
-      { id: 'A', text: "Enable Amazon S3 Transfer Acceleration on the target bucket and update client upload endpoints to use the `s3-accelerate` domain." },
+      { id: 'A', text: "Enable S3 Transfer Acceleration and use the `s3-accelerate` domain." },
       { id: 'B', text: "Deploy an Amazon CloudFront distribution with caching enabled for POST requests." },
       { id: 'C', text: "Configure Route 53 Geolocation routing to the S3 website endpoint." },
       { id: 'D', text: "Enable S3 Versioning on the bucket." }
@@ -430,7 +430,7 @@ export const AWS_DVA_QUESTIONS_20 = [
     question: "Which implementation or architectural approach satisfies these resilience criteria?",
     options: [
       { id: 'A', text: "Write logs directly to an Amazon RDS MySQL database table." },
-      { id: 'B', text: "Stream logs from Amazon CloudWatch Logs to an Amazon OpenSearch Service cluster and visualize them using OpenSearch Dashboards." },
+      { id: 'B', text: "Stream the logs to OpenSearch Service and use its dashboards." },
       { id: 'C', text: "Stream logs to an Amazon SQS standard queue and inspect message payloads manually." },
       { id: 'D', text: "Store logs in Amazon S3 and download them to local workstations for grep analysis." }
     ],
@@ -450,7 +450,7 @@ export const AWS_DVA_QUESTIONS_20 = [
     scenario: "A high-throughput digital platform experiences sudden spikes in concurrent user traffic during flash promotions. Developers must ensure sub-second response times and predictable scaling under peak throughput. The application utilizes Amazon OpenSearch to index and search millions of structured application logs in real time with support for complex text queries, dashboards, and automated anomaly detection.",
     question: "Which architectural approach should the developer recommend to handle this workload efficiently?",
     options: [
-      { id: 'A', text: "Stream logs from Amazon CloudWatch Logs to an Amazon OpenSearch Service cluster and visualize them using OpenSearch Dashboards." },
+      { id: 'A', text: "Stream the logs to OpenSearch Service and use its dashboards." },
       { id: 'B', text: "Write logs directly to an Amazon RDS MySQL database table." },
       { id: 'C', text: "Stream logs to an Amazon SQS standard queue and inspect message payloads manually." },
       { id: 'D', text: "Store logs in Amazon S3 and download them to local workstations for grep analysis." }
@@ -473,7 +473,7 @@ export const AWS_DVA_QUESTIONS_20 = [
     options: [
       { id: 'A', text: "Write logs directly to an Amazon RDS MySQL database table." },
       { id: 'B', text: "Stream logs to an Amazon SQS standard queue and inspect message payloads manually." },
-      { id: 'C', text: "Stream logs from Amazon CloudWatch Logs to an Amazon OpenSearch Service cluster and visualize them using OpenSearch Dashboards." },
+      { id: 'C', text: "Stream the logs to OpenSearch Service and use its dashboards." },
       { id: 'D', text: "Store logs in Amazon S3 and download them to local workstations for grep analysis." }
     ],
     correctAnswers: ['C'],
@@ -495,7 +495,7 @@ export const AWS_DVA_QUESTIONS_20 = [
       { id: 'A', text: "Stream logs to an Amazon SQS standard queue and inspect message payloads manually." },
       { id: 'B', text: "Store logs in Amazon S3 and download them to local workstations for grep analysis." },
       { id: 'C', text: "Write logs directly to an Amazon RDS MySQL database table." },
-      { id: 'D', text: "Stream logs from Amazon CloudWatch Logs to an Amazon OpenSearch Service cluster and visualize them using OpenSearch Dashboards." }
+      { id: 'D', text: "Stream the logs to OpenSearch Service and use its dashboards." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -514,7 +514,7 @@ export const AWS_DVA_QUESTIONS_20 = [
     question: "Which design pattern or service configuration eliminates bottlenecks and provides automated fault recovery?",
     options: [
       { id: 'A', text: "Store logs in Amazon S3 and download them to local workstations for grep analysis." },
-      { id: 'B', text: "Stream logs from Amazon CloudWatch Logs to an Amazon OpenSearch Service cluster and visualize them using OpenSearch Dashboards." },
+      { id: 'B', text: "Stream the logs to OpenSearch Service and use its dashboards." },
       { id: 'C', text: "Stream logs to an Amazon SQS standard queue and inspect message payloads manually." },
       { id: 'D', text: "Write logs directly to an Amazon RDS MySQL database table." }
     ],

@@ -114,7 +114,7 @@ export const AWS_DVA_QUESTIONS_18 = [
     scenario: "A high-availability enterprise cloud service requires strict operational resilience and automated disaster recovery capabilities. The engineering team must eliminate single points of failure across operational workflows. The application utilizes AWS Elastic Beanstalk to customize the runtime environment of an Elastic Beanstalk application by installing Linux packages, configuring system daemons, and setting environment variables at deploy time.",
     question: "Which implementation or architectural approach satisfies these resilience criteria?",
     options: [
-      { id: 'A', text: "Include YAML or JSON configuration files in the `.ebextensions` directory in the root of the source bundle." },
+      { id: 'A', text: "Configuration files in the `.ebextensions` directory of the bundle." },
       { id: 'B', text: "Store package install scripts in an S3 bucket policy." },
       { id: 'C', text: "SSH into each EC2 instance after deployment and install packages manually." },
       { id: 'D', text: "Deploy an AWS Systems Manager Run Command script every 5 minutes." }
@@ -136,7 +136,7 @@ export const AWS_DVA_QUESTIONS_18 = [
     question: "Which architectural approach should the developer recommend to handle this workload efficiently?",
     options: [
       { id: 'A', text: "Store package install scripts in an S3 bucket policy." },
-      { id: 'B', text: "Include YAML or JSON configuration files in the `.ebextensions` directory in the root of the source bundle." },
+      { id: 'B', text: "Configuration files in the `.ebextensions` directory of the bundle." },
       { id: 'C', text: "Deploy an AWS Systems Manager Run Command script every 5 minutes." },
       { id: 'D', text: "SSH into each EC2 instance after deployment and install packages manually." }
     ],
@@ -159,7 +159,7 @@ export const AWS_DVA_QUESTIONS_18 = [
       { id: 'A', text: "SSH into each EC2 instance after deployment and install packages manually." },
       { id: 'B', text: "Store package install scripts in an S3 bucket policy." },
       { id: 'C', text: "Deploy an AWS Systems Manager Run Command script every 5 minutes." },
-      { id: 'D', text: "Include YAML or JSON configuration files in the `.ebextensions` directory in the root of the source bundle." }
+      { id: 'D', text: "Configuration files in the `.ebextensions` directory of the bundle." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -179,7 +179,7 @@ export const AWS_DVA_QUESTIONS_18 = [
     options: [
       { id: 'A', text: "Store package install scripts in an S3 bucket policy." },
       { id: 'B', text: "Deploy an AWS Systems Manager Run Command script every 5 minutes." },
-      { id: 'C', text: "Include YAML or JSON configuration files in the `.ebextensions` directory in the root of the source bundle." },
+      { id: 'C', text: "Configuration files in the `.ebextensions` directory of the bundle." },
       { id: 'D', text: "SSH into each EC2 instance after deployment and install packages manually." }
     ],
     correctAnswers: ['C'],
@@ -198,7 +198,7 @@ export const AWS_DVA_QUESTIONS_18 = [
     scenario: "A distributed cloud application experiences intermittent downstream service timeouts and connection exhaustion during peak operational hours. The development team must establish automated recovery and fault isolation. The application utilizes AWS Elastic Beanstalk to customize the runtime environment of an Elastic Beanstalk application by installing Linux packages, configuring system daemons, and setting environment variables at deploy time.",
     question: "Which design pattern or service configuration eliminates bottlenecks and provides automated fault recovery?",
     options: [
-      { id: 'A', text: "Include YAML or JSON configuration files in the `.ebextensions` directory in the root of the source bundle." },
+      { id: 'A', text: "Configuration files in the `.ebextensions` directory of the bundle." },
       { id: 'B', text: "Store package install scripts in an S3 bucket policy." },
       { id: 'C', text: "SSH into each EC2 instance after deployment and install packages manually." },
       { id: 'D', text: "Deploy an AWS Systems Manager Run Command script every 5 minutes." }
@@ -219,9 +219,9 @@ export const AWS_DVA_QUESTIONS_18 = [
     scenario: "A high-availability enterprise cloud service requires strict operational resilience and automated disaster recovery capabilities. The engineering team must eliminate single points of failure across operational workflows. The application utilizes Amazon ECS to configure containerized microservices in Amazon ECS with explicit CPU and memory boundaries, container port mappings, and environment variables sourced from AWS Secrets Manager.",
     question: "Which implementation or architectural approach satisfies these resilience criteria?",
     options: [
-      { id: 'A', text: "Configure an Application Load Balancer listener rule with hardcoded credentials." },
-      { id: 'B', text: "Define an Amazon ECS Task Definition specifying task-level CPU and memory, containerDefinitions, and `secrets` attributes referencing Secrets Manager ARNs." },
-      { id: 'C', text: "Hardcode environment variables in the Dockerfile directly." },
+      { id: 'A', text: "Terminate authentication at an Application Load Balancer OIDC listener rule." },
+      { id: 'B', text: "A task definition with CPU, memory and `secrets` referencing Secrets Manager." },
+      { id: 'C', text: "Pass the values as build arguments so they are baked into the image." },
       { id: 'D', text: "Deploy containers using docker-compose on a standalone EC2 instance." }
     ],
     correctAnswers: ['B'],
@@ -240,10 +240,10 @@ export const AWS_DVA_QUESTIONS_18 = [
     scenario: "A high-throughput digital platform experiences sudden spikes in concurrent user traffic during flash promotions. Developers must ensure sub-second response times and predictable scaling under peak throughput. The application utilizes Amazon ECS to configure containerized microservices in Amazon ECS with explicit CPU and memory boundaries, container port mappings, and environment variables sourced from AWS Secrets Manager.",
     question: "Which architectural approach should the developer recommend to handle this workload efficiently?",
     options: [
-      { id: 'A', text: "Configure an Application Load Balancer listener rule with hardcoded credentials." },
+      { id: 'A', text: "Terminate authentication at an Application Load Balancer OIDC listener rule." },
       { id: 'B', text: "Deploy containers using docker-compose on a standalone EC2 instance." },
-      { id: 'C', text: "Define an Amazon ECS Task Definition specifying task-level CPU and memory, containerDefinitions, and `secrets` attributes referencing Secrets Manager ARNs." },
-      { id: 'D', text: "Hardcode environment variables in the Dockerfile directly." }
+      { id: 'C', text: "A task definition with CPU, memory and `secrets` referencing Secrets Manager." },
+      { id: 'D', text: "Pass the values as build arguments so they are baked into the image." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -262,9 +262,9 @@ export const AWS_DVA_QUESTIONS_18 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Deploy containers using docker-compose on a standalone EC2 instance." },
-      { id: 'B', text: "Hardcode environment variables in the Dockerfile directly." },
-      { id: 'C', text: "Define an Amazon ECS Task Definition specifying task-level CPU and memory, containerDefinitions, and `secrets` attributes referencing Secrets Manager ARNs." },
-      { id: 'D', text: "Configure an Application Load Balancer listener rule with hardcoded credentials." }
+      { id: 'B', text: "Pass the values as build arguments so they are baked into the image." },
+      { id: 'C', text: "A task definition with CPU, memory and `secrets` referencing Secrets Manager." },
+      { id: 'D', text: "Terminate authentication at an Application Load Balancer OIDC listener rule." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -283,9 +283,9 @@ export const AWS_DVA_QUESTIONS_18 = [
     question: "Which solution provides a robust implementation while minimizing ongoing operational maintenance?",
     options: [
       { id: 'A', text: "Deploy containers using docker-compose on a standalone EC2 instance." },
-      { id: 'B', text: "Hardcode environment variables in the Dockerfile directly." },
-      { id: 'C', text: "Define an Amazon ECS Task Definition specifying task-level CPU and memory, containerDefinitions, and `secrets` attributes referencing Secrets Manager ARNs." },
-      { id: 'D', text: "Configure an Application Load Balancer listener rule with hardcoded credentials." }
+      { id: 'B', text: "Pass the values as build arguments so they are baked into the image." },
+      { id: 'C', text: "A task definition with CPU, memory and `secrets` referencing Secrets Manager." },
+      { id: 'D', text: "Terminate authentication at an Application Load Balancer OIDC listener rule." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -303,10 +303,10 @@ export const AWS_DVA_QUESTIONS_18 = [
     scenario: "A distributed cloud application experiences intermittent downstream service timeouts and connection exhaustion during peak operational hours. The development team must establish automated recovery and fault isolation. The application utilizes Amazon ECS to configure containerized microservices in Amazon ECS with explicit CPU and memory boundaries, container port mappings, and environment variables sourced from AWS Secrets Manager.",
     question: "Which design pattern or service configuration eliminates bottlenecks and provides automated fault recovery?",
     options: [
-      { id: 'A', text: "Hardcode environment variables in the Dockerfile directly." },
-      { id: 'B', text: "Define an Amazon ECS Task Definition specifying task-level CPU and memory, containerDefinitions, and `secrets` attributes referencing Secrets Manager ARNs." },
+      { id: 'A', text: "Pass the values as build arguments so they are baked into the image." },
+      { id: 'B', text: "A task definition with CPU, memory and `secrets` referencing Secrets Manager." },
       { id: 'C', text: "Deploy containers using docker-compose on a standalone EC2 instance." },
-      { id: 'D', text: "Configure an Application Load Balancer listener rule with hardcoded credentials." }
+      { id: 'D', text: "Terminate authentication at an Application Load Balancer OIDC listener rule." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -432,7 +432,7 @@ export const AWS_DVA_QUESTIONS_18 = [
       { id: 'A', text: "Configure an IAM Deny policy on `cloudformation:DeleteStack`." },
       { id: 'B', text: "Remove the resources from the template and run `update-stack`." },
       { id: 'C', text: "Enable CloudFormation termination protection on the EC2 instances." },
-      { id: 'D', text: "Set the `DeletionPolicy: Retain` attribute on the S3 bucket and RDS database resources in the CloudFormation template." }
+      { id: 'D', text: "Set `DeletionPolicy: Retain` on the bucket and database." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -452,7 +452,7 @@ export const AWS_DVA_QUESTIONS_18 = [
     options: [
       { id: 'A', text: "Remove the resources from the template and run `update-stack`." },
       { id: 'B', text: "Enable CloudFormation termination protection on the EC2 instances." },
-      { id: 'C', text: "Set the `DeletionPolicy: Retain` attribute on the S3 bucket and RDS database resources in the CloudFormation template." },
+      { id: 'C', text: "Set `DeletionPolicy: Retain` on the bucket and database." },
       { id: 'D', text: "Configure an IAM Deny policy on `cloudformation:DeleteStack`." }
     ],
     correctAnswers: ['C'],
@@ -474,7 +474,7 @@ export const AWS_DVA_QUESTIONS_18 = [
       { id: 'A', text: "Enable CloudFormation termination protection on the EC2 instances." },
       { id: 'B', text: "Remove the resources from the template and run `update-stack`." },
       { id: 'C', text: "Configure an IAM Deny policy on `cloudformation:DeleteStack`." },
-      { id: 'D', text: "Set the `DeletionPolicy: Retain` attribute on the S3 bucket and RDS database resources in the CloudFormation template." }
+      { id: 'D', text: "Set `DeletionPolicy: Retain` on the bucket and database." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -492,7 +492,7 @@ export const AWS_DVA_QUESTIONS_18 = [
     scenario: "An enterprise development team is refactoring a legacy monolithic application into cloud-native microservices on AWS. The architecture must minimize operational complexity while leveraging managed services. The application utilizes AWS CloudFormation to prevent an Amazon S3 bucket or Amazon RDS database from being accidentally destroyed when a developer deletes the associated CloudFormation stack.",
     question: "Which solution provides a robust implementation while minimizing ongoing operational maintenance?",
     options: [
-      { id: 'A', text: "Set the `DeletionPolicy: Retain` attribute on the S3 bucket and RDS database resources in the CloudFormation template." },
+      { id: 'A', text: "Set `DeletionPolicy: Retain` on the bucket and database." },
       { id: 'B', text: "Remove the resources from the template and run `update-stack`." },
       { id: 'C', text: "Enable CloudFormation termination protection on the EC2 instances." },
       { id: 'D', text: "Configure an IAM Deny policy on `cloudformation:DeleteStack`." }
@@ -516,7 +516,7 @@ export const AWS_DVA_QUESTIONS_18 = [
       { id: 'A', text: "Enable CloudFormation termination protection on the EC2 instances." },
       { id: 'B', text: "Configure an IAM Deny policy on `cloudformation:DeleteStack`." },
       { id: 'C', text: "Remove the resources from the template and run `update-stack`." },
-      { id: 'D', text: "Set the `DeletionPolicy: Retain` attribute on the S3 bucket and RDS database resources in the CloudFormation template." }
+      { id: 'D', text: "Set `DeletionPolicy: Retain` on the bucket and database." }
     ],
     correctAnswers: ['D'],
     type: "single",

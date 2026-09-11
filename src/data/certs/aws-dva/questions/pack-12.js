@@ -10,7 +10,7 @@ export const AWS_DVA_QUESTIONS_12 = [
     question: "Which implementation or architectural approach satisfies these resilience criteria?",
     options: [
       { id: 'A', text: "Deploy an Application Load Balancer with an internal listener and a Lambda target group." },
-      { id: 'B', text: "Configure an AWS Lambda Function URL with AuthType set to AWS_IAM or NONE and configure the built-in CORS settings on the Function URL." },
+      { id: 'B', text: "A Lambda Function URL with an AuthType and its built-in CORS settings." },
       { id: 'C', text: "Deploy an Amazon API Gateway REST API with a mock integration." },
       { id: 'D', text: "Configure Amazon CloudFront with an S3 origin and a custom origin request header." }
     ],
@@ -31,7 +31,7 @@ export const AWS_DVA_QUESTIONS_12 = [
     question: "Which architectural approach should the developer recommend to handle this workload efficiently?",
     options: [
       { id: 'A', text: "Configure Amazon CloudFront with an S3 origin and a custom origin request header." },
-      { id: 'B', text: "Configure an AWS Lambda Function URL with AuthType set to AWS_IAM or NONE and configure the built-in CORS settings on the Function URL." },
+      { id: 'B', text: "A Lambda Function URL with an AuthType and its built-in CORS settings." },
       { id: 'C', text: "Deploy an Application Load Balancer with an internal listener and a Lambda target group." },
       { id: 'D', text: "Deploy an Amazon API Gateway REST API with a mock integration." }
     ],
@@ -54,7 +54,7 @@ export const AWS_DVA_QUESTIONS_12 = [
       { id: 'A', text: "Deploy an Amazon API Gateway REST API with a mock integration." },
       { id: 'B', text: "Deploy an Application Load Balancer with an internal listener and a Lambda target group." },
       { id: 'C', text: "Configure Amazon CloudFront with an S3 origin and a custom origin request header." },
-      { id: 'D', text: "Configure an AWS Lambda Function URL with AuthType set to AWS_IAM or NONE and configure the built-in CORS settings on the Function URL." }
+      { id: 'D', text: "A Lambda Function URL with an AuthType and its built-in CORS settings." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -73,7 +73,7 @@ export const AWS_DVA_QUESTIONS_12 = [
     question: "Which solution provides a robust implementation while minimizing ongoing operational maintenance?",
     options: [
       { id: 'A', text: "Deploy an Amazon API Gateway REST API with a mock integration." },
-      { id: 'B', text: "Configure an AWS Lambda Function URL with AuthType set to AWS_IAM or NONE and configure the built-in CORS settings on the Function URL." },
+      { id: 'B', text: "A Lambda Function URL with an AuthType and its built-in CORS settings." },
       { id: 'C', text: "Configure Amazon CloudFront with an S3 origin and a custom origin request header." },
       { id: 'D', text: "Deploy an Application Load Balancer with an internal listener and a Lambda target group." }
     ],
@@ -93,7 +93,7 @@ export const AWS_DVA_QUESTIONS_12 = [
     scenario: "A distributed cloud application experiences intermittent downstream service timeouts and connection exhaustion during peak operational hours. The development team must establish automated recovery and fault isolation. The application utilizes AWS Lambda to expose a serverless microservice to web browser clients via an HTTPS endpoint with minimal latency, direct authentication, and built-in CORS support without deploying an API Gateway.",
     question: "Which design pattern or service configuration eliminates bottlenecks and provides automated fault recovery?",
     options: [
-      { id: 'A', text: "Configure an AWS Lambda Function URL with AuthType set to AWS_IAM or NONE and configure the built-in CORS settings on the Function URL." },
+      { id: 'A', text: "A Lambda Function URL with an AuthType and its built-in CORS settings." },
       { id: 'B', text: "Deploy an Amazon API Gateway REST API with a mock integration." },
       { id: 'C', text: "Deploy an Application Load Balancer with an internal listener and a Lambda target group." },
       { id: 'D', text: "Configure Amazon CloudFront with an S3 origin and a custom origin request header." }

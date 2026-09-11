@@ -18,7 +18,7 @@ export const AWS_DVA_QUESTIONS_1 = [
     type: "single",
     explanation: "Configuring Provisioned Concurrency initializes a requested number of execution environments in advance so that incoming requests are immediately served with double-digit millisecond latency without cold starts. Increasing timeout only allows functions to run longer, allocating more ephemeral storage does not initialize runtimes, and migrating to Java runtime without SnapStart typically increases cold start latency.",
     referenceUrl: "https://docs.aws.amazon.com/lambda/latest/dg/provisioned-concurrency.html",
-    tags: ["Lambda", "Serverless", "Provisioned Concurrency"]
+    tags: ["Lambda","Serverless","Provisioned Concurrency"]
   },
   {
     id: "aws-dva-2",
@@ -39,7 +39,7 @@ export const AWS_DVA_QUESTIONS_1 = [
     type: "single",
     explanation: "Amazon RDS Proxy maintains a managed pool of database connections and allows thousands of concurrent Lambda instances to share and multiplex connections, preventing database exhaustion. Initializing connections inside the handler establishes new connections on every single invocation and quickly exhausts database resources. Scaling Lambda memory increases compute capacity but does not solve relational connection limits.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy.html",
-    tags: ["Lambda", "RDS Proxy", "Database"]
+    tags: ["Lambda","RDS Proxy","Database"]
   },
   {
     id: "aws-dva-3",
@@ -60,7 +60,7 @@ export const AWS_DVA_QUESTIONS_1 = [
     type: "single",
     explanation: "AWS Lambda supports configuring ephemeral storage (`/tmp`) from 512 MB up to 10,240 MB (10 GB) directly in function settings. The deployment package directory `/var/task` is read-only at runtime, EBS volumes cannot be directly attached to Lambda functions, and S3 is an object store accessible via APIs rather than a native POSIX local filesystem.",
     referenceUrl: "https://docs.aws.amazon.com/lambda/latest/dg/configuration-ephemeral-storage.html",
-    tags: ["Lambda", "Storage", "Limits"]
+    tags: ["Lambda","Storage","Limits"]
   },
   {
     id: "aws-dva-4",
@@ -81,7 +81,7 @@ export const AWS_DVA_QUESTIONS_1 = [
     type: "single",
     explanation: "Lambda Layers allow common runtime dependencies and custom libraries to be packaged once and shared across multiple functions, reducing deployment artifact sizes and speeding up pipeline deployments. Downloading libraries from S3 on every invocation introduces latency, and bundling dependencies into every function duplicates storage.",
     referenceUrl: "https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html",
-    tags: ["Lambda", "Lambda Layers", "Packaging"]
+    tags: ["Lambda","Lambda Layers","Packaging"]
   },
   {
     id: "aws-dva-5",
@@ -93,7 +93,7 @@ export const AWS_DVA_QUESTIONS_1 = [
     scenario: "A Lambda function processes batches of messages from an Amazon Kinesis Data Stream. When a single record in a batch of 100 fails due to a schema validation error, the entire batch retries and blocks the shard.",
     question: "Which feature should the developer enable in the event source mapping to isolate and bypass only the corrupted record?",
     options: [
-      { id: 'A', text: "Enable BisectBatchOnFunctionError and configure an On-Failure Destination" },
+      { id: 'A', text: "BisectBatchOnFunctionError and a failure destination" },
       { id: 'B', text: "Increase the MaximumRecordAgeInSeconds to 7 days" },
       { id: 'C', text: "Set the BatchSize to 10,000 records" },
       { id: 'D', text: "Disable stream checkpoints in the consumer function" }
@@ -102,7 +102,7 @@ export const AWS_DVA_QUESTIONS_1 = [
     type: "single",
     explanation: "Enabling `BisectBatchOnFunctionError` splits the failed batch into two smaller sub-batches and retries them, continually isolating the single poison-pill record until it reaches maximum retry limits and is routed to an On-Failure Destination (SQS or SNS), allowing shard processing to continue. Increasing record age prolongs stream blockage, and larger batch sizes exacerbate batch processing failures.",
     referenceUrl: "https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html",
-    tags: ["Lambda", "Kinesis", "Event Source Mapping"]
+    tags: ["Lambda","Kinesis","Event Source Mapping"]
   },
   {
     id: "aws-dva-6",
@@ -123,7 +123,7 @@ export const AWS_DVA_QUESTIONS_1 = [
     type: "single",
     explanation: "Lambda Destinations for asynchronous invocations provide comprehensive JSON metadata (request payload, response payload, stack trace, and execution details) directly to target services such as SQS, SNS, EventBridge, or another Lambda function upon failure. Legacy Dead Letter Queues only record the invocation payload without execution error details.",
     referenceUrl: "https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html",
-    tags: ["Lambda", "Destinations", "Error Handling"]
+    tags: ["Lambda","Destinations","Error Handling"]
   },
   {
     id: "aws-dva-7",
@@ -144,7 +144,7 @@ export const AWS_DVA_QUESTIONS_1 = [
     type: "single",
     explanation: "Code declared outside the Lambda handler in global scope runs during execution environment initialization and persists in memory across warm invocations. Reusing initialized SDK clients, database connections, and cached static data across invocations substantially lowers execution duration. Passing data in event payloads alters caller contracts, and external queues add network overhead.",
     referenceUrl: "https://docs.aws.amazon.com/lambda/latest/dg/best-practices.html",
-    tags: ["Lambda", "Optimization", "Warm Starts"]
+    tags: ["Lambda","Optimization","Warm Starts"]
   },
   {
     id: "aws-dva-8",
@@ -165,7 +165,7 @@ export const AWS_DVA_QUESTIONS_1 = [
     type: "single",
     explanation: "AWS Lambda supports packaging functions as container images up to 10 GB stored in Amazon Elastic Container Registry (ECR). Standard zip deployment packages have a hard limit of 250 MB uncompressed (including layers), and Lambda layers have a maximum combined uncompressed size limit of 250 MB.",
     referenceUrl: "https://docs.aws.amazon.com/lambda/latest/dg/images-create.html",
-    tags: ["Lambda", "Container Images", "ECR"]
+    tags: ["Lambda","Container Images","ECR"]
   },
   {
     id: "aws-dva-9",
@@ -186,7 +186,7 @@ export const AWS_DVA_QUESTIONS_1 = [
     type: "single",
     explanation: "Assigning Reserved Concurrency reserves a dedicated portion of the account concurrency pool exclusively for that function, guaranteeing capacity even during account-wide throttling spikes, while also capping maximum concurrency to protect downstream systems. Provisioned concurrency readies environments but does not reserve exclusive capacity against account limits.",
     referenceUrl: "https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html",
-    tags: ["Lambda", "Concurrency", "Reserved Concurrency"]
+    tags: ["Lambda","Concurrency","Reserved Concurrency"]
   },
   {
     id: "aws-dva-10",
@@ -207,7 +207,7 @@ export const AWS_DVA_QUESTIONS_1 = [
     type: "single",
     explanation: "Lambda SnapStart initializes the function during version publication, takes a Firecracker microVM snapshot of the initialized memory and disk state, encrypts it, and caches it. Subsequent cold starts resume from the snapshot, reducing cold start times by up to 90% for Java runtimes. Scaling memory provides linear CPU scaling but does not eliminate JVM classloading initialization.",
     referenceUrl: "https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html",
-    tags: ["Lambda", "SnapStart", "Java"]
+    tags: ["Lambda","SnapStart","Java"]
   },
   {
     id: "aws-dva-11",
@@ -228,7 +228,7 @@ export const AWS_DVA_QUESTIONS_1 = [
     type: "single",
     explanation: "AWS Lambda allocates CPU power proportionally to the configured memory setting. At 1,769 MB of memory, a function is allocated the equivalent of one full vCPU. Increasing memory up to 10,240 MB provides up to 6 vCPUs, drastically accelerating CPU-bound tasks. Adding ENIs only affects VPC networking, and OS threading flags cannot exceed allocated hypervisor resources.",
     referenceUrl: "https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html",
-    tags: ["Lambda", "CPU", "Memory"]
+    tags: ["Lambda","CPU","Memory"]
   },
   {
     id: "aws-dva-12",
@@ -249,7 +249,7 @@ export const AWS_DVA_QUESTIONS_1 = [
     type: "single",
     explanation: "Lambda Function URLs support two authorization types: `AWS_IAM` (requiring callers to sign HTTP requests using SigV4 credentials) and `NONE` (public unauthenticated access with optional CORS). Lambda Function URLs do not natively support built-in Cognito or basic auth authorization modes; those require API Gateway or custom handler code.",
     referenceUrl: "https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html",
-    tags: ["Lambda", "Function URLs", "IAM"]
+    tags: ["Lambda","Function URLs","IAM"]
   },
   {
     id: "aws-dva-13",
@@ -270,7 +270,7 @@ export const AWS_DVA_QUESTIONS_1 = [
     type: "single",
     explanation: "Modern AWS Lambda VPC networking utilizes AWS Hyperplane technology to create shared Elastic Network Interfaces (ENIs) for each subnet/security group combination when the function is configured or updated, reducing VPC cold starts from tens of seconds to milliseconds while conserving private IP addresses across invocations. Lambda inside VPCs does not use public IPs directly.",
     referenceUrl: "https://docs.aws.amazon.com/lambda/latest/dg/foundation-networking.html",
-    tags: ["Lambda", "VPC", "Networking"]
+    tags: ["Lambda","VPC","Networking"]
   },
   {
     id: "aws-dva-14",
@@ -291,7 +291,7 @@ export const AWS_DVA_QUESTIONS_1 = [
     type: "single",
     explanation: "The `ScalingConfig` setting `MaximumConcurrency` on an SQS event source mapping allows developers to limit the maximum number of concurrent Lambda instances invoked by that specific queue (between 2 and 1,000), protecting downstream relational databases from being overwhelmed while buffering messages in SQS. BatchSize alters records per invocation, not total concurrent workers.",
     referenceUrl: "https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html",
-    tags: ["Lambda", "SQS", "Concurrency"]
+    tags: ["Lambda","SQS","Concurrency"]
   },
   {
     id: "aws-dva-15",
@@ -312,7 +312,7 @@ export const AWS_DVA_QUESTIONS_1 = [
     type: "single",
     explanation: "`RequestResponse` specifies synchronous invocation, where the caller connection remains open until the function completes execution and returns the response payload or error. `Event` performs asynchronous execution where Lambda returns HTTP 202 Accepted immediately without waiting for results, and `DryRun` validates parameter permissions without executing code.",
     referenceUrl: "https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html",
-    tags: ["Lambda", "SDK", "InvocationType"]
+    tags: ["Lambda","SDK","InvocationType"]
   },
   {
     id: "aws-dva-16",
@@ -333,7 +333,7 @@ export const AWS_DVA_QUESTIONS_1 = [
     type: "single",
     explanation: "AWS Lambda has a maximum configurable execution timeout of 15 minutes (900 seconds). For background processing jobs that exceed 15 minutes, developers should consider AWS Step Functions, Amazon ECS tasks, or AWS Batch.",
     referenceUrl: "https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html",
-    tags: ["Lambda", "Limits", "Timeout"]
+    tags: ["Lambda","Limits","Timeout"]
   },
   {
     id: "aws-dva-17",
@@ -354,7 +354,7 @@ export const AWS_DVA_QUESTIONS_1 = [
     type: "single",
     explanation: "Lambda Aliases allow developers to point to a specific function version and assign a percentage routing configuration (e.g. 90% to version 1 and 10% to version 2). This enables native canary and linear traffic shifting when paired with AWS CodeDeploy. Route 53 routes between DNS endpoints rather than function versions.",
     referenceUrl: "https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html",
-    tags: ["Lambda", "Aliases", "Canary"]
+    tags: ["Lambda","Aliases","Canary"]
   },
   {
     id: "aws-dva-18",
@@ -369,13 +369,13 @@ export const AWS_DVA_QUESTIONS_1 = [
       { id: 'A', text: "Set the Lambda function timeout to 1 second" },
       { id: 'B', text: "Increase the DynamoDB write capacity units (WCU)" },
       { id: 'C', text: "Delete the DynamoDB stream and recreate it" },
-      { id: 'D', text: "Configure Maximum Retry Attempts to 3 and attach an On-Failure Destination" }
+      { id: 'D', text: "Three retry attempts and a failure destination" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "For stream-based event sources (DynamoDB Streams and Kinesis), developers can configure `MaximumRetryAttempts` (e.g., 3) and an On-Failure Destination (SQS or SNS). Once records exceed the retry limit, Lambda sends metadata to the destination and advances the shard iterator, preventing shard blockage. Deleting the stream destroys event history.",
     referenceUrl: "https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html",
-    tags: ["Lambda", "DynamoDB Streams", "Event Source Mapping"]
+    tags: ["Lambda","DynamoDB Streams","Event Source Mapping"]
   },
   {
     id: "aws-dva-19",
@@ -396,7 +396,7 @@ export const AWS_DVA_QUESTIONS_1 = [
     type: "single",
     explanation: "Lambda Extensions run companion processes within the execution environment alongside function code. External extensions start before runtime initialization and continue running after the function invocation finishes, allowing diagnostic and telemetry tools (such as Datadog, Dynatrace, or AWS AppConfig) to capture metrics and flush logs without adding latency to the main response. SSM Run Command cannot target Lambda microVMs.",
     referenceUrl: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-extensions.html",
-    tags: ["Lambda", "Extensions", "Telemetry"]
+    tags: ["Lambda","Extensions","Telemetry"]
   },
   {
     id: "aws-dva-20",
@@ -411,13 +411,13 @@ export const AWS_DVA_QUESTIONS_1 = [
       { id: 'A', text: "Lambda functions only log to local text files in /tmp" },
       { id: 'B', text: "CloudWatch Logs does not support serverless architectures" },
       { id: 'C', text: "The developer forgot to install the CloudWatch agent inside the zip file" },
-      { id: 'D', text: "The Lambda execution role lacks permissions for logs:CreateLogGroup, logs:CreateLogStream, and logs:PutLogEvents" }
+      { id: 'D', text: "The execution role lacks the CloudWatch Logs write permissions" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "For Lambda to write standard out and error logs to CloudWatch Logs, its execution IAM role must include the `AWSLambdaBasicExecutionRole` policy or explicit permissions for `logs:CreateLogGroup`, `logs:CreateLogStream`, and `logs:PutLogEvents`. CloudWatch natively ingests Lambda logs without requiring agent installations.",
     referenceUrl: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-intro-execution-role.html",
-    tags: ["Lambda", "CloudWatch Logs", "IAM"]
+    tags: ["Lambda","CloudWatch Logs","IAM"]
   },
   {
     id: "aws-dva-21",
@@ -429,7 +429,7 @@ export const AWS_DVA_QUESTIONS_1 = [
     scenario: "A CPU-intensive calculation takes 12 seconds to execute on a 128 MB Lambda function. By increasing memory to 1024 MB, the execution time drops to 1.5 seconds.",
     question: "What impact does this change have on execution cost and user experience?",
     options: [
-      { id: 'A', text: "Execution time drops by 87.5% and overall cost remains almost identical or lower due to proportional GB-second billing" },
+      { id: 'A', text: "Time drops by 87.5% and cost stays about the same" },
       { id: 'B', text: "Cost increases by a factor of 800% because memory is higher" },
       { id: 'C', text: "The function fails because 1024 MB exceeds AWS limits" },
       { id: 'D', text: "Cold starts increase by 10 minutes" }
@@ -438,7 +438,7 @@ export const AWS_DVA_QUESTIONS_1 = [
     type: "single",
     explanation: "Because AWS Lambda bills based on GB-seconds (gigabyte of RAM multiplied by runtime in seconds), a function that completes 8x faster at 8x memory consumes the same or fewer total GB-seconds while delivering a dramatic 87.5% latency improvement for end users. The AWS Lambda Power Tuning open-source tool automates finding this cost-performance sweet spot.",
     referenceUrl: "https://docs.aws.amazon.com/lambda/latest/dg/best-practices.html",
-    tags: ["Lambda", "Memory", "Cost Optimization"]
+    tags: ["Lambda","Memory","Cost Optimization"]
   },
   {
     id: "aws-dva-22",
@@ -451,7 +451,7 @@ export const AWS_DVA_QUESTIONS_1 = [
     question: "Which configuration satisfies this requirement?",
     options: [
       { id: 'A', text: "Use AWS KMS Customer Managed Keys (CMK) with Lambda encryption helpers" },
-      { id: 'B', text: "Hardcode credentials in the function code and push to private Git repositories" },
+      { id: 'B', text: "Store the credentials in SSM Parameter String parameters read at cold start" },
       { id: 'C', text: "Save the API keys in plain text inside the S3 deployment bucket metadata" },
       { id: 'D', text: "Pass credentials in HTTP query strings during function invocation" }
     ],
@@ -459,7 +459,7 @@ export const AWS_DVA_QUESTIONS_1 = [
     type: "single",
     explanation: "Lambda environment variables can be encrypted at rest using custom AWS KMS keys, and developers can use Lambda encryption helpers or AWS Secrets Manager to decrypt sensitive values client-side. Hardcoding secrets in code violates security standards, and plain text storage in bucket metadata or query strings exposes credentials.",
     referenceUrl: "https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html",
-    tags: ["Lambda", "Security", "KMS"]
+    tags: ["Lambda","Security","KMS"]
   },
   {
     id: "aws-dva-23",
@@ -480,7 +480,7 @@ export const AWS_DVA_QUESTIONS_1 = [
     type: "single",
     explanation: "Updating the managed runtime in Lambda configuration, CloudFormation, or SAM templates (`runtime: nodejs20.x`) directs AWS Lambda to execute the code using the updated managed runtime container image, ensuring security patches and active support without infrastructure management.",
     referenceUrl: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-    tags: ["Lambda", "Runtimes", "Maintenance"]
+    tags: ["Lambda","Runtimes","Maintenance"]
   },
   {
     id: "aws-dva-24",
@@ -501,7 +501,7 @@ export const AWS_DVA_QUESTIONS_1 = [
     type: "single",
     explanation: "Lambda Destinations provide rich JSON execution records containing the function ARN, request context, original invocation payload, response payload, error code, and detailed stack trace. In contrast, legacy DLQs only receive the original raw invocation payload without explanation of why the function failed.",
     referenceUrl: "https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html",
-    tags: ["Lambda", "Destinations", "DLQ"]
+    tags: ["Lambda","Destinations","DLQ"]
   },
   {
     id: "aws-dva-25",
@@ -513,7 +513,7 @@ export const AWS_DVA_QUESTIONS_1 = [
     scenario: "An e-commerce Lambda function handles regular traffic surges every day at 12:00 PM and 6:00 PM. Provisioned Concurrency is costly if left at maximum capacity 24/7.",
     question: "How can the developer dynamically scale Provisioned Concurrency based on schedule or utilization?",
     options: [
-      { id: 'A', text: "Configure Application Auto Scaling with scheduled actions or target tracking for Provisioned Concurrency" },
+      { id: 'A', text: "Application Auto Scaling on provisioned concurrency" },
       { id: 'B', text: "Enable DynamoDB Auto Scaling on the Lambda function" },
       { id: 'C', text: "Write an endless loop in the Lambda handler that sleeps between requests" },
       { id: 'D', text: "Deploy a cron job on an EC2 instance that updates the function timeout" }
@@ -522,7 +522,7 @@ export const AWS_DVA_QUESTIONS_1 = [
     type: "single",
     explanation: "Application Auto Scaling integrates natively with Lambda Provisioned Concurrency, allowing developers to configure Target Tracking scaling policies (e.g. maintaining utilization at 70%) or Scheduled Scaling actions (scaling up before anticipated traffic surges and down afterwards) to minimize costs. Lambda timeouts have no effect on concurrency.",
     referenceUrl: "https://docs.aws.amazon.com/lambda/latest/dg/monitoring-concurrency.html",
-    tags: ["Lambda", "Auto Scaling", "Provisioned Concurrency"]
+    tags: ["Lambda","Auto Scaling","Provisioned Concurrency"]
   }
 ];
 

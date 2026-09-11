@@ -10,7 +10,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     question: "Which implementation or architectural approach satisfies these resilience criteria?",
     options: [
       { id: 'A', text: "Deploy an Amazon SQS queue polled by Step Functions every 10 seconds." },
-      { id: 'B', text: "Configure a Step Functions Task state with `.waitForTaskToken`, pass the task token to the external process, and call `SendTaskSuccess` when approved." },
+      { id: 'B', text: "A Task state with `.waitForTaskToken`, resumed by `SendTaskSuccess`." },
       { id: 'C', text: "Write an AWS Lambda function with an infinite loop executing `sleep(30)` until an external database flag changes." },
       { id: 'D', text: "Create an AWS CodePipeline pipeline with a manual approval action." }
     ],
@@ -30,7 +30,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     scenario: "A high-throughput digital platform experiences sudden spikes in concurrent user traffic during flash promotions. Developers must ensure sub-second response times and predictable scaling under peak throughput. The application utilizes AWS Step Functions to pause a serverless workflow to wait for external human manager approval or third-party legacy batch completion before proceeding to the next step.",
     question: "Which architectural approach should the developer recommend to handle this workload efficiently?",
     options: [
-      { id: 'A', text: "Configure a Step Functions Task state with `.waitForTaskToken`, pass the task token to the external process, and call `SendTaskSuccess` when approved." },
+      { id: 'A', text: "A Task state with `.waitForTaskToken`, resumed by `SendTaskSuccess`." },
       { id: 'B', text: "Write an AWS Lambda function with an infinite loop executing `sleep(30)` until an external database flag changes." },
       { id: 'C', text: "Create an AWS CodePipeline pipeline with a manual approval action." },
       { id: 'D', text: "Deploy an Amazon SQS queue polled by Step Functions every 10 seconds." }
@@ -54,7 +54,7 @@ export const AWS_DVA_QUESTIONS_14 = [
       { id: 'A', text: "Deploy an Amazon SQS queue polled by Step Functions every 10 seconds." },
       { id: 'B', text: "Write an AWS Lambda function with an infinite loop executing `sleep(30)` until an external database flag changes." },
       { id: 'C', text: "Create an AWS CodePipeline pipeline with a manual approval action." },
-      { id: 'D', text: "Configure a Step Functions Task state with `.waitForTaskToken`, pass the task token to the external process, and call `SendTaskSuccess` when approved." }
+      { id: 'D', text: "A Task state with `.waitForTaskToken`, resumed by `SendTaskSuccess`." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -75,7 +75,7 @@ export const AWS_DVA_QUESTIONS_14 = [
       { id: 'A', text: "Deploy an Amazon SQS queue polled by Step Functions every 10 seconds." },
       { id: 'B', text: "Create an AWS CodePipeline pipeline with a manual approval action." },
       { id: 'C', text: "Write an AWS Lambda function with an infinite loop executing `sleep(30)` until an external database flag changes." },
-      { id: 'D', text: "Configure a Step Functions Task state with `.waitForTaskToken`, pass the task token to the external process, and call `SendTaskSuccess` when approved." }
+      { id: 'D', text: "A Task state with `.waitForTaskToken`, resumed by `SendTaskSuccess`." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -93,7 +93,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     scenario: "A distributed cloud application experiences intermittent downstream service timeouts and connection exhaustion during peak operational hours. The development team must establish automated recovery and fault isolation. The application utilizes AWS Step Functions to pause a serverless workflow to wait for external human manager approval or third-party legacy batch completion before proceeding to the next step.",
     question: "Which design pattern or service configuration eliminates bottlenecks and provides automated fault recovery?",
     options: [
-      { id: 'A', text: "Configure a Step Functions Task state with `.waitForTaskToken`, pass the task token to the external process, and call `SendTaskSuccess` when approved." },
+      { id: 'A', text: "A Task state with `.waitForTaskToken`, resumed by `SendTaskSuccess`." },
       { id: 'B', text: "Write an AWS Lambda function with an infinite loop executing `sleep(30)` until an external database flag changes." },
       { id: 'C', text: "Deploy an Amazon SQS queue polled by Step Functions every 10 seconds." },
       { id: 'D', text: "Create an AWS CodePipeline pipeline with a manual approval action." }
@@ -117,7 +117,7 @@ export const AWS_DVA_QUESTIONS_14 = [
       { id: 'A', text: "Encrypt the file using AWS CloudTrail digests before uploading." },
       { id: 'B', text: "Send the entire 5 GB file to the KMS `Encrypt` API endpoint directly." },
       { id: 'C', text: "Store the master KMS key plaintext material in an encrypted configuration file." },
-      { id: 'D', text: "Call the KMS `GenerateDataKey` API to obtain a plaintext data key and an encrypted data key, encrypt the file locally with the plaintext key, erase the plaintext key from memory, and store the encrypted data key alongside the ciphertext." }
+      { id: 'D', text: "Call `GenerateDataKey`, encrypt locally, then erase the plaintext key." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -135,7 +135,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     scenario: "A high-throughput digital platform experiences sudden spikes in concurrent user traffic during flash promotions. Developers must ensure sub-second response times and predictable scaling under peak throughput. The application utilizes AWS KMS to encrypt large 5 GB video files locally within an application before uploading them to storage without transmitting the entire payload over the network to AWS KMS.",
     question: "Which architectural approach should the developer recommend to handle this workload efficiently?",
     options: [
-      { id: 'A', text: "Call the KMS `GenerateDataKey` API to obtain a plaintext data key and an encrypted data key, encrypt the file locally with the plaintext key, erase the plaintext key from memory, and store the encrypted data key alongside the ciphertext." },
+      { id: 'A', text: "Call `GenerateDataKey`, encrypt locally, then erase the plaintext key." },
       { id: 'B', text: "Encrypt the file using AWS CloudTrail digests before uploading." },
       { id: 'C', text: "Store the master KMS key plaintext material in an encrypted configuration file." },
       { id: 'D', text: "Send the entire 5 GB file to the KMS `Encrypt` API endpoint directly." }
@@ -159,7 +159,7 @@ export const AWS_DVA_QUESTIONS_14 = [
       { id: 'A', text: "Encrypt the file using AWS CloudTrail digests before uploading." },
       { id: 'B', text: "Store the master KMS key plaintext material in an encrypted configuration file." },
       { id: 'C', text: "Send the entire 5 GB file to the KMS `Encrypt` API endpoint directly." },
-      { id: 'D', text: "Call the KMS `GenerateDataKey` API to obtain a plaintext data key and an encrypted data key, encrypt the file locally with the plaintext key, erase the plaintext key from memory, and store the encrypted data key alongside the ciphertext." }
+      { id: 'D', text: "Call `GenerateDataKey`, encrypt locally, then erase the plaintext key." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -180,7 +180,7 @@ export const AWS_DVA_QUESTIONS_14 = [
       { id: 'A', text: "Store the master KMS key plaintext material in an encrypted configuration file." },
       { id: 'B', text: "Send the entire 5 GB file to the KMS `Encrypt` API endpoint directly." },
       { id: 'C', text: "Encrypt the file using AWS CloudTrail digests before uploading." },
-      { id: 'D', text: "Call the KMS `GenerateDataKey` API to obtain a plaintext data key and an encrypted data key, encrypt the file locally with the plaintext key, erase the plaintext key from memory, and store the encrypted data key alongside the ciphertext." }
+      { id: 'D', text: "Call `GenerateDataKey`, encrypt locally, then erase the plaintext key." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -200,7 +200,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Store the master KMS key plaintext material in an encrypted configuration file." },
       { id: 'B', text: "Send the entire 5 GB file to the KMS `Encrypt` API endpoint directly." },
-      { id: 'C', text: "Call the KMS `GenerateDataKey` API to obtain a plaintext data key and an encrypted data key, encrypt the file locally with the plaintext key, erase the plaintext key from memory, and store the encrypted data key alongside the ciphertext." },
+      { id: 'C', text: "Call `GenerateDataKey`, encrypt locally, then erase the plaintext key." },
       { id: 'D', text: "Encrypt the file using AWS CloudTrail digests before uploading." }
     ],
     correctAnswers: ['C'],
@@ -221,7 +221,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Attach an IAM policy in Account B only, without modifying Account A's KMS Key Policy." },
       { id: 'B', text: "Export the KMS key material from Account A and import it into Account B." },
-      { id: 'C', text: "Update the KMS Key Policy in Account A to grant `kms:Decrypt` permissions to Account B's root or role ARN, and attach an IAM policy in Account B allowing `kms:Decrypt` on the KMS key ARN." },
+      { id: 'C', text: "Grant `kms:Decrypt` in the key policy and in an IAM policy in Account B." },
       { id: 'D', text: "Configure an S3 Object ACL granting Account B public read access." }
     ],
     correctAnswers: ['C'],
@@ -242,7 +242,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Export the KMS key material from Account A and import it into Account B." },
       { id: 'B', text: "Configure an S3 Object ACL granting Account B public read access." },
-      { id: 'C', text: "Update the KMS Key Policy in Account A to grant `kms:Decrypt` permissions to Account B's root or role ARN, and attach an IAM policy in Account B allowing `kms:Decrypt` on the KMS key ARN." },
+      { id: 'C', text: "Grant `kms:Decrypt` in the key policy and in an IAM policy in Account B." },
       { id: 'D', text: "Attach an IAM policy in Account B only, without modifying Account A's KMS Key Policy." }
     ],
     correctAnswers: ['C'],
@@ -263,7 +263,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Attach an IAM policy in Account B only, without modifying Account A's KMS Key Policy." },
       { id: 'B', text: "Configure an S3 Object ACL granting Account B public read access." },
-      { id: 'C', text: "Update the KMS Key Policy in Account A to grant `kms:Decrypt` permissions to Account B's root or role ARN, and attach an IAM policy in Account B allowing `kms:Decrypt` on the KMS key ARN." },
+      { id: 'C', text: "Grant `kms:Decrypt` in the key policy and in an IAM policy in Account B." },
       { id: 'D', text: "Export the KMS key material from Account A and import it into Account B." }
     ],
     correctAnswers: ['C'],
@@ -283,7 +283,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     question: "Which solution provides a robust implementation while minimizing ongoing operational maintenance?",
     options: [
       { id: 'A', text: "Configure an S3 Object ACL granting Account B public read access." },
-      { id: 'B', text: "Update the KMS Key Policy in Account A to grant `kms:Decrypt` permissions to Account B's root or role ARN, and attach an IAM policy in Account B allowing `kms:Decrypt` on the KMS key ARN." },
+      { id: 'B', text: "Grant `kms:Decrypt` in the key policy and in an IAM policy in Account B." },
       { id: 'C', text: "Attach an IAM policy in Account B only, without modifying Account A's KMS Key Policy." },
       { id: 'D', text: "Export the KMS key material from Account A and import it into Account B." }
     ],
@@ -305,7 +305,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Configure an S3 Object ACL granting Account B public read access." },
       { id: 'B', text: "Export the KMS key material from Account A and import it into Account B." },
-      { id: 'C', text: "Update the KMS Key Policy in Account A to grant `kms:Decrypt` permissions to Account B's root or role ARN, and attach an IAM policy in Account B allowing `kms:Decrypt` on the KMS key ARN." },
+      { id: 'C', text: "Grant `kms:Decrypt` in the key policy and in an IAM policy in Account B." },
       { id: 'D', text: "Attach an IAM policy in Account B only, without modifying Account A's KMS Key Policy." }
     ],
     correctAnswers: ['C'],
@@ -324,7 +324,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     scenario: "A high-availability enterprise cloud service requires strict operational resilience and automated disaster recovery capabilities. The engineering team must eliminate single points of failure across operational workflows. The application utilizes AWS KMS to grant temporary, programmatic access to an external analytics worker to decrypt specific encrypted files without modifying the persistent KMS Key Policy.",
     question: "Which implementation or architectural approach satisfies these resilience criteria?",
     options: [
-      { id: 'A', text: "Use the KMS `CreateGrant` API to create a programmatic grant specifying the grantee principal, operations, and encryption context constraints, and revoke the grant upon completion." },
+      { id: 'A', text: "Use `CreateGrant` to scope the operations, and revoke it when done." },
       { id: 'B', text: "Update the primary KMS Key Policy to add the temporary worker ARN and delete it later." },
       { id: 'C', text: "Generate a temporary AWS account root credential and share it with the worker." },
       { id: 'D', text: "Disable key rotation on the KMS customer managed key during the analytics job." }
@@ -347,7 +347,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Generate a temporary AWS account root credential and share it with the worker." },
       { id: 'B', text: "Update the primary KMS Key Policy to add the temporary worker ARN and delete it later." },
-      { id: 'C', text: "Use the KMS `CreateGrant` API to create a programmatic grant specifying the grantee principal, operations, and encryption context constraints, and revoke the grant upon completion." },
+      { id: 'C', text: "Use `CreateGrant` to scope the operations, and revoke it when done." },
       { id: 'D', text: "Disable key rotation on the KMS customer managed key during the analytics job." }
     ],
     correctAnswers: ['C'],
@@ -368,7 +368,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Update the primary KMS Key Policy to add the temporary worker ARN and delete it later." },
       { id: 'B', text: "Generate a temporary AWS account root credential and share it with the worker." },
-      { id: 'C', text: "Use the KMS `CreateGrant` API to create a programmatic grant specifying the grantee principal, operations, and encryption context constraints, and revoke the grant upon completion." },
+      { id: 'C', text: "Use `CreateGrant` to scope the operations, and revoke it when done." },
       { id: 'D', text: "Disable key rotation on the KMS customer managed key during the analytics job." }
     ],
     correctAnswers: ['C'],
@@ -389,7 +389,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Disable key rotation on the KMS customer managed key during the analytics job." },
       { id: 'B', text: "Update the primary KMS Key Policy to add the temporary worker ARN and delete it later." },
-      { id: 'C', text: "Use the KMS `CreateGrant` API to create a programmatic grant specifying the grantee principal, operations, and encryption context constraints, and revoke the grant upon completion." },
+      { id: 'C', text: "Use `CreateGrant` to scope the operations, and revoke it when done." },
       { id: 'D', text: "Generate a temporary AWS account root credential and share it with the worker." }
     ],
     correctAnswers: ['C'],
@@ -410,7 +410,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Generate a temporary AWS account root credential and share it with the worker." },
       { id: 'B', text: "Disable key rotation on the KMS customer managed key during the analytics job." },
-      { id: 'C', text: "Use the KMS `CreateGrant` API to create a programmatic grant specifying the grantee principal, operations, and encryption context constraints, and revoke the grant upon completion." },
+      { id: 'C', text: "Use `CreateGrant` to scope the operations, and revoke it when done." },
       { id: 'D', text: "Update the primary KMS Key Policy to add the temporary worker ARN and delete it later." }
     ],
     correctAnswers: ['C'],
@@ -430,7 +430,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     question: "Which implementation or architectural approach satisfies these resilience criteria?",
     options: [
       { id: 'A', text: "Store the database credentials in AWS Systems Manager Parameter Store as a Standard String parameter." },
-      { id: 'B', text: "Store the database credentials in AWS Secrets Manager and configure automated rotation with an AWS-managed Lambda function." },
+      { id: 'B', text: "Store the credentials in Secrets Manager with automated rotation." },
       { id: 'C', text: "Store credentials in an Amazon DynamoDB table with client-side hashing." },
       { id: 'D', text: "Store the database credentials in an unencrypted AWS CodeBuild environment variable." }
     ],
@@ -452,7 +452,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Store the database credentials in an unencrypted AWS CodeBuild environment variable." },
       { id: 'B', text: "Store the database credentials in AWS Systems Manager Parameter Store as a Standard String parameter." },
-      { id: 'C', text: "Store the database credentials in AWS Secrets Manager and configure automated rotation with an AWS-managed Lambda function." },
+      { id: 'C', text: "Store the credentials in Secrets Manager with automated rotation." },
       { id: 'D', text: "Store credentials in an Amazon DynamoDB table with client-side hashing." }
     ],
     correctAnswers: ['C'],
@@ -473,7 +473,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Store the database credentials in AWS Systems Manager Parameter Store as a Standard String parameter." },
       { id: 'B', text: "Store credentials in an Amazon DynamoDB table with client-side hashing." },
-      { id: 'C', text: "Store the database credentials in AWS Secrets Manager and configure automated rotation with an AWS-managed Lambda function." },
+      { id: 'C', text: "Store the credentials in Secrets Manager with automated rotation." },
       { id: 'D', text: "Store the database credentials in an unencrypted AWS CodeBuild environment variable." }
     ],
     correctAnswers: ['C'],
@@ -492,7 +492,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     scenario: "An enterprise development team is refactoring a legacy monolithic application into cloud-native microservices on AWS. The architecture must minimize operational complexity while leveraging managed services. The application utilizes AWS Secrets Manager to store RDS database credentials with automated 30-day password rotation and built-in cross-account secret sharing.",
     question: "Which solution provides a robust implementation while minimizing ongoing operational maintenance?",
     options: [
-      { id: 'A', text: "Store the database credentials in AWS Secrets Manager and configure automated rotation with an AWS-managed Lambda function." },
+      { id: 'A', text: "Store the credentials in Secrets Manager with automated rotation." },
       { id: 'B', text: "Store the database credentials in an unencrypted AWS CodeBuild environment variable." },
       { id: 'C', text: "Store the database credentials in AWS Systems Manager Parameter Store as a Standard String parameter." },
       { id: 'D', text: "Store credentials in an Amazon DynamoDB table with client-side hashing." }
@@ -513,7 +513,7 @@ export const AWS_DVA_QUESTIONS_14 = [
     scenario: "A distributed cloud application experiences intermittent downstream service timeouts and connection exhaustion during peak operational hours. The development team must establish automated recovery and fault isolation. The application utilizes AWS Secrets Manager to store RDS database credentials with automated 30-day password rotation and built-in cross-account secret sharing.",
     question: "Which design pattern or service configuration eliminates bottlenecks and provides automated fault recovery?",
     options: [
-      { id: 'A', text: "Store the database credentials in AWS Secrets Manager and configure automated rotation with an AWS-managed Lambda function." },
+      { id: 'A', text: "Store the credentials in Secrets Manager with automated rotation." },
       { id: 'B', text: "Store the database credentials in an unencrypted AWS CodeBuild environment variable." },
       { id: 'C', text: "Store the database credentials in AWS Systems Manager Parameter Store as a Standard String parameter." },
       { id: 'D', text: "Store credentials in an Amazon DynamoDB table with client-side hashing." }

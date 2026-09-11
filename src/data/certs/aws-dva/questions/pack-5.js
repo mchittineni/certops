@@ -18,7 +18,7 @@ export const AWS_DVA_QUESTIONS_5 = [
     type: "single",
     explanation: "The `aws:SourceIp` condition key compares the public IP address from which the caller is making the request against specified CIDR blocks. In contrast, `aws:sourceVpce` or `aws:sourceVpc` evaluate requests arriving via VPC endpoints.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourceip",
-    tags: ["IAM", "SourceIp", "Conditions"]
+    tags: ["IAM","SourceIp","Conditions"]
   },
   {
     id: "aws-dva-102",
@@ -39,7 +39,7 @@ export const AWS_DVA_QUESTIONS_5 = [
     type: "single",
     explanation: "The `sts:DecodeAuthorizationMessage` API decodes additional information about the authorization status of a request from an encoded message string, providing detailed JSON explaining which user, action, resource, and policy statement caused the authorization denial.",
     referenceUrl: "https://docs.aws.amazon.com/STS/latest/APIReference/API_DecodeAuthorizationMessage.html",
-    tags: ["STS", "DecodeAuthorizationMessage", "Troubleshooting"]
+    tags: ["STS","DecodeAuthorizationMessage","Troubleshooting"]
   },
   {
     id: "aws-dva-103",
@@ -53,14 +53,14 @@ export const AWS_DVA_QUESTIONS_5 = [
     options: [
       { id: 'A', text: "An AWS Managed SSE-S3 Key" },
       { id: 'B', text: "A Symmetric Encryption KMS Key" },
-      { id: 'C', text: "An Asymmetric KMS Key Pair for signing and verification (RSA or ECC)" },
+      { id: 'C', text: "An asymmetric KMS key pair" },
       { id: 'D', text: "A CloudHSM classic DES key" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "AWS KMS supports asymmetric key pairs consisting of an RSA or ECC public and private key. The private key never leaves KMS and is used for signing operations, while the public key can be freely exported and distributed to external clients to verify digital signatures without AWS authentication.",
     referenceUrl: "https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html",
-    tags: ["KMS", "Asymmetric Keys", "Digital Signatures"]
+    tags: ["KMS","Asymmetric Keys","Digital Signatures"]
   },
   {
     id: "aws-dva-104",
@@ -81,7 +81,7 @@ export const AWS_DVA_QUESTIONS_5 = [
     type: "single",
     explanation: "KMS Grants provide a flexible, programmatic mechanism to delegate long-term or temporary permissions to AWS principals on a specific KMS key without modifying the key policy. Grants can be created dynamically (e.g. by AWS services like EBS or RDS) and revoked or retired when no longer needed.",
     referenceUrl: "https://docs.aws.amazon.com/kms/latest/developerguide/grants.html",
-    tags: ["KMS", "Grants", "Delegation"]
+    tags: ["KMS","Grants","Delegation"]
   },
   {
     id: "aws-dva-105",
@@ -94,15 +94,15 @@ export const AWS_DVA_QUESTIONS_5 = [
     question: "Which combination of configurations enables cross-account secret access?",
     options: [
       { id: 'A', text: "Send the secret value in an SQS message across accounts" },
-      { id: 'B', text: "Attach a Resource-Based Policy to the secret in the Security Account granting access to the Production Account role, and grant the role kms:Decrypt on the KMS key" },
-      { id: 'C', text: "Copy the secret to an unencrypted public S3 bucket" },
+      { id: 'B', text: "A resource policy on the secret plus kms:Decrypt on the key" },
+      { id: 'C', text: "Replicate the secret into the Production Account on a schedule" },
       { id: 'D', text: "Create a VPC Peering connection and disable all IAM policies" }
     ],
     correctAnswers: ['B'],
     type: "single",
     explanation: "Secrets Manager supports resource-based policies directly on secrets. To enable cross-account access, the secret's resource policy must permit the external account or role, and the target role must have `secretsmanager:GetSecretValue` permissions and `kms:Decrypt` permissions on the backing Customer Managed Key.",
     referenceUrl: "https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html",
-    tags: ["Secrets Manager", "Cross-Account", "Resource Policy"]
+    tags: ["Secrets Manager","Cross-Account","Resource Policy"]
   },
   {
     id: "aws-dva-106",
@@ -114,7 +114,7 @@ export const AWS_DVA_QUESTIONS_5 = [
     scenario: "A developer manages 50 configuration parameters across multiple environments (/prod/db/host, /prod/db/user, /dev/db/host). The application needs to retrieve all production database settings in a single API call.",
     question: "Which Systems Manager API operation retrieves all parameters under a specific hierarchical path?",
     options: [
-      { id: 'A', text: "GetParametersByPath with Path set to /prod/db and Recursive set to true" },
+      { id: 'A', text: "GetParametersByPath with Recursive set" },
       { id: 'B', text: "GetParameter with a wildcard asterisk" },
       { id: 'C', text: "DescribeParameters with a regex filter" },
       { id: 'D', text: "BatchGetParameterByPrefix" }
@@ -123,7 +123,7 @@ export const AWS_DVA_QUESTIONS_5 = [
     type: "single",
     explanation: "The `GetParametersByPath` API in Systems Manager Parameter Store retrieves all parameters matching a specified hierarchical path (e.g. `/prod/db/`), optionally recursing through sub-paths. This enables applications to load environment configurations in a single network request.",
     referenceUrl: "https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-hierarchies.html",
-    tags: ["Parameter Store", "Hierarchies", "GetParametersByPath"]
+    tags: ["Parameter Store","Hierarchies","GetParametersByPath"]
   },
   {
     id: "aws-dva-107",
@@ -144,7 +144,7 @@ export const AWS_DVA_QUESTIONS_5 = [
     type: "single",
     explanation: "The `Pre Sign-up` Lambda trigger executes before Amazon Cognito creates a new user profile. The Lambda function can validate user attributes (such as denying disposable email domains), auto-confirm users, or reject the registration by throwing an error.",
     referenceUrl: "https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-sign-up.html",
-    tags: ["Cognito", "Lambda Triggers", "Pre Sign-up"]
+    tags: ["Cognito","Lambda Triggers","Pre Sign-up"]
   },
   {
     id: "aws-dva-108",
@@ -165,7 +165,7 @@ export const AWS_DVA_QUESTIONS_5 = [
     type: "single",
     explanation: "The `Pre Token Generation` Lambda trigger executes before Cognito issues identity or access tokens. The function can inspect user attributes or query external databases to add, override, or suppress claims directly in the generated JWT token.",
     referenceUrl: "https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-token-generation.html",
-    tags: ["Cognito", "JWT", "Pre Token Generation"]
+    tags: ["Cognito","JWT","Pre Token Generation"]
   },
   {
     id: "aws-dva-109",
@@ -177,7 +177,7 @@ export const AWS_DVA_QUESTIONS_5 = [
     scenario: "An organization publishes a REST API on API Gateway and mandates that it can only be invoked by internal applications originating from a specific VPC endpoint ID (`vpce-12345678`).",
     question: "Where should the developer configure this access control policy?",
     options: [
-      { id: 'A', text: "In the API Gateway Resource Policy using the aws:sourceVpce condition key" },
+      { id: 'A', text: "A resource policy condition" },
       { id: 'B', text: "In the client browser HTTP headers" },
       { id: 'C', text: "In an S3 bucket policy" },
       { id: 'D', text: "In Route 53 health check settings" }
@@ -186,7 +186,7 @@ export const AWS_DVA_QUESTIONS_5 = [
     type: "single",
     explanation: "API Gateway Resource Policies are JSON policy documents attached directly to a REST API. Developers use the condition `\"StringEquals\": { \"aws:sourceVpce\": \"vpce-12345678\" }` to restrict invocation exclusively to traffic flowing through that specific interface VPC endpoint.",
     referenceUrl: "https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-resource-policies.html",
-    tags: ["API Gateway", "Resource Policies", "VPC Endpoint"]
+    tags: ["API Gateway","Resource Policies","VPC Endpoint"]
   },
   {
     id: "aws-dva-110",
@@ -207,7 +207,7 @@ export const AWS_DVA_QUESTIONS_5 = [
     type: "single",
     explanation: "`BlockPublicAcls` causes S3 to reject `PUT` requests that specify a public access control list (ACL) such as `public-read`, returning an HTTP 403 Access Denied error and preventing public objects from being uploaded.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html",
-    tags: ["S3", "Block Public Access", "Security"]
+    tags: ["S3","Block Public Access","Security"]
   },
   {
     id: "aws-dva-111",
@@ -228,7 +228,7 @@ export const AWS_DVA_QUESTIONS_5 = [
     type: "single",
     explanation: "Amazon S3 Access Points are named network endpoints attached to buckets that have dedicated access policies and network controls (e.g. restricting access to a specific VPC). Each access point simplifies managing data access at scale for distinct teams and applications.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html",
-    tags: ["S3", "Access Points", "Governance"]
+    tags: ["S3","Access Points","Governance"]
   },
   {
     id: "aws-dva-112",
@@ -249,7 +249,7 @@ export const AWS_DVA_QUESTIONS_5 = [
     type: "single",
     explanation: "The `BucketOwnerEnforced` setting in S3 Object Ownership disables all ACLs on the bucket and its objects. The bucket owner automatically owns and has full control over all objects, regardless of which AWS account uploaded them, enforcing modern IAM-based access control.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html",
-    tags: ["S3", "Object Ownership", "BucketOwnerEnforced"]
+    tags: ["S3","Object Ownership","BucketOwnerEnforced"]
   },
   {
     id: "aws-dva-113",
@@ -261,7 +261,7 @@ export const AWS_DVA_QUESTIONS_5 = [
     scenario: "A developer creates an IAM role for a Lambda function. The function fails to execute with an `AssumeRole` access denied error upon invocation.",
     question: "Which component of the IAM role defines which AWS service principal is permitted to assume the role?",
     options: [
-      { id: 'A', text: "The Trust Policy (Principal: { Service: lambda.amazonaws.com })" },
+      { id: 'A', text: "The trust policy on the role" },
       { id: 'B', text: "The Permissions Policy attached to the role" },
       { id: 'C', text: "The IAM Group membership" },
       { id: 'D', text: "The AWS KMS key policy" }
@@ -270,7 +270,7 @@ export const AWS_DVA_QUESTIONS_5 = [
     type: "single",
     explanation: "An IAM role consists of two distinct policies: the `Trust Policy` (which specifies which principal, such as `lambda.amazonaws.com` or an EC2 service, is allowed to assume the role via `sts:AssumeRole`) and `Permissions Policies` (which define what actions the assumed role can perform).",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html",
-    tags: ["IAM", "Trust Policy", "Security"]
+    tags: ["IAM","Trust Policy","Security"]
   },
   {
     id: "aws-dva-114",
@@ -284,14 +284,14 @@ export const AWS_DVA_QUESTIONS_5 = [
     options: [
       { id: 'A', text: "PassRole is required to encrypt EC2 EBS root volumes" },
       { id: 'B', text: "The developer must be an AWS Organizations management account root user" },
-      { id: 'C', text: "To prevent developers from passing high-privilege IAM roles to compute resources to escalate their own permissions" },
+      { id: 'C', text: "To stop developers passing high-privilege roles to compute" },
       { id: 'D', text: "iam:PassRole is only required for deleting IAM users" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "The `iam:PassRole` permission controls which IAM roles a user can pass to an AWS service (such as EC2, Lambda, or CodeBuild). Without `iam:PassRole` restrictions, a developer with limited permissions could launch an EC2 instance with an administrator role and gain full control of the account.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html",
-    tags: ["IAM", "PassRole", "Privilege Escalation"]
+    tags: ["IAM","PassRole","Privilege Escalation"]
   },
   {
     id: "aws-dva-115",
@@ -312,7 +312,7 @@ export const AWS_DVA_QUESTIONS_5 = [
     type: "single",
     explanation: "AWS KMS Multi-Region Keys (MRKs) are AWS KMS keys in different AWS Regions that have the same key ID, key material, and key specs. Ciphertext encrypted under an MRK in one Region can be decrypted under the related MRK in another Region without needing to re-encrypt over the network.",
     referenceUrl: "https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html",
-    tags: ["KMS", "Multi-Region Keys", "Encryption"]
+    tags: ["KMS","Multi-Region Keys","Encryption"]
   },
   {
     id: "aws-dva-116",
@@ -333,7 +333,7 @@ export const AWS_DVA_QUESTIONS_5 = [
     type: "single",
     explanation: "AWS KMS enforces a mandatory minimum waiting period of 7 days (and up to 30 days) when scheduling key deletion. During this window, the key state changes to `PendingDeletion`, all encrypt and decrypt operations fail, and administrators can cancel deletion if needed, preventing accidental data loss.",
     referenceUrl: "https://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html",
-    tags: ["KMS", "Key Deletion", "Governance"]
+    tags: ["KMS","Key Deletion","Governance"]
   },
   {
     id: "aws-dva-117",
@@ -354,7 +354,7 @@ export const AWS_DVA_QUESTIONS_5 = [
     type: "single",
     explanation: "The `GetRandomPassword` API in AWS Secrets Manager generates a random string of specified length (up to 4,096 characters) with options to include/exclude uppercase, lowercase, numbers, punctuation symbols, and specific characters, ideal for bootstrapping database passwords.",
     referenceUrl: "https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_GetRandomPassword.html",
-    tags: ["Secrets Manager", "GetRandomPassword", "Automation"]
+    tags: ["Secrets Manager","GetRandomPassword","Automation"]
   },
   {
     id: "aws-dva-118",
@@ -375,7 +375,7 @@ export const AWS_DVA_QUESTIONS_5 = [
     type: "single",
     explanation: "The `Advanced Parameter tier` in Systems Manager Parameter Store increases maximum parameter size from 4 KB to 8 KB, supports parameter policies (such as expiration dates and notifications via EventBridge), and supports over 10,000 parameters per account.",
     referenceUrl: "https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html",
-    tags: ["Parameter Store", "Advanced Tier", "Configuration"]
+    tags: ["Parameter Store","Advanced Tier","Configuration"]
   },
   {
     id: "aws-dva-119",
@@ -390,13 +390,13 @@ export const AWS_DVA_QUESTIONS_5 = [
       { id: 'A', text: "Resource Owner Password Credentials Grant" },
       { id: 'B', text: "Implicit Grant" },
       { id: 'C', text: "Client Credentials Grant" },
-      { id: 'D', text: "Authorization Code Grant with PKCE (Proof Key for Code Exchange)" }
+      { id: 'D', text: "Authorization code grant with PKCE" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "The OAuth 2.0 `Authorization Code Grant` (recommended with PKCE for single-page and mobile apps) returns a temporary authorization code to the browser callback, which the client backend exchanges directly for tokens via an HTTPS POST request, preventing token exposure in browser history and URL bars.",
     referenceUrl: "https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-userpools-server-contract-reference.html",
-    tags: ["Cognito", "OAuth", "Authorization Code"]
+    tags: ["Cognito","OAuth","Authorization Code"]
   },
   {
     id: "aws-dva-120",
@@ -417,7 +417,7 @@ export const AWS_DVA_QUESTIONS_5 = [
     type: "single",
     explanation: "The OAuth 2.0 `Client Credentials` grant type is designed for machine-to-machine communication where a client application authenticates using its `client_id` and `client_secret` to obtain an access token with custom scopes, without end-user involvement.",
     referenceUrl: "https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-userpools-server-contract-reference.html#token-endpoint",
-    tags: ["Cognito", "Client Credentials", "M2M"]
+    tags: ["Cognito","Client Credentials","M2M"]
   },
   {
     id: "aws-dva-121",
@@ -429,16 +429,16 @@ export const AWS_DVA_QUESTIONS_5 = [
     scenario: "A company wants authenticated users in the `Admins` Cognito group to receive an IAM role with elevated privileges, while regular users receive a read-only role.",
     question: "How should the developer configure role assignment in Cognito Identity Pools?",
     options: [
-      { id: 'A', text: "Configure Rule-Based Role Mapping on the Identity Pool based on claims in the ID token" },
+      { id: 'A', text: "Rule-based role mapping on ID token claims" },
       { id: 'B', text: "Create separate AWS accounts for each user group" },
       { id: 'C', text: "Disable IAM roles and use basic authentication" },
-      { id: 'D', text: "Hardcode the admin IAM secret key in the mobile client code" }
+      { id: 'D', text: "Create two identity pools and pick one in the client by group" }
     ],
     correctAnswers: ['A'],
     type: "single",
     explanation: "Cognito Identity Pools support Rule-Based Role Mapping. Developers can evaluate token claims (such as `cognito:groups` matching `Admins`) and dynamically map authenticated users to different IAM roles with distinct permission policies.",
     referenceUrl: "https://docs.aws.amazon.com/cognito/latest/developerguide/role-based-access-control.html",
-    tags: ["Cognito", "Identity Pools", "Role Mapping"]
+    tags: ["Cognito","Identity Pools","Role Mapping"]
   },
   {
     id: "aws-dva-122",
@@ -459,7 +459,7 @@ export const AWS_DVA_QUESTIONS_5 = [
     type: "single",
     explanation: "API Gateway Custom Domain Names allow developers to choose a Security Policy. Selecting `TLS_1_2` enforces that clients must establish connections using TLS 1.2 or higher, rejecting legacy, insecure TLS 1.0 and 1.1 handshakes.",
     referenceUrl: "https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html",
-    tags: ["API Gateway", "TLS", "Compliance"]
+    tags: ["API Gateway","TLS","Compliance"]
   },
   {
     id: "aws-dva-123",
@@ -472,7 +472,7 @@ export const AWS_DVA_QUESTIONS_5 = [
     question: "Which AWS WAF rule type tracks incoming request volume per IP and automatically blocks offenders?",
     options: [
       { id: 'A', text: "An SQL Injection Rule" },
-      { id: 'B', text: "A Rate-Based Rule with a 5-minute evaluation window" },
+      { id: 'B', text: "A rate-based rule" },
       { id: 'C', text: "A Size Constraint Rule" },
       { id: 'D', text: "A Geo-Match Rule" }
     ],
@@ -480,7 +480,7 @@ export const AWS_DVA_QUESTIONS_5 = [
     type: "single",
     explanation: "AWS WAF Rate-Based Rules monitor the volume of requests arriving from each IP address over a sliding 5-minute evaluation window. If an IP exceeds the configured limit (e.g. 100 requests per 5 minutes), WAF automatically blocks further requests from that IP.",
     referenceUrl: "https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-type-rate-based.html",
-    tags: ["WAF", "Rate-Based Rules", "DDoS"]
+    tags: ["WAF","Rate-Based Rules","DDoS"]
   },
   {
     id: "aws-dva-124",
@@ -501,7 +501,7 @@ export const AWS_DVA_QUESTIONS_5 = [
     type: "single",
     explanation: "AWS CloudTrail Data Events for S3 record detailed API activity (such as `GetObject`, `PutObject`, and `DeleteObject`) with caller identity, source IP, and timestamp, integrating directly with CloudTrail Insights, EventBridge, and Athena for auditing.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/cloudtrail-logging.html",
-    tags: ["S3", "CloudTrail", "Data Events"]
+    tags: ["S3","CloudTrail","Data Events"]
   },
   {
     id: "aws-dva-125",
@@ -515,14 +515,14 @@ export const AWS_DVA_QUESTIONS_5 = [
     options: [
       { id: 'A', text: "An IAM policy granting s3:GetObject to anonymous users" },
       { id: 'B', text: "An S3 lifecycle rule to purge old versions" },
-      { id: 'C', text: "A public S3 bucket policy with Principal: *" },
-      { id: 'D', text: "An S3 CORS configuration rule allowing Origin https://app.example.com and Method GET" }
+      { id: 'C', text: "A bucket policy allowing s3:GetObject from the app referer header" },
+      { id: 'D', text: "An S3 CORS rule allowing that origin for GET" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Cross-Origin Resource Sharing (CORS) rules on the S3 bucket define permitted origins (`AllowedOrigins: ['https://app.example.com']`), allowed HTTP methods (`AllowedMethods: ['GET']`), allowed headers, and max age, instructing S3 to return proper `Access-Control-Allow-Origin` headers to the browser.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/cors.html",
-    tags: ["S3", "CORS", "Web Security"]
+    tags: ["S3","CORS","Web Security"]
   }
 ];
 
