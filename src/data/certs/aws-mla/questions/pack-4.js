@@ -9,7 +9,7 @@ export const AWS_MLA_QUESTIONS_4 = [
     scenario: "A quantitative trading desk requires microsecond secrets delivery, zero packet loss, and deterministic authentication guarantees. The ML engineering team is exploring and transforming a tabular training dataset and carrying those steps into training. The work is scoped to the production environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Use SageMaker Data Wrangler to visually explore, clean, and transform multi-modal tabular data, exporting the pipeline directly to a SageMaker Processing job." },
+      { id: 'A', text: "Use SageMaker Data Wrangler, exported to a Processing job." },
       { id: 'B', text: "Use AWS Glue DataBrew to profile the data and clean it with recipe steps, writing the prepared dataset back into Amazon S3 ready for the training job to read." },
       { id: 'C', text: "Use a SageMaker Processing job running a scikit-learn script that applies each of the required tabular transformations directly in code as a pipeline step." },
       { id: 'D', text: "Use Amazon Athena views over the raw data in S3 so that the transformations are applied whenever the training set is queried." }
@@ -18,7 +18,7 @@ export const AWS_MLA_QUESTIONS_4 = [
     type: "single",
     explanation: "Data Wrangler pairs interactive exploration and quality insights with a direct export to a Processing job or Feature Store, so the steps explored by hand become the steps that run in training. DataBrew is genuinely comparable and often the better tool for analyst-owned data-lake cleaning, but it produces a dataset in S3 rather than a pipeline step wired into the training job. A hand-written Processing script runs the same transformations while giving up the profiling. Athena views apply logic at query time and cannot carry statistics fitted on the training split.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
-    tags: ["data-wrangler", "feature-engineering", "sagemaker", "High-Frequency FinTech Trading"]
+    tags: ["data-wrangler","feature-engineering","sagemaker","High-Frequency FinTech Trading"]
   },
   {
     id: "aws-mla-77",
@@ -31,7 +31,7 @@ export const AWS_MLA_QUESTIONS_4 = [
     question: "Which approach best meets these requirements?",
     options: [
       { id: 'A', text: "Impute the missing numerical values with the column mean and apply ordinal encoding to the categorical features so the model receives compact integers." },
-      { id: 'B', text: "Impute numerical missing values using median/mean or iterative imputers, and apply One-Hot Encoding for low-cardinality categorical features." },
+      { id: 'B', text: "Impute numerics with the median and one-hot encode low-cardinality categories." },
       { id: 'C', text: "Impute the missing numerical values with the column median and apply target encoding to every categorical feature whatever its cardinality happens to be." },
       { id: 'D', text: "Add a binary indicator column for each feature containing missing values and leave the categorical features as raw strings for the algorithm." }
     ],
@@ -39,7 +39,7 @@ export const AWS_MLA_QUESTIONS_4 = [
     type: "single",
     explanation: "Median or mean imputation fills the numeric gaps without distorting the distribution badly, and one-hot encoding represents a small category set without implying any order between the levels. Ordinal encoding assigns integers that a linear model or neural network reads as a real ranking. Target encoding is a legitimate technique for high-cardinality features but leaks the label unless it is fitted inside each cross-validation fold. A missingness indicator is a useful addition rather than a replacement, since the value itself is still absent and the strings are still unencoded.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
-    tags: ["imputation", "one-hot-encoding", "data-cleaning", "Healthcare Patient Records & HIPAA"]
+    tags: ["imputation","one-hot-encoding","data-cleaning","Healthcare Patient Records & HIPAA"]
   },
   {
     id: "aws-mla-78",
@@ -53,14 +53,14 @@ export const AWS_MLA_QUESTIONS_4 = [
     options: [
       { id: 'A', text: "Deploy AWS Glue ETL jobs written in PySpark so that all of the cleaning logic runs on a managed Spark cluster across the whole of the data lake." },
       { id: 'B', text: "Deploy SageMaker Data Wrangler flows and export each one to a Processing job that writes the cleaned data back into the lake." },
-      { id: 'C', text: "Deploy AWS Glue DataBrew to execute automated data profiling and recipe-based visual transformations across S3 data lakes at petabyte scale." },
+      { id: 'C', text: "Use AWS Glue DataBrew for visual, recipe-based data preparation." },
       { id: 'D', text: "Deploy Amazon EMR with a Spark cluster and run the cleaning notebooks the data engineering team already maintains, sized to the scale involved." }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "DataBrew is aimed squarely at analysts: profiling runs automatically, transformations are recipe steps rather than code, and there is no cluster to size or operate. Glue ETL and EMR are both more capable and are the right answer once the logic outgrows recipes, but each demands PySpark skill the analysts do not have. Data Wrangler covers similar ground with a similar visual model, though it is oriented towards an ML practitioner assembling one training dataset rather than cleaning shared lake tables.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
-    tags: ["glue", "databrew", "data-lake", "Global E-Commerce Black Friday Scale"]
+    tags: ["glue","databrew","data-lake","Global E-Commerce Black Friday Scale"]
   },
   {
     id: "aws-mla-79",
@@ -75,13 +75,13 @@ export const AWS_MLA_QUESTIONS_4 = [
       { id: 'A', text: "Write the computed features to Amazon DynamoDB for the online inference lookups and to Amazon S3 for training, keeping both write paths in step for every feature." },
       { id: 'B', text: "Cache the computed features in Amazon ElastiCache for Redis and rebuild each training dataset separately from the application's own transaction logs." },
       { id: 'C', text: "Write the features to Amazon S3 and query them with Amazon Athena, both when assembling training sets and on each real-time inference request." },
-      { id: 'D', text: "Configure SageMaker Feature Store with an Online Store for real-time low-latency inference (<10ms) and an Offline Store in Amazon S3 for batch training." }
+      { id: 'D', text: "Use SageMaker Feature Store with an online and an offline store." }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Feature Store takes one feature definition and writes it to both stores, so the values a model trains on are the values it later reads, and the offline store supports point-in-time correct joins. Maintaining parallel DynamoDB and S3 paths is precisely what the service replaces, leaving training-serving skew to be prevented by hand on every change. Rebuilding training data from logs while serving from a cache guarantees the two diverge. Athena queries in seconds, which is far outside the online latency budget.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
-    tags: ["feature-store", "sagemaker", "data-prep", "Autonomous Vehicle Telemetry"]
+    tags: ["feature-store","sagemaker","data-prep","Autonomous Vehicle Telemetry"]
   },
   {
     id: "aws-mla-80",
@@ -93,7 +93,7 @@ export const AWS_MLA_QUESTIONS_4 = [
     scenario: "An enterprise cloud SaaS architecture mandates strict logical tenant isolation, data masking, and per-tenant resource quotas. The ML engineering team is exploring and transforming a tabular training dataset and carrying those steps into training. The work is scoped to the production environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Use SageMaker Data Wrangler to visually explore, clean, and transform multi-modal tabular data, exporting the pipeline directly to a SageMaker Processing job." },
+      { id: 'A', text: "Use SageMaker Data Wrangler, exported to a Processing job." },
       { id: 'B', text: "Use AWS Glue DataBrew to profile the data and clean it with recipe steps, writing the prepared dataset back into Amazon S3 ready for the training job to read." },
       { id: 'C', text: "Use a SageMaker Processing job running a scikit-learn script that applies each of the required tabular transformations directly in code as a pipeline step." },
       { id: 'D', text: "Use Amazon Athena views over the raw data in S3 so that the transformations are applied whenever the training set is queried." }
@@ -102,7 +102,7 @@ export const AWS_MLA_QUESTIONS_4 = [
     type: "single",
     explanation: "Data Wrangler pairs interactive exploration and quality insights with a direct export to a Processing job or Feature Store, so the steps explored by hand become the steps that run in training. DataBrew is genuinely comparable and often the better tool for analyst-owned data-lake cleaning, but it produces a dataset in S3 rather than a pipeline step wired into the training job. A hand-written Processing script runs the same transformations while giving up the profiling. Athena views apply logic at query time and cannot carry statistics fitted on the training split.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
-    tags: ["data-wrangler", "feature-engineering", "sagemaker", "Multi-Tenant B2B SaaS Platform"]
+    tags: ["data-wrangler","feature-engineering","sagemaker","Multi-Tenant B2B SaaS Platform"]
   },
   {
     id: "aws-mla-81",
@@ -115,7 +115,7 @@ export const AWS_MLA_QUESTIONS_4 = [
     question: "Which approach best meets these requirements?",
     options: [
       { id: 'A', text: "Impute the missing numerical values with the column mean and apply ordinal encoding to the categorical features so the model receives compact integers." },
-      { id: 'B', text: "Impute numerical missing values using median/mean or iterative imputers, and apply One-Hot Encoding for low-cardinality categorical features." },
+      { id: 'B', text: "Impute numerics with the median and one-hot encode low-cardinality categories." },
       { id: 'C', text: "Impute the missing numerical values with the column median and apply target encoding to every categorical feature whatever its cardinality happens to be." },
       { id: 'D', text: "Add a binary indicator column for each feature containing missing values and leave the categorical features as raw strings for the algorithm." }
     ],
@@ -123,7 +123,7 @@ export const AWS_MLA_QUESTIONS_4 = [
     type: "single",
     explanation: "Median or mean imputation fills the numeric gaps without distorting the distribution badly, and one-hot encoding represents a small category set without implying any order between the levels. Ordinal encoding assigns integers that a linear model or neural network reads as a real ranking. Target encoding is a legitimate technique for high-cardinality features but leaks the label unless it is fitted inside each cross-validation fold. A missingness indicator is a useful addition rather than a replacement, since the value itself is still absent and the strings are still unencoded.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
-    tags: ["imputation", "one-hot-encoding", "data-cleaning", "Media Streaming & Global CDN"]
+    tags: ["imputation","one-hot-encoding","data-cleaning","Media Streaming & Global CDN"]
   },
   {
     id: "aws-mla-82",
@@ -137,14 +137,14 @@ export const AWS_MLA_QUESTIONS_4 = [
     options: [
       { id: 'A', text: "Deploy AWS Glue ETL jobs written in PySpark so that all of the cleaning logic runs on a managed Spark cluster across the whole of the data lake." },
       { id: 'B', text: "Deploy SageMaker Data Wrangler flows and export each one to a Processing job that writes the cleaned data back into the lake." },
-      { id: 'C', text: "Deploy AWS Glue DataBrew to execute automated data profiling and recipe-based visual transformations across S3 data lakes at petabyte scale." },
+      { id: 'C', text: "Use AWS Glue DataBrew for visual, recipe-based data preparation." },
       { id: 'D', text: "Deploy Amazon EMR with a Spark cluster and run the cleaning notebooks the data engineering team already maintains, sized to the scale involved." }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "DataBrew is aimed squarely at analysts: profiling runs automatically, transformations are recipe steps rather than code, and there is no cluster to size or operate. Glue ETL and EMR are both more capable and are the right answer once the logic outgrows recipes, but each demands PySpark skill the analysts do not have. Data Wrangler covers similar ground with a similar visual model, though it is oriented towards an ML practitioner assembling one training dataset rather than cleaning shared lake tables.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
-    tags: ["glue", "databrew", "data-lake", "Aerospace Satellite Ground Systems"]
+    tags: ["glue","databrew","data-lake","Aerospace Satellite Ground Systems"]
   },
   {
     id: "aws-mla-83",
@@ -159,13 +159,13 @@ export const AWS_MLA_QUESTIONS_4 = [
       { id: 'A', text: "Write the computed features to Amazon DynamoDB for the online inference lookups and to Amazon S3 for training, keeping both write paths in step for every feature." },
       { id: 'B', text: "Cache the computed features in Amazon ElastiCache for Redis and rebuild each training dataset separately from the application's own transaction logs." },
       { id: 'C', text: "Write the features to Amazon S3 and query them with Amazon Athena, both when assembling training sets and on each real-time inference request." },
-      { id: 'D', text: "Configure SageMaker Feature Store with an Online Store for real-time low-latency inference (<10ms) and an Offline Store in Amazon S3 for batch training." }
+      { id: 'D', text: "Use SageMaker Feature Store with an online and an offline store." }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Feature Store takes one feature definition and writes it to both stores, so the values a model trains on are the values it later reads, and the offline store supports point-in-time correct joins. Maintaining parallel DynamoDB and S3 paths is precisely what the service replaces, leaving training-serving skew to be prevented by hand on every change. Rebuilding training data from logs while serving from a cache guarantees the two diverge. Athena queries in seconds, which is far outside the online latency budget.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
-    tags: ["feature-store", "sagemaker", "data-prep", "Telecommunications 5G Core Network"]
+    tags: ["feature-store","sagemaker","data-prep","Telecommunications 5G Core Network"]
   },
   {
     id: "aws-mla-84",
@@ -177,7 +177,7 @@ export const AWS_MLA_QUESTIONS_4 = [
     scenario: "A smart electrical grid platform monitors millions of smart meters with low-latency time-series analysis and automated load shedding. The ML engineering team is exploring and transforming a tabular training dataset and carrying those steps into training. The work is scoped to the production environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Use SageMaker Data Wrangler to visually explore, clean, and transform multi-modal tabular data, exporting the pipeline directly to a SageMaker Processing job." },
+      { id: 'A', text: "Use SageMaker Data Wrangler, exported to a Processing job." },
       { id: 'B', text: "Use AWS Glue DataBrew to profile the data and clean it with recipe steps, writing the prepared dataset back into Amazon S3 ready for the training job to read." },
       { id: 'C', text: "Use a SageMaker Processing job running a scikit-learn script that applies each of the required tabular transformations directly in code as a pipeline step." },
       { id: 'D', text: "Use Amazon Athena views over the raw data in S3 so that the transformations are applied whenever the training set is queried." }
@@ -186,7 +186,7 @@ export const AWS_MLA_QUESTIONS_4 = [
     type: "single",
     explanation: "Data Wrangler pairs interactive exploration and quality insights with a direct export to a Processing job or Feature Store, so the steps explored by hand become the steps that run in training. DataBrew is genuinely comparable and often the better tool for analyst-owned data-lake cleaning, but it produces a dataset in S3 rather than a pipeline step wired into the training job. A hand-written Processing script runs the same transformations while giving up the profiling. Athena views apply logic at query time and cannot carry statistics fitted on the training split.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
-    tags: ["data-wrangler", "feature-engineering", "sagemaker", "Renewable Energy Smart Grid IoT"]
+    tags: ["data-wrangler","feature-engineering","sagemaker","Renewable Energy Smart Grid IoT"]
   },
   {
     id: "aws-mla-85",
@@ -199,7 +199,7 @@ export const AWS_MLA_QUESTIONS_4 = [
     question: "Which approach best meets these requirements?",
     options: [
       { id: 'A', text: "Impute the missing numerical values with the column mean and apply ordinal encoding to the categorical features so the model receives compact integers." },
-      { id: 'B', text: "Impute numerical missing values using median/mean or iterative imputers, and apply One-Hot Encoding for low-cardinality categorical features." },
+      { id: 'B', text: "Impute numerics with the median and one-hot encode low-cardinality categories." },
       { id: 'C', text: "Impute the missing numerical values with the column median and apply target encoding to every categorical feature whatever its cardinality happens to be." },
       { id: 'D', text: "Add a binary indicator column for each feature containing missing values and leave the categorical features as raw strings for the algorithm." }
     ],
@@ -207,7 +207,7 @@ export const AWS_MLA_QUESTIONS_4 = [
     type: "single",
     explanation: "Median or mean imputation fills the numeric gaps without distorting the distribution badly, and one-hot encoding represents a small category set without implying any order between the levels. Ordinal encoding assigns integers that a linear model or neural network reads as a real ranking. Target encoding is a legitimate technique for high-cardinality features but leaks the label unless it is fitted inside each cross-validation fold. A missingness indicator is a useful addition rather than a replacement, since the value itself is still absent and the strings are still unencoded.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
-    tags: ["imputation", "one-hot-encoding", "data-cleaning", "Supply Chain Cold-Chain Logistics"]
+    tags: ["imputation","one-hot-encoding","data-cleaning","Supply Chain Cold-Chain Logistics"]
   },
   {
     id: "aws-mla-86",
@@ -221,14 +221,14 @@ export const AWS_MLA_QUESTIONS_4 = [
     options: [
       { id: 'A', text: "Deploy AWS Glue ETL jobs written in PySpark so that all of the cleaning logic runs on a managed Spark cluster across the whole of the data lake." },
       { id: 'B', text: "Deploy SageMaker Data Wrangler flows and export each one to a Processing job that writes the cleaned data back into the lake." },
-      { id: 'C', text: "Deploy AWS Glue DataBrew to execute automated data profiling and recipe-based visual transformations across S3 data lakes at petabyte scale." },
+      { id: 'C', text: "Use AWS Glue DataBrew for visual, recipe-based data preparation." },
       { id: 'D', text: "Deploy Amazon EMR with a Spark cluster and run the cleaning notebooks the data engineering team already maintains, sized to the scale involved." }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "DataBrew is aimed squarely at analysts: profiling runs automatically, transformations are recipe steps rather than code, and there is no cluster to size or operate. Glue ETL and EMR are both more capable and are the right answer once the logic outgrows recipes, but each demands PySpark skill the analysts do not have. Data Wrangler covers similar ground with a similar visual model, though it is oriented towards an ML practitioner assembling one training dataset rather than cleaning shared lake tables.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
-    tags: ["glue", "databrew", "data-lake", "Banking Core Ledger & Payments"]
+    tags: ["glue","databrew","data-lake","Banking Core Ledger & Payments"]
   },
   {
     id: "aws-mla-87",
@@ -243,13 +243,13 @@ export const AWS_MLA_QUESTIONS_4 = [
       { id: 'A', text: "Write the computed features to Amazon DynamoDB for the online inference lookups and to Amazon S3 for training, keeping both write paths in step for every feature." },
       { id: 'B', text: "Cache the computed features in Amazon ElastiCache for Redis and rebuild each training dataset separately from the application's own transaction logs." },
       { id: 'C', text: "Write the features to Amazon S3 and query them with Amazon Athena, both when assembling training sets and on each real-time inference request." },
-      { id: 'D', text: "Configure SageMaker Feature Store with an Online Store for real-time low-latency inference (<10ms) and an Offline Store in Amazon S3 for batch training." }
+      { id: 'D', text: "Use SageMaker Feature Store with an online and an offline store." }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Feature Store takes one feature definition and writes it to both stores, so the values a model trains on are the values it later reads, and the offline store supports point-in-time correct joins. Maintaining parallel DynamoDB and S3 paths is precisely what the service replaces, leaving training-serving skew to be prevented by hand on every change. Rebuilding training data from logs while serving from a cache guarantees the two diverge. Athena queries in seconds, which is far outside the online latency budget.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
-    tags: ["feature-store", "sagemaker", "data-prep", "Genomic Sequencing & Biotech Pipeline"]
+    tags: ["feature-store","sagemaker","data-prep","Genomic Sequencing & Biotech Pipeline"]
   },
   {
     id: "aws-mla-88",
@@ -261,7 +261,7 @@ export const AWS_MLA_QUESTIONS_4 = [
     scenario: "A defense intelligence system enforces continuous mutual TLS authentication, strict least privilege, and non-repudiation. The ML engineering team is exploring and transforming a tabular training dataset and carrying those steps into training. The work is scoped to the production environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Use SageMaker Data Wrangler to visually explore, clean, and transform multi-modal tabular data, exporting the pipeline directly to a SageMaker Processing job." },
+      { id: 'A', text: "Use SageMaker Data Wrangler, exported to a Processing job." },
       { id: 'B', text: "Use AWS Glue DataBrew to profile the data and clean it with recipe steps, writing the prepared dataset back into Amazon S3 ready for the training job to read." },
       { id: 'C', text: "Use a SageMaker Processing job running a scikit-learn script that applies each of the required tabular transformations directly in code as a pipeline step." },
       { id: 'D', text: "Use Amazon Athena views over the raw data in S3 so that the transformations are applied whenever the training set is queried." }
@@ -270,7 +270,7 @@ export const AWS_MLA_QUESTIONS_4 = [
     type: "single",
     explanation: "Data Wrangler pairs interactive exploration and quality insights with a direct export to a Processing job or Feature Store, so the steps explored by hand become the steps that run in training. DataBrew is genuinely comparable and often the better tool for analyst-owned data-lake cleaning, but it produces a dataset in S3 rather than a pipeline step wired into the training job. A hand-written Processing script runs the same transformations while giving up the profiling. Athena views apply logic at query time and cannot carry statistics fitted on the training split.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
-    tags: ["data-wrangler", "feature-engineering", "sagemaker", "Defense-Grade Zero-Trust Network"]
+    tags: ["data-wrangler","feature-engineering","sagemaker","Defense-Grade Zero-Trust Network"]
   },
   {
     id: "aws-mla-89",
@@ -283,7 +283,7 @@ export const AWS_MLA_QUESTIONS_4 = [
     question: "Which approach best meets these requirements?",
     options: [
       { id: 'A', text: "Impute the missing numerical values with the column mean and apply ordinal encoding to the categorical features so the model receives compact integers." },
-      { id: 'B', text: "Impute numerical missing values using median/mean or iterative imputers, and apply One-Hot Encoding for low-cardinality categorical features." },
+      { id: 'B', text: "Impute numerics with the median and one-hot encode low-cardinality categories." },
       { id: 'C', text: "Impute the missing numerical values with the column median and apply target encoding to every categorical feature whatever its cardinality happens to be." },
       { id: 'D', text: "Add a binary indicator column for each feature containing missing values and leave the categorical features as raw strings for the algorithm." }
     ],
@@ -291,7 +291,7 @@ export const AWS_MLA_QUESTIONS_4 = [
     type: "single",
     explanation: "Median or mean imputation fills the numeric gaps without distorting the distribution badly, and one-hot encoding represents a small category set without implying any order between the levels. Ordinal encoding assigns integers that a linear model or neural network reads as a real ranking. Target encoding is a legitimate technique for high-cardinality features but leaks the label unless it is fitted inside each cross-validation fold. A missingness indicator is a useful addition rather than a replacement, since the value itself is still absent and the strings are still unencoded.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
-    tags: ["imputation", "one-hot-encoding", "data-cleaning", "Online Multiplayer Gaming Engine"]
+    tags: ["imputation","one-hot-encoding","data-cleaning","Online Multiplayer Gaming Engine"]
   },
   {
     id: "aws-mla-90",
@@ -305,14 +305,14 @@ export const AWS_MLA_QUESTIONS_4 = [
     options: [
       { id: 'A', text: "Deploy AWS Glue ETL jobs written in PySpark so that all of the cleaning logic runs on a managed Spark cluster across the whole of the data lake." },
       { id: 'B', text: "Deploy SageMaker Data Wrangler flows and export each one to a Processing job that writes the cleaned data back into the lake." },
-      { id: 'C', text: "Deploy AWS Glue DataBrew to execute automated data profiling and recipe-based visual transformations across S3 data lakes at petabyte scale." },
+      { id: 'C', text: "Use AWS Glue DataBrew for visual, recipe-based data preparation." },
       { id: 'D', text: "Deploy Amazon EMR with a Spark cluster and run the cleaning notebooks the data engineering team already maintains, sized to the scale involved." }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "DataBrew is aimed squarely at analysts: profiling runs automatically, transformations are recipe steps rather than code, and there is no cluster to size or operate. Glue ETL and EMR are both more capable and are the right answer once the logic outgrows recipes, but each demands PySpark skill the analysts do not have. Data Wrangler covers similar ground with a similar visual model, though it is oriented towards an ML practitioner assembling one training dataset rather than cleaning shared lake tables.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
-    tags: ["glue", "databrew", "data-lake", "Insurance Risk & Actuarial Modeling"]
+    tags: ["glue","databrew","data-lake","Insurance Risk & Actuarial Modeling"]
   },
   {
     id: "aws-mla-91",
@@ -327,13 +327,13 @@ export const AWS_MLA_QUESTIONS_4 = [
       { id: 'A', text: "Write the computed features to Amazon DynamoDB for the online inference lookups and to Amazon S3 for training, keeping both write paths in step for every feature." },
       { id: 'B', text: "Cache the computed features in Amazon ElastiCache for Redis and rebuild each training dataset separately from the application's own transaction logs." },
       { id: 'C', text: "Write the features to Amazon S3 and query them with Amazon Athena, both when assembling training sets and on each real-time inference request." },
-      { id: 'D', text: "Configure SageMaker Feature Store with an Online Store for real-time low-latency inference (<10ms) and an Offline Store in Amazon S3 for batch training." }
+      { id: 'D', text: "Use SageMaker Feature Store with an online and an offline store." }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Feature Store takes one feature definition and writes it to both stores, so the values a model trains on are the values it later reads, and the offline store supports point-in-time correct joins. Maintaining parallel DynamoDB and S3 paths is precisely what the service replaces, leaving training-serving skew to be prevented by hand on every change. Rebuilding training data from logs while serving from a cache guarantees the two diverge. Athena queries in seconds, which is far outside the online latency budget.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
-    tags: ["feature-store", "sagemaker", "data-prep", "Pharmaceutical Clinical Trial Platform"]
+    tags: ["feature-store","sagemaker","data-prep","Pharmaceutical Clinical Trial Platform"]
   },
   {
     id: "aws-mla-92",
@@ -345,7 +345,7 @@ export const AWS_MLA_QUESTIONS_4 = [
     scenario: "A metropolitan transit authority optimizes urban traffic signals with real-time video analytics and edge inference. The ML engineering team is exploring and transforming a tabular training dataset and carrying those steps into training. The work is scoped to the production environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Use SageMaker Data Wrangler to visually explore, clean, and transform multi-modal tabular data, exporting the pipeline directly to a SageMaker Processing job." },
+      { id: 'A', text: "Use SageMaker Data Wrangler, exported to a Processing job." },
       { id: 'B', text: "Use AWS Glue DataBrew to profile the data and clean it with recipe steps, writing the prepared dataset back into Amazon S3 ready for the training job to read." },
       { id: 'C', text: "Use a SageMaker Processing job running a scikit-learn script that applies each of the required tabular transformations directly in code as a pipeline step." },
       { id: 'D', text: "Use Amazon Athena views over the raw data in S3 so that the transformations are applied whenever the training set is queried." }
@@ -354,7 +354,7 @@ export const AWS_MLA_QUESTIONS_4 = [
     type: "single",
     explanation: "Data Wrangler pairs interactive exploration and quality insights with a direct export to a Processing job or Feature Store, so the steps explored by hand become the steps that run in training. DataBrew is genuinely comparable and often the better tool for analyst-owned data-lake cleaning, but it produces a dataset in S3 rather than a pipeline step wired into the training job. A hand-written Processing script runs the same transformations while giving up the profiling. Athena views apply logic at query time and cannot carry statistics fitted on the training split.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
-    tags: ["data-wrangler", "feature-engineering", "sagemaker", "Smart City Traffic & Mobility Sensor Hub"]
+    tags: ["data-wrangler","feature-engineering","sagemaker","Smart City Traffic & Mobility Sensor Hub"]
   },
   {
     id: "aws-mla-93",
@@ -367,7 +367,7 @@ export const AWS_MLA_QUESTIONS_4 = [
     question: "Which approach best meets these requirements?",
     options: [
       { id: 'A', text: "Impute the missing numerical values with the column mean and apply ordinal encoding to the categorical features so the model receives compact integers." },
-      { id: 'B', text: "Impute numerical missing values using median/mean or iterative imputers, and apply One-Hot Encoding for low-cardinality categorical features." },
+      { id: 'B', text: "Impute numerics with the median and one-hot encode low-cardinality categories." },
       { id: 'C', text: "Impute the missing numerical values with the column median and apply target encoding to every categorical feature whatever its cardinality happens to be." },
       { id: 'D', text: "Add a binary indicator column for each feature containing missing values and leave the categorical features as raw strings for the algorithm." }
     ],
@@ -375,7 +375,7 @@ export const AWS_MLA_QUESTIONS_4 = [
     type: "single",
     explanation: "Median or mean imputation fills the numeric gaps without distorting the distribution badly, and one-hot encoding represents a small category set without implying any order between the levels. Ordinal encoding assigns integers that a linear model or neural network reads as a real ranking. Target encoding is a legitimate technique for high-cardinality features but leaks the label unless it is fitted inside each cross-validation fold. A missingness indicator is a useful addition rather than a replacement, since the value itself is still absent and the strings are still unencoded.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
-    tags: ["imputation", "one-hot-encoding", "data-cleaning", "Digital Identity & Biometric Verification"]
+    tags: ["imputation","one-hot-encoding","data-cleaning","Digital Identity & Biometric Verification"]
   },
   {
     id: "aws-mla-94",
@@ -389,14 +389,14 @@ export const AWS_MLA_QUESTIONS_4 = [
     options: [
       { id: 'A', text: "Deploy AWS Glue ETL jobs written in PySpark so that all of the cleaning logic runs on a managed Spark cluster across the whole of the data lake." },
       { id: 'B', text: "Deploy SageMaker Data Wrangler flows and export each one to a Processing job that writes the cleaned data back into the lake." },
-      { id: 'C', text: "Deploy AWS Glue DataBrew to execute automated data profiling and recipe-based visual transformations across S3 data lakes at petabyte scale." },
+      { id: 'C', text: "Use AWS Glue DataBrew for visual, recipe-based data preparation." },
       { id: 'D', text: "Deploy Amazon EMR with a Spark cluster and run the cleaning notebooks the data engineering team already maintains, sized to the scale involved." }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "DataBrew is aimed squarely at analysts: profiling runs automatically, transformations are recipe steps rather than code, and there is no cluster to size or operate. Glue ETL and EMR are both more capable and are the right answer once the logic outgrows recipes, but each demands PySpark skill the analysts do not have. Data Wrangler covers similar ground with a similar visual model, though it is oriented towards an ML practitioner assembling one training dataset rather than cleaning shared lake tables.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
-    tags: ["glue", "databrew", "data-lake", "Legal Discovery & Semantic Document Search"]
+    tags: ["glue","databrew","data-lake","Legal Discovery & Semantic Document Search"]
   },
   {
     id: "aws-mla-95",
@@ -411,13 +411,13 @@ export const AWS_MLA_QUESTIONS_4 = [
       { id: 'A', text: "Write the computed features to Amazon DynamoDB for the online inference lookups and to Amazon S3 for training, keeping both write paths in step for every feature." },
       { id: 'B', text: "Cache the computed features in Amazon ElastiCache for Redis and rebuild each training dataset separately from the application's own transaction logs." },
       { id: 'C', text: "Write the features to Amazon S3 and query them with Amazon Athena, both when assembling training sets and on each real-time inference request." },
-      { id: 'D', text: "Configure SageMaker Feature Store with an Online Store for real-time low-latency inference (<10ms) and an Offline Store in Amazon S3 for batch training." }
+      { id: 'D', text: "Use SageMaker Feature Store with an online and an offline store." }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Feature Store takes one feature definition and writes it to both stores, so the values a model trains on are the values it later reads, and the offline store supports point-in-time correct joins. Maintaining parallel DynamoDB and S3 paths is precisely what the service replaces, leaving training-serving skew to be prevented by hand on every change. Rebuilding training data from logs while serving from a cache guarantees the two diverge. Athena queries in seconds, which is far outside the online latency budget.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
-    tags: ["feature-store", "sagemaker", "data-prep", "AdTech Real-Time Bidding Exchange"]
+    tags: ["feature-store","sagemaker","data-prep","AdTech Real-Time Bidding Exchange"]
   },
   {
     id: "aws-mla-96",
@@ -429,7 +429,7 @@ export const AWS_MLA_QUESTIONS_4 = [
     scenario: "An agricultural drone fleet captures multispectral crop imagery with automated computer vision defect classification. The ML engineering team is exploring and transforming a tabular training dataset and carrying those steps into training. The work is scoped to the production environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Use SageMaker Data Wrangler to visually explore, clean, and transform multi-modal tabular data, exporting the pipeline directly to a SageMaker Processing job." },
+      { id: 'A', text: "Use SageMaker Data Wrangler, exported to a Processing job." },
       { id: 'B', text: "Use AWS Glue DataBrew to profile the data and clean it with recipe steps, writing the prepared dataset back into Amazon S3 ready for the training job to read." },
       { id: 'C', text: "Use a SageMaker Processing job running a scikit-learn script that applies each of the required tabular transformations directly in code as a pipeline step." },
       { id: 'D', text: "Use Amazon Athena views over the raw data in S3 so that the transformations are applied whenever the training set is queried." }
@@ -438,7 +438,7 @@ export const AWS_MLA_QUESTIONS_4 = [
     type: "single",
     explanation: "Data Wrangler pairs interactive exploration and quality insights with a direct export to a Processing job or Feature Store, so the steps explored by hand become the steps that run in training. DataBrew is genuinely comparable and often the better tool for analyst-owned data-lake cleaning, but it produces a dataset in S3 rather than a pipeline step wired into the training job. A hand-written Processing script runs the same transformations while giving up the profiling. Athena views apply logic at query time and cannot carry statistics fitted on the training split.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
-    tags: ["data-wrangler", "feature-engineering", "sagemaker", "Precision Agriculture & Drone Scouting"]
+    tags: ["data-wrangler","feature-engineering","sagemaker","Precision Agriculture & Drone Scouting"]
   },
   {
     id: "aws-mla-97",
@@ -451,7 +451,7 @@ export const AWS_MLA_QUESTIONS_4 = [
     question: "Which approach best meets these requirements?",
     options: [
       { id: 'A', text: "Impute the missing numerical values with the column mean and apply ordinal encoding to the categorical features so the model receives compact integers." },
-      { id: 'B', text: "Impute numerical missing values using median/mean or iterative imputers, and apply One-Hot Encoding for low-cardinality categorical features." },
+      { id: 'B', text: "Impute numerics with the median and one-hot encode low-cardinality categories." },
       { id: 'C', text: "Impute the missing numerical values with the column median and apply target encoding to every categorical feature whatever its cardinality happens to be." },
       { id: 'D', text: "Add a binary indicator column for each feature containing missing values and leave the categorical features as raw strings for the algorithm." }
     ],
@@ -459,7 +459,7 @@ export const AWS_MLA_QUESTIONS_4 = [
     type: "single",
     explanation: "Median or mean imputation fills the numeric gaps without distorting the distribution badly, and one-hot encoding represents a small category set without implying any order between the levels. Ordinal encoding assigns integers that a linear model or neural network reads as a real ranking. Target encoding is a legitimate technique for high-cardinality features but leaks the label unless it is fitted inside each cross-validation fold. A missingness indicator is a useful addition rather than a replacement, since the value itself is still absent and the strings are still unencoded.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
-    tags: ["imputation", "one-hot-encoding", "data-cleaning", "Industrial Robotics Predictive Maintenance"]
+    tags: ["imputation","one-hot-encoding","data-cleaning","Industrial Robotics Predictive Maintenance"]
   },
   {
     id: "aws-mla-98",
@@ -473,14 +473,14 @@ export const AWS_MLA_QUESTIONS_4 = [
     options: [
       { id: 'A', text: "Deploy AWS Glue ETL jobs written in PySpark so that all of the cleaning logic runs on a managed Spark cluster across the whole of the data lake." },
       { id: 'B', text: "Deploy SageMaker Data Wrangler flows and export each one to a Processing job that writes the cleaned data back into the lake." },
-      { id: 'C', text: "Deploy AWS Glue DataBrew to execute automated data profiling and recipe-based visual transformations across S3 data lakes at petabyte scale." },
+      { id: 'C', text: "Use AWS Glue DataBrew for visual, recipe-based data preparation." },
       { id: 'D', text: "Deploy Amazon EMR with a Spark cluster and run the cleaning notebooks the data engineering team already maintains, sized to the scale involved." }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "DataBrew is aimed squarely at analysts: profiling runs automatically, transformations are recipe steps rather than code, and there is no cluster to size or operate. Glue ETL and EMR are both more capable and are the right answer once the logic outgrows recipes, but each demands PySpark skill the analysts do not have. Data Wrangler covers similar ground with a similar visual model, though it is oriented towards an ML practitioner assembling one training dataset rather than cleaning shared lake tables.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
-    tags: ["glue", "databrew", "data-lake", "Educational Remote Proctoring Platform"]
+    tags: ["glue","databrew","data-lake","Educational Remote Proctoring Platform"]
   },
   {
     id: "aws-mla-99",
@@ -495,13 +495,13 @@ export const AWS_MLA_QUESTIONS_4 = [
       { id: 'A', text: "Write the computed features to Amazon DynamoDB for the online inference lookups and to Amazon S3 for training, keeping both write paths in step for every feature." },
       { id: 'B', text: "Cache the computed features in Amazon ElastiCache for Redis and rebuild each training dataset separately from the application's own transaction logs." },
       { id: 'C', text: "Write the features to Amazon S3 and query them with Amazon Athena, both when assembling training sets and on each real-time inference request." },
-      { id: 'D', text: "Configure SageMaker Feature Store with an Online Store for real-time low-latency inference (<10ms) and an Offline Store in Amazon S3 for batch training." }
+      { id: 'D', text: "Use SageMaker Feature Store with an online and an offline store." }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Feature Store takes one feature definition and writes it to both stores, so the values a model trains on are the values it later reads, and the offline store supports point-in-time correct joins. Maintaining parallel DynamoDB and S3 paths is precisely what the service replaces, leaving training-serving skew to be prevented by hand on every change. Rebuilding training data from logs while serving from a cache guarantees the two diverge. Athena queries in seconds, which is far outside the online latency budget.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
-    tags: ["feature-store", "sagemaker", "data-prep", "Real Estate Valuation & Geo-Spatial Analytics"]
+    tags: ["feature-store","sagemaker","data-prep","Real Estate Valuation & Geo-Spatial Analytics"]
   },
   {
     id: "aws-mla-100",
@@ -513,7 +513,7 @@ export const AWS_MLA_QUESTIONS_4 = [
     scenario: "A municipal 911 emergency response platform guarantees 99.999% uptime with multi-region hot-standby active failover. The ML engineering team is exploring and transforming a tabular training dataset and carrying those steps into training. The work is scoped to the production environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Use SageMaker Data Wrangler to visually explore, clean, and transform multi-modal tabular data, exporting the pipeline directly to a SageMaker Processing job." },
+      { id: 'A', text: "Use SageMaker Data Wrangler, exported to a Processing job." },
       { id: 'B', text: "Use AWS Glue DataBrew to profile the data and clean it with recipe steps, writing the prepared dataset back into Amazon S3 ready for the training job to read." },
       { id: 'C', text: "Use a SageMaker Processing job running a scikit-learn script that applies each of the required tabular transformations directly in code as a pipeline step." },
       { id: 'D', text: "Use Amazon Athena views over the raw data in S3 so that the transformations are applied whenever the training set is queried." }
@@ -522,7 +522,7 @@ export const AWS_MLA_QUESTIONS_4 = [
     type: "single",
     explanation: "Data Wrangler pairs interactive exploration and quality insights with a direct export to a Processing job or Feature Store, so the steps explored by hand become the steps that run in training. DataBrew is genuinely comparable and often the better tool for analyst-owned data-lake cleaning, but it produces a dataset in S3 rather than a pipeline step wired into the training job. A hand-written Processing script runs the same transformations while giving up the profiling. Athena views apply logic at query time and cannot carry statistics fitted on the training split.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
-    tags: ["data-wrangler", "feature-engineering", "sagemaker", "Disaster Emergency Dispatch & Operations"]
+    tags: ["data-wrangler","feature-engineering","sagemaker","Disaster Emergency Dispatch & Operations"]
   }
 ];
 

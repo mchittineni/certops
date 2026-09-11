@@ -53,7 +53,7 @@ export const AZURE_AI102_QUESTIONS_5 = [
     options: [
       { id: 'A', text: "Place the current values in the system message on every request so that the model always has fresh data available to answer from." },
       { id: 'B', text: "Ask the model to return a JSON object describing the query it wants and parse that free-text response inside the application." },
-      { id: 'C', text: "Define JSON schemas for tools in the model request and execute the returned function arguments in your application to fetch live data." },
+      { id: 'C', text: "Define JSON tool schemas and run the returned function arguments." },
       { id: 'D', text: "Use Azure OpenAI 'On Your Data' against an Azure AI Search index that a scheduled indexer refreshes from the live source systems." }
     ],
     correctAnswers: ['C'],
@@ -137,7 +137,7 @@ export const AZURE_AI102_QUESTIONS_5 = [
     options: [
       { id: 'A', text: "Place the current values in the system message on every request so that the model always has fresh data available to answer from." },
       { id: 'B', text: "Ask the model to return a JSON object describing the query it wants and parse that free-text response inside the application." },
-      { id: 'C', text: "Define JSON schemas for tools in the model request and execute the returned function arguments in your application to fetch live data." },
+      { id: 'C', text: "Define JSON tool schemas and run the returned function arguments." },
       { id: 'D', text: "Use Azure OpenAI 'On Your Data' against an Azure AI Search index that a scheduled indexer refreshes from the live source systems." }
     ],
     correctAnswers: ['C'],
@@ -221,7 +221,7 @@ export const AZURE_AI102_QUESTIONS_5 = [
     options: [
       { id: 'A', text: "Place the current values in the system message on every request so that the model always has fresh data available to answer from." },
       { id: 'B', text: "Ask the model to return a JSON object describing the query it wants and parse that free-text response inside the application." },
-      { id: 'C', text: "Define JSON schemas for tools in the model request and execute the returned function arguments in your application to fetch live data." },
+      { id: 'C', text: "Define JSON tool schemas and run the returned function arguments." },
       { id: 'D', text: "Use Azure OpenAI 'On Your Data' against an Azure AI Search index that a scheduled indexer refreshes from the live source systems." }
     ],
     correctAnswers: ['C'],
@@ -305,7 +305,7 @@ export const AZURE_AI102_QUESTIONS_5 = [
     options: [
       { id: 'A', text: "Place the current values in the system message on every request so that the model always has fresh data available to answer from." },
       { id: 'B', text: "Ask the model to return a JSON object describing the query it wants and parse that free-text response inside the application." },
-      { id: 'C', text: "Define JSON schemas for tools in the model request and execute the returned function arguments in your application to fetch live data." },
+      { id: 'C', text: "Define JSON tool schemas and run the returned function arguments." },
       { id: 'D', text: "Use Azure OpenAI 'On Your Data' against an Azure AI Search index that a scheduled indexer refreshes from the live source systems." }
     ],
     correctAnswers: ['C'],
@@ -389,7 +389,7 @@ export const AZURE_AI102_QUESTIONS_5 = [
     options: [
       { id: 'A', text: "Place the current values in the system message on every request so that the model always has fresh data available to answer from." },
       { id: 'B', text: "Ask the model to return a JSON object describing the query it wants and parse that free-text response inside the application." },
-      { id: 'C', text: "Define JSON schemas for tools in the model request and execute the returned function arguments in your application to fetch live data." },
+      { id: 'C', text: "Define JSON tool schemas and run the returned function arguments." },
       { id: 'D', text: "Use Azure OpenAI 'On Your Data' against an Azure AI Search index that a scheduled indexer refreshes from the live source systems." }
     ],
     correctAnswers: ['C'],
@@ -473,7 +473,7 @@ export const AZURE_AI102_QUESTIONS_5 = [
     options: [
       { id: 'A', text: "Place the current values in the system message on every request so that the model always has fresh data available to answer from." },
       { id: 'B', text: "Ask the model to return a JSON object describing the query it wants and parse that free-text response inside the application." },
-      { id: 'C', text: "Define JSON schemas for tools in the model request and execute the returned function arguments in your application to fetch live data." },
+      { id: 'C', text: "Define JSON tool schemas and run the returned function arguments." },
       { id: 'D', text: "Use Azure OpenAI 'On Your Data' against an Azure AI Search index that a scheduled indexer refreshes from the live source systems." }
     ],
     correctAnswers: ['C'],

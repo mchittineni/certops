@@ -134,7 +134,8 @@ function card() {
   const rows = scores
     .slice()
     .sort((a, b) => b.longest - a.longest)
-    .map(s => `| \`${s.certId}\` | ${s.n} | ${s.longest.toFixed(1)} | ${s.strawman.toFixed(1)} | ` +
+    .map(s => `| \`${s.certId}\` | ${s.n} | ${s.longest.toFixed(1)} | ` +
+      `${s.shortest === null ? '-' : s.shortest.toFixed(1)} | ${s.strawman.toFixed(1)} | ` +
       `${s.leak.toFixed(1)} | ${s.clean ? 'passes' : 'below target'} |`)
     .join('\n');
 
@@ -211,15 +212,16 @@ Read this before training on the bank.
 **Some certifications still give their answers away through form.** In a weak
 item the correct option is the longest one, or the question stem names a term
 only the key uses. \`longest%\` is how often the single longest option is correct
-(chance is ~25% on four options); \`leak%\` is how often the stem shares a
-distinctive term with the key that no distractor uses. ${passing} of
-${scores.length} certifications currently pass every target.
+and \`shortest%\` how often the single shortest one is — chance is ~25% each on
+four options, so a bank at either extreme hands the reader a rule. \`leak%\` is
+how often the stem shares a distinctive term with the key that no distractor
+uses. ${passing} of ${scores.length} certifications currently pass every target.
 
-| Certification | Questions | longest% | strawman% | leak% | Status |
-| --- | --- | --- | --- | --- | --- |
+| Certification | Questions | longest% | shortest% | strawman% | leak% | Status |
+| --- | --- | --- | --- | --- | --- | --- |
 ${rows}
 
-Targets: longest ≤${THRESHOLDS.longest}%, strawman ≤${THRESHOLDS.strawman}%, leak ≤${THRESHOLDS.leak}%.
+Targets: longest ≤${THRESHOLDS.longest}%, shortest ≥${THRESHOLDS.shortest}%, strawman ≤${THRESHOLDS.strawman}%, leak ≤${THRESHOLDS.leak}%.
 Filter on the certifications marked \`passes\` if you need items that cannot be
 answered by shape alone.
 

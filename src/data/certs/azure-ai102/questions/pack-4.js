@@ -9,7 +9,7 @@ export const AZURE_AI102_QUESTIONS_4 = [
     scenario: "A quantitative trading desk requires microsecond secrets delivery, zero packet loss, and deterministic authentication guarantees. The AI team is authenticating an App Service to Azure AI without any credential stored in the application. The work is scoped to the production environment.",
     question: "Which Azure AI approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Enable a System-Assigned or User-Assigned Managed Identity on the Azure App Service and assign the 'Cognitive Services User' role." },
+      { id: 'A', text: "Enable a managed identity and assign 'Cognitive Services User'." },
       { id: 'B', text: "Register an Entra ID application for the workload identity, keep its client secret in Azure Key Vault, and read that secret to request a token." },
       { id: 'C', text: "Store the Azure AI account key in Azure Key Vault and grant the App Service permission to read that key when it starts." },
       { id: 'D', text: "Restrict the Azure AI resource firewall to the App Service's outbound IP addresses so that the account key cannot be used elsewhere." }
@@ -93,7 +93,7 @@ export const AZURE_AI102_QUESTIONS_4 = [
     scenario: "An enterprise cloud SaaS architecture mandates strict logical tenant isolation, data masking, and per-tenant resource quotas. The AI team is authenticating an App Service to Azure AI without any credential stored in the application. The work is scoped to the production environment.",
     question: "Which Azure AI approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Enable a System-Assigned or User-Assigned Managed Identity on the Azure App Service and assign the 'Cognitive Services User' role." },
+      { id: 'A', text: "Enable a managed identity and assign 'Cognitive Services User'." },
       { id: 'B', text: "Register an Entra ID application for the workload identity, keep its client secret in Azure Key Vault, and read that secret to request a token." },
       { id: 'C', text: "Store the Azure AI account key in Azure Key Vault and grant the App Service permission to read that key when it starts." },
       { id: 'D', text: "Restrict the Azure AI resource firewall to the App Service's outbound IP addresses so that the account key cannot be used elsewhere." }
@@ -177,7 +177,7 @@ export const AZURE_AI102_QUESTIONS_4 = [
     scenario: "A smart electrical grid platform monitors millions of smart meters with low-latency time-series analysis and automated load shedding. The AI team is authenticating an App Service to Azure AI without any credential stored in the application. The work is scoped to the production environment.",
     question: "Which Azure AI approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Enable a System-Assigned or User-Assigned Managed Identity on the Azure App Service and assign the 'Cognitive Services User' role." },
+      { id: 'A', text: "Enable a managed identity and assign 'Cognitive Services User'." },
       { id: 'B', text: "Register an Entra ID application for the workload identity, keep its client secret in Azure Key Vault, and read that secret to request a token." },
       { id: 'C', text: "Store the Azure AI account key in Azure Key Vault and grant the App Service permission to read that key when it starts." },
       { id: 'D', text: "Restrict the Azure AI resource firewall to the App Service's outbound IP addresses so that the account key cannot be used elsewhere." }
@@ -261,7 +261,7 @@ export const AZURE_AI102_QUESTIONS_4 = [
     scenario: "A defense intelligence system enforces continuous mutual TLS authentication, strict least privilege, and non-repudiation. The AI team is authenticating an App Service to Azure AI without any credential stored in the application. The work is scoped to the production environment.",
     question: "Which Azure AI approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Enable a System-Assigned or User-Assigned Managed Identity on the Azure App Service and assign the 'Cognitive Services User' role." },
+      { id: 'A', text: "Enable a managed identity and assign 'Cognitive Services User'." },
       { id: 'B', text: "Register an Entra ID application for the workload identity, keep its client secret in Azure Key Vault, and read that secret to request a token." },
       { id: 'C', text: "Store the Azure AI account key in Azure Key Vault and grant the App Service permission to read that key when it starts." },
       { id: 'D', text: "Restrict the Azure AI resource firewall to the App Service's outbound IP addresses so that the account key cannot be used elsewhere." }
@@ -345,7 +345,7 @@ export const AZURE_AI102_QUESTIONS_4 = [
     scenario: "A metropolitan transit authority optimizes urban traffic signals with real-time video analytics and edge inference. The AI team is authenticating an App Service to Azure AI without any credential stored in the application. The work is scoped to the production environment.",
     question: "Which Azure AI approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Enable a System-Assigned or User-Assigned Managed Identity on the Azure App Service and assign the 'Cognitive Services User' role." },
+      { id: 'A', text: "Enable a managed identity and assign 'Cognitive Services User'." },
       { id: 'B', text: "Register an Entra ID application for the workload identity, keep its client secret in Azure Key Vault, and read that secret to request a token." },
       { id: 'C', text: "Store the Azure AI account key in Azure Key Vault and grant the App Service permission to read that key when it starts." },
       { id: 'D', text: "Restrict the Azure AI resource firewall to the App Service's outbound IP addresses so that the account key cannot be used elsewhere." }
@@ -429,7 +429,7 @@ export const AZURE_AI102_QUESTIONS_4 = [
     scenario: "An agricultural drone fleet captures multispectral crop imagery with automated computer vision defect classification. The AI team is authenticating an App Service to Azure AI without any credential stored in the application. The work is scoped to the production environment.",
     question: "Which Azure AI approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Enable a System-Assigned or User-Assigned Managed Identity on the Azure App Service and assign the 'Cognitive Services User' role." },
+      { id: 'A', text: "Enable a managed identity and assign 'Cognitive Services User'." },
       { id: 'B', text: "Register an Entra ID application for the workload identity, keep its client secret in Azure Key Vault, and read that secret to request a token." },
       { id: 'C', text: "Store the Azure AI account key in Azure Key Vault and grant the App Service permission to read that key when it starts." },
       { id: 'D', text: "Restrict the Azure AI resource firewall to the App Service's outbound IP addresses so that the account key cannot be used elsewhere." }
@@ -513,7 +513,7 @@ export const AZURE_AI102_QUESTIONS_4 = [
     scenario: "A municipal 911 emergency response platform guarantees 99.999% uptime with multi-region hot-standby active failover. The AI team is authenticating an App Service to Azure AI without any credential stored in the application. The work is scoped to the production environment.",
     question: "Which Azure AI approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Enable a System-Assigned or User-Assigned Managed Identity on the Azure App Service and assign the 'Cognitive Services User' role." },
+      { id: 'A', text: "Enable a managed identity and assign 'Cognitive Services User'." },
       { id: 'B', text: "Register an Entra ID application for the workload identity, keep its client secret in Azure Key Vault, and read that secret to request a token." },
       { id: 'C', text: "Store the Azure AI account key in Azure Key Vault and grant the App Service permission to read that key when it starts." },
       { id: 'D', text: "Restrict the Azure AI resource firewall to the App Service's outbound IP addresses so that the account key cannot be used elsewhere." }

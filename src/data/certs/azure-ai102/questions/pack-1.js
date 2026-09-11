@@ -31,7 +31,7 @@ export const AZURE_AI102_QUESTIONS_1 = [
     question: "Which Azure AI approach best meets these requirements?",
     options: [
       { id: 'A', text: "Register an Entra ID application for the workload identity, keep its client secret in Azure Key Vault, and read that secret to request a token." },
-      { id: 'B', text: "Enable a System-Assigned or User-Assigned Managed Identity on the Azure App Service and assign the 'Cognitive Services User' role." },
+      { id: 'B', text: "Enable a managed identity and assign 'Cognitive Services User'." },
       { id: 'C', text: "Store the Azure AI account key in Azure Key Vault and grant the App Service permission to read that key when it starts." },
       { id: 'D', text: "Restrict the Azure AI resource firewall to the App Service's outbound IP addresses so that the account key cannot be used elsewhere." }
     ],
@@ -115,7 +115,7 @@ export const AZURE_AI102_QUESTIONS_1 = [
     question: "Which Azure AI approach best meets these requirements?",
     options: [
       { id: 'A', text: "Register an Entra ID application for the workload identity, keep its client secret in Azure Key Vault, and read that secret to request a token." },
-      { id: 'B', text: "Enable a System-Assigned or User-Assigned Managed Identity on the Azure App Service and assign the 'Cognitive Services User' role." },
+      { id: 'B', text: "Enable a managed identity and assign 'Cognitive Services User'." },
       { id: 'C', text: "Store the Azure AI account key in Azure Key Vault and grant the App Service permission to read that key when it starts." },
       { id: 'D', text: "Restrict the Azure AI resource firewall to the App Service's outbound IP addresses so that the account key cannot be used elsewhere." }
     ],
@@ -199,7 +199,7 @@ export const AZURE_AI102_QUESTIONS_1 = [
     question: "Which Azure AI approach best meets these requirements?",
     options: [
       { id: 'A', text: "Register an Entra ID application for the workload identity, keep its client secret in Azure Key Vault, and read that secret to request a token." },
-      { id: 'B', text: "Enable a System-Assigned or User-Assigned Managed Identity on the Azure App Service and assign the 'Cognitive Services User' role." },
+      { id: 'B', text: "Enable a managed identity and assign 'Cognitive Services User'." },
       { id: 'C', text: "Store the Azure AI account key in Azure Key Vault and grant the App Service permission to read that key when it starts." },
       { id: 'D', text: "Restrict the Azure AI resource firewall to the App Service's outbound IP addresses so that the account key cannot be used elsewhere." }
     ],
@@ -283,7 +283,7 @@ export const AZURE_AI102_QUESTIONS_1 = [
     question: "Which Azure AI approach best meets these requirements?",
     options: [
       { id: 'A', text: "Register an Entra ID application for the workload identity, keep its client secret in Azure Key Vault, and read that secret to request a token." },
-      { id: 'B', text: "Enable a System-Assigned or User-Assigned Managed Identity on the Azure App Service and assign the 'Cognitive Services User' role." },
+      { id: 'B', text: "Enable a managed identity and assign 'Cognitive Services User'." },
       { id: 'C', text: "Store the Azure AI account key in Azure Key Vault and grant the App Service permission to read that key when it starts." },
       { id: 'D', text: "Restrict the Azure AI resource firewall to the App Service's outbound IP addresses so that the account key cannot be used elsewhere." }
     ],
@@ -367,7 +367,7 @@ export const AZURE_AI102_QUESTIONS_1 = [
     question: "Which Azure AI approach best meets these requirements?",
     options: [
       { id: 'A', text: "Register an Entra ID application for the workload identity, keep its client secret in Azure Key Vault, and read that secret to request a token." },
-      { id: 'B', text: "Enable a System-Assigned or User-Assigned Managed Identity on the Azure App Service and assign the 'Cognitive Services User' role." },
+      { id: 'B', text: "Enable a managed identity and assign 'Cognitive Services User'." },
       { id: 'C', text: "Store the Azure AI account key in Azure Key Vault and grant the App Service permission to read that key when it starts." },
       { id: 'D', text: "Restrict the Azure AI resource firewall to the App Service's outbound IP addresses so that the account key cannot be used elsewhere." }
     ],
@@ -451,7 +451,7 @@ export const AZURE_AI102_QUESTIONS_1 = [
     question: "Which Azure AI approach best meets these requirements?",
     options: [
       { id: 'A', text: "Register an Entra ID application for the workload identity, keep its client secret in Azure Key Vault, and read that secret to request a token." },
-      { id: 'B', text: "Enable a System-Assigned or User-Assigned Managed Identity on the Azure App Service and assign the 'Cognitive Services User' role." },
+      { id: 'B', text: "Enable a managed identity and assign 'Cognitive Services User'." },
       { id: 'C', text: "Store the Azure AI account key in Azure Key Vault and grant the App Service permission to read that key when it starts." },
       { id: 'D', text: "Restrict the Azure AI resource firewall to the App Service's outbound IP addresses so that the account key cannot be used elsewhere." }
     ],
