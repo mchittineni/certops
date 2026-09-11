@@ -11,14 +11,14 @@ export const AZURE_AI102_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "Construct a comprehensive system prompt specifying the persona, task constraints, refusal boundaries, and few-shot input-output examples." },
       { id: 'B', text: "Fine-tune the deployed model on several thousand examples that demonstrate both the intended persona and the required output format in each case." },
-      { id: 'C', text: "Set the response_format parameter to a JSON schema so that the model is constrained to produce the required output structure." },
+      { id: 'C', text: "Set the response_format parameter to a JSON schema so that the model is constrained to the required output structure, including its refusal shape." },
       { id: 'D', text: "Lower the temperature and top_p values so that the model's responses become considerably more consistent from call to call." }
     ],
     correctAnswers: ['A'],
     type: "single",
     explanation: "The system message is where persona, scope, refusals, and worked examples belong, and changing any of them is a configuration edit rather than a deployment. Fine-tuning can teach a house style but costs a training run for every adjustment and is a poor way to express a refusal boundary. response_format governs the shape of the output and says nothing about what the assistant is or declines to do. Temperature and top_p change how varied the sampling is, not what behaviour is being sampled.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["prompt-engineering", "system-message", "openai", "High-Frequency FinTech Trading"]
+    tags: ["prompt-engineering","system-message","openai","High-Frequency FinTech Trading"]
   },
   {
     id: "azure-ai102-127",
@@ -33,13 +33,13 @@ export const AZURE_AI102_QUESTIONS_6 = [
       { id: 'A', text: "Fine-tune a base model on the whole document corpus so that the answers are learned directly into the model's own weights and no retrieval step is needed at query time." },
       { id: 'B', text: "Use Azure OpenAI 'On Your Data' integrated with Azure AI Search to retrieve relevant document chunks using hybrid vector search and ground the model prompt." },
       { id: 'C', text: "Raise the deployment's context window and place the entire document set into the system message on every single request." },
-      { id: 'D', text: "Use Azure AI Search on its own and return the highest-ranked document extracts to the user with no model in the path." }
+      { id: 'D', text: "Use Azure AI Search on its own to ground the answer, returning the highest-ranked document extracts with no model in the path." }
     ],
     correctAnswers: ['B'],
     type: "single",
     explanation: "Retrieval grounds each answer in the specific passages that were retrieved for that question, and because the index is refreshed independently a weekly corpus change costs an indexer run rather than anything model-side. Fine-tuning teaches style far better than facts, and every corpus change would mean another training cycle. Stuffing the full corpus into each request is bounded by the context window and pays for every token on every call. Search alone returns passages but leaves the user to synthesise the answer.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["openai", "rag", "ai-search", "Healthcare Patient Records & HIPAA"]
+    tags: ["openai","rag","ai-search","Healthcare Patient Records & HIPAA"]
   },
   {
     id: "azure-ai102-128",
@@ -52,7 +52,7 @@ export const AZURE_AI102_QUESTIONS_6 = [
     question: "Which Azure AI approach best meets these requirements?",
     options: [
       { id: 'A', text: "Use a standard deployment and request a regional quota increase so that the tokens-per-minute limit comfortably covers the peak load that is expected in that region." },
-      { id: 'B', text: "Use a standard deployment and add a batch endpoint so that requests are queued and processed as shared capacity becomes available." },
+      { id: 'B', text: "Use a standard deployment and add a batch endpoint so that requests queue and complete at a consistent latency once shared capacity becomes available." },
       { id: 'C', text: "Deploy models with Provisioned Throughput Units (PTU) to guarantee reserved compute capacity, consistent latency, and predictable monthly costs for critical apps." },
       { id: 'D', text: "Deploy the same model into several regions and have the client retry against the next region whenever it receives a 429 response." }
     ],
@@ -60,7 +60,7 @@ export const AZURE_AI102_QUESTIONS_6 = [
     type: "single",
     explanation: "PTU reserves dedicated capacity for the deployment, so throughput and latency stop depending on what other tenants in the region are doing. A quota increase raises the ceiling on a shared pool and does nothing to make the latency within it predictable. A batch endpoint deliberately trades latency for cost and is the wrong shape for interactive traffic. Multi-region retry improves availability but adds a failed call and a second round trip to the very requests that were already slow.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["openai", "ptu", "capacity", "Global E-Commerce Black Friday Scale"]
+    tags: ["openai","ptu","capacity","Global E-Commerce Black Friday Scale"]
   },
   {
     id: "azure-ai102-129",
@@ -74,14 +74,14 @@ export const AZURE_AI102_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "Place the current values in the system message on every request so that the model always has fresh data available to answer from." },
       { id: 'B', text: "Ask the model to return a JSON object describing the query it wants and parse that free-text response inside the application." },
-      { id: 'C', text: "Use Azure OpenAI 'On Your Data' against an Azure AI Search index that a scheduled indexer refreshes from the source systems." },
+      { id: 'C', text: "Use Azure OpenAI 'On Your Data' against an Azure AI Search index that a scheduled indexer refreshes from the live source systems." },
       { id: 'D', text: "Define JSON schemas for tools in the model request and execute the returned function arguments in your application to fetch live data." }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Tool schemas make the model emit a validated call naming a function and its arguments, so the application runs the query and the answer reflects the system state at that moment. Pushing current values into the system message only works for a small, known set of data and grows with every request. Asking for JSON in free text produces something close to the same result without the schema validation, so malformed arguments surface at parse time. An indexed copy is only as fresh as the last indexer run, which is the staleness the requirement rules out.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["openai", "function-calling", "tools", "Autonomous Vehicle Telemetry"]
+    tags: ["openai","function-calling","tools","Autonomous Vehicle Telemetry"]
   },
   {
     id: "azure-ai102-130",
@@ -95,14 +95,14 @@ export const AZURE_AI102_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "Construct a comprehensive system prompt specifying the persona, task constraints, refusal boundaries, and few-shot input-output examples." },
       { id: 'B', text: "Fine-tune the deployed model on several thousand examples that demonstrate both the intended persona and the required output format in each case." },
-      { id: 'C', text: "Set the response_format parameter to a JSON schema so that the model is constrained to produce the required output structure." },
+      { id: 'C', text: "Set the response_format parameter to a JSON schema so that the model is constrained to the required output structure, including its refusal shape." },
       { id: 'D', text: "Lower the temperature and top_p values so that the model's responses become considerably more consistent from call to call." }
     ],
     correctAnswers: ['A'],
     type: "single",
     explanation: "The system message is where persona, scope, refusals, and worked examples belong, and changing any of them is a configuration edit rather than a deployment. Fine-tuning can teach a house style but costs a training run for every adjustment and is a poor way to express a refusal boundary. response_format governs the shape of the output and says nothing about what the assistant is or declines to do. Temperature and top_p change how varied the sampling is, not what behaviour is being sampled.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["prompt-engineering", "system-message", "openai", "Multi-Tenant B2B SaaS Platform"]
+    tags: ["prompt-engineering","system-message","openai","Multi-Tenant B2B SaaS Platform"]
   },
   {
     id: "azure-ai102-131",
@@ -117,13 +117,13 @@ export const AZURE_AI102_QUESTIONS_6 = [
       { id: 'A', text: "Fine-tune a base model on the whole document corpus so that the answers are learned directly into the model's own weights and no retrieval step is needed at query time." },
       { id: 'B', text: "Use Azure OpenAI 'On Your Data' integrated with Azure AI Search to retrieve relevant document chunks using hybrid vector search and ground the model prompt." },
       { id: 'C', text: "Raise the deployment's context window and place the entire document set into the system message on every single request." },
-      { id: 'D', text: "Use Azure AI Search on its own and return the highest-ranked document extracts to the user with no model in the path." }
+      { id: 'D', text: "Use Azure AI Search on its own to ground the answer, returning the highest-ranked document extracts with no model in the path." }
     ],
     correctAnswers: ['B'],
     type: "single",
     explanation: "Retrieval grounds each answer in the specific passages that were retrieved for that question, and because the index is refreshed independently a weekly corpus change costs an indexer run rather than anything model-side. Fine-tuning teaches style far better than facts, and every corpus change would mean another training cycle. Stuffing the full corpus into each request is bounded by the context window and pays for every token on every call. Search alone returns passages but leaves the user to synthesise the answer.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["openai", "rag", "ai-search", "Media Streaming & Global CDN"]
+    tags: ["openai","rag","ai-search","Media Streaming & Global CDN"]
   },
   {
     id: "azure-ai102-132",
@@ -136,7 +136,7 @@ export const AZURE_AI102_QUESTIONS_6 = [
     question: "Which Azure AI approach best meets these requirements?",
     options: [
       { id: 'A', text: "Use a standard deployment and request a regional quota increase so that the tokens-per-minute limit comfortably covers the peak load that is expected in that region." },
-      { id: 'B', text: "Use a standard deployment and add a batch endpoint so that requests are queued and processed as shared capacity becomes available." },
+      { id: 'B', text: "Use a standard deployment and add a batch endpoint so that requests queue and complete at a consistent latency once shared capacity becomes available." },
       { id: 'C', text: "Deploy models with Provisioned Throughput Units (PTU) to guarantee reserved compute capacity, consistent latency, and predictable monthly costs for critical apps." },
       { id: 'D', text: "Deploy the same model into several regions and have the client retry against the next region whenever it receives a 429 response." }
     ],
@@ -144,7 +144,7 @@ export const AZURE_AI102_QUESTIONS_6 = [
     type: "single",
     explanation: "PTU reserves dedicated capacity for the deployment, so throughput and latency stop depending on what other tenants in the region are doing. A quota increase raises the ceiling on a shared pool and does nothing to make the latency within it predictable. A batch endpoint deliberately trades latency for cost and is the wrong shape for interactive traffic. Multi-region retry improves availability but adds a failed call and a second round trip to the very requests that were already slow.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["openai", "ptu", "capacity", "Aerospace Satellite Ground Systems"]
+    tags: ["openai","ptu","capacity","Aerospace Satellite Ground Systems"]
   },
   {
     id: "azure-ai102-133",
@@ -158,14 +158,14 @@ export const AZURE_AI102_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "Place the current values in the system message on every request so that the model always has fresh data available to answer from." },
       { id: 'B', text: "Ask the model to return a JSON object describing the query it wants and parse that free-text response inside the application." },
-      { id: 'C', text: "Use Azure OpenAI 'On Your Data' against an Azure AI Search index that a scheduled indexer refreshes from the source systems." },
+      { id: 'C', text: "Use Azure OpenAI 'On Your Data' against an Azure AI Search index that a scheduled indexer refreshes from the live source systems." },
       { id: 'D', text: "Define JSON schemas for tools in the model request and execute the returned function arguments in your application to fetch live data." }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Tool schemas make the model emit a validated call naming a function and its arguments, so the application runs the query and the answer reflects the system state at that moment. Pushing current values into the system message only works for a small, known set of data and grows with every request. Asking for JSON in free text produces something close to the same result without the schema validation, so malformed arguments surface at parse time. An indexed copy is only as fresh as the last indexer run, which is the staleness the requirement rules out.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["openai", "function-calling", "tools", "Telecommunications 5G Core Network"]
+    tags: ["openai","function-calling","tools","Telecommunications 5G Core Network"]
   },
   {
     id: "azure-ai102-134",
@@ -179,14 +179,14 @@ export const AZURE_AI102_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "Construct a comprehensive system prompt specifying the persona, task constraints, refusal boundaries, and few-shot input-output examples." },
       { id: 'B', text: "Fine-tune the deployed model on several thousand examples that demonstrate both the intended persona and the required output format in each case." },
-      { id: 'C', text: "Set the response_format parameter to a JSON schema so that the model is constrained to produce the required output structure." },
+      { id: 'C', text: "Set the response_format parameter to a JSON schema so that the model is constrained to the required output structure, including its refusal shape." },
       { id: 'D', text: "Lower the temperature and top_p values so that the model's responses become considerably more consistent from call to call." }
     ],
     correctAnswers: ['A'],
     type: "single",
     explanation: "The system message is where persona, scope, refusals, and worked examples belong, and changing any of them is a configuration edit rather than a deployment. Fine-tuning can teach a house style but costs a training run for every adjustment and is a poor way to express a refusal boundary. response_format governs the shape of the output and says nothing about what the assistant is or declines to do. Temperature and top_p change how varied the sampling is, not what behaviour is being sampled.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["prompt-engineering", "system-message", "openai", "Renewable Energy Smart Grid IoT"]
+    tags: ["prompt-engineering","system-message","openai","Renewable Energy Smart Grid IoT"]
   },
   {
     id: "azure-ai102-135",
@@ -201,13 +201,13 @@ export const AZURE_AI102_QUESTIONS_6 = [
       { id: 'A', text: "Fine-tune a base model on the whole document corpus so that the answers are learned directly into the model's own weights and no retrieval step is needed at query time." },
       { id: 'B', text: "Use Azure OpenAI 'On Your Data' integrated with Azure AI Search to retrieve relevant document chunks using hybrid vector search and ground the model prompt." },
       { id: 'C', text: "Raise the deployment's context window and place the entire document set into the system message on every single request." },
-      { id: 'D', text: "Use Azure AI Search on its own and return the highest-ranked document extracts to the user with no model in the path." }
+      { id: 'D', text: "Use Azure AI Search on its own to ground the answer, returning the highest-ranked document extracts with no model in the path." }
     ],
     correctAnswers: ['B'],
     type: "single",
     explanation: "Retrieval grounds each answer in the specific passages that were retrieved for that question, and because the index is refreshed independently a weekly corpus change costs an indexer run rather than anything model-side. Fine-tuning teaches style far better than facts, and every corpus change would mean another training cycle. Stuffing the full corpus into each request is bounded by the context window and pays for every token on every call. Search alone returns passages but leaves the user to synthesise the answer.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["openai", "rag", "ai-search", "Supply Chain Cold-Chain Logistics"]
+    tags: ["openai","rag","ai-search","Supply Chain Cold-Chain Logistics"]
   },
   {
     id: "azure-ai102-136",
@@ -220,7 +220,7 @@ export const AZURE_AI102_QUESTIONS_6 = [
     question: "Which Azure AI approach best meets these requirements?",
     options: [
       { id: 'A', text: "Use a standard deployment and request a regional quota increase so that the tokens-per-minute limit comfortably covers the peak load that is expected in that region." },
-      { id: 'B', text: "Use a standard deployment and add a batch endpoint so that requests are queued and processed as shared capacity becomes available." },
+      { id: 'B', text: "Use a standard deployment and add a batch endpoint so that requests queue and complete at a consistent latency once shared capacity becomes available." },
       { id: 'C', text: "Deploy models with Provisioned Throughput Units (PTU) to guarantee reserved compute capacity, consistent latency, and predictable monthly costs for critical apps." },
       { id: 'D', text: "Deploy the same model into several regions and have the client retry against the next region whenever it receives a 429 response." }
     ],
@@ -228,7 +228,7 @@ export const AZURE_AI102_QUESTIONS_6 = [
     type: "single",
     explanation: "PTU reserves dedicated capacity for the deployment, so throughput and latency stop depending on what other tenants in the region are doing. A quota increase raises the ceiling on a shared pool and does nothing to make the latency within it predictable. A batch endpoint deliberately trades latency for cost and is the wrong shape for interactive traffic. Multi-region retry improves availability but adds a failed call and a second round trip to the very requests that were already slow.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["openai", "ptu", "capacity", "Banking Core Ledger & Payments"]
+    tags: ["openai","ptu","capacity","Banking Core Ledger & Payments"]
   },
   {
     id: "azure-ai102-137",
@@ -242,14 +242,14 @@ export const AZURE_AI102_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "Place the current values in the system message on every request so that the model always has fresh data available to answer from." },
       { id: 'B', text: "Ask the model to return a JSON object describing the query it wants and parse that free-text response inside the application." },
-      { id: 'C', text: "Use Azure OpenAI 'On Your Data' against an Azure AI Search index that a scheduled indexer refreshes from the source systems." },
+      { id: 'C', text: "Use Azure OpenAI 'On Your Data' against an Azure AI Search index that a scheduled indexer refreshes from the live source systems." },
       { id: 'D', text: "Define JSON schemas for tools in the model request and execute the returned function arguments in your application to fetch live data." }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Tool schemas make the model emit a validated call naming a function and its arguments, so the application runs the query and the answer reflects the system state at that moment. Pushing current values into the system message only works for a small, known set of data and grows with every request. Asking for JSON in free text produces something close to the same result without the schema validation, so malformed arguments surface at parse time. An indexed copy is only as fresh as the last indexer run, which is the staleness the requirement rules out.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["openai", "function-calling", "tools", "Genomic Sequencing & Biotech Pipeline"]
+    tags: ["openai","function-calling","tools","Genomic Sequencing & Biotech Pipeline"]
   },
   {
     id: "azure-ai102-138",
@@ -263,14 +263,14 @@ export const AZURE_AI102_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "Construct a comprehensive system prompt specifying the persona, task constraints, refusal boundaries, and few-shot input-output examples." },
       { id: 'B', text: "Fine-tune the deployed model on several thousand examples that demonstrate both the intended persona and the required output format in each case." },
-      { id: 'C', text: "Set the response_format parameter to a JSON schema so that the model is constrained to produce the required output structure." },
+      { id: 'C', text: "Set the response_format parameter to a JSON schema so that the model is constrained to the required output structure, including its refusal shape." },
       { id: 'D', text: "Lower the temperature and top_p values so that the model's responses become considerably more consistent from call to call." }
     ],
     correctAnswers: ['A'],
     type: "single",
     explanation: "The system message is where persona, scope, refusals, and worked examples belong, and changing any of them is a configuration edit rather than a deployment. Fine-tuning can teach a house style but costs a training run for every adjustment and is a poor way to express a refusal boundary. response_format governs the shape of the output and says nothing about what the assistant is or declines to do. Temperature and top_p change how varied the sampling is, not what behaviour is being sampled.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["prompt-engineering", "system-message", "openai", "Defense-Grade Zero-Trust Network"]
+    tags: ["prompt-engineering","system-message","openai","Defense-Grade Zero-Trust Network"]
   },
   {
     id: "azure-ai102-139",
@@ -285,13 +285,13 @@ export const AZURE_AI102_QUESTIONS_6 = [
       { id: 'A', text: "Fine-tune a base model on the whole document corpus so that the answers are learned directly into the model's own weights and no retrieval step is needed at query time." },
       { id: 'B', text: "Use Azure OpenAI 'On Your Data' integrated with Azure AI Search to retrieve relevant document chunks using hybrid vector search and ground the model prompt." },
       { id: 'C', text: "Raise the deployment's context window and place the entire document set into the system message on every single request." },
-      { id: 'D', text: "Use Azure AI Search on its own and return the highest-ranked document extracts to the user with no model in the path." }
+      { id: 'D', text: "Use Azure AI Search on its own to ground the answer, returning the highest-ranked document extracts with no model in the path." }
     ],
     correctAnswers: ['B'],
     type: "single",
     explanation: "Retrieval grounds each answer in the specific passages that were retrieved for that question, and because the index is refreshed independently a weekly corpus change costs an indexer run rather than anything model-side. Fine-tuning teaches style far better than facts, and every corpus change would mean another training cycle. Stuffing the full corpus into each request is bounded by the context window and pays for every token on every call. Search alone returns passages but leaves the user to synthesise the answer.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["openai", "rag", "ai-search", "Online Multiplayer Gaming Engine"]
+    tags: ["openai","rag","ai-search","Online Multiplayer Gaming Engine"]
   },
   {
     id: "azure-ai102-140",
@@ -304,7 +304,7 @@ export const AZURE_AI102_QUESTIONS_6 = [
     question: "Which Azure AI approach best meets these requirements?",
     options: [
       { id: 'A', text: "Use a standard deployment and request a regional quota increase so that the tokens-per-minute limit comfortably covers the peak load that is expected in that region." },
-      { id: 'B', text: "Use a standard deployment and add a batch endpoint so that requests are queued and processed as shared capacity becomes available." },
+      { id: 'B', text: "Use a standard deployment and add a batch endpoint so that requests queue and complete at a consistent latency once shared capacity becomes available." },
       { id: 'C', text: "Deploy models with Provisioned Throughput Units (PTU) to guarantee reserved compute capacity, consistent latency, and predictable monthly costs for critical apps." },
       { id: 'D', text: "Deploy the same model into several regions and have the client retry against the next region whenever it receives a 429 response." }
     ],
@@ -312,7 +312,7 @@ export const AZURE_AI102_QUESTIONS_6 = [
     type: "single",
     explanation: "PTU reserves dedicated capacity for the deployment, so throughput and latency stop depending on what other tenants in the region are doing. A quota increase raises the ceiling on a shared pool and does nothing to make the latency within it predictable. A batch endpoint deliberately trades latency for cost and is the wrong shape for interactive traffic. Multi-region retry improves availability but adds a failed call and a second round trip to the very requests that were already slow.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["openai", "ptu", "capacity", "Insurance Risk & Actuarial Modeling"]
+    tags: ["openai","ptu","capacity","Insurance Risk & Actuarial Modeling"]
   },
   {
     id: "azure-ai102-141",
@@ -326,14 +326,14 @@ export const AZURE_AI102_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "Place the current values in the system message on every request so that the model always has fresh data available to answer from." },
       { id: 'B', text: "Ask the model to return a JSON object describing the query it wants and parse that free-text response inside the application." },
-      { id: 'C', text: "Use Azure OpenAI 'On Your Data' against an Azure AI Search index that a scheduled indexer refreshes from the source systems." },
+      { id: 'C', text: "Use Azure OpenAI 'On Your Data' against an Azure AI Search index that a scheduled indexer refreshes from the live source systems." },
       { id: 'D', text: "Define JSON schemas for tools in the model request and execute the returned function arguments in your application to fetch live data." }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Tool schemas make the model emit a validated call naming a function and its arguments, so the application runs the query and the answer reflects the system state at that moment. Pushing current values into the system message only works for a small, known set of data and grows with every request. Asking for JSON in free text produces something close to the same result without the schema validation, so malformed arguments surface at parse time. An indexed copy is only as fresh as the last indexer run, which is the staleness the requirement rules out.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["openai", "function-calling", "tools", "Pharmaceutical Clinical Trial Platform"]
+    tags: ["openai","function-calling","tools","Pharmaceutical Clinical Trial Platform"]
   },
   {
     id: "azure-ai102-142",
@@ -347,14 +347,14 @@ export const AZURE_AI102_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "Construct a comprehensive system prompt specifying the persona, task constraints, refusal boundaries, and few-shot input-output examples." },
       { id: 'B', text: "Fine-tune the deployed model on several thousand examples that demonstrate both the intended persona and the required output format in each case." },
-      { id: 'C', text: "Set the response_format parameter to a JSON schema so that the model is constrained to produce the required output structure." },
+      { id: 'C', text: "Set the response_format parameter to a JSON schema so that the model is constrained to the required output structure, including its refusal shape." },
       { id: 'D', text: "Lower the temperature and top_p values so that the model's responses become considerably more consistent from call to call." }
     ],
     correctAnswers: ['A'],
     type: "single",
     explanation: "The system message is where persona, scope, refusals, and worked examples belong, and changing any of them is a configuration edit rather than a deployment. Fine-tuning can teach a house style but costs a training run for every adjustment and is a poor way to express a refusal boundary. response_format governs the shape of the output and says nothing about what the assistant is or declines to do. Temperature and top_p change how varied the sampling is, not what behaviour is being sampled.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["prompt-engineering", "system-message", "openai", "Smart City Traffic & Mobility Sensor Hub"]
+    tags: ["prompt-engineering","system-message","openai","Smart City Traffic & Mobility Sensor Hub"]
   },
   {
     id: "azure-ai102-143",
@@ -369,13 +369,13 @@ export const AZURE_AI102_QUESTIONS_6 = [
       { id: 'A', text: "Fine-tune a base model on the whole document corpus so that the answers are learned directly into the model's own weights and no retrieval step is needed at query time." },
       { id: 'B', text: "Use Azure OpenAI 'On Your Data' integrated with Azure AI Search to retrieve relevant document chunks using hybrid vector search and ground the model prompt." },
       { id: 'C', text: "Raise the deployment's context window and place the entire document set into the system message on every single request." },
-      { id: 'D', text: "Use Azure AI Search on its own and return the highest-ranked document extracts to the user with no model in the path." }
+      { id: 'D', text: "Use Azure AI Search on its own to ground the answer, returning the highest-ranked document extracts with no model in the path." }
     ],
     correctAnswers: ['B'],
     type: "single",
     explanation: "Retrieval grounds each answer in the specific passages that were retrieved for that question, and because the index is refreshed independently a weekly corpus change costs an indexer run rather than anything model-side. Fine-tuning teaches style far better than facts, and every corpus change would mean another training cycle. Stuffing the full corpus into each request is bounded by the context window and pays for every token on every call. Search alone returns passages but leaves the user to synthesise the answer.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["openai", "rag", "ai-search", "Digital Identity & Biometric Verification"]
+    tags: ["openai","rag","ai-search","Digital Identity & Biometric Verification"]
   },
   {
     id: "azure-ai102-144",
@@ -388,7 +388,7 @@ export const AZURE_AI102_QUESTIONS_6 = [
     question: "Which Azure AI approach best meets these requirements?",
     options: [
       { id: 'A', text: "Use a standard deployment and request a regional quota increase so that the tokens-per-minute limit comfortably covers the peak load that is expected in that region." },
-      { id: 'B', text: "Use a standard deployment and add a batch endpoint so that requests are queued and processed as shared capacity becomes available." },
+      { id: 'B', text: "Use a standard deployment and add a batch endpoint so that requests queue and complete at a consistent latency once shared capacity becomes available." },
       { id: 'C', text: "Deploy models with Provisioned Throughput Units (PTU) to guarantee reserved compute capacity, consistent latency, and predictable monthly costs for critical apps." },
       { id: 'D', text: "Deploy the same model into several regions and have the client retry against the next region whenever it receives a 429 response." }
     ],
@@ -396,7 +396,7 @@ export const AZURE_AI102_QUESTIONS_6 = [
     type: "single",
     explanation: "PTU reserves dedicated capacity for the deployment, so throughput and latency stop depending on what other tenants in the region are doing. A quota increase raises the ceiling on a shared pool and does nothing to make the latency within it predictable. A batch endpoint deliberately trades latency for cost and is the wrong shape for interactive traffic. Multi-region retry improves availability but adds a failed call and a second round trip to the very requests that were already slow.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["openai", "ptu", "capacity", "Legal Discovery & Semantic Document Search"]
+    tags: ["openai","ptu","capacity","Legal Discovery & Semantic Document Search"]
   },
   {
     id: "azure-ai102-145",
@@ -410,14 +410,14 @@ export const AZURE_AI102_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "Place the current values in the system message on every request so that the model always has fresh data available to answer from." },
       { id: 'B', text: "Ask the model to return a JSON object describing the query it wants and parse that free-text response inside the application." },
-      { id: 'C', text: "Use Azure OpenAI 'On Your Data' against an Azure AI Search index that a scheduled indexer refreshes from the source systems." },
+      { id: 'C', text: "Use Azure OpenAI 'On Your Data' against an Azure AI Search index that a scheduled indexer refreshes from the live source systems." },
       { id: 'D', text: "Define JSON schemas for tools in the model request and execute the returned function arguments in your application to fetch live data." }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Tool schemas make the model emit a validated call naming a function and its arguments, so the application runs the query and the answer reflects the system state at that moment. Pushing current values into the system message only works for a small, known set of data and grows with every request. Asking for JSON in free text produces something close to the same result without the schema validation, so malformed arguments surface at parse time. An indexed copy is only as fresh as the last indexer run, which is the staleness the requirement rules out.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["openai", "function-calling", "tools", "AdTech Real-Time Bidding Exchange"]
+    tags: ["openai","function-calling","tools","AdTech Real-Time Bidding Exchange"]
   },
   {
     id: "azure-ai102-146",
@@ -431,14 +431,14 @@ export const AZURE_AI102_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "Construct a comprehensive system prompt specifying the persona, task constraints, refusal boundaries, and few-shot input-output examples." },
       { id: 'B', text: "Fine-tune the deployed model on several thousand examples that demonstrate both the intended persona and the required output format in each case." },
-      { id: 'C', text: "Set the response_format parameter to a JSON schema so that the model is constrained to produce the required output structure." },
+      { id: 'C', text: "Set the response_format parameter to a JSON schema so that the model is constrained to the required output structure, including its refusal shape." },
       { id: 'D', text: "Lower the temperature and top_p values so that the model's responses become considerably more consistent from call to call." }
     ],
     correctAnswers: ['A'],
     type: "single",
     explanation: "The system message is where persona, scope, refusals, and worked examples belong, and changing any of them is a configuration edit rather than a deployment. Fine-tuning can teach a house style but costs a training run for every adjustment and is a poor way to express a refusal boundary. response_format governs the shape of the output and says nothing about what the assistant is or declines to do. Temperature and top_p change how varied the sampling is, not what behaviour is being sampled.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["prompt-engineering", "system-message", "openai", "Precision Agriculture & Drone Scouting"]
+    tags: ["prompt-engineering","system-message","openai","Precision Agriculture & Drone Scouting"]
   },
   {
     id: "azure-ai102-147",
@@ -453,13 +453,13 @@ export const AZURE_AI102_QUESTIONS_6 = [
       { id: 'A', text: "Fine-tune a base model on the whole document corpus so that the answers are learned directly into the model's own weights and no retrieval step is needed at query time." },
       { id: 'B', text: "Use Azure OpenAI 'On Your Data' integrated with Azure AI Search to retrieve relevant document chunks using hybrid vector search and ground the model prompt." },
       { id: 'C', text: "Raise the deployment's context window and place the entire document set into the system message on every single request." },
-      { id: 'D', text: "Use Azure AI Search on its own and return the highest-ranked document extracts to the user with no model in the path." }
+      { id: 'D', text: "Use Azure AI Search on its own to ground the answer, returning the highest-ranked document extracts with no model in the path." }
     ],
     correctAnswers: ['B'],
     type: "single",
     explanation: "Retrieval grounds each answer in the specific passages that were retrieved for that question, and because the index is refreshed independently a weekly corpus change costs an indexer run rather than anything model-side. Fine-tuning teaches style far better than facts, and every corpus change would mean another training cycle. Stuffing the full corpus into each request is bounded by the context window and pays for every token on every call. Search alone returns passages but leaves the user to synthesise the answer.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["openai", "rag", "ai-search", "Industrial Robotics Predictive Maintenance"]
+    tags: ["openai","rag","ai-search","Industrial Robotics Predictive Maintenance"]
   },
   {
     id: "azure-ai102-148",
@@ -472,7 +472,7 @@ export const AZURE_AI102_QUESTIONS_6 = [
     question: "Which Azure AI approach best meets these requirements?",
     options: [
       { id: 'A', text: "Use a standard deployment and request a regional quota increase so that the tokens-per-minute limit comfortably covers the peak load that is expected in that region." },
-      { id: 'B', text: "Use a standard deployment and add a batch endpoint so that requests are queued and processed as shared capacity becomes available." },
+      { id: 'B', text: "Use a standard deployment and add a batch endpoint so that requests queue and complete at a consistent latency once shared capacity becomes available." },
       { id: 'C', text: "Deploy models with Provisioned Throughput Units (PTU) to guarantee reserved compute capacity, consistent latency, and predictable monthly costs for critical apps." },
       { id: 'D', text: "Deploy the same model into several regions and have the client retry against the next region whenever it receives a 429 response." }
     ],
@@ -480,7 +480,7 @@ export const AZURE_AI102_QUESTIONS_6 = [
     type: "single",
     explanation: "PTU reserves dedicated capacity for the deployment, so throughput and latency stop depending on what other tenants in the region are doing. A quota increase raises the ceiling on a shared pool and does nothing to make the latency within it predictable. A batch endpoint deliberately trades latency for cost and is the wrong shape for interactive traffic. Multi-region retry improves availability but adds a failed call and a second round trip to the very requests that were already slow.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["openai", "ptu", "capacity", "Educational Remote Proctoring Platform"]
+    tags: ["openai","ptu","capacity","Educational Remote Proctoring Platform"]
   },
   {
     id: "azure-ai102-149",
@@ -494,14 +494,14 @@ export const AZURE_AI102_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "Place the current values in the system message on every request so that the model always has fresh data available to answer from." },
       { id: 'B', text: "Ask the model to return a JSON object describing the query it wants and parse that free-text response inside the application." },
-      { id: 'C', text: "Use Azure OpenAI 'On Your Data' against an Azure AI Search index that a scheduled indexer refreshes from the source systems." },
+      { id: 'C', text: "Use Azure OpenAI 'On Your Data' against an Azure AI Search index that a scheduled indexer refreshes from the live source systems." },
       { id: 'D', text: "Define JSON schemas for tools in the model request and execute the returned function arguments in your application to fetch live data." }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Tool schemas make the model emit a validated call naming a function and its arguments, so the application runs the query and the answer reflects the system state at that moment. Pushing current values into the system message only works for a small, known set of data and grows with every request. Asking for JSON in free text produces something close to the same result without the schema validation, so malformed arguments surface at parse time. An indexed copy is only as fresh as the last indexer run, which is the staleness the requirement rules out.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["openai", "function-calling", "tools", "Real Estate Valuation & Geo-Spatial Analytics"]
+    tags: ["openai","function-calling","tools","Real Estate Valuation & Geo-Spatial Analytics"]
   },
   {
     id: "azure-ai102-150",
@@ -515,14 +515,14 @@ export const AZURE_AI102_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "Construct a comprehensive system prompt specifying the persona, task constraints, refusal boundaries, and few-shot input-output examples." },
       { id: 'B', text: "Fine-tune the deployed model on several thousand examples that demonstrate both the intended persona and the required output format in each case." },
-      { id: 'C', text: "Set the response_format parameter to a JSON schema so that the model is constrained to produce the required output structure." },
+      { id: 'C', text: "Set the response_format parameter to a JSON schema so that the model is constrained to the required output structure, including its refusal shape." },
       { id: 'D', text: "Lower the temperature and top_p values so that the model's responses become considerably more consistent from call to call." }
     ],
     correctAnswers: ['A'],
     type: "single",
     explanation: "The system message is where persona, scope, refusals, and worked examples belong, and changing any of them is a configuration edit rather than a deployment. Fine-tuning can teach a house style but costs a training run for every adjustment and is a poor way to express a refusal boundary. response_format governs the shape of the output and says nothing about what the assistant is or declines to do. Temperature and top_p change how varied the sampling is, not what behaviour is being sampled.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["prompt-engineering", "system-message", "openai", "Disaster Emergency Dispatch & Operations"]
+    tags: ["prompt-engineering","system-message","openai","Disaster Emergency Dispatch & Operations"]
   }
 ];
 

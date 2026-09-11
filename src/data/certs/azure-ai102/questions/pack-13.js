@@ -11,14 +11,14 @@ export const AZURE_AI102_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "Use the Azure AI Vision Image Analysis 4.0 Read API to extract printed and handwritten text with bounding polygons and line-level confidence scores." },
       { id: 'B', text: "Use Azure AI Document Intelligence's prebuilt-read model so that the extracted text arrives together with page, paragraph, and reading order structure." },
-      { id: 'C', text: "Use the Azure AI Vision Image Analysis caption and dense captions features to describe what appears on each photographed page." },
+      { id: 'C', text: "Use the Azure AI Vision Image Analysis caption and dense captions features to describe the printed and handwritten content of each page." },
       { id: 'D', text: "Use Azure AI Translator's document translation endpoint to process the image files and return the text content it recovers." }
     ],
     correctAnswers: ['A'],
     type: "single",
     explanation: "The Read API is the OCR path in the Vision service and is tuned for text in photographed images, including handwriting, returning polygons and per-line confidence. Document Intelligence prebuilt-read is genuinely the other OCR option and is the better pick when document structure matters, but it is the document-processing pipeline rather than the image API these photographs flow through. Captions describe a scene instead of transcribing it, and Translator works on text that has already been extracted.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["vision", "ocr", "read-api", "High-Frequency FinTech Trading"]
+    tags: ["vision","ocr","read-api","High-Frequency FinTech Trading"]
   },
   {
     id: "azure-ai102-302",
@@ -30,7 +30,7 @@ export const AZURE_AI102_QUESTIONS_13 = [
     scenario: "A national hospital network requires strict cryptographic privacy, auditable access controls, and HIPAA compliance. The AI team is mapping short spoken commands onto actions together with the parameters each one needs. The work is scoped to the pre-production environment.",
     question: "Which Azure AI approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Train a custom text classification project in Azure AI Language so that each utterance is assigned to one of the supported categories." },
+      { id: 'A', text: "Train a custom text classification project in Azure AI Language so that each utterance is assigned to one of the supported intents as a category." },
       { id: 'B', text: "Train and deploy a Conversational Language Understanding (CLU) project with defined intents, learned entities, and prebuilt components." },
       { id: 'C', text: "Send every utterance to an Azure OpenAI deployment and ask the model to name the intent and list any parameters that it finds." },
       { id: 'D', text: "Use the question answering feature in Azure AI Language with a knowledge base built from the list of supported commands." }
@@ -39,7 +39,7 @@ export const AZURE_AI102_QUESTIONS_13 = [
     type: "single",
     explanation: "CLU is built for exactly this shape: it returns the top intent and the entities inside the utterance, which together supply the action and its parameters. Custom text classification assigns the utterance to a category and stops there, leaving the parameters unextracted. An Azure OpenAI deployment can do both but gives a free-text answer with no schema, confidence scores, or training loop over labelled utterances. Question answering matches a question to a stored answer, which is not an action with arguments.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["clu", "nlp", "language", "Healthcare Patient Records & HIPAA"]
+    tags: ["clu","nlp","language","Healthcare Patient Records & HIPAA"]
   },
   {
     id: "azure-ai102-303",
@@ -52,7 +52,7 @@ export const AZURE_AI102_QUESTIONS_13 = [
     question: "Which Azure AI approach best meets these requirements?",
     options: [
       { id: 'A', text: "Use the Azure AI Speech batch transcription REST API for the incoming audio and a selection of prebuilt neural voices for the spoken replies that are sent back." },
-      { id: 'B', text: "Use the Azure AI Speech fast transcription API for the incoming audio and SSML with a standard voice for the spoken replies." },
+      { id: 'B', text: "Use the Azure AI Speech fast transcription API for the incoming audio, without vocabulary tuning, and SSML with a standard voice for the replies." },
       { id: 'C', text: "Use Azure AI Speech SDK with Neural Voices for natural text-to-speech synthesis and continuous speech recognition with custom vocabulary models." },
       { id: 'D', text: "Use an Azure OpenAI audio model to transcribe the incoming audio and generate the spoken reply within a single request." }
     ],
@@ -60,7 +60,7 @@ export const AZURE_AI102_QUESTIONS_13 = [
     type: "single",
     explanation: "The Speech SDK streams audio continuously and returns partial results as the caller speaks, and custom speech lets the domain product names be added to the recognition vocabulary. Batch transcription and fast transcription both operate on complete audio files that have already been recorded, so neither can drive a live conversation. An Azure OpenAI audio model handles both directions in one call and is a reasonable design, but it offers no vocabulary adaptation, which is what the unusual product names require.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["speech", "neural-voice", "transcription", "Global E-Commerce Black Friday Scale"]
+    tags: ["speech","neural-voice","transcription","Global E-Commerce Black Friday Scale"]
   },
   {
     id: "azure-ai102-304",
@@ -74,14 +74,14 @@ export const AZURE_AI102_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "Use the named entity recognition feature in Azure AI Language to find person, organisation, and location entities and remove those spans." },
       { id: 'B', text: "Use Microsoft Purview sensitive information types to classify the stored transcripts and then apply the matching sensitivity label to every one of them." },
-      { id: 'C', text: "Use the key phrase extraction feature in Azure AI Language to identify the significant terms and strip them out before storage." },
+      { id: 'C', text: "Use the key phrase extraction feature in Azure AI Language for detection of the significant terms, stripping them out before storage." },
       { id: 'D', text: "Use Azure AI Language PII detection to identify, mask, and redact sensitive personal entities (SSN, credit cards, email) in customer transcripts." }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "PII detection is trained on the identifier categories specifically, returns a redacted copy of the text alongside the detected spans, and covers types like national IDs and payment card numbers that general models miss. Named entity recognition finds people and places but leaves account numbers and card numbers untouched. Purview classifies and labels the file without altering its contents, so the identifiers are still there for an analyst to read. Key phrase extraction surfaces topics and has no notion of sensitivity at all.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["text-analytics", "pii", "healthcare", "Autonomous Vehicle Telemetry"]
+    tags: ["text-analytics","pii","healthcare","Autonomous Vehicle Telemetry"]
   },
   {
     id: "azure-ai102-305",
@@ -95,14 +95,14 @@ export const AZURE_AI102_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "Use the Azure AI Vision Image Analysis 4.0 Read API to extract printed and handwritten text with bounding polygons and line-level confidence scores." },
       { id: 'B', text: "Use Azure AI Document Intelligence's prebuilt-read model so that the extracted text arrives together with page, paragraph, and reading order structure." },
-      { id: 'C', text: "Use the Azure AI Vision Image Analysis caption and dense captions features to describe what appears on each photographed page." },
+      { id: 'C', text: "Use the Azure AI Vision Image Analysis caption and dense captions features to describe the printed and handwritten content of each page." },
       { id: 'D', text: "Use Azure AI Translator's document translation endpoint to process the image files and return the text content it recovers." }
     ],
     correctAnswers: ['A'],
     type: "single",
     explanation: "The Read API is the OCR path in the Vision service and is tuned for text in photographed images, including handwriting, returning polygons and per-line confidence. Document Intelligence prebuilt-read is genuinely the other OCR option and is the better pick when document structure matters, but it is the document-processing pipeline rather than the image API these photographs flow through. Captions describe a scene instead of transcribing it, and Translator works on text that has already been extracted.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["vision", "ocr", "read-api", "Multi-Tenant B2B SaaS Platform"]
+    tags: ["vision","ocr","read-api","Multi-Tenant B2B SaaS Platform"]
   },
   {
     id: "azure-ai102-306",
@@ -114,7 +114,7 @@ export const AZURE_AI102_QUESTIONS_13 = [
     scenario: "A global video streaming service distributes high-bitrate live media with distributed edge caching and tokenized DRM protection. The AI team is mapping short spoken commands onto actions together with the parameters each one needs. The work is scoped to the pre-production environment.",
     question: "Which Azure AI approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Train a custom text classification project in Azure AI Language so that each utterance is assigned to one of the supported categories." },
+      { id: 'A', text: "Train a custom text classification project in Azure AI Language so that each utterance is assigned to one of the supported intents as a category." },
       { id: 'B', text: "Train and deploy a Conversational Language Understanding (CLU) project with defined intents, learned entities, and prebuilt components." },
       { id: 'C', text: "Send every utterance to an Azure OpenAI deployment and ask the model to name the intent and list any parameters that it finds." },
       { id: 'D', text: "Use the question answering feature in Azure AI Language with a knowledge base built from the list of supported commands." }
@@ -123,7 +123,7 @@ export const AZURE_AI102_QUESTIONS_13 = [
     type: "single",
     explanation: "CLU is built for exactly this shape: it returns the top intent and the entities inside the utterance, which together supply the action and its parameters. Custom text classification assigns the utterance to a category and stops there, leaving the parameters unextracted. An Azure OpenAI deployment can do both but gives a free-text answer with no schema, confidence scores, or training loop over labelled utterances. Question answering matches a question to a stored answer, which is not an action with arguments.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["clu", "nlp", "language", "Media Streaming & Global CDN"]
+    tags: ["clu","nlp","language","Media Streaming & Global CDN"]
   },
   {
     id: "azure-ai102-307",
@@ -136,7 +136,7 @@ export const AZURE_AI102_QUESTIONS_13 = [
     question: "Which Azure AI approach best meets these requirements?",
     options: [
       { id: 'A', text: "Use the Azure AI Speech batch transcription REST API for the incoming audio and a selection of prebuilt neural voices for the spoken replies that are sent back." },
-      { id: 'B', text: "Use the Azure AI Speech fast transcription API for the incoming audio and SSML with a standard voice for the spoken replies." },
+      { id: 'B', text: "Use the Azure AI Speech fast transcription API for the incoming audio, without vocabulary tuning, and SSML with a standard voice for the replies." },
       { id: 'C', text: "Use Azure AI Speech SDK with Neural Voices for natural text-to-speech synthesis and continuous speech recognition with custom vocabulary models." },
       { id: 'D', text: "Use an Azure OpenAI audio model to transcribe the incoming audio and generate the spoken reply within a single request." }
     ],
@@ -144,7 +144,7 @@ export const AZURE_AI102_QUESTIONS_13 = [
     type: "single",
     explanation: "The Speech SDK streams audio continuously and returns partial results as the caller speaks, and custom speech lets the domain product names be added to the recognition vocabulary. Batch transcription and fast transcription both operate on complete audio files that have already been recorded, so neither can drive a live conversation. An Azure OpenAI audio model handles both directions in one call and is a reasonable design, but it offers no vocabulary adaptation, which is what the unusual product names require.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["speech", "neural-voice", "transcription", "Aerospace Satellite Ground Systems"]
+    tags: ["speech","neural-voice","transcription","Aerospace Satellite Ground Systems"]
   },
   {
     id: "azure-ai102-308",
@@ -158,14 +158,14 @@ export const AZURE_AI102_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "Use the named entity recognition feature in Azure AI Language to find person, organisation, and location entities and remove those spans." },
       { id: 'B', text: "Use Microsoft Purview sensitive information types to classify the stored transcripts and then apply the matching sensitivity label to every one of them." },
-      { id: 'C', text: "Use the key phrase extraction feature in Azure AI Language to identify the significant terms and strip them out before storage." },
+      { id: 'C', text: "Use the key phrase extraction feature in Azure AI Language for detection of the significant terms, stripping them out before storage." },
       { id: 'D', text: "Use Azure AI Language PII detection to identify, mask, and redact sensitive personal entities (SSN, credit cards, email) in customer transcripts." }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "PII detection is trained on the identifier categories specifically, returns a redacted copy of the text alongside the detected spans, and covers types like national IDs and payment card numbers that general models miss. Named entity recognition finds people and places but leaves account numbers and card numbers untouched. Purview classifies and labels the file without altering its contents, so the identifiers are still there for an analyst to read. Key phrase extraction surfaces topics and has no notion of sensitivity at all.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["text-analytics", "pii", "healthcare", "Telecommunications 5G Core Network"]
+    tags: ["text-analytics","pii","healthcare","Telecommunications 5G Core Network"]
   },
   {
     id: "azure-ai102-309",
@@ -179,14 +179,14 @@ export const AZURE_AI102_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "Use the Azure AI Vision Image Analysis 4.0 Read API to extract printed and handwritten text with bounding polygons and line-level confidence scores." },
       { id: 'B', text: "Use Azure AI Document Intelligence's prebuilt-read model so that the extracted text arrives together with page, paragraph, and reading order structure." },
-      { id: 'C', text: "Use the Azure AI Vision Image Analysis caption and dense captions features to describe what appears on each photographed page." },
+      { id: 'C', text: "Use the Azure AI Vision Image Analysis caption and dense captions features to describe the printed and handwritten content of each page." },
       { id: 'D', text: "Use Azure AI Translator's document translation endpoint to process the image files and return the text content it recovers." }
     ],
     correctAnswers: ['A'],
     type: "single",
     explanation: "The Read API is the OCR path in the Vision service and is tuned for text in photographed images, including handwriting, returning polygons and per-line confidence. Document Intelligence prebuilt-read is genuinely the other OCR option and is the better pick when document structure matters, but it is the document-processing pipeline rather than the image API these photographs flow through. Captions describe a scene instead of transcribing it, and Translator works on text that has already been extracted.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["vision", "ocr", "read-api", "Renewable Energy Smart Grid IoT"]
+    tags: ["vision","ocr","read-api","Renewable Energy Smart Grid IoT"]
   },
   {
     id: "azure-ai102-310",
@@ -198,7 +198,7 @@ export const AZURE_AI102_QUESTIONS_13 = [
     scenario: "A pharmaceutical distribution network tracks temperature-sensitive cargo with cryptographic provenance and automated breach alerts. The AI team is mapping short spoken commands onto actions together with the parameters each one needs. The work is scoped to the pre-production environment.",
     question: "Which Azure AI approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Train a custom text classification project in Azure AI Language so that each utterance is assigned to one of the supported categories." },
+      { id: 'A', text: "Train a custom text classification project in Azure AI Language so that each utterance is assigned to one of the supported intents as a category." },
       { id: 'B', text: "Train and deploy a Conversational Language Understanding (CLU) project with defined intents, learned entities, and prebuilt components." },
       { id: 'C', text: "Send every utterance to an Azure OpenAI deployment and ask the model to name the intent and list any parameters that it finds." },
       { id: 'D', text: "Use the question answering feature in Azure AI Language with a knowledge base built from the list of supported commands." }
@@ -207,7 +207,7 @@ export const AZURE_AI102_QUESTIONS_13 = [
     type: "single",
     explanation: "CLU is built for exactly this shape: it returns the top intent and the entities inside the utterance, which together supply the action and its parameters. Custom text classification assigns the utterance to a category and stops there, leaving the parameters unextracted. An Azure OpenAI deployment can do both but gives a free-text answer with no schema, confidence scores, or training loop over labelled utterances. Question answering matches a question to a stored answer, which is not an action with arguments.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["clu", "nlp", "language", "Supply Chain Cold-Chain Logistics"]
+    tags: ["clu","nlp","language","Supply Chain Cold-Chain Logistics"]
   },
   {
     id: "azure-ai102-311",
@@ -220,7 +220,7 @@ export const AZURE_AI102_QUESTIONS_13 = [
     question: "Which Azure AI approach best meets these requirements?",
     options: [
       { id: 'A', text: "Use the Azure AI Speech batch transcription REST API for the incoming audio and a selection of prebuilt neural voices for the spoken replies that are sent back." },
-      { id: 'B', text: "Use the Azure AI Speech fast transcription API for the incoming audio and SSML with a standard voice for the spoken replies." },
+      { id: 'B', text: "Use the Azure AI Speech fast transcription API for the incoming audio, without vocabulary tuning, and SSML with a standard voice for the replies." },
       { id: 'C', text: "Use Azure AI Speech SDK with Neural Voices for natural text-to-speech synthesis and continuous speech recognition with custom vocabulary models." },
       { id: 'D', text: "Use an Azure OpenAI audio model to transcribe the incoming audio and generate the spoken reply within a single request." }
     ],
@@ -228,7 +228,7 @@ export const AZURE_AI102_QUESTIONS_13 = [
     type: "single",
     explanation: "The Speech SDK streams audio continuously and returns partial results as the caller speaks, and custom speech lets the domain product names be added to the recognition vocabulary. Batch transcription and fast transcription both operate on complete audio files that have already been recorded, so neither can drive a live conversation. An Azure OpenAI audio model handles both directions in one call and is a reasonable design, but it offers no vocabulary adaptation, which is what the unusual product names require.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["speech", "neural-voice", "transcription", "Banking Core Ledger & Payments"]
+    tags: ["speech","neural-voice","transcription","Banking Core Ledger & Payments"]
   },
   {
     id: "azure-ai102-312",
@@ -242,14 +242,14 @@ export const AZURE_AI102_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "Use the named entity recognition feature in Azure AI Language to find person, organisation, and location entities and remove those spans." },
       { id: 'B', text: "Use Microsoft Purview sensitive information types to classify the stored transcripts and then apply the matching sensitivity label to every one of them." },
-      { id: 'C', text: "Use the key phrase extraction feature in Azure AI Language to identify the significant terms and strip them out before storage." },
+      { id: 'C', text: "Use the key phrase extraction feature in Azure AI Language for detection of the significant terms, stripping them out before storage." },
       { id: 'D', text: "Use Azure AI Language PII detection to identify, mask, and redact sensitive personal entities (SSN, credit cards, email) in customer transcripts." }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "PII detection is trained on the identifier categories specifically, returns a redacted copy of the text alongside the detected spans, and covers types like national IDs and payment card numbers that general models miss. Named entity recognition finds people and places but leaves account numbers and card numbers untouched. Purview classifies and labels the file without altering its contents, so the identifiers are still there for an analyst to read. Key phrase extraction surfaces topics and has no notion of sensitivity at all.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["text-analytics", "pii", "healthcare", "Genomic Sequencing & Biotech Pipeline"]
+    tags: ["text-analytics","pii","healthcare","Genomic Sequencing & Biotech Pipeline"]
   },
   {
     id: "azure-ai102-313",
@@ -263,14 +263,14 @@ export const AZURE_AI102_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "Use the Azure AI Vision Image Analysis 4.0 Read API to extract printed and handwritten text with bounding polygons and line-level confidence scores." },
       { id: 'B', text: "Use Azure AI Document Intelligence's prebuilt-read model so that the extracted text arrives together with page, paragraph, and reading order structure." },
-      { id: 'C', text: "Use the Azure AI Vision Image Analysis caption and dense captions features to describe what appears on each photographed page." },
+      { id: 'C', text: "Use the Azure AI Vision Image Analysis caption and dense captions features to describe the printed and handwritten content of each page." },
       { id: 'D', text: "Use Azure AI Translator's document translation endpoint to process the image files and return the text content it recovers." }
     ],
     correctAnswers: ['A'],
     type: "single",
     explanation: "The Read API is the OCR path in the Vision service and is tuned for text in photographed images, including handwriting, returning polygons and per-line confidence. Document Intelligence prebuilt-read is genuinely the other OCR option and is the better pick when document structure matters, but it is the document-processing pipeline rather than the image API these photographs flow through. Captions describe a scene instead of transcribing it, and Translator works on text that has already been extracted.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["vision", "ocr", "read-api", "Defense-Grade Zero-Trust Network"]
+    tags: ["vision","ocr","read-api","Defense-Grade Zero-Trust Network"]
   },
   {
     id: "azure-ai102-314",
@@ -282,7 +282,7 @@ export const AZURE_AI102_QUESTIONS_13 = [
     scenario: "A real-time competitive gaming cluster orchestrates match sessions with regional matchmaking and anti-cheat validation. The AI team is mapping short spoken commands onto actions together with the parameters each one needs. The work is scoped to the pre-production environment.",
     question: "Which Azure AI approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Train a custom text classification project in Azure AI Language so that each utterance is assigned to one of the supported categories." },
+      { id: 'A', text: "Train a custom text classification project in Azure AI Language so that each utterance is assigned to one of the supported intents as a category." },
       { id: 'B', text: "Train and deploy a Conversational Language Understanding (CLU) project with defined intents, learned entities, and prebuilt components." },
       { id: 'C', text: "Send every utterance to an Azure OpenAI deployment and ask the model to name the intent and list any parameters that it finds." },
       { id: 'D', text: "Use the question answering feature in Azure AI Language with a knowledge base built from the list of supported commands." }
@@ -291,7 +291,7 @@ export const AZURE_AI102_QUESTIONS_13 = [
     type: "single",
     explanation: "CLU is built for exactly this shape: it returns the top intent and the entities inside the utterance, which together supply the action and its parameters. Custom text classification assigns the utterance to a category and stops there, leaving the parameters unextracted. An Azure OpenAI deployment can do both but gives a free-text answer with no schema, confidence scores, or training loop over labelled utterances. Question answering matches a question to a stored answer, which is not an action with arguments.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["clu", "nlp", "language", "Online Multiplayer Gaming Engine"]
+    tags: ["clu","nlp","language","Online Multiplayer Gaming Engine"]
   },
   {
     id: "azure-ai102-315",
@@ -304,7 +304,7 @@ export const AZURE_AI102_QUESTIONS_13 = [
     question: "Which Azure AI approach best meets these requirements?",
     options: [
       { id: 'A', text: "Use the Azure AI Speech batch transcription REST API for the incoming audio and a selection of prebuilt neural voices for the spoken replies that are sent back." },
-      { id: 'B', text: "Use the Azure AI Speech fast transcription API for the incoming audio and SSML with a standard voice for the spoken replies." },
+      { id: 'B', text: "Use the Azure AI Speech fast transcription API for the incoming audio, without vocabulary tuning, and SSML with a standard voice for the replies." },
       { id: 'C', text: "Use Azure AI Speech SDK with Neural Voices for natural text-to-speech synthesis and continuous speech recognition with custom vocabulary models." },
       { id: 'D', text: "Use an Azure OpenAI audio model to transcribe the incoming audio and generate the spoken reply within a single request." }
     ],
@@ -312,7 +312,7 @@ export const AZURE_AI102_QUESTIONS_13 = [
     type: "single",
     explanation: "The Speech SDK streams audio continuously and returns partial results as the caller speaks, and custom speech lets the domain product names be added to the recognition vocabulary. Batch transcription and fast transcription both operate on complete audio files that have already been recorded, so neither can drive a live conversation. An Azure OpenAI audio model handles both directions in one call and is a reasonable design, but it offers no vocabulary adaptation, which is what the unusual product names require.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["speech", "neural-voice", "transcription", "Insurance Risk & Actuarial Modeling"]
+    tags: ["speech","neural-voice","transcription","Insurance Risk & Actuarial Modeling"]
   },
   {
     id: "azure-ai102-316",
@@ -326,14 +326,14 @@ export const AZURE_AI102_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "Use the named entity recognition feature in Azure AI Language to find person, organisation, and location entities and remove those spans." },
       { id: 'B', text: "Use Microsoft Purview sensitive information types to classify the stored transcripts and then apply the matching sensitivity label to every one of them." },
-      { id: 'C', text: "Use the key phrase extraction feature in Azure AI Language to identify the significant terms and strip them out before storage." },
+      { id: 'C', text: "Use the key phrase extraction feature in Azure AI Language for detection of the significant terms, stripping them out before storage." },
       { id: 'D', text: "Use Azure AI Language PII detection to identify, mask, and redact sensitive personal entities (SSN, credit cards, email) in customer transcripts." }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "PII detection is trained on the identifier categories specifically, returns a redacted copy of the text alongside the detected spans, and covers types like national IDs and payment card numbers that general models miss. Named entity recognition finds people and places but leaves account numbers and card numbers untouched. Purview classifies and labels the file without altering its contents, so the identifiers are still there for an analyst to read. Key phrase extraction surfaces topics and has no notion of sensitivity at all.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["text-analytics", "pii", "healthcare", "Pharmaceutical Clinical Trial Platform"]
+    tags: ["text-analytics","pii","healthcare","Pharmaceutical Clinical Trial Platform"]
   },
   {
     id: "azure-ai102-317",
@@ -347,14 +347,14 @@ export const AZURE_AI102_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "Use the Azure AI Vision Image Analysis 4.0 Read API to extract printed and handwritten text with bounding polygons and line-level confidence scores." },
       { id: 'B', text: "Use Azure AI Document Intelligence's prebuilt-read model so that the extracted text arrives together with page, paragraph, and reading order structure." },
-      { id: 'C', text: "Use the Azure AI Vision Image Analysis caption and dense captions features to describe what appears on each photographed page." },
+      { id: 'C', text: "Use the Azure AI Vision Image Analysis caption and dense captions features to describe the printed and handwritten content of each page." },
       { id: 'D', text: "Use Azure AI Translator's document translation endpoint to process the image files and return the text content it recovers." }
     ],
     correctAnswers: ['A'],
     type: "single",
     explanation: "The Read API is the OCR path in the Vision service and is tuned for text in photographed images, including handwriting, returning polygons and per-line confidence. Document Intelligence prebuilt-read is genuinely the other OCR option and is the better pick when document structure matters, but it is the document-processing pipeline rather than the image API these photographs flow through. Captions describe a scene instead of transcribing it, and Translator works on text that has already been extracted.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["vision", "ocr", "read-api", "Smart City Traffic & Mobility Sensor Hub"]
+    tags: ["vision","ocr","read-api","Smart City Traffic & Mobility Sensor Hub"]
   },
   {
     id: "azure-ai102-318",
@@ -366,7 +366,7 @@ export const AZURE_AI102_QUESTIONS_13 = [
     scenario: "A cross-border passport control gateway validates identity credentials with zero-knowledge cryptographic proofs. The AI team is mapping short spoken commands onto actions together with the parameters each one needs. The work is scoped to the pre-production environment.",
     question: "Which Azure AI approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Train a custom text classification project in Azure AI Language so that each utterance is assigned to one of the supported categories." },
+      { id: 'A', text: "Train a custom text classification project in Azure AI Language so that each utterance is assigned to one of the supported intents as a category." },
       { id: 'B', text: "Train and deploy a Conversational Language Understanding (CLU) project with defined intents, learned entities, and prebuilt components." },
       { id: 'C', text: "Send every utterance to an Azure OpenAI deployment and ask the model to name the intent and list any parameters that it finds." },
       { id: 'D', text: "Use the question answering feature in Azure AI Language with a knowledge base built from the list of supported commands." }
@@ -375,7 +375,7 @@ export const AZURE_AI102_QUESTIONS_13 = [
     type: "single",
     explanation: "CLU is built for exactly this shape: it returns the top intent and the entities inside the utterance, which together supply the action and its parameters. Custom text classification assigns the utterance to a category and stops there, leaving the parameters unextracted. An Azure OpenAI deployment can do both but gives a free-text answer with no schema, confidence scores, or training loop over labelled utterances. Question answering matches a question to a stored answer, which is not an action with arguments.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["clu", "nlp", "language", "Digital Identity & Biometric Verification"]
+    tags: ["clu","nlp","language","Digital Identity & Biometric Verification"]
   },
   {
     id: "azure-ai102-319",
@@ -388,7 +388,7 @@ export const AZURE_AI102_QUESTIONS_13 = [
     question: "Which Azure AI approach best meets these requirements?",
     options: [
       { id: 'A', text: "Use the Azure AI Speech batch transcription REST API for the incoming audio and a selection of prebuilt neural voices for the spoken replies that are sent back." },
-      { id: 'B', text: "Use the Azure AI Speech fast transcription API for the incoming audio and SSML with a standard voice for the spoken replies." },
+      { id: 'B', text: "Use the Azure AI Speech fast transcription API for the incoming audio, without vocabulary tuning, and SSML with a standard voice for the replies." },
       { id: 'C', text: "Use Azure AI Speech SDK with Neural Voices for natural text-to-speech synthesis and continuous speech recognition with custom vocabulary models." },
       { id: 'D', text: "Use an Azure OpenAI audio model to transcribe the incoming audio and generate the spoken reply within a single request." }
     ],
@@ -396,7 +396,7 @@ export const AZURE_AI102_QUESTIONS_13 = [
     type: "single",
     explanation: "The Speech SDK streams audio continuously and returns partial results as the caller speaks, and custom speech lets the domain product names be added to the recognition vocabulary. Batch transcription and fast transcription both operate on complete audio files that have already been recorded, so neither can drive a live conversation. An Azure OpenAI audio model handles both directions in one call and is a reasonable design, but it offers no vocabulary adaptation, which is what the unusual product names require.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["speech", "neural-voice", "transcription", "Legal Discovery & Semantic Document Search"]
+    tags: ["speech","neural-voice","transcription","Legal Discovery & Semantic Document Search"]
   },
   {
     id: "azure-ai102-320",
@@ -410,14 +410,14 @@ export const AZURE_AI102_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "Use the named entity recognition feature in Azure AI Language to find person, organisation, and location entities and remove those spans." },
       { id: 'B', text: "Use Microsoft Purview sensitive information types to classify the stored transcripts and then apply the matching sensitivity label to every one of them." },
-      { id: 'C', text: "Use the key phrase extraction feature in Azure AI Language to identify the significant terms and strip them out before storage." },
+      { id: 'C', text: "Use the key phrase extraction feature in Azure AI Language for detection of the significant terms, stripping them out before storage." },
       { id: 'D', text: "Use Azure AI Language PII detection to identify, mask, and redact sensitive personal entities (SSN, credit cards, email) in customer transcripts." }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "PII detection is trained on the identifier categories specifically, returns a redacted copy of the text alongside the detected spans, and covers types like national IDs and payment card numbers that general models miss. Named entity recognition finds people and places but leaves account numbers and card numbers untouched. Purview classifies and labels the file without altering its contents, so the identifiers are still there for an analyst to read. Key phrase extraction surfaces topics and has no notion of sensitivity at all.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["text-analytics", "pii", "healthcare", "AdTech Real-Time Bidding Exchange"]
+    tags: ["text-analytics","pii","healthcare","AdTech Real-Time Bidding Exchange"]
   },
   {
     id: "azure-ai102-321",
@@ -431,14 +431,14 @@ export const AZURE_AI102_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "Use the Azure AI Vision Image Analysis 4.0 Read API to extract printed and handwritten text with bounding polygons and line-level confidence scores." },
       { id: 'B', text: "Use Azure AI Document Intelligence's prebuilt-read model so that the extracted text arrives together with page, paragraph, and reading order structure." },
-      { id: 'C', text: "Use the Azure AI Vision Image Analysis caption and dense captions features to describe what appears on each photographed page." },
+      { id: 'C', text: "Use the Azure AI Vision Image Analysis caption and dense captions features to describe the printed and handwritten content of each page." },
       { id: 'D', text: "Use Azure AI Translator's document translation endpoint to process the image files and return the text content it recovers." }
     ],
     correctAnswers: ['A'],
     type: "single",
     explanation: "The Read API is the OCR path in the Vision service and is tuned for text in photographed images, including handwriting, returning polygons and per-line confidence. Document Intelligence prebuilt-read is genuinely the other OCR option and is the better pick when document structure matters, but it is the document-processing pipeline rather than the image API these photographs flow through. Captions describe a scene instead of transcribing it, and Translator works on text that has already been extracted.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["vision", "ocr", "read-api", "Precision Agriculture & Drone Scouting"]
+    tags: ["vision","ocr","read-api","Precision Agriculture & Drone Scouting"]
   },
   {
     id: "azure-ai102-322",
@@ -450,7 +450,7 @@ export const AZURE_AI102_QUESTIONS_13 = [
     scenario: "A semiconductor fabrication facility detects vibration harmonics on manufacturing robots to prevent unplanned downtime. The AI team is mapping short spoken commands onto actions together with the parameters each one needs. The work is scoped to the pre-production environment.",
     question: "Which Azure AI approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Train a custom text classification project in Azure AI Language so that each utterance is assigned to one of the supported categories." },
+      { id: 'A', text: "Train a custom text classification project in Azure AI Language so that each utterance is assigned to one of the supported intents as a category." },
       { id: 'B', text: "Train and deploy a Conversational Language Understanding (CLU) project with defined intents, learned entities, and prebuilt components." },
       { id: 'C', text: "Send every utterance to an Azure OpenAI deployment and ask the model to name the intent and list any parameters that it finds." },
       { id: 'D', text: "Use the question answering feature in Azure AI Language with a knowledge base built from the list of supported commands." }
@@ -459,7 +459,7 @@ export const AZURE_AI102_QUESTIONS_13 = [
     type: "single",
     explanation: "CLU is built for exactly this shape: it returns the top intent and the entities inside the utterance, which together supply the action and its parameters. Custom text classification assigns the utterance to a category and stops there, leaving the parameters unextracted. An Azure OpenAI deployment can do both but gives a free-text answer with no schema, confidence scores, or training loop over labelled utterances. Question answering matches a question to a stored answer, which is not an action with arguments.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["clu", "nlp", "language", "Industrial Robotics Predictive Maintenance"]
+    tags: ["clu","nlp","language","Industrial Robotics Predictive Maintenance"]
   },
   {
     id: "azure-ai102-323",
@@ -472,7 +472,7 @@ export const AZURE_AI102_QUESTIONS_13 = [
     question: "Which Azure AI approach best meets these requirements?",
     options: [
       { id: 'A', text: "Use the Azure AI Speech batch transcription REST API for the incoming audio and a selection of prebuilt neural voices for the spoken replies that are sent back." },
-      { id: 'B', text: "Use the Azure AI Speech fast transcription API for the incoming audio and SSML with a standard voice for the spoken replies." },
+      { id: 'B', text: "Use the Azure AI Speech fast transcription API for the incoming audio, without vocabulary tuning, and SSML with a standard voice for the replies." },
       { id: 'C', text: "Use Azure AI Speech SDK with Neural Voices for natural text-to-speech synthesis and continuous speech recognition with custom vocabulary models." },
       { id: 'D', text: "Use an Azure OpenAI audio model to transcribe the incoming audio and generate the spoken reply within a single request." }
     ],
@@ -480,7 +480,7 @@ export const AZURE_AI102_QUESTIONS_13 = [
     type: "single",
     explanation: "The Speech SDK streams audio continuously and returns partial results as the caller speaks, and custom speech lets the domain product names be added to the recognition vocabulary. Batch transcription and fast transcription both operate on complete audio files that have already been recorded, so neither can drive a live conversation. An Azure OpenAI audio model handles both directions in one call and is a reasonable design, but it offers no vocabulary adaptation, which is what the unusual product names require.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["speech", "neural-voice", "transcription", "Educational Remote Proctoring Platform"]
+    tags: ["speech","neural-voice","transcription","Educational Remote Proctoring Platform"]
   },
   {
     id: "azure-ai102-324",
@@ -494,14 +494,14 @@ export const AZURE_AI102_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "Use the named entity recognition feature in Azure AI Language to find person, organisation, and location entities and remove those spans." },
       { id: 'B', text: "Use Microsoft Purview sensitive information types to classify the stored transcripts and then apply the matching sensitivity label to every one of them." },
-      { id: 'C', text: "Use the key phrase extraction feature in Azure AI Language to identify the significant terms and strip them out before storage." },
+      { id: 'C', text: "Use the key phrase extraction feature in Azure AI Language for detection of the significant terms, stripping them out before storage." },
       { id: 'D', text: "Use Azure AI Language PII detection to identify, mask, and redact sensitive personal entities (SSN, credit cards, email) in customer transcripts." }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "PII detection is trained on the identifier categories specifically, returns a redacted copy of the text alongside the detected spans, and covers types like national IDs and payment card numbers that general models miss. Named entity recognition finds people and places but leaves account numbers and card numbers untouched. Purview classifies and labels the file without altering its contents, so the identifiers are still there for an analyst to read. Key phrase extraction surfaces topics and has no notion of sensitivity at all.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["text-analytics", "pii", "healthcare", "Real Estate Valuation & Geo-Spatial Analytics"]
+    tags: ["text-analytics","pii","healthcare","Real Estate Valuation & Geo-Spatial Analytics"]
   },
   {
     id: "azure-ai102-325",
@@ -515,14 +515,14 @@ export const AZURE_AI102_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "Use the Azure AI Vision Image Analysis 4.0 Read API to extract printed and handwritten text with bounding polygons and line-level confidence scores." },
       { id: 'B', text: "Use Azure AI Document Intelligence's prebuilt-read model so that the extracted text arrives together with page, paragraph, and reading order structure." },
-      { id: 'C', text: "Use the Azure AI Vision Image Analysis caption and dense captions features to describe what appears on each photographed page." },
+      { id: 'C', text: "Use the Azure AI Vision Image Analysis caption and dense captions features to describe the printed and handwritten content of each page." },
       { id: 'D', text: "Use Azure AI Translator's document translation endpoint to process the image files and return the text content it recovers." }
     ],
     correctAnswers: ['A'],
     type: "single",
     explanation: "The Read API is the OCR path in the Vision service and is tuned for text in photographed images, including handwriting, returning polygons and per-line confidence. Document Intelligence prebuilt-read is genuinely the other OCR option and is the better pick when document structure matters, but it is the document-processing pipeline rather than the image API these photographs flow through. Captions describe a scene instead of transcribing it, and Translator works on text that has already been extracted.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["vision", "ocr", "read-api", "Disaster Emergency Dispatch & Operations"]
+    tags: ["vision","ocr","read-api","Disaster Emergency Dispatch & Operations"]
   }
 ];
 
