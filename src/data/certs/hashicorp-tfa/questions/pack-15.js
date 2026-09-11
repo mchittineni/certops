@@ -322,7 +322,7 @@ export const HASHICORP_TFA_QUESTIONS_15 = [
     domainName: "Work with Terraform modules and workspaces",
     title: "Terraform Module Structure and Standard Layout: Dr Failover",
     scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to organize a reusable Terraform module according to official HashiCorp standard directory conventions.",
-    question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives? Standard module layout: main.tf, variables.tf, outputs.tf, and README.",
+    question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
       { id: 'A', text: "Put all code, variables, and outputs into a single 5,000-line `terraform.tf` file." },
       { id: 'B', text: "Split configuration into dozens of subdirectories with arbitrary file extensions." },
@@ -343,7 +343,7 @@ export const HASHICORP_TFA_QUESTIONS_15 = [
     domainName: "Work with Terraform modules and workspaces",
     title: "Terraform Module Structure and Standard Layout: High Load Scale",
     scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to organize a reusable Terraform module according to official HashiCorp standard directory conventions.",
-    question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks? Standard module layout: main.tf, variables.tf, outputs.tf, and README.",
+    question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
       { id: 'A', text: "Place all module files inside a hidden `.git` folder." },
       { id: 'B', text: "Split configuration into dozens of subdirectories with arbitrary file extensions." },
@@ -364,7 +364,7 @@ export const HASHICORP_TFA_QUESTIONS_15 = [
     domainName: "Work with Terraform modules and workspaces",
     title: "Terraform Module Structure and Standard Layout: Security Compliance",
     scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to organize a reusable Terraform module according to official HashiCorp standard directory conventions.",
-    question: "Which solution implements these mandatory infrastructure as code security and governance controls? Standard module layout: main.tf, variables.tf, outputs.tf, and README.",
+    question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
       { id: 'A', text: "Put all code, variables, and outputs into a single 5,000-line `terraform.tf` file." },
       { id: 'B', text: "Split configuration into dozens of subdirectories with arbitrary file extensions." },
@@ -385,7 +385,7 @@ export const HASHICORP_TFA_QUESTIONS_15 = [
     domainName: "Work with Terraform modules and workspaces",
     title: "Terraform Module Structure and Standard Layout: Hybrid Migration",
     scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to organize a reusable Terraform module according to official HashiCorp standard directory conventions.",
-    question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction? Standard module layout: main.tf, variables.tf, outputs.tf, and README.",
+    question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Put all code, variables, and outputs into a single 5,000-line `terraform.tf` file." },
       { id: 'B', text: "Place all module files inside a hidden `.git` folder." },
@@ -406,7 +406,7 @@ export const HASHICORP_TFA_QUESTIONS_15 = [
     domainName: "Work with Terraform modules and workspaces",
     title: "Terraform Module Structure and Standard Layout: Resilience Failure",
     scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to organize a reusable Terraform module according to official HashiCorp standard directory conventions.",
-    question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability? Standard module layout: main.tf, variables.tf, outputs.tf, and README.",
+    question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Put all code, variables, and outputs into a single 5,000-line `terraform.tf` file." },
       { id: 'B', text: "Place all module files inside a hidden `.git` folder." },

@@ -112,7 +112,7 @@ export const GITHUB_ACTIONS_QUESTIONS_16 = [
     domainName: "Consume workflows and manage GitHub Actions",
     title: "Automating Dependency Updates with Dependabot: Dr Failover",
     scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to automate the creation of weekly pull requests updating outdated npm and Docker dependencies across a repository.",
-    question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives? Configuring dependabot.",
+    question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Add a `.github/dependabot.yml` configuration file specifying package ecosystems (`npm`, `docker`), directories, and schedule intervals." },
       { id: 'B', text: "Disable automated updates to prevent new code changes." },
@@ -133,7 +133,7 @@ export const GITHUB_ACTIONS_QUESTIONS_16 = [
     domainName: "Consume workflows and manage GitHub Actions",
     title: "Automating Dependency Updates with Dependabot: High Load Scale",
     scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to automate the creation of weekly pull requests updating outdated npm and Docker dependencies across a repository.",
-    question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency? Configuring dependabot.",
+    question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
       { id: 'A', text: "Disable automated updates to prevent new code changes." },
       { id: 'B', text: "Add a `.github/dependabot.yml` configuration file specifying package ecosystems (`npm`, `docker`), directories, and schedule intervals." },
@@ -154,7 +154,7 @@ export const GITHUB_ACTIONS_QUESTIONS_16 = [
     domainName: "Consume workflows and manage GitHub Actions",
     title: "Automating Dependency Updates with Dependabot: Security Compliance",
     scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to automate the creation of weekly pull requests updating outdated npm and Docker dependencies across a repository.",
-    question: "Which solution implements these mandatory CI/CD security and compliance controls? Configuring dependabot.",
+    question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
       { id: 'A', text: "Disable automated updates to prevent new code changes." },
       { id: 'B', text: "Write a cron script that commits package updates directly to main without review." },
@@ -175,7 +175,7 @@ export const GITHUB_ACTIONS_QUESTIONS_16 = [
     domainName: "Consume workflows and manage GitHub Actions",
     title: "Automating Dependency Updates with Dependabot: Hybrid Migration",
     scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to automate the creation of weekly pull requests updating outdated npm and Docker dependencies across a repository.",
-    question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction? Configuring dependabot.",
+    question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Add a `.github/dependabot.yml` configuration file specifying package ecosystems (`npm`, `docker`), directories, and schedule intervals." },
       { id: 'B', text: "Disable automated updates to prevent new code changes." },
@@ -196,7 +196,7 @@ export const GITHUB_ACTIONS_QUESTIONS_16 = [
     domainName: "Consume workflows and manage GitHub Actions",
     title: "Automating Dependency Updates with Dependabot: Resilience Failure",
     scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to automate the creation of weekly pull requests updating outdated npm and Docker dependencies across a repository.",
-    question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability? Configuring dependabot.",
+    question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
       { id: 'A', text: "Manually check npm registry website once a year for package updates." },
       { id: 'B', text: "Disable automated updates to prevent new code changes." },
@@ -322,7 +322,7 @@ export const GITHUB_ACTIONS_QUESTIONS_16 = [
     domainName: "Consume workflows and manage GitHub Actions",
     title: "Starter Workflows for Organization Standardization: Dr Failover",
     scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to provide standardized, pre-configured workflow templates that developers across an enterprise can select when creating new repositories.",
-    question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives? Creating organization-wide starter workflow templates in .",
+    question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Add workflow `.yml` files accompanied by `.properties.json` files to the `workflow-templates` directory of the organization's `.github` repository." },
       { id: 'B', text: "Starter workflows cannot be customized at the organization level." },
@@ -343,7 +343,7 @@ export const GITHUB_ACTIONS_QUESTIONS_16 = [
     domainName: "Consume workflows and manage GitHub Actions",
     title: "Starter Workflows for Organization Standardization: High Load Scale",
     scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to provide standardized, pre-configured workflow templates that developers across an enterprise can select when creating new repositories.",
-    question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency? Creating organization-wide starter workflow templates in .",
+    question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
       { id: 'A', text: "Manually commit workflow files into every newly created repository by hand." },
       { id: 'B', text: "Add workflow `.yml` files accompanied by `.properties.json` files to the `workflow-templates` directory of the organization's `.github` repository." },
@@ -364,7 +364,7 @@ export const GITHUB_ACTIONS_QUESTIONS_16 = [
     domainName: "Consume workflows and manage GitHub Actions",
     title: "Starter Workflows for Organization Standardization: Security Compliance",
     scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to provide standardized, pre-configured workflow templates that developers across an enterprise can select when creating new repositories.",
-    question: "Which solution implements these mandatory CI/CD security and compliance controls? Creating organization-wide starter workflow templates in .",
+    question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
       { id: 'A', text: "Email workflow templates as text attachments to all developers." },
       { id: 'B', text: "Add workflow `.yml` files accompanied by `.properties.json` files to the `workflow-templates` directory of the organization's `.github` repository." },
@@ -385,7 +385,7 @@ export const GITHUB_ACTIONS_QUESTIONS_16 = [
     domainName: "Consume workflows and manage GitHub Actions",
     title: "Starter Workflows for Organization Standardization: Hybrid Migration",
     scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to provide standardized, pre-configured workflow templates that developers across an enterprise can select when creating new repositories.",
-    question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction? Creating organization-wide starter workflow templates in .",
+    question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Manually commit workflow files into every newly created repository by hand." },
       { id: 'B', text: "Add workflow `.yml` files accompanied by `.properties.json` files to the `workflow-templates` directory of the organization's `.github` repository." },
@@ -406,7 +406,7 @@ export const GITHUB_ACTIONS_QUESTIONS_16 = [
     domainName: "Consume workflows and manage GitHub Actions",
     title: "Starter Workflows for Organization Standardization: Resilience Failure",
     scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to provide standardized, pre-configured workflow templates that developers across an enterprise can select when creating new repositories.",
-    question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability? Creating organization-wide starter workflow templates in .",
+    question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
       { id: 'A', text: "Starter workflows cannot be customized at the organization level." },
       { id: 'B', text: "Email workflow templates as text attachments to all developers." },

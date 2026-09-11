@@ -112,7 +112,7 @@ export const HASHICORP_TFA_QUESTIONS_18 = [
     domainName: "Manage Terraform state",
     title: "Sensitive Data Handling in State Files: Dr Failover",
     scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to protect sensitive database passwords and private keys that are recorded in plaintext inside the Terraform state file.",
-    question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives? Protecting secrets stored in plaintext within terraform.",
+    question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
       { id: 'A', text: "Commit the state file to public Git repositories since secrets are hidden." },
       { id: 'B', text: "Assume setting `sensitive = true` in HCL encrypts the value inside the state file." },
@@ -133,7 +133,7 @@ export const HASHICORP_TFA_QUESTIONS_18 = [
     domainName: "Manage Terraform state",
     title: "Sensitive Data Handling in State Files: High Load Scale",
     scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to protect sensitive database passwords and private keys that are recorded in plaintext inside the Terraform state file.",
-    question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks? Protecting secrets stored in plaintext within terraform.",
+    question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
       { id: 'A', text: "Assume setting `sensitive = true` in HCL encrypts the value inside the state file." },
       { id: 'B', text: "Restrict access to the remote backend storage using IAM policies, enforce encryption at rest and in transit, and enable audit logging." },
@@ -154,7 +154,7 @@ export const HASHICORP_TFA_QUESTIONS_18 = [
     domainName: "Manage Terraform state",
     title: "Sensitive Data Handling in State Files: Security Compliance",
     scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to protect sensitive database passwords and private keys that are recorded in plaintext inside the Terraform state file.",
-    question: "Which solution implements these mandatory infrastructure as code security and governance controls? Protecting secrets stored in plaintext within terraform.",
+    question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
       { id: 'A', text: "Assume setting `sensitive = true` in HCL encrypts the value inside the state file." },
       { id: 'B', text: "Restrict access to the remote backend storage using IAM policies, enforce encryption at rest and in transit, and enable audit logging." },
@@ -175,7 +175,7 @@ export const HASHICORP_TFA_QUESTIONS_18 = [
     domainName: "Manage Terraform state",
     title: "Sensitive Data Handling in State Files: Hybrid Migration",
     scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to protect sensitive database passwords and private keys that are recorded in plaintext inside the Terraform state file.",
-    question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction? Protecting secrets stored in plaintext within terraform.",
+    question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Assume setting `sensitive = true` in HCL encrypts the value inside the state file." },
       { id: 'B', text: "Delete sensitive resources from state immediately after creation." },
@@ -196,7 +196,7 @@ export const HASHICORP_TFA_QUESTIONS_18 = [
     domainName: "Manage Terraform state",
     title: "Sensitive Data Handling in State Files: Resilience Failure",
     scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to protect sensitive database passwords and private keys that are recorded in plaintext inside the Terraform state file.",
-    question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability? Protecting secrets stored in plaintext within terraform.",
+    question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Restrict access to the remote backend storage using IAM policies, enforce encryption at rest and in transit, and enable audit logging." },
       { id: 'B', text: "Assume setting `sensitive = true` in HCL encrypts the value inside the state file." },

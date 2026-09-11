@@ -7,7 +7,7 @@ export const GCP_PMLE_QUESTIONS_13 = [
     domainName: "Preparing data and feature engineering",
     title: "BigQuery ML (BQML) Feature Engineering & Modeling: Dr Failover",
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer needs to train and evaluate a customer churn prediction model directly on 10 terabytes of tabular data in BigQuery using standard SQL without exporting data to external Python runtimes.",
-    question: "Which concept or service configuration satisfies these operational resilience objectives? TRANSFORM clause, ML.",
+    question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Write custom MapReduce jobs in Java on an on-premises Hadoop cluster." },
       { id: 'B', text: "Export all 10 TB of data to local CSV files on developer laptops and train using scikit-learn." },
@@ -28,7 +28,7 @@ export const GCP_PMLE_QUESTIONS_13 = [
     domainName: "Preparing data and feature engineering",
     title: "BigQuery ML (BQML) Feature Engineering & Modeling: High Load Scale",
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer needs to train and evaluate a customer churn prediction model directly on 10 terabytes of tabular data in BigQuery using standard SQL without exporting data to external Python runtimes.",
-    question: "Which architectural approach should the team select to manage this demand efficiently? TRANSFORM clause, ML.",
+    question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Manually calculate probabilities in Excel spreadsheets." },
       { id: 'B', text: "Export all 10 TB of data to local CSV files on developer laptops and train using scikit-learn." },
@@ -49,7 +49,7 @@ export const GCP_PMLE_QUESTIONS_13 = [
     domainName: "Preparing data and feature engineering",
     title: "BigQuery ML (BQML) Feature Engineering & Modeling: Security Compliance",
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer needs to train and evaluate a customer churn prediction model directly on 10 terabytes of tabular data in BigQuery using standard SQL without exporting data to external Python runtimes.",
-    question: "Which solution properly implements these mandatory security and governance controls? TRANSFORM clause, ML.",
+    question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Train a classification model using BigQuery ML (CREATE OR REPLACE MODEL ... OPTIONS(model_type='boosted_tree_classifier'))." },
       { id: 'B', text: "Manually calculate probabilities in Excel spreadsheets." },
@@ -70,7 +70,7 @@ export const GCP_PMLE_QUESTIONS_13 = [
     domainName: "Preparing data and feature engineering",
     title: "BigQuery ML (BQML) Feature Engineering & Modeling: Hybrid Migration",
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer needs to train and evaluate a customer churn prediction model directly on 10 terabytes of tabular data in BigQuery using standard SQL without exporting data to external Python runtimes.",
-    question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? TRANSFORM clause, ML.",
+    question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Export all 10 TB of data to local CSV files on developer laptops and train using scikit-learn." },
       { id: 'B', text: "Train a classification model using BigQuery ML (CREATE OR REPLACE MODEL ... OPTIONS(model_type='boosted_tree_classifier'))." },
@@ -91,7 +91,7 @@ export const GCP_PMLE_QUESTIONS_13 = [
     domainName: "Preparing data and feature engineering",
     title: "BigQuery ML (BQML) Feature Engineering & Modeling: Resilience Failure",
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer needs to train and evaluate a customer churn prediction model directly on 10 terabytes of tabular data in BigQuery using standard SQL without exporting data to external Python runtimes.",
-    question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? TRANSFORM clause, ML.",
+    question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Train a classification model using BigQuery ML (CREATE OR REPLACE MODEL ... OPTIONS(model_type='boosted_tree_classifier'))." },
       { id: 'B', text: "Export all 10 TB of data to local CSV files on developer laptops and train using scikit-learn." },
@@ -217,7 +217,7 @@ export const GCP_PMLE_QUESTIONS_13 = [
     domainName: "Preparing data and feature engineering",
     title: "TensorFlow Transform (tf.transform) for Train-Serve Parity: Dr Failover",
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer needs to eliminate training-serving skew by ensuring that identical numerical scaling and categorical vocabulary transformations apply during both batch training and real-time online serving.",
-    question: "Which concept or service configuration satisfies these operational resilience objectives? tf.",
+    question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Disable all feature scaling and normalization to avoid discrepancies." },
       { id: 'B', text: "Calculate scaling factors dynamically on each individual incoming online prediction request." },
@@ -238,7 +238,7 @@ export const GCP_PMLE_QUESTIONS_13 = [
     domainName: "Preparing data and feature engineering",
     title: "TensorFlow Transform (tf.transform) for Train-Serve Parity: High Load Scale",
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer needs to eliminate training-serving skew by ensuring that identical numerical scaling and categorical vocabulary transformations apply during both batch training and real-time online serving.",
-    question: "Which architectural approach should the team select to manage this demand efficiently? tf.",
+    question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Calculate scaling factors dynamically on each individual incoming online prediction request." },
       { id: 'B', text: "Implement preprocessing in Python for training and rewrite the logic in JavaScript for serving." },
@@ -259,7 +259,7 @@ export const GCP_PMLE_QUESTIONS_13 = [
     domainName: "Preparing data and feature engineering",
     title: "TensorFlow Transform (tf.transform) for Train-Serve Parity: Security Compliance",
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer needs to eliminate training-serving skew by ensuring that identical numerical scaling and categorical vocabulary transformations apply during both batch training and real-time online serving.",
-    question: "Which solution properly implements these mandatory security and governance controls? tf.",
+    question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Calculate scaling factors dynamically on each individual incoming online prediction request." },
       { id: 'B', text: "Implement feature transformations using TensorFlow Transform (tf.transform) and export the preprocessing graph with the saved model." },
@@ -280,7 +280,7 @@ export const GCP_PMLE_QUESTIONS_13 = [
     domainName: "Preparing data and feature engineering",
     title: "TensorFlow Transform (tf.transform) for Train-Serve Parity: Hybrid Migration",
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer needs to eliminate training-serving skew by ensuring that identical numerical scaling and categorical vocabulary transformations apply during both batch training and real-time online serving.",
-    question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? tf.",
+    question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Implement preprocessing in Python for training and rewrite the logic in JavaScript for serving." },
       { id: 'B', text: "Calculate scaling factors dynamically on each individual incoming online prediction request." },
@@ -301,7 +301,7 @@ export const GCP_PMLE_QUESTIONS_13 = [
     domainName: "Preparing data and feature engineering",
     title: "TensorFlow Transform (tf.transform) for Train-Serve Parity: Resilience Failure",
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer needs to eliminate training-serving skew by ensuring that identical numerical scaling and categorical vocabulary transformations apply during both batch training and real-time online serving.",
-    question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? tf.",
+    question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Calculate scaling factors dynamically on each individual incoming online prediction request." },
       { id: 'B', text: "Implement preprocessing in Python for training and rewrite the logic in JavaScript for serving." },

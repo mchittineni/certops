@@ -217,7 +217,7 @@ export const AWS_CLF_QUESTIONS_15 = [
     domainName: "Security and Compliance",
     title: "AWS Shield Standard vs Shield Advanced: Dr Failover",
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The organization evaluates AWS Shield to understand the baseline Distributed Denial of Service (DDoS) protection provided automatically to all AWS customers at no additional cost.",
-    question: "Which concept or service configuration satisfies these operational resilience objectives? AWS Shield Standard vs.",
+    question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "AWS provides no DDoS protection unless AWS WAF is deployed with custom rules." },
       { id: 'B', text: "AWS customers must purchase third-party hardware appliances to obtain basic DDoS protection." },
@@ -238,7 +238,7 @@ export const AWS_CLF_QUESTIONS_15 = [
     domainName: "Security and Compliance",
     title: "AWS Shield Standard vs Shield Advanced: High Load Scale",
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The organization evaluates AWS Shield to understand the baseline Distributed Denial of Service (DDoS) protection provided automatically to all AWS customers at no additional cost.",
-    question: "Which architectural approach should the team select to manage this demand efficiently? AWS Shield Standard vs.",
+    question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "AWS customers must purchase third-party hardware appliances to obtain basic DDoS protection." },
       { id: 'B', text: "AWS Shield Standard provides automatic, baseline protection against common network and transport layer (Layer 3 and 4) DDoS attacks for all AWS customers at no extra cost." },
@@ -259,7 +259,7 @@ export const AWS_CLF_QUESTIONS_15 = [
     domainName: "Security and Compliance",
     title: "AWS Shield Standard vs Shield Advanced: Security Compliance",
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The organization evaluates AWS Shield to understand the baseline Distributed Denial of Service (DDoS) protection provided automatically to all AWS customers at no additional cost.",
-    question: "Which solution properly implements these mandatory security and governance controls? AWS Shield Standard vs.",
+    question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "AWS customers must purchase third-party hardware appliances to obtain basic DDoS protection." },
       { id: 'B', text: "AWS provides no DDoS protection unless AWS WAF is deployed with custom rules." },
@@ -280,7 +280,7 @@ export const AWS_CLF_QUESTIONS_15 = [
     domainName: "Security and Compliance",
     title: "AWS Shield Standard vs Shield Advanced: Hybrid Migration",
     scenario: "An enterprise is migrating traditional on-premises data center operations to the AWS Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The organization evaluates AWS Shield to understand the baseline Distributed Denial of Service (DDoS) protection provided automatically to all AWS customers at no additional cost.",
-    question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? AWS Shield Standard vs.",
+    question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "AWS customers must purchase third-party hardware appliances to obtain basic DDoS protection." },
       { id: 'B', text: "AWS Shield Advanced is free for all accounts and protects against all layer 7 attacks automatically." },
@@ -301,7 +301,7 @@ export const AWS_CLF_QUESTIONS_15 = [
     domainName: "Security and Compliance",
     title: "AWS Shield Standard vs Shield Advanced: Resilience Failure",
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The organization evaluates AWS Shield to understand the baseline Distributed Denial of Service (DDoS) protection provided automatically to all AWS customers at no additional cost.",
-    question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? AWS Shield Standard vs.",
+    question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "AWS customers must purchase third-party hardware appliances to obtain basic DDoS protection." },
       { id: 'B', text: "AWS Shield Standard provides automatic, baseline protection against common network and transport layer (Layer 3 and 4) DDoS attacks for all AWS customers at no extra cost." },

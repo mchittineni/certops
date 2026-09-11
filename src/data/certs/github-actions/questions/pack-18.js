@@ -7,7 +7,7 @@ export const GITHUB_ACTIONS_QUESTIONS_18 = [
     domainName: "Author and maintain actions",
     title: "JavaScript Actions with @actions/core and @actions/github: Dr Failover",
     scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to author a custom JavaScript action that retrieves workflow inputs, calls the GitHub REST API, and sets output parameters.",
-    question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives? Authoring Node.",
+    question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Use `@actions/core` to read inputs (`core.getInput`) and set outputs (`core.setOutput`), and `@actions/github` for Octokit API interactions." },
       { id: 'B', text: "Write the entire action in compiled C++." },
@@ -28,7 +28,7 @@ export const GITHUB_ACTIONS_QUESTIONS_18 = [
     domainName: "Author and maintain actions",
     title: "JavaScript Actions with @actions/core and @actions/github: High Load Scale",
     scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to author a custom JavaScript action that retrieves workflow inputs, calls the GitHub REST API, and sets output parameters.",
-    question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency? Authoring Node.",
+    question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
       { id: 'A', text: "Parse raw command line arguments manually from process.argv." },
       { id: 'B', text: "Use `@actions/core` to read inputs (`core.getInput`) and set outputs (`core.setOutput`), and `@actions/github` for Octokit API interactions." },
@@ -49,7 +49,7 @@ export const GITHUB_ACTIONS_QUESTIONS_18 = [
     domainName: "Author and maintain actions",
     title: "JavaScript Actions with @actions/core and @actions/github: Security Compliance",
     scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to author a custom JavaScript action that retrieves workflow inputs, calls the GitHub REST API, and sets output parameters.",
-    question: "Which solution implements these mandatory CI/CD security and compliance controls? Authoring Node.",
+    question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
       { id: 'A', text: "Parse raw command line arguments manually from process.argv." },
       { id: 'B', text: "Call the GitHub API using raw unauthenticated curl commands." },
@@ -70,7 +70,7 @@ export const GITHUB_ACTIONS_QUESTIONS_18 = [
     domainName: "Author and maintain actions",
     title: "JavaScript Actions with @actions/core and @actions/github: Hybrid Migration",
     scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to author a custom JavaScript action that retrieves workflow inputs, calls the GitHub REST API, and sets output parameters.",
-    question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction? Authoring Node.",
+    question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Use `@actions/core` to read inputs (`core.getInput`) and set outputs (`core.setOutput`), and `@actions/github` for Octokit API interactions." },
       { id: 'B', text: "Write the entire action in compiled C++." },
@@ -91,7 +91,7 @@ export const GITHUB_ACTIONS_QUESTIONS_18 = [
     domainName: "Author and maintain actions",
     title: "JavaScript Actions with @actions/core and @actions/github: Resilience Failure",
     scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to author a custom JavaScript action that retrieves workflow inputs, calls the GitHub REST API, and sets output parameters.",
-    question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability? Authoring Node.",
+    question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
       { id: 'A', text: "Use `@actions/core` to read inputs (`core.getInput`) and set outputs (`core.setOutput`), and `@actions/github` for Octokit API interactions." },
       { id: 'B', text: "Call the GitHub API using raw unauthenticated curl commands." },
@@ -112,7 +112,7 @@ export const GITHUB_ACTIONS_QUESTIONS_18 = [
     domainName: "Author and maintain actions",
     title: "Packaging JavaScript Actions with ncc: Dr Failover",
     scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to package a JavaScript action with all its external npm dependencies into a single distributable file so it runs without `npm install` on runners.",
-    question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives? Bundling node_modules into a single self-contained index.",
+    question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Host dependencies on an external public FTP server." },
       { id: 'B', text: "Use `@vercel/ncc` to compile the code and dependencies into a single `dist/index.js` file and commit `dist/` to the repository." },
@@ -133,7 +133,7 @@ export const GITHUB_ACTIONS_QUESTIONS_18 = [
     domainName: "Author and maintain actions",
     title: "Packaging JavaScript Actions with ncc: High Load Scale",
     scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to package a JavaScript action with all its external npm dependencies into a single distributable file so it runs without `npm install` on runners.",
-    question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency? Bundling node_modules into a single self-contained index.",
+    question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
       { id: 'A', text: "Require the consuming workflow to run `npm install` before calling the action." },
       { id: 'B', text: "Host dependencies on an external public FTP server." },
@@ -154,7 +154,7 @@ export const GITHUB_ACTIONS_QUESTIONS_18 = [
     domainName: "Author and maintain actions",
     title: "Packaging JavaScript Actions with ncc: Security Compliance",
     scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to package a JavaScript action with all its external npm dependencies into a single distributable file so it runs without `npm install` on runners.",
-    question: "Which solution implements these mandatory CI/CD security and compliance controls? Bundling node_modules into a single self-contained index.",
+    question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
       { id: 'A', text: "Host dependencies on an external public FTP server." },
       { id: 'B', text: "Require the consuming workflow to run `npm install` before calling the action." },
@@ -175,7 +175,7 @@ export const GITHUB_ACTIONS_QUESTIONS_18 = [
     domainName: "Author and maintain actions",
     title: "Packaging JavaScript Actions with ncc: Hybrid Migration",
     scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to package a JavaScript action with all its external npm dependencies into a single distributable file so it runs without `npm install` on runners.",
-    question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction? Bundling node_modules into a single self-contained index.",
+    question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Host dependencies on an external public FTP server." },
       { id: 'B', text: "Use `@vercel/ncc` to compile the code and dependencies into a single `dist/index.js` file and commit `dist/` to the repository." },
@@ -196,7 +196,7 @@ export const GITHUB_ACTIONS_QUESTIONS_18 = [
     domainName: "Author and maintain actions",
     title: "Packaging JavaScript Actions with ncc: Resilience Failure",
     scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to package a JavaScript action with all its external npm dependencies into a single distributable file so it runs without `npm install` on runners.",
-    question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability? Bundling node_modules into a single self-contained index.",
+    question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
       { id: 'A', text: "Host dependencies on an external public FTP server." },
       { id: 'B', text: "Use `@vercel/ncc` to compile the code and dependencies into a single `dist/index.js` file and commit `dist/` to the repository." },
@@ -217,7 +217,7 @@ export const GITHUB_ACTIONS_QUESTIONS_18 = [
     domainName: "Author and maintain actions",
     title: "Authoring Docker Container Actions: Dr Failover",
     scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to author a custom action that requires specific Linux operating system libraries, custom binaries, and utilities not present on default runners.",
-    question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives? Authoring Docker actions with Dockerfile and entrypoint.",
+    question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Create a `Dockerfile` and `entrypoint.sh`, specifying `runs: using: 'docker' image: 'Dockerfile'` in `action.yml`." },
       { id: 'B', text: "Install all OS libraries manually in every single workflow step." },
@@ -238,7 +238,7 @@ export const GITHUB_ACTIONS_QUESTIONS_18 = [
     domainName: "Author and maintain actions",
     title: "Authoring Docker Container Actions: High Load Scale",
     scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to author a custom action that requires specific Linux operating system libraries, custom binaries, and utilities not present on default runners.",
-    question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency? Authoring Docker actions with Dockerfile and entrypoint.",
+    question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
       { id: 'A', text: "Docker container actions are not supported in GitHub Actions." },
       { id: 'B', text: "Use a composite action and attempt to compile Linux libraries on Windows runners." },
@@ -259,7 +259,7 @@ export const GITHUB_ACTIONS_QUESTIONS_18 = [
     domainName: "Author and maintain actions",
     title: "Authoring Docker Container Actions: Security Compliance",
     scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to author a custom action that requires specific Linux operating system libraries, custom binaries, and utilities not present on default runners.",
-    question: "Which solution implements these mandatory CI/CD security and compliance controls? Authoring Docker actions with Dockerfile and entrypoint.",
+    question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
       { id: 'A', text: "Docker container actions are not supported in GitHub Actions." },
       { id: 'B', text: "Use a composite action and attempt to compile Linux libraries on Windows runners." },
@@ -280,7 +280,7 @@ export const GITHUB_ACTIONS_QUESTIONS_18 = [
     domainName: "Author and maintain actions",
     title: "Authoring Docker Container Actions: Hybrid Migration",
     scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to author a custom action that requires specific Linux operating system libraries, custom binaries, and utilities not present on default runners.",
-    question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction? Authoring Docker actions with Dockerfile and entrypoint.",
+    question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Docker container actions are not supported in GitHub Actions." },
       { id: 'B', text: "Use a composite action and attempt to compile Linux libraries on Windows runners." },
@@ -301,7 +301,7 @@ export const GITHUB_ACTIONS_QUESTIONS_18 = [
     domainName: "Author and maintain actions",
     title: "Authoring Docker Container Actions: Resilience Failure",
     scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to author a custom action that requires specific Linux operating system libraries, custom binaries, and utilities not present on default runners.",
-    question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability? Authoring Docker actions with Dockerfile and entrypoint.",
+    question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
       { id: 'A', text: "Use a composite action and attempt to compile Linux libraries on Windows runners." },
       { id: 'B', text: "Docker container actions are not supported in GitHub Actions." },

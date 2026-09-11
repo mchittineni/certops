@@ -217,7 +217,7 @@ export const AZURE_AZ400_QUESTIONS_19 = [
     domainName: "Develop a security and compliance plan",
     title: "Open Source License Compliance and Blacklisting: Dr Failover",
     scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to prevent developers from introducing open-source libraries with restrictive copyleft licenses (such as GPL or AGPL) into proprietary commercial software.",
-    question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives? Auditing and enforcing open-source license compliance (e.g.",
+    question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
       { id: 'A', text: "Rely on developers to read the legal license text of every transitive dependency." },
       { id: 'B', text: "Assume all packages published on npm and NuGet are in the public domain." },
@@ -238,7 +238,7 @@ export const AZURE_AZ400_QUESTIONS_19 = [
     domainName: "Develop a security and compliance plan",
     title: "Open Source License Compliance and Blacklisting: High Load Scale",
     scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to prevent developers from introducing open-source libraries with restrictive copyleft licenses (such as GPL or AGPL) into proprietary commercial software.",
-    question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability? Auditing and enforcing open-source license compliance (e.g.",
+    question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
       { id: 'A', text: "Rely on developers to read the legal license text of every transitive dependency." },
       { id: 'B', text: "Assume all packages published on npm and NuGet are in the public domain." },
@@ -259,7 +259,7 @@ export const AZURE_AZ400_QUESTIONS_19 = [
     domainName: "Develop a security and compliance plan",
     title: "Open Source License Compliance and Blacklisting: Security Compliance",
     scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to prevent developers from introducing open-source libraries with restrictive copyleft licenses (such as GPL or AGPL) into proprietary commercial software.",
-    question: "Which solution implements these mandatory DevOps security and compliance controls? Auditing and enforcing open-source license compliance (e.g.",
+    question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
       { id: 'A', text: "Assume all packages published on npm and NuGet are in the public domain." },
       { id: 'B', text: "Allow all open-source licenses without legal review." },
@@ -280,7 +280,7 @@ export const AZURE_AZ400_QUESTIONS_19 = [
     domainName: "Develop a security and compliance plan",
     title: "Open Source License Compliance and Blacklisting: Hybrid Migration",
     scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to prevent developers from introducing open-source libraries with restrictive copyleft licenses (such as GPL or AGPL) into proprietary commercial software.",
-    question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction? Auditing and enforcing open-source license compliance (e.g.",
+    question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Allow all open-source licenses without legal review." },
       { id: 'B', text: "Rely on developers to read the legal license text of every transitive dependency." },
@@ -301,7 +301,7 @@ export const AZURE_AZ400_QUESTIONS_19 = [
     domainName: "Develop a security and compliance plan",
     title: "Open Source License Compliance and Blacklisting: Resilience Failure",
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to prevent developers from introducing open-source libraries with restrictive copyleft licenses (such as GPL or AGPL) into proprietary commercial software.",
-    question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability? Auditing and enforcing open-source license compliance (e.g.",
+    question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Assume all packages published on npm and NuGet are in the public domain." },
       { id: 'B', text: "Allow all open-source licenses without legal review." },

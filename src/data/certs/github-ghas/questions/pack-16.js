@@ -427,7 +427,7 @@ export const GITHUB_GHAS_QUESTIONS_16 = [
     domainName: "Code Scanning & CodeQL Analysis",
     title: "Authoring Custom CodeQL Queries and QL Packs: Enterprise Rollout",
     scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to detect unauthorized usage of an internal proprietary cryptography function that has been deprecated across enterprise microservices.",
-    question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives? Writing custom .",
+    question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
       { id: 'A', text: "Author a custom CodeQL query (`.ql`) importing language security libraries, and package it into a versioned CodeQL query pack (`qlpack.yml`)." },
       { id: 'B', text: "Manually review every line of code committed across 500 repositories." },
@@ -448,7 +448,7 @@ export const GITHUB_GHAS_QUESTIONS_16 = [
     domainName: "Code Scanning & CodeQL Analysis",
     title: "Authoring Custom CodeQL Queries and QL Packs: Supply Chain Defense",
     scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to detect unauthorized usage of an internal proprietary cryptography function that has been deprecated across enterprise microservices.",
-    question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively? Writing custom .",
+    question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
       { id: 'A', text: "Manually review every line of code committed across 500 repositories." },
       { id: 'B', text: "Write a custom bash script that scans source files using fragile regex patterns." },
@@ -469,7 +469,7 @@ export const GITHUB_GHAS_QUESTIONS_16 = [
     domainName: "Code Scanning & CodeQL Analysis",
     title: "Authoring Custom CodeQL Queries and QL Packs: Secret Leak Prevention",
     scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to detect unauthorized usage of an internal proprietary cryptography function that has been deprecated across enterprise microservices.",
-    question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure? Writing custom .",
+    question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
       { id: 'A', text: "Write a custom bash script that scans source files using fragile regex patterns." },
       { id: 'B', text: "Author a custom CodeQL query (`.ql`) importing language security libraries, and package it into a versioned CodeQL query pack (`qlpack.yml`)." },
@@ -490,7 +490,7 @@ export const GITHUB_GHAS_QUESTIONS_16 = [
     domainName: "Code Scanning & CodeQL Analysis",
     title: "Authoring Custom CodeQL Queries and QL Packs: Static Analysis Codeql",
     scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to detect unauthorized usage of an internal proprietary cryptography function that has been deprecated across enterprise microservices.",
-    question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge? Writing custom .",
+    question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
       { id: 'A', text: "Author a custom CodeQL query (`.ql`) importing language security libraries, and package it into a versioned CodeQL query pack (`qlpack.yml`)." },
       { id: 'B', text: "Manually review every line of code committed across 500 repositories." },
@@ -511,7 +511,7 @@ export const GITHUB_GHAS_QUESTIONS_16 = [
     domainName: "Code Scanning & CodeQL Analysis",
     title: "Authoring Custom CodeQL Queries and QL Packs: Governance And Compliance",
     scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to detect unauthorized usage of an internal proprietary cryptography function that has been deprecated across enterprise microservices.",
-    question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance? Writing custom .",
+    question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
       { id: 'A', text: "Author a custom CodeQL query (`.ql`) importing language security libraries, and package it into a versioned CodeQL query pack (`qlpack.yml`)." },
       { id: 'B', text: "Disable static code analysis for internal proprietary functions." },

@@ -7,7 +7,7 @@ export const CNCF_OTCA_QUESTIONS_17 = [
     domainName: "Instrumentation and Signals",
     title: "Recording Exceptions and Setting Span Status: Enterprise Observability",
     scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer needs to ensure that an unhandled database exception caught in a microservice is properly reflected in the distributed trace and marks the span as failed.",
-    question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives? Using recordException and setStatus(StatusCode.",
+    question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives?",
     options: [
       { id: 'A', text: "Delete the span so it does not show up in the tracing dashboard." },
       { id: 'B', text: "Catch the exception silently and return HTTP 200." },
@@ -28,7 +28,7 @@ export const CNCF_OTCA_QUESTIONS_17 = [
     domainName: "Instrumentation and Signals",
     title: "Recording Exceptions and Setting Span Status: High Throughput Scale",
     scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer needs to ensure that an unhandled database exception caught in a microservice is properly reflected in the distributed trace and marks the span as failed.",
-    question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends? Using recordException and setStatus(StatusCode.",
+    question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends?",
     options: [
       { id: 'A', text: "Call `span.RecordError(err)` to attach exception details as a Span Event and call `span.SetStatus(codes.Error, err.Error())` to set the error flag." },
       { id: 'B', text: "Log the error to a text file and leave the span status as OK." },
@@ -49,7 +49,7 @@ export const CNCF_OTCA_QUESTIONS_17 = [
     domainName: "Instrumentation and Signals",
     title: "Recording Exceptions and Setting Span Status: Security And Governance",
     scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer needs to ensure that an unhandled database exception caught in a microservice is properly reflected in the distributed trace and marks the span as failed.",
-    question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls? Using recordException and setStatus(StatusCode.",
+    question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls?",
     options: [
       { id: 'A', text: "Log the error to a text file and leave the span status as OK." },
       { id: 'B', text: "Call `span.RecordError(err)` to attach exception details as a Span Event and call `span.SetStatus(codes.Error, err.Error())` to set the error flag." },
@@ -70,7 +70,7 @@ export const CNCF_OTCA_QUESTIONS_17 = [
     domainName: "Instrumentation and Signals",
     title: "Recording Exceptions and Setting Span Status: Microservice Migration",
     scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer needs to ensure that an unhandled database exception caught in a microservice is properly reflected in the distributed trace and marks the span as failed.",
-    question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption? Using recordException and setStatus(StatusCode.",
+    question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption?",
     options: [
       { id: 'A', text: "Catch the exception silently and return HTTP 200." },
       { id: 'B', text: "Log the error to a text file and leave the span status as OK." },
@@ -91,7 +91,7 @@ export const CNCF_OTCA_QUESTIONS_17 = [
     domainName: "Instrumentation and Signals",
     title: "Recording Exceptions and Setting Span Status: Resilience And Reliability",
     scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer needs to ensure that an unhandled database exception caught in a microservice is properly reflected in the distributed trace and marks the span as failed.",
-    question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation? Using recordException and setStatus(StatusCode.",
+    question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation?",
     options: [
       { id: 'A', text: "Log the error to a text file and leave the span status as OK." },
       { id: 'B', text: "Delete the span so it does not show up in the tracing dashboard." },

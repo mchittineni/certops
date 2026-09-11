@@ -7,7 +7,7 @@ export const K8S_CKA_QUESTIONS_14 = [
     domainName: "Troubleshooting",
     title: "CoreDNS Name Resolution Failures: Dr Failover",
     scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to troubleshoot why pods across the cluster cannot resolve external domain names or internal `.cluster.local` service names.",
-    question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements? Diagnosing CoreDNS pod crashes, upstream forwarders, and resolv.",
+    question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
       { id: 'A', text: "Instruct applications to use hardcoded IP addresses instead of DNS names." },
       { id: 'B', text: "Check that CoreDNS pods are running in `kube-system`, inspect their logs with `kubectl logs -n kube-system -l k8s-app=kube-dns`, and verify the CoreDNS ConfigMap." },
@@ -28,7 +28,7 @@ export const K8S_CKA_QUESTIONS_14 = [
     domainName: "Troubleshooting",
     title: "CoreDNS Name Resolution Failures: High Load Scale",
     scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to troubleshoot why pods across the cluster cannot resolve external domain names or internal `.cluster.local` service names.",
-    question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability? Diagnosing CoreDNS pod crashes, upstream forwarders, and resolv.",
+    question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
       { id: 'A', text: "Instruct applications to use hardcoded IP addresses instead of DNS names." },
       { id: 'B', text: "Replace the Linux kernel on every worker node with an older distribution." },
@@ -49,7 +49,7 @@ export const K8S_CKA_QUESTIONS_14 = [
     domainName: "Troubleshooting",
     title: "CoreDNS Name Resolution Failures: Security Compliance",
     scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to troubleshoot why pods across the cluster cannot resolve external domain names or internal `.cluster.local` service names.",
-    question: "Which solution implements these mandatory Kubernetes security and governance controls? Diagnosing CoreDNS pod crashes, upstream forwarders, and resolv.",
+    question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Replace the Linux kernel on every worker node with an older distribution." },
       { id: 'B', text: "Check that CoreDNS pods are running in `kube-system`, inspect their logs with `kubectl logs -n kube-system -l k8s-app=kube-dns`, and verify the CoreDNS ConfigMap." },
@@ -70,7 +70,7 @@ export const K8S_CKA_QUESTIONS_14 = [
     domainName: "Troubleshooting",
     title: "CoreDNS Name Resolution Failures: Hybrid Migration",
     scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to troubleshoot why pods across the cluster cannot resolve external domain names or internal `.cluster.local` service names.",
-    question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity? Diagnosing CoreDNS pod crashes, upstream forwarders, and resolv.",
+    question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
       { id: 'A', text: "Reboot the etcd database cluster three times consecutively." },
       { id: 'B', text: "Check that CoreDNS pods are running in `kube-system`, inspect their logs with `kubectl logs -n kube-system -l k8s-app=kube-dns`, and verify the CoreDNS ConfigMap." },
@@ -91,7 +91,7 @@ export const K8S_CKA_QUESTIONS_14 = [
     domainName: "Troubleshooting",
     title: "CoreDNS Name Resolution Failures: Resilience Failure",
     scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to troubleshoot why pods across the cluster cannot resolve external domain names or internal `.cluster.local` service names.",
-    question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability? Diagnosing CoreDNS pod crashes, upstream forwarders, and resolv.",
+    question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
       { id: 'A', text: "Replace the Linux kernel on every worker node with an older distribution." },
       { id: 'B', text: "Reboot the etcd database cluster three times consecutively." },

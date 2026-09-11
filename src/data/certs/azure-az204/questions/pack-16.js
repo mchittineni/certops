@@ -427,7 +427,7 @@ export const AZURE_AZ204_QUESTIONS_16 = [
     domainName: "Implement Azure security",
     title: "Azure App Configuration & Key Vault References: Dr Failover",
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The developer evaluates Azure App Configuration to centralize application feature flags and settings in Azure App Configuration while seamlessly referencing database passwords securely stored in Azure Key Vault.",
-    question: "Which concept or service configuration satisfies these operational resilience objectives? Centralized dynamic configuration with Key Vault references (@Microsoft.",
+    question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Hardcode configuration settings inside compiled application binary assemblies." },
       { id: 'B', text: "Copy and paste Key Vault passwords directly into App Configuration plaintext key values." },
@@ -448,7 +448,7 @@ export const AZURE_AZ204_QUESTIONS_16 = [
     domainName: "Implement Azure security",
     title: "Azure App Configuration & Key Vault References: High Load Scale",
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The developer evaluates Azure App Configuration to centralize application feature flags and settings in Azure App Configuration while seamlessly referencing database passwords securely stored in Azure Key Vault.",
-    question: "Which architectural approach should the team select to manage this demand efficiently? Centralized dynamic configuration with Key Vault references (@Microsoft.",
+    question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Copy and paste Key Vault passwords directly into App Configuration plaintext key values." },
       { id: 'B', text: "Store feature flags in an unmanaged SQL Server table requiring manual database updates." },
@@ -469,7 +469,7 @@ export const AZURE_AZ204_QUESTIONS_16 = [
     domainName: "Implement Azure security",
     title: "Azure App Configuration & Key Vault References: Security Compliance",
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The developer evaluates Azure App Configuration to centralize application feature flags and settings in Azure App Configuration while seamlessly referencing database passwords securely stored in Azure Key Vault.",
-    question: "Which solution properly implements these mandatory security and governance controls? Centralized dynamic configuration with Key Vault references (@Microsoft.",
+    question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Use Azure App Configuration with Key Vault References using the @Microsoft.KeyVault syntax." },
       { id: 'B', text: "Store feature flags in an unmanaged SQL Server table requiring manual database updates." },
@@ -490,7 +490,7 @@ export const AZURE_AZ204_QUESTIONS_16 = [
     domainName: "Implement Azure security",
     title: "Azure App Configuration & Key Vault References: Hybrid Migration",
     scenario: "An enterprise is migrating traditional on-premises data center operations to Microsoft Azure. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The developer evaluates Azure App Configuration to centralize application feature flags and settings in Azure App Configuration while seamlessly referencing database passwords securely stored in Azure Key Vault.",
-    question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? Centralized dynamic configuration with Key Vault references (@Microsoft.",
+    question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Hardcode configuration settings inside compiled application binary assemblies." },
       { id: 'B', text: "Use Azure App Configuration with Key Vault References using the @Microsoft.KeyVault syntax." },
@@ -511,7 +511,7 @@ export const AZURE_AZ204_QUESTIONS_16 = [
     domainName: "Implement Azure security",
     title: "Azure App Configuration & Key Vault References: Resilience Failure",
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The developer evaluates Azure App Configuration to centralize application feature flags and settings in Azure App Configuration while seamlessly referencing database passwords securely stored in Azure Key Vault.",
-    question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? Centralized dynamic configuration with Key Vault references (@Microsoft.",
+    question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Hardcode configuration settings inside compiled application binary assemblies." },
       { id: 'B', text: "Copy and paste Key Vault passwords directly into App Configuration plaintext key values." },

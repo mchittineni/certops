@@ -112,7 +112,7 @@ export const CNCF_CNPE_QUESTIONS_19 = [
     domainName: "Reliability, Platform Security and Evolution",
     title: "Zero-Trust Workload Identity: SPIFFE and SPIRE: Enterprise Platform",
     scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to authenticate microservices mutually across heterogeneous multi-cloud and on-premises environments without static API tokens.",
-    question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives? Cryptographic workload attestation and issuance of short-lived X.",
+    question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Deploy SPIRE to attest workload identity and issue short-lived cryptographic SPIFFE Verifiable Identity Documents (X.509 SVIDs)." },
       { id: 'B', text: "Rely on IP address whitelisting across multi-tenant, dynamically scheduled container environments." },
@@ -133,7 +133,7 @@ export const CNCF_CNPE_QUESTIONS_19 = [
     domainName: "Reliability, Platform Security and Evolution",
     title: "Zero-Trust Workload Identity: SPIFFE and SPIRE: High Scale Orchestration",
     scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to authenticate microservices mutually across heterogeneous multi-cloud and on-premises environments without static API tokens.",
-    question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift? Cryptographic workload attestation and issuance of short-lived X.",
+    question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
       { id: 'A', text: "Disable TLS and authenticate services using unencrypted HTTP user-agent header strings." },
       { id: 'B', text: "Distribute permanent, unrotated API keys embedded in environment variables across all cloud servers." },
@@ -154,7 +154,7 @@ export const CNCF_CNPE_QUESTIONS_19 = [
     domainName: "Reliability, Platform Security and Evolution",
     title: "Zero-Trust Workload Identity: SPIFFE and SPIRE: Zero Trust Governance",
     scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to authenticate microservices mutually across heterogeneous multi-cloud and on-premises environments without static API tokens.",
-    question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls? Cryptographic workload attestation and issuance of short-lived X.",
+    question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
       { id: 'A', text: "Deploy SPIRE to attest workload identity and issue short-lived cryptographic SPIFFE Verifiable Identity Documents (X.509 SVIDs)." },
       { id: 'B', text: "Disable TLS and authenticate services using unencrypted HTTP user-agent header strings." },
@@ -175,7 +175,7 @@ export const CNCF_CNPE_QUESTIONS_19 = [
     domainName: "Reliability, Platform Security and Evolution",
     title: "Zero-Trust Workload Identity: SPIFFE and SPIRE: Workload Automation",
     scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to authenticate microservices mutually across heterogeneous multi-cloud and on-premises environments without static API tokens.",
-    question: "Which platform capability or automation workflow enables application teams to self-serve safely? Cryptographic workload attestation and issuance of short-lived X.",
+    question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Deploy SPIRE to attest workload identity and issue short-lived cryptographic SPIFFE Verifiable Identity Documents (X.509 SVIDs)." },
       { id: 'B', text: "Disable TLS and authenticate services using unencrypted HTTP user-agent header strings." },
@@ -196,7 +196,7 @@ export const CNCF_CNPE_QUESTIONS_19 = [
     domainName: "Reliability, Platform Security and Evolution",
     title: "Zero-Trust Workload Identity: SPIFFE and SPIRE: Resilience And Sre",
     scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to authenticate microservices mutually across heterogeneous multi-cloud and on-premises environments without static API tokens.",
-    question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution? Cryptographic workload attestation and issuance of short-lived X.",
+    question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
       { id: 'A', text: "Rely on IP address whitelisting across multi-tenant, dynamically scheduled container environments." },
       { id: 'B', text: "Deploy SPIRE to attest workload identity and issue short-lived cryptographic SPIFFE Verifiable Identity Documents (X.509 SVIDs)." },

@@ -7,7 +7,7 @@ export const AZURE_AZ204_QUESTIONS_12 = [
     domainName: "Develop Azure compute solutions",
     title: "Durable Functions Fan-Out/Fan-In Pattern: Dr Failover",
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The developer evaluates Azure Durable Functions to process 100 customer invoice documents concurrently in parallel and aggregate their total balances into a final summary report once all tasks complete.",
-    question: "Which concept or service configuration satisfies these operational resilience objectives? Dynamic parallel activity execution with Task.",
+    question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Deploy 100 separate Azure Function Apps, each configured to process one invoice." },
       { id: 'B', text: "Implement the Fan-Out/Fan-In pattern using Task.WhenAll across activity function invocations in the orchestrator." },
@@ -28,7 +28,7 @@ export const AZURE_AZ204_QUESTIONS_12 = [
     domainName: "Develop Azure compute solutions",
     title: "Durable Functions Fan-Out/Fan-In Pattern: High Load Scale",
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The developer evaluates Azure Durable Functions to process 100 customer invoice documents concurrently in parallel and aggregate their total balances into a final summary report once all tasks complete.",
-    question: "Which architectural approach should the team select to manage this demand efficiently? Dynamic parallel activity execution with Task.",
+    question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Write the invoices to an unmanaged text file on an Azure VM local disk." },
       { id: 'B', text: "Implement the Fan-Out/Fan-In pattern using Task.WhenAll across activity function invocations in the orchestrator." },
@@ -49,7 +49,7 @@ export const AZURE_AZ204_QUESTIONS_12 = [
     domainName: "Develop Azure compute solutions",
     title: "Durable Functions Fan-Out/Fan-In Pattern: Security Compliance",
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The developer evaluates Azure Durable Functions to process 100 customer invoice documents concurrently in parallel and aggregate their total balances into a final summary report once all tasks complete.",
-    question: "Which solution properly implements these mandatory security and governance controls? Dynamic parallel activity execution with Task.",
+    question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Deploy 100 separate Azure Function Apps, each configured to process one invoice." },
       { id: 'B', text: "Write the invoices to an unmanaged text file on an Azure VM local disk." },
@@ -70,7 +70,7 @@ export const AZURE_AZ204_QUESTIONS_12 = [
     domainName: "Develop Azure compute solutions",
     title: "Durable Functions Fan-Out/Fan-In Pattern: Hybrid Migration",
     scenario: "An enterprise is migrating traditional on-premises data center operations to Microsoft Azure. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The developer evaluates Azure Durable Functions to process 100 customer invoice documents concurrently in parallel and aggregate their total balances into a final summary report once all tasks complete.",
-    question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? Dynamic parallel activity execution with Task.",
+    question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Execute the 100 document conversions sequentially in a single synchronous HTTP function." },
       { id: 'B', text: "Write the invoices to an unmanaged text file on an Azure VM local disk." },
@@ -91,7 +91,7 @@ export const AZURE_AZ204_QUESTIONS_12 = [
     domainName: "Develop Azure compute solutions",
     title: "Durable Functions Fan-Out/Fan-In Pattern: Resilience Failure",
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The developer evaluates Azure Durable Functions to process 100 customer invoice documents concurrently in parallel and aggregate their total balances into a final summary report once all tasks complete.",
-    question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? Dynamic parallel activity execution with Task.",
+    question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Implement the Fan-Out/Fan-In pattern using Task.WhenAll across activity function invocations in the orchestrator." },
       { id: 'B', text: "Execute the 100 document conversions sequentially in a single synchronous HTTP function." },

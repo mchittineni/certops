@@ -322,7 +322,7 @@ export const AWS_CLF_QUESTIONS_12 = [
     domainName: "Cloud Concepts",
     title: "AWS Regions and Availability Zones: Dr Failover",
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The organization evaluates AWS Global Infrastructure to understand the geographical relationship between an AWS Region and its constituent Availability Zones for high-availability architecture design.",
-    question: "Which concept or service configuration satisfies these operational resilience objectives? AWS Regions vs.",
+    question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "All Availability Zones share the exact same physical power grid and flood plain." },
       { id: 'B', text: "An AWS Region is a physical geographical location in the world with multiple, physically separated and isolated Availability Zones connected through low-latency private fiber." },
@@ -343,7 +343,7 @@ export const AWS_CLF_QUESTIONS_12 = [
     domainName: "Cloud Concepts",
     title: "AWS Regions and Availability Zones: High Load Scale",
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The organization evaluates AWS Global Infrastructure to understand the geographical relationship between an AWS Region and its constituent Availability Zones for high-availability architecture design.",
-    question: "Which architectural approach should the team select to manage this demand efficiently? AWS Regions vs.",
+    question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "An AWS Region is a physical geographical location in the world with multiple, physically separated and isolated Availability Zones connected through low-latency private fiber." },
       { id: 'B', text: "An Availability Zone consists of multiple AWS Regions clustered together." },
@@ -364,7 +364,7 @@ export const AWS_CLF_QUESTIONS_12 = [
     domainName: "Cloud Concepts",
     title: "AWS Regions and Availability Zones: Security Compliance",
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The organization evaluates AWS Global Infrastructure to understand the geographical relationship between an AWS Region and its constituent Availability Zones for high-availability architecture design.",
-    question: "Which solution properly implements these mandatory security and governance controls? AWS Regions vs.",
+    question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "An AWS Region consists of exactly one single physical data center building." },
       { id: 'B', text: "An Availability Zone consists of multiple AWS Regions clustered together." },
@@ -385,7 +385,7 @@ export const AWS_CLF_QUESTIONS_12 = [
     domainName: "Cloud Concepts",
     title: "AWS Regions and Availability Zones: Hybrid Migration",
     scenario: "An enterprise is migrating traditional on-premises data center operations to the AWS Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The organization evaluates AWS Global Infrastructure to understand the geographical relationship between an AWS Region and its constituent Availability Zones for high-availability architecture design.",
-    question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? AWS Regions vs.",
+    question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "An AWS Region consists of exactly one single physical data center building." },
       { id: 'B', text: "An AWS Region is a physical geographical location in the world with multiple, physically separated and isolated Availability Zones connected through low-latency private fiber." },
@@ -406,7 +406,7 @@ export const AWS_CLF_QUESTIONS_12 = [
     domainName: "Cloud Concepts",
     title: "AWS Regions and Availability Zones: Resilience Failure",
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The organization evaluates AWS Global Infrastructure to understand the geographical relationship between an AWS Region and its constituent Availability Zones for high-availability architecture design.",
-    question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? AWS Regions vs.",
+    question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "An Availability Zone consists of multiple AWS Regions clustered together." },
       { id: 'B', text: "An AWS Region is a physical geographical location in the world with multiple, physically separated and isolated Availability Zones connected through low-latency private fiber." },
@@ -427,7 +427,7 @@ export const AWS_CLF_QUESTIONS_12 = [
     domainName: "Cloud Concepts",
     title: "High Availability vs Fault Tolerance: Dr Failover",
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The organization evaluates Cloud Architecture to design an architecture that can withstand the complete failure of an entire data center facility without any service interruption or human intervention.",
-    question: "Which concept or service configuration satisfies these operational resilience objectives? High Availability vs. Fault Tolerance vs.",
+    question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Implement High Availability by scheduling a daily backup tape export." },
       { id: 'B', text: "Rely on manual reboot scripts when an instance fails." },
@@ -448,7 +448,7 @@ export const AWS_CLF_QUESTIONS_12 = [
     domainName: "Cloud Concepts",
     title: "High Availability vs Fault Tolerance: High Load Scale",
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The organization evaluates Cloud Architecture to design an architecture that can withstand the complete failure of an entire data center facility without any service interruption or human intervention.",
-    question: "Which architectural approach should the team select to manage this demand efficiently? High Availability vs. Fault Tolerance vs.",
+    question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Deploy a single high-performance EC2 instance in one Availability Zone." },
       { id: 'B', text: "Implement Fault Tolerance by deploying redundant active resources across multiple Availability Zones with automated load balancing and failover." },
@@ -469,7 +469,7 @@ export const AWS_CLF_QUESTIONS_12 = [
     domainName: "Cloud Concepts",
     title: "High Availability vs Fault Tolerance: Security Compliance",
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The organization evaluates Cloud Architecture to design an architecture that can withstand the complete failure of an entire data center facility without any service interruption or human intervention.",
-    question: "Which solution properly implements these mandatory security and governance controls? High Availability vs. Fault Tolerance vs.",
+    question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Rely on manual reboot scripts when an instance fails." },
       { id: 'B', text: "Implement Fault Tolerance by deploying redundant active resources across multiple Availability Zones with automated load balancing and failover." },
@@ -490,7 +490,7 @@ export const AWS_CLF_QUESTIONS_12 = [
     domainName: "Cloud Concepts",
     title: "High Availability vs Fault Tolerance: Hybrid Migration",
     scenario: "An enterprise is migrating traditional on-premises data center operations to the AWS Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The organization evaluates Cloud Architecture to design an architecture that can withstand the complete failure of an entire data center facility without any service interruption or human intervention.",
-    question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? High Availability vs. Fault Tolerance vs.",
+    question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Rely on manual reboot scripts when an instance fails." },
       { id: 'B', text: "Deploy a single high-performance EC2 instance in one Availability Zone." },
@@ -511,7 +511,7 @@ export const AWS_CLF_QUESTIONS_12 = [
     domainName: "Cloud Concepts",
     title: "High Availability vs Fault Tolerance: Resilience Failure",
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The organization evaluates Cloud Architecture to design an architecture that can withstand the complete failure of an entire data center facility without any service interruption or human intervention.",
-    question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? High Availability vs. Fault Tolerance vs.",
+    question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Deploy a single high-performance EC2 instance in one Availability Zone." },
       { id: 'B', text: "Implement Fault Tolerance by deploying redundant active resources across multiple Availability Zones with automated load balancing and failover." },

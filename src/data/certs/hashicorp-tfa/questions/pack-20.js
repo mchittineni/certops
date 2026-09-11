@@ -7,7 +7,7 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     domainName: "Read, generate, and modify configuration",
     title: "Conditional Expressions (Ternary Operator): Dr Failover",
     scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to provision a high-capacity multi-AZ database in production but a minimal single-AZ instance in development using a single resource definition.",
-    question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives? Configuring conditional attribute values using condition ?",
+    question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
       { id: 'A', text: "Conditional logic is not permitted in Terraform." },
       { id: 'B', text: "Maintain two completely separate and duplicate `.tf` files for dev and prod." },
@@ -28,7 +28,7 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     domainName: "Read, generate, and modify configuration",
     title: "Conditional Expressions (Ternary Operator): High Load Scale",
     scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to provision a high-capacity multi-AZ database in production but a minimal single-AZ instance in development using a single resource definition.",
-    question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks? Configuring conditional attribute values using condition ?",
+    question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
       { id: 'A', text: "Use a conditional expression in the resource spec: `multi_az = var.env == \"prod\" ? true : false`." },
       { id: 'B', text: "Maintain two completely separate and duplicate `.tf` files for dev and prod." },
@@ -49,7 +49,7 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     domainName: "Read, generate, and modify configuration",
     title: "Conditional Expressions (Ternary Operator): Security Compliance",
     scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to provision a high-capacity multi-AZ database in production but a minimal single-AZ instance in development using a single resource definition.",
-    question: "Which solution implements these mandatory infrastructure as code security and governance controls? Configuring conditional attribute values using condition ?",
+    question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
       { id: 'A', text: "Manually edit the configuration before each deployment." },
       { id: 'B', text: "Maintain two completely separate and duplicate `.tf` files for dev and prod." },
@@ -70,7 +70,7 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     domainName: "Read, generate, and modify configuration",
     title: "Conditional Expressions (Ternary Operator): Hybrid Migration",
     scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to provision a high-capacity multi-AZ database in production but a minimal single-AZ instance in development using a single resource definition.",
-    question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction? Configuring conditional attribute values using condition ?",
+    question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Use a conditional expression in the resource spec: `multi_az = var.env == \"prod\" ? true : false`." },
       { id: 'B', text: "Conditional logic is not permitted in Terraform." },
@@ -91,7 +91,7 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     domainName: "Read, generate, and modify configuration",
     title: "Conditional Expressions (Ternary Operator): Resilience Failure",
     scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to provision a high-capacity multi-AZ database in production but a minimal single-AZ instance in development using a single resource definition.",
-    question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability? Configuring conditional attribute values using condition ?",
+    question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Manually edit the configuration before each deployment." },
       { id: 'B', text: "Maintain two completely separate and duplicate `.tf` files for dev and prod." },
@@ -112,7 +112,7 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     domainName: "Read, generate, and modify configuration",
     title: "Resource count for Conditional Creation: Dr Failover",
     scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to conditionally create a cloud bastion host instance only when the `create_bastion` variable is set to true.",
-    question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives? Toggling resource creation using count = var.enabled ?",
+    question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
       { id: 'A', text: "Delete the bastion instance manually in the cloud console after every apply." },
       { id: 'B', text: "Set `count = var.create_bastion ? 1 : 0` in the bastion host resource block." },
@@ -133,7 +133,7 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     domainName: "Read, generate, and modify configuration",
     title: "Resource count for Conditional Creation: High Load Scale",
     scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to conditionally create a cloud bastion host instance only when the `create_bastion` variable is set to true.",
-    question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks? Toggling resource creation using count = var.enabled ?",
+    question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
       { id: 'A', text: "Delete the bastion instance manually in the cloud console after every apply." },
       { id: 'B', text: "Set instance_type to none." },
@@ -154,7 +154,7 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     domainName: "Read, generate, and modify configuration",
     title: "Resource count for Conditional Creation: Security Compliance",
     scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to conditionally create a cloud bastion host instance only when the `create_bastion` variable is set to true.",
-    question: "Which solution implements these mandatory infrastructure as code security and governance controls? Toggling resource creation using count = var.enabled ?",
+    question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
       { id: 'A', text: "Set `count = var.create_bastion ? 1 : 0` in the bastion host resource block." },
       { id: 'B', text: "Set instance_type to none." },
@@ -175,7 +175,7 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     domainName: "Read, generate, and modify configuration",
     title: "Resource count for Conditional Creation: Hybrid Migration",
     scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to conditionally create a cloud bastion host instance only when the `create_bastion` variable is set to true.",
-    question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction? Toggling resource creation using count = var.enabled ?",
+    question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Set instance_type to none." },
       { id: 'B', text: "Set `count = var.create_bastion ? 1 : 0` in the bastion host resource block." },
@@ -196,7 +196,7 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     domainName: "Read, generate, and modify configuration",
     title: "Resource count for Conditional Creation: Resilience Failure",
     scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to conditionally create a cloud bastion host instance only when the `create_bastion` variable is set to true.",
-    question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability? Toggling resource creation using count = var.enabled ?",
+    question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Comment out the bastion resource block when deploying to environments that do not need it." },
       { id: 'B', text: "Set instance_type to none." },
@@ -427,7 +427,7 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     domainName: "Read, generate, and modify configuration",
     title: "Variable Definition Files (.tfvars and .auto.tfvars): Dr Failover",
     scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to manage different variable values for staging and production environments without changing the underlying `.tf` codebase.",
-    question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives? Loading variable values via terraform.tfvars, *.auto.",
+    question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
       { id: 'A', text: "Use environment variables exclusively for all complex object structures." },
       { id: 'B', text: "Prompt the user to type 50 variable values interactively into the terminal prompt." },
@@ -448,7 +448,7 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     domainName: "Read, generate, and modify configuration",
     title: "Variable Definition Files (.tfvars and .auto.tfvars): High Load Scale",
     scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to manage different variable values for staging and production environments without changing the underlying `.tf` codebase.",
-    question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks? Loading variable values via terraform.tfvars, *.auto.",
+    question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
       { id: 'A', text: "Use environment variables exclusively for all complex object structures." },
       { id: 'B', text: "Hardcode environment values directly inside `variables.tf` and commit changes before each run." },
@@ -469,7 +469,7 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     domainName: "Read, generate, and modify configuration",
     title: "Variable Definition Files (.tfvars and .auto.tfvars): Security Compliance",
     scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to manage different variable values for staging and production environments without changing the underlying `.tf` codebase.",
-    question: "Which solution implements these mandatory infrastructure as code security and governance controls? Loading variable values via terraform.tfvars, *.auto.",
+    question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
       { id: 'A', text: "Hardcode environment values directly inside `variables.tf` and commit changes before each run." },
       { id: 'B', text: "Create `staging.tfvars` and `prod.tfvars` and apply using `terraform apply -var-file=prod.tfvars`." },
@@ -490,7 +490,7 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     domainName: "Read, generate, and modify configuration",
     title: "Variable Definition Files (.tfvars and .auto.tfvars): Hybrid Migration",
     scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to manage different variable values for staging and production environments without changing the underlying `.tf` codebase.",
-    question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction? Loading variable values via terraform.tfvars, *.auto.",
+    question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Use environment variables exclusively for all complex object structures." },
       { id: 'B', text: "Create `staging.tfvars` and `prod.tfvars` and apply using `terraform apply -var-file=prod.tfvars`." },
@@ -511,7 +511,7 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     domainName: "Read, generate, and modify configuration",
     title: "Variable Definition Files (.tfvars and .auto.tfvars): Resilience Failure",
     scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to manage different variable values for staging and production environments without changing the underlying `.tf` codebase.",
-    question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability? Loading variable values via terraform.tfvars, *.auto.",
+    question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Prompt the user to type 50 variable values interactively into the terminal prompt." },
       { id: 'B', text: "Hardcode environment values directly inside `variables.tf` and commit changes before each run." },

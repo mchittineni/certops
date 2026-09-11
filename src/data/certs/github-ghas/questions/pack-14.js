@@ -7,7 +7,7 @@ export const GITHUB_GHAS_QUESTIONS_14 = [
     domainName: "Dependabot & Supply Chain Security",
     title: "Dependabot Version Updates and Configuration (.github/dependabot.yml): Enterprise Rollout",
     scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to keep application packages continuously up to date through scheduled weekly maintenance pull requests.",
-    question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives? Automating routine dependency maintenance across package ecosystems using dependabot.",
+    question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
       { id: 'A', text: "Disable automated updates and maintain dependencies manually every five years." },
       { id: 'B', text: "Commit a `.github/dependabot.yml` configuration file specifying `package-ecosystem: npm`, `directory: '/'`, and `schedule: weekly`." },
@@ -28,7 +28,7 @@ export const GITHUB_GHAS_QUESTIONS_14 = [
     domainName: "Dependabot & Supply Chain Security",
     title: "Dependabot Version Updates and Configuration (.github/dependabot.yml): Supply Chain Defense",
     scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to keep application packages continuously up to date through scheduled weekly maintenance pull requests.",
-    question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively? Automating routine dependency maintenance across package ecosystems using dependabot.",
+    question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
       { id: 'A', text: "Disable automated updates and maintain dependencies manually every five years." },
       { id: 'B', text: "Write custom shell scripts that run `npm update` on production servers without pull request review." },
@@ -49,7 +49,7 @@ export const GITHUB_GHAS_QUESTIONS_14 = [
     domainName: "Dependabot & Supply Chain Security",
     title: "Dependabot Version Updates and Configuration (.github/dependabot.yml): Secret Leak Prevention",
     scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to keep application packages continuously up to date through scheduled weekly maintenance pull requests.",
-    question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure? Automating routine dependency maintenance across package ecosystems using dependabot.",
+    question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
       { id: 'A', text: "Manually check package registries for new library releases every morning." },
       { id: 'B', text: "Commit a `.github/dependabot.yml` configuration file specifying `package-ecosystem: npm`, `directory: '/'`, and `schedule: weekly`." },
@@ -70,7 +70,7 @@ export const GITHUB_GHAS_QUESTIONS_14 = [
     domainName: "Dependabot & Supply Chain Security",
     title: "Dependabot Version Updates and Configuration (.github/dependabot.yml): Static Analysis Codeql",
     scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to keep application packages continuously up to date through scheduled weekly maintenance pull requests.",
-    question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge? Automating routine dependency maintenance across package ecosystems using dependabot.",
+    question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
       { id: 'A', text: "Commit a `.github/dependabot.yml` configuration file specifying `package-ecosystem: npm`, `directory: '/'`, and `schedule: weekly`." },
       { id: 'B', text: "Disable automated updates and maintain dependencies manually every five years." },
@@ -91,7 +91,7 @@ export const GITHUB_GHAS_QUESTIONS_14 = [
     domainName: "Dependabot & Supply Chain Security",
     title: "Dependabot Version Updates and Configuration (.github/dependabot.yml): Governance And Compliance",
     scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to keep application packages continuously up to date through scheduled weekly maintenance pull requests.",
-    question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance? Automating routine dependency maintenance across package ecosystems using dependabot.",
+    question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
       { id: 'A', text: "Manually check package registries for new library releases every morning." },
       { id: 'B', text: "Commit a `.github/dependabot.yml` configuration file specifying `package-ecosystem: npm`, `directory: '/'`, and `schedule: weekly`." },
@@ -427,7 +427,7 @@ export const GITHUB_GHAS_QUESTIONS_14 = [
     domainName: "Dependabot & Supply Chain Security",
     title: "Dependabot Private Registry Authentication: Enterprise Rollout",
     scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to enable Dependabot to check for updates and security advisories on proprietary internal packages hosted in a private Artifactory registry.",
-    question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives? Authenticating Dependabot with private Artifactory, npm, and NuGet registries via dependabot.",
+    question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
       { id: 'A', text: "Configure private registry credentials in `.github/dependabot.yml` using `registries` with repository secrets for tokens." },
       { id: 'B', text: "Make the internal enterprise package registry publicly accessible to the entire internet." },
@@ -448,7 +448,7 @@ export const GITHUB_GHAS_QUESTIONS_14 = [
     domainName: "Dependabot & Supply Chain Security",
     title: "Dependabot Private Registry Authentication: Supply Chain Defense",
     scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to enable Dependabot to check for updates and security advisories on proprietary internal packages hosted in a private Artifactory registry.",
-    question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively? Authenticating Dependabot with private Artifactory, npm, and NuGet registries via dependabot.",
+    question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
       { id: 'A', text: "Make the internal enterprise package registry publicly accessible to the entire internet." },
       { id: 'B', text: "Hardcode private registry administrative passwords directly in the public repository dependabot.yml." },
@@ -469,7 +469,7 @@ export const GITHUB_GHAS_QUESTIONS_14 = [
     domainName: "Dependabot & Supply Chain Security",
     title: "Dependabot Private Registry Authentication: Secret Leak Prevention",
     scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to enable Dependabot to check for updates and security advisories on proprietary internal packages hosted in a private Artifactory registry.",
-    question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure? Authenticating Dependabot with private Artifactory, npm, and NuGet registries via dependabot.",
+    question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
       { id: 'A', text: "Configure private registry credentials in `.github/dependabot.yml` using `registries` with repository secrets for tokens." },
       { id: 'B', text: "Make the internal enterprise package registry publicly accessible to the entire internet." },
@@ -490,7 +490,7 @@ export const GITHUB_GHAS_QUESTIONS_14 = [
     domainName: "Dependabot & Supply Chain Security",
     title: "Dependabot Private Registry Authentication: Static Analysis Codeql",
     scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to enable Dependabot to check for updates and security advisories on proprietary internal packages hosted in a private Artifactory registry.",
-    question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge? Authenticating Dependabot with private Artifactory, npm, and NuGet registries via dependabot.",
+    question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
       { id: 'A', text: "Disable private package scanning and assume internal packages are completely immune to vulnerabilities." },
       { id: 'B', text: "Hardcode private registry administrative passwords directly in the public repository dependabot.yml." },
@@ -511,7 +511,7 @@ export const GITHUB_GHAS_QUESTIONS_14 = [
     domainName: "Dependabot & Supply Chain Security",
     title: "Dependabot Private Registry Authentication: Governance And Compliance",
     scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to enable Dependabot to check for updates and security advisories on proprietary internal packages hosted in a private Artifactory registry.",
-    question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance? Authenticating Dependabot with private Artifactory, npm, and NuGet registries via dependabot.",
+    question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
       { id: 'A', text: "Disable private package scanning and assume internal packages are completely immune to vulnerabilities." },
       { id: 'B', text: "Configure private registry credentials in `.github/dependabot.yml` using `registries` with repository secrets for tokens." },
