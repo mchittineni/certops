@@ -12,13 +12,13 @@ export const AZURE_AI102_QUESTIONS_2 = [
       { id: 'A', text: "Integrate Azure AI Content Safety to analyze text and images for hate speech, self-harm, sexual content, and violence using severity levels." },
       { id: 'B', text: "Rely on the content filters already configured on the Azure OpenAI deployment to screen both the prompts and the generated completions." },
       { id: 'C', text: "Use Azure AI Language sentiment analysis and PII detection to flag any content that scores strongly negative before it is published." },
-      { id: 'D', text: "Add a blocklist of prohibited terms to the Azure AI Search index so that documents matching those terms are filtered out of results." }
+      { id: 'D', text: "Add a blocklist of prohibited terms to the Azure AI Search index so that text and images matching those terms are filtered out of results." }
     ],
     correctAnswers: ['A'],
     type: "single",
     explanation: "Content Safety is a standalone moderation service, so it scores arbitrary user text and images on the four harm categories wherever they enter the application. The Azure OpenAI content filters cover exactly the prompts and completions of that deployment and see nothing a user uploads elsewhere, and they do not handle images at all. Sentiment analysis measures tone rather than harm, and a strongly negative review is not a policy violation. An index blocklist filters search results and never sees content at submission time.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["content-safety", "responsible-ai", "moderation", "High-Frequency FinTech Trading"]
+    tags: ["content-safety","responsible-ai","moderation","High-Frequency FinTech Trading"]
   },
   {
     id: "azure-ai102-27",
@@ -32,14 +32,14 @@ export const AZURE_AI102_QUESTIONS_2 = [
     options: [
       { id: 'A', text: "Create a separate single-service resource for Vision, for Language, and for Document Intelligence, each with its own endpoint, key, and billing line." },
       { id: 'B', text: "Create a multi-service Azure AI services resource to share a single endpoint, key, and billing account across Vision, Language, and Document Intelligence." },
-      { id: 'C', text: "Create an Azure AI Foundry hub with a connected project so that every capability is reached through the connections the hub defines." },
+      { id: 'C', text: "Create an Azure AI Foundry hub with a connected project so that every capability is reached through a single set of connections the hub defines." },
       { id: 'D', text: "Create one multi-service resource in each region and route every application to whichever resource has been deployed nearest to it." }
     ],
     correctAnswers: ['B'],
     type: "single",
     explanation: "A multi-service resource exposes one endpoint and one key across the vision, language, and document capabilities and bills them together, which is exactly what a single application drawing on all three needs. Single-service resources are the right choice when a capability needs its own network isolation, quota, or region, at the cost of a key and a bill per service. A Foundry hub organises projects and their connections rather than consolidating the underlying resources, and deploying per region addresses latency rather than the number of endpoints and bills.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["azure-ai", "multi-service", "management", "Healthcare Patient Records & HIPAA"]
+    tags: ["azure-ai","multi-service","management","Healthcare Patient Records & HIPAA"]
   },
   {
     id: "azure-ai102-28",
@@ -51,7 +51,7 @@ export const AZURE_AI102_QUESTIONS_2 = [
     scenario: "An international retail marketplace prepares for 100x traffic surges with zero downtime and instant failover. The AI team is authenticating an App Service to Azure AI without any credential stored in the application. The work is scoped to the staging environment.",
     question: "Which Azure AI approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Register an Entra ID application, keep its client secret in Azure Key Vault, and have the app read the secret to request a token." },
+      { id: 'A', text: "Register an Entra ID application for the workload identity, keep its client secret in Azure Key Vault, and read that secret to request a token." },
       { id: 'B', text: "Store the Azure AI account key in Azure Key Vault and grant the App Service permission to read that key when it starts." },
       { id: 'C', text: "Enable a System-Assigned or User-Assigned Managed Identity on the Azure App Service and assign the 'Cognitive Services User' role." },
       { id: 'D', text: "Restrict the Azure AI resource firewall to the App Service's outbound IP addresses so that the account key cannot be used elsewhere." }
@@ -60,7 +60,7 @@ export const AZURE_AI102_QUESTIONS_2 = [
     type: "single",
     explanation: "A managed identity is issued and rotated by the platform, so the application requests an Entra ID token at runtime and holds no credential at all. A registered application with a client secret still has a secret, and one that must be rotated before it expires. Putting the account key in Key Vault protects it well but the key remains a shared credential that anyone reading the vault can replay. Restricting the firewall to known egress addresses narrows where a leaked key can be used without removing the key from the design.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["security", "managed-identity", "entra-id", "Global E-Commerce Black Friday Scale"]
+    tags: ["security","managed-identity","entra-id","Global E-Commerce Black Friday Scale"]
   },
   {
     id: "azure-ai102-29",
@@ -72,7 +72,7 @@ export const AZURE_AI102_QUESTIONS_2 = [
     scenario: "A self-driving automotive fleet streams terabytes of sensor telemetry requiring real-time distributed ingestion and anomaly detection. The AI team is ensuring inference calls never traverse a public endpoint under a strict network mandate. The work is scoped to the staging environment.",
     question: "Which Azure AI approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Configure a virtual network service endpoint on the subnet and add a matching network rule to the Azure AI resource firewall." },
+      { id: 'A', text: "Configure a virtual network service endpoint on the subnet and add a matching network rule granting that subnet access on the Azure AI resource firewall." },
       { id: 'B', text: "Configure the Azure AI resource firewall to accept traffic only from the public IP address of the virtual network's NAT gateway." },
       { id: 'C', text: "Route the subnet's outbound traffic through Azure Firewall with an application rule that permits the Azure AI service FQDN." },
       { id: 'D', text: "Configure an Azure Private Endpoint in the virtual network and disable public network access on the Azure AI services resource." }
@@ -81,7 +81,7 @@ export const AZURE_AI102_QUESTIONS_2 = [
     type: "single",
     explanation: "A private endpoint places the service on a private IP inside the virtual network, and disabling public network access removes the public path entirely, so there is no internet-facing endpoint left to reach. A service endpoint keeps traffic on the Azure backbone but the resource retains a public endpoint that any permitted network can still call. Allow-listing the NAT gateway address and filtering egress through Azure Firewall both govern who may reach that public endpoint rather than eliminating it.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["networking", "private-endpoint", "vnet", "Autonomous Vehicle Telemetry"]
+    tags: ["networking","private-endpoint","vnet","Autonomous Vehicle Telemetry"]
   },
   {
     id: "azure-ai102-30",
@@ -96,13 +96,13 @@ export const AZURE_AI102_QUESTIONS_2 = [
       { id: 'A', text: "Integrate Azure AI Content Safety to analyze text and images for hate speech, self-harm, sexual content, and violence using severity levels." },
       { id: 'B', text: "Rely on the content filters already configured on the Azure OpenAI deployment to screen both the prompts and the generated completions." },
       { id: 'C', text: "Use Azure AI Language sentiment analysis and PII detection to flag any content that scores strongly negative before it is published." },
-      { id: 'D', text: "Add a blocklist of prohibited terms to the Azure AI Search index so that documents matching those terms are filtered out of results." }
+      { id: 'D', text: "Add a blocklist of prohibited terms to the Azure AI Search index so that text and images matching those terms are filtered out of results." }
     ],
     correctAnswers: ['A'],
     type: "single",
     explanation: "Content Safety is a standalone moderation service, so it scores arbitrary user text and images on the four harm categories wherever they enter the application. The Azure OpenAI content filters cover exactly the prompts and completions of that deployment and see nothing a user uploads elsewhere, and they do not handle images at all. Sentiment analysis measures tone rather than harm, and a strongly negative review is not a policy violation. An index blocklist filters search results and never sees content at submission time.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["content-safety", "responsible-ai", "moderation", "Multi-Tenant B2B SaaS Platform"]
+    tags: ["content-safety","responsible-ai","moderation","Multi-Tenant B2B SaaS Platform"]
   },
   {
     id: "azure-ai102-31",
@@ -116,14 +116,14 @@ export const AZURE_AI102_QUESTIONS_2 = [
     options: [
       { id: 'A', text: "Create a separate single-service resource for Vision, for Language, and for Document Intelligence, each with its own endpoint, key, and billing line." },
       { id: 'B', text: "Create a multi-service Azure AI services resource to share a single endpoint, key, and billing account across Vision, Language, and Document Intelligence." },
-      { id: 'C', text: "Create an Azure AI Foundry hub with a connected project so that every capability is reached through the connections the hub defines." },
+      { id: 'C', text: "Create an Azure AI Foundry hub with a connected project so that every capability is reached through a single set of connections the hub defines." },
       { id: 'D', text: "Create one multi-service resource in each region and route every application to whichever resource has been deployed nearest to it." }
     ],
     correctAnswers: ['B'],
     type: "single",
     explanation: "A multi-service resource exposes one endpoint and one key across the vision, language, and document capabilities and bills them together, which is exactly what a single application drawing on all three needs. Single-service resources are the right choice when a capability needs its own network isolation, quota, or region, at the cost of a key and a bill per service. A Foundry hub organises projects and their connections rather than consolidating the underlying resources, and deploying per region addresses latency rather than the number of endpoints and bills.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["azure-ai", "multi-service", "management", "Media Streaming & Global CDN"]
+    tags: ["azure-ai","multi-service","management","Media Streaming & Global CDN"]
   },
   {
     id: "azure-ai102-32",
@@ -135,7 +135,7 @@ export const AZURE_AI102_QUESTIONS_2 = [
     scenario: "An aerospace telemetry platform processes orbital downlinks with fault-tolerant queuing and asynchronous edge processing. The AI team is authenticating an App Service to Azure AI without any credential stored in the application. The work is scoped to the staging environment.",
     question: "Which Azure AI approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Register an Entra ID application, keep its client secret in Azure Key Vault, and have the app read the secret to request a token." },
+      { id: 'A', text: "Register an Entra ID application for the workload identity, keep its client secret in Azure Key Vault, and read that secret to request a token." },
       { id: 'B', text: "Store the Azure AI account key in Azure Key Vault and grant the App Service permission to read that key when it starts." },
       { id: 'C', text: "Enable a System-Assigned or User-Assigned Managed Identity on the Azure App Service and assign the 'Cognitive Services User' role." },
       { id: 'D', text: "Restrict the Azure AI resource firewall to the App Service's outbound IP addresses so that the account key cannot be used elsewhere." }
@@ -144,7 +144,7 @@ export const AZURE_AI102_QUESTIONS_2 = [
     type: "single",
     explanation: "A managed identity is issued and rotated by the platform, so the application requests an Entra ID token at runtime and holds no credential at all. A registered application with a client secret still has a secret, and one that must be rotated before it expires. Putting the account key in Key Vault protects it well but the key remains a shared credential that anyone reading the vault can replay. Restricting the firewall to known egress addresses narrows where a leaked key can be used without removing the key from the design.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["security", "managed-identity", "entra-id", "Aerospace Satellite Ground Systems"]
+    tags: ["security","managed-identity","entra-id","Aerospace Satellite Ground Systems"]
   },
   {
     id: "azure-ai102-33",
@@ -156,7 +156,7 @@ export const AZURE_AI102_QUESTIONS_2 = [
     scenario: "A national telecom operator manages high-density network slices with automated scaling and sub-millisecond service mesh routing. The AI team is ensuring inference calls never traverse a public endpoint under a strict network mandate. The work is scoped to the staging environment.",
     question: "Which Azure AI approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Configure a virtual network service endpoint on the subnet and add a matching network rule to the Azure AI resource firewall." },
+      { id: 'A', text: "Configure a virtual network service endpoint on the subnet and add a matching network rule granting that subnet access on the Azure AI resource firewall." },
       { id: 'B', text: "Configure the Azure AI resource firewall to accept traffic only from the public IP address of the virtual network's NAT gateway." },
       { id: 'C', text: "Route the subnet's outbound traffic through Azure Firewall with an application rule that permits the Azure AI service FQDN." },
       { id: 'D', text: "Configure an Azure Private Endpoint in the virtual network and disable public network access on the Azure AI services resource." }
@@ -165,7 +165,7 @@ export const AZURE_AI102_QUESTIONS_2 = [
     type: "single",
     explanation: "A private endpoint places the service on a private IP inside the virtual network, and disabling public network access removes the public path entirely, so there is no internet-facing endpoint left to reach. A service endpoint keeps traffic on the Azure backbone but the resource retains a public endpoint that any permitted network can still call. Allow-listing the NAT gateway address and filtering egress through Azure Firewall both govern who may reach that public endpoint rather than eliminating it.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["networking", "private-endpoint", "vnet", "Telecommunications 5G Core Network"]
+    tags: ["networking","private-endpoint","vnet","Telecommunications 5G Core Network"]
   },
   {
     id: "azure-ai102-34",
@@ -180,13 +180,13 @@ export const AZURE_AI102_QUESTIONS_2 = [
       { id: 'A', text: "Integrate Azure AI Content Safety to analyze text and images for hate speech, self-harm, sexual content, and violence using severity levels." },
       { id: 'B', text: "Rely on the content filters already configured on the Azure OpenAI deployment to screen both the prompts and the generated completions." },
       { id: 'C', text: "Use Azure AI Language sentiment analysis and PII detection to flag any content that scores strongly negative before it is published." },
-      { id: 'D', text: "Add a blocklist of prohibited terms to the Azure AI Search index so that documents matching those terms are filtered out of results." }
+      { id: 'D', text: "Add a blocklist of prohibited terms to the Azure AI Search index so that text and images matching those terms are filtered out of results." }
     ],
     correctAnswers: ['A'],
     type: "single",
     explanation: "Content Safety is a standalone moderation service, so it scores arbitrary user text and images on the four harm categories wherever they enter the application. The Azure OpenAI content filters cover exactly the prompts and completions of that deployment and see nothing a user uploads elsewhere, and they do not handle images at all. Sentiment analysis measures tone rather than harm, and a strongly negative review is not a policy violation. An index blocklist filters search results and never sees content at submission time.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["content-safety", "responsible-ai", "moderation", "Renewable Energy Smart Grid IoT"]
+    tags: ["content-safety","responsible-ai","moderation","Renewable Energy Smart Grid IoT"]
   },
   {
     id: "azure-ai102-35",
@@ -200,14 +200,14 @@ export const AZURE_AI102_QUESTIONS_2 = [
     options: [
       { id: 'A', text: "Create a separate single-service resource for Vision, for Language, and for Document Intelligence, each with its own endpoint, key, and billing line." },
       { id: 'B', text: "Create a multi-service Azure AI services resource to share a single endpoint, key, and billing account across Vision, Language, and Document Intelligence." },
-      { id: 'C', text: "Create an Azure AI Foundry hub with a connected project so that every capability is reached through the connections the hub defines." },
+      { id: 'C', text: "Create an Azure AI Foundry hub with a connected project so that every capability is reached through a single set of connections the hub defines." },
       { id: 'D', text: "Create one multi-service resource in each region and route every application to whichever resource has been deployed nearest to it." }
     ],
     correctAnswers: ['B'],
     type: "single",
     explanation: "A multi-service resource exposes one endpoint and one key across the vision, language, and document capabilities and bills them together, which is exactly what a single application drawing on all three needs. Single-service resources are the right choice when a capability needs its own network isolation, quota, or region, at the cost of a key and a bill per service. A Foundry hub organises projects and their connections rather than consolidating the underlying resources, and deploying per region addresses latency rather than the number of endpoints and bills.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["azure-ai", "multi-service", "management", "Supply Chain Cold-Chain Logistics"]
+    tags: ["azure-ai","multi-service","management","Supply Chain Cold-Chain Logistics"]
   },
   {
     id: "azure-ai102-36",
@@ -219,7 +219,7 @@ export const AZURE_AI102_QUESTIONS_2 = [
     scenario: "A central banking consortium enforces ACID consistency, immutable transaction audit trails, and automated reconciliation. The AI team is authenticating an App Service to Azure AI without any credential stored in the application. The work is scoped to the staging environment.",
     question: "Which Azure AI approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Register an Entra ID application, keep its client secret in Azure Key Vault, and have the app read the secret to request a token." },
+      { id: 'A', text: "Register an Entra ID application for the workload identity, keep its client secret in Azure Key Vault, and read that secret to request a token." },
       { id: 'B', text: "Store the Azure AI account key in Azure Key Vault and grant the App Service permission to read that key when it starts." },
       { id: 'C', text: "Enable a System-Assigned or User-Assigned Managed Identity on the Azure App Service and assign the 'Cognitive Services User' role." },
       { id: 'D', text: "Restrict the Azure AI resource firewall to the App Service's outbound IP addresses so that the account key cannot be used elsewhere." }
@@ -228,7 +228,7 @@ export const AZURE_AI102_QUESTIONS_2 = [
     type: "single",
     explanation: "A managed identity is issued and rotated by the platform, so the application requests an Entra ID token at runtime and holds no credential at all. A registered application with a client secret still has a secret, and one that must be rotated before it expires. Putting the account key in Key Vault protects it well but the key remains a shared credential that anyone reading the vault can replay. Restricting the firewall to known egress addresses narrows where a leaked key can be used without removing the key from the design.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["security", "managed-identity", "entra-id", "Banking Core Ledger & Payments"]
+    tags: ["security","managed-identity","entra-id","Banking Core Ledger & Payments"]
   },
   {
     id: "azure-ai102-37",
@@ -240,7 +240,7 @@ export const AZURE_AI102_QUESTIONS_2 = [
     scenario: "A genomics laboratory processes petabyte-scale FASTQ files with distributed batch computing and high-throughput POSIX storage. The AI team is ensuring inference calls never traverse a public endpoint under a strict network mandate. The work is scoped to the staging environment.",
     question: "Which Azure AI approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Configure a virtual network service endpoint on the subnet and add a matching network rule to the Azure AI resource firewall." },
+      { id: 'A', text: "Configure a virtual network service endpoint on the subnet and add a matching network rule granting that subnet access on the Azure AI resource firewall." },
       { id: 'B', text: "Configure the Azure AI resource firewall to accept traffic only from the public IP address of the virtual network's NAT gateway." },
       { id: 'C', text: "Route the subnet's outbound traffic through Azure Firewall with an application rule that permits the Azure AI service FQDN." },
       { id: 'D', text: "Configure an Azure Private Endpoint in the virtual network and disable public network access on the Azure AI services resource." }
@@ -249,7 +249,7 @@ export const AZURE_AI102_QUESTIONS_2 = [
     type: "single",
     explanation: "A private endpoint places the service on a private IP inside the virtual network, and disabling public network access removes the public path entirely, so there is no internet-facing endpoint left to reach. A service endpoint keeps traffic on the Azure backbone but the resource retains a public endpoint that any permitted network can still call. Allow-listing the NAT gateway address and filtering egress through Azure Firewall both govern who may reach that public endpoint rather than eliminating it.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["networking", "private-endpoint", "vnet", "Genomic Sequencing & Biotech Pipeline"]
+    tags: ["networking","private-endpoint","vnet","Genomic Sequencing & Biotech Pipeline"]
   },
   {
     id: "azure-ai102-38",
@@ -264,13 +264,13 @@ export const AZURE_AI102_QUESTIONS_2 = [
       { id: 'A', text: "Integrate Azure AI Content Safety to analyze text and images for hate speech, self-harm, sexual content, and violence using severity levels." },
       { id: 'B', text: "Rely on the content filters already configured on the Azure OpenAI deployment to screen both the prompts and the generated completions." },
       { id: 'C', text: "Use Azure AI Language sentiment analysis and PII detection to flag any content that scores strongly negative before it is published." },
-      { id: 'D', text: "Add a blocklist of prohibited terms to the Azure AI Search index so that documents matching those terms are filtered out of results." }
+      { id: 'D', text: "Add a blocklist of prohibited terms to the Azure AI Search index so that text and images matching those terms are filtered out of results." }
     ],
     correctAnswers: ['A'],
     type: "single",
     explanation: "Content Safety is a standalone moderation service, so it scores arbitrary user text and images on the four harm categories wherever they enter the application. The Azure OpenAI content filters cover exactly the prompts and completions of that deployment and see nothing a user uploads elsewhere, and they do not handle images at all. Sentiment analysis measures tone rather than harm, and a strongly negative review is not a policy violation. An index blocklist filters search results and never sees content at submission time.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["content-safety", "responsible-ai", "moderation", "Defense-Grade Zero-Trust Network"]
+    tags: ["content-safety","responsible-ai","moderation","Defense-Grade Zero-Trust Network"]
   },
   {
     id: "azure-ai102-39",
@@ -284,14 +284,14 @@ export const AZURE_AI102_QUESTIONS_2 = [
     options: [
       { id: 'A', text: "Create a separate single-service resource for Vision, for Language, and for Document Intelligence, each with its own endpoint, key, and billing line." },
       { id: 'B', text: "Create a multi-service Azure AI services resource to share a single endpoint, key, and billing account across Vision, Language, and Document Intelligence." },
-      { id: 'C', text: "Create an Azure AI Foundry hub with a connected project so that every capability is reached through the connections the hub defines." },
+      { id: 'C', text: "Create an Azure AI Foundry hub with a connected project so that every capability is reached through a single set of connections the hub defines." },
       { id: 'D', text: "Create one multi-service resource in each region and route every application to whichever resource has been deployed nearest to it." }
     ],
     correctAnswers: ['B'],
     type: "single",
     explanation: "A multi-service resource exposes one endpoint and one key across the vision, language, and document capabilities and bills them together, which is exactly what a single application drawing on all three needs. Single-service resources are the right choice when a capability needs its own network isolation, quota, or region, at the cost of a key and a bill per service. A Foundry hub organises projects and their connections rather than consolidating the underlying resources, and deploying per region addresses latency rather than the number of endpoints and bills.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["azure-ai", "multi-service", "management", "Online Multiplayer Gaming Engine"]
+    tags: ["azure-ai","multi-service","management","Online Multiplayer Gaming Engine"]
   },
   {
     id: "azure-ai102-40",
@@ -303,7 +303,7 @@ export const AZURE_AI102_QUESTIONS_2 = [
     scenario: "An actuarial underwriting platform executes Monte Carlo simulations across millions of policy holder records with parallel workers. The AI team is authenticating an App Service to Azure AI without any credential stored in the application. The work is scoped to the staging environment.",
     question: "Which Azure AI approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Register an Entra ID application, keep its client secret in Azure Key Vault, and have the app read the secret to request a token." },
+      { id: 'A', text: "Register an Entra ID application for the workload identity, keep its client secret in Azure Key Vault, and read that secret to request a token." },
       { id: 'B', text: "Store the Azure AI account key in Azure Key Vault and grant the App Service permission to read that key when it starts." },
       { id: 'C', text: "Enable a System-Assigned or User-Assigned Managed Identity on the Azure App Service and assign the 'Cognitive Services User' role." },
       { id: 'D', text: "Restrict the Azure AI resource firewall to the App Service's outbound IP addresses so that the account key cannot be used elsewhere." }
@@ -312,7 +312,7 @@ export const AZURE_AI102_QUESTIONS_2 = [
     type: "single",
     explanation: "A managed identity is issued and rotated by the platform, so the application requests an Entra ID token at runtime and holds no credential at all. A registered application with a client secret still has a secret, and one that must be rotated before it expires. Putting the account key in Key Vault protects it well but the key remains a shared credential that anyone reading the vault can replay. Restricting the firewall to known egress addresses narrows where a leaked key can be used without removing the key from the design.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["security", "managed-identity", "entra-id", "Insurance Risk & Actuarial Modeling"]
+    tags: ["security","managed-identity","entra-id","Insurance Risk & Actuarial Modeling"]
   },
   {
     id: "azure-ai102-41",
@@ -324,7 +324,7 @@ export const AZURE_AI102_QUESTIONS_2 = [
     scenario: "A global pharmaceutical research group manages double-blind clinical trial records with strict regulatory reporting and audit trails. The AI team is ensuring inference calls never traverse a public endpoint under a strict network mandate. The work is scoped to the staging environment.",
     question: "Which Azure AI approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Configure a virtual network service endpoint on the subnet and add a matching network rule to the Azure AI resource firewall." },
+      { id: 'A', text: "Configure a virtual network service endpoint on the subnet and add a matching network rule granting that subnet access on the Azure AI resource firewall." },
       { id: 'B', text: "Configure the Azure AI resource firewall to accept traffic only from the public IP address of the virtual network's NAT gateway." },
       { id: 'C', text: "Route the subnet's outbound traffic through Azure Firewall with an application rule that permits the Azure AI service FQDN." },
       { id: 'D', text: "Configure an Azure Private Endpoint in the virtual network and disable public network access on the Azure AI services resource." }
@@ -333,7 +333,7 @@ export const AZURE_AI102_QUESTIONS_2 = [
     type: "single",
     explanation: "A private endpoint places the service on a private IP inside the virtual network, and disabling public network access removes the public path entirely, so there is no internet-facing endpoint left to reach. A service endpoint keeps traffic on the Azure backbone but the resource retains a public endpoint that any permitted network can still call. Allow-listing the NAT gateway address and filtering egress through Azure Firewall both govern who may reach that public endpoint rather than eliminating it.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["networking", "private-endpoint", "vnet", "Pharmaceutical Clinical Trial Platform"]
+    tags: ["networking","private-endpoint","vnet","Pharmaceutical Clinical Trial Platform"]
   },
   {
     id: "azure-ai102-42",
@@ -348,13 +348,13 @@ export const AZURE_AI102_QUESTIONS_2 = [
       { id: 'A', text: "Integrate Azure AI Content Safety to analyze text and images for hate speech, self-harm, sexual content, and violence using severity levels." },
       { id: 'B', text: "Rely on the content filters already configured on the Azure OpenAI deployment to screen both the prompts and the generated completions." },
       { id: 'C', text: "Use Azure AI Language sentiment analysis and PII detection to flag any content that scores strongly negative before it is published." },
-      { id: 'D', text: "Add a blocklist of prohibited terms to the Azure AI Search index so that documents matching those terms are filtered out of results." }
+      { id: 'D', text: "Add a blocklist of prohibited terms to the Azure AI Search index so that text and images matching those terms are filtered out of results." }
     ],
     correctAnswers: ['A'],
     type: "single",
     explanation: "Content Safety is a standalone moderation service, so it scores arbitrary user text and images on the four harm categories wherever they enter the application. The Azure OpenAI content filters cover exactly the prompts and completions of that deployment and see nothing a user uploads elsewhere, and they do not handle images at all. Sentiment analysis measures tone rather than harm, and a strongly negative review is not a policy violation. An index blocklist filters search results and never sees content at submission time.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["content-safety", "responsible-ai", "moderation", "Smart City Traffic & Mobility Sensor Hub"]
+    tags: ["content-safety","responsible-ai","moderation","Smart City Traffic & Mobility Sensor Hub"]
   },
   {
     id: "azure-ai102-43",
@@ -368,14 +368,14 @@ export const AZURE_AI102_QUESTIONS_2 = [
     options: [
       { id: 'A', text: "Create a separate single-service resource for Vision, for Language, and for Document Intelligence, each with its own endpoint, key, and billing line." },
       { id: 'B', text: "Create a multi-service Azure AI services resource to share a single endpoint, key, and billing account across Vision, Language, and Document Intelligence." },
-      { id: 'C', text: "Create an Azure AI Foundry hub with a connected project so that every capability is reached through the connections the hub defines." },
+      { id: 'C', text: "Create an Azure AI Foundry hub with a connected project so that every capability is reached through a single set of connections the hub defines." },
       { id: 'D', text: "Create one multi-service resource in each region and route every application to whichever resource has been deployed nearest to it." }
     ],
     correctAnswers: ['B'],
     type: "single",
     explanation: "A multi-service resource exposes one endpoint and one key across the vision, language, and document capabilities and bills them together, which is exactly what a single application drawing on all three needs. Single-service resources are the right choice when a capability needs its own network isolation, quota, or region, at the cost of a key and a bill per service. A Foundry hub organises projects and their connections rather than consolidating the underlying resources, and deploying per region addresses latency rather than the number of endpoints and bills.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["azure-ai", "multi-service", "management", "Digital Identity & Biometric Verification"]
+    tags: ["azure-ai","multi-service","management","Digital Identity & Biometric Verification"]
   },
   {
     id: "azure-ai102-44",
@@ -387,7 +387,7 @@ export const AZURE_AI102_QUESTIONS_2 = [
     scenario: "A global law firm conducts regulatory discovery across millions of scanned legal filings with vector-enhanced semantic retrieval. The AI team is authenticating an App Service to Azure AI without any credential stored in the application. The work is scoped to the staging environment.",
     question: "Which Azure AI approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Register an Entra ID application, keep its client secret in Azure Key Vault, and have the app read the secret to request a token." },
+      { id: 'A', text: "Register an Entra ID application for the workload identity, keep its client secret in Azure Key Vault, and read that secret to request a token." },
       { id: 'B', text: "Store the Azure AI account key in Azure Key Vault and grant the App Service permission to read that key when it starts." },
       { id: 'C', text: "Enable a System-Assigned or User-Assigned Managed Identity on the Azure App Service and assign the 'Cognitive Services User' role." },
       { id: 'D', text: "Restrict the Azure AI resource firewall to the App Service's outbound IP addresses so that the account key cannot be used elsewhere." }
@@ -396,7 +396,7 @@ export const AZURE_AI102_QUESTIONS_2 = [
     type: "single",
     explanation: "A managed identity is issued and rotated by the platform, so the application requests an Entra ID token at runtime and holds no credential at all. A registered application with a client secret still has a secret, and one that must be rotated before it expires. Putting the account key in Key Vault protects it well but the key remains a shared credential that anyone reading the vault can replay. Restricting the firewall to known egress addresses narrows where a leaked key can be used without removing the key from the design.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["security", "managed-identity", "entra-id", "Legal Discovery & Semantic Document Search"]
+    tags: ["security","managed-identity","entra-id","Legal Discovery & Semantic Document Search"]
   },
   {
     id: "azure-ai102-45",
@@ -408,7 +408,7 @@ export const AZURE_AI102_QUESTIONS_2 = [
     scenario: "An advertising exchange processes 500,000 bids per second with a strict 20-millisecond SLA and distributed caching. The AI team is ensuring inference calls never traverse a public endpoint under a strict network mandate. The work is scoped to the staging environment.",
     question: "Which Azure AI approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Configure a virtual network service endpoint on the subnet and add a matching network rule to the Azure AI resource firewall." },
+      { id: 'A', text: "Configure a virtual network service endpoint on the subnet and add a matching network rule granting that subnet access on the Azure AI resource firewall." },
       { id: 'B', text: "Configure the Azure AI resource firewall to accept traffic only from the public IP address of the virtual network's NAT gateway." },
       { id: 'C', text: "Route the subnet's outbound traffic through Azure Firewall with an application rule that permits the Azure AI service FQDN." },
       { id: 'D', text: "Configure an Azure Private Endpoint in the virtual network and disable public network access on the Azure AI services resource." }
@@ -417,7 +417,7 @@ export const AZURE_AI102_QUESTIONS_2 = [
     type: "single",
     explanation: "A private endpoint places the service on a private IP inside the virtual network, and disabling public network access removes the public path entirely, so there is no internet-facing endpoint left to reach. A service endpoint keeps traffic on the Azure backbone but the resource retains a public endpoint that any permitted network can still call. Allow-listing the NAT gateway address and filtering egress through Azure Firewall both govern who may reach that public endpoint rather than eliminating it.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["networking", "private-endpoint", "vnet", "AdTech Real-Time Bidding Exchange"]
+    tags: ["networking","private-endpoint","vnet","AdTech Real-Time Bidding Exchange"]
   },
   {
     id: "azure-ai102-46",
@@ -432,13 +432,13 @@ export const AZURE_AI102_QUESTIONS_2 = [
       { id: 'A', text: "Integrate Azure AI Content Safety to analyze text and images for hate speech, self-harm, sexual content, and violence using severity levels." },
       { id: 'B', text: "Rely on the content filters already configured on the Azure OpenAI deployment to screen both the prompts and the generated completions." },
       { id: 'C', text: "Use Azure AI Language sentiment analysis and PII detection to flag any content that scores strongly negative before it is published." },
-      { id: 'D', text: "Add a blocklist of prohibited terms to the Azure AI Search index so that documents matching those terms are filtered out of results." }
+      { id: 'D', text: "Add a blocklist of prohibited terms to the Azure AI Search index so that text and images matching those terms are filtered out of results." }
     ],
     correctAnswers: ['A'],
     type: "single",
     explanation: "Content Safety is a standalone moderation service, so it scores arbitrary user text and images on the four harm categories wherever they enter the application. The Azure OpenAI content filters cover exactly the prompts and completions of that deployment and see nothing a user uploads elsewhere, and they do not handle images at all. Sentiment analysis measures tone rather than harm, and a strongly negative review is not a policy violation. An index blocklist filters search results and never sees content at submission time.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["content-safety", "responsible-ai", "moderation", "Precision Agriculture & Drone Scouting"]
+    tags: ["content-safety","responsible-ai","moderation","Precision Agriculture & Drone Scouting"]
   },
   {
     id: "azure-ai102-47",
@@ -452,14 +452,14 @@ export const AZURE_AI102_QUESTIONS_2 = [
     options: [
       { id: 'A', text: "Create a separate single-service resource for Vision, for Language, and for Document Intelligence, each with its own endpoint, key, and billing line." },
       { id: 'B', text: "Create a multi-service Azure AI services resource to share a single endpoint, key, and billing account across Vision, Language, and Document Intelligence." },
-      { id: 'C', text: "Create an Azure AI Foundry hub with a connected project so that every capability is reached through the connections the hub defines." },
+      { id: 'C', text: "Create an Azure AI Foundry hub with a connected project so that every capability is reached through a single set of connections the hub defines." },
       { id: 'D', text: "Create one multi-service resource in each region and route every application to whichever resource has been deployed nearest to it." }
     ],
     correctAnswers: ['B'],
     type: "single",
     explanation: "A multi-service resource exposes one endpoint and one key across the vision, language, and document capabilities and bills them together, which is exactly what a single application drawing on all three needs. Single-service resources are the right choice when a capability needs its own network isolation, quota, or region, at the cost of a key and a bill per service. A Foundry hub organises projects and their connections rather than consolidating the underlying resources, and deploying per region addresses latency rather than the number of endpoints and bills.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["azure-ai", "multi-service", "management", "Industrial Robotics Predictive Maintenance"]
+    tags: ["azure-ai","multi-service","management","Industrial Robotics Predictive Maintenance"]
   },
   {
     id: "azure-ai102-48",
@@ -471,7 +471,7 @@ export const AZURE_AI102_QUESTIONS_2 = [
     scenario: "An online university platform enforces anti-plagiarism and biometric proctoring for high-stakes certification exams. The AI team is authenticating an App Service to Azure AI without any credential stored in the application. The work is scoped to the staging environment.",
     question: "Which Azure AI approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Register an Entra ID application, keep its client secret in Azure Key Vault, and have the app read the secret to request a token." },
+      { id: 'A', text: "Register an Entra ID application for the workload identity, keep its client secret in Azure Key Vault, and read that secret to request a token." },
       { id: 'B', text: "Store the Azure AI account key in Azure Key Vault and grant the App Service permission to read that key when it starts." },
       { id: 'C', text: "Enable a System-Assigned or User-Assigned Managed Identity on the Azure App Service and assign the 'Cognitive Services User' role." },
       { id: 'D', text: "Restrict the Azure AI resource firewall to the App Service's outbound IP addresses so that the account key cannot be used elsewhere." }
@@ -480,7 +480,7 @@ export const AZURE_AI102_QUESTIONS_2 = [
     type: "single",
     explanation: "A managed identity is issued and rotated by the platform, so the application requests an Entra ID token at runtime and holds no credential at all. A registered application with a client secret still has a secret, and one that must be rotated before it expires. Putting the account key in Key Vault protects it well but the key remains a shared credential that anyone reading the vault can replay. Restricting the firewall to known egress addresses narrows where a leaked key can be used without removing the key from the design.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["security", "managed-identity", "entra-id", "Educational Remote Proctoring Platform"]
+    tags: ["security","managed-identity","entra-id","Educational Remote Proctoring Platform"]
   },
   {
     id: "azure-ai102-49",
@@ -492,7 +492,7 @@ export const AZURE_AI102_QUESTIONS_2 = [
     scenario: "A property appraisal engine fuses GIS parcel maps with real-time market transactions for automated valuation. The AI team is ensuring inference calls never traverse a public endpoint under a strict network mandate. The work is scoped to the staging environment.",
     question: "Which Azure AI approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Configure a virtual network service endpoint on the subnet and add a matching network rule to the Azure AI resource firewall." },
+      { id: 'A', text: "Configure a virtual network service endpoint on the subnet and add a matching network rule granting that subnet access on the Azure AI resource firewall." },
       { id: 'B', text: "Configure the Azure AI resource firewall to accept traffic only from the public IP address of the virtual network's NAT gateway." },
       { id: 'C', text: "Route the subnet's outbound traffic through Azure Firewall with an application rule that permits the Azure AI service FQDN." },
       { id: 'D', text: "Configure an Azure Private Endpoint in the virtual network and disable public network access on the Azure AI services resource." }
@@ -501,7 +501,7 @@ export const AZURE_AI102_QUESTIONS_2 = [
     type: "single",
     explanation: "A private endpoint places the service on a private IP inside the virtual network, and disabling public network access removes the public path entirely, so there is no internet-facing endpoint left to reach. A service endpoint keeps traffic on the Azure backbone but the resource retains a public endpoint that any permitted network can still call. Allow-listing the NAT gateway address and filtering egress through Azure Firewall both govern who may reach that public endpoint rather than eliminating it.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["networking", "private-endpoint", "vnet", "Real Estate Valuation & Geo-Spatial Analytics"]
+    tags: ["networking","private-endpoint","vnet","Real Estate Valuation & Geo-Spatial Analytics"]
   },
   {
     id: "azure-ai102-50",
@@ -516,13 +516,13 @@ export const AZURE_AI102_QUESTIONS_2 = [
       { id: 'A', text: "Integrate Azure AI Content Safety to analyze text and images for hate speech, self-harm, sexual content, and violence using severity levels." },
       { id: 'B', text: "Rely on the content filters already configured on the Azure OpenAI deployment to screen both the prompts and the generated completions." },
       { id: 'C', text: "Use Azure AI Language sentiment analysis and PII detection to flag any content that scores strongly negative before it is published." },
-      { id: 'D', text: "Add a blocklist of prohibited terms to the Azure AI Search index so that documents matching those terms are filtered out of results." }
+      { id: 'D', text: "Add a blocklist of prohibited terms to the Azure AI Search index so that text and images matching those terms are filtered out of results." }
     ],
     correctAnswers: ['A'],
     type: "single",
     explanation: "Content Safety is a standalone moderation service, so it scores arbitrary user text and images on the four harm categories wherever they enter the application. The Azure OpenAI content filters cover exactly the prompts and completions of that deployment and see nothing a user uploads elsewhere, and they do not handle images at all. Sentiment analysis measures tone rather than harm, and a strongly negative review is not a policy violation. An index blocklist filters search results and never sees content at submission time.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["content-safety", "responsible-ai", "moderation", "Disaster Emergency Dispatch & Operations"]
+    tags: ["content-safety","responsible-ai","moderation","Disaster Emergency Dispatch & Operations"]
   }
 ];
 

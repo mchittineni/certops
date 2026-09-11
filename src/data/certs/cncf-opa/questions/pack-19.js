@@ -18,7 +18,7 @@ export const CNCF_OPA_QUESTIONS_19 = [
     type: "single",
     explanation: "Rule indexing is what lets OPA skip whole rules without evaluating them: a constant equality check in the first expression lets the compiler build a trie on that value, so a policy with hundreds of rules costs about what a handful would. Compiling to Wasm changes how each expression executes but still walks every rule the index would have skipped. Replacing in-memory data with an http.send per query adds a network round trip to the hot path and is the single most damaging thing a policy can do to latency. More workers raise throughput while leaving per-query latency exactly as it was.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
-    tags: ["performance", "indexing", "optimization", "High-Frequency FinTech Trading"]
+    tags: ["performance","indexing","optimization","High-Frequency FinTech Trading"]
   },
   {
     id: "cncf-opa-452",
@@ -39,7 +39,7 @@ export const CNCF_OPA_QUESTIONS_19 = [
     type: "single",
     explanation: "Conftest parses many configuration formats into the JSON that Rego expects, so one policy set covers Terraform plans, Dockerfiles, and Helm output, and it brings a test harness and exit codes CI can gate on. 'opa eval' does evaluate the same policy against a plan that has already been converted to JSON, but it handles only that one format and leaves the parsing and pass-fail logic to be scripted. gator understands Kubernetes manifests and constraint resources, not Terraform. A validation block only constrains a module's own input variables and cannot express organisation-wide rules.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
-    tags: ["conftest", "iac", "ci-cd", "Healthcare Patient Records & HIPAA"]
+    tags: ["conftest","iac","ci-cd","Healthcare Patient Records & HIPAA"]
   },
   {
     id: "cncf-opa-453",
@@ -52,7 +52,7 @@ export const CNCF_OPA_QUESTIONS_19 = [
     question: "Which policy approach best meets these requirements?",
     options: [
       { id: 'A', text: "Configure Envoy's built-in RBAC filter with explicit principals and permissions so that the proxy evaluates the access rules itself without any external call." },
-      { id: 'B', text: "Configure Envoy's JWT authentication filter to validate each token and forward the verified claims on to the upstream service." },
+      { id: 'B', text: "Configure Envoy's JWT authentication filter to validate each token in real-time and forward the verified claims to the upstream service." },
       { id: 'C', text: "Configure Envoy's 'envoy.filters.http.ext_authz' filter to query OPA via gRPC or HTTP, passing headers, paths, and methods for real-time access decisions." },
       { id: 'D', text: "Configure an Envoy Lua filter that calls OPA's REST API from a script executed on every inbound request before it is proxied." }
     ],
@@ -60,7 +60,7 @@ export const CNCF_OPA_QUESTIONS_19 = [
     type: "single",
     explanation: "The ext_authz filter is the supported extension point for delegating an allow-or-deny decision, and pointing it at OPA over gRPC keeps rich Rego policy outside the proxy while adding only a local hop. The RBAC filter evaluates in-proxy with no external call but expresses far less than Rego and has to be redeployed with the Envoy configuration for every rule change. The JWT filter establishes who the caller is and stops there, leaving the authorization decision unmade. A Lua filter can reach OPA's REST API and works, but it is hand-written glue on the request path where ext_authz is purpose-built.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
-    tags: ["envoy", "ext-authz", "service-mesh", "Global E-Commerce Black Friday Scale"]
+    tags: ["envoy","ext-authz","service-mesh","Global E-Commerce Black Friday Scale"]
   },
   {
     id: "cncf-opa-454",
@@ -73,7 +73,7 @@ export const CNCF_OPA_QUESTIONS_19 = [
     question: "Which policy approach best meets these requirements?",
     options: [
       { id: 'A', text: "Configure Kafka to authenticate clients with mTLS and map each certificate subject onto a topic name prefix in the broker configuration." },
-      { id: 'B', text: "Configure Kafka's built-in AclAuthorizer and manage the per-topic ACLs with the 'kafka-acls.sh' tool as teams request access." },
+      { id: 'B', text: "Configure Kafka's built-in AclAuthorizer and manage which identities may produce to or consume from each topic with 'kafka-acls.sh'." },
       { id: 'C', text: "Deploy OPA as a sidecar beside each Kafka client and have the application check its own permission before it produces a message." },
       { id: 'D', text: "Deploy the OPA Kafka authorizer plugin to intercept produce and consume requests, verifying topic names, client identities, and operation types." }
     ],
@@ -81,7 +81,7 @@ export const CNCF_OPA_QUESTIONS_19 = [
     type: "single",
     explanation: "The OPA authorizer plugs into the broker's authorizer interface, so every produce and consume request is checked at the broker itself against Rego that can consider the principal, the operation, and the topic together. Prefix-mapped mTLS establishes identity and a naming convention but expresses no rules about operations. The built-in AclAuthorizer does enforce at the broker and is the standard alternative, at the cost of managing ACL entries per topic per principal rather than writing one rule. Checking in a client-side sidecar leaves the broker itself unprotected against any client that skips the check.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
-    tags: ["kafka", "messaging", "authorization", "Autonomous Vehicle Telemetry"]
+    tags: ["kafka","messaging","authorization","Autonomous Vehicle Telemetry"]
   },
   {
     id: "cncf-opa-455",
@@ -95,14 +95,14 @@ export const CNCF_OPA_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Deploy Styra DAS to provide centralized policy authoring, Git integration, policy distribution, decision impact analysis, and compliance reporting." },
       { id: 'B', text: "Store the policies in a Git repository and build the signed bundles in CI, publishing each one to the bundle endpoint that serves its own environment." },
-      { id: 'C', text: "Host the policy bundles in an object storage bucket and point every OPA instance's bundle plugin at that same bucket location." },
-      { id: 'D', text: "Use the OPA REST API's query and decision log endpoints to assemble internal dashboards that show policy activity over time." }
+      { id: 'C', text: "Host the policy bundles in an object storage bucket for distribution and point every OPA instance's bundle plugin at that same location." },
+      { id: 'D', text: "Use the OPA REST API's query and decision log endpoints for reporting, assembling internal dashboards that show policy activity over time." }
     ],
     correctAnswers: ['A'],
     type: "single",
     explanation: "DAS is a control plane rather than a distribution mechanism: alongside bundle delivery it provides authoring with validation, replay of recorded decisions against a proposed policy before it ships, and compliance reporting across every connected system. Git plus CI publishing is a sound GitOps pattern and covers distribution well, but impact analysis and cross-cluster reporting remain to be built. An object storage bucket covers distribution alone. The REST endpoints expose the raw data that dashboards could be built from, which is the work a control plane removes.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
-    tags: ["styra-das", "control-plane", "enterprise", "Multi-Tenant B2B SaaS Platform"]
+    tags: ["styra-das","control-plane","enterprise","Multi-Tenant B2B SaaS Platform"]
   },
   {
     id: "cncf-opa-456",
@@ -123,7 +123,7 @@ export const CNCF_OPA_QUESTIONS_19 = [
     type: "single",
     explanation: "Rule indexing is what lets OPA skip whole rules without evaluating them: a constant equality check in the first expression lets the compiler build a trie on that value, so a policy with hundreds of rules costs about what a handful would. Compiling to Wasm changes how each expression executes but still walks every rule the index would have skipped. Replacing in-memory data with an http.send per query adds a network round trip to the hot path and is the single most damaging thing a policy can do to latency. More workers raise throughput while leaving per-query latency exactly as it was.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
-    tags: ["performance", "indexing", "optimization", "Media Streaming & Global CDN"]
+    tags: ["performance","indexing","optimization","Media Streaming & Global CDN"]
   },
   {
     id: "cncf-opa-457",
@@ -144,7 +144,7 @@ export const CNCF_OPA_QUESTIONS_19 = [
     type: "single",
     explanation: "Conftest parses many configuration formats into the JSON that Rego expects, so one policy set covers Terraform plans, Dockerfiles, and Helm output, and it brings a test harness and exit codes CI can gate on. 'opa eval' does evaluate the same policy against a plan that has already been converted to JSON, but it handles only that one format and leaves the parsing and pass-fail logic to be scripted. gator understands Kubernetes manifests and constraint resources, not Terraform. A validation block only constrains a module's own input variables and cannot express organisation-wide rules.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
-    tags: ["conftest", "iac", "ci-cd", "Aerospace Satellite Ground Systems"]
+    tags: ["conftest","iac","ci-cd","Aerospace Satellite Ground Systems"]
   },
   {
     id: "cncf-opa-458",
@@ -157,7 +157,7 @@ export const CNCF_OPA_QUESTIONS_19 = [
     question: "Which policy approach best meets these requirements?",
     options: [
       { id: 'A', text: "Configure Envoy's built-in RBAC filter with explicit principals and permissions so that the proxy evaluates the access rules itself without any external call." },
-      { id: 'B', text: "Configure Envoy's JWT authentication filter to validate each token and forward the verified claims on to the upstream service." },
+      { id: 'B', text: "Configure Envoy's JWT authentication filter to validate each token in real-time and forward the verified claims to the upstream service." },
       { id: 'C', text: "Configure an Envoy Lua filter that calls OPA's REST API from a script executed on every inbound request before it is proxied." },
       { id: 'D', text: "Configure Envoy's 'envoy.filters.http.ext_authz' filter to query OPA via gRPC or HTTP, passing headers, paths, and methods for real-time access decisions." }
     ],
@@ -165,7 +165,7 @@ export const CNCF_OPA_QUESTIONS_19 = [
     type: "single",
     explanation: "The ext_authz filter is the supported extension point for delegating an allow-or-deny decision, and pointing it at OPA over gRPC keeps rich Rego policy outside the proxy while adding only a local hop. The RBAC filter evaluates in-proxy with no external call but expresses far less than Rego and has to be redeployed with the Envoy configuration for every rule change. The JWT filter establishes who the caller is and stops there, leaving the authorization decision unmade. A Lua filter can reach OPA's REST API and works, but it is hand-written glue on the request path where ext_authz is purpose-built.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
-    tags: ["envoy", "ext-authz", "service-mesh", "Telecommunications 5G Core Network"]
+    tags: ["envoy","ext-authz","service-mesh","Telecommunications 5G Core Network"]
   },
   {
     id: "cncf-opa-459",
@@ -179,14 +179,14 @@ export const CNCF_OPA_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Deploy the OPA Kafka authorizer plugin to intercept produce and consume requests, verifying topic names, client identities, and operation types." },
       { id: 'B', text: "Configure Kafka to authenticate clients with mTLS and map each certificate subject onto a topic name prefix in the broker configuration." },
-      { id: 'C', text: "Configure Kafka's built-in AclAuthorizer and manage the per-topic ACLs with the 'kafka-acls.sh' tool as teams request access." },
+      { id: 'C', text: "Configure Kafka's built-in AclAuthorizer and manage which identities may produce to or consume from each topic with 'kafka-acls.sh'." },
       { id: 'D', text: "Deploy OPA as a sidecar beside each Kafka client and have the application check its own permission before it produces a message." }
     ],
     correctAnswers: ['A'],
     type: "single",
     explanation: "The OPA authorizer plugs into the broker's authorizer interface, so every produce and consume request is checked at the broker itself against Rego that can consider the principal, the operation, and the topic together. Prefix-mapped mTLS establishes identity and a naming convention but expresses no rules about operations. The built-in AclAuthorizer does enforce at the broker and is the standard alternative, at the cost of managing ACL entries per topic per principal rather than writing one rule. Checking in a client-side sidecar leaves the broker itself unprotected against any client that skips the check.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
-    tags: ["kafka", "messaging", "authorization", "Renewable Energy Smart Grid IoT"]
+    tags: ["kafka","messaging","authorization","Renewable Energy Smart Grid IoT"]
   },
   {
     id: "cncf-opa-460",
@@ -200,14 +200,14 @@ export const CNCF_OPA_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Store the policies in a Git repository and build the signed bundles in CI, publishing each one to the bundle endpoint that serves its own environment." },
       { id: 'B', text: "Deploy Styra DAS to provide centralized policy authoring, Git integration, policy distribution, decision impact analysis, and compliance reporting." },
-      { id: 'C', text: "Host the policy bundles in an object storage bucket and point every OPA instance's bundle plugin at that same bucket location." },
-      { id: 'D', text: "Use the OPA REST API's query and decision log endpoints to assemble internal dashboards that show policy activity over time." }
+      { id: 'C', text: "Host the policy bundles in an object storage bucket for distribution and point every OPA instance's bundle plugin at that same location." },
+      { id: 'D', text: "Use the OPA REST API's query and decision log endpoints for reporting, assembling internal dashboards that show policy activity over time." }
     ],
     correctAnswers: ['B'],
     type: "single",
     explanation: "DAS is a control plane rather than a distribution mechanism: alongside bundle delivery it provides authoring with validation, replay of recorded decisions against a proposed policy before it ships, and compliance reporting across every connected system. Git plus CI publishing is a sound GitOps pattern and covers distribution well, but impact analysis and cross-cluster reporting remain to be built. An object storage bucket covers distribution alone. The REST endpoints expose the raw data that dashboards could be built from, which is the work a control plane removes.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
-    tags: ["styra-das", "control-plane", "enterprise", "Supply Chain Cold-Chain Logistics"]
+    tags: ["styra-das","control-plane","enterprise","Supply Chain Cold-Chain Logistics"]
   },
   {
     id: "cncf-opa-461",
@@ -228,7 +228,7 @@ export const CNCF_OPA_QUESTIONS_19 = [
     type: "single",
     explanation: "Rule indexing is what lets OPA skip whole rules without evaluating them: a constant equality check in the first expression lets the compiler build a trie on that value, so a policy with hundreds of rules costs about what a handful would. Compiling to Wasm changes how each expression executes but still walks every rule the index would have skipped. Replacing in-memory data with an http.send per query adds a network round trip to the hot path and is the single most damaging thing a policy can do to latency. More workers raise throughput while leaving per-query latency exactly as it was.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
-    tags: ["performance", "indexing", "optimization", "Banking Core Ledger & Payments"]
+    tags: ["performance","indexing","optimization","Banking Core Ledger & Payments"]
   },
   {
     id: "cncf-opa-462",
@@ -249,7 +249,7 @@ export const CNCF_OPA_QUESTIONS_19 = [
     type: "single",
     explanation: "Conftest parses many configuration formats into the JSON that Rego expects, so one policy set covers Terraform plans, Dockerfiles, and Helm output, and it brings a test harness and exit codes CI can gate on. 'opa eval' does evaluate the same policy against a plan that has already been converted to JSON, but it handles only that one format and leaves the parsing and pass-fail logic to be scripted. gator understands Kubernetes manifests and constraint resources, not Terraform. A validation block only constrains a module's own input variables and cannot express organisation-wide rules.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
-    tags: ["conftest", "iac", "ci-cd", "Genomic Sequencing & Biotech Pipeline"]
+    tags: ["conftest","iac","ci-cd","Genomic Sequencing & Biotech Pipeline"]
   },
   {
     id: "cncf-opa-463",
@@ -263,14 +263,14 @@ export const CNCF_OPA_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Configure Envoy's 'envoy.filters.http.ext_authz' filter to query OPA via gRPC or HTTP, passing headers, paths, and methods for real-time access decisions." },
       { id: 'B', text: "Configure Envoy's built-in RBAC filter with explicit principals and permissions so that the proxy evaluates the access rules itself without any external call." },
-      { id: 'C', text: "Configure Envoy's JWT authentication filter to validate each token and forward the verified claims on to the upstream service." },
+      { id: 'C', text: "Configure Envoy's JWT authentication filter to validate each token in real-time and forward the verified claims to the upstream service." },
       { id: 'D', text: "Configure an Envoy Lua filter that calls OPA's REST API from a script executed on every inbound request before it is proxied." }
     ],
     correctAnswers: ['A'],
     type: "single",
     explanation: "The ext_authz filter is the supported extension point for delegating an allow-or-deny decision, and pointing it at OPA over gRPC keeps rich Rego policy outside the proxy while adding only a local hop. The RBAC filter evaluates in-proxy with no external call but expresses far less than Rego and has to be redeployed with the Envoy configuration for every rule change. The JWT filter establishes who the caller is and stops there, leaving the authorization decision unmade. A Lua filter can reach OPA's REST API and works, but it is hand-written glue on the request path where ext_authz is purpose-built.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
-    tags: ["envoy", "ext-authz", "service-mesh", "Defense-Grade Zero-Trust Network"]
+    tags: ["envoy","ext-authz","service-mesh","Defense-Grade Zero-Trust Network"]
   },
   {
     id: "cncf-opa-464",
@@ -284,14 +284,14 @@ export const CNCF_OPA_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Configure Kafka to authenticate clients with mTLS and map each certificate subject onto a topic name prefix in the broker configuration." },
       { id: 'B', text: "Deploy the OPA Kafka authorizer plugin to intercept produce and consume requests, verifying topic names, client identities, and operation types." },
-      { id: 'C', text: "Configure Kafka's built-in AclAuthorizer and manage the per-topic ACLs with the 'kafka-acls.sh' tool as teams request access." },
+      { id: 'C', text: "Configure Kafka's built-in AclAuthorizer and manage which identities may produce to or consume from each topic with 'kafka-acls.sh'." },
       { id: 'D', text: "Deploy OPA as a sidecar beside each Kafka client and have the application check its own permission before it produces a message." }
     ],
     correctAnswers: ['B'],
     type: "single",
     explanation: "The OPA authorizer plugs into the broker's authorizer interface, so every produce and consume request is checked at the broker itself against Rego that can consider the principal, the operation, and the topic together. Prefix-mapped mTLS establishes identity and a naming convention but expresses no rules about operations. The built-in AclAuthorizer does enforce at the broker and is the standard alternative, at the cost of managing ACL entries per topic per principal rather than writing one rule. Checking in a client-side sidecar leaves the broker itself unprotected against any client that skips the check.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
-    tags: ["kafka", "messaging", "authorization", "Online Multiplayer Gaming Engine"]
+    tags: ["kafka","messaging","authorization","Online Multiplayer Gaming Engine"]
   },
   {
     id: "cncf-opa-465",
@@ -304,15 +304,15 @@ export const CNCF_OPA_QUESTIONS_19 = [
     question: "Which policy approach best meets these requirements?",
     options: [
       { id: 'A', text: "Store the policies in a Git repository and build the signed bundles in CI, publishing each one to the bundle endpoint that serves its own environment." },
-      { id: 'B', text: "Host the policy bundles in an object storage bucket and point every OPA instance's bundle plugin at that same bucket location." },
+      { id: 'B', text: "Host the policy bundles in an object storage bucket for distribution and point every OPA instance's bundle plugin at that same location." },
       { id: 'C', text: "Deploy Styra DAS to provide centralized policy authoring, Git integration, policy distribution, decision impact analysis, and compliance reporting." },
-      { id: 'D', text: "Use the OPA REST API's query and decision log endpoints to assemble internal dashboards that show policy activity over time." }
+      { id: 'D', text: "Use the OPA REST API's query and decision log endpoints for reporting, assembling internal dashboards that show policy activity over time." }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "DAS is a control plane rather than a distribution mechanism: alongside bundle delivery it provides authoring with validation, replay of recorded decisions against a proposed policy before it ships, and compliance reporting across every connected system. Git plus CI publishing is a sound GitOps pattern and covers distribution well, but impact analysis and cross-cluster reporting remain to be built. An object storage bucket covers distribution alone. The REST endpoints expose the raw data that dashboards could be built from, which is the work a control plane removes.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
-    tags: ["styra-das", "control-plane", "enterprise", "Insurance Risk & Actuarial Modeling"]
+    tags: ["styra-das","control-plane","enterprise","Insurance Risk & Actuarial Modeling"]
   },
   {
     id: "cncf-opa-466",
@@ -333,7 +333,7 @@ export const CNCF_OPA_QUESTIONS_19 = [
     type: "single",
     explanation: "Rule indexing is what lets OPA skip whole rules without evaluating them: a constant equality check in the first expression lets the compiler build a trie on that value, so a policy with hundreds of rules costs about what a handful would. Compiling to Wasm changes how each expression executes but still walks every rule the index would have skipped. Replacing in-memory data with an http.send per query adds a network round trip to the hot path and is the single most damaging thing a policy can do to latency. More workers raise throughput while leaving per-query latency exactly as it was.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
-    tags: ["performance", "indexing", "optimization", "Pharmaceutical Clinical Trial Platform"]
+    tags: ["performance","indexing","optimization","Pharmaceutical Clinical Trial Platform"]
   },
   {
     id: "cncf-opa-467",
@@ -354,7 +354,7 @@ export const CNCF_OPA_QUESTIONS_19 = [
     type: "single",
     explanation: "Conftest parses many configuration formats into the JSON that Rego expects, so one policy set covers Terraform plans, Dockerfiles, and Helm output, and it brings a test harness and exit codes CI can gate on. 'opa eval' does evaluate the same policy against a plan that has already been converted to JSON, but it handles only that one format and leaves the parsing and pass-fail logic to be scripted. gator understands Kubernetes manifests and constraint resources, not Terraform. A validation block only constrains a module's own input variables and cannot express organisation-wide rules.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
-    tags: ["conftest", "iac", "ci-cd", "Smart City Traffic & Mobility Sensor Hub"]
+    tags: ["conftest","iac","ci-cd","Smart City Traffic & Mobility Sensor Hub"]
   },
   {
     id: "cncf-opa-468",
@@ -368,14 +368,14 @@ export const CNCF_OPA_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Configure Envoy's built-in RBAC filter with explicit principals and permissions so that the proxy evaluates the access rules itself without any external call." },
       { id: 'B', text: "Configure Envoy's 'envoy.filters.http.ext_authz' filter to query OPA via gRPC or HTTP, passing headers, paths, and methods for real-time access decisions." },
-      { id: 'C', text: "Configure Envoy's JWT authentication filter to validate each token and forward the verified claims on to the upstream service." },
+      { id: 'C', text: "Configure Envoy's JWT authentication filter to validate each token in real-time and forward the verified claims to the upstream service." },
       { id: 'D', text: "Configure an Envoy Lua filter that calls OPA's REST API from a script executed on every inbound request before it is proxied." }
     ],
     correctAnswers: ['B'],
     type: "single",
     explanation: "The ext_authz filter is the supported extension point for delegating an allow-or-deny decision, and pointing it at OPA over gRPC keeps rich Rego policy outside the proxy while adding only a local hop. The RBAC filter evaluates in-proxy with no external call but expresses far less than Rego and has to be redeployed with the Envoy configuration for every rule change. The JWT filter establishes who the caller is and stops there, leaving the authorization decision unmade. A Lua filter can reach OPA's REST API and works, but it is hand-written glue on the request path where ext_authz is purpose-built.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
-    tags: ["envoy", "ext-authz", "service-mesh", "Digital Identity & Biometric Verification"]
+    tags: ["envoy","ext-authz","service-mesh","Digital Identity & Biometric Verification"]
   },
   {
     id: "cncf-opa-469",
@@ -388,7 +388,7 @@ export const CNCF_OPA_QUESTIONS_19 = [
     question: "Which policy approach best meets these requirements?",
     options: [
       { id: 'A', text: "Configure Kafka to authenticate clients with mTLS and map each certificate subject onto a topic name prefix in the broker configuration." },
-      { id: 'B', text: "Configure Kafka's built-in AclAuthorizer and manage the per-topic ACLs with the 'kafka-acls.sh' tool as teams request access." },
+      { id: 'B', text: "Configure Kafka's built-in AclAuthorizer and manage which identities may produce to or consume from each topic with 'kafka-acls.sh'." },
       { id: 'C', text: "Deploy the OPA Kafka authorizer plugin to intercept produce and consume requests, verifying topic names, client identities, and operation types." },
       { id: 'D', text: "Deploy OPA as a sidecar beside each Kafka client and have the application check its own permission before it produces a message." }
     ],
@@ -396,7 +396,7 @@ export const CNCF_OPA_QUESTIONS_19 = [
     type: "single",
     explanation: "The OPA authorizer plugs into the broker's authorizer interface, so every produce and consume request is checked at the broker itself against Rego that can consider the principal, the operation, and the topic together. Prefix-mapped mTLS establishes identity and a naming convention but expresses no rules about operations. The built-in AclAuthorizer does enforce at the broker and is the standard alternative, at the cost of managing ACL entries per topic per principal rather than writing one rule. Checking in a client-side sidecar leaves the broker itself unprotected against any client that skips the check.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
-    tags: ["kafka", "messaging", "authorization", "Legal Discovery & Semantic Document Search"]
+    tags: ["kafka","messaging","authorization","Legal Discovery & Semantic Document Search"]
   },
   {
     id: "cncf-opa-470",
@@ -409,15 +409,15 @@ export const CNCF_OPA_QUESTIONS_19 = [
     question: "Which policy approach best meets these requirements?",
     options: [
       { id: 'A', text: "Store the policies in a Git repository and build the signed bundles in CI, publishing each one to the bundle endpoint that serves its own environment." },
-      { id: 'B', text: "Host the policy bundles in an object storage bucket and point every OPA instance's bundle plugin at that same bucket location." },
-      { id: 'C', text: "Use the OPA REST API's query and decision log endpoints to assemble internal dashboards that show policy activity over time." },
+      { id: 'B', text: "Host the policy bundles in an object storage bucket for distribution and point every OPA instance's bundle plugin at that same location." },
+      { id: 'C', text: "Use the OPA REST API's query and decision log endpoints for reporting, assembling internal dashboards that show policy activity over time." },
       { id: 'D', text: "Deploy Styra DAS to provide centralized policy authoring, Git integration, policy distribution, decision impact analysis, and compliance reporting." }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "DAS is a control plane rather than a distribution mechanism: alongside bundle delivery it provides authoring with validation, replay of recorded decisions against a proposed policy before it ships, and compliance reporting across every connected system. Git plus CI publishing is a sound GitOps pattern and covers distribution well, but impact analysis and cross-cluster reporting remain to be built. An object storage bucket covers distribution alone. The REST endpoints expose the raw data that dashboards could be built from, which is the work a control plane removes.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
-    tags: ["styra-das", "control-plane", "enterprise", "AdTech Real-Time Bidding Exchange"]
+    tags: ["styra-das","control-plane","enterprise","AdTech Real-Time Bidding Exchange"]
   },
   {
     id: "cncf-opa-471",
@@ -438,7 +438,7 @@ export const CNCF_OPA_QUESTIONS_19 = [
     type: "single",
     explanation: "Rule indexing is what lets OPA skip whole rules without evaluating them: a constant equality check in the first expression lets the compiler build a trie on that value, so a policy with hundreds of rules costs about what a handful would. Compiling to Wasm changes how each expression executes but still walks every rule the index would have skipped. Replacing in-memory data with an http.send per query adds a network round trip to the hot path and is the single most damaging thing a policy can do to latency. More workers raise throughput while leaving per-query latency exactly as it was.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
-    tags: ["performance", "indexing", "optimization", "Precision Agriculture & Drone Scouting"]
+    tags: ["performance","indexing","optimization","Precision Agriculture & Drone Scouting"]
   },
   {
     id: "cncf-opa-472",
@@ -459,7 +459,7 @@ export const CNCF_OPA_QUESTIONS_19 = [
     type: "single",
     explanation: "Conftest parses many configuration formats into the JSON that Rego expects, so one policy set covers Terraform plans, Dockerfiles, and Helm output, and it brings a test harness and exit codes CI can gate on. 'opa eval' does evaluate the same policy against a plan that has already been converted to JSON, but it handles only that one format and leaves the parsing and pass-fail logic to be scripted. gator understands Kubernetes manifests and constraint resources, not Terraform. A validation block only constrains a module's own input variables and cannot express organisation-wide rules.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
-    tags: ["conftest", "iac", "ci-cd", "Industrial Robotics Predictive Maintenance"]
+    tags: ["conftest","iac","ci-cd","Industrial Robotics Predictive Maintenance"]
   },
   {
     id: "cncf-opa-473",
@@ -472,7 +472,7 @@ export const CNCF_OPA_QUESTIONS_19 = [
     question: "Which policy approach best meets these requirements?",
     options: [
       { id: 'A', text: "Configure Envoy's built-in RBAC filter with explicit principals and permissions so that the proxy evaluates the access rules itself without any external call." },
-      { id: 'B', text: "Configure Envoy's JWT authentication filter to validate each token and forward the verified claims on to the upstream service." },
+      { id: 'B', text: "Configure Envoy's JWT authentication filter to validate each token in real-time and forward the verified claims to the upstream service." },
       { id: 'C', text: "Configure Envoy's 'envoy.filters.http.ext_authz' filter to query OPA via gRPC or HTTP, passing headers, paths, and methods for real-time access decisions." },
       { id: 'D', text: "Configure an Envoy Lua filter that calls OPA's REST API from a script executed on every inbound request before it is proxied." }
     ],
@@ -480,7 +480,7 @@ export const CNCF_OPA_QUESTIONS_19 = [
     type: "single",
     explanation: "The ext_authz filter is the supported extension point for delegating an allow-or-deny decision, and pointing it at OPA over gRPC keeps rich Rego policy outside the proxy while adding only a local hop. The RBAC filter evaluates in-proxy with no external call but expresses far less than Rego and has to be redeployed with the Envoy configuration for every rule change. The JWT filter establishes who the caller is and stops there, leaving the authorization decision unmade. A Lua filter can reach OPA's REST API and works, but it is hand-written glue on the request path where ext_authz is purpose-built.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
-    tags: ["envoy", "ext-authz", "service-mesh", "Educational Remote Proctoring Platform"]
+    tags: ["envoy","ext-authz","service-mesh","Educational Remote Proctoring Platform"]
   },
   {
     id: "cncf-opa-474",
@@ -493,7 +493,7 @@ export const CNCF_OPA_QUESTIONS_19 = [
     question: "Which policy approach best meets these requirements?",
     options: [
       { id: 'A', text: "Configure Kafka to authenticate clients with mTLS and map each certificate subject onto a topic name prefix in the broker configuration." },
-      { id: 'B', text: "Configure Kafka's built-in AclAuthorizer and manage the per-topic ACLs with the 'kafka-acls.sh' tool as teams request access." },
+      { id: 'B', text: "Configure Kafka's built-in AclAuthorizer and manage which identities may produce to or consume from each topic with 'kafka-acls.sh'." },
       { id: 'C', text: "Deploy OPA as a sidecar beside each Kafka client and have the application check its own permission before it produces a message." },
       { id: 'D', text: "Deploy the OPA Kafka authorizer plugin to intercept produce and consume requests, verifying topic names, client identities, and operation types." }
     ],
@@ -501,7 +501,7 @@ export const CNCF_OPA_QUESTIONS_19 = [
     type: "single",
     explanation: "The OPA authorizer plugs into the broker's authorizer interface, so every produce and consume request is checked at the broker itself against Rego that can consider the principal, the operation, and the topic together. Prefix-mapped mTLS establishes identity and a naming convention but expresses no rules about operations. The built-in AclAuthorizer does enforce at the broker and is the standard alternative, at the cost of managing ACL entries per topic per principal rather than writing one rule. Checking in a client-side sidecar leaves the broker itself unprotected against any client that skips the check.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
-    tags: ["kafka", "messaging", "authorization", "Real Estate Valuation & Geo-Spatial Analytics"]
+    tags: ["kafka","messaging","authorization","Real Estate Valuation & Geo-Spatial Analytics"]
   },
   {
     id: "cncf-opa-475",
@@ -515,14 +515,14 @@ export const CNCF_OPA_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Deploy Styra DAS to provide centralized policy authoring, Git integration, policy distribution, decision impact analysis, and compliance reporting." },
       { id: 'B', text: "Store the policies in a Git repository and build the signed bundles in CI, publishing each one to the bundle endpoint that serves its own environment." },
-      { id: 'C', text: "Host the policy bundles in an object storage bucket and point every OPA instance's bundle plugin at that same bucket location." },
-      { id: 'D', text: "Use the OPA REST API's query and decision log endpoints to assemble internal dashboards that show policy activity over time." }
+      { id: 'C', text: "Host the policy bundles in an object storage bucket for distribution and point every OPA instance's bundle plugin at that same location." },
+      { id: 'D', text: "Use the OPA REST API's query and decision log endpoints for reporting, assembling internal dashboards that show policy activity over time." }
     ],
     correctAnswers: ['A'],
     type: "single",
     explanation: "DAS is a control plane rather than a distribution mechanism: alongside bundle delivery it provides authoring with validation, replay of recorded decisions against a proposed policy before it ships, and compliance reporting across every connected system. Git plus CI publishing is a sound GitOps pattern and covers distribution well, but impact analysis and cross-cluster reporting remain to be built. An object storage bucket covers distribution alone. The REST endpoints expose the raw data that dashboards could be built from, which is the work a control plane removes.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
-    tags: ["styra-das", "control-plane", "enterprise", "Disaster Emergency Dispatch & Operations"]
+    tags: ["styra-das","control-plane","enterprise","Disaster Emergency Dispatch & Operations"]
   }
 ];
 

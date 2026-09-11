@@ -12,13 +12,13 @@ export const CNCF_OPA_QUESTIONS_15 = [
       { id: 'A', text: "Define a ConstraintTemplate containing an openAPIV3Schema specification for parameters and the embedded Rego policy logic under 'targets'." },
       { id: 'B', text: "Define a ValidatingAdmissionPolicy with a CEL expression and bind it to the target namespaces through a policy binding resource." },
       { id: 'C', text: "Define a ConstraintTemplate whose Rego reads its parameter values from a ConfigMap mounted into the Gatekeeper controller pod." },
-      { id: 'D', text: "Define a separate Constraint for each variation and place the differing values directly in the Rego source of each one." }
+      { id: 'D', text: "Define a separate Constraint for each variation and place the differing parameters directly in the Rego source of each one." }
     ],
     correctAnswers: ['A'],
     type: "single",
     explanation: "The ConstraintTemplate declares both the Rego and the openAPIV3Schema for its parameters, which generates a CRD so each Constraint supplies typed values that Gatekeeper validates. ValidatingAdmissionPolicy is a real Kubernetes feature and a genuine alternative, but it is the built-in CEL mechanism rather than Gatekeeper, so it uses none of the existing Rego or constraint tooling. Gatekeeper passes parameters through the Constraint spec and does not read them from ConfigMaps, and copying the Rego per variation abandons the reuse the template exists to provide.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
-    tags: ["gatekeeper", "constraint-template", "k8s", "High-Frequency FinTech Trading"]
+    tags: ["gatekeeper","constraint-template","k8s","High-Frequency FinTech Trading"]
   },
   {
     id: "cncf-opa-352",
@@ -32,14 +32,14 @@ export const CNCF_OPA_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Add namespace comparisons to the Rego inside the ConstraintTemplate so that the rule simply returns no violation for any object outside the intended set of namespaces." },
       { id: 'B', text: "Create a Constraint custom resource that references the ConstraintTemplate and specifies 'match' criteria (kinds, namespaces, label selectors) and parameter values." },
-      { id: 'C', text: "Set a namespaceSelector on the Gatekeeper ValidatingWebhookConfiguration so that the API server only forwards matching namespaces." },
+      { id: 'C', text: "Set a namespaceSelector on the Gatekeeper ValidatingWebhookConfiguration so that the API server forwards only the matching resource kinds and namespaces." },
       { id: 'D', text: "Label the namespaces that should be skipped and list every one of them in the Gatekeeper controller's --exempt-namespace flag at startup." }
     ],
     correctAnswers: ['B'],
     type: "single",
     explanation: "The Constraint is where scope belongs: its match block filters by kind, namespace, and label selector, and changing scope is an edit to one resource that the audit runner immediately reflects. Encoding namespaces in the Rego forces a template change, and therefore a change for every other Constraint built on it, whenever scope shifts. The webhook's namespaceSelector and the --exempt-namespace flag both act on the whole Gatekeeper installation at once, so narrowing one policy would silently narrow every policy alongside it.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
-    tags: ["gatekeeper", "constraints", "admission", "Healthcare Patient Records & HIPAA"]
+    tags: ["gatekeeper","constraints","admission","Healthcare Patient Records & HIPAA"]
   },
   {
     id: "cncf-opa-353",
@@ -52,7 +52,7 @@ export const CNCF_OPA_QUESTIONS_15 = [
     question: "Which policy approach best meets these requirements?",
     options: [
       { id: 'A', text: "Deploy the Constraint with a match block that initially selects one pilot namespace and widen the selector as teams come into compliance." },
-      { id: 'B', text: "Leave enforcementAction at deny and rely on the Gatekeeper audit pod to report the violations before the webhook is switched on." },
+      { id: 'B', text: "Leave the policy's enforcementAction at deny, without blocking anything, and rely on the audit pod to report violations before the webhook is switched on." },
       { id: 'C', text: "Set 'enforcementAction: dryrun' or 'enforcementAction: warn' to evaluate and log policy violations without blocking engineering deployments." },
       { id: 'D', text: "Write the ConstraintTemplate's Rego so that each violation message begins with the word warning, which causes admission to allow the request." }
     ],
@@ -60,7 +60,7 @@ export const CNCF_OPA_QUESTIONS_15 = [
     type: "single",
     explanation: "dryrun and warn keep the constraint applied cluster-wide while removing the block, so the violation list in the Constraint status is a complete picture of what deny would reject. Piloting through the match block also avoids blocking anyone, but it only reveals violations inside the pilot namespace, so the blast radius of full enforcement stays unknown. Leaving the action at deny blocks every non-compliant request the moment the webhook is reachable. The text of a violation message has no effect on enforcement, which is governed solely by enforcementAction.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
-    tags: ["gatekeeper", "enforcement-action", "rollout", "Global E-Commerce Black Friday Scale"]
+    tags: ["gatekeeper","enforcement-action","rollout","Global E-Commerce Black Friday Scale"]
   },
   {
     id: "cncf-opa-354",
@@ -73,7 +73,7 @@ export const CNCF_OPA_QUESTIONS_15 = [
     question: "Which policy approach best meets these requirements?",
     options: [
       { id: 'A', text: "Use 'gator test' against a full set of manifests exported from the cluster with kubectl so that the resources already running are checked offline in the pipeline." },
-      { id: 'B', text: "Rely on the validating webhook, which the API server invokes for every resource that currently exists in the cluster." },
+      { id: 'B', text: "Rely on the validating webhook rather than an audit pass, since the API server invokes it for every resource that exists in the cluster." },
       { id: 'C', text: "Set enforcementAction to deny so that resources already running are evicted automatically the next time the Gatekeeper controller reconciles them." },
       { id: 'D', text: "Rely on the Gatekeeper audit pod to periodically scan all existing cluster resources and populate non-compliance violations in Constraint status fields." }
     ],
@@ -81,7 +81,7 @@ export const CNCF_OPA_QUESTIONS_15 = [
     type: "single",
     explanation: "The audit runner exists precisely for this gap: it re-evaluates live objects on an interval and writes what it finds into each Constraint's status, with no action required from the teams that own them. Exporting manifests and running gator over them does produce the same answer once, but it is a manual snapshot that goes stale immediately. The webhook is only called on create and update requests, so an object admitted before the policy existed is never re-examined. Enforcement actions apply to admission and never evict or modify workloads that are already running.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
-    tags: ["gatekeeper", "audit", "compliance", "Autonomous Vehicle Telemetry"]
+    tags: ["gatekeeper","audit","compliance","Autonomous Vehicle Telemetry"]
   },
   {
     id: "cncf-opa-355",
@@ -95,14 +95,14 @@ export const CNCF_OPA_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Configure Gatekeeper Assign or AssignMetadata resources to inject standard security contexts or default labels into incoming pods automatically." },
       { id: 'B', text: "Configure a Kubernetes MutatingAdmissionPolicy with a CEL expression that patches the missing field during the admission request." },
-      { id: 'C', text: "Configure a Constraint that denies any pod missing the field so that each team adds the required value to its own manifests." },
+      { id: 'C', text: "Configure a Constraint that denies any incoming pod missing the field, so that each team adds the required value automatically in its own manifests." },
       { id: 'D', text: "Configure a PodPreset resource that merges the default security context into every pod that matches a given namespace and label selector." }
     ],
     correctAnswers: ['A'],
     type: "single",
     explanation: "Assign and AssignMetadata are Gatekeeper's mutation resources, applied before validation, so the default lands on the object without any manifest changing. A CEL-based MutatingAdmissionPolicy achieves the same outcome through the Kubernetes built-in path and is a reasonable alternative, though it sits outside Gatekeeper and its constraint tooling. Denying instead of mutating does eventually produce compliance, but only after every team edits every manifest, which is the work being avoided. PodPreset was removed from Kubernetes in version 1.20 and no longer exists.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
-    tags: ["gatekeeper", "mutation", "admission", "Multi-Tenant B2B SaaS Platform"]
+    tags: ["gatekeeper","mutation","admission","Multi-Tenant B2B SaaS Platform"]
   },
   {
     id: "cncf-opa-356",
@@ -116,14 +116,14 @@ export const CNCF_OPA_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Use 'kubectl apply --dry-run=server' in the pipeline so that the API server runs the Gatekeeper admission webhook for real without ever persisting the object." },
       { id: 'B', text: "Use the 'gator' CLI tool in developer environments and CI pipelines to test Kubernetes manifests against ConstraintTemplates before applying to clusters." },
-      { id: 'C', text: "Use 'conftest test' in CI with the Rego extracted out of each ConstraintTemplate to check the manifests directly." },
+      { id: 'C', text: "Use 'conftest test' in CI with the Rego extracted out of each ConstraintTemplate to check the manifests before they are applied." },
       { id: 'D', text: "Use 'opa test' against the Rego embedded in each ConstraintTemplate so that the policy's own unit tests run on every pull request." }
     ],
     correctAnswers: ['B'],
     type: "single",
     explanation: "gator evaluates a manifest against the ConstraintTemplate and its Constraints together, honouring match criteria and parameters, and it needs no cluster at all, so it runs in a pull request in seconds. Server-side dry run genuinely exercises the real webhook, but it requires a reachable cluster with the constraints already installed, which is the dependency shift-left testing is trying to remove. Extracting the Rego for conftest drops the match criteria and parameter wiring that decide whether the policy even applies. 'opa test' checks the policy's own logic rather than the manifests under review.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
-    tags: ["gator", "shift-left", "ci-cd", "Media Streaming & Global CDN"]
+    tags: ["gator","shift-left","ci-cd","Media Streaming & Global CDN"]
   },
   {
     id: "cncf-opa-357",
@@ -138,13 +138,13 @@ export const CNCF_OPA_QUESTIONS_15 = [
       { id: 'A', text: "Configure 'failurePolicy: Ignore' everywhere and rely on the audit pod to report anything that was admitted while the webhook was down." },
       { id: 'B', text: "Configure 'failurePolicy: Fail' everywhere and raise timeoutSeconds so that a slow webhook response is not treated as an outright failure." },
       { id: 'C', text: "Configure 'failurePolicy: Fail' for critical security policies, or 'failurePolicy: Ignore' with strict alerting when prioritizing cluster availability." },
-      { id: 'D', text: "Configure a namespaceSelector that excludes kube-system so that a webhook outage cannot prevent control plane components from starting." }
+      { id: 'D', text: "Configure a strict namespaceSelector that excludes kube-system so that a webhook outage cannot prevent control plane components from starting." }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "failurePolicy is the availability-versus-enforcement dial, and the answer differs per policy, so critical security constraints are worth failing closed for while others should not be able to halt deployments. Setting Ignore everywhere converts every outage into a silent enforcement gap, and although the audit runner reports it afterwards the non-compliant object is already admitted. A longer timeout helps with slowness but does nothing when the webhook is genuinely unreachable. Excluding kube-system is sound practice for avoiding deadlock but leaves the question of every other namespace unanswered.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
-    tags: ["admission-webhook", "failure-policy", "k8s", "Aerospace Satellite Ground Systems"]
+    tags: ["admission-webhook","failure-policy","k8s","Aerospace Satellite Ground Systems"]
   },
   {
     id: "cncf-opa-358",
@@ -158,14 +158,14 @@ export const CNCF_OPA_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Define a ValidatingAdmissionPolicy with a CEL expression and bind it to the target namespaces through a policy binding resource." },
       { id: 'B', text: "Define a ConstraintTemplate whose Rego reads its parameter values from a ConfigMap mounted into the Gatekeeper controller pod." },
-      { id: 'C', text: "Define a separate Constraint for each variation and place the differing values directly in the Rego source of each one." },
+      { id: 'C', text: "Define a separate Constraint for each variation and place the differing parameters directly in the Rego source of each one." },
       { id: 'D', text: "Define a ConstraintTemplate containing an openAPIV3Schema specification for parameters and the embedded Rego policy logic under 'targets'." }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "The ConstraintTemplate declares both the Rego and the openAPIV3Schema for its parameters, which generates a CRD so each Constraint supplies typed values that Gatekeeper validates. ValidatingAdmissionPolicy is a real Kubernetes feature and a genuine alternative, but it is the built-in CEL mechanism rather than Gatekeeper, so it uses none of the existing Rego or constraint tooling. Gatekeeper passes parameters through the Constraint spec and does not read them from ConfigMaps, and copying the Rego per variation abandons the reuse the template exists to provide.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
-    tags: ["gatekeeper", "constraint-template", "k8s", "Telecommunications 5G Core Network"]
+    tags: ["gatekeeper","constraint-template","k8s","Telecommunications 5G Core Network"]
   },
   {
     id: "cncf-opa-359",
@@ -179,14 +179,14 @@ export const CNCF_OPA_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Create a Constraint custom resource that references the ConstraintTemplate and specifies 'match' criteria (kinds, namespaces, label selectors) and parameter values." },
       { id: 'B', text: "Add namespace comparisons to the Rego inside the ConstraintTemplate so that the rule simply returns no violation for any object outside the intended set of namespaces." },
-      { id: 'C', text: "Set a namespaceSelector on the Gatekeeper ValidatingWebhookConfiguration so that the API server only forwards matching namespaces." },
+      { id: 'C', text: "Set a namespaceSelector on the Gatekeeper ValidatingWebhookConfiguration so that the API server forwards only the matching resource kinds and namespaces." },
       { id: 'D', text: "Label the namespaces that should be skipped and list every one of them in the Gatekeeper controller's --exempt-namespace flag at startup." }
     ],
     correctAnswers: ['A'],
     type: "single",
     explanation: "The Constraint is where scope belongs: its match block filters by kind, namespace, and label selector, and changing scope is an edit to one resource that the audit runner immediately reflects. Encoding namespaces in the Rego forces a template change, and therefore a change for every other Constraint built on it, whenever scope shifts. The webhook's namespaceSelector and the --exempt-namespace flag both act on the whole Gatekeeper installation at once, so narrowing one policy would silently narrow every policy alongside it.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
-    tags: ["gatekeeper", "constraints", "admission", "Renewable Energy Smart Grid IoT"]
+    tags: ["gatekeeper","constraints","admission","Renewable Energy Smart Grid IoT"]
   },
   {
     id: "cncf-opa-360",
@@ -200,14 +200,14 @@ export const CNCF_OPA_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Deploy the Constraint with a match block that initially selects one pilot namespace and widen the selector as teams come into compliance." },
       { id: 'B', text: "Set 'enforcementAction: dryrun' or 'enforcementAction: warn' to evaluate and log policy violations without blocking engineering deployments." },
-      { id: 'C', text: "Leave enforcementAction at deny and rely on the Gatekeeper audit pod to report the violations before the webhook is switched on." },
+      { id: 'C', text: "Leave the policy's enforcementAction at deny, without blocking anything, and rely on the audit pod to report violations before the webhook is switched on." },
       { id: 'D', text: "Write the ConstraintTemplate's Rego so that each violation message begins with the word warning, which causes admission to allow the request." }
     ],
     correctAnswers: ['B'],
     type: "single",
     explanation: "dryrun and warn keep the constraint applied cluster-wide while removing the block, so the violation list in the Constraint status is a complete picture of what deny would reject. Piloting through the match block also avoids blocking anyone, but it only reveals violations inside the pilot namespace, so the blast radius of full enforcement stays unknown. Leaving the action at deny blocks every non-compliant request the moment the webhook is reachable. The text of a violation message has no effect on enforcement, which is governed solely by enforcementAction.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
-    tags: ["gatekeeper", "enforcement-action", "rollout", "Supply Chain Cold-Chain Logistics"]
+    tags: ["gatekeeper","enforcement-action","rollout","Supply Chain Cold-Chain Logistics"]
   },
   {
     id: "cncf-opa-361",
@@ -220,7 +220,7 @@ export const CNCF_OPA_QUESTIONS_15 = [
     question: "Which policy approach best meets these requirements?",
     options: [
       { id: 'A', text: "Use 'gator test' against a full set of manifests exported from the cluster with kubectl so that the resources already running are checked offline in the pipeline." },
-      { id: 'B', text: "Rely on the validating webhook, which the API server invokes for every resource that currently exists in the cluster." },
+      { id: 'B', text: "Rely on the validating webhook rather than an audit pass, since the API server invokes it for every resource that exists in the cluster." },
       { id: 'C', text: "Rely on the Gatekeeper audit pod to periodically scan all existing cluster resources and populate non-compliance violations in Constraint status fields." },
       { id: 'D', text: "Set enforcementAction to deny so that resources already running are evicted automatically the next time the Gatekeeper controller reconciles them." }
     ],
@@ -228,7 +228,7 @@ export const CNCF_OPA_QUESTIONS_15 = [
     type: "single",
     explanation: "The audit runner exists precisely for this gap: it re-evaluates live objects on an interval and writes what it finds into each Constraint's status, with no action required from the teams that own them. Exporting manifests and running gator over them does produce the same answer once, but it is a manual snapshot that goes stale immediately. The webhook is only called on create and update requests, so an object admitted before the policy existed is never re-examined. Enforcement actions apply to admission and never evict or modify workloads that are already running.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
-    tags: ["gatekeeper", "audit", "compliance", "Banking Core Ledger & Payments"]
+    tags: ["gatekeeper","audit","compliance","Banking Core Ledger & Payments"]
   },
   {
     id: "cncf-opa-362",
@@ -241,7 +241,7 @@ export const CNCF_OPA_QUESTIONS_15 = [
     question: "Which policy approach best meets these requirements?",
     options: [
       { id: 'A', text: "Configure a Kubernetes MutatingAdmissionPolicy with a CEL expression that patches the missing field during the admission request." },
-      { id: 'B', text: "Configure a Constraint that denies any pod missing the field so that each team adds the required value to its own manifests." },
+      { id: 'B', text: "Configure a Constraint that denies any incoming pod missing the field, so that each team adds the required value automatically in its own manifests." },
       { id: 'C', text: "Configure a PodPreset resource that merges the default security context into every pod that matches a given namespace and label selector." },
       { id: 'D', text: "Configure Gatekeeper Assign or AssignMetadata resources to inject standard security contexts or default labels into incoming pods automatically." }
     ],
@@ -249,7 +249,7 @@ export const CNCF_OPA_QUESTIONS_15 = [
     type: "single",
     explanation: "Assign and AssignMetadata are Gatekeeper's mutation resources, applied before validation, so the default lands on the object without any manifest changing. A CEL-based MutatingAdmissionPolicy achieves the same outcome through the Kubernetes built-in path and is a reasonable alternative, though it sits outside Gatekeeper and its constraint tooling. Denying instead of mutating does eventually produce compliance, but only after every team edits every manifest, which is the work being avoided. PodPreset was removed from Kubernetes in version 1.20 and no longer exists.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
-    tags: ["gatekeeper", "mutation", "admission", "Genomic Sequencing & Biotech Pipeline"]
+    tags: ["gatekeeper","mutation","admission","Genomic Sequencing & Biotech Pipeline"]
   },
   {
     id: "cncf-opa-363",
@@ -263,14 +263,14 @@ export const CNCF_OPA_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Use the 'gator' CLI tool in developer environments and CI pipelines to test Kubernetes manifests against ConstraintTemplates before applying to clusters." },
       { id: 'B', text: "Use 'kubectl apply --dry-run=server' in the pipeline so that the API server runs the Gatekeeper admission webhook for real without ever persisting the object." },
-      { id: 'C', text: "Use 'conftest test' in CI with the Rego extracted out of each ConstraintTemplate to check the manifests directly." },
+      { id: 'C', text: "Use 'conftest test' in CI with the Rego extracted out of each ConstraintTemplate to check the manifests before they are applied." },
       { id: 'D', text: "Use 'opa test' against the Rego embedded in each ConstraintTemplate so that the policy's own unit tests run on every pull request." }
     ],
     correctAnswers: ['A'],
     type: "single",
     explanation: "gator evaluates a manifest against the ConstraintTemplate and its Constraints together, honouring match criteria and parameters, and it needs no cluster at all, so it runs in a pull request in seconds. Server-side dry run genuinely exercises the real webhook, but it requires a reachable cluster with the constraints already installed, which is the dependency shift-left testing is trying to remove. Extracting the Rego for conftest drops the match criteria and parameter wiring that decide whether the policy even applies. 'opa test' checks the policy's own logic rather than the manifests under review.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
-    tags: ["gator", "shift-left", "ci-cd", "Defense-Grade Zero-Trust Network"]
+    tags: ["gator","shift-left","ci-cd","Defense-Grade Zero-Trust Network"]
   },
   {
     id: "cncf-opa-364",
@@ -285,13 +285,13 @@ export const CNCF_OPA_QUESTIONS_15 = [
       { id: 'A', text: "Configure 'failurePolicy: Ignore' everywhere and rely on the audit pod to report anything that was admitted while the webhook was down." },
       { id: 'B', text: "Configure 'failurePolicy: Fail' for critical security policies, or 'failurePolicy: Ignore' with strict alerting when prioritizing cluster availability." },
       { id: 'C', text: "Configure 'failurePolicy: Fail' everywhere and raise timeoutSeconds so that a slow webhook response is not treated as an outright failure." },
-      { id: 'D', text: "Configure a namespaceSelector that excludes kube-system so that a webhook outage cannot prevent control plane components from starting." }
+      { id: 'D', text: "Configure a strict namespaceSelector that excludes kube-system so that a webhook outage cannot prevent control plane components from starting." }
     ],
     correctAnswers: ['B'],
     type: "single",
     explanation: "failurePolicy is the availability-versus-enforcement dial, and the answer differs per policy, so critical security constraints are worth failing closed for while others should not be able to halt deployments. Setting Ignore everywhere converts every outage into a silent enforcement gap, and although the audit runner reports it afterwards the non-compliant object is already admitted. A longer timeout helps with slowness but does nothing when the webhook is genuinely unreachable. Excluding kube-system is sound practice for avoiding deadlock but leaves the question of every other namespace unanswered.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
-    tags: ["admission-webhook", "failure-policy", "k8s", "Online Multiplayer Gaming Engine"]
+    tags: ["admission-webhook","failure-policy","k8s","Online Multiplayer Gaming Engine"]
   },
   {
     id: "cncf-opa-365",
@@ -306,13 +306,13 @@ export const CNCF_OPA_QUESTIONS_15 = [
       { id: 'A', text: "Define a ValidatingAdmissionPolicy with a CEL expression and bind it to the target namespaces through a policy binding resource." },
       { id: 'B', text: "Define a ConstraintTemplate whose Rego reads its parameter values from a ConfigMap mounted into the Gatekeeper controller pod." },
       { id: 'C', text: "Define a ConstraintTemplate containing an openAPIV3Schema specification for parameters and the embedded Rego policy logic under 'targets'." },
-      { id: 'D', text: "Define a separate Constraint for each variation and place the differing values directly in the Rego source of each one." }
+      { id: 'D', text: "Define a separate Constraint for each variation and place the differing parameters directly in the Rego source of each one." }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "The ConstraintTemplate declares both the Rego and the openAPIV3Schema for its parameters, which generates a CRD so each Constraint supplies typed values that Gatekeeper validates. ValidatingAdmissionPolicy is a real Kubernetes feature and a genuine alternative, but it is the built-in CEL mechanism rather than Gatekeeper, so it uses none of the existing Rego or constraint tooling. Gatekeeper passes parameters through the Constraint spec and does not read them from ConfigMaps, and copying the Rego per variation abandons the reuse the template exists to provide.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
-    tags: ["gatekeeper", "constraint-template", "k8s", "Insurance Risk & Actuarial Modeling"]
+    tags: ["gatekeeper","constraint-template","k8s","Insurance Risk & Actuarial Modeling"]
   },
   {
     id: "cncf-opa-366",
@@ -325,7 +325,7 @@ export const CNCF_OPA_QUESTIONS_15 = [
     question: "Which policy approach best meets these requirements?",
     options: [
       { id: 'A', text: "Add namespace comparisons to the Rego inside the ConstraintTemplate so that the rule simply returns no violation for any object outside the intended set of namespaces." },
-      { id: 'B', text: "Set a namespaceSelector on the Gatekeeper ValidatingWebhookConfiguration so that the API server only forwards matching namespaces." },
+      { id: 'B', text: "Set a namespaceSelector on the Gatekeeper ValidatingWebhookConfiguration so that the API server forwards only the matching resource kinds and namespaces." },
       { id: 'C', text: "Label the namespaces that should be skipped and list every one of them in the Gatekeeper controller's --exempt-namespace flag at startup." },
       { id: 'D', text: "Create a Constraint custom resource that references the ConstraintTemplate and specifies 'match' criteria (kinds, namespaces, label selectors) and parameter values." }
     ],
@@ -333,7 +333,7 @@ export const CNCF_OPA_QUESTIONS_15 = [
     type: "single",
     explanation: "The Constraint is where scope belongs: its match block filters by kind, namespace, and label selector, and changing scope is an edit to one resource that the audit runner immediately reflects. Encoding namespaces in the Rego forces a template change, and therefore a change for every other Constraint built on it, whenever scope shifts. The webhook's namespaceSelector and the --exempt-namespace flag both act on the whole Gatekeeper installation at once, so narrowing one policy would silently narrow every policy alongside it.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
-    tags: ["gatekeeper", "constraints", "admission", "Pharmaceutical Clinical Trial Platform"]
+    tags: ["gatekeeper","constraints","admission","Pharmaceutical Clinical Trial Platform"]
   },
   {
     id: "cncf-opa-367",
@@ -347,14 +347,14 @@ export const CNCF_OPA_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Set 'enforcementAction: dryrun' or 'enforcementAction: warn' to evaluate and log policy violations without blocking engineering deployments." },
       { id: 'B', text: "Deploy the Constraint with a match block that initially selects one pilot namespace and widen the selector as teams come into compliance." },
-      { id: 'C', text: "Leave enforcementAction at deny and rely on the Gatekeeper audit pod to report the violations before the webhook is switched on." },
+      { id: 'C', text: "Leave the policy's enforcementAction at deny, without blocking anything, and rely on the audit pod to report violations before the webhook is switched on." },
       { id: 'D', text: "Write the ConstraintTemplate's Rego so that each violation message begins with the word warning, which causes admission to allow the request." }
     ],
     correctAnswers: ['A'],
     type: "single",
     explanation: "dryrun and warn keep the constraint applied cluster-wide while removing the block, so the violation list in the Constraint status is a complete picture of what deny would reject. Piloting through the match block also avoids blocking anyone, but it only reveals violations inside the pilot namespace, so the blast radius of full enforcement stays unknown. Leaving the action at deny blocks every non-compliant request the moment the webhook is reachable. The text of a violation message has no effect on enforcement, which is governed solely by enforcementAction.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
-    tags: ["gatekeeper", "enforcement-action", "rollout", "Smart City Traffic & Mobility Sensor Hub"]
+    tags: ["gatekeeper","enforcement-action","rollout","Smart City Traffic & Mobility Sensor Hub"]
   },
   {
     id: "cncf-opa-368",
@@ -368,14 +368,14 @@ export const CNCF_OPA_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Use 'gator test' against a full set of manifests exported from the cluster with kubectl so that the resources already running are checked offline in the pipeline." },
       { id: 'B', text: "Rely on the Gatekeeper audit pod to periodically scan all existing cluster resources and populate non-compliance violations in Constraint status fields." },
-      { id: 'C', text: "Rely on the validating webhook, which the API server invokes for every resource that currently exists in the cluster." },
+      { id: 'C', text: "Rely on the validating webhook rather than an audit pass, since the API server invokes it for every resource that exists in the cluster." },
       { id: 'D', text: "Set enforcementAction to deny so that resources already running are evicted automatically the next time the Gatekeeper controller reconciles them." }
     ],
     correctAnswers: ['B'],
     type: "single",
     explanation: "The audit runner exists precisely for this gap: it re-evaluates live objects on an interval and writes what it finds into each Constraint's status, with no action required from the teams that own them. Exporting manifests and running gator over them does produce the same answer once, but it is a manual snapshot that goes stale immediately. The webhook is only called on create and update requests, so an object admitted before the policy existed is never re-examined. Enforcement actions apply to admission and never evict or modify workloads that are already running.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
-    tags: ["gatekeeper", "audit", "compliance", "Digital Identity & Biometric Verification"]
+    tags: ["gatekeeper","audit","compliance","Digital Identity & Biometric Verification"]
   },
   {
     id: "cncf-opa-369",
@@ -388,7 +388,7 @@ export const CNCF_OPA_QUESTIONS_15 = [
     question: "Which policy approach best meets these requirements?",
     options: [
       { id: 'A', text: "Configure a Kubernetes MutatingAdmissionPolicy with a CEL expression that patches the missing field during the admission request." },
-      { id: 'B', text: "Configure a Constraint that denies any pod missing the field so that each team adds the required value to its own manifests." },
+      { id: 'B', text: "Configure a Constraint that denies any incoming pod missing the field, so that each team adds the required value automatically in its own manifests." },
       { id: 'C', text: "Configure Gatekeeper Assign or AssignMetadata resources to inject standard security contexts or default labels into incoming pods automatically." },
       { id: 'D', text: "Configure a PodPreset resource that merges the default security context into every pod that matches a given namespace and label selector." }
     ],
@@ -396,7 +396,7 @@ export const CNCF_OPA_QUESTIONS_15 = [
     type: "single",
     explanation: "Assign and AssignMetadata are Gatekeeper's mutation resources, applied before validation, so the default lands on the object without any manifest changing. A CEL-based MutatingAdmissionPolicy achieves the same outcome through the Kubernetes built-in path and is a reasonable alternative, though it sits outside Gatekeeper and its constraint tooling. Denying instead of mutating does eventually produce compliance, but only after every team edits every manifest, which is the work being avoided. PodPreset was removed from Kubernetes in version 1.20 and no longer exists.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
-    tags: ["gatekeeper", "mutation", "admission", "Legal Discovery & Semantic Document Search"]
+    tags: ["gatekeeper","mutation","admission","Legal Discovery & Semantic Document Search"]
   },
   {
     id: "cncf-opa-370",
@@ -409,7 +409,7 @@ export const CNCF_OPA_QUESTIONS_15 = [
     question: "Which policy approach best meets these requirements?",
     options: [
       { id: 'A', text: "Use 'kubectl apply --dry-run=server' in the pipeline so that the API server runs the Gatekeeper admission webhook for real without ever persisting the object." },
-      { id: 'B', text: "Use 'conftest test' in CI with the Rego extracted out of each ConstraintTemplate to check the manifests directly." },
+      { id: 'B', text: "Use 'conftest test' in CI with the Rego extracted out of each ConstraintTemplate to check the manifests before they are applied." },
       { id: 'C', text: "Use 'opa test' against the Rego embedded in each ConstraintTemplate so that the policy's own unit tests run on every pull request." },
       { id: 'D', text: "Use the 'gator' CLI tool in developer environments and CI pipelines to test Kubernetes manifests against ConstraintTemplates before applying to clusters." }
     ],
@@ -417,7 +417,7 @@ export const CNCF_OPA_QUESTIONS_15 = [
     type: "single",
     explanation: "gator evaluates a manifest against the ConstraintTemplate and its Constraints together, honouring match criteria and parameters, and it needs no cluster at all, so it runs in a pull request in seconds. Server-side dry run genuinely exercises the real webhook, but it requires a reachable cluster with the constraints already installed, which is the dependency shift-left testing is trying to remove. Extracting the Rego for conftest drops the match criteria and parameter wiring that decide whether the policy even applies. 'opa test' checks the policy's own logic rather than the manifests under review.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
-    tags: ["gator", "shift-left", "ci-cd", "AdTech Real-Time Bidding Exchange"]
+    tags: ["gator","shift-left","ci-cd","AdTech Real-Time Bidding Exchange"]
   },
   {
     id: "cncf-opa-371",
@@ -432,13 +432,13 @@ export const CNCF_OPA_QUESTIONS_15 = [
       { id: 'A', text: "Configure 'failurePolicy: Fail' for critical security policies, or 'failurePolicy: Ignore' with strict alerting when prioritizing cluster availability." },
       { id: 'B', text: "Configure 'failurePolicy: Ignore' everywhere and rely on the audit pod to report anything that was admitted while the webhook was down." },
       { id: 'C', text: "Configure 'failurePolicy: Fail' everywhere and raise timeoutSeconds so that a slow webhook response is not treated as an outright failure." },
-      { id: 'D', text: "Configure a namespaceSelector that excludes kube-system so that a webhook outage cannot prevent control plane components from starting." }
+      { id: 'D', text: "Configure a strict namespaceSelector that excludes kube-system so that a webhook outage cannot prevent control plane components from starting." }
     ],
     correctAnswers: ['A'],
     type: "single",
     explanation: "failurePolicy is the availability-versus-enforcement dial, and the answer differs per policy, so critical security constraints are worth failing closed for while others should not be able to halt deployments. Setting Ignore everywhere converts every outage into a silent enforcement gap, and although the audit runner reports it afterwards the non-compliant object is already admitted. A longer timeout helps with slowness but does nothing when the webhook is genuinely unreachable. Excluding kube-system is sound practice for avoiding deadlock but leaves the question of every other namespace unanswered.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
-    tags: ["admission-webhook", "failure-policy", "k8s", "Precision Agriculture & Drone Scouting"]
+    tags: ["admission-webhook","failure-policy","k8s","Precision Agriculture & Drone Scouting"]
   },
   {
     id: "cncf-opa-372",
@@ -453,13 +453,13 @@ export const CNCF_OPA_QUESTIONS_15 = [
       { id: 'A', text: "Define a ValidatingAdmissionPolicy with a CEL expression and bind it to the target namespaces through a policy binding resource." },
       { id: 'B', text: "Define a ConstraintTemplate containing an openAPIV3Schema specification for parameters and the embedded Rego policy logic under 'targets'." },
       { id: 'C', text: "Define a ConstraintTemplate whose Rego reads its parameter values from a ConfigMap mounted into the Gatekeeper controller pod." },
-      { id: 'D', text: "Define a separate Constraint for each variation and place the differing values directly in the Rego source of each one." }
+      { id: 'D', text: "Define a separate Constraint for each variation and place the differing parameters directly in the Rego source of each one." }
     ],
     correctAnswers: ['B'],
     type: "single",
     explanation: "The ConstraintTemplate declares both the Rego and the openAPIV3Schema for its parameters, which generates a CRD so each Constraint supplies typed values that Gatekeeper validates. ValidatingAdmissionPolicy is a real Kubernetes feature and a genuine alternative, but it is the built-in CEL mechanism rather than Gatekeeper, so it uses none of the existing Rego or constraint tooling. Gatekeeper passes parameters through the Constraint spec and does not read them from ConfigMaps, and copying the Rego per variation abandons the reuse the template exists to provide.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
-    tags: ["gatekeeper", "constraint-template", "k8s", "Industrial Robotics Predictive Maintenance"]
+    tags: ["gatekeeper","constraint-template","k8s","Industrial Robotics Predictive Maintenance"]
   },
   {
     id: "cncf-opa-373",
@@ -472,7 +472,7 @@ export const CNCF_OPA_QUESTIONS_15 = [
     question: "Which policy approach best meets these requirements?",
     options: [
       { id: 'A', text: "Add namespace comparisons to the Rego inside the ConstraintTemplate so that the rule simply returns no violation for any object outside the intended set of namespaces." },
-      { id: 'B', text: "Set a namespaceSelector on the Gatekeeper ValidatingWebhookConfiguration so that the API server only forwards matching namespaces." },
+      { id: 'B', text: "Set a namespaceSelector on the Gatekeeper ValidatingWebhookConfiguration so that the API server forwards only the matching resource kinds and namespaces." },
       { id: 'C', text: "Create a Constraint custom resource that references the ConstraintTemplate and specifies 'match' criteria (kinds, namespaces, label selectors) and parameter values." },
       { id: 'D', text: "Label the namespaces that should be skipped and list every one of them in the Gatekeeper controller's --exempt-namespace flag at startup." }
     ],
@@ -480,7 +480,7 @@ export const CNCF_OPA_QUESTIONS_15 = [
     type: "single",
     explanation: "The Constraint is where scope belongs: its match block filters by kind, namespace, and label selector, and changing scope is an edit to one resource that the audit runner immediately reflects. Encoding namespaces in the Rego forces a template change, and therefore a change for every other Constraint built on it, whenever scope shifts. The webhook's namespaceSelector and the --exempt-namespace flag both act on the whole Gatekeeper installation at once, so narrowing one policy would silently narrow every policy alongside it.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
-    tags: ["gatekeeper", "constraints", "admission", "Educational Remote Proctoring Platform"]
+    tags: ["gatekeeper","constraints","admission","Educational Remote Proctoring Platform"]
   },
   {
     id: "cncf-opa-374",
@@ -493,7 +493,7 @@ export const CNCF_OPA_QUESTIONS_15 = [
     question: "Which policy approach best meets these requirements?",
     options: [
       { id: 'A', text: "Deploy the Constraint with a match block that initially selects one pilot namespace and widen the selector as teams come into compliance." },
-      { id: 'B', text: "Leave enforcementAction at deny and rely on the Gatekeeper audit pod to report the violations before the webhook is switched on." },
+      { id: 'B', text: "Leave the policy's enforcementAction at deny, without blocking anything, and rely on the audit pod to report violations before the webhook is switched on." },
       { id: 'C', text: "Write the ConstraintTemplate's Rego so that each violation message begins with the word warning, which causes admission to allow the request." },
       { id: 'D', text: "Set 'enforcementAction: dryrun' or 'enforcementAction: warn' to evaluate and log policy violations without blocking engineering deployments." }
     ],
@@ -501,7 +501,7 @@ export const CNCF_OPA_QUESTIONS_15 = [
     type: "single",
     explanation: "dryrun and warn keep the constraint applied cluster-wide while removing the block, so the violation list in the Constraint status is a complete picture of what deny would reject. Piloting through the match block also avoids blocking anyone, but it only reveals violations inside the pilot namespace, so the blast radius of full enforcement stays unknown. Leaving the action at deny blocks every non-compliant request the moment the webhook is reachable. The text of a violation message has no effect on enforcement, which is governed solely by enforcementAction.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
-    tags: ["gatekeeper", "enforcement-action", "rollout", "Real Estate Valuation & Geo-Spatial Analytics"]
+    tags: ["gatekeeper","enforcement-action","rollout","Real Estate Valuation & Geo-Spatial Analytics"]
   },
   {
     id: "cncf-opa-375",
@@ -515,14 +515,14 @@ export const CNCF_OPA_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Rely on the Gatekeeper audit pod to periodically scan all existing cluster resources and populate non-compliance violations in Constraint status fields." },
       { id: 'B', text: "Use 'gator test' against a full set of manifests exported from the cluster with kubectl so that the resources already running are checked offline in the pipeline." },
-      { id: 'C', text: "Rely on the validating webhook, which the API server invokes for every resource that currently exists in the cluster." },
+      { id: 'C', text: "Rely on the validating webhook rather than an audit pass, since the API server invokes it for every resource that exists in the cluster." },
       { id: 'D', text: "Set enforcementAction to deny so that resources already running are evicted automatically the next time the Gatekeeper controller reconciles them." }
     ],
     correctAnswers: ['A'],
     type: "single",
     explanation: "The audit runner exists precisely for this gap: it re-evaluates live objects on an interval and writes what it finds into each Constraint's status, with no action required from the teams that own them. Exporting manifests and running gator over them does produce the same answer once, but it is a manual snapshot that goes stale immediately. The webhook is only called on create and update requests, so an object admitted before the policy existed is never re-examined. Enforcement actions apply to admission and never evict or modify workloads that are already running.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
-    tags: ["gatekeeper", "audit", "compliance", "Disaster Emergency Dispatch & Operations"]
+    tags: ["gatekeeper","audit","compliance","Disaster Emergency Dispatch & Operations"]
   }
 ];
 

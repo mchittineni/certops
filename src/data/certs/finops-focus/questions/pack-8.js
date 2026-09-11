@@ -11,14 +11,14 @@ export const FINOPS_FOCUS_QUESTIONS_8 = [
     options: [
       { id: 'A', text: "Amortize upfront commitment fees across the utilization period, populating 'EffectiveCost' proportional to each workload's resource consumption." },
       { id: 'B', text: "Record the upfront fee under ChargeCategory 'Purchase' in the month that it is paid and leave all of the usage lines sitting at their discounted rates." },
-      { id: 'C', text: "Divide the upfront fee evenly across the months of the term and allocate each month's share equally between all of the teams." },
+      { id: 'C', text: "Divide the upfront commitment fee evenly across the months of the term and allocate each month's share equally between all teams." },
       { id: 'D', text: "Allocate the upfront fee to the teams in proportion to their share of total spend right across the billing account." }
     ],
     correctAnswers: ['A'],
     type: "single",
     explanation: "Amortisation attaches the fee to the usage that drew on the commitment, so a team's monthly figure reflects what it consumed and no month is distorted by the purchase date. Booking the fee as a Purchase in the paid month is exactly what BilledCost already does and is correct for invoice reconciliation, but it makes January unusable for chargeback. An even split across months fixes the timing yet charges teams that never used the capacity. Allocating on total account spend is a proxy that overcharges teams whose usage was never eligible for the commitment.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
-    tags: ["amortization", "commitments", "effective-cost", "High-Frequency FinTech Trading"]
+    tags: ["amortization","commitments","effective-cost","High-Frequency FinTech Trading"]
   },
   {
     id: "finops-focus-177",
@@ -39,7 +39,7 @@ export const FINOPS_FOCUS_QUESTIONS_8 = [
     type: "single",
     explanation: "Unblended cost is the charge attributed to the account as invoiced, which is what BilledCost means, and the amortized reservation columns supply the commitment spread EffectiveCost needs. Blended cost averages rates across the organisation, so no individual account's figure ties to anything on its invoice. Net unblended has already netted discounts, which double-counts once credits are loaded as their own Credit rows. Public on-demand cost is the definition of ListCost and was never the amount billed.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
-    tags: ["aws-cur", "mapping", "ingestion", "Healthcare Patient Records & HIPAA"]
+    tags: ["aws-cur","mapping","ingestion","Healthcare Patient Records & HIPAA"]
   },
   {
     id: "finops-focus-178",
@@ -54,13 +54,13 @@ export const FINOPS_FOCUS_QUESTIONS_8 = [
       { id: 'A', text: "Map the Azure amortised cost export to BilledCost and the actual cost export to EffectiveCost, since amortisation is what appears on the invoice." },
       { id: 'B', text: "Map 'UnitPrice' to ListCost, since the unit price recorded against each line is the published rate before any agreement is applied." },
       { id: 'C', text: "Map Azure Cost Management 'CostInBillingCurrency' to BilledCost, 'PayGPrice' to ListCost, and extract standardized ResourceType from resource URIs." },
-      { id: 'D', text: "Map the subscription display name to SubAccountId so that the reports carry a readable identifier for each of the subscriptions." }
+      { id: 'D', text: "Map the Cost Management subscription display name to SubAccountId so the reports carry a readable identifier for each subscription." }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Azure publishes an actual cost export, which matches the invoice and therefore BilledCost, and an amortised export, which carries the spread commitment cost and therefore EffectiveCost; PayGPrice is the pay-as-you-go rate and maps to ListCost. Swapping the two exports inverts the definitions, since it is actual cost rather than amortised cost that appears on the invoice. UnitPrice already reflects the negotiated agreement, so mapping it to ListCost understates the discount. Display names are mutable and not unique, which makes them unsafe as an identifier.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
-    tags: ["azure-cost", "arm", "normalization", "Global E-Commerce Black Friday Scale"]
+    tags: ["azure-cost","arm","normalization","Global E-Commerce Black Friday Scale"]
   },
   {
     id: "finops-focus-179",
@@ -81,7 +81,7 @@ export const FINOPS_FOCUS_QUESTIONS_8 = [
     type: "single",
     explanation: "The GCP export records cost before credits and holds the credits in a repeated field, so EffectiveCost only becomes correct once that field is unnested and applied. Emitting the credits as separate rows preserves the total but leaves every usage line overstated, so any per-resource or per-team figure is wrong. cost_at_list is the undiscounted amount and belongs in ListCost. Project names can be changed and repeated, whereas project.id is the stable identifier SubAccountId requires.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
-    tags: ["gcp-billing", "bigquery", "ingestion", "Autonomous Vehicle Telemetry"]
+    tags: ["gcp-billing","bigquery","ingestion","Autonomous Vehicle Telemetry"]
   },
   {
     id: "finops-focus-180",
@@ -96,13 +96,13 @@ export const FINOPS_FOCUS_QUESTIONS_8 = [
       { id: 'A', text: "Apply daily or monthly vendor exchange rates to convert disparate local billed currencies into a uniform corporate base reporting currency in FOCUS." },
       { id: 'B', text: "Apply the corporate treasury's budget rate for the financial year so that the reported spend stays directly comparable against the plan for that financial reporting year." },
       { id: 'C', text: "Apply the spot exchange rate on the day each report is produced so that every historical month is restated at the current rate." },
-      { id: 'D', text: "Use the 'BillingCurrency' amounts as they stand and let each region report its own spend in the currency it was billed in." }
+      { id: 'D', text: "Use the 'BillingCurrency' amounts as they stand and let each region report its spend in its own local currencies." }
     ],
     correctAnswers: ['A'],
     type: "single",
     explanation: "Converting at the rate for the period a charge belongs to keeps a closed month closed and stays close to the cash actually settled. A treasury budget rate is genuinely used for variance-against-plan reporting, but it deliberately diverges from what was spent and cannot be reconciled to the invoices. Restating history at today's spot rate changes last quarter's reported spend every time the report is refreshed. Leaving amounts in local currency makes any group-level total meaningless.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
-    tags: ["currency", "exchange-rates", "global-billing", "Multi-Tenant B2B SaaS Platform"]
+    tags: ["currency","exchange-rates","global-billing","Multi-Tenant B2B SaaS Platform"]
   },
   {
     id: "finops-focus-181",
@@ -123,7 +123,7 @@ export const FINOPS_FOCUS_QUESTIONS_8 = [
     type: "single",
     explanation: "FOCUS is provider-agnostic, so a SaaS export loaded against the same columns is allocated, filtered, and trended by exactly the queries that already serve cloud spend. A single monthly total per vendor arrives at the right group figure but cannot be attributed to a team or a service, which is where the questions actually get asked. A separate dataset joined only at the summary level has the same limitation one level up. Filing a vendor under the marketplace it was bought through misstates ProviderName and makes that cloud's spend look larger than it is.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
-    tags: ["saas", "tco", "multi-provider", "Media Streaming & Global CDN"]
+    tags: ["saas","tco","multi-provider","Media Streaming & Global CDN"]
   },
   {
     id: "finops-focus-182",
@@ -138,13 +138,13 @@ export const FINOPS_FOCUS_QUESTIONS_8 = [
       { id: 'A', text: "Reconcile the loaded totals against the invoice once a month during the close and investigate whatever variance happens to be found at that point in the monthly cycle." },
       { id: 'B', text: "Alert on any day where the total spend moves by more than a set percentage from the previous day's figure right across the whole of the estate." },
       { id: 'C', text: "Implement automated data quality gates in billing ETL pipelines to verify row count checksums, schema compliance, and total cost reconciliation against invoices." },
-      { id: 'D', text: "Validate the schema on load and reject any billing file whose columns do not exactly match the expected FOCUS column list for that provider." }
+      { id: 'D', text: "Run an automated schema check on load that rejects any billing file whose columns do not match the expected FOCUS column list." }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Gating every load on row counts, schema, and reconciliation to the invoice catches all three ways a load goes wrong, and it catches them before the data is reported from. A monthly reconciliation finds the same discrepancy weeks after decisions were taken on the bad figures. A day-over-day threshold is anomaly detection wearing a data-quality label: a genuine drop in spend and a load that lost half its rows look identical. Schema validation alone passes a file that is perfectly well-formed and half empty.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
-    tags: ["data-quality", "reconciliation", "validation", "Aerospace Satellite Ground Systems"]
+    tags: ["data-quality","reconciliation","validation","Aerospace Satellite Ground Systems"]
   },
   {
     id: "finops-focus-183",
@@ -157,7 +157,7 @@ export const FINOPS_FOCUS_QUESTIONS_8 = [
     question: "Which approach best meets these requirements?",
     options: [
       { id: 'A', text: "Record the upfront fee under ChargeCategory 'Purchase' in the month that it is paid and leave all of the usage lines sitting at their discounted rates." },
-      { id: 'B', text: "Divide the upfront fee evenly across the months of the term and allocate each month's share equally between all of the teams." },
+      { id: 'B', text: "Divide the upfront commitment fee evenly across the months of the term and allocate each month's share equally between all teams." },
       { id: 'C', text: "Allocate the upfront fee to the teams in proportion to their share of total spend right across the billing account." },
       { id: 'D', text: "Amortize upfront commitment fees across the utilization period, populating 'EffectiveCost' proportional to each workload's resource consumption." }
     ],
@@ -165,7 +165,7 @@ export const FINOPS_FOCUS_QUESTIONS_8 = [
     type: "single",
     explanation: "Amortisation attaches the fee to the usage that drew on the commitment, so a team's monthly figure reflects what it consumed and no month is distorted by the purchase date. Booking the fee as a Purchase in the paid month is exactly what BilledCost already does and is correct for invoice reconciliation, but it makes January unusable for chargeback. An even split across months fixes the timing yet charges teams that never used the capacity. Allocating on total account spend is a proxy that overcharges teams whose usage was never eligible for the commitment.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
-    tags: ["amortization", "commitments", "effective-cost", "Telecommunications 5G Core Network"]
+    tags: ["amortization","commitments","effective-cost","Telecommunications 5G Core Network"]
   },
   {
     id: "finops-focus-184",
@@ -186,7 +186,7 @@ export const FINOPS_FOCUS_QUESTIONS_8 = [
     type: "single",
     explanation: "Unblended cost is the charge attributed to the account as invoiced, which is what BilledCost means, and the amortized reservation columns supply the commitment spread EffectiveCost needs. Blended cost averages rates across the organisation, so no individual account's figure ties to anything on its invoice. Net unblended has already netted discounts, which double-counts once credits are loaded as their own Credit rows. Public on-demand cost is the definition of ListCost and was never the amount billed.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
-    tags: ["aws-cur", "mapping", "ingestion", "Renewable Energy Smart Grid IoT"]
+    tags: ["aws-cur","mapping","ingestion","Renewable Energy Smart Grid IoT"]
   },
   {
     id: "finops-focus-185",
@@ -201,13 +201,13 @@ export const FINOPS_FOCUS_QUESTIONS_8 = [
       { id: 'A', text: "Map the Azure amortised cost export to BilledCost and the actual cost export to EffectiveCost, since amortisation is what appears on the invoice." },
       { id: 'B', text: "Map Azure Cost Management 'CostInBillingCurrency' to BilledCost, 'PayGPrice' to ListCost, and extract standardized ResourceType from resource URIs." },
       { id: 'C', text: "Map 'UnitPrice' to ListCost, since the unit price recorded against each line is the published rate before any agreement is applied." },
-      { id: 'D', text: "Map the subscription display name to SubAccountId so that the reports carry a readable identifier for each of the subscriptions." }
+      { id: 'D', text: "Map the Cost Management subscription display name to SubAccountId so the reports carry a readable identifier for each subscription." }
     ],
     correctAnswers: ['B'],
     type: "single",
     explanation: "Azure publishes an actual cost export, which matches the invoice and therefore BilledCost, and an amortised export, which carries the spread commitment cost and therefore EffectiveCost; PayGPrice is the pay-as-you-go rate and maps to ListCost. Swapping the two exports inverts the definitions, since it is actual cost rather than amortised cost that appears on the invoice. UnitPrice already reflects the negotiated agreement, so mapping it to ListCost understates the discount. Display names are mutable and not unique, which makes them unsafe as an identifier.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
-    tags: ["azure-cost", "arm", "normalization", "Supply Chain Cold-Chain Logistics"]
+    tags: ["azure-cost","arm","normalization","Supply Chain Cold-Chain Logistics"]
   },
   {
     id: "finops-focus-186",
@@ -228,7 +228,7 @@ export const FINOPS_FOCUS_QUESTIONS_8 = [
     type: "single",
     explanation: "The GCP export records cost before credits and holds the credits in a repeated field, so EffectiveCost only becomes correct once that field is unnested and applied. Emitting the credits as separate rows preserves the total but leaves every usage line overstated, so any per-resource or per-team figure is wrong. cost_at_list is the undiscounted amount and belongs in ListCost. Project names can be changed and repeated, whereas project.id is the stable identifier SubAccountId requires.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
-    tags: ["gcp-billing", "bigquery", "ingestion", "Banking Core Ledger & Payments"]
+    tags: ["gcp-billing","bigquery","ingestion","Banking Core Ledger & Payments"]
   },
   {
     id: "finops-focus-187",
@@ -242,14 +242,14 @@ export const FINOPS_FOCUS_QUESTIONS_8 = [
     options: [
       { id: 'A', text: "Apply the corporate treasury's budget rate for the financial year so that the reported spend stays directly comparable against the plan for that financial reporting year." },
       { id: 'B', text: "Apply the spot exchange rate on the day each report is produced so that every historical month is restated at the current rate." },
-      { id: 'C', text: "Use the 'BillingCurrency' amounts as they stand and let each region report its own spend in the currency it was billed in." },
+      { id: 'C', text: "Use the 'BillingCurrency' amounts as they stand and let each region report its spend in its own local currencies." },
       { id: 'D', text: "Apply daily or monthly vendor exchange rates to convert disparate local billed currencies into a uniform corporate base reporting currency in FOCUS." }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Converting at the rate for the period a charge belongs to keeps a closed month closed and stays close to the cash actually settled. A treasury budget rate is genuinely used for variance-against-plan reporting, but it deliberately diverges from what was spent and cannot be reconciled to the invoices. Restating history at today's spot rate changes last quarter's reported spend every time the report is refreshed. Leaving amounts in local currency makes any group-level total meaningless.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
-    tags: ["currency", "exchange-rates", "global-billing", "Genomic Sequencing & Biotech Pipeline"]
+    tags: ["currency","exchange-rates","global-billing","Genomic Sequencing & Biotech Pipeline"]
   },
   {
     id: "finops-focus-188",
@@ -270,7 +270,7 @@ export const FINOPS_FOCUS_QUESTIONS_8 = [
     type: "single",
     explanation: "FOCUS is provider-agnostic, so a SaaS export loaded against the same columns is allocated, filtered, and trended by exactly the queries that already serve cloud spend. A single monthly total per vendor arrives at the right group figure but cannot be attributed to a team or a service, which is where the questions actually get asked. A separate dataset joined only at the summary level has the same limitation one level up. Filing a vendor under the marketplace it was bought through misstates ProviderName and makes that cloud's spend look larger than it is.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
-    tags: ["saas", "tco", "multi-provider", "Defense-Grade Zero-Trust Network"]
+    tags: ["saas","tco","multi-provider","Defense-Grade Zero-Trust Network"]
   },
   {
     id: "finops-focus-189",
@@ -285,13 +285,13 @@ export const FINOPS_FOCUS_QUESTIONS_8 = [
       { id: 'A', text: "Reconcile the loaded totals against the invoice once a month during the close and investigate whatever variance happens to be found at that point in the monthly cycle." },
       { id: 'B', text: "Implement automated data quality gates in billing ETL pipelines to verify row count checksums, schema compliance, and total cost reconciliation against invoices." },
       { id: 'C', text: "Alert on any day where the total spend moves by more than a set percentage from the previous day's figure right across the whole of the estate." },
-      { id: 'D', text: "Validate the schema on load and reject any billing file whose columns do not exactly match the expected FOCUS column list for that provider." }
+      { id: 'D', text: "Run an automated schema check on load that rejects any billing file whose columns do not match the expected FOCUS column list." }
     ],
     correctAnswers: ['B'],
     type: "single",
     explanation: "Gating every load on row counts, schema, and reconciliation to the invoice catches all three ways a load goes wrong, and it catches them before the data is reported from. A monthly reconciliation finds the same discrepancy weeks after decisions were taken on the bad figures. A day-over-day threshold is anomaly detection wearing a data-quality label: a genuine drop in spend and a load that lost half its rows look identical. Schema validation alone passes a file that is perfectly well-formed and half empty.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
-    tags: ["data-quality", "reconciliation", "validation", "Online Multiplayer Gaming Engine"]
+    tags: ["data-quality","reconciliation","validation","Online Multiplayer Gaming Engine"]
   },
   {
     id: "finops-focus-190",
@@ -304,7 +304,7 @@ export const FINOPS_FOCUS_QUESTIONS_8 = [
     question: "Which approach best meets these requirements?",
     options: [
       { id: 'A', text: "Record the upfront fee under ChargeCategory 'Purchase' in the month that it is paid and leave all of the usage lines sitting at their discounted rates." },
-      { id: 'B', text: "Divide the upfront fee evenly across the months of the term and allocate each month's share equally between all of the teams." },
+      { id: 'B', text: "Divide the upfront commitment fee evenly across the months of the term and allocate each month's share equally between all teams." },
       { id: 'C', text: "Amortize upfront commitment fees across the utilization period, populating 'EffectiveCost' proportional to each workload's resource consumption." },
       { id: 'D', text: "Allocate the upfront fee to the teams in proportion to their share of total spend right across the billing account." }
     ],
@@ -312,7 +312,7 @@ export const FINOPS_FOCUS_QUESTIONS_8 = [
     type: "single",
     explanation: "Amortisation attaches the fee to the usage that drew on the commitment, so a team's monthly figure reflects what it consumed and no month is distorted by the purchase date. Booking the fee as a Purchase in the paid month is exactly what BilledCost already does and is correct for invoice reconciliation, but it makes January unusable for chargeback. An even split across months fixes the timing yet charges teams that never used the capacity. Allocating on total account spend is a proxy that overcharges teams whose usage was never eligible for the commitment.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
-    tags: ["amortization", "commitments", "effective-cost", "Insurance Risk & Actuarial Modeling"]
+    tags: ["amortization","commitments","effective-cost","Insurance Risk & Actuarial Modeling"]
   },
   {
     id: "finops-focus-191",
@@ -333,7 +333,7 @@ export const FINOPS_FOCUS_QUESTIONS_8 = [
     type: "single",
     explanation: "Unblended cost is the charge attributed to the account as invoiced, which is what BilledCost means, and the amortized reservation columns supply the commitment spread EffectiveCost needs. Blended cost averages rates across the organisation, so no individual account's figure ties to anything on its invoice. Net unblended has already netted discounts, which double-counts once credits are loaded as their own Credit rows. Public on-demand cost is the definition of ListCost and was never the amount billed.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
-    tags: ["aws-cur", "mapping", "ingestion", "Pharmaceutical Clinical Trial Platform"]
+    tags: ["aws-cur","mapping","ingestion","Pharmaceutical Clinical Trial Platform"]
   },
   {
     id: "finops-focus-192",
@@ -348,13 +348,13 @@ export const FINOPS_FOCUS_QUESTIONS_8 = [
       { id: 'A', text: "Map Azure Cost Management 'CostInBillingCurrency' to BilledCost, 'PayGPrice' to ListCost, and extract standardized ResourceType from resource URIs." },
       { id: 'B', text: "Map the Azure amortised cost export to BilledCost and the actual cost export to EffectiveCost, since amortisation is what appears on the invoice." },
       { id: 'C', text: "Map 'UnitPrice' to ListCost, since the unit price recorded against each line is the published rate before any agreement is applied." },
-      { id: 'D', text: "Map the subscription display name to SubAccountId so that the reports carry a readable identifier for each of the subscriptions." }
+      { id: 'D', text: "Map the Cost Management subscription display name to SubAccountId so the reports carry a readable identifier for each subscription." }
     ],
     correctAnswers: ['A'],
     type: "single",
     explanation: "Azure publishes an actual cost export, which matches the invoice and therefore BilledCost, and an amortised export, which carries the spread commitment cost and therefore EffectiveCost; PayGPrice is the pay-as-you-go rate and maps to ListCost. Swapping the two exports inverts the definitions, since it is actual cost rather than amortised cost that appears on the invoice. UnitPrice already reflects the negotiated agreement, so mapping it to ListCost understates the discount. Display names are mutable and not unique, which makes them unsafe as an identifier.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
-    tags: ["azure-cost", "arm", "normalization", "Smart City Traffic & Mobility Sensor Hub"]
+    tags: ["azure-cost","arm","normalization","Smart City Traffic & Mobility Sensor Hub"]
   },
   {
     id: "finops-focus-193",
@@ -375,7 +375,7 @@ export const FINOPS_FOCUS_QUESTIONS_8 = [
     type: "single",
     explanation: "The GCP export records cost before credits and holds the credits in a repeated field, so EffectiveCost only becomes correct once that field is unnested and applied. Emitting the credits as separate rows preserves the total but leaves every usage line overstated, so any per-resource or per-team figure is wrong. cost_at_list is the undiscounted amount and belongs in ListCost. Project names can be changed and repeated, whereas project.id is the stable identifier SubAccountId requires.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
-    tags: ["gcp-billing", "bigquery", "ingestion", "Digital Identity & Biometric Verification"]
+    tags: ["gcp-billing","bigquery","ingestion","Digital Identity & Biometric Verification"]
   },
   {
     id: "finops-focus-194",
@@ -390,13 +390,13 @@ export const FINOPS_FOCUS_QUESTIONS_8 = [
       { id: 'A', text: "Apply the corporate treasury's budget rate for the financial year so that the reported spend stays directly comparable against the plan for that financial reporting year." },
       { id: 'B', text: "Apply the spot exchange rate on the day each report is produced so that every historical month is restated at the current rate." },
       { id: 'C', text: "Apply daily or monthly vendor exchange rates to convert disparate local billed currencies into a uniform corporate base reporting currency in FOCUS." },
-      { id: 'D', text: "Use the 'BillingCurrency' amounts as they stand and let each region report its own spend in the currency it was billed in." }
+      { id: 'D', text: "Use the 'BillingCurrency' amounts as they stand and let each region report its spend in its own local currencies." }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Converting at the rate for the period a charge belongs to keeps a closed month closed and stays close to the cash actually settled. A treasury budget rate is genuinely used for variance-against-plan reporting, but it deliberately diverges from what was spent and cannot be reconciled to the invoices. Restating history at today's spot rate changes last quarter's reported spend every time the report is refreshed. Leaving amounts in local currency makes any group-level total meaningless.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
-    tags: ["currency", "exchange-rates", "global-billing", "Legal Discovery & Semantic Document Search"]
+    tags: ["currency","exchange-rates","global-billing","Legal Discovery & Semantic Document Search"]
   },
   {
     id: "finops-focus-195",
@@ -417,7 +417,7 @@ export const FINOPS_FOCUS_QUESTIONS_8 = [
     type: "single",
     explanation: "FOCUS is provider-agnostic, so a SaaS export loaded against the same columns is allocated, filtered, and trended by exactly the queries that already serve cloud spend. A single monthly total per vendor arrives at the right group figure but cannot be attributed to a team or a service, which is where the questions actually get asked. A separate dataset joined only at the summary level has the same limitation one level up. Filing a vendor under the marketplace it was bought through misstates ProviderName and makes that cloud's spend look larger than it is.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
-    tags: ["saas", "tco", "multi-provider", "AdTech Real-Time Bidding Exchange"]
+    tags: ["saas","tco","multi-provider","AdTech Real-Time Bidding Exchange"]
   },
   {
     id: "finops-focus-196",
@@ -432,13 +432,13 @@ export const FINOPS_FOCUS_QUESTIONS_8 = [
       { id: 'A', text: "Implement automated data quality gates in billing ETL pipelines to verify row count checksums, schema compliance, and total cost reconciliation against invoices." },
       { id: 'B', text: "Reconcile the loaded totals against the invoice once a month during the close and investigate whatever variance happens to be found at that point in the monthly cycle." },
       { id: 'C', text: "Alert on any day where the total spend moves by more than a set percentage from the previous day's figure right across the whole of the estate." },
-      { id: 'D', text: "Validate the schema on load and reject any billing file whose columns do not exactly match the expected FOCUS column list for that provider." }
+      { id: 'D', text: "Run an automated schema check on load that rejects any billing file whose columns do not match the expected FOCUS column list." }
     ],
     correctAnswers: ['A'],
     type: "single",
     explanation: "Gating every load on row counts, schema, and reconciliation to the invoice catches all three ways a load goes wrong, and it catches them before the data is reported from. A monthly reconciliation finds the same discrepancy weeks after decisions were taken on the bad figures. A day-over-day threshold is anomaly detection wearing a data-quality label: a genuine drop in spend and a load that lost half its rows look identical. Schema validation alone passes a file that is perfectly well-formed and half empty.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
-    tags: ["data-quality", "reconciliation", "validation", "Precision Agriculture & Drone Scouting"]
+    tags: ["data-quality","reconciliation","validation","Precision Agriculture & Drone Scouting"]
   },
   {
     id: "finops-focus-197",
@@ -452,14 +452,14 @@ export const FINOPS_FOCUS_QUESTIONS_8 = [
     options: [
       { id: 'A', text: "Record the upfront fee under ChargeCategory 'Purchase' in the month that it is paid and leave all of the usage lines sitting at their discounted rates." },
       { id: 'B', text: "Amortize upfront commitment fees across the utilization period, populating 'EffectiveCost' proportional to each workload's resource consumption." },
-      { id: 'C', text: "Divide the upfront fee evenly across the months of the term and allocate each month's share equally between all of the teams." },
+      { id: 'C', text: "Divide the upfront commitment fee evenly across the months of the term and allocate each month's share equally between all teams." },
       { id: 'D', text: "Allocate the upfront fee to the teams in proportion to their share of total spend right across the billing account." }
     ],
     correctAnswers: ['B'],
     type: "single",
     explanation: "Amortisation attaches the fee to the usage that drew on the commitment, so a team's monthly figure reflects what it consumed and no month is distorted by the purchase date. Booking the fee as a Purchase in the paid month is exactly what BilledCost already does and is correct for invoice reconciliation, but it makes January unusable for chargeback. An even split across months fixes the timing yet charges teams that never used the capacity. Allocating on total account spend is a proxy that overcharges teams whose usage was never eligible for the commitment.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
-    tags: ["amortization", "commitments", "effective-cost", "Industrial Robotics Predictive Maintenance"]
+    tags: ["amortization","commitments","effective-cost","Industrial Robotics Predictive Maintenance"]
   },
   {
     id: "finops-focus-198",
@@ -480,7 +480,7 @@ export const FINOPS_FOCUS_QUESTIONS_8 = [
     type: "single",
     explanation: "Unblended cost is the charge attributed to the account as invoiced, which is what BilledCost means, and the amortized reservation columns supply the commitment spread EffectiveCost needs. Blended cost averages rates across the organisation, so no individual account's figure ties to anything on its invoice. Net unblended has already netted discounts, which double-counts once credits are loaded as their own Credit rows. Public on-demand cost is the definition of ListCost and was never the amount billed.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
-    tags: ["aws-cur", "mapping", "ingestion", "Educational Remote Proctoring Platform"]
+    tags: ["aws-cur","mapping","ingestion","Educational Remote Proctoring Platform"]
   },
   {
     id: "finops-focus-199",
@@ -494,14 +494,14 @@ export const FINOPS_FOCUS_QUESTIONS_8 = [
     options: [
       { id: 'A', text: "Map the Azure amortised cost export to BilledCost and the actual cost export to EffectiveCost, since amortisation is what appears on the invoice." },
       { id: 'B', text: "Map 'UnitPrice' to ListCost, since the unit price recorded against each line is the published rate before any agreement is applied." },
-      { id: 'C', text: "Map the subscription display name to SubAccountId so that the reports carry a readable identifier for each of the subscriptions." },
+      { id: 'C', text: "Map the Cost Management subscription display name to SubAccountId so the reports carry a readable identifier for each subscription." },
       { id: 'D', text: "Map Azure Cost Management 'CostInBillingCurrency' to BilledCost, 'PayGPrice' to ListCost, and extract standardized ResourceType from resource URIs." }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Azure publishes an actual cost export, which matches the invoice and therefore BilledCost, and an amortised export, which carries the spread commitment cost and therefore EffectiveCost; PayGPrice is the pay-as-you-go rate and maps to ListCost. Swapping the two exports inverts the definitions, since it is actual cost rather than amortised cost that appears on the invoice. UnitPrice already reflects the negotiated agreement, so mapping it to ListCost understates the discount. Display names are mutable and not unique, which makes them unsafe as an identifier.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
-    tags: ["azure-cost", "arm", "normalization", "Real Estate Valuation & Geo-Spatial Analytics"]
+    tags: ["azure-cost","arm","normalization","Real Estate Valuation & Geo-Spatial Analytics"]
   },
   {
     id: "finops-focus-200",
@@ -522,7 +522,7 @@ export const FINOPS_FOCUS_QUESTIONS_8 = [
     type: "single",
     explanation: "The GCP export records cost before credits and holds the credits in a repeated field, so EffectiveCost only becomes correct once that field is unnested and applied. Emitting the credits as separate rows preserves the total but leaves every usage line overstated, so any per-resource or per-team figure is wrong. cost_at_list is the undiscounted amount and belongs in ListCost. Project names can be changed and repeated, whereas project.id is the stable identifier SubAccountId requires.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
-    tags: ["gcp-billing", "bigquery", "ingestion", "Disaster Emergency Dispatch & Operations"]
+    tags: ["gcp-billing","bigquery","ingestion","Disaster Emergency Dispatch & Operations"]
   }
 ];
 

@@ -11,14 +11,14 @@ export const AZURE_AI102_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Use Document Intelligence prebuilt models (e.g., prebuilt-invoice, prebuilt-receipt) to extract structured key-value pairs, line items, and totals automatically." },
       { id: 'B', text: "Use the Document Intelligence prebuilt-layout model and map the tables and key-value pairs that it returns onto each of the required output fields in application code." },
-      { id: 'C', text: "Train a custom extraction model on a labelled sample of the organisation's own invoices and receipts before processing begins." },
+      { id: 'C', text: "Train a custom extraction model on a labelled sample of the organisation's own invoices so that line items and totals are learned before processing begins." },
       { id: 'D', text: "Use the Azure AI Vision Read API to pull the text off each document and apply regular expressions to locate each required field." }
     ],
     correctAnswers: ['A'],
     type: "single",
     explanation: "The prebuilt invoice and receipt models already understand these document types and return named fields such as vendor, total, and line items across layouts they have never seen, so vendor variety costs nothing. prebuilt-layout does return the tables and pairs but leaves the semantic mapping to code that has to be maintained per vendor. Training a custom model is work that only becomes necessary once a prebuilt schema does not fit. Regular expressions over raw OCR text break on the first layout change.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["document-intelligence", "invoices", "extraction", "High-Frequency FinTech Trading"]
+    tags: ["document-intelligence","invoices","extraction","High-Frequency FinTech Trading"]
   },
   {
     id: "azure-ai102-452",
@@ -32,14 +32,14 @@ export const AZURE_AI102_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Train a custom template model on the labelled samples so that each field is anchored to the position where it appears on the page." },
       { id: 'B', text: "Train a custom neural model in Document Intelligence using 5-10 labeled samples to extract specialized multi-page contract clauses and unstructured forms." },
-      { id: 'C', text: "Use the prebuilt-contract model to extract the clauses and fill any remaining fields with post-processing rules written in code." },
+      { id: 'C', text: "Use the Document Intelligence prebuilt-contract model to extract the clauses and fill any remaining fields with post-processing rules in code." },
       { id: 'D', text: "Compose several prebuilt models behind a custom classifier so that every incoming document is routed to whichever schema happens to match it most closely." }
     ],
     correctAnswers: ['B'],
     type: "single",
     explanation: "Custom neural models learn the semantics of a field from a handful of labelled samples and keep finding it when the surrounding layout changes, which is the defining problem with contracts from different counterparties. Template models are faster to train and highly accurate when documents are positionally consistent, and that is exactly the assumption these documents break. prebuilt-contract covers common contract fields but not clauses specific to one organisation. A classifier routes a document to a model but still needs an extraction model capable of reading it.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["document-intelligence", "custom-model", "neural", "Healthcare Patient Records & HIPAA"]
+    tags: ["document-intelligence","custom-model","neural","Healthcare Patient Records & HIPAA"]
   },
   {
     id: "azure-ai102-453",
@@ -54,13 +54,13 @@ export const AZURE_AI102_QUESTIONS_19 = [
       { id: 'A', text: "Run an Azure Function on a queue trigger that calls each AI service in turn and writes the enriched documents into the search index using the push API." },
       { id: 'B', text: "Attach a custom Web API skill to the indexer and carry out every part of the enrichment inside the external service that it calls." },
       { id: 'C', text: "Create an Azure AI Search skillset that executes OCR, entity recognition, and key phrase extraction to enrich data before writing to the search index." },
-      { id: 'D', text: "Configure an indexer with field mappings so that the raw document fields are copied straight into the index without an enrichment step." }
+      { id: 'D', text: "Configure an indexer with field mappings that executes on each run, copying the raw document fields straight into the index with no enrichment step." }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "A skillset is the built-in enrichment pipeline: the indexer runs the skills in order, caches their output, and projects the results into the index without any code to host or operate. A queue-triggered Function reproduces that pipeline by hand and leaves incremental indexing, caching, and retry to be built. A custom Web API skill is part of a skillset rather than an alternative to one, and moving all enrichment into it discards the built-in skills. Field mappings only rename and copy, performing no enrichment.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["ai-search", "skillsets", "indexing", "Global E-Commerce Black Friday Scale"]
+    tags: ["ai-search","skillsets","indexing","Global E-Commerce Black Friday Scale"]
   },
   {
     id: "azure-ai102-454",
@@ -74,14 +74,14 @@ export const AZURE_AI102_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Configure pure vector search over Azure OpenAI embeddings so that every result returned is ranked entirely by its own embedding similarity score alone." },
       { id: 'B', text: "Configure full-text search together with a custom scoring profile that boosts the title field and the freshness of each document." },
-      { id: 'C', text: "Configure full-text search together with synonym maps so that the alternate phrasings users type match the indexed terms." },
+      { id: 'C', text: "Configure full-text search together with synonym maps so that relevance improves when the phrasings users type differ from the indexed terms." },
       { id: 'D', text: "Configure vector search with Azure OpenAI embeddings combined with full-text BM25 search and the Azure AI Search Semantic Ranker for top-tier relevance." }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Hybrid retrieval runs both the vector and the keyword query and fuses the results, so semantic paraphrases and exact identifiers are both found, and the semantic ranker then reorders the top set with a language model. Pure vector search captures paraphrase well but degrades on exact terms such as part numbers, which embeddings blur together. Scoring profiles and synonym maps are useful refinements to keyword search, but each encodes rules an author has to anticipate rather than matching on meaning.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["ai-search", "vector-search", "semantic-ranker", "Autonomous Vehicle Telemetry"]
+    tags: ["ai-search","vector-search","semantic-ranker","Autonomous Vehicle Telemetry"]
   },
   {
     id: "azure-ai102-455",
@@ -95,14 +95,14 @@ export const AZURE_AI102_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Use Document Intelligence prebuilt models (e.g., prebuilt-invoice, prebuilt-receipt) to extract structured key-value pairs, line items, and totals automatically." },
       { id: 'B', text: "Use the Document Intelligence prebuilt-layout model and map the tables and key-value pairs that it returns onto each of the required output fields in application code." },
-      { id: 'C', text: "Train a custom extraction model on a labelled sample of the organisation's own invoices and receipts before processing begins." },
+      { id: 'C', text: "Train a custom extraction model on a labelled sample of the organisation's own invoices so that line items and totals are learned before processing begins." },
       { id: 'D', text: "Use the Azure AI Vision Read API to pull the text off each document and apply regular expressions to locate each required field." }
     ],
     correctAnswers: ['A'],
     type: "single",
     explanation: "The prebuilt invoice and receipt models already understand these document types and return named fields such as vendor, total, and line items across layouts they have never seen, so vendor variety costs nothing. prebuilt-layout does return the tables and pairs but leaves the semantic mapping to code that has to be maintained per vendor. Training a custom model is work that only becomes necessary once a prebuilt schema does not fit. Regular expressions over raw OCR text break on the first layout change.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["document-intelligence", "invoices", "extraction", "Multi-Tenant B2B SaaS Platform"]
+    tags: ["document-intelligence","invoices","extraction","Multi-Tenant B2B SaaS Platform"]
   },
   {
     id: "azure-ai102-456",
@@ -116,14 +116,14 @@ export const AZURE_AI102_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Train a custom template model on the labelled samples so that each field is anchored to the position where it appears on the page." },
       { id: 'B', text: "Train a custom neural model in Document Intelligence using 5-10 labeled samples to extract specialized multi-page contract clauses and unstructured forms." },
-      { id: 'C', text: "Use the prebuilt-contract model to extract the clauses and fill any remaining fields with post-processing rules written in code." },
+      { id: 'C', text: "Use the Document Intelligence prebuilt-contract model to extract the clauses and fill any remaining fields with post-processing rules in code." },
       { id: 'D', text: "Compose several prebuilt models behind a custom classifier so that every incoming document is routed to whichever schema happens to match it most closely." }
     ],
     correctAnswers: ['B'],
     type: "single",
     explanation: "Custom neural models learn the semantics of a field from a handful of labelled samples and keep finding it when the surrounding layout changes, which is the defining problem with contracts from different counterparties. Template models are faster to train and highly accurate when documents are positionally consistent, and that is exactly the assumption these documents break. prebuilt-contract covers common contract fields but not clauses specific to one organisation. A classifier routes a document to a model but still needs an extraction model capable of reading it.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["document-intelligence", "custom-model", "neural", "Media Streaming & Global CDN"]
+    tags: ["document-intelligence","custom-model","neural","Media Streaming & Global CDN"]
   },
   {
     id: "azure-ai102-457",
@@ -138,13 +138,13 @@ export const AZURE_AI102_QUESTIONS_19 = [
       { id: 'A', text: "Run an Azure Function on a queue trigger that calls each AI service in turn and writes the enriched documents into the search index using the push API." },
       { id: 'B', text: "Attach a custom Web API skill to the indexer and carry out every part of the enrichment inside the external service that it calls." },
       { id: 'C', text: "Create an Azure AI Search skillset that executes OCR, entity recognition, and key phrase extraction to enrich data before writing to the search index." },
-      { id: 'D', text: "Configure an indexer with field mappings so that the raw document fields are copied straight into the index without an enrichment step." }
+      { id: 'D', text: "Configure an indexer with field mappings that executes on each run, copying the raw document fields straight into the index with no enrichment step." }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "A skillset is the built-in enrichment pipeline: the indexer runs the skills in order, caches their output, and projects the results into the index without any code to host or operate. A queue-triggered Function reproduces that pipeline by hand and leaves incremental indexing, caching, and retry to be built. A custom Web API skill is part of a skillset rather than an alternative to one, and moving all enrichment into it discards the built-in skills. Field mappings only rename and copy, performing no enrichment.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["ai-search", "skillsets", "indexing", "Aerospace Satellite Ground Systems"]
+    tags: ["ai-search","skillsets","indexing","Aerospace Satellite Ground Systems"]
   },
   {
     id: "azure-ai102-458",
@@ -158,14 +158,14 @@ export const AZURE_AI102_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Configure pure vector search over Azure OpenAI embeddings so that every result returned is ranked entirely by its own embedding similarity score alone." },
       { id: 'B', text: "Configure full-text search together with a custom scoring profile that boosts the title field and the freshness of each document." },
-      { id: 'C', text: "Configure full-text search together with synonym maps so that the alternate phrasings users type match the indexed terms." },
+      { id: 'C', text: "Configure full-text search together with synonym maps so that relevance improves when the phrasings users type differ from the indexed terms." },
       { id: 'D', text: "Configure vector search with Azure OpenAI embeddings combined with full-text BM25 search and the Azure AI Search Semantic Ranker for top-tier relevance." }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Hybrid retrieval runs both the vector and the keyword query and fuses the results, so semantic paraphrases and exact identifiers are both found, and the semantic ranker then reorders the top set with a language model. Pure vector search captures paraphrase well but degrades on exact terms such as part numbers, which embeddings blur together. Scoring profiles and synonym maps are useful refinements to keyword search, but each encodes rules an author has to anticipate rather than matching on meaning.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["ai-search", "vector-search", "semantic-ranker", "Telecommunications 5G Core Network"]
+    tags: ["ai-search","vector-search","semantic-ranker","Telecommunications 5G Core Network"]
   },
   {
     id: "azure-ai102-459",
@@ -179,14 +179,14 @@ export const AZURE_AI102_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Use Document Intelligence prebuilt models (e.g., prebuilt-invoice, prebuilt-receipt) to extract structured key-value pairs, line items, and totals automatically." },
       { id: 'B', text: "Use the Document Intelligence prebuilt-layout model and map the tables and key-value pairs that it returns onto each of the required output fields in application code." },
-      { id: 'C', text: "Train a custom extraction model on a labelled sample of the organisation's own invoices and receipts before processing begins." },
+      { id: 'C', text: "Train a custom extraction model on a labelled sample of the organisation's own invoices so that line items and totals are learned before processing begins." },
       { id: 'D', text: "Use the Azure AI Vision Read API to pull the text off each document and apply regular expressions to locate each required field." }
     ],
     correctAnswers: ['A'],
     type: "single",
     explanation: "The prebuilt invoice and receipt models already understand these document types and return named fields such as vendor, total, and line items across layouts they have never seen, so vendor variety costs nothing. prebuilt-layout does return the tables and pairs but leaves the semantic mapping to code that has to be maintained per vendor. Training a custom model is work that only becomes necessary once a prebuilt schema does not fit. Regular expressions over raw OCR text break on the first layout change.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["document-intelligence", "invoices", "extraction", "Renewable Energy Smart Grid IoT"]
+    tags: ["document-intelligence","invoices","extraction","Renewable Energy Smart Grid IoT"]
   },
   {
     id: "azure-ai102-460",
@@ -200,14 +200,14 @@ export const AZURE_AI102_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Train a custom template model on the labelled samples so that each field is anchored to the position where it appears on the page." },
       { id: 'B', text: "Train a custom neural model in Document Intelligence using 5-10 labeled samples to extract specialized multi-page contract clauses and unstructured forms." },
-      { id: 'C', text: "Use the prebuilt-contract model to extract the clauses and fill any remaining fields with post-processing rules written in code." },
+      { id: 'C', text: "Use the Document Intelligence prebuilt-contract model to extract the clauses and fill any remaining fields with post-processing rules in code." },
       { id: 'D', text: "Compose several prebuilt models behind a custom classifier so that every incoming document is routed to whichever schema happens to match it most closely." }
     ],
     correctAnswers: ['B'],
     type: "single",
     explanation: "Custom neural models learn the semantics of a field from a handful of labelled samples and keep finding it when the surrounding layout changes, which is the defining problem with contracts from different counterparties. Template models are faster to train and highly accurate when documents are positionally consistent, and that is exactly the assumption these documents break. prebuilt-contract covers common contract fields but not clauses specific to one organisation. A classifier routes a document to a model but still needs an extraction model capable of reading it.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["document-intelligence", "custom-model", "neural", "Supply Chain Cold-Chain Logistics"]
+    tags: ["document-intelligence","custom-model","neural","Supply Chain Cold-Chain Logistics"]
   },
   {
     id: "azure-ai102-461",
@@ -222,13 +222,13 @@ export const AZURE_AI102_QUESTIONS_19 = [
       { id: 'A', text: "Run an Azure Function on a queue trigger that calls each AI service in turn and writes the enriched documents into the search index using the push API." },
       { id: 'B', text: "Attach a custom Web API skill to the indexer and carry out every part of the enrichment inside the external service that it calls." },
       { id: 'C', text: "Create an Azure AI Search skillset that executes OCR, entity recognition, and key phrase extraction to enrich data before writing to the search index." },
-      { id: 'D', text: "Configure an indexer with field mappings so that the raw document fields are copied straight into the index without an enrichment step." }
+      { id: 'D', text: "Configure an indexer with field mappings that executes on each run, copying the raw document fields straight into the index with no enrichment step." }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "A skillset is the built-in enrichment pipeline: the indexer runs the skills in order, caches their output, and projects the results into the index without any code to host or operate. A queue-triggered Function reproduces that pipeline by hand and leaves incremental indexing, caching, and retry to be built. A custom Web API skill is part of a skillset rather than an alternative to one, and moving all enrichment into it discards the built-in skills. Field mappings only rename and copy, performing no enrichment.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["ai-search", "skillsets", "indexing", "Banking Core Ledger & Payments"]
+    tags: ["ai-search","skillsets","indexing","Banking Core Ledger & Payments"]
   },
   {
     id: "azure-ai102-462",
@@ -242,14 +242,14 @@ export const AZURE_AI102_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Configure pure vector search over Azure OpenAI embeddings so that every result returned is ranked entirely by its own embedding similarity score alone." },
       { id: 'B', text: "Configure full-text search together with a custom scoring profile that boosts the title field and the freshness of each document." },
-      { id: 'C', text: "Configure full-text search together with synonym maps so that the alternate phrasings users type match the indexed terms." },
+      { id: 'C', text: "Configure full-text search together with synonym maps so that relevance improves when the phrasings users type differ from the indexed terms." },
       { id: 'D', text: "Configure vector search with Azure OpenAI embeddings combined with full-text BM25 search and the Azure AI Search Semantic Ranker for top-tier relevance." }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Hybrid retrieval runs both the vector and the keyword query and fuses the results, so semantic paraphrases and exact identifiers are both found, and the semantic ranker then reorders the top set with a language model. Pure vector search captures paraphrase well but degrades on exact terms such as part numbers, which embeddings blur together. Scoring profiles and synonym maps are useful refinements to keyword search, but each encodes rules an author has to anticipate rather than matching on meaning.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["ai-search", "vector-search", "semantic-ranker", "Genomic Sequencing & Biotech Pipeline"]
+    tags: ["ai-search","vector-search","semantic-ranker","Genomic Sequencing & Biotech Pipeline"]
   },
   {
     id: "azure-ai102-463",
@@ -263,14 +263,14 @@ export const AZURE_AI102_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Use Document Intelligence prebuilt models (e.g., prebuilt-invoice, prebuilt-receipt) to extract structured key-value pairs, line items, and totals automatically." },
       { id: 'B', text: "Use the Document Intelligence prebuilt-layout model and map the tables and key-value pairs that it returns onto each of the required output fields in application code." },
-      { id: 'C', text: "Train a custom extraction model on a labelled sample of the organisation's own invoices and receipts before processing begins." },
+      { id: 'C', text: "Train a custom extraction model on a labelled sample of the organisation's own invoices so that line items and totals are learned before processing begins." },
       { id: 'D', text: "Use the Azure AI Vision Read API to pull the text off each document and apply regular expressions to locate each required field." }
     ],
     correctAnswers: ['A'],
     type: "single",
     explanation: "The prebuilt invoice and receipt models already understand these document types and return named fields such as vendor, total, and line items across layouts they have never seen, so vendor variety costs nothing. prebuilt-layout does return the tables and pairs but leaves the semantic mapping to code that has to be maintained per vendor. Training a custom model is work that only becomes necessary once a prebuilt schema does not fit. Regular expressions over raw OCR text break on the first layout change.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["document-intelligence", "invoices", "extraction", "Defense-Grade Zero-Trust Network"]
+    tags: ["document-intelligence","invoices","extraction","Defense-Grade Zero-Trust Network"]
   },
   {
     id: "azure-ai102-464",
@@ -284,14 +284,14 @@ export const AZURE_AI102_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Train a custom template model on the labelled samples so that each field is anchored to the position where it appears on the page." },
       { id: 'B', text: "Train a custom neural model in Document Intelligence using 5-10 labeled samples to extract specialized multi-page contract clauses and unstructured forms." },
-      { id: 'C', text: "Use the prebuilt-contract model to extract the clauses and fill any remaining fields with post-processing rules written in code." },
+      { id: 'C', text: "Use the Document Intelligence prebuilt-contract model to extract the clauses and fill any remaining fields with post-processing rules in code." },
       { id: 'D', text: "Compose several prebuilt models behind a custom classifier so that every incoming document is routed to whichever schema happens to match it most closely." }
     ],
     correctAnswers: ['B'],
     type: "single",
     explanation: "Custom neural models learn the semantics of a field from a handful of labelled samples and keep finding it when the surrounding layout changes, which is the defining problem with contracts from different counterparties. Template models are faster to train and highly accurate when documents are positionally consistent, and that is exactly the assumption these documents break. prebuilt-contract covers common contract fields but not clauses specific to one organisation. A classifier routes a document to a model but still needs an extraction model capable of reading it.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["document-intelligence", "custom-model", "neural", "Online Multiplayer Gaming Engine"]
+    tags: ["document-intelligence","custom-model","neural","Online Multiplayer Gaming Engine"]
   },
   {
     id: "azure-ai102-465",
@@ -306,13 +306,13 @@ export const AZURE_AI102_QUESTIONS_19 = [
       { id: 'A', text: "Run an Azure Function on a queue trigger that calls each AI service in turn and writes the enriched documents into the search index using the push API." },
       { id: 'B', text: "Attach a custom Web API skill to the indexer and carry out every part of the enrichment inside the external service that it calls." },
       { id: 'C', text: "Create an Azure AI Search skillset that executes OCR, entity recognition, and key phrase extraction to enrich data before writing to the search index." },
-      { id: 'D', text: "Configure an indexer with field mappings so that the raw document fields are copied straight into the index without an enrichment step." }
+      { id: 'D', text: "Configure an indexer with field mappings that executes on each run, copying the raw document fields straight into the index with no enrichment step." }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "A skillset is the built-in enrichment pipeline: the indexer runs the skills in order, caches their output, and projects the results into the index without any code to host or operate. A queue-triggered Function reproduces that pipeline by hand and leaves incremental indexing, caching, and retry to be built. A custom Web API skill is part of a skillset rather than an alternative to one, and moving all enrichment into it discards the built-in skills. Field mappings only rename and copy, performing no enrichment.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["ai-search", "skillsets", "indexing", "Insurance Risk & Actuarial Modeling"]
+    tags: ["ai-search","skillsets","indexing","Insurance Risk & Actuarial Modeling"]
   },
   {
     id: "azure-ai102-466",
@@ -326,14 +326,14 @@ export const AZURE_AI102_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Configure pure vector search over Azure OpenAI embeddings so that every result returned is ranked entirely by its own embedding similarity score alone." },
       { id: 'B', text: "Configure full-text search together with a custom scoring profile that boosts the title field and the freshness of each document." },
-      { id: 'C', text: "Configure full-text search together with synonym maps so that the alternate phrasings users type match the indexed terms." },
+      { id: 'C', text: "Configure full-text search together with synonym maps so that relevance improves when the phrasings users type differ from the indexed terms." },
       { id: 'D', text: "Configure vector search with Azure OpenAI embeddings combined with full-text BM25 search and the Azure AI Search Semantic Ranker for top-tier relevance." }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Hybrid retrieval runs both the vector and the keyword query and fuses the results, so semantic paraphrases and exact identifiers are both found, and the semantic ranker then reorders the top set with a language model. Pure vector search captures paraphrase well but degrades on exact terms such as part numbers, which embeddings blur together. Scoring profiles and synonym maps are useful refinements to keyword search, but each encodes rules an author has to anticipate rather than matching on meaning.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["ai-search", "vector-search", "semantic-ranker", "Pharmaceutical Clinical Trial Platform"]
+    tags: ["ai-search","vector-search","semantic-ranker","Pharmaceutical Clinical Trial Platform"]
   },
   {
     id: "azure-ai102-467",
@@ -347,14 +347,14 @@ export const AZURE_AI102_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Use Document Intelligence prebuilt models (e.g., prebuilt-invoice, prebuilt-receipt) to extract structured key-value pairs, line items, and totals automatically." },
       { id: 'B', text: "Use the Document Intelligence prebuilt-layout model and map the tables and key-value pairs that it returns onto each of the required output fields in application code." },
-      { id: 'C', text: "Train a custom extraction model on a labelled sample of the organisation's own invoices and receipts before processing begins." },
+      { id: 'C', text: "Train a custom extraction model on a labelled sample of the organisation's own invoices so that line items and totals are learned before processing begins." },
       { id: 'D', text: "Use the Azure AI Vision Read API to pull the text off each document and apply regular expressions to locate each required field." }
     ],
     correctAnswers: ['A'],
     type: "single",
     explanation: "The prebuilt invoice and receipt models already understand these document types and return named fields such as vendor, total, and line items across layouts they have never seen, so vendor variety costs nothing. prebuilt-layout does return the tables and pairs but leaves the semantic mapping to code that has to be maintained per vendor. Training a custom model is work that only becomes necessary once a prebuilt schema does not fit. Regular expressions over raw OCR text break on the first layout change.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["document-intelligence", "invoices", "extraction", "Smart City Traffic & Mobility Sensor Hub"]
+    tags: ["document-intelligence","invoices","extraction","Smart City Traffic & Mobility Sensor Hub"]
   },
   {
     id: "azure-ai102-468",
@@ -368,14 +368,14 @@ export const AZURE_AI102_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Train a custom template model on the labelled samples so that each field is anchored to the position where it appears on the page." },
       { id: 'B', text: "Train a custom neural model in Document Intelligence using 5-10 labeled samples to extract specialized multi-page contract clauses and unstructured forms." },
-      { id: 'C', text: "Use the prebuilt-contract model to extract the clauses and fill any remaining fields with post-processing rules written in code." },
+      { id: 'C', text: "Use the Document Intelligence prebuilt-contract model to extract the clauses and fill any remaining fields with post-processing rules in code." },
       { id: 'D', text: "Compose several prebuilt models behind a custom classifier so that every incoming document is routed to whichever schema happens to match it most closely." }
     ],
     correctAnswers: ['B'],
     type: "single",
     explanation: "Custom neural models learn the semantics of a field from a handful of labelled samples and keep finding it when the surrounding layout changes, which is the defining problem with contracts from different counterparties. Template models are faster to train and highly accurate when documents are positionally consistent, and that is exactly the assumption these documents break. prebuilt-contract covers common contract fields but not clauses specific to one organisation. A classifier routes a document to a model but still needs an extraction model capable of reading it.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["document-intelligence", "custom-model", "neural", "Digital Identity & Biometric Verification"]
+    tags: ["document-intelligence","custom-model","neural","Digital Identity & Biometric Verification"]
   },
   {
     id: "azure-ai102-469",
@@ -390,13 +390,13 @@ export const AZURE_AI102_QUESTIONS_19 = [
       { id: 'A', text: "Run an Azure Function on a queue trigger that calls each AI service in turn and writes the enriched documents into the search index using the push API." },
       { id: 'B', text: "Attach a custom Web API skill to the indexer and carry out every part of the enrichment inside the external service that it calls." },
       { id: 'C', text: "Create an Azure AI Search skillset that executes OCR, entity recognition, and key phrase extraction to enrich data before writing to the search index." },
-      { id: 'D', text: "Configure an indexer with field mappings so that the raw document fields are copied straight into the index without an enrichment step." }
+      { id: 'D', text: "Configure an indexer with field mappings that executes on each run, copying the raw document fields straight into the index with no enrichment step." }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "A skillset is the built-in enrichment pipeline: the indexer runs the skills in order, caches their output, and projects the results into the index without any code to host or operate. A queue-triggered Function reproduces that pipeline by hand and leaves incremental indexing, caching, and retry to be built. A custom Web API skill is part of a skillset rather than an alternative to one, and moving all enrichment into it discards the built-in skills. Field mappings only rename and copy, performing no enrichment.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["ai-search", "skillsets", "indexing", "Legal Discovery & Semantic Document Search"]
+    tags: ["ai-search","skillsets","indexing","Legal Discovery & Semantic Document Search"]
   },
   {
     id: "azure-ai102-470",
@@ -410,14 +410,14 @@ export const AZURE_AI102_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Configure pure vector search over Azure OpenAI embeddings so that every result returned is ranked entirely by its own embedding similarity score alone." },
       { id: 'B', text: "Configure full-text search together with a custom scoring profile that boosts the title field and the freshness of each document." },
-      { id: 'C', text: "Configure full-text search together with synonym maps so that the alternate phrasings users type match the indexed terms." },
+      { id: 'C', text: "Configure full-text search together with synonym maps so that relevance improves when the phrasings users type differ from the indexed terms." },
       { id: 'D', text: "Configure vector search with Azure OpenAI embeddings combined with full-text BM25 search and the Azure AI Search Semantic Ranker for top-tier relevance." }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Hybrid retrieval runs both the vector and the keyword query and fuses the results, so semantic paraphrases and exact identifiers are both found, and the semantic ranker then reorders the top set with a language model. Pure vector search captures paraphrase well but degrades on exact terms such as part numbers, which embeddings blur together. Scoring profiles and synonym maps are useful refinements to keyword search, but each encodes rules an author has to anticipate rather than matching on meaning.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["ai-search", "vector-search", "semantic-ranker", "AdTech Real-Time Bidding Exchange"]
+    tags: ["ai-search","vector-search","semantic-ranker","AdTech Real-Time Bidding Exchange"]
   },
   {
     id: "azure-ai102-471",
@@ -431,14 +431,14 @@ export const AZURE_AI102_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Use Document Intelligence prebuilt models (e.g., prebuilt-invoice, prebuilt-receipt) to extract structured key-value pairs, line items, and totals automatically." },
       { id: 'B', text: "Use the Document Intelligence prebuilt-layout model and map the tables and key-value pairs that it returns onto each of the required output fields in application code." },
-      { id: 'C', text: "Train a custom extraction model on a labelled sample of the organisation's own invoices and receipts before processing begins." },
+      { id: 'C', text: "Train a custom extraction model on a labelled sample of the organisation's own invoices so that line items and totals are learned before processing begins." },
       { id: 'D', text: "Use the Azure AI Vision Read API to pull the text off each document and apply regular expressions to locate each required field." }
     ],
     correctAnswers: ['A'],
     type: "single",
     explanation: "The prebuilt invoice and receipt models already understand these document types and return named fields such as vendor, total, and line items across layouts they have never seen, so vendor variety costs nothing. prebuilt-layout does return the tables and pairs but leaves the semantic mapping to code that has to be maintained per vendor. Training a custom model is work that only becomes necessary once a prebuilt schema does not fit. Regular expressions over raw OCR text break on the first layout change.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["document-intelligence", "invoices", "extraction", "Precision Agriculture & Drone Scouting"]
+    tags: ["document-intelligence","invoices","extraction","Precision Agriculture & Drone Scouting"]
   },
   {
     id: "azure-ai102-472",
@@ -452,14 +452,14 @@ export const AZURE_AI102_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Train a custom template model on the labelled samples so that each field is anchored to the position where it appears on the page." },
       { id: 'B', text: "Train a custom neural model in Document Intelligence using 5-10 labeled samples to extract specialized multi-page contract clauses and unstructured forms." },
-      { id: 'C', text: "Use the prebuilt-contract model to extract the clauses and fill any remaining fields with post-processing rules written in code." },
+      { id: 'C', text: "Use the Document Intelligence prebuilt-contract model to extract the clauses and fill any remaining fields with post-processing rules in code." },
       { id: 'D', text: "Compose several prebuilt models behind a custom classifier so that every incoming document is routed to whichever schema happens to match it most closely." }
     ],
     correctAnswers: ['B'],
     type: "single",
     explanation: "Custom neural models learn the semantics of a field from a handful of labelled samples and keep finding it when the surrounding layout changes, which is the defining problem with contracts from different counterparties. Template models are faster to train and highly accurate when documents are positionally consistent, and that is exactly the assumption these documents break. prebuilt-contract covers common contract fields but not clauses specific to one organisation. A classifier routes a document to a model but still needs an extraction model capable of reading it.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["document-intelligence", "custom-model", "neural", "Industrial Robotics Predictive Maintenance"]
+    tags: ["document-intelligence","custom-model","neural","Industrial Robotics Predictive Maintenance"]
   },
   {
     id: "azure-ai102-473",
@@ -474,13 +474,13 @@ export const AZURE_AI102_QUESTIONS_19 = [
       { id: 'A', text: "Run an Azure Function on a queue trigger that calls each AI service in turn and writes the enriched documents into the search index using the push API." },
       { id: 'B', text: "Attach a custom Web API skill to the indexer and carry out every part of the enrichment inside the external service that it calls." },
       { id: 'C', text: "Create an Azure AI Search skillset that executes OCR, entity recognition, and key phrase extraction to enrich data before writing to the search index." },
-      { id: 'D', text: "Configure an indexer with field mappings so that the raw document fields are copied straight into the index without an enrichment step." }
+      { id: 'D', text: "Configure an indexer with field mappings that executes on each run, copying the raw document fields straight into the index with no enrichment step." }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "A skillset is the built-in enrichment pipeline: the indexer runs the skills in order, caches their output, and projects the results into the index without any code to host or operate. A queue-triggered Function reproduces that pipeline by hand and leaves incremental indexing, caching, and retry to be built. A custom Web API skill is part of a skillset rather than an alternative to one, and moving all enrichment into it discards the built-in skills. Field mappings only rename and copy, performing no enrichment.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["ai-search", "skillsets", "indexing", "Educational Remote Proctoring Platform"]
+    tags: ["ai-search","skillsets","indexing","Educational Remote Proctoring Platform"]
   },
   {
     id: "azure-ai102-474",
@@ -494,14 +494,14 @@ export const AZURE_AI102_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Configure pure vector search over Azure OpenAI embeddings so that every result returned is ranked entirely by its own embedding similarity score alone." },
       { id: 'B', text: "Configure full-text search together with a custom scoring profile that boosts the title field and the freshness of each document." },
-      { id: 'C', text: "Configure full-text search together with synonym maps so that the alternate phrasings users type match the indexed terms." },
+      { id: 'C', text: "Configure full-text search together with synonym maps so that relevance improves when the phrasings users type differ from the indexed terms." },
       { id: 'D', text: "Configure vector search with Azure OpenAI embeddings combined with full-text BM25 search and the Azure AI Search Semantic Ranker for top-tier relevance." }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Hybrid retrieval runs both the vector and the keyword query and fuses the results, so semantic paraphrases and exact identifiers are both found, and the semantic ranker then reorders the top set with a language model. Pure vector search captures paraphrase well but degrades on exact terms such as part numbers, which embeddings blur together. Scoring profiles and synonym maps are useful refinements to keyword search, but each encodes rules an author has to anticipate rather than matching on meaning.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["ai-search", "vector-search", "semantic-ranker", "Real Estate Valuation & Geo-Spatial Analytics"]
+    tags: ["ai-search","vector-search","semantic-ranker","Real Estate Valuation & Geo-Spatial Analytics"]
   },
   {
     id: "azure-ai102-475",
@@ -515,14 +515,14 @@ export const AZURE_AI102_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Use Document Intelligence prebuilt models (e.g., prebuilt-invoice, prebuilt-receipt) to extract structured key-value pairs, line items, and totals automatically." },
       { id: 'B', text: "Use the Document Intelligence prebuilt-layout model and map the tables and key-value pairs that it returns onto each of the required output fields in application code." },
-      { id: 'C', text: "Train a custom extraction model on a labelled sample of the organisation's own invoices and receipts before processing begins." },
+      { id: 'C', text: "Train a custom extraction model on a labelled sample of the organisation's own invoices so that line items and totals are learned before processing begins." },
       { id: 'D', text: "Use the Azure AI Vision Read API to pull the text off each document and apply regular expressions to locate each required field." }
     ],
     correctAnswers: ['A'],
     type: "single",
     explanation: "The prebuilt invoice and receipt models already understand these document types and return named fields such as vendor, total, and line items across layouts they have never seen, so vendor variety costs nothing. prebuilt-layout does return the tables and pairs but leaves the semantic mapping to code that has to be maintained per vendor. Training a custom model is work that only becomes necessary once a prebuilt schema does not fit. Regular expressions over raw OCR text break on the first layout change.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
-    tags: ["document-intelligence", "invoices", "extraction", "Disaster Emergency Dispatch & Operations"]
+    tags: ["document-intelligence","invoices","extraction","Disaster Emergency Dispatch & Operations"]
   }
 ];
 
