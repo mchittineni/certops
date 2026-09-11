@@ -18,7 +18,7 @@ export const CNCF_CBA_QUESTIONS_6 = [
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for entity model taxonomy component, api, resource, system, and domain provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Backstage Associate standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.cncf.io/certification/cba/",
-    tags: ["CBA", "Software", "Architecture"]
+    tags: ["CBA","Software","Architecture"]
   },
   {
     id: "cncf-cba-127",
@@ -39,7 +39,7 @@ export const CNCF_CBA_QUESTIONS_6 = [
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for scaffolder step actions fetch:template, publish:github, and catalog:register provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Backstage Associate standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.cncf.io/certification/cba/",
-    tags: ["CBA", "Software", "Architecture"]
+    tags: ["CBA","Software","Architecture"]
   },
   {
     id: "cncf-cba-128",
@@ -60,7 +60,7 @@ export const CNCF_CBA_QUESTIONS_6 = [
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for configuring kubernetes plugin for multi-cluster pod and deployment views provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Backstage Associate standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.cncf.io/certification/cba/",
-    tags: ["CBA", "Plugins,", "Architecture"]
+    tags: ["CBA","Plugins,","Architecture"]
   },
   {
     id: "cncf-cba-129",
@@ -81,7 +81,7 @@ export const CNCF_CBA_QUESTIONS_6 = [
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for service discovery and app-config.yaml configuration hierarchy provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Backstage Associate standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.cncf.io/certification/cba/",
-    tags: ["CBA", "Backstage", "Architecture"]
+    tags: ["CBA","Backstage","Architecture"]
   },
   {
     id: "cncf-cba-130",
@@ -102,7 +102,7 @@ export const CNCF_CBA_QUESTIONS_6 = [
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for organizational entities user and group defining service ownership provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Backstage Associate standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.cncf.io/certification/cba/",
-    tags: ["CBA", "Software", "Architecture"]
+    tags: ["CBA","Software","Architecture"]
   },
   {
     id: "cncf-cba-131",
@@ -123,7 +123,7 @@ export const CNCF_CBA_QUESTIONS_6 = [
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for building dynamic ui parameter forms with react-jsonschema-form provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Backstage Associate standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.cncf.io/certification/cba/",
-    tags: ["CBA", "Software", "Architecture"]
+    tags: ["CBA","Software","Architecture"]
   },
   {
     id: "cncf-cba-132",
@@ -144,7 +144,7 @@ export const CNCF_CBA_QUESTIONS_6 = [
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for ci/cd plugins integrating github actions, gitlab ci, and jenkins provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Backstage Associate standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.cncf.io/certification/cba/",
-    tags: ["CBA", "Plugins,", "Architecture"]
+    tags: ["CBA","Plugins,","Architecture"]
   },
   {
     id: "cncf-cba-133",
@@ -165,7 +165,7 @@ export const CNCF_CBA_QUESTIONS_6 = [
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for authentication providers github, google, okta, and guest access provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Backstage Associate standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.cncf.io/certification/cba/",
-    tags: ["CBA", "Backstage", "Architecture"]
+    tags: ["CBA","Backstage","Architecture"]
   },
   {
     id: "cncf-cba-134",
@@ -186,7 +186,7 @@ export const CNCF_CBA_QUESTIONS_6 = [
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for entity relations owner, dependson, providesapi, and consumesapi provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Backstage Associate standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.cncf.io/certification/cba/",
-    tags: ["CBA", "Software", "Architecture"]
+    tags: ["CBA","Software","Architecture"]
   },
   {
     id: "cncf-cba-135",
@@ -207,7 +207,7 @@ export const CNCF_CBA_QUESTIONS_6 = [
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for authoring custom scaffolder actions in the backstage backend provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Backstage Associate standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.cncf.io/certification/cba/",
-    tags: ["CBA", "Software", "Architecture"]
+    tags: ["CBA","Software","Architecture"]
   },
   {
     id: "cncf-cba-136",
@@ -228,7 +228,7 @@ export const CNCF_CBA_QUESTIONS_6 = [
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for backstage permissions framework role-based catalog access control provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Backstage Associate standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.cncf.io/certification/cba/",
-    tags: ["CBA", "Plugins,", "Architecture"]
+    tags: ["CBA","Plugins,","Architecture"]
   },
   {
     id: "cncf-cba-137",
@@ -249,7 +249,7 @@ export const CNCF_CBA_QUESTIONS_6 = [
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for backstage plugin architecture core plugins vs community plugins provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Backstage Associate standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.cncf.io/certification/cba/",
-    tags: ["CBA", "Backstage", "Architecture"]
+    tags: ["CBA","Backstage","Architecture"]
   },
   {
     id: "cncf-cba-138",
@@ -270,7 +270,7 @@ export const CNCF_CBA_QUESTIONS_6 = [
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for catalog processors, entity providers, and automated repository ingestion provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Backstage Associate standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.cncf.io/certification/cba/",
-    tags: ["CBA", "Software", "Architecture"]
+    tags: ["CBA","Software","Architecture"]
   },
   {
     id: "cncf-cba-139",
@@ -291,7 +291,7 @@ export const CNCF_CBA_QUESTIONS_6 = [
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for dry-run testing and debugging template execution logs provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Backstage Associate standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.cncf.io/certification/cba/",
-    tags: ["CBA", "Software", "Architecture"]
+    tags: ["CBA","Software","Architecture"]
   },
   {
     id: "cncf-cba-140",
@@ -312,7 +312,7 @@ export const CNCF_CBA_QUESTIONS_6 = [
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for production deployment topology containerization, postgresql, and caching provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Backstage Associate standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.cncf.io/certification/cba/",
-    tags: ["CBA", "Plugins,", "Architecture"]
+    tags: ["CBA","Plugins,","Architecture"]
   },
   {
     id: "cncf-cba-141",
@@ -333,7 +333,7 @@ export const CNCF_CBA_QUESTIONS_6 = [
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for backstage monorepo architecture react frontend and node.js backend provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Backstage Associate standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.cncf.io/certification/cba/",
-    tags: ["CBA", "Backstage", "Architecture"]
+    tags: ["CBA","Backstage","Architecture"]
   },
   {
     id: "cncf-cba-142",
@@ -354,7 +354,7 @@ export const CNCF_CBA_QUESTIONS_6 = [
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for catalog-info.yaml metadata schema syntax and api versions provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Backstage Associate standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.cncf.io/certification/cba/",
-    tags: ["CBA", "Software", "Architecture"]
+    tags: ["CBA","Software","Architecture"]
   },
   {
     id: "cncf-cba-143",
@@ -375,7 +375,7 @@ export const CNCF_CBA_QUESTIONS_6 = [
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for backstage software templates scaffolder syntax and template parameters provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Backstage Associate standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.cncf.io/certification/cba/",
-    tags: ["CBA", "Software", "Architecture"]
+    tags: ["CBA","Software","Architecture"]
   },
   {
     id: "cncf-cba-144",
@@ -396,7 +396,7 @@ export const CNCF_CBA_QUESTIONS_6 = [
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for techdocs architecture mkdocs generation and cloud storage publishing provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Backstage Associate standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.cncf.io/certification/cba/",
-    tags: ["CBA", "Plugins,", "Architecture"]
+    tags: ["CBA","Plugins,","Architecture"]
   },
   {
     id: "cncf-cba-145",
@@ -417,7 +417,7 @@ export const CNCF_CBA_QUESTIONS_6 = [
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for core concepts software catalog, software templates, techdocs, and search provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Backstage Associate standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.cncf.io/certification/cba/",
-    tags: ["CBA", "Backstage", "Architecture"]
+    tags: ["CBA","Backstage","Architecture"]
   },
   {
     id: "cncf-cba-146",
@@ -438,7 +438,7 @@ export const CNCF_CBA_QUESTIONS_6 = [
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for entity model taxonomy component, api, resource, system, and domain provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Backstage Associate standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.cncf.io/certification/cba/",
-    tags: ["CBA", "Software", "Architecture"]
+    tags: ["CBA","Software","Architecture"]
   },
   {
     id: "cncf-cba-147",
@@ -459,7 +459,7 @@ export const CNCF_CBA_QUESTIONS_6 = [
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for scaffolder step actions fetch:template, publish:github, and catalog:register provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Backstage Associate standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.cncf.io/certification/cba/",
-    tags: ["CBA", "Software", "Architecture"]
+    tags: ["CBA","Software","Architecture"]
   },
   {
     id: "cncf-cba-148",
@@ -480,7 +480,7 @@ export const CNCF_CBA_QUESTIONS_6 = [
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for configuring kubernetes plugin for multi-cluster pod and deployment views provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Backstage Associate standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.cncf.io/certification/cba/",
-    tags: ["CBA", "Plugins,", "Architecture"]
+    tags: ["CBA","Plugins,","Architecture"]
   },
   {
     id: "cncf-cba-149",
@@ -501,7 +501,7 @@ export const CNCF_CBA_QUESTIONS_6 = [
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for service discovery and app-config.yaml configuration hierarchy provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Backstage Associate standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.cncf.io/certification/cba/",
-    tags: ["CBA", "Backstage", "Architecture"]
+    tags: ["CBA","Backstage","Architecture"]
   },
   {
     id: "cncf-cba-150",
@@ -522,7 +522,7 @@ export const CNCF_CBA_QUESTIONS_6 = [
     type: "single",
     explanation: "Implementing declarative automation and native policy guardrails for organizational entities user and group defining service ownership provides reproducible deployments, auditable traceability, and continuous operational resilience as required by Certified Backstage Associate standards. Running unversioned ad-hoc scripts introduces configuration drift, granting unrestricted permissions violates least-privilege security mandates, and disabling monitoring blinds engineering teams to critical production anomalies.",
     referenceUrl: "https://www.cncf.io/certification/cba/",
-    tags: ["CBA", "Software", "Architecture"]
+    tags: ["CBA","Software","Architecture"]
   }
 ];
 

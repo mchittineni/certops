@@ -5,20 +5,20 @@ export const CNCF_CBA_QUESTIONS_19 = [
     certId: "cncf-cba",
     domainId: "d4",
     domainName: "Plugins, TechDocs and Administration",
-    title: "Backend Plugin Architecture: New Backend System Plugins: Enterprise Portal",
-    scenario: "An enterprise developer experience team is architecting an internal developer portal to standardize service catalogs, software scaffolding, and documentation across hundreds of teams. The platform engineer evaluates Backend Plugins to develop a custom backend microservice plugin that exposes REST endpoints and interacts with the database.",
-    question: "Which architectural approach or Backstage configuration satisfies these enterprise portal objectives? createBackendPlugin, BackendFeature, and HttpRouterService registration is under consideration.",
+    title: "Adding a Backend With Its Own Routes and Storage: Enterprise Portal",
+    scenario: "An enterprise developer experience team is architecting an internal developer portal to standardize service catalogs, software scaffolding, and documentation across hundreds of teams. The platform engineer needs to develop a custom backend microservice plugin that exposes REST endpoints and interacts with the database.",
+    question: "Which architectural approach or Backstage configuration satisfies these enterprise portal objectives?",
     options: [
-      { id: 'A', text: "Bypass the Backstage service container and launch an untracked HTTP server on a random port." },
-      { id: 'B', text: "Write raw assembly code directly to the host CPU registers." },
+      { id: 'A', text: "Export a `createRouter` function and wire it up in `index.ts` in the legacy backend style, constructing each of its dependencies there." },
+      { id: 'B', text: "Build it with `createBackendModule` and attach it, along with its database usage, to an existing plugin's extension point." },
       { id: 'C', text: "Author a backend plugin using `createBackendPlugin`, injecting the `httpRouterService` and database service." },
-      { id: 'D', text: "Run an unauthenticated telnet daemon directly on the host operating system." }
+      { id: 'D', text: "Register the routes on the root Express app with `app.use()` once the backend has started." }
     ],
     correctAnswers: ['C'],
     type: "single",
-    explanation: "Author a backend plugin using `createBackendPlugin`, injecting the `httpRouterService` and database service. In the New Backend System, plugins are created using `createBackendPlugin`. They declare dependencies (like `httpRouterService`, `databaseService`, `loggerService`) which the Backstage container injects, cleanly mounting routes onto the backend server.",
+    explanation: "Author a backend plugin using `createBackendPlugin`, injecting the `httpRouterService` and database service. In the New Backend System, plugins are created using `createBackendPlugin`. They declare dependencies (like `httpRouterService`, `databaseService`, `loggerService`) which the Backstage container injects, cleanly mounting routes onto the backend server. The legacy `createRouter` style still runs but constructs its dependencies by hand and will not receive services from the container; `createBackendModule` extends a plugin that already exists rather than introducing a new one with its own routes and database; and registering on the root app skips the discovery path prefix, so the plugin is unreachable through `discoveryApi`.",
     referenceUrl: "https://backstage.io/docs/backend-system/building-plugins-and-modules/index",
-    tags: ["Backend Plugins", "Backend Plugins", "Enterprise Portal"]
+    tags: ["Backend Plugins","Backend Plugins","Enterprise Portal"]
   },
   {
     id: "cncf-cba-452",
@@ -26,20 +26,20 @@ export const CNCF_CBA_QUESTIONS_19 = [
     certId: "cncf-cba",
     domainId: "d4",
     domainName: "Plugins, TechDocs and Administration",
-    title: "Backend Plugin Architecture: New Backend System Plugins: High Scale Catalog",
-    scenario: "A large engineering organization manages tens of thousands of microservices, APIs, and infrastructure components across hybrid cloud environments. The platform engineer evaluates Backend Plugins to develop a custom backend microservice plugin that exposes REST endpoints and interacts with the database.",
-    question: "Which Backstage catalog pattern or ingestion configuration handles this volume efficiently while preventing database contention? createBackendPlugin, BackendFeature, and HttpRouterService registration is under consideration.",
+    title: "Adding a Backend With Its Own Routes and Storage: High Scale Catalog",
+    scenario: "A large engineering organization manages tens of thousands of microservices, APIs, and infrastructure components across hybrid cloud environments. The platform engineer needs to develop a custom backend microservice plugin that exposes REST endpoints and interacts with the database.",
+    question: "Which Backstage catalog pattern or ingestion configuration handles this volume efficiently while preventing database contention?",
     options: [
-      { id: 'A', text: "Write raw assembly code directly to the host CPU registers." },
+      { id: 'A', text: "Build it with `createBackendModule` and attach it, along with its database usage, to an existing plugin's extension point." },
       { id: 'B', text: "Author a backend plugin using `createBackendPlugin`, injecting the `httpRouterService` and database service." },
-      { id: 'C', text: "Bypass the Backstage service container and launch an untracked HTTP server on a random port." },
-      { id: 'D', text: "Run an unauthenticated telnet daemon directly on the host operating system." }
+      { id: 'C', text: "Export a `createRouter` function and wire it up in `index.ts` in the legacy backend style, constructing each of its dependencies there." },
+      { id: 'D', text: "Register the routes on the root Express app with `app.use()` once the backend has started." }
     ],
     correctAnswers: ['B'],
     type: "single",
-    explanation: "Author a backend plugin using `createBackendPlugin`, injecting the `httpRouterService` and database service. In the New Backend System, plugins are created using `createBackendPlugin`. They declare dependencies (like `httpRouterService`, `databaseService`, `loggerService`) which the Backstage container injects, cleanly mounting routes onto the backend server.",
+    explanation: "Author a backend plugin using `createBackendPlugin`, injecting the `httpRouterService` and database service. In the New Backend System, plugins are created using `createBackendPlugin`. They declare dependencies (like `httpRouterService`, `databaseService`, `loggerService`) which the Backstage container injects, cleanly mounting routes onto the backend server. The legacy `createRouter` style still runs but constructs its dependencies by hand and will not receive services from the container; `createBackendModule` extends a plugin that already exists rather than introducing a new one with its own routes and database; and registering on the root app skips the discovery path prefix, so the plugin is unreachable through `discoveryApi`.",
     referenceUrl: "https://backstage.io/docs/backend-system/building-plugins-and-modules/index",
-    tags: ["Backend Plugins", "Backend Plugins", "High Scale Catalog"]
+    tags: ["Backend Plugins","Backend Plugins","High Scale Catalog"]
   },
   {
     id: "cncf-cba-453",
@@ -47,20 +47,20 @@ export const CNCF_CBA_QUESTIONS_19 = [
     certId: "cncf-cba",
     domainId: "d4",
     domainName: "Plugins, TechDocs and Administration",
-    title: "Backend Plugin Architecture: New Backend System Plugins: Security And Governance",
-    scenario: "A platform security auditor requires strict role-based access control, cryptographic service communication, and audit logging across the internal developer portal. The platform engineer evaluates Backend Plugins to develop a custom backend microservice plugin that exposes REST endpoints and interacts with the database.",
-    question: "Which Backstage security mechanism or configuration satisfies these compliance controls? createBackendPlugin, BackendFeature, and HttpRouterService registration is under consideration.",
+    title: "Adding a Backend With Its Own Routes and Storage: Security And Governance",
+    scenario: "A platform security auditor requires strict role-based access control, cryptographic service communication, and audit logging across the internal developer portal. The platform engineer needs to develop a custom backend microservice plugin that exposes REST endpoints and interacts with the database.",
+    question: "Which Backstage security mechanism or configuration satisfies these compliance controls?",
     options: [
-      { id: 'A', text: "Write raw assembly code directly to the host CPU registers." },
+      { id: 'A', text: "Build it with `createBackendModule` and attach it, along with its database usage, to an existing plugin's extension point." },
       { id: 'B', text: "Author a backend plugin using `createBackendPlugin`, injecting the `httpRouterService` and database service." },
-      { id: 'C', text: "Bypass the Backstage service container and launch an untracked HTTP server on a random port." },
-      { id: 'D', text: "Run an unauthenticated telnet daemon directly on the host operating system." }
+      { id: 'C', text: "Export a `createRouter` function and wire it up in `index.ts` in the legacy backend style, constructing each of its dependencies there." },
+      { id: 'D', text: "Register the routes on the root Express app with `app.use()` once the backend has started." }
     ],
     correctAnswers: ['B'],
     type: "single",
-    explanation: "Author a backend plugin using `createBackendPlugin`, injecting the `httpRouterService` and database service. In the New Backend System, plugins are created using `createBackendPlugin`. They declare dependencies (like `httpRouterService`, `databaseService`, `loggerService`) which the Backstage container injects, cleanly mounting routes onto the backend server.",
+    explanation: "Author a backend plugin using `createBackendPlugin`, injecting the `httpRouterService` and database service. In the New Backend System, plugins are created using `createBackendPlugin`. They declare dependencies (like `httpRouterService`, `databaseService`, `loggerService`) which the Backstage container injects, cleanly mounting routes onto the backend server. The legacy `createRouter` style still runs but constructs its dependencies by hand and will not receive services from the container; `createBackendModule` extends a plugin that already exists rather than introducing a new one with its own routes and database; and registering on the root app skips the discovery path prefix, so the plugin is unreachable through `discoveryApi`.",
     referenceUrl: "https://backstage.io/docs/backend-system/building-plugins-and-modules/index",
-    tags: ["Backend Plugins", "Backend Plugins", "Security And Governance"]
+    tags: ["Backend Plugins","Backend Plugins","Security And Governance"]
   },
   {
     id: "cncf-cba-454",
@@ -68,20 +68,20 @@ export const CNCF_CBA_QUESTIONS_19 = [
     certId: "cncf-cba",
     domainId: "d4",
     domainName: "Plugins, TechDocs and Administration",
-    title: "Backend Plugin Architecture: New Backend System Plugins: Developer Onboarding",
-    scenario: "A platform engineering team is establishing Golden Path templates and automated scaffolding workflows to accelerate developer onboarding and eliminate delivery friction. The platform engineer evaluates Backend Plugins to develop a custom backend microservice plugin that exposes REST endpoints and interacts with the database.",
-    question: "Which Backstage scaffolder practice or template feature enables developers to self-serve new projects safely? createBackendPlugin, BackendFeature, and HttpRouterService registration is under consideration.",
+    title: "Adding a Backend With Its Own Routes and Storage: Developer Onboarding",
+    scenario: "A platform engineering team is establishing Golden Path templates and automated scaffolding workflows to accelerate developer onboarding and eliminate delivery friction. The platform engineer needs to develop a custom backend microservice plugin that exposes REST endpoints and interacts with the database.",
+    question: "Which Backstage scaffolder practice or template feature enables developers to self-serve new projects safely?",
     options: [
-      { id: 'A', text: "Run an unauthenticated telnet daemon directly on the host operating system." },
-      { id: 'B', text: "Bypass the Backstage service container and launch an untracked HTTP server on a random port." },
+      { id: 'A', text: "Register the routes on the root Express app with `app.use()` once the backend has started." },
+      { id: 'B', text: "Export a `createRouter` function and wire it up in `index.ts` in the legacy backend style, constructing each of its dependencies there." },
       { id: 'C', text: "Author a backend plugin using `createBackendPlugin`, injecting the `httpRouterService` and database service." },
-      { id: 'D', text: "Write raw assembly code directly to the host CPU registers." }
+      { id: 'D', text: "Build it with `createBackendModule` and attach it, along with its database usage, to an existing plugin's extension point." }
     ],
     correctAnswers: ['C'],
     type: "single",
-    explanation: "Author a backend plugin using `createBackendPlugin`, injecting the `httpRouterService` and database service. In the New Backend System, plugins are created using `createBackendPlugin`. They declare dependencies (like `httpRouterService`, `databaseService`, `loggerService`) which the Backstage container injects, cleanly mounting routes onto the backend server.",
+    explanation: "Author a backend plugin using `createBackendPlugin`, injecting the `httpRouterService` and database service. In the New Backend System, plugins are created using `createBackendPlugin`. They declare dependencies (like `httpRouterService`, `databaseService`, `loggerService`) which the Backstage container injects, cleanly mounting routes onto the backend server. The legacy `createRouter` style still runs but constructs its dependencies by hand and will not receive services from the container; `createBackendModule` extends a plugin that already exists rather than introducing a new one with its own routes and database; and registering on the root app skips the discovery path prefix, so the plugin is unreachable through `discoveryApi`.",
     referenceUrl: "https://backstage.io/docs/backend-system/building-plugins-and-modules/index",
-    tags: ["Backend Plugins", "Backend Plugins", "Developer Onboarding"]
+    tags: ["Backend Plugins","Backend Plugins","Developer Onboarding"]
   },
   {
     id: "cncf-cba-455",
@@ -89,20 +89,20 @@ export const CNCF_CBA_QUESTIONS_19 = [
     certId: "cncf-cba",
     domainId: "d4",
     domainName: "Plugins, TechDocs and Administration",
-    title: "Backend Plugin Architecture: New Backend System Plugins: Resilience And Operations",
-    scenario: "A site reliability engineering team is operating Backstage on Kubernetes and optimizing system resilience, health monitoring, and documentation publishing pipelines. The platform engineer evaluates Backend Plugins to develop a custom backend microservice plugin that exposes REST endpoints and interacts with the database.",
-    question: "Which operational design or plugin architecture guarantees high availability and reliable portal performance? createBackendPlugin, BackendFeature, and HttpRouterService registration is under consideration.",
+    title: "Adding a Backend With Its Own Routes and Storage: Resilience And Operations",
+    scenario: "A site reliability engineering team is operating Backstage on Kubernetes and optimizing system resilience, health monitoring, and documentation publishing pipelines. The platform engineer needs to develop a custom backend microservice plugin that exposes REST endpoints and interacts with the database.",
+    question: "Which operational design or plugin architecture guarantees high availability and reliable portal performance?",
     options: [
       { id: 'A', text: "Author a backend plugin using `createBackendPlugin`, injecting the `httpRouterService` and database service." },
-      { id: 'B', text: "Run an unauthenticated telnet daemon directly on the host operating system." },
-      { id: 'C', text: "Write raw assembly code directly to the host CPU registers." },
-      { id: 'D', text: "Bypass the Backstage service container and launch an untracked HTTP server on a random port." }
+      { id: 'B', text: "Register the routes on the root Express app with `app.use()` once the backend has started." },
+      { id: 'C', text: "Build it with `createBackendModule` and attach it, along with its database usage, to an existing plugin's extension point." },
+      { id: 'D', text: "Export a `createRouter` function and wire it up in `index.ts` in the legacy backend style, constructing each of its dependencies there." }
     ],
     correctAnswers: ['A'],
     type: "single",
-    explanation: "Author a backend plugin using `createBackendPlugin`, injecting the `httpRouterService` and database service. In the New Backend System, plugins are created using `createBackendPlugin`. They declare dependencies (like `httpRouterService`, `databaseService`, `loggerService`) which the Backstage container injects, cleanly mounting routes onto the backend server.",
+    explanation: "Author a backend plugin using `createBackendPlugin`, injecting the `httpRouterService` and database service. In the New Backend System, plugins are created using `createBackendPlugin`. They declare dependencies (like `httpRouterService`, `databaseService`, `loggerService`) which the Backstage container injects, cleanly mounting routes onto the backend server. The legacy `createRouter` style still runs but constructs its dependencies by hand and will not receive services from the container; `createBackendModule` extends a plugin that already exists rather than introducing a new one with its own routes and database; and registering on the root app skips the discovery path prefix, so the plugin is unreachable through `discoveryApi`.",
     referenceUrl: "https://backstage.io/docs/backend-system/building-plugins-and-modules/index",
-    tags: ["Backend Plugins", "Backend Plugins", "Resilience And Operations"]
+    tags: ["Backend Plugins","Backend Plugins","Resilience And Operations"]
   },
   {
     id: "cncf-cba-456",
@@ -110,20 +110,20 @@ export const CNCF_CBA_QUESTIONS_19 = [
     certId: "cncf-cba",
     domainId: "d4",
     domainName: "Plugins, TechDocs and Administration",
-    title: "TechDocs Architecture: Docs-as-Code Model: Enterprise Portal",
-    scenario: "An enterprise developer experience team is architecting an internal developer portal to standardize service catalogs, software scaffolding, and documentation across hundreds of teams. The platform engineer evaluates TechDocs Architecture to centralize technical documentation across hundreds of microservices while keeping docs versioned alongside source code.",
-    question: "Which architectural approach or Backstage configuration satisfies these enterprise portal objectives? Hosting Markdown alongside code with mkdocs.yml and backstage.io/techdocs-ref annotation is under consideration.",
+    title: "Keeping Documentation Beside the Code: Enterprise Portal",
+    scenario: "An enterprise developer experience team is architecting an internal developer portal to standardize service catalogs, software scaffolding, and documentation across hundreds of teams. The platform engineer needs to centralize technical documentation across hundreds of microservices while keeping docs versioned alongside source code.",
+    question: "Which architectural approach or Backstage configuration satisfies these enterprise portal objectives?",
     options: [
-      { id: 'A', text: "Maintain enterprise documentation in unversioned personal Word documents on desktop folders." },
+      { id: 'A', text: "Keep the documentation in a separate wiki and point at it from the entity with a `backstage.io/view-url` annotation." },
       { id: 'B', text: "Adopt TechDocs: store Markdown docs in `/docs` with `mkdocs.yml` in each repo and link via `backstage.io/techdocs-ref`." },
-      { id: 'C', text: "Prohibit developers from writing documentation to maximize coding velocity." },
-      { id: 'D', text: "Print physical paper user manuals for all backend API endpoints." }
+      { id: 'C', text: "Hold the Markdown in one central documentation repository and reference it by path from each entity." },
+      { id: 'D', text: "Publish the docs as a static site and embed that site in an iframe on the entity page." }
     ],
     correctAnswers: ['B'],
     type: "single",
-    explanation: "Adopt TechDocs: store Markdown docs in `/docs` with `mkdocs.yml` in each repo and link via `backstage.io/techdocs-ref`. TechDocs is Backstage's docs-as-code solution. Documentation is written in Markdown and stored directly in the software repository alongside `mkdocs.yml`. The catalog entity includes `backstage.io/techdocs-ref: dir:.`, enabling Backstage to build and render docs seamlessly.",
+    explanation: "Adopt TechDocs: store Markdown docs in `/docs` with `mkdocs.yml` in each repo and link via `backstage.io/techdocs-ref`. TechDocs is Backstage's docs-as-code solution. Documentation is written in Markdown and stored directly in the software repository alongside `mkdocs.yml`. The catalog entity includes `backstage.io/techdocs-ref: dir:.`, enabling Backstage to build and render docs seamlessly. A wiki link leaves the documentation outside version control, so it is neither reviewed with the change nor searchable from the portal; a central repository keeps the docs in git but separates them from the code they describe, which is what makes them drift; and an embedded iframe renders content the search collator cannot index.",
     referenceUrl: "https://backstage.io/docs/features/techdocs/",
-    tags: ["TechDocs Architecture", "TechDocs Architecture", "Enterprise Portal"]
+    tags: ["TechDocs Architecture","TechDocs Architecture","Enterprise Portal"]
   },
   {
     id: "cncf-cba-457",
@@ -131,20 +131,20 @@ export const CNCF_CBA_QUESTIONS_19 = [
     certId: "cncf-cba",
     domainId: "d4",
     domainName: "Plugins, TechDocs and Administration",
-    title: "TechDocs Architecture: Docs-as-Code Model: High Scale Catalog",
-    scenario: "A large engineering organization manages tens of thousands of microservices, APIs, and infrastructure components across hybrid cloud environments. The platform engineer evaluates TechDocs Architecture to centralize technical documentation across hundreds of microservices while keeping docs versioned alongside source code.",
-    question: "Which Backstage catalog pattern or ingestion configuration handles this volume efficiently while preventing database contention? Hosting Markdown alongside code with mkdocs.yml and backstage.io/techdocs-ref annotation is under consideration.",
+    title: "Keeping Documentation Beside the Code: High Scale Catalog",
+    scenario: "A large engineering organization manages tens of thousands of microservices, APIs, and infrastructure components across hybrid cloud environments. The platform engineer needs to centralize technical documentation across hundreds of microservices while keeping docs versioned alongside source code.",
+    question: "Which Backstage catalog pattern or ingestion configuration handles this volume efficiently while preventing database contention?",
     options: [
-      { id: 'A', text: "Print physical paper user manuals for all backend API endpoints." },
-      { id: 'B', text: "Prohibit developers from writing documentation to maximize coding velocity." },
+      { id: 'A', text: "Publish the docs as a static site and embed that site in an iframe on the entity page." },
+      { id: 'B', text: "Hold the Markdown in one central documentation repository and reference it by path from each entity." },
       { id: 'C', text: "Adopt TechDocs: store Markdown docs in `/docs` with `mkdocs.yml` in each repo and link via `backstage.io/techdocs-ref`." },
-      { id: 'D', text: "Maintain enterprise documentation in unversioned personal Word documents on desktop folders." }
+      { id: 'D', text: "Keep the documentation in a separate wiki and point at it from the entity with a `backstage.io/view-url` annotation." }
     ],
     correctAnswers: ['C'],
     type: "single",
-    explanation: "Adopt TechDocs: store Markdown docs in `/docs` with `mkdocs.yml` in each repo and link via `backstage.io/techdocs-ref`. TechDocs is Backstage's docs-as-code solution. Documentation is written in Markdown and stored directly in the software repository alongside `mkdocs.yml`. The catalog entity includes `backstage.io/techdocs-ref: dir:.`, enabling Backstage to build and render docs seamlessly.",
+    explanation: "Adopt TechDocs: store Markdown docs in `/docs` with `mkdocs.yml` in each repo and link via `backstage.io/techdocs-ref`. TechDocs is Backstage's docs-as-code solution. Documentation is written in Markdown and stored directly in the software repository alongside `mkdocs.yml`. The catalog entity includes `backstage.io/techdocs-ref: dir:.`, enabling Backstage to build and render docs seamlessly. A wiki link leaves the documentation outside version control, so it is neither reviewed with the change nor searchable from the portal; a central repository keeps the docs in git but separates them from the code they describe, which is what makes them drift; and an embedded iframe renders content the search collator cannot index.",
     referenceUrl: "https://backstage.io/docs/features/techdocs/",
-    tags: ["TechDocs Architecture", "TechDocs Architecture", "High Scale Catalog"]
+    tags: ["TechDocs Architecture","TechDocs Architecture","High Scale Catalog"]
   },
   {
     id: "cncf-cba-458",
@@ -152,20 +152,20 @@ export const CNCF_CBA_QUESTIONS_19 = [
     certId: "cncf-cba",
     domainId: "d4",
     domainName: "Plugins, TechDocs and Administration",
-    title: "TechDocs Architecture: Docs-as-Code Model: Security And Governance",
-    scenario: "A platform security auditor requires strict role-based access control, cryptographic service communication, and audit logging across the internal developer portal. The platform engineer evaluates TechDocs Architecture to centralize technical documentation across hundreds of microservices while keeping docs versioned alongside source code.",
-    question: "Which Backstage security mechanism or configuration satisfies these compliance controls? Hosting Markdown alongside code with mkdocs.yml and backstage.io/techdocs-ref annotation is under consideration.",
+    title: "Keeping Documentation Beside the Code: Security And Governance",
+    scenario: "A platform security auditor requires strict role-based access control, cryptographic service communication, and audit logging across the internal developer portal. The platform engineer needs to centralize technical documentation across hundreds of microservices while keeping docs versioned alongside source code.",
+    question: "Which Backstage security mechanism or configuration satisfies these compliance controls?",
     options: [
-      { id: 'A', text: "Print physical paper user manuals for all backend API endpoints." },
+      { id: 'A', text: "Publish the docs as a static site and embed that site in an iframe on the entity page." },
       { id: 'B', text: "Adopt TechDocs: store Markdown docs in `/docs` with `mkdocs.yml` in each repo and link via `backstage.io/techdocs-ref`." },
-      { id: 'C', text: "Maintain enterprise documentation in unversioned personal Word documents on desktop folders." },
-      { id: 'D', text: "Prohibit developers from writing documentation to maximize coding velocity." }
+      { id: 'C', text: "Keep the documentation in a separate wiki and point at it from the entity with a `backstage.io/view-url` annotation." },
+      { id: 'D', text: "Hold the Markdown in one central documentation repository and reference it by path from each entity." }
     ],
     correctAnswers: ['B'],
     type: "single",
-    explanation: "Adopt TechDocs: store Markdown docs in `/docs` with `mkdocs.yml` in each repo and link via `backstage.io/techdocs-ref`. TechDocs is Backstage's docs-as-code solution. Documentation is written in Markdown and stored directly in the software repository alongside `mkdocs.yml`. The catalog entity includes `backstage.io/techdocs-ref: dir:.`, enabling Backstage to build and render docs seamlessly.",
+    explanation: "Adopt TechDocs: store Markdown docs in `/docs` with `mkdocs.yml` in each repo and link via `backstage.io/techdocs-ref`. TechDocs is Backstage's docs-as-code solution. Documentation is written in Markdown and stored directly in the software repository alongside `mkdocs.yml`. The catalog entity includes `backstage.io/techdocs-ref: dir:.`, enabling Backstage to build and render docs seamlessly. A wiki link leaves the documentation outside version control, so it is neither reviewed with the change nor searchable from the portal; a central repository keeps the docs in git but separates them from the code they describe, which is what makes them drift; and an embedded iframe renders content the search collator cannot index.",
     referenceUrl: "https://backstage.io/docs/features/techdocs/",
-    tags: ["TechDocs Architecture", "TechDocs Architecture", "Security And Governance"]
+    tags: ["TechDocs Architecture","TechDocs Architecture","Security And Governance"]
   },
   {
     id: "cncf-cba-459",
@@ -173,20 +173,20 @@ export const CNCF_CBA_QUESTIONS_19 = [
     certId: "cncf-cba",
     domainId: "d4",
     domainName: "Plugins, TechDocs and Administration",
-    title: "TechDocs Architecture: Docs-as-Code Model: Developer Onboarding",
-    scenario: "A platform engineering team is establishing Golden Path templates and automated scaffolding workflows to accelerate developer onboarding and eliminate delivery friction. The platform engineer evaluates TechDocs Architecture to centralize technical documentation across hundreds of microservices while keeping docs versioned alongside source code.",
-    question: "Which Backstage scaffolder practice or template feature enables developers to self-serve new projects safely? Hosting Markdown alongside code with mkdocs.yml and backstage.io/techdocs-ref annotation is under consideration.",
+    title: "Keeping Documentation Beside the Code: Developer Onboarding",
+    scenario: "A platform engineering team is establishing Golden Path templates and automated scaffolding workflows to accelerate developer onboarding and eliminate delivery friction. The platform engineer needs to centralize technical documentation across hundreds of microservices while keeping docs versioned alongside source code.",
+    question: "Which Backstage scaffolder practice or template feature enables developers to self-serve new projects safely?",
     options: [
-      { id: 'A', text: "Maintain enterprise documentation in unversioned personal Word documents on desktop folders." },
-      { id: 'B', text: "Prohibit developers from writing documentation to maximize coding velocity." },
+      { id: 'A', text: "Keep the documentation in a separate wiki and point at it from the entity with a `backstage.io/view-url` annotation." },
+      { id: 'B', text: "Hold the Markdown in one central documentation repository and reference it by path from each entity." },
       { id: 'C', text: "Adopt TechDocs: store Markdown docs in `/docs` with `mkdocs.yml` in each repo and link via `backstage.io/techdocs-ref`." },
-      { id: 'D', text: "Print physical paper user manuals for all backend API endpoints." }
+      { id: 'D', text: "Publish the docs as a static site and embed that site in an iframe on the entity page." }
     ],
     correctAnswers: ['C'],
     type: "single",
-    explanation: "Adopt TechDocs: store Markdown docs in `/docs` with `mkdocs.yml` in each repo and link via `backstage.io/techdocs-ref`. TechDocs is Backstage's docs-as-code solution. Documentation is written in Markdown and stored directly in the software repository alongside `mkdocs.yml`. The catalog entity includes `backstage.io/techdocs-ref: dir:.`, enabling Backstage to build and render docs seamlessly.",
+    explanation: "Adopt TechDocs: store Markdown docs in `/docs` with `mkdocs.yml` in each repo and link via `backstage.io/techdocs-ref`. TechDocs is Backstage's docs-as-code solution. Documentation is written in Markdown and stored directly in the software repository alongside `mkdocs.yml`. The catalog entity includes `backstage.io/techdocs-ref: dir:.`, enabling Backstage to build and render docs seamlessly. A wiki link leaves the documentation outside version control, so it is neither reviewed with the change nor searchable from the portal; a central repository keeps the docs in git but separates them from the code they describe, which is what makes them drift; and an embedded iframe renders content the search collator cannot index.",
     referenceUrl: "https://backstage.io/docs/features/techdocs/",
-    tags: ["TechDocs Architecture", "TechDocs Architecture", "Developer Onboarding"]
+    tags: ["TechDocs Architecture","TechDocs Architecture","Developer Onboarding"]
   },
   {
     id: "cncf-cba-460",
@@ -194,20 +194,20 @@ export const CNCF_CBA_QUESTIONS_19 = [
     certId: "cncf-cba",
     domainId: "d4",
     domainName: "Plugins, TechDocs and Administration",
-    title: "TechDocs Architecture: Docs-as-Code Model: Resilience And Operations",
-    scenario: "A site reliability engineering team is operating Backstage on Kubernetes and optimizing system resilience, health monitoring, and documentation publishing pipelines. The platform engineer evaluates TechDocs Architecture to centralize technical documentation across hundreds of microservices while keeping docs versioned alongside source code.",
-    question: "Which operational design or plugin architecture guarantees high availability and reliable portal performance? Hosting Markdown alongside code with mkdocs.yml and backstage.io/techdocs-ref annotation is under consideration.",
+    title: "Keeping Documentation Beside the Code: Resilience And Operations",
+    scenario: "A site reliability engineering team is operating Backstage on Kubernetes and optimizing system resilience, health monitoring, and documentation publishing pipelines. The platform engineer needs to centralize technical documentation across hundreds of microservices while keeping docs versioned alongside source code.",
+    question: "Which operational design or plugin architecture guarantees high availability and reliable portal performance?",
     options: [
       { id: 'A', text: "Adopt TechDocs: store Markdown docs in `/docs` with `mkdocs.yml` in each repo and link via `backstage.io/techdocs-ref`." },
-      { id: 'B', text: "Print physical paper user manuals for all backend API endpoints." },
-      { id: 'C', text: "Prohibit developers from writing documentation to maximize coding velocity." },
-      { id: 'D', text: "Maintain enterprise documentation in unversioned personal Word documents on desktop folders." }
+      { id: 'B', text: "Publish the docs as a static site and embed that site in an iframe on the entity page." },
+      { id: 'C', text: "Hold the Markdown in one central documentation repository and reference it by path from each entity." },
+      { id: 'D', text: "Keep the documentation in a separate wiki and point at it from the entity with a `backstage.io/view-url` annotation." }
     ],
     correctAnswers: ['A'],
     type: "single",
-    explanation: "Adopt TechDocs: store Markdown docs in `/docs` with `mkdocs.yml` in each repo and link via `backstage.io/techdocs-ref`. TechDocs is Backstage's docs-as-code solution. Documentation is written in Markdown and stored directly in the software repository alongside `mkdocs.yml`. The catalog entity includes `backstage.io/techdocs-ref: dir:.`, enabling Backstage to build and render docs seamlessly.",
+    explanation: "Adopt TechDocs: store Markdown docs in `/docs` with `mkdocs.yml` in each repo and link via `backstage.io/techdocs-ref`. TechDocs is Backstage's docs-as-code solution. Documentation is written in Markdown and stored directly in the software repository alongside `mkdocs.yml`. The catalog entity includes `backstage.io/techdocs-ref: dir:.`, enabling Backstage to build and render docs seamlessly. A wiki link leaves the documentation outside version control, so it is neither reviewed with the change nor searchable from the portal; a central repository keeps the docs in git but separates them from the code they describe, which is what makes them drift; and an embedded iframe renders content the search collator cannot index.",
     referenceUrl: "https://backstage.io/docs/features/techdocs/",
-    tags: ["TechDocs Architecture", "TechDocs Architecture", "Resilience And Operations"]
+    tags: ["TechDocs Architecture","TechDocs Architecture","Resilience And Operations"]
   },
   {
     id: "cncf-cba-461",
@@ -215,20 +215,20 @@ export const CNCF_CBA_QUESTIONS_19 = [
     certId: "cncf-cba",
     domainId: "d4",
     domainName: "Plugins, TechDocs and Administration",
-    title: "TechDocs Build and Publish Pipeline: Local vs CI/CD: Enterprise Portal",
-    scenario: "An enterprise developer experience team is architecting an internal developer portal to standardize service catalogs, software scaffolding, and documentation across hundreds of teams. The platform engineer evaluates TechDocs Pipelines to scale documentation generation for thousands of repositories without degrading Backstage backend server performance.",
-    question: "Which architectural approach or Backstage configuration satisfies these enterprise portal objectives? Generating static HTML via @techdocs/cli and publishing to cloud storage (S3/GCS) is under consideration.",
+    title: "Where Documentation Gets Built: Enterprise Portal",
+    scenario: "An enterprise developer experience team is architecting an internal developer portal to standardize service catalogs, software scaffolding, and documentation across hundreds of teams. The platform engineer needs to scale documentation generation for thousands of repositories without degrading Backstage backend server performance.",
+    question: "Which architectural approach or Backstage configuration satisfies these enterprise portal objectives?",
     options: [
-      { id: 'A', text: "Build all documentation dynamically on the production Backstage web server on every single page view." },
-      { id: 'B', text: "Store generated documentation HTML inside relational database BLOB columns." },
+      { id: 'A', text: "Leave TechDocs in its local build mode so the backend generates the documentation on demand and caches the rendered output on disk between requests." },
+      { id: 'B', text: "Generate the documentation in CI and commit the rendered HTML back into each repository alongside the Markdown sources." },
       { id: 'C', text: "Generate documentation in CI/CD pipelines using `@techdocs/cli generate` and publish static assets to cloud object storage (S3/GCS)." },
-      { id: 'D', text: "Instruct portal users to run MkDocs locally on their laptops before reading docs." }
+      { id: 'D', text: "Run a scheduled job on the backend, outside the CI pipelines, that rebuilds every repository's documentation each night." }
     ],
     correctAnswers: ['C'],
     type: "single",
-    explanation: "Generate documentation in CI/CD pipelines using `@techdocs/cli generate` and publish static assets to cloud object storage (S3/GCS). While Backstage supports 'local' builds for development, production deployments recommend the 'recommended' model: external CI/CD pipelines use `@techdocs/cli` to generate static sites and publish them to cloud storage (AWS S3, Google Cloud Storage, Azure Blob).",
+    explanation: "Generate documentation in CI/CD pipelines using `@techdocs/cli generate` and publish static assets to cloud object storage (S3/GCS). While Backstage supports 'local' builds for development, production deployments recommend the 'recommended' model: external CI/CD pipelines use `@techdocs/cli` to generate static sites and publish them to cloud storage (AWS S3, Google Cloud Storage, Azure Blob). Local build mode is the documented default for trying TechDocs out, but it puts an MkDocs toolchain and the build load inside the portal's own runtime; committing rendered HTML doubles every documentation diff and invites the build output to drift from the source; and a nightly rebuild means documentation lags the code by up to a day and repeats work for repositories that never changed.",
     referenceUrl: "https://backstage.io/docs/features/techdocs/architecture",
-    tags: ["TechDocs Pipelines", "TechDocs Pipelines", "Enterprise Portal"]
+    tags: ["TechDocs Pipelines","TechDocs Pipelines","Enterprise Portal"]
   },
   {
     id: "cncf-cba-462",
@@ -236,20 +236,20 @@ export const CNCF_CBA_QUESTIONS_19 = [
     certId: "cncf-cba",
     domainId: "d4",
     domainName: "Plugins, TechDocs and Administration",
-    title: "TechDocs Build and Publish Pipeline: Local vs CI/CD: High Scale Catalog",
-    scenario: "A large engineering organization manages tens of thousands of microservices, APIs, and infrastructure components across hybrid cloud environments. The platform engineer evaluates TechDocs Pipelines to scale documentation generation for thousands of repositories without degrading Backstage backend server performance.",
-    question: "Which Backstage catalog pattern or ingestion configuration handles this volume efficiently while preventing database contention? Generating static HTML via @techdocs/cli and publishing to cloud storage (S3/GCS) is under consideration.",
+    title: "Where Documentation Gets Built: High Scale Catalog",
+    scenario: "A large engineering organization manages tens of thousands of microservices, APIs, and infrastructure components across hybrid cloud environments. The platform engineer needs to scale documentation generation for thousands of repositories without degrading Backstage backend server performance.",
+    question: "Which Backstage catalog pattern or ingestion configuration handles this volume efficiently while preventing database contention?",
     options: [
       { id: 'A', text: "Generate documentation in CI/CD pipelines using `@techdocs/cli generate` and publish static assets to cloud object storage (S3/GCS)." },
-      { id: 'B', text: "Instruct portal users to run MkDocs locally on their laptops before reading docs." },
-      { id: 'C', text: "Build all documentation dynamically on the production Backstage web server on every single page view." },
-      { id: 'D', text: "Store generated documentation HTML inside relational database BLOB columns." }
+      { id: 'B', text: "Run a scheduled job on the backend, outside the CI pipelines, that rebuilds every repository's documentation each night." },
+      { id: 'C', text: "Leave TechDocs in its local build mode so the backend generates the documentation on demand and caches the rendered output on disk between requests." },
+      { id: 'D', text: "Generate the documentation in CI and commit the rendered HTML back into each repository alongside the Markdown sources." }
     ],
     correctAnswers: ['A'],
     type: "single",
-    explanation: "Generate documentation in CI/CD pipelines using `@techdocs/cli generate` and publish static assets to cloud object storage (S3/GCS). While Backstage supports 'local' builds for development, production deployments recommend the 'recommended' model: external CI/CD pipelines use `@techdocs/cli` to generate static sites and publish them to cloud storage (AWS S3, Google Cloud Storage, Azure Blob).",
+    explanation: "Generate documentation in CI/CD pipelines using `@techdocs/cli generate` and publish static assets to cloud object storage (S3/GCS). While Backstage supports 'local' builds for development, production deployments recommend the 'recommended' model: external CI/CD pipelines use `@techdocs/cli` to generate static sites and publish them to cloud storage (AWS S3, Google Cloud Storage, Azure Blob). Local build mode is the documented default for trying TechDocs out, but it puts an MkDocs toolchain and the build load inside the portal's own runtime; committing rendered HTML doubles every documentation diff and invites the build output to drift from the source; and a nightly rebuild means documentation lags the code by up to a day and repeats work for repositories that never changed.",
     referenceUrl: "https://backstage.io/docs/features/techdocs/architecture",
-    tags: ["TechDocs Pipelines", "TechDocs Pipelines", "High Scale Catalog"]
+    tags: ["TechDocs Pipelines","TechDocs Pipelines","High Scale Catalog"]
   },
   {
     id: "cncf-cba-463",
@@ -257,20 +257,20 @@ export const CNCF_CBA_QUESTIONS_19 = [
     certId: "cncf-cba",
     domainId: "d4",
     domainName: "Plugins, TechDocs and Administration",
-    title: "TechDocs Build and Publish Pipeline: Local vs CI/CD: Security And Governance",
-    scenario: "A platform security auditor requires strict role-based access control, cryptographic service communication, and audit logging across the internal developer portal. The platform engineer evaluates TechDocs Pipelines to scale documentation generation for thousands of repositories without degrading Backstage backend server performance.",
-    question: "Which Backstage security mechanism or configuration satisfies these compliance controls? Generating static HTML via @techdocs/cli and publishing to cloud storage (S3/GCS) is under consideration.",
+    title: "Where Documentation Gets Built: Security And Governance",
+    scenario: "A platform security auditor requires strict role-based access control, cryptographic service communication, and audit logging across the internal developer portal. The platform engineer needs to scale documentation generation for thousands of repositories without degrading Backstage backend server performance.",
+    question: "Which Backstage security mechanism or configuration satisfies these compliance controls?",
     options: [
-      { id: 'A', text: "Store generated documentation HTML inside relational database BLOB columns." },
-      { id: 'B', text: "Build all documentation dynamically on the production Backstage web server on every single page view." },
+      { id: 'A', text: "Generate the documentation in CI and commit the rendered HTML back into each repository alongside the Markdown sources." },
+      { id: 'B', text: "Leave TechDocs in its local build mode so the backend generates the documentation on demand and caches the rendered output on disk between requests." },
       { id: 'C', text: "Generate documentation in CI/CD pipelines using `@techdocs/cli generate` and publish static assets to cloud object storage (S3/GCS)." },
-      { id: 'D', text: "Instruct portal users to run MkDocs locally on their laptops before reading docs." }
+      { id: 'D', text: "Run a scheduled job on the backend, outside the CI pipelines, that rebuilds every repository's documentation each night." }
     ],
     correctAnswers: ['C'],
     type: "single",
-    explanation: "Generate documentation in CI/CD pipelines using `@techdocs/cli generate` and publish static assets to cloud object storage (S3/GCS). While Backstage supports 'local' builds for development, production deployments recommend the 'recommended' model: external CI/CD pipelines use `@techdocs/cli` to generate static sites and publish them to cloud storage (AWS S3, Google Cloud Storage, Azure Blob).",
+    explanation: "Generate documentation in CI/CD pipelines using `@techdocs/cli generate` and publish static assets to cloud object storage (S3/GCS). While Backstage supports 'local' builds for development, production deployments recommend the 'recommended' model: external CI/CD pipelines use `@techdocs/cli` to generate static sites and publish them to cloud storage (AWS S3, Google Cloud Storage, Azure Blob). Local build mode is the documented default for trying TechDocs out, but it puts an MkDocs toolchain and the build load inside the portal's own runtime; committing rendered HTML doubles every documentation diff and invites the build output to drift from the source; and a nightly rebuild means documentation lags the code by up to a day and repeats work for repositories that never changed.",
     referenceUrl: "https://backstage.io/docs/features/techdocs/architecture",
-    tags: ["TechDocs Pipelines", "TechDocs Pipelines", "Security And Governance"]
+    tags: ["TechDocs Pipelines","TechDocs Pipelines","Security And Governance"]
   },
   {
     id: "cncf-cba-464",
@@ -278,20 +278,20 @@ export const CNCF_CBA_QUESTIONS_19 = [
     certId: "cncf-cba",
     domainId: "d4",
     domainName: "Plugins, TechDocs and Administration",
-    title: "TechDocs Build and Publish Pipeline: Local vs CI/CD: Developer Onboarding",
-    scenario: "A platform engineering team is establishing Golden Path templates and automated scaffolding workflows to accelerate developer onboarding and eliminate delivery friction. The platform engineer evaluates TechDocs Pipelines to scale documentation generation for thousands of repositories without degrading Backstage backend server performance.",
-    question: "Which Backstage scaffolder practice or template feature enables developers to self-serve new projects safely? Generating static HTML via @techdocs/cli and publishing to cloud storage (S3/GCS) is under consideration.",
+    title: "Where Documentation Gets Built: Developer Onboarding",
+    scenario: "A platform engineering team is establishing Golden Path templates and automated scaffolding workflows to accelerate developer onboarding and eliminate delivery friction. The platform engineer needs to scale documentation generation for thousands of repositories without degrading Backstage backend server performance.",
+    question: "Which Backstage scaffolder practice or template feature enables developers to self-serve new projects safely?",
     options: [
-      { id: 'A', text: "Build all documentation dynamically on the production Backstage web server on every single page view." },
+      { id: 'A', text: "Leave TechDocs in its local build mode so the backend generates the documentation on demand and caches the rendered output on disk between requests." },
       { id: 'B', text: "Generate documentation in CI/CD pipelines using `@techdocs/cli generate` and publish static assets to cloud object storage (S3/GCS)." },
-      { id: 'C', text: "Store generated documentation HTML inside relational database BLOB columns." },
-      { id: 'D', text: "Instruct portal users to run MkDocs locally on their laptops before reading docs." }
+      { id: 'C', text: "Generate the documentation in CI and commit the rendered HTML back into each repository alongside the Markdown sources." },
+      { id: 'D', text: "Run a scheduled job on the backend, outside the CI pipelines, that rebuilds every repository's documentation each night." }
     ],
     correctAnswers: ['B'],
     type: "single",
-    explanation: "Generate documentation in CI/CD pipelines using `@techdocs/cli generate` and publish static assets to cloud object storage (S3/GCS). While Backstage supports 'local' builds for development, production deployments recommend the 'recommended' model: external CI/CD pipelines use `@techdocs/cli` to generate static sites and publish them to cloud storage (AWS S3, Google Cloud Storage, Azure Blob).",
+    explanation: "Generate documentation in CI/CD pipelines using `@techdocs/cli generate` and publish static assets to cloud object storage (S3/GCS). While Backstage supports 'local' builds for development, production deployments recommend the 'recommended' model: external CI/CD pipelines use `@techdocs/cli` to generate static sites and publish them to cloud storage (AWS S3, Google Cloud Storage, Azure Blob). Local build mode is the documented default for trying TechDocs out, but it puts an MkDocs toolchain and the build load inside the portal's own runtime; committing rendered HTML doubles every documentation diff and invites the build output to drift from the source; and a nightly rebuild means documentation lags the code by up to a day and repeats work for repositories that never changed.",
     referenceUrl: "https://backstage.io/docs/features/techdocs/architecture",
-    tags: ["TechDocs Pipelines", "TechDocs Pipelines", "Developer Onboarding"]
+    tags: ["TechDocs Pipelines","TechDocs Pipelines","Developer Onboarding"]
   },
   {
     id: "cncf-cba-465",
@@ -299,20 +299,20 @@ export const CNCF_CBA_QUESTIONS_19 = [
     certId: "cncf-cba",
     domainId: "d4",
     domainName: "Plugins, TechDocs and Administration",
-    title: "TechDocs Build and Publish Pipeline: Local vs CI/CD: Resilience And Operations",
-    scenario: "A site reliability engineering team is operating Backstage on Kubernetes and optimizing system resilience, health monitoring, and documentation publishing pipelines. The platform engineer evaluates TechDocs Pipelines to scale documentation generation for thousands of repositories without degrading Backstage backend server performance.",
-    question: "Which operational design or plugin architecture guarantees high availability and reliable portal performance? Generating static HTML via @techdocs/cli and publishing to cloud storage (S3/GCS) is under consideration.",
+    title: "Where Documentation Gets Built: Resilience And Operations",
+    scenario: "A site reliability engineering team is operating Backstage on Kubernetes and optimizing system resilience, health monitoring, and documentation publishing pipelines. The platform engineer needs to scale documentation generation for thousands of repositories without degrading Backstage backend server performance.",
+    question: "Which operational design or plugin architecture guarantees high availability and reliable portal performance?",
     options: [
-      { id: 'A', text: "Instruct portal users to run MkDocs locally on their laptops before reading docs." },
+      { id: 'A', text: "Run a scheduled job on the backend, outside the CI pipelines, that rebuilds every repository's documentation each night." },
       { id: 'B', text: "Generate documentation in CI/CD pipelines using `@techdocs/cli generate` and publish static assets to cloud object storage (S3/GCS)." },
-      { id: 'C', text: "Store generated documentation HTML inside relational database BLOB columns." },
-      { id: 'D', text: "Build all documentation dynamically on the production Backstage web server on every single page view." }
+      { id: 'C', text: "Generate the documentation in CI and commit the rendered HTML back into each repository alongside the Markdown sources." },
+      { id: 'D', text: "Leave TechDocs in its local build mode so the backend generates the documentation on demand and caches the rendered output on disk between requests." }
     ],
     correctAnswers: ['B'],
     type: "single",
-    explanation: "Generate documentation in CI/CD pipelines using `@techdocs/cli generate` and publish static assets to cloud object storage (S3/GCS). While Backstage supports 'local' builds for development, production deployments recommend the 'recommended' model: external CI/CD pipelines use `@techdocs/cli` to generate static sites and publish them to cloud storage (AWS S3, Google Cloud Storage, Azure Blob).",
+    explanation: "Generate documentation in CI/CD pipelines using `@techdocs/cli generate` and publish static assets to cloud object storage (S3/GCS). While Backstage supports 'local' builds for development, production deployments recommend the 'recommended' model: external CI/CD pipelines use `@techdocs/cli` to generate static sites and publish them to cloud storage (AWS S3, Google Cloud Storage, Azure Blob). Local build mode is the documented default for trying TechDocs out, but it puts an MkDocs toolchain and the build load inside the portal's own runtime; committing rendered HTML doubles every documentation diff and invites the build output to drift from the source; and a nightly rebuild means documentation lags the code by up to a day and repeats work for repositories that never changed.",
     referenceUrl: "https://backstage.io/docs/features/techdocs/architecture",
-    tags: ["TechDocs Pipelines", "TechDocs Pipelines", "Resilience And Operations"]
+    tags: ["TechDocs Pipelines","TechDocs Pipelines","Resilience And Operations"]
   },
   {
     id: "cncf-cba-466",
@@ -320,20 +320,20 @@ export const CNCF_CBA_QUESTIONS_19 = [
     certId: "cncf-cba",
     domainId: "d4",
     domainName: "Plugins, TechDocs and Administration",
-    title: "TechDocs Reader and Full-Text Search Integration: Enterprise Portal",
-    scenario: "An enterprise developer experience team is architecting an internal developer portal to standardize service catalogs, software scaffolding, and documentation across hundreds of teams. The platform engineer evaluates TechDocs Search to allow engineers to read rendered documentation and search across all enterprise technical docs from a global search bar.",
-    question: "Which architectural approach or Backstage configuration satisfies these enterprise portal objectives? TechDocsReaderPage rendering and automated index ingestion into Backstage Search is under consideration.",
+    title: "Searching Inside Documentation Pages: Enterprise Portal",
+    scenario: "An enterprise developer experience team is architecting an internal developer portal to standardize service catalogs, software scaffolding, and documentation across hundreds of teams. The platform engineer needs to allow engineers to read rendered documentation and search across all enterprise technical docs from a global search bar.",
+    question: "Which architectural approach or Backstage configuration satisfies these enterprise portal objectives?",
     options: [
-      { id: 'A', text: "Host documentation on disconnected third-party public blogs without search capability." },
-      { id: 'B', text: "Require users to download raw Markdown files and view them in terminal text editors." },
-      { id: 'C', text: "Exclude documentation from search indexes to prioritize software catalog entities." },
+      { id: 'A', text: "Mount the reader page and rely on the catalog collator, which already indexes each entity's description, annotations, and tags." },
+      { id: 'B', text: "Link out of Backstage to the published documentation and let the object store's own search handle the queries." },
+      { id: 'C', text: "Index the documentation with a separate Elasticsearch pipeline maintained outside the search backend." },
       { id: 'D', text: "Mount the `TechDocsReaderPage` component and configure the TechDocs search collator in `@backstage/plugin-search-backend`." }
     ],
     correctAnswers: ['D'],
     type: "single",
-    explanation: "Mount the `TechDocsReaderPage` component and configure the TechDocs search collator in `@backstage/plugin-search-backend`. The `TechDocsReaderPage` renders responsive HTML documentation directly within Backstage. Concurrently, the TechDocs search collator crawls generated documentation files, indexing content into the Backstage Search engine for unified discovery.",
+    explanation: "Mount the `TechDocsReaderPage` component and configure the TechDocs search collator in `@backstage/plugin-search-backend`. The `TechDocsReaderPage` renders responsive HTML documentation directly within Backstage. Concurrently, the TechDocs search collator crawls generated documentation files, indexing content into the Backstage Search engine for unified discovery. The catalog collator indexes entity metadata, so a search matches a component's description but never a sentence inside its documentation; object storage offers no full-text search over the HTML it serves; and a separate pipeline can produce an index, but results arrive outside the portal's search page and without its permission filtering.",
     referenceUrl: "https://backstage.io/docs/features/techdocs/search",
-    tags: ["TechDocs Search", "TechDocs Search", "Enterprise Portal"]
+    tags: ["TechDocs Search","TechDocs Search","Enterprise Portal"]
   },
   {
     id: "cncf-cba-467",
@@ -341,20 +341,20 @@ export const CNCF_CBA_QUESTIONS_19 = [
     certId: "cncf-cba",
     domainId: "d4",
     domainName: "Plugins, TechDocs and Administration",
-    title: "TechDocs Reader and Full-Text Search Integration: High Scale Catalog",
-    scenario: "A large engineering organization manages tens of thousands of microservices, APIs, and infrastructure components across hybrid cloud environments. The platform engineer evaluates TechDocs Search to allow engineers to read rendered documentation and search across all enterprise technical docs from a global search bar.",
-    question: "Which Backstage catalog pattern or ingestion configuration handles this volume efficiently while preventing database contention? TechDocsReaderPage rendering and automated index ingestion into Backstage Search is under consideration.",
+    title: "Searching Inside Documentation Pages: High Scale Catalog",
+    scenario: "A large engineering organization manages tens of thousands of microservices, APIs, and infrastructure components across hybrid cloud environments. The platform engineer needs to allow engineers to read rendered documentation and search across all enterprise technical docs from a global search bar.",
+    question: "Which Backstage catalog pattern or ingestion configuration handles this volume efficiently while preventing database contention?",
     options: [
-      { id: 'A', text: "Exclude documentation from search indexes to prioritize software catalog entities." },
-      { id: 'B', text: "Require users to download raw Markdown files and view them in terminal text editors." },
-      { id: 'C', text: "Host documentation on disconnected third-party public blogs without search capability." },
+      { id: 'A', text: "Index the documentation with a separate Elasticsearch pipeline maintained outside the search backend." },
+      { id: 'B', text: "Link out of Backstage to the published documentation and let the object store's own search handle the queries." },
+      { id: 'C', text: "Mount the reader page and rely on the catalog collator, which already indexes each entity's description, annotations, and tags." },
       { id: 'D', text: "Mount the `TechDocsReaderPage` component and configure the TechDocs search collator in `@backstage/plugin-search-backend`." }
     ],
     correctAnswers: ['D'],
     type: "single",
-    explanation: "Mount the `TechDocsReaderPage` component and configure the TechDocs search collator in `@backstage/plugin-search-backend`. The `TechDocsReaderPage` renders responsive HTML documentation directly within Backstage. Concurrently, the TechDocs search collator crawls generated documentation files, indexing content into the Backstage Search engine for unified discovery.",
+    explanation: "Mount the `TechDocsReaderPage` component and configure the TechDocs search collator in `@backstage/plugin-search-backend`. The `TechDocsReaderPage` renders responsive HTML documentation directly within Backstage. Concurrently, the TechDocs search collator crawls generated documentation files, indexing content into the Backstage Search engine for unified discovery. The catalog collator indexes entity metadata, so a search matches a component's description but never a sentence inside its documentation; object storage offers no full-text search over the HTML it serves; and a separate pipeline can produce an index, but results arrive outside the portal's search page and without its permission filtering.",
     referenceUrl: "https://backstage.io/docs/features/techdocs/search",
-    tags: ["TechDocs Search", "TechDocs Search", "High Scale Catalog"]
+    tags: ["TechDocs Search","TechDocs Search","High Scale Catalog"]
   },
   {
     id: "cncf-cba-468",
@@ -362,20 +362,20 @@ export const CNCF_CBA_QUESTIONS_19 = [
     certId: "cncf-cba",
     domainId: "d4",
     domainName: "Plugins, TechDocs and Administration",
-    title: "TechDocs Reader and Full-Text Search Integration: Security And Governance",
-    scenario: "A platform security auditor requires strict role-based access control, cryptographic service communication, and audit logging across the internal developer portal. The platform engineer evaluates TechDocs Search to allow engineers to read rendered documentation and search across all enterprise technical docs from a global search bar.",
-    question: "Which Backstage security mechanism or configuration satisfies these compliance controls? TechDocsReaderPage rendering and automated index ingestion into Backstage Search is under consideration.",
+    title: "Searching Inside Documentation Pages: Security And Governance",
+    scenario: "A platform security auditor requires strict role-based access control, cryptographic service communication, and audit logging across the internal developer portal. The platform engineer needs to allow engineers to read rendered documentation and search across all enterprise technical docs from a global search bar.",
+    question: "Which Backstage security mechanism or configuration satisfies these compliance controls?",
     options: [
-      { id: 'A', text: "Exclude documentation from search indexes to prioritize software catalog entities." },
-      { id: 'B', text: "Host documentation on disconnected third-party public blogs without search capability." },
+      { id: 'A', text: "Index the documentation with a separate Elasticsearch pipeline maintained outside the search backend." },
+      { id: 'B', text: "Mount the reader page and rely on the catalog collator, which already indexes each entity's description, annotations, and tags." },
       { id: 'C', text: "Mount the `TechDocsReaderPage` component and configure the TechDocs search collator in `@backstage/plugin-search-backend`." },
-      { id: 'D', text: "Require users to download raw Markdown files and view them in terminal text editors." }
+      { id: 'D', text: "Link out of Backstage to the published documentation and let the object store's own search handle the queries." }
     ],
     correctAnswers: ['C'],
     type: "single",
-    explanation: "Mount the `TechDocsReaderPage` component and configure the TechDocs search collator in `@backstage/plugin-search-backend`. The `TechDocsReaderPage` renders responsive HTML documentation directly within Backstage. Concurrently, the TechDocs search collator crawls generated documentation files, indexing content into the Backstage Search engine for unified discovery.",
+    explanation: "Mount the `TechDocsReaderPage` component and configure the TechDocs search collator in `@backstage/plugin-search-backend`. The `TechDocsReaderPage` renders responsive HTML documentation directly within Backstage. Concurrently, the TechDocs search collator crawls generated documentation files, indexing content into the Backstage Search engine for unified discovery. The catalog collator indexes entity metadata, so a search matches a component's description but never a sentence inside its documentation; object storage offers no full-text search over the HTML it serves; and a separate pipeline can produce an index, but results arrive outside the portal's search page and without its permission filtering.",
     referenceUrl: "https://backstage.io/docs/features/techdocs/search",
-    tags: ["TechDocs Search", "TechDocs Search", "Security And Governance"]
+    tags: ["TechDocs Search","TechDocs Search","Security And Governance"]
   },
   {
     id: "cncf-cba-469",
@@ -383,20 +383,20 @@ export const CNCF_CBA_QUESTIONS_19 = [
     certId: "cncf-cba",
     domainId: "d4",
     domainName: "Plugins, TechDocs and Administration",
-    title: "TechDocs Reader and Full-Text Search Integration: Developer Onboarding",
-    scenario: "A platform engineering team is establishing Golden Path templates and automated scaffolding workflows to accelerate developer onboarding and eliminate delivery friction. The platform engineer evaluates TechDocs Search to allow engineers to read rendered documentation and search across all enterprise technical docs from a global search bar.",
-    question: "Which Backstage scaffolder practice or template feature enables developers to self-serve new projects safely? TechDocsReaderPage rendering and automated index ingestion into Backstage Search is under consideration.",
+    title: "Searching Inside Documentation Pages: Developer Onboarding",
+    scenario: "A platform engineering team is establishing Golden Path templates and automated scaffolding workflows to accelerate developer onboarding and eliminate delivery friction. The platform engineer needs to allow engineers to read rendered documentation and search across all enterprise technical docs from a global search bar.",
+    question: "Which Backstage scaffolder practice or template feature enables developers to self-serve new projects safely?",
     options: [
-      { id: 'A', text: "Require users to download raw Markdown files and view them in terminal text editors." },
-      { id: 'B', text: "Exclude documentation from search indexes to prioritize software catalog entities." },
-      { id: 'C', text: "Host documentation on disconnected third-party public blogs without search capability." },
+      { id: 'A', text: "Link out of Backstage to the published documentation and let the object store's own search handle the queries." },
+      { id: 'B', text: "Index the documentation with a separate Elasticsearch pipeline maintained outside the search backend." },
+      { id: 'C', text: "Mount the reader page and rely on the catalog collator, which already indexes each entity's description, annotations, and tags." },
       { id: 'D', text: "Mount the `TechDocsReaderPage` component and configure the TechDocs search collator in `@backstage/plugin-search-backend`." }
     ],
     correctAnswers: ['D'],
     type: "single",
-    explanation: "Mount the `TechDocsReaderPage` component and configure the TechDocs search collator in `@backstage/plugin-search-backend`. The `TechDocsReaderPage` renders responsive HTML documentation directly within Backstage. Concurrently, the TechDocs search collator crawls generated documentation files, indexing content into the Backstage Search engine for unified discovery.",
+    explanation: "Mount the `TechDocsReaderPage` component and configure the TechDocs search collator in `@backstage/plugin-search-backend`. The `TechDocsReaderPage` renders responsive HTML documentation directly within Backstage. Concurrently, the TechDocs search collator crawls generated documentation files, indexing content into the Backstage Search engine for unified discovery. The catalog collator indexes entity metadata, so a search matches a component's description but never a sentence inside its documentation; object storage offers no full-text search over the HTML it serves; and a separate pipeline can produce an index, but results arrive outside the portal's search page and without its permission filtering.",
     referenceUrl: "https://backstage.io/docs/features/techdocs/search",
-    tags: ["TechDocs Search", "TechDocs Search", "Developer Onboarding"]
+    tags: ["TechDocs Search","TechDocs Search","Developer Onboarding"]
   },
   {
     id: "cncf-cba-470",
@@ -404,20 +404,20 @@ export const CNCF_CBA_QUESTIONS_19 = [
     certId: "cncf-cba",
     domainId: "d4",
     domainName: "Plugins, TechDocs and Administration",
-    title: "TechDocs Reader and Full-Text Search Integration: Resilience And Operations",
-    scenario: "A site reliability engineering team is operating Backstage on Kubernetes and optimizing system resilience, health monitoring, and documentation publishing pipelines. The platform engineer evaluates TechDocs Search to allow engineers to read rendered documentation and search across all enterprise technical docs from a global search bar.",
-    question: "Which operational design or plugin architecture guarantees high availability and reliable portal performance? TechDocsReaderPage rendering and automated index ingestion into Backstage Search is under consideration.",
+    title: "Searching Inside Documentation Pages: Resilience And Operations",
+    scenario: "A site reliability engineering team is operating Backstage on Kubernetes and optimizing system resilience, health monitoring, and documentation publishing pipelines. The platform engineer needs to allow engineers to read rendered documentation and search across all enterprise technical docs from a global search bar.",
+    question: "Which operational design or plugin architecture guarantees high availability and reliable portal performance?",
     options: [
-      { id: 'A', text: "Exclude documentation from search indexes to prioritize software catalog entities." },
-      { id: 'B', text: "Host documentation on disconnected third-party public blogs without search capability." },
-      { id: 'C', text: "Require users to download raw Markdown files and view them in terminal text editors." },
+      { id: 'A', text: "Index the documentation with a separate Elasticsearch pipeline maintained outside the search backend." },
+      { id: 'B', text: "Mount the reader page and rely on the catalog collator, which already indexes each entity's description, annotations, and tags." },
+      { id: 'C', text: "Link out of Backstage to the published documentation and let the object store's own search handle the queries." },
       { id: 'D', text: "Mount the `TechDocsReaderPage` component and configure the TechDocs search collator in `@backstage/plugin-search-backend`." }
     ],
     correctAnswers: ['D'],
     type: "single",
-    explanation: "Mount the `TechDocsReaderPage` component and configure the TechDocs search collator in `@backstage/plugin-search-backend`. The `TechDocsReaderPage` renders responsive HTML documentation directly within Backstage. Concurrently, the TechDocs search collator crawls generated documentation files, indexing content into the Backstage Search engine for unified discovery.",
+    explanation: "Mount the `TechDocsReaderPage` component and configure the TechDocs search collator in `@backstage/plugin-search-backend`. The `TechDocsReaderPage` renders responsive HTML documentation directly within Backstage. Concurrently, the TechDocs search collator crawls generated documentation files, indexing content into the Backstage Search engine for unified discovery. The catalog collator indexes entity metadata, so a search matches a component's description but never a sentence inside its documentation; object storage offers no full-text search over the HTML it serves; and a separate pipeline can produce an index, but results arrive outside the portal's search page and without its permission filtering.",
     referenceUrl: "https://backstage.io/docs/features/techdocs/search",
-    tags: ["TechDocs Search", "TechDocs Search", "Resilience And Operations"]
+    tags: ["TechDocs Search","TechDocs Search","Resilience And Operations"]
   },
   {
     id: "cncf-cba-471",
@@ -425,20 +425,20 @@ export const CNCF_CBA_QUESTIONS_19 = [
     certId: "cncf-cba",
     domainId: "d4",
     domainName: "Plugins, TechDocs and Administration",
-    title: "Backstage CLI and Developer Tooling: Enterprise Portal",
-    scenario: "An enterprise developer experience team is architecting an internal developer portal to standardize service catalogs, software scaffolding, and documentation across hundreds of teams. The platform engineer evaluates Backstage CLI to streamline developer workflows when authoring a new plugin or building production bundles in the Backstage monorepo.",
-    question: "Which architectural approach or Backstage configuration satisfies these enterprise portal objectives? Scaffolding plugins, building bundles, and managing packages via yarn backstage-cli is under consideration.",
+    title: "Creating and Building a New Package: Enterprise Portal",
+    scenario: "An enterprise developer experience team is architecting an internal developer portal to standardize service catalogs, software scaffolding, and documentation across hundreds of teams. The platform engineer needs to streamline developer workflows when authoring a new plugin or building production bundles in the Backstage monorepo.",
+    question: "Which architectural approach or Backstage configuration satisfies these enterprise portal objectives?",
     options: [
-      { id: 'A', text: "Execute shell scripts without package managers or dependency tracking." },
-      { id: 'B', text: "Manually configure Webpack, Babel, and TypeScript compilers from scratch for every single plugin." },
-      { id: 'C', text: "Write raw machine instructions into ELF binaries using hex editors." },
+      { id: 'A', text: "Copy an existing plugin directory, rename the package, and update the imports by hand." },
+      { id: 'B', text: "Scaffold the package with `create-react-app` and add the `@backstage/*` packages as dependencies, then adjust its build output to match the workspace." },
+      { id: 'C', text: "Use `yarn backstage-cli package start` to produce the production bundle for each plugin." },
       { id: 'D', text: "Use `yarn backstage-cli new` to scaffold plugins and `yarn backstage-cli build` to create optimized production packages." }
     ],
     correctAnswers: ['D'],
     type: "single",
-    explanation: "Use `yarn backstage-cli new` to scaffold plugins and `yarn backstage-cli build` to create optimized production packages. The `@backstage/cli` toolchain manages the Backstage lifecycle. Commands like `yarn backstage-cli new` generate standardized plugin skeletons, while `build`, `lint`, and `test` ensure consistent toolchain configuration across the monorepo.",
+    explanation: "Use `yarn backstage-cli new` to scaffold plugins and `yarn backstage-cli build` to create optimized production packages. The `@backstage/cli` toolchain manages the Backstage lifecycle. Commands like `yarn backstage-cli new` generate standardized plugin skeletons, while `build`, `lint`, and `test` ensure consistent toolchain configuration across the monorepo. Copying a plugin carries over whatever that plugin's configuration happened to be, including anything already out of date; `create-react-app` produces its own build setup that knows nothing of the workspace's shared TypeScript and bundling configuration; and `package start` runs the development server with watch mode rather than emitting a production build.",
     referenceUrl: "https://backstage.io/docs/tooling/cli/overview",
-    tags: ["Backstage CLI", "Backstage CLI", "Enterprise Portal"]
+    tags: ["Backstage CLI","Backstage CLI","Enterprise Portal"]
   },
   {
     id: "cncf-cba-472",
@@ -446,20 +446,20 @@ export const CNCF_CBA_QUESTIONS_19 = [
     certId: "cncf-cba",
     domainId: "d4",
     domainName: "Plugins, TechDocs and Administration",
-    title: "Backstage CLI and Developer Tooling: High Scale Catalog",
-    scenario: "A large engineering organization manages tens of thousands of microservices, APIs, and infrastructure components across hybrid cloud environments. The platform engineer evaluates Backstage CLI to streamline developer workflows when authoring a new plugin or building production bundles in the Backstage monorepo.",
-    question: "Which Backstage catalog pattern or ingestion configuration handles this volume efficiently while preventing database contention? Scaffolding plugins, building bundles, and managing packages via yarn backstage-cli is under consideration.",
+    title: "Creating and Building a New Package: High Scale Catalog",
+    scenario: "A large engineering organization manages tens of thousands of microservices, APIs, and infrastructure components across hybrid cloud environments. The platform engineer needs to streamline developer workflows when authoring a new plugin or building production bundles in the Backstage monorepo.",
+    question: "Which Backstage catalog pattern or ingestion configuration handles this volume efficiently while preventing database contention?",
     options: [
-      { id: 'A', text: "Write raw machine instructions into ELF binaries using hex editors." },
+      { id: 'A', text: "Use `yarn backstage-cli package start` to produce the production bundle for each plugin." },
       { id: 'B', text: "Use `yarn backstage-cli new` to scaffold plugins and `yarn backstage-cli build` to create optimized production packages." },
-      { id: 'C', text: "Execute shell scripts without package managers or dependency tracking." },
-      { id: 'D', text: "Manually configure Webpack, Babel, and TypeScript compilers from scratch for every single plugin." }
+      { id: 'C', text: "Copy an existing plugin directory, rename the package, and update the imports by hand." },
+      { id: 'D', text: "Scaffold the package with `create-react-app` and add the `@backstage/*` packages as dependencies, then adjust its build output to match the workspace." }
     ],
     correctAnswers: ['B'],
     type: "single",
-    explanation: "Use `yarn backstage-cli new` to scaffold plugins and `yarn backstage-cli build` to create optimized production packages. The `@backstage/cli` toolchain manages the Backstage lifecycle. Commands like `yarn backstage-cli new` generate standardized plugin skeletons, while `build`, `lint`, and `test` ensure consistent toolchain configuration across the monorepo.",
+    explanation: "Use `yarn backstage-cli new` to scaffold plugins and `yarn backstage-cli build` to create optimized production packages. The `@backstage/cli` toolchain manages the Backstage lifecycle. Commands like `yarn backstage-cli new` generate standardized plugin skeletons, while `build`, `lint`, and `test` ensure consistent toolchain configuration across the monorepo. Copying a plugin carries over whatever that plugin's configuration happened to be, including anything already out of date; `create-react-app` produces its own build setup that knows nothing of the workspace's shared TypeScript and bundling configuration; and `package start` runs the development server with watch mode rather than emitting a production build.",
     referenceUrl: "https://backstage.io/docs/tooling/cli/overview",
-    tags: ["Backstage CLI", "Backstage CLI", "High Scale Catalog"]
+    tags: ["Backstage CLI","Backstage CLI","High Scale Catalog"]
   },
   {
     id: "cncf-cba-473",
@@ -467,20 +467,20 @@ export const CNCF_CBA_QUESTIONS_19 = [
     certId: "cncf-cba",
     domainId: "d4",
     domainName: "Plugins, TechDocs and Administration",
-    title: "Backstage CLI and Developer Tooling: Security And Governance",
-    scenario: "A platform security auditor requires strict role-based access control, cryptographic service communication, and audit logging across the internal developer portal. The platform engineer evaluates Backstage CLI to streamline developer workflows when authoring a new plugin or building production bundles in the Backstage monorepo.",
-    question: "Which Backstage security mechanism or configuration satisfies these compliance controls? Scaffolding plugins, building bundles, and managing packages via yarn backstage-cli is under consideration.",
+    title: "Creating and Building a New Package: Security And Governance",
+    scenario: "A platform security auditor requires strict role-based access control, cryptographic service communication, and audit logging across the internal developer portal. The platform engineer needs to streamline developer workflows when authoring a new plugin or building production bundles in the Backstage monorepo.",
+    question: "Which Backstage security mechanism or configuration satisfies these compliance controls?",
     options: [
-      { id: 'A', text: "Write raw machine instructions into ELF binaries using hex editors." },
-      { id: 'B', text: "Manually configure Webpack, Babel, and TypeScript compilers from scratch for every single plugin." },
-      { id: 'C', text: "Execute shell scripts without package managers or dependency tracking." },
+      { id: 'A', text: "Use `yarn backstage-cli package start` to produce the production bundle for each plugin." },
+      { id: 'B', text: "Scaffold the package with `create-react-app` and add the `@backstage/*` packages as dependencies, then adjust its build output to match the workspace." },
+      { id: 'C', text: "Copy an existing plugin directory, rename the package, and update the imports by hand." },
       { id: 'D', text: "Use `yarn backstage-cli new` to scaffold plugins and `yarn backstage-cli build` to create optimized production packages." }
     ],
     correctAnswers: ['D'],
     type: "single",
-    explanation: "Use `yarn backstage-cli new` to scaffold plugins and `yarn backstage-cli build` to create optimized production packages. The `@backstage/cli` toolchain manages the Backstage lifecycle. Commands like `yarn backstage-cli new` generate standardized plugin skeletons, while `build`, `lint`, and `test` ensure consistent toolchain configuration across the monorepo.",
+    explanation: "Use `yarn backstage-cli new` to scaffold plugins and `yarn backstage-cli build` to create optimized production packages. The `@backstage/cli` toolchain manages the Backstage lifecycle. Commands like `yarn backstage-cli new` generate standardized plugin skeletons, while `build`, `lint`, and `test` ensure consistent toolchain configuration across the monorepo. Copying a plugin carries over whatever that plugin's configuration happened to be, including anything already out of date; `create-react-app` produces its own build setup that knows nothing of the workspace's shared TypeScript and bundling configuration; and `package start` runs the development server with watch mode rather than emitting a production build.",
     referenceUrl: "https://backstage.io/docs/tooling/cli/overview",
-    tags: ["Backstage CLI", "Backstage CLI", "Security And Governance"]
+    tags: ["Backstage CLI","Backstage CLI","Security And Governance"]
   },
   {
     id: "cncf-cba-474",
@@ -488,20 +488,20 @@ export const CNCF_CBA_QUESTIONS_19 = [
     certId: "cncf-cba",
     domainId: "d4",
     domainName: "Plugins, TechDocs and Administration",
-    title: "Backstage CLI and Developer Tooling: Developer Onboarding",
-    scenario: "A platform engineering team is establishing Golden Path templates and automated scaffolding workflows to accelerate developer onboarding and eliminate delivery friction. The platform engineer evaluates Backstage CLI to streamline developer workflows when authoring a new plugin or building production bundles in the Backstage monorepo.",
-    question: "Which Backstage scaffolder practice or template feature enables developers to self-serve new projects safely? Scaffolding plugins, building bundles, and managing packages via yarn backstage-cli is under consideration.",
+    title: "Creating and Building a New Package: Developer Onboarding",
+    scenario: "A platform engineering team is establishing Golden Path templates and automated scaffolding workflows to accelerate developer onboarding and eliminate delivery friction. The platform engineer needs to streamline developer workflows when authoring a new plugin or building production bundles in the Backstage monorepo.",
+    question: "Which Backstage scaffolder practice or template feature enables developers to self-serve new projects safely?",
     options: [
       { id: 'A', text: "Use `yarn backstage-cli new` to scaffold plugins and `yarn backstage-cli build` to create optimized production packages." },
-      { id: 'B', text: "Write raw machine instructions into ELF binaries using hex editors." },
-      { id: 'C', text: "Manually configure Webpack, Babel, and TypeScript compilers from scratch for every single plugin." },
-      { id: 'D', text: "Execute shell scripts without package managers or dependency tracking." }
+      { id: 'B', text: "Use `yarn backstage-cli package start` to produce the production bundle for each plugin." },
+      { id: 'C', text: "Scaffold the package with `create-react-app` and add the `@backstage/*` packages as dependencies, then adjust its build output to match the workspace." },
+      { id: 'D', text: "Copy an existing plugin directory, rename the package, and update the imports by hand." }
     ],
     correctAnswers: ['A'],
     type: "single",
-    explanation: "Use `yarn backstage-cli new` to scaffold plugins and `yarn backstage-cli build` to create optimized production packages. The `@backstage/cli` toolchain manages the Backstage lifecycle. Commands like `yarn backstage-cli new` generate standardized plugin skeletons, while `build`, `lint`, and `test` ensure consistent toolchain configuration across the monorepo.",
+    explanation: "Use `yarn backstage-cli new` to scaffold plugins and `yarn backstage-cli build` to create optimized production packages. The `@backstage/cli` toolchain manages the Backstage lifecycle. Commands like `yarn backstage-cli new` generate standardized plugin skeletons, while `build`, `lint`, and `test` ensure consistent toolchain configuration across the monorepo. Copying a plugin carries over whatever that plugin's configuration happened to be, including anything already out of date; `create-react-app` produces its own build setup that knows nothing of the workspace's shared TypeScript and bundling configuration; and `package start` runs the development server with watch mode rather than emitting a production build.",
     referenceUrl: "https://backstage.io/docs/tooling/cli/overview",
-    tags: ["Backstage CLI", "Backstage CLI", "Developer Onboarding"]
+    tags: ["Backstage CLI","Backstage CLI","Developer Onboarding"]
   },
   {
     id: "cncf-cba-475",
@@ -509,20 +509,20 @@ export const CNCF_CBA_QUESTIONS_19 = [
     certId: "cncf-cba",
     domainId: "d4",
     domainName: "Plugins, TechDocs and Administration",
-    title: "Backstage CLI and Developer Tooling: Resilience And Operations",
-    scenario: "A site reliability engineering team is operating Backstage on Kubernetes and optimizing system resilience, health monitoring, and documentation publishing pipelines. The platform engineer evaluates Backstage CLI to streamline developer workflows when authoring a new plugin or building production bundles in the Backstage monorepo.",
-    question: "Which operational design or plugin architecture guarantees high availability and reliable portal performance? Scaffolding plugins, building bundles, and managing packages via yarn backstage-cli is under consideration.",
+    title: "Creating and Building a New Package: Resilience And Operations",
+    scenario: "A site reliability engineering team is operating Backstage on Kubernetes and optimizing system resilience, health monitoring, and documentation publishing pipelines. The platform engineer needs to streamline developer workflows when authoring a new plugin or building production bundles in the Backstage monorepo.",
+    question: "Which operational design or plugin architecture guarantees high availability and reliable portal performance?",
     options: [
-      { id: 'A', text: "Manually configure Webpack, Babel, and TypeScript compilers from scratch for every single plugin." },
-      { id: 'B', text: "Execute shell scripts without package managers or dependency tracking." },
-      { id: 'C', text: "Write raw machine instructions into ELF binaries using hex editors." },
+      { id: 'A', text: "Scaffold the package with `create-react-app` and add the `@backstage/*` packages as dependencies, then adjust its build output to match the workspace." },
+      { id: 'B', text: "Copy an existing plugin directory, rename the package, and update the imports by hand." },
+      { id: 'C', text: "Use `yarn backstage-cli package start` to produce the production bundle for each plugin." },
       { id: 'D', text: "Use `yarn backstage-cli new` to scaffold plugins and `yarn backstage-cli build` to create optimized production packages." }
     ],
     correctAnswers: ['D'],
     type: "single",
-    explanation: "Use `yarn backstage-cli new` to scaffold plugins and `yarn backstage-cli build` to create optimized production packages. The `@backstage/cli` toolchain manages the Backstage lifecycle. Commands like `yarn backstage-cli new` generate standardized plugin skeletons, while `build`, `lint`, and `test` ensure consistent toolchain configuration across the monorepo.",
+    explanation: "Use `yarn backstage-cli new` to scaffold plugins and `yarn backstage-cli build` to create optimized production packages. The `@backstage/cli` toolchain manages the Backstage lifecycle. Commands like `yarn backstage-cli new` generate standardized plugin skeletons, while `build`, `lint`, and `test` ensure consistent toolchain configuration across the monorepo. Copying a plugin carries over whatever that plugin's configuration happened to be, including anything already out of date; `create-react-app` produces its own build setup that knows nothing of the workspace's shared TypeScript and bundling configuration; and `package start` runs the development server with watch mode rather than emitting a production build.",
     referenceUrl: "https://backstage.io/docs/tooling/cli/overview",
-    tags: ["Backstage CLI", "Backstage CLI", "Resilience And Operations"]
+    tags: ["Backstage CLI","Backstage CLI","Resilience And Operations"]
   }
 ];
 
