@@ -7,7 +7,7 @@ export const AZURE_AZ900_QUESTIONS_20 = [
     domainName: "Describe Azure Management and Governance",
     title: "Azure Resource Manager (ARM) and Bicep: Dr Failover",
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The organization evaluates Infrastructure as Code to define, deploy, and version-control complex cloud architectures consistently across development, staging, and production environments using declarative templates.",
-    question: "Which concept or service configuration satisfies these operational resilience objectives? Declarative Infrastructure as Code (IaC) deployment is under consideration.",
+    question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Write custom imperative shell scripts that make hundreds of individual sequential REST calls." },
       { id: 'B', text: "Author declarative Infrastructure as Code using Bicep or Azure Resource Manager (ARM) templates." },
@@ -18,7 +18,7 @@ export const AZURE_AZ900_QUESTIONS_20 = [
     type: "single",
     explanation: "Author declarative Infrastructure as Code using Bicep or Azure Resource Manager (ARM) templates. Azure Resource Manager (ARM) templates and Bicep provide declarative Infrastructure as Code (IaC) for Azure. Declarative templates specify the desired state of resources, and Azure handles provisioning them idempotently, ensuring consistent, repeatable environments across the software development lifecycle.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview",
-    tags: ["Infrastructure as Code", "Infrastructure as Code", "Dr Failover"]
+    tags: ["Infrastructure as Code","Infrastructure as Code","Dr Failover"]
   },
   {
     id: "az-900-477",
@@ -28,7 +28,7 @@ export const AZURE_AZ900_QUESTIONS_20 = [
     domainName: "Describe Azure Management and Governance",
     title: "Azure Resource Manager (ARM) and Bicep: High Load Scale",
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The organization evaluates Infrastructure as Code to define, deploy, and version-control complex cloud architectures consistently across development, staging, and production environments using declarative templates.",
-    question: "Which architectural approach should the team select to manage this demand efficiently? Declarative Infrastructure as Code (IaC) deployment is under consideration.",
+    question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Deploy resources using unversioned manual configuration steps documented in Word documents." },
       { id: 'B', text: "Write custom imperative shell scripts that make hundreds of individual sequential REST calls." },
@@ -39,7 +39,7 @@ export const AZURE_AZ900_QUESTIONS_20 = [
     type: "single",
     explanation: "Author declarative Infrastructure as Code using Bicep or Azure Resource Manager (ARM) templates. Azure Resource Manager (ARM) templates and Bicep provide declarative Infrastructure as Code (IaC) for Azure. Declarative templates specify the desired state of resources, and Azure handles provisioning them idempotently, ensuring consistent, repeatable environments across the software development lifecycle.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview",
-    tags: ["Infrastructure as Code", "Infrastructure as Code", "High Load Scale"]
+    tags: ["Infrastructure as Code","Infrastructure as Code","High Load Scale"]
   },
   {
     id: "az-900-478",
@@ -49,7 +49,7 @@ export const AZURE_AZ900_QUESTIONS_20 = [
     domainName: "Describe Azure Management and Governance",
     title: "Azure Resource Manager (ARM) and Bicep: Security Compliance",
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The organization evaluates Infrastructure as Code to define, deploy, and version-control complex cloud architectures consistently across development, staging, and production environments using declarative templates.",
-    question: "Which solution properly implements these mandatory security and governance controls? Declarative Infrastructure as Code (IaC) deployment is under consideration.",
+    question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Write custom imperative shell scripts that make hundreds of individual sequential REST calls." },
       { id: 'B', text: "Manually click through the Azure Portal wizard for each new deployment environment." },
@@ -60,7 +60,7 @@ export const AZURE_AZ900_QUESTIONS_20 = [
     type: "single",
     explanation: "Author declarative Infrastructure as Code using Bicep or Azure Resource Manager (ARM) templates. Azure Resource Manager (ARM) templates and Bicep provide declarative Infrastructure as Code (IaC) for Azure. Declarative templates specify the desired state of resources, and Azure handles provisioning them idempotently, ensuring consistent, repeatable environments across the software development lifecycle.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview",
-    tags: ["Infrastructure as Code", "Infrastructure as Code", "Security Compliance"]
+    tags: ["Infrastructure as Code","Infrastructure as Code","Security Compliance"]
   },
   {
     id: "az-900-479",
@@ -70,7 +70,7 @@ export const AZURE_AZ900_QUESTIONS_20 = [
     domainName: "Describe Azure Management and Governance",
     title: "Azure Resource Manager (ARM) and Bicep: Hybrid Migration",
     scenario: "An enterprise is migrating traditional on-premises data center operations to the Microsoft Azure Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The organization evaluates Infrastructure as Code to define, deploy, and version-control complex cloud architectures consistently across development, staging, and production environments using declarative templates.",
-    question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? Declarative Infrastructure as Code (IaC) deployment is under consideration.",
+    question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Manually click through the Azure Portal wizard for each new deployment environment." },
       { id: 'B', text: "Write custom imperative shell scripts that make hundreds of individual sequential REST calls." },
@@ -81,7 +81,7 @@ export const AZURE_AZ900_QUESTIONS_20 = [
     type: "single",
     explanation: "Author declarative Infrastructure as Code using Bicep or Azure Resource Manager (ARM) templates. Azure Resource Manager (ARM) templates and Bicep provide declarative Infrastructure as Code (IaC) for Azure. Declarative templates specify the desired state of resources, and Azure handles provisioning them idempotently, ensuring consistent, repeatable environments across the software development lifecycle.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview",
-    tags: ["Infrastructure as Code", "Infrastructure as Code", "Hybrid Migration"]
+    tags: ["Infrastructure as Code","Infrastructure as Code","Hybrid Migration"]
   },
   {
     id: "az-900-480",
@@ -91,7 +91,7 @@ export const AZURE_AZ900_QUESTIONS_20 = [
     domainName: "Describe Azure Management and Governance",
     title: "Azure Resource Manager (ARM) and Bicep: Resilience Failure",
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The organization evaluates Infrastructure as Code to define, deploy, and version-control complex cloud architectures consistently across development, staging, and production environments using declarative templates.",
-    question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? Declarative Infrastructure as Code (IaC) deployment is under consideration.",
+    question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Write custom imperative shell scripts that make hundreds of individual sequential REST calls." },
       { id: 'B', text: "Author declarative Infrastructure as Code using Bicep or Azure Resource Manager (ARM) templates." },
@@ -102,7 +102,7 @@ export const AZURE_AZ900_QUESTIONS_20 = [
     type: "single",
     explanation: "Author declarative Infrastructure as Code using Bicep or Azure Resource Manager (ARM) templates. Azure Resource Manager (ARM) templates and Bicep provide declarative Infrastructure as Code (IaC) for Azure. Declarative templates specify the desired state of resources, and Azure handles provisioning them idempotently, ensuring consistent, repeatable environments across the software development lifecycle.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview",
-    tags: ["Infrastructure as Code", "Infrastructure as Code", "Resilience Failure"]
+    tags: ["Infrastructure as Code","Infrastructure as Code","Resilience Failure"]
   },
   {
     id: "az-900-481",
@@ -112,7 +112,7 @@ export const AZURE_AZ900_QUESTIONS_20 = [
     domainName: "Describe Azure Management and Governance",
     title: "Azure Monitor and Log Analytics: Dr Failover",
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The organization evaluates Azure Observability to collect, analyze, and query telemetry data and operational metrics from all cloud resources in a centralized repository to detect performance anomalies.",
-    question: "Which concept or service configuration satisfies these operational resilience objectives? Azure Monitor centralized metrics and Log Analytics workspace is under consideration.",
+    question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Configure Azure Monitor with an Azure Log Analytics workspace and metric alerts." },
       { id: 'B', text: "Rely on end-user bug reports to discover when production services become unresponsive." },
@@ -123,7 +123,7 @@ export const AZURE_AZ900_QUESTIONS_20 = [
     type: "single",
     explanation: "Configure Azure Monitor with an Azure Log Analytics workspace and metric alerts. Azure Monitor provides a unified solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments. Log Analytics workspaces allow querying billions of log records using Kusto Query Language (KQL), while Metric Alerts notify administrators of threshold violations.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/overview",
-    tags: ["Azure Observability", "Observability", "Dr Failover"]
+    tags: ["Azure Observability","Observability","Dr Failover"]
   },
   {
     id: "az-900-482",
@@ -133,7 +133,7 @@ export const AZURE_AZ900_QUESTIONS_20 = [
     domainName: "Describe Azure Management and Governance",
     title: "Azure Monitor and Log Analytics: High Load Scale",
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The organization evaluates Azure Observability to collect, analyze, and query telemetry data and operational metrics from all cloud resources in a centralized repository to detect performance anomalies.",
-    question: "Which architectural approach should the team select to manage this demand efficiently? Azure Monitor centralized metrics and Log Analytics workspace is under consideration.",
+    question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Rely on end-user bug reports to discover when production services become unresponsive." },
       { id: 'B', text: "Configure Azure Monitor with an Azure Log Analytics workspace and metric alerts." },
@@ -144,7 +144,7 @@ export const AZURE_AZ900_QUESTIONS_20 = [
     type: "single",
     explanation: "Configure Azure Monitor with an Azure Log Analytics workspace and metric alerts. Azure Monitor provides a unified solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments. Log Analytics workspaces allow querying billions of log records using Kusto Query Language (KQL), while Metric Alerts notify administrators of threshold violations.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/overview",
-    tags: ["Azure Observability", "Observability", "High Load Scale"]
+    tags: ["Azure Observability","Observability","High Load Scale"]
   },
   {
     id: "az-900-483",
@@ -154,7 +154,7 @@ export const AZURE_AZ900_QUESTIONS_20 = [
     domainName: "Describe Azure Management and Governance",
     title: "Azure Monitor and Log Analytics: Security Compliance",
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The organization evaluates Azure Observability to collect, analyze, and query telemetry data and operational metrics from all cloud resources in a centralized repository to detect performance anomalies.",
-    question: "Which solution properly implements these mandatory security and governance controls? Azure Monitor centralized metrics and Log Analytics workspace is under consideration.",
+    question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Delete operational logs every 24 hours to minimize local disk consumption." },
       { id: 'B', text: "Rely on end-user bug reports to discover when production services become unresponsive." },
@@ -165,7 +165,7 @@ export const AZURE_AZ900_QUESTIONS_20 = [
     type: "single",
     explanation: "Configure Azure Monitor with an Azure Log Analytics workspace and metric alerts. Azure Monitor provides a unified solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments. Log Analytics workspaces allow querying billions of log records using Kusto Query Language (KQL), while Metric Alerts notify administrators of threshold violations.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/overview",
-    tags: ["Azure Observability", "Observability", "Security Compliance"]
+    tags: ["Azure Observability","Observability","Security Compliance"]
   },
   {
     id: "az-900-484",
@@ -175,7 +175,7 @@ export const AZURE_AZ900_QUESTIONS_20 = [
     domainName: "Describe Azure Management and Governance",
     title: "Azure Monitor and Log Analytics: Hybrid Migration",
     scenario: "An enterprise is migrating traditional on-premises data center operations to the Microsoft Azure Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The organization evaluates Azure Observability to collect, analyze, and query telemetry data and operational metrics from all cloud resources in a centralized repository to detect performance anomalies.",
-    question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? Azure Monitor centralized metrics and Log Analytics workspace is under consideration.",
+    question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Configure Azure Monitor with an Azure Log Analytics workspace and metric alerts." },
       { id: 'B', text: "Rely on end-user bug reports to discover when production services become unresponsive." },
@@ -186,7 +186,7 @@ export const AZURE_AZ900_QUESTIONS_20 = [
     type: "single",
     explanation: "Configure Azure Monitor with an Azure Log Analytics workspace and metric alerts. Azure Monitor provides a unified solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments. Log Analytics workspaces allow querying billions of log records using Kusto Query Language (KQL), while Metric Alerts notify administrators of threshold violations.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/overview",
-    tags: ["Azure Observability", "Observability", "Hybrid Migration"]
+    tags: ["Azure Observability","Observability","Hybrid Migration"]
   },
   {
     id: "az-900-485",
@@ -196,7 +196,7 @@ export const AZURE_AZ900_QUESTIONS_20 = [
     domainName: "Describe Azure Management and Governance",
     title: "Azure Monitor and Log Analytics: Resilience Failure",
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The organization evaluates Azure Observability to collect, analyze, and query telemetry data and operational metrics from all cloud resources in a centralized repository to detect performance anomalies.",
-    question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? Azure Monitor centralized metrics and Log Analytics workspace is under consideration.",
+    question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Configure Azure Monitor with an Azure Log Analytics workspace and metric alerts." },
       { id: 'B', text: "Rely on end-user bug reports to discover when production services become unresponsive." },
@@ -207,7 +207,7 @@ export const AZURE_AZ900_QUESTIONS_20 = [
     type: "single",
     explanation: "Configure Azure Monitor with an Azure Log Analytics workspace and metric alerts. Azure Monitor provides a unified solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments. Log Analytics workspaces allow querying billions of log records using Kusto Query Language (KQL), while Metric Alerts notify administrators of threshold violations.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/overview",
-    tags: ["Azure Observability", "Observability", "Resilience Failure"]
+    tags: ["Azure Observability","Observability","Resilience Failure"]
   },
   {
     id: "az-900-486",
@@ -217,7 +217,7 @@ export const AZURE_AZ900_QUESTIONS_20 = [
     domainName: "Describe Azure Management and Governance",
     title: "Azure Service Health: Dr Failover",
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The organization evaluates Azure Status & Health to receive personalized notifications and root-cause analysis when an outage or planned maintenance impacts the specific Azure services and regions utilized by the organization.",
-    question: "Which concept or service configuration satisfies these operational resilience objectives? Azure Service Health personalized operational dashboard is under consideration.",
+    question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Rely on public social media posts to check if cloud services are experiencing issues." },
       { id: 'B', text: "Check the generic global Azure Status page without filtering for organization-specific resources." },
@@ -228,7 +228,7 @@ export const AZURE_AZ900_QUESTIONS_20 = [
     type: "single",
     explanation: "Configure Azure Service Health alert notifications for affected services and regions. Azure Service Health provides personalized guidance and support when issues in Azure services affect your environment. It includes Azure Status (global health of Azure services), Service Health (personalized view of the health of the services and regions you use), and Resource Health (health of individual cloud resources).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/service-health/overview",
-    tags: ["Azure Status & Health", "Platform Health", "Dr Failover"]
+    tags: ["Azure Status & Health","Platform Health","Dr Failover"]
   },
   {
     id: "az-900-487",
@@ -238,7 +238,7 @@ export const AZURE_AZ900_QUESTIONS_20 = [
     domainName: "Describe Azure Management and Governance",
     title: "Azure Service Health: High Load Scale",
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The organization evaluates Azure Status & Health to receive personalized notifications and root-cause analysis when an outage or planned maintenance impacts the specific Azure services and regions utilized by the organization.",
-    question: "Which architectural approach should the team select to manage this demand efficiently? Azure Service Health personalized operational dashboard is under consideration.",
+    question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Rely on public social media posts to check if cloud services are experiencing issues." },
       { id: 'B', text: "Configure Azure Service Health alert notifications for affected services and regions." },
@@ -249,7 +249,7 @@ export const AZURE_AZ900_QUESTIONS_20 = [
     type: "single",
     explanation: "Configure Azure Service Health alert notifications for affected services and regions. Azure Service Health provides personalized guidance and support when issues in Azure services affect your environment. It includes Azure Status (global health of Azure services), Service Health (personalized view of the health of the services and regions you use), and Resource Health (health of individual cloud resources).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/service-health/overview",
-    tags: ["Azure Status & Health", "Platform Health", "High Load Scale"]
+    tags: ["Azure Status & Health","Platform Health","High Load Scale"]
   },
   {
     id: "az-900-488",
@@ -259,7 +259,7 @@ export const AZURE_AZ900_QUESTIONS_20 = [
     domainName: "Describe Azure Management and Governance",
     title: "Azure Service Health: Security Compliance",
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The organization evaluates Azure Status & Health to receive personalized notifications and root-cause analysis when an outage or planned maintenance impacts the specific Azure services and regions utilized by the organization.",
-    question: "Which solution properly implements these mandatory security and governance controls? Azure Service Health personalized operational dashboard is under consideration.",
+    question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Configure Azure Service Health alert notifications for affected services and regions." },
       { id: 'B', text: "Contact general consumer technical support whenever an application fails to respond." },
@@ -270,7 +270,7 @@ export const AZURE_AZ900_QUESTIONS_20 = [
     type: "single",
     explanation: "Configure Azure Service Health alert notifications for affected services and regions. Azure Service Health provides personalized guidance and support when issues in Azure services affect your environment. It includes Azure Status (global health of Azure services), Service Health (personalized view of the health of the services and regions you use), and Resource Health (health of individual cloud resources).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/service-health/overview",
-    tags: ["Azure Status & Health", "Platform Health", "Security Compliance"]
+    tags: ["Azure Status & Health","Platform Health","Security Compliance"]
   },
   {
     id: "az-900-489",
@@ -280,7 +280,7 @@ export const AZURE_AZ900_QUESTIONS_20 = [
     domainName: "Describe Azure Management and Governance",
     title: "Azure Service Health: Hybrid Migration",
     scenario: "An enterprise is migrating traditional on-premises data center operations to the Microsoft Azure Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The organization evaluates Azure Status & Health to receive personalized notifications and root-cause analysis when an outage or planned maintenance impacts the specific Azure services and regions utilized by the organization.",
-    question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? Azure Service Health personalized operational dashboard is under consideration.",
+    question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Rely on public social media posts to check if cloud services are experiencing issues." },
       { id: 'B', text: "Configure Azure Service Health alert notifications for affected services and regions." },
@@ -291,7 +291,7 @@ export const AZURE_AZ900_QUESTIONS_20 = [
     type: "single",
     explanation: "Configure Azure Service Health alert notifications for affected services and regions. Azure Service Health provides personalized guidance and support when issues in Azure services affect your environment. It includes Azure Status (global health of Azure services), Service Health (personalized view of the health of the services and regions you use), and Resource Health (health of individual cloud resources).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/service-health/overview",
-    tags: ["Azure Status & Health", "Platform Health", "Hybrid Migration"]
+    tags: ["Azure Status & Health","Platform Health","Hybrid Migration"]
   },
   {
     id: "az-900-490",
@@ -301,7 +301,7 @@ export const AZURE_AZ900_QUESTIONS_20 = [
     domainName: "Describe Azure Management and Governance",
     title: "Azure Service Health: Resilience Failure",
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The organization evaluates Azure Status & Health to receive personalized notifications and root-cause analysis when an outage or planned maintenance impacts the specific Azure services and regions utilized by the organization.",
-    question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? Azure Service Health personalized operational dashboard is under consideration.",
+    question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Configure Azure Service Health alert notifications for affected services and regions." },
       { id: 'B', text: "Contact general consumer technical support whenever an application fails to respond." },
@@ -312,7 +312,7 @@ export const AZURE_AZ900_QUESTIONS_20 = [
     type: "single",
     explanation: "Configure Azure Service Health alert notifications for affected services and regions. Azure Service Health provides personalized guidance and support when issues in Azure services affect your environment. It includes Azure Status (global health of Azure services), Service Health (personalized view of the health of the services and regions you use), and Resource Health (health of individual cloud resources).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/service-health/overview",
-    tags: ["Azure Status & Health", "Platform Health", "Resilience Failure"]
+    tags: ["Azure Status & Health","Platform Health","Resilience Failure"]
   },
   {
     id: "az-900-491",
@@ -322,7 +322,7 @@ export const AZURE_AZ900_QUESTIONS_20 = [
     domainName: "Describe Azure Management and Governance",
     title: "Microsoft Entra ID (formerly Azure AD): Dr Failover",
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The organization evaluates Azure Identity to provide employees with single sign-on (SSO), multi-factor authentication (MFA), and secure identity governance across all cloud and on-premises applications.",
-    question: "Which concept or service configuration satisfies these operational resilience objectives? Microsoft Entra ID cloud identity and access management is under consideration.",
+    question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Use an unencrypted flat text file on a shared network drive to store employee passwords." },
       { id: 'B', text: "Allow employees to access corporate databases without authentication or passwords." },
@@ -333,7 +333,7 @@ export const AZURE_AZ900_QUESTIONS_20 = [
     type: "single",
     explanation: "Implement Microsoft Entra ID as the enterprise cloud identity and access management solution. Microsoft Entra ID (formerly Azure Active Directory) is a cloud-based identity and access management service. It provides core identity services such as Single Sign-On (SSO), Multi-Factor Authentication (MFA), Conditional Access policies, and secure identity federation with on-premises Active Directory.",
     referenceUrl: "https://learn.microsoft.com/en-us/entra/fundamentals/whatis",
-    tags: ["Azure Identity", "Identity", "Dr Failover"]
+    tags: ["Azure Identity","Identity","Dr Failover"]
   },
   {
     id: "az-900-492",
@@ -343,7 +343,7 @@ export const AZURE_AZ900_QUESTIONS_20 = [
     domainName: "Describe Azure Management and Governance",
     title: "Microsoft Entra ID (formerly Azure AD): High Load Scale",
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The organization evaluates Azure Identity to provide employees with single sign-on (SSO), multi-factor authentication (MFA), and secure identity governance across all cloud and on-premises applications.",
-    question: "Which architectural approach should the team select to manage this demand efficiently? Microsoft Entra ID cloud identity and access management is under consideration.",
+    question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Maintain separate local usernames and passwords in every individual application database." },
       { id: 'B', text: "Allow employees to access corporate databases without authentication or passwords." },
@@ -354,7 +354,7 @@ export const AZURE_AZ900_QUESTIONS_20 = [
     type: "single",
     explanation: "Implement Microsoft Entra ID as the enterprise cloud identity and access management solution. Microsoft Entra ID (formerly Azure Active Directory) is a cloud-based identity and access management service. It provides core identity services such as Single Sign-On (SSO), Multi-Factor Authentication (MFA), Conditional Access policies, and secure identity federation with on-premises Active Directory.",
     referenceUrl: "https://learn.microsoft.com/en-us/entra/fundamentals/whatis",
-    tags: ["Azure Identity", "Identity", "High Load Scale"]
+    tags: ["Azure Identity","Identity","High Load Scale"]
   },
   {
     id: "az-900-493",
@@ -364,7 +364,7 @@ export const AZURE_AZ900_QUESTIONS_20 = [
     domainName: "Describe Azure Management and Governance",
     title: "Microsoft Entra ID (formerly Azure AD): Security Compliance",
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The organization evaluates Azure Identity to provide employees with single sign-on (SSO), multi-factor authentication (MFA), and secure identity governance across all cloud and on-premises applications.",
-    question: "Which solution properly implements these mandatory security and governance controls? Microsoft Entra ID cloud identity and access management is under consideration.",
+    question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Implement Microsoft Entra ID as the enterprise cloud identity and access management solution." },
       { id: 'B', text: "Use an unencrypted flat text file on a shared network drive to store employee passwords." },
@@ -375,7 +375,7 @@ export const AZURE_AZ900_QUESTIONS_20 = [
     type: "single",
     explanation: "Implement Microsoft Entra ID as the enterprise cloud identity and access management solution. Microsoft Entra ID (formerly Azure Active Directory) is a cloud-based identity and access management service. It provides core identity services such as Single Sign-On (SSO), Multi-Factor Authentication (MFA), Conditional Access policies, and secure identity federation with on-premises Active Directory.",
     referenceUrl: "https://learn.microsoft.com/en-us/entra/fundamentals/whatis",
-    tags: ["Azure Identity", "Identity", "Security Compliance"]
+    tags: ["Azure Identity","Identity","Security Compliance"]
   },
   {
     id: "az-900-494",
@@ -385,7 +385,7 @@ export const AZURE_AZ900_QUESTIONS_20 = [
     domainName: "Describe Azure Management and Governance",
     title: "Microsoft Entra ID (formerly Azure AD): Hybrid Migration",
     scenario: "An enterprise is migrating traditional on-premises data center operations to the Microsoft Azure Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The organization evaluates Azure Identity to provide employees with single sign-on (SSO), multi-factor authentication (MFA), and secure identity governance across all cloud and on-premises applications.",
-    question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? Microsoft Entra ID cloud identity and access management is under consideration.",
+    question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Allow employees to access corporate databases without authentication or passwords." },
       { id: 'B', text: "Use an unencrypted flat text file on a shared network drive to store employee passwords." },
@@ -396,7 +396,7 @@ export const AZURE_AZ900_QUESTIONS_20 = [
     type: "single",
     explanation: "Implement Microsoft Entra ID as the enterprise cloud identity and access management solution. Microsoft Entra ID (formerly Azure Active Directory) is a cloud-based identity and access management service. It provides core identity services such as Single Sign-On (SSO), Multi-Factor Authentication (MFA), Conditional Access policies, and secure identity federation with on-premises Active Directory.",
     referenceUrl: "https://learn.microsoft.com/en-us/entra/fundamentals/whatis",
-    tags: ["Azure Identity", "Identity", "Hybrid Migration"]
+    tags: ["Azure Identity","Identity","Hybrid Migration"]
   },
   {
     id: "az-900-495",
@@ -406,7 +406,7 @@ export const AZURE_AZ900_QUESTIONS_20 = [
     domainName: "Describe Azure Management and Governance",
     title: "Microsoft Entra ID (formerly Azure AD): Resilience Failure",
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The organization evaluates Azure Identity to provide employees with single sign-on (SSO), multi-factor authentication (MFA), and secure identity governance across all cloud and on-premises applications.",
-    question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? Microsoft Entra ID cloud identity and access management is under consideration.",
+    question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Maintain separate local usernames and passwords in every individual application database." },
       { id: 'B', text: "Allow employees to access corporate databases without authentication or passwords." },
@@ -417,7 +417,7 @@ export const AZURE_AZ900_QUESTIONS_20 = [
     type: "single",
     explanation: "Implement Microsoft Entra ID as the enterprise cloud identity and access management solution. Microsoft Entra ID (formerly Azure Active Directory) is a cloud-based identity and access management service. It provides core identity services such as Single Sign-On (SSO), Multi-Factor Authentication (MFA), Conditional Access policies, and secure identity federation with on-premises Active Directory.",
     referenceUrl: "https://learn.microsoft.com/en-us/entra/fundamentals/whatis",
-    tags: ["Azure Identity", "Identity", "Resilience Failure"]
+    tags: ["Azure Identity","Identity","Resilience Failure"]
   },
   {
     id: "az-900-496",
@@ -427,7 +427,7 @@ export const AZURE_AZ900_QUESTIONS_20 = [
     domainName: "Describe Azure Management and Governance",
     title: "Microsoft Defender for Cloud: Dr Failover",
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The organization evaluates Azure Security Posture to continuously assess cloud security posture, provide actionable security recommendations, and protect hybrid workloads against modern cyber threats.",
-    question: "Which concept or service configuration satisfies these operational resilience objectives? Microsoft Defender for Cloud security posture management (CSPM) is under consideration.",
+    question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Conduct annual manual security inspections using paper compliance questionnaires." },
       { id: 'B', text: "Disable all security monitoring agents on virtual machines to maximize CPU performance." },
@@ -438,7 +438,7 @@ export const AZURE_AZ900_QUESTIONS_20 = [
     type: "single",
     explanation: "Enable Microsoft Defender for Cloud with Cloud Security Posture Management (CSPM). Microsoft Defender for Cloud is a Cloud Security Posture Management (CSPM) and Cloud Workload Protection Platform (CWPP) solution. It continuously assesses cloud configurations against security benchmarks, provides a Secure Score, and offers advanced threat detection across Azure, AWS, and GCP.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-cloud-introduction",
-    tags: ["Azure Security Posture", "Security Posture", "Dr Failover"]
+    tags: ["Azure Security Posture","Security Posture","Dr Failover"]
   },
   {
     id: "az-900-497",
@@ -448,7 +448,7 @@ export const AZURE_AZ900_QUESTIONS_20 = [
     domainName: "Describe Azure Management and Governance",
     title: "Microsoft Defender for Cloud: High Load Scale",
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The organization evaluates Azure Security Posture to continuously assess cloud security posture, provide actionable security recommendations, and protect hybrid workloads against modern cyber threats.",
-    question: "Which architectural approach should the team select to manage this demand efficiently? Microsoft Defender for Cloud security posture management (CSPM) is under consideration.",
+    question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Enable Microsoft Defender for Cloud with Cloud Security Posture Management (CSPM)." },
       { id: 'B', text: "Conduct annual manual security inspections using paper compliance questionnaires." },
@@ -459,7 +459,7 @@ export const AZURE_AZ900_QUESTIONS_20 = [
     type: "single",
     explanation: "Enable Microsoft Defender for Cloud with Cloud Security Posture Management (CSPM). Microsoft Defender for Cloud is a Cloud Security Posture Management (CSPM) and Cloud Workload Protection Platform (CWPP) solution. It continuously assesses cloud configurations against security benchmarks, provides a Secure Score, and offers advanced threat detection across Azure, AWS, and GCP.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-cloud-introduction",
-    tags: ["Azure Security Posture", "Security Posture", "High Load Scale"]
+    tags: ["Azure Security Posture","Security Posture","High Load Scale"]
   },
   {
     id: "az-900-498",
@@ -469,7 +469,7 @@ export const AZURE_AZ900_QUESTIONS_20 = [
     domainName: "Describe Azure Management and Governance",
     title: "Microsoft Defender for Cloud: Security Compliance",
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The organization evaluates Azure Security Posture to continuously assess cloud security posture, provide actionable security recommendations, and protect hybrid workloads against modern cyber threats.",
-    question: "Which solution properly implements these mandatory security and governance controls? Microsoft Defender for Cloud security posture management (CSPM) is under consideration.",
+    question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Conduct annual manual security inspections using paper compliance questionnaires." },
       { id: 'B', text: "Disable all security monitoring agents on virtual machines to maximize CPU performance." },
@@ -480,7 +480,7 @@ export const AZURE_AZ900_QUESTIONS_20 = [
     type: "single",
     explanation: "Enable Microsoft Defender for Cloud with Cloud Security Posture Management (CSPM). Microsoft Defender for Cloud is a Cloud Security Posture Management (CSPM) and Cloud Workload Protection Platform (CWPP) solution. It continuously assesses cloud configurations against security benchmarks, provides a Secure Score, and offers advanced threat detection across Azure, AWS, and GCP.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-cloud-introduction",
-    tags: ["Azure Security Posture", "Security Posture", "Security Compliance"]
+    tags: ["Azure Security Posture","Security Posture","Security Compliance"]
   },
   {
     id: "az-900-499",
@@ -490,7 +490,7 @@ export const AZURE_AZ900_QUESTIONS_20 = [
     domainName: "Describe Azure Management and Governance",
     title: "Microsoft Defender for Cloud: Hybrid Migration",
     scenario: "An enterprise is migrating traditional on-premises data center operations to the Microsoft Azure Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The organization evaluates Azure Security Posture to continuously assess cloud security posture, provide actionable security recommendations, and protect hybrid workloads against modern cyber threats.",
-    question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? Microsoft Defender for Cloud security posture management (CSPM) is under consideration.",
+    question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Disable all security monitoring agents on virtual machines to maximize CPU performance." },
       { id: 'B', text: "Enable Microsoft Defender for Cloud with Cloud Security Posture Management (CSPM)." },
@@ -501,7 +501,7 @@ export const AZURE_AZ900_QUESTIONS_20 = [
     type: "single",
     explanation: "Enable Microsoft Defender for Cloud with Cloud Security Posture Management (CSPM). Microsoft Defender for Cloud is a Cloud Security Posture Management (CSPM) and Cloud Workload Protection Platform (CWPP) solution. It continuously assesses cloud configurations against security benchmarks, provides a Secure Score, and offers advanced threat detection across Azure, AWS, and GCP.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-cloud-introduction",
-    tags: ["Azure Security Posture", "Security Posture", "Hybrid Migration"]
+    tags: ["Azure Security Posture","Security Posture","Hybrid Migration"]
   },
   {
     id: "az-900-500",
@@ -511,7 +511,7 @@ export const AZURE_AZ900_QUESTIONS_20 = [
     domainName: "Describe Azure Management and Governance",
     title: "Microsoft Defender for Cloud: Resilience Failure",
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The organization evaluates Azure Security Posture to continuously assess cloud security posture, provide actionable security recommendations, and protect hybrid workloads against modern cyber threats.",
-    question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? Microsoft Defender for Cloud security posture management (CSPM) is under consideration.",
+    question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Disable all security monitoring agents on virtual machines to maximize CPU performance." },
       { id: 'B', text: "Conduct annual manual security inspections using paper compliance questionnaires." },
@@ -522,7 +522,7 @@ export const AZURE_AZ900_QUESTIONS_20 = [
     type: "single",
     explanation: "Enable Microsoft Defender for Cloud with Cloud Security Posture Management (CSPM). Microsoft Defender for Cloud is a Cloud Security Posture Management (CSPM) and Cloud Workload Protection Platform (CWPP) solution. It continuously assesses cloud configurations against security benchmarks, provides a Secure Score, and offers advanced threat detection across Azure, AWS, and GCP.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-cloud-introduction",
-    tags: ["Azure Security Posture", "Security Posture", "Resilience Failure"]
+    tags: ["Azure Security Posture","Security Posture","Resilience Failure"]
   }
 ];
 

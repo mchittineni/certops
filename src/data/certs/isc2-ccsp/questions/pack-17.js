@@ -7,7 +7,7 @@ export const ISC2_CCSP_QUESTIONS_17 = [
     domainName: "Cloud Application Security",
     title: "Software Supply Chain and Third-Party Component Security: Enterprise Architecture",
     scenario: "An enterprise chief information security officer (CISO) is establishing multi-cloud governance frameworks, shared responsibility models, and Zero Trust architectures across global business units. The cloud security professional evaluates Supply Chain Security to prevent malicious open-source packages or known vulnerable libraries from entering enterprise cloud application builds.",
-    question: "Which architectural approach or cloud security control satisfies these enterprise governance objectives? Managing open-source risk, Software Bill of Materials (SBOM), and software composition analysis (SCA) is under consideration.",
+    question: "Which architectural approach or cloud security control satisfies these enterprise governance objectives?",
     options: [
       { id: 'A', text: "Allow developers to download and execute arbitrary public scripts directly in production without vetting." },
       { id: 'B', text: "Assume open-source packages hosted on public repositories are thoroughly vetted and safe." },
@@ -18,7 +18,7 @@ export const ISC2_CCSP_QUESTIONS_17 = [
     type: "single",
     explanation: "Deploy Software Composition Analysis (SCA) to continuously audit open-source dependencies and generate Software Bills of Materials (SBOMs). Modern applications are composed of up to 90% third-party open-source libraries. Software Composition Analysis (SCA) identifies known vulnerabilities (CVEs) and restrictive licenses across dependency trees, while SBOMs (SPDX/CycloneDX) provide transparent provenance for compliance.",
     referenceUrl: "https://csrc.nist.gov/publications/detail/sp/800-161/rev-1/final",
-    tags: ["Supply Chain Security", "Supply Chain Security", "Enterprise Architecture"]
+    tags: ["Supply Chain Security","Supply Chain Security","Enterprise Architecture"]
   },
   {
     id: "isc2-ccsp-402",
@@ -28,7 +28,7 @@ export const ISC2_CCSP_QUESTIONS_17 = [
     domainName: "Cloud Application Security",
     title: "Software Supply Chain and Third-Party Component Security: Data Protection And Privacy",
     scenario: "A global data protection officer is implementing cryptographic data lifecycles, crypto-shredding sanitization, and data loss prevention across sensitive cloud repositories. The cloud security professional evaluates Supply Chain Security to prevent malicious open-source packages or known vulnerable libraries from entering enterprise cloud application builds.",
-    question: "Which data security mechanism or cryptographic architecture guarantees compliance with international privacy mandates? Managing open-source risk, Software Bill of Materials (SBOM), and software composition analysis (SCA) is under consideration.",
+    question: "Which data security mechanism or cryptographic architecture guarantees compliance with international privacy mandates?",
     options: [
       { id: 'A', text: "Assume open-source packages hosted on public repositories are thoroughly vetted and safe." },
       { id: 'B', text: "Allow developers to download and execute arbitrary public scripts directly in production without vetting." },
@@ -39,7 +39,7 @@ export const ISC2_CCSP_QUESTIONS_17 = [
     type: "single",
     explanation: "Deploy Software Composition Analysis (SCA) to continuously audit open-source dependencies and generate Software Bills of Materials (SBOMs). Modern applications are composed of up to 90% third-party open-source libraries. Software Composition Analysis (SCA) identifies known vulnerabilities (CVEs) and restrictive licenses across dependency trees, while SBOMs (SPDX/CycloneDX) provide transparent provenance for compliance.",
     referenceUrl: "https://csrc.nist.gov/publications/detail/sp/800-161/rev-1/final",
-    tags: ["Supply Chain Security", "Supply Chain Security", "Data Protection And Privacy"]
+    tags: ["Supply Chain Security","Supply Chain Security","Data Protection And Privacy"]
   },
   {
     id: "isc2-ccsp-403",
@@ -49,7 +49,7 @@ export const ISC2_CCSP_QUESTIONS_17 = [
     domainName: "Cloud Application Security",
     title: "Software Supply Chain and Third-Party Component Security: Platform Hardening",
     scenario: "A cloud platform security team is hardening virtualization substrates, implementing micro-segmentation, and enforcing immutable infrastructure across multi-tenant environments. The cloud security professional evaluates Supply Chain Security to prevent malicious open-source packages or known vulnerable libraries from entering enterprise cloud application builds.",
-    question: "Which infrastructure security design or platform control prevents unauthorized lateral movement and hypervisor compromise? Managing open-source risk, Software Bill of Materials (SBOM), and software composition analysis (SCA) is under consideration.",
+    question: "Which infrastructure security design or platform control prevents unauthorized lateral movement and hypervisor compromise?",
     options: [
       { id: 'A', text: "Allow developers to download and execute arbitrary public scripts directly in production without vetting." },
       { id: 'B', text: "Deploy Software Composition Analysis (SCA) to continuously audit open-source dependencies and generate Software Bills of Materials (SBOMs)." },
@@ -60,7 +60,7 @@ export const ISC2_CCSP_QUESTIONS_17 = [
     type: "single",
     explanation: "Deploy Software Composition Analysis (SCA) to continuously audit open-source dependencies and generate Software Bills of Materials (SBOMs). Modern applications are composed of up to 90% third-party open-source libraries. Software Composition Analysis (SCA) identifies known vulnerabilities (CVEs) and restrictive licenses across dependency trees, while SBOMs (SPDX/CycloneDX) provide transparent provenance for compliance.",
     referenceUrl: "https://csrc.nist.gov/publications/detail/sp/800-161/rev-1/final",
-    tags: ["Supply Chain Security", "Supply Chain Security", "Platform Hardening"]
+    tags: ["Supply Chain Security","Supply Chain Security","Platform Hardening"]
   },
   {
     id: "isc2-ccsp-404",
@@ -70,7 +70,7 @@ export const ISC2_CCSP_QUESTIONS_17 = [
     domainName: "Cloud Application Security",
     title: "Software Supply Chain and Third-Party Component Security: Application Secops",
     scenario: "A devsecops engineering group is embedding threat modeling, automated SAST/DAST testing, and API gateway security into continuous cloud application delivery lifecycles. The cloud security professional evaluates Supply Chain Security to prevent malicious open-source packages or known vulnerable libraries from entering enterprise cloud application builds.",
-    question: "Which application security practice or runtime defense mitigates critical OWASP vulnerabilities before deployment? Managing open-source risk, Software Bill of Materials (SBOM), and software composition analysis (SCA) is under consideration.",
+    question: "Which application security practice or runtime defense mitigates critical OWASP vulnerabilities before deployment?",
     options: [
       { id: 'A', text: "Allow developers to download and execute arbitrary public scripts directly in production without vetting." },
       { id: 'B', text: "Disable dependency checking to accelerate build completion times." },
@@ -81,7 +81,7 @@ export const ISC2_CCSP_QUESTIONS_17 = [
     type: "single",
     explanation: "Deploy Software Composition Analysis (SCA) to continuously audit open-source dependencies and generate Software Bills of Materials (SBOMs). Modern applications are composed of up to 90% third-party open-source libraries. Software Composition Analysis (SCA) identifies known vulnerabilities (CVEs) and restrictive licenses across dependency trees, while SBOMs (SPDX/CycloneDX) provide transparent provenance for compliance.",
     referenceUrl: "https://csrc.nist.gov/publications/detail/sp/800-161/rev-1/final",
-    tags: ["Supply Chain Security", "Supply Chain Security", "Application Secops"]
+    tags: ["Supply Chain Security","Supply Chain Security","Application Secops"]
   },
   {
     id: "isc2-ccsp-405",
@@ -91,7 +91,7 @@ export const ISC2_CCSP_QUESTIONS_17 = [
     domainName: "Cloud Application Security",
     title: "Software Supply Chain and Third-Party Component Security: Compliance And Risk",
     scenario: "A corporate compliance auditor is evaluating cloud service level agreements, independent SOC 2 Type II audit attestations, and legal hold eDiscovery preservation policies. The cloud security professional evaluates Supply Chain Security to prevent malicious open-source packages or known vulnerable libraries from entering enterprise cloud application builds.",
-    question: "Which legal, risk, or compliance procedure guarantees due diligence and satisfies regulatory requirements? Managing open-source risk, Software Bill of Materials (SBOM), and software composition analysis (SCA) is under consideration.",
+    question: "Which legal, risk, or compliance procedure guarantees due diligence and satisfies regulatory requirements?",
     options: [
       { id: 'A', text: "Allow developers to download and execute arbitrary public scripts directly in production without vetting." },
       { id: 'B', text: "Disable dependency checking to accelerate build completion times." },
@@ -102,7 +102,7 @@ export const ISC2_CCSP_QUESTIONS_17 = [
     type: "single",
     explanation: "Deploy Software Composition Analysis (SCA) to continuously audit open-source dependencies and generate Software Bills of Materials (SBOMs). Modern applications are composed of up to 90% third-party open-source libraries. Software Composition Analysis (SCA) identifies known vulnerabilities (CVEs) and restrictive licenses across dependency trees, while SBOMs (SPDX/CycloneDX) provide transparent provenance for compliance.",
     referenceUrl: "https://csrc.nist.gov/publications/detail/sp/800-161/rev-1/final",
-    tags: ["Supply Chain Security", "Supply Chain Security", "Compliance And Risk"]
+    tags: ["Supply Chain Security","Supply Chain Security","Compliance And Risk"]
   },
   {
     id: "isc2-ccsp-406",
@@ -112,7 +112,7 @@ export const ISC2_CCSP_QUESTIONS_17 = [
     domainName: "Cloud Application Security",
     title: "Threat Modeling in Cloud Systems: STRIDE Methodology: Enterprise Architecture",
     scenario: "An enterprise chief information security officer (CISO) is establishing multi-cloud governance frameworks, shared responsibility models, and Zero Trust architectures across global business units. The cloud security professional evaluates STRIDE Threat Modeling to systematically identify architectural security risks and missing controls during the initial design phase of a new cloud application.",
-    question: "Which architectural approach or cloud security control satisfies these enterprise governance objectives? Analyzing Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, Elevation of Privilege is under consideration.",
+    question: "Which architectural approach or cloud security control satisfies these enterprise governance objectives?",
     options: [
       { id: 'A', text: "Rely solely on automated network port scans to identify software design weaknesses." },
       { id: 'B', text: "Wait until after production launch to discover architectural security flaws." },
@@ -123,7 +123,7 @@ export const ISC2_CCSP_QUESTIONS_17 = [
     type: "single",
     explanation: "Conduct a threat modeling exercise using the STRIDE methodology across application data flow diagrams (DFDs). Threat modeling identifies design flaws before code is written. Using the STRIDE framework (Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, Elevation of Privilege) mapped across Data Flow Diagrams, teams implement mitigations (authentication, integrity, encryption) proactively.",
     referenceUrl: "https://owasp.org/www-community/Threat_Modeling",
-    tags: ["STRIDE Threat Modeling", "STRIDE", "Enterprise Architecture"]
+    tags: ["STRIDE Threat Modeling","STRIDE","Enterprise Architecture"]
   },
   {
     id: "isc2-ccsp-407",
@@ -133,7 +133,7 @@ export const ISC2_CCSP_QUESTIONS_17 = [
     domainName: "Cloud Application Security",
     title: "Threat Modeling in Cloud Systems: STRIDE Methodology: Data Protection And Privacy",
     scenario: "A global data protection officer is implementing cryptographic data lifecycles, crypto-shredding sanitization, and data loss prevention across sensitive cloud repositories. The cloud security professional evaluates STRIDE Threat Modeling to systematically identify architectural security risks and missing controls during the initial design phase of a new cloud application.",
-    question: "Which data security mechanism or cryptographic architecture guarantees compliance with international privacy mandates? Analyzing Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, Elevation of Privilege is under consideration.",
+    question: "Which data security mechanism or cryptographic architecture guarantees compliance with international privacy mandates?",
     options: [
       { id: 'A', text: "Assume cloud infrastructure eliminates all application-level threat vectors." },
       { id: 'B', text: "Rely solely on automated network port scans to identify software design weaknesses." },
@@ -144,7 +144,7 @@ export const ISC2_CCSP_QUESTIONS_17 = [
     type: "single",
     explanation: "Conduct a threat modeling exercise using the STRIDE methodology across application data flow diagrams (DFDs). Threat modeling identifies design flaws before code is written. Using the STRIDE framework (Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, Elevation of Privilege) mapped across Data Flow Diagrams, teams implement mitigations (authentication, integrity, encryption) proactively.",
     referenceUrl: "https://owasp.org/www-community/Threat_Modeling",
-    tags: ["STRIDE Threat Modeling", "STRIDE", "Data Protection And Privacy"]
+    tags: ["STRIDE Threat Modeling","STRIDE","Data Protection And Privacy"]
   },
   {
     id: "isc2-ccsp-408",
@@ -154,7 +154,7 @@ export const ISC2_CCSP_QUESTIONS_17 = [
     domainName: "Cloud Application Security",
     title: "Threat Modeling in Cloud Systems: STRIDE Methodology: Platform Hardening",
     scenario: "A cloud platform security team is hardening virtualization substrates, implementing micro-segmentation, and enforcing immutable infrastructure across multi-tenant environments. The cloud security professional evaluates STRIDE Threat Modeling to systematically identify architectural security risks and missing controls during the initial design phase of a new cloud application.",
-    question: "Which infrastructure security design or platform control prevents unauthorized lateral movement and hypervisor compromise? Analyzing Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, Elevation of Privilege is under consideration.",
+    question: "Which infrastructure security design or platform control prevents unauthorized lateral movement and hypervisor compromise?",
     options: [
       { id: 'A', text: "Rely solely on automated network port scans to identify software design weaknesses." },
       { id: 'B', text: "Conduct a threat modeling exercise using the STRIDE methodology across application data flow diagrams (DFDs)." },
@@ -165,7 +165,7 @@ export const ISC2_CCSP_QUESTIONS_17 = [
     type: "single",
     explanation: "Conduct a threat modeling exercise using the STRIDE methodology across application data flow diagrams (DFDs). Threat modeling identifies design flaws before code is written. Using the STRIDE framework (Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, Elevation of Privilege) mapped across Data Flow Diagrams, teams implement mitigations (authentication, integrity, encryption) proactively.",
     referenceUrl: "https://owasp.org/www-community/Threat_Modeling",
-    tags: ["STRIDE Threat Modeling", "STRIDE", "Platform Hardening"]
+    tags: ["STRIDE Threat Modeling","STRIDE","Platform Hardening"]
   },
   {
     id: "isc2-ccsp-409",
@@ -175,7 +175,7 @@ export const ISC2_CCSP_QUESTIONS_17 = [
     domainName: "Cloud Application Security",
     title: "Threat Modeling in Cloud Systems: STRIDE Methodology: Application Secops",
     scenario: "A devsecops engineering group is embedding threat modeling, automated SAST/DAST testing, and API gateway security into continuous cloud application delivery lifecycles. The cloud security professional evaluates STRIDE Threat Modeling to systematically identify architectural security risks and missing controls during the initial design phase of a new cloud application.",
-    question: "Which application security practice or runtime defense mitigates critical OWASP vulnerabilities before deployment? Analyzing Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, Elevation of Privilege is under consideration.",
+    question: "Which application security practice or runtime defense mitigates critical OWASP vulnerabilities before deployment?",
     options: [
       { id: 'A', text: "Rely solely on automated network port scans to identify software design weaknesses." },
       { id: 'B', text: "Assume cloud infrastructure eliminates all application-level threat vectors." },
@@ -186,7 +186,7 @@ export const ISC2_CCSP_QUESTIONS_17 = [
     type: "single",
     explanation: "Conduct a threat modeling exercise using the STRIDE methodology across application data flow diagrams (DFDs). Threat modeling identifies design flaws before code is written. Using the STRIDE framework (Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, Elevation of Privilege) mapped across Data Flow Diagrams, teams implement mitigations (authentication, integrity, encryption) proactively.",
     referenceUrl: "https://owasp.org/www-community/Threat_Modeling",
-    tags: ["STRIDE Threat Modeling", "STRIDE", "Application Secops"]
+    tags: ["STRIDE Threat Modeling","STRIDE","Application Secops"]
   },
   {
     id: "isc2-ccsp-410",
@@ -196,7 +196,7 @@ export const ISC2_CCSP_QUESTIONS_17 = [
     domainName: "Cloud Application Security",
     title: "Threat Modeling in Cloud Systems: STRIDE Methodology: Compliance And Risk",
     scenario: "A corporate compliance auditor is evaluating cloud service level agreements, independent SOC 2 Type II audit attestations, and legal hold eDiscovery preservation policies. The cloud security professional evaluates STRIDE Threat Modeling to systematically identify architectural security risks and missing controls during the initial design phase of a new cloud application.",
-    question: "Which legal, risk, or compliance procedure guarantees due diligence and satisfies regulatory requirements? Analyzing Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, Elevation of Privilege is under consideration.",
+    question: "Which legal, risk, or compliance procedure guarantees due diligence and satisfies regulatory requirements?",
     options: [
       { id: 'A', text: "Assume cloud infrastructure eliminates all application-level threat vectors." },
       { id: 'B', text: "Conduct a threat modeling exercise using the STRIDE methodology across application data flow diagrams (DFDs)." },
@@ -207,7 +207,7 @@ export const ISC2_CCSP_QUESTIONS_17 = [
     type: "single",
     explanation: "Conduct a threat modeling exercise using the STRIDE methodology across application data flow diagrams (DFDs). Threat modeling identifies design flaws before code is written. Using the STRIDE framework (Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, Elevation of Privilege) mapped across Data Flow Diagrams, teams implement mitigations (authentication, integrity, encryption) proactively.",
     referenceUrl: "https://owasp.org/www-community/Threat_Modeling",
-    tags: ["STRIDE Threat Modeling", "STRIDE", "Compliance And Risk"]
+    tags: ["STRIDE Threat Modeling","STRIDE","Compliance And Risk"]
   },
   {
     id: "isc2-ccsp-411",
@@ -217,7 +217,7 @@ export const ISC2_CCSP_QUESTIONS_17 = [
     domainName: "Cloud Application Security",
     title: "API Security and Modern Authentication Standards: Enterprise Architecture",
     scenario: "An enterprise chief information security officer (CISO) is establishing multi-cloud governance frameworks, shared responsibility models, and Zero Trust architectures across global business units. The cloud security professional evaluates API Security to secure REST API endpoints accessed by mobile applications and third-party partners against token forgery and brute-force attacks.",
-    question: "Which architectural approach or cloud security control satisfies these enterprise governance objectives? OAuth 2.0 grant types, JSON Web Tokens (JWT) validation, and rate limiting via API gateways is under consideration.",
+    question: "Which architectural approach or cloud security control satisfies these enterprise governance objectives? OAuth 2.",
     options: [
       { id: 'A', text: "Accept unsigned JWT tokens with `alg: none` to simplify token parsing." },
       { id: 'B', text: "Implement an API Gateway enforcing OAuth 2.0 authorization code flow with PKCE, validating cryptographic JWT signatures, and rate limiting." },
@@ -228,7 +228,7 @@ export const ISC2_CCSP_QUESTIONS_17 = [
     type: "single",
     explanation: "Implement an API Gateway enforcing OAuth 2.0 authorization code flow with PKCE, validating cryptographic JWT signatures, and rate limiting. API security requires defense-in-depth: an API Gateway authenticates requests via OAuth 2.0 (Authorization Code with PKCE for public clients), validates JWT signatures and claims (issuer, audience, expiration), and applies per-client rate limiting to prevent denial of service.",
     referenceUrl: "https://owasp.org/www-project-api-security/",
-    tags: ["API Security", "API Security", "Enterprise Architecture"]
+    tags: ["API Security","API Security","Enterprise Architecture"]
   },
   {
     id: "isc2-ccsp-412",
@@ -238,7 +238,7 @@ export const ISC2_CCSP_QUESTIONS_17 = [
     domainName: "Cloud Application Security",
     title: "API Security and Modern Authentication Standards: Data Protection And Privacy",
     scenario: "A global data protection officer is implementing cryptographic data lifecycles, crypto-shredding sanitization, and data loss prevention across sensitive cloud repositories. The cloud security professional evaluates API Security to secure REST API endpoints accessed by mobile applications and third-party partners against token forgery and brute-force attacks.",
-    question: "Which data security mechanism or cryptographic architecture guarantees compliance with international privacy mandates? OAuth 2.0 grant types, JSON Web Tokens (JWT) validation, and rate limiting via API gateways is under consideration.",
+    question: "Which data security mechanism or cryptographic architecture guarantees compliance with international privacy mandates? OAuth 2.",
     options: [
       { id: 'A', text: "Use static, unexpiring API keys shared across all mobile application users." },
       { id: 'B', text: "Accept unsigned JWT tokens with `alg: none` to simplify token parsing." },
@@ -249,7 +249,7 @@ export const ISC2_CCSP_QUESTIONS_17 = [
     type: "single",
     explanation: "Implement an API Gateway enforcing OAuth 2.0 authorization code flow with PKCE, validating cryptographic JWT signatures, and rate limiting. API security requires defense-in-depth: an API Gateway authenticates requests via OAuth 2.0 (Authorization Code with PKCE for public clients), validates JWT signatures and claims (issuer, audience, expiration), and applies per-client rate limiting to prevent denial of service.",
     referenceUrl: "https://owasp.org/www-project-api-security/",
-    tags: ["API Security", "API Security", "Data Protection And Privacy"]
+    tags: ["API Security","API Security","Data Protection And Privacy"]
   },
   {
     id: "isc2-ccsp-413",
@@ -259,7 +259,7 @@ export const ISC2_CCSP_QUESTIONS_17 = [
     domainName: "Cloud Application Security",
     title: "API Security and Modern Authentication Standards: Platform Hardening",
     scenario: "A cloud platform security team is hardening virtualization substrates, implementing micro-segmentation, and enforcing immutable infrastructure across multi-tenant environments. The cloud security professional evaluates API Security to secure REST API endpoints accessed by mobile applications and third-party partners against token forgery and brute-force attacks.",
-    question: "Which infrastructure security design or platform control prevents unauthorized lateral movement and hypervisor compromise? OAuth 2.0 grant types, JSON Web Tokens (JWT) validation, and rate limiting via API gateways is under consideration.",
+    question: "Which infrastructure security design or platform control prevents unauthorized lateral movement and hypervisor compromise? OAuth 2.",
     options: [
       { id: 'A', text: "Implement an API Gateway enforcing OAuth 2.0 authorization code flow with PKCE, validating cryptographic JWT signatures, and rate limiting." },
       { id: 'B', text: "Use static, unexpiring API keys shared across all mobile application users." },
@@ -270,7 +270,7 @@ export const ISC2_CCSP_QUESTIONS_17 = [
     type: "single",
     explanation: "Implement an API Gateway enforcing OAuth 2.0 authorization code flow with PKCE, validating cryptographic JWT signatures, and rate limiting. API security requires defense-in-depth: an API Gateway authenticates requests via OAuth 2.0 (Authorization Code with PKCE for public clients), validates JWT signatures and claims (issuer, audience, expiration), and applies per-client rate limiting to prevent denial of service.",
     referenceUrl: "https://owasp.org/www-project-api-security/",
-    tags: ["API Security", "API Security", "Platform Hardening"]
+    tags: ["API Security","API Security","Platform Hardening"]
   },
   {
     id: "isc2-ccsp-414",
@@ -280,7 +280,7 @@ export const ISC2_CCSP_QUESTIONS_17 = [
     domainName: "Cloud Application Security",
     title: "API Security and Modern Authentication Standards: Application Secops",
     scenario: "A devsecops engineering group is embedding threat modeling, automated SAST/DAST testing, and API gateway security into continuous cloud application delivery lifecycles. The cloud security professional evaluates API Security to secure REST API endpoints accessed by mobile applications and third-party partners against token forgery and brute-force attacks.",
-    question: "Which application security practice or runtime defense mitigates critical OWASP vulnerabilities before deployment? OAuth 2.0 grant types, JSON Web Tokens (JWT) validation, and rate limiting via API gateways is under consideration.",
+    question: "Which application security practice or runtime defense mitigates critical OWASP vulnerabilities before deployment? OAuth 2.",
     options: [
       { id: 'A', text: "Use static, unexpiring API keys shared across all mobile application users." },
       { id: 'B', text: "Accept unsigned JWT tokens with `alg: none` to simplify token parsing." },
@@ -291,7 +291,7 @@ export const ISC2_CCSP_QUESTIONS_17 = [
     type: "single",
     explanation: "Implement an API Gateway enforcing OAuth 2.0 authorization code flow with PKCE, validating cryptographic JWT signatures, and rate limiting. API security requires defense-in-depth: an API Gateway authenticates requests via OAuth 2.0 (Authorization Code with PKCE for public clients), validates JWT signatures and claims (issuer, audience, expiration), and applies per-client rate limiting to prevent denial of service.",
     referenceUrl: "https://owasp.org/www-project-api-security/",
-    tags: ["API Security", "API Security", "Application Secops"]
+    tags: ["API Security","API Security","Application Secops"]
   },
   {
     id: "isc2-ccsp-415",
@@ -301,7 +301,7 @@ export const ISC2_CCSP_QUESTIONS_17 = [
     domainName: "Cloud Application Security",
     title: "API Security and Modern Authentication Standards: Compliance And Risk",
     scenario: "A corporate compliance auditor is evaluating cloud service level agreements, independent SOC 2 Type II audit attestations, and legal hold eDiscovery preservation policies. The cloud security professional evaluates API Security to secure REST API endpoints accessed by mobile applications and third-party partners against token forgery and brute-force attacks.",
-    question: "Which legal, risk, or compliance procedure guarantees due diligence and satisfies regulatory requirements? OAuth 2.0 grant types, JSON Web Tokens (JWT) validation, and rate limiting via API gateways is under consideration.",
+    question: "Which legal, risk, or compliance procedure guarantees due diligence and satisfies regulatory requirements? OAuth 2.",
     options: [
       { id: 'A', text: "Use static, unexpiring API keys shared across all mobile application users." },
       { id: 'B', text: "Accept unsigned JWT tokens with `alg: none` to simplify token parsing." },
@@ -312,7 +312,7 @@ export const ISC2_CCSP_QUESTIONS_17 = [
     type: "single",
     explanation: "Implement an API Gateway enforcing OAuth 2.0 authorization code flow with PKCE, validating cryptographic JWT signatures, and rate limiting. API security requires defense-in-depth: an API Gateway authenticates requests via OAuth 2.0 (Authorization Code with PKCE for public clients), validates JWT signatures and claims (issuer, audience, expiration), and applies per-client rate limiting to prevent denial of service.",
     referenceUrl: "https://owasp.org/www-project-api-security/",
-    tags: ["API Security", "API Security", "Compliance And Risk"]
+    tags: ["API Security","API Security","Compliance And Risk"]
   },
   {
     id: "isc2-ccsp-416",
@@ -322,7 +322,7 @@ export const ISC2_CCSP_QUESTIONS_17 = [
     domainName: "Cloud Application Security",
     title: "Secrets Management and Dynamic Credential Injection: Enterprise Architecture",
     scenario: "An enterprise chief information security officer (CISO) is establishing multi-cloud governance frameworks, shared responsibility models, and Zero Trust architectures across global business units. The cloud security professional evaluates Secrets Management to eliminate static database passwords and cloud credentials hardcoded inside application configuration files and source code.",
-    question: "Which architectural approach or cloud security control satisfies these enterprise governance objectives? Centralized secret vaults, short-lived dynamic credentials, and eliminating hardcoded secrets is under consideration.",
+    question: "Which architectural approach or cloud security control satisfies these enterprise governance objectives?",
     options: [
       { id: 'A', text: "Use a centralized cloud secrets manager (e.g., HashiCorp Vault, AWS Secrets Manager) providing short-lived, dynamically rotated credentials." },
       { id: 'B', text: "Store administrative passwords in unencrypted text files on local developer desktops." },
@@ -333,7 +333,7 @@ export const ISC2_CCSP_QUESTIONS_17 = [
     type: "single",
     explanation: "Use a centralized cloud secrets manager (e.g., HashiCorp Vault, AWS Secrets Manager) providing short-lived, dynamically rotated credentials. Hardcoded secrets represent a critical security vulnerability. Enterprise cloud architectures use dedicated secrets management services that inject credentials into workloads dynamically at runtime via environment variables or sidecars, automatically rotating credentials on a scheduled basis.",
     referenceUrl: "https://cloudsecurityalliance.org/research/guidance/",
-    tags: ["Secrets Management", "Secrets Management", "Enterprise Architecture"]
+    tags: ["Secrets Management","Secrets Management","Enterprise Architecture"]
   },
   {
     id: "isc2-ccsp-417",
@@ -343,7 +343,7 @@ export const ISC2_CCSP_QUESTIONS_17 = [
     domainName: "Cloud Application Security",
     title: "Secrets Management and Dynamic Credential Injection: Data Protection And Privacy",
     scenario: "A global data protection officer is implementing cryptographic data lifecycles, crypto-shredding sanitization, and data loss prevention across sensitive cloud repositories. The cloud security professional evaluates Secrets Management to eliminate static database passwords and cloud credentials hardcoded inside application configuration files and source code.",
-    question: "Which data security mechanism or cryptographic architecture guarantees compliance with international privacy mandates? Centralized secret vaults, short-lived dynamic credentials, and eliminating hardcoded secrets is under consideration.",
+    question: "Which data security mechanism or cryptographic architecture guarantees compliance with international privacy mandates?",
     options: [
       { id: 'A', text: "Commit encrypted secrets to Git alongside the decryption key in the same repository." },
       { id: 'B', text: "Store administrative passwords in unencrypted text files on local developer desktops." },
@@ -354,7 +354,7 @@ export const ISC2_CCSP_QUESTIONS_17 = [
     type: "single",
     explanation: "Use a centralized cloud secrets manager (e.g., HashiCorp Vault, AWS Secrets Manager) providing short-lived, dynamically rotated credentials. Hardcoded secrets represent a critical security vulnerability. Enterprise cloud architectures use dedicated secrets management services that inject credentials into workloads dynamically at runtime via environment variables or sidecars, automatically rotating credentials on a scheduled basis.",
     referenceUrl: "https://cloudsecurityalliance.org/research/guidance/",
-    tags: ["Secrets Management", "Secrets Management", "Data Protection And Privacy"]
+    tags: ["Secrets Management","Secrets Management","Data Protection And Privacy"]
   },
   {
     id: "isc2-ccsp-418",
@@ -364,7 +364,7 @@ export const ISC2_CCSP_QUESTIONS_17 = [
     domainName: "Cloud Application Security",
     title: "Secrets Management and Dynamic Credential Injection: Platform Hardening",
     scenario: "A cloud platform security team is hardening virtualization substrates, implementing micro-segmentation, and enforcing immutable infrastructure across multi-tenant environments. The cloud security professional evaluates Secrets Management to eliminate static database passwords and cloud credentials hardcoded inside application configuration files and source code.",
-    question: "Which infrastructure security design or platform control prevents unauthorized lateral movement and hypervisor compromise? Centralized secret vaults, short-lived dynamic credentials, and eliminating hardcoded secrets is under consideration.",
+    question: "Which infrastructure security design or platform control prevents unauthorized lateral movement and hypervisor compromise?",
     options: [
       { id: 'A', text: "Commit encrypted secrets to Git alongside the decryption key in the same repository." },
       { id: 'B', text: "Hardcode database credentials in cleartext inside public Git repository source files." },
@@ -375,7 +375,7 @@ export const ISC2_CCSP_QUESTIONS_17 = [
     type: "single",
     explanation: "Use a centralized cloud secrets manager (e.g., HashiCorp Vault, AWS Secrets Manager) providing short-lived, dynamically rotated credentials. Hardcoded secrets represent a critical security vulnerability. Enterprise cloud architectures use dedicated secrets management services that inject credentials into workloads dynamically at runtime via environment variables or sidecars, automatically rotating credentials on a scheduled basis.",
     referenceUrl: "https://cloudsecurityalliance.org/research/guidance/",
-    tags: ["Secrets Management", "Secrets Management", "Platform Hardening"]
+    tags: ["Secrets Management","Secrets Management","Platform Hardening"]
   },
   {
     id: "isc2-ccsp-419",
@@ -385,7 +385,7 @@ export const ISC2_CCSP_QUESTIONS_17 = [
     domainName: "Cloud Application Security",
     title: "Secrets Management and Dynamic Credential Injection: Application Secops",
     scenario: "A devsecops engineering group is embedding threat modeling, automated SAST/DAST testing, and API gateway security into continuous cloud application delivery lifecycles. The cloud security professional evaluates Secrets Management to eliminate static database passwords and cloud credentials hardcoded inside application configuration files and source code.",
-    question: "Which application security practice or runtime defense mitigates critical OWASP vulnerabilities before deployment? Centralized secret vaults, short-lived dynamic credentials, and eliminating hardcoded secrets is under consideration.",
+    question: "Which application security practice or runtime defense mitigates critical OWASP vulnerabilities before deployment?",
     options: [
       { id: 'A', text: "Hardcode database credentials in cleartext inside public Git repository source files." },
       { id: 'B', text: "Store administrative passwords in unencrypted text files on local developer desktops." },
@@ -396,7 +396,7 @@ export const ISC2_CCSP_QUESTIONS_17 = [
     type: "single",
     explanation: "Use a centralized cloud secrets manager (e.g., HashiCorp Vault, AWS Secrets Manager) providing short-lived, dynamically rotated credentials. Hardcoded secrets represent a critical security vulnerability. Enterprise cloud architectures use dedicated secrets management services that inject credentials into workloads dynamically at runtime via environment variables or sidecars, automatically rotating credentials on a scheduled basis.",
     referenceUrl: "https://cloudsecurityalliance.org/research/guidance/",
-    tags: ["Secrets Management", "Secrets Management", "Application Secops"]
+    tags: ["Secrets Management","Secrets Management","Application Secops"]
   },
   {
     id: "isc2-ccsp-420",
@@ -406,7 +406,7 @@ export const ISC2_CCSP_QUESTIONS_17 = [
     domainName: "Cloud Application Security",
     title: "Secrets Management and Dynamic Credential Injection: Compliance And Risk",
     scenario: "A corporate compliance auditor is evaluating cloud service level agreements, independent SOC 2 Type II audit attestations, and legal hold eDiscovery preservation policies. The cloud security professional evaluates Secrets Management to eliminate static database passwords and cloud credentials hardcoded inside application configuration files and source code.",
-    question: "Which legal, risk, or compliance procedure guarantees due diligence and satisfies regulatory requirements? Centralized secret vaults, short-lived dynamic credentials, and eliminating hardcoded secrets is under consideration.",
+    question: "Which legal, risk, or compliance procedure guarantees due diligence and satisfies regulatory requirements?",
     options: [
       { id: 'A', text: "Store administrative passwords in unencrypted text files on local developer desktops." },
       { id: 'B', text: "Hardcode database credentials in cleartext inside public Git repository source files." },
@@ -417,7 +417,7 @@ export const ISC2_CCSP_QUESTIONS_17 = [
     type: "single",
     explanation: "Use a centralized cloud secrets manager (e.g., HashiCorp Vault, AWS Secrets Manager) providing short-lived, dynamically rotated credentials. Hardcoded secrets represent a critical security vulnerability. Enterprise cloud architectures use dedicated secrets management services that inject credentials into workloads dynamically at runtime via environment variables or sidecars, automatically rotating credentials on a scheduled basis.",
     referenceUrl: "https://cloudsecurityalliance.org/research/guidance/",
-    tags: ["Secrets Management", "Secrets Management", "Compliance And Risk"]
+    tags: ["Secrets Management","Secrets Management","Compliance And Risk"]
   },
   {
     id: "isc2-ccsp-421",
@@ -427,7 +427,7 @@ export const ISC2_CCSP_QUESTIONS_17 = [
     domainName: "Cloud Security Operations",
     title: "Cloud Security Information and Event Management (SIEM) and SOAR: Enterprise Architecture",
     scenario: "An enterprise chief information security officer (CISO) is establishing multi-cloud governance frameworks, shared responsibility models, and Zero Trust architectures across global business units. The cloud security professional evaluates Cloud SIEM & SOAR to correlate security events across multi-cloud infrastructure, SaaS applications, and network firewalls with automated response.",
-    question: "Which architectural approach or cloud security control satisfies these enterprise governance objectives? Centralized log aggregation, correlation rules, and automated incident response playbooks is under consideration.",
+    question: "Which architectural approach or cloud security control satisfies these enterprise governance objectives?",
     options: [
       { id: 'A', text: "Disable event correlation and evaluate each alert in complete isolation." },
       { id: 'B', text: "Discard all security logs after 24 hours to minimize cloud storage fees." },
@@ -438,7 +438,7 @@ export const ISC2_CCSP_QUESTIONS_17 = [
     type: "single",
     explanation: "Deploy a cloud-native SIEM/SOAR platform that ingests multi-source telemetry, correlates threat indicators, and triggers automated playbooks. Modern Security Operations Centers (SOC) rely on cloud SIEM/SOAR. The SIEM ingests logs (CloudTrail, VPC Flow, DNS, WAF, endpoint agents), normalizes events, and executes correlation rules, while the SOAR (Security Orchestration, Automation, and Response) executes automated playbooks (quarantine, block IP).",
     referenceUrl: "https://cloudsecurityalliance.org/research/guidance/",
-    tags: ["Cloud SIEM & SOAR", "Cloud SIEM & SOAR", "Enterprise Architecture"]
+    tags: ["Cloud SIEM & SOAR","Cloud SIEM & SOAR","Enterprise Architecture"]
   },
   {
     id: "isc2-ccsp-422",
@@ -448,7 +448,7 @@ export const ISC2_CCSP_QUESTIONS_17 = [
     domainName: "Cloud Security Operations",
     title: "Cloud Security Information and Event Management (SIEM) and SOAR: Data Protection And Privacy",
     scenario: "A global data protection officer is implementing cryptographic data lifecycles, crypto-shredding sanitization, and data loss prevention across sensitive cloud repositories. The cloud security professional evaluates Cloud SIEM & SOAR to correlate security events across multi-cloud infrastructure, SaaS applications, and network firewalls with automated response.",
-    question: "Which data security mechanism or cryptographic architecture guarantees compliance with international privacy mandates? Centralized log aggregation, correlation rules, and automated incident response playbooks is under consideration.",
+    question: "Which data security mechanism or cryptographic architecture guarantees compliance with international privacy mandates?",
     options: [
       { id: 'A', text: "Disable event correlation and evaluate each alert in complete isolation." },
       { id: 'B', text: "Deploy a cloud-native SIEM/SOAR platform that ingests multi-source telemetry, correlates threat indicators, and triggers automated playbooks." },
@@ -459,7 +459,7 @@ export const ISC2_CCSP_QUESTIONS_17 = [
     type: "single",
     explanation: "Deploy a cloud-native SIEM/SOAR platform that ingests multi-source telemetry, correlates threat indicators, and triggers automated playbooks. Modern Security Operations Centers (SOC) rely on cloud SIEM/SOAR. The SIEM ingests logs (CloudTrail, VPC Flow, DNS, WAF, endpoint agents), normalizes events, and executes correlation rules, while the SOAR (Security Orchestration, Automation, and Response) executes automated playbooks (quarantine, block IP).",
     referenceUrl: "https://cloudsecurityalliance.org/research/guidance/",
-    tags: ["Cloud SIEM & SOAR", "Cloud SIEM & SOAR", "Data Protection And Privacy"]
+    tags: ["Cloud SIEM & SOAR","Cloud SIEM & SOAR","Data Protection And Privacy"]
   },
   {
     id: "isc2-ccsp-423",
@@ -469,7 +469,7 @@ export const ISC2_CCSP_QUESTIONS_17 = [
     domainName: "Cloud Security Operations",
     title: "Cloud Security Information and Event Management (SIEM) and SOAR: Platform Hardening",
     scenario: "A cloud platform security team is hardening virtualization substrates, implementing micro-segmentation, and enforcing immutable infrastructure across multi-tenant environments. The cloud security professional evaluates Cloud SIEM & SOAR to correlate security events across multi-cloud infrastructure, SaaS applications, and network firewalls with automated response.",
-    question: "Which infrastructure security design or platform control prevents unauthorized lateral movement and hypervisor compromise? Centralized log aggregation, correlation rules, and automated incident response playbooks is under consideration.",
+    question: "Which infrastructure security design or platform control prevents unauthorized lateral movement and hypervisor compromise?",
     options: [
       { id: 'A', text: "Disable event correlation and evaluate each alert in complete isolation." },
       { id: 'B', text: "Rely on security analysts to manually inspect raw log files across 50 disconnected cloud dashboards." },
@@ -480,7 +480,7 @@ export const ISC2_CCSP_QUESTIONS_17 = [
     type: "single",
     explanation: "Deploy a cloud-native SIEM/SOAR platform that ingests multi-source telemetry, correlates threat indicators, and triggers automated playbooks. Modern Security Operations Centers (SOC) rely on cloud SIEM/SOAR. The SIEM ingests logs (CloudTrail, VPC Flow, DNS, WAF, endpoint agents), normalizes events, and executes correlation rules, while the SOAR (Security Orchestration, Automation, and Response) executes automated playbooks (quarantine, block IP).",
     referenceUrl: "https://cloudsecurityalliance.org/research/guidance/",
-    tags: ["Cloud SIEM & SOAR", "Cloud SIEM & SOAR", "Platform Hardening"]
+    tags: ["Cloud SIEM & SOAR","Cloud SIEM & SOAR","Platform Hardening"]
   },
   {
     id: "isc2-ccsp-424",
@@ -490,7 +490,7 @@ export const ISC2_CCSP_QUESTIONS_17 = [
     domainName: "Cloud Security Operations",
     title: "Cloud Security Information and Event Management (SIEM) and SOAR: Application Secops",
     scenario: "A devsecops engineering group is embedding threat modeling, automated SAST/DAST testing, and API gateway security into continuous cloud application delivery lifecycles. The cloud security professional evaluates Cloud SIEM & SOAR to correlate security events across multi-cloud infrastructure, SaaS applications, and network firewalls with automated response.",
-    question: "Which application security practice or runtime defense mitigates critical OWASP vulnerabilities before deployment? Centralized log aggregation, correlation rules, and automated incident response playbooks is under consideration.",
+    question: "Which application security practice or runtime defense mitigates critical OWASP vulnerabilities before deployment?",
     options: [
       { id: 'A', text: "Discard all security logs after 24 hours to minimize cloud storage fees." },
       { id: 'B', text: "Deploy a cloud-native SIEM/SOAR platform that ingests multi-source telemetry, correlates threat indicators, and triggers automated playbooks." },
@@ -501,7 +501,7 @@ export const ISC2_CCSP_QUESTIONS_17 = [
     type: "single",
     explanation: "Deploy a cloud-native SIEM/SOAR platform that ingests multi-source telemetry, correlates threat indicators, and triggers automated playbooks. Modern Security Operations Centers (SOC) rely on cloud SIEM/SOAR. The SIEM ingests logs (CloudTrail, VPC Flow, DNS, WAF, endpoint agents), normalizes events, and executes correlation rules, while the SOAR (Security Orchestration, Automation, and Response) executes automated playbooks (quarantine, block IP).",
     referenceUrl: "https://cloudsecurityalliance.org/research/guidance/",
-    tags: ["Cloud SIEM & SOAR", "Cloud SIEM & SOAR", "Application Secops"]
+    tags: ["Cloud SIEM & SOAR","Cloud SIEM & SOAR","Application Secops"]
   },
   {
     id: "isc2-ccsp-425",
@@ -511,7 +511,7 @@ export const ISC2_CCSP_QUESTIONS_17 = [
     domainName: "Cloud Security Operations",
     title: "Cloud Security Information and Event Management (SIEM) and SOAR: Compliance And Risk",
     scenario: "A corporate compliance auditor is evaluating cloud service level agreements, independent SOC 2 Type II audit attestations, and legal hold eDiscovery preservation policies. The cloud security professional evaluates Cloud SIEM & SOAR to correlate security events across multi-cloud infrastructure, SaaS applications, and network firewalls with automated response.",
-    question: "Which legal, risk, or compliance procedure guarantees due diligence and satisfies regulatory requirements? Centralized log aggregation, correlation rules, and automated incident response playbooks is under consideration.",
+    question: "Which legal, risk, or compliance procedure guarantees due diligence and satisfies regulatory requirements?",
     options: [
       { id: 'A', text: "Disable event correlation and evaluate each alert in complete isolation." },
       { id: 'B', text: "Deploy a cloud-native SIEM/SOAR platform that ingests multi-source telemetry, correlates threat indicators, and triggers automated playbooks." },
@@ -522,7 +522,7 @@ export const ISC2_CCSP_QUESTIONS_17 = [
     type: "single",
     explanation: "Deploy a cloud-native SIEM/SOAR platform that ingests multi-source telemetry, correlates threat indicators, and triggers automated playbooks. Modern Security Operations Centers (SOC) rely on cloud SIEM/SOAR. The SIEM ingests logs (CloudTrail, VPC Flow, DNS, WAF, endpoint agents), normalizes events, and executes correlation rules, while the SOAR (Security Orchestration, Automation, and Response) executes automated playbooks (quarantine, block IP).",
     referenceUrl: "https://cloudsecurityalliance.org/research/guidance/",
-    tags: ["Cloud SIEM & SOAR", "Cloud SIEM & SOAR", "Compliance And Risk"]
+    tags: ["Cloud SIEM & SOAR","Cloud SIEM & SOAR","Compliance And Risk"]
   }
 ];
 

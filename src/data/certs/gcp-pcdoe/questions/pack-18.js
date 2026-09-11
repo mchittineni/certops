@@ -7,7 +7,7 @@ export const GCP_PCDOE_QUESTIONS_18 = [
     domainName: "Managing service incidents and postmortems",
     title: "Incident Commander Role and Structure: Dr Failover",
     scenario: "An enterprise SRE organization is establishing operational continuity guidelines and high-availability architecture for its Google Cloud services. The DevOps team evaluates Incident Command to organize an engineering team's response to an active, severe multi-region production outage with clear division of responsibilities.",
-    question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives? Incident Command System (ICS) structure for coordinated outage response is under consideration.",
+    question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives?",
     options: [
       { id: 'A', text: "Have all engineers join a video call simultaneously and make uncoordinated changes to production servers." },
       { id: 'B', text: "Require the CEO to personally approve every diagnostic command and configuration tweak during the incident." },
@@ -18,7 +18,7 @@ export const GCP_PCDOE_QUESTIONS_18 = [
     type: "single",
     explanation: "Designate a single Incident Commander (IC) who leads overall strategy and communication, while assigning distinct leads for operations (debugging) and communications. Following the Incident Command System (ICS) framework, the Incident Commander holds ultimate decision-making authority, coordinates tasks, delegates operational debugging to an Operations Lead, and delegates stakeholder updates to a Communications Lead, eliminating chaos.",
     referenceUrl: "https://sre.google/sre-book/managing-incidents/",
-    tags: ["Incident Command", "Incident Command", "Dr Failover"]
+    tags: ["Incident Command","Incident Command","Dr Failover"]
   },
   {
     id: "gcp-pcdoe-427",
@@ -28,7 +28,7 @@ export const GCP_PCDOE_QUESTIONS_18 = [
     domainName: "Managing service incidents and postmortems",
     title: "Incident Commander Role and Structure: High Load Scale",
     scenario: "A high-throughput Google Cloud application experiences unpredictable bursts of traffic and transactional demands from global users. The DevOps team evaluates Incident Command to organize an engineering team's response to an active, severe multi-region production outage with clear division of responsibilities.",
-    question: "Which engineering approach should the DevOps team select to manage this demand reliably without manual intervention? Incident Command System (ICS) structure for coordinated outage response is under consideration.",
+    question: "Which engineering approach should the DevOps team select to manage this demand reliably without manual intervention?",
     options: [
       { id: 'A', text: "Avoid assigning any leadership role to ensure an egalitarian and distributed decision process during the crisis." },
       { id: 'B', text: "Have all engineers join a video call simultaneously and make uncoordinated changes to production servers." },
@@ -39,7 +39,7 @@ export const GCP_PCDOE_QUESTIONS_18 = [
     type: "single",
     explanation: "Designate a single Incident Commander (IC) who leads overall strategy and communication, while assigning distinct leads for operations (debugging) and communications. Following the Incident Command System (ICS) framework, the Incident Commander holds ultimate decision-making authority, coordinates tasks, delegates operational debugging to an Operations Lead, and delegates stakeholder updates to a Communications Lead, eliminating chaos.",
     referenceUrl: "https://sre.google/sre-book/managing-incidents/",
-    tags: ["Incident Command", "Incident Command", "High Load Scale"]
+    tags: ["Incident Command","Incident Command","High Load Scale"]
   },
   {
     id: "gcp-pcdoe-428",
@@ -49,7 +49,7 @@ export const GCP_PCDOE_QUESTIONS_18 = [
     domainName: "Managing service incidents and postmortems",
     title: "Incident Commander Role and Structure: Security Compliance",
     scenario: "A security compliance auditor requires automated verification of system integrity, secret isolation, and governance across all continuous delivery pipelines. The DevOps team evaluates Incident Command to organize an engineering team's response to an active, severe multi-region production outage with clear division of responsibilities.",
-    question: "Which solution implements these mandatory compliance and security controls? Incident Command System (ICS) structure for coordinated outage response is under consideration.",
+    question: "Which solution implements these mandatory compliance and security controls?",
     options: [
       { id: 'A', text: "Designate a single Incident Commander (IC) who leads overall strategy and communication, while assigning distinct leads for operations (debugging) and communications." },
       { id: 'B', text: "Avoid assigning any leadership role to ensure an egalitarian and distributed decision process during the crisis." },
@@ -60,7 +60,7 @@ export const GCP_PCDOE_QUESTIONS_18 = [
     type: "single",
     explanation: "Designate a single Incident Commander (IC) who leads overall strategy and communication, while assigning distinct leads for operations (debugging) and communications. Following the Incident Command System (ICS) framework, the Incident Commander holds ultimate decision-making authority, coordinates tasks, delegates operational debugging to an Operations Lead, and delegates stakeholder updates to a Communications Lead, eliminating chaos.",
     referenceUrl: "https://sre.google/sre-book/managing-incidents/",
-    tags: ["Incident Command", "Incident Command", "Security Compliance"]
+    tags: ["Incident Command","Incident Command","Security Compliance"]
   },
   {
     id: "gcp-pcdoe-429",
@@ -70,7 +70,7 @@ export const GCP_PCDOE_QUESTIONS_18 = [
     domainName: "Managing service incidents and postmortems",
     title: "Incident Commander Role and Structure: Hybrid Migration",
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on Google Cloud. The DevOps team evaluates Incident Command to organize an engineering team's response to an active, severe multi-region production outage with clear division of responsibilities.",
-    question: "Which practice or platform capability accelerates this transition while minimizing operational overhead? Incident Command System (ICS) structure for coordinated outage response is under consideration.",
+    question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
       { id: 'A', text: "Require the CEO to personally approve every diagnostic command and configuration tweak during the incident." },
       { id: 'B', text: "Designate a single Incident Commander (IC) who leads overall strategy and communication, while assigning distinct leads for operations (debugging) and communications." },
@@ -81,7 +81,7 @@ export const GCP_PCDOE_QUESTIONS_18 = [
     type: "single",
     explanation: "Designate a single Incident Commander (IC) who leads overall strategy and communication, while assigning distinct leads for operations (debugging) and communications. Following the Incident Command System (ICS) framework, the Incident Commander holds ultimate decision-making authority, coordinates tasks, delegates operational debugging to an Operations Lead, and delegates stakeholder updates to a Communications Lead, eliminating chaos.",
     referenceUrl: "https://sre.google/sre-book/managing-incidents/",
-    tags: ["Incident Command", "Incident Command", "Hybrid Migration"]
+    tags: ["Incident Command","Incident Command","Hybrid Migration"]
   },
   {
     id: "gcp-pcdoe-430",
@@ -91,7 +91,7 @@ export const GCP_PCDOE_QUESTIONS_18 = [
     domainName: "Managing service incidents and postmortems",
     title: "Incident Commander Role and Structure: Resilience Failure",
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate operational incident handling. The DevOps team evaluates Incident Command to organize an engineering team's response to an active, severe multi-region production outage with clear division of responsibilities.",
-    question: "Which design pattern or configuration eliminates operational bottlenecks and ensures service stability? Incident Command System (ICS) structure for coordinated outage response is under consideration.",
+    question: "Which design pattern or configuration eliminates operational bottlenecks and ensures service stability?",
     options: [
       { id: 'A', text: "Have all engineers join a video call simultaneously and make uncoordinated changes to production servers." },
       { id: 'B', text: "Designate a single Incident Commander (IC) who leads overall strategy and communication, while assigning distinct leads for operations (debugging) and communications." },
@@ -102,7 +102,7 @@ export const GCP_PCDOE_QUESTIONS_18 = [
     type: "single",
     explanation: "Designate a single Incident Commander (IC) who leads overall strategy and communication, while assigning distinct leads for operations (debugging) and communications. Following the Incident Command System (ICS) framework, the Incident Commander holds ultimate decision-making authority, coordinates tasks, delegates operational debugging to an Operations Lead, and delegates stakeholder updates to a Communications Lead, eliminating chaos.",
     referenceUrl: "https://sre.google/sre-book/managing-incidents/",
-    tags: ["Incident Command", "Incident Command", "Resilience Failure"]
+    tags: ["Incident Command","Incident Command","Resilience Failure"]
   },
   {
     id: "gcp-pcdoe-431",
@@ -112,7 +112,7 @@ export const GCP_PCDOE_QUESTIONS_18 = [
     domainName: "Managing service incidents and postmortems",
     title: "Blameless Postmortem Culture: Dr Failover",
     scenario: "An enterprise SRE organization is establishing operational continuity guidelines and high-availability architecture for its Google Cloud services. The DevOps team evaluates Postmortem Culture to conduct a post-incident review following an accidental database deletion by a junior engineer during routine maintenance.",
-    question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives? Root cause analysis focusing on system vulnerabilities rather than human error is under consideration.",
+    question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives?",
     options: [
       { id: 'A', text: "Prohibit junior engineers from accessing the production cloud console forever." },
       { id: 'B', text: "Facilitate a blameless postmortem that identifies system-level vulnerabilities (e.g., lack of confirmation safeguards, missing RBAC restrictions) and defines corrective actions." },
@@ -123,7 +123,7 @@ export const GCP_PCDOE_QUESTIONS_18 = [
     type: "single",
     explanation: "Facilitate a blameless postmortem that identifies system-level vulnerabilities (e.g., lack of confirmation safeguards, missing RBAC restrictions) and defines corrective actions. Blameless postmortems assume that engineers act in good faith with the information available to them. True root causes are systemic weaknesses (missing guardrails, ambiguous tooling, lack of safety checks) rather than individual human mistakes. Cultivating blamelessness encourages transparent reporting.",
     referenceUrl: "https://sre.google/sre-book/postmortem-culture/",
-    tags: ["Postmortem Culture", "Blameless Postmortems", "Dr Failover"]
+    tags: ["Postmortem Culture","Blameless Postmortems","Dr Failover"]
   },
   {
     id: "gcp-pcdoe-432",
@@ -133,7 +133,7 @@ export const GCP_PCDOE_QUESTIONS_18 = [
     domainName: "Managing service incidents and postmortems",
     title: "Blameless Postmortem Culture: High Load Scale",
     scenario: "A high-throughput Google Cloud application experiences unpredictable bursts of traffic and transactional demands from global users. The DevOps team evaluates Postmortem Culture to conduct a post-incident review following an accidental database deletion by a junior engineer during routine maintenance.",
-    question: "Which engineering approach should the DevOps team select to manage this demand reliably without manual intervention? Root cause analysis focusing on system vulnerabilities rather than human error is under consideration.",
+    question: "Which engineering approach should the DevOps team select to manage this demand reliably without manual intervention?",
     options: [
       { id: 'A', text: "Cancel the postmortem meeting to avoid discussing uncomfortable operational failures." },
       { id: 'B', text: "Prohibit junior engineers from accessing the production cloud console forever." },
@@ -144,7 +144,7 @@ export const GCP_PCDOE_QUESTIONS_18 = [
     type: "single",
     explanation: "Facilitate a blameless postmortem that identifies system-level vulnerabilities (e.g., lack of confirmation safeguards, missing RBAC restrictions) and defines corrective actions. Blameless postmortems assume that engineers act in good faith with the information available to them. True root causes are systemic weaknesses (missing guardrails, ambiguous tooling, lack of safety checks) rather than individual human mistakes. Cultivating blamelessness encourages transparent reporting.",
     referenceUrl: "https://sre.google/sre-book/postmortem-culture/",
-    tags: ["Postmortem Culture", "Blameless Postmortems", "High Load Scale"]
+    tags: ["Postmortem Culture","Blameless Postmortems","High Load Scale"]
   },
   {
     id: "gcp-pcdoe-433",
@@ -154,7 +154,7 @@ export const GCP_PCDOE_QUESTIONS_18 = [
     domainName: "Managing service incidents and postmortems",
     title: "Blameless Postmortem Culture: Security Compliance",
     scenario: "A security compliance auditor requires automated verification of system integrity, secret isolation, and governance across all continuous delivery pipelines. The DevOps team evaluates Postmortem Culture to conduct a post-incident review following an accidental database deletion by a junior engineer during routine maintenance.",
-    question: "Which solution implements these mandatory compliance and security controls? Root cause analysis focusing on system vulnerabilities rather than human error is under consideration.",
+    question: "Which solution implements these mandatory compliance and security controls?",
     options: [
       { id: 'A', text: "Prohibit junior engineers from accessing the production cloud console forever." },
       { id: 'B', text: "Cancel the postmortem meeting to avoid discussing uncomfortable operational failures." },
@@ -165,7 +165,7 @@ export const GCP_PCDOE_QUESTIONS_18 = [
     type: "single",
     explanation: "Facilitate a blameless postmortem that identifies system-level vulnerabilities (e.g., lack of confirmation safeguards, missing RBAC restrictions) and defines corrective actions. Blameless postmortems assume that engineers act in good faith with the information available to them. True root causes are systemic weaknesses (missing guardrails, ambiguous tooling, lack of safety checks) rather than individual human mistakes. Cultivating blamelessness encourages transparent reporting.",
     referenceUrl: "https://sre.google/sre-book/postmortem-culture/",
-    tags: ["Postmortem Culture", "Blameless Postmortems", "Security Compliance"]
+    tags: ["Postmortem Culture","Blameless Postmortems","Security Compliance"]
   },
   {
     id: "gcp-pcdoe-434",
@@ -175,7 +175,7 @@ export const GCP_PCDOE_QUESTIONS_18 = [
     domainName: "Managing service incidents and postmortems",
     title: "Blameless Postmortem Culture: Hybrid Migration",
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on Google Cloud. The DevOps team evaluates Postmortem Culture to conduct a post-incident review following an accidental database deletion by a junior engineer during routine maintenance.",
-    question: "Which practice or platform capability accelerates this transition while minimizing operational overhead? Root cause analysis focusing on system vulnerabilities rather than human error is under consideration.",
+    question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
       { id: 'A', text: "Cancel the postmortem meeting to avoid discussing uncomfortable operational failures." },
       { id: 'B', text: "Facilitate a blameless postmortem that identifies system-level vulnerabilities (e.g., lack of confirmation safeguards, missing RBAC restrictions) and defines corrective actions." },
@@ -186,7 +186,7 @@ export const GCP_PCDOE_QUESTIONS_18 = [
     type: "single",
     explanation: "Facilitate a blameless postmortem that identifies system-level vulnerabilities (e.g., lack of confirmation safeguards, missing RBAC restrictions) and defines corrective actions. Blameless postmortems assume that engineers act in good faith with the information available to them. True root causes are systemic weaknesses (missing guardrails, ambiguous tooling, lack of safety checks) rather than individual human mistakes. Cultivating blamelessness encourages transparent reporting.",
     referenceUrl: "https://sre.google/sre-book/postmortem-culture/",
-    tags: ["Postmortem Culture", "Blameless Postmortems", "Hybrid Migration"]
+    tags: ["Postmortem Culture","Blameless Postmortems","Hybrid Migration"]
   },
   {
     id: "gcp-pcdoe-435",
@@ -196,7 +196,7 @@ export const GCP_PCDOE_QUESTIONS_18 = [
     domainName: "Managing service incidents and postmortems",
     title: "Blameless Postmortem Culture: Resilience Failure",
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate operational incident handling. The DevOps team evaluates Postmortem Culture to conduct a post-incident review following an accidental database deletion by a junior engineer during routine maintenance.",
-    question: "Which design pattern or configuration eliminates operational bottlenecks and ensures service stability? Root cause analysis focusing on system vulnerabilities rather than human error is under consideration.",
+    question: "Which design pattern or configuration eliminates operational bottlenecks and ensures service stability?",
     options: [
       { id: 'A', text: "Facilitate a blameless postmortem that identifies system-level vulnerabilities (e.g., lack of confirmation safeguards, missing RBAC restrictions) and defines corrective actions." },
       { id: 'B', text: "Publicly reprimand the engineer during an all-hands meeting and dock their quarterly compensation." },
@@ -207,7 +207,7 @@ export const GCP_PCDOE_QUESTIONS_18 = [
     type: "single",
     explanation: "Facilitate a blameless postmortem that identifies system-level vulnerabilities (e.g., lack of confirmation safeguards, missing RBAC restrictions) and defines corrective actions. Blameless postmortems assume that engineers act in good faith with the information available to them. True root causes are systemic weaknesses (missing guardrails, ambiguous tooling, lack of safety checks) rather than individual human mistakes. Cultivating blamelessness encourages transparent reporting.",
     referenceUrl: "https://sre.google/sre-book/postmortem-culture/",
-    tags: ["Postmortem Culture", "Blameless Postmortems", "Resilience Failure"]
+    tags: ["Postmortem Culture","Blameless Postmortems","Resilience Failure"]
   },
   {
     id: "gcp-pcdoe-436",
@@ -217,7 +217,7 @@ export const GCP_PCDOE_QUESTIONS_18 = [
     domainName: "Managing service incidents and postmortems",
     title: "Incident Communication and Status Dashboards: Dr Failover",
     scenario: "An enterprise SRE organization is establishing operational continuity guidelines and high-availability architecture for its Google Cloud services. The DevOps team evaluates Incident Communication to keep executive stakeholders, internal support teams, and external customers informed of service degradation during an ongoing high-impact incident.",
-    question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives? Clear internal and external communication protocols during outages is under consideration.",
+    question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives?",
     options: [
       { id: 'A', text: "Send mass uncoordinated emails to customers speculating on unverified technical root causes." },
       { id: 'B', text: "Refuse to acknowledge the incident publicly until complete recovery has been achieved." },
@@ -228,7 +228,7 @@ export const GCP_PCDOE_QUESTIONS_18 = [
     type: "single",
     explanation: "Publish timely, factual updates to a dedicated external status page and internal incident Slack channel using pre-approved communication templates. Effective incident communication requires dedicated communication channels and pre-defined communication templates. The Communications Lead publishes regular factual updates covering current impact, mitigation steps underway, and expected next update times, preserving customer trust.",
     referenceUrl: "https://sre.google/workbook/incident-response/",
-    tags: ["Incident Communication", "Incident Communications", "Dr Failover"]
+    tags: ["Incident Communication","Incident Communications","Dr Failover"]
   },
   {
     id: "gcp-pcdoe-437",
@@ -238,7 +238,7 @@ export const GCP_PCDOE_QUESTIONS_18 = [
     domainName: "Managing service incidents and postmortems",
     title: "Incident Communication and Status Dashboards: High Load Scale",
     scenario: "A high-throughput Google Cloud application experiences unpredictable bursts of traffic and transactional demands from global users. The DevOps team evaluates Incident Communication to keep executive stakeholders, internal support teams, and external customers informed of service degradation during an ongoing high-impact incident.",
-    question: "Which engineering approach should the DevOps team select to manage this demand reliably without manual intervention? Clear internal and external communication protocols during outages is under consideration.",
+    question: "Which engineering approach should the DevOps team select to manage this demand reliably without manual intervention?",
     options: [
       { id: 'A', text: "Publish timely, factual updates to a dedicated external status page and internal incident Slack channel using pre-approved communication templates." },
       { id: 'B', text: "Instruct customer support agents to deny all reports of system problems." },
@@ -249,7 +249,7 @@ export const GCP_PCDOE_QUESTIONS_18 = [
     type: "single",
     explanation: "Publish timely, factual updates to a dedicated external status page and internal incident Slack channel using pre-approved communication templates. Effective incident communication requires dedicated communication channels and pre-defined communication templates. The Communications Lead publishes regular factual updates covering current impact, mitigation steps underway, and expected next update times, preserving customer trust.",
     referenceUrl: "https://sre.google/workbook/incident-response/",
-    tags: ["Incident Communication", "Incident Communications", "High Load Scale"]
+    tags: ["Incident Communication","Incident Communications","High Load Scale"]
   },
   {
     id: "gcp-pcdoe-438",
@@ -259,7 +259,7 @@ export const GCP_PCDOE_QUESTIONS_18 = [
     domainName: "Managing service incidents and postmortems",
     title: "Incident Communication and Status Dashboards: Security Compliance",
     scenario: "A security compliance auditor requires automated verification of system integrity, secret isolation, and governance across all continuous delivery pipelines. The DevOps team evaluates Incident Communication to keep executive stakeholders, internal support teams, and external customers informed of service degradation during an ongoing high-impact incident.",
-    question: "Which solution implements these mandatory compliance and security controls? Clear internal and external communication protocols during outages is under consideration.",
+    question: "Which solution implements these mandatory compliance and security controls?",
     options: [
       { id: 'A', text: "Send mass uncoordinated emails to customers speculating on unverified technical root causes." },
       { id: 'B', text: "Publish timely, factual updates to a dedicated external status page and internal incident Slack channel using pre-approved communication templates." },
@@ -270,7 +270,7 @@ export const GCP_PCDOE_QUESTIONS_18 = [
     type: "single",
     explanation: "Publish timely, factual updates to a dedicated external status page and internal incident Slack channel using pre-approved communication templates. Effective incident communication requires dedicated communication channels and pre-defined communication templates. The Communications Lead publishes regular factual updates covering current impact, mitigation steps underway, and expected next update times, preserving customer trust.",
     referenceUrl: "https://sre.google/workbook/incident-response/",
-    tags: ["Incident Communication", "Incident Communications", "Security Compliance"]
+    tags: ["Incident Communication","Incident Communications","Security Compliance"]
   },
   {
     id: "gcp-pcdoe-439",
@@ -280,7 +280,7 @@ export const GCP_PCDOE_QUESTIONS_18 = [
     domainName: "Managing service incidents and postmortems",
     title: "Incident Communication and Status Dashboards: Hybrid Migration",
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on Google Cloud. The DevOps team evaluates Incident Communication to keep executive stakeholders, internal support teams, and external customers informed of service degradation during an ongoing high-impact incident.",
-    question: "Which practice or platform capability accelerates this transition while minimizing operational overhead? Clear internal and external communication protocols during outages is under consideration.",
+    question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
       { id: 'A', text: "Send mass uncoordinated emails to customers speculating on unverified technical root causes." },
       { id: 'B', text: "Publish timely, factual updates to a dedicated external status page and internal incident Slack channel using pre-approved communication templates." },
@@ -291,7 +291,7 @@ export const GCP_PCDOE_QUESTIONS_18 = [
     type: "single",
     explanation: "Publish timely, factual updates to a dedicated external status page and internal incident Slack channel using pre-approved communication templates. Effective incident communication requires dedicated communication channels and pre-defined communication templates. The Communications Lead publishes regular factual updates covering current impact, mitigation steps underway, and expected next update times, preserving customer trust.",
     referenceUrl: "https://sre.google/workbook/incident-response/",
-    tags: ["Incident Communication", "Incident Communications", "Hybrid Migration"]
+    tags: ["Incident Communication","Incident Communications","Hybrid Migration"]
   },
   {
     id: "gcp-pcdoe-440",
@@ -301,7 +301,7 @@ export const GCP_PCDOE_QUESTIONS_18 = [
     domainName: "Managing service incidents and postmortems",
     title: "Incident Communication and Status Dashboards: Resilience Failure",
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate operational incident handling. The DevOps team evaluates Incident Communication to keep executive stakeholders, internal support teams, and external customers informed of service degradation during an ongoing high-impact incident.",
-    question: "Which design pattern or configuration eliminates operational bottlenecks and ensures service stability? Clear internal and external communication protocols during outages is under consideration.",
+    question: "Which design pattern or configuration eliminates operational bottlenecks and ensures service stability?",
     options: [
       { id: 'A', text: "Instruct customer support agents to deny all reports of system problems." },
       { id: 'B', text: "Refuse to acknowledge the incident publicly until complete recovery has been achieved." },
@@ -312,7 +312,7 @@ export const GCP_PCDOE_QUESTIONS_18 = [
     type: "single",
     explanation: "Publish timely, factual updates to a dedicated external status page and internal incident Slack channel using pre-approved communication templates. Effective incident communication requires dedicated communication channels and pre-defined communication templates. The Communications Lead publishes regular factual updates covering current impact, mitigation steps underway, and expected next update times, preserving customer trust.",
     referenceUrl: "https://sre.google/workbook/incident-response/",
-    tags: ["Incident Communication", "Incident Communications", "Resilience Failure"]
+    tags: ["Incident Communication","Incident Communications","Resilience Failure"]
   },
   {
     id: "gcp-pcdoe-441",
@@ -322,7 +322,7 @@ export const GCP_PCDOE_QUESTIONS_18 = [
     domainName: "Managing service incidents and postmortems",
     title: "Rollback Strategies and Safe Reversals: Dr Failover",
     scenario: "An enterprise SRE organization is establishing operational continuity guidelines and high-availability architecture for its Google Cloud services. The DevOps team evaluates Mitigation Strategies to minimize customer impact when a newly deployed microservice version triggers a 25% spike in payment processing failures.",
-    question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives? Prioritizing rapid service mitigation and rollbacks over root cause debugging is under consideration.",
+    question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives?",
     options: [
       { id: 'A', text: "Keep the buggy version active in production while attaching debuggers to live servers to identify the bug." },
       { id: 'B', text: "Instruct customer support to advise users to retry failed payments until the code can be patched in master." },
@@ -333,7 +333,7 @@ export const GCP_PCDOE_QUESTIONS_18 = [
     type: "single",
     explanation: "Roll back the deployment immediately to the known-healthy previous version, postponing detailed root cause investigation until production is stabilized. The primary duty during an incident is fast mitigation to restore customer service, not diagnosing why the failure occurred. Rolling back to the last known good revision immediately restores availability; engineers can debug the flawed artifact safely in an isolated staging environment.",
     referenceUrl: "https://sre.google/sre-book/addressing-cascading-failures/",
-    tags: ["Mitigation Strategies", "Mitigation vs Debugging", "Dr Failover"]
+    tags: ["Mitigation Strategies","Mitigation vs Debugging","Dr Failover"]
   },
   {
     id: "gcp-pcdoe-442",
@@ -343,7 +343,7 @@ export const GCP_PCDOE_QUESTIONS_18 = [
     domainName: "Managing service incidents and postmortems",
     title: "Rollback Strategies and Safe Reversals: High Load Scale",
     scenario: "A high-throughput Google Cloud application experiences unpredictable bursts of traffic and transactional demands from global users. The DevOps team evaluates Mitigation Strategies to minimize customer impact when a newly deployed microservice version triggers a 25% spike in payment processing failures.",
-    question: "Which engineering approach should the DevOps team select to manage this demand reliably without manual intervention? Prioritizing rapid service mitigation and rollbacks over root cause debugging is under consideration.",
+    question: "Which engineering approach should the DevOps team select to manage this demand reliably without manual intervention?",
     options: [
       { id: 'A', text: "Keep the buggy version active in production while attaching debuggers to live servers to identify the bug." },
       { id: 'B', text: "Instruct customer support to advise users to retry failed payments until the code can be patched in master." },
@@ -354,7 +354,7 @@ export const GCP_PCDOE_QUESTIONS_18 = [
     type: "single",
     explanation: "Roll back the deployment immediately to the known-healthy previous version, postponing detailed root cause investigation until production is stabilized. The primary duty during an incident is fast mitigation to restore customer service, not diagnosing why the failure occurred. Rolling back to the last known good revision immediately restores availability; engineers can debug the flawed artifact safely in an isolated staging environment.",
     referenceUrl: "https://sre.google/sre-book/addressing-cascading-failures/",
-    tags: ["Mitigation Strategies", "Mitigation vs Debugging", "High Load Scale"]
+    tags: ["Mitigation Strategies","Mitigation vs Debugging","High Load Scale"]
   },
   {
     id: "gcp-pcdoe-443",
@@ -364,7 +364,7 @@ export const GCP_PCDOE_QUESTIONS_18 = [
     domainName: "Managing service incidents and postmortems",
     title: "Rollback Strategies and Safe Reversals: Security Compliance",
     scenario: "A security compliance auditor requires automated verification of system integrity, secret isolation, and governance across all continuous delivery pipelines. The DevOps team evaluates Mitigation Strategies to minimize customer impact when a newly deployed microservice version triggers a 25% spike in payment processing failures.",
-    question: "Which solution implements these mandatory compliance and security controls? Prioritizing rapid service mitigation and rollbacks over root cause debugging is under consideration.",
+    question: "Which solution implements these mandatory compliance and security controls?",
     options: [
       { id: 'A', text: "Keep the buggy version active in production while attaching debuggers to live servers to identify the bug." },
       { id: 'B', text: "Instruct customer support to advise users to retry failed payments until the code can be patched in master." },
@@ -375,7 +375,7 @@ export const GCP_PCDOE_QUESTIONS_18 = [
     type: "single",
     explanation: "Roll back the deployment immediately to the known-healthy previous version, postponing detailed root cause investigation until production is stabilized. The primary duty during an incident is fast mitigation to restore customer service, not diagnosing why the failure occurred. Rolling back to the last known good revision immediately restores availability; engineers can debug the flawed artifact safely in an isolated staging environment.",
     referenceUrl: "https://sre.google/sre-book/addressing-cascading-failures/",
-    tags: ["Mitigation Strategies", "Mitigation vs Debugging", "Security Compliance"]
+    tags: ["Mitigation Strategies","Mitigation vs Debugging","Security Compliance"]
   },
   {
     id: "gcp-pcdoe-444",
@@ -385,7 +385,7 @@ export const GCP_PCDOE_QUESTIONS_18 = [
     domainName: "Managing service incidents and postmortems",
     title: "Rollback Strategies and Safe Reversals: Hybrid Migration",
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on Google Cloud. The DevOps team evaluates Mitigation Strategies to minimize customer impact when a newly deployed microservice version triggers a 25% spike in payment processing failures.",
-    question: "Which practice or platform capability accelerates this transition while minimizing operational overhead? Prioritizing rapid service mitigation and rollbacks over root cause debugging is under consideration.",
+    question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
       { id: 'A', text: "Roll back the deployment immediately to the known-healthy previous version, postponing detailed root cause investigation until production is stabilized." },
       { id: 'B', text: "Instruct customer support to advise users to retry failed payments until the code can be patched in master." },
@@ -396,7 +396,7 @@ export const GCP_PCDOE_QUESTIONS_18 = [
     type: "single",
     explanation: "Roll back the deployment immediately to the known-healthy previous version, postponing detailed root cause investigation until production is stabilized. The primary duty during an incident is fast mitigation to restore customer service, not diagnosing why the failure occurred. Rolling back to the last known good revision immediately restores availability; engineers can debug the flawed artifact safely in an isolated staging environment.",
     referenceUrl: "https://sre.google/sre-book/addressing-cascading-failures/",
-    tags: ["Mitigation Strategies", "Mitigation vs Debugging", "Hybrid Migration"]
+    tags: ["Mitigation Strategies","Mitigation vs Debugging","Hybrid Migration"]
   },
   {
     id: "gcp-pcdoe-445",
@@ -406,7 +406,7 @@ export const GCP_PCDOE_QUESTIONS_18 = [
     domainName: "Managing service incidents and postmortems",
     title: "Rollback Strategies and Safe Reversals: Resilience Failure",
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate operational incident handling. The DevOps team evaluates Mitigation Strategies to minimize customer impact when a newly deployed microservice version triggers a 25% spike in payment processing failures.",
-    question: "Which design pattern or configuration eliminates operational bottlenecks and ensures service stability? Prioritizing rapid service mitigation and rollbacks over root cause debugging is under consideration.",
+    question: "Which design pattern or configuration eliminates operational bottlenecks and ensures service stability?",
     options: [
       { id: 'A', text: "Instruct customer support to advise users to retry failed payments until the code can be patched in master." },
       { id: 'B', text: "Attempt to write and review an emergency hotfix directly in the production environment without rollback." },
@@ -417,7 +417,7 @@ export const GCP_PCDOE_QUESTIONS_18 = [
     type: "single",
     explanation: "Roll back the deployment immediately to the known-healthy previous version, postponing detailed root cause investigation until production is stabilized. The primary duty during an incident is fast mitigation to restore customer service, not diagnosing why the failure occurred. Rolling back to the last known good revision immediately restores availability; engineers can debug the flawed artifact safely in an isolated staging environment.",
     referenceUrl: "https://sre.google/sre-book/addressing-cascading-failures/",
-    tags: ["Mitigation Strategies", "Mitigation vs Debugging", "Resilience Failure"]
+    tags: ["Mitigation Strategies","Mitigation vs Debugging","Resilience Failure"]
   },
   {
     id: "gcp-pcdoe-446",
@@ -427,7 +427,7 @@ export const GCP_PCDOE_QUESTIONS_18 = [
     domainName: "Managing service incidents and postmortems",
     title: "Emergency Access and Break-Glass Procedures: Dr Failover",
     scenario: "An enterprise SRE organization is establishing operational continuity guidelines and high-availability architecture for its Google Cloud services. The DevOps team evaluates Break-Glass Protocols to grant an on-call engineer temporary elevated administrative permissions to restart a corrupted Cloud Spanner session during a catastrophic outage.",
-    question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives? Temporary elevated administrative privileges with audit logging for emergencies is under consideration.",
+    question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives?",
     options: [
       { id: 'A', text: "Share the root organization admin credentials among team members on a sticky note." },
       { id: 'B', text: "Provide all engineers permanent Owner privileges across all production Google Cloud projects." },
@@ -438,7 +438,7 @@ export const GCP_PCDOE_QUESTIONS_18 = [
     type: "single",
     explanation: "Invoke a time-bound break-glass procedure using Cloud IAM conditional bindings or temporary group membership with automated escalation alerting and audit logging. Break-glass procedures allow engineers to claim temporary elevated permissions during critical outages. These access grants must be strictly time-bound, automatically revoked upon expiration, require peer or management notification, and generate immutable audit logs in Cloud Audit Logs.",
     referenceUrl: "https://cloud.google.com/architecture/emergency-access-management",
-    tags: ["Break-Glass Protocols", "Break-Glass Access", "Dr Failover"]
+    tags: ["Break-Glass Protocols","Break-Glass Access","Dr Failover"]
   },
   {
     id: "gcp-pcdoe-447",
@@ -448,7 +448,7 @@ export const GCP_PCDOE_QUESTIONS_18 = [
     domainName: "Managing service incidents and postmortems",
     title: "Emergency Access and Break-Glass Procedures: High Load Scale",
     scenario: "A high-throughput Google Cloud application experiences unpredictable bursts of traffic and transactional demands from global users. The DevOps team evaluates Break-Glass Protocols to grant an on-call engineer temporary elevated administrative permissions to restart a corrupted Cloud Spanner session during a catastrophic outage.",
-    question: "Which engineering approach should the DevOps team select to manage this demand reliably without manual intervention? Temporary elevated administrative privileges with audit logging for emergencies is under consideration.",
+    question: "Which engineering approach should the DevOps team select to manage this demand reliably without manual intervention?",
     options: [
       { id: 'A', text: "Invoke a time-bound break-glass procedure using Cloud IAM conditional bindings or temporary group membership with automated escalation alerting and audit logging." },
       { id: 'B', text: "Share the root organization admin credentials among team members on a sticky note." },
@@ -459,7 +459,7 @@ export const GCP_PCDOE_QUESTIONS_18 = [
     type: "single",
     explanation: "Invoke a time-bound break-glass procedure using Cloud IAM conditional bindings or temporary group membership with automated escalation alerting and audit logging. Break-glass procedures allow engineers to claim temporary elevated permissions during critical outages. These access grants must be strictly time-bound, automatically revoked upon expiration, require peer or management notification, and generate immutable audit logs in Cloud Audit Logs.",
     referenceUrl: "https://cloud.google.com/architecture/emergency-access-management",
-    tags: ["Break-Glass Protocols", "Break-Glass Access", "High Load Scale"]
+    tags: ["Break-Glass Protocols","Break-Glass Access","High Load Scale"]
   },
   {
     id: "gcp-pcdoe-448",
@@ -469,7 +469,7 @@ export const GCP_PCDOE_QUESTIONS_18 = [
     domainName: "Managing service incidents and postmortems",
     title: "Emergency Access and Break-Glass Procedures: Security Compliance",
     scenario: "A security compliance auditor requires automated verification of system integrity, secret isolation, and governance across all continuous delivery pipelines. The DevOps team evaluates Break-Glass Protocols to grant an on-call engineer temporary elevated administrative permissions to restart a corrupted Cloud Spanner session during a catastrophic outage.",
-    question: "Which solution implements these mandatory compliance and security controls? Temporary elevated administrative privileges with audit logging for emergencies is under consideration.",
+    question: "Which solution implements these mandatory compliance and security controls?",
     options: [
       { id: 'A', text: "Refuse to grant elevated permissions under any circumstance, allowing the outage to persist indefinitely." },
       { id: 'B', text: "Provide all engineers permanent Owner privileges across all production Google Cloud projects." },
@@ -480,7 +480,7 @@ export const GCP_PCDOE_QUESTIONS_18 = [
     type: "single",
     explanation: "Invoke a time-bound break-glass procedure using Cloud IAM conditional bindings or temporary group membership with automated escalation alerting and audit logging. Break-glass procedures allow engineers to claim temporary elevated permissions during critical outages. These access grants must be strictly time-bound, automatically revoked upon expiration, require peer or management notification, and generate immutable audit logs in Cloud Audit Logs.",
     referenceUrl: "https://cloud.google.com/architecture/emergency-access-management",
-    tags: ["Break-Glass Protocols", "Break-Glass Access", "Security Compliance"]
+    tags: ["Break-Glass Protocols","Break-Glass Access","Security Compliance"]
   },
   {
     id: "gcp-pcdoe-449",
@@ -490,7 +490,7 @@ export const GCP_PCDOE_QUESTIONS_18 = [
     domainName: "Managing service incidents and postmortems",
     title: "Emergency Access and Break-Glass Procedures: Hybrid Migration",
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on Google Cloud. The DevOps team evaluates Break-Glass Protocols to grant an on-call engineer temporary elevated administrative permissions to restart a corrupted Cloud Spanner session during a catastrophic outage.",
-    question: "Which practice or platform capability accelerates this transition while minimizing operational overhead? Temporary elevated administrative privileges with audit logging for emergencies is under consideration.",
+    question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
       { id: 'A', text: "Provide all engineers permanent Owner privileges across all production Google Cloud projects." },
       { id: 'B', text: "Refuse to grant elevated permissions under any circumstance, allowing the outage to persist indefinitely." },
@@ -501,7 +501,7 @@ export const GCP_PCDOE_QUESTIONS_18 = [
     type: "single",
     explanation: "Invoke a time-bound break-glass procedure using Cloud IAM conditional bindings or temporary group membership with automated escalation alerting and audit logging. Break-glass procedures allow engineers to claim temporary elevated permissions during critical outages. These access grants must be strictly time-bound, automatically revoked upon expiration, require peer or management notification, and generate immutable audit logs in Cloud Audit Logs.",
     referenceUrl: "https://cloud.google.com/architecture/emergency-access-management",
-    tags: ["Break-Glass Protocols", "Break-Glass Access", "Hybrid Migration"]
+    tags: ["Break-Glass Protocols","Break-Glass Access","Hybrid Migration"]
   },
   {
     id: "gcp-pcdoe-450",
@@ -511,7 +511,7 @@ export const GCP_PCDOE_QUESTIONS_18 = [
     domainName: "Managing service incidents and postmortems",
     title: "Emergency Access and Break-Glass Procedures: Resilience Failure",
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate operational incident handling. The DevOps team evaluates Break-Glass Protocols to grant an on-call engineer temporary elevated administrative permissions to restart a corrupted Cloud Spanner session during a catastrophic outage.",
-    question: "Which design pattern or configuration eliminates operational bottlenecks and ensures service stability? Temporary elevated administrative privileges with audit logging for emergencies is under consideration.",
+    question: "Which design pattern or configuration eliminates operational bottlenecks and ensures service stability?",
     options: [
       { id: 'A', text: "Invoke a time-bound break-glass procedure using Cloud IAM conditional bindings or temporary group membership with automated escalation alerting and audit logging." },
       { id: 'B', text: "Share the root organization admin credentials among team members on a sticky note." },
@@ -522,7 +522,7 @@ export const GCP_PCDOE_QUESTIONS_18 = [
     type: "single",
     explanation: "Invoke a time-bound break-glass procedure using Cloud IAM conditional bindings or temporary group membership with automated escalation alerting and audit logging. Break-glass procedures allow engineers to claim temporary elevated permissions during critical outages. These access grants must be strictly time-bound, automatically revoked upon expiration, require peer or management notification, and generate immutable audit logs in Cloud Audit Logs.",
     referenceUrl: "https://cloud.google.com/architecture/emergency-access-management",
-    tags: ["Break-Glass Protocols", "Break-Glass Access", "Resilience Failure"]
+    tags: ["Break-Glass Protocols","Break-Glass Access","Resilience Failure"]
   }
 ];
 
