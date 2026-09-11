@@ -18,7 +18,7 @@ export const GCP_PCA_QUESTIONS_5 = [
     type: "single",
     explanation: "Google Cloud VPC networks support configurable MTU sizes: `1460` (default), `1500` (standard Ethernet), and `8896` (Jumbo Frames). Using 8896 bytes significantly reduces packet serialization overhead and CPU utilization for high-throughput HPC and storage workloads.",
     referenceUrl: "https://cloud.google.com/vpc/docs/mtu",
-    tags: ["VPC", "MTU", "Jumbo Frames"]
+    tags: ["VPC","MTU","Jumbo Frames"]
   },
   {
     id: "gcp-pca-102",
@@ -30,7 +30,7 @@ export const GCP_PCA_QUESTIONS_5 = [
     scenario: "An internal microservice behind Cloud NAT makes thousands of concurrent outbound connections to third-party payment gateways. Outbound connections are failing with port exhaustion errors.",
     question: "How should the network architect adjust the Cloud NAT configuration to prevent port starvation?",
     options: [
-      { id: 'A', text: "Increase the Minimum ports per VM instance setting or enable Dynamic port allocation" },
+      { id: 'A', text: "Raise minimum ports per VM or enable dynamic allocation" },
       { id: 'B', text: "Switch the network tier to Standard" },
       { id: 'C', text: "Deploy an external load balancer in front of Cloud NAT" },
       { id: 'D', text: "Reduce the number of VM instances" }
@@ -39,7 +39,7 @@ export const GCP_PCA_QUESTIONS_5 = [
     type: "single",
     explanation: "Cloud NAT allocates a fixed number of source ports per VM (default 64 ports). If a VM exhausts its allocated ports, outgoing connections fail. Increasing `Minimum ports per VM` or enabling `Dynamic port allocation` allocates additional NAT IP/port tuples dynamically to handle concurrent socket demands.",
     referenceUrl: "https://cloud.google.com/nat/docs/ports-and-addresses#dynamic-port-allocation",
-    tags: ["Cloud NAT", "Port Allocation", "Networking"]
+    tags: ["Cloud NAT","Port Allocation","Networking"]
   },
   {
     id: "gcp-pca-103",
@@ -51,7 +51,7 @@ export const GCP_PCA_QUESTIONS_5 = [
     scenario: "An enterprise on-premises core router peers via BGP with Google Cloud Router over Dedicated Interconnect. The on-premises router accidentally advertises 10,000 corporate internal routes.",
     question: "What happens when advertised routes exceed Cloud Router's dynamic prefix limits (100 routes by default)?",
     options: [
-      { id: 'A', text: "Cloud Router drops the excess routes or resets the BGP session if maximum prefixes are breached" },
+      { id: 'A', text: "Cloud Router drops excess routes or resets the session" },
       { id: 'B', text: "Google Cloud billing charges $1 per route automatically" },
       { id: 'C', text: "All GCP projects in the organization are deleted" },
       { id: 'D', text: "Cloud Router accepts unbounded routes without limits" }
@@ -60,7 +60,7 @@ export const GCP_PCA_QUESTIONS_5 = [
     type: "single",
     explanation: "Cloud Router enforces a limit on the number of learned dynamic routes per BGP session (default 100 for regional, up to configured limits). Advertising more routes than supported causes Cloud Router to reset the BGP peering session, disrupting connectivity. Advertisements must be summarized.",
     referenceUrl: "https://cloud.google.com/router/docs/quotas#limits",
-    tags: ["Cloud Router", "BGP", "Route Limits"]
+    tags: ["Cloud Router","BGP","Route Limits"]
   },
   {
     id: "gcp-pca-104",
@@ -72,7 +72,7 @@ export const GCP_PCA_QUESTIONS_5 = [
     scenario: "A compliance officer asks if a locked Cloud Storage retention policy can be reversed or removed if business requirements change next year.",
     question: "What is the operational behavior of a locked retention policy in Cloud Storage?",
     options: [
-      { id: 'A', text: "A locked retention policy is permanently irreversible; once locked, it can never be removed or reduced until all objects naturally expire" },
+      { id: 'A', text: "It is irreversible and cannot be removed or shortened" },
       { id: 'B', text: "It can be unlocked by opening a Google Support ticket" },
       { id: 'C', text: "It can be removed by project Owners with the storage.admin role" },
       { id: 'D', text: "It unlocks automatically after 30 days" }
@@ -81,7 +81,7 @@ export const GCP_PCA_QUESTIONS_5 = [
     type: "single",
     explanation: "Google Cloud Storage `Bucket Lock` is mathematically and administratively irreversible. Neither the customer's organization administrators nor Google Cloud engineers can remove or shorten a locked retention policy, ensuring strict regulatory compliance.",
     referenceUrl: "https://cloud.google.com/storage/docs/bucket-lock#lock-bucket",
-    tags: ["Cloud Storage", "Bucket Lock", "Immutability"]
+    tags: ["Cloud Storage","Bucket Lock","Immutability"]
   },
   {
     id: "gcp-pca-105",
@@ -102,7 +102,7 @@ export const GCP_PCA_QUESTIONS_5 = [
     type: "single",
     explanation: "Cloud SQL provides `Automatic Storage Increase`. When enabled, Cloud SQL monitors free space and automatically increases disk capacity when space falls below 10% of total capacity (with optional maximum capacity limits), preventing downtime due to disk-full conditions.",
     referenceUrl: "https://cloud.google.com/sql/docs/mysql/instance-settings#automatic-storage-increase-2ndgen",
-    tags: ["Cloud SQL", "Storage", "Capacity Management"]
+    tags: ["Cloud SQL","Storage","Capacity Management"]
   },
   {
     id: "gcp-pca-106",
@@ -123,7 +123,7 @@ export const GCP_PCA_QUESTIONS_5 = [
     type: "single",
     explanation: "The `Gateway API` is the modern, role-oriented, expressive evolution of Kubernetes Ingress. It decouples infrastructure provisioning (`GatewayClass` for cloud providers, `Gateway` for cluster operators) from application routing (`HTTPRoute` for developers), supporting canary splitting and cross-namespace routing natively in GKE.",
     referenceUrl: "https://cloud.google.com/kubernetes-engine/docs/concepts/gateway-api",
-    tags: ["GKE", "Gateway API", "Networking"]
+    tags: ["GKE","Gateway API","Networking"]
   },
   {
     id: "gcp-pca-107",
@@ -135,7 +135,7 @@ export const GCP_PCA_QUESTIONS_5 = [
     scenario: "A company deploys compliance-sensitive payment workloads onto Sole-Tenant Nodes. Specific VMs must only run on node group `node-group-pci`.",
     question: "Which Compute Engine mechanism matches VM instances to specific sole-tenant node groups?",
     options: [
-      { id: 'A', text: "Node Affinity Labels configured in the instance scheduling properties" },
+      { id: 'A', text: "Node affinity labels" },
       { id: 'B', text: "IAM Service Account bindings" },
       { id: 'C', text: "VM instance names" },
       { id: 'D', text: "Network Tags on the VPC" }
@@ -144,7 +144,7 @@ export const GCP_PCA_QUESTIONS_5 = [
     type: "single",
     explanation: "Compute Engine uses `Node Affinity Labels` in instance scheduling properties (`--node-affinity-labels`) to match VM instances with sole-tenant node groups that carry matching affinity key-value tags, ensuring strict placement on designated physical hosts.",
     referenceUrl: "https://cloud.google.com/compute/docs/nodes/provisioning-sole-tenant-vms#node-affinity",
-    tags: ["Compute Engine", "Sole-Tenant", "Node Affinity"]
+    tags: ["Compute Engine","Sole-Tenant","Node Affinity"]
   },
   {
     id: "gcp-pca-108",
@@ -165,7 +165,7 @@ export const GCP_PCA_QUESTIONS_5 = [
     type: "single",
     explanation: "Cloud Storage `Resumable Uploads` break uploads into chunks. If a connection drops midway through an upload, the client queries the upload session URI for the last received byte offset and resumes transmitting from that point, preventing redundant re-upload of completed bytes.",
     referenceUrl: "https://cloud.google.com/storage/docs/resumable-uploads",
-    tags: ["Cloud Storage", "Resumable Uploads", "Reliability"]
+    tags: ["Cloud Storage","Resumable Uploads","Reliability"]
   },
   {
     id: "gcp-pca-109",
@@ -186,7 +186,7 @@ export const GCP_PCA_QUESTIONS_5 = [
     type: "single",
     explanation: "Compute Engine `Guest Attributes` are a specialized subset of instance metadata that allows the guest operating system to write key-value pairs (`curl -X PUT http://metadata.google.internal/computeMetadata/v1/instance/guest-attributes/...`) and exposes them through the Compute Engine API to external tools.",
     referenceUrl: "https://cloud.google.com/compute/docs/metadata/manage-guest-attributes",
-    tags: ["Compute Engine", "Guest Attributes", "Automation"]
+    tags: ["Compute Engine","Guest Attributes","Automation"]
   },
   {
     id: "gcp-pca-110",
@@ -207,7 +207,7 @@ export const GCP_PCA_QUESTIONS_5 = [
     type: "single",
     explanation: "`BGP Graceful Restart` allows the BGP control plane to restart without disrupting active packet forwarding in the data plane. Google Cloud Router supports BGP Graceful Restart, ensuring that transient BGP peer reboots do not cause route flapping or traffic drops.",
     referenceUrl: "https://cloud.google.com/router/docs/concepts/overview#graceful-restart",
-    tags: ["Cloud Router", "BGP", "Graceful Restart"]
+    tags: ["Cloud Router","BGP","Graceful Restart"]
   },
   {
     id: "gcp-pca-111",
@@ -228,7 +228,7 @@ export const GCP_PCA_QUESTIONS_5 = [
     type: "single",
     explanation: "Customer-Managed Encryption Keys (CMEK) allow organizations to use their own symmetric encryption keys generated in Cloud Key Management Service (Cloud KMS) to protect data at rest across Google Cloud services (BigQuery, Cloud Storage, Compute Engine), controlling rotation schedules and key revocation.",
     referenceUrl: "https://cloud.google.com/kms/docs/cmek",
-    tags: ["Cloud KMS", "CMEK", "Encryption"]
+    tags: ["Cloud KMS","CMEK","Encryption"]
   },
   {
     id: "gcp-pca-112",
@@ -249,7 +249,7 @@ export const GCP_PCA_QUESTIONS_5 = [
     type: "single",
     explanation: "With Customer-Supplied Encryption Keys (CSEK), the customer provides the raw 256-bit AES key in API calls. Google never stores the key in memory or disk. If the customer loses the CSEK key, Google has no mechanism to recover it, and all encrypted data is permanently lost.",
     referenceUrl: "https://cloud.google.com/compute/docs/disks/customer-supplied-encryption",
-    tags: ["Encryption", "CSEK", "Data Security"]
+    tags: ["Encryption","CSEK","Data Security"]
   },
   {
     id: "gcp-pca-113",
@@ -270,7 +270,7 @@ export const GCP_PCA_QUESTIONS_5 = [
     type: "single",
     explanation: "Cloud External Key Manager (Cloud EKM) allows organizations to protect data in Google Cloud using keys that reside in an external, customer-managed key management system or third-party physical HSM outside Google's infrastructure, proving complete physical key custody.",
     referenceUrl: "https://cloud.google.com/kms/docs/ekm",
-    tags: ["Cloud KMS", "Cloud EKM", "Compliance"]
+    tags: ["Cloud KMS","Cloud EKM","Compliance"]
   },
   {
     id: "gcp-pca-114",
@@ -291,7 +291,7 @@ export const GCP_PCA_QUESTIONS_5 = [
     type: "single",
     explanation: "VPC Service Controls creates a security perimeter around sensitive Google Cloud resources (Cloud Storage, BigQuery). It blocks requests originating from outside the perimeter and blocks requests attempting to move data from inside the perimeter to external, unapproved projects, stopping data exfiltration.",
     referenceUrl: "https://cloud.google.com/vpc-service-controls/docs/overview",
-    tags: ["VPC Service Controls", "Data Exfiltration", "Security"]
+    tags: ["VPC Service Controls","Data Exfiltration","Security"]
   },
   {
     id: "gcp-pca-115",
@@ -312,7 +312,7 @@ export const GCP_PCA_QUESTIONS_5 = [
     type: "single",
     explanation: "A `Perimeter Bridge` allows resources in two separate VPC Service Controls service perimeters to communicate and share data securely without combining the perimeters into a single large boundary, preserving independent organizational governance.",
     referenceUrl: "https://cloud.google.com/vpc-service-controls/docs/perimeter-bridge",
-    tags: ["VPC Service Controls", "Perimeter Bridge", "Security"]
+    tags: ["VPC Service Controls","Perimeter Bridge","Security"]
   },
   {
     id: "gcp-pca-116",
@@ -333,7 +333,7 @@ export const GCP_PCA_QUESTIONS_5 = [
     type: "single",
     explanation: "Identity-Aware Proxy (IAP) implements Google's BeyondCorp zero-trust security model. It intercepts HTTP(S) requests and TCP sessions (SSH/RDP), verifying user identity via Cloud Identity/IAM and device context before granting access, completely eliminating the need for legacy VPNs.",
     referenceUrl: "https://cloud.google.com/iap/docs/concepts-overview",
-    tags: ["IAP", "BeyondCorp", "Zero-Trust"]
+    tags: ["IAP","BeyondCorp","Zero-Trust"]
   },
   {
     id: "gcp-pca-117",
@@ -354,7 +354,7 @@ export const GCP_PCA_QUESTIONS_5 = [
     type: "single",
     explanation: "Binary Authorization is a deploy-time security control for GKE. It acts as a Kubernetes admission controller that checks whether container images have been signed by designated attestors (e.g. CI/CD build systems and security scanners) before allowing pods to deploy.",
     referenceUrl: "https://cloud.google.com/binary-authorization/docs/overview",
-    tags: ["Binary Authorization", "GKE", "Supply Chain Security"]
+    tags: ["Binary Authorization","GKE","Supply Chain Security"]
   },
   {
     id: "gcp-pca-118",
@@ -375,7 +375,7 @@ export const GCP_PCA_QUESTIONS_5 = [
     type: "single",
     explanation: "Sensitive Data Protection (formerly Cloud Data Loss Prevention / Cloud DLP) discovers, classifies, and de-identifies sensitive data (PII, payment info, credentials) at scale using pre-built detectors (infoTypes). It supports redaction, masking, and format-preserving cryptographic tokenization.",
     referenceUrl: "https://cloud.google.com/sensitive-data-protection/docs/overview",
-    tags: ["Sensitive Data Protection", "Cloud DLP", "PII Redaction"]
+    tags: ["Sensitive Data Protection","Cloud DLP","PII Redaction"]
   },
   {
     id: "gcp-pca-119",
@@ -396,7 +396,7 @@ export const GCP_PCA_QUESTIONS_5 = [
     type: "single",
     explanation: "Security Command Center (SCC) Premium tier includes advanced security capabilities: Event Threat Detection (rapid log analysis for anomalous activity), Container Threat Detection, Virtual Machine Threat Detection, Security Health Analytics, and compliance benchmarking (CIS, PCI DSS).",
     referenceUrl: "https://cloud.google.com/security-command-center/docs/concepts-security-command-center-overview#tiers",
-    tags: ["Security Command Center", "SCC", "Threat Detection"]
+    tags: ["Security Command Center","SCC","Threat Detection"]
   },
   {
     id: "gcp-pca-120",
@@ -417,7 +417,7 @@ export const GCP_PCA_QUESTIONS_5 = [
     type: "single",
     explanation: "`Admin Activity` audit logs record all API calls that modify resource metadata or configurations (e.g. creating VMs, modifying IAM policies). Admin Activity logs are enabled by default for all services, cannot be disabled by any user, and are retained for 400 days at zero charge.",
     referenceUrl: "https://cloud.google.com/logging/docs/audit#admin-activity",
-    tags: ["Cloud Logging", "Audit Logs", "Admin Activity"]
+    tags: ["Cloud Logging","Audit Logs","Admin Activity"]
   },
   {
     id: "gcp-pca-121",
@@ -438,7 +438,7 @@ export const GCP_PCA_QUESTIONS_5 = [
     type: "single",
     explanation: "`Data Access` audit logs record API operations that read or write user-provided data (e.g. `storage.objects.get` or BigQuery query executions). Because Data Access logs generate large volumes, they are disabled by default (except for BigQuery) and incur standard logging ingestion fees.",
     referenceUrl: "https://cloud.google.com/logging/docs/audit#data-access",
-    tags: ["Cloud Logging", "Data Access Logs", "Compliance"]
+    tags: ["Cloud Logging","Data Access Logs","Compliance"]
   },
   {
     id: "gcp-pca-122",
@@ -459,7 +459,7 @@ export const GCP_PCA_QUESTIONS_5 = [
     type: "single",
     explanation: "`Access Transparency` emits audit logs capturing the actions that Google Cloud personnel take when interacting with customer data (e.g. during a support ticket investigation). Logs include the affected resource, reason for access, and operator location.",
     referenceUrl: "https://cloud.google.com/access-transparency/docs/overview",
-    tags: ["Access Transparency", "Compliance", "Google Auditing"]
+    tags: ["Access Transparency","Compliance","Google Auditing"]
   },
   {
     id: "gcp-pca-123",
@@ -480,7 +480,7 @@ export const GCP_PCA_QUESTIONS_5 = [
     type: "single",
     explanation: "`Access Approval` complements Access Transparency. When Google personnel need access to investigate a critical technical issue, Access Approval generates an approval request. Google personnel cannot proceed until an authorized customer approver reviews and approves the request.",
     referenceUrl: "https://cloud.google.com/access-approval/docs/overview",
-    tags: ["Access Approval", "Compliance", "Access Control"]
+    tags: ["Access Approval","Compliance","Access Control"]
   },
   {
     id: "gcp-pca-124",
@@ -494,14 +494,14 @@ export const GCP_PCA_QUESTIONS_5 = [
     options: [
       { id: 'A', text: "Hardcoding client secrets in environment variables" },
       { id: 'B', text: "Granting the developer the Primitive Owner role" },
-      { id: 'C', text: "Service Account Impersonation (using roles/iam.serviceAccountTokenCreator)" },
+      { id: 'C', text: "Service account impersonation" },
       { id: 'D', text: "Creating a JSON key file and encrypting it with GPG" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Service Account Impersonation allows an authorized user to generate short-lived OAuth 2.0 access tokens for a service account using the `iam.serviceAccountTokenCreator` role (`gcloud --impersonate-service-account=...`), completely eliminating the risk of lost or leaked static JSON keys.",
     referenceUrl: "https://cloud.google.com/iam/docs/service-account-impersonation",
-    tags: ["IAM", "Service Account Impersonation", "Keyless"]
+    tags: ["IAM","Service Account Impersonation","Keyless"]
   },
   {
     id: "gcp-pca-125",
@@ -522,7 +522,7 @@ export const GCP_PCA_QUESTIONS_5 = [
     type: "single",
     explanation: "Workload Identity Federation allows external workloads (such as GitHub Actions, AWS, or Azure) to exchange their native OpenID Connect (OIDC) or SAML credentials for short-lived Google Cloud access tokens, eliminating the need to manage and rotate long-lived service account keys.",
     referenceUrl: "https://cloud.google.com/iam/docs/workload-identity-federation",
-    tags: ["Workload Identity Federation", "OIDC", "CI/CD Security"]
+    tags: ["Workload Identity Federation","OIDC","CI/CD Security"]
   }
 ];
 

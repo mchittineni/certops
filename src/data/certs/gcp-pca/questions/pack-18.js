@@ -9,7 +9,7 @@ export const GCP_PCA_QUESTIONS_18 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to minimize cloud network egress costs for an international static content download site where latency is not critical, while routing high-priority API calls over Google's global private fiber.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Select Standard Tier networking for the static download traffic and Premium Tier networking for low-latency API services." },
+      { id: 'A', text: "Standard Tier for downloads, Premium Tier for the APIs." },
       { id: 'B', text: "Deploy physical satellite links between regional offices." },
       { id: 'C', text: "Disable network caching on all servers." },
       { id: 'D', text: "Route all traffic exclusively over consumer broadband networks." }
@@ -33,7 +33,7 @@ export const GCP_PCA_QUESTIONS_18 = [
       { id: 'A', text: "Route all traffic exclusively over consumer broadband networks." },
       { id: 'B', text: "Deploy physical satellite links between regional offices." },
       { id: 'C', text: "Disable network caching on all servers." },
-      { id: 'D', text: "Select Standard Tier networking for the static download traffic and Premium Tier networking for low-latency API services." }
+      { id: 'D', text: "Standard Tier for downloads, Premium Tier for the APIs." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -51,7 +51,7 @@ export const GCP_PCA_QUESTIONS_18 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to minimize cloud network egress costs for an international static content download site where latency is not critical, while routing high-priority API calls over Google's global private fiber.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Select Standard Tier networking for the static download traffic and Premium Tier networking for low-latency API services." },
+      { id: 'A', text: "Standard Tier for downloads, Premium Tier for the APIs." },
       { id: 'B', text: "Route all traffic exclusively over consumer broadband networks." },
       { id: 'C', text: "Disable network caching on all servers." },
       { id: 'D', text: "Deploy physical satellite links between regional offices." }
@@ -72,7 +72,7 @@ export const GCP_PCA_QUESTIONS_18 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to minimize cloud network egress costs for an international static content download site where latency is not critical, while routing high-priority API calls over Google's global private fiber.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Select Standard Tier networking for the static download traffic and Premium Tier networking for low-latency API services." },
+      { id: 'A', text: "Standard Tier for downloads, Premium Tier for the APIs." },
       { id: 'B', text: "Route all traffic exclusively over consumer broadband networks." },
       { id: 'C', text: "Deploy physical satellite links between regional offices." },
       { id: 'D', text: "Disable network caching on all servers." }
@@ -93,7 +93,7 @@ export const GCP_PCA_QUESTIONS_18 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to minimize cloud network egress costs for an international static content download site where latency is not critical, while routing high-priority API calls over Google's global private fiber.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Select Standard Tier networking for the static download traffic and Premium Tier networking for low-latency API services." },
+      { id: 'A', text: "Standard Tier for downloads, Premium Tier for the APIs." },
       { id: 'B', text: "Deploy physical satellite links between regional offices." },
       { id: 'C', text: "Route all traffic exclusively over consumer broadband networks." },
       { id: 'D', text: "Disable network caching on all servers." }
@@ -115,7 +115,7 @@ export const GCP_PCA_QUESTIONS_18 = [
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Export data to local Excel spreadsheets for executive review." },
-      { id: 'B', text: "Allocate BigQuery BI Engine reservation capacity to accelerate dashboard queries in-memory." },
+      { id: 'B', text: "Allocate BigQuery BI Engine reservation capacity." },
       { id: 'C', text: "Pre-calculate all dashboard queries manually every morning." },
       { id: 'D', text: "Recreate the analytical dataset inside a single-node MySQL database." }
     ],
@@ -138,7 +138,7 @@ export const GCP_PCA_QUESTIONS_18 = [
       { id: 'A', text: "Pre-calculate all dashboard queries manually every morning." },
       { id: 'B', text: "Export data to local Excel spreadsheets for executive review." },
       { id: 'C', text: "Recreate the analytical dataset inside a single-node MySQL database." },
-      { id: 'D', text: "Allocate BigQuery BI Engine reservation capacity to accelerate dashboard queries in-memory." }
+      { id: 'D', text: "Allocate BigQuery BI Engine reservation capacity." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -156,7 +156,7 @@ export const GCP_PCA_QUESTIONS_18 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to accelerate executive Looker and Data Studio business intelligence dashboards so that complex aggregate SQL queries return in sub-second response times without extracting data.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Allocate BigQuery BI Engine reservation capacity to accelerate dashboard queries in-memory." },
+      { id: 'A', text: "Allocate BigQuery BI Engine reservation capacity." },
       { id: 'B', text: "Export data to local Excel spreadsheets for executive review." },
       { id: 'C', text: "Recreate the analytical dataset inside a single-node MySQL database." },
       { id: 'D', text: "Pre-calculate all dashboard queries manually every morning." }
@@ -178,7 +178,7 @@ export const GCP_PCA_QUESTIONS_18 = [
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Pre-calculate all dashboard queries manually every morning." },
-      { id: 'B', text: "Allocate BigQuery BI Engine reservation capacity to accelerate dashboard queries in-memory." },
+      { id: 'B', text: "Allocate BigQuery BI Engine reservation capacity." },
       { id: 'C', text: "Export data to local Excel spreadsheets for executive review." },
       { id: 'D', text: "Recreate the analytical dataset inside a single-node MySQL database." }
     ],
@@ -201,7 +201,7 @@ export const GCP_PCA_QUESTIONS_18 = [
       { id: 'A', text: "Export data to local Excel spreadsheets for executive review." },
       { id: 'B', text: "Recreate the analytical dataset inside a single-node MySQL database." },
       { id: 'C', text: "Pre-calculate all dashboard queries manually every morning." },
-      { id: 'D', text: "Allocate BigQuery BI Engine reservation capacity to accelerate dashboard queries in-memory." }
+      { id: 'D', text: "Allocate BigQuery BI Engine reservation capacity." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -220,7 +220,7 @@ export const GCP_PCA_QUESTIONS_18 = [
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Allow unmetered on-demand query execution across all developer accounts." },
-      { id: 'B', text: "Purchase BigQuery Editions (Standard, Enterprise, Enterprise Plus) with autoscaling slot reservations." },
+      { id: 'B', text: "Purchase BigQuery Editions with autoscaling slot reservations." },
       { id: 'C', text: "Migrate data to an unmanaged CSV flat file storage system." },
       { id: 'D', text: "Restrict all analysts to querying 10 MB of data per day." }
     ],
@@ -240,7 +240,7 @@ export const GCP_PCA_QUESTIONS_18 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to establish predictable monthly analytics spending and protect business queries from on-demand per-terabyte query scanning cost spikes during high-volume reporting periods.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Purchase BigQuery Editions (Standard, Enterprise, Enterprise Plus) with autoscaling slot reservations." },
+      { id: 'A', text: "Purchase BigQuery Editions with autoscaling slot reservations." },
       { id: 'B', text: "Restrict all analysts to querying 10 MB of data per day." },
       { id: 'C', text: "Migrate data to an unmanaged CSV flat file storage system." },
       { id: 'D', text: "Allow unmetered on-demand query execution across all developer accounts." }
@@ -263,7 +263,7 @@ export const GCP_PCA_QUESTIONS_18 = [
     options: [
       { id: 'A', text: "Allow unmetered on-demand query execution across all developer accounts." },
       { id: 'B', text: "Migrate data to an unmanaged CSV flat file storage system." },
-      { id: 'C', text: "Purchase BigQuery Editions (Standard, Enterprise, Enterprise Plus) with autoscaling slot reservations." },
+      { id: 'C', text: "Purchase BigQuery Editions with autoscaling slot reservations." },
       { id: 'D', text: "Restrict all analysts to querying 10 MB of data per day." }
     ],
     correctAnswers: ['C'],
@@ -282,7 +282,7 @@ export const GCP_PCA_QUESTIONS_18 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to establish predictable monthly analytics spending and protect business queries from on-demand per-terabyte query scanning cost spikes during high-volume reporting periods.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Purchase BigQuery Editions (Standard, Enterprise, Enterprise Plus) with autoscaling slot reservations." },
+      { id: 'A', text: "Purchase BigQuery Editions with autoscaling slot reservations." },
       { id: 'B', text: "Restrict all analysts to querying 10 MB of data per day." },
       { id: 'C', text: "Migrate data to an unmanaged CSV flat file storage system." },
       { id: 'D', text: "Allow unmetered on-demand query execution across all developer accounts." }
@@ -306,7 +306,7 @@ export const GCP_PCA_QUESTIONS_18 = [
       { id: 'A', text: "Restrict all analysts to querying 10 MB of data per day." },
       { id: 'B', text: "Allow unmetered on-demand query execution across all developer accounts." },
       { id: 'C', text: "Migrate data to an unmanaged CSV flat file storage system." },
-      { id: 'D', text: "Purchase BigQuery Editions (Standard, Enterprise, Enterprise Plus) with autoscaling slot reservations." }
+      { id: 'D', text: "Purchase BigQuery Editions with autoscaling slot reservations." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -431,7 +431,7 @@ export const GCP_PCA_QUESTIONS_18 = [
     options: [
       { id: 'A', text: "Configure a Cloud Build trigger linked to the Git repository executing a cloudbuild.yaml pipeline." },
       { id: 'B', text: "Require operations staff to manually apply Kubernetes YAML files after business hours." },
-      { id: 'C', text: "Deploy an unmanaged Jenkins instance with hardcoded root passwords on a public VM." },
+      { id: 'C', text: "Run Jenkins on a Compute Engine VM that polls the repository for changes." },
       { id: 'D', text: "Compile software binaries manually on developer laptops and copy via SCP to production servers." }
     ],
     correctAnswers: ['A'],
@@ -452,7 +452,7 @@ export const GCP_PCA_QUESTIONS_18 = [
     options: [
       { id: 'A', text: "Require operations staff to manually apply Kubernetes YAML files after business hours." },
       { id: 'B', text: "Compile software binaries manually on developer laptops and copy via SCP to production servers." },
-      { id: 'C', text: "Deploy an unmanaged Jenkins instance with hardcoded root passwords on a public VM." },
+      { id: 'C', text: "Run Jenkins on a Compute Engine VM that polls the repository for changes." },
       { id: 'D', text: "Configure a Cloud Build trigger linked to the Git repository executing a cloudbuild.yaml pipeline." }
     ],
     correctAnswers: ['D'],
@@ -474,7 +474,7 @@ export const GCP_PCA_QUESTIONS_18 = [
       { id: 'A', text: "Configure a Cloud Build trigger linked to the Git repository executing a cloudbuild.yaml pipeline." },
       { id: 'B', text: "Compile software binaries manually on developer laptops and copy via SCP to production servers." },
       { id: 'C', text: "Require operations staff to manually apply Kubernetes YAML files after business hours." },
-      { id: 'D', text: "Deploy an unmanaged Jenkins instance with hardcoded root passwords on a public VM." }
+      { id: 'D', text: "Run Jenkins on a Compute Engine VM that polls the repository for changes." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -495,7 +495,7 @@ export const GCP_PCA_QUESTIONS_18 = [
       { id: 'A', text: "Configure a Cloud Build trigger linked to the Git repository executing a cloudbuild.yaml pipeline." },
       { id: 'B', text: "Require operations staff to manually apply Kubernetes YAML files after business hours." },
       { id: 'C', text: "Compile software binaries manually on developer laptops and copy via SCP to production servers." },
-      { id: 'D', text: "Deploy an unmanaged Jenkins instance with hardcoded root passwords on a public VM." }
+      { id: 'D', text: "Run Jenkins on a Compute Engine VM that polls the repository for changes." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -514,7 +514,7 @@ export const GCP_PCA_QUESTIONS_18 = [
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Compile software binaries manually on developer laptops and copy via SCP to production servers." },
-      { id: 'B', text: "Deploy an unmanaged Jenkins instance with hardcoded root passwords on a public VM." },
+      { id: 'B', text: "Run Jenkins on a Compute Engine VM that polls the repository for changes." },
       { id: 'C', text: "Require operations staff to manually apply Kubernetes YAML files after business hours." },
       { id: 'D', text: "Configure a Cloud Build trigger linked to the Git repository executing a cloudbuild.yaml pipeline." }
     ],

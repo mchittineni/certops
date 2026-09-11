@@ -10,7 +10,7 @@ export const GCP_PCA_QUESTIONS_15 = [
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Deploy shared-core E2 virtual machines on public multi-tenant hardware." },
-      { id: 'B', text: "Provision Compute Engine Sole-Tenant Nodes and schedule instances onto dedicated node groups." },
+      { id: 'B', text: "Provision sole-tenant nodes and dedicated node groups." },
       { id: 'C', text: "Use serverless Cloud Functions for all processing." },
       { id: 'D', text: "Deploy the workload into a shared Google App Engine environment." }
     ],
@@ -31,7 +31,7 @@ export const GCP_PCA_QUESTIONS_15 = [
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Deploy shared-core E2 virtual machines on public multi-tenant hardware." },
-      { id: 'B', text: "Provision Compute Engine Sole-Tenant Nodes and schedule instances onto dedicated node groups." },
+      { id: 'B', text: "Provision sole-tenant nodes and dedicated node groups." },
       { id: 'C', text: "Deploy the workload into a shared Google App Engine environment." },
       { id: 'D', text: "Use serverless Cloud Functions for all processing." }
     ],
@@ -52,7 +52,7 @@ export const GCP_PCA_QUESTIONS_15 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Deploy the workload into a shared Google App Engine environment." },
-      { id: 'B', text: "Provision Compute Engine Sole-Tenant Nodes and schedule instances onto dedicated node groups." },
+      { id: 'B', text: "Provision sole-tenant nodes and dedicated node groups." },
       { id: 'C', text: "Use serverless Cloud Functions for all processing." },
       { id: 'D', text: "Deploy shared-core E2 virtual machines on public multi-tenant hardware." }
     ],
@@ -75,7 +75,7 @@ export const GCP_PCA_QUESTIONS_15 = [
       { id: 'A', text: "Deploy the workload into a shared Google App Engine environment." },
       { id: 'B', text: "Use serverless Cloud Functions for all processing." },
       { id: 'C', text: "Deploy shared-core E2 virtual machines on public multi-tenant hardware." },
-      { id: 'D', text: "Provision Compute Engine Sole-Tenant Nodes and schedule instances onto dedicated node groups." }
+      { id: 'D', text: "Provision sole-tenant nodes and dedicated node groups." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -93,7 +93,7 @@ export const GCP_PCA_QUESTIONS_15 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to run sensitive workloads requiring physical hardware isolation and support existing per-core server software licenses (BYOL) on dedicated physical infrastructure.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Provision Compute Engine Sole-Tenant Nodes and schedule instances onto dedicated node groups." },
+      { id: 'A', text: "Provision sole-tenant nodes and dedicated node groups." },
       { id: 'B', text: "Deploy the workload into a shared Google App Engine environment." },
       { id: 'C', text: "Deploy shared-core E2 virtual machines on public multi-tenant hardware." },
       { id: 'D', text: "Use serverless Cloud Functions for all processing." }
@@ -117,7 +117,7 @@ export const GCP_PCA_QUESTIONS_15 = [
       { id: 'A', text: "Rely on default client browser TLS negotiation." },
       { id: 'B', text: "Configure SSL termination inside individual backend virtual machines." },
       { id: 'C', text: "Disable HTTPS encryption and use cleartext HTTP traffic." },
-      { id: 'D', text: "Create a custom Cloud SSL Policy configured with a minimum TLS version of 1.2 and attach it to the load balancer target HTTPS proxy." }
+      { id: 'D', text: "Attach a custom SSL policy with a minimum of TLS 1.2." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -138,7 +138,7 @@ export const GCP_PCA_QUESTIONS_15 = [
       { id: 'A', text: "Rely on default client browser TLS negotiation." },
       { id: 'B', text: "Disable HTTPS encryption and use cleartext HTTP traffic." },
       { id: 'C', text: "Configure SSL termination inside individual backend virtual machines." },
-      { id: 'D', text: "Create a custom Cloud SSL Policy configured with a minimum TLS version of 1.2 and attach it to the load balancer target HTTPS proxy." }
+      { id: 'D', text: "Attach a custom SSL policy with a minimum of TLS 1.2." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -159,7 +159,7 @@ export const GCP_PCA_QUESTIONS_15 = [
       { id: 'A', text: "Rely on default client browser TLS negotiation." },
       { id: 'B', text: "Disable HTTPS encryption and use cleartext HTTP traffic." },
       { id: 'C', text: "Configure SSL termination inside individual backend virtual machines." },
-      { id: 'D', text: "Create a custom Cloud SSL Policy configured with a minimum TLS version of 1.2 and attach it to the load balancer target HTTPS proxy." }
+      { id: 'D', text: "Attach a custom SSL policy with a minimum of TLS 1.2." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -179,7 +179,7 @@ export const GCP_PCA_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Rely on default client browser TLS negotiation." },
       { id: 'B', text: "Disable HTTPS encryption and use cleartext HTTP traffic." },
-      { id: 'C', text: "Create a custom Cloud SSL Policy configured with a minimum TLS version of 1.2 and attach it to the load balancer target HTTPS proxy." },
+      { id: 'C', text: "Attach a custom SSL policy with a minimum of TLS 1.2." },
       { id: 'D', text: "Configure SSL termination inside individual backend virtual machines." }
     ],
     correctAnswers: ['C'],
@@ -201,7 +201,7 @@ export const GCP_PCA_QUESTIONS_15 = [
       { id: 'A', text: "Configure SSL termination inside individual backend virtual machines." },
       { id: 'B', text: "Rely on default client browser TLS negotiation." },
       { id: 'C', text: "Disable HTTPS encryption and use cleartext HTTP traffic." },
-      { id: 'D', text: "Create a custom Cloud SSL Policy configured with a minimum TLS version of 1.2 and attach it to the load balancer target HTTPS proxy." }
+      { id: 'D', text: "Attach a custom SSL policy with a minimum of TLS 1.2." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -326,7 +326,7 @@ export const GCP_PCA_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Disable encryption for files larger than 1 GB." },
       { id: 'B', text: "Store encryption keys in plaintext in an unencrypted GitHub repository." },
-      { id: 'C', text: "Implement envelope encryption: generate a local Data Encryption Key (DEK), encrypt the data, encrypt the DEK with a Cloud KMS Key Encryption Key (KEK), and configure automated key rotation." },
+      { id: 'C', text: "Use envelope encryption, wrapping a local DEK with a KMS key." },
       { id: 'D', text: "Transmit the entire 100 GB file directly to the Cloud KMS Encrypt API endpoint." }
     ],
     correctAnswers: ['C'],
@@ -348,7 +348,7 @@ export const GCP_PCA_QUESTIONS_15 = [
       { id: 'A', text: "Transmit the entire 100 GB file directly to the Cloud KMS Encrypt API endpoint." },
       { id: 'B', text: "Store encryption keys in plaintext in an unencrypted GitHub repository." },
       { id: 'C', text: "Disable encryption for files larger than 1 GB." },
-      { id: 'D', text: "Implement envelope encryption: generate a local Data Encryption Key (DEK), encrypt the data, encrypt the DEK with a Cloud KMS Key Encryption Key (KEK), and configure automated key rotation." }
+      { id: 'D', text: "Use envelope encryption, wrapping a local DEK with a KMS key." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -366,7 +366,7 @@ export const GCP_PCA_QUESTIONS_15 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to encrypt 100 GB database backup files efficiently using client-side encryption while keeping root encryption keys secured inside Cloud KMS with automated 90-day rotation.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Implement envelope encryption: generate a local Data Encryption Key (DEK), encrypt the data, encrypt the DEK with a Cloud KMS Key Encryption Key (KEK), and configure automated key rotation." },
+      { id: 'A', text: "Use envelope encryption, wrapping a local DEK with a KMS key." },
       { id: 'B', text: "Transmit the entire 100 GB file directly to the Cloud KMS Encrypt API endpoint." },
       { id: 'C', text: "Store encryption keys in plaintext in an unencrypted GitHub repository." },
       { id: 'D', text: "Disable encryption for files larger than 1 GB." }
@@ -387,7 +387,7 @@ export const GCP_PCA_QUESTIONS_15 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to encrypt 100 GB database backup files efficiently using client-side encryption while keeping root encryption keys secured inside Cloud KMS with automated 90-day rotation.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Implement envelope encryption: generate a local Data Encryption Key (DEK), encrypt the data, encrypt the DEK with a Cloud KMS Key Encryption Key (KEK), and configure automated key rotation." },
+      { id: 'A', text: "Use envelope encryption, wrapping a local DEK with a KMS key." },
       { id: 'B', text: "Transmit the entire 100 GB file directly to the Cloud KMS Encrypt API endpoint." },
       { id: 'C', text: "Disable encryption for files larger than 1 GB." },
       { id: 'D', text: "Store encryption keys in plaintext in an unencrypted GitHub repository." }
@@ -411,7 +411,7 @@ export const GCP_PCA_QUESTIONS_15 = [
       { id: 'A', text: "Store encryption keys in plaintext in an unencrypted GitHub repository." },
       { id: 'B', text: "Disable encryption for files larger than 1 GB." },
       { id: 'C', text: "Transmit the entire 100 GB file directly to the Cloud KMS Encrypt API endpoint." },
-      { id: 'D', text: "Implement envelope encryption: generate a local Data Encryption Key (DEK), encrypt the data, encrypt the DEK with a Cloud KMS Key Encryption Key (KEK), and configure automated key rotation." }
+      { id: 'D', text: "Use envelope encryption, wrapping a local DEK with a KMS key." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -431,7 +431,7 @@ export const GCP_PCA_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Assign the Owner role to allUsers on both BigQuery datasets." },
       { id: 'B', text: "Delete the VPC Service Controls service perimeter entirely." },
-      { id: 'C', text: "Configure an Ingress and Egress rule in the VPC Service Controls perimeters (or establish a Perimeter Bridge)." },
+      { id: 'C', text: "Add ingress and egress rules to the VPC SC perimeters." },
       { id: 'D', text: "Export the BigQuery dataset to a public Cloud Storage bucket accessible to the internet." }
     ],
     correctAnswers: ['C'],
@@ -453,7 +453,7 @@ export const GCP_PCA_QUESTIONS_15 = [
       { id: 'A', text: "Delete the VPC Service Controls service perimeter entirely." },
       { id: 'B', text: "Export the BigQuery dataset to a public Cloud Storage bucket accessible to the internet." },
       { id: 'C', text: "Assign the Owner role to allUsers on both BigQuery datasets." },
-      { id: 'D', text: "Configure an Ingress and Egress rule in the VPC Service Controls perimeters (or establish a Perimeter Bridge)." }
+      { id: 'D', text: "Add ingress and egress rules to the VPC SC perimeters." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -471,7 +471,7 @@ export const GCP_PCA_QUESTIONS_15 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to allow an authorized BigQuery client in Project A inside a service perimeter to securely query a dataset in Project B located in a different perimeter without opening the perimeter to the internet.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Configure an Ingress and Egress rule in the VPC Service Controls perimeters (or establish a Perimeter Bridge)." },
+      { id: 'A', text: "Add ingress and egress rules to the VPC SC perimeters." },
       { id: 'B', text: "Delete the VPC Service Controls service perimeter entirely." },
       { id: 'C', text: "Export the BigQuery dataset to a public Cloud Storage bucket accessible to the internet." },
       { id: 'D', text: "Assign the Owner role to allUsers on both BigQuery datasets." }
@@ -492,7 +492,7 @@ export const GCP_PCA_QUESTIONS_15 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to allow an authorized BigQuery client in Project A inside a service perimeter to securely query a dataset in Project B located in a different perimeter without opening the perimeter to the internet.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Configure an Ingress and Egress rule in the VPC Service Controls perimeters (or establish a Perimeter Bridge)." },
+      { id: 'A', text: "Add ingress and egress rules to the VPC SC perimeters." },
       { id: 'B', text: "Export the BigQuery dataset to a public Cloud Storage bucket accessible to the internet." },
       { id: 'C', text: "Delete the VPC Service Controls service perimeter entirely." },
       { id: 'D', text: "Assign the Owner role to allUsers on both BigQuery datasets." }
@@ -515,7 +515,7 @@ export const GCP_PCA_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Assign the Owner role to allUsers on both BigQuery datasets." },
       { id: 'B', text: "Delete the VPC Service Controls service perimeter entirely." },
-      { id: 'C', text: "Configure an Ingress and Egress rule in the VPC Service Controls perimeters (or establish a Perimeter Bridge)." },
+      { id: 'C', text: "Add ingress and egress rules to the VPC SC perimeters." },
       { id: 'D', text: "Export the BigQuery dataset to a public Cloud Storage bucket accessible to the internet." }
     ],
     correctAnswers: ['C'],

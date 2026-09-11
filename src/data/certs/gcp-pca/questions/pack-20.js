@@ -9,7 +9,7 @@ export const GCP_PCA_QUESTIONS_20 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to establish operational reliability standards for a core payment microservice, defining acceptable service failure rates to balance feature velocity with platform stability.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Define Service Level Indicators (SLIs), establish Service Level Objectives (SLOs), and track the remaining Error Budget." },
+      { id: 'A', text: "Define SLIs and SLOs and track the remaining error budget." },
       { id: 'B', text: "Demand 100% zero-defect uptime across all services with no allowable failure rate." },
       { id: 'C', text: "Allow development teams to deploy untested code whenever an error occurs." },
       { id: 'D', text: "Rely on customer complaint volumes as the sole measure of service reliability." }
@@ -33,7 +33,7 @@ export const GCP_PCA_QUESTIONS_20 = [
       { id: 'A', text: "Allow development teams to deploy untested code whenever an error occurs." },
       { id: 'B', text: "Rely on customer complaint volumes as the sole measure of service reliability." },
       { id: 'C', text: "Demand 100% zero-defect uptime across all services with no allowable failure rate." },
-      { id: 'D', text: "Define Service Level Indicators (SLIs), establish Service Level Objectives (SLOs), and track the remaining Error Budget." }
+      { id: 'D', text: "Define SLIs and SLOs and track the remaining error budget." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -51,7 +51,7 @@ export const GCP_PCA_QUESTIONS_20 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to establish operational reliability standards for a core payment microservice, defining acceptable service failure rates to balance feature velocity with platform stability.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Define Service Level Indicators (SLIs), establish Service Level Objectives (SLOs), and track the remaining Error Budget." },
+      { id: 'A', text: "Define SLIs and SLOs and track the remaining error budget." },
       { id: 'B', text: "Demand 100% zero-defect uptime across all services with no allowable failure rate." },
       { id: 'C', text: "Rely on customer complaint volumes as the sole measure of service reliability." },
       { id: 'D', text: "Allow development teams to deploy untested code whenever an error occurs." }
@@ -74,7 +74,7 @@ export const GCP_PCA_QUESTIONS_20 = [
     options: [
       { id: 'A', text: "Demand 100% zero-defect uptime across all services with no allowable failure rate." },
       { id: 'B', text: "Rely on customer complaint volumes as the sole measure of service reliability." },
-      { id: 'C', text: "Define Service Level Indicators (SLIs), establish Service Level Objectives (SLOs), and track the remaining Error Budget." },
+      { id: 'C', text: "Define SLIs and SLOs and track the remaining error budget." },
       { id: 'D', text: "Allow development teams to deploy untested code whenever an error occurs." }
     ],
     correctAnswers: ['C'],
@@ -95,7 +95,7 @@ export const GCP_PCA_QUESTIONS_20 = [
     options: [
       { id: 'A', text: "Demand 100% zero-defect uptime across all services with no allowable failure rate." },
       { id: 'B', text: "Allow development teams to deploy untested code whenever an error occurs." },
-      { id: 'C', text: "Define Service Level Indicators (SLIs), establish Service Level Objectives (SLOs), and track the remaining Error Budget." },
+      { id: 'C', text: "Define SLIs and SLOs and track the remaining error budget." },
       { id: 'D', text: "Rely on customer complaint volumes as the sole measure of service reliability." }
     ],
     correctAnswers: ['C'],
@@ -222,7 +222,7 @@ export const GCP_PCA_QUESTIONS_20 = [
       { id: 'A', text: "Conceal the incident details from engineering teams to prevent negative publicity." },
       { id: 'B', text: "Resume development immediately without documenting lessons learned." },
       { id: 'C', text: "Identify the developer who introduced the bug and issue formal disciplinary reprimands." },
-      { id: 'D', text: "Conduct a blameless postmortem documenting timeline, root causes, detection gaps, and actionable preventative work." }
+      { id: 'D', text: "Conduct a blameless postmortem with preventative actions." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -240,7 +240,7 @@ export const GCP_PCA_QUESTIONS_20 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to conduct a constructive engineering analysis after a major platform outage to identify root causes and implement preventive guardrails without assigning personal culpability.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Conduct a blameless postmortem documenting timeline, root causes, detection gaps, and actionable preventative work." },
+      { id: 'A', text: "Conduct a blameless postmortem with preventative actions." },
       { id: 'B', text: "Resume development immediately without documenting lessons learned." },
       { id: 'C', text: "Identify the developer who introduced the bug and issue formal disciplinary reprimands." },
       { id: 'D', text: "Conceal the incident details from engineering teams to prevent negative publicity." }
@@ -262,7 +262,7 @@ export const GCP_PCA_QUESTIONS_20 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Resume development immediately without documenting lessons learned." },
-      { id: 'B', text: "Conduct a blameless postmortem documenting timeline, root causes, detection gaps, and actionable preventative work." },
+      { id: 'B', text: "Conduct a blameless postmortem with preventative actions." },
       { id: 'C', text: "Identify the developer who introduced the bug and issue formal disciplinary reprimands." },
       { id: 'D', text: "Conceal the incident details from engineering teams to prevent negative publicity." }
     ],
@@ -285,7 +285,7 @@ export const GCP_PCA_QUESTIONS_20 = [
       { id: 'A', text: "Identify the developer who introduced the bug and issue formal disciplinary reprimands." },
       { id: 'B', text: "Resume development immediately without documenting lessons learned." },
       { id: 'C', text: "Conceal the incident details from engineering teams to prevent negative publicity." },
-      { id: 'D', text: "Conduct a blameless postmortem documenting timeline, root causes, detection gaps, and actionable preventative work." }
+      { id: 'D', text: "Conduct a blameless postmortem with preventative actions." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -306,7 +306,7 @@ export const GCP_PCA_QUESTIONS_20 = [
       { id: 'A', text: "Conceal the incident details from engineering teams to prevent negative publicity." },
       { id: 'B', text: "Identify the developer who introduced the bug and issue formal disciplinary reprimands." },
       { id: 'C', text: "Resume development immediately without documenting lessons learned." },
-      { id: 'D', text: "Conduct a blameless postmortem documenting timeline, root causes, detection gaps, and actionable preventative work." }
+      { id: 'D', text: "Conduct a blameless postmortem with preventative actions." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -324,9 +324,9 @@ export const GCP_PCA_QUESTIONS_20 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to validate that a multi-zone GKE application automatically recovers from sudden zone failures and network partitions before launching to public customers.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Simulate failures directly in production during peak shopping sales without backups." },
+      { id: 'A', text: "Load-test a staging replica to confirm the capacity headroom is sufficient." },
       { id: 'B', text: "Assume the cloud platform never experiences failures and skip failure testing." },
-      { id: 'C', text: "Execute controlled chaos engineering experiments by injecting node failures, network latency, and zone outages." },
+      { id: 'C', text: "Run chaos experiments injecting node, latency and zone failures." },
       { id: 'D', text: "Rely on architectural whiteboard diagrams as proof of fault tolerance." }
     ],
     correctAnswers: ['C'],
@@ -345,8 +345,8 @@ export const GCP_PCA_QUESTIONS_20 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to validate that a multi-zone GKE application automatically recovers from sudden zone failures and network partitions before launching to public customers.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Simulate failures directly in production during peak shopping sales without backups." },
-      { id: 'B', text: "Execute controlled chaos engineering experiments by injecting node failures, network latency, and zone outages." },
+      { id: 'A', text: "Load-test a staging replica to confirm the capacity headroom is sufficient." },
+      { id: 'B', text: "Run chaos experiments injecting node, latency and zone failures." },
       { id: 'C', text: "Assume the cloud platform never experiences failures and skip failure testing." },
       { id: 'D', text: "Rely on architectural whiteboard diagrams as proof of fault tolerance." }
     ],
@@ -367,8 +367,8 @@ export const GCP_PCA_QUESTIONS_20 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Rely on architectural whiteboard diagrams as proof of fault tolerance." },
-      { id: 'B', text: "Simulate failures directly in production during peak shopping sales without backups." },
-      { id: 'C', text: "Execute controlled chaos engineering experiments by injecting node failures, network latency, and zone outages." },
+      { id: 'B', text: "Load-test a staging replica to confirm the capacity headroom is sufficient." },
+      { id: 'C', text: "Run chaos experiments injecting node, latency and zone failures." },
       { id: 'D', text: "Assume the cloud platform never experiences failures and skip failure testing." }
     ],
     correctAnswers: ['C'],
@@ -388,8 +388,8 @@ export const GCP_PCA_QUESTIONS_20 = [
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Rely on architectural whiteboard diagrams as proof of fault tolerance." },
-      { id: 'B', text: "Execute controlled chaos engineering experiments by injecting node failures, network latency, and zone outages." },
-      { id: 'C', text: "Simulate failures directly in production during peak shopping sales without backups." },
+      { id: 'B', text: "Run chaos experiments injecting node, latency and zone failures." },
+      { id: 'C', text: "Load-test a staging replica to confirm the capacity headroom is sufficient." },
       { id: 'D', text: "Assume the cloud platform never experiences failures and skip failure testing." }
     ],
     correctAnswers: ['B'],
@@ -409,9 +409,9 @@ export const GCP_PCA_QUESTIONS_20 = [
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Rely on architectural whiteboard diagrams as proof of fault tolerance." },
-      { id: 'B', text: "Execute controlled chaos engineering experiments by injecting node failures, network latency, and zone outages." },
+      { id: 'B', text: "Run chaos experiments injecting node, latency and zone failures." },
       { id: 'C', text: "Assume the cloud platform never experiences failures and skip failure testing." },
-      { id: 'D', text: "Simulate failures directly in production during peak shopping sales without backups." }
+      { id: 'D', text: "Load-test a staging replica to confirm the capacity headroom is sufficient." }
     ],
     correctAnswers: ['B'],
     type: "single",

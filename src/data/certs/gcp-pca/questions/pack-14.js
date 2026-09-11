@@ -220,7 +220,7 @@ export const GCP_PCA_QUESTIONS_14 = [
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Host the application on an unmanaged local physical server." },
-      { id: 'B', text: "Deploy a Regional Managed Instance Group (MIG) distributing instances across multiple zones." },
+      { id: 'B', text: "Deploy a regional managed instance group across zones." },
       { id: 'C', text: "Deploy a Zonal Managed Instance Group in zone-a only." },
       { id: 'D', text: "Manually deploy single virtual machines in two separate regions." }
     ],
@@ -243,7 +243,7 @@ export const GCP_PCA_QUESTIONS_14 = [
       { id: 'A', text: "Deploy a Zonal Managed Instance Group in zone-a only." },
       { id: 'B', text: "Host the application on an unmanaged local physical server." },
       { id: 'C', text: "Manually deploy single virtual machines in two separate regions." },
-      { id: 'D', text: "Deploy a Regional Managed Instance Group (MIG) distributing instances across multiple zones." }
+      { id: 'D', text: "Deploy a regional managed instance group across zones." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -264,7 +264,7 @@ export const GCP_PCA_QUESTIONS_14 = [
       { id: 'A', text: "Deploy a Zonal Managed Instance Group in zone-a only." },
       { id: 'B', text: "Host the application on an unmanaged local physical server." },
       { id: 'C', text: "Manually deploy single virtual machines in two separate regions." },
-      { id: 'D', text: "Deploy a Regional Managed Instance Group (MIG) distributing instances across multiple zones." }
+      { id: 'D', text: "Deploy a regional managed instance group across zones." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -282,7 +282,7 @@ export const GCP_PCA_QUESTIONS_14 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to deploy an auto-scaling application across three availability zones within a region so that a single zonal outage leaves two-thirds of compute capacity fully functional.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Deploy a Regional Managed Instance Group (MIG) distributing instances across multiple zones." },
+      { id: 'A', text: "Deploy a regional managed instance group across zones." },
       { id: 'B', text: "Deploy a Zonal Managed Instance Group in zone-a only." },
       { id: 'C', text: "Host the application on an unmanaged local physical server." },
       { id: 'D', text: "Manually deploy single virtual machines in two separate regions." }
@@ -303,7 +303,7 @@ export const GCP_PCA_QUESTIONS_14 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to deploy an auto-scaling application across three availability zones within a region so that a single zonal outage leaves two-thirds of compute capacity fully functional.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Deploy a Regional Managed Instance Group (MIG) distributing instances across multiple zones." },
+      { id: 'A', text: "Deploy a regional managed instance group across zones." },
       { id: 'B', text: "Host the application on an unmanaged local physical server." },
       { id: 'C', text: "Deploy a Zonal Managed Instance Group in zone-a only." },
       { id: 'D', text: "Manually deploy single virtual machines in two separate regions." }
@@ -429,7 +429,7 @@ export const GCP_PCA_QUESTIONS_14 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to deploy a GKE cluster where worker nodes have zero public IP addresses and the Kubernetes API server endpoint is accessible only from an authorized corporate office CIDR block.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Deploy a GKE Private Cluster and configure Master Authorized Networks with the corporate CIDR range." },
+      { id: 'A', text: "Deploy a private GKE cluster with master authorized networks." },
       { id: 'B', text: "Deploy a standard public GKE cluster with 0.0.0.0/0 master access." },
       { id: 'C', text: "Disable Kubernetes RBAC authentication on the cluster control plane." },
       { id: 'D', text: "Assign external public IP addresses to all GKE node pool instances." }
@@ -453,7 +453,7 @@ export const GCP_PCA_QUESTIONS_14 = [
       { id: 'A', text: "Deploy a standard public GKE cluster with 0.0.0.0/0 master access." },
       { id: 'B', text: "Disable Kubernetes RBAC authentication on the cluster control plane." },
       { id: 'C', text: "Assign external public IP addresses to all GKE node pool instances." },
-      { id: 'D', text: "Deploy a GKE Private Cluster and configure Master Authorized Networks with the corporate CIDR range." }
+      { id: 'D', text: "Deploy a private GKE cluster with master authorized networks." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -471,7 +471,7 @@ export const GCP_PCA_QUESTIONS_14 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to deploy a GKE cluster where worker nodes have zero public IP addresses and the Kubernetes API server endpoint is accessible only from an authorized corporate office CIDR block.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Deploy a GKE Private Cluster and configure Master Authorized Networks with the corporate CIDR range." },
+      { id: 'A', text: "Deploy a private GKE cluster with master authorized networks." },
       { id: 'B', text: "Deploy a standard public GKE cluster with 0.0.0.0/0 master access." },
       { id: 'C', text: "Assign external public IP addresses to all GKE node pool instances." },
       { id: 'D', text: "Disable Kubernetes RBAC authentication on the cluster control plane." }
@@ -495,7 +495,7 @@ export const GCP_PCA_QUESTIONS_14 = [
       { id: 'A', text: "Deploy a standard public GKE cluster with 0.0.0.0/0 master access." },
       { id: 'B', text: "Assign external public IP addresses to all GKE node pool instances." },
       { id: 'C', text: "Disable Kubernetes RBAC authentication on the cluster control plane." },
-      { id: 'D', text: "Deploy a GKE Private Cluster and configure Master Authorized Networks with the corporate CIDR range." }
+      { id: 'D', text: "Deploy a private GKE cluster with master authorized networks." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -515,7 +515,7 @@ export const GCP_PCA_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Disable Kubernetes RBAC authentication on the cluster control plane." },
       { id: 'B', text: "Assign external public IP addresses to all GKE node pool instances." },
-      { id: 'C', text: "Deploy a GKE Private Cluster and configure Master Authorized Networks with the corporate CIDR range." },
+      { id: 'C', text: "Deploy a private GKE cluster with master authorized networks." },
       { id: 'D', text: "Deploy a standard public GKE cluster with 0.0.0.0/0 master access." }
     ],
     correctAnswers: ['C'],

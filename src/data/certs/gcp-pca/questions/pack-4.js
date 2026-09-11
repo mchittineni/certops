@@ -18,7 +18,7 @@ export const GCP_PCA_QUESTIONS_4 = [
     type: "single",
     explanation: "The `Cloud SQL Auth Proxy` is a client binary that runs locally or in Kubernetes pods. It authenticates using Google Cloud IAM credentials, establishes a mutual TLS (mTLS) tunnel to Cloud SQL, and exposes a local port for standard database client connections without exposing public IPs.",
     referenceUrl: "https://cloud.google.com/sql/docs/mysql/sql-proxy",
-    tags: ["Cloud SQL", "Auth Proxy", "Security"]
+    tags: ["Cloud SQL","Auth Proxy","Security"]
   },
   {
     id: "gcp-pca-77",
@@ -39,7 +39,7 @@ export const GCP_PCA_QUESTIONS_4 = [
     type: "single",
     explanation: "A Google Cloud VPC network has two dynamic routing modes: `Regional` (Cloud Router advertises routes only for subnets within its local region) and `Global` (Cloud Router advertises and learns routes for subnets across all regions in the VPC globally).",
     referenceUrl: "https://cloud.google.com/router/docs/concepts/overview#dynamic-routing-mode",
-    tags: ["VPC", "Cloud Router", "Dynamic Routing"]
+    tags: ["VPC","Cloud Router","Dynamic Routing"]
   },
   {
     id: "gcp-pca-78",
@@ -51,7 +51,7 @@ export const GCP_PCA_QUESTIONS_4 = [
     scenario: "A security architect is designing firewall rules in a Shared VPC where development teams have permissions to edit instance metadata on their own Compute Engine VMs.",
     question: "Why should the security architect use Service Accounts instead of Network Tags for target and source firewall filtering?",
     options: [
-      { id: 'A', text: "Network tags can be modified by instance administrators (allowing unauthorized firewall bypass), whereas Service Account assignment is governed by strict IAM permissions" },
+      { id: 'A', text: "Instance admins can change network tags" },
       { id: 'B', text: "Network tags support only UDP traffic" },
       { id: 'C', text: "Service accounts can only be used on Windows VMs" },
       { id: 'D', text: "Network tags increase latency by 50%" }
@@ -60,7 +60,7 @@ export const GCP_PCA_QUESTIONS_4 = [
     type: "single",
     explanation: "Firewall rules filtering by `Service Accounts` provide stronger security than `Network Tags`. Any user with `compute.instances.setMetadata` can add or change network tags to bypass firewall rules. Service accounts require `iam.serviceAccountUser` privileges, preventing unauthorized security group elevation.",
     referenceUrl: "https://cloud.google.com/vpc/docs/firewalls#service-accounts-vs-tags",
-    tags: ["VPC", "Firewall Rules", "Service Accounts"]
+    tags: ["VPC","Firewall Rules","Service Accounts"]
   },
   {
     id: "gcp-pca-79",
@@ -81,7 +81,7 @@ export const GCP_PCA_QUESTIONS_4 = [
     type: "single",
     explanation: "VPC Packet Mirroring clones all traffic (including packet headers and payloads) from specified VM instances, subnets, or tags and forwards it to an internal load balancer fronting security appliances (such as Zeek or Suricata) for deep packet inspection and intrusion detection.",
     referenceUrl: "https://cloud.google.com/vpc/docs/packet-mirroring",
-    tags: ["Networking", "Packet Mirroring", "IDS/IPS"]
+    tags: ["Networking","Packet Mirroring","IDS/IPS"]
   },
   {
     id: "gcp-pca-80",
@@ -102,7 +102,7 @@ export const GCP_PCA_QUESTIONS_4 = [
     type: "single",
     explanation: "VPC Flow Logs record network telemetry metadata for TCP and UDP flows sent and received by VM instances. Logs include source and destination IPs, ports, protocol, and packet/byte counts, which can be streamed to Cloud Logging or BigQuery for traffic forensics and cost analysis.",
     referenceUrl: "https://cloud.google.com/vpc/docs/flow-logs",
-    tags: ["VPC", "Flow Logs", "Troubleshooting"]
+    tags: ["VPC","Flow Logs","Troubleshooting"]
   },
   {
     id: "gcp-pca-81",
@@ -114,7 +114,7 @@ export const GCP_PCA_QUESTIONS_4 = [
     scenario: "A DevOps team uses Terraform to provision infrastructure across 50 Google Cloud projects. The state file contains sensitive database passwords and resource IDs that must be locked during concurrent deployments.",
     question: "Which Terraform backend configuration should the team use for state storage and locking?",
     options: [
-      { id: 'A', text: "The gcs backend (storing state in a private Cloud Storage bucket with object versioning enabled)" },
+      { id: 'A', text: "The gcs backend with versioning enabled" },
       { id: 'B', text: "Local terraform.tfstate on developer laptops" },
       { id: 'C', text: "Public GitHub repository" },
       { id: 'D', text: "Compute Engine metadata" }
@@ -123,7 +123,7 @@ export const GCP_PCA_QUESTIONS_4 = [
     type: "single",
     explanation: "Terraform's `gcs` backend stores state files remotely in a Google Cloud Storage bucket. GCS natively supports state locking via generation numbers, preventing concurrent modification races, and bucket versioning provides rollback protection.",
     referenceUrl: "https://cloud.google.com/docs/terraform/resource-management/store-state",
-    tags: ["Terraform", "GCS Backend", "IaC"]
+    tags: ["Terraform","GCS Backend","IaC"]
   },
   {
     id: "gcp-pca-82",
@@ -144,7 +144,7 @@ export const GCP_PCA_QUESTIONS_4 = [
     type: "single",
     explanation: "The Cloud Foundation Toolkit (CFT) provides Google-authored, modular Terraform templates and best-practice blueprints for deploying enterprise landing zones, including hierarchical organization structures, Shared VPCs, logging exports, and security guardrails.",
     referenceUrl: "https://cloud.google.com/foundation-toolkit",
-    tags: ["CFT", "Terraform", "Landing Zone"]
+    tags: ["CFT","Terraform","Landing Zone"]
   },
   {
     id: "gcp-pca-83",
@@ -165,7 +165,7 @@ export const GCP_PCA_QUESTIONS_4 = [
     type: "single",
     explanation: "Config Connector is an open-source Kubernetes operator developed by Google that allows teams to manage Google Cloud infrastructure using declarative Kubernetes manifests and CRDs, enabling unified GitOps workflows for both applications and cloud infrastructure.",
     referenceUrl: "https://cloud.google.com/config-connector/docs/overview",
-    tags: ["GKE", "Config Connector", "GitOps"]
+    tags: ["GKE","Config Connector","GitOps"]
   },
   {
     id: "gcp-pca-84",
@@ -177,7 +177,7 @@ export const GCP_PCA_QUESTIONS_4 = [
     scenario: "An automated deployment pipeline provisions Compute Engine VMs that must install an application package, run database migrations, and signal completion upon first boot.",
     question: "Where should the initialization bash script be defined in the instance configuration?",
     options: [
-      { id: 'A', text: "In the instance metadata under the key startup-script (or startup-script-url)" },
+      { id: 'A', text: "In instance metadata under startup-script" },
       { id: 'B', text: "In the VM /boot directory on persistent disk" },
       { id: 'C', text: "In the Google Cloud console notification settings" },
       { id: 'D', text: "In Cloud DNS TXT records" }
@@ -186,7 +186,7 @@ export const GCP_PCA_QUESTIONS_4 = [
     type: "single",
     explanation: "Compute Engine executes scripts specified in instance metadata under the key `startup-script` (or fetches from `startup-script-url` in Cloud Storage) every time the VM boots, automating package installation and host configuration.",
     referenceUrl: "https://cloud.google.com/compute/docs/instances/startup-scripts/linux",
-    tags: ["Compute Engine", "Startup Scripts", "Automation"]
+    tags: ["Compute Engine","Startup Scripts","Automation"]
   },
   {
     id: "gcp-pca-85",
@@ -207,7 +207,7 @@ export const GCP_PCA_QUESTIONS_4 = [
     type: "single",
     explanation: "Compute Engine supports `Nested Virtualization`, allowing users to run hardware-accelerated hypervisors (such as KVM) inside Compute Engine Linux instances, enabling dev/test environments for virtualization platforms and container engines.",
     referenceUrl: "https://cloud.google.com/compute/docs/instances/nested-virtualization/overview",
-    tags: ["Compute Engine", "Nested Virtualization", "Hypervisors"]
+    tags: ["Compute Engine","Nested Virtualization","Hypervisors"]
   },
   {
     id: "gcp-pca-86",
@@ -228,7 +228,7 @@ export const GCP_PCA_QUESTIONS_4 = [
     type: "single",
     explanation: "`Workload Identity` is the recommended best practice for authenticating GKE workloads to Google Cloud APIs. It binds a Kubernetes ServiceAccount (KSA) to a Google ServiceAccount (GSA), enabling pods to securely acquire short-lived OAuth 2.0 access tokens via the GKE metadata server.",
     referenceUrl: "https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity",
-    tags: ["GKE", "Workload Identity", "Security"]
+    tags: ["GKE","Workload Identity","Security"]
   },
   {
     id: "gcp-pca-87",
@@ -249,7 +249,7 @@ export const GCP_PCA_QUESTIONS_4 = [
     type: "single",
     explanation: "A Compute Engine `Machine Image` stores all configuration, metadata, permissions, and exact block-level data from multiple disks of a VM instance. An `Instance Template` defines configuration but points to external disks/images.",
     referenceUrl: "https://cloud.google.com/compute/docs/machine-images",
-    tags: ["Compute Engine", "Machine Images", "Golden Images"]
+    tags: ["Compute Engine","Machine Images","Golden Images"]
   },
   {
     id: "gcp-pca-88",
@@ -264,13 +264,13 @@ export const GCP_PCA_QUESTIONS_4 = [
       { id: 'A', text: "External Application Load Balancer" },
       { id: 'B', text: "VPC Network Peering alone" },
       { id: 'C', text: "Cloud NAT" },
-      { id: 'D', text: "A Serverless VPC Access Connector (or Direct VPC Egress)" }
+      { id: 'D', text: "A Serverless VPC Access connector" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Serverless services like Cloud Run and Cloud Functions do not have native network interfaces in your VPC. A `Serverless VPC Access Connector` (or Direct VPC Egress) provides an egress bridge that routes serverless requests privately into your VPC network to reach private Cloud SQL instances.",
     referenceUrl: "https://cloud.google.com/vpc/docs/serverless-vpc-access",
-    tags: ["Cloud Run", "Serverless VPC Access", "Networking"]
+    tags: ["Cloud Run","Serverless VPC Access","Networking"]
   },
   {
     id: "gcp-pca-89",
@@ -291,7 +291,7 @@ export const GCP_PCA_QUESTIONS_4 = [
     type: "single",
     explanation: "Cloud Spanner `Built-in Backup and Restore` creates fully consistent, point-in-time binary snapshots of a database directly on the storage layer. Backups retain schema and secondary indexes, require zero compute workers, and restore much faster than Dataflow Avro exports.",
     referenceUrl: "https://cloud.google.com/spanner/docs/backup",
-    tags: ["Spanner", "Backup and Restore", "Disaster Recovery"]
+    tags: ["Spanner","Backup and Restore","Disaster Recovery"]
   },
   {
     id: "gcp-pca-90",
@@ -306,13 +306,13 @@ export const GCP_PCA_QUESTIONS_4 = [
       { id: 'A', text: "Database backups taken last night" },
       { id: 'B', text: "Change Streams alone" },
       { id: 'C', text: "Cloud Storage Versioning" },
-      { id: 'D', text: "Point-in-Time Recovery (PITR) with version_retention_period" }
+      { id: 'D', text: "Point-in-time recovery" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Cloud Spanner `Point-in-Time Recovery` (PITR) retains historical versions of data for a configurable `version_retention_period` (up to 7 days). Developers can execute queries specifying an exact historical timestamp (stale read) or restore the database to that exact minute.",
     referenceUrl: "https://cloud.google.com/spanner/docs/pitr",
-    tags: ["Spanner", "PITR", "Data Recovery"]
+    tags: ["Spanner","PITR","Data Recovery"]
   },
   {
     id: "gcp-pca-91",
@@ -333,7 +333,7 @@ export const GCP_PCA_QUESTIONS_4 = [
     type: "single",
     explanation: "`Key Visualizer` is an interactive diagnostic tool built into the Cloud Bigtable console. It renders visual heatmaps showing read/write pressure, IOPS, and storage sizes across the entire row key space over time, helping administrators spot hot partitions immediately.",
     referenceUrl: "https://cloud.google.com/bigtable/docs/key-visualizer-overview",
-    tags: ["Bigtable", "Key Visualizer", "Performance Tuning"]
+    tags: ["Bigtable","Key Visualizer","Performance Tuning"]
   },
   {
     id: "gcp-pca-92",
@@ -346,7 +346,7 @@ export const GCP_PCA_QUESTIONS_4 = [
     question: "What happens to the data stored on an attached Local SSD when Google performs host live migration?",
     options: [
       { id: 'A', text: "Local SSD data is permanently erased immediately" },
-      { id: 'B', text: "Local SSD data is preserved and transparently migrated along with the VM instance during live migration" },
+      { id: 'B', text: "Local SSD data migrates with the VM and is preserved" },
       { id: 'C', text: "The VM instance is terminated and cannot restart" },
       { id: 'D', text: "The Local SSD is converted to a persistent disk automatically" }
     ],
@@ -354,7 +354,7 @@ export const GCP_PCA_QUESTIONS_4 = [
     type: "single",
     explanation: "During standard live migration maintenance events, Google Cloud transparently migrates both the VM state and attached Local SSD data to the new physical host, preserving the contents of the Local SSD without data loss.",
     referenceUrl: "https://cloud.google.com/compute/docs/disks/local-ssd#data_retention_for_local_ssds",
-    tags: ["Compute Engine", "Local SSD", "Live Migration"]
+    tags: ["Compute Engine","Local SSD","Live Migration"]
   },
   {
     id: "gcp-pca-93",
@@ -366,7 +366,7 @@ export const GCP_PCA_QUESTIONS_4 = [
     scenario: "A developer stops a Compute Engine virtual machine (`gcloud compute instances stop`) that has 2 attached Local SSD disks.",
     question: "What happens to the data stored on the Local SSDs upon instance termination?",
     options: [
-      { id: 'A', text: "The Local SSD data is permanently discarded and cannot be recovered because Local SSDs cannot be detached or preserved when a VM stops" },
+      { id: 'A', text: "The data is permanently discarded and cannot be recovered" },
       { id: 'B', text: "The Local SSD data is backed up to Cloud Storage automatically" },
       { id: 'C', text: "The data is retained until the VM is restarted" },
       { id: 'D', text: "The Local SSD remains attached to the project" }
@@ -375,7 +375,7 @@ export const GCP_PCA_QUESTIONS_4 = [
     type: "single",
     explanation: "Local SSDs are ephemeral and physically attached to the host server. Stopping a VM (`instances stop`) terminates the host reservation and completely discards all data on attached Local SSDs. Applications must sync vital data to persistent disks before stopping.",
     referenceUrl: "https://cloud.google.com/compute/docs/disks/local-ssd#data_retention_for_local_ssds",
-    tags: ["Compute Engine", "Local SSD", "Ephemeral"]
+    tags: ["Compute Engine","Local SSD","Ephemeral"]
   },
   {
     id: "gcp-pca-94",
@@ -396,7 +396,7 @@ export const GCP_PCA_QUESTIONS_4 = [
     type: "single",
     explanation: "Cloud Storage `Turbo Replication` is designed for dual-region buckets requiring strict business continuity. It guarantees that 100% of newly written objects are replicated to the secondary paired region within 15 minutes, backed by a service level agreement (SLA).",
     referenceUrl: "https://cloud.google.com/storage/docs/turbo-replication",
-    tags: ["Cloud Storage", "Turbo Replication", "Business Continuity"]
+    tags: ["Cloud Storage","Turbo Replication","Business Continuity"]
   },
   {
     id: "gcp-pca-95",
@@ -417,7 +417,7 @@ export const GCP_PCA_QUESTIONS_4 = [
     type: "single",
     explanation: "When Object Versioning is enabled, overwritten objects become noncurrent versions. Applying a lifecycle rule with condition `NoncurrentVersion` (e.g. `DaysSinceNoncurrentTime: 30` or `NumNewerVersions: 2`) automatically purges historical revisions without affecting the live current version.",
     referenceUrl: "https://cloud.google.com/storage/docs/lifecycle#noncurrent-version",
-    tags: ["Cloud Storage", "Versioning", "Lifecycle Rules"]
+    tags: ["Cloud Storage","Versioning","Lifecycle Rules"]
   },
   {
     id: "gcp-pca-96",
@@ -438,7 +438,7 @@ export const GCP_PCA_QUESTIONS_4 = [
     type: "single",
     explanation: "Cloud Bigtable supports native `Autoscaling`. Administrators specify minimum and maximum node limits and a target CPU utilization (e.g. 60%). Bigtable automatically adds or removes nodes dynamically based on workload demand, optimizing performance and cost.",
     referenceUrl: "https://cloud.google.com/bigtable/docs/autoscaling",
-    tags: ["Bigtable", "Autoscaling", "Capacity Planning"]
+    tags: ["Bigtable","Autoscaling","Capacity Planning"]
   },
   {
     id: "gcp-pca-97",
@@ -459,7 +459,7 @@ export const GCP_PCA_QUESTIONS_4 = [
     type: "single",
     explanation: "Compute Engine supports `CPU Overcommit` on Sole-Tenant Nodes. It allows administrators to launch VMs with total requested vCPUs exceeding the physical core count (up to 2x overcommit), reducing infrastructure costs for workloads with bursty, low-average CPU utilization.",
     referenceUrl: "https://cloud.google.com/compute/docs/nodes/cpu-overcommit",
-    tags: ["Compute Engine", "Sole-Tenant", "Overcommit"]
+    tags: ["Compute Engine","Sole-Tenant","Overcommit"]
   },
   {
     id: "gcp-pca-98",
@@ -480,7 +480,7 @@ export const GCP_PCA_QUESTIONS_4 = [
     type: "single",
     explanation: "Google Cloud Managed Service for Prometheus (GMP) is Google's fully managed, multi-cloud monitoring solution built on the same planetary-scale infrastructure as Monarch. It scrapes Prometheus metrics natively from GKE and provides global querying across clusters using standard PromQL.",
     referenceUrl: "https://cloud.google.com/stackdriver/docs/managed-prometheus",
-    tags: ["GKE", "Prometheus", "GMP"]
+    tags: ["GKE","Prometheus","GMP"]
   },
   {
     id: "gcp-pca-99",
@@ -501,7 +501,7 @@ export const GCP_PCA_QUESTIONS_4 = [
     type: "single",
     explanation: "`Backup for GKE` is a fully managed service that protects GKE cluster workloads. It creates point-in-time backups capturing both Kubernetes declarative state (etcd metadata) and persistent volume data, supporting scheduled backups, encryption, and granular workload restoration.",
     referenceUrl: "https://cloud.google.com/kubernetes-engine/docs/add-on/backup-for-gke/concepts/overview",
-    tags: ["GKE", "Backup for GKE", "Disaster Recovery"]
+    tags: ["GKE","Backup for GKE","Disaster Recovery"]
   },
   {
     id: "gcp-pca-100",
@@ -522,7 +522,7 @@ export const GCP_PCA_QUESTIONS_4 = [
     type: "single",
     explanation: "Managed Instance Groups support `Standby Pools`. A standby pool keeps a designated number of pre-configured instances in a `STOPPED` or `SUSPENDED` state. When scaling events occur, the MIG resumes these warm instances in seconds rather than performing full cold boots.",
     referenceUrl: "https://cloud.google.com/compute/docs/instance-groups/standby-pools-overview",
-    tags: ["Compute Engine", "MIG", "Standby Pools"]
+    tags: ["Compute Engine","MIG","Standby Pools"]
   }
 ];
 

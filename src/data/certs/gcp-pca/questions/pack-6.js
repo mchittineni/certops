@@ -18,7 +18,7 @@ export const GCP_PCA_QUESTIONS_6 = [
     type: "single",
     explanation: "Google Cloud Secret Manager is a secure, convenient storage system for API keys, passwords, certificates, and sensitive credentials. It provides fine-grained IAM access control, automatic encryption via Cloud KMS, versioning, audit logging, and rotation notifications.",
     referenceUrl: "https://cloud.google.com/secret-manager/docs/overview",
-    tags: ["Secret Manager", "Security", "Credentials"]
+    tags: ["Secret Manager","Security","Credentials"]
   },
   {
     id: "gcp-pca-127",
@@ -32,14 +32,14 @@ export const GCP_PCA_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "Cloud Armor Security Policies" },
       { id: 'B', text: "VPC Firewall Rules" },
-      { id: 'C', text: "IAM Conditions (using Common Expression Language / CEL)" },
+      { id: 'C', text: "IAM Conditions using CEL" },
       { id: 'D', text: "Primitive IAM Roles" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "`IAM Conditions` allow administrators to define attribute-based access control (ABAC) using Common Expression Language (CEL). Conditions evaluate request attributes (such as `request.time < timestamp(...)`) and resource attributes (such as location or resource tags), enforcing fine-grained temporary access.",
     referenceUrl: "https://cloud.google.com/iam/docs/conditions-overview",
-    tags: ["IAM", "IAM Conditions", "Least Privilege"]
+    tags: ["IAM","IAM Conditions","Least Privilege"]
   },
   {
     id: "gcp-pca-128",
@@ -60,7 +60,7 @@ export const GCP_PCA_QUESTIONS_6 = [
     type: "single",
     explanation: "`IAM Deny Policies` allow security administrators to define hard guardrails that prevent principals from performing specific permissions, regardless of any `allow` roles they hold. Deny policies are evaluated before allow policies and cannot be bypassed by project owners.",
     referenceUrl: "https://cloud.google.com/iam/docs/deny-overview",
-    tags: ["IAM", "Deny Policies", "Security Guardrails"]
+    tags: ["IAM","Deny Policies","Security Guardrails"]
   },
   {
     id: "gcp-pca-129",
@@ -72,7 +72,7 @@ export const GCP_PCA_QUESTIONS_6 = [
     scenario: "An enterprise application encrypts large 10 GB database backup files using Google Cloud Key Management Service.",
     question: "Why does the application use envelope encryption instead of sending 10 GB payloads directly to the Cloud KMS API?",
     options: [
-      { id: 'A', text: "Cloud KMS has a 64 KB payload size limit; envelope encryption generates a local Data Encryption Key (DEK) to encrypt data, and KMS encrypts only the lightweight DEK using a Key Encryption Key (KEK)" },
+      { id: 'A', text: "KMS caps payloads at 64 KB, so only the local DEK is sent to it" },
       { id: 'B', text: "Cloud KMS can only encrypt plain text strings under 10 characters" },
       { id: 'C', text: "Cloud KMS is located outside Google Cloud" },
       { id: 'D', text: "Envelope encryption is required only for quantum computers" }
@@ -81,7 +81,7 @@ export const GCP_PCA_QUESTIONS_6 = [
     type: "single",
     explanation: "Cloud KMS is designed to manage `Key Encryption Keys` (KEKs) and enforces a maximum payload limit of 64 KB for direct `kms.encrypt` calls. In envelope encryption, the application generates a local `Data Encryption Key` (DEK) to encrypt the large dataset, and uses KMS to encrypt only the small DEK.",
     referenceUrl: "https://cloud.google.com/kms/docs/envelope-encryption",
-    tags: ["Cloud KMS", "Envelope Encryption", "Cryptography"]
+    tags: ["Cloud KMS","Envelope Encryption","Cryptography"]
   },
   {
     id: "gcp-pca-130",
@@ -102,7 +102,7 @@ export const GCP_PCA_QUESTIONS_6 = [
     type: "single",
     explanation: "Cloud KMS supports automated key rotation. Setting `rotationPeriod: 7776000s` (90 days) on a symmetric key instructs Cloud KMS to automatically generate a new primary key version every 90 days. Older versions remain available to decrypt historical data without re-encrypting existing files.",
     referenceUrl: "https://cloud.google.com/kms/docs/rotate-key",
-    tags: ["Cloud KMS", "Key Rotation", "Security Best Practices"]
+    tags: ["Cloud KMS","Key Rotation","Security Best Practices"]
   },
   {
     id: "gcp-pca-131",
@@ -123,7 +123,7 @@ export const GCP_PCA_QUESTIONS_6 = [
     type: "single",
     explanation: "`Container Analysis` automatically scans container images stored in Artifact Registry for known vulnerabilities (CVEs) in Linux OS packages and language application packages, generating vulnerability reports and metadata used by Binary Authorization.",
     referenceUrl: "https://cloud.google.com/artifact-registry/docs/analysis",
-    tags: ["Artifact Registry", "Container Analysis", "CVE Scanning"]
+    tags: ["Artifact Registry","Container Analysis","CVE Scanning"]
   },
   {
     id: "gcp-pca-132",
@@ -144,7 +144,7 @@ export const GCP_PCA_QUESTIONS_6 = [
     type: "single",
     explanation: "Shielded GKE Nodes provide strong, verifiable node identity and integrity for GKE clusters. Built on Compute Engine Shielded VMs, Shielded GKE Nodes use Secure Boot, vTPM, and integrity monitoring to protect worker nodes against rootkits and kernel tampering.",
     referenceUrl: "https://cloud.google.com/kubernetes-engine/docs/how-to/shielded-gke-nodes",
-    tags: ["GKE", "Shielded Nodes", "Node Hardening"]
+    tags: ["GKE","Shielded Nodes","Node Hardening"]
   },
   {
     id: "gcp-pca-133",
@@ -165,7 +165,7 @@ export const GCP_PCA_QUESTIONS_6 = [
     type: "single",
     explanation: "`GKE Sandbox` uses open-source `gVisor` to provide a secure boundary between running containers and the host kernel. gVisor intercepts and implements system calls in user space, preventing untrusted or malicious container code from directly interacting with the host Linux kernel.",
     referenceUrl: "https://cloud.google.com/kubernetes-engine/docs/concepts/sandbox-pods",
-    tags: ["GKE", "GKE Sandbox", "gVisor"]
+    tags: ["GKE","GKE Sandbox","gVisor"]
   },
   {
     id: "gcp-pca-134",
@@ -186,7 +186,7 @@ export const GCP_PCA_QUESTIONS_6 = [
     type: "single",
     explanation: "Cloud Armor `Custom Rules` allow security engineers to write flexible Layer 7 inspection logic using Common Expression Language (CEL), evaluating request parameters such as `has(request.headers['cookie']) && request.headers['cookie'].contains('admin_override=true')` to block attacks.",
     referenceUrl: "https://cloud.google.com/armor/docs/rules-language-reference",
-    tags: ["Cloud Armor", "CEL Expressions", "Custom Rules"]
+    tags: ["Cloud Armor","CEL Expressions","Custom Rules"]
   },
   {
     id: "gcp-pca-135",
@@ -207,7 +207,7 @@ export const GCP_PCA_QUESTIONS_6 = [
     type: "single",
     explanation: "Cloud Armor `Adaptive Protection` uses machine learning models trained on baseline application traffic patterns. It detects anomalous Layer 7 DDoS and volumetric attacks, alerts security teams, and automatically generates tailored WAF mitigation rules to block the attack while allowing legitimate traffic.",
     referenceUrl: "https://cloud.google.com/armor/docs/adaptive-protection-overview",
-    tags: ["Cloud Armor", "Adaptive Protection", "Machine Learning DDoS"]
+    tags: ["Cloud Armor","Adaptive Protection","Machine Learning DDoS"]
   },
   {
     id: "gcp-pca-136",
@@ -219,7 +219,7 @@ export const GCP_PCA_QUESTIONS_6 = [
     scenario: "A security operations team audits outbound network traffic from private Compute Engine VMs routed through Cloud NAT. The team must track every outbound connection translation.",
     question: "Which Cloud NAT logging setting records translated source IP/port and destination IP/port tuples?",
     options: [
-      { id: 'A', text: "Enable Cloud NAT Logging for all connections (or error connections)" },
+      { id: 'A', text: "Enable Cloud NAT logging" },
       { id: 'B', text: "Enable VPC Flow Logs only" },
       { id: 'C', text: "Cloud Audit Logs alone" },
       { id: 'D', text: "Cloud Trace" }
@@ -228,7 +228,7 @@ export const GCP_PCA_QUESTIONS_6 = [
     type: "single",
     explanation: "Cloud NAT provides built-in connection logging. Enabling Cloud NAT logging captures logs for `ERRORS_ONLY` (such as port exhaustion events) or `ALL` connections, recording translated IP and port mappings to Cloud Logging for compliance and security auditing.",
     referenceUrl: "https://cloud.google.com/nat/docs/nat-logging",
-    tags: ["Cloud NAT", "Logging", "Network Security"]
+    tags: ["Cloud NAT","Logging","Network Security"]
   },
   {
     id: "gcp-pca-137",
@@ -249,7 +249,7 @@ export const GCP_PCA_QUESTIONS_6 = [
     type: "single",
     explanation: "VPC Service Controls supports `Dry Run Mode`. In dry run mode, all requests that would have violated perimeter policies are logged to Cloud Logging with a `DRY_RUN_VIOLATION` status without actually blocking the traffic, allowing teams to test and refine access rules safely.",
     referenceUrl: "https://cloud.google.com/vpc-service-controls/docs/dry-run-mode",
-    tags: ["VPC Service Controls", "Dry Run", "Safe Deployment"]
+    tags: ["VPC Service Controls","Dry Run","Safe Deployment"]
   },
   {
     id: "gcp-pca-138",
@@ -264,13 +264,13 @@ export const GCP_PCA_QUESTIONS_6 = [
       { id: 'A', text: "VPC Firewall Rules" },
       { id: 'B', text: "Resource Manager Labels" },
       { id: 'C', text: "IAM Deny Policies" },
-      { id: 'D', text: "Organization Policy Constraints (e.g. constraints/compute.vmExternalIpAccess)" }
+      { id: 'D', text: "Organization policies" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "`Organization Policies` provide centralized, programmatic control over cloud resources across an entire organization. Constraints like `compute.vmExternalIpAccess` (set to `Deny`) prevent instances from receiving public IP addresses regardless of project-level IAM permissions.",
     referenceUrl: "https://cloud.google.com/resource-manager/docs/organization-policy/overview",
-    tags: ["Governance", "Organization Policies", "Security Guardrails"]
+    tags: ["Governance","Organization Policies","Security Guardrails"]
   },
   {
     id: "gcp-pca-139",
@@ -291,7 +291,7 @@ export const GCP_PCA_QUESTIONS_6 = [
     type: "single",
     explanation: "The `iam.allowedPolicyMemberDomains` constraint restricts IAM role bindings to user and group identities belonging to authorized Google Workspace or Cloud Identity customer IDs (directory IDs), preventing accidental or malicious addition of external personal accounts.",
     referenceUrl: "https://cloud.google.com/resource-manager/docs/organization-policy/restricting-domains",
-    tags: ["Organization Policies", "IAM", "Domain Restriction"]
+    tags: ["Organization Policies","IAM","Domain Restriction"]
   },
   {
     id: "gcp-pca-140",
@@ -312,7 +312,7 @@ export const GCP_PCA_QUESTIONS_6 = [
     type: "single",
     explanation: "Enforcing the `iam.disableServiceAccountKeyCreation` organization policy constraint blocks users from creating static service account keys (`gcloud iam service-accounts keys create`), forcing workloads to use Workload Identity, Service Account Impersonation, or attached identities.",
     referenceUrl: "https://cloud.google.com/iam/docs/organization-policy-service-accounts#disable-key-creation",
-    tags: ["Organization Policies", "Service Accounts", "Security"]
+    tags: ["Organization Policies","Service Accounts","Security"]
   },
   {
     id: "gcp-pca-141",
@@ -333,7 +333,7 @@ export const GCP_PCA_QUESTIONS_6 = [
     type: "single",
     explanation: "Sensitive Data Protection supports `Deterministic Encryption` (such as Format-Preserving Encryption via `CryptoReplaceFfxFpeConfig`). It produces the same surrogate token for identical input values using a cryptographic key, preserving join relationships across disparate tables while hiding raw PII.",
     referenceUrl: "https://cloud.google.com/sensitive-data-protection/docs/pseudonymization",
-    tags: ["Sensitive Data Protection", "Pseudonymization", "Tokenization"]
+    tags: ["Sensitive Data Protection","Pseudonymization","Tokenization"]
   },
   {
     id: "gcp-pca-142",
@@ -354,7 +354,7 @@ export const GCP_PCA_QUESTIONS_6 = [
     type: "single",
     explanation: "`Security Health Analytics` (SHA) is a core component of Security Command Center. It continuously scans Google Cloud resources against CIS benchmarks and security baselines, automatically detecting open storage buckets, overly permissive firewall rules, and missing MFA.",
     referenceUrl: "https://cloud.google.com/security-command-center/docs/concepts-security-health-analytics-overview",
-    tags: ["Security Command Center", "SHA", "Posture Management"]
+    tags: ["Security Command Center","SHA","Posture Management"]
   },
   {
     id: "gcp-pca-143",
@@ -375,7 +375,7 @@ export const GCP_PCA_QUESTIONS_6 = [
     type: "single",
     explanation: "`Event Threat Detection` (ETD) in SCC Premium continuously analyzes streaming audit logs and network metadata using Google proprietary threat intelligence to detect malware, coin-mining, data exfiltration, and brute-force attacks.",
     referenceUrl: "https://cloud.google.com/security-command-center/docs/concepts-event-threat-detection-overview",
-    tags: ["Security Command Center", "ETD", "Threat Intelligence"]
+    tags: ["Security Command Center","ETD","Threat Intelligence"]
   },
   {
     id: "gcp-pca-144",
@@ -396,7 +396,7 @@ export const GCP_PCA_QUESTIONS_6 = [
     type: "single",
     explanation: "`Container Threat Detection` continuously monitors the runtime state of containerized workloads running on GKE. It monitors container execution, detecting suspicious behaviors like unexpected binary execution, reverse shells, and malicious libraries.",
     referenceUrl: "https://cloud.google.com/security-command-center/docs/concepts-container-threat-detection-overview",
-    tags: ["Security Command Center", "Container Security", "Runtime Defense"]
+    tags: ["Security Command Center","Container Security","Runtime Defense"]
   },
   {
     id: "gcp-pca-145",
@@ -408,7 +408,7 @@ export const GCP_PCA_QUESTIONS_6 = [
     scenario: "A web application on Cloud Load Balancing needs to block traffic originating from known malicious IP addresses, Tor exit nodes, and botnet networks identified by Google threat intelligence.",
     question: "Which Cloud Armor feature provides Google-curated IP threat intelligence lists that update automatically?",
     options: [
-      { id: 'A', text: "Cloud Armor Named IP Lists (e.g. evaluatePreconfiguredExpr('cve-canary') or src.ip_in_list('google-tor-exit-nodes'))" },
+      { id: 'A', text: "Cloud Armor Named IP Lists" },
       { id: 'B', text: "Manually maintaining thousands of CIDR rules in firewall lists" },
       { id: 'C', text: "Blocking all traffic from international regions" },
       { id: 'D', text: "Disabling HTTP load balancing" }
@@ -417,7 +417,7 @@ export const GCP_PCA_QUESTIONS_6 = [
     type: "single",
     explanation: "Cloud Armor `Named IP Lists` provide preconfigured, Google-managed lists of IP addresses associated with specific threat categories (e.g. Tor exit nodes, search engine crawlers, open proxies). Google updates these lists continuously without requiring manual administrative rules.",
     referenceUrl: "https://cloud.google.com/armor/docs/rule-tuning#named-ip-lists",
-    tags: ["Cloud Armor", "Named IP Lists", "Threat Intelligence"]
+    tags: ["Cloud Armor","Named IP Lists","Threat Intelligence"]
   },
   {
     id: "gcp-pca-146",
@@ -429,7 +429,7 @@ export const GCP_PCA_QUESTIONS_6 = [
     scenario: "An enterprise web application requires protection against SQL injection (SQLi) and cross-site scripting (XSS) attacks at Google's global network edge.",
     question: "Which Cloud Armor capability provides managed ModSecurity CRS rules for OWASP Top 10 mitigation?",
     options: [
-      { id: 'A', text: "Cloud Armor Preconfigured WAF Rules (e.g. evaluatePreconfiguredExpr('sqli-v33-stable'))" },
+      { id: 'A', text: "Preconfigured WAF rules" },
       { id: 'B', text: "Cloud Endpoints proxy" },
       { id: 'C', text: "VPC Firewall Rules" },
       { id: 'D', text: "Compute Engine guest firewall" }
@@ -438,7 +438,7 @@ export const GCP_PCA_QUESTIONS_6 = [
     type: "single",
     explanation: "Cloud Armor `Preconfigured WAF Rules` are managed rule sets based on the OWASP ModSecurity Core Rule Set (CRS). They evaluate incoming request headers, bodies, and query strings for common vulnerabilities (SQLi, XSS, RFI, LFI) at edge PoPs.",
     referenceUrl: "https://cloud.google.com/armor/docs/waf-rules",
-    tags: ["Cloud Armor", "OWASP", "WAF Rules"]
+    tags: ["Cloud Armor","OWASP","WAF Rules"]
   },
   {
     id: "gcp-pca-147",
@@ -452,14 +452,14 @@ export const GCP_PCA_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "Keys in Cloud KMS can never be regionally constrained" },
       { id: 'B', text: "Create a single global Key Ring in US-Central" },
-      { id: 'C', text: "Create Key Rings in specific regional locations (e.g. europe-west1 or europe-west3) matching data residency requirements" },
+      { id: 'C', text: "Create key rings in the required regions" },
       { id: 'D', text: "Store key rings in a public GitHub repository" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "In Cloud KMS, `Key Rings` are regional or multi-regional resources that belong to a specific location (e.g. `europe-west1`). Keys created within a regional Key Ring never physically leave that designated region, ensuring strict cryptographic data residency compliance.",
     referenceUrl: "https://cloud.google.com/kms/docs/locations",
-    tags: ["Cloud KMS", "Key Rings", "Data Residency"]
+    tags: ["Cloud KMS","Key Rings","Data Residency"]
   },
   {
     id: "gcp-pca-148",
@@ -480,7 +480,7 @@ export const GCP_PCA_QUESTIONS_6 = [
     type: "single",
     explanation: "Cloud Storage `Object Holds` prevent individual objects from being deleted or modified. Unlike bucket retention policies that apply uniformly based on age, an `Event-based hold` or `Temporary hold` freezes an object indefinitely until a legal administrator explicitly removes the hold.",
     referenceUrl: "https://cloud.google.com/storage/docs/object-holds",
-    tags: ["Cloud Storage", "Object Holds", "Legal Hold"]
+    tags: ["Cloud Storage","Object Holds","Legal Hold"]
   },
   {
     id: "gcp-pca-149",
@@ -501,7 +501,7 @@ export const GCP_PCA_QUESTIONS_6 = [
     type: "single",
     explanation: "Google Cloud allows administrators to enable `Firewall Rules Logging` on any individual firewall rule. When enabled, every connection allowed or denied by that specific rule generates a log record in Cloud Logging containing source, destination, protocol, and rule ID, which can be routed to external SIEMs.",
     referenceUrl: "https://cloud.google.com/vpc/docs/firewall-rules-logging",
-    tags: ["VPC", "Firewall Logging", "SIEM"]
+    tags: ["VPC","Firewall Logging","SIEM"]
   },
   {
     id: "gcp-pca-150",
@@ -522,7 +522,7 @@ export const GCP_PCA_QUESTIONS_6 = [
     type: "single",
     explanation: "`Access Context Manager` allows organizations to define granular `Access Levels` based on user attributes, geographic IP location, and device signals (e.g. verified corporate device, OS version, disk encryption). IAP evaluates these access levels before granting session entry.",
     referenceUrl: "https://cloud.google.com/access-context-manager/docs/overview",
-    tags: ["Access Context Manager", "IAP", "BeyondCorp"]
+    tags: ["Access Context Manager","IAP","BeyondCorp"]
   }
 ];
 
