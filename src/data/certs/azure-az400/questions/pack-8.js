@@ -18,7 +18,7 @@ export const AZURE_AZ400_QUESTIONS_8 = [
     type: "single",
     explanation: "Microsoft Defender for DevOps (and GitHub Advanced Security for Azure DevOps) natively integrates security posture management and dependency analysis into Azure DevOps. It scans repositories for known vulnerabilities, exposed secrets, and infrastructure-as-code misconfigurations directly within pull request checks.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-devops-introduction",
-    tags: ["Security", "Defender for DevOps", "Vulnerability Scanning", "Compliance"]
+    tags: ["Security","Defender for DevOps","Vulnerability Scanning","Compliance"]
   },
   {
     id: "azure-az400-177",
@@ -33,13 +33,13 @@ export const AZURE_AZ400_QUESTIONS_8 = [
       { id: 'A', text: "Rely on weekly static code analysis reports run after deployments" },
       { id: 'B', text: "Write an email reminder to all engineers asking them to review commits" },
       { id: 'C', text: "Add a .gitignore rule containing the word 'password'" },
-      { id: 'D', text: "Enable Secret Scanning with Push Protection in GitHub Advanced Security for Azure DevOps" }
+      { id: 'D', text: "Enable secret scanning with push protection in GHAzDO" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Secret Scanning with Push Protection scans Git pushes in real time. If a commit contains a recognized secret pattern (such as an Azure storage account key or API token), the push is immediately rejected at the server level, preventing the secret from ever entering repository history.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/repos/security/secret-scanning-overview",
-    tags: ["Security", "Secret Scanning", "Push Protection", "Azure Repos"]
+    tags: ["Security","Secret Scanning","Push Protection","Azure Repos"]
   },
   {
     id: "azure-az400-178",
@@ -51,7 +51,7 @@ export const AZURE_AZ400_QUESTIONS_8 = [
     scenario: "An enterprise uses Azure Repos and wants native Secret Scanning with Push Protection, CodeQL code scanning, and Dependency Scanning integrated directly into Azure DevOps.",
     question: "Which feature suite provides these GitHub-powered security capabilities natively inside Azure DevOps?",
     options: [
-      { id: 'A', text: "GitHub Advanced Security for Azure DevOps (GHAzDO)" },
+      { id: 'A', text: "GHAzDO" },
       { id: 'B', text: "Azure Bastion" },
       { id: 'C', text: "Microsoft Sentinel" },
       { id: 'D', text: "Azure Service Health" }
@@ -60,7 +60,7 @@ export const AZURE_AZ400_QUESTIONS_8 = [
     type: "single",
     explanation: "GitHub Advanced Security for Azure DevOps (GHAzDO) brings GitHub's premier security tooling directly into Azure Repos and Azure Pipelines, delivering Secret Scanning, Push Protection, CodeQL static analysis, and Dependency Scanning.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/repos/security/github-advanced-security-for-azure-devops",
-    tags: ["GHAzDO", "Secret Scanning", "CodeQL", "DevSecOps"]
+    tags: ["GHAzDO","Secret Scanning","CodeQL","DevSecOps"]
   },
   {
     id: "azure-az400-179",
@@ -74,14 +74,14 @@ export const AZURE_AZ400_QUESTIONS_8 = [
     options: [
       { id: 'A', text: "The push succeeds and an email is sent to Microsoft Support" },
       { id: 'B', text: "The developer's Azure subscription is canceled" },
-      { id: 'C', text: "The push is rejected at the server with a message identifying the secret type and file location, blocking the commit until the secret is removed or an approved bypass is granted" },
+      { id: 'C', text: "The push is rejected until the secret is removed or bypassed" },
       { id: 'D', text: "The file is encrypted automatically" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Push Protection intercepts the push transaction before commits are stored on the server. It detects the credential, rejects the push, and outputs remediation instructions directly to the developer's terminal.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/repos/security/configure-secret-scanning-github-advanced-security#push-protection",
-    tags: ["Push Protection", "Secret Scanning", "GHAzDO", "Azure Repos"]
+    tags: ["Push Protection","Secret Scanning","GHAzDO","Azure Repos"]
   },
   {
     id: "azure-az400-180",
@@ -93,7 +93,7 @@ export const AZURE_AZ400_QUESTIONS_8 = [
     scenario: "An enterprise DevOps engineering team is designing DevSecOps governance, infrastructure automation, and instrumentation strategies on Microsoft Azure.",
     question: "How is CodeQL static application security testing configured inside an Azure Pipelines YAML file for an active GHAzDO repository?",
     options: [
-      { id: 'A', text: "Include AdvancedSecurity-Codeql-Init@1, build the code, and run AdvancedSecurity-Codeql-Analyze@1" },
+      { id: 'A', text: "CodeQL init, build, then CodeQL analyze" },
       { id: 'B', text: "Run git status in an inline script" },
       { id: 'C', text: "Install a third-party bash script from an unverified URL" },
       { id: 'D', text: "CodeQL cannot run in Azure Pipelines" }
@@ -102,7 +102,7 @@ export const AZURE_AZ400_QUESTIONS_8 = [
     type: "single",
     explanation: "GHAzDO provides official pipeline tasks: `AdvancedSecurity-Codeql-Init@1` initializes the database, the build compiles the code, and `AdvancedSecurity-Codeql-Analyze@1` queries the database and publishes findings to the repository Advanced Security tab.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/reference/advanced-security-codeql-analyze-v1",
-    tags: ["CodeQL", "GHAzDO", "SAST", "Azure Pipelines"]
+    tags: ["CodeQL","GHAzDO","SAST","Azure Pipelines"]
   },
   {
     id: "azure-az400-181",
@@ -115,15 +115,15 @@ export const AZURE_AZ400_QUESTIONS_8 = [
     question: "Which Azure Pipelines task analyzes project manifest and lock files (package-lock.json, pom.xml) to detect open-source libraries with known CVE vulnerabilities?",
     options: [
       { id: 'A', text: "PublishBuildArtifacts@1" },
-      { id: 'B', text: "Docker@2" },
-      { id: 'C', text: "CopyFiles@2" },
+      { id: 'B', text: "Docker@2 building an image that bakes in the configuration" },
+      { id: 'C', text: "CopyFiles@2 moving the playbook onto each target machine" },
       { id: 'D', text: "AdvancedSecurity-Dependency-Scanning@1" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "The `AdvancedSecurity-Dependency-Scanning@1` task scans direct and transitive package dependencies against the GitHub Advisory Database, surfacing vulnerabilities with CVSS severity scores in Azure DevOps.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/reference/advanced-security-dependency-scanning-v1",
-    tags: ["Dependency Scanning", "GHAzDO", "SCA", "Security"]
+    tags: ["Dependency Scanning","GHAzDO","SCA","Security"]
   },
   {
     id: "azure-az400-182",
@@ -135,8 +135,8 @@ export const AZURE_AZ400_QUESTIONS_8 = [
     scenario: "An organization requires that pull requests must fail if new code introduces technical debt exceeding 5%, duplicate lines exceeding 3%, or any new security hotspots.",
     question: "How is this static code quality enforcement implemented with SonarQube in Azure Pipelines?",
     options: [
-      { id: 'A', text: "Run SonarQubePrepare@5, compile code, execute SonarQubeAnalyze@5, and attach SonarQubePublish@5 with the SonarQube Quality Gate build breaker task" },
-      { id: 'B', text: "Manually review code lines with a calculator" },
+      { id: 'A', text: "Prepare, analyze, publish, plus the quality gate" },
+      { id: 'B', text: "Track the metric by hand in a spreadsheet each sprint" },
       { id: 'C', text: "Disable unit tests" },
       { id: 'D', text: "Use plain grep commands in bash" }
     ],
@@ -144,7 +144,7 @@ export const AZURE_AZ400_QUESTIONS_8 = [
     type: "single",
     explanation: "The official SonarQube extension integrates via `SonarQubePrepare`, `SonarQubeAnalyze`, and `SonarQubePublish` tasks. The Quality Gate status task queries the Sonar server and halts the pipeline if defined code standards are breached.",
     referenceUrl: "https://docs.sonarsource.com/sonarqube/latest/devops-platform-integration/azure-devops-integration/",
-    tags: ["SonarQube", "Quality Gate", "Static Analysis", "Code Quality"]
+    tags: ["SonarQube","Quality Gate","Static Analysis","Code Quality"]
   },
   {
     id: "azure-az400-183",
@@ -165,7 +165,7 @@ export const AZURE_AZ400_QUESTIONS_8 = [
     type: "single",
     explanation: "Software Composition Analysis (SCA) tools (like Mend, Snyk, and Dependency Review) scan dependencies to detect known vulnerabilities (CVEs) and evaluate open-source license compliance against corporate intellectual property policies.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/repos/security/github-advanced-security-for-azure-devops",
-    tags: ["SCA", "Licensing", "Supply Chain", "Compliance"]
+    tags: ["SCA","Licensing","Supply Chain","Compliance"]
   },
   {
     id: "azure-az400-184",
@@ -180,13 +180,13 @@ export const AZURE_AZ400_QUESTIONS_8 = [
       { id: 'A', text: "Convert all containers into virtual machines" },
       { id: 'B', text: "Run apt-get upgrade inside developer laptops" },
       { id: 'C', text: "Disable container deployment" },
-      { id: 'D', text: "Enable Microsoft Defender for Containers on the Azure subscription containing the ACR registry" }
+      { id: 'D', text: "Enable Defender for Containers" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Microsoft Defender for Containers automatically scans images upon push to Azure Container Registry (powered by Qualys and Microsoft vulnerability engines), reporting CVEs, severity levels, and remediation steps in Defender for Cloud.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-containers-introduction",
-    tags: ["Defender for Containers", "ACR", "Vulnerability Scanning", "Container Security"]
+    tags: ["Defender for Containers","ACR","Vulnerability Scanning","Container Security"]
   },
   {
     id: "azure-az400-185",
@@ -207,7 +207,7 @@ export const AZURE_AZ400_QUESTIONS_8 = [
     type: "single",
     explanation: "Dynamic Application Security Testing (DAST)—such as OWASP ZAP—evaluates applications from the outside while they are actively running, simulating black-box attacker techniques without requiring source code access.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/architecture/solution-ideas/articles/devsecops-in-azure",
-    tags: ["DAST", "OWASP ZAP", "Penetration Testing", "Security"]
+    tags: ["DAST","OWASP ZAP","Penetration Testing","Security"]
   },
   {
     id: "azure-az400-186",
@@ -222,13 +222,13 @@ export const AZURE_AZ400_QUESTIONS_8 = [
       { id: 'A', text: "Transferring all security responsibilities to external third parties" },
       { id: 'B', text: "Moving all security engineers to night shifts" },
       { id: 'C', text: "Delaying security audits until after production release" },
-      { id: 'D', text: "Identifying and remediating security defects, misconfigurations, and vulnerabilities as early as possible in the development lifecycle (in IDEs, pre-commit, and PR validation) rather than in production" }
+      { id: 'D', text: "Finding and fixing defects as early in the lifecycle as possible" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Shift-Left moves security testing earlier in the software development lifecycle. Addressing issues during code authoring and pull request reviews reduces remediation costs, prevents data breaches, and avoids emergency production hotfixes.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/secure/devsecops",
-    tags: ["Shift-Left", "DevSecOps", "Culture", "Best Practices"]
+    tags: ["Shift-Left","DevSecOps","Culture","Best Practices"]
   },
   {
     id: "azure-az400-187",
@@ -241,15 +241,15 @@ export const AZURE_AZ400_QUESTIONS_8 = [
     question: "Which pipeline task or command pattern accomplishes this with Trivy?",
     options: [
       { id: 'A', text: "Run `trivy image --exit-code 1 --severity CRITICAL myimage:tag` in a script task" },
-      { id: 'B', text: "Reboot the build agent" },
-      { id: 'C', text: "Run docker push immediately" },
-      { id: 'D', text: "Upload image to blob storage" }
+      { id: 'B', text: "Re-run the generator and diff the output directory by hand" },
+      { id: 'C', text: "Push the image and rely on registry scanning afterwards" },
+      { id: 'D', text: "Run `trivy image` without --exit-code and read the output" }
     ],
     correctAnswers: ['A'],
     type: "single",
     explanation: "Trivy can be executed in a pipeline step with `--exit-code 1 --severity CRITICAL`. If any Critical vulnerabilities are detected in the container image OS or language packages, Trivy returns exit code 1, breaking the build before the image is pushed.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/architecture/solution-ideas/articles/devsecops-in-azure",
-    tags: ["Trivy", "Containers", "Vulnerability Scanning", "CI/CD"]
+    tags: ["Trivy","Containers","Vulnerability Scanning","CI/CD"]
   },
   {
     id: "azure-az400-188",
@@ -263,14 +263,14 @@ export const AZURE_AZ400_QUESTIONS_8 = [
     options: [
       { id: 'A', text: "MicrosoftSecurityDevOps@1" },
       { id: 'B', text: "PublishBuildArtifacts@1" },
-      { id: 'C', text: "Docker@2" },
-      { id: 'D', text: "CopyFiles@2" }
+      { id: 'C', text: "Docker@2 building an image that bakes in the configuration" },
+      { id: 'D', text: "CopyFiles@2 moving the playbook onto each target machine" }
     ],
     correctAnswers: ['A'],
     type: "single",
     explanation: "The `MicrosoftSecurityDevOps@1` task executes Microsoft Security DevOps (MSDO) tools—including CredScan, Template Analyzer, and container security scanners—outputting standardized SARIF results to Azure DevOps and Defender for Cloud.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/defender-for-cloud/azure-devops-extension",
-    tags: ["MSDO", "Microsoft Security DevOps", "SARIF", "DevSecOps"]
+    tags: ["MSDO","Microsoft Security DevOps","SARIF","DevSecOps"]
   },
   {
     id: "azure-az400-189",
@@ -283,7 +283,7 @@ export const AZURE_AZ400_QUESTIONS_8 = [
     question: "What is the industry standard specification used by CodeQL, Trivy, and Microsoft Security DevOps to output structured static analysis findings?",
     options: [
       { id: 'A', text: "Plain text log" },
-      { id: 'B', text: "CSV spreadsheet" },
+      { id: 'B', text: "A CSV export shared on the team wiki" },
       { id: 'C', text: "HTML web page" },
       { id: 'D', text: "SARIF (Static Analysis Results Interchange Format)" }
     ],
@@ -291,7 +291,7 @@ export const AZURE_AZ400_QUESTIONS_8 = [
     type: "single",
     explanation: "SARIF (OASIS standard) is a standardized JSON-based format for static analysis tools. Azure DevOps, GitHub, and IDEs parse SARIF files to render rich vulnerability alerts with source code line numbers and remediation advice.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/reference/advanced-security-publish-v1",
-    tags: ["SARIF", "Standards", "Static Analysis", "Interoperability"]
+    tags: ["SARIF","Standards","Static Analysis","Interoperability"]
   },
   {
     id: "azure-az400-190",
@@ -312,7 +312,7 @@ export const AZURE_AZ400_QUESTIONS_8 = [
     type: "single",
     explanation: "CredScan is Microsoft's internal credential scanning engine, made available via Microsoft Security DevOps. It scans source code and build outputs for hardcoded secrets, database credentials, and cryptographic certificates.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/defender-for-cloud/azure-devops-extension",
-    tags: ["CredScan", "Secrets", "Static Analysis", "Security"]
+    tags: ["CredScan","Secrets","Static Analysis","Security"]
   },
   {
     id: "azure-az400-191",
@@ -324,16 +324,16 @@ export const AZURE_AZ400_QUESTIONS_8 = [
     scenario: "A platform team wants deployment pipelines to verify compliance against organizational Azure Policies and fail the release if target resource groups contain non-compliant resources.",
     question: "Which command or task evaluates compliance state during pipeline execution?",
     options: [
-      { id: 'A', text: "Running git commit" },
-      { id: 'B', text: "Restarting the virtual machine" },
-      { id: 'C', text: "Checking email" },
+      { id: 'A', text: "AzureCLI@2 running `az policy assignment list` for the scope" },
+      { id: 'B', text: "A scheduled Azure Policy evaluation, checked the next day" },
+      { id: 'C', text: "Reading the compliance blade in the portal after deployment" },
       { id: 'D', text: "AzureCLI@2 executing `az policy state trigger-scan` and evaluating compliance results" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Pipelines can trigger on-demand policy evaluation scans using `az policy state trigger-scan` and query compliance results via the Azure CLI, halting release pipelines if non-compliant configurations are detected.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/policy/how-to/get-compliance-data#azure-cli",
-    tags: ["Azure Policy", "Compliance", "CI/CD", "Governance"]
+    tags: ["Azure Policy","Compliance","CI/CD","Governance"]
   },
   {
     id: "azure-az400-192",
@@ -345,7 +345,7 @@ export const AZURE_AZ400_QUESTIONS_8 = [
     scenario: "An enterprise DevOps engineering team is designing DevSecOps governance, infrastructure automation, and instrumentation strategies on Microsoft Azure.",
     question: "In enterprise DevSecOps, what is the 'Secret Zero' problem?",
     options: [
-      { id: 'A', text: "The fundamental security challenge of how to securely authenticate and bootstrap the initial identity or master credential needed to access all other secrets" },
+      { id: 'A', text: "How to bootstrap the credential that unlocks the rest" },
       { id: 'B', text: "The first commit in a Git repository" },
       { id: 'C', text: "A bug in binary arithmetic where zero cannot be encrypted" },
       { id: 'D', text: "A password that has zero characters" }
@@ -354,7 +354,7 @@ export const AZURE_AZ400_QUESTIONS_8 = [
     type: "single",
     explanation: "The 'Secret Zero' dilemma refers to how an automated pipeline or application securely retrieves initial credentials to access a secrets vault without embedding a hardcoded master secret in source code or configuration files.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview",
-    tags: ["Secret Zero", "Security Architecture", "Managed Identities", "IAM"]
+    tags: ["Secret Zero","Security Architecture","Managed Identities","IAM"]
   },
   {
     id: "azure-az400-193",
@@ -368,14 +368,14 @@ export const AZURE_AZ400_QUESTIONS_8 = [
     options: [
       { id: 'A', text: "By storing passwords in public DNS records" },
       { id: 'B', text: "By disabling authentication entirely" },
-      { id: 'C', text: "By providing automatically rotated, platform-managed Entra ID tokens via internal instance metadata endpoints without any human-managed passwords or stored secrets" },
+      { id: 'C', text: "Platform-rotated tokens, no stored secret" },
       { id: 'D', text: "By sharing passwords over Slack" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Azure Managed Identities allow cloud resources (and CI/CD pipelines via OIDC) to obtain short-lived Microsoft Entra tokens automatically from the Azure fabric, completely eliminating stored credentials and secret rotation overhead.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview",
-    tags: ["Managed Identities", "Secret Zero", "Entra ID", "Zero Trust"]
+    tags: ["Managed Identities","Secret Zero","Entra ID","Zero Trust"]
   },
   {
     id: "azure-az400-194",
@@ -388,15 +388,15 @@ export const AZURE_AZ400_QUESTIONS_8 = [
     question: "Which cryptographic technology verifies commit author identity in Git and Azure Repos?",
     options: [
       { id: 'A', text: "GPG (GNU Privacy Guard) or SSH commit signing" },
-      { id: 'B', text: "Base64 encoding" },
-      { id: 'C', text: "DES encryption" },
-      { id: 'D', text: "MD5 hashing" }
+      { id: 'B', text: "A branch policy requiring a linked work item" },
+      { id: 'C', text: "A pre-receive hook validating the author email" },
+      { id: 'D', text: "Checksum files committed alongside each change" }
     ],
     correctAnswers: ['A'],
     type: "single",
     explanation: "GPG and SSH commit signing allow developers to cryptographically sign Git commits using private keys. Server-side verification confirms that commits originated from authorized authors and were not modified in transit.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/repos/git/set-git-repository-permissions",
-    tags: ["Commit Signing", "GPG", "Cryptography", "Integrity"]
+    tags: ["Commit Signing","GPG","Cryptography","Integrity"]
   },
   {
     id: "azure-az400-195",
@@ -408,7 +408,7 @@ export const AZURE_AZ400_QUESTIONS_8 = [
     scenario: "An enterprise DevOps engineering team is designing DevSecOps governance, infrastructure automation, and instrumentation strategies on Microsoft Azure.",
     question: "Why do corporate legal teams prohibit linking proprietary commercial enterprise software with libraries licensed under GNU General Public License v3 (GPLv3)?",
     options: [
-      { id: 'A', text: "GPLv3 is a strong copyleft license that requires derivative works and statically linked software to disclose their full source code under the same open-source license" },
+      { id: 'A', text: "Strong copyleft: derivatives must ship their source too" },
       { id: 'B', text: "GPLv3 code runs slower than MIT licensed code" },
       { id: 'C', text: "GPLv3 software cannot run on Linux servers" },
       { id: 'D', text: "GPLv3 requires paying royalties to the Free Software Foundation" }
@@ -417,7 +417,7 @@ export const AZURE_AZ400_QUESTIONS_8 = [
     type: "single",
     explanation: "Strong copyleft licenses (like GPL and AGPL) contain viral reciprocity terms: if proprietary code links against them, the entire application may legally be required to be open-sourced, posing massive intellectual property risk.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/repos/security/github-advanced-security-for-azure-devops",
-    tags: ["Copyleft", "GPL", "Licensing", "Compliance"]
+    tags: ["Copyleft","GPL","Licensing","Compliance"]
   },
   {
     id: "azure-az400-196",
@@ -432,13 +432,13 @@ export const AZURE_AZ400_QUESTIONS_8 = [
       { id: 'A', text: "Reclassify all Critical vulnerabilities to Low" },
       { id: 'B', text: "Ignore vulnerabilities until annual penetration testing" },
       { id: 'C', text: "Disable automated dependency scanning" },
-      { id: 'D', text: "Configure automated CI gates with severity break thresholds and track MTTR in Security Overview dashboards" }
+      { id: 'D', text: "CI gates on severity, with MTTR tracked on the dashboard" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Enforcing vulnerability SLAs requires automated pipeline gates (breaking builds when unpatched Critical CVEs exceed SLA windows) and central governance dashboards tracking Mean Time to Remediate (MTTR).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/repos/security/view-alerts",
-    tags: ["Vulnerability SLA", "MTTR", "Governance", "DevSecOps"]
+    tags: ["Vulnerability SLA","MTTR","Governance","DevSecOps"]
   },
   {
     id: "azure-az400-197",
@@ -453,13 +453,13 @@ export const AZURE_AZ400_QUESTIONS_8 = [
       { id: 'A', text: "Docker build and push" },
       { id: 'B', text: "Cosign (Sigstore) and Kyverno / Gatekeeper" },
       { id: 'C', text: "WinZip" },
-      { id: 'D', text: "CopyFiles@2" }
+      { id: 'D', text: "CopyFiles@2 moving the playbook onto each target machine" }
     ],
     correctAnswers: ['B'],
     type: "single",
     explanation: "Cosign (part of the Linux Foundation Sigstore project) signs container images using ephemeral OIDC keys. Kubernetes admission controllers (like Kyverno or OPA Gatekeeper) verify cryptographic signatures before allowing pods to start.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/aks/cluster-security",
-    tags: ["Cosign", "Sigstore", "Supply Chain", "Kubernetes"]
+    tags: ["Cosign","Sigstore","Supply Chain","Kubernetes"]
   },
   {
     id: "azure-az400-198",
@@ -480,7 +480,7 @@ export const AZURE_AZ400_QUESTIONS_8 = [
     type: "single",
     explanation: "SPDX and CycloneDX are the two recognized international standards for machine-readable Software Bill of Materials (SBOM), capturing exact package names, versions, license declarations, and cryptographic hashes.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/reference/spdx-v1",
-    tags: ["SBOM", "SPDX", "CycloneDX", "Compliance"]
+    tags: ["SBOM","SPDX","CycloneDX","Compliance"]
   },
   {
     id: "azure-az400-199",
@@ -492,7 +492,7 @@ export const AZURE_AZ400_QUESTIONS_8 = [
     scenario: "A financial customer wants to perform authorized penetration testing against their web application hosted on Azure App Service.",
     question: "What is Microsoft's policy regarding customer-conducted penetration testing on Azure infrastructure?",
     options: [
-      { id: 'A', text: "Customers are permitted to conduct penetration tests against their own Azure resources without prior notification to Microsoft, provided they comply with the Azure Penetration Testing Rules of Engagement" },
+      { id: 'A', text: "Testing your own resources is allowed under the rules of engagement" },
       { id: 'B', text: "Customers must pay Microsoft $50,000 for permission to test" },
       { id: 'C', text: "Penetration testing is illegal and prohibited on all cloud services" },
       { id: 'D', text: "Penetration testing requires a 6-month written notice by certified mail" }
@@ -501,7 +501,7 @@ export const AZURE_AZ400_QUESTIONS_8 = [
     type: "single",
     explanation: "Microsoft permits customers to conduct penetration testing against their own deployed Azure resources without advance notice, provided testing conforms strictly to the Cloud Penetration Testing Rules of Engagement (e.g. no DDoS or shared infrastructure attacks).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/security/fundamentals/pen-testing",
-    tags: ["Penetration Testing", "Security Policy", "Rules of Engagement", "Compliance"]
+    tags: ["Penetration Testing","Security Policy","Rules of Engagement","Compliance"]
   },
   {
     id: "azure-az400-200",
@@ -522,7 +522,7 @@ export const AZURE_AZ400_QUESTIONS_8 = [
     type: "single",
     explanation: "The Center for Internet Security (CIS) publishes industry-standard CIS Benchmarks detailing prescriptive configuration baselines for hardening Azure subscriptions, Kubernetes, Linux, and Windows systems.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/policy/samples/cis-azure-1-4-0",
-    tags: ["CIS", "Hardening", "Compliance", "Security Standards"]
+    tags: ["CIS","Hardening","Compliance","Security Standards"]
   }
 ];
 

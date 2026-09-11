@@ -117,7 +117,7 @@ export const AZURE_AZ400_QUESTIONS_12 = [
       { id: 'A', text: "Write documentation in proprietary binary files stored on network file shares." },
       { id: 'B', text: "Keep architecture documentation exclusively in chat message channels." },
       { id: 'C', text: "Use the 'Publish code as wiki' feature in Azure DevOps to publish Markdown files from a designated repository branch." },
-      { id: 'D', text: "Create an untracked, unversioned project wiki detached from the code repository." }
+      { id: 'D', text: "Keep the documentation in a project wiki outside the repository." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -138,7 +138,7 @@ export const AZURE_AZ400_QUESTIONS_12 = [
       { id: 'A', text: "Keep architecture documentation exclusively in chat message channels." },
       { id: 'B', text: "Use the 'Publish code as wiki' feature in Azure DevOps to publish Markdown files from a designated repository branch." },
       { id: 'C', text: "Write documentation in proprietary binary files stored on network file shares." },
-      { id: 'D', text: "Create an untracked, unversioned project wiki detached from the code repository." }
+      { id: 'D', text: "Keep the documentation in a project wiki outside the repository." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -159,7 +159,7 @@ export const AZURE_AZ400_QUESTIONS_12 = [
       { id: 'A', text: "Keep architecture documentation exclusively in chat message channels." },
       { id: 'B', text: "Write documentation in proprietary binary files stored on network file shares." },
       { id: 'C', text: "Use the 'Publish code as wiki' feature in Azure DevOps to publish Markdown files from a designated repository branch." },
-      { id: 'D', text: "Create an untracked, unversioned project wiki detached from the code repository." }
+      { id: 'D', text: "Keep the documentation in a project wiki outside the repository." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -178,7 +178,7 @@ export const AZURE_AZ400_QUESTIONS_12 = [
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Use the 'Publish code as wiki' feature in Azure DevOps to publish Markdown files from a designated repository branch." },
-      { id: 'B', text: "Create an untracked, unversioned project wiki detached from the code repository." },
+      { id: 'B', text: "Keep the documentation in a project wiki outside the repository." },
       { id: 'C', text: "Keep architecture documentation exclusively in chat message channels." },
       { id: 'D', text: "Write documentation in proprietary binary files stored on network file shares." }
     ],
@@ -198,7 +198,7 @@ export const AZURE_AZ400_QUESTIONS_12 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to maintain enterprise system architectural documentation version-controlled in Markdown directly alongside application source code in Git.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Create an untracked, unversioned project wiki detached from the code repository." },
+      { id: 'A', text: "Keep the documentation in a project wiki outside the repository." },
       { id: 'B', text: "Write documentation in proprietary binary files stored on network file shares." },
       { id: 'C', text: "Keep architecture documentation exclusively in chat message channels." },
       { id: 'D', text: "Use the 'Publish code as wiki' feature in Azure DevOps to publish Markdown files from a designated repository branch." }

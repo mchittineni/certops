@@ -9,7 +9,7 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to ensure an automated pipeline automatically reverts an Azure App Service deployment to the previous healthy build if post-deployment smoke tests fail.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Terminate the application servers and delete all DNS records." },
+      { id: 'A', text: "Scale the old deployment to zero and repoint DNS at the new one." },
       { id: 'B', text: "Instruct customer support to advise users to clear their browser caches." },
       { id: 'C', text: "Configure a post-deployment gate or step that checks application health endpoints; if smoke tests fail, execute a slot swap rollback or deploy the previous artifact." },
       { id: 'D', text: "Leave the broken application in production while developers write an emergency patch." }
@@ -33,7 +33,7 @@ export const AZURE_AZ400_QUESTIONS_18 = [
       { id: 'A', text: "Instruct customer support to advise users to clear their browser caches." },
       { id: 'B', text: "Configure a post-deployment gate or step that checks application health endpoints; if smoke tests fail, execute a slot swap rollback or deploy the previous artifact." },
       { id: 'C', text: "Leave the broken application in production while developers write an emergency patch." },
-      { id: 'D', text: "Terminate the application servers and delete all DNS records." }
+      { id: 'D', text: "Scale the old deployment to zero and repoint DNS at the new one." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -52,7 +52,7 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
       { id: 'A', text: "Configure a post-deployment gate or step that checks application health endpoints; if smoke tests fail, execute a slot swap rollback or deploy the previous artifact." },
-      { id: 'B', text: "Terminate the application servers and delete all DNS records." },
+      { id: 'B', text: "Scale the old deployment to zero and repoint DNS at the new one." },
       { id: 'C', text: "Leave the broken application in production while developers write an emergency patch." },
       { id: 'D', text: "Instruct customer support to advise users to clear their browser caches." }
     ],
@@ -74,7 +74,7 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     options: [
       { id: 'A', text: "Instruct customer support to advise users to clear their browser caches." },
       { id: 'B', text: "Leave the broken application in production while developers write an emergency patch." },
-      { id: 'C', text: "Terminate the application servers and delete all DNS records." },
+      { id: 'C', text: "Scale the old deployment to zero and repoint DNS at the new one." },
       { id: 'D', text: "Configure a post-deployment gate or step that checks application health endpoints; if smoke tests fail, execute a slot swap rollback or deploy the previous artifact." }
     ],
     correctAnswers: ['D'],
@@ -94,7 +94,7 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Leave the broken application in production while developers write an emergency patch." },
-      { id: 'B', text: "Terminate the application servers and delete all DNS records." },
+      { id: 'B', text: "Scale the old deployment to zero and repoint DNS at the new one." },
       { id: 'C', text: "Configure a post-deployment gate or step that checks application health endpoints; if smoke tests fail, execute a slot swap rollback or deploy the previous artifact." },
       { id: 'D', text: "Instruct customer support to advise users to clear their browser caches." }
     ],
@@ -117,7 +117,7 @@ export const AZURE_AZ400_QUESTIONS_18 = [
       { id: 'A', text: "Run static analysis only once a year during external audit reviews." },
       { id: 'B', text: "Disable code scanning to accelerate pull request merging." },
       { id: 'C', text: "Integrate SonarCloud or SonarQube tasks (`SonarCloudPrepare`, `SonarCloudAnalyze`, `SonarCloudPublish`) and configure a Quality Gate check." },
-      { id: 'D', text: "Manually review hundreds of lines of code by sight looking for SQL injection flaws." }
+      { id: 'D', text: "Add a manual code review checklist item covering injection flaws." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -135,7 +135,7 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to enforce code quality standards and block pull requests that introduce new security vulnerabilities or high technical debt.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
-      { id: 'A', text: "Manually review hundreds of lines of code by sight looking for SQL injection flaws." },
+      { id: 'A', text: "Add a manual code review checklist item covering injection flaws." },
       { id: 'B', text: "Run static analysis only once a year during external audit reviews." },
       { id: 'C', text: "Disable code scanning to accelerate pull request merging." },
       { id: 'D', text: "Integrate SonarCloud or SonarQube tasks (`SonarCloudPrepare`, `SonarCloudAnalyze`, `SonarCloudPublish`) and configure a Quality Gate check." }
@@ -158,7 +158,7 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     options: [
       { id: 'A', text: "Run static analysis only once a year during external audit reviews." },
       { id: 'B', text: "Disable code scanning to accelerate pull request merging." },
-      { id: 'C', text: "Manually review hundreds of lines of code by sight looking for SQL injection flaws." },
+      { id: 'C', text: "Add a manual code review checklist item covering injection flaws." },
       { id: 'D', text: "Integrate SonarCloud or SonarQube tasks (`SonarCloudPrepare`, `SonarCloudAnalyze`, `SonarCloudPublish`) and configure a Quality Gate check." }
     ],
     correctAnswers: ['D'],
@@ -179,7 +179,7 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     options: [
       { id: 'A', text: "Integrate SonarCloud or SonarQube tasks (`SonarCloudPrepare`, `SonarCloudAnalyze`, `SonarCloudPublish`) and configure a Quality Gate check." },
       { id: 'B', text: "Run static analysis only once a year during external audit reviews." },
-      { id: 'C', text: "Manually review hundreds of lines of code by sight looking for SQL injection flaws." },
+      { id: 'C', text: "Add a manual code review checklist item covering injection flaws." },
       { id: 'D', text: "Disable code scanning to accelerate pull request merging." }
     ],
     correctAnswers: ['A'],
@@ -198,7 +198,7 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to enforce code quality standards and block pull requests that introduce new security vulnerabilities or high technical debt.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Manually review hundreds of lines of code by sight looking for SQL injection flaws." },
+      { id: 'A', text: "Add a manual code review checklist item covering injection flaws." },
       { id: 'B', text: "Integrate SonarCloud or SonarQube tasks (`SonarCloudPrepare`, `SonarCloudAnalyze`, `SonarCloudPublish`) and configure a Quality Gate check." },
       { id: 'C', text: "Run static analysis only once a year during external audit reviews." },
       { id: 'D', text: "Disable code scanning to accelerate pull request merging." }

@@ -18,7 +18,7 @@ export const AZURE_AZ400_QUESTIONS_10 = [
     type: "single",
     explanation: "Azure Chaos Studio is a fully managed chaos engineering platform that orchestrates controlled experiments, injecting deliberate infrastructure and application faults into cloud resources to measure resilience and uncover architectural weaknesses.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/chaos-studio/chaos-studio-overview",
-    tags: ["Chaos Studio", "Chaos Engineering", "Resilience", "Reliability"]
+    tags: ["Chaos Studio","Chaos Engineering","Resilience","Reliability"]
   },
   {
     id: "azure-az400-227",
@@ -30,8 +30,8 @@ export const AZURE_AZ400_QUESTIONS_10 = [
     scenario: "An enterprise DevOps engineering team is designing DevSecOps governance, infrastructure automation, and instrumentation strategies on Microsoft Azure.",
     question: "In Azure Chaos Studio, what is the difference between Service-Direct faults and Agent-Based faults?",
     options: [
-      { id: 'A', text: "Service-Direct faults execute directly against Azure Resource Manager without installing agents (e.g. stopping VMs, rebooting AKS nodes); Agent-Based faults require a guest agent to inject in-OS faults (e.g. high CPU, memory pressure, killing processes)" },
-      { id: 'B', text: "Agent-Based faults cannot be automated" },
+      { id: 'A', text: "Service-direct faults run against Resource Manager; agent-based need a guest agent" },
+      { id: 'B', text: "Agent-based faults cannot be automated from a pipeline task" },
       { id: 'C', text: "There is no difference between agent and service faults" },
       { id: 'D', text: "Service-Direct faults only run on Windows; Agent-Based only run on Linux" }
     ],
@@ -39,7 +39,7 @@ export const AZURE_AZ400_QUESTIONS_10 = [
     type: "single",
     explanation: "Service-direct faults act on the Azure infrastructure plane via ARM (e.g. stopping a VM or severing network routes). Agent-based faults run inside the guest OS via the Chaos Studio agent, allowing in-guest stress testing (CPU, memory, disk I/O).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/chaos-studio/chaos-studio-fault-providers",
-    tags: ["Chaos Studio", "Faults", "Agent-Based", "Service-Direct"]
+    tags: ["Chaos Studio","Faults","Agent-Based","Service-Direct"]
   },
   {
     id: "azure-az400-228",
@@ -52,7 +52,7 @@ export const AZURE_AZ400_QUESTIONS_10 = [
     question: "In Site Reliability Engineering (SRE) practice, what is the relationship between an SLI, an SLO, and an SLA?",
     options: [
       { id: 'A', text: "An SLA is internal; an SLO is external" },
-      { id: 'B', text: "An SLI is a measurable metric (e.g. successful HTTP requests); an SLO is the internal target for that metric (e.g. 99.9% over 30 days); an SLA is the external commercial contract with financial penalties if not met" },
+      { id: 'B', text: "An SLI is the measurement, an SLO the internal target, an SLA the external contract" },
       { id: 'C', text: "They all describe the exact same concept" },
       { id: 'D', text: "An SLI is a legal document" }
     ],
@@ -60,7 +60,7 @@ export const AZURE_AZ400_QUESTIONS_10 = [
     type: "single",
     explanation: "In SRE: a Service Level Indicator (SLI) is a quantifiable metric of service behavior. A Service Level Objective (SLO) is the agreed internal reliability target. A Service Level Agreement (SLA) is the external business agreement carrying financial penalties.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/well-architected/reliability/metrics",
-    tags: ["SRE", "SLI", "SLO", "SLA"]
+    tags: ["SRE","SLI","SLO","SLA"]
   },
   {
     id: "azure-az400-229",
@@ -72,7 +72,7 @@ export const AZURE_AZ400_QUESTIONS_10 = [
     scenario: "A service maintains an SLO of 99.9% availability per calendar month, leaving an 'Error Budget' of 0.1% (approximately 43 minutes of downtime per month).",
     question: "How should engineering teams use their remaining Error Budget to guide software releases?",
     options: [
-      { id: 'A', text: "If ample error budget remains, teams release new features aggressively; if the error budget is exhausted, new feature releases are paused to focus exclusively on stability and reliability enhancements" },
+      { id: 'A', text: "With budget left, release freely; once it is spent, pause features for stability" },
       { id: 'B', text: "Error budgets cannot be calculated in cloud systems" },
       { id: 'C', text: "Error budgets dictate how much money developers can spend on lunches" },
       { id: 'D', text: "Exhausted error budgets require firing the development team" }
@@ -81,7 +81,7 @@ export const AZURE_AZ400_QUESTIONS_10 = [
     type: "single",
     explanation: "Error Budgets balance reliability and velocity. When a system is within its error budget, product teams deploy features rapidly. When the error budget is depleted, deployments freeze to focus on technical debt and resilience engineering.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/well-architected/reliability/metrics",
-    tags: ["Error Budget", "SRE", "Deployment Velocity", "Reliability"]
+    tags: ["Error Budget","SRE","Deployment Velocity","Reliability"]
   },
   {
     id: "azure-az400-230",
@@ -95,14 +95,14 @@ export const AZURE_AZ400_QUESTIONS_10 = [
     options: [
       { id: 'A', text: "cat exceptions.log | grep error | head -5" },
       { id: 'B', text: "exceptions | where timestamp > ago(24h) | summarize count() by type | top 5 by count_ desc" },
-      { id: 'C', text: "exceptions | filter last 24h" },
+      { id: 'C', text: "exceptions | where timestamp > ago(24h) | count by type" },
       { id: 'D', text: "SELECT TOP 5 * FROM exceptions WHERE date = today" }
     ],
     correctAnswers: ['B'],
     type: "single",
     explanation: "The KQL query `exceptions | where timestamp > ago(24h) | summarize count() by type | top 5 by count_ desc` filters for the past 24 hours, aggregates exception counts by type, and returns the top 5 most frequent occurrences.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-overview",
-    tags: ["KQL", "Log Analytics", "Queries", "Exceptions"]
+    tags: ["KQL","Log Analytics","Queries","Exceptions"]
   },
   {
     id: "azure-az400-231",
@@ -114,16 +114,16 @@ export const AZURE_AZ400_QUESTIONS_10 = [
     scenario: "An SRE needs to calculate the 95th percentile (P95) execution duration of HTTP requests per operation name over the past 7 days.",
     question: "Which KQL aggregation function calculates percentiles?",
     options: [
-      { id: 'A', text: "requests | count(95)" },
-      { id: 'B', text: "requests | top 95 duration" },
-      { id: 'C', text: "requests | avg(duration)" },
+      { id: 'A', text: "requests | where timestamp > ago(7d) | summarize avg(duration) by name" },
+      { id: 'B', text: "requests | where timestamp > ago(7d) | top 95 by duration desc" },
+      { id: 'C', text: "requests | summarize percentile(duration, 95) with no time filter" },
       { id: 'D', text: "requests | where timestamp > ago(7d) | summarize percentiles(duration, 95) by name" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "The `percentiles(duration, 95)` function in KQL calculates the 95th percentile value, representing the threshold below which 95% of observations fall, providing a realistic assessment of user experience unaffected by minor outliers.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/percentiles-aggfunction",
-    tags: ["KQL", "Percentiles", "P95", "SRE"]
+    tags: ["KQL","Percentiles","P95","SRE"]
   },
   {
     id: "azure-az400-232",
@@ -144,7 +144,7 @@ export const AZURE_AZ400_QUESTIONS_10 = [
     type: "single",
     explanation: "Smart Detection in Application Insights uses proactive machine learning analytics to continuously analyze application telemetry, automatically warning teams about abnormal failure rates, memory leaks, and degradation without manual rule configuration.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/app/proactive-diagnostics",
-    tags: ["Smart Detection", "Anomaly Detection", "Machine Learning", "Application Insights"]
+    tags: ["Smart Detection","Anomaly Detection","Machine Learning","Application Insights"]
   },
   {
     id: "azure-az400-233",
@@ -165,7 +165,7 @@ export const AZURE_AZ400_QUESTIONS_10 = [
     type: "single",
     explanation: "Azure Monitor Agent (AMA) replaces the legacy Log Analytics agent (MMA). It consolidates logging, metrics, and security collection into a single high-performance agent configured centrally via Data Collection Rules (DCRs).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/agents/azure-monitor-agent-overview",
-    tags: ["AMA", "Azure Monitor Agent", "DCR", "Telemetry"]
+    tags: ["AMA","Azure Monitor Agent","DCR","Telemetry"]
   },
   {
     id: "azure-az400-234",
@@ -186,7 +186,7 @@ export const AZURE_AZ400_QUESTIONS_10 = [
     type: "single",
     explanation: "Data Collection Rules (DCRs) define the telemetry collection pipeline for the Azure Monitor Agent (AMA). DCRs use XPath filtering to select specific event IDs and performance counters centrally without modifying individual VMs.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/data-collection-rule-overview",
-    tags: ["DCR", "Data Collection Rules", "AMA", "Cost Optimization"]
+    tags: ["DCR","Data Collection Rules","AMA","Cost Optimization"]
   },
   {
     id: "azure-az400-235",
@@ -207,7 +207,7 @@ export const AZURE_AZ400_QUESTIONS_10 = [
     type: "single",
     explanation: "Diagnostic Settings configure where platform logs (resource logs, audit events, metrics) are emitted. Each Azure service supports routing logs to Log Analytics workspaces, Azure Storage accounts, Event Hubs, or third-party partner tools.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/diagnostic-settings",
-    tags: ["Diagnostic Settings", "Platform Logs", "SIEM", "Auditing"]
+    tags: ["Diagnostic Settings","Platform Logs","SIEM","Auditing"]
   },
   {
     id: "azure-az400-236",
@@ -228,7 +228,7 @@ export const AZURE_AZ400_QUESTIONS_10 = [
     type: "single",
     explanation: "The Azure Activity Log is an immutable subscription-level audit trail that records all management operations (create, update, delete) executed through Azure Resource Manager, logging user identity, timestamp, and status for 90 days.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/activity-log",
-    tags: ["Activity Log", "Audit Trail", "ARM", "Governance"]
+    tags: ["Activity Log","Audit Trail","ARM","Governance"]
   },
   {
     id: "azure-az400-237",
@@ -241,15 +241,15 @@ export const AZURE_AZ400_QUESTIONS_10 = [
     question: "During a Severity 1 incident, if the primary on-call SRE does not acknowledge a PagerDuty or Opsgenie alert within 5 minutes, how should the alert system respond?",
     options: [
       { id: 'A', text: "Automatically escalate the alert to the secondary on-call engineer and incident commander" },
-      { id: 'B', text: "Restart all company computers" },
-      { id: 'C', text: "Drop the alert and close the ticket" },
-      { id: 'D', text: "Send an email to general customer support" }
+      { id: 'B', text: "Page the same on-call engineer again after another interval" },
+      { id: 'C', text: "Auto-resolve the alert and open a low-priority ticket" },
+      { id: 'D', text: "Notify the wider engineering channel and wait for a volunteer" }
     ],
     correctAnswers: ['A'],
     type: "single",
     explanation: "Modern on-call notification systems integrate with Azure Monitor Action Groups (via webhooks) to enforce automated escalation policies: escalating unacknowledged alerts from primary to secondary engineers to safeguard incident SLAs.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/action-groups",
-    tags: ["Escalation", "On-Call", "SRE", "Incident Response"]
+    tags: ["Escalation","On-Call","SRE","Incident Response"]
   },
   {
     id: "azure-az400-238",
@@ -261,16 +261,16 @@ export const AZURE_AZ400_QUESTIONS_10 = [
     scenario: "An enterprise DevOps engineering team is designing DevSecOps governance, infrastructure automation, and instrumentation strategies on Microsoft Azure.",
     question: "What is the primary purpose of establishing Continuous Feedback loops between production operations and agile development sprints?",
     options: [
-      { id: 'A', text: "Using real-time production telemetry (user behavior, error rates, performance bottlenecks) to inform backlog prioritization and rapid iteration in subsequent development sprints" },
-      { id: 'B', text: "Generating marketing slogans" },
-      { id: 'C', text: "Forcing operations to work without metrics" },
-      { id: 'D', text: "Preventing developers from writing new code" }
+      { id: 'A', text: "Using production telemetry to prioritize the backlog and iterate quickly" },
+      { id: 'B', text: "Reporting telemetry to leadership in a monthly summary deck" },
+      { id: 'C', text: "Letting operations own the telemetry and raise tickets from it" },
+      { id: 'D', text: "Reviewing telemetry only during quarterly planning sessions" }
     ],
     correctAnswers: ['A'],
     type: "single",
     explanation: "Continuous Feedback connects production telemetry back to development. Crash analytics, user journey bottlenecks, and performance traces directly feed user stories and bug fixes into sprint backlogs, completing the DevOps loop.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/learn/devops-at-microsoft/continuous-feedback",
-    tags: ["Continuous Feedback", "Telemetry", "Agile", "DevOps Culture"]
+    tags: ["Continuous Feedback","Telemetry","Agile","DevOps Culture"]
   },
   {
     id: "azure-az400-239",
@@ -282,16 +282,16 @@ export const AZURE_AZ400_QUESTIONS_10 = [
     scenario: "An enterprise DevOps engineering team is designing DevSecOps governance, infrastructure automation, and instrumentation strategies on Microsoft Azure.",
     question: "An engineering organization tracks key SRE operational health metrics. What do MTTD and MTTR measure?",
     options: [
-      { id: 'A', text: "MTTD measures deployment speed; MTTR measures compiler speed" },
-      { id: 'B', text: "There is no difference between MTTD and MTTR" },
+      { id: 'A', text: "MTTD measures deployment speed; MTTR measures build speed" },
+      { id: 'B', text: "MTTD and MTTR both measure time from onset to restoration" },
       { id: 'C', text: "MTTD applies only to databases; MTTR applies only to networks" },
-      { id: 'D', text: "MTTD measures the average time from incident onset until team awareness; MTTR measures the average time from detection until full service restoration" }
+      { id: 'D', text: "MTTD is onset to awareness; MTTR is detection to restoration" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Mean Time to Detect (MTTD) quantifies monitoring effectiveness (how fast anomalies are caught). Mean Time to Resolve / Remediate (MTTR) quantifies operational resilience (how fast teams restore service following an outage).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/well-architected/reliability/metrics",
-    tags: ["MTTD", "MTTR", "SRE", "Metrics"]
+    tags: ["MTTD","MTTR","SRE","Metrics"]
   },
   {
     id: "azure-az400-240",
@@ -303,16 +303,16 @@ export const AZURE_AZ400_QUESTIONS_10 = [
     scenario: "Following a major production outage caused by a configuration typo, an engineering team conducts a post-incident retrospective.",
     question: "What is the foundational principle of a Blameless Post-Mortem in DevOps culture?",
     options: [
-      { id: 'A', text: "Hiding the incident from executive leadership" },
-      { id: 'B', text: "Focusing on systemic failures, process gaps, and automated guardrails rather than assigning individual human blame, assuming engineers acted in good faith with available information" },
-      { id: 'C', text: "Punishing the engineer who made the typo to deter future mistakes" },
-      { id: 'D', text: "Deleting the post-incident documentation" }
+      { id: 'A', text: "Reporting the incident only to the team that caused it" },
+      { id: 'B', text: "Focusing on systemic gaps and guardrails rather than individual blame" },
+      { id: 'C', text: "Recording who made the change so the pattern can be tracked" },
+      { id: 'D', text: "Keeping the write-up private to the responding team" }
     ],
     correctAnswers: ['B'],
     type: "single",
     explanation: "Blameless post-mortems assume human error is a symptom of flawed systems, not the root cause. Removing fear of punishment encourages transparent disclosure and fosters improvements in automated safeguards, testing, and observability.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/learn/devops-at-microsoft/incident-management",
-    tags: ["Blameless Post-Mortem", "SRE", "DevOps Culture", "Incident Management"]
+    tags: ["Blameless Post-Mortem","SRE","DevOps Culture","Incident Management"]
   },
   {
     id: "azure-az400-241",
@@ -333,7 +333,7 @@ export const AZURE_AZ400_QUESTIONS_10 = [
     type: "single",
     explanation: "Cohorts in Application Insights group users, sessions, or operations based on shared properties or behaviors, enabling comparative retention analysis and long-term engagement studies across user segments.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/app/usage-cohorts",
-    tags: ["Cohorts", "User Retention", "Product Analytics", "Telemetry"]
+    tags: ["Cohorts","User Retention","Product Analytics","Telemetry"]
   },
   {
     id: "azure-az400-242",
@@ -354,7 +354,7 @@ export const AZURE_AZ400_QUESTIONS_10 = [
     type: "single",
     explanation: "The Impact tool in Application Insights analyzes how page load times or custom telemetry dimensions correlate with user engagement, providing visual regression graphs showing whether slow speeds reduce feature usage.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/app/usage-impact",
-    tags: ["Impact Analysis", "UX", "Performance", "Product Telemetry"]
+    tags: ["Impact Analysis","UX","Performance","Product Telemetry"]
   },
   {
     id: "azure-az400-243",
@@ -366,16 +366,16 @@ export const AZURE_AZ400_QUESTIONS_10 = [
     scenario: "A KQL query interrogating a 50 TB Log Analytics workspace takes 3 minutes to execute and consumes excessive compute resources.",
     question: "What are the two most effective KQL optimization practices to accelerate query execution?",
     options: [
-      { id: 'A', text: "Run the query without any where clauses" },
-      { id: 'B', text: "Export all data to Excel" },
-      { id: 'C', text: "Filter by timestamp as early as possible (e.g. `where TimeGenerated > ago(1h)`) and project only required columns (using `project`) rather than `project *`" },
-      { id: 'D', text: "Sort all data alphabetically using order by" }
+      { id: 'A', text: "Run the query unfiltered and narrow the results afterwards" },
+      { id: 'B', text: "Export the full result set and filter it in a spreadsheet" },
+      { id: 'C', text: "Filter on TimeGenerated early and project only the columns needed" },
+      { id: 'D', text: "Sort with order by before filtering on TimeGenerated" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Optimizing KQL queries requires placing the `TimeGenerated` filter at the earliest possible pipe to prune data partitions, and using `project` to discard unneeded columns, reducing disk read I/O and accelerating query execution.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/logs/query-optimization",
-    tags: ["KQL Optimization", "Performance", "Log Analytics", "Best Practices"]
+    tags: ["KQL Optimization","Performance","Log Analytics","Best Practices"]
   },
   {
     id: "azure-az400-244",
@@ -396,7 +396,7 @@ export const AZURE_AZ400_QUESTIONS_10 = [
     type: "single",
     explanation: "The Application Insights SDK `TelemetryClient` provides dedicated methods (such as `TrackEvent()`, `TrackMetric()`, and `TrackDependency()`) to send custom business and operational telemetry into Log Analytics.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/app/api-custom-events-metrics",
-    tags: ["TrackEvent", "TelemetryClient", "Custom Telemetry", "Application Insights"]
+    tags: ["TrackEvent","TelemetryClient","Custom Telemetry","Application Insights"]
   },
   {
     id: "azure-az400-245",
@@ -408,16 +408,16 @@ export const AZURE_AZ400_QUESTIONS_10 = [
     scenario: "An enterprise DevOps engineering team is designing DevSecOps governance, infrastructure automation, and instrumentation strategies on Microsoft Azure.",
     question: "When a web server virtual machine runs out of disk space (disk free < 5%), how can an Azure Monitor alert rule automatically trigger a script to clean up temporary log files without human intervention?",
     options: [
-      { id: 'A', text: "Send an email to the IT director" },
-      { id: 'B', text: "Reboot the physical datacenter" },
+      { id: 'A', text: "Send an email to the on-call distribution list for triage" },
+      { id: 'B', text: "Scale the App Service plan up whenever the alert fires" },
       { id: 'C', text: "Configure the Alert Action Group to invoke an Azure Automation Runbook or Azure Logic App" },
-      { id: 'D', text: "Manual disk cleanup is mandatory" }
+      { id: 'D', text: "Open a ticket for an engineer to clear the disk manually" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Action Groups can invoke Azure Automation Runbooks, Logic Apps, or Azure Functions when an alert fires. This enables self-healing systems that automatically clear temp directories or restart services upon failure.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/action-groups",
-    tags: ["Self-Healing", "Automation Runbooks", "Remediation", "Alerts"]
+    tags: ["Self-Healing","Automation Runbooks","Remediation","Alerts"]
   },
   {
     id: "azure-az400-246",
@@ -438,7 +438,7 @@ export const AZURE_AZ400_QUESTIONS_10 = [
     type: "single",
     explanation: "Log Analytics offers the 'Basic Logs' table plan for high-volume verbose logs. It provides significantly reduced ingestion pricing (over 50% savings) with a 30-day retention period and simple debugging query capabilities.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-configure",
-    tags: ["Basic Logs", "Cost Optimization", "Log Analytics", "FinOps"]
+    tags: ["Basic Logs","Cost Optimization","Log Analytics","FinOps"]
   },
   {
     id: "azure-az400-247",
@@ -459,7 +459,7 @@ export const AZURE_AZ400_QUESTIONS_10 = [
     type: "single",
     explanation: "The Four Golden Signals are: 1. Latency (time taken to service a request), 2. Traffic (demand/throughput), 3. Errors (failure rate), and 4. Saturation (how full system resources are, such as memory or thread pool capacity).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/architecture/best-practices/monitoring",
-    tags: ["Golden Signals", "Latency", "Saturation", "SRE"]
+    tags: ["Golden Signals","Latency","Saturation","SRE"]
   },
   {
     id: "azure-az400-248",
@@ -480,7 +480,7 @@ export const AZURE_AZ400_QUESTIONS_10 = [
     type: "single",
     explanation: "Azure Resource Graph (ARG) is an Azure service designed to extend Azure Resource Management by providing efficient and performant resource exploration across all subscriptions and management groups using KQL queries.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/resource-graph/overview",
-    tags: ["Azure Resource Graph", "ARG", "KQL", "Inventory"]
+    tags: ["Azure Resource Graph","ARG","KQL","Inventory"]
   },
   {
     id: "azure-az400-249",
@@ -501,7 +501,7 @@ export const AZURE_AZ400_QUESTIONS_10 = [
     type: "single",
     explanation: "Remediation action items from post-mortems must be logged as first-class work items in Azure Boards and prioritized in immediate sprint backlogs. Treating reliability debt on par with new feature delivery prevents recurring outages.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/learn/devops-at-microsoft/incident-management",
-    tags: ["Post-Mortem", "Azure Boards", "Reliability", "Continuous Improvement"]
+    tags: ["Post-Mortem","Azure Boards","Reliability","Continuous Improvement"]
   },
   {
     id: "azure-az400-250",
@@ -522,7 +522,7 @@ export const AZURE_AZ400_QUESTIONS_10 = [
     type: "single",
     explanation: "As defined by Microsoft: 'DevOps is the union of people, process, and products to enable continuous delivery of value to our end users.' It bridges development and operations to innovate rapidly, reliably, and securely.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/learn/what-is-devops",
-    tags: ["DevOps", "Value Delivery", "Culture", "AZ-400 Capstone"]
+    tags: ["DevOps","Value Delivery","Culture","AZ-400 Capstone"]
   }
 ];
 
